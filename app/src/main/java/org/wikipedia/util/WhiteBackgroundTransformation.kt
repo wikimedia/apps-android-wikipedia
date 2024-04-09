@@ -1,6 +1,9 @@
 package org.wikipedia.util
 
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.Matrix
+import android.graphics.Paint
 import androidx.core.graphics.applyCanvas
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
@@ -19,13 +22,14 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
     }
 
     override fun transform(pool: BitmapPool, toTransform: Bitmap, outWidth: Int, outHeight: Int): Bitmap {
-        return if (toTransform.hasAlpha()) {
+        val bitmap = if (toTransform.hasAlpha()) {
             val result = pool[toTransform.width, toTransform.height, if (toTransform.config != null) toTransform.config else Bitmap.Config.RGB_565]
             applyMatrixWithBackground(toTransform, result, Matrix())
             result
         } else {
             toTransform
         }
+        return maybeDimImage(bitmap)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -46,10 +50,6 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
             targetBitmap.applyCanvas {
                 drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_WHITE)
                 drawBitmap(inBitmap, matrix, DEFAULT_PAINT)
-                if (WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages) {
-                    // "dim" images by drawing a translucent black rectangle over them.
-                    drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_DARK_OVERLAY)
-                }
             }
         } finally {
             TransformationUtils.getBitmapDrawableLock().unlock()
@@ -63,5 +63,15 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
         private val DEFAULT_PAINT = Paint(PAINT_FLAGS)
         private val PAINT_WHITE = Paint()
         private val PAINT_DARK_OVERLAY = Paint()
+
+        fun maybeDimImage(bitmap: Bitmap): Bitmap {
+            if (WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages) {
+                // "dim" images by drawing a translucent black rectangle over them.
+                bitmap.applyCanvas {
+                    drawRect(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat(), PAINT_DARK_OVERLAY)
+                }
+            }
+            return bitmap
+        }
     }
 }

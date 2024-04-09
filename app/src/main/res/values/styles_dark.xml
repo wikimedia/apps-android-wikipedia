@@ -3,127 +3,36 @@
 
     <style name="ThemeDark">
 
-        <!-- Overrides of base Android color definitions -->
+        <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_dark</item>
 
-        <!-- Default background for all activities -->
-        <item name="android:windowBackground">?attr/paper_color</item>
+        <item name="paper_color">@color/gray700</item>
+        <item name="background_color">@color/gray675</item>
+        <item name="border_color">@color/gray650</item>
+        <item name="inactive_color">@color/gray500</item>
+        <item name="placeholder_color">@color/gray400</item>
+        <item name="secondary_color">@color/gray300</item>
+        <item name="primary_color">@color/gray200</item>
+        <item name="progressive_color">@color/blue300</item>
+        <item name="success_color">@color/green600</item>
+        <item name="destructive_color">@color/red500</item>
+        <item name="warning_color">@color/orange500</item>
+        <item name="highlight_color">@color/yellow500_40</item>
+        <item name="focus_color">@color/orange500_50</item>
+        <item name="addition_color">@color/blue600_30</item>
+        <item name="overlay_color">@color/black_70</item>
+        <item name="list_divider">@drawable/divider_dark</item>
+        <item name="shadow_border">@drawable/shadow_dark</item>
 
-        <!-- Background for popup menus, text areas -->
-        <item name="android:colorBackground">@color/base12</item>
-
-        <item name="android:textColorPrimary">@color/base90</item>
-        <item name="android:textColorSecondary">@color/base80</item>
-        <item name="android:textColorTertiary">@color/base70</item>
-        <item name="android:textColorHint">@color/base50</item>
-
-        <!-- Toolbar color, list overscroll effect -->
-        <item name="colorPrimary">@color/accent75</item>
-
-        <!-- Control color (switch, progress bar, etc), text link color, edit text underline,
-             edit text cursor, text selection markers -->
-        <item name="colorAccent">@color/accent75</item>
-
-        <!-- Error text in TextInputLayout -->
-        <item name="colorError">@color/red75</item>
-
-        <!-- Overrides of base Android styles with color sub-definitions -->
-        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
-        <item name="popupMenuStyle">@style/PopupMenuDark</item>
-        <item name="dialogTheme">@style/DialogDark</item>
-        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
-
-        <!-- Overrides of our own custom style attributes -->
-        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
-        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>
-        <item name="list_separator_drawable">@drawable/divider_dark</item>
-        <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_dark</item>
-        <item name="side_panel_list_separator_drawable">@drawable/side_panel_divider_dark</item>
-
-        <!-- Overrides of our own custom color attributes -->
-        <item name="toolbar_icon_color">@android:color/white</item>
-        <item name="themed_icon_color">@android:color/white</item>
-        <item name="nav_tab_background_color">@color/base18</item>
-        <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
-        <item name="multi_select_background_color">@color/accent30</item>
-        <item name="searchItemBackground">@color/base12</item>
-        <item name="material_theme_primary_color">@color/base100</item>
-        <item name="material_theme_secondary_color">@color/white70</item>
-        <item name="material_theme_de_emphasised_color">@color/white50</item>
-        <item name="material_theme_border_color">@color/white20</item>
-        <item name="primary_text_color">@color/base90</item>
-        <item name="secondary_text_color">@color/base70</item>
-        <item name="section_title_color">@color/base90</item>
-        <item name="chart_shade1">@color/base100</item>
-        <item name="chart_shade4">@color/base50</item>
-        <item name="chart_shade5">@color/base30</item>
-        <item name="chart_shade7">@color/base10</item>
-        <item name="green_highlight_color">@color/green50</item>
-        <item name="randomizer_dice_icon_color">@color/accent50</item>
-        <item name="thumb_off_color">@color/base70</item>
-        <item name="track_off_color">@color/base100</item>
-        <item name="toc_h1_h2_color">@color/base100</item>
-        <item name="toc_scroller_button_color">@color/base18</item>
-        <item name="button_background_color">@color/base14</item>
-        <item name="tab_placeholder_text_color">@color/base10</item>
-        <item name="chip_background_color">@color/base20</item>
-        <item name="color_group_9">@color/base80</item>
-        <item name="action_mode_green_background">@color/green50</item>
-        <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
+        <item name="input_stroke_color_state">@color/color_state_input_field_dark</item>
+        <item name="image_tags_onboarding_drawables">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
-        <!-- Background for cards, lists, and controls -->
-        <item name="paper_color">@color/base14</item>
-        <item name="suggestions_background_color">@color/base12</item>
-        <item name="color_group_22">@color/base18</item>
-        <item name="color_group_43">@color/green50</item>
-        <item name="color_group_44">@color/red75</item>
-        <item name="color_group_52">@color/accent75</item>
-        <item name="color_group_53">@color/accent30</item>
-        <item name="color_group_54">@color/base14</item>
-        <item name="color_group_55">@color/accent20</item>
-        <item name="color_group_56">@color/accent50</item>
-        <item name="color_group_57">@color/green30</item>
-        <item name="color_group_58">@color/green50</item>
-        <item name="color_group_59">@color/base50</item>
-        <item name="color_group_60">@color/base20</item>
-        <item name="color_group_61">@color/base30</item>
-        <item name="color_group_63">@color/white50</item>
-        <item name="color_group_64">@color/green50</item>
-        <item name="color_group_65">@android:color/transparent</item>
-        <item name="color_group_66">@color/red75</item>
-        <item name="color_group_67">@android:color/transparent</item>
-        <item name="color_group_68">@color/osage</item>
-        <item name="color_group_69">@color/green50_10d</item>
-        <item name="color_group_70">@color/green20</item>
-    </style>
-
-    <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="colorAccent">@color/accent75</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
-    </style>
-
-    <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">
-        <item name="overlapAnchor">true</item>
-    </style>
-
-    <style name="BottomSheetDialogDark" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
-        <item name="colorAccent">@color/accent75</item>
-        <item name="colorPrimary">@color/accent75</item>
-        <item name="colorSwitchThumbNormal">@color/base90</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:disabledAlpha">1.0</item>
     </style>
 
     <style name="ThemeDark.Translucent">
-        <item name="android:windowBackground">@color/black87</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="colorAccent">@color/accent50</item>
     </style>
 
 </resources>

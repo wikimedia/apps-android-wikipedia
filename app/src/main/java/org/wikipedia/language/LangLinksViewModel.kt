@@ -6,20 +6,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class LangLinksViewModel(bundle: Bundle) : ViewModel() {
-
-    var pageTitle: PageTitle = bundle.getParcelable(LangLinksActivity.EXTRA_PAGETITLE)!!
+    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
     val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()
@@ -34,25 +35,27 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
-                val langLinks = response.query!!.langLinks()
-                updateLanguageEntriesSupported(langLinks)
-                sortLanguageEntriesByMru(langLinks)
-                languageEntries.postValue(Resource.Success(langLinks))
-            }
+            val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
+            val langLinks = response.query!!.langLinks().toMutableList()
+            updateLanguageEntriesSupported(langLinks)
+            sortLanguageEntriesByMru(langLinks)
+            languageEntries.postValue(Resource.Success(langLinks))
         }
     }
 
-    fun fetchLangVariantLink(title: PageTitle) {
+    fun fetchLangVariantLinks(langCode: String, title: String, titles: List<PageTitle>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val summary = ServiceFactory.getRest(title.wikiSite).getPageSummary(null, title.prefixedText)
-                title.displayText = summary.displayTitle
-                languageEntryVariantUpdate.postValue(Resource.Success(Unit))
+            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
+            response.query?.firstPage()?.varianttitles?.let { variantMap ->
+                titles.forEach {
+                    variantMap[it.wikiSite.languageCode]?.let { text ->
+                        it.displayText = text
+                    }
+                }
             }
+            languageEntryVariantUpdate.postValue(Resource.Success(Unit))
         }
     }
 
@@ -60,11 +63,9 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            withContext(Dispatchers.IO) {
-                val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
-                val sites = SiteMatrix.getSites(siteMatrix)
-                siteListData.postValue(Resource.Success(sites))
-            }
+            val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
+            val sites = SiteMatrix.getSites(siteMatrix)
+            siteListData.postValue(Resource.Success(sites))
         }
     }
 
@@ -83,7 +84,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 // remove the language code and replace it with its variants
                 it.remove()
                 for (variant in languageVariants) {
-                    it.add(PageTitle(if (pageTitle.isMainPage) SiteInfoClient.getMainPageForLang(variant) else link.prefixedText,
+                    it.add(PageTitle(if (pageTitle.isMainPage) MainPageNameData.valueFor(variant) else link.prefixedText,
                             WikiSite.forLanguageCode(variant)))
                 }
             }
@@ -129,7 +130,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
                         if (!title.wikiSite.languageCode.contains(languageCode)) {
-                            val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
+                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
                             pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
                             languageEntries.add(pageTitle)
                         }

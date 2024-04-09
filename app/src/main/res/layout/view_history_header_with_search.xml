@@ -31,7 +31,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="@string/history_list_title"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
             android:background="?attr/actionBarItemBackground"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_filter_list_24"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:tint="?attr/primary_color" />
 
         <ImageView
             android:id="@+id/history_delete"
@@ -58,6 +58,6 @@
             android:background="?attr/actionBarItemBackground"
             android:scaleType="fitEnd"
             app:srcCompat="@drawable/ic_delete_white_24dp"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:tint="?attr/primary_color" />
     </LinearLayout>
 </LinearLayout>

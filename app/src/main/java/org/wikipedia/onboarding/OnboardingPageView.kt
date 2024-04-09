@@ -1,7 +1,6 @@
 package org.wikipedia.onboarding
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,17 +21,15 @@ import org.wikipedia.databinding.ViewOnboardingPageBinding
 import org.wikipedia.onboarding.OnboardingPageView.LanguageListAdapter.OptionsViewHolder
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
-        fun onSwitchChange(view: OnboardingPageView, checked: Boolean)
         fun onLinkClick(view: OnboardingPageView, url: String)
         fun onListActionButtonClicked(view: OnboardingPageView)
     }
 
     class DefaultCallback : Callback {
-        override fun onSwitchChange(view: OnboardingPageView, checked: Boolean) {}
         override fun onLinkClick(view: OnboardingPageView, url: String) {}
         override fun onListActionButtonClicked(view: OnboardingPageView) {}
     }
@@ -44,43 +42,54 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     init {
         attrs?.let { attrSet ->
             context.withStyledAttributes(attrSet, R.styleable.OnboardingPageView) {
-                val centeredImage = AppCompatResources.getDrawable(context,
-                        getResourceId(R.styleable.OnboardingPageView_centeredImage, -1))
+                val imageResource = getResourceId(R.styleable.OnboardingPageView_centeredImage, -1)
                 val primaryText = getString(R.styleable.OnboardingPageView_primaryText)
                 val secondaryText = getString(R.styleable.OnboardingPageView_secondaryText)
                 val tertiaryText = getString(R.styleable.OnboardingPageView_tertiaryText)
-                val switchText = getString(R.styleable.OnboardingPageView_switchText)
                 listDataType = getString(R.styleable.OnboardingPageView_dataType)
                 val showListView = getBoolean(R.styleable.OnboardingPageView_showListView, false)
                 val background = getDrawable(R.styleable.OnboardingPageView_background)
                 val imageSize = getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
+                val showPatrollerTasksButtons = getBoolean(R.styleable.OnboardingPageView_patrollerTasksButtons, false)
                 background?.let { setBackground(it) }
-                binding.imageViewCentered.setImageDrawable(centeredImage)
-                if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
-                    val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
-                    binding.imageViewCentered.updateLayoutParams {
-                        width = imageSize.toInt()
-                        height = (imageSize / aspect).toInt()
+                binding.imageViewCentered.isVisible = imageResource != -1
+                if (imageSize > 0 && imageResource != -1) {
+                    val centeredImage = AppCompatResources.getDrawable(context, imageResource)
+                    if (centeredImage != null && centeredImage.intrinsicHeight > 0) {
+                        binding.imageViewCentered.setImageDrawable(centeredImage)
+                        val aspect =
+                            centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
+                        binding.imageViewCentered.updateLayoutParams {
+                            width = imageSize.toInt()
+                            height = (imageSize / aspect).toInt()
+                        }
                     }
                 }
                 binding.primaryTextView.visibility = if (primaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.primaryTextView.text = primaryText
+                binding.secondaryTextView.visibility = if (secondaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
+                binding.tertiaryTextView.visibility = if (tertiaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.tertiaryTextView.text = tertiaryText
-                binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
-                binding.switchView.text = switchText
                 setUpLanguageListContainer(showListView, listDataType)
                 binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
                     callback?.onLinkClick(this@OnboardingPageView, url)
                 }
-                binding.languageListContainer.addLangContainer.setOnClickListener {
+                binding.languageListContainer.addLanguageButton.setOnClickListener {
                     callback?.onListActionButtonClicked(this@OnboardingPageView)
                 }
-                binding.switchView.setOnCheckedChangeListener { _, checked ->
-                    callback?.onSwitchChange(this@OnboardingPageView, checked)
-                }
+
+                binding.patrollerTasksButtonsContainer?.root?.isVisible = showPatrollerTasksButtons
             }
         }
+    }
+
+    fun setSecondaryText(text: CharSequence?) {
+        binding.secondaryTextView.text = text
+    }
+
+    fun setTertiaryTextViewVisible(isVisible: Boolean) {
+        binding.tertiaryTextView.isVisible = isVisible
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -102,10 +111,6 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         )
         params.gravity = Gravity.NO_GRAVITY
         binding.scrollViewContainer?.layoutParams = params
-    }
-
-    fun setSwitchChecked(checked: Boolean) {
-        binding.switchView.isChecked = checked
     }
 
     private fun setUpLanguageListContainer(showListView: Boolean, dataType: String?) {

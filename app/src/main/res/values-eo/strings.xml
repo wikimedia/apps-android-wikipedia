@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Dbrant
 * Jakub Fabijan
 * Juan Cuartas
@@ -59,6 +60,8 @@
   <string name="share_via">Konigi per</string>
   <string name="image_share_via">Kunhavigi per</string>
   <string name="search_redirect_from">Alidirektita el %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;e&lt;/b&gt; %s</string>
+  <string name="page_edit_history_filter_by_all">Ĉiuj redaktoj (%s)</string>
   <string name="menu_page_show_tabs">Montri langetojn</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
   <string name="menu_page_find_in_page" fuzzy="true">Trovi en la paĝo</string>
@@ -77,6 +80,7 @@
   <string name="menu_page_new_tab">Nova langeto</string>
   <string name="menu_page_reading_lists">Legolistoj</string>
   <string name="menu_page_recently_viewed">Ĵus vidita</string>
+  <string name="menu_page_archive">Arĥivo</string>
   <string name="menu_long_press_open_page">Malfermi</string>
   <string name="menu_long_press_open_in_new_tab">Malfermi en nova langeto</string>
   <string name="menu_long_press_copy_page">Kopii ligilan adreson</string>
@@ -84,15 +88,15 @@
   <string name="on_this_day_page_share">Kunhavigi</string>
   <string name="reading_list_page_share">Kunhavigi</string>
   <string name="menu_text_select_edit_here">Redakti ĉi tie</string>
+  <string name="menu_edit_article">Redakti la artikolon</string>
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
   <string name="talk_page_link_text">Montri diskutpaĝon</string>
   <string name="edit_history_link_text">Montri redakto-historion</string>
   <string name="map_view_link_text">Montri sur mapo</string>
   <string name="other_languages_indication_text">Legi en alia lingvo</string>
   <string name="language_count_link_text">Disponebla en %d aliaj lingvoj</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Per publikigo vi akceptas la &lt;a href=\"%1$s\"&gt;uzokondiĉojn&lt;/a&gt; kaj definitive liberigas vian kontribuon laŭ la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Per publikigo de viaj ŝanĝoj vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;, kaj konsentas nemalfareble liberigi viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Per publikigo vi akceptas la &lt;a href=\"%1$s\"&gt;uzokondiĉojn&lt;/a&gt; kaj definitive liberigas vian kontribuon laŭ la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Per publikigo de viaj ŝanĝoj vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;, kaj konsentas nemalfareble liberigi viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
   <string name="preference_title_language">Vikipediaj lingvoj</string>
   <string name="langlinks_filter_hint">Serĉi</string>
   <string name="langlinks_empty">Ĉi tiu paĝo ne disponeblas en aliaj lingvoj</string>
@@ -189,9 +193,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronigi legolistojn trans malsamaj aparatoj konservante ilin al via Vikipedia konto \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ĉu forigi sinkronigitajn legolistojn de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tio ĉi tute forigos ĉiujn antaŭe sinkrinigitajn legolistojn de fora konservado. Ĉu forigi ĉiujn sinkronigitajn listojn de via konto \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privateco</string>
-  <string name="preference_title_eventlogging_opt_in">Sendi raportojn pri uzado</string>
-  <string name="preference_summary_eventlogging_opt_in">Permesi al Vikipedio kolekti informon pri kiel vi uzas la aplikaĵon por helpi ĝin plibonigi</string>
   <string name="preference_title_auto_upload_crash_reports">Sendi prikraŝajn raportojn</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
@@ -211,10 +212,10 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/eo</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.eo</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eo</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eo</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/eo</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/eo</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotekoj uzataj</string>
   <string name="about_contributors_heading">Kontribuantoj</string>
   <string name="about_translators_heading">Tradukantoj</string>
@@ -235,6 +236,10 @@
   <string name="edit_preview">Antaŭrigardi</string>
   <string name="edit_undo">Malfari</string>
   <string name="edit_redo">Refari</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bajto</item>
+    <item quantity="other">%s bajtoj</item>
+  </plurals>
   <string name="edit_zoom_in">Enzomi</string>
   <string name="edit_zoom_out">Elzomi</string>
   <string name="edit_summary_tag_typo">Ĝustigis ortografion</string>
@@ -380,15 +385,11 @@
   <string name="text_size_percent_default">%s (Defaŭlto)</string>
   <string name="text_style_title">Tiparo</string>
   <string name="theme_category_reading">Legado</string>
-  <string name="nav_item_saved">Konservita</string>
+  <string name="nav_item_saved">Konservitaj</string>
   <string name="reading_list_save_to">Konservi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>
   <string name="reading_list_added_view_button">Montri liston</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikolo, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikoloj, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d el 1 artikoloj disponebla eksterrete, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d el %2$d artikoloj disponeblaj eksterrete, %3$.2f MB</string>
   <string name="reading_list_sort">Ordigi</string>
   <string name="reading_list_sort_ellipsis">Ordigi laŭ</string>
   <string name="reading_list_sort_by_name">Ordigi laŭ nomo</string>
@@ -695,7 +696,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">Ekscii pli</string>
   <string name="suggested_edits_last_edited_never">Neniam</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nova</string>
   <string name="suggested_edits_contributions_screen_title">Kontribuoj de %s</string>
   <string name="suggested_edits_contribution_language_label">Lingvo</string>
   <string name="suggested_edits_contribution_image_label">Bildo</string>
@@ -728,8 +729,6 @@
   <string name="onboarding_explore_text">Saltu en la Vikipedian kuniklotruon per konstante ĝisdatigata Esploro-fluo. &lt;br/&gt; &lt;b&gt;Personecigu&lt;/b&gt; la fluon al viaj interesoj – ĉu pri historiaj eventoj &lt;b&gt;En ĉi tiu tago&lt;/b&gt;, ĉu hazardludado per la funkcio &lt;b&gt;Hazarde&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Legolistoj sinkronigeblaj</string>
   <string name="onboarding_reading_list_sync_text_v2">Vi povas fari legolistojn el artikoloj kiujn vi volas poste legi, eĉ se vi estas ne konektita. &lt;br/&gt;Ensalutu en vian Vikipedian konton por sinkronigi viajn legolistojn. &lt;a href=\"#login\"&gt;Aniĝu al Vikipedio&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Sendi anoniman datenon</string>
-  <string name="onboarding_analytics_offline_text">Helpu plibonigi la aplikaĵon per sciigi nin pri kiel vi uzas ĝin. La kolektota dateno estos anonima. &lt;a href=\"#privacy\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sendi datenon pri uzado</string>
   <string name="onboarding_got_it">Komprenite</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis la sekvajn sur via aparato:</string>

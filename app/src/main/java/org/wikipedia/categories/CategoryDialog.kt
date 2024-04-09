@@ -1,5 +1,6 @@
 package org.wikipedia.categories
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogCategoriesBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -31,7 +33,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogCategoriesBinding.inflate(inflater, container, false)
         binding.categoriesRecycler.layoutManager = LinearLayoutManager(requireActivity())
-        binding.categoriesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.categoriesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = false, drawEnd = false))
         binding.categoriesDialogPageTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
@@ -83,6 +85,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
             val view = PageItemView<PageTitle>(requireContext())
             view.setImageVisible(false)
+            view.setTitleTypeface(Typeface.NORMAL)
             return CategoryItemHolder(view)
         }
 
@@ -118,10 +121,8 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
-        const val ARG_TITLE = "title"
-
         fun newInstance(title: PageTitle): CategoryDialog {
-            return CategoryDialog().apply { arguments = bundleOf(ARG_TITLE to title) }
+            return CategoryDialog().apply { arguments = bundleOf(Constants.ARG_TITLE to title) }
         }
     }
 }

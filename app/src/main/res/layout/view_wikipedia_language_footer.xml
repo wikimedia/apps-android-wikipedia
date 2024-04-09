@@ -14,24 +14,22 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="12dp"
         android:contentDescription="@null"
-        app:tint="?colorPrimary"
+        app:tint="?attr/progressive_color"
         app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
     <TextView
         android:id="@+id/wiki_language_title"
+        android:theme="@style/H3.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:fontFamily="sans-serif-medium"
         android:lineSpacingExtra="8sp"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         android:text="@string/wikipedia_languages_add_language_text"
-        android:textAllCaps="true"
-        android:textColor="?colorAccent"
-        android:textSize="14sp"
+        android:textColor="?attr/progressive_color"
         tools:text="Lorem ipsum" />
 
 </LinearLayout>

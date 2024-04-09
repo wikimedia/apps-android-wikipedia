@@ -24,7 +24,7 @@ interface ReadingListDao {
     fun getListsWithoutContents(): List<ReadingList>
 
     @Query("SELECT * FROM ReadingList WHERE id = :id")
-    fun getListById(id: Long): ReadingList?
+    suspend fun getListById(id: Long): ReadingList?
 
     @Query("SELECT * FROM ReadingList WHERE id IN (:readingListIds)")
     suspend fun getListsByIds(readingListIds: Set<Long>): List<ReadingList>
@@ -40,7 +40,7 @@ interface ReadingListDao {
         return lists.toMutableList()
     }
 
-    fun getListById(id: Long, populatePages: Boolean): ReadingList? {
+    suspend fun getListById(id: Long, populatePages: Boolean): ReadingList? {
         return getListById(id)?.apply {
             if (populatePages) {
                 AppDatabase.instance.readingListPageDao().populateListPages(this)

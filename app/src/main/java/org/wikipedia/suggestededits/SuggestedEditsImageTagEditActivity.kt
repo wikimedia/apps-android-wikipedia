@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivitySuggestedEditsFeedCardImageTagsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -20,7 +21,7 @@ import org.wikipedia.util.ResourceUtil
 class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFragment.Callback {
 
     private lateinit var binding: ActivitySuggestedEditsFeedCardImageTagsBinding
-    private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
+    private lateinit var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment
     var page: MwQueryPage? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,11 +34,11 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         supportActionBar!!.title = getString(R.string.suggested_edits_tag_images)
         setImageZoomHelper()
 
-        suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
-        suggestedEditsImageTagsFragment?.invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+        suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment
+        suggestedEditsImageTagsFragment.invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
-        binding.addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
-        binding.addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
+        binding.addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment.publish() }
+        binding.addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment.publish() }
         maybeShowOnboarding()
     }
 
@@ -50,13 +51,11 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
     }
 
     override fun updateActionButton() {
-        if (suggestedEditsImageTagsFragment != null) {
-            binding.addContributionLandscapeImage.setBackgroundColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
-            binding.addContributionButton.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
-            binding.addContributionLandscapeImage.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
-            binding.addContributionButton.alpha = if (suggestedEditsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
-            binding.addContributionLandscapeImage.alpha = if (suggestedEditsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
-        }
+        binding.addContributionLandscapeImage.setBackgroundColor(ResourceUtil.getThemedColor(this, R.attr.progressive_color))
+        binding.addContributionButton.isEnabled = suggestedEditsImageTagsFragment.publishEnabled()
+        binding.addContributionLandscapeImage.isEnabled = suggestedEditsImageTagsFragment.publishEnabled()
+        binding.addContributionButton.alpha = if (suggestedEditsImageTagsFragment.publishEnabled()) 1f else 0.5f
+        binding.addContributionLandscapeImage.alpha = if (suggestedEditsImageTagsFragment.publishEnabled()) 1f else 0.5f
 
         if (DimenUtil.isLandscape(this)) {
             binding.addContributionButton.visibility = GONE
@@ -69,7 +68,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
     }
 
     override fun nextPage(sourceFragment: Fragment?) {
-        setResult(RESULT_OK)
+        setResult(RESULT_OK, Intent().putExtra(Constants.INTENT_EXTRA_ACTION, DescriptionEditActivity.Action.ADD_IMAGE_TAGS))
         finish()
     }
 
@@ -81,6 +80,13 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
             Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(this))
         }
+    }
+
+    override fun onBackPressed() {
+        if (!suggestedEditsImageTagsFragment.onBackPressed()) {
+            return
+        }
+        super.onBackPressed()
     }
 
     companion object {

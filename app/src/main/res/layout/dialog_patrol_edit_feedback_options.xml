@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/optionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            style="@style/P.MaterialListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/patroller_diff_feedback_dialog_message" />
+
+        <TextView
+            android:id="@+id/optionVerySatisfied"
+            style="@style/Chip.Accessible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/background_8dp_radius"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:text="@string/places_survey_very_satisfied_option" />
+
+        <TextView
+            android:id="@+id/optionSatisfied"
+            style="@style/Chip.Accessible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/background_8dp_radius"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:text="@string/patroller_diff_feedback_dialog_option_satisfied" />
+
+
+        <TextView
+            android:id="@+id/optionNeutral"
+            style="@style/Chip.Accessible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/background_8dp_radius"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:text="@string/patroller_diff_feedback_dialog_option_neutral" />
+
+
+        <TextView
+            android:id="@+id/optionUnsatisfied"
+            style="@style/Chip.Accessible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/background_8dp_radius"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied" />
+
+        <TextView
+            android:id="@+id/optionVeryUnsatisfied"
+            style="@style/Chip.Accessible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:visibility="gone"
+            android:background="@drawable/background_8dp_radius"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:text="@string/places_survey_very_unsatisfied_option" />
+    </LinearLayout>
+</ScrollView>

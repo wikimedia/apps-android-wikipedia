@@ -13,10 +13,6 @@ CHINESE_WIKI_LANG = "zh"
 SIMPLIFIED_CHINESE_LANG = "zh-hans"
 TRADITIONAL_CHINESE_LANG = "zh-hant"
 
-# T114042
-NORWEGIAN_BOKMAL_WIKI_LANG = "no"
-NORWEGIAN_BOKMAL_LANG = "nb"
-
 
 # Wikis that cause problems and hence we pretend
 # do not exist.
@@ -82,8 +78,15 @@ def list_from_sitematrix():
                 wikipedia_url = site[u"url"]
         if len(wikipedia_url) == 0:
             continue
-        wikis.append(build_wiki(value[u"code"], value[u"localname"], value[u"name"]))
 
+        # At this stage, the site code should be the subdomain of the Wikipedia URL,
+        # instead of the "code" field in the sitematrix response.
+        # site_code = value[u"code"]
+        site_code = wikipedia_url.replace('https://', '').replace('.wikipedia.org', '')
+
+        wikis.append(build_wiki(site_code, value[u"localname"], value[u"name"]))
+
+    wikis.sort(key=lambda x: x.lang)
     return wikis
 
 
@@ -118,8 +121,9 @@ def postprocess_wikis(wiki_list):
     traditionalWiki.props["local_name"] = "繁體中文"
     wiki_list.wikis.insert(chineseWikiIndex + 2, traditionalWiki)
 
-    bokmalWiki = next((wiki for wiki in wiki_list.wikis if wiki.lang == NORWEGIAN_BOKMAL_WIKI_LANG), None)
-    bokmalWiki.lang = NORWEGIAN_BOKMAL_LANG
+    # T114042
+    bokmalWiki = next((wiki for wiki in wiki_list.wikis if wiki.lang == "no"), None)
+    bokmalWiki.lang = "nb"
 
     return wiki_list
 
@@ -150,9 +154,12 @@ def populate_main_pages(wikis):
     for wiki in wikis.wikis:
         print(u"Fetching Main Page for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
-              u"?action=query&meta=siteinfo&format=json&siprop=general"
+              u"?action=query&meta=siteinfo&format=json&siprop=general|specialpagealiases"
         data = json.loads(requests.get(url).text)
         wiki.props[u"main_page_name"] = data[u"query"][u"general"][u"mainpage"]
+        for specialPage in data[u"query"][u"specialpagealiases"]:
+            if specialPage[u"realname"] == "Contributions":
+                wiki.props[u"contribs_page_name"] = specialPage[u"aliases"][0]
     return wikis
 
 
@@ -186,4 +193,5 @@ chain(
     render_template(u"basichash.kt.jinja", u"UserAliasData", key=u"user_alias"),
     render_template(u"basichash.kt.jinja", u"UserTalkAliasData", key=u"user_talk_alias"),
     render_template(u"basichash.kt.jinja", u"MainPageNameData", key=u"main_page_name"),
+    render_template(u"basichash.kt.jinja", u"ContributionsNameData", key=u"contribs_page_name"),
 )

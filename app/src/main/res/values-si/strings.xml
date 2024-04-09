@@ -76,8 +76,8 @@
   <string name="edit_history_link_text">සංස්කරණ ඉතිහාසය බලන්න</string>
   <string name="map_view_link_text">සිතියම බලන්න</string>
   <string name="other_languages_indication_text">වෙනත් භාෂාවකින් කියවන්න</string>
-  <string name="edit_save_action_license_logged_in">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිත කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත්‍රය යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ.</string>
-  <string name="edit_save_action_license_anon">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිත කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත්‍රය යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ. ඔබේ උපාංගයේ IP ලිපිනයට සංස්කරණ ආරෝපණය කෙරෙනු ඇත. ඔබ &lt;a href=\"https://#login\"&gt;පිවිසියේ&lt;/a&gt; නම්, ඔබේ පෞද්ගලිකත්වයට වැඩි ඉඩක් හිමිවනු ඇත.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිත කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත්‍රය යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිත කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත්‍රය යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ. ඔබේ උපාංගයේ IP ලිපිනයට සංස්කරණ ආරෝපණය කෙරෙනු ඇත. ඔබ &lt;a href=\"https://#login\"&gt;පිවිසියේ&lt;/a&gt; නම්, ඔබේ පෞද්ගලිකත්වයට වැඩි ඉඩක් හිමිවනු ඇත.</string>
   <string name="preference_title_language">විකිපීඩියා භාෂා</string>
   <string name="langlinks_filter_hint">සොයන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
@@ -130,7 +130,6 @@
   <string name="preferences_general_heading">සාමාන්‍ය</string>
   <string name="wikipedia_app_faq">විකිපීඩියා යෙදුම නිති අසන පැන</string>
   <string name="create_account_account_created_toast">ගිණුම තනන ලදි!</string>
-  <string name="preference_title_eventlogging_opt_in">භාවිත වාර්තා යවන්න</string>
   <string name="page_protected_can_not_edit_title">මෙම පිටුව ආරක්ෂණය කර ඇත</string>
   <string name="settings_activity_title">සැකසුම්</string>
   <string name="privacy_policy_description">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>

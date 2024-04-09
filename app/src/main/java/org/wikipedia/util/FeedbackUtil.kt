@@ -2,6 +2,8 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.graphics.Rect
 import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -10,41 +12,40 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.*
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.log.L
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
-    const val LENGTH_DEFAULT = 5000
+    private const val LENGTH_DEFAULT = 5000
     const val LENGTH_MEDIUM = 8000
     const val LENGTH_LONG = 15000
-    private val TOOLBAR_LONG_CLICK_LISTENER = View.OnLongClickListener { v ->
-        showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
-        true
-    }
     private val TOOLBAR_ON_CLICK_LISTENER = View.OnClickListener { v ->
         showToastOverView(v, v.contentDescription, LENGTH_SHORT)
     }
 
-    fun showError(activity: Activity, e: Throwable) {
+    fun showError(activity: Activity, e: Throwable, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
         val error = ThrowableUtil.getAppError(activity, e)
-        makeSnackbar(activity, error.error).also {
+        makeSnackbar(activity, error.error, wikiSite = wikiSite).also {
             if (error.error.length > 200) {
                 it.duration = Snackbar.LENGTH_INDEFINITE
                 it.setAction(android.R.string.ok) { _ ->
@@ -84,6 +85,10 @@ object FeedbackUtil {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)))
     }
 
+    fun showTermsOfUse(context: Context) {
+        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.terms_of_use_url)))
+    }
+
     fun showOfflineReadingAndData(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.offline_reading_and_data_url)))
     }
@@ -102,34 +107,44 @@ object FeedbackUtil {
 
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
-        SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
-    fun setButtonLongPressToast(vararg views: View) {
-        views.forEach { it.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER) }
+    fun composeFeedbackEmail(context: Context, subject: String, body: String = "") {
+        val intent = Intent()
+            .setAction(Intent.ACTION_SENDTO)
+            .setData(Uri.parse("mailto:${context.getString(R.string.support_email)}?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
+        try {
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            L.e(e)
+        }
+    }
+
+    fun setButtonTooltip(vararg views: View) {
+        views.forEach { TooltipCompat.setTooltipText(it, it.contentDescription) }
     }
 
     fun setButtonOnClickToast(vararg views: View) {
         views.forEach { it.setOnClickListener(TOOLBAR_ON_CLICK_LISTENER) }
     }
 
-    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT): Snackbar {
-        val view = findBestView(activity)
+    fun makeSnackbar(view: View, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
-        val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
-        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
-        textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
-        RichTextUtil.removeUnderlinesFromLinks(textView)
-        val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
-        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
+        textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
         return snackbar
+    }
+
+    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
+        return makeSnackbar(findBestView(activity), text, duration, wikiSite)
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
         val toast = Toast.makeText(view.context, text, duration)
-        val v = LayoutInflater.from(view.context).inflate(R.layout.abc_tooltip, null)
-        val message = v.findViewById<TextView>(R.id.message)
+        val v = LayoutInflater.from(view.context).inflate(androidx.appcompat.R.layout.abc_tooltip, null)
+        val message = v.findViewById<TextView>(androidx.appcompat.R.id.message)
         message.text = StringUtil.removeHTMLTags(text.toString())
         message.maxLines = Int.MAX_VALUE
         toast.view = v
@@ -141,8 +156,8 @@ object FeedbackUtil {
     }
 
     fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean,
-                    autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0): Balloon {
-        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, autoDismiss)
+                    autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0, showDismissButton: Boolean = autoDismiss): Balloon {
+        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, showDismissButton), anchor, aboveOrBelow, autoDismiss)
     }
 
     fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
@@ -164,11 +179,25 @@ object FeedbackUtil {
     }
 
     fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
-                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
+                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false,
+                   @StringRes dismissButtonText: Int = R.string.onboarding_got_it, countNum: Int = 0, countTotal: Int = 0): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
-        if (showDismissButton) {
-            binding.buttonView.visibility = View.VISIBLE
+        binding.buttonView.isVisible = showDismissButton
+
+        // Explicitly measure the width of the button text and set the button width, with some padding.
+        // The Balloon library seems to present our custom layout in a way that causes the automatic
+        // sizing of the button to be incorrect.
+        val dismissText = context.getString(dismissButtonText)
+        val bounds = Rect()
+        binding.buttonView.paint.getTextBounds(dismissText, 0, dismissText.length, bounds)
+        binding.buttonView.layoutParams = binding.buttonView.layoutParams.apply {
+            width = bounds.width() + DimenUtil.roundedDpToPx(40f)
+        }
+
+        if (countTotal > 0) {
+            binding.countView.isVisible = true
+            binding.countView.text = context.getString(R.string.x_of_y, countNum, countTotal)
         }
 
         val balloon = createBalloon(context) {
@@ -180,7 +209,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)
             setWidth(BalloonSizeSpec.WRAP)
@@ -206,7 +235,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(layoutRes)
             setWidth(BalloonSizeSpec.WRAP)

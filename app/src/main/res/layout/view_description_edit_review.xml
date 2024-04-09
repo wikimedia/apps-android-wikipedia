@@ -29,7 +29,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?attr/material_theme_border_color" />
+                android:background="?attr/border_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                     android:fontFamily="serif"
                     android:lineSpacingExtra="4sp"
                     android:maxLines="2"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="24sp"
                     tools:text="Lorem ipsum" />
 
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:lineSpacingExtra="6sp"
-                    android:textColor="?attr/secondary_text_color"
+                    android:textColor="?attr/placeholder_color"
                     android:textSize="14sp"
                     tools:text="Lorem ipsum" />
 
@@ -65,7 +65,7 @@
                     android:layout_width="@dimen/divider_width_for_article"
                     android:layout_height="1dp"
                     android:layout_marginTop="19dp"
-                    android:background="?attr/material_theme_border_color" />
+                    android:background="?attr/border_color" />
 
                 <TextView
                     android:id="@+id/articleExtract"
@@ -76,7 +76,7 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:lineSpacingExtra="10sp"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum" />
 
@@ -107,8 +107,8 @@
             android:fadeScrollbars="false"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
-            android:textColor="@color/base90"
-            android:textColorLink="@color/base90"
+            android:textColor="@color/gray100"
+            android:textColorLink="@color/gray100"
             android:textIsSelectable="true"
             android:textSize="16sp"
             android:fontFamily="sans-serif"
@@ -135,7 +135,7 @@
             android:id="@+id/indicatorDivider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color" />
+            android:background="?attr/border_color" />
 
         <org.wikipedia.descriptions.DescriptionEditLicenseView
             android:id="@+id/licenseView"

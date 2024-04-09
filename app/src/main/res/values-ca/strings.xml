@@ -16,6 +16,7 @@
 * Kippelboy
 * Lluis tgn
 * Macofe
+* McDutchie
 * Mguix
 * Paucabot
 * SMP
@@ -23,6 +24,7 @@
 * Ssola
 * Toniher
 * Unapersona
+* V27t
 * Vfc
 * Xavier Dengra
 -->
@@ -128,9 +130,8 @@
   <string name="map_view_link_text">Mostra al mapa</string>
   <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
+  <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="edit_anon_warning">Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt;, gaudireu de més privadesa.</string>
   <string name="preference_title_language">Llengües de la Viquipèdia</string>
   <string name="langlinks_filter_hint">Cerca</string>
@@ -229,9 +230,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Voleu suprimir les llistes de lectura sincronitzades de «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Això eliminarà completament totes les llistes de lectura sincronitzades de l\'emmagatzemament remot. Voleu suprimir totes les llistes sincronitzades del compte «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Privadesa</string>
-  <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
-  <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
   <string name="preference_summary_auto_upload_crash_reports">Permet que l’aplicació enviï informes de fallades de forma automàtica a un proveïdor de serveis extern, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis blocats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
@@ -256,17 +254,17 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ca</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ca</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ca</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
-  <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Reconeixement-CompartirIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Un projecte de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
@@ -282,6 +280,8 @@
   <string name="edit_undo">Desfés</string>
   <string name="edit_redo">Refés</string>
   <string name="edit_rollback">Reverteix</string>
+  <string name="edit_warn">Avís</string>
+  <string name="edit_intent">%s d\'intenció</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="other">%s bytes</item>
@@ -387,6 +387,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article si no teniu connexió a Internet.</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: En afegir l\'article a una llista de lectura es baixarà una vegada torneu a estar en línia.</string>
   <string name="page_offline_notice_last_date">Esteu llegint una versió fora de línia de l\'article desada el %s.</string>
+  <string name="redirected_from_snackbar">Redirigit de «%s»</string>
   <string name="button_get_directions">Obtén indicacions</string>
   <string name="error_no_maps_app">No es pot trobar cap aplicació que proporcioni direccions.</string>
   <string name="preference_title_customize_explore_feed">Canal d\'exploració</string>
@@ -426,7 +427,7 @@
   <string name="error_blocked_by">El blocatge ha estat fet per &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">El motiu: %s</string>
   <string name="error_blocked_start">Inici del blocatge: %s</string>
-  <string name="error_blocked_expiry">Expiració del blocatge: %s</string>
+  <string name="error_blocked_expiry">Venciment del blocatge: %s</string>
   <string name="error_blocked_id">ID del blocatge: %s</string>
   <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalitza la barra d\'eines</string>
@@ -476,18 +477,22 @@
   <string name="reading_list_articles_already_exist_message">Tot correcte! %s ja conté tots els articles.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
   <string name="reading_list_add_to_list_button">Afegir a la llista</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 article</item>
+    <item quantity="other">%d articles</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 article, %2$.2f MB</item>
     <item quantity="other">%1$d articles, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d of 1 article disponible fora de línia</item>
+    <item quantity="other">%1$d of %2$d articles disponibles fora de línia</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d d\'1 article disponible fora de línia, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d articles disponibles fora de línia, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d d\'1 article disponible fora de línia, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d articles disponibles fora de línia, %3$.2f MB</string>
   <string name="reading_list_sort">Ordena</string>
   <string name="reading_list_sort_ellipsis">Ordena per…</string>
   <string name="reading_list_sort_by_name">Ordena per nom</string>
@@ -497,6 +502,10 @@
   <string name="reading_list_sort_by_created">Ordena per data de creació (més noves)</string>
   <string name="reading_list_sort_by_created_desc">Ordena per data de creació (més antigues)</string>
   <string name="reading_list_menu_delete">Elimina la llista</string>
+  <string name="reading_list_menu_export">Exporta la llista</string>
+  <string name="reading_list_menu_select">Selecciona</string>
+  <string name="reading_list_menu_unselect">Desselecciona</string>
+  <string name="reading_list_export_write_permission_rationale">Cal permís per a escriure en l\'emmagatzematge del vostre dispositiu per a exportar la llista de lectura.</string>
   <string name="reading_list_menu_rename">Modifica el nom / la descripció</string>
   <string name="reading_list_action_menu_remove_from_offline">Suprimeix del fora de línia</string>
   <string name="reading_list_action_menu_save_for_offline">Desa per a fora de línia</string>
@@ -517,6 +526,15 @@
     <item quantity="one">%d article suprimit de %s</item>
     <item quantity="other">%d articles suprimits de %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d llista suprimida</item>
+    <item quantity="other">%d llistes suprimides</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">La llista per defecte (%s) no es pot suprimir</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">S\'ha suprimit %1$s. La llista per defecte (%2$s) no es pot suprimir.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">S\'han suprimit les llistes. La llista per defecte (%s) no es pot suprimir.</string>
+  <string name="single_list_json_file_name">%s (llista de lectura de Viquipèdia).json</string>
+  <string name="multiple_lists_json_file_name">Llistes de lectura de Viquipèdia (%s i més).json</string>
   <string name="reading_list_items_deleted">%d articles esborrats de la llista</string>
   <string name="reading_lists_item_deleted">%s suprimit de les llistes</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
@@ -549,6 +567,11 @@
   <string name="reading_list_articles_added_to_named">S\'han afegit %1$d articles a %2$s</string>
   <string name="reading_list_articles_moved_to_named">S\'han mogut %1$d articles a %2$s</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Voleu suprimir les llistes seleccionades?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Voleu suprimir %d llista?</item>
+    <item quantity="other">Voleu suprimir %d llistes?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Inicieu una sessió per habilitar la sincronització</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Inicieu una sessió per permetre desar les llistes de lectura al vostre compte.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel·la</string>
@@ -572,6 +595,7 @@
   <string name="reading_list_article_limit_message">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
   <string name="reading_lists_limit_message">No es pot crear una altra llista. Heu assolit el límit de 100 llistes de lectura per compte.</string>
   <string name="reading_lists_menu_create_list">Crea una llista nova</string>
+  <string name="reading_lists_menu_import_list">Importa la llista</string>
   <string name="reading_lists_menu_sort_by">Ordena per</string>
   <string name="reading_lists_refresh_sync_option">Refresca la sincronització</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Inicia una sessió / crea un compte</string>
@@ -592,7 +616,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Cancel·la</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel·la</string>
   <string name="reading_list_split_dialog_ok_button_text">D’acord</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Suprimeix</string>
   <string name="reading_list_activity_title">Llista de lectura: %s</string>
+  <string name="reading_list_notification_title">S\'han exportat les llistes de lectura</string>
+  <string name="reading_list_notification_text">S\'han exportat %d llistes de lectura com a \'reading_lists export.json\' a la vostra carpeta de baixades.</string>
+  <string name="reading_list_notification_detailed_text">Les llistes de lectura s\'han exportat a \'reading_lists_export.json\'</string>
+  <string name="reading_lists_action_menu_export_lists">Exporta</string>
+  <string name="reading_lists_import_file_picker_title">Trieu el fitxer a importar</string>
+  <string name="reading_lists_import_failure_message">La importació de les llistes de lectura ha fallat</string>
+  <string name="reading_lists_export_select_lists_message">Seleccioneu les llistes per exportar</string>
+  <string name="reading_lists_export_completed_message">S\'han exportat les llistes de lectura</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">L\'exportació de la llista de lectura ha fallat</item>
+    <item quantity="other">L\'exportació de les llistes de lectura ha fallat</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">S\'ha importat la llista de lectura</item>
+    <item quantity="other">S\'han importat les llistes de lectura</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Llista compartida</string>
+  <string name="reading_lists_preview_save_button">Desa</string>
+  <string name="reading_lists_preview_save_dialog_title">Desa la llista</string>
+  <string name="reading_lists_preview_save_dialog_text">Anomeneu la llista i seleccioneu els articles per desar.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Títol</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancel·la</string>
+  <string name="reading_lists_preview_save_dialog_save">Desa</string>
+  <string name="reading_lists_preview_saved_snackbar">S\'ha desat la llista de lectura</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Mostra</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_reverted_title">Modificació revertida</string>
   <string name="notification_channel_title">Baixada d\'articles</string>
@@ -715,8 +765,8 @@
   <string name="notifications_menu_uncheck_all">Desmarca tots els elements</string>
   <string name="notifications_wiki_filter_header">Filtre wiki</string>
   <string name="notifications_type_filter_header">Filtre de tipus</string>
-  <string name="notifications_all_wikis_text">Totes les de «wiki»</string>
-  <string name="notifications_all_types_text">Totes les de «tipus»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Totes les de «wiki»</string>
+  <string name="notifications_all_types_text" fuzzy="true">Totes les de «tipus»</string>
   <string name="notifications_menu_user_talk_page">Pàgina de discussió de %s</string>
   <string name="notifications_offline_disable_message">La funció no és disponible fora de línia.</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
@@ -804,15 +854,17 @@
   <string name="description_edit_voice_input_description">Entrada de veu</string>
   <string name="description_edit_learn_more">Quant a les descripcions dels articles</string>
   <string name="description_edit_image_caption_learn_more">Quant a les llegendes de les imatges</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">El text és massa curt.</string>
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_starts_with_lowercase">Evita començar per una lletra en minúscula.</string>
   <string name="description_is_in_different_language">El text sembla que estigui en una llengua no esperada. Caldria que fos en %s.</string>
-  <string name="description_verification_notice">Verifiqueu que la vostra descripció és en %1$s. Ignoreu lliurement aquesta notificació si la descripció que heu escrit ja és en %2$s.</string>
+  <string name="description_verification_notice">Verifiqueu que la vostra descripció és en %1$s. Ignoreu sense problema aquest avís si la descripció que heu escrit ja és en %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Mostra les descripcions suggerides</string>
+  <string name="description_edit_suggested_description_button_tooltip">Prova les descripcions d\'articles suggerides automàticament</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
@@ -830,6 +882,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Suggeriments automàtics</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Els suggeriments són generats automàticament, no pas per voluntaris o per la Fundació Wikimèdia.</string>
   <string name="customize_toolbar_title">Personalitza la barra d\'eines</string>
   <string name="customize_toolbar_shortcut_description_text">Personalitza la barra d\'eines inferior amb aquelles 5 dreceres que trobeu més útils.</string>
   <string name="customize_toolbar_category_toolbar">Barra d\'eines</string>
@@ -841,6 +895,9 @@
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
+  <string name="suggested_edits_edit_patrol">Patrulla d\'edicions</string>
+  <string name="suggested_edits_edit_patrol_hint">Reviseu les edicions recents i determineu si són constructives o no.</string>
+  <string name="suggested_edits_edit_patrol_review">Revisa</string>
   <string name="suggested_edits_review_description">Revisa la descripció d\'article</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
   <string name="suggested_edits_edit_description_button">Modifica la descripció</string>
@@ -916,6 +973,7 @@
   <string name="suggested_edits_image_tags_select_title">No heu seleccionat cap etiqueta per a aquesta imatge</string>
   <string name="suggested_edits_image_tags_select_text">S\'afegiran a les imatges només les etiquetes que trieu. Les etiquetes no seleccionades es marcaran com a rebutjades. Esteu segur que voleu marcar totes les etiquetes com a rebutjades?</string>
   <string name="suggested_edits_image_tags_add_tag">Afegeix una etiqueta</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Les etiquetes no publicades no es desaran</string>
   <string name="suggested_edits_image_zoom_tooltip">Utilitza els dits per a fer zoom de la imatge.</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, a continuació podeu trobar com millorar ràpidament i fàcil la Viquipèdia. Vegeu la diferència tan bon punt hi comenceu. Gaudiu-ne editant-hi!</string>
@@ -924,14 +982,14 @@
   <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions fins ara.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits hi heu fet contribucions. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basta en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basat en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
   <string name="suggested_edits_paused_message">Les edicions suggerides s\'han posat en pausa fins al %1$s. Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.</string>
   <string name="suggested_edits_disabled_message">S\'han inhabilitat les edicions suggerides. Ho sentim %s, s\'han revertit massa contribucions recents.</string>
   <string name="suggested_edits_ip_blocked_message">Sembla que la vostra adreça IP (o rang d\'adreces IP) està blocada per a editar a la Viquipèdia.</string>
   <string name="suggested_edits_gate_message">%s, cal que feu com a mínim tres edicions en un article directament per a utilitzar aquesta funcionalitat.</string>
   <string name="suggested_edits_editing_tips_link_text">Consells i trucs d\'edició</string>
   <string name="suggested_edits_help_page_link_text">Pàgina d\'ajuda de les edicions suggerides</string>
-  <string name="suggested_edits_edit_streak_label_text">Modifica la marca</string>
+  <string name="suggested_edits_edit_streak_label_text">Ratxa d\'edicions</string>
   <string name="suggested_edits_views_label_text">Visualitzacions</string>
   <string name="suggested_edits_quality_label_text">Qualitat d\'edició</string>
   <string name="suggested_edits_quality_perfect_text">Perfecte</string>
@@ -959,7 +1017,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blocada</string>
   <string name="suggested_edits_last_edited">Darrera modificació</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
-  <string name="suggested_edits_task_new">nou</string>
+  <string name="suggested_edits_task_new">Nou</string>
   <string name="suggested_edits_cc0_notice">En publicar-ho, esteu d\'acord amb les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; tot alliberant la contribució de forma irrevocable sota la &lt;a href=\"%2$s\"&gt;llicència CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Edicions suggerides</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Gràcies per editar a la Viquipèdia! Per què no continueu on ho heu deixat?</string>
@@ -988,6 +1046,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Etiqueta d\'imatge</string>
   <string name="suggested_edits_contribution_current_revision_text">La vostra edició ja és a la Viquipèdia</string>
   <string name="suggested_card_more_edits">Més edicions suggerides</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descripcions suggerides</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Què voleu informar?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">No hi ha prou informació</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">No es poden veure les descripcions suggerides</string>
+  <string name="suggested_edits_inappropriate_suggestion">Suggeriment inapropiat</string>
+  <string name="suggested_edits_do_not_understand_suggestion">No entenc la tasca</string>
+  <string name="suggested_edits_report_suggestion">Informa\'n</string>
+  <string name="suggested_edits_suggestion_report_submitted">S\'ha tramès l\'informe</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiqueta</item>
     <item quantity="other">%1$s etiquetes</item>
@@ -1004,6 +1070,39 @@
     <item quantity="one">heu afegit %d caràcter</item>
     <item quantity="other">heu afegit %d caràcters</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Imatges de l\'article</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Afegiu les imatges suggerides als articles de la Viquipèdia per a millorar-ne la comprensió.</string>
+  <string name="image_recommendation_task_instruction">Voleu afegir aquesta imatge a l\'article?</string>
+  <string name="image_recommendation_tutorial">Tutorial</string>
+  <string name="image_recommendation_accept">Sí</string>
+  <string name="image_recommendation_reject">No</string>
+  <string name="image_recommendation_notsure">No n\'estic segur</string>
+  <string name="image_recommendation_reject_title">Per què no?</string>
+  <string name="image_recommendation_reject_subtitle">Les vostres respostes milloren suggeriments futurs.</string>
+  <string name="image_recommendation_reject_not_relevant">La imatge no és rellevant</string>
+  <string name="image_recommendation_reject_no_info">No hi ha prou informació per a decidir</string>
+  <string name="image_recommendation_reject_offensive">La imatge és ofensiva</string>
+  <string name="image_recommendation_reject_low_quality">La imatge és de baixa qualitat</string>
+  <string name="image_recommendation_reject_dont_know">No conec aquesta temàtica</string>
+  <string name="image_recommendation_reject_other">Altres</string>
+  <string name="image_recommendation_reject_submit">Envia</string>
+  <string name="image_recommendation_tooltip_main">Afegeix imatges que manquen a articles en les modificacions suggerides</string>
+  <string name="image_recommendation_onboarding_1">Les imatges ajuden a la comprensió, però molts articles no en tenen.</string>
+  <string name="image_recommendation_onboarding_2">Decidireu si una imatge suggerida cal col·locar-la en un article de la Viquipèdia.</string>
+  <string name="image_recommendation_onboarding_3">Els suggeriments són generats automàticament i fareu servir el vostre criteri per a decidir si acceptar-los o no.</string>
+  <string name="image_recommendation_onboarding_4">Les imatges són de Wikimedia Commons, una col·lecció d\'imatges amb llicència lliures utilitzades per la Viquipèdia.</string>
+  <string name="image_recommendation_tooltip_1">Reviseu l\'article per a entendre\'n la temàtica</string>
+  <string name="image_recommendation_tooltip_2">Inspeccioneu la imatge i la seva informació associada</string>
+  <string name="image_recommendation_tooltip_3">Decidiu si la imatge ajuda als lectors a entendre millor la temàtica</string>
+  <string name="image_recommendation_tooltip_next">Següent</string>
+  <string name="image_recommendation_tooltip_warning">Reviseu l\'article per a entendre\'n la temàtica i inspeccioneu la imatge</string>
+  <string name="image_recommendation_depleted">No hi ha més imatges suggerides disponibles en aquest moment. Exploreu altres &lt;a href=\"#\"&gt;edicions suggerides&lt;/a&gt; o torneu més tard.</string>
+  <string name="suggested_edits_report_feature">Problema amb la funcionalitat</string>
+  <string name="suggested_edits_report_feature_subject">Problema amb les edicions suggerides</string>
+  <string name="edit_summary_added_image">Imatge afegida</string>
+  <string name="edit_summary_added_caption">Llegenda afegida</string>
+  <string name="edit_summary_added_image_and_caption">S\'ha afegit una imatge i una llegenda</string>
+  <string name="edit_published_view">Mostra</string>
   <string name="file_page_activity_title">Pàgina de fitxer</string>
   <string name="file_page_add_image_caption_button">Afegir una llegenda a la imatge</string>
   <string name="file_page_add_image_tags_button">Afegir una etiqueta a la imatge</string>
@@ -1026,8 +1125,6 @@
   <string name="onboarding_explore_text">Capbusseu-vos a l\'univers de la Viquipèdia amb el canal d\'actualització contínua «Exploreu». &lt;br/&gt;&lt;b&gt;Personalitzeu&lt;/b&gt; el canal amb els vostres interessos, llegiu sobre els esdeveniments històrics d\'&lt;b&gt;Un dia com avui&lt;/b&gt; o jugueu als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text_v2">Podeu fer llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan sigueu fora de línia. &lt;br/&gt;Inicieu una sessió al vostre compte de Viquipèdia per sincronitzar les llistes de lectura. &lt;a href=\"#login\"&gt;Uniu-vos a la Viquipèdia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Envia dades anònimes</string>
-  <string name="onboarding_analytics_offline_text">Ajudeu a millorar l’aplicació permitint-nos conèixer com la feu servir. Les dades recollides són anònimes. &lt;a href=\"#privacy\"&gt;Més informació&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_got_it">Entesos</string>
   <string name="onboarding_multilingual_secondary_text">Hem trobat el següent en el dispositiu:</string>
@@ -1099,15 +1196,16 @@
   <string name="wikitext_template">Plantilla</string>
   <string name="wikitext_reference">Referència</string>
   <string name="wikitext_preview_link">Previsualitza l’enllaç</string>
+  <string name="wikitext_mention_user">Menciona un usuari</string>
   <string name="insert_media_title">Insereix multimèdia</string>
   <string name="insert_media_search_description">Selecciona un fitxer de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cerca multimèdia</string>
-  <string name="insert_media_settings">Paràmetres multimèdia</string>
+  <string name="insert_media_settings">Afegeix detalls de la imatge</string>
   <string name="insert_media_settings_uploaded_image">Imatge carregada</string>
-  <string name="insert_media_settings_caption">Llegenda</string>
-  <string name="insert_media_settings_caption_description">L\'etiqueta que es mostra al costat de l\'element per a tots els lectors</string>
+  <string name="insert_media_settings_caption">Llegenda de la imatge</string>
+  <string name="insert_media_settings_caption_description">Etiqueta d\'imatge visible en l\'article</string>
   <string name="insert_media_settings_alternative_text">Text alternatiu</string>
-  <string name="insert_media_settings_alternative_text_description">Descripció textual per als lectors que no poden veure la imatge</string>
+  <string name="insert_media_settings_alternative_text_description">Descripció per a lectors amb problemes de visió</string>
   <string name="insert_media_advanced_settings">Paràmetres avançats</string>
   <string name="insert_media_advanced_settings_wrap_image">Ajusta el text al voltant de la imatge</string>
   <string name="insert_media_advanced_settings_image_position">Posició de la imatge</string>
@@ -1128,6 +1226,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Alçària</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Insereix</string>
+  <string name="templates_insert_button">Insereix</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
@@ -1143,7 +1242,19 @@
   <string name="talk_user_title">Discussió: %s</string>
   <string name="talk_new_topic">Tema nou</string>
   <string name="talk_new_topic_submitted">S\'ha enviat un tema.</string>
+  <string name="talk_warn">Avís</string>
+  <string name="talk_warn_save_dialog_title">Voleu desar els canvis?</string>
+  <string name="talk_warn_save_dialog_message">Desa com a missatge nou</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Desa com a missatge nou a la llista</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Actualitza el missatge existent</string>
+  <string name="talk_warn_save_dialog_hint">Títol del missatge</string>
+  <string name="talk_warn_save_dialog_publish">Publica</string>
+  <string name="talk_warn_save_dialog_cancel">Cancel·la</string>
+  <string name="talk_warn_submitted">Missatge publicat a la pàgina de discussió d\'usuari de l\'editor</string>
+  <string name="talk_warn_submitted_and_saved">Missatge desat i publicat a la pàgina de discussió d\'usuari de l\'editor</string>
   <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
+  <string name="talk_page_empty_title">La conversa comença aquí</string>
+  <string name="talk_page_empty_content">Les pàgines de discussió és on es discuteix on fer el contingut de la Viquipèdia el millor possible. Inicieu-vos-hi afegint-hi un nou tema de discussió per a connectar-vos i col·laborar amb una comunitat viquipedista.</string>
   <string name="talk_add_reply">Respon</string>
   <string name="talk_no_subject">(sense tema)</string>
   <string name="talk_reply_subject">Tema</string>
@@ -1166,6 +1277,8 @@
   <string name="talk_overflow_sort_date_published">Data de publicació</string>
   <string name="talk_overflow_sort_date_updated">Data d\'actualització</string>
   <string name="talk_overflow_sort_topic_name">Nom del tema</string>
+  <string name="talk_new_topic_exit_dialog_title">Esteu segur que en voleu sortir?</string>
+  <string name="talk_new_topic_exit_dialog_message">No es desaran ni l\'assumpte ni el text de contingut.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Mostra la resposta</item>
     <item quantity="other">Mostra les respostes (%d)</item>
@@ -1186,6 +1299,8 @@
   <string name="talk_list_item_user_icon_content_description">Icona d\'usuari</string>
   <string name="talk_list_item_swipe_mark_as_read">Llegit</string>
   <string name="talk_list_item_swipe_mark_as_unread">No llegit</string>
+  <string name="talk_login_to_subscribe_dialog_title">Inicieu una sessió per a subscriure-us als temes</string>
+  <string name="talk_login_to_subscribe_dialog_content">Les subscripcions als temes us permetran rebre notificacions de comentaris nous sobre aquest tema. Creeu un compte a la Viquipèdia i inicieu una sessió amb ell per a subscriure-us a un tema.</string>
   <string name="talk_archived_title">Arxiu de la discussió: %s</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
@@ -1217,15 +1332,16 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">Per a:</string>
   <string name="revision_diff_line_num">Línia %d</string>
-  <string name="revision_diff_line_nums">Línies %d–%d</string>
   <string name="revision_diff_lines_from_to">Línies %1$d–%2$d</string>
   <string name="revision_diff_line_added">Línia afegida</string>
   <string name="revision_diff_line_removed">Línia eliminada</string>
   <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
   <string name="revision_diff_paragraph_removed">Paràgraf eliminat</string>
-  <string name="revision_undo_title">Desfés la modificació</string>
-  <string name="revision_undo_message">Això desfarà els canvis fets en les revisions de l\'article que es mostra a continuació.</string>
-  <string name="revision_undo_reason">Per a continuar, proporcioneu un motiu per a desfer la modificació:</string>
+  <string name="revision_diff_protected">Els canvis fets en aquesta revisió no són accessible públicament.</string>
+  <string name="revision_undo_title">Esteu segur que voleu desfer aquesta modificació?</string>
+  <string name="revision_undo_message">En desfer-se es revertiran els efectes d\'una o més edicions.</string>
+  <string name="revision_undo_summary_hint">Resum (opcional)</string>
+  <string name="revision_undo_reason">Comparteix el motiu de la reversió</string>
   <string name="revision_undo_success">S\'ha desfet la revisió.</string>
   <string name="revision_rollback_dialog_title">Esteu segur que voleu revertir les edicions?</string>
   <string name="revision_rollback_success">S\'han revertit les edicions.</string>
@@ -1246,6 +1362,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 mesos</string>
   <string name="watchlist_expiry_dialog_six_months">6 mesos</string>
   <string name="watchlist_empty">No teniu cap article a la llista de seguiment.</string>
+  <string name="watchlist_search">Cerca a la llista de seguiment</string>
   <string name="watchlist_filter_all">Tots</string>
   <string name="watchlist_filter_talk">Discussió</string>
   <string name="watchlist_filter_pages">Pàgines</string>
@@ -1253,15 +1370,61 @@
   <string name="watchlist_page_moved">Moguda</string>
   <string name="watchlist_page_protected">Protegida</string>
   <string name="watchlist_page_deleted">Suprimida</string>
+  <string name="watchlist_filter_title">Filtre de la llista de seguiment</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tot</string>
+  <string name="watchlist_filter_watchlist_activity_header">Activitat de la llista de seguiment</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Canvis no vists</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Canvis vists</string>
+  <string name="watchlist_filter_contribution_quality_header">Prediccions de la qualitat de les contribucions</string>
+  <string name="watchlist_filter_contribution_quality_good">Molt possiblement bones</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Poden tenir problemes</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Possiblement tenen problemes</string>
+  <string name="watchlist_filter_contribution_quality_bad">Molt possiblement tenen problemes</string>
+  <string name="watchlist_filter_user_intent_header">Prediccions de la intenció de l\'usuari</string>
+  <string name="watchlist_filter_user_intent_good">Molt possiblement bona fe</string>
+  <string name="watchlist_filter_user_intent_may_problems">Podria ser mala fe</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Possiblement mala fe</string>
+  <string name="watchlist_filter_user_intent_bad">Molt possiblement mala fe</string>
+  <string name="watchlist_filter_user_status_header">Registre d\'usuari i experiència</string>
+  <string name="watchlist_filter_user_status_unregistered">No registrat</string>
+  <string name="watchlist_filter_user_status_registered">Registrat</string>
+  <string name="watchlist_filter_user_status_newcomers">Nouvinguts</string>
+  <string name="watchlist_filter_user_status_learners">Aprenents</string>
+  <string name="watchlist_filter_user_status_experienced">Usuaris experimentats</string>
+  <string name="watchlist_filter_contribution_authorship_header">Autoria de les contribucions</string>
+  <string name="watchlist_filter_contribution_authorship_own">Els vostres canvis</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Canvis d\'altres</string>
+  <string name="watchlist_filter_automated_contributions_header">Contribucions automatitzades</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Humà (no bot)</string>
+  <string name="watchlist_filter_significance_header">Importància</string>
+  <string name="watchlist_filter_significance_minor">Edicions menors</string>
+  <string name="watchlist_filter_significance_edits">Edicions no menors</string>
+  <string name="watchlist_filter_latest_revisions_header">Darreres revisions</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Darrera revisió</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">No la darrera revisió</string>
+  <string name="watchlist_filter_type_of_change_header">Tipus de canvi</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Edicions de pàgina</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Creacions de pàgina</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Canvis de categoria</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Edicions de Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Accions registrades</string>
+  <string name="watchlist_filter_type_of_change_new_users">Usuaris nous</string>
+  <string name="watchlist_filter_reset_button">Reinicialitza</string>
+  <string name="watchlist_search_bar_hint">Cerca o filtra la llista de seguiment</string>
+  <string name="watchlist_search_bar_filter_hint">Filtre de la llista de seguiment</string>
+  <string name="watchlist_empty_search_message">No hi ha cap resultat, proveu d\'eliminar %s per a veure\'n més.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
   <string name="preview_edit_title">Previsualització de l\'edició</string>
   <string name="preview_edit_summarize_edit_title">Resumeix l\'edició</string>
   <string name="preview_edit_summarize_edit_hint">Com heu millorat la pàgina?</string>
   <string name="preview_edit_minor_edit">Aquesta és una modificació menor</string>
-  <string name="preview_edit_minor_edit_url">https://ca.wikipedia.org/wiki/Ajuda:Edició_menor</string>
   <string name="preview_edit_watch_this_page">Vigila aquesta pàgina</string>
-  <string name="preview_edit_watch_this_page_url">https://ca.wikipedia.org/wiki/Ajuda:Vigilar_pàgines</string>
   <string name="preview_edit_learn_more">Més informació dels resums d\'edició</string>
-  <string name="preview_edit_learn_more_url">https://ca.wikipedia.org/wiki/Ajuda:Resum_de_la_modificació</string>
   <string name="action_item_categories">Categories</string>
   <string name="page_no_categories">La pàgina no pertany a cap categoria.</string>
   <string name="category_tab_articles">Articles</string>
@@ -1273,10 +1436,130 @@
   <string name="user_contrib_activity_title">Contribucions de %s</string>
   <string name="archive_empty">No s\'ha trobat cap pàgina arxivada.</string>
   <string name="user_contrib_filter_ns">Filtra per espai de noms</string>
-  <string name="user_contrib_filter_all">Totes les edicions</string>
+  <string name="user_contrib_filter_all">Tots els espais de noms</string>
+  <string name="user_contrib_filter_ns_header">Filtre d\'espais de noms</string>
   <string name="namespace_article">Article</string>
   <string name="user_contrib_current">actual</string>
   <string name="media_playback_error">Error de reproducció multimèdia</string>
   <string name="user_contrib_menu_label">Contribucions</string>
-  <string name="user_contrib_wiki_select">Contribucions a:</string>
+  <string name="user_contrib_filter_activity_title">Filtra les contribucions</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importa la llista de lectura compartida</string>
+  <string name="shareable_reading_lists_import_dialog_content">Com voleu anomenar la llista que se us ha compartit?</string>
+  <string name="shareable_reading_lists_new_indicator">*nova*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Se us ha compartit una llista de lectura</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Hem notat que se us ha compartit una llista de lectura. Per a mostrar la llista en l\'aplicació, torneu al missatge original i torneu a tocar l\'enllaç.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Entesos</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">S\'ha importat la llista de lectura</string>
+  <string name="reading_list_share_menu_label">Comparteix…</string>
+  <string name="reading_list_share_menu_tooltip">Comparteix la llista de lectura amb altres</string>
+  <string name="reading_list_share_message_v2">Hola! Voldria compartir-vos la meva llista de lectura de la Viquipèdia:</string>
+  <string name="reading_list_share_survey_title">Ens podeu ajudar a millorar la funcionalitat de «Comparteix llistes de lectura»?</string>
+  <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">No teniu cap missatge d\'avís desat.</string>
+  <string name="talk_templates_new_message_title">Missatge nou</string>
+  <string name="talk_templates_new_message_subject_hint">Assumpte</string>
+  <string name="talk_templates_new_message_compose_hint">Redacta el missatge</string>
+  <string name="talk_templates_new_message_save">Desa</string>
+  <string name="talk_templates_new_message_dialog_title">Desa els canvis</string>
+  <string name="talk_templates_new_message_dialog_description">Afegeix un títol i desa el missatge.</string>
+  <string name="talk_templates_new_message_dialog_hint">Títol del missatge</string>
+  <string name="talk_templates_new_message_dialog_save">Desa</string>
+  <string name="talk_templates_new_message_dialog_cancel">Cancel·la</string>
+  <string name="talk_templates_new_message_dialog_exists">La plantilla «%s» ja existeix.</string>
+  <string name="talk_templates_new_message_saved">El missatge s\'ha desat</string>
+  <string name="talk_templates_edit_message_dialog_title">Edita el missatge</string>
+  <string name="talk_templates_edit_message_dialog_save">Desa</string>
+  <string name="talk_templates_edit_message_dialog_delete">Suprimeix</string>
+  <string name="talk_templates_edit_message_updated">El missatge s\'ha actualitzat</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">El missatge s\'ha suprimit</string>
+  <string name="talk_templates_message_title_empty">El títol no pot ser en blanc.</string>
+  <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra edicions</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Etiquetes: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Cap</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Mostra la pàgina d\'usuari</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Mostra la pàgina de discussió</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Informació de l\'usuari</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Mostra les contribucions de l\'usuari</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Agraeix</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informació de l\'usuari</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Compte de:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Recompte d\'edicions: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Tanca</string>
+  <string name="patroller_tasks_filters_title">Filtres</string>
+  <string name="patroller_tasks_filters_reset">Reinicialitza</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Tots</string>
+  <string name="patroller_tasks_filters_user_status_header">Registre i experiència d\'usuari</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">No registrat</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Editors que no han iniciat una sessió.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registrat</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Editors que han iniciat una sessió.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Nouvinguts</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Editors registrats que tenen menys de 10 edicions de 4 dies d\'activitat.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Aprenents</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Editors registrats l\'experiència dels quals es troba entre «nouvinguts» i «usuaris experimentats».</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Usuaris experimentats</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Editors registrats amb més de 500 edicions i 30 dies d\'activitat.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Darreres revisions</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Darrera revisió</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">No la darrera revisió</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contribucions automatitzades</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Humà (no bot)</string>
+  <string name="patroller_tasks_filters_significance_header">Importància</string>
+  <string name="patroller_tasks_filters_significance_minor">Modificacions menors</string>
+  <string name="patroller_tasks_filters_significance_edits">Modificacions no menors</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Prediccions de la qualitat de les contribucions</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Molt possiblement bo</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Molt precís en trobar gairebé totes les edicions sense problemes.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Pot tenir problemes</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Troba les edicions més defectuoses o perjudicials, però amb menor precisió.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Possiblement tenen problemes</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Amb precisió mitjana, troba una fracció intermèdia de les edicions problemàtiques.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Molt possiblement tenen problemes</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Molt precisa en trobar les edicions més òbviament defectuoses o perjudicials.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Prediccions de la intenció de l\'usuari</string>
+  <string name="patroller_tasks_filters_user_intent_good">Molt possiblement bona fe</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Molt precís en trobar gairebé totes les edicions de bona fe.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Pot ser mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Troba la majoria de les edicions de mala fe, però amb una precisió més baixa.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Possiblement mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Amb una precisió mitjana, troba una fracció intermèdia d\'edicions de mala fe.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Molt possiblement mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Molt precisa per trobar les edicions més òbvies de mala fe.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Proveu d\'eliminar %s per a veure més edicions</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historial d\'edició de l\'article</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">S\'ha completat la reversió</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Esteu segur que voleu revertir enrere?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">S\'ha completat la reversió enrere</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Mostra</string>
+  <string name="patroller_tasks_overflow_report">Problema amb la funcionalitat</string>
+  <string name="patroller_tasks_overflow_learn">Més informació</string>
+  <string name="patroller_onboarding_one_title">Contribuïu a la supervisió i aprovació de les edicions de la Viquipèdia.</string>
+  <string name="patroller_onboarding_two_thank_title">Agraeix</string>
+  <string name="patroller_onboarding_two_watch_title">Vigila</string>
+  <string name="patroller_onboarding_two_warn_title">Avisa</string>
+  <string name="patroller_diff_feedback_dialog_title">Ajudeu-nos a millorar aquesta funcionalitat</string>
+  <string name="patroller_diff_feedback_dialog_message">Esteu satisfet amb aquesta funcionalitat?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfet</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfet</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Com podem millorar la funcionalitat?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Comentaris</string>
+  <string name="patroller_diff_feedback_dialog_submit">Tramet</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">S\'han tramès els comentaris.</string>
+  <string name="data_opt_in_accept">Accepta</string>
+  <string name="data_opt_in_reject">Rebutja</string>
+  <string name="page_issues_title">Problemes de la pàgina</string>
+  <string name="generic_release_notes">Correccions d\'error menors i millores</string>
+  <string name="email_report_image_recommendations_subject">Informe d\'incidència - Funcionalitat de recomanació d\'imatges</string>
+  <string name="email_report_image_recommendations_body">He trobat un problema amb la funcionalitat de recomanació d\'imatges: \n- [Descriviu un problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada]</string>
+  <string name="email_report_patroller_tasks_subject">Informe d\'incidència - Funcionalitat de la patrulla d\'edicions</string>
+  <string name="email_report_patroller_tasks_body">He trobat un problema amb la funcionalitat de patrulla d\'edicions: \n- [Descriviu el problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada] \n\n[Captures de pantalla o enllaços]</string>
+  <string name="donation_campaign_go_back_button">Enrere</string>
+  <string name="menu_single_webview_open_external">Obre al navegador del sistema</string>
 </resources>

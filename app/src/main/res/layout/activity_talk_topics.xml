@@ -11,27 +11,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ToolbarTheme"
-            android:background="?paper_color"
-            app:layout_scrollFlags="scroll|enterAlways" >
-
-            <TextView
-                android:id="@+id/toolbarTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="8sp"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:singleLine="true"
-                android:ellipsize="end"/>
-
-        </androidx.appcompat.widget.Toolbar>
+            style="@style/ToolbarStyle.Small"
+            app:layout_scrollFlags="scroll|enterAlways" />
 
         <FrameLayout
             android:id="@+id/talkContentsView"
@@ -55,41 +40,62 @@
 
                 <TextView
                     android:id="@+id/talkSearchNoResult"
-                    style="@style/MaterialMediumSecondaryCaption"
+                    style="@style/P"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:layout_marginTop="?attr/actionBarSize"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/search_results_count_zero"
+                    android:textAlignment="center"
                     android:visibility="gone" />
 
-                <LinearLayout
+                <ScrollView
                     android:id="@+id/talkEmptyContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:visibility="gone"
                     tools:visibility="visible">
 
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_user_talk"
-                        app:tint="?attr/material_theme_de_emphasised_color"/>
-
-                    <TextView
-                        style="@style/MaterialMediumSecondaryCaption"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/talk_page_empty" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        tools:ignore="ScrollViewSize">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            app:srcCompat="?attr/talk_page_empty_state_drawable"/>
+
+                        <TextView
+                            style="@style/H2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:textAlignment="center"
+                            android:text="@string/talk_page_empty_title" />
+
+                        <TextView
+                            style="@style/P"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:text="@string/talk_page_empty_content"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                </ScrollView>
 
                 <org.wikipedia.views.WikiErrorView
                     android:id="@+id/talkErrorView"
@@ -100,7 +106,6 @@
 
                 <ProgressBar
                     android:id="@+id/talkProgressBar"
-                    style="@style/Widget.AppCompat.ProgressBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -119,9 +124,11 @@
                 android:id="@+id/talkNewTopicButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="56dp"
                 android:layout_margin="16dp"
                 android:layout_gravity="bottom|end"
-                app:backgroundTint="?attr/colorAccent"
+                style="@style/App.Button"
+                app:backgroundTint="?attr/progressive_color"
                 app:icon="@drawable/ic_add_gray_white_24dp"
                 app:iconTint="@android:color/white"
                 android:textColor="@android:color/white"

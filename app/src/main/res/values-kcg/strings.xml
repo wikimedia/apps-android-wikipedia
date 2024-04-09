@@ -71,8 +71,7 @@
   <string name="map_view_link_text">Di tazwa ta̱si̱la</string>
   <string name="other_languages_indication_text">Fam da̱ a̱lyem a̱ghyang</string>
   <string name="language_count_link_text">A̱ shyia̱ di̱ lilyem %d</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ka̱nang a shei, a shim ma̱ng &lt;a href=\"%1$s\"&gt;A̱yaaka̱nda̱n Nyian Ta̱m&lt;/a&gt;, a si̱ shim byii̱k nwuat mi̱ nwuat ang hu a̱tafa kwambwat yak&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; hu a̱ni.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ka̱nang a shei, a shim ma̱ng &lt;a href=\"%1$s\"&gt;A̱yaaka̱nda̱n Nyian Ta̱m&lt;/a&gt;, a si̱ shim byii̱k nwuat mi̱ nwuat ang hu a̱tafa kwambwat yak&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; hu a̱ni.</string>
   <string name="preference_title_language">Lilyem Wikipidya</string>
   <string name="langlinks_filter_hint">Zop</string>
   <string name="langlinks_empty">Peji huni shyia̱ di̱ lilyem ghyáng bah.</string>
@@ -156,8 +155,6 @@
   <string name="preference_title_sync_reading_lists_from_account">Á̱ tyei lis fang pwut di̱n ta̱m</string>
   <string name="preference_title_download_reading_list_articles">Cyok ma̱ng a̱yaati̱kut lis fang</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Turung lís fang nang á̱ ku tyia̱ pwut neet di̱ \"%s\" a?</string>
-  <string name="preferences_privacy_settings_heading">A̱bala̱lang</string>
-  <string name="preference_title_eventlogging_opt_in">Ta̱m ma̱ng a̱yaaripot nyian ta̱m</string>
   <string name="history_filter_list_hint">Cyam nkhang gbangbang</string>
   <string name="error_can_not_process_link">Á̱ si̱ mi̱n tsa a̱fwop wuni bah</string>
   <string name="page_protected_autoconfirmed">Á̱ cok peji huni di̱n kap.</string>
@@ -174,10 +171,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Á̱tutunkwambwat nang á̱ nyian ta̱m ma̱ng a̱mba</string>
   <string name="about_contributors_heading">Á̱nietnwuat</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
@@ -324,10 +319,6 @@
     <item quantity="one">%1$d a̱si̱ a̱ti̱kut 1 shyia̱ ma̱ntalang, %3$.2f MB</item>
     <item quantity="other">%1$d a̱si̱ a̱yaati̱kut %2$d shyia̱ ma̱ntalang, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">A̱ti̱kut 1, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">A̱yaati̱kut %1$d, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d a̱si̱ a̱yaati̱kut 1 shyia̱ ma̱ntalang, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d a̱si̱ a̱yaati̱kut %2$d shyia̱ ma̱ntalang, %3$.2f MB</string>
   <string name="reading_list_sort">Tswang</string>
   <string name="reading_list_sort_ellipsis">Tswang di̱n vak...</string>
   <string name="reading_list_sort_by_name">Tswang di̱n vak a̱lyoot</string>
@@ -577,7 +568,7 @@
   <string name="suggested_edits_ip_blocked_title">Á̱ fwun IP</string>
   <string name="suggested_edits_last_edited">Jhyuk ngaan</string>
   <string name="suggested_edits_last_edited_never">Du</string>
-  <string name="suggested_edits_task_new">a̱fai</string>
+  <string name="suggested_edits_task_new" fuzzy="true">a̱fai</string>
   <string name="suggested_edits_contributions_screen_title">nwuat mi̱ nwuat %s</string>
   <string name="suggested_edits_contribution_language_label">A̱lyem</string>
   <string name="suggested_edits_contribution_date_time_label">Mam zwat/Jen</string>

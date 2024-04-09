@@ -6,6 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ToolbarStyle.Small" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
     <LinearLayout
         android:id="@+id/edit_section_container"
         android:layout_width="match_parent"
@@ -29,7 +40,7 @@
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="6dp"
-                style="@style/EditSectionTextInputLayoutStyle" />
+                style="@style/TextInputLayoutStyle.EditSection" />
 
         </androidx.core.widget.NestedScrollView>
 
@@ -40,34 +51,19 @@
             android:background="?attr/paper_color"
             android:elevation="12dp" />
 
-        <HorizontalScrollView
-            android:id="@+id/edit_keyboard_overlay_formatting_container"
-            android:layout_width="match_parent"
+        <org.wikipedia.edit.WikiTextKeyboardFormattingView
+            android:id="@+id/edit_keyboard_overlay_formatting"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/paper_color"
-            android:scrollbars="none"
-            android:elevation="12dp">
+            android:elevation="12dp"/>
 
-            <org.wikipedia.edit.WikiTextKeyboardFormattingView
-                android:id="@+id/edit_keyboard_overlay_formatting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </HorizontalScrollView>
-
-        <HorizontalScrollView
-            android:id="@+id/edit_keyboard_overlay_container"
-            android:layout_width="match_parent"
+        <org.wikipedia.edit.WikiTextKeyboardView
+            android:id="@+id/edit_keyboard_overlay"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/paper_color"
-            android:elevation="12dp">
-
-            <org.wikipedia.edit.WikiTextKeyboardView
-                android:id="@+id/edit_keyboard_overlay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </HorizontalScrollView>
+            android:elevation="12dp"/>
 
     </LinearLayout>
 
@@ -123,15 +119,13 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/view_progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:indeterminateTint="?attr/colorAccent"
-        android:progressBackgroundTint="@color/accent30"
         android:visibility="gone"
-        android:layout_marginTop="-6dp"
         tools:visibility="visible" />
+
+    </FrameLayout>
 </FrameLayout>

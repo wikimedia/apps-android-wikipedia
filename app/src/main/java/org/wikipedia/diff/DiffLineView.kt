@@ -42,10 +42,10 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
         binding.diffText.text = diffLine.parsedText
 
         if (diffLine.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) {
-            binding.diffLineNumText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
+            binding.diffLineNumText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_color))
             setExpanded(false)
         } else {
-            binding.diffLineNumText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_68))
+            binding.diffLineNumText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.warning_color))
             setExpanded(true)
         }
     }
@@ -57,7 +57,7 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
             binding.collapseExpandButton.setImageResource(R.drawable.ic_arrow_down_24)
         } else {
             binding.diffText.isVisible = false
-            binding.collapseExpandButton.setImageResource(R.drawable.ic_chevron_forward_gray)
+            binding.collapseExpandButton.setImageResource(R.drawable.ic_chevron_forward_white_24dp)
         }
     }
 }

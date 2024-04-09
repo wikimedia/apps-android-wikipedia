@@ -1,8 +1,12 @@
 package org.wikipedia.dataclient.wikidata
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.decodeFromJsonElement
 import org.wikipedia.dataclient.mwapi.MwResponse
+import org.wikipedia.json.JsonUtil
 
 @Serializable
 class Entities : MwResponse() {
@@ -22,9 +26,21 @@ class Entities : MwResponse() {
         val labels: Map<String, Label> = emptyMap()
         val descriptions: Map<String, Label> = emptyMap()
         val sitelinks: Map<String, SiteLink> = emptyMap()
-        val statements: Map<String, List<Claims.Claim>> = emptyMap()
+        val statements: JsonElement? = null
         val missing: JsonElement? = null
-        val lastRevId: Long = 0
+        @SerialName("lastrevid") val lastRevId: Long = 0
+
+        fun getStatements(): Map<String, List<Claims.Claim>> {
+            return if (statements != null && statements !is JsonArray) {
+                JsonUtil.json.decodeFromJsonElement(statements)
+            } else {
+                emptyMap()
+            }
+        }
+
+        fun getDescription(langCode: String): String? {
+            return descriptions[langCode]?.value
+        }
     }
 
     @Serializable

@@ -51,6 +51,8 @@ class SearchIntentTest {
                 .check(matches(withText("Barack Obama")))
 
         device.setOrientationNatural()
+        TestUtil.delay(2)
+
         device.unfreezeRotation()
 
         TestUtil.delay(2)
@@ -79,7 +81,7 @@ class SearchIntentTest {
 
         TestUtil.delay(1)
 
-        onView(allOf(withId(R.id.search_src_text), isDisplayed()))
+        onView(allOf(withId(androidx.appcompat.R.id.search_src_text), isDisplayed()))
                 .perform(ViewActions.replaceText("rus"), ViewActions.closeSoftKeyboard())
 
         TestUtil.delay(1)

@@ -6,9 +6,10 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.readinglist.sync.SyncedReadingLists.*
 import retrofit2.Response
 import java.io.IOException
+import java.time.Instant
 
 class ReadingListClient(private val wiki: WikiSite) {
-    var lastDateHeader: String? = null
+    var lastDateHeader: Instant? = null
         private set
 
     /**
@@ -187,7 +188,7 @@ class ReadingListClient(private val wiki: WikiSite) {
     }
 
     private fun saveLastDateHeader(response: Response<*>) {
-        lastDateHeader = response.headers()["date"]
+        lastDateHeader = response.headers().getInstant("date")
     }
 
     companion object {

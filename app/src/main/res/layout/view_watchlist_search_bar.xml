@@ -1,0 +1,56 @@
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:transitionName="@string/transition_search_bar"
+    app:elevation="0dp"
+    app:cardCornerRadius="22dp">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/watchlist_search_bar_hint"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_search_white_24dp"
+        app:tint="?attr/placeholder_color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:text="@string/watchlist_search_bar_hint"
+        android:textColor="?attr/secondary_color"/>
+
+    <TextView
+        android:id="@+id/filter_count"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="48dp"
+        android:gravity="center_vertical"
+        android:textColor="?attr/colorAccent"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/filter_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:contentDescription="@string/watchlist_search_bar_filter_hint"
+        android:focusable="true"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_baseline_tune_24"
+        app:tint="?attr/primary_color" />
+
+</org.wikipedia.views.WikiCardView>

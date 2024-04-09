@@ -29,6 +29,7 @@ import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -74,7 +75,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
                     val pageTitle = PageTitle.titleForUri(uri, WikiSite(uri))
                     if (pageTitle.isUserPage) {
                         binding.overflowViewSecondaryTalk.visibility = View.VISIBLE
-                        binding.overflowViewSecondaryTalk.text = context.getString(R.string.notifications_menu_user_talk_page, secondary.first().label)
+                        binding.overflowViewSecondaryTalk.text = String.format(L10nUtil.getStringForArticleLanguage(StringUtil.dbNameToLangCode(container.notification.wiki),
+                            R.string.notifications_menu_user_talk_page), secondary.first().label)
                         binding.overflowViewSecondaryTalk.setOnClickListener {
                             if (UriUtil.isAppSupportedLink(uri)) {
                                 context.startActivity(TalkTopicsActivity.newIntent(context, pageTitle, Constants.InvokeSource.NOTIFICATION))
@@ -93,7 +95,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         }
 
         container.notification?.isUnread?.let {
-            binding.overflowMarkAsRead.setText(if (it) R.string.notifications_menu_mark_as_read else R.string.notifications_menu_mark_as_unread)
+            binding.overflowMarkAsRead.text = L10nUtil.getStringForArticleLanguage(StringUtil.dbNameToLangCode(container.notification.wiki),
+                if (it) R.string.notifications_menu_mark_as_read else R.string.notifications_menu_mark_as_unread)
             binding.overflowMarkAsRead.setCompoundDrawablesRelativeWithIntrinsicBounds(if (it) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
         }
 
@@ -126,8 +129,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
     private fun setUpViewForLink(textView: TextView, link: Notification.Link,
                                  @DrawableRes customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
-                                 @ColorInt customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color),
-                                 @ColorInt customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_text_color)) {
+                                 @ColorInt customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.secondary_color),
+                                 @ColorInt customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_color)) {
         textView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
 
         val icon = when (link.icon()) {

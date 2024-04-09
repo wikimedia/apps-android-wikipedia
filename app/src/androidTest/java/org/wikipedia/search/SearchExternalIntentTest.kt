@@ -80,7 +80,7 @@ class SearchExternalIntentTest {
 
         TestUtil.delay(1)
 
-        onView(allOf(withId(R.id.search_src_text), isDisplayed()))
+        onView(allOf(withId(androidx.appcompat.R.id.search_src_text), isDisplayed()))
                 .perform(ViewActions.replaceText("rus"), ViewActions.closeSoftKeyboard())
 
         TestUtil.delay(1)

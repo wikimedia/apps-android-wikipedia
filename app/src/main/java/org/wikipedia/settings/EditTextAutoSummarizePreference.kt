@@ -2,7 +2,7 @@ package org.wikipedia.settings
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.core.content.withStyledAttributes
+import androidx.core.content.res.use
 import androidx.preference.EditTextPreference
 import org.wikipedia.R
 
@@ -12,12 +12,8 @@ open class EditTextAutoSummarizePreference @JvmOverloads constructor(context: Co
                                                                      defStyleRes: Int = R.style.EditTextAutoSummarizePreference) :
         EditTextPreference(context, attrs, defStyleAttr, defStyleRes) {
 
-    private var autoSummarize = DEFAULT_AUTO_SUMMARIZE
-
-    init {
-        context.withStyledAttributes(attrs, R.styleable.EditTextAutoSummarizePreference, defStyleAttr, defStyleRes) {
-            autoSummarize = getBoolean(R.styleable.EditTextAutoSummarizePreference_autoSummarize, DEFAULT_AUTO_SUMMARIZE)
-        }
+    private val autoSummarize = context.obtainStyledAttributes(attrs, R.styleable.EditTextAutoSummarizePreference, defStyleAttr, defStyleRes).use {
+        it.getBoolean(R.styleable.EditTextAutoSummarizePreference_autoSummarize, DEFAULT_AUTO_SUMMARIZE)
     }
 
     override fun onAttached() {

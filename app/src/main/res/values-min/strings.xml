@@ -59,8 +59,8 @@
   <string name="map_view_link_text">Caliak di peta</string>
   <string name="other_languages_indication_text">Baco dalam bahaso lain</string>
   <string name="language_count_link_text">Ado dalam %d bahaso lain</string>
-  <string name="edit_save_action_license_logged_in">Jo manabikkan, Sanak satuju pado &lt;a href=\"%1$s\"&gt;Katantuan Panggunoan&lt;/a&gt;, dan malapeh jariah Sanak di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Jo manabikan, Sanak sapakaik jo &lt;a href=\"%1$s\"&gt;Katantuan Panggunoan&lt;/a&gt;, sarato malapeh jariah Sanak di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntiangan ka diubuangkan ka alamaik IP parangkek. Kok Sanak &lt;a href=\"https://#login\"&gt;masuak log&lt;/a&gt;, Sanak ka punyo privasi labiah.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Jo manabikkan, Sanak satuju pado &lt;a href=\"%1$s\"&gt;Katantuan Panggunoan&lt;/a&gt;, dan malapeh jariah Sanak di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Jo manabikan, Sanak sapakaik jo &lt;a href=\"%1$s\"&gt;Katantuan Panggunoan&lt;/a&gt;, sarato malapeh jariah Sanak di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntiangan ka diubuangkan ka alamaik IP parangkek. Kok Sanak &lt;a href=\"https://#login\"&gt;masuak log&lt;/a&gt;, Sanak ka punyo privasi labiah.</string>
   <string name="preference_title_language">Bahaso Wikipedia</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="langlinks_empty">Laman ko indak ado dalam bahaso lain.</string>
@@ -156,9 +156,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkan daftar baco di babagai parangkek jo manyimpannyo ka akun Wikipedia Sanak \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Apuih daftar baco nan disinkronkan dari \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Iko ka maapuih sadoalah daftar baco nan disinkronkan sabalunnyo dari panyimpanan jarak jauah. Apuih sadoalah daftar nan disinkronkan dari akun Sanak \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privasi</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim laporan panggunoan</string>
-  <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuak mangumpua informasi tantang baa Sanak manggunokan aplikasi untuak mambuek aplikasi nan labiah rancak</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karusakan</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkan aplikasi untuak mangirimkan laporan karusakan ka HockeyApp / panyadio layanan pihak katigo sacaro otomatis sainggo kami dapek maninjau karusakan Sanak jo mameloki kasalahan labiah capek sarato labiah mudah.</string>
   <string name="editing_error_spamblacklist">Pautan ka domain nan disakek (%s) tadeteksi. Arok maapuihnyo dan cubo baliak.</string>
@@ -173,7 +170,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/min#Baco_sacaro_luriang_jo_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/min</string>
   <string name="android_app_request_an_account_url">https://min.wikipedia.org/wiki/Wikipedia:Mohon_buekkan_akun</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.id</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_translators_heading">Panajamah</string>

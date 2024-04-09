@@ -98,7 +98,7 @@ object UriUtil {
 
     fun isValidPageLink(uri: Uri): Boolean {
         return ((!uri.authority.isNullOrEmpty() &&
-                uri.authority!!.endsWith("wikipedia.org") &&
+                uri.authority!!.endsWith(WikiSite.BASE_DOMAIN) &&
                 !uri.path.isNullOrEmpty() &&
                 uri.path!!.matches(("^$WIKI_REGEX.*").toRegex())) &&
                 (uri.fragment == null || (uri.fragment!!.isNotEmpty() &&
@@ -163,5 +163,9 @@ object UriUtil {
             Constants.WIKI_CODE_WIKIDATA -> { PageTitle(UserAliasData.valueFor("en") + ":" + username, WikiSite(Service.WIKIDATA_URL)) }
             else -> { PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode)) }
         }
+    }
+
+    fun isDiffUrl(url: String): Boolean {
+        return url.contains("/index.php?") && url.contains("diff=") && url.contains("title=")
     }
 }

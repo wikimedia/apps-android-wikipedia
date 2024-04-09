@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:divider="?attr/list_separator_drawable"
+        android:divider="?attr/list_divider"
         android:minWidth="160dp"
         android:orientation="vertical"
         android:showDividers="middle">
@@ -20,6 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/reading_lists_overflow_select"
+                style="@style/OverflowMenuItem"
+                android:text="@string/reading_list_menu_select" />
 
             <TextView
                 android:id="@+id/reading_lists_overflow_sort_by"
@@ -30,6 +34,11 @@
                 android:id="@+id/reading_lists_overflow_create_new_list"
                 style="@style/OverflowMenuItem"
                 android:text="@string/reading_lists_menu_create_list" />
+
+            <TextView
+                android:id="@+id/reading_lists_overflow_import_list"
+                style="@style/OverflowMenuItem"
+                android:text="@string/reading_lists_menu_import_list" />
         </LinearLayout>
 
         <LinearLayout

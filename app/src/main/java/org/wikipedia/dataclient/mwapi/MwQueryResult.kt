@@ -2,7 +2,11 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.decodeFromJsonElement
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.Notification.SeenTime
 import org.wikipedia.notifications.db.Notification.UnreadNotificationWikiItem
@@ -20,20 +24,23 @@ class MwQueryResult {
     @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
     @SerialName("general") val siteInfo: SiteInfo? = null
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
+    @SerialName("recentchanges") val recentChanges: List<RecentChange>? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
     @SerialName("allusers") val allUsers: List<UserInfo>? = null
+    @SerialName("globaluserinfo") val globalUserInfo: UserInfo? = null
 
-    private val redirects: MutableList<Redirect>? = null
-    private val converted: MutableList<ConvertedTitle>? = null
+    private val redirects: List<Redirect>? = null
+    private val converted: List<ConvertedTitle>? = null
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
     val users: List<UserInfo>? = null
-    val pages: MutableList<MwQueryPage>? = null
+    val pages: List<MwQueryPage>? = null
     val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
     val namespaces: Map<String, Namespace>? = null
     val allmessages: List<Message>? = null
+    val magicwords: List<MagicWord>? = null
 
     init {
         resolveConvertedTitles()
@@ -74,7 +81,7 @@ class MwQueryResult {
         return users?.find { StringUtil.capitalize(userName) == it.name }
     }
 
-    fun langLinks(): MutableList<PageTitle> {
+    fun langLinks(): List<PageTitle> {
         val result = mutableListOf<PageTitle>()
         if (pages.isNullOrEmpty()) {
             return result
@@ -159,25 +166,82 @@ class MwQueryResult {
     @Serializable
     class WatchlistItem {
 
-        @SerialName("new") private val isNew = false
+        @SerialName("new") val isNew = false
         @SerialName("anon") val isAnon = false
+        @SerialName("minor") val isMinor = false
+        @SerialName("bot") val isBot = false
         @SerialName("old_revid") private val oldRevid: Long = 0
-        private val pageid = 0
         private val timestamp: String? = null
         private val comment: String? = null
-        private val minor = false
-        private val bot = false
+        val type: String = ""
+        @SerialName("pageid") val pageId = 0
         val revid: Long = 0
         val ns = 0
         val title: String = ""
         val user: String = ""
         val logtype: String = ""
+        val logdisplay: String = ""
         val oldlen = 0
         val newlen = 0
         var wiki: WikiSite? = null
         @SerialName("parsedcomment") val parsedComment: String = ""
         val date: Date
             get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
+    }
+
+    @Serializable
+    class RecentChange {
+        private val type: String = ""
+        private val ns = 0
+        val title: String = ""
+        val pageid: Int = 0
+        @SerialName("revid") val curRev: Long = 0
+        @SerialName("old_revid") val revFrom: Long = 0
+        val rcid: Long = 0
+        val user: String = ""
+        val anon = false
+        val bot = false
+
+        @SerialName("new") private val isNew = false
+        private val minor = false
+        val oldlen = 0
+        val newlen = 0
+        val timestamp: String = ""
+
+        @SerialName("parsedcomment") val parsedComment: String = ""
+        private val tags: List<String>? = null
+        private val oresscores: JsonElement? = null
+
+        val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }
+        val joinedTags by lazy { tags?.joinToString(separator = ", ").orEmpty() }
+
+        override fun toString(): String {
+            return title
+        }
+
+        val ores: OresResult?
+            get() = if (oresscores != null && oresscores !is JsonArray) {
+                JsonUtil.json.decodeFromJsonElement<OresResult>(oresscores)
+            } else null
+    }
+
+    @Serializable
+    class OresResult {
+        private val damaging: OresItem? = null
+        private val goodfaith: OresItem? = null
+
+        // TODO: articlequality
+        // TODO: draftquality
+        val damagingProb: Float
+            get() = damaging?.trueProb ?: 0f
+        val goodfaithProb: Float
+            get() = goodfaith?.trueProb ?: 0f
+    }
+
+    @Serializable
+    class OresItem {
+        @SerialName("true") val trueProb = 0f
+        @SerialName("false") val falseProb = 0f
     }
 
     @Serializable
@@ -190,5 +254,11 @@ class MwQueryResult {
     class Message {
         val name: String = ""
         val content: String = ""
+    }
+
+    @Serializable
+    class MagicWord {
+        val name: String = ""
+        val aliases: List<String> = emptyList()
     }
 }

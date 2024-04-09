@@ -13,7 +13,6 @@ import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
 import org.wikipedia.feed.topic.TopicsClient
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 
@@ -91,15 +90,11 @@ enum class FeedContentType(private val code: Int,
     }
 
     companion object {
-        private val MAP = EnumCodeMap(FeedContentType::class.java)
-
-        fun of(code: Int): FeedContentType { return MAP[code] }
-
         val aggregatedLanguages: List<String>
             get() {
                 val appLangCodes = WikipediaApp.instance.languageState.appLanguageCodes
                 val list = mutableListOf<String>()
-                values().filter { it.isEnabled }.forEach { type ->
+                entries.filter { it.isEnabled }.forEach { type ->
                     list.addAll(appLangCodes.filter {
                         (type.langCodesSupported.isEmpty() || type.langCodesSupported.contains(it)) &&
                                 !type.langCodesDisabled.contains(it) && !list.contains(it)
@@ -113,7 +108,7 @@ enum class FeedContentType(private val code: Int,
             val orderList = mutableListOf<Int>()
             val langSupportedMap = mutableMapOf<Int, List<String>>()
             val langDisabledMap = mutableMapOf<Int, List<String>>()
-            values().forEach {
+            entries.forEach {
                 enabledList.add(it.isEnabled)
                 orderList.add(it.order)
                 langSupportedMap[it.code] = it.langCodesSupported
@@ -130,7 +125,7 @@ enum class FeedContentType(private val code: Int,
             val orderList = Prefs.feedCardsOrder
             val langSupportedMap = Prefs.feedCardsLangSupported
             val langDisabledMap = Prefs.feedCardsLangDisabled
-            values().forEachIndexed { i, type ->
+            entries.forEachIndexed { i, type ->
                 type.isEnabled = enabledList.getOrElse(i) { true }
                 type.order = orderList.getOrElse(i) { i }
                 type.langCodesSupported.clear()

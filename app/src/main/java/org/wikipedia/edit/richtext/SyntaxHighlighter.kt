@@ -19,9 +19,11 @@ import java.util.concurrent.TimeUnit
 class SyntaxHighlighter(
     private var context: Context,
     private val textBox: SyntaxHighlightableEditText,
-    private val scrollView: NestedScrollView) {
+    private val scrollView: NestedScrollView?,
+    private val highlightDelayMillis: Long = HIGHLIGHT_DELAY_MILLIS) {
 
     private val syntaxRules = listOf(
+            SyntaxRule("{{{", "}}}", SyntaxRuleStyle.PRE_TEMPLATE),
             SyntaxRule("{{", "}}", SyntaxRuleStyle.TEMPLATE),
             SyntaxRule("[[", "]]", SyntaxRuleStyle.INTERNAL_LINK),
             SyntaxRule("[", "]", SyntaxRuleStyle.EXTERNAL_LINK),
@@ -58,12 +60,12 @@ class SyntaxHighlighter(
                 disposables.clear()
                 textBox.text.getSpans<SpanExtents>().forEach { textBox.text.removeSpan(it) }
             } else {
-                runHighlightTasks(HIGHLIGHT_DELAY_MILLIS)
+                runHighlightTasks(highlightDelayMillis)
             }
         }
 
     init {
-        textBox.doAfterTextChanged { runHighlightTasks(HIGHLIGHT_DELAY_MILLIS * 2) }
+        textBox.doAfterTextChanged { runHighlightTasks(highlightDelayMillis * 2) }
         textBox.scrollView = scrollView
         postHighlightOnScroll()
     }
@@ -81,10 +83,10 @@ class SyntaxHighlighter(
                         throw IllegalArgumentException()
                     }
 
-                    var firstVisibleLine = textBox.layout.getLineForVertical(scrollView.scrollY)
+                    var firstVisibleLine = if (scrollView != null) textBox.layout.getLineForVertical(scrollView.scrollY) else 0
                     if (firstVisibleLine < 0) firstVisibleLine = 0
 
-                    var lastVisibleLine = textBox.layout.getLineForVertical(scrollView.scrollY + scrollView.height)
+                    var lastVisibleLine = if (scrollView != null) textBox.layout.getLineForVertical(scrollView.scrollY + scrollView.height) else textBox.layout.lineCount - 1
                     if (lastVisibleLine < firstVisibleLine) lastVisibleLine = firstVisibleLine
                     else if (lastVisibleLine >= textBox.lineCount) lastVisibleLine = textBox.lineCount - 1
 
@@ -142,17 +144,19 @@ class SyntaxHighlighter(
     }
 
     fun cleanup() {
-        scrollView.removeCallbacks(highlightOnScrollRunnable)
+        scrollView?.removeCallbacks(highlightOnScrollRunnable)
         disposables.clear()
         textBox.text.clearSpans()
     }
 
     private fun postHighlightOnScroll() {
-        if (lastScrollY != scrollView.scrollY) {
-            lastScrollY = scrollView.scrollY
-            runHighlightTasks(0)
+        scrollView?.let {
+            if (lastScrollY != it.scrollY) {
+                lastScrollY = it.scrollY
+                runHighlightTasks(0)
+            }
+            it.postDelayed(highlightOnScrollRunnable, highlightDelayMillis)
         }
-        scrollView.postDelayed(highlightOnScrollRunnable, HIGHLIGHT_DELAY_MILLIS)
     }
 
     private inner class SyntaxHighlightTask constructor(private val text: CharSequence, private val startOffset: Int) : Callable<MutableList<SpanExtents>> {

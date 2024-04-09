@@ -11,8 +11,10 @@
 * Jeeputer
 * Joao Xavier
 * Kaganer
+* Kimberli Mäkäräinen (WMNO)
 * Kizule
 * KuboF
+* Lc97
 * Liuxinyu970226
 * MarcoAurelio
 * Matma Rex
@@ -20,6 +22,7 @@
 * Metalhead64
 * Minh Nguyen
 * MuratTheTurkish
+* Naheulf
 * Nemo bis
 * Nike
 * Omotecho
@@ -38,14 +41,14 @@
 * Zoranzoki21
 -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="all">
-  <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
-  <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
-  <string name="app_name_alpha">Name of the alpha version of the application.</string>
+  <string name="app_name_prod">{{Doc-protected-established}}\n\nName of the app as it will appear on the home screen. Should be the canonical, locally-trademarked name of Wikipedia, and identical to these messages:\n* iOS app name: {{msg-wm|Wikipedia-ios-meta-CFBundleDisplayName}}\n* Portal site name: {{msg-wm|Portals-wiki.name}}\n{{Identical|Wikipedia}}</string>
+  <string name="app_name_beta">{{Doc-protected-established}}\n\nName of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
+  <string name="app_name_alpha">{{Doc-protected-established}}\n\nName of the alpha version of the application.</string>
   <string name="wikimedia">Wikimedia\'s name.\n{{Identical|Wikimedia}}</string>
   <string name="nav_item_back">Button label for navigating to the previous page.\n\n{{Identical|Back}}</string>
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
-  <string name="search_hint">Hint text for the search box</string>
+  <string name="search_hint">Hint text for the search box. Should be as short as possible.</string>
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
@@ -103,8 +106,8 @@
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
-  <string name="menu_page_watch">Menu item for adding the current page to the Watchlist.</string>
-  <string name="menu_page_unwatch">Menu item for unwatching the current page (removing it from the Watchlist).</string>
+  <string name="menu_page_watch">Menu item for adding the current page to the Watchlist. The opposite of {{msg-wm|Wikipedia-android-strings-menu page unwatch}}</string>
+  <string name="menu_page_unwatch">Menu item for unwatching the current page (removing it from the Watchlist). The opposite of {{msg-wm|Wikipedia-android-strings-menu page watch}}</string>
   <string name="menu_page_view_talk">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_talk_page">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_edit_history">Menu item text for accessing the article edit history.</string>
@@ -126,7 +129,7 @@
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
   <string name="menu_page_archive">Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
-  <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
+  <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab. Appears next to {{msg-wm|Wikipedia-android-strings-button continue to article}}</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.\n{{Identical|Define}}</string>
   <string name="on_this_day_page_share">Text on button to share the On This Day article.\n{{Identical|Share}}</string>
@@ -139,9 +142,9 @@
   <string name="map_view_link_text">Link text for viewing the current article on a map (assuming the article has geo coordinates).</string>
   <string name="other_languages_indication_text">Text indicating that the article is available for the user to read in an another language as well.</string>
   <string name="language_count_link_text">Link text that says how many languages the current article is available in.  The %d symbol is replaced with the number of languages.</string>
-  <string name="content_license_cc_by_sa">Text of the license CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
-  <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>
+  <string name="content_license_cc_by_sa">{{optional}}\n\nText of the license CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC BY-SA 4.0 license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
+  <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC BY-SA 4.0 license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>
   <string name="edit_anon_warning">Warning shown when an edit will be made anonymously. Please preserve the the href=\'https://#login\' link in the message.</string>
   <string name="preference_title_language">Title for preference in settings screen for setting which language Wikipedia to use.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
@@ -151,6 +154,7 @@
   <string name="langlinks_your_wikipedia_languages">Section header text that shows user list of languages the current article is available in.</string>
   <string name="menu_save_changes">{{Identical|Publish changes}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
+  <string name="stub_article_edit_saved_successfully">Message text shown to users after a successful edit to a stub article.</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
   <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.\n{{Identical|Retry}}</string>
   <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save.\n{{Identical|Cancel}}</string>
@@ -193,6 +197,9 @@
   <string name="logged_out_in_background_dialog">Dialog box text that tells the user they have been logged out, and asks if they want to log in again.</string>
   <string name="logged_out_in_background_login">Button that allows the user to go to the login screen.</string>
   <string name="logged_out_in_background_cancel">Button that cancels the dialog box that tells the user they have been logged out.\n{{Identical|Cancel}}</string>
+  <string name="account_vanish_request_title">Title for button that takes the user into the account vanishing workflow.</string>
+  <string name="account_vanish_request_confirm_title">Title of confirmation dialog when navigating to the account vanishing workflow.</string>
+  <string name="account_vanish_request_confirm">Text for confirmation dialog when navigating to the account vanishing workflow.</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="history_offline_articles_toast">Message shown in a toast when some articles in the history page may not be viewable while offline.</string>
@@ -240,9 +247,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Description of preference that, when checked, enables syncing the user\'s reading lists across devices from this account. The %s symbol is replaced with the username if logged in</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Title of a warning dialog when turning off the reading list sync. The %s symbol is replaced with the username if logged in</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Description of a warning dialog when turning off the reading list sync. The %s symbol is replaced with the username.</string>
-  <string name="preferences_privacy_settings_heading">Section title for privacy related settings\n{{Identical|Privacy}}</string>
-  <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
-  <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
@@ -261,16 +265,16 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
-  <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for Czech (lang code \"cs\"): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
+  <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
-  <string name="offline_reading_and_data_url">URL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
-  <string name="android_app_faq_url">URL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="android_app_faq_url">{{optional}}\nURL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
-  <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
-  <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
-  <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
-  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.\n\n{{optional}}</string>
-  <string name="suggested_edits_image_tags_help_url">URL for more information about contributing image tags from the app.</string>
+  <string name="android_app_request_an_account_url">{{optional}}\nURL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
+  <string name="cc_by_sa_4_url">{{optional}}\n\nURL for details about the Creative Commons CC BY-SA 4.0 license. When possible, please use the appropriate language-specific URL.</string>
+  <string name="cc_0_url">{{optional}}\n\nURL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL.</string>
+  <string name="android_app_edit_help_url">{{optional}}\nURL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
+  <string name="suggested_edits_image_tags_help_url">{{optional}}\n\nURL for more information about contributing image tags from the app.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app.</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
   <string name="about_contributors">URL leading to the page of the Wikimedia Android app team. {{doc-important|Please don\'t translate links and link titles.}}</string>
@@ -293,6 +297,9 @@
   <string name="edit_undo">Button label to undo the previous text that was typed.</string>
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
   <string name="edit_rollback">Button label to rollback the article to the previous revision.</string>
+  <string name="edit_warn">Title of the screen of publishing a warn message to a user talk page.</string>
+  <string name="edit_damage">Label of the edit damage in the article edit detail page. %s will be replaced by the percentage of edit damage.</string>
+  <string name="edit_intent">Label of the edit intent in the article edit detail page. %s will be replaced by the percentage of edit intent.</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
     <item quantity="other">Text for the revisions difference in bytes. %s will be replaced by the number of bytes.</item>
@@ -338,6 +345,8 @@
   <string name="widget_name_featured_page">Name of the Widget (as seen in the Android widget picker) that displays today\'s featured page.</string>
   <string name="widget_title_featured_page">Text shown inside the widget that tells the user that the link below is today\'s featured page.</string>
   <string name="widget_name_search">Name of the Widget (as seen in the Android widget picker) for searching Wikipedia\n\nFollowed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
+  <string name="widget_description_search">Description of Search widget, shown in the system widget selector.</string>
+  <string name="widget_description_featured_page">Description of Featured Page widget, shown in the system widget selector.</string>
   <string name="wiktionary_no_definitions_found">Message shown when a user requests a definition from Wiktionary but no definition is found.</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.\n\n\n\n\nFollowed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="alpha_update_notification_text">Text for notification when new alpha update is available.\n\nPreceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}.</string>
@@ -390,7 +399,7 @@
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API onThisDay from the server.\n{{Identical|Message}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
-  <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="button_continue_to_article">Button to continue to the full article from the current link preview. Appears next to {{msg-wm|Wikipedia-android-strings-menu long press open in new tab}}</string>
   <string name="button_continue_to_talk_page">Button to continue to the talk page that is currently being previewed.</string>
   <string name="button_continue_to_disambiguation">Button to continue to the disambiguation page for the selected title.</string>
   <string name="link_preview_disambiguation_description">Message shown when a selected title refers to more than one page, ending with a colon after which the disambiguations will be listed.</string>
@@ -398,6 +407,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Message informing the user that an article cannot be loaded while the app is offline. This message is followed by page_offline_notice_add_to_reading_list.</string>
   <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be downloaded when the app is online. This message follows {{msg-wm|Wikipedia-android-strings-page_offline_notice_cannot_load_while_offline}}.</string>
   <string name="page_offline_notice_last_date">Message that tells the user that the current article is loaded from offline storage. The %s symbol is replaced with the date when the article was saved.</string>
+  <string name="redirected_from_snackbar">Short-lived snackbar message that informs the user they have redirected when opening the article. The %s symbol is replaced with the original article title.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
@@ -420,6 +430,11 @@
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
+  <string name="link_preview_dialog_read_button">Button label for reading the article in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_saved_button">Button label that indicates the article has been saved in a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
+  <string name="link_preview_stub_placeholder_text">Placeholder text shown to users in the preview dialog of an article, when there isn\'t enough content in the article to show in the preview.</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
@@ -442,6 +457,25 @@
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
+  <string name="temp_account_not_logged_in">Title of dialog informing the user that a temporary account is being used.</string>
+  <string name="temp_account_anon_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_temp_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_dialog_ok">Positive action button in Temporary Account info dialog.</string>
+  <string name="temp_account_using_title">Title of dialog informing the user that a temporary account is being used.</string>
+  <string name="temp_account_dialog_discard">Action button for going directly to the Login screen.</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Message shown when a temporary account with a name of %1$s is created, and will expire in 1 day.</item>
+    <item quantity="other">Message shown when a temporary account with a name of %1$s is created, and will expire in %2$d days.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Message shown when a temporary account will expire in 1 day.</item>
+    <item quantity="other">Message shown when a temporary account will expire in %d days.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">Status message shown while editing anonymously, explaining that a temporary account will be created if an edit is made. Please preserve any HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_edit_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting. The %2$s symbol is replaced with a URL.</string>
+  <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting.</string>
+  <string name="temp_account_end_session">Button label for discarding the current temporary account.</string>
+  <string name="temp_account_end_session_confirm">Confirmation message for logging out of a temporary account.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
@@ -475,30 +509,34 @@
   <string name="editing_line_numbers_label">Label for checkbox that enables or disables showing line numbers when editing.</string>
   <string name="editing_monospace_font_label">Label for checkbox that enables or disables using a monospace font when editing.</string>
   <string name="editing_typing_suggestions">Label for checkbox that enables or disables typing suggestions when editing.</string>
-  <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
+  <string name="nav_item_saved">Translate as a plural adjective that describes articles (\"saved articles\", but without the word \"articles\").\n\nNavigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
-  <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_added_to_named">Message shown to user when an article is successfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets successfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
   <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
   <string name="reading_list_add_to_list_button">Button label to add the article to a reading list.</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space.</item>
+    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %d parameter is the number of pages in the list which are not downloaded, and hence not taking up disk space.</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">Summary shown for a reading list that contains one article. The %2$.2f parameter is replaced with the cache size of the article.</item>
     <item quantity="other">Summary shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages in the list, and  the %2$.2f parameter is the total number of megabytes saved to disk for offline page reading.</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">Detailed description Summary shown for a reading list that contains one article which is not downloaded, and hence not taking up disk space</item>
+    <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list.</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">Detailed description shown for a reading list that contains one article; The %1$d parameter is the number pages saved to disk for offline reading (zero or one), and the %3$.2f parameter is the number of megabytes saved to disk for this list.</item>
     <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list, and the %3$.2f parameter is the total number of megabytes saved to disk for this list.</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of megabytes saved to disk for offline page reading. The %1$.2f symbol is replaced with the cache size of the article.</string>
-  <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1)(%1$d) the number of pages in the list, 2)(%2$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
-  <string name="format_reading_list_statistical_detail_singular">Detailed description shown for a reading list that contains one article (singular); this string is formatted with two arguments: 1)(%1$d) the number, zero or one, of pages saved to disk for offline reading, 2)(%2$.2f) a parameter containing the number of megabytes saved to disk for offline page reading.</string>
-  <string name="format_reading_list_statistical_detail_plural">Detailed description shown for a reading list that contains zero or multiple articles (plural); this string is formatted with three arguments: 1)(%1$d) the number of pages saved to disk for offline reading, 2)(%2$d) the number of pages in the list total, 3)(%3$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
   <string name="reading_list_sort">Button label to sort reading lists.\n{{Identical|Sort}}</string>
   <string name="reading_list_sort_ellipsis">Menu option suggesting that the user can sort the reading listsin many ways.</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
@@ -508,6 +546,10 @@
   <string name="reading_list_sort_by_created">Menu option to sort reading lists from newest to oldest, based on the date the items were created.</string>
   <string name="reading_list_sort_by_created_desc">Menu option to sort reading lists from oldest to newest, based on the date the items were created.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
+  <string name="reading_list_menu_export">Label for menu item for the user to export the reading list.</string>
+  <string name="reading_list_menu_select">Label for menu item for the user to select list item.</string>
+  <string name="reading_list_menu_unselect">Label for menu item for the user to unselect list item.</string>
+  <string name="reading_list_export_write_permission_rationale">Text asking the user for permission to access their internal storage for exporting reading lists.</string>
   <string name="reading_list_menu_rename">Menu item for changing the name and description of a reading list.</string>
   <string name="reading_list_action_menu_remove_from_offline">Label for a menu option allowing the user to remove selected articles from offline storage</string>
   <string name="reading_list_action_menu_save_for_offline">Label for a menu option allowing the user to save article content for offline availability</string>
@@ -528,6 +570,15 @@
     <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">Toast message shown when one reading list is deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+    <item quantity="other">Toast message shown when multiple reading lists are deleted. The \"%d\" symbol is replaced with the number of the lists deleted.</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Message shown to users when they attempt selecting the default list for deletion. %s is replaced with the name of the default list.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">Message shown to users when they attempt selecting the default list with one other list for deletion. %1$s represents the name of the non-default list, and %2$s represents the name of the default list.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Message shown to users when they attempt selecting the default list as one of the multiple lists for deletion. %s is replaced with the name of the default list.</string>
+  <string name="single_list_json_file_name">File name to be given to a single exported reading list, with %s representing the name of the reading list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
+  <string name="multiple_lists_json_file_name">File name to be given to a file containing multiple exported reading lists, with %s representing the name of the first list. Please preserve the .json extension, and do not use any illegal filename characters.</string>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.\n{{Identical|Undo}}</string>
@@ -560,6 +611,11 @@
   <string name="reading_list_articles_added_to_named">Message shown when the user adds articles to a named reading list. The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
   <string name="reading_list_articles_moved_to_named">Message shown when the user moves articles to a named reading list. The %1$d symbol is replaced with the number of articles moved, and the %2$s symbol is replaced with the list name.</string>
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list. The \"%s\" symbol is replaced with the name of the list.</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Confirmation dialog title shown to user while deleting multiple reading lists.</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Confirmation dialog message shown to user while deleting one reading list. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+    <item quantity="other">Confirmation dialog message shown to user while deleting multiple reading lists. The \"%d\" symbol is replaced with the number of lists up for deletion.</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Title of warning message shown to a user to login for enabling syncing of reading lists.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Warning message shown to a user to login for enabling syncing of reading lists.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Negative answer to cancel the current process.\n{{Identical|Cancel}}</string>
@@ -583,6 +639,7 @@
   <string name="reading_list_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
+  <string name="reading_lists_menu_import_list">Menu option offering user an option to import a reading list from a csv file.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Affirmative answer to confirm and redirect to the login / Sign up page.\n{{Identical|Log in / Sign up}}\n\n{{Identical|Log in / create account}}\n\n{{Identical|Log in}}</string>
@@ -603,7 +660,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Negative action button text in pop-up dialog for removing article from offline storage.\n{{Identical|Cancel}}</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Negative action button text in pop-up dialog for downloading content on mobile data connection.\n{{Identical|Cancel}}</string>
   <string name="reading_list_split_dialog_ok_button_text">Positive action button text in warning pop-up dialog for splitting large reading lists.\n{{Identical|OK}}</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Delete action button text in warning pop-up dialog for deleteing multiple reading lists.</string>
   <string name="reading_list_activity_title">Title for reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_notification_title">Notification title text when a reading lists are exported.</string>
+  <string name="reading_list_notification_text">Notification description text for reading lists export. %d represents the number of lists exported.</string>
+  <string name="reading_list_notification_detailed_text">Notification detailed description text for reading list export.</string>
+  <string name="reading_lists_action_menu_export_lists">Label for a menu option allowing the user to export multiple lists to phone storage.</string>
+  <string name="reading_lists_import_file_picker_title">Title message text shsown to user while choosing a file from the downloads folder to import.</string>
+  <string name="reading_lists_import_failure_message">User message when imports of reading lists has not been successful.</string>
+  <string name="reading_lists_export_select_lists_message">User message asking the user to select reading lists for export.</string>
+  <string name="reading_lists_export_completed_message">Text to let the user know that the list export process has been completed.</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">User message when export of a single reading list has not been successful.</item>
+    <item quantity="other">User message when export of multiple reading lists has not been successful.</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">User message when import of single reading list has been successful.</item>
+    <item quantity="other">User message when import of multiple reading lists has been successful.</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Title for the preview reading list that has been shared with the user.</string>
+  <string name="reading_lists_preview_save_button">Button text for saving the preview reading list.</string>
+  <string name="reading_lists_preview_save_dialog_title">Title for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_text">Description for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Hint for the input field in the dialog of saving the reading list.\n{{identical|Title}}</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Cancel button for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_save_dialog_save">Save button for the dialog of saving the reading list.</string>
+  <string name="reading_lists_preview_saved_snackbar">Message text for the snackbar that shows up after the user saved the reading list.</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Action text in the snackbar that shows up after the user saved the reading list.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
   <string name="notification_channel_title">Title of the notification channel</string>
@@ -707,7 +790,7 @@
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
   <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
   <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
-  <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
+  <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters, formatted using {{msg-wikimedia|wikipedia-android-strings-notifications_number_of_filters}}.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
     <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
@@ -815,8 +898,8 @@
   <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
   <string name="description_edit_learn_more">Label text for information about article descriptions.</string>
   <string name="description_edit_image_caption_learn_more">Label text for information about Image Captions.</string>
-  <string name="description_edit_description_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing article descriptions.</string>
-  <string name="description_edit_image_caption_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing Image captions.</string>
+  <string name="description_edit_description_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for writing article descriptions.</string>
+  <string name="description_edit_image_caption_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for writing Image captions.</string>
   <string name="description_too_short">Error text shown when a description is too short.</string>
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
   <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
@@ -824,6 +907,8 @@
   <string name="description_starts_with_lowercase">Warning text shown when a description starts with a lowercase character.</string>
   <string name="description_is_in_different_language">Warning message shown to users when their editing language is different form their keyboard language.%s represents the expected language.</string>
   <string name="description_verification_notice">Warning message shown to users when their editing language is not recognized by the machine learning service. %1$s and %2$s represent the language of the editing description.</string>
+  <string name="description_edit_suggested_description_button_text">Suggested edits article descriptions suggestions button label.</string>
+  <string name="description_edit_suggested_description_button_tooltip">Tooltip text for machine generated description suggestion button.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
@@ -841,6 +926,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Title of the description editing onboarding screen informing that machine generated suggestions are available.</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Informative description on the description editing onboarding screen explaining how the suggested suggestions are generated.</string>
   <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
   <string name="customize_toolbar_shortcut_description_text">Description of the customize toolbar page.</string>
   <string name="customize_toolbar_category_toolbar">Category of toolbar in the customize toolbar page.</string>
@@ -852,6 +939,9 @@
   <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
   <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
+  <string name="suggested_edits_edit_patrol">Title for patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_hint">Description of the task of patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_review">Button to begin the task of patrolling recent edits.</string>
   <string name="suggested_edits_review_description">Title of the review article description page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding article description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="suggested_edits_edit_description_button">A button text for editing article description.</string>
@@ -927,6 +1017,7 @@
   <string name="suggested_edits_image_tags_select_title">Title for a dialog box informing the user that they have not selected any tags for the current image.</string>
   <string name="suggested_edits_image_tags_select_text">Text for a dialog box asking the user whether they are sure about rejecting all of the suggested tags for the current image.</string>
   <string name="suggested_edits_image_tags_add_tag">Label text suggesting that user can add custom tags.</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Confirmation message text shown to user when they are exiting from image tags editing screen without publishing.</string>
   <string name="suggested_edits_image_zoom_tooltip">Short message telling the user that they can pinch to zoom the image that is shown.</string>
   <string name="suggested_edits_encouragement_message">Message text shown to users to encourage them to continue and increase editing.%s represents the user\'s name.</string>
   <string name="suggested_edits_onboarding_message">Message text shown to users who havent yet used the suggested edits features, to encourage them to start editing.%s represents the user\'s name</string>
@@ -942,13 +1033,13 @@
   <string name="suggested_edits_gate_message">Text explaining that usage of Suggested Edits requires a minimum number of existing edits. %s represents the user\'s name.</string>
   <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
-  <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak</string>
+  <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak\n\n\'\'\'An \"edit streak\" is a series of consecutive edits. So \'\'edit\'\' is not a verb here!\'\'\'</string>
   <string name="suggested_edits_views_label_text">Suggested edits label text for pageviews</string>
   <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
   <string name="suggested_edits_quality_perfect_text">Suggested edits label text indicating that the edit quality of the user is perfect</string>
   <string name="suggested_edits_quality_excellent_text">Suggested edits label text indicating that the edit quality of the user is excellent</string>
-  <string name="suggested_edits_quality_very_good_text">Suggested edits label text indicating that the edit quality of the user is very good</string>
-  <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good</string>
+  <string name="suggested_edits_quality_very_good_text">Suggested edits label text indicating that the edit quality of the user is very good.\n{{Identical|Good}}</string>
+  <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good.\n{{Identical|Good}}</string>
   <string name="suggested_edits_quality_okay_text">Suggested edits label text indicating that the edit quality of the user is okay</string>
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
   <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor\n\n{{Identical|Poor}}</string>
@@ -970,7 +1061,7 @@
   <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.\n\n{{Identical|Never}}</string>
-  <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".\n\n{{Identical|New}}</string>
+  <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to something like a \"new (feature)\" or a \"new (thing)\".\n\n{{Identical|New}}</string>
   <string name="suggested_edits_cc0_notice">Disclaimer that specifies the Terms of Use and CC license that applies to publishing these types of edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_reactivation_notification_title">Title of notification when the user has not edited for days.</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Text of notification when the user has not edited for days (first stage).</string>
@@ -991,7 +1082,7 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
+  <string name="suggested_edits_contribution_type_title">{{optional}}\nDropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday\n\n{{Identical|Yesterday}}</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
@@ -999,6 +1090,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
   <string name="suggested_card_more_edits">Label text for SE feed card footer action.</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Suggested edits article descriptions suggestions dialog title text.</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Title text for dialog shown to users when they click on flag to report a machine generated suggestion.</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Report label text suggesting that a suggested description does not provide enough information.</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Report label text suggesting that a suggested description cannot be seen.</string>
+  <string name="suggested_edits_inappropriate_suggestion">Report label text suggesting that a suggested description is an inappropriate suggestion</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Report label text suggesting that they do not understand the task.</string>
+  <string name="suggested_edits_report_suggestion">Button text indicating that the user can report an issue.</string>
+  <string name="suggested_edits_suggestion_report_submitted">Snackbar text shown to user as a confirmation after they have submitted a report.</string>
   <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
@@ -1009,6 +1108,39 @@
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Title for the Suggested Edits task of adding recommended images to articles.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Description for the Suggested Edits task of adding recommended images to articles.</string>
+  <string name="image_recommendation_task_instruction">Hint label when asking the user to add a proposed image to an article.</string>
+  <string name="image_recommendation_tutorial">Menu label for navigating to a tutorial screen.</string>
+  <string name="image_recommendation_accept">Button label for accepting a recommended image for an article.</string>
+  <string name="image_recommendation_reject">Button label for rejecting a recommended image for an article.</string>
+  <string name="image_recommendation_notsure">Button label indicating uncertainty about a recommended image for an article.</string>
+  <string name="image_recommendation_reject_title">Dialog title that lists reasons for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_subtitle">Dialog message that lists reasons for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_not_relevant">Checkbox message with a potential reason for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_no_info">Checkbox message with a potential reason for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_offensive">Checkbox message with a potential reason for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_low_quality">Checkbox message with a potential reason for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_dont_know">Checkbox message with a potential reason for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_other">Checkbox message with a potential miscellaneous reason for rejecting a recommendation.</string>
+  <string name="image_recommendation_reject_submit">Button label for submitting the reason for rejecting a recommendation.</string>
+  <string name="image_recommendation_tooltip_main">Tooltip message that points to the new feature of image recommendations.</string>
+  <string name="image_recommendation_onboarding_1">Initial onboarding title for the image recommendations feature.</string>
+  <string name="image_recommendation_onboarding_2">Onboarding message for the image recommendations feature.</string>
+  <string name="image_recommendation_onboarding_3">Onboarding message for the image recommendations feature.</string>
+  <string name="image_recommendation_onboarding_4">Onboarding message for the image recommendations feature.</string>
+  <string name="image_recommendation_tooltip_1">Tooltip message during the onboarding sequence for the image recommendations feature.</string>
+  <string name="image_recommendation_tooltip_2">Tooltip message during the onboarding sequence for the image recommendations feature.</string>
+  <string name="image_recommendation_tooltip_3">Tooltip message during the onboarding sequence for the image recommendations feature.</string>
+  <string name="image_recommendation_tooltip_next">Button label for going to the next tooltip in the onboarding sequence.</string>
+  <string name="image_recommendation_tooltip_warning">Tooltip that warns the user to examine the article thoroughly before acting on the recommendation.</string>
+  <string name="image_recommendation_depleted">Text shown when there are no more image recommendations available. Please leave the href link intact.</string>
+  <string name="suggested_edits_report_feature">Menu item for reporting a general issue with the feature.</string>
+  <string name="suggested_edits_report_feature_subject">Subject heading for message when reporting a problem with the feature.</string>
+  <string name="edit_summary_added_image">Edit summary when an image was added.</string>
+  <string name="edit_summary_added_caption">Edit summary when an image caption was added.</string>
+  <string name="edit_summary_added_image_and_caption">Edit summary when an image and its caption were added.</string>
+  <string name="edit_published_view">Button label for viewing an edit after it is published.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
@@ -1031,8 +1163,8 @@
   <string name="onboarding_explore_text">Short explanatory text about the benefits of the Explore feed.\n\n* \"On this day\" is {{Msg-wm|Wikipedia-android-strings-on this day card title}}\n* \"Random\" is {{Msg-wm|Wikipedia-android-strings-app shortcuts random}}</string>
   <string name="onboarding_reading_list_sync_title">Title for a tutorial screen about synchronizing reading lists.</string>
   <string name="onboarding_reading_list_sync_text_v2">Short explanatory text about the benefits of synchronizing reading lists. (Please preserve the anchor tag in its exact form)</string>
-  <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
-  <string name="onboarding_analytics_offline_text">Short explanatory text about the benefits of allowing the app to send anonymous usage reports. (Please preserve the anchor tag in its exact form)</string>
+  <string name="onboarding_data_privacy_title">Title text for onboarding screen related to data and privacy.</string>
+  <string name="onboarding_data_privacy_text">Message text for onboarding screen related to data and privacy. Please preserve the #privacy and #termsOfUse links.\n\nSimilar to the following iOS app: {{msg-wm|Wikipedia-ios-welcome-privacy-subtitle}}</string>
   <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
   <string name="onboarding_got_it">Button label for dismissing the current onboarding card.\n{{Identical|Got it}}</string>
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
@@ -1104,10 +1236,11 @@
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
+  <string name="wikitext_mention_user">Button label for mentioning a user in a message.</string>
   <string name="insert_media_title">Title of the insert media screen.</string>
   <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
   <string name="insert_media_search_hint">Hint label for the insert media search field.</string>
-  <string name="insert_media_settings">Title of the media settings scree.</string>
+  <string name="insert_media_settings">Title of the media settings screen.</string>
   <string name="insert_media_settings_uploaded_image">Label of the uploaded image.</string>
   <string name="insert_media_settings_caption">Label of the caption of the image.</string>
   <string name="insert_media_settings_caption_description">Description of where the caption will be located.</string>
@@ -1133,13 +1266,22 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Label of the custom image height.\n{{identical|Height}}</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">Label of the custom image size suffix.</string>
   <string name="insert_media_insert_button">Button of inserting the image to the editor.</string>
+  <string name="templates_search_hint">Hint text for the search bar in the search templates screen.</string>
+  <string name="templates_insert_button">Button label for the templates data screen to insert the template.</string>
+  <string name="templates_param_suggested_value">Hint text for the input field. %s will be replaced by the suggested value.</string>
+  <string name="templates_param_optional_hint">Hint text for the input field that indicates the parameter for the template is optional. %s will be replaced by the parameter label.</string>
+  <string name="templates_param_suggested_hint">Hint text for the input field that indicates the parameter for the template is suggested. %s will be replaced by the parameter label. Should be consistent with {{msg-mw|Templatedata-doc-param-status-suggested}}</string>
+  <string name="templates_learn_more_link">Button label for the learn more button that opens the template page.</string>
+  <string name="templates_description_incomplete">Text for the message that indicates the description of the template may be incomplete.</string>
+  <string name="templates_description_empty">Text for the message that induces the description of the template is empty. %s will be replaced by the name of the template.</string>
+  <string name="templates_description_missing_data">Text for the message that indicates the template is missing its template data. %1$s will be replaced by the URL of Template parameters section, and %2$s will be replaced by the URL of Autogenerated parameters section in the Media Wiki User guide page. \"TemplateData\" should be translated similarly to {{msg-mw|Templatedata-helplink}}</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
   <string name="main_tooltip_text_v2">Message for the tool tip that shown on the main screen.</string>
   <string name="main_tooltip_action_button">Button label for the action on tool tip that shown on the main screen.</string>
   <string name="main_tooltip_watchlist_title">Title for the Watchlist tooltip that shown on the main screen.</string>
-  <string name="main_tooltip_watchlist_text">Message for the Watchlist tooltip that shown on the main screen.</string>
+  <string name="main_tooltip_watchlist_text">Message for the Watchlist tooltip that shown on the main screen. \"More\" is {{msg-wm|Wikipedia-android-strings-nav item more}}. \"Watchlist\" is {{msg-wm|Wikipedia-android-strings-watchlist title}}.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
@@ -1148,7 +1290,21 @@
   <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.\n\n{{Identical|Talk}}</string>
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_new_topic_submitted">Message shown when a new talk topic has been submitted.</string>
+  <string name="talk_warn">Title of screen that allows user to create a warn message.</string>
+  <string name="talk_warn_save_dialog_title">Title of the dialog of save the changes.</string>
+  <string name="talk_warn_save_dialog_message">Message of the dialog of save the changes</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Label text of the dialog of save the changes to save as a new message.</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Label text of the dialog of save the changes to update the existing message.</string>
+  <string name="talk_warn_save_dialog_hint">Hint for text fiel for the message title.</string>
+  <string name="talk_warn_save_dialog_publish">Button label for publishing the warn message.</string>
+  <string name="talk_warn_save_dialog_cancel">Button label for canceling the warn message.</string>
+  <string name="talk_warn_save_dialog_dont_save">Negative action label text for talk warm messages save dialog.</string>
+  <string name="talk_warn_submitted">Snackbar text that indicates the warn message has been published.</string>
+  <string name="talk_warn_submitted_and_saved">Snackbar text that indicates the warn message has been published and also saved to the templates list.</string>
+  <string name="talk_warn_saved_messages">Label text for menu option to enter the \'saved messages\' screen.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_title">Title text for stating that this talk page is currently empty.</string>
+  <string name="talk_page_empty_content">Content test for stating that this talk page is currently empty.</string>
   <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
   <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
@@ -1156,6 +1312,7 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk message with duplicate subject.</string>
   <string name="talk_response_submitted">Message shown when the response has been submitted.</string>
   <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.\n\n{{Identical|Undo}}</string>
   <string name="talk_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
@@ -1171,6 +1328,8 @@
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
+  <string name="talk_new_topic_exit_dialog_title">Confirmation title text shown to user when they are exiting from a new talk topic screen without saving.</string>
+  <string name="talk_new_topic_exit_dialog_message">Confirmation message text shown to user when they are exiting from a new talk topic screen without saving.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Button label for showing one reply to the current thread.</item>
     <item quantity="other">Button label for showing replies to the current thread. The %d symbol is replaced with the number of replies.</item>
@@ -1209,7 +1368,7 @@
   <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.\n\n{{Identical|Watch}}</string>
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>
   <string name="watchlist_details_prev_edit">Content description for the button that goes to the previous edit history.</string>
-  <string name="thank_label">Label on the button suggesting the user to thank the edit.</string>
+  <string name="thank_label">Label on the button that allows the user to thank the contributor for the edit.</string>
   <string name="view_user_page">Menu item label for going to the user page of the selected user.</string>
   <string name="thank_dialog_title_text">Title text on the thank dialog</string>
   <string name="thank_dialog_text">Dialog text for the thank dialog</string>
@@ -1224,14 +1383,15 @@
   <string name="revision_diff_from">Label for older revision to be compared.</string>
   <string name="revision_diff_to">Label for newer revision to be compared.</string>
   <string name="revision_diff_line_num">Label for line number seen in a diff between revisions. The %d symbol is replaced with the line number.</string>
-  <string name="revision_diff_line_nums">Label for range of line numbers seen in a diff between revisions. The first %d symbol is the starting line number, and the second %d symbol is the ending line number.</string>
   <string name="revision_diff_lines_from_to">Label for range of line numbers seen in a diff between revisions. The %1$d symbol is the starting line number, and the %2$d symbol is the ending line number.</string>
   <string name="revision_diff_line_added">Label shown in a diff when a line was added.</string>
   <string name="revision_diff_line_removed">Label shown in a diff when a line was removed.</string>
   <string name="revision_diff_paragraph_added">Label shown in a diff when a paragraph was added.</string>
   <string name="revision_diff_paragraph_removed">Label shown in a diff when a paragraph was removed.</string>
+  <string name="revision_diff_protected">Error message explaining that the diff of this revision cannot be viewed publicly.</string>
   <string name="revision_undo_title">Dialog title for undoing an edit.</string>
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
+  <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
   <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
@@ -1253,6 +1413,7 @@
   <string name="watchlist_expiry_dialog_three_months">Label for the time period that exists for 3 months.</string>
   <string name="watchlist_expiry_dialog_six_months">Label for the time period that exists for 6 months.</string>
   <string name="watchlist_empty">Message shown when the user\'s watchlist is empty.</string>
+  <string name="watchlist_search">Hint text for watchlist search bar</string>
   <string name="watchlist_filter_all">Filter selection to show all items in the watchlist\n\n{{Identical|All}}</string>
   <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist\n\n{{Identical|Talk}}</string>
   <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
@@ -1260,15 +1421,61 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
+  <string name="watchlist_filter_title">Title of the filter watchlist screen</string>
+  <string name="watchlist_filter_wiki_filter_header">Header text for watchlist wiki filter.</string>
+  <string name="watchlist_filter_all_text">Label text for button to enable all items in a certain filter category for watchlist</string>
+  <string name="watchlist_filter_watchlist_activity_header">Header text for watchlist activity.</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Option text for watchlist unseen changes activity.</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Option text for watchlist seen changes activity.</string>
+  <string name="watchlist_filter_contribution_quality_header">Header text for watchlist contribution quality predictions.</string>
+  <string name="watchlist_filter_contribution_quality_good">Option text for the contribution quality that indicates very likely good.</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Option text for the contribution quality that indicates may have problems.</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Option text for the contribution quality that indicates likely have problems.</string>
+  <string name="watchlist_filter_contribution_quality_bad">Option text for the contribution quality that indicates very likely have problems.</string>
+  <string name="watchlist_filter_user_intent_header">Header text for watchlist user intent predictions.</string>
+  <string name="watchlist_filter_user_intent_good">Option text for the user intent that indicates very likely good faith.</string>
+  <string name="watchlist_filter_user_intent_may_problems">Option text for the user intent that indicates may be bad faith.</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Option text for the user intent that indicates likely bad faith.</string>
+  <string name="watchlist_filter_user_intent_bad">Option text for the user intent that indicates very likely bad faith.</string>
+  <string name="watchlist_filter_user_status_header">Header text for watchlist user registration and experience.</string>
+  <string name="watchlist_filter_user_status_unregistered">Option text for the user registration and experience that indicates unregistered.</string>
+  <string name="watchlist_filter_user_status_registered">Option text for the user registration and experience that indicates registered.</string>
+  <string name="watchlist_filter_user_status_newcomers">Option text for the user registration and experience that indicates newcomers.</string>
+  <string name="watchlist_filter_user_status_learners">Option text for the user registration and experience that indicates leaners.</string>
+  <string name="watchlist_filter_user_status_experienced">Option text for the user registration and experience that indicates experienced users.</string>
+  <string name="watchlist_filter_contribution_authorship_header">Header text for watchlist contribution authorship.</string>
+  <string name="watchlist_filter_contribution_authorship_own">Option text for the authorship that indicates changes by you.</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Option text for the authorship that indicates changes by others.</string>
+  <string name="watchlist_filter_automated_contributions_header">Header text for watchlist automated contributions.</string>
+  <string name="watchlist_filter_automated_contributions_bot">Option text for the automated contributions that indicates bot.</string>
+  <string name="watchlist_filter_automated_contributions_human">Option text for the automated contributions that indicates human (not bot).</string>
+  <string name="watchlist_filter_significance_header">Header text for watchlist significance.</string>
+  <string name="watchlist_filter_significance_minor">Option text for significance that indicates minor edits.</string>
+  <string name="watchlist_filter_significance_edits">Option text for significance that indicates non-minor edits.</string>
+  <string name="watchlist_filter_latest_revisions_header">Header text for watchlist latest revisions.</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Option text for the latest revisions that indicates latest revision.</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Option text for the latest revisions that indicates not the latest revision.</string>
+  <string name="watchlist_filter_type_of_change_header">Header of the watchlist type of change.</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Option text for the type of change that indicates page edits.</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Option text for the type of change that indicates page creations.</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Option text for the type of change that indicates category changes.</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Option text for the type of change that indicates edits made on Wikidata.</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Option text for the type of change that indicates logged actions.</string>
+  <string name="watchlist_filter_type_of_change_new_users">Option text for the type of change that indicates new users.</string>
+  <string name="watchlist_filter_reset_button">Button label for the reset button in the watchlist filter screen.</string>
+  <string name="watchlist_search_bar_hint">Hint text for the watchlist search bar.</string>
+  <string name="watchlist_search_bar_filter_hint">Hint text for the filter icon on the watchlist search bar.</string>
+  <string name="watchlist_empty_search_message">Empty message text hinting the user to remove filters to see watchlist. %s indicates the number of filters, formatted using {{msg-wikimedia|wikipedia-android-strings-watchlist_number_of_filters}}.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
+    <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
+  </plurals>
   <string name="preview_edit_title">Title of the preview edit screen.</string>
   <string name="preview_edit_summarize_edit_title">Title of the summarize edit screen.</string>
   <string name="preview_edit_summarize_edit_hint">Hint text for edit summaries text field.</string>
   <string name="preview_edit_minor_edit">Label text of the checkbox that indicates the current edit is a minor edit.</string>
-  <string name="preview_edit_minor_edit_url">URL leading to the help page of the minor edit. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Minor_edit and clicking the interlanguage link.</string>
   <string name="preview_edit_watch_this_page">Label text of the checkbox that helps to watch the page after publishing.</string>
-  <string name="preview_edit_watch_this_page_url">URL leading to the help page of the Watchlist. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Watchlist and clicking the interlanguage link.</string>
   <string name="preview_edit_learn_more">Label text of the link to learn more about edit summaries.</string>
-  <string name="preview_edit_learn_more_url">URL leading to the help page of the edit summary. If you can find the appropriate language specific URL of the mobile site please do so. You may be able to find it easily by going to https://en.wikipedia.org/wiki/Help:Edit_summary and clicking the interlanguage link.</string>
   <string name="action_item_categories">Label for menu item for viewing the categories to which an article belongs.</string>
   <string name="page_no_categories">Error message saying that the article does not belong to any categories.</string>
   <string name="category_tab_articles">Label for tab that lists all the articles in a category.</string>
@@ -1281,6 +1488,7 @@
   <string name="archive_empty">Error shown when the current page does not have subpages.</string>
   <string name="user_contrib_filter_ns">Label for menu that allows to filter contributions by namespace.</string>
   <string name="user_contrib_filter_all">Label for showing all contributions, regardless of namespace.</string>
+  <string name="user_contrib_filter_ns_header">Label for filter list that allows to filter contributions by namespace.</string>
   <string name="namespace_article">Label for showing contributions to the Main (article) namespace.\n{{identical|Article}}</string>
   <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.\n{{identical|Current}}</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
@@ -1288,4 +1496,188 @@
   <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
   <string name="featured_topic">Featured Topic</string>
   <string name="featured_topic_subtitle">Articles based on topic of your choice</string>
+  <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
+  <string name="action_item_view_on_map">Menu label for accessing the map for the geographical coordinates of the page.</string>
+  <string name="action_item_view_on_map_unavailable">Message that indicates the geographical coordinates of the page are not available.</string>
+  <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
+  <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Title text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Content text for the onboarding import reading list dialog.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Button label of the onboarding import reading list dialog that dismisses the dialog.</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Snackbar text that indicates the reading list was imported successfully.</string>
+  <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
+  <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
+  <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
+  <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
+  <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
+  <string name="talk_templates_empty_message">Text shown when the user has nothing in their list of saved messages.</string>
+  <string name="talk_templates_new_message_title">Title of the screen for adding a new saved message.</string>
+  <string name="talk_templates_new_message_subject_hint">Label of the Subject field for a new saved message.</string>
+  <string name="talk_templates_new_message_compose_hint">Label of the Body field for a new saved message.</string>
+  <string name="talk_templates_new_message_save">Button label for saving the new message.</string>
+  <string name="talk_templates_new_message_dialog_title">Title of the dialog of saving changes.</string>
+  <string name="talk_templates_new_message_dialog_description">Description of the dialog of saving changes.</string>
+  <string name="talk_templates_new_message_dialog_hint">Message of the input field in the dialog of saving changes.</string>
+  <string name="talk_templates_new_message_dialog_save">Button label for saving changes to the new message.</string>
+  <string name="talk_templates_new_message_dialog_cancel">Button label for canceling saving changes to the new message.</string>
+  <string name="talk_templates_new_message_dialog_exists">Message stating that the title of this message already exists. %s will be replaced by the title of the saved message.</string>
+  <string name="talk_templates_new_message_saved">Message that shows the message has been saved.</string>
+  <string name="talk_templates_edit_message_dialog_title">Title of the dialog of editing the selected message.</string>
+  <string name="talk_templates_edit_message_dialog_save">Button label of the dialog of editing the selected message that save the changes.</string>
+  <string name="talk_templates_edit_message_dialog_delete">Button label for deleting the selected saved messages.</string>
+  <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
+  <string name="talk_templates_menu_remove_message">Label for menu item that allows selecting multiple messages for removal.</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Message of confirming the action of deleting the message.</item>
+    <item quantity="other">Message of confirming the action of deleting the messages.</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Snackbar message that show the message has been deleted.</item>
+    <item quantity="other">Snackbar message that show the messages have been deleted.</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Error message shown when the title of the saved message is empty.</string>
+  <string name="talk_templates_your_messages_tab_title">Tab title text for list of user\'s custom saved messages.</string>
+  <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
+  <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Text that indicates no tag has been added in this edit.</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Menu item text for the item overflow menu to view the user page.</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Menu item text for the item overflow menu to view the talk page.</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Menu item text for the item overflow menu to view the user information.</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Menu item text for the item overflow menu to view the user contributions.</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Menu item text for the item overflow menu to thank the user.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Title of the user information dialog.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">Text of the user information dialog that shows the date of registration. %s will be replaced by the date of registration.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">Text of the user information dialog that shows the user edit count. %s will be replaced by the edit count. Functionally similar to {{msg-mw|Prefs-edits}}.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Button label of closing the user information dialog.</string>
+  <string name="patroller_tasks_filters_title">Title of the list of edits filter screen.</string>
+  <string name="patroller_tasks_filters_reset">Button label of resetting the filters.</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Header text for list of edits wikis filters</string>
+  <string name="patroller_tasks_filters_all_text">Label text for button to enable all items in a certain filter category for patroller tasks</string>
+  <string name="patroller_tasks_filters_user_status_header">Header text for list of edits user registration and experience.</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Option text for the user registration and experience that indicates unregistered.</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Description text of the unregistered option.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Option text for the user registration and experience that indicates registered.</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Description text of the registered option.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Option text for the user registration and experience that indicates newcomers.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Description text of the newcomers option.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Option text for the user registration and experience that indicates learners.</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Description text of the learners option.</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Option text for the user registration and experience that indicates experienced users.</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Description text of the experienced users option.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Header text for list of edits latest revisions.</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Option text for the latest revisions that indicates latest revision.</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Option text for the latest revisions that indicates not the latest revision.</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Header text for list of edits automated contributions.</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Option text for the automated contributions that indicates bot.</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Option text for the automated contributions that indicates human.</string>
+  <string name="patroller_tasks_filters_significance_header">Header text for list of edits significance.</string>
+  <string name="patroller_tasks_filters_significance_minor">Option text for significance that indicates minor edits.</string>
+  <string name="patroller_tasks_filters_significance_edits">Option text for significance that indicates non-minor edits.</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Header text for list of edits contribution quality predictions.</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Option text for contribution quality predictions that indicates very likely good.</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Description text of the very likely good option.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Option text for contribution quality predictions that indicates may have problems.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Description text of the may have problems option.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Option text for contribution quality predictions that indicates likely have problems.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Description text of the likely have problems option.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Option text for contribution quality predictions that indicates very likely have problems.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Description text of the very likely have problems option.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Header text for list of edits user intent predictions.</string>
+  <string name="patroller_tasks_filters_user_intent_good">Option text for user intent predictions that indicates very likely good faith.</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Description text of the very likely good faith option.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Option text for user intent predictions that indicates may be bad faith.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Description text of the may be bad faith option.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Option text for user intent predictions that indicates likely bad faith.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Description text of the likely bad faith option.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Option text for user intent predictions that indicates very likely bad faith.</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Description text of the very likely bad option.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Empty message text hinting the user to remove filters to see more edits. %s indicates the number of filters, formatted using {{msg-wikimedia|wikipedia-android-strings-patroller_tasks_filters_number_of_filters}}.</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
+    <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Menu text of the overflow menu that shows the article edit history.</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Snackbar text that indicates the edit was undone successfully.</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Title of the rollback dialog</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Snackbar text that indicates the rollback has succeeded.</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Label text of the action in the snackbar to view the result of the action.</string>
+  <string name="patroller_tasks_overflow_report">Menu text in the overflow menu to submit feedback for the feature.</string>
+  <string name="patroller_tasks_overflow_learn">Menu text in the overflow menu to learn more about the feature.</string>
+  <string name="patroller_onboarding_one_title">Title of the first patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_one_content">Content of the first patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_title">Title of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_thank_title">Title of the thank section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_thank_content">Content of the thank section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_watch_title">Title of the watch section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_watch_content">Content of the watch section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_warn_title">Title of the warn section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_warn_content">Content of the warn section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_diff_tooltip_one">Text of the first tooltip for edit diff screen.</string>
+  <string name="patroller_diff_tooltip_two">Text of the second tooltip for edit diff screen.</string>
+  <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the Edit Patrol screen.</string>
+  <string name="patroller_diff_feedback_dialog_message">Dialog message for the feedback form in the Edit Patrol screen.</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the Edit Patrol screen that indicates satisfied.</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Option for the feedback form in the Edit Patrol screen that indicates neutral.</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Option for the feedback form in the Edit Patrol screen that indicates unsatisfied.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Dialog title for the feedback input in the Edit Patrol screen.</string>
+  <string name="patroller_diff_menu_edit_history_title">Label text for menu option to view the article\'s edit history.</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
+  <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
+  <string name="patroller_saved_message_title_vandalism">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about vandalism: {{msg-wm|Wikipedia-android-strings-patroller saved message body vandalism}}</string>
+  <string name="patroller_saved_message_title_editing_tests">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about editing tests: {{msg-wm|Wikipedia-android-strings-patroller saved message body editing tests}}</string>
+  <string name="patroller_saved_message_title_npov">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about a possible violation of wikipedia\'s neutral point of view: {{msg-wm|Wikipedia-android-strings-patroller saved message body npov}}</string>
+  <string name="patroller_saved_message_title_auto_trans">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about a possible poor quality machine translation: {{msg-wm|Wikipedia-android-strings-patroller saved message body auto trans}}</string>
+  <string name="patroller_saved_message_title_coi_rem">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about conflict of interest: {{msg-wm|Wikipedia-android-strings-patroller saved message body coi rem}}</string>
+  <string name="patroller_saved_message_title_final_warning">Title text for the ready-to-use user talk message offered to experienced editors to offer a final warning to another editor. This will be used in case where a user has made multiple destructive edits despite multiple warnings: {{msg-wm|Wikipedia-android-strings-patroller saved message body final warning}}</string>
+  <string name="patroller_saved_message_title_copy_vio">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about copyright violation: {{msg-wm|Wikipedia-android-strings-patroller saved message body copy vio}}</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor to remind them to leave an edit summary to explain their edit: {{msg-wm|Wikipedia-android-strings-patroller saved message body edit summary}}</string>
+  <string name="patroller_saved_message_title_do_not_censor">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about censorship: {{msg-wm|Wikipedia-android-strings-patroller saved message body do not censor}}</string>
+  <string name="patroller_saved_message_title_art_imp">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about article improvement suggestion: {{msg-wm|Wikipedia-android-strings-patroller saved message body art imp}}</string>
+  <string name="patroller_saved_message_body_vandalism">{{doc-important|Please do not translate the keywords formatted in triple braces &lt;nowiki&gt;{{{...}}}&lt;/nowiki&gt; and \"User talk\".}}\nReady-to-use user talk message offered to experienced editors to warn another editor about vandalism. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title vandalism}}</string>
+  <string name="patroller_saved_message_body_editing_tests">Ready-to-use user talk message offered to experienced editors to warn another editor about editing tests. Please do not translate the keywords formatted in triple braces {{{...}}}. Please include the relevant language version of the link; you may find a link to your language in the interlanguage links list at [[:w:en:Wikipedia:Sandbox|Wikipedia:Sandbox in the English Wikipedia]]. If no link is found, please do not include a link. Editors may add a link(s) to another language wiki\'s policy if desired. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title editing tests}}</string>
+  <string name="patroller_saved_message_body_npov">Ready-to-use user talk message offered to experienced editors to warn another editor about a possible violation of Wikipedia\'s neutral point of view. \"Partial\" means \"biased in favor of a person, side, or point of view\". Please do not translate the keywords formatted in triple braces {{{...}}}. Please include the relevant language version of the link; you may find a link to your language in the interlanguage links list at [[:w:en:Wikipedia:NPOV|Wikipedia:NPOV in the English Wikipedia]]. If no link is found, please do not include a link or add a link to another language Wikipedia\'s policy if desired. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title npov}}</string>
+  <string name="patroller_saved_message_body_auto_trans">Ready-to-use user talk message offered to experienced editors to warn another editor about a possible poor quality machine translation. Please do not translate the keywords formatted in triple braces {{{...}}}. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title auto trans}}</string>
+  <string name="patroller_saved_message_body_coi_rem">Ready-to-use user talk message offered to experienced editors to warn another editor about conflict of interest. Please do not translate the keywords formatted in triple braces {{{...}}}. Please include the relevant language version of the link; you may find links to your language in the interlanguage links list at these pages in the English Wikipedia:\n* [[:w:en:Wikipedia:Conflict of interest|Wikipedia:Conflict of interest]]\n* [[:w:en:Wikipedia:What Wikipedia is not|Wikipedia:What Wikipedia is not]]\n* [[:w:en:Wikipedia:Verifiability|Wikipedia:Verifiability]]\n* [[:w:en:Wikipedia:No original research|Wikipedia:No original research]]\n* [[:w:en:Wikipedia:Neutral point of view|Wikipedia:Neutral point of view]]\n* [[:w:en:Wikipedia:Copyrights|Wikipedia:Copyrights]]\n\nIf no link is found, please do not include a link. Editors may add a link(s) to another language wiki\'s policy if desired. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title coi rem}}</string>
+  <string name="patroller_saved_message_body_final_warning">Ready-to-use user talk message offered to experienced editors to offer a final warning to another editor. This will be used in case where a user has made multiple destructive edits despite multiple warnings. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title final warning}}</string>
+  <string name="patroller_saved_message_body_copy_vio">Ready-to-use user talk message offered to experienced editors to warn another editor about copyright violation. Please include the relevant language version of the link; you may find a link to your language in the interlanguage links list at [[:w:en:Wikipedia:Copyrights|Wikipedia:Copyrights in the English Wikipedia]].\n\nAppears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title copy vio}}</string>
+  <string name="patroller_saved_message_body_edit_summary">Ready-to-use user talk message offered to experienced editors to warn another editor to remind them to leave an edit summary to explain their edit. Please do not translate the keywords formatted in triple braces {{{...}}}. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title edit summary reminder}}</string>
+  <string name="patroller_saved_message_body_do_not_censor">Ready-to-use user talk message offered to experienced editors to warn another editor about censorship. Please do not translate the keywords formatted in triple braces {{{...}}}. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title do not censor}}</string>
+  <string name="talk_warn_learn_more_label">Label text for external link to message placeholders.</string>
+  <string name="talk_warn_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for usage of saved messages for patrolling edits.</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Instruction text to guide user on usage of saved messages.</string>
+  <string name="patroller_saved_message_body_art_imp">Ready-to-use user talk message offered to experienced editors to warn another editor about article improvement suggestion. Please do not translate the keywords formatted in triple braces {{{...}}}. Please include the relevant language version of the link; you may find a link to your language in the interlanguage links list at [[:w:en:Wikipedia:Reliable sources|Wikipedia:Reliable sources in the English Wikipedia]]. If no link is found, please do not include a link. Editors may add a link(s) to another language wiki\'s policy if desired. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title art imp}}</string>
+  <string name="talk_templates_menu_edit_title">Label text for editing saved messages.</string>
+  <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
+  <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
+  <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
+  <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
+  <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
+  <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
+  <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
+  <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Text for the snackbar message when user hits the \"maybe later\" option.</string>
+  <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
+  <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
+  <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
+  <string name="places_title">Title for the Places screen.</string>
+  <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
+  <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>
+  <string name="places_filter_title">Title string for places language filter screen.</string>
+  <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
+  <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
+  <string name="places_nav_tab_tooltip_message">Tooltip message to help users discover places feature from explore screen more menu navigation tab. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
+  <string name="places_article_menu_tooltip_message">Tooltip message to help users discover the article\'s location on the map and its nearby articles through places feature, from article screen More menu. \"View on map\" is {{msg-wm|Wikipedia-android-strings-action item view on map}}</string>
+  <string name="places_survey_very_satisfied_option">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
+  <string name="places_survey_very_unsatisfied_option">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
+  <string name="places_survey_dialog_title">Title text for the main feedback dialog for places feature. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
+  <string name="places_survey_feedback_dialog_title">Title text for the secondary dialog, which is shown as a result of an action on the main dialog for places feature. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
+  <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
+  <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
 </resources>

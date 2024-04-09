@@ -9,18 +9,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.databinding.ViewCardOnThisDayBinding
-import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
@@ -31,8 +25,6 @@ import org.wikipedia.views.ImageZoomHelper
 class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(context), CardFooterView.Callback {
 
     private val binding = ViewCardOnThisDayBinding.inflate(LayoutInflater.from(context), this, true)
-    private val funnel = FeedFunnel(WikipediaApp.instance)
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var age = 0
 
     init {
@@ -41,7 +33,6 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
 
     override fun onFooterClicked() {
         card?.let {
-            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
             val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, -1,
@@ -90,7 +81,6 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
     private fun onCardClicked(view: View) {
         card?.let {
             val isYearClicked = view.id == R.id.year
-            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
             val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, if (isYearClicked) it.year() else -1, it.wikiSite(),
@@ -130,7 +120,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                     } else {
                         val pageTitle = page.getPageTitle(card.wikiSite())
                         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD)
-                        LongPressMenu(view, true, object : LongPressMenu.Callback {
+                        LongPressMenu(view, callback = object : LongPressMenu.Callback {
                             override fun onOpenLink(entry: HistoryEntry) {
                                 callback?.onSelectPage(
                                     card,
@@ -147,44 +137,12 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                             }
 
                             override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                                if (addToDefault) {
-                                    ReadingListBehaviorsUtil.addToDefaultList(
-                                        context as AppCompatActivity, entry.title,
-                                        InvokeSource.ON_THIS_DAY_CARD_BODY
-                                    ) { readingListId ->
-                                        bottomSheetPresenter.show(
-                                            (context as AppCompatActivity).supportFragmentManager,
-                                            MoveToReadingListDialog.newInstance(
-                                                readingListId,
-                                                entry.title,
-                                                InvokeSource.ON_THIS_DAY_CARD_BODY
-                                            )
-                                        )
-                                    }
-                                } else {
-                                    bottomSheetPresenter.show(
-                                        (context as AppCompatActivity).supportFragmentManager,
-                                        AddToReadingListDialog.newInstance(
-                                            entry.title,
-                                            InvokeSource.ON_THIS_DAY_CARD_BODY
-                                        )
-                                    )
-                                }
+                                ReadingListBehaviorsUtil.addToDefaultList(context as AppCompatActivity, entry.title, addToDefault, InvokeSource.ON_THIS_DAY_CARD_BODY)
                             }
 
-                            override fun onMoveRequest(
-                                page: ReadingListPage?,
-                                entry: HistoryEntry
-                            ) {
+                            override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                                 page?.let {
-                                    bottomSheetPresenter.show(
-                                        (context as AppCompatActivity).supportFragmentManager,
-                                        MoveToReadingListDialog.newInstance(
-                                            it.listId,
-                                            entry.title,
-                                            InvokeSource.ON_THIS_DAY_CARD_BODY
-                                        )
-                                    )
+                                    ReadingListBehaviorsUtil.moveToList(context as AppCompatActivity, page.listId, entry.title, InvokeSource.ON_THIS_DAY_CARD_BODY)
                                 }
                             }
                         }).show(entry)

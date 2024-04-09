@@ -28,7 +28,7 @@
             android:background="@drawable/button_shape_add_reading_list"
             android:contentDescription="@null"
             android:padding="4dp"
-            app:tint="@color/base100"
+            app:tint="@color/white"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp" />
     </LinearLayout>
@@ -41,7 +41,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_shape_add_reading_list"
-        android:backgroundTint="?attr/colorAccent">
+        android:backgroundTint="?attr/progressive_color">
 
         <TextView
             android:id="@+id/addContributionText"
@@ -54,8 +54,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="@string/description_edit_save"
-            android:textAllCaps="true"
-            android:textColor="@color/base100"
+            android:textColor="@color/white"
             android:textSize="14sp" />
     </FrameLayout>
 

@@ -28,18 +28,19 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMargins
 import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
@@ -47,13 +48,22 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.MultiSelectActionModeCallback
+import org.wikipedia.views.NotificationActionsOverflowView
+import org.wikipedia.views.SearchAndFilterActionProvider
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
@@ -68,15 +78,14 @@ class NotificationActivity : BaseActivity() {
     private var linkHandler = NotificationLinkHandler(this)
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
-    // TODO: maybe making the result observable and put into ViewModel class?
+
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
-            beginUpdateList()
+            viewModel.fetchAndSave(true)
         } else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
-    var funnel = NotificationPreferencesFunnel(WikipediaApp.instance)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,12 +94,11 @@ class NotificationActivity : BaseActivity() {
         setSupportActionBar(binding.notificationsToolbar)
         supportActionBar?.title = getString(R.string.notifications_activity_title)
 
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
-        binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
+        binding.notificationsErrorView.retryClickListener = View.OnClickListener { viewModel.fetchAndSave() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
-        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
+        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, skipSearchBar = true))
 
         externalLinkIcon = AppCompatResources.getDrawable(this, R.drawable.ic_open_in_new_black_24px)!!.apply {
             val px = DimenUtil.roundedDpToPx(16f)
@@ -98,7 +106,7 @@ class NotificationActivity : BaseActivity() {
         }
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-                ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+                ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color),
                 R.drawable.ic_outline_drafts_24, android.R.color.white, true, binding.notificationsRefreshView)
 
         touchCallback.swipeableEnabled = true
@@ -106,9 +114,8 @@ class NotificationActivity : BaseActivity() {
         itemTouchHelper.attachToRecyclerView(binding.notificationsRecyclerView)
 
         binding.notificationsRefreshView.setOnRefreshListener {
-            binding.notificationsRefreshView.isRefreshing = false
             finishActionMode()
-            beginUpdateList()
+            viewModel.fetchAndSave(true)
         }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -125,15 +132,15 @@ class NotificationActivity : BaseActivity() {
         })
 
         Prefs.notificationUnreadCount = 0
+        setLoadingState()
 
-        beginUpdateList()
-
-        // TODO: use repeatOnLifecycle if the it is stable
-        lifecycleScope.launchWhenStarted {
-            viewModel.uiState.collect {
-                when (it) {
-                    is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
-                    is NotificationViewModel.UiState.Error -> setErrorState(it.throwable)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
+                        is NotificationViewModel.UiState.Error -> setErrorState(it.throwable)
+                    }
                 }
             }
         }
@@ -183,7 +190,7 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun beginUpdateList() {
+    private fun setLoadingState() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
@@ -191,10 +198,10 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
-        viewModel.fetchAndSave()
     }
 
     private fun setSuccessState() {
+        binding.notificationsRefreshView.isRefreshing = false
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.VISIBLE
@@ -203,6 +210,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun setErrorState(throwable: Throwable) {
         L.e(throwable)
+        binding.notificationsRefreshView.isRefreshing = false
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
@@ -274,7 +282,6 @@ class NotificationActivity : BaseActivity() {
     private fun setUpEmptySearchMessage() {
         val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, viewModel.excludedFiltersCount(), viewModel.excludedFiltersCount())
         binding.notificationsEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.notifications_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
-        RichTextUtil.removeUnderlinesFromLinks(binding.notificationsEmptySearchMessage)
         binding.notificationsEmptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
             resultLauncher.launch(NotificationFilterActivity.newIntent(this))
         }
@@ -347,7 +354,7 @@ class NotificationActivity : BaseActivity() {
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
-            setContextClickAsLongClick(itemView)
+            DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
         fun bindItem(container: NotificationListItemContainer, pos: Int) {
@@ -357,31 +364,34 @@ class NotificationActivity : BaseActivity() {
             val notificationCategory = NotificationCategory.find(n.category)
             val notificationColor = AppCompatResources.getColorStateList(this@NotificationActivity,
                 ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
-            val primaryColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_text_color)
+            val primaryColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_color)
+            val inactiveColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.inactive_color)
 
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
-                ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.toolbar_icon_color))
+                ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.placeholder_color))
             n.contents?.let {
-                binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
-                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
-                if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
-                    binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
-                    StringUtil.highlightAndBoldenText(binding.notificationDescription, viewModel.currentSearchQuery, true, Color.YELLOW)
-                    binding.notificationDescription.visibility = View.VISIBLE
-                } else {
-                    binding.notificationDescription.visibility = View.GONE
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSubtitle,
+                    RichTextUtil.stripHtml(it.header), viewModel.currentSearchQuery)
+
+                val showDescription = it.body.isNotBlank()
+                binding.notificationDescription.isVisible = showDescription
+                if (showDescription) {
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationDescription,
+                        RichTextUtil.stripHtml(it.body), viewModel.currentSearchQuery)
                 }
+
                 it.links?.secondary?.firstOrNull()?.let { link ->
-                    binding.notificationTitle.text = link.label
-                    StringUtil.highlightAndBoldenText(binding.notificationTitle, viewModel.currentSearchQuery, true, Color.YELLOW)
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationTitle, link.label,
+                        viewModel.currentSearchQuery)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
             }
 
-            // TODO: use better diff date method
             binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
+            binding.notificationTime.setTextColor(if (n.isUnread) primaryColor else inactiveColor)
+            binding.notificationOverflowMenu.imageTintList = if (n.isUnread) primaryColor else inactiveColor
 
             binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
             binding.notificationTitle.setTextColor(if (n.isUnread) notificationColor else primaryColor)
@@ -391,8 +401,8 @@ class NotificationActivity : BaseActivity() {
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
-                binding.notificationSource.text = title.full
-                StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSource, title.full,
+                    viewModel.currentSearchQuery)
                 n.contents?.links?.getPrimary()?.url?.let {
                     binding.notificationSource.setCompoundDrawablesRelative(null, null,
                             if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
@@ -418,9 +428,7 @@ class NotificationActivity : BaseActivity() {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCodeContainer.isVisible = true
-                        binding.notificationWikiCode.text = langCode
-                        ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
-                            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_MEDIUM)
+                        binding.notificationWikiCode.setLangCode(langCode)
                     }
                     else -> {
                         binding.notificationSource.updateLayoutParams<ConstraintLayout.LayoutParams> {
@@ -439,7 +447,7 @@ class NotificationActivity : BaseActivity() {
             if (container.selected) {
                 binding.notificationItemSelectedImage.visibility = View.VISIBLE
                 binding.notificationItemImage.visibility = View.INVISIBLE
-                itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
+                itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.background_color))
                 if (WikipediaApp.instance.currentTheme.isDark) {
                     binding.notificationTitle.setTextColor(Color.WHITE)
                 }
@@ -513,34 +521,29 @@ class NotificationActivity : BaseActivity() {
         val notificationFilterCountView: TextView = itemView.findViewById(R.id.filter_count)
 
         init {
-            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
+            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.background_color))
 
             itemView.setOnClickListener {
                 if (actionMode == null) {
-                    funnel.logSearchClick()
                     actionMode = startSupportActionMode(searchActionModeCallback)
                     postprocessAndDisplay()
                 }
             }
 
             notificationFilterButton.setOnClickListener {
-                funnel.logFilterClick()
                 resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
             }
 
-            FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
+            FeedbackUtil.setButtonTooltip(notificationFilterButton)
         }
 
         fun updateFilterIconAndCount() {
-            val excludedFilters = viewModel.excludedFiltersCount()
-            if (excludedFilters == 0) {
-                notificationFilterCountView.visibility = View.GONE
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.color_group_9))
-            } else {
-                notificationFilterCountView.visibility = View.VISIBLE
-                notificationFilterCountView.text = excludedFilters.toString()
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.colorAccent))
-            }
+            val showFilterCount = viewModel.excludedFiltersCount() != 0
+            val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
+            notificationFilterCountView.isVisible = showFilterCount
+            notificationFilterCountView.text = viewModel.excludedFiltersCount().toString()
+            ImageViewCompat.setImageTintList(notificationFilterButton,
+                ResourceUtil.getThemedColorStateList(this@NotificationActivity, filterButtonColor))
         }
     }
 
@@ -588,7 +591,6 @@ class NotificationActivity : BaseActivity() {
                     }
 
                     override fun onFilterIconClick() {
-                        NotificationPreferencesFunnel(WikipediaApp.instance).logFilterClick()
                         DeviceUtil.hideSoftKeyboard(this@NotificationActivity)
                         startActivity(NotificationFilterActivity.newIntent(this@NotificationActivity))
                     }

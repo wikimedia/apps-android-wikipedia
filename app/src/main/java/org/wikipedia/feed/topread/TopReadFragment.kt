@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -17,10 +18,7 @@ import org.wikipedia.databinding.FragmentMostReadBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
-import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -34,23 +32,21 @@ class TopReadFragment : Fragment() {
 
     private var _binding: FragmentMostReadBinding? = null
     private val binding get() = _binding!!
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private val viewModel: TopReadViewModel by viewModels { TopReadViewModel.Factory(requireActivity().intent.extras!!) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
-        val card = requireActivity().intent.getParcelableExtra<TopReadListCard>(TopReadArticlesActivity.TOP_READ_CARD)!!
+        val card = viewModel.card
 
-        appCompatActivity.setSupportActionBar(binding.toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        appCompatActivity.supportActionBar?.title = ""
-        binding.toolbarTitle.text = getString(R.string.top_read_activity_title, card.subtitle())
+        appCompatActivity.supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
 
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
 
         binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
+        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         binding.mostReadRecyclerView.isNestedScrollingEnabled = false
         binding.mostReadRecyclerView.adapter = RecyclerAdapter(card.items(), Callback())
 
@@ -98,18 +94,11 @@ class TopReadFragment : Fragment() {
         }
 
         override fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-            if (addToDefault) {
-                ReadingListBehaviorsUtil.addToDefaultList(requireActivity(),
-                    entry.title, InvokeSource.MOST_READ_ACTIVITY) { readingListId -> onMovePageToList(readingListId, entry) }
-            } else {
-                bottomSheetPresenter.show(childFragmentManager,
-                    AddToReadingListDialog.newInstance(entry.title, InvokeSource.MOST_READ_ACTIVITY))
-            }
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.MOST_READ_ACTIVITY)
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            bottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.MOST_READ_ACTIVITY))
+            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.MOST_READ_ACTIVITY)
         }
     }
 

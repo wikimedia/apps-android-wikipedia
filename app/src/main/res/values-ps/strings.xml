@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Af420
 * Ahmed-Najib-Biabani-Ibrahimkhel
 * Amjad Khan
 * Baloch Khan
@@ -69,8 +70,6 @@
   <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ.ځ.پ</string>
   <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>
   <string name="create_account_account_created_toast">گڼون مو جوړ شو!</string>
-  <string name="preferences_privacy_settings_heading">پټنتيا</string>
-  <string name="preference_title_eventlogging_opt_in">د کارېدنې راپورونه لېږل</string>
   <string name="preference_title_auto_upload_crash_reports">د ټکر راپورونه لېږل</string>
   <string name="error_can_not_process_link">دا تړنه ښکاره نه شوه</string>
   <string name="page_protected_autoconfirmed">دا مخ نيم-ژغورلی دی.</string>

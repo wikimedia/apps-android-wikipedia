@@ -7,58 +7,45 @@ import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
-import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import java.time.temporal.TemporalAccessor
+import java.util.Calendar
+import java.util.Date
+import java.util.GregorianCalendar
+import java.util.Locale
+import java.util.TimeZone
+import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
-    private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
+    private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
+    private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
-    @Synchronized
-    fun iso8601DateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
-    }
-
-    @Synchronized
     fun iso8601DateParse(date: String): Date {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ROOT, true).parse(date)!!
+        return Date.from(Instant.parse(date))
     }
 
-    @Synchronized
-    fun iso8601ShortDateParse(date: String): Date {
-        return getCachedDateFormat("yyyy-MM-dd'Z'", Locale.ROOT, true).parse(date)!!
+    fun iso8601LocalDateTimeParse(timestamp: String): LocalDateTime {
+        return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
 
-    @Synchronized
-    fun iso8601LocalDateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date)
+    fun dbDateFormat(date: Date): String {
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date)
     }
 
-    @Synchronized
-    fun dbDateFormat(date: Date?): String {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date!!)
-    }
-
-    @Synchronized
     fun dbDateParse(date: String): Date {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date)!!
     }
 
-    fun getFeedCardDayHeaderDate(age: Int): String {
-        return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar.time, "MMMM d")
-    }
-
     fun getFeedCardDateString(age: Int): String {
-        return getFeedCardDateString(UtcDate(age).baseCalendar)
-    }
-
-    private fun getFeedCardDateString(date: Calendar): String {
-        return getShortDateString(date.time)
-    }
-
-    fun getFeedCardDateString(date: Date): String {
-        return getShortDateString(date)
+        return getShortDateString(UtcDate(age).baseCalendar.time)
     }
 
     fun getFeedCardShortDateString(date: Calendar): String {
@@ -94,8 +81,17 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
+    fun getTimeString(context: Context, localDateTime: LocalDateTime): String {
+        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
+        return getDateStringWithSkeletonPattern(localDateTime, datePattern)
+    }
+
     fun getShortDayWithTimeString(dateStr: String): String {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "MMM d HH:mm")
+    }
+
+    fun getShortDayWithTimeString(date: Date): String {
+        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy HH:mm")
     }
 
     fun getTimeAndDateString(context: Context, date: Date): String {
@@ -113,18 +109,30 @@ object DateUtil {
         return getCachedDateFormat(datePattern, Locale.getDefault(), false).format(date)
     }
 
-    @Synchronized
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
-        return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
+        return getCachedDateFormat(pattern, Locale.getDefault(), utc = false, skeleton = true)
+            .format(date)
     }
 
-    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
+    private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
+        return getCachedDateTimeFormatter(pattern, Locale.getDefault(), utc = false, skeleton = true)
+            .format(temporalAccessor)
+    }
+
+    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): SimpleDateFormat {
         return DATE_FORMATS.getOrPut(pattern) {
-            val df = SimpleDateFormat(pattern, locale)
+            val df = SimpleDateFormat(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
             if (utc) {
                 df.timeZone = TimeZone.getTimeZone("UTC")
             }
             df
+        }
+    }
+
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): DateTimeFormatter {
+        return DATE_TIME_FORMATTERS.getOrPut(pattern) {
+            val dtf = DateTimeFormatter.ofPattern(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
+            return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
         }
     }
 
@@ -138,6 +146,10 @@ object DateUtil {
         return dateFormat.format(date)
     }
 
+    fun getShortDateString(localDate: LocalDate): String {
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
+    }
+
     fun getUtcRequestDateFor(age: Int): UtcDate {
         return UtcDate(age)
     }
@@ -146,12 +158,6 @@ object DateUtil {
         val calendar = Calendar.getInstance(TimeZone.getDefault())
         calendar.add(Calendar.DATE, -age)
         return calendar
-    }
-
-    @Synchronized
-    @Throws(ParseException::class)
-    fun getHttpLastModifiedDate(dateStr: String): Date {
-        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!
     }
 
     fun yearToStringWithEra(year: Int): String {

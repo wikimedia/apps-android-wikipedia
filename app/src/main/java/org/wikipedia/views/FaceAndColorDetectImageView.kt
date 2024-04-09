@@ -19,19 +19,22 @@ import com.bumptech.glide.request.target.Target
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CenterCropWithFaceTransformation
 import org.wikipedia.util.WhiteBackgroundTransformation
-import java.util.*
 
-class FaceAndColorDetectImageView constructor(context: Context, attrs: AttributeSet? = null) : AppCompatImageView(context, attrs) {
+class FaceAndColorDetectImageView : AppCompatImageView {
 
     interface OnImageLoadListener {
         fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int)
         fun onImageFailed()
     }
 
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+
     private fun shouldDetectFace(uri: Uri): Boolean {
         // TODO: not perfect; should ideally detect based on MIME type.
-        val path = uri.path.orEmpty().lowercase(Locale.ROOT)
-        return path.endsWith(".jpg") || path.endsWith(".jpeg")
+        val path = uri.path.orEmpty()
+        return path.endsWith(".jpg", true) || path.endsWith(".jpeg", true)
     }
 
     fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, emptyPlaceholder: Boolean = false, listener: OnImageLoadListener? = null) {
@@ -47,12 +50,12 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
         if (listener != null) {
             builder = builder.listener(object : RequestListener<Drawable?> {
-                override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                     listener.onImageFailed()
                     return false
                 }
 
-                override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
                     if (resource is BitmapDrawable && resource.bitmap != null) {
                         listener.onImageLoaded(Palette.from(resource.bitmap).generate(), resource.bitmap.width, resource.bitmap.height)
                     } else {
@@ -79,8 +82,8 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
     }
 
     companion object {
-        private val FACE_DETECT_TRANSFORM = CenterCropWithFaceTransformation()
-        private val FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS = MultiTransformation(FACE_DETECT_TRANSFORM, ViewUtil.ROUNDED_CORNERS)
-        private val CENTER_CROP_WHITE_BACKGROUND = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation())
+        private val FACE_DETECT_TRANSFORM by lazy { CenterCropWithFaceTransformation() }
+        private val FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS by lazy { MultiTransformation(FACE_DETECT_TRANSFORM, ViewUtil.ROUNDED_CORNERS) }
+        private val CENTER_CROP_WHITE_BACKGROUND by lazy { MultiTransformation(CenterCrop(), WhiteBackgroundTransformation()) }
     }
 }

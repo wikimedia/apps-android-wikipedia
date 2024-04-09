@@ -5,26 +5,29 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -51,7 +54,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 if (WikipediaFirebaseMessagingService.isUsingPush()) {
                     return
                 }
-                LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
                 PollNotificationWorker.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
@@ -61,11 +63,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
 
-                if (intent.hasExtra(RESULT_EXTRA_WIKI) && intent.hasExtra(RESULT_EXTRA_TITLE) && !text.isNullOrEmpty()) {
-                    NotificationDirectReplyHelper.handleReply(context,
-                        intent.getParcelableExtra(RESULT_EXTRA_WIKI)!!,
-                        intent.getParcelableExtra(RESULT_EXTRA_TITLE)!!,
-                        text.toString(),
+                val wiki = intent.parcelableExtra<WikiSite>(Constants.ARG_WIKISITE)
+                val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
+                if (wiki != null && title != null && !text.isNullOrEmpty()) {
+                    NotificationDirectReplyHelper.handleReply(context, wiki, title, text.toString(),
                         intent.getStringExtra(RESULT_EXTRA_REPLY_TO).orEmpty(),
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }
@@ -78,19 +79,13 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
-        const val RESULT_EXTRA_WIKI = "extra_wiki"
-        const val RESULT_EXTRA_TITLE = "extra_title"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
 
         private const val TYPE_LOCAL = "local"
-        private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
-        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>().withDefault { WikipediaApp.instance.wikiSite }
-        val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
-        private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
         fun startPollTask(context: Context) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -116,45 +111,37 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             intent.action = ACTION_POLL
-            return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+            return PendingIntentCompat.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)!!
         }
 
-        fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
+        fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent? {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
                     .setAction(ACTION_CANCEL)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
-            return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
+            return PendingIntentCompat.getBroadcast(context, id.toInt(), intent, 0, false)
         }
 
-         fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
+        fun onNotificationsComplete(context: Context,
+                                     notifications: List<Notification>,
+                                     dbWikiSiteMap: Map<String, WikiSite>,
+                                     dbWikiNameMap: Map<String, String>) {
             if (Prefs.isSuggestedEditsHighestPriorityEnabled) {
                 return
             }
-            var locallyKnownModified = false
-            val knownNotifications = mutableListOf<Notification>()
-            val notificationsToDisplay = mutableListOf<Notification>()
-            for (n in notifications) {
-                knownNotifications.add(n)
-                if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key())) {
-                    continue
-                }
-                LOCALLY_KNOWN_NOTIFICATIONS.add(n.key())
-                if (LOCALLY_KNOWN_NOTIFICATIONS.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
-                    LOCALLY_KNOWN_NOTIFICATIONS.removeAt(0)
-                }
-                notificationsToDisplay.add(n)
-                locallyKnownModified = true
+
+            // The notifications that we need to display are those that don't exist in our db yet.
+            val notificationsToDisplay = notifications.filter {
+                AppDatabase.instance.notificationDao().getNotificationById(it.wiki, it.id) == null
             }
+            AppDatabase.instance.notificationDao().insertNotifications(notificationsToDisplay)
+
             if (notificationsToDisplay.isNotEmpty()) {
                 Prefs.notificationUnreadCount = notificationsToDisplay.size
                 WikipediaApp.instance.bus.post(UnreadNotificationsEvent())
             }
 
-            // Android 7.0 and above performs automatic grouping of multiple notifications, in case
-            // there are significantly more than one. But in the case of Android 6.0 and below,
-            // we show our own custom "grouped" notification.
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && notificationsToDisplay.size > 2) {
+            if (notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
@@ -163,34 +150,20 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     // Record that there is an incoming notification to track/compare further actions on it.
                     NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
-                        DBNAME_WIKI_NAME_MAP.getOrElse(n.wiki) { n.wiki },
-                        DBNAME_WIKI_SITE_MAP.getValue(n.wiki).languageCode)
+                        dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
+                        dbWikiSiteMap.getValue(n.wiki).languageCode)
                 }
             }
-            if (locallyKnownModified) {
-                Prefs.locallyKnownNotifications = LOCALLY_KNOWN_NOTIFICATIONS
-            }
-            if (knownNotifications.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
-                markItemsAsRead(knownNotifications.subList(0, knownNotifications.size - MAX_LOCALLY_KNOWN_NOTIFICATIONS))
-            }
         }
 
-        private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki = items.groupBy { DBNAME_WIKI_SITE_MAP.getValue(it.wiki) }
-            for ((wiki, notifications) in notificationsPerWiki) {
-                markRead(wiki, notifications, false)
+        suspend fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
+            withContext(Dispatchers.IO) {
+                val token = CsrfTokenClient.getToken(wiki).blockingSingle()
+                notifications.windowed(50, partialWindows = true).forEach { window ->
+                    val idListStr = window.joinToString("|")
+                    ServiceFactory.get(wiki).markRead(token, if (unread) null else idListStr, if (unread) idListStr else null)
+                }
             }
-        }
-
-        fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
-            val idListStr = notifications.joinToString("|")
-            CsrfTokenClient.getToken(wiki)
-                    .subscribeOn(Schedulers.io())
-                    .flatMap {
-                        ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)
-                                .subscribeOn(Schedulers.io())
-                    }
-                    .subscribe({ }, { L.e(it) })
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
@@ -215,7 +188,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent)
+                    R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
         }
     }
 }

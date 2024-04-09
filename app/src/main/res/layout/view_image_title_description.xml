@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="@dimen/suggested_edits_icon_size"
         android:layout_height="@dimen/suggested_edits_icon_size"
-        android:layout_gravity="center_vertical">
+        android:layout_marginTop="8dp">
 
         <org.wikipedia.views.CircularProgressBar
             android:id="@+id/circularProgressBar"
@@ -36,7 +36,7 @@
             android:layout_gravity="center"
             android:contentDescription="@null"
             android:src="@drawable/ic_add_gray_white_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </FrameLayout>
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:textSize="@dimen/suggested_edits_icon_title_text_size"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textStyle="bold" />
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
-            android:textColor="?attr/material_theme_secondary_color"/>
+            android:textColor="?attr/secondary_color"/>
 
     </LinearLayout>
 

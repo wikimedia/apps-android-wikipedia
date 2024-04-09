@@ -1,10 +1,8 @@
 package org.wikipedia.gallery
 
 import android.app.Activity
-import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
@@ -14,11 +12,11 @@ import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -30,7 +28,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.commons.FilePageActivity
@@ -40,6 +37,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -51,18 +49,25 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
 import java.io.File
 
-class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemFragment.Callback {
+class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, GalleryItemFragment.Callback {
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var sourceWiki: WikiSite
-    private lateinit var funnel: GalleryFunnel
     private lateinit var galleryAdapter: GalleryItemAdapter
     private var pageChangeListener = GalleryPageChangeListener()
     private var pageTitle: PageTitle? = null
@@ -82,7 +87,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private var initialImageIndex = -1
     private var targetLanguageCode: String? = null
     private val app = WikipediaApp.instance
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
 
@@ -118,33 +122,28 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = ""
         setNavigationBarColor(Color.BLACK)
-        binding.toolbarGradient.background = GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP)
-        binding.infoGradient.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
+        binding.toolbarGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.TOP)
+        binding.infoGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.BOTTOM)
         binding.descriptionText.movementMethod = linkMovementMethod
         binding.creditText.movementMethod = linkMovementMethod
-        binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.base70))
-        binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.base70))
+        binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.gray300))
+        binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.gray300))
         binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE
             loadGalleryContent()
         }
-        if (intent.hasExtra(EXTRA_PAGETITLE)) {
-            pageTitle = intent.getParcelableExtra(EXTRA_PAGETITLE)
+        if (intent.hasExtra(Constants.ARG_TITLE)) {
+            pageTitle = intent.parcelableExtra(Constants.ARG_TITLE)
         }
         initialFilename = intent.getStringExtra(EXTRA_FILENAME)
         revision = intent.getLongExtra(EXTRA_REVISION, 0)
-        sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)!!
+        sourceWiki = intent.parcelableExtra(Constants.ARG_WIKISITE)!!
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
         binding.pager.adapter = galleryAdapter
         binding.pager.registerOnPageChangeCallback(pageChangeListener)
         binding.pager.offscreenPageLimit = 2
-        funnel = GalleryFunnel(app, intent.getParcelableExtra(EXTRA_WIKI), intent.getIntExtra(EXTRA_SOURCE, 0))
-        if (savedInstanceState == null) {
-            initialFilename?.let {
-                funnel.logGalleryOpen(pageTitle, it)
-            }
-        } else {
+        if (savedInstanceState != null) {
             controlsShowing = savedInstanceState.getBoolean(KEY_CONTROLS_SHOWING)
             initialImageIndex = savedInstanceState.getInt(KEY_PAGER_INDEX)
             // if we have a savedInstanceState, then the initial index overrides
@@ -205,20 +204,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     public override fun onResume() {
         super.onResume()
-        registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(this, downloadReceiverCallback)
     }
 
     public override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(this)
     }
 
     override fun onDownload(item: GalleryItemFragment) {
-        item.imageTitle?.let {
-            funnel.logGallerySave(pageTitle, it.displayText)
-        }
         if (item.imageTitle != null && item.mediaInfo != null) {
             downloadReceiver.download(this, item.imageTitle!!, item.mediaInfo!!)
             FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
@@ -228,9 +222,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
-        item.imageTitle?.let {
-            funnel.logGalleryShare(pageTitle, it.displayText)
-        }
         if (bitmap != null && item.mediaInfo != null) {
             ShareUtil.shareImage(this, bitmap,
                 File(ImageUrlUtil.getUrlForPreferredSize(item.mediaInfo!!.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)).name,
@@ -238,6 +229,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         } else {
             ShareUtil.shareText(this, title)
         }
+    }
+
+    override fun onError(throwable: Throwable) {
+        showError(throwable)
     }
 
     override fun setTheme() {
@@ -251,7 +246,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         val isProtected = v.tag != null && v.tag as Boolean
         if (isProtected) {
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
                 .setMessage(R.string.page_protected_can_not_edit)
@@ -335,15 +330,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             // the pager has settled on a new position
             currentItem?.let { item ->
                 layOutGalleryDescription(item)
-                item.imageTitle?.let {
-                    if (currentPosition != -1) {
-                        if (position < currentPosition) {
-                            funnel.logGallerySwipeLeft(pageTitle, it.displayText)
-                        } else if (position > currentPosition) {
-                            funnel.logGallerySwipeRight(pageTitle, it.displayText)
-                        }
-                    }
-                }
             }
             currentPosition = position
         }
@@ -365,11 +351,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onBackPressed() {
-        // log the "gallery close" event only upon explicit closing of the activity
-        // (back button, or home-as-up button in the toolbar)
-        currentItem?.imageTitle?.let {
-            funnel.logGalleryClose(pageTitle, it.displayText)
-        }
         if (TRANSITION_INFO != null) {
             showTransitionReceiver()
         }
@@ -418,8 +399,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun showLinkPreview(title: PageTitle) {
-        bottomSheetPresenter.show(supportFragmentManager,
-            LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null))
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+            LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY)))
     }
 
     fun setViewPagerEnabled(enabled: Boolean) {
@@ -458,19 +439,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         finishWithPageResult(title, entry)
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
     }
 
     fun showError(caught: Throwable?) {
@@ -551,7 +519,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             ) { entities, protectionInfoRsp ->
                 val captions = entities.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
                 item.mediaInfo!!.captions = captions
-                val depicts = ImageTagsProvider.getDepictsClaims(entities.first?.statements.orEmpty())
+                val depicts = ImageTagsProvider.getDepictsClaims(entities.first?.getStatements().orEmpty())
                 Pair(protectionInfoRsp.query?.isEditProtected == true, depicts.size)
             }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -697,22 +665,23 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         const val ACTIVITY_RESULT_PAGE_SELECTED = 1
         const val ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 2
         const val ACTIVITY_RESULT_IMAGE_TAGS_ADDED = 3
-        const val EXTRA_PAGETITLE = "pageTitle"
         const val EXTRA_FILENAME = "filename"
-        const val EXTRA_WIKI = "wiki"
         const val EXTRA_REVISION = "revision"
         const val EXTRA_SOURCE = "source"
+        const val SOURCE_LEAD_IMAGE = 0
+        const val SOURCE_NON_LEAD_IMAGE = 1
+        const val SOURCE_LINK_PREVIEW = 2
         private var TRANSITION_INFO: JavaScriptActionHandler.ImageHitInfo? = null
 
         fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long, source: Int): Intent {
             val intent = Intent()
                 .setClass(context, GalleryActivity::class.java)
                 .putExtra(EXTRA_FILENAME, filename)
-                .putExtra(EXTRA_WIKI, wiki)
+                .putExtra(Constants.ARG_WIKISITE, wiki)
                 .putExtra(EXTRA_REVISION, revision)
                 .putExtra(EXTRA_SOURCE, source)
             if (pageTitle != null) {
-                intent.putExtra(EXTRA_PAGETITLE, pageTitle)
+                intent.putExtra(Constants.ARG_TITLE, pageTitle)
             }
             return intent
         }

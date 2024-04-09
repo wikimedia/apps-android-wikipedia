@@ -7,15 +7,18 @@
     android:orientation="vertical">
 
     <TextView
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textAlignment="center"
         android:text="@string/feed_accessibility_card_text" />
 
     <Button
         android:id="@+id/load_more"
-        style="@style/App.Button.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/App.Button.Tertiary"
         android:layout_margin="8dp"
         android:text="@string/feed_accessibility_card_load_more_button" />
 </LinearLayout>

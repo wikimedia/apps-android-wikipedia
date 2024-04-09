@@ -13,14 +13,14 @@
         android:layout_height="match_parent"
         android:background="?attr/paper_color">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/feed_content_type_drag_handle"
             android:layout_width="56dp"
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_draggable"
-            app:tint="?attr/material_theme_de_emphasised_color" />
+            app:tint="?attr/placeholder_color" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -35,14 +35,14 @@
 
             <TextView
                 android:id="@+id/feed_content_type_title"
-                style="@style/MaterialListTitle"
+                style="@style/H3.MaterialListTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Lorem ipsum" />
 
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/feed_content_type_subtitle"
-                style="@style/MaterialListSubtitle"
+                style="@style/List.MaterialListSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -50,10 +50,10 @@
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/feed_content_type_checkbox"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="12dp" />
 

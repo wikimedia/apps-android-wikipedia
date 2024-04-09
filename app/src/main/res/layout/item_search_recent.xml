@@ -7,6 +7,6 @@
     android:fontFamily="sans-serif"
     android:gravity="center_vertical"
     android:paddingStart="16dp"
-    android:textColor="?attr/material_theme_primary_color"
+    android:textColor="?attr/primary_color"
     android:textSize="16sp"
     tools:text="Sample recent search term" />

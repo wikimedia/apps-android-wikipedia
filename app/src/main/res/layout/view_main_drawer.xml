@@ -1,169 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:background="?attr/paper_color">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/main_drawer_account_container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="?attr/color_group_60"
-        android:foreground="?attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/main_drawer_account_avatar"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            android:layout_marginStart="16dp"
-            app:srcCompat="@drawable/ic_baseline_person_24" />
-
-        <TextView
-            android:id="@+id/main_drawer_account_name"
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1" />
+            android:paddingTop="4dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/main_drawer_login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            android:layout_marginStart="24dp"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0.1"
-            android:textColor="?attr/colorPrimary"
-            android:text="@string/main_drawer_login" />
+            <LinearLayout
+                android:id="@+id/main_drawer_account_container"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/main_drawer_login_open_external_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="16dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_open_in_new_black_24px"
-            app:tint="?attr/material_theme_secondary_color" />
+                <ImageView
+                    android:id="@+id/main_drawer_account_avatar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:layout_marginStart="16dp"
+                    app:srcCompat="@drawable/ic_baseline_person_24" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/main_drawer_account_name"
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1" />
 
-    <LinearLayout
-        android:id="@+id/main_drawer_contribs_container"
-        style="@style/SideDrawerMenuItem">
+                <TextView
+                    android:id="@+id/main_drawer_login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="?attr/actionBarSize"
+                    android:layout_marginStart="24dp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="16sp"
+                    android:textColor="?attr/placeholder_color"
+                    android:text="@string/main_drawer_login" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_icon_user_contributions_ooui"
-            app:tint="?attr/material_theme_secondary_color" />
+            </LinearLayout>
 
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/user_contrib_menu_label" />
-    </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="?attr/border_color"/>
 
-    <LinearLayout
-        android:id="@+id/main_drawer_talk_container"
-        style="@style/SideDrawerMenuItem">
+            <LinearLayout
+                android:id="@+id/main_drawer_contribs_container"
+                style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_user_talk"
-            app:tint="?attr/material_theme_secondary_color" />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_icon_user_contributions_ooui"
+                    app:tint="?attr/secondary_color" />
 
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/talk_title" />
-    </LinearLayout>
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/user_contrib_menu_label" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/main_drawer_watchlist_container"
-        style="@style/SideDrawerMenuItem">
+            <LinearLayout
+                android:id="@+id/main_drawer_talk_container"
+                style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_star_24"
-            app:tint="?attr/material_theme_secondary_color" />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_user_talk"
+                    app:tint="?attr/secondary_color" />
 
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/watchlist_title" />
-    </LinearLayout>
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/talk_title" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/main_drawer_settings_container"
-        style="@style/SideDrawerMenuItem">
+            <LinearLayout
+                android:id="@+id/main_drawer_watchlist_container"
+                style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_settings_black_24dp"
-            app:tint="?attr/material_theme_secondary_color" />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/watchlist"
+                    app:tint="?attr/secondary_color" />
 
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/settings_item_preferences" />
-    </LinearLayout>
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/watchlist_title" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/main_drawer_donate_container"
-        style="@style/SideDrawerMenuItem">
+            <LinearLayout
+                android:id="@+id/main_drawer_places_container"
+                style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_heart_24"
-            app:tint="?attr/material_theme_secondary_color" />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/baseline_location_on_24"
+                    app:tint="?attr/secondary_color" />
 
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/nav_item_donate" />
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/places_title" />
+            </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="16dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_open_in_new_black_24px"
-            app:tint="?attr/material_theme_secondary_color" />
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/main_drawer_settings_container"
+                style="@style/SideDrawerMenuItem">
 
-</LinearLayout>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_settings_black_24dp"
+                    app:tint="?attr/secondary_color" />
+
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/settings_item_preferences" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_drawer_donate_container"
+                style="@style/SideDrawerMenuItem">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_heart_24"
+                    app:tint="?attr/secondary_color" />
+
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/nav_item_donate" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_open_in_new_black_24px"
+                    app:tint="?attr/secondary_color" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

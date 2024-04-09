@@ -31,14 +31,14 @@ class SuggestedEditsTypeItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setEnabledStateUI() {
-        binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
-        ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.themed_icon_color)))
+        binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
+        ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color)))
         binding.editTypeContainer.setBackgroundResource(R.drawable.rounded_12dp_accent90_fill)
     }
 
     fun setDisabledStateUI() {
-        binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
-        ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.chart_shade4)))
+        binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
+        ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.placeholder_color)))
         binding.editTypeContainer.setBackgroundResource(R.drawable.rounded_12dp_corner_base90_fill)
     }
 

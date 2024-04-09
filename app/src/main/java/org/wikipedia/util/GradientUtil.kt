@@ -9,24 +9,17 @@ import android.graphics.drawable.ShapeDrawable.ShaderFactory
 import android.graphics.drawable.shapes.RectShape
 import android.view.Gravity
 import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.component1
 import androidx.core.graphics.component2
 import androidx.core.graphics.component3
 import androidx.core.graphics.component4
-import org.wikipedia.WikipediaApp
 import kotlin.math.pow
 
 object GradientUtil {
     private const val GRADIENT_NUM_STOPS = 8
     private const val GRADIENT_POWER = 3
 
-    fun getPowerGradient(@ColorRes baseColor: Int, gravity: Int): Drawable {
-        return getPowerGradientInt(ContextCompat.getColor(WikipediaApp.instance, baseColor), gravity)
-    }
-
-    fun getPowerGradientInt(@ColorInt baseColor: Int, gravity: Int): Drawable {
+    fun getPowerGradient(@ColorInt baseColor: Int, gravity: Int): Drawable {
         val drawable = PaintDrawable()
         drawable.shape = RectShape()
         setPowerGradient(drawable, baseColor, gravity)

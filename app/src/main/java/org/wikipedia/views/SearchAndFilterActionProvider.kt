@@ -36,7 +36,7 @@ class SearchAndFilterActionProvider(context: Context,
         binding.searchInput.inputType = EditorInfo.TYPE_CLASS_TEXT
         binding.searchInput.isSubmitButtonEnabled = false
         binding.searchInput.queryHint = searchHintString
-        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
+        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_color))
         updateFilterIconAndText()
         binding.searchInput.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {
@@ -58,7 +58,7 @@ class SearchAndFilterActionProvider(context: Context,
             callback.onFilterIconClick()
         }
         binding.filterIcon.contentDescription = context.getString(callback.getFilterIconContentDescription())
-        FeedbackUtil.setButtonLongPressToast(binding.filterIcon)
+        FeedbackUtil.setButtonTooltip(binding.filterIcon)
 
         // remove focus line from search plate
         binding.searchInput.findViewById<View?>(androidx.appcompat.R.id.search_plate)?.setBackgroundColor(Color.TRANSPARENT)
@@ -74,11 +74,11 @@ class SearchAndFilterActionProvider(context: Context,
         val enabledFilters = callback.getExcludedFilterCount()
         if (enabledFilters == 0) {
             binding.filterCount.visibility = View.GONE
-            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.color_group_9))
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.primary_color))
         } else {
             binding.filterCount.visibility = View.VISIBLE
             binding.filterCount.text = enabledFilters.toString()
-            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent))
+            ImageViewCompat.setImageTintList(binding.filterIcon, ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color))
         }
     }
 

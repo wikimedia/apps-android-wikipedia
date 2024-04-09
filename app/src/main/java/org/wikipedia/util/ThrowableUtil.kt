@@ -8,6 +8,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.createaccount.CreateAccountException
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.HttpStatusException
@@ -19,6 +20,7 @@ import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLException
 
+@Suppress("SameParameterValue")
 object ThrowableUtil {
     // TODO: replace with Apache Commons Lang ExceptionUtils.
     fun getInnermostThrowable(e: Throwable): Throwable {
@@ -86,11 +88,11 @@ object ThrowableUtil {
     }
 
     @WorkerThread
-    fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo): String {
+    fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): String {
         var html = ""
-        Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).userInfo,
-            ServiceFactory.get(WikipediaApp.instance.wikiSite).parsePage("MediaWiki:Blockedtext"),
-            ServiceFactory.get(WikipediaApp.instance.wikiSite).parseText(blockInfo.blockReason)) { userInfoResponse, blockedParseResponse, reasonParseResponse ->
+        Observable.zip(ServiceFactory.get(wikiSite).userInfo,
+            ServiceFactory.get(wikiSite).parsePage("MediaWiki:Blockedtext"),
+            ServiceFactory.get(wikiSite).parseText(blockInfo.blockReason)) { userInfoResponse, blockedParseResponse, reasonParseResponse ->
             parseBlockedError(
                 blockedParseResponse.text, blockInfo,
                 reasonParseResponse.text, userInfoResponse.query?.userInfo!!.name
@@ -99,7 +101,7 @@ object ThrowableUtil {
         return html
     }
 
-    fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {
+    private fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {
         return template.replace("$1", "<a href=\"${StringUtil.userPageTitleFromName(info.blockedBy, WikipediaApp.instance.wikiSite).mobileUri}\">${info.blockedBy}</a>")
             .replace("$2", reason)
             .replace("$3", "") // IP address of user (TODO: somehow get from API?)
@@ -113,7 +115,7 @@ object ThrowableUtil {
     private fun parseBlockedDate(dateStr: String): String {
         try {
             return DateUtil.iso8601DateParse(dateStr).toString()
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
         return dateStr
     }
 

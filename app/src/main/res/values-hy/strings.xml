@@ -19,7 +19,7 @@
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
   <string name="search_hint_voice_search">Ձայնային որոնում</string>
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Զտել իմ ցանկերը</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Զտել ցանկերս</string>
   <string name="nav_item_suggested_edits">Խմբագրումներ</string>
   <string name="nav_item_more">Ավելին</string>
   <string name="nav_item_search">Որոնել</string>
@@ -38,6 +38,7 @@
   <string name="history_item_delete_undo">Հետ շրջել</string>
   <string name="notification_archive_undo">Հետ շրջել</string>
   <string name="app_settings">Հավելվածի կարգավորումներ</string>
+  <string name="search_tab_tooltip">Կրկին հպեք պատկերակին՝ որոնման հայտ մուտքագրել սկսելու համար։</string>
   <string name="history_list_title">Պատմություն</string>
   <string name="image_content_description">Պատկեր՝ %s</string>
   <string name="page_content_description">Էջ՝ %s</string>
@@ -50,6 +51,17 @@
   <string name="image_share_via">Կիսվել…</string>
   <string name="search_redirect_from">Վերահղված է %s-ից</string>
   <string name="page_edit_history_activity_title">Փոփոխությունների պատմություն՝ %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;չ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_filter_by">Զտել ըստ</string>
+  <string name="page_edit_history_filter_by_all">Բոլոր խմբագրումները (%s)</string>
+  <string name="page_edit_history_filter_by_user">Մասնակիցների խմբագրումները (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Անանուն խմբագրումներ (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Բոտերի խմբագրումները (%s)</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d խմբագրում սկսած %2$s-ից</item>
+    <item quantity="other">%1$d խմբագրում սկսած %2$s-ից</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Փորձեք փոխել &lt;a href=\"#\"&gt;զտիչները&lt;/a&gt;՝ ավելի շատ խմբագրումներ տեսնելու համար</string>
   <string name="menu_page_show_tabs">Ցուցադրել ներդիրները</string>
   <string name="menu_page_other_languages">Փոխել լեզուն</string>
   <string name="menu_page_find_in_page">Գտնել հոդվածում</string>
@@ -59,6 +71,7 @@
   <string name="menu_page_view_talk">Դիտել քննարկման էջը</string>
   <string name="menu_page_talk_page">Քննարկման էջ</string>
   <string name="menu_page_view_edit_history">Դիտել խմբագրումների պատմությունը</string>
+  <string name="menu_page_edit_history">Խմբագրումների պատմություն</string>
   <string name="menu_page_remove_from_watchlist">Հեռացնել հսկացանկից</string>
   <string name="edit_section_find_in_page">Գտնել էջում</string>
   <string name="menu_page_font_and_theme">Տառատեսակ և արտաքին տեսք</string>
@@ -67,6 +80,8 @@
   <string name="feed_card_add_to_list">Ավելացնել ընթերցացանկում</string>
   <string name="feed_card_add_to_default_list">Հիշել</string>
   <string name="menu_page_share">Կիսվել հղումով</string>
+  <string name="menu_article_share">Կիսվել հոդվածով</string>
+  <string name="menu_page_article_share">Կիսվել</string>
   <string name="menu_page_open_a_new_tab">Բացել նոր ներդիրում</string>
   <string name="menu_page_new_tab">Նոր ներդիր</string>
   <string name="menu_page_reading_lists">Ընթերցացանկեր</string>
@@ -86,14 +101,13 @@
   <string name="map_view_link_text">Դիտել քարտեզի վրա</string>
   <string name="other_languages_indication_text">Կարդալ այլ լեզվով</string>
   <string name="language_count_link_text">Հասանելի է %d այլ լեզուներով</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո անվերադարձ հրապարակելուն։</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո անվերադարձ հրապարակելուն։</string>
   <string name="preference_title_language">Վիքիպեդիայի լեզուները</string>
   <string name="langlinks_filter_hint">Որոնել</string>
-  <string name="langlinks_empty">Այս էջը այլ լեզվով հասանելի չէ։</string>
+  <string name="langlinks_empty">Այս էջն այլ լեզուներով մատչելի չէ։</string>
   <string name="langlinks_no_match">Լեզուներ չեն գտնվել</string>
   <string name="langlinks_activity_title">Այլ լեզուներ</string>
-  <string name="langlinks_your_wikipedia_languages">Վիքիպեդիայի քո լեզուները</string>
+  <string name="langlinks_your_wikipedia_languages">Վիքիպեդիայի Ձեր լեզուները</string>
   <string name="menu_save_changes">Հիշել փոփոխությունները</string>
   <string name="edit_saved_successfully">Խմբագրումը հրապարակվեց</string>
   <string name="dialog_message_edit_failed">Չհաջողվեց պահպանել խմբագրումը</string>
@@ -104,21 +118,27 @@
   <string name="dialog_message_leaving_edit_stay">Մնալ</string>
   <string name="menu_show_toc">Բովանդակություն</string>
   <string name="search_no_results_found">Ոչինչ չի գտնվել</string>
-  <string name="title_captcha">Մուտքագրեք քափչան</string>
+  <string name="title_captcha">Մուտքագրեք CAPTCHA֊ն</string>
+  <string name="edit_section_captcha_reload">Հպեք CAPTCHA֊ին՝ վերաբեռնելու համար</string>
   <string name="nav_item_login">Մտնել Վիքիպեդիա</string>
   <string name="login_username_hint">Մասնակցային անուն</string>
   <string name="login_password_hint">Գաղտնաբառ</string>
   <string name="account_creation_password_hint">Գաղտնաբառ</string>
+  <string name="login_2fa_hint">Երկգործոն նույնականացման ծածկագիրը</string>
   <string name="onboarding_card_login">Մտնել</string>
   <string name="page_editing_login">Մտնել</string>
   <string name="reading_lists_sync_login">Մտնել</string>
   <string name="create_account_login">Մտնել</string>
   <string name="menu_login">Մուտք գործել</string>
   <string name="login_activity_title">Մտնել</string>
-  <string name="login_success_toast" fuzzy="true">Հաջող մուտք</string>
+  <string name="login_in_progress_dialog_message">Մուտք համակարգ…</string>
+  <string name="login_success_toast">Հաջող մուտք։</string>
+  <string name="reset_password_title">Գաղտնաբառ սահմանեք</string>
   <string name="reset_password_hint">Նոր գաղտնաբառ</string>
   <string name="preference_title_logout">Դուրս գալ</string>
+  <string name="toast_logout_complete">Դուք դուրս եկաք հաշվից</string>
   <string name="logout_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="logged_out_in_background_title">Դուք դուրս եկաք հաշվից</string>
   <string name="logged_out_in_background_login">Մուտք գործել</string>
   <string name="logged_out_in_background_cancel">Չեղարկել</string>
   <string name="history_empty_title">Վերջերս դիտված էջեր չկան</string>
@@ -134,11 +154,11 @@
   <string name="create_account_email_hint">Էլփոստ (ոչ պարտադիր)</string>
   <string name="create_account_password_repeat_hint">Կրկնել գաղտնաբառը</string>
   <string name="create_account_passwords_mismatch_error">Գաղտնաբառերը չեն համընկնում</string>
-  <string name="create_account_email_error">Սխալ էլփոստի հասցե</string>
+  <string name="create_account_email_error">Էլփոստի սխալ հասցե</string>
   <string name="create_account_password_error">Գաղտնաբառը պետք է լինի առնվազն 8 նիշ</string>
   <string name="create_account_generic_error">Չհաջողվեց ստեղծել հաշիվ</string>
   <string name="create_account_next">Հաջորդ</string>
-  <string name="email_recommendation_dialog_create_with_email_action">Նշեք էլ. փոստի հասցե</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Էլփոստի հասցե ավելացնել</string>
   <string name="create_account_button">Ստեղծել մասնակցային հաշիվ</string>
   <string name="create_account_ip_block_details">Մանրամասներ</string>
   <string name="preferences_general_heading">Ընդհանուր</string>
@@ -147,14 +167,15 @@
   <string name="create_account_account_created_toast">Հաշիվը ստեղծված է</string>
   <string name="preferences_heading_syncing">Համաժամացում</string>
   <string name="preferences_heading_experimental">Փորձնական</string>
-  <string name="preferences_privacy_settings_heading">Գաղտնիություն</string>
-  <string name="preference_title_eventlogging_opt_in">Ուղարկել օգտագործման մասին տեղեկություններ</string>
+  <string name="history_filter_list_hint">Զտիչի պատմությունը</string>
+  <string name="error_can_not_process_link">Չհաջողվեց ցուցադրել այս հղումը</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ավելացնել հսկացանկին</string>
   <string name="settings_item_preferences">Կարգավորումներ</string>
   <string name="settings_activity_title">Կարգավորումներ</string>
   <string name="privacy_policy_description">Գաղտնիության քաղաքականություն</string>
   <string name="terms_of_use_description">Օգտագործման պայմաններ</string>
   <string name="about_wikipedia_url">https://hy.wikipedia.org/wiki/Վիքիպեդիա:Վիքիպեդիայի_մասին</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hy#Ընթերցանության_ցուցակներ_և_անցանց_ընթերցում</string>
   <string name="about_contributors_heading">Հեղինակներ</string>
   <string name="about_translators_heading">Թարգմանիչներ</string>
   <string name="about_translators_translatewiki">Այս ծրագիրը թարգմանվել է կամավոր թարգմանիչների կողմից՝ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; կայքում։</string>
@@ -168,6 +189,10 @@
   <string name="edit_preview">Նախադիտել</string>
   <string name="edit_undo">Հետ շրջել</string>
   <string name="edit_redo">Կրկին անել</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s բայթ</item>
+    <item quantity="other">%s բայթ</item>
+  </plurals>
   <string name="edit_zoom_in">Խոշորացնել</string>
   <string name="edit_zoom_out">Հեռվացնել</string>
   <string name="edit_summary_tag_other">Այլ</string>
@@ -200,22 +225,31 @@
   <string name="location_permissions_enable_action">Միացնել</string>
   <string name="view_link_preview_error_button_dismiss">Փակել</string>
   <string name="reference_list_title">Ծանոթագրություններ</string>
+  <string name="empty_tab_title">Նոր ներդիր</string>
   <string name="crash_report_quit">Ելք</string>
   <string name="article_menu_bar_save_button">Հիշել</string>
   <string name="article_menu_bar_language_button">Լեզու</string>
   <string name="article_menu_bar_search_button">Որոնել</string>
+  <string name="article_menu_bar_theme_button">Թեմա</string>
   <string name="article_menu_bar_contents_button">Բովանդակություն</string>
   <string name="article_header_edit_hint">Խմբագրել...</string>
+  <string name="color_theme_select">Թեմա</string>
   <string name="color_theme_light">Բաց</string>
   <string name="color_theme_dark">Մուք</string>
   <string name="color_theme_black">Սև</string>
   <string name="color_theme_sepia">Սեպիա</string>
+  <string name="preference_title_app_theme">Հավելվածի թեմա</string>
+  <string name="text_size_percent_default">%s (լռելյայն)</string>
   <string name="text_style_title">Տառատեսակ</string>
+  <string name="theme_category_reading">Ընթերցում</string>
+  <string name="theme_category_editing">Խմբագրում</string>
+  <string name="reading_focus_mode">Ընթերցանության ռեժիմ</string>
   <string name="reading_list_create_new">Ստեղծել նորը</string>
   <string name="reading_list_added_view_button">Դիտել ցանկը</string>
   <string name="reading_list_sort">Տեսակավորել</string>
   <string name="reading_list_sort_ellipsis">Տեսակավորել ըստ...</string>
   <string name="reading_list_menu_delete">Ջնջել ցանկ</string>
+  <string name="reading_list_menu_select">Ընտրել</string>
   <string name="reading_list_menu_rename">Խմբագրել անվանումը/նկարագրությունը</string>
   <string name="reading_list_item_delete_undo">Հետ շրջել</string>
   <string name="reading_list_select_item">Ընտրել</string>
@@ -229,6 +263,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ոչ, շնորհակալություն</string>
   <string name="default_reading_list_name">Պահպանված է</string>
   <string name="default_reading_list_description">Ձեր պահպանված հոդվածների կանխադրված ցանկը</string>
+  <string name="reading_lists_menu_import_list">Ներմուծման ցանկ</string>
   <string name="reading_lists_menu_sort_by">Տեսակավորել ըստ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Լավ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Լավ</string>
@@ -237,6 +272,10 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_split_dialog_ok_button_text">Լավ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Ջնջել</string>
+  <string name="reading_lists_preview_save_button">Հիշել</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Չեղարկել</string>
+  <string name="reading_lists_preview_save_dialog_save">Հիշել</string>
   <string name="user_option_sync_label">Նախընտրություններ</string>
   <string name="notification_syncing_pause_button">Դադար</string>
   <string name="notification_syncing_resume_button">Շարունակել</string>
@@ -272,6 +311,7 @@
   <string name="menu_feed_card_dismiss">Թաքցնել այս քարտը</string>
   <string name="menu_feed_card_dismissed">Քարտը թաքնված է։</string>
   <string name="menu_feed_card_edit_card_languages">Խմբագրել քարտի լեզուները</string>
+  <string name="menu_feed_overflow_label">Այլ ընտրանքներ</string>
   <string name="view_card_news_title">Նորություններում</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">երեկ</item>
@@ -333,7 +373,7 @@
     <item quantity="other">Ներդրումներ</item>
   </plurals>
   <string name="suggested_edits_last_edited_never">Երբեք</string>
-  <string name="suggested_edits_task_new">նոր</string>
+  <string name="suggested_edits_task_new" fuzzy="true">նոր</string>
   <string name="suggested_edits_contribution_language_label">Լեզու</string>
   <string name="suggested_edits_contribution_image_label">Պատկեր</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
@@ -439,10 +479,20 @@
   <string name="watchlist_filter_talk">Քննարկում</string>
   <string name="watchlist_filter_pages">Էջեր</string>
   <string name="watchlist_page_protected">Պաշտպանված է</string>
+  <string name="watchlist_filter_user_status_newcomers">Նորեկներ</string>
+  <string name="watchlist_filter_user_status_learners">Սովորողներ</string>
+  <string name="watchlist_filter_automated_contributions_bot">Բոտ</string>
+  <string name="watchlist_filter_automated_contributions_human">Մարդ (ոչ բոտ)</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Էջի խմբագրումներ</string>
+  <string name="watchlist_filter_type_of_change_new_users">Նոր մասնակիցներ</string>
   <string name="search_namespaces">Անվանատարածքներ</string>
   <string name="user_contrib_filter_ns">Զտել ըստ անվանատարածքի</string>
-  <string name="user_contrib_filter_all">Բոլոր խմբագրումները</string>
+  <string name="user_contrib_filter_all">Բոլոր անվանատարածքները</string>
   <string name="namespace_article">Հոդված</string>
   <string name="user_contrib_current">ընթացիկ</string>
   <string name="user_contrib_menu_label">Ներդրումներ</string>
+  <string name="shareable_reading_lists_new_indicator">*նոր*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Հասկանալի է</string>
+  <string name="data_opt_in_accept">Ընդունել</string>
+  <string name="data_opt_in_reject">Մերժել</string>
 </resources>

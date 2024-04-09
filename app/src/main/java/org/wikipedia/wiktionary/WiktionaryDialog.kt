@@ -1,6 +1,5 @@
 package org.wikipedia.wiktionary
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,7 @@ import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.WiktionaryDialogFunnel
 import org.wikipedia.databinding.DialogWiktionaryBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionWithExamplesBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionsListBinding
@@ -20,13 +17,14 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.dataclient.restbase.RbDefinition.Usage
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Locale
 
 class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -40,12 +38,11 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     private lateinit var pageTitle: PageTitle
     private lateinit var selectedText: String
     private var currentDefinition: RbDefinition? = null
-    private var funnel: WiktionaryDialogFunnel? = null
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(TITLE)!!
+        pageTitle = requireArguments().parcelable(TITLE)!!
         selectedText = requireArguments().getString(SELECTED_TEXT)!!
     }
 
@@ -61,13 +58,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         binding.wiktionaryDefinitionDialogTitle.text = sanitizeForDialogTitle(selectedText)
         L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
         loadDefinitions()
-        funnel = WiktionaryDialogFunnel(WikipediaApp.instance, selectedText)
         return binding.root
-    }
-
-    override fun onDismiss(dialogInterface: DialogInterface) {
-        super.onDismiss(dialogInterface)
-        funnel?.logClose()
     }
 
     private fun loadDefinitions() {
@@ -104,7 +95,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun layOutDefinitionsByUsage() {
         currentDefinition?.usagesByLang?.get("en")?.let { usageList ->
-            if (usageList.isNullOrEmpty()) {
+            if (usageList.isEmpty()) {
                 displayNoDefinitionsFound()
                 return
             }
@@ -149,7 +140,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun getTermFromWikiLink(url: String): String {
-        return removeLinkFragment(url.substring(url.lastIndexOf("/") + 1))
+        return removeLinkFragment(url.substringAfterLast('/'))
     }
 
     private fun removeLinkFragment(url: String): String {

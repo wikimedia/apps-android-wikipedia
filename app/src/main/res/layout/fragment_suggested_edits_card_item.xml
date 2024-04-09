@@ -64,7 +64,7 @@
                     android:fontFamily="serif"
                     android:lineSpacingExtra="4sp"
                     android:maxLines="2"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="24sp"
                     tools:text="Lorem ipsum" />
 
@@ -77,7 +77,7 @@
                     android:ellipsize="end"
                     android:lineSpacingExtra="6sp"
                     android:maxLines="3"
-                    android:textColor="?attr/secondary_text_color"
+                    android:textColor="?attr/placeholder_color"
                     android:textSize="14sp"
                     android:visibility="gone"
                     tools:text="Lorem ipsum" />
@@ -87,7 +87,7 @@
                     android:layout_width="222dp"
                     android:layout_height="8dp"
                     android:layout_marginTop="10dp"
-                    android:background="?attr/color_group_22"
+                    android:background="?attr/background_color"
                     android:visibility="gone" />
 
                 <View
@@ -95,7 +95,7 @@
                     android:layout_width="148dp"
                     android:layout_height="8dp"
                     android:layout_marginTop="12dp"
-                    android:background="?attr/color_group_22"
+                    android:background="?attr/background_color"
                     android:visibility="gone" />
 
                 <View
@@ -103,7 +103,7 @@
                     android:layout_width="@dimen/divider_width_for_article"
                     android:layout_height="1dp"
                     android:layout_marginTop="24dp"
-                    android:background="?attr/material_theme_border_color"
+                    android:background="?attr/border_color"
                     android:visibility="gone" />
 
                 <TextView
@@ -113,27 +113,21 @@
                     android:layout_marginTop="14dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="10sp"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/callToActionButton"
-                    style="@style/FlatButton"
+                    style="@style/App.Button.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="11dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.04"
-                    android:lineSpacingExtra="2sp"
                     android:text="@string/suggested_edits_task_add_description_title"
-                    android:textColor="?attr/colorAccent"
-                    android:textSize="14sp"
                     android:visibility="gone"
                     app:icon="@drawable/ic_add_gray_white_24dp"
-                    app:iconSize="24dp"
-                    app:iconTint="?attr/colorAccent" />
+                    tools:visibility="visible"/>
             </LinearLayout>
         </LinearLayout>
     </org.wikipedia.views.WikiCardView>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginBottom="16dp">
+
+    <TextView
+        style="@style/H2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="textStart"
+        android:text="@string/reading_lists_preview_save_dialog_title" />
+
+    <TextView
+        style="@style/P"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:textAlignment="textStart"
+        android:text="@string/reading_lists_preview_save_dialog_text" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/readingListTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/reading_lists_preview_save_dialog_title_hint"
+        app:endIconMode="clear_text">
+
+        <org.wikipedia.views.PlainPasteEditText
+            android:id="@+id/readingListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="text"
+            android:lineSpacingExtra="6sp"
+            android:textSize="16sp"
+            android:text="@string/reading_lists_preview_header_title"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp" />
+
+</LinearLayout>

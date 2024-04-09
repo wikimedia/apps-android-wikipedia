@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:fontFamily="serif"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="24sp"
         tools:text="Lorem ipsum" />
 
@@ -25,15 +25,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="8dp"
-        android:textColor="?attr/secondary_text_color"
+        android:textColor="?attr/placeholder_color"
         android:textSize="14sp"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginTop="16dp"
         android:scaleType="fitStart"
-        app:srcCompat="@drawable/ic_text_placeholder" />
+        app:srcCompat="@drawable/ic_text_placeholder"
+        android:contentDescription="@null"/>
 
 </LinearLayout>

@@ -27,11 +27,10 @@
             android:background="?attr/paper_color"
             android:elevation="4dp">
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/page_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/PageToolbarTheme"
                 app:contentInsetStartWithNavigation="0dp">
 
                 <LinearLayout
@@ -46,13 +45,15 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="@string/search_hint"
-                        android:textColor="?attr/material_theme_secondary_color"
+                        android:textColor="?attr/secondary_color"
                         android:background="@drawable/shape_search_box"
                         android:drawablePadding="8dp"
                         android:paddingStart="12dp"
                         android:layout_marginEnd="4dp"
-                        app:drawableTint="?attr/toolbar_icon_color"
-                        app:drawableStartCompat="@drawable/ic_search_themed_24dp"/>
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        app:drawableTint="?attr/placeholder_color"
+                        app:drawableStartCompat="@drawable/ic_search_white_24dp"/>
 
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
@@ -66,7 +67,7 @@
                         android:layout_height="match_parent"
                         android:contentDescription="@string/notifications_activity_title"/>
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:id="@+id/page_toolbar_button_show_overflow_menu"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
@@ -76,19 +77,17 @@
                         android:paddingEnd="12dp"
                         android:clickable="true"
                         android:focusable="true"
-                        app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                        app:tint="?attr/toolbar_icon_color" />
+                        app:srcCompat="@drawable/ic_more_vert_white_24dp"
+                        app:tint="?attr/primary_color" />
 
                 </LinearLayout>
-            </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.MaterialToolbar>
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/page_progress_bar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:layout_marginTop="-7dp"
                 android:indeterminate="true" />
 
         </FrameLayout>
@@ -142,9 +141,9 @@
             android:elevation="8dp"
             android:focusable="true"
             android:scaleType="center"
-            app:backgroundTint="?attr/toc_scroller_button_color"
+            app:backgroundTint="?attr/background_color"
             app:srcCompat="@drawable/ic_unfold_more_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </FrameLayout>
 

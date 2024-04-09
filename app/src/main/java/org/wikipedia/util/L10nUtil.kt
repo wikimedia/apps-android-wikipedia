@@ -116,7 +116,7 @@ object L10nUtil {
         }
     }
 
-    fun setDesiredLocale(config: Configuration, desiredLocale: Locale) {
+    private fun setDesiredLocale(config: Configuration, desiredLocale: Locale) {
         // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.

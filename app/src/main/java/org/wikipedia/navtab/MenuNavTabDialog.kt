@@ -1,6 +1,5 @@
 package org.wikipedia.navtab
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,13 +11,15 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.util.DimenUtil.getDimension
-import org.wikipedia.util.DimenUtil.roundedDpToPx
+import org.wikipedia.places.PlacesActivity
+import org.wikipedia.util.CustomTabsUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.util.UriUtil.visitInExternalBrowser
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -58,6 +59,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
+        binding.mainDrawerPlacesContainer.setOnClickListener {
+            PlacesEvent.logAction("places_click", "main_nav_tab")
+            requireActivity().startActivity(PlacesActivity.newIntent(requireActivity()))
+            dismiss()
+        }
+
         binding.mainDrawerSettingsContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerSettingsContainer)
             callback()?.settingsClick()
@@ -71,13 +78,14 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
+            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
-            visitInExternalBrowser(requireContext(),
-                    Uri.parse(getString(R.string.donate_url,
-                            BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))
+            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.donate_url,
+                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
             dismiss()
         }
 
+        updateState()
         return binding.root
     }
 
@@ -86,35 +94,28 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         _binding = null
     }
 
-    override fun onResume() {
-        super.onResume()
-        updateState()
-    }
-
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(binding.root.parent as View).peekHeight = roundedDpToPx(getDimension(R.dimen.navTabDialogPeekHeight))
+        BottomSheetBehavior.from(binding.root.parent as View).peekHeight = DimenUtil.displayHeightPx
     }
 
     private fun updateState() {
         if (AccountUtil.isLoggedIn) {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_baseline_person_24)
-            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color))
+            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.secondary_color))
             binding.mainDrawerAccountName.text = AccountUtil.userName
             binding.mainDrawerAccountName.visibility = View.VISIBLE
             binding.mainDrawerLoginButton.visibility = View.GONE
-            binding.mainDrawerLoginOpenExternalIcon.visibility = View.VISIBLE
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
             binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
             binding.mainDrawerContribsContainer.visibility = View.VISIBLE
         } else {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
-            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.colorAccent))
+            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.progressive_color))
             binding.mainDrawerAccountName.visibility = View.GONE
             binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
             binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
-            binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.colorAccent))
-            binding.mainDrawerLoginOpenExternalIcon.visibility = View.GONE
+            binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.progressive_color))
             binding.mainDrawerTalkContainer.visibility = View.GONE
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
             binding.mainDrawerContribsContainer.visibility = View.GONE

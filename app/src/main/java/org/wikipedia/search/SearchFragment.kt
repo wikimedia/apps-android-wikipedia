@@ -3,35 +3,33 @@ package org.wikipedia.search
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Color
+import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.IntentFunnel
-import org.wikipedia.analytics.SearchFunnel
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.readinglist.MoveToReadingListDialog
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
@@ -41,8 +39,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
-import org.wikipedia.views.ViewUtil
-import java.util.*
+import java.util.Locale
 
 class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
@@ -53,10 +50,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var isSearchActive = false
     private var query: String? = null
     private var returnLink = false
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
-    private lateinit var funnel: SearchFunnel
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
     var searchLanguageCode = app.languageState.appLanguageCode
@@ -64,7 +59,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
-        funnel.searchCancel(searchLanguageCode)
         false
     }
 
@@ -95,7 +89,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                     position = app.languageState.appLanguageCodes.indexOf(searchLanguageCode)
                 }
             }
-            searchResultsFragment.clearSearchResultsCountCache()
             Prefs.selectedLanguagePositionInSearch = position
         }
     }
@@ -108,7 +101,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
-        funnel = SearchFunnel(app, invokeSource)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -119,11 +111,16 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         recentSearchesFragment.callback = this
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
+        searchResultsFragment.setInvokeSource(invokeSource)
+        (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
-        binding.searchLangButtonContainer.setOnClickListener { onLangButtonClick() }
+        binding.searchLangButton.setOnClickListener { onLangButtonClick() }
         initSearchView()
+        if (invokeSource == InvokeSource.PLACES) {
+            PlacesEvent.logImpression("search_view")
+        }
         return binding.root
     }
 
@@ -132,6 +129,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
         startSearch(query, langBtnClicked)
         binding.searchCabView.setCloseButtonVisibility(query)
+        recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
         if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
@@ -143,14 +141,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun handleIntent(intent: Intent) {
-        val intentFunnel = IntentFunnel(WikipediaApp.instance)
         if (Intent.ACTION_SEND == intent.action && Constants.PLAIN_TEXT_MIME_TYPE == intent.type) {
-            intentFunnel.logShareIntent()
             requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT))
             requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_SHARE)
         } else if (Intent.ACTION_PROCESS_TEXT == intent.action && Constants.PLAIN_TEXT_MIME_TYPE ==
                 intent.type && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            intentFunnel.logProcessTextIntent()
             requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT))
             requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_PROCESS_TEXT)
         }
@@ -162,11 +157,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             pos = if (app.languageState.appLanguageCodes.size > pos) pos else 0
             binding.searchLanguageScrollViewContainer.visibility = View.VISIBLE
             binding.searchLanguageScrollView.setUpLanguageScrollTabData(app.languageState.appLanguageCodes, pos, this)
-            binding.searchLangButtonContainer.visibility = View.GONE
+            binding.searchLangButton.visibility = View.GONE
         } else {
             maybeShowMultilingualSearchTooltip()
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
-            binding.searchLangButtonContainer.visibility = View.VISIBLE
+            binding.searchLangButton.visibility = View.VISIBLE
             initLangButton()
             recentSearchesFragment.onLangCodeChanged()
         }
@@ -188,12 +183,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnCloseListener(null)
         binding.searchCabView.setOnQueryTextListener(null)
         _binding = null
-        funnel.searchCancel(searchLanguageCode)
         super.onDestroyView()
-    }
-
-    override fun getFunnel(): SearchFunnel {
-        return funnel
     }
 
     override fun switchToSearch(text: String) {
@@ -213,37 +203,32 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setQuery(text, false)
     }
 
-    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
         if (!isAdded) {
             return
         }
-        funnel.searchClick(position, searchLanguageCode)
         if (returnLink) {
+            if (invokeSource == InvokeSource.PLACES) {
+                PlacesEvent.logAction("search_result_click", "search_view")
+            }
             val intent = Intent().putExtra(SearchActivity.EXTRA_RETURN_LINK_TITLE, item)
+                .putExtra(PlacesActivity.EXTRA_LOCATION, location)
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
             requireActivity().finish()
         } else {
             val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
-            closeSearch()
         }
+        closeSearch()
     }
 
     override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-        if (addToDefault) {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED) { readingListId ->
-                onSearchMovePageToList(readingListId, entry)
-            }
-        } else {
-            bottomSheetPresenter.show(childFragmentManager,
-                    AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
-        }
+        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.SEARCH)
     }
 
     override fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        bottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
+        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.SEARCH)
     }
 
     override fun onSearchProgressBar(enabled: Boolean) {
@@ -276,13 +261,15 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (term.isNullOrBlank() && !force) {
             return
         }
-        searchResultsFragment.startSearch(term, force)
+        binding.searchContainer.postDelayed({
+            if (!isAdded) {
+                return@postDelayed
+            }
+            searchResultsFragment.startSearch(term, force)
+        }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
     }
 
     private fun openSearch() {
-        // create a new funnel every time Search is opened, to get a new session ID
-        funnel = SearchFunnel(app, invokeSource)
-        funnel.searchStart()
         isSearchActive = true
         binding.searchCabView.isIconified = false
         // if we already have a previous search query, then put it into the SearchView, and it will
@@ -325,7 +312,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
         binding.searchCabView.setOnCloseListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
-                R.attr.color_group_63))
+                R.attr.secondary_color))
+        binding.searchCabView.queryHint = getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint else R.string.search_hint)
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
@@ -334,18 +322,14 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun initLangButton() {
-        binding.searchLangButton.text = app.languageState.appLanguageCode.uppercase(Locale.ENGLISH)
-        ViewUtil.formatLangButton(binding.searchLangButton, app.languageState.appLanguageCode.uppercase(Locale.ENGLISH),
-                LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
-        FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
+        binding.searchLangButton.setLangCode(app.languageState.appLanguageCode.uppercase(Locale.ENGLISH))
+        FeedbackUtil.setButtonTooltip(binding.searchLangButton)
     }
 
     private fun addRecentSearch(title: String?) {
         if (!title.isNullOrBlank()) {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> throwable.printStackTrace() }) {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
-                }
+                AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
                 recentSearchesFragment.updateList()
             }
         }
@@ -359,14 +343,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         } else {
             // We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
             // gets overwritten when UI is re-drawn
-            funnel.searchLanguageSwitch((if (!tempLangCodeHolder.isNullOrEmpty() && tempLangCodeHolder != selectedLanguageCode)
-                tempLangCodeHolder else searchLanguageCode)!!, selectedLanguageCode)
             tempLangCodeHolder = null
         }
         searchLanguageCode = selectedLanguageCode
         searchResultsFragment.setLayoutDirection(searchLanguageCode)
         recentSearchesFragment.onLangCodeChanged()
-        startSearch(query, true)
+        startSearch(query, false)
     }
 
     override fun onLanguageButtonClicked() {
@@ -377,6 +359,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val ARG_QUERY = "lastQuery"
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
+        private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 1
         const val LANG_BUTTON_TEXT_SIZE_LARGER = 12
         const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10

@@ -1,22 +1,17 @@
 package org.wikipedia.settings
 
 import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.forEach
+import androidx.core.text.method.LinkMovementMethodCompat
+import androidx.core.view.descendants
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityAboutBinding
-import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.FeedbackUtil.showMessage
-import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.util.log.L
+import org.wikipedia.richtext.setHtml
+import org.wikipedia.util.FeedbackUtil
 
 class AboutActivity : BaseActivity() {
 
@@ -26,57 +21,34 @@ class AboutActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.aboutContributors.text = fromHtml(getString(R.string.about_contributors))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutContributors)
-        binding.aboutTranslators.text = fromHtml(getString(R.string.about_translators_translatewiki))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutTranslators)
-        binding.aboutWmf.text = fromHtml(getString(R.string.about_wmf))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutWmf)
-        binding.aboutAppLicense.text = fromHtml(getString(R.string.about_app_license))
-        RichTextUtil.removeUnderlinesFromLinks(binding.aboutAppLicense)
+        binding.aboutContributors.setHtml(getString(R.string.about_contributors))
+        binding.aboutTranslators.setHtml(getString(R.string.about_translators_translatewiki))
+        binding.aboutWmf.setHtml(getString(R.string.about_wmf))
+        binding.aboutAppLicense.setHtml(getString(R.string.about_app_license))
+        binding.activityAboutLibraries.setHtml(getString(R.string.libraries_list))
         binding.aboutVersionText.text = BuildConfig.VERSION_NAME
-        RichTextUtil.removeUnderlinesFromLinks(binding.activityAboutLibraries)
         binding.aboutLogoImage.setOnClickListener(AboutLogoClickListener())
-        makeEverythingClickable(binding.aboutContainer)
-
-        binding.sendFeedbackText.setOnClickListener {
-            val intent = Intent()
-                    .setAction(Intent.ACTION_SENDTO)
-                    .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App ${BuildConfig.VERSION_NAME} Feedback"))
-            try {
-                startActivity(intent)
-            } catch (e: Exception) {
-                L.e(e)
-            }
+        binding.aboutContainer.descendants.filterIsInstance<TextView>().forEach {
+            it.movementMethod = LinkMovementMethodCompat.getInstance()
         }
-    }
-
-    private fun makeEverythingClickable(vg: ViewGroup) {
-        vg.forEach {
-            if (it is ViewGroup) {
-                makeEverythingClickable(it)
-            } else if (it is TextView) {
-                it.movementMethod = LinkMovementMethod.getInstance()
-            }
+        binding.sendFeedbackText.setOnClickListener {
+            FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
         }
     }
 
     private class AboutLogoClickListener : View.OnClickListener {
-        private var mSecretClickCount = 0
+        private var secretClickCount = 0
         override fun onClick(v: View) {
-            ++mSecretClickCount
-            if (isSecretClickLimitMet) {
+            ++secretClickCount
+            if (secretClickCount == SECRET_CLICK_LIMIT) {
                 if (Prefs.isShowDeveloperSettingsEnabled) {
-                    showMessage(v.context as Activity, R.string.show_developer_settings_already_enabled)
+                    FeedbackUtil.showMessage(v.context as Activity, R.string.show_developer_settings_already_enabled)
                 } else {
                     Prefs.isShowDeveloperSettingsEnabled = true
-                    showMessage(v.context as Activity, R.string.show_developer_settings_enabled)
+                    FeedbackUtil.showMessage(v.context as Activity, R.string.show_developer_settings_enabled)
                 }
             }
         }
-
-        private val isSecretClickLimitMet: Boolean
-            get() = mSecretClickCount == SECRET_CLICK_LIMIT
 
         companion object {
             private const val SECRET_CLICK_LIMIT = 7

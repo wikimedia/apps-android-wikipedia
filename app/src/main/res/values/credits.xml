@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="libraries_list"><a href="https://github.com/skydoves/Balloon">Balloon</a>
+    <string name="libraries_list"><![CDATA[<a href="https://github.com/skydoves/Balloon">Balloon</a>
         <!-- https://github.com/skydoves/Balloon/blob/main/LICENSE -->
         (<a href="content:///android_asset/licenses/Balloon">license</a>),
 
@@ -23,5 +23,5 @@
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
         (<a href="content:///android_asset/licenses/Retrofit">license</a>)
-    </string>
+    ]]></string>
 </resources>

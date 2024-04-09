@@ -3,6 +3,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -35,9 +36,10 @@
                     android:id="@+id/errorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_margin="32dp"
                     android:layout_gravity="center"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
 
                 <LinearLayout
                     android:id="@+id/tasksContainer"
@@ -79,7 +81,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 android:layout_marginEnd="48dp"
-                                android:textColor="?attr/material_theme_primary_color"
+                                android:textColor="?attr/primary_color"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
                             
@@ -91,9 +93,9 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 android:padding="2dp"
                                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                                app:tint="?attr/colorAccent"
+                                app:tint="?attr/progressive_color"
                                 android:background="@drawable/shape_circle"
-                                android:backgroundTint="?attr/color_group_22"
+                                android:backgroundTint="?attr/background_color"
                                 android:contentDescription="@string/suggested_edits_my_contributions"/>
                             
                             <androidx.constraintlayout.widget.Guideline
@@ -130,7 +132,7 @@
                                 android:minHeight="48dp"
                                 app:layout_constraintStart_toStartOf="@id/contributionsStatsView"
                                 app:layout_constraintEnd_toEndOf="@id/guideLineMiddle"
-                                app:layout_constraintTop_toBottomOf="@id/contributionsStatsView" />
+                                app:layout_constraintTop_toBottomOf="@id/editStreakStatsView" />
 
                             <org.wikipedia.views.ImageTitleDescriptionView
                                 android:id="@+id/editQualityStatsView"
@@ -159,7 +161,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/onboardingImageView"
-                                android:textColor="?attr/material_theme_primary_color"
+                                android:textColor="?attr/primary_color"
                                 android:lineSpacingExtra="6sp"
                                 android:textAlignment="center"
                                 android:textSize="@dimen/suggested_edits_message_textview_text_size"
@@ -177,7 +179,7 @@
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:text="@string/suggested_edits_label"
-                        android:textColor="?attr/material_theme_primary_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="20sp"
                         android:textStyle="bold"/>
 
@@ -212,7 +214,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
-                                android:textColor="?attr/material_theme_primary_color"
+                                android:textColor="?attr/primary_color"
                                 android:text="@string/suggested_edits_what_is_title"/>
 
                             <TextView
@@ -221,20 +223,20 @@
                                 android:layout_marginTop="8dp"
                                 android:textSize="16sp"
                                 android:lineSpacingExtra="8sp"
-                                android:textColor="?attr/material_theme_secondary_color"
+                                android:textColor="?attr/secondary_color"
                                 android:text="@string/suggested_edits_what_is_text"/>
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/learnMoreButton"
-                                style="@style/FlatButton.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/App.Button.Secondary"
                                 android:text="@string/suggested_edits_learn_more"
                                 android:layout_marginTop="6dp"
                                 app:layout_constraintTop_toBottomOf="@id/taskDescription"
                                 app:layout_constraintStart_toStartOf="@id/taskDescription"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:icon="@drawable/ic_open_in_new_black_24px"
-                                app:iconSize="20dp"
-                                app:iconTint="?attr/colorAccent"/>
+                                app:icon="@drawable/ic_open_in_new_black_24px"/>
 
                         </LinearLayout>
 
@@ -251,8 +253,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:textAllCaps="true"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/progressive_color"
                             android:textSize="@dimen/bottom_nav_label_text_size"
                             android:text="IPBlocked" />
 
@@ -261,8 +262,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:textAllCaps="true"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/progressive_color"
                             android:textSize="@dimen/bottom_nav_label_text_size"
                             android:text="Onboarding" />
                     </LinearLayout>
@@ -273,15 +273,11 @@
 
         </androidx.core.widget.NestedScrollView>
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:indeterminateTint="?attr/colorAccent"
-            android:progressBackgroundTint="?attr/multi_select_background_color"
-            android:layout_marginTop="-6dp" />
+            android:indeterminate="true" />
 
     </FrameLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

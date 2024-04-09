@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Arnobarnard
 * Biggs ZA
 * Envlh
@@ -123,9 +124,6 @@
   <string name="preferences_heading_syncing">Sinkronisasie</string>
   <string name="preferences_heading_data_usage">Datagebruik</string>
   <string name="preferences_heading_experimental">Eksperimenteel</string>
-  <string name="preferences_privacy_settings_heading">Privaatheid</string>
-  <string name="preference_title_eventlogging_opt_in">Stuur gebruiksverslae</string>
-  <string name="preference_summary_eventlogging_opt_in">Laat Wikimedia toe om inligting in te samel oor hoe u die toep gebruik om sodoende die toep te verbeter</string>
   <string name="preference_title_auto_upload_crash_reports">Stuur bomverslae</string>
   <string name="editing_error_spamblacklist">Skakels na geblokkeerder domeins (%s) gevind. Verwyder dit en probeer weer.</string>
   <string name="error_can_not_process_link">Kon nie hierdie skakel vertoon nie</string>
@@ -140,8 +138,7 @@
   <string name="privacy_policy_description">Privaatheidsbeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaardes</string>
   <string name="about_wikipedia_url">https://af.wikipedia.org/wiki/Wikipedia:Omtrent</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.af</string>
   <string name="about_libraries_heading">Biblioteke gebruik</string>
   <string name="about_contributors_heading">Bydraers</string>
   <string name="about_translators_heading">Vertalers</string>
@@ -260,8 +257,6 @@
   <string name="reading_list_create_new">Skep nuwe</string>
   <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>
   <string name="reading_list_added_view_button">Bekyk lys</string>
-  <string name="format_reading_list_statistical_summary_singular">1 bladsy, %1$.2f MG</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d bladsye, %2$.2f MG</string>
   <string name="reading_list_sort">Sorteer</string>
   <string name="reading_list_sort_ellipsis">Sorteer volgens…</string>
   <string name="reading_list_sort_by_name">Sorteer volgens naam</string>
@@ -321,7 +316,7 @@
   <string name="suggested_edits_image_tags_choose" fuzzy="true">Kies bypassende etikette</string>
   <string name="suggested_edits_image_tags_select_title">U het geen merkers vir hierdie prent gekies nie</string>
   <string name="suggested_edits_image_tags_select_text">Slegs merkers wat u kies, sal by prente gevoeg word. Merkers wat nie gekies is nie, sal as verwerp gemerk word. Is u seker dat u alle merkers as verwerp wil merk?</string>
-  <string name="suggested_edits_task_new">nuwe</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nuwe</string>
   <string name="suggested_edits_cc0_notice">Deur te publiseer, stem u in tot die &lt;a href=\"%1$s\"&gt;gebruiksvoorwaardes&lt;/a&gt; en om hierdie bydrae onherroeplik vry te stel onder die &lt;a href=\"%2$s\"&gt;CC0-lisensie&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Dankie dat u bydra tot Wikipedia!</string>
   <string name="size_gb">%.2f GG</string>

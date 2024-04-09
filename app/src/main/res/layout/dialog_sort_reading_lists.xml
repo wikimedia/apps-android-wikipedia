@@ -15,7 +15,7 @@
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:paddingEnd="@dimen/activity_horizontal_margin"
         android:text="@string/reading_lists_menu_sort_by"
-        android:textColor="?attr/secondary_text_color"
+        android:textColor="?attr/placeholder_color"
         android:textSize="16sp" />
 
     <androidx.recyclerview.widget.RecyclerView

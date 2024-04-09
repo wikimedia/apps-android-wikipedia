@@ -1,17 +1,23 @@
 package org.wikipedia.views
 
-import android.app.Activity
 import android.content.Context
-import android.content.ContextWrapper
+import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.text.TextUtils
-import android.view.*
+import android.view.ActionMode
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.graphics.contains
+import androidx.core.view.allViews
+import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -25,27 +31,29 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.ResourceUtil.getThemedColor
 import org.wikipedia.util.WhiteBackgroundTransformation
-import java.util.*
 
 object ViewUtil {
     private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
     val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), ROUNDED_CORNERS)
+    private val CENTER_CROP_CIRCLE = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(36f)))
 
     fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
-        loadImage(view, url, true, largeRoundedSize)
+        loadImage(view, url, roundedCorners = true, largeRoundedSize = largeRoundedSize)
     }
 
-    fun loadImage(view: ImageView, url: String?, roundedCorners: Boolean = false, largeRoundedSize: Boolean = false, force: Boolean = false,
+    fun loadImage(view: ImageView, url: String?, circleShape: Boolean = false, roundedCorners: Boolean = false, largeRoundedSize: Boolean = false, force: Boolean = false,
                   listener: RequestListener<Drawable?>? = null) {
         val placeholder = getPlaceholderDrawable(view.context)
         var builder = Glide.with(view)
-                .load(if ((Prefs.isImageDownloadEnabled || force) && !TextUtils.isEmpty(url)) Uri.parse(url) else null)
+                .load(if ((Prefs.isImageDownloadEnabled || force) && !url.isNullOrEmpty()) Uri.parse(url) else null)
                 .placeholder(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .error(placeholder)
         builder = if (roundedCorners) {
             builder.transform(if (largeRoundedSize) CENTER_CROP_LARGE_ROUNDED_CORNERS else CENTER_CROP_ROUNDED_CORNERS)
+        } else if (circleShape) {
+            builder.transform(CENTER_CROP_CIRCLE)
         } else {
             builder.transform(WhiteBackgroundTransformation())
         }
@@ -56,7 +64,7 @@ object ViewUtil {
     }
 
     fun getPlaceholderDrawable(context: Context): Drawable {
-        return ColorDrawable(getThemedColor(context, R.attr.material_theme_border_color))
+        return ColorDrawable(getThemedColor(context, R.attr.border_color))
     }
 
     fun setCloseButtonInActionMode(context: Context, actionMode: ActionMode) {
@@ -65,36 +73,32 @@ object ViewUtil {
         binding.closeButton.setOnClickListener { actionMode.finish() }
     }
 
-    fun formatLangButton(langButton: TextView, langCode: String,
-                         langButtonTextSizeSmaller: Int, langButtonTextSizeLarger: Int) {
-        val langCodeStandardLength = 3
-        if (langCode.length > langCodeStandardLength) {
-            langButton.textSize = langButtonTextSizeSmaller.toFloat()
-            return
-        }
-        langButton.textSize = langButtonTextSizeLarger.toFloat()
-    }
-
     fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
     }
 
-    tailrec fun Context.getActivity(): Activity? = this as? Activity
-        ?: (this as? ContextWrapper)?.baseContext?.getActivity()
-
-    fun findClickableViewAtPoint(parentView: View, x: Int, y: Int): View? {
+    fun findClickableViewAtPoint(parentView: View, point: Point): View? {
         val location = IntArray(2)
-        parentView.getLocationOnScreen(location)
-        val rect = Rect(location[0], location[1], location[0] + parentView.width, location[1] + parentView.height)
-        if (rect.contains(x, y) && parentView.isVisible) {
-            if (parentView is ViewGroup) {
-                for (i in parentView.childCount - 1 downTo 0) {
-                    val v = parentView.getChildAt(i)
-                    findClickableViewAtPoint(v, x, y)?.let { return it }
-                }
+        return parentView.allViews.lastOrNull {
+            val (x, y) = location.apply { it.getLocationOnScreen(this) }
+            val rect = Rect(x, y, x + it.width, y + it.height)
+            point in rect && it.isVisible && it.isEnabled && it.isClickable
+        }
+    }
+
+    fun jumpToPositionWithoutAnimation(recyclerView: RecyclerView, position: Int) {
+        recyclerView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                recyclerView.scrollToPosition(position)
+                recyclerView.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }
-            if (parentView.isEnabled && parentView.isClickable) {
-                return parentView
+        })
+    }
+
+    fun getTitleViewFromToolbar(toolbar: ViewGroup): TextView? {
+        toolbar.children.forEach {
+            if (it is TextView) {
+                return it
             }
         }
         return null

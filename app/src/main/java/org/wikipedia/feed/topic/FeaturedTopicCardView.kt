@@ -13,7 +13,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.LongPressMenu.Callback
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.views.ImageZoomHelper
 
 @Suppress("LeakingThis")
@@ -32,7 +32,7 @@ open class FeaturedTopicCardView(context: Context) : DefaultFeedCardView<TopicCa
             if (ImageZoomHelper.isZooming) {
                 ImageZoomHelper.dispatchCancelEvent(binding.viewFeaturedArticleCardContentContainer)
             } else {
-                LongPressMenu(view, true, object : Callback {
+                LongPressMenu(view, true, callback = object : Callback {
                     override fun onOpenLink(entry: HistoryEntry) {
                         card?.let {
                             callback?.onSelectPage(it, entry, false)
@@ -114,7 +114,7 @@ open class FeaturedTopicCardView(context: Context) : DefaultFeedCardView<TopicCa
         get() = CardFooterView.Callback {
             card?.let {
                 callback?.onSelectPage(it, HistoryEntry(PageTitle(
-                    SiteInfoClient.getMainPageForLang(it.wikiSite().languageCode), it.wikiSite()),
+                    MainPageNameData.valueFor(it.wikiSite().languageCode), it.wikiSite()),
                     it.historyEntry().source), false
                                       )
             }

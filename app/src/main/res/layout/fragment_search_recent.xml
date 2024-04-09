@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recent_searches_container"
@@ -14,7 +13,8 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/search_empty_image"
@@ -25,31 +25,33 @@
 
         <TextView
             android:id="@+id/search_empty_message"
-            style="@style/MaterialMediumSecondaryCaption"
+            style="@style/P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/search_empty_message" />
+            android:text="@string/search_empty_message"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/add_languages_button"
-            style="@style/App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/App.Button.Tertiary"
             android:layout_marginTop="16dp"
             android:text="@string/add_wikipedia_languages_text"
-            android:textColor="?attr/material_theme_secondary_color"
-            app:backgroundTint="?attr/chip_background_color"
             tools:text="Add Wikipedia languages" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/recent_searches"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/namespacesContainer"
         android:orientation="vertical">
 
         <FrameLayout
@@ -67,23 +69,22 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:text="@string/search_recent_header"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/recent_searches_delete_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
                 android:layout_gravity="end|center_vertical"
                 android:clickable="true"
                 android:contentDescription="@string/menu_clear_all_history"
                 android:focusable="true"
-                android:foreground="?attr/actionBarItemBackground"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:longClickable="true"
-                android:scaleType="centerInside"
-                app:tint="@color/base30"
+                app:tint="@color/gray500"
                 app:srcCompat="@drawable/ic_delete_white_24dp" />
 
         </FrameLayout>
@@ -97,16 +98,19 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/namespacesContainer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
-        android:layout_gravity="bottom"
         android:background="?attr/paper_color">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color"/>
+            android:background="?attr/border_color"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/namespaces_recycler"
@@ -117,4 +121,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

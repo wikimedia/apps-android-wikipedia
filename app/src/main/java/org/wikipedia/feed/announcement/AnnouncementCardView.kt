@@ -2,16 +2,15 @@ package org.wikipedia.feed.announcement
 
 import android.content.Context
 import android.net.Uri
-import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardAnnouncementBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.DefaultFeedCardView
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 
@@ -25,8 +24,8 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
     var localCallback: Callback? = null
 
     init {
-        binding.viewAnnouncementText.movementMethod = LinkMovementMethod.getInstance()
-        binding.viewAnnouncementFooterText.movementMethod = LinkMovementMethod.getInstance()
+        binding.viewAnnouncementText.movementMethod = LinkMovementMethodCompat.getInstance()
+        binding.viewAnnouncementFooterText.movementMethod = LinkMovementMethodCompat.getInstance()
         binding.viewAnnouncementActionPositive.setOnClickListener { onPositiveActionClick() }
         binding.viewAnnouncementDialogActionPositive.setOnClickListener { onPositiveActionClick() }
         binding.viewAnnouncementActionNegative.setOnClickListener { onNegativeActionClick() }
@@ -67,13 +66,12 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                 }
                 if (it.hasFooterCaption()) {
                     binding.viewAnnouncementFooterText.text = StringUtil.fromHtml(it.footerCaption())
-                    RichTextUtil.removeUnderlinesFromLinks(binding.viewAnnouncementFooterText)
                 } else {
                     binding.viewAnnouncementFooterText.visibility = GONE
                     binding.viewAnnouncementFooterBorder.visibility = GONE
                 }
                 if (it.hasBorder()) {
-                    binding.viewAnnouncementContainer.strokeColor = ContextCompat.getColor(context, R.color.red30)
+                    binding.viewAnnouncementContainer.strokeColor = ContextCompat.getColor(context, R.color.red700)
                     binding.viewAnnouncementContainer.strokeWidth = 10
                 } else {
                     binding.viewAnnouncementContainer.setDefaultBorder()

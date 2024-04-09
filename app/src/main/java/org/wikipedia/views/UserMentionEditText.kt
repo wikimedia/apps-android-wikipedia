@@ -1,19 +1,16 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.text.*
-import android.text.style.ForegroundColorSpan
+import android.text.TextWatcher
 import android.util.AttributeSet
-import androidx.annotation.ColorInt
-import androidx.core.text.getSpans
+import androidx.core.text.buildSpannedString
 import androidx.core.widget.doOnTextChanged
-import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.edit.SyntaxHighlightableEditText
 import org.wikipedia.staticdata.UserAliasData
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
-class UserMentionEditText : PlainPasteEditText {
+class UserMentionEditText : SyntaxHighlightableEditText {
     interface Listener {
         fun onStartUserNameEntry()
         fun onCancelUserNameEntry()
@@ -28,7 +25,6 @@ class UserMentionEditText : PlainPasteEditText {
     private val isEnteringUserName get() = userNameStartPos >= 0
     private var spacesPressedCount = 0
     private var isUserNameCommitting = false
-    private val editable get() = text ?: SpannableStringBuilder("")
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -91,19 +87,11 @@ class UserMentionEditText : PlainPasteEditText {
         }
         if (isEnteringUserName) {
             if ((selStart < userNameStartPos || selEnd > userNameEndPos) ||
-                    (userNameEndPos > editable.length)) {
+                    (userNameEndPos > text.length)) {
                 onCancelUserNameEntry()
                 return
             }
-            onUserNameChanged(editable.substring(userNameStartPos, userNameEndPos))
-        } else if (selStart == selEnd && !isEnteringUserName) {
-            val spans = editable.getSpans<UserColorSpan>(selStart, selEnd)
-            if (spans.isNotEmpty()) {
-                userNameStartPos = editable.getSpanStart(spans[0])
-                userNameEndPos = editable.getSpanEnd(spans[0])
-                onStartUserNameEntry()
-                onUserNameChanged(editable.substring(userNameStartPos, userNameEndPos))
-            }
+            onUserNameChanged(text.substring(userNameStartPos, userNameEndPos))
         }
     }
 
@@ -124,19 +112,18 @@ class UserMentionEditText : PlainPasteEditText {
         listener?.onUserNameChanged(userName)
     }
 
-    fun prepopulateUserName(userName: String) {
-        val sb = SpannableStringBuilder()
-        sb.append("@$userName")
-        val spanEnd = sb.length
-        sb.append(" ")
-        createUserNameSpan(sb, 0, spanEnd)
+    fun prepopulateUserName(userName: String, wikiSite: WikiSite) {
         isUserNameCommitting = true
-        text = sb
+        val spannedString = buildSpannedString {
+            append(composeUserNameLink(userName, wikiSite))
+            append(" ")
+        }
+        setText(spannedString)
         isUserNameCommitting = false
-        setSelection(sb.length)
+        setSelection(spannedString.length)
     }
 
-    fun onCommitUserName(userName: String) {
+    fun onCommitUserName(userName: String, wikiSite: WikiSite) {
         try {
             isUserNameCommitting = true
             if (userNameStartPos < 0 || userNameEndPos <= userNameStartPos) {
@@ -144,62 +131,25 @@ class UserMentionEditText : PlainPasteEditText {
                 return
             }
 
-            val sb = SpannableStringBuilder()
-            sb.append(editable.subSequence(0, userNameStartPos))
-            val spanStart = sb.length
-            sb.append("@$userName")
-            val spanEnd = sb.length
-            if (userNameEndPos < editable.length) {
-                sb.append(editable.subSequence(userNameEndPos, editable.length - 1))
+            val initialString = text.subSequence(0, userNameStartPos)
+            val userNameString = composeUserNameLink(userName, wikiSite)
+            val spannedString = buildSpannedString {
+                append(initialString)
+                append(userNameString)
+                if (userNameEndPos < text.length) {
+                    append(text.subSequence(userNameEndPos, text.length - 1))
+                }
             }
 
-            createUserNameSpan(sb, spanStart, spanEnd)
-            text = sb
-            setSelection(spanEnd)
+            setText(spannedString)
+            setSelection((initialString.toString() + userNameString).length)
             onCancelUserNameEntry()
         } finally {
             isUserNameCommitting = false
         }
     }
 
-    private fun createUserNameSpan(spannable: Spannable, start: Int, end: Int) {
-        val span = UserColorSpan(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-        spannable.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    private fun composeUserNameLink(userName: String, wikiSite: WikiSite): String {
+        return "@[[" + UserAliasData.valueFor(wikiSite.languageCode) + ":" + userName + "|" + userName + "]]"
     }
-
-    /**
-     * Returns the text of this field, with properly expanded user mentions.
-     * Each user mention (in th form of @{username}) will be expanded into a wiki link to the
-     * user page of that user, i.e. [[User:username|@username]]
-     */
-    fun getParsedText(wikiSite: WikiSite): String {
-        var str = editable.toString()
-
-        val spans = editable.getSpans<UserColorSpan>()
-        if (spans.isNotEmpty()) {
-            val pairs = spans.map { MutablePair(editable.getSpanStart(it), editable.getSpanEnd(it)) }
-                .sortedBy { it.first }
-
-            for (i in pairs.indices) {
-                var name = str.substring(pairs[i].first, pairs[i].second)
-                if (name.length > 1 && name.startsWith("@")) {
-                    name = name.substring(1)
-                }
-                name = name.trim()
-                name = "[[" + UserAliasData.valueFor(wikiSite.languageCode) + ":" + name + "|@" + name + "]]"
-                str = str.replaceRange(pairs[i].first, pairs[i].second, name)
-
-                val lenDiff = name.length - (pairs[i].second - pairs[i].first)
-                for (j in i + 1 until pairs.size) {
-                    pairs[j].first += lenDiff
-                    pairs[j].second += lenDiff
-                }
-            }
-        }
-        return str
-    }
-
-    data class MutablePair<T, U>(var first: T, var second: U)
-
-    private class UserColorSpan(@ColorInt foreColor: Int) : ForegroundColorSpan(foreColor)
 }

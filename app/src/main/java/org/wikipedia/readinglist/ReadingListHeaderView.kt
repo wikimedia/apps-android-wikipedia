@@ -10,6 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ViewReadingListHeaderBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
 
 class ReadingListHeaderView : FrameLayout {
@@ -24,9 +25,10 @@ class ReadingListHeaderView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        binding.readingListHeaderImageGradient.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
         if (!isInEditMode) {
+            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            binding.readingListHeaderImageGradient.background = GradientUtil.getPowerGradient(
+                ResourceUtil.getThemedColor(context, R.attr.overlay_color), Gravity.TOP)
             clearThumbnails()
         }
     }

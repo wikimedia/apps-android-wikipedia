@@ -4,17 +4,21 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.OnClickListener
+import android.view.View.TEXT_ALIGNMENT_CENTER
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
+import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.children
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.chip.Chip
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -22,26 +26,30 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import java.util.*
+import java.util.UUID
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
 
@@ -56,7 +64,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private var wasCaptionLongClicked = false
     private var lastSearchTerm = ""
     var invokeSource = InvokeSource.SUGGESTED_EDITS
-    private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -81,7 +88,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
 
-        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
         ImageViewCompat.setImageTintList(binding.publishProgressCheck, colorStateList)
@@ -89,7 +96,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         binding.tagsLicenseText.text = StringUtil.fromHtml(getString(R.string.suggested_edits_cc0_notice,
                 getString(R.string.terms_of_use_url), getString(R.string.cc_0_url)))
-        binding.tagsLicenseText.movementMethod = LinkMovementMethod.getInstance()
+        binding.tagsLicenseText.movementMethod = LinkMovementMethodCompat.getInstance()
 
         binding.imageView.setOnClickListener {
             if (Prefs.showImageZoomTooltip) {
@@ -156,8 +163,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        funnel = EditFunnel(WikipediaApp.instance, pageTitle)
-
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
         ImageZoomHelper.setViewZoomable(binding.imageView)
@@ -203,11 +208,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             if (publishSuccess) {
                 chip.isEnabled = false
                 if (chip.isChecked) {
-                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
-                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.addition_color))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))
                 } else {
-                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
                 }
             }
         }
@@ -220,17 +225,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         val chip = Chip(requireContext())
         chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
-        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
-        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
+        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
         chip.typeface = typeface
         chip.isCheckable = true
         chip.setChipIconResource(R.drawable.ic_chip_add_24px)
         chip.iconEndPadding = 0f
         chip.textStartPadding = DimenUtil.dpToPx(2f)
         chip.chipIconSize = DimenUtil.dpToPx(24f)
-        chip.chipIconTint = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.material_theme_de_emphasised_color)
+        chip.chipIconTint = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.placeholder_color)
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnCheckedChangeListener(this)
         chip.setOnClickListener(this)
@@ -251,10 +256,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         return chip
     }
 
-    companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageTagsFragment()
+    override fun onBackPressed(): Boolean {
+        if (!atLeastOneTagChecked()) {
+            return true
         }
+        MaterialAlertDialogBuilder(requireActivity())
+            .setCancelable(false)
+            .setTitle(R.string.talk_new_topic_exit_dialog_title)
+            .setMessage(R.string.suggested_edits_image_tags_exit_dialog_message)
+            .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> requireActivity().finish() }
+            .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+            .show()
+        return false
     }
 
     override fun onClick(v: View?) {
@@ -270,12 +283,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
         val chip = button as Chip
         if (chip.isChecked) {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_55))
-            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_56))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.background_color))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
             chip.isChipIconVisible = false
         } else {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
             chip.isChipIconVisible = true
         }
         if (chip.tag != null) {
@@ -330,7 +343,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishing = true
         publishSuccess = false
 
-        funnel?.logSaveAttempt()
         EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
@@ -366,7 +378,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
                     }
                     claimStr += "]}"
-                    commentStr += " */"
+                    commentStr += " */" + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
 
                     disposables.add(ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, token, claimStr, commentStr, null)
                             .subscribeOn(Schedulers.io())
@@ -376,10 +388,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             }
                             .subscribe({
                                 if (it.entity != null) {
-                                    funnel?.logSaved(it.entity.lastRevId, invokeSource.value)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                                 }
                                 publishSuccess = true
+                                ImageRecommendationsEvent.logEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
+                                    "commons", it.entity?.lastRevId ?: 0)
                                 onSuccess()
                             }, {
                                 onError(it)
@@ -391,7 +404,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
-        SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
         binding.publishProgressBar.alpha = 1f
@@ -427,9 +439,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onError(caught: Throwable) {
-        // TODO: expand this a bit.
-        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
-        funnel?.logError(caught.localizedMessage)
         EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
@@ -474,5 +483,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
+    }
+
+    companion object {
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsImageTagsFragment()
+        }
     }
 }

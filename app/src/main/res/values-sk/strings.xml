@@ -120,9 +120,8 @@
   <string name="map_view_link_text">Zobraziť na mape</string>
   <string name="other_languages_indication_text">Čítať v inom jazyku</string>
   <string name="language_count_link_text">Dostupný v %d ďalších jazykoch</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
   <string name="edit_anon_warning">Úpravy budú prirátané k IP adrese vášho zariadenia. Ak sa &lt;a href=\"https://#login\"&gt;prihlásite&lt;/a&gt; budete mať viac súkromia.</string>
   <string name="preference_title_language">Jazyk Wikipédie</string>
   <string name="langlinks_filter_hint">Hľadať</string>
@@ -221,9 +220,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovať zoznamy na prečítanie naprieč rôznymi zariadeniami pomocou ich uloženia do vášho účtu „%s“ na Wikipédii.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Chcete odstrániť synchronizované zoznamy na prečítanie z účtu „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Táto akcia odstráni všetky predtým synchronizované zoznamy na prečítanie z úložného priestoru. Odstrániť všetky synchronizované zoznamy z vášho účtu „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Súkromie</string>
-  <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
-  <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimedii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožňuje aplikácii automaticky odosielať hlásenia o chybách tretím stranám, aby sme mohli chybu preskúmať a opraviť ju rýchlejšie a jednoduchšie.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
@@ -248,17 +244,15 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka tímu&lt;/a&gt;</string>
   <string name="about_translators_heading">Prekladatelia</string>
   <string name="about_translators_translatewiki">Táto aplikácia bola preložená s pomocou dobrovoľných prekladateľov na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
-  <string name="about_app_license">Zdrojový kód dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrite&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHube&lt;/a&gt; na základe &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licencie Apache 2.0&lt;/a&gt;. Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; licenciou Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Zdrojový kód dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrite&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHube&lt;/a&gt; na základe &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licencie Apache 2.0&lt;/a&gt;. Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; licenciou Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Nadácie Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikácii</string>
   <string name="edit_abandon_confirm">Na stránke boli vykonané úpravy. Naozaj chcete opustiť stránku bez uloženia úprav?</string>
@@ -481,10 +475,6 @@
     <item quantity="many">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
     <item quantity="other">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článkov je dostupný offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</string>
   <string name="reading_list_sort">Zoradiť</string>
   <string name="reading_list_sort_ellipsis">Zoradiť podľa…</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
@@ -739,8 +729,8 @@
   <string name="notifications_menu_uncheck_all">Odobrať všetky položky</string>
   <string name="notifications_wiki_filter_header">Wiki filter</string>
   <string name="notifications_type_filter_header">Type filter</string>
-  <string name="notifications_all_wikis_text">Všetky \"wiki\"</string>
-  <string name="notifications_all_types_text">Všetky \"type\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Všetky \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Všetky \"type\"</string>
   <string name="notifications_menu_user_talk_page">Diskusná stránka používateľa %s</string>
   <string name="notifications_offline_disable_message">Funkcia nie je dostupná offline.</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
@@ -834,7 +824,7 @@
   <string name="description_starts_with_uppercase">Začnite malým písmenom pokiaľ slovo nie je meno.</string>
   <string name="description_starts_with_lowercase">Vyhnite sa začatiu malým písmenom.</string>
   <string name="description_is_in_different_language">Zdá sa, že text je v neočakávanom jazyku. Jazyk by mal byť %s.</string>
-  <string name="description_verification_notice">Prosím skontrolujte či je váš popis v %1$s. Zamietnite toto upozornenie ak je váš popis napísaný v %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Prosím skontrolujte či je váš popis v %1$s. Zamietnite toto upozornenie ak je váš popis napísaný v %2$s.</string>
   <string name="description_edit_success_saved">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>
@@ -987,7 +977,7 @@
   <string name="suggested_edits_ip_blocked_title">Adresa IP zablokovaná</string>
   <string name="suggested_edits_last_edited">Posledná úprava</string>
   <string name="suggested_edits_last_edited_never">Nikdy</string>
-  <string name="suggested_edits_task_new">nové</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nové</string>
   <string name="suggested_edits_cc0_notice">Publikovaním súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto so zverejnením tohto príspevku pod &lt;a href=\"%2$s\"&gt;licenciou CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhované úpravy</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ďakujeme, že upravujete Wikipédiu! Pokojne pokračujte tam, kde ste skončili.</string>
@@ -1044,6 +1034,8 @@
     <item quantity="many">Pridali ste %d znakov</item>
     <item quantity="other">Pridali ste %d znakov</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Trénovať obrázkový algoritmus</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Rozhodnúť či odporúčaný obrázok zlepší článok.</string>
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>
@@ -1066,8 +1058,6 @@
   <string name="onboarding_explore_text">Ponorte sa do Wikipédie s priebežne aktualizovaným kanálom Objaviť. &lt;br/&gt; &lt;b&gt;Prispôsobte&lt;/b&gt; si ho podľa svojich záujmov – či už je to &lt;b&gt;V tento deň&lt;/ b&gt; alebo &lt;b&gt;Náhodný článok&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Zoznamy na prečítanie so synchronizáciou</string>
   <string name="onboarding_reading_list_sync_text_v2">Môžete si vytvárať zoznamy na prečítanie z článkov, ktoré si chcete prečítať, aj keď sa odhlásite od svojho účtu.&lt;br/&gt;Prihláste sa do svojho účtu na Wikipédii, aby ste mohli svoje zoznamy na prečítanie synchronizovať.&lt;br/&gt;&lt;a href=\"#login\"&gt;Pripojiť sa k Wikipédii&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>
-  <string name="onboarding_analytics_offline_text">Pomôžte nám spraviť aplikáciu lepšou tak, že nám dáte vedieť ako ju používate. Tieto informácie sa zbierajú anonymne. &lt;a href=\"#privacy\"&gt;Zistite viac&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Posielať informácie o používaní</string>
   <string name="onboarding_got_it">Rozumiem</string>
   <string name="onboarding_multilingual_secondary_text">Na vašom zariadení sme našli nasledujúce jazyky:</string>
@@ -1224,14 +1214,13 @@
   <string name="revision_diff_from">Od:</string>
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Riadok %d</string>
-  <string name="revision_diff_line_nums">Riadky %d-%d</string>
   <string name="revision_diff_line_added">Riadok pridaný</string>
   <string name="revision_diff_line_removed">Riadok odstránený</string>
   <string name="revision_diff_paragraph_added">Odsek pridaný</string>
   <string name="revision_diff_paragraph_removed">Odsek odstránený</string>
-  <string name="revision_undo_title">Vrátiť úpravu</string>
-  <string name="revision_undo_message">Toto vráti naspäť úpravu urobenú revíziou artikla zobrazeného tu.</string>
-  <string name="revision_undo_reason">Pre pokračovanie prosím zadajte dôvod prečo chcete úpravu vrátiť späť:</string>
+  <string name="revision_undo_title" fuzzy="true">Vrátiť úpravu</string>
+  <string name="revision_undo_message" fuzzy="true">Toto vráti naspäť úpravu urobenú revíziou artikla zobrazeného tu.</string>
+  <string name="revision_undo_reason" fuzzy="true">Pre pokračovanie prosím zadajte dôvod prečo chcete úpravu vrátiť späť:</string>
   <string name="revision_undo_success">Revízia bola vrátená späť.</string>
   <string name="revision_rollback_dialog_title">Naozaj chcete vrátiť úpravy späť?</string>
   <string name="revision_rollback_success">Úpravy boli vrátené.</string>

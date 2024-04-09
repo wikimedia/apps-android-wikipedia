@@ -36,7 +36,7 @@
                 android:layout_marginTop="4dp"
                 android:contentDescription="@null"
                 android:src="@drawable/wp_wordmark"
-                app:tint="?attr/chart_shade1" />
+                app:tint="?attr/primary_color" />
 
             <TextView
                 android:id="@+id/about_version_text"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:textColor="?attr/material_theme_primary_color"
+                android:textColor="?attr/primary_color"
                 android:textIsSelectable="true"
                 tools:text="2.x-sample-version" />
 
@@ -55,7 +55,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/about_contributors_heading"
-                android:textColor="?attr/material_theme_primary_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="16sp" />
 
             <org.wikipedia.views.AppTextView
@@ -67,7 +67,7 @@
                 android:lineSpacingExtra="6sp"
                 android:text="@string/about_contributors"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?attr/material_theme_secondary_color"
+                android:textColor="?attr/secondary_color"
                 android:textIsSelectable="true" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/about_translators_heading"
-                android:textColor="?attr/material_theme_primary_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="16sp" />
 
             <org.wikipedia.views.AppTextView
@@ -87,7 +87,7 @@
                 android:lineSpacingExtra="6sp"
                 android:text="@string/about_translators_translatewiki"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?attr/material_theme_secondary_color"
+                android:textColor="?attr/secondary_color"
                 android:textIsSelectable="true" />
 
             <TextView
@@ -96,7 +96,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/about_libraries_heading"
-                android:textColor="?attr/material_theme_primary_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="16sp" />
 
             <org.wikipedia.views.AppTextView
@@ -108,7 +108,7 @@
                 android:lineSpacingExtra="6sp"
                 android:text="@string/libraries_list"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?attr/material_theme_secondary_color"
+                android:textColor="?attr/secondary_color"
                 android:textIsSelectable="true" />
 
             <TextView
@@ -117,7 +117,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/about_app_license_heading"
-                android:textColor="?attr/material_theme_primary_color"
+                android:textColor="?attr/primary_color"
                 android:textSize="16sp" />
 
             <org.wikipedia.views.AppTextView
@@ -127,21 +127,18 @@
                 android:lineSpacingExtra="6sp"
                 android:text="@string/about_app_license"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?attr/material_theme_secondary_color"
+                android:textColor="?attr/secondary_color"
                 android:textIsSelectable="true" />
 
             <Button
                 android:id="@+id/send_feedback_text"
-                style="@style/TransparentButton"
+                style="@style/App.Button.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="12dp"
-                android:paddingStart="0dp"
-                android:paddingEnd="0dp"
-                android:text="@string/send_feedback"
-                android:textColor="?attr/colorAccent" />
+                android:text="@string/send_feedback" />
 
         </LinearLayout>
 
@@ -151,7 +148,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="24dp"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/placeholder_color"
             app:srcCompat="@drawable/ic_wmf_logo" />
 
         <org.wikipedia.views.AppTextView
@@ -163,7 +160,7 @@
             android:layout_marginTop="14dp"
             android:layout_marginBottom="16dp"
             android:text="@string/about_wmf"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             android:textIsSelectable="true"
             android:textSize="12sp" />
 

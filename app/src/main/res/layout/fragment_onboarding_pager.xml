@@ -20,7 +20,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/chart_shade5" />
+            android:background="?attr/border_color" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -28,12 +28,10 @@
 
             <Button
                 android:id="@+id/fragment_onboarding_skip_button"
-                style="@style/TransparentButton"
+                style="@style/App.Button.Text.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:text="@string/onboarding_skip"
-                android:textColor="?attr/secondary_text_color" />
+                android:text="@string/onboarding_skip" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/view_onboarding_page_indicator"
@@ -42,7 +40,7 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 app:tabIndicator="@null"
-                app:tabRippleColor="?attr/color_group_59"
+                app:tabRippleColor="?attr/placeholder_color"
                 app:tabPaddingStart="8dp"
                 app:tabPaddingEnd="8dp"
                 app:tabBackground="@drawable/shape_tab_dot"
@@ -55,23 +53,19 @@
 
                 <Button
                     android:id="@+id/fragment_onboarding_forward_button"
-                    style="@style/TransparentButton"
+                    style="@style/App.Button.Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
                     android:layout_gravity="end"
-                    android:text="@string/onboarding_continue"
-                    android:textColor="?attr/colorAccent" />
+                    android:text="@string/onboarding_continue" />
 
                 <Button
                     android:id="@+id/fragment_onboarding_done_button"
-                    style="@style/TransparentButton"
+                    style="@style/App.Button.Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
                     android:layout_gravity="end"
-                    android:text="@string/onboarding_get_started"
-                    android:textColor="?attr/colorAccent" />
+                    android:text="@string/onboarding_get_started" />
 
             </FrameLayout>
 

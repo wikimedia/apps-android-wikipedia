@@ -84,9 +84,8 @@
   <string name="map_view_link_text">Féach ar léarscáil</string>
   <string name="other_languages_indication_text">Léigh i dteanga eile</string>
   <string name="language_count_link_text">Ar fáil i %d teanga eile</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Luafar do chuid athruithe le seoladh IP do ghléas. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Luafar do chuid athruithe le seoladh IP do ghléas. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
   <string name="preference_title_language">Teangacha Vicipéide</string>
   <string name="langlinks_filter_hint">Cuardaigh</string>
   <string name="langlinks_empty">Níl an leathanach seo ar fáil i dteangacha eile.</string>
@@ -182,9 +181,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sioncronaigh liostaí léitheoireachta thar ghléasanna difriúla trína sábháil ar do chuntas Vicipéide \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Bain liostaí léitheoireachta sioncronaithe de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Scriosfar go hiomlán ón cianstóras ná liostaí léitheoireachta go léir a shioncrónaíodh roimhe seo. Bain na liostaí sioncronaithe go léir amach as do chuntas \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Príobháideachas</string>
-  <string name="preference_title_eventlogging_opt_in">Seol tuairiscí úsáide</string>
-  <string name="preference_summary_eventlogging_opt_in">Ceadaigh do Wikimedia eolas a bhailiú ar conas mar a úsáideann tú an aip chun an aip a fheabhsú</string>
   <string name="preference_title_auto_upload_crash_reports">Seol tuairiscí ar tuairteanna</string>
   <string name="preference_summary_auto_upload_crash_reports">Ceadaigh don aip tuairiscí ar clistí a sheoladh go huathoibríoch chuig soláthraí seirbhíse tríú páirtí, chun go bhféadfaimid do chliseadh a athbhreithniú agus an fabht a dheisiú níos tapúla agus níos éasca.</string>
   <string name="editing_error_spamblacklist">Braitheadh naisc chuig fearainn bhactha (%s). Bain amach iad agus triail arís.</string>
@@ -205,8 +201,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ga.wikipedia.org/wiki/Vicipéid:Dean_iarratas_ar_cuntas</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Leabharlanna a úsáidtear</string>
   <string name="about_contributors_heading">Rannchuiditheoirí</string>
   <string name="about_translators_heading">Aistritheoirí</string>
@@ -386,10 +380,6 @@
   <string name="reading_list_article_added_to_default_list">Sábháladh %s. Ar mhaith leat é a chur ar liosta?</string>
   <string name="reading_list_added_view_button">Féach ar liosta</string>
   <string name="reading_list_add_to_list_button">Cuir ar liosta</string>
-  <string name="format_reading_list_statistical_summary_singular">1 alt amháin, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d alt, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 alt ar fáil as líne, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d alt ar fáil as líne, %3$.2f MB</string>
   <string name="reading_list_sort">Sórtáil</string>
   <string name="reading_list_sort_ellipsis">Sórtáil de réir...</string>
   <string name="reading_list_sort_by_name">Sórtáil de réir ainm</string>
@@ -691,7 +681,7 @@
   <string name="suggested_edits_quality_poor_text">Go holc</string>
   <string name="suggested_edits_quality_bad_text">Go dona</string>
   <string name="suggested_edits_last_edited">Ionchur is deireanaí</string>
-  <string name="suggested_edits_task_new">nua</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nua</string>
   <string name="suggested_edits_contributions_screen_title">Dréachtaí le %s</string>
   <string name="suggested_edits_contribution_language_label">Teanga</string>
   <string name="suggested_edits_contribution_date_time_label">Dáta / Am</string>
@@ -719,8 +709,6 @@
   <string name="onboarding_explore_text">Téigh ar strae i gcathair ghríobháin na Vicipéide leis an bhfotha Taiscéal a nuashonraítear i gcónaí. &lt;br/&gt; &lt;b&gt;Cuir an fotha in oiriúint&lt;/b&gt; mar is spéis leatsa féin – foghlaim faoi ócáidí stairiúla &lt;b&gt;Ar an lá seo&lt;/b&gt;, nó caith an dílse le &lt;b&gt;Randamach&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Liostaí léitheoireachta le sioncronú</string>
   <string name="onboarding_reading_list_sync_text_v2">Is féidir liostaí léitheoireachta a dhéanamh d\'ailt ar mhaith leat iad a léamh níos déanaí, fiú nuair a bheidh tú as líne. &lt;br/&gt;Logáil isteach chuig do chuntas Vicipéide le do chuid liostaí léitheoireachta a shioncrónú. &lt;a href=\"#login\"&gt;Cláraigh le Vicipéid&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Seol sonraí anaithnid</string>
-  <string name="onboarding_analytics_offline_text">Cuidigh leis an aip a fheabhsú trí muid a chur ar an eolas ar conas mar a úsáideann tú é. Is anaithnid na sonraí a bhailítear. &lt;a href=\"#privacy\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Seol sonraí úsáide</string>
   <string name="onboarding_got_it">Tuigim</string>
   <string name="onboarding_multilingual_secondary_text">D\'aimsíomar na teangacha seo a leanas ar do ghléas:</string>

@@ -6,17 +6,19 @@
 
     <TextView
         android:id="@+id/tabsCountText"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="21dp"
+        android:layout_height="20dp"
         android:layout_gravity="center"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/tab_counts_shape_border"
+        android:layout_marginStart="14.5dp"
+        android:layout_marginEnd="14.5dp"
+        android:background="@drawable/square_shape_border"
+        android:backgroundTint="?attr/primary_color"
         android:fontFamily="sans-serif"
         android:textStyle="bold"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/toolbar_icon_color"
-        android:textSize="12sp"
+        android:textColor="?attr/primary_color"
+        android:textSize="10sp"
+        android:paddingHorizontal="2dp"
         tools:text="3" />
 </merge>

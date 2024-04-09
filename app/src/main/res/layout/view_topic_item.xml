@@ -12,6 +12,7 @@
         android:background="?attr/selectableItemBackground"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="20sp" />
+
 </FrameLayout>

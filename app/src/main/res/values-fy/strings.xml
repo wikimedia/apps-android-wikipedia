@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Ieneach fan 'e Esk
 * MuratTheTurkish
 * PiefPafPier
@@ -72,9 +73,8 @@
   <string name="map_view_link_text">Op in kaart besjen</string>
   <string name="other_languages_indication_text">Yn in oare taal lêze</string>
   <string name="language_count_link_text">Beskikber yn %d oare talen</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Mei it publisearjen, stimme jo yn mei de &lt;a href=\"%1$s\"&gt;Gebrûksbetingsten&lt;/a&gt;, en om jo bydragen ûnwerroplik frij te jaan ûnder de lisinsje &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Mei it publisearjen, stimme jo yn mei de &lt;a href=\"%1$s\"&gt;Gebrûksbetingsten&lt;/a&gt;, en om jo bydragen ûnwerroplik frij te jaan ûnder de lisinsje &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bewurkings ferskine ûnder it YP-adres fan jo apparaat. At jo jo &lt;a href=\"https://#login\"&gt;oanmelde&lt;/a&gt;, beskermet dat de priveesfear.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Mei it publisearjen, stimme jo yn mei de &lt;a href=\"%1$s\"&gt;Gebrûksbetingsten&lt;/a&gt;, en om jo bydragen ûnwerroplik frij te jaan ûnder de lisinsje &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Mei it publisearjen, stimme jo yn mei de &lt;a href=\"%1$s\"&gt;Gebrûksbetingsten&lt;/a&gt;, en om jo bydragen ûnwerroplik frij te jaan ûnder de lisinsje &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bewurkings ferskine ûnder it YP-adres fan jo apparaat. At jo jo &lt;a href=\"https://#login\"&gt;oanmelde&lt;/a&gt;, beskermet dat de priveesfear.</string>
   <string name="preference_title_language">Wikipedy-talen</string>
   <string name="langlinks_filter_hint">Sykje</string>
   <string name="langlinks_empty">Dizze side is net yn oare talen beskikber.</string>
@@ -170,9 +170,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Lêslisten mei oare apparaten syngronisearje troch se te bewarjen yn jo Wikipedy-akkount \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Syngronisearre lêslisten fan \"%s\" fuorthelje?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Sa wiskje jo folslein alle earder syngronisearre lêslisten fan \'e opslach om utens. Alle syngronisearre listen út jo akkount \"%s\" fuorthelje?</string>
-  <string name="preferences_privacy_settings_heading">Priveesfear</string>
-  <string name="preference_title_eventlogging_opt_in">Gebrûksrapporten ferstjoere</string>
-  <string name="preference_summary_eventlogging_opt_in">Wikimedia tastean om, ta ferbettering fan \'e app, ynformaasje te sammeljen oer hoe\'t jo him brûke</string>
   <string name="preference_title_auto_upload_crash_reports">Steuringsrapporten ferstjoere</string>
   <string name="preference_summary_auto_upload_crash_reports">De app tastean om automatysk steuringsrapporten te ferstjoeren oan in treddepartij-tsjinstferliener, sadat wy jo probleem mei de app besjen kinne, en de flater flugger en makliker ferhelpe.</string>
   <string name="editing_error_spamblacklist">Keppelings nei útsletten domeinen (%s) ûntdutsen. Helje dy graach fuort, en besykje it nochris.</string>
@@ -195,10 +192,10 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://fy.wikipedia.org/wiki/Wikipedy:Gasteboek</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fy</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fy</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Brûkte subprogrammatuer</string>
   <string name="about_contributors_heading">Bydragers</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tiimside&lt;/a&gt;</string>
@@ -394,10 +391,6 @@
     <item quantity="one">%1$d fan 1 artikel ôfline beskikber, %3$.2f MB</item>
     <item quantity="other">%1$d fan %2$d artikels ôfline beskikber, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikels, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d fan 1 artikel ôfline beskikber, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d fan %2$d artikels ôfline beskikber, %3$.2f MB</string>
   <string name="reading_list_sort">Sortearje</string>
   <string name="reading_list_sort_ellipsis">Sortearje op …</string>
   <string name="reading_list_sort_by_name">Sortearje op namme</string>
@@ -787,7 +780,7 @@
   <string name="suggested_edits_ip_blocked_title">YP útsletten</string>
   <string name="suggested_edits_last_edited">Lêst bewurke</string>
   <string name="suggested_edits_last_edited_never">Nea</string>
-  <string name="suggested_edits_task_new">nij</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nij</string>
   <string name="suggested_edits_cc0_notice">Mei it publisearjen, stimme jo yn mei de &lt;a href=\"%1$s\"&gt;gebrûksbetingsten&lt;/a&gt;, en om dizze bydrage ûnwerroplik frij te jaan ûnder de lisinsje &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Bewurksuggestjes</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tank foar jo Wikipedy-bewurkings! Wêrom ek net de tried wer opnimme?</string>
@@ -853,8 +846,6 @@
   <string name="onboarding_explore_text">Dûk yn \'e Wikipedy-kninehoale mei in altyd bywurke Ferkenner-oanfier. &lt;br/&gt; &lt;b&gt;Personalisearje&lt;/b&gt; de oanfier nei wêr\'t jo niget oan hawwe – oft dat no learen oer histoaryske barrens &lt;b&gt;Op dizze dei&lt;/b&gt; is, of de dobbelstien smiten foar &lt;b&gt;Samar wat&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Lêslisten mei syngronisaasje</string>
   <string name="onboarding_reading_list_sync_text_v2">Jo kinne lêslisten meitsje fan artikels dy\'t jo letter lêze wolle, sels sûnder netwurkferbining. &lt;br/&gt;Meld jo oan op jo Wikipedy-akkount en syngronisearje jo lêslisten. &lt;a href=\"#login\"&gt;Kom by de Wikipedy&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Anonime data ferstjoere</string>
-  <string name="onboarding_analytics_offline_text">Help de app better te meitsjen, troch ús op \'e hichte te hâlden hoe\'t jo him brûke. De sammele data is anonym. &lt;a href=\"#privacy\"&gt;Mear witte&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Gebrûksdata ferstjoere</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">Wy hawwe it folgjende op jo apparaat fûn:</string>

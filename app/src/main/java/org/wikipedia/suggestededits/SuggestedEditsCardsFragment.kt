@@ -4,13 +4,20 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
@@ -20,19 +27,23 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SuggestedEditsFeedFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.VANDALISM_PATROL
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
@@ -47,7 +58,6 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     private var languageList: MutableList<String> = mutableListOf()
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
-    private var funnel: SuggestedEditsFeedFunnel? = null
 
     var langFromCode: String = app.languageState.appLanguageCode
     var langToCode: String = app.languageState.appLanguageCodes.getOrElse(1) { "" }
@@ -65,7 +75,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             }
         }
 
-    private fun topBaseChild(): SuggestedEditsItemFragment? {
+    fun topBaseChild(): SuggestedEditsItemFragment? {
         return (binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(binding.cardsViewPager.currentItem) as SuggestedEditsItemFragment?
     }
 
@@ -77,16 +87,18 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         super.onCreate(savedInstanceState)
         retainInstance = true
         action = arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
-
-        funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-
-        // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get().impression(action)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsCardsBinding.inflate(layoutInflater, container, false)
+
+        (requireActivity() as AppCompatActivity).apply {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = getActionBarTitle(intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action)
+        }
+
         return binding.root
     }
 
@@ -98,7 +110,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
 
-        funnel?.start()
+        if (action == IMAGE_RECOMMENDATIONS) {
+            binding.cardsViewPager.isUserInputEnabled = false
+        }
 
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
@@ -127,8 +141,11 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        if (action == IMAGE_RECOMMENDATIONS || action == VANDALISM_PATROL) {
+            // In these cases, the sub-fragment will have its own menu.
+            return
+        }
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -143,9 +160,23 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                         FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                     }
                 }
+                val child = topBaseChild()
+                if (child != null && child is SuggestedEditsImageRecsFragment) {
+                    child.onInfoClicked()
+                }
                 true
             }
             else -> false
+        }
+    }
+
+    private fun getActionBarTitle(action: DescriptionEditActivity.Action): String {
+        return when (action) {
+            ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
+            ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
+            IMAGE_RECOMMENDATIONS -> ""
+            VANDALISM_PATROL -> getString(R.string.suggested_edits_edit_patrol)
+            else -> getString(R.string.suggested_edits_describe_articles)
         }
     }
 
@@ -153,6 +184,8 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         if (action == ADD_IMAGE_TAGS && Prefs.showImageTagsOnboarding) {
             Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
+        } else if (action == IMAGE_RECOMMENDATIONS && !Prefs.suggestedEditsImageRecsOnboardingShown) {
+            startActivity(SuggestedEditsImageRecsOnboardingActivity.newIntent(requireActivity()))
         }
     }
 
@@ -182,7 +215,11 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             binding.addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
 
-        if (action == ADD_IMAGE_TAGS) {
+        binding.bottomButtonContainer.isVisible = action != IMAGE_RECOMMENDATIONS
+
+        if (action == VANDALISM_PATROL) {
+            binding.bottomButtonContainer.isVisible = false
+        } else if (action == ADD_IMAGE_TAGS) {
             if (binding.addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
                 binding.addContributionButton.text = null
@@ -203,22 +240,11 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun onDestroyView() {
-        funnel?.stop()
         disposables.clear()
         binding.cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
         binding.cardsViewPager.adapter = null
         _binding = null
         super.onDestroyView()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        SuggestedEditsFunnel.get().pause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -255,12 +281,13 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun logSuccess() {
-        funnel?.editSuccess()
     }
 
     fun onSelectPage() {
-        if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
-            topBaseChild()!!.publish()
+        if ((action == ADD_IMAGE_TAGS || action == VANDALISM_PATROL) && topBaseChild() != null) {
+            topBaseChild()?.publish()
+        } else if (action == IMAGE_RECOMMENDATIONS) {
+            topBaseChild()?.publish()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
                 action, Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -366,11 +393,16 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
-
         override fun createFragment(position: Int): Fragment {
             return when (action) {
+                VANDALISM_PATROL -> {
+                    SuggestedEditsVandalismPatrolFragment.newInstance()
+                }
                 ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()
+                }
+                IMAGE_RECOMMENDATIONS -> {
+                    SuggestedEditsImageRecsFragment.newInstance()
                 }
                 else -> {
                     SuggestedEditsCardsItemFragment.newInstance()
@@ -388,9 +420,13 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         }
 
         override fun onPageSelected(position: Int) {
+            if (action == IMAGE_RECOMMENDATIONS) {
+                ((binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(position) as SuggestedEditsImageRecsFragment).logImpression()
+            } else if (action == VANDALISM_PATROL) {
+                PatrollerExperienceEvent.logAction(if (position < prevPosition) "edit_left_swipe" else "edit_right_swipe", "pt_edit")
+            }
             updateBackButton(position)
             updateActionButton()
-            SuggestedEditsFunnel.get().impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position

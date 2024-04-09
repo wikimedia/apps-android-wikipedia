@@ -12,12 +12,11 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListViewModel
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.time.LocalDateTime
 
 class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
@@ -32,20 +31,18 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
     fun setup(pageTitle: PageTitle, editHistoryStats: EditHistoryListViewModel.EditHistoryStats?) {
         binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title,
                 "<a href=\"#\">${pageTitle.displayText}</a>"))
-        RichTextUtil.removeUnderlinesFromLinks(binding.articleTitleView)
         editHistoryStats?.let { stats ->
             val timestamp = stats.revision.timeStamp
             if (timestamp.isNotBlank()) {
                 val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
-                val calendar = Calendar.getInstance()
-                val today = DateUtil.getShortDateString(calendar.time)
-                calendar.add(Calendar.YEAR, -1)
-                val lastYear = DateUtil.getShortDateString(calendar.time)
+                val localDateTime = LocalDateTime.now()
+                val today = DateUtil.getShortDateString(localDateTime.toLocalDate())
+                val lastYear = DateUtil.getShortDateString(localDateTime.minusYears(1).toLocalDate())
                 binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
                     stats.allEdits.count, stats.allEdits.count, createdYear)
                 binding.statsGraphView.setData(stats.metrics.map { it.edits.toFloat() })
                 binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, lastYear, today)
-                FeedbackUtil.setButtonLongPressToast(binding.statsGraphView)
+                FeedbackUtil.setButtonTooltip(binding.statsGraphView)
             }
         }
         binding.articleTitleView.movementMethod = LinkMovementMethodExt { _ ->

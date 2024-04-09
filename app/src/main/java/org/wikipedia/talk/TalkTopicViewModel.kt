@@ -7,29 +7,32 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.UriUtil
 
 class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
-
-    val pageTitle = bundle.getParcelable<PageTitle>(TalkTopicActivity.EXTRA_PAGE_TITLE)!!
-    val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
-    val topicId = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_ID)!!
+    private val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
+    private val topicId = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_ID)!!
+    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     var currentSearchQuery = bundle.getString(TalkTopicActivity.EXTRA_SEARCH_QUERY)
     var scrollTargetId = bundle.getString(TalkTopicActivity.EXTRA_REPLY_ID)
 
+    private val threadItems = mutableListOf<ThreadItem>()
     var topic: ThreadItem? = null
     val sectionId get() = threadItems.indexOf(topic)
-    val threadItems = mutableListOf<ThreadItem>()
     val flattenedThreadItems = mutableListOf<ThreadItem>()
     var subscribed = false
         private set
@@ -46,7 +49,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     }
 
     val isFullyExpanded: Boolean get() {
-        return !currentSearchQuery.isNullOrEmpty() || flattenedThreadItems.size == topic?.allReplies?.size
+        return !currentSearchQuery.isNullOrEmpty() || flattenedThreadItems.size == topic?.allReplies?.count()
     }
 
     init {
@@ -57,22 +60,25 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             threadItemsData.postValue(Resource.Error(throwable))
         }) {
-            val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
-            val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName) }
-            val oldItemsFlattened = topic?.allReplies.orEmpty()
+            val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
+                    OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
+            val oldItemIdsFlattened = topic?.allReplies.orEmpty().map { it.id }.toSet()
 
-            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.id == topicId }
+            topic = discussionToolsInfoResponse.pageInfo?.threads.orEmpty().find { it.id == topicId }
 
-            val res = subscribeResponse.await()
-            subscribed = res.subscriptions[topicName] == 1
+            if (WikipediaApp.instance.isOnline) {
+                subscribed = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName).subscriptions[topicName] == 1
+            }
 
             threadSha(topic)?.let {
                 AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(it))
             }
 
-            val newItemsFlattened = topic?.allReplies.orEmpty().filter { it.id !in oldItemsFlattened.map { item -> item.id } }
+            val newItemsFlattened = topic?.allReplies.orEmpty()
+                .filter { it.id !in oldItemIdsFlattened }
+                .toList()
 
-            if (oldItemsFlattened.isNotEmpty() && newItemsFlattened.isNotEmpty()) {
+            if (oldItemIdsFlattened.isNotEmpty() && newItemsFlattened.isNotEmpty()) {
                 if (AccountUtil.isLoggedIn) {
                     scrollTargetId = newItemsFlattened.findLast { it.author == AccountUtil.userName }?.id
                 }
@@ -160,7 +166,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun threadSha(threadItem: ThreadItem?): String? {
-        return threadItem?.let { it.name + "|" + it.allReplies.map { reply -> reply.timestamp }.maxOrNull() }
+        return threadItem?.let { it.name + "|" + it.allReplies.maxOfOrNull { reply -> reply.timestamp } }
     }
 
     private fun updateFlattenedThreadItems() {

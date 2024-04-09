@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Chinneeb
+* Enkhsaihan2005
 * Mongol
 * Munkhzaya.E
 * MuratTheTurkish
@@ -30,6 +31,7 @@
   <string name="offline_load_error_retry">Давтах</string>
   <string name="page_error_back_to_main">Буцах</string>
   <string name="error_back">Буцаж очих</string>
+  <string name="error_next">Дараагийн</string>
   <string name="menu_clear_all_history">Түүх арилгах</string>
   <string name="history_item_deleted">%s явцын түүхээс устгасан</string>
   <string name="history_items_deleted">%d Гарчиг явцын түүхээс устгагдсан.</string>
@@ -38,6 +40,10 @@
   <string name="app_settings">Апп-Тохиргоонууд</string>
   <string name="search_tab_tooltip">Хайсан нэршлийг оруулахын тулд тэмдэгийг  дахин товшино уу.</string>
   <string name="history_list_title">Түүх</string>
+  <string name="image_content_description">Зураг: %s</string>
+  <string name="page_content_description">Хуудас: %s</string>
+  <string name="wikimedia_commons">Викимедиа Коммонс</string>
+  <string name="wikidata">Викидата</string>
   <string name="dialog_title_clear_history">Хөтчийн түүхийг арилгах</string>
   <string name="dialog_message_clear_history">Үүгээр таны хөтчийн бүх түүх устах ба одоогоор нээлттэй байгаа бүх цонх хаагдах болно. Та итгэлтэй байна уу?</string>
   <string name="dialog_message_clear_history_yes">Тийм</string>
@@ -45,9 +51,25 @@
   <string name="share_via">Хуваалцахдаа</string>
   <string name="image_share_via">Хуваалцахдаа</string>
   <string name="search_redirect_from">%s-с чиглүүлсэн</string>
+  <string name="page_edit_history_activity_title">Хяналтын түүх: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Хоосон засварын хураангуй</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Засваруудыг хайх эсвэл шүүх</string>
+  <string name="page_edit_history_filter_by_all">Бүх засвар ( %s )</string>
+  <string name="page_edit_history_filter_by_user">Хэрэглэгчийн засвар ( %s )</string>
+  <string name="page_edit_history_filter_by_anon">Анон засвар ( %s )</string>
   <string name="menu_page_show_tabs">Цонхнуудыг харуулах</string>
   <string name="menu_page_other_languages">Хэл солих</string>
-  <string name="menu_page_find_in_page">Гарчигт хай.</string>
+  <string name="menu_page_find_in_page">Өгүүллээс хайх</string>
+  <string name="menu_page_add_to_watchlist">Хяналтын жагсаалтад нэмэх</string>
+  <string name="menu_page_watch">Хянах</string>
+  <string name="menu_page_unwatch">Хянахаа болих</string>
+  <string name="menu_page_view_talk">Яриа хуудсийг харах</string>
+  <string name="menu_page_talk_page">Ярианы хуудас</string>
+  <string name="menu_page_view_edit_history">Засварласан түүхийг харах</string>
+  <string name="menu_page_edit_history">Өөрчлөлтийн түүх</string>
+  <string name="menu_page_remove_from_watchlist">Хяналтын жагсаалтаас хасах</string>
+  <string name="menu_page_watched">Үзсэн</string>
   <string name="edit_section_find_in_page">Хуудаст хай.</string>
   <string name="menu_page_font_and_theme">Үсгийн төрөл болон өнгөний схемийг өөрчлөх</string>
   <string name="menu_page_add_to_list">Унших жагсаалтад нэмэх</string>
@@ -55,10 +77,13 @@
   <string name="feed_card_add_to_list">Унших жагсаалтад нэмэх</string>
   <string name="feed_card_add_to_default_list">Хадгалах</string>
   <string name="menu_page_share">Хуваалцах</string>
+  <string name="menu_article_share">Нийтлэлийг хуваалцах</string>
+  <string name="menu_page_article_share">Хуваалцах</string>
   <string name="menu_page_open_a_new_tab">Шинэ цонх нээх</string>
   <string name="menu_page_new_tab">Шинэ цонх</string>
   <string name="menu_page_reading_lists">Унших жагсаалтууд</string>
   <string name="menu_page_recently_viewed">Сүүлд үзсэн</string>
+  <string name="menu_page_archive">Архивлах</string>
   <string name="menu_long_press_open_page">Нээх</string>
   <string name="menu_long_press_open_in_new_tab">Шинэ цонхонд нээх</string>
   <string name="menu_long_press_copy_page">Холбоос хаягийг хуулах</string>
@@ -66,12 +91,12 @@
   <string name="on_this_day_page_share">Хуваалцах</string>
   <string name="reading_list_page_share">Хуваалцах</string>
   <string name="menu_text_select_edit_here">Энд засварлах</string>
+  <string name="menu_edit_article">Өгүүлэлийг засах</string>
   <string name="last_updated_text">Сүүлд шинэчилсэн %s</string>
   <string name="talk_page_link_text">Хэлэлцүүлгийн хуудсыг үзэх</string>
   <string name="edit_history_link_text">Хувилбарын түүхийг үзэх</string>
   <string name="map_view_link_text">Газрын зураг дээр үзэх</string>
   <string name="other_languages_indication_text">Өөр хэл дээр унших</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="preference_title_language">Википедиагийн хэлнүүд</string>
   <string name="langlinks_filter_hint">Хайлт</string>
   <string name="langlinks_empty">Энэ хуудсыг бусад хэл дээр үзэх боломжгүй.</string>
@@ -121,7 +146,11 @@
   <string name="logged_out_in_background_login">Нэвтрэх</string>
   <string name="logged_out_in_background_cancel">Цуцлах</string>
   <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
+  <string name="login_join_wikipedia">Википедиад нэгдэх</string>
+  <string name="login_forgot_password">Нууц үгээ мартсан уу?</string>
+  <string name="create_account_already_have">Бүртгэлтэй юу?</string>
   <string name="create_account_activity_title">Бүртгүүлэх</string>
+  <string name="dialog_create_account_checking_progress">Баталгаажуулж байна</string>
   <string name="create_account_email_hint">Емайл (Албагүй)</string>
   <string name="create_account_password_repeat_hint">Нууц үгээ давтана уу</string>
   <string name="create_account_passwords_mismatch_error">Нууц үг буруу</string>

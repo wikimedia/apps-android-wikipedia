@@ -13,7 +13,7 @@
 
     <TextView
         android:id="@+id/page_list_item_title"
-        style="@style/MaterialListTitle"
+        style="@style/P.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -29,14 +29,14 @@
         android:layout_height="16dp"
         android:layout_marginTop="2dp"
         android:contentDescription="@null"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/placeholder_color"
         app:layout_constraintStart_toStartOf="@+id/page_list_item_title"
         app:layout_constraintTop_toBottomOf="@+id/page_list_item_title"
         app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp" />
 
     <TextView
         android:id="@+id/page_list_item_redirect"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -51,7 +51,7 @@
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/page_list_item_description"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -71,7 +71,7 @@
         app:layout_constraintBottom_toBottomOf="@id/page_list_image_guide"
         app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
         app:layout_constraintTop_toTopOf="@id/page_list_image_guide"
-        app:tint="?attr/material_theme_de_emphasised_color"
+        app:tint="?attr/placeholder_color"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
 
     <ImageView

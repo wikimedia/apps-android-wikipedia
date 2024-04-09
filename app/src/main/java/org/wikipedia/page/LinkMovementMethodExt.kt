@@ -1,14 +1,17 @@
 package org.wikipedia.page
 
 import android.net.Uri
+import android.text.Selection
 import android.text.Spannable
 import android.text.method.LinkMovementMethod
+import android.text.method.Touch
 import android.text.style.URLSpan
 import android.view.MotionEvent
 import android.widget.TextView
 import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
@@ -49,6 +52,16 @@ class LinkMovementMethodExt : LinkMovementMethod {
             val y = event.y.toInt() - widget.totalPaddingTop + widget.scrollY
             val layout = widget.layout
             val line = layout.getLineForVertical(y)
+
+            // Avoid links being activated by touches outside the line bounds.
+            // Implementation taken from LinkMovementMethodCompat
+            if (y !in 0..layout.height ||
+                x.toFloat() !in layout.getLineLeft(line)..layout.getLineRight(line)
+            ) {
+                Selection.removeSelection(buffer)
+                return Touch.onTouchEvent(widget, buffer, event)
+            }
+
             val off = layout.getOffsetForHorizontal(line, x.toFloat())
             val links = buffer.getSpans<URLSpan>(off, off)
             if (links.isNotEmpty()) {
@@ -63,17 +76,12 @@ class LinkMovementMethodExt : LinkMovementMethod {
 
                 BreadCrumbLogEvent.logClick(widget.context, widget)
 
-                handler?.run {
-                    onUrlClick(url)
-                }
+                handler?.onUrlClick(url)
 
-                handlerWithText?.run {
-                    onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText)
-                }
+                handlerWithText?.onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText)
 
-                handlerWithTextAndCoords?.run {
-                    onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText, event.rawX.toInt(), event.rawY.toInt())
-                }
+                handlerWithTextAndCoords?.onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText,
+                    event.rawX.toInt(), event.rawY.toInt())
 
                 return true
             }
@@ -81,8 +89,7 @@ class LinkMovementMethodExt : LinkMovementMethod {
         return super.onTouchEvent(widget, buffer, event)
     }
 
-    internal class ErrorLinkHandler internal constructor() : LinkHandler(WikipediaApp.instance) {
-        override var wikiSite = WikipediaApp.instance.wikiSite
+    internal class ErrorLinkHandler internal constructor(override var wikiSite: WikiSite) : LinkHandler(WikipediaApp.instance) {
         override fun onMediaLinkClicked(title: PageTitle) {}
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {}
         override fun onPageLinkClicked(anchor: String, linkText: String) {}
@@ -95,8 +102,8 @@ class LinkMovementMethodExt : LinkMovementMethod {
     }
 
     companion object {
-        fun getExternalLinkMovementMethod(): LinkMovementMethodExt {
-            return LinkMovementMethodExt(ErrorLinkHandler())
+        fun getExternalLinkMovementMethod(wikiSite: WikiSite = WikipediaApp.instance.wikiSite): LinkMovementMethodExt {
+            return LinkMovementMethodExt(ErrorLinkHandler(wikiSite))
         }
     }
 }

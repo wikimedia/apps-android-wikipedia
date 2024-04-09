@@ -6,8 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
-import org.wikipedia.analytics.WatchlistFunnel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -17,13 +21,18 @@ import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.edit.Edit
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
 
 class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
+
+    private val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
 
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
     val rollbackRights = MutableLiveData<Resource<Boolean>>()
@@ -35,52 +44,27 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val undoEditResponse = SingleLiveData<Resource<Edit>>()
     val rollbackResponse = SingleLiveData<Resource<RollbackPostResponse>>()
 
-    var watchlistExpiryChanged = false
-    var lastWatchExpiry = WatchlistExpiry.NEVER
-    var pageId = -1
-        private set
+    val fromRecentEdits = invokeSource == InvokeSource.SUGGESTED_EDITS_RECENT_EDITS
 
-    val pageTitle = bundle.getParcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+    var pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+        private set
+    var pageId = bundle.getInt(ArticleEditDetailsActivity.EXTRA_PAGE_ID, -1)
+        private set
     var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
     var revisionTo: MwQueryPage.Revision? = null
     var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, -1)
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
     var hasRollbackRights = false
-
-    private var diffRevisionId = 0L
+    var isWatched = false
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
-    private val watchlistFunnel = WatchlistFunnel()
-
     init {
-        getWatchedStatusAndPageId()
-        checkRollbackRights()
-        getRevisionDetails(revisionToId, revisionFromId)
-    }
-
-    private fun getWatchedStatusAndPageId() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            watchedStatus.postValue(Resource.Error(throwable))
-        }) {
-            withContext(Dispatchers.IO) {
-                val page = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!!
-                pageId = page.pageId
-                watchedStatus.postValue(Resource.Success(page))
-            }
-        }
-    }
-
-    private fun checkRollbackRights() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            rollbackRights.postValue(Resource.Error(throwable))
-        }) {
-            withContext(Dispatchers.IO) {
-                val userRights = ServiceFactory.get(pageTitle.wikiSite).userRights().query?.userInfo?.rights
-                hasRollbackRights = userRights?.contains("rollback") == true
-                rollbackRights.postValue(Resource.Success(hasRollbackRights))
-            }
+        if (!fromRecentEdits) {
+            getRevisionDetails(revisionToId, revisionFromId)
+        } else {
+            getNextRecentEdit()
         }
     }
 
@@ -88,29 +72,73 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                if (revisionIdFrom >= 0) {
-                    val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdFrom) }
-                    val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo) }
-                    val pageTo = responseTo.await().query?.firstPage()!!
-                    revisionFrom = responseFrom.await().query?.firstPage()!!.revisions[0]
-                    revisionTo = pageTo.revisions[0]
-                    canGoForward = revisionTo!!.revId < pageTo.lastrevid
-                } else {
-                    val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo)
-                    val page = response.query?.firstPage()!!
-                    val revisions = page.revisions
-                    revisionTo = revisions[0]
-                    canGoForward = revisions[0].revId < page.lastrevid
-                    revisionFrom = revisions.getOrNull(1)
+            revisionToId = revisionIdTo
+            if (watchedStatus.value !is Resource.Success) {
+                val query = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatusWithRights(pageTitle.prefixedText).query!!
+                val page = query.firstPage()!!
+                if (pageId < 0) {
+                    pageId = page.pageId
                 }
-
-                revisionToId = revisionTo!!.revId
-                revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
-
-                revisionDetails.postValue(Resource.Success(Unit))
-                getDiffText(revisionFromId, revisionToId)
+                if (revisionToId < 0) {
+                    revisionToId = page.lastrevid
+                }
+                isWatched = page.watched
+                watchedStatus.postValue(Resource.Success(page))
+                hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
+                rollbackRights.postValue(Resource.Success(hasRollbackRights))
             }
+            if (revisionIdFrom >= 0) {
+                val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionIdFrom) }
+                val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionToId) }
+                val pageTo = responseTo.await().query?.firstPage()!!
+                revisionFrom = responseFrom.await().query?.firstPage()!!.revisions[0]
+                revisionTo = pageTo.revisions[0]
+                canGoForward = revisionTo!!.revId < pageTo.lastrevid
+            } else {
+                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageId.toString(), 2, revisionToId)
+                val page = response.query?.firstPage()!!
+                val revisions = page.revisions
+                revisionTo = revisions[0]
+                canGoForward = revisions[0].revId < page.lastrevid
+                revisionFrom = revisions.getOrNull(1)
+            }
+
+            revisionToId = revisionTo!!.revId
+            revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
+
+            revisionDetails.postValue(Resource.Success(Unit))
+            getDiffText(revisionFromId, revisionToId)
+        }
+    }
+
+    private fun getNextRecentEdit() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            revisionDetails.postValue(Resource.Error(throwable))
+        }) {
+            val candidate = EditingSuggestionsProvider.getNextRevertCandidate(pageTitle.wikiSite.languageCode)
+            pageId = candidate.pageid
+            revisionToId = candidate.curRev
+
+            val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithUserInfo(pageId.toString(), 2, revisionToId)
+            val page = response.query?.firstPage()!!
+            val revisions = page.revisions
+
+            pageTitle = PageTitle(page.title, pageTitle.wikiSite)
+            pageTitle.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
+
+            watchedStatus.postValue(Resource.Success(page))
+            hasRollbackRights = response.query?.userInfo?.rights?.contains("rollback") == true
+            rollbackRights.postValue(Resource.Success(hasRollbackRights))
+
+            revisionTo = revisions[0]
+            canGoForward = revisions[0].revId < page.lastrevid
+            revisionFrom = revisions.getOrNull(1)
+
+            revisionToId = revisionTo!!.revId
+            revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
+
+            revisionDetails.postValue(Resource.Success(Unit))
+            getDiffText(revisionFromId, revisionToId)
         }
     }
 
@@ -124,43 +152,35 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 2, revisionIdFrom)
-                val page = response.query?.firstPage()!!
-                val revisions = page.revisions
+            val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(null, pageId.toString(), 2, revisionIdFrom)
+            val page = response.query?.firstPage()!!
+            val revisions = page.revisions
 
-                revisionFrom = revisions[0]
-                revisionTo = revisions.getOrElse(1) { revisions.first() }
-                canGoForward = revisions.size > 1 && revisions[1].revId < page.lastrevid
+            revisionFrom = revisions[0]
+            revisionTo = revisions.getOrElse(1) { revisions.first() }
+            canGoForward = revisions.size > 1 && revisions[1].revId < page.lastrevid
 
-                revisionToId = revisionTo!!.revId
-                revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
+            revisionToId = revisionTo!!.revId
+            revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
-                revisionDetails.postValue(Resource.Success(Unit))
-                getDiffText(revisionFromId, revisionToId)
-            }
+            revisionDetails.postValue(Resource.Success(Unit))
+            getDiffText(revisionFromId, revisionToId)
         }
     }
 
     private fun getDiffText(oldRevisionId: Long, newRevisionId: Long) {
-        if (diffRevisionId == newRevisionId) {
-            return
-        }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             diffText.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                if (pageTitle.wikiSite.uri.authority == Uri.parse(Service.WIKIDATA_URL).authority) {
-                    // For the special case of Wikidata we return a blank Revision object, since the
-                    // Rest API in Wikidata cannot render diffs properly yet.
-                    // TODO: wait until Wikidata API returns diffs correctly
-                    singleRevisionText.postValue(Resource.Success(Revision()))
-                } else if (oldRevisionId > 0) {
-                    diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
-                } else {
-                    singleRevisionText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getRevision(newRevisionId)))
-                }
-                diffRevisionId = newRevisionId
+            if (pageTitle.wikiSite.uri.authority == Uri.parse(Service.WIKIDATA_URL).authority) {
+                // For the special case of Wikidata we return a blank Revision object, since the
+                // Rest API in Wikidata cannot render diffs properly yet.
+                // TODO: wait until Wikidata API returns diffs correctly
+                singleRevisionText.postValue(Resource.Success(Revision()))
+            } else if (oldRevisionId > 0) {
+                diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
+            } else {
+                singleRevisionText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getRevision(newRevisionId)))
             }
         }
     }
@@ -169,59 +189,50 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             thankStatus.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val token = ServiceFactory.get(wikiSite).getToken().query?.csrfToken()
-                thankStatus.postValue(Resource.Success(ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token!!)))
-            }
+            val token = ServiceFactory.get(wikiSite).getToken().query?.csrfToken()
+            thankStatus.postValue(Resource.Success(ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token!!)))
         }
     }
 
-    fun watchOrUnwatch(isWatched: Boolean, expiry: WatchlistExpiry, unwatch: Boolean) {
+    fun watchOrUnwatch(unwatch: Boolean) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchResponse.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                if (expiry != WatchlistExpiry.NEVER) {
-                    watchlistFunnel.logAddExpiry()
-                } else {
-                    if (isWatched) {
-                        watchlistFunnel.logRemoveArticle()
-                    } else {
-                        watchlistFunnel.logAddArticle()
-                    }
-                }
-                val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-                val response = ServiceFactory.get(pageTitle.wikiSite)
-                        .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
-
-                lastWatchExpiry = expiry
-                if (watchlistExpiryChanged && unwatch) {
-                    watchlistExpiryChanged = false
-                }
-
-                if (unwatch) {
-                    watchlistFunnel.logRemoveSuccess()
-                } else {
-                    watchlistFunnel.logAddSuccess()
-                }
-                watchResponse.postValue(Resource.Success(response))
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
             }
+            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            val response = ServiceFactory.get(pageTitle.wikiSite)
+                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, WatchlistExpiry.NEVER.expiry, token!!)
+
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+            }
+
+            isWatched = response.getFirst()?.watched ?: false
+            watchResponse.postValue(Resource.Success(response))
         }
     }
 
+    @Suppress("KotlinConstantConditions")
     fun undoEdit(title: PageTitle, user: String, comment: String, revisionId: Long, revisionIdAfter: Long) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             undoEditResponse.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
-                val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
-                val summary = if (undoMessage != null) "$undoMessage $comment" else comment
-                val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
-                val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
-                        null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
-                undoEditResponse.postValue(Resource.Success(undoResponse))
+            val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
+            val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
+            var summary = if (undoMessage != null) "$undoMessage $comment" else comment
+            if (fromRecentEdits) {
+                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
             }
+            val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
+            val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
+                    null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
+            undoEditResponse.postValue(Resource.Success(undoResponse))
         }
     }
 
@@ -229,11 +240,17 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-                val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, null, user, rollbackToken)
-                rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
+
+            val rollbackSummaryMsg = ServiceFactory.get(title.wikiSite).getMessages("revertpage", null)
+                .query?.allmessages?.firstOrNull { it.name == "revertpage" }?.content
+
+            val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
+            var summary = rollbackSummaryMsg
+            if (fromRecentEdits) {
+                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
             }
+            val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
+            rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
         }
     }
 

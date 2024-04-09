@@ -32,11 +32,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black26" />
+                android:background="?attr/overlay_color" />
 
             <View
                 android:id="@+id/toolbar_gradient"
@@ -44,13 +44,12 @@
                 android:layout_height="80dp" />
         </LinearLayout>
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginTop="-7.5dp" />
+            android:indeterminate="true"
+            android:layout_gravity="top" />
     </FrameLayout>
 
     <LinearLayout
@@ -71,7 +70,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:background="@color/black38">
+            android:background="?attr/overlay_color">
 
             <org.wikipedia.views.AppTextView
                 android:id="@+id/description_text"
@@ -82,8 +81,8 @@
                 android:maxHeight="128dp"
                 android:scrollbarStyle="insideInset"
                 android:scrollbars="vertical"
-                android:textColor="@color/base90"
-                android:textColorLink="@color/base90"
+                android:textColor="@color/gray100"
+                android:textColorLink="@color/gray100"
                 android:textIsSelectable="true"
                 tools:text="Sample image description text" />
 
@@ -94,7 +93,7 @@
                 android:padding="6dp"
                 android:layout_marginTop="-6dp"
                 app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-                app:tint="@color/base90"
+                app:tint="@color/gray100"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
@@ -110,7 +109,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:background="@color/black38"
+            android:background="?attr/overlay_color"
             android:visibility="gone"
             tools:visibility="visible">
 
@@ -135,9 +134,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:textAllCaps="true"
-                    android:textColor="@color/base100"
-                    android:letterSpacing="0.1" />
+                    android:textColor="@color/white"
+                    android:letterSpacing="0.05" />
 
             </LinearLayout>
 
@@ -145,14 +143,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_gravity="bottom"
-                android:background="?attr/material_theme_border_color"/>
+                android:background="?attr/border_color"/>
 
         </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black38"
+            android:background="?attr/overlay_color"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingTop="16dp"
             android:paddingEnd="@dimen/activity_horizontal_margin"
@@ -163,32 +161,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/license_icon"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:contentDescription="@null"
-                    app:tint="@color/white70"
+                    app:tint="?attr/placeholder_color"
                     tools:src="@drawable/ic_license_cc" />
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/license_icon_by"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:layout_marginStart="4dp"
                     android:contentDescription="@null"
                     android:visibility="gone"
-                    app:tint="@color/white70"
+                    app:tint="?attr/placeholder_color"
                     tools:src="@drawable/ic_license_by" />
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/license_icon_sa"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:layout_marginStart="4dp"
                     android:contentDescription="@null"
                     android:visibility="gone"
-                    app:tint="@color/white70"
+                    app:tint="?attr/placeholder_color"
                     tools:src="@drawable/ic_license_sharealike" />
             </LinearLayout>
 
@@ -200,8 +198,8 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:layout_marginStart="8dp"
-                android:textColor="@color/white70"
-                android:textColorLink="@color/white70"
+                android:textColor="?attr/placeholder_color"
+                android:textColorLink="?attr/placeholder_color"
                 android:textIsSelectable="true"
                 tools:text="Credits" />
         </LinearLayout>

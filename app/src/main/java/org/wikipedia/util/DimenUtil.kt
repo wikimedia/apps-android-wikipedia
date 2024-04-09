@@ -7,8 +7,10 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.Window
 import androidx.annotation.DimenRes
+import androidx.core.content.res.use
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.util.log.L
 import kotlin.math.roundToInt
 
 object DimenUtil {
@@ -76,6 +78,19 @@ object DimenUtil {
     private val resources: Resources
         get() = WikipediaApp.instance.resources
 
+    fun htmlPxToInt(str: String): Int {
+        try {
+            return if (str.contains("px")) {
+                str.replace("px", "").toInt()
+            } else {
+                str.toInt()
+            }
+        } catch (e: Exception) {
+            L.e(e)
+        }
+        return 0
+    }
+
     fun getNavigationBarHeight(context: Context): Float {
         val id = getNavigationBarId(context)
         return if (id > 0) getDimension(id) else 0f
@@ -86,12 +101,10 @@ object DimenUtil {
     }
 
     fun getToolbarHeightPx(context: Context): Int {
-        val styledAttributes = context.theme.obtainStyledAttributes(intArrayOf(
-                androidx.appcompat.R.attr.actionBarSize
-        ))
-        val size = styledAttributes.getDimensionPixelSize(0, 0)
-        styledAttributes.recycle()
-        return size
+        val attrs = intArrayOf(androidx.appcompat.R.attr.actionBarSize)
+        return context.theme.obtainStyledAttributes(attrs).use {
+            it.getDimensionPixelSize(0, 0)
+        }
     }
 
     @DimenRes

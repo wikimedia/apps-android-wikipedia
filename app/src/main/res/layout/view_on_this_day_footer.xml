@@ -6,16 +6,16 @@
     android:background="?attr/paper_color"
     android:orientation="vertical">
 
-    <com.google.android.material.button.MaterialButton
+    <TextView
         android:id="@+id/end_of_scroll_message"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
         android:layout_marginStart="16dp"
         android:clickable="false"
         android:letterSpacing="0"
         android:text="@string/on_this_day_end_of_scroll_message"
-        android:textAllCaps="false"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -24,14 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:letterSpacing="0"
+        android:layout_marginBottom="16dp"
         android:text="@string/on_this_day_back_to_future"
-        android:textAllCaps="false"
-        android:textColor="?attr/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:icon="@drawable/ic_baseline_arrow_up_alt_24"
-        app:iconGravity="end"
-        app:iconSize="20dp"
-        app:iconTint="?attr/colorAccent" />
+        app:iconGravity="end" />
 </LinearLayout>

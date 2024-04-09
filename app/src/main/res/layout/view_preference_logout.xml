@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginTop="8dp"
-    android:divider="?attr/list_separator_drawable"
+    android:divider="?attr/list_divider"
     android:showDividers="beginning|end">
 
     <LinearLayout
@@ -20,19 +20,19 @@
             android:contentDescription="@null"
             android:layout_marginStart="16dp"
             app:srcCompat="@drawable/ic_baseline_person_24"
-            app:tint="?attr/color_group_59"/>
+            app:tint="?attr/placeholder_color"/>
 
         <TextView
             android:id="@+id/accountName"
             style="@android:style/TextAppearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/logoutButton"
-            style="@style/TransparentButton"
+            style="@style/App.Button.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
@@ -42,5 +42,18 @@
             android:textColor="?attr/colorError"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/accountVanishButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/H3.Button"
+        android:padding="16dp"
+        app:drawableStartCompat="@drawable/ic_person_remove"
+        android:drawablePadding="12dp"
+        app:drawableTint="?attr/colorError"
+        android:background="?attr/selectableItemBackground"
+        android:text="@string/account_vanish_request_title"
+        android:textColor="?attr/colorError" />
 
 </LinearLayout>

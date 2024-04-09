@@ -1,12 +1,13 @@
 package org.wikipedia.feed.topread
 
 import android.os.Parcelable
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.util.DateUtil
-import java.lang.Exception
-import java.util.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 
 @Serializable
 @Parcelize
@@ -14,10 +15,12 @@ class TopRead(
     val date: String = "",
     val articles: List<PageSummary> = emptyList()
 ) : Parcelable {
-    fun date(): Date {
+    @IgnoredOnParcel
+    val localDate: LocalDate by lazy {
         try {
-            return DateUtil.iso8601ShortDateParse(date)
-        } catch (e: Exception) {}
-        return Date()
+            LocalDate.parse(date, DateTimeFormatter.ISO_OFFSET_DATE)
+        } catch (e: DateTimeParseException) {
+            LocalDate.now()
+        }
     }
 }

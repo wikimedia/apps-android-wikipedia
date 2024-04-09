@@ -16,6 +16,7 @@ object ReleaseUtil {
 
     val isPreProdRelease: Boolean
         get() = calculateReleaseType() != RELEASE_PROD
+
     val isAlphaRelease: Boolean
         get() = calculateReleaseType() == RELEASE_ALPHA
 
@@ -25,7 +26,6 @@ object ReleaseUtil {
             else -> true
         }
 
-    @JvmStatic
     val isDevRelease: Boolean
         get() = calculateReleaseType() == RELEASE_DEV
 

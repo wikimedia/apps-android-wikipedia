@@ -68,7 +68,7 @@ class CenterCropWithFaceTransformation : BitmapTransformation() {
         // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
         TransformationUtils.setAlpha(inBitmap, result)
         WhiteBackgroundTransformation().applyMatrixWithBackground(inBitmap, result, m)
-        return result
+        return WhiteBackgroundTransformation.maybeDimImage(result)
     }
 
     private fun detectFace(testBitmap: Bitmap): PointF? {

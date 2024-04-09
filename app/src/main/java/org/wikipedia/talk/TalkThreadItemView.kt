@@ -13,11 +13,12 @@ import android.view.*
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")
@@ -62,20 +63,19 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
 
     fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false, searchQuery: String? = null) {
         this.item = item
-        binding.userNameText.text = item.author
+        val showAuthor = item.author.isNotEmpty()
+        binding.userNameText.isVisible = showAuthor
+        binding.userNameTapTarget.isVisible = showAuthor
+        StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.author, searchQuery)
         binding.userNameTapTarget.contentDescription = binding.userNameText.text
-        binding.userNameText.isVisible = item.author.isNotEmpty()
-        binding.userNameTapTarget.isVisible = binding.userNameText.isVisible
-        StringUtil.highlightAndBoldenText(binding.userNameText, searchQuery, true, Color.YELLOW)
-        binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
+        binding.profileImage.isInvisible = !showAuthor
         binding.timeStampText.isVisible = item.date != null
         item.date?.let {
-            binding.timeStampText.text = DateUtil.getTimeAndDateString(context, it)
-            StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
+            val timestamp = DateUtil.getTimeAndDateString(context, it)
+            StringUtil.setHighlightedAndBoldenedText(binding.timeStampText, timestamp, searchQuery)
         }
-        binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()
-        RichTextUtil.removeUnderlinesFromLinks(binding.bodyText)
-        StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
+        val body = CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText).trim()
+        StringUtil.setHighlightedAndBoldenedText(binding.bodyText, body, searchQuery)
         binding.bodyText.movementMethod = movementMethod
 
         if (replying) {
@@ -90,13 +90,13 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         if (item.isFirstTopLevel) {
-            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
             binding.replyButton.iconTint = ColorStateList.valueOf(Color.WHITE)
             binding.replyButton.setTextColor(Color.WHITE)
         } else {
-            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
-            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
-            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.background_color)
+            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
+            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
         }
 
         binding.topDivider.isVisible = item.level <= 2
@@ -108,7 +108,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
     }
 
     fun animateSelectedBackground() {
-        val colorFrom = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
+        val colorFrom = ResourceUtil.getThemedColor(context, R.attr.placeholder_color)
         val colorTo = ResourceUtil.getThemedColor(context, R.attr.paper_color)
         val anim = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
         anim.duration = 1000

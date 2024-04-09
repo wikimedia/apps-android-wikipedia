@@ -16,6 +16,7 @@ import org.wikipedia.databinding.FragmentOnboardingPagerBinding
 
 abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), BackPressedHandler {
     interface Callback {
+        fun onSkip()
         fun onComplete()
     }
 
@@ -23,13 +24,7 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
     private val binding get() = _binding!!
     private val pageChangeCallback = PageChangeCallback()
 
-    private val forwardClickListener = View.OnClickListener {
-        if (atLastPage()) {
-            finish()
-        } else {
-            advancePage()
-        }
-    }
+    private val forwardClickListener = View.OnClickListener { advancePage() }
 
     protected abstract fun getAdapter(): FragmentStateAdapter?
 
@@ -50,6 +45,7 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
         }
 
         binding.fragmentOnboardingSkipButton.setOnClickListener {
+            callback()?.onSkip()
             finish()
         }
 
@@ -79,9 +75,13 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
         if (!isAdded) {
             return
         }
-        val nextPageIndex = binding.fragmentPager.currentItem + 1
-        val lastPageIndex = binding.fragmentPager.adapter!!.itemCount - 1
-        binding.fragmentPager.setCurrentItem(nextPageIndex.coerceAtMost(lastPageIndex), true)
+        if (atLastPage()) {
+            finish()
+        } else {
+            val nextPageIndex = binding.fragmentPager.currentItem + 1
+            val lastPageIndex = binding.fragmentPager.adapter!!.itemCount - 1
+            binding.fragmentPager.setCurrentItem(nextPageIndex.coerceAtMost(lastPageIndex), true)
+        }
     }
 
     protected fun callback(): Callback? {

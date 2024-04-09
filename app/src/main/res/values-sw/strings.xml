@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Edwingudfriend
+* Jadnapac
+* Killy95
 * Kwisha
 * MuratTheTurkish
 * Obsuser
@@ -12,18 +14,42 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia ya Beta</string>
   <string name="app_name_alpha">Wikipedia ya Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Nyuma</string>
-  <string name="page_tabs_back">Rudi</string>
+  <string name="page_tabs_back">Nyuma</string>
   <string name="nav_item_forward">Mbele</string>
   <string name="search_hint">Tafuta Wikipedia</string>
-  <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>
+  <string name="search_hint_voice_search">Utafutaji wa kuingiza sauti</string>
+  <string name="search_hint_search_languages">Tafuta lugha</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Chuja orodha zangu</string>
+  <string name="nav_item_suggested_edits">Hariri</string>
+  <string name="nav_item_more">Zaidi</string>
+  <string name="nav_item_search">Tafuta</string>
+  <string name="error_network_error">Haiwezi kuunganisha kwenye Mtandao.</string>
   <string name="page_error_retry">Jaribu tena</string>
+  <string name="card_offline_error_retry">Jaribu tena</string>
+  <string name="storage_access_error_retry">Jaribu tena</string>
+  <string name="article_load_error_retry">Jaribu tena</string>
+  <string name="offline_load_error_retry">Jaribu tena</string>
+  <string name="page_error_back_to_main">Rudi nyuma</string>
+  <string name="error_back">Rudi nyuma</string>
+  <string name="error_next">Endelea</string>
   <string name="menu_clear_all_history">Futa historia</string>
+  <string name="history_item_deleted">%s imeondolewa kwenye historia</string>
+  <string name="history_items_deleted">Makala %d yameondolewa kwenye historia</string>
+  <string name="history_item_delete_undo">Tengua</string>
+  <string name="notification_archive_undo">Tengua</string>
+  <string name="app_settings">Mipangilio ya programu</string>
+  <string name="search_tab_tooltip">Gonga aikoni tena ili uanze kuandika neno la utafutaji moja kwa moja.</string>
   <string name="history_list_title">Historia</string>
+  <string name="image_content_description">Picha: %s</string>
+  <string name="page_content_description">Ukurasa: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
   <string name="dialog_message_clear_history_yes">Ndiyo</string>
   <string name="dialog_message_clear_history_no">Siyo</string>
-  <string name="share_via">Shiriki kupitia</string>
+  <string name="share_via">Shirikisha kupitia</string>
   <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
   <string name="menu_page_find_in_page" fuzzy="true">Tafuta katika ukurasa</string>
   <string name="menu_page_share" fuzzy="true">Gawa</string>
@@ -65,7 +91,6 @@
   <string name="preferences_general_heading">Kijumla</string>
   <string name="send_feedback">Toa maoni ya programu timizi</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
-  <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
   <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>
   <string name="page_protected_autoconfirmed">Ukurasa huu umezuiwa kiasi</string>
   <string name="page_protected_sysop">Ukurasa huu umezuiwa kabisa.</string>
@@ -111,6 +136,7 @@
   <string name="close_all_tabs_confirm_yes">Ndiyo</string>
   <string name="close_all_tabs_confirm_no">Hapana</string>
   <string name="button_continue_to_article">Soma makala</string>
+  <string name="link_preview_dialog_save_button">Hifadhi</string>
   <string name="error_page_does_not_exist">Ukarasa haupo.</string>
   <string name="crash_report_quit">Ondoka</string>
   <string name="article_header_edit_hint">Hariri...</string>

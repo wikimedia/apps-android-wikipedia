@@ -104,9 +104,8 @@
   <string name="map_view_link_text">Tempo dina péta</string>
   <string name="other_languages_indication_text">Baca dina basa séjén</string>
   <string name="language_count_link_text">Nyangkaruk dina %d$1 basa séjén</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ku medalkeunna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ku medalkeun, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun maké lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan bakal diatribusikeun ka alamat IP piranti anjeun. Lamun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal boga privasi leuwih.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ku medalkeunna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ku medalkeun, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun maké lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan bakal diatribusikeun ka alamat IP piranti anjeun. Lamun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal boga privasi leuwih.</string>
   <string name="edit_anon_warning">Éditan bakal diatribusikeun kana alamat IP piranti anjeun. Lamunanjeun &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, anjeun bakal boga privasi leuwih.</string>
   <string name="preference_title_language">Basa-basa Wikipédia</string>
   <string name="langlinks_filter_hint">Paluruh</string>
@@ -205,9 +204,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkeun daptar bacaan dina sakur perangkat ku diteundeun dina akun Wikipédia anjeun \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Pupus daptar bacaeun anu disingkronkeun tina \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Peta ieu bakal ngahapus sakur daptar bacaeun anu disingkronkeun tina simpenan jauh. Hapus sakur daptar anu disingkronkeun tina akun anjeun \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privasi</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
-  <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karuksakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Idinan aplikasi pikeun ngirimkeun laporan karuksakan ka panyadia layanan pihak katilu sacara otomatis sangkan kami bisa ngariksa karuksakanna sarta ngoméan kasalahan leuwih gancang sarta leuwih gampang.</string>
   <string name="editing_error_spamblacklist">Tutumbu ka domain nu dipeunpeuk (%s) kadéték. Pék hapus sarta cobaan deui.</string>
@@ -228,8 +224,6 @@
   <string name="about_wikipedia_url">https://su.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.su</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Pabukon nu dipaké</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_translators_heading">Panarjamah</string>
@@ -367,10 +361,6 @@
   <string name="reading_list_create_new">Jieun anyar</string>
   <string name="reading_list_title_exists">Daptar bacaan \"%s\" geus aya.</string>
   <string name="reading_list_added_view_button">Tempo daptar</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d ti 1 artikel sayaga oflén, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ti %2$d artikel sayaga oflén, %3$.2f MB</string>
   <string name="reading_list_sort">Runtuykeun</string>
   <string name="reading_list_sort_ellipsis">Runtuykeun dumasar...</string>
   <string name="reading_list_sort_by_name">Runtuykeun dumasar ngaran</string>
@@ -539,7 +529,6 @@
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
   <string name="onboarding_explore_text" fuzzy="true">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Daptar bacaan kalawan singkronisasi</string>
-  <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>

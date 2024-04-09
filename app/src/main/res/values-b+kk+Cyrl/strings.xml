@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amankel'dy
 * Arystanbek
 * Batyrbek.kz
 * Darzz
@@ -58,12 +59,47 @@
   <string name="page_edit_history_filter_by_user">Қатысушы өңдемелері (%s)</string>
   <string name="page_edit_history_filter_by_anon">Аноним өңдемелері (%s)</string>
   <string name="page_edit_history_filter_by_bot">Бот өңдемелері (%s)</string>
+  <string name="menu_page_other_languages">Тіл ауыстыру</string>
+  <string name="menu_page_find_in_page">Мақала ішінен табу</string>
+  <string name="menu_page_add_to_watchlist">«Кейін көру» тізіміне қосу</string>
+  <string name="menu_page_watch">Көру</string>
+  <string name="menu_page_unwatch">Көрмеу</string>
+  <string name="menu_page_view_talk">Талқылау бетін көру</string>
+  <string name="menu_page_talk_page">Талқылау беті</string>
+  <string name="menu_page_view_edit_history">Өңдеу тарихын көру</string>
+  <string name="menu_page_edit_history">Өңдеу тарихы</string>
+  <string name="menu_page_remove_from_watchlist">«Кейін көру» тізімінен алу</string>
+  <string name="menu_page_watched">Көрілген</string>
+  <string name="edit_section_find_in_page">Бетте табу</string>
+  <string name="menu_page_font_and_theme">Қаріп пен кейіп</string>
+  <string name="menu_page_add_to_list">Оқу тізіміне қосу</string>
+  <string name="menu_page_add_to_default_list">Сақтау</string>
+  <string name="feed_card_add_to_list">Оқу тізіміне қосу</string>
+  <string name="feed_card_add_to_default_list">Сақтау</string>
+  <string name="menu_page_share">Сілтемесін жіберу</string>
+  <string name="menu_article_share">Мақаланы жіберу</string>
+  <string name="menu_page_article_share">Бөлісу</string>
+  <string name="menu_page_open_a_new_tab">Жаңа қойынды ашу</string>
+  <string name="menu_page_new_tab">Жаңа қойынды</string>
+  <string name="menu_page_reading_lists">Оқу тізімі</string>
+  <string name="menu_page_recently_viewed">Соңғы көрілген</string>
+  <string name="menu_page_archive">Мұрағат</string>
+  <string name="menu_long_press_open_page">Ашу</string>
+  <string name="menu_long_press_open_in_new_tab">Жаңа қойындыда ашу</string>
+  <string name="menu_long_press_copy_page">Сілтемені көшіру</string>
+  <string name="menu_text_select_define">Анықтау</string>
   <string name="on_this_day_page_share">Бөлісу</string>
   <string name="reading_list_page_share">Бөлісу</string>
+  <string name="menu_text_select_edit_here">Осында өңдеу</string>
+  <string name="menu_edit_article">Мақаланы өңдеу</string>
   <string name="last_updated_text">Соңғы жаңартылуы: %s</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
-  <string name="edit_save_action_license_anon">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
+  <string name="talk_page_link_text">Талқылау бетін көру</string>
+  <string name="edit_history_link_text">Өңдеу тарихын көру</string>
+  <string name="map_view_link_text">Қартада көру</string>
+  <string name="other_languages_indication_text">Басқа тілде оқу</string>
+  <string name="language_count_link_text">Бұдан басқа %d тілде оқи аласыз</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
   <string name="preference_title_language">Уикипедия тілдері</string>
   <string name="langlinks_filter_hint">Іздеу</string>
   <string name="langlinks_empty">Бұл бет басқа тілдерде қолжетімді емес.</string>
@@ -80,6 +116,9 @@
   <string name="dialog_message_leaving_edit_stay">Қалу</string>
   <string name="menu_show_toc">Мазмұны</string>
   <string name="search_no_results_found">Нәтиже табылмады</string>
+  <string name="search_reading_list_no_results">“%s” ішінен табылмады</string>
+  <string name="search_reading_lists_no_results">Оқу тізімінен табылмады</string>
+  <string name="search_history_no_results">Тарихтан табылмады</string>
   <string name="edit_section_captcha_message">Автоматтандырылған спамнан қорғану үшін, төменде көрсетілген сөздерді енгізіңіз</string>
   <string name="edit_section_captcha_hint">Жоғарыдағы сөздерді қайталаңыз</string>
   <string name="title_captcha">CAPTCHA-ны енгізіңіз</string>
@@ -97,11 +136,23 @@
   <string name="login_activity_title">Кіру</string>
   <string name="login_in_progress_dialog_message">Кірудесіз...</string>
   <string name="login_success_toast">Кірдіңіз!</string>
+  <string name="reset_password_title">Құпиясөз орнату</string>
+  <string name="reset_password_description">Уақытша құпиясөз арқылы кірдіңіз. Толықтай кіру үшін осы жерде құпиясөз орнатып алыңыз.</string>
+  <string name="reset_password_hint">Жаңа құпиясөз</string>
+  <string name="reset_password_button">Сақтап, кіру</string>
   <string name="preference_title_logout">Шығу</string>
   <string name="toast_logout_complete">Жүйеден шықтыңыз</string>
+  <string name="logout_prompt">Әрекетіңізді растасаңыз, кіріп тұрған барлық құрылғыдан шығып кетесіз. Жалғастырасыз ба?</string>
   <string name="logout_dialog_cancel_button_text">Болдырмау</string>
+  <string name="logged_out_in_background_title">Шықтыңыз</string>
+  <string name="logged_out_in_background_dialog">Уикипедиядан шығып кеттіңіз. Қайта кіргіңіз келе ме?</string>
+  <string name="logged_out_in_background_login">Кіру</string>
   <string name="logged_out_in_background_cancel">Болдырмау</string>
   <string name="history_empty_title">Жуықтағы қаралған мақалалар жоқ</string>
+  <string name="history_empty_message">Осы жерде бұрын не оқығаныңызды көруге болалы.</string>
+  <string name="history_offline_articles_toast">Тарихтағы кей мақалалар желі жоқта көрінбеуі мүмкін.</string>
+  <string name="search_empty_message">Ашық энциклопедияны өз тіліңізде оқып, керегіңізді іздеңіз</string>
+  <string name="search_empty_message_multilingual_upgrade">Уикипедияны басқа да тілде іздеу</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Қатысушы есімі</string>
   <string name="create_account_activity_title">Тіркеліңіз</string>
@@ -116,7 +167,6 @@
   <string name="preferences_general_heading">Негізгі</string>
   <string name="send_feedback">Қосымша туралы пікір жіберу</string>
   <string name="create_account_account_created_toast">Тіркелгі жасалды!</string>
-  <string name="preference_title_eventlogging_opt_in">Қолдану есептерін жіберу</string>
   <string name="editing_error_spamblacklist">Бұғатталған домейндерге сілтемелер (%s) анықталды. Оларды аластаңыз және қайта байқап көріңіз.</string>
   <string name="error_can_not_process_link">Осы сілтемені көрсету мүмкін емес</string>
   <string name="page_protected_autoconfirmed">Бұл бет жартылай қорғалған.</string>
@@ -190,7 +240,7 @@
   <string name="description_edit_cancel_hint">Болдырмау</string>
   <string name="description_edit_help_about_wikidata">Уикидерек туралы</string>
   <string name="suggested_edits_task_action_text_translate">Аудару</string>
-  <string name="suggested_edits_task_new">жаңа</string>
+  <string name="suggested_edits_task_new" fuzzy="true">жаңа</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="main_drawer_help">Анықтама</string>

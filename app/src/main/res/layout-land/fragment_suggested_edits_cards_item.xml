@@ -67,7 +67,7 @@
                     android:paddingEnd="16dp"
                     android:textSize="24sp"
                     android:fontFamily="serif"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:lineSpacingExtra="4sp"
                     android:maxLines="2"
                     android:ellipsize="end"
@@ -86,7 +86,7 @@
                         android:id="@+id/accentSideBar"
                         android:layout_width="4dp"
                         android:layout_height="match_parent"
-                        android:background="@color/accent50" />
+                        android:background="@color/blue600" />
 
                     <org.wikipedia.views.GoneIfEmptyTextView
                         android:id="@+id/viewArticleSubtitle"
@@ -97,12 +97,12 @@
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:layout_weight="1"
-                        android:background="?attr/multi_select_background_color"
+                        android:background="?attr/background_color"
                         android:ellipsize="end"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="6sp"
                         android:maxLines="3"
-                        android:textColor="?attr/material_theme_primary_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="16sp"
                         android:fontFamily="sans-serif-medium"
                         tools:text="Lorem ipsum" />
@@ -121,7 +121,7 @@
                         android:lineSpacingExtra="14sp"
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
-                        android:textColor="?attr/primary_text_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="16sp"
                         tools:text="Lorem ipsum" />
 

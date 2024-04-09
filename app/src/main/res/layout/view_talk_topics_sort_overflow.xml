@@ -24,7 +24,7 @@
             android:textSize="16sp"
             android:paddingHorizontal="16dp"
             android:paddingVertical="13dp"
-            android:textColor="?attr/material_theme_primary_color"/>
+            android:textColor="?attr/primary_color"/>
 
         <LinearLayout
             android:id="@+id/sortByDatePublishedButton"
@@ -42,7 +42,7 @@
                 android:contentDescription="@null"
                 android:visibility="invisible"
                 android:layout_marginEnd="16dp"
-                app:tint="?attr/colorPrimary"/>
+                app:tint="?attr/placeholder_color"/>
 
             <TextView
                 android:id="@+id/sortByDatePublished"
@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/talk_overflow_sort_date_published"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_color" />
 
             <ImageView
                 android:id="@+id/sortByDatePublishedOrder"
@@ -82,7 +82,7 @@
                 android:contentDescription="@null"
                 android:visibility="invisible"
                 android:layout_marginEnd="16dp"
-                app:tint="?attr/colorPrimary"/>
+                app:tint="?attr/placeholder_color"/>
 
             <TextView
                 android:id="@+id/sortByDateUpdated"
@@ -91,7 +91,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/talk_overflow_sort_date_updated"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_color" />
 
             <ImageView
                 android:id="@+id/sortByDateUpdatedOrder"
@@ -101,7 +101,7 @@
                 android:rotation="90"
                 android:contentDescription="@null"
                 android:visibility="gone"
-                app:tint="?android:attr/textColorSecondary"/>
+                app:tint="?attr/secondary_color"/>
 
         </LinearLayout>
 
@@ -121,7 +121,7 @@
                 android:contentDescription="@null"
                 android:visibility="invisible"
                 android:layout_marginEnd="16dp"
-                app:tint="?attr/colorPrimary"/>
+                app:tint="?attr/placeholder_color"/>
 
             <TextView
                 android:id="@+id/sortByTopicName"
@@ -130,7 +130,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/talk_overflow_sort_topic_name"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_color" />
 
             <ImageView
                 android:id="@+id/sortByTopicNameOrder"

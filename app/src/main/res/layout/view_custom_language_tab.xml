@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="horizontal">
 
-    <TextView
+    <org.wikipedia.views.LangCodeView
         android:id="@+id/language_code"
-        style="@style/TextViewCentered"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:background="@drawable/lang_button_shape_border"
-        android:fontFamily="sans-serif-medium"
-        android:textAllCaps="true"
-        android:textColor="?attr/color_group_63"
-        android:textSize="12sp" />
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="-10dp"
+        android:contentDescription="@null"
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color"  />
 
     <TextView
         android:id="@+id/language_label"
@@ -24,7 +24,7 @@
         android:layout_marginStart="@dimen/view_list_card_margin_vertical"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="?attr/color_group_63"
+        android:textColor="?attr/secondary_color"
         android:textSize="12sp"
         tools:text="English" />
 </LinearLayout>

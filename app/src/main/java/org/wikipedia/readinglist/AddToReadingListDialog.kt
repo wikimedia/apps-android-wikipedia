@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Parcelable
@@ -7,25 +8,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogAddToReadingListBinding
+import org.wikipedia.extensions.parcelableArrayList
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListTitleDialog.readingListTitleDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.FeedbackUtil.makeSnackbar
@@ -43,12 +44,11 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     private val listItemCallback = ReadingListItemCallback()
     lateinit var invokeSource: InvokeSource
     var readingLists = listOf<ReadingList>()
-    var disposables = CompositeDisposable()
     var dismissListener: DialogInterface.OnDismissListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        titles = requireArguments().getParcelableArrayList(PAGE_TITLE_LIST)!!
+        titles = requireArguments().parcelableArrayList(PAGE_TITLE_LIST)!!
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         showDefaultList = requireArguments().getBoolean(SHOW_DEFAULT_LIST)
         adapter = ReadingListAdapter()
@@ -60,9 +60,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         binding.listOfLists.layoutManager = LinearLayoutManager(requireActivity())
         binding.listOfLists.adapter = adapter
         binding.createButton.setOnClickListener(createClickListener)
-
-        // Log a click event, but only the first time the dialog is shown.
-        logClick(savedInstanceState)
         updateLists()
         return binding.root
     }
@@ -73,7 +70,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         _binding = null
         super.onDestroyView()
     }
@@ -83,23 +79,25 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         dismissListener?.onDismiss(null)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateLists() {
-        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getAllLists() }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ lists ->
-                    readingLists = lists
-                    displayedLists.clear()
-                    displayedLists.addAll(readingLists)
-                    if (!showDefaultList && displayedLists.isNotEmpty()) {
-                        displayedLists.removeAt(0)
-                    }
-                    ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
-                    adapter.notifyDataSetChanged()
-                    if (displayedLists.isEmpty()) {
-                        showCreateListDialog()
-                    }
-                }) { obj -> L.w(obj) })
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            readingLists = withContext(Dispatchers.IO) {
+                AppDatabase.instance.readingListDao().getAllLists()
+            }
+            displayedLists.clear()
+            displayedLists.addAll(readingLists)
+            if (!showDefaultList && displayedLists.isNotEmpty()) {
+                displayedLists.removeAt(0)
+            }
+            ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
+            adapter.notifyDataSetChanged()
+            if (displayedLists.isEmpty()) {
+                showCreateListDialog()
+            }
+        }
     }
 
     private inner class CreateButtonClickListener : View.OnClickListener {
@@ -115,14 +113,17 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun showCreateListDialog() {
-        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }) { text, description ->
-            addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
-        }.show()
+        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }, callback = object : ReadingListTitleDialog.Callback {
+            override fun onSuccess(text: String, description: String) {
+                addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
+            }
+            override fun onCancel() { }
+        }).show()
     }
 
     private fun addAndDismiss(readingList: ReadingList, titles: List<PageTitle>?) {
-        if (readingList.pages.size + titles!!.size > SiteInfoClient.maxPagesPerReadingList) {
-            val message = getString(R.string.reading_list_article_limit_message, readingList.title, SiteInfoClient.maxPagesPerReadingList)
+        if (readingList.pages.size + titles!!.size > Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
+            val message = getString(R.string.reading_list_article_limit_message, readingList.title, Constants.MAX_READING_LIST_ARTICLE_LIMIT)
             makeSnackbar(requireActivity(), message).show()
             dismiss()
             return
@@ -130,27 +131,21 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         commitChanges(readingList, titles)
     }
 
-    open fun logClick(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            ReadingListsFunnel().logAddClick(invokeSource)
-        }
-    }
-
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ addedTitlesList ->
-                    val message: String
-                    if (addedTitlesList.isEmpty()) {
-                        message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
-                    } else {
-                        message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
-                        ReadingListsFunnel().logAddToList(readingList, readingLists.size, invokeSource)
-                    }
-                    showViewListSnackBar(readingList, message)
-                    dismiss()
-                }) { obj -> L.w(obj) })
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            val addedTitlesList = withContext(Dispatchers.IO) {
+                AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
+            }
+            val message = if (addedTitlesList.isEmpty()) {
+                if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
+            } else {
+                if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
+            }
+            showViewListSnackBar(readingList, message)
+            dismiss()
+        }
     }
 
     fun showViewListSnackBar(list: ReadingList, message: String) {
@@ -167,6 +162,9 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         override fun onDelete(readingList: ReadingList) {}
         override fun onSaveAllOffline(readingList: ReadingList) {}
         override fun onRemoveAllOffline(readingList: ReadingList) {}
+        override fun onSelectList(readingList: ReadingList) {}
+        override fun onChecked(readingList: ReadingList) {}
+        override fun onShare(readingList: ReadingList) {}
     }
 
     private class ReadingListItemHolder constructor(itemView: ReadingListItemView) : RecyclerView.ViewHolder(itemView) {

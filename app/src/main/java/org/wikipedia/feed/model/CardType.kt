@@ -1,6 +1,7 @@
 package org.wikipedia.feed.model
 
 import android.content.Context
+import org.wikipedia.extensions.getByCode
 import org.wikipedia.feed.FeedContentType
 import org.wikipedia.feed.accessibility.AccessibilityCardView
 import org.wikipedia.feed.announcement.AnnouncementCardView
@@ -20,7 +21,6 @@ import org.wikipedia.feed.topic.FeaturedTopicCardView
 import org.wikipedia.feed.topread.TopReadCardView
 import org.wikipedia.feed.view.FeedCardView
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 
 enum class CardType constructor(private val code: Int,
                                 private val contentType: FeedContentType? = null) : EnumCode {
@@ -145,10 +145,8 @@ enum class CardType constructor(private val code: Int,
     }
 
     companion object {
-        private val MAP = EnumCodeMap(CardType::class.java)
-
         fun of(code: Int): CardType {
-            return MAP[code]
+            return entries.getByCode(code)
         }
     }
 }

@@ -104,17 +104,16 @@
                         android:layout_marginEnd="0dp"
                         android:enabled="false"
                         android:text="@string/email_recommendation_message"
-                        android:textColor="?attr/material_theme_secondary_color"
+                        android:textColor="?attr/secondary_color"
                         android:textSize="12sp" />
 
                     <Button
                         android:id="@+id/create_account_submit_button"
-                        style="@style/App.Button.Blue.NonDisabled"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
                         android:layout_marginEnd="0dp"
-                        android:enabled="false"
-                        android:alpha="0.5"
+                        android:layout_marginTop="8dp"
                         android:text="@string/create_account_next" />
 
                     <View
@@ -122,7 +121,7 @@
                         android:layout_height="0.5dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:background="?attr/material_theme_border_color" />
+                        android:background="?attr/border_color" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -135,15 +134,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/create_account_already_have"
-                            android:textColor="?attr/material_theme_secondary_color" />
+                            android:textColor="?attr/secondary_color" />
 
                         <Button
                             android:id="@+id/create_account_login_button"
-                            style="@style/FlatButton"
+                            style="@style/App.Button.Secondary"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/create_account_login"
-                            android:textColor="?attr/colorAccent" />
+                            android:textColor="?attr/progressive_color" />
 
                     </LinearLayout>
 
@@ -171,15 +170,11 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/view_progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:indeterminateTint="?attr/colorAccent"
-        android:progressBackgroundTint="@color/accent30"
         android:visibility="gone"
-        android:layout_marginTop="-6dp"
         tools:visibility="visible" />
 </FrameLayout>

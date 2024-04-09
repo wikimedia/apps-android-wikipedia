@@ -36,11 +36,11 @@
   <string name="nav_item_login" fuzzy="true">Жаниве лъугьине</string>
   <string name="login_username_hint">ХӀалтӀизабулчиясул цӀар</string>
   <string name="login_password_hint">Пароль</string>
-  <string name="menu_login">Жаниве лъугьине</string>
+  <string name="menu_login">Жанире лӀугьине</string>
   <string name="login_activity_title" fuzzy="true">Википедиялда жаниве лъугьине</string>
   <string name="login_in_progress_dialog_message">Системалда жаниве лъугьи…</string>
   <string name="login_success_toast" fuzzy="true">Мун системалда лъана!</string>
-  <string name="preference_title_logout">Къватlиве вачIизе</string>
+  <string name="preference_title_logout">КъватӀиве лӀугьине</string>
   <string name="toast_logout_complete">Сеанс лъугьана</string>
   <string name="create_account_username_hint">ХӀалтӀизабулчиясул цӀар</string>
   <string name="create_account_activity_title">Аккаунт гьабизе</string>
@@ -63,5 +63,6 @@
   <string name="edit_preview">Цебесеб</string>
   <string name="edit_summary_tag_other">Цоги</string>
   <string name="gallery_edit_button_content_description">Сураталъул гъоркьхъвай хисизабизе</string>
+  <string name="suggested_edits_task_multilingual_positive">МацӀал тӀадежуразе</string>
   <string name="file_page_edit_button_content_description">%s редактинабизе</string>
 </resources>

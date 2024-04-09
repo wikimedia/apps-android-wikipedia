@@ -8,25 +8,20 @@
     android:fitsSystemWindows="true"
     tools:context=".main.MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/main_toolbar"
-        style="@style/ToolbarStyle"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginStart="-12dp"
-        android:background="?attr/paper_color"
-        android:elevation="4dp"
-        app:titleMarginStart="28dp">
+        android:layout_height="?attr/actionBarSize">
 
         <ImageView
             android:id="@+id/main_toolbar_wordmark"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="20dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/feed_header_wordmark"
-            app:tint="?attr/material_theme_primary_color" />
-    </androidx.appcompat.widget.Toolbar>
+            app:tint="?attr/primary_color" />
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <FrameLayout
         android:id="@+id/fragment_container"

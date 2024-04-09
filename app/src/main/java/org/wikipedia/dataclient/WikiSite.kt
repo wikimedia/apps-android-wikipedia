@@ -5,6 +5,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.UriSerializer
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -45,11 +46,11 @@ data class WikiSite(
     constructor(uri: Uri) : this(uri, "") {
         val tempUri = ensureScheme(uri)
         var authority = tempUri.authority.orEmpty()
-        if (("wikipedia.org" == authority || "www.wikipedia.org" == authority) &&
+        if ((BASE_DOMAIN == authority || ("www.$BASE_DOMAIN") == authority) &&
             tempUri.path?.startsWith("/wiki") == true
         ) {
             // Special case for Wikipedia only: assume English subdomain when none given.
-            authority = "en.wikipedia.org"
+            authority = "en.$BASE_DOMAIN"
         }
 
         // Unconditionally transform any mobile authority to canonical.
@@ -61,9 +62,15 @@ data class WikiSite(
             languageCode = LanguageUtil.firstSelectedChineseVariant
         }
 
+        if (languageCode == Constants.WIKI_CODE_COMMONS) {
+            // Special case for Commons: if the WikiSite was constructed from "commons.wikimedia.org",
+            // then the languageCode will be "commons" which is incorrect, so set it to the default language.
+            languageCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
+
         // Use default subdomain in authority to prevent error when requesting endpoints. e.g. zh-tw.wikipedia.org
-        if (authority.contains("wikipedia.org") && subdomain().isNotEmpty()) {
-            authority = subdomain() + ".wikipedia.org"
+        if (authority.contains(BASE_DOMAIN) && subdomain().isNotEmpty()) {
+            authority = subdomain() + "." + BASE_DOMAIN
         }
         this.uri = Uri.Builder().scheme(tempUri.scheme).encodedAuthority(authority).build()
     }
@@ -114,6 +121,7 @@ data class WikiSite(
 
     companion object {
         const val DEFAULT_SCHEME = "https"
+        const val BASE_DOMAIN = "wikipedia.org"
         private var DEFAULT_BASE_URL: String? = null
 
         fun supportedAuthority(authority: String): Boolean {

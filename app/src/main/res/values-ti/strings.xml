@@ -36,19 +36,28 @@
   <string name="page_content_description">ገጽ፦ %s</string>
   <string name="wikimedia_commons">ዊኪሜድያ ኮመንዝ</string>
   <string name="wikidata">ዊኪዳታ</string>
+  <string name="dialog_title_clear_history">ታሪኽ ምድህሳስ ኣጽርይ</string>
   <string name="dialog_message_clear_history_yes">እወ</string>
   <string name="dialog_message_clear_history_no">ኣይፋል</string>
   <string name="share_via">ብወገን ኣካፍል</string>
   <string name="image_share_via">ብወገን ኣካፍል</string>
   <string name="search_redirect_from">ካብ %s ዝተሓላለፈ</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;ንእ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">ባዶ መጠቓለሊ ኣርትዖት</string>
+  <string name="page_edit_history_filter_by_all">ኩሎም ኣርትዖታት (%s)</string>
+  <string name="page_edit_history_filter_by_user">ኣርትዖታት ተጠቃሚ (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ኣርትዖታት ቦት (%s)</string>
   <string name="menu_page_show_tabs">ጽላታት ኣርእይ</string>
   <string name="menu_page_other_languages">ቋንቋ ለውጥ</string>
   <string name="menu_page_find_in_page">ኣብ ጽሑፍ ርኸብ</string>
+  <string name="menu_page_add_to_watchlist">ናብ ዝርዝር መከታተሊ ወስኽ</string>
   <string name="menu_page_view_talk">ገጽ ምይይጥ ርኣይ</string>
   <string name="menu_page_view_edit_history">ታሪኽ ኣርትዖት ርኣይ</string>
+  <string name="menu_page_edit_history">ታሪኽ ኣርትዖታት</string>
   <string name="edit_section_find_in_page">ኣብ ገጽ ርኸብ</string>
   <string name="menu_page_font_and_theme">ቅርጺ ፈደልን ገጽታን</string>
   <string name="menu_page_add_to_default_list">ኣቐምጥ</string>
+  <string name="feed_card_add_to_list">ኣብ ዝርዝር ንባብ ወስኽ</string>
   <string name="feed_card_add_to_default_list">ኣቐምጥ</string>
   <string name="menu_page_share">መጋጠሚ ኣካፍል</string>
   <string name="menu_article_share">ጽሑፍ ኣካፍል</string>
@@ -62,19 +71,21 @@
   <string name="on_this_day_page_share">ኣካፍል</string>
   <string name="reading_list_page_share">ኣካፍል</string>
   <string name="menu_text_select_edit_here">ኣብዚ ኣመዓራርይ</string>
+  <string name="menu_edit_article">ጽሑፍ ኣርትዕ</string>
   <string name="talk_page_link_text">ገጽ ምይይጥ ርኣይ</string>
   <string name="edit_history_link_text">ታሪኽ ኣርትዖት ርኣይ</string>
   <string name="map_view_link_text">ኣብ ካርታ ርኣይ</string>
   <string name="other_languages_indication_text">ብካልእ ቋንቋ ኣንብብ</string>
   <string name="language_count_link_text">ብ%d ካልኦት ቋንቋታት ዝርከብ</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="preference_title_language">ቋንቋታት ዊኪፐድያ</string>
   <string name="langlinks_filter_hint">ድለይ</string>
+  <string name="langlinks_empty">እዚ ገጽ ብካልኦት ቋንቋታት ኣይርከብን እዩ።</string>
   <string name="langlinks_no_match">ምንም ቋንቋታት ኣይተረኸቡን</string>
   <string name="langlinks_activity_title">ካልኦት ቋንቋታት</string>
   <string name="langlinks_your_wikipedia_languages">ቋንቋታት ዊኪፐድያኻ</string>
   <string name="menu_save_changes">ለውጥታት ኣሕትም</string>
   <string name="edit_saved_successfully">ኣርትዖት ተሓቲሙ!</string>
+  <string name="dialog_message_edit_failed">ኣርትዖት ፈሺሉ።</string>
   <string name="dialog_message_edit_failed_retry">እንደገና ፈትን</string>
   <string name="dialog_message_edit_failed_cancel">ኣትርፍ</string>
   <string name="dialog_message_leaving_edit_leave">ግደፍ</string>
@@ -107,10 +118,10 @@
   <string name="login_join_wikipedia">ናብ ዊኪፐድያ ተጸንበር</string>
   <string name="login_forgot_password">መሕለፊ ቃልካ ረሲዕኻዮ?</string>
   <string name="create_account_activity_title">መለለዪ መንነት ፍጠር</string>
-  <string name="create_account_email_hint">ኢሜይል (ኣማራጽያዊ)</string>
+  <string name="create_account_email_hint">ኢመይል (ኣማራጽያዊ)</string>
   <string name="create_account_next">ዝቕጽል</string>
-  <string name="email_recommendation_dialog_create_without_email_action">ብዘይ ኢሜይል ቀጽል</string>
-  <string name="email_recommendation_dialog_create_with_email_action">ኣድራሻ ኢሜይል ወስኽ</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ብዘይ ኢመይል ቀጽል</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ኣድራሻ ኢመይል ወስኽ</string>
   <string name="create_account_button">መለለዪ መንነት ፍጠር</string>
   <string name="create_account_ip_block_details">ዝርዝራት</string>
   <string name="preferences_general_heading">ሓፈሻዊ</string>
@@ -121,8 +132,8 @@
   <string name="preferences_heading_syncing">ምስናይ</string>
   <string name="preferences_heading_data_usage">ኣጠቓቕማ ዳታ</string>
   <string name="preferences_heading_experimental">ምኮራዊ</string>
-  <string name="preferences_privacy_settings_heading">ስትረት</string>
   <string name="page_protected_can_not_edit_title">እዚ ገጽ ሕሉው እዩ</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ናብ ዝርዝር መከታተሊ ወስኽ</string>
   <string name="settings_item_preferences">ምምዕርራያት</string>
   <string name="settings_activity_title">ምምዕርራያት</string>
   <string name="about_description">ብዛዕባ መተግበሪ ዊኪፐድያ</string>
@@ -134,6 +145,7 @@
   <string name="about_translators_heading">ተርጎምቲ</string>
   <string name="about_app_license_heading">ፍቓድ</string>
   <string name="about_activity_title">ብዛዕባ</string>
+  <string name="edit_abandon_confirm">እቲ ገጽ ተቐይሩ ኣሎ። ለውጥታትካ ከይዓቀብካ ክትወጽእ ከም እትደሊ ርግጸኛ ዲኻ?</string>
   <string name="edit_abandon_confirm_yes">እወ</string>
   <string name="edit_abandon_confirm_no">ኣይፋል</string>
   <string name="edit_how_page_improved">ነቲ ገጽ ብኸመይ ኣመሓይሽካዮ?</string>
@@ -145,7 +157,7 @@
   <string name="edit_zoom_in">ኣዕብይ</string>
   <string name="edit_zoom_out">ኣንእስ</string>
   <string name="edit_summary_tag_other">ካልእ</string>
-  <string name="edit_summary_tag_other_hint">ነቲ ገጽ እተመሓይሾ ካልኦት መገድታት</string>
+  <string name="edit_summary_tag_other_hint">ካልኦት መንገድታት ነቲ ገጽ ኣመሓይሽካዮ</string>
   <string name="page_similar_titles">ተመሳሳሊ ገጻት</string>
   <string name="search_did_you_mean">«%s» ማለትካ ድዩ?</string>
   <string name="search_results_count_zero">ውጽኢታት የለዉን</string>
@@ -161,16 +173,18 @@
   <string name="widget_name_search">ኣብ ውሽጢ ዊኪፐድያ ድለይ</string>
   <string name="alpha_update_notification_text">ንምውራድ ጠውቕ</string>
   <string name="dialog_close_description">ዕጸው</string>
-  <string name="preference_title_show_images">ምስሊታት ኣርእይ</string>
+  <string name="preference_title_show_images">ምስልታት ኣርእይ</string>
   <string name="preference_title_download_only_over_wifi">ብዋይፋይ ጥራይ ኣውርድ</string>
   <string name="dialog_title_download_only_over_wifi_allow">ፍቐድ</string>
   <string name="read_more_section">ተወሳኺ ኣንብብ</string>
   <string name="about_article_section">ብዛዕባ እዚ ጽሑፍ</string>
   <string name="menu_gallery_visit_image_page">ናብ ገጽ ምስሊ ኪድ</string>
+  <string name="gallery_error_draw_failed">ነቲ ምስሊ ክስእል ኣይከኣለን።</string>
   <string name="license_title">ፍቓድ ን%s</string>
   <string name="gallery_menu_share">ኣካፍል</string>
   <string name="gallery_save_progress">ፋይል የውርድ ኣሎ…</string>
   <string name="gallery_save_success">ፋይል ዝተቐመጠ።</string>
+  <string name="gallery_error_video_failed">ነቲ ቪድዮ ክጻወት ኣይከኣለን።</string>
   <string name="gallery_add_image_caption_button">ናይ ምስሊ መግለጺ ጽሑፍ ወስኽ</string>
   <string name="gallery_add_image_caption_in_language_button">ናይ ምስሊ መግለጺ ጽሑፋት ወስኽ (%s)</string>
   <string name="expand_refs">ንምስፋሕ ጠውቕ</string>
@@ -186,6 +200,7 @@
   <string name="tab_item_closed">%s ተዓጽዩ።</string>
   <string name="all_tab_items_closed">ኩሎም ጽላታት ዝተዓጸዉ።</string>
   <string name="page_view_in_browser">ገጽ ኣብ መዳህሰሲ ርኣይ</string>
+  <string name="error_unknown">ዘይተፈልጠ ጌጋ ኣጋጢሙ ኣሎ።</string>
   <string name="format_error_server_message">መልእኽቲ፦ «%s»</string>
   <string name="button_continue_to_article">ጽሑፍ ኣንብብ</string>
   <string name="button_continue_to_disambiguation">ተመሳሳሊ ገጻት ርኣይ</string>
@@ -197,7 +212,9 @@
     <item quantity="other">%d ዝተመርጹ</item>
   </plurals>
   <string name="multi_select_items_selected">%d ዝተመርጹ</string>
+  <string name="error_message_generic">ጌጋ ኣጋጢሙ</string>
   <string name="view_link_preview_error_button_dismiss">ስጎግ</string>
+  <string name="error_page_does_not_exist">እዚ ገጽ እዚ የለን</string>
   <string name="view_wiki_error_message_offline">ምስ ኢንተርነት ክራኸብ ኣይክእልን እዩ</string>
   <string name="reference_title">መወከሲ %s</string>
   <string name="reference_list_title">መወከሲታት</string>
@@ -211,11 +228,14 @@
   <string name="article_menu_bar_theme_button">ገጽታ</string>
   <string name="article_menu_bar_contents_button">ትሕዝቶታት</string>
   <string name="article_header_edit_hint">ኣመዓራርይ...</string>
+  <string name="article_header_edit_description">መግለጺ ጽሑፍ ኣርትዕ</string>
+  <string name="article_header_edit_lead_section">መእተዊ ኣርትዕ</string>
   <string name="color_theme_select">ገጽታ</string>
   <string name="color_theme_light">ብሩህ</string>
   <string name="color_theme_dark">ጸልማት</string>
   <string name="color_theme_black">ጸሊም</string>
   <string name="color_theme_sepia">ሰፕያ</string>
+  <string name="color_theme_test_title">ኣብነት ጽሑፍ</string>
   <string name="preference_title_app_theme">ገጽታ መተግበሪ</string>
   <string name="text_size_percent_default">%s (ንቡር)</string>
   <string name="text_style_title">ቅርጺ ፊደል</string>
@@ -226,15 +246,15 @@
     <item quantity="one">1 ጽሑፍ፣ %2$.2f መ.ባ</item>
     <item quantity="other">%1$d ጽሑፋት፣ %2$.2f መ.ባ</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 ጽሑፍ፣ %1$.2f መ.ባ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d ጽሑፋት፣ %2$.2f መ.ባ</string>
   <string name="reading_list_sort">ጎጅል</string>
   <string name="reading_list_sort_ellipsis">ጎጅል ብ...</string>
   <string name="reading_list_sort_by_name">ብስም ጎጅል</string>
   <string name="reading_list_menu_delete">ዝርዝር ሰርዝ</string>
+  <string name="reading_list_menu_rename">ስም/መግለጺ ኣርትዕ</string>
   <string name="reading_list_description_hint">መግለጺ (ኣማራጽያዊ)</string>
   <string name="reading_list_item_delete_undo">ምለስ</string>
   <string name="reading_list_deleted">%s ተሰሪዙ</string>
+  <string name="reading_list_article_offline">ካብ መስመር ወጻኢ ይርከብ</string>
   <string name="reading_list_remove_from_list">ካብ %s ኣልግስ</string>
   <string name="reading_list_select_item">ምረጽ</string>
   <string name="reading_lists_login_button">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
@@ -245,7 +265,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ብመንነት እተው</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ሕራይ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">ምምዕርራያት</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">እዚ እንደገና ኣይተርእይ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">እዚ ዳግማይ ኣይተርእየኒን</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ኣይፋል፣ የቐንየለይ</string>
   <string name="default_reading_list_name">ዝተቐመጠ</string>
   <string name="reading_list_saved_list_rename">%1$s (ብተጠቃሚ ዝተፈጠረ)</string>
@@ -286,6 +306,7 @@
   <string name="notifications_view_archived_button_text">ዝተኸዘኑ መፍለጢታት ርኣይ</string>
   <string name="notifications_mark_unread">ከም ዘይተነበበ ኣመልክት</string>
   <string name="notifications_direct_reply_action">መልስ</string>
+  <string name="watchlist_title">ዝርዝር መከታተሊ</string>
   <string name="preference_title_notification_system">ስርዓት</string>
   <string name="preference_summary_notification_system">መልእኽትታት ካብ ስርዓት</string>
   <string name="preference_title_notification_login_fail">ብመንነት እተው</string>
@@ -317,6 +338,7 @@
   <string name="view_featured_image_card_title">ናይ ዕለት ምስሊ</string>
   <string name="view_featured_image_card_download">ኣውርድ</string>
   <string name="view_featured_image_card_share">ኣካፍል</string>
+  <string name="menu_feed_card_edit_card_languages">ቋንቋታት ካርድ ኣርትዕ</string>
   <string name="menu_feed_overflow_label">ተወሳኺ ኣማራጺታት</string>
   <string name="feed">ዳህስስ</string>
   <string name="home">መበገሲ</string>
@@ -382,7 +404,7 @@
   <string name="suggested_edits_task_image_caption_title">ናይ ምስሊ መግለጺ ጽሑፋት ወስኽ</string>
   <string name="suggested_edits_task_translate_caption_title">ናይ ምስሊ መግለጺታት ጽሑፍ ተርጉም</string>
   <string name="suggested_edits_task_translate_caption_description">መግለጺ ጽሑፋት ናብ ካልኦት ቋንቋታት ተርጉም</string>
-  <string name="suggested_edits_task_multilingual_negative">ንኣነ ኣይኮነን</string>
+  <string name="suggested_edits_task_multilingual_negative">ንዓይ ኣይኮነን</string>
   <string name="suggested_edits_task_multilingual_positive">ቋንቋታት ወስኽ</string>
   <string name="suggested_edits_image_caption_summary_title_image">ፋይል</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ስነ ጥበባዊ</string>
@@ -433,7 +455,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">ተወሳኺ ፍለጥ</string>
   <string name="suggested_edits_last_edited_never">ብፍጹም</string>
-  <string name="suggested_edits_task_new">ሓድሽ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ሓድሽ</string>
   <string name="suggested_edits_contributions_screen_title">ኣበርክቶታት %s</string>
   <string name="suggested_edits_contribution_language_label">ቋንቋ</string>
   <string name="suggested_edits_contribution_date_time_label">ዕለት / ሰዓት</string>
@@ -504,6 +526,7 @@
   <string name="wikitext_preview_link">መጋጠሚ ኣቐዲሙ ረኣየ</string>
   <string name="main_drawer_help">ሓገዝ</string>
   <string name="main_drawer_login">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
+  <string name="main_tooltip_text">ሰላም %s፣ ኩሉ ሰብ ንዊኪፐድያ ከርትዕ ከም ዝኽእል ትፈልጥ ዶ?</string>
   <string name="main_tooltip_action_button">ጀምር</string>
   <string name="custom_date_picker_dialog_ok_button_text">ሕራይ</string>
   <string name="text_input_dialog_ok_button_text">ሕራይ</string>
@@ -515,8 +538,10 @@
   <string name="talk_add_reply">መልስ</string>
   <string name="talk_reply_subject">ኣርእስቲ</string>
   <string name="talk_snackbar_survey_action_text">ጀምር</string>
+  <string name="talk_list_item_reply_icon_content_description">ጠቕላላ መልስታት</string>
   <string name="menu_option_share_talk_discussion">ምይይጥ ኣካፍል</string>
   <string name="menu_option_user_contributions">ኣበርክቶታት %s</string>
+  <string name="menu_option_edit_source">ኮድ ኣርትዕ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ብቐዋሚ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">ን1 ሰሙን</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ን1 ወርሒ</string>
@@ -532,4 +557,5 @@
   <string name="watchlist_filter_pages">ገጻት</string>
   <string name="watchlist_filter_other">ካልእ</string>
   <string name="watchlist_page_moved">ተንቀሳቒሱ</string>
+  <string name="search_namespaces">ቦታታት ኣስማት</string>
 </resources>

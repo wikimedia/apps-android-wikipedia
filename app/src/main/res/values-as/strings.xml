@@ -92,9 +92,8 @@
   <string name="map_view_link_text">এখন মানচিত্ৰত চাওক</string>
   <string name="other_languages_indication_text">আন এটা ভাষাত পঢ়ক</string>
   <string name="language_count_link_text">আন %d ভাষাত উপলব্ধ</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">প্ৰকাশ কৰি আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
-  <string name="edit_save_action_license_anon">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">প্ৰকাশ কৰি আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
   <string name="preference_title_language">ৱিকিপিডিয়াৰ ভাষাসমূহ</string>
   <string name="langlinks_filter_hint">সন্ধান কৰক</string>
   <string name="langlinks_empty">এই পৃষ্ঠাটো আন ভাষাত উপলব্ধ নহয়</string>
@@ -192,9 +191,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">আপোনাৰ \"%s\" ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"ৰ পৰা ছীঙ্ক কৰা পাঠ্য তালিকা আঁতৰাব?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ই ৰিম\'ট ষ্ট\'ৰেজৰ পৰা পূৰ্বতে ছিংক কৰা সকলো পঢ়া তালিকা সম্পূৰ্ণৰূপে মচি পেলাব। আপোনাৰ একাউণ্ট \"%s\"ৰ পৰা সকলো ছিংক কৰা তালিকা আঁতৰাবনে?</string>
-  <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
-  <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
-  <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_auto_upload_crash_reports">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰীলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
@@ -217,14 +213,12 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://as.wikipedia.org/wiki/ৱিকিপিডিয়া:এটা একাউণ্ট অনুৰোধ কৰক</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">ব্যৱহৃত পুথিভঁৰাল</string>
   <string name="about_contributors_heading">অৱদানকাৰীসমূহ</string>
   <string name="about_translators_heading">অনুবাদকসকল</string>
   <string name="about_translators_translatewiki">এই এপ্‌টো স্বেচ্ছাসেৱক অনুবাদকে &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ত অনুবাদ কৰিছে।</string>
   <string name="about_app_license_heading">অনুজ্ঞাপত্ৰ</string>
-  <string name="about_app_license">উৎস ক\'ড &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 অনুজ্ঞাপত্ৰ&lt;/a&gt;ৰ অধীনত &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; আৰু &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;ত উপলব্ধ। আন একো উল্লেখ কৰা নাথাকিলে বিষয়বস্তু &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্ৰিয়েটীভ কমঞ্চ এট্ৰিবিউচন-শ্বেয়াৰ এলাইক অনুজ্ঞাপত্ৰ&lt;/a&gt;ৰ অধীনত উপলব্ধ।</string>
+  <string name="about_app_license" fuzzy="true">উৎস ক\'ড &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 অনুজ্ঞাপত্ৰ&lt;/a&gt;ৰ অধীনত &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; আৰু &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;ত উপলব্ধ। আন একো উল্লেখ কৰা নাথাকিলে বিষয়বস্তু &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্ৰিয়েটীভ কমঞ্চ এট্ৰিবিউচন-শ্বেয়াৰ এলাইক অনুজ্ঞাপত্ৰ&lt;/a&gt;ৰ অধীনত উপলব্ধ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছনৰ&lt;/a&gt; এটা সামগ্ৰী</string>
   <string name="about_activity_title">বিষয়ে</string>
   <string name="edit_abandon_confirm">এই পৃষ্ঠাটো সলোৱা হৈছে। আপোনাৰ সালসলনি সাঁচি নোথোৱাকৈ গুচি যাব বুলি নিশ্চিতনে?</string>
@@ -408,10 +402,6 @@
     <item quantity="one">এটা প্ৰবন্ধ, %2$.2f MB</item>
     <item quantity="other">%1$dটা প্ৰবন্ধ, %2$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">১টা প্ৰবন্ধ, %1$.2f মেগাবাইট</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$dটা প্ৰবন্ধ, %2$.2f মেগাবাইট</string>
-  <string name="format_reading_list_statistical_detail_singular">1টাৰ %1$dটা প্ৰবন্ধ অফলাইন উপলব্ধ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$dটাৰ ভিতৰৰ %1$dটা প্ৰবন্ধ অফলাইনত উপলব্ধ, %3$.2f MB</string>
   <string name="reading_list_sort">সজাওক</string>
   <string name="reading_list_sort_ellipsis">ক্ৰমে সজাওক…</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী সজাওক</string>
@@ -547,8 +537,8 @@
   <string name="notifications_menu_uncheck_all">আটাইকেইটা বাছনি বাতিল কৰক</string>
   <string name="notifications_wiki_filter_header">ৱিকি ফিল্টাৰ</string>
   <string name="notifications_type_filter_header">প্ৰকাৰ ফিল্টাৰ</string>
-  <string name="notifications_all_wikis_text">সকলো \"ৱিকি\"</string>
-  <string name="notifications_all_types_text">সকলো \"প্ৰকাৰ\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">সকলো \"ৱিকি\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">সকলো \"প্ৰকাৰ\"</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_random_article_card_title">যাদৃচ্ছিক প্ৰবন্ধ</string>
@@ -705,7 +695,7 @@
   <string name="suggested_edits_learn_more">আৰু পঢ়ক</string>
   <string name="suggested_edits_disabled_title">নিষ্ক্ৰিয়</string>
   <string name="suggested_edits_last_edited_never">কেতিয়াও নহয়</string>
-  <string name="suggested_edits_task_new">নতুন</string>
+  <string name="suggested_edits_task_new" fuzzy="true">নতুন</string>
   <string name="suggested_edits_reactivation_notification_title">পৰামৰ্শকৃত সম্পাদনা</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ৱিকিপিডিয়াত সম্পাদনা কৰাৰ বাবে ধন্যবাদ! আপুনি য\'ত এৰিছিল তাৰে পৰাই অব্যাহত নাৰাখে?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">ৱিকিপিডিয়াৰ উন্নতিৰ বাবে আপোনাৰ ওচৰত এক মিনিট আছেনে? এই সম্পাদনাৰ পৰামৰ্শবোৰ চাওক।</string>

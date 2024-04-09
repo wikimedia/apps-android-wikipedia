@@ -33,29 +33,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingStart="@dimen/activity_horizontal_margin"
                 android:paddingEnd="@dimen/activity_horizontal_margin">
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/primaryTextView"
-                    style="@style/MaterialLargePrimaryTitle"
+                    style="@style/H2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:focusableInTouchMode="true"
+                    android:textColor="?attr/primary_color"
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/secondaryTextView"
-                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/P"
                     android:layout_marginBottom="8dp"
                     android:lineSpacingMultiplier="1.22"
-                    android:textColor="?attr/material_theme_secondary_color"
-                    android:textColorLink="?attr/colorAccent"
+                    android:textColor="?attr/secondary_color"
+                    android:textColorLink="?attr/progressive_color"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 
@@ -65,47 +65,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-                    android:id="@+id/switchContainer"
+                <include
+                    android:id="@+id/patrollerTasksButtonsContainer"
+                    layout="@layout/view_onboarding_patroller_tasks"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="vertical">
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.5dp"
-                        android:background="?attr/chart_shade5" />
-
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switchView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="?attr/material_theme_primary_color"
-                        app:theme="@style/OnboardingSwitch"
-                        android:focusable="true"
-                        tools:text="Lorem ipsum" />
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.5dp"
-                        android:background="?attr/chart_shade5" />
-                </LinearLayout>
+                    android:layout_height="wrap_content" />
 
                 <org.wikipedia.views.GoneIfEmptyTextView
                     android:id="@+id/tertiaryTextView"
-                    style="@style/TextViewCentered"
+                    style="@style/List"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="16dp"
                     android:text="@string/description_edit_tutorial_promise"
-                    android:textColor="?attr/material_theme_secondary_color"
+                    android:textColor="?attr/placeholder_color"
                     android:textSize="12sp" />
 
             </LinearLayout>

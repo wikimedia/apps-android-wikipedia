@@ -144,8 +144,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#ꯅꯦꯠ ꯌꯥꯎꯗꯅ ꯄꯥꯕꯥ ꯑꯃꯁꯨꯡ ꯗꯥꯇꯥ</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ(ꯇꯣꯏꯅ ꯍꯪꯕ ꯋꯥꯍꯪ)</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:ꯑꯦꯀꯥꯎꯟ ꯑꯃꯥ ꯍꯥꯤꯖꯕ ꯄꯤꯕꯤꯅꯕ</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/ꯑꯌꯥꯕ/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/ꯃꯤꯌꯥꯃꯒꯤ ꯃꯄꯎꯡꯐꯥꯕ/ꯐꯨꯟ/1.0/</string>
   <string name="about_contributors_heading">ꯁꯔꯨꯛꯌꯥꯔꯤꯕꯁꯤꯡ</string>
   <string name="about_translators_heading">ꯍꯟꯗꯣꯛꯂꯤꯕꯥꯁꯤꯡ</string>
   <string name="about_translators_translatewiki">ꯃꯁꯤꯒꯤ ꯑꯦꯞꯁ ꯁꯤ ꯅꯈꯣꯏꯒꯨꯝꯕ ꯃꯌꯥꯃꯅ ꯁꯔꯨꯛ ꯌꯥꯗꯎꯅ ꯍꯟꯗꯣꯛꯂꯒ ꯑꯣꯏꯈꯤꯕꯅꯤ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -247,8 +245,8 @@
   <string name="preference_title_notification_poll">ꯅꯣꯇꯤꯐꯤꯀꯦꯁꯟꯁꯤꯡ ꯃꯆꯩ</string>
   <string name="preference_title_notification_thanks">ꯊꯥꯒꯠꯆꯔꯤ</string>
   <string name="preference_summary_notification_thanks">ꯀꯅꯥꯒꯨꯝꯕ ꯑꯃꯅꯥ ꯅꯪꯒꯤ ꯁꯦꯝꯒꯠꯄꯗꯨ ꯊꯥꯒꯠꯂꯛꯂꯤ</string>
-  <string name="notifications_all_wikis_text">\"ꯋꯤꯀꯤ\" ꯄꯨꯂꯞ</string>
-  <string name="notifications_all_types_text">\"ꯃꯈꯜ\" ꯄꯨꯂꯞ</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"ꯋꯤꯀꯤ\" ꯄꯨꯂꯞ</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"ꯃꯈꯜ\" ꯄꯨꯂꯞ</string>
   <string name="notifications_menu_user_talk_page">%sꯒꯤ ꯋꯥ ꯍꯥꯏꯐꯝ ꯂꯃꯥꯏ</string>
   <string name="view_main_page_card_title">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥꯗ ꯉꯁꯤ</string>
   <string name="view_main_page_card_action">ꯃꯔꯨꯑꯣꯏꯕ ꯂꯃꯥꯏ ꯌꯦꯡꯉꯨ</string>

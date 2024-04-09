@@ -6,17 +6,15 @@
     tools:layout_width="match_parent"
     tools:parentTag="android.widget.LinearLayout">
 
-    <TextView
+    <org.wikipedia.views.LangCodeView
         android:id="@+id/notification_filter_language_code"
-        style="@style/TextViewCentered"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_gravity="center_vertical"
+        android:contentDescription="@null"
         android:layout_marginStart="24dp"
-        android:background="@drawable/lang_button_shape_border"
-        android:fontFamily="sans-serif-medium"
-        android:textAllCaps="true"
-        android:textColor="?attr/secondary_text_color" />
+        android:layout_gravity="center_vertical"
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/notification_filter_wiki_logo"
@@ -26,17 +24,18 @@
         android:contentDescription="@null"
         android:scaleType="center"
         android:layout_gravity="center_vertical"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/placeholder_color" />
 
     <TextView
         android:id="@+id/notification_filter_title"
-        style="@style/MaterialListTitle"
+        style="@style/P"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:paddingStart="14dp"
         android:paddingEnd="8dp"
+        android:textColor="?attr/primary_color"
         tools:text="Lorem ipsum" />
 
     <ImageView
@@ -48,6 +47,6 @@
         android:contentDescription="@null"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_check_borderless"
-        app:tint="?attr/colorAccent" />
+        app:tint="?attr/progressive_color" />
 
 </merge>

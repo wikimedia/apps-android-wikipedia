@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
@@ -15,11 +14,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.AppLanguageSettingsFunnel
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
@@ -37,7 +36,6 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
     private lateinit var adapter: WikipediaLanguageItemAdapter
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
-    private lateinit var funnel: AppLanguageSettingsFunnel
     private var app: WikipediaApp = WikipediaApp.instance
     private val wikipediaLanguages = mutableListOf<String>()
     private val selectedCodes = mutableListOf<String>()
@@ -48,9 +46,9 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentWikipediaLanguagesBinding.inflate(inflater, container, false)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         invokeSource = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
-        funnel = AppLanguageSettingsFunnel()
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         prepareWikipediaLanguagesList()
         setupRecyclerView()
@@ -72,7 +70,6 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
     }
 
     override fun onDestroyView() {
-        funnel.logLanguageSetting(invokeSource, initialLanguageList, JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty(), interactionsCount, isLanguageSearched)
         binding.wikipediaLanguagesRecycler.adapter = null
         _binding = null
         super.onDestroyView()
@@ -196,7 +193,6 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
                 holder.view.visibility = if (checkboxEnabled) View.GONE else View.VISIBLE
                 holder.view.setOnClickListener {
                     Intent(requireActivity(), LanguagesListActivity::class.java).let {
-                        it.putExtra(SESSION_TOKEN, funnel.sessionToken)
                         startActivityForResult(it, Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                         actionMode?.finish()
                     }
@@ -222,7 +218,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
         }
     }
 
-    private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: WikipediaLanguageItemAdapter) : ItemTouchHelper.Callback() {
+    private inner class RearrangeableItemTouchHelperCallback(private val adapter: WikipediaLanguageItemAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
             return false
         }
@@ -253,23 +249,23 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
         }
     }
 
-    private inner class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
+    private inner class HeaderViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
             itemView.findViewById<TextView>(R.id.section_header_text).setText(R.string.wikipedia_languages_your_languages_text)
         }
     }
 
-    private inner class WikipediaLanguageItemHolder constructor(itemView: WikipediaLanguagesItemView) : DefaultViewHolder<WikipediaLanguagesItemView>(itemView) {
+    private inner class WikipediaLanguageItemHolder(itemView: WikipediaLanguagesItemView) : DefaultViewHolder<WikipediaLanguagesItemView>(itemView) {
         fun bindItem(languageCode: String, position: Int) {
-            view.setContents(languageCode, app.languageState.getAppLanguageLocalizedName(languageCode), position)
+            view.setContents(languageCode, app.languageState.getAppLanguageCanonicalName(languageCode), position)
         }
     }
 
-    private inner class FooterViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView)
+    private inner class FooterViewHolder(itemView: View) : DefaultViewHolder<View>(itemView)
 
     private fun wantResultFromItemClick(): Boolean {
         val source = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
-        return source != null && (source == InvokeSource.SEARCH || source == InvokeSource.TALK_ACTIVITY || source == InvokeSource.USER_CONTRIB_ACTIVITY)
+        return source != null && (source == InvokeSource.SEARCH || source == InvokeSource.TALK_TOPICS_ACTIVITY || source == InvokeSource.USER_CONTRIB_ACTIVITY)
     }
 
     private fun setMultiSelectEnabled(enabled: Boolean) {
@@ -327,7 +323,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
 
     fun showRemoveLanguagesDialog() {
         if (selectedCodes.size > 0) {
-            AlertDialog.Builder(requireActivity()).let {
+            MaterialAlertDialogBuilder(requireActivity()).let {
                 if (selectedCodes.size < wikipediaLanguages.size) {
                     it
                     .setTitle(resources.getQuantityString(R.plurals.wikipedia_languages_remove_dialog_title, selectedCodes.size))

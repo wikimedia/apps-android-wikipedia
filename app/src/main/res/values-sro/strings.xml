@@ -100,9 +100,8 @@
   <string name="map_view_link_text">Biri in sa mapa</string>
   <string name="other_languages_indication_text">Ligi in d-un\'atra lìngua</string>
   <string name="language_count_link_text">Fasiu in %d atras lìnguas</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Pubrichendi, ses acetendi is &lt;a href=\"%1$s\"&gt;Cunditzionis de impreu&lt;/a&gt; nostras e ses acetendi de lassai po sempri s\'agiudu cosa tua segundu sa licèntzia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Pubrichendi, ses acetendi is &lt;a href=\"%1$s\"&gt;Cunditzionis de impreu&lt;/a&gt; nostras e ses acetendi de lassai po sempri s\'agiudu cosa tua segundu sa licèntzia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Is càmbius funt a essi arrelataus a s\'indiritzu IP de s\'aparìciu tuu. Chi &lt;a href=\"https://#login\"&gt;intras&lt;/a&gt;, as a tenni privacy prus manna.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Pubrichendi, ses acetendi is &lt;a href=\"%1$s\"&gt;Cunditzionis de impreu&lt;/a&gt; nostras e ses acetendi de lassai po sempri s\'agiudu cosa tua segundu sa licèntzia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Pubrichendi, ses acetendi is &lt;a href=\"%1$s\"&gt;Cunditzionis de impreu&lt;/a&gt; nostras e ses acetendi de lassai po sempri s\'agiudu cosa tua segundu sa licèntzia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Is càmbius funt a essi arrelataus a s\'indiritzu IP de s\'aparìciu tuu. Chi &lt;a href=\"https://#login\"&gt;intras&lt;/a&gt;, as a tenni privacy prus manna.</string>
   <string name="edit_anon_warning">Is càmbius funt a essi arrelataus a s\'indiritzu IP de s\'aparìciu tuu. Chi &lt;a href=\"https://#login\"&gt;intras&lt;/a&gt;, as a tenni privacy prus manna.</string>
   <string name="preference_title_language">Lìnguas de Wikipedia</string>
   <string name="langlinks_filter_hint">Circa</string>
@@ -201,9 +200,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincroniza is listas de ligidura in aparìcius diversus sarvendiddusì in su contu tuu de Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">A bogai is listas de ligidura sincronizaus de \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Custu at a bogai de totu calichisiat lista de ligidura sincronizada ainnantis in su cloud. Bolis bogai totu is listas sincronizadas de su contu tuu \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privacy</string>
-  <string name="preference_title_eventlogging_opt_in">Imbia arrelatus de impreu</string>
-  <string name="preference_summary_eventlogging_opt_in">Permiti a Wikimèdia de arregolli novas de cumenti impreis s\'aplicatzioni po dda rendiri mellus</string>
   <string name="preference_title_auto_upload_crash_reports">Imbia arrelatus de faddina</string>
   <string name="preference_summary_auto_upload_crash_reports">Permiti a s\'aplicatzioni de imbiai asola is arrelatus de faddina a frunidori de tertzas partis, ca podeus biri sa faddina tua e dda currìgiri prus allestru e a fàcili.</string>
   <string name="editing_error_spamblacklist">Est stètiu agatau unu ligàmini a unu domìniu siddau (%s). Bogaddu e torra a proai.</string>
@@ -222,10 +218,9 @@
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
   <string name="about_activity_title">Informus</string>
   <string name="edit_abandon_confirm_yes">Eja</string>
@@ -328,7 +323,7 @@
   <string name="suggested_edits_image_tags_published">Pùblica</string>
   <string name="suggested_edits_views_label_text">Càstia</string>
   <string name="suggested_edits_quality_okay_text">Ok</string>
-  <string name="suggested_edits_task_new">nou</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nou</string>
   <string name="suggested_edits_contribution_language_label">Lìngua</string>
   <string name="suggested_edits_contribution_date_time_label">Data/Ora</string>
   <string name="suggested_edits_contribution_image_label">Màgini</string>

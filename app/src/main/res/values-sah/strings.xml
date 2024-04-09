@@ -67,9 +67,8 @@
   <string name="map_view_link_text">Каартаҕа көр</string>
   <string name="other_languages_indication_text">Атын тылынан ааҕыы</string>
   <string name="language_count_link_text">Атын %d тылынан ааҕыахха сөп</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Маны бэчээттэтэххинэ &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ бу лиссиэнсийэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; кэлин төннөрүллүбэтин кытта эмиэ сөбүлэһэҕин.</string>
-  <string name="edit_save_action_license_anon">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, ордук үчүгэй көмүскэллээх буолуоҥ.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Маны бэчээттэтэххинэ &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ бу лиссиэнсийэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; кэлин төннөрүллүбэтин кытта эмиэ сөбүлэһэҕин.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, ордук үчүгэй көмүскэллээх буолуоҥ.</string>
   <string name="preference_title_language">Бикипиэдьийэ тыллара</string>
   <string name="langlinks_filter_hint">Бул</string>
   <string name="langlinks_empty">Бу сирэй атын тылынан суох эбит.</string>
@@ -165,9 +164,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Бикипиэдьийэҕэ бэлиэтэммит \"%s\" ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Мэнэйдэммит ааҕар испииһэктэри \"%s\" сотоҕун дуо?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Туох баар урут мэнэйдэммит испииһэктэр сотуллуохтара. \"%s\" бэлиэ-аат мэнэйдэммит ааҕар испииһэктэрин сотоҕун дуо?</string>
-  <string name="preferences_privacy_settings_heading">Тус эйгэни көмүскээһин</string>
-  <string name="preference_title_eventlogging_opt_in">Туһаныы отчуоттарын ыыт</string>
-  <string name="preference_summary_eventlogging_opt_in">Дьибилгэти туһанар туһунан Викимедиаҕа ыытары көҥүллээтэххинэ дьибилгэти тупсарарга көмөлөһүөҥ.</string>
   <string name="preference_title_auto_upload_crash_reports">Охтуу отчуоттарын ыытар буол</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо биһиги саахал туһунан тута билиэ этибит уонна алҕаһы түргэнник көннөрүө этибит.</string>
   <string name="editing_error_spamblacklist">Хааччахтаммыт дэмиэннэргэ сигэммиккин (%s). Бука диэн ону сотон баран хатылаан көр.</string>
@@ -187,9 +183,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
   <string name="about_contributors_heading">Оҥорсооччулар</string>
   <string name="about_translators_heading">Тылбаасчыттар</string>
@@ -347,10 +342,6 @@
   <string name="reading_list_create_new">Саҥаны ай</string>
   <string name="reading_list_title_exists">Аҕыы испииһэгэ «%s» хайыы-үйэ баар эбит.</string>
   <string name="reading_list_added_view_button">Тиһилиги көрүү</string>
-  <string name="format_reading_list_statistical_summary_singular">1 ыстатыйа %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d ыстатыйа, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d Интэриниэккэ холбоммокко 1 аhaҕac ыстатыйаттан, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ыстатыйа Интэриниэккэ холбоммокко %2$d аhaҕac ыстатыйа, %3$.2f MB</string>
   <string name="reading_list_sort">Нардаа</string>
   <string name="reading_list_sort_ellipsis">Маннык наардаа...</string>
   <string name="reading_list_sort_by_name">Аатынан</string>
@@ -659,7 +650,6 @@
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
   <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхроннаах ааҕыы испииһэгэ</string>
-  <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>
   <string name="onboarding_analytics_switch_title">Ыытарга</string>
   <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>

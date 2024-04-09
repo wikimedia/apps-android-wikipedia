@@ -1,13 +1,14 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.chip.Chip
@@ -20,7 +21,7 @@ import org.wikipedia.util.*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
  * (e.g. History, Search, Disambiguation)
  */
-class PageItemView<T>(context: Context) : ConstraintLayout(context) {
+class PageItemView<T>(context: Context) : FrameLayout(context) {
     interface Callback<T> {
         fun onClick(item: T?)
         fun onLongClick(item: T?): Boolean
@@ -28,7 +29,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         fun onListChipClick(readingList: ReadingList)
     }
 
-    private val binding = ItemPageListEntryBinding.inflate(LayoutInflater.from(context), this)
+    private val binding = ItemPageListEntryBinding.inflate(LayoutInflater.from(context), this, true)
     private var imageUrl: String? = null
     private var selected = false
     var callback: Callback<T?>? = null
@@ -36,12 +37,11 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setPadding(0, DimenUtil.roundedDpToPx(16f), 0, DimenUtil.roundedDpToPx(16f))
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+        setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         isFocusable = true
         setOnClickListeners()
         DeviceUtil.setContextClickAsLongClick(this)
-        FeedbackUtil.setButtonLongPressToast(binding.pageListItemAction)
+        FeedbackUtil.setButtonTooltip(binding.pageListItemAction)
     }
 
     override fun setSelected(selected: Boolean) {
@@ -68,7 +68,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         if (selected) {
             binding.pageListItemSelectedImage.visibility = VISIBLE
             binding.pageListItemImage.visibility = GONE
-            setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.multi_select_background_color))
+            binding.pageListItemContainer.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.background_color))
         } else {
             if (imageUrl.isNullOrEmpty()) {
                 binding.pageListItemImage.visibility = GONE
@@ -78,12 +78,16 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
                 ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
             }
             binding.pageListItemSelectedImage.visibility = GONE
-            setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+            binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         }
     }
 
     fun setTitle(text: String?) {
         binding.pageListItemTitle.text = StringUtil.fromHtml(text)
+    }
+
+    fun setTitleTypeface(typeface: Int) {
+        binding.pageListItemTitle.setTypeface(Typeface.SANS_SERIF, typeface)
     }
 
     fun setTitleMaxLines(linesCount: Int) {
@@ -145,10 +149,10 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         binding.readingListsChipGroup.removeAllViews()
         readingLists.forEach { readingList ->
             val chip = Chip(binding.readingListsChipGroup.context)
-            TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
+            TextViewCompat.setTextAppearance(chip, R.style.Chip_Accessible)
             chip.text = readingList.title
             chip.isClickable = true
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.chip_background_color))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.border_color))
             chip.setOnClickListener {
                 callback?.onListChipClick(readingList)
             }

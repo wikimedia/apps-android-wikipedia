@@ -24,27 +24,29 @@
 
         <TextView
             android:id="@+id/history_empty_title"
-            style="@style/MaterialLargePrimaryTitle"
+            style="@style/H2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/history_empty_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="@string/history_empty_title" />
+            android:text="@string/history_empty_title"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/history_empty_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/history_empty_message"
-            style="@style/MaterialMediumSecondaryCaption"
+            style="@style/P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/history_empty_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="@string/history_empty_message" />
+            android:text="@string/history_empty_message"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/history_empty_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView

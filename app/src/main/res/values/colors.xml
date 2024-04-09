@@ -1,70 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- https://phabricator.wikimedia.org/M82 -->
-    <color name="base100">#fff</color> <!-- B AAA: Base background, Highlight from grey -->
-    <color name="base90">#f8f9fa</color> <!-- B AAA: Button / 3D widget background -->
-    <color name="base80">#eaecf0</color> <!-- B AAA: Disabled text input background -->
-    <color name="base70">#c8ccd1</color> <!-- B AAA: Disabled button / 3D widget background -->
-    <color name="base50">#a2a9b1</color> <!-- B AAA: Highlighted border -->
-    <color name="base30">#72777d</color> <!-- B&W AA: Disabled elements text, Placeholder text, Active border -->
-    <color name="base20">#54595d</color> <!-- W AAA: Emphasized secondary text at level AAA need -->
-    <color name="base18">#43464a</color> <!-- AAA: "Mesosphere gray" -->
-    <color name="base14">#2e3136</color> <!-- AAA: "Thermosphere gray" -->
-    <color name="base12">#27292d</color> <!-- AAA: "Exosphere gray" -->
-    <color name="base10">#202122</color> <!-- W AAA: Copy color, Buttons / widgets text -->
-    <color name="base4">#101418</color> <!-- W AAA: "Pitch black" -->
-    <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
+    <color name="white">#FFFFFF</color>
 
-    <!-- Accent -->
-    <color name="accent90">#eaf3ff</color> <!-- B AAA: Hovered buttons, Active menu, Items background -->
-    <color name="accent75">#69f</color> <!-- AAA "Stratosphere blue" -->
-    <color name="accent50">#36c</color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
-    <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
-    <color name="accent20">#223966</color>
-    <color name="red90">#FFe7e6</color>
-    <color name="red75">#FF6E6E</color> <!-- Destructive text (error messages, red links) -->
-    <color name="red50">#d33</color> <!-- Foundation Red: B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
-    <color name="red30">#b32424</color>
+    <color name="gray100">#F8F9Fa</color>
+    <color name="gray200">#EAECF0</color>
+    <color name="gray200_60">#99EAECF0</color>
+    <color name="gray300">#C8CCD1</color>
+    <color name="gray400">#A2A9B1</color>
+    <color name="gray500">#72777D</color>
+    <color name="gray600">#54595D</color>
+    <color name="gray650">#2E3136</color>
+    <color name="gray675">#27292D</color>
+    <color name="gray700">#202122</color>
 
-    <!-- Supplementary -->
-    <color name="green20">#0E725A</color> <!-- W AA: -->
-    <color name="green30">#14866d</color> <!-- W AA: -->
-    <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
-    <color name="green50_10l">#E6F7F3</color> <!-- A blend of paper_color and green50 for light mode -->
-    <color name="green50_10s">#E0EADA</color> <!-- A blend of paper_color and green50 for sepia mode -->
-    <color name="green50_10d">#20564F</color> <!-- A blend of paper_color and green50 for dark mode -->
-    <color name="green50_10b">#003429</color> <!-- A blend of paper_color and green50 for black mode -->
-    <color name="green75">#b2e7db</color>
-    <color name="green80">#CEEFE8</color>
-    <color name="green90">#d5fdf4</color> <!-- W AA: -->
-    <color name="yellow90">#fef6e7</color>
-    <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
-    <color name="yellow30">#ac6600</color>
-    <color name="yellow30_a5">#0aac6600</color>
-    <color name="yellow30_a20">#32ac6600</color>
+    <color name="black">#000000</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_70">#B3000000</color>
 
-    <color name="find_in_page">#FFFF00</color>
-    <color name="find_in_page_active">#FF9632</color>
-    <color name="osage">#ff9500</color>
+    <color name="beige100">#F8F1E3</color>
+    <color name="beige300">#F0E6D6</color>
+    <color name="beige400">#E1DAD1</color>
+    <color name="beige400_60">#99E1DAD1</color>
 
-    <!-- Sepia -->
-    <color name="amate">#e1dad1</color>
-    <color name="papyrus">#f0e6d6</color>
-    <color name="kraft">#cbc8c1</color>
-    <color name="masi">#646059</color>
-    <color name="parchment">#f8f1e3</color>
-    <color name="dawn">#F2EBE1</color>
+    <color name="taupe200">#CBC8C1</color>
+    <color name="taupe600">#646059</color>
 
-    <!-- Light and Dark mode consolidation-->
-    <color name="black87">#DE000000</color>
-    <color name="black54">#8A000000</color>
-    <color name="black38">#61000000</color>
-    <color name="black26">#42000000</color>
-    <color name="black12">#1F000000</color>
-    <color name="white70">#B3ffffff</color>
-    <color name="white50">#80ffffff</color>
-    <color name="white20">#33ffffff</color>
-    <color name="white15">#26ffffff</color>
+    <color name="blue300">#6699FF</color>
+    <color name="blue300_15">#266699FF</color>
+    <color name="blue300_20">#336699FF</color>
+    <color name="blue600">#3366CC</color>
+    <color name="blue600_30">#4D3366CC</color>
+
+    <color name="green600">#00AF89</color>
+    <color name="green700">#14866D</color>
+
+    <color name="red500">#FF4242</color>
+    <color name="red700">#B32424</color>
+
+    <color name="yellow500">#FFCC33</color>
+    <color name="yellow500_40">#66FFCC33</color>
+    <color name="yellow700">#AC6600</color>
+
+    <color name="orange500">#FF9500</color>
+    <color name="orange500_50">#80FF9500</color>
+
+
+    <color name="widget_background">#F8F9FA</color>
+    <color name="widget_paper">#FFFFFF</color>
+    <color name="widget_border">#EAECF0</color>
+    <color name="widget_primary">#202122</color>
+    <color name="widget_placeholder">#72777D</color>
 
 </resources>

@@ -41,7 +41,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                     val menu = PopupMenu(fragment.requireContext(), tempView, 0, 0, R.style.PagePopupMenu)
                     menu.menuInflater.inflate(R.menu.menu_page_header_edit, menu.menu)
                     menu.setOnMenuItemClickListener(EditMenuClickListener())
-                    menu.setOnDismissListener { (fragment.view as ViewGroup).removeView(tempView) }
+                    menu.setOnDismissListener { (fragment.view as? ViewGroup)?.removeView(tempView) }
                     menu.show()
                 } else {
                     startEditingSection(sectionId, null)
@@ -80,15 +80,13 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                 L.w("Attempting to edit a mismatched section ID.")
                 return
             }
-            fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
-                it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+            fragment.onRequestEditSection(it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText)
         }
     }
 
     fun startEditingArticle() {
         currentPage?.let {
-            fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
-                    -1, null, it.title), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+            fragment.onRequestEditSection(-1, null, it.title, null)
         }
     }
 

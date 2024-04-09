@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -7,25 +8,36 @@
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        style="@style/H3.Button"
         android:textColor="@android:color/white"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="7sp"/>
+        tools:text="Lorem ipsum"/>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="start">
+        android:layout_marginTop="8dp">
 
+        <!-- Possible bug in Balloon library requires minWidth for the button: -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonView"
-            style="@style/FlatButton.Small.Tooltip"
-            android:text="@string/onboarding_got_it"
-            android:visibility="gone"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
+            android:text="@string/onboarding_got_it"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/countView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="1/1"/>
+
+    </FrameLayout>
 
 </LinearLayout>

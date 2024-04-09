@@ -1,6 +1,5 @@
 package org.wikipedia.talk
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -16,38 +15,44 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.*
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.SearchActionProvider
+import org.wikipedia.views.ViewUtil
 
-class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
+class TalkTopicActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicBinding
-    private lateinit var talkFunnel: TalkFunnel
     private lateinit var linkHandler: TalkLinkHandler
 
     private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -87,7 +92,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.replyToolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         linkHandler = TalkLinkHandler(this)
@@ -95,8 +100,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
         L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
-        binding.talkToolbarSubjectView.movementMethod = linkMovementMethod
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
+
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.movementMethod = linkMovementMethod
+        }
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -108,17 +116,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         binding.talkRefreshView.setOnRefreshListener {
-            talkFunnel.logRefresh()
             loadTopics()
         }
-
-        talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-        talkFunnel.logOpenTopic()
 
         binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.talkToolbarSubjectView.isVisible = binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2)
+                supportActionBar?.setDisplayShowTitleEnabled(binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2))
             }
         })
 
@@ -180,11 +184,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_talk_topic_share -> {
-                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, viewModel.topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(StringUtil.fromHtml(viewModel.topic?.html).toString()))
+                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, viewModel.topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + UriUtil.encodeURL(StringUtil.addUnderscores(StringUtil.fromHtml(viewModel.topic?.html).toString())))
                 true
             }
             R.id.menu_edit_source -> {
-                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null, viewModel.pageTitle))
+                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null,
+                    viewModel.pageTitle, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
                 true
             }
             R.id.menu_talk_topic_expand -> {
@@ -205,11 +210,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun expandOrCollapseAll(expand: Boolean) {
-        if (expand) {
-            talkFunnel.logThreadGlobalExpand()
-        } else {
-            talkFunnel.logThreadGlobalCollapse()
-        }
         Prefs.talkTopicExpandOrCollapseByDefault = expand
         viewModel.expandOrCollapseAll().dispatchUpdatesTo(threadAdapter)
         threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
@@ -294,14 +294,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (position >= 0) {
                 binding.talkRecyclerView.post {
                     if (!isDestroyed) {
-                        binding.talkRecyclerView.scrollToPosition(position)
+                        ViewUtil.jumpToPositionWithoutAnimation(binding.talkRecyclerView, position)
                         threadAdapter.notifyItemChanged(position)
                     }
                 }
             }
         }
-        binding.talkToolbarSubjectView.text = StringUtil.fromHtml(viewModel.topic?.html)
-        RichTextUtil.removeUnderlinesFromLinks(binding.talkToolbarSubjectView)
+        supportActionBar?.title = StringUtil.fromHtml(viewModel.topic?.html)
         invalidateOptionsMenu()
     }
 
@@ -334,11 +333,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (AccountUtil.isLoggedIn) {
                 viewModel.toggleSubscription()
             } else {
-                AlertDialog.Builder(this@TalkTopicActivity)
+                MaterialAlertDialogBuilder(this@TalkTopicActivity)
                     .setTitle(R.string.talk_login_to_subscribe_dialog_title)
                     .setMessage(R.string.talk_login_to_subscribe_dialog_content)
                     .setPositiveButton(R.string.login_join_wikipedia) { _, _ ->
-                        requestLogin.launch(LoginActivity.newIntent(this@TalkTopicActivity, LoginFunnel.SOURCE_SUBSCRIBE))
+                        requestLogin.launch(LoginActivity.newIntent(this@TalkTopicActivity, LoginActivity.SOURCE_SUBSCRIBE))
                     }
                     .setNegativeButton(R.string.onboarding_maybe_later, null)
                     .show()
@@ -359,11 +358,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onExpandClick(item: ThreadItem) {
-            if (item.isExpanded) {
-                talkFunnel.logThreadItemCollapse()
-            } else {
-                talkFunnel.logThreadItemExpand()
-            }
             viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
             invalidateOptionsMenu()
         }
@@ -379,9 +373,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onUserNameClick(item: ThreadItem, view: View) {
-            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter,
+            UserTalkPopupHelper.show(this@TalkTopicActivity,
                     PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), item.author, viewModel.pageTitle.wikiSite),
-                    !AccountUtil.isLoggedIn, view, Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
+                    !AccountUtil.isLoggedIn, view, Constants.InvokeSource.TALK_TOPIC_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
@@ -410,11 +404,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
-            // TODO
+            startActivity(FilePageActivity.newIntent(this@TalkTopicActivity, title))
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-            // TODO
+            startActivity(ArticleEditDetailsActivity.newIntent(this@TalkTopicActivity, title, revisionId))
         }
 
         override lateinit var wikiSite: WikiSite
@@ -424,15 +418,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, false, lastX, lastY,
-                    Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
+            UserTalkPopupHelper.show(this@TalkTopicActivity, title, false, lastX, lastY,
+                    Constants.InvokeSource.TALK_TOPICS_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
     private fun startReplyActivity(item: ThreadItem, undoSubject: CharSequence? = null, undoBody: CharSequence? = null) {
-        talkFunnel.logReplyClick()
         replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle, viewModel.topic?.html,
-                item, Constants.InvokeSource.TALK_ACTIVITY, undoSubject, undoBody))
+                item, Constants.InvokeSource.TALK_TOPIC_ACTIVITY, undoSubject, undoBody))
     }
 
     private fun showUndoSnackbar(undoRevId: Long) {
@@ -444,27 +437,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .show()
     }
 
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
-            PageActivity.newIntentForCurrentTab(this, entry, title, false))
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY))
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
-    }
-
     companion object {
-        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_REPLY_ID = "replyId"
@@ -478,7 +451,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                       searchQuery: String?,
                       invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC_NAME, topicName)
                     .putExtra(EXTRA_TOPIC_ID, topicId)
                     .putExtra(EXTRA_REPLY_ID, replyId)

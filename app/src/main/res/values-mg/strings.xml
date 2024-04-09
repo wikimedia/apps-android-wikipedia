@@ -99,8 +99,6 @@
   <string name="preferences_heading_syncing">Fisinkiana</string>
   <string name="preferences_heading_data_usage">Fampiasana angona</string>
   <string name="preferences_heading_experimental">Fanandramana</string>
-  <string name="preferences_privacy_settings_heading">Fiainana manokana</string>
-  <string name="preference_title_eventlogging_opt_in">Handefa tati-pampiasana</string>
   <string name="preference_title_auto_upload_crash_reports">Handefa tati-pijanonana tampoka</string>
   <string name="error_can_not_process_link">Tsy afaka maneho ity rohy ity</string>
   <string name="page_protected_autoconfirmed">Voaaro an-tapany ity pejy ity.</string>
@@ -198,9 +196,6 @@
   <string name="reading_list_create_new">Hamorona vaovao</string>
   <string name="reading_list_title_exists">Efa misy ny lisi-pamakiana \"%s\".</string>
   <string name="reading_list_added_view_button">Hijery lisitra</string>
-  <string name="format_reading_list_statistical_summary_singular">Lahatsoratra iray, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">Lahatosratra %1$d, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d ny lahatsoratra 1 no azo vakiana, %2$.2f MB</string>
   <string name="description_edit_text_hint" fuzzy="true">Visavisan\'ilay lohateny</string>
   <string name="description_edit_add_description" fuzzy="true">Hanampy visavisan-dohateny</string>
 </resources>

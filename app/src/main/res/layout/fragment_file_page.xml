@@ -14,15 +14,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/progressBar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:indeterminateTint="?attr/colorAccent"
-                android:progressBackgroundTint="?attr/multi_select_background_color"
-                android:layout_marginTop="-6dp" />
+                android:indeterminate="true" />
 
             <org.wikipedia.views.WikiErrorView
                 android:id="@+id/errorView"

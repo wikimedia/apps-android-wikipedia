@@ -17,18 +17,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/paper_color"
-            android:minWidth="220dp"
             android:orientation="vertical">
 
             <TextView
                 android:text="@string/page_edit_history_filter_by"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="13dp"
-                android:textColor="?attr/material_theme_primary_color"/>
+                android:textColor="?attr/primary_color"/>
 
             <LinearLayout
                 android:id="@+id/filterByAllButton"
@@ -40,22 +39,23 @@
 
                 <ImageView
                     android:id="@+id/filterByAllSelected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_check_black_24dp"
                     android:contentDescription="@null"
                     android:visibility="invisible"
-                    android:layout_marginEnd="16dp"
-                    app:tint="?attr/colorPrimary"/>
+                    app:tint="?attr/placeholder_color"/>
 
                 <TextView
                     android:id="@+id/filterByAll"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_all"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
             </LinearLayout>
 
@@ -70,22 +70,23 @@
 
                 <ImageView
                     android:id="@+id/filterByUserSelected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_check_black_24dp"
                     android:contentDescription="@null"
                     android:visibility="invisible"
-                    android:layout_marginEnd="16dp"
-                    app:tint="?attr/colorPrimary"/>
+                    app:tint="?attr/placeholder_color"/>
 
                 <TextView
                     android:id="@+id/filterByUser"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_user"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -107,22 +108,23 @@
 
                 <ImageView
                     android:id="@+id/filterByAnonSelected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_check_black_24dp"
                     android:contentDescription="@null"
                     android:visibility="invisible"
-                    android:layout_marginEnd="16dp"
-                    app:tint="?attr/colorPrimary"/>
+                    app:tint="?attr/placeholder_color"/>
 
                 <TextView
                     android:id="@+id/filterByAnon"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_anon"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
                 <ImageView
                     android:layout_width="20dp"
@@ -144,12 +146,11 @@
 
                 <ImageView
                     android:id="@+id/filterByBotSelected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_check_black_24dp"
                     android:contentDescription="@null"
                     android:visibility="invisible"
-                    android:layout_marginEnd="16dp"
                     app:tint="?android:attr/textColorHint"/>
 
                 <TextView
@@ -157,6 +158,8 @@
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:textSize="16sp"
                     android:text="@string/page_edit_history_filter_by_bot"
                     android:textColor="?android:attr/textColorTertiary" />

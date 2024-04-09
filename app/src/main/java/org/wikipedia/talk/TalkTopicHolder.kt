@@ -2,15 +2,15 @@ package org.wikipedia.talk
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTopicBinding
@@ -19,7 +19,6 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import org.wikipedia.views.TalkTopicsActionsOverflowView
 import java.util.*
 
 class TalkTopicHolder internal constructor(
@@ -34,9 +33,9 @@ class TalkTopicHolder internal constructor(
     fun bindItem(item: ThreadItem) {
         item.seen = viewModel.topicSeen(item)
         threadItem = item
-        binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
-        binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
-        StringUtil.highlightAndBoldenText(binding.topicTitleText, viewModel.currentSearchQuery, true, Color.YELLOW)
+        val topicTitle = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
+        StringUtil.setHighlightedAndBoldenedText(binding.topicTitleText, topicTitle, viewModel.currentSearchQuery)
+        binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
         itemView.setOnClickListener(this)
 
         // setting tag for swipe action text
@@ -52,7 +51,7 @@ class TalkTopicHolder internal constructor(
             showOverflowMenu(it)
         }
 
-        val allReplies = threadItem.allReplies
+        val allReplies = threadItem.allReplies.toList()
 
         if (allReplies.isEmpty()) {
             binding.topicUserIcon.isVisible = false
@@ -64,8 +63,9 @@ class TalkTopicHolder internal constructor(
             val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
             binding.otherContentContainer.isVisible = isHeaderTemplate
             if (isHeaderTemplate) {
-                binding.otherContentText.text = RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " ")
-                StringUtil.highlightAndBoldenText(binding.otherContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
+                StringUtil.setHighlightedAndBoldenedText(binding.otherContentText,
+                    RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " "),
+                    viewModel.currentSearchQuery)
             }
             return
         }
@@ -73,24 +73,24 @@ class TalkTopicHolder internal constructor(
 
         // Last comment
         binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
-        binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " ")
-        binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
-        StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
+        StringUtil.setHighlightedAndBoldenedText(binding.topicContentText,
+            RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " "),
+            viewModel.currentSearchQuery)
+        binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
         val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
-        val usernameColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.colorAccent
-        binding.topicUsername.text = usernameText
+        val usernameColor = if (threadItem.seen) R.attr.inactive_color else R.attr.progressive_color
+        StringUtil.setHighlightedAndBoldenedText(binding.topicUsername, usernameText, viewModel.currentSearchQuery)
         binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
         binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
         ImageViewCompat.setImageTintList(binding.topicUserIcon, ResourceUtil.getThemedColorStateList(context, usernameColor))
-        StringUtil.highlightAndBoldenText(binding.topicUsername, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Amount of replies, exclude the topic in replies[].
         val replyNumber = allReplies.size - 1
-        val replyNumberColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color
+        val replyNumberColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
         binding.topicReplyNumber.isVisible = replyNumber > 0
         binding.topicReplyIcon.isVisible = replyNumber > 0
         binding.topicReplyNumber.text = replyNumber.toString()
@@ -99,7 +99,7 @@ class TalkTopicHolder internal constructor(
 
         // Last comment date
         val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
-        val lastCommentColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.secondary_text_color
+        val lastCommentColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
         binding.topicLastCommentDate.text = lastCommentDate
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
         binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
@@ -125,26 +125,47 @@ class TalkTopicHolder internal constructor(
 
     private fun showOverflowMenu(anchorView: View) {
         CoroutineScope(Dispatchers.Main).launch {
-            val subscribed = withContext(Dispatchers.IO) {
-                viewModel.isSubscribed(threadItem.name)
-            }
+            val subscribed = viewModel.isSubscribed(threadItem.name)
             threadItem.subscribed = subscribed
-            TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object : TalkTopicsActionsOverflowView.Callback {
-                override fun markAsReadClick() {
-                    markAsSeen()
-                }
 
-                override fun subscribeClick() {
-                    viewModel.subscribeTopic(threadItem.name, subscribed)
-                    FeedbackUtil.showMessage(context as Activity, context.getString(if (!subscribed) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
-                        StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }))
-                }
+            val menu = PopupMenu(anchorView.context, anchorView)
+            menu.setForceShowIcon(true)
+            menu.menuInflater.inflate(R.menu.menu_talk_topic_overflow, menu.menu)
 
-                override fun shareClick() {
-                    ShareUtil.shareText(context, context.getString(R.string.talk_share_discussion_subject,
-                        threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(threadItem.html))
+            val subscribeItem = menu.menu.findItem(R.id.menu_subscribe)
+            subscribeItem.isVisible = TalkTopicActivity.isSubscribable(threadItem)
+            if (TalkTopicActivity.isSubscribable(threadItem)) {
+                subscribeItem.setIcon(if (subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp)
+                subscribeItem.setTitle(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
+            }
+
+            val readText = menu.menu.findItem(R.id.menu_mark_as_read)
+            readText.setIcon(if (threadItem.seen) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24)
+            readText.setTitle(if (threadItem.seen) R.string.talk_list_item_overflow_mark_as_unread else R.string.notifications_menu_mark_as_read)
+
+            menu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
+                override fun onMenuItemClick(item: MenuItem?): Boolean {
+                    when (item?.itemId) {
+                        R.id.menu_mark_as_read -> {
+                            markAsSeen()
+                            return true
+                        }
+                        R.id.menu_subscribe -> {
+                            viewModel.subscribeTopic(threadItem.name, subscribed)
+                            FeedbackUtil.showMessage(context as Activity, context.getString(if (!subscribed) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
+                                StringUtil.fromHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }))
+                            return true
+                        }
+                        R.id.menu_share -> {
+                            ShareUtil.shareText(context, context.getString(R.string.talk_share_discussion_subject,
+                                threadItem.html.ifEmpty { context.getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(threadItem.html))
+                            return true
+                        }
+                    }
+                    return false
                 }
             })
+            menu.show()
         }
     }
 }

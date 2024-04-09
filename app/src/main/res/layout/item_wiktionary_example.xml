@@ -8,5 +8,5 @@
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
     android:paddingBottom="2dp"
-    android:textColor="?attr/primary_text_color"
+    android:textColor="?attr/primary_color"
     android:textStyle="italic" />

@@ -1,8 +1,9 @@
 package org.wikipedia.util
 
 import android.app.Activity
-import android.app.PendingIntent
 import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
@@ -13,11 +14,11 @@ import android.view.Window
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.appbar.MaterialToolbar
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 
@@ -31,17 +32,23 @@ object DeviceUtil {
     }
 
     fun hideSoftKeyboard(activity: Activity) {
-        activity.window.insetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
+        activity.window.insetsControllerCompat.hide(WindowInsetsCompat.Type.ime())
     }
 
     fun hideSoftKeyboard(view: View) {
         ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
     }
 
+    fun isHardKeyboardAttached(resources: Resources): Boolean {
+        return (resources.configuration.hardKeyboardHidden == Configuration.KEYBOARDHIDDEN_NO &&
+                resources.configuration.keyboard != Configuration.KEYBOARD_UNDEFINED &&
+                resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
+    }
+
     fun setLightSystemUiVisibility(activity: Activity) {
         // this make the system recognizes the status bar light and will make status bar icons become visible
         // if the theme is not dark
-        activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
+        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
     }
 
     fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
@@ -49,14 +56,14 @@ object DeviceUtil {
             val isDarkThemeOrDarkBackground = WikipediaApp.instance.currentTheme.isDark ||
                     color == ContextCompat.getColor(window.context, android.R.color.black)
             window.navigationBarColor = color
-            window.insetsControllerCompat?.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
+            window.insetsControllerCompat.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
         }
     }
 
-    fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
-        activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !reset ||
+    fun updateStatusBarTheme(activity: Activity, toolbar: MaterialToolbar?, reset: Boolean) {
+        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !reset ||
                 !WikipediaApp.instance.currentTheme.isDark
-        toolbar?.navigationIcon?.setTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color))
+        toolbar?.setNavigationIconTint(if (reset) Color.WHITE else ResourceUtil.getThemedColor(activity, R.attr.primary_color))
     }
 
     fun setContextClickAsLongClick(vararg views: View) {
@@ -84,7 +91,4 @@ object DeviceUtil {
             // TODO: add more logic if other accessibility tools have different settings.
             return am.isEnabled && am.isTouchExplorationEnabled
         }
-
-    val pendingIntentFlags: Int
-        get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
 }

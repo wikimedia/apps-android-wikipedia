@@ -42,7 +42,7 @@ class TopicsActivity : BaseActivity() {
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
             viewHolder.textView.text = dataSet[position]
             if (topics.contains(dataSet[position])) {
-                viewHolder.textView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.color_group_70))
+                viewHolder.textView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.border_color))
             }
             viewHolder.textView.setOnClickListener {
                 val topic = (it as TextView).text.toString()

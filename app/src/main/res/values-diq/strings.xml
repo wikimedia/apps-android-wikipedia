@@ -77,9 +77,8 @@
   <string name="map_view_link_text">Xerita sero bıvênên</string>
   <string name="other_languages_indication_text">Yewna zıwan de bıwanê</string>
   <string name="language_count_link_text">%d zıwanê bini de esto</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ney çapnayışa &lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt; u iştırakanê peyser nêgeriyaya be lisansê &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; çapnayışi şıma qebul kenê .</string>
-  <string name="edit_save_action_license_anon">Çapnayışiya &lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt;\'u vurnayışa peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; çapnayışi qebul kenê. Vurnayışê şıma adresê IP\'a cihaziya  do qeyd bıbo. Ek &lt;a href=\"https://#login\"&gt;ronıştış akerê &lt;/a&gt; se dehana zeydê wahêrê dızdeyi benê .</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ney çapnayışa &lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt; u iştırakanê peyser nêgeriyaya be lisansê &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; çapnayışi şıma qebul kenê .</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Çapnayışiya &lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt;\'u vurnayışa peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; çapnayışi qebul kenê. Vurnayışê şıma adresê IP\'a cihaziya  do qeyd bıbo. Ek &lt;a href=\"https://#login\"&gt;ronıştış akerê &lt;/a&gt; se dehana zeydê wahêrê dızdeyi benê .</string>
   <string name="preference_title_language">Zıwanê Wikipedia</string>
   <string name="langlinks_filter_hint">Cı geyre</string>
   <string name="langlinks_empty">Na wesiqa zıwanan de binan de çıniya</string>
@@ -161,8 +160,6 @@
   <string name="preference_title_sync_reading_lists_from_account">Senkronizey lista wendışi</string>
   <string name="preference_title_download_reading_list_articles">Meqaleyanê lista wendışi ronê</string>
   <string name="preference_summary_sync_reading_lists_from_account">Listanê wendışi, be nameyê \"%s\" ya hesabê Wikipediya de qeyd kerê u yewbina cihazan de senkronize bıkerê</string>
-  <string name="preferences_privacy_settings_heading">Nımıtış</string>
-  <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
   <string name="preference_title_auto_upload_crash_reports">Raporê progunayışi bırışê</string>
   <string name="history_filter_list_hint">Verorê parzûni</string>
   <string name="error_can_not_process_link">No gıre nêmocneya</string>
@@ -179,10 +176,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Karkerdena kıtıbxani</string>
   <string name="about_contributors_heading">İştırakkerdoği</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Pela taxıme&lt;/a&gt;</string>
@@ -338,8 +333,6 @@
     <item quantity="one">1 meqale, %2$.2f MB</item>
     <item quantity="other">%1$d meqaleyi, %2$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 meqale, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d meqaley , %2$.2f MB</string>
   <string name="reading_list_sort">Weçine</string>
   <string name="reading_list_sort_ellipsis">Sencışê rêzi...</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
@@ -578,7 +571,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Vurnayışo peyên</string>
   <string name="suggested_edits_last_edited_never">Qet</string>
-  <string name="suggested_edits_task_new">newe</string>
+  <string name="suggested_edits_task_new" fuzzy="true">newe</string>
   <string name="description_edit_revert_subtitle">Seba vurnayışê Wikipedia teşekur keme!</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="size_gb">%.2f GB</string>
@@ -589,7 +582,6 @@
   <string name="onboarding_maybe_later">Belkiya badêna</string>
   <string name="onboarding_explore_title">Rayê neweyê keşf kerdışi</string>
   <string name="onboarding_reading_list_sync_title">Senkronizasyonê lista wendışi</string>
-  <string name="onboarding_analytics_title">Anonim datay bırışê</string>
   <string name="onboarding_analytics_switch_title">Datay karnayışi bırışê</string>
   <string name="onboarding_got_it">Fahm kerd</string>
   <string name="onboarding_multilingual_secondary_text">Cihazê şıma tede de na cêrêni vinay:</string>
@@ -653,4 +645,7 @@
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
   <string name="watchlist_filter_all">Pêro</string>
+  <string name="watchlist_page_deleted">Esteriya</string>
+  <string name="shareable_reading_lists_new_indicator">*newe*</string>
+  <string name="reading_list_share_menu_label">Vıla ke...</string>
 </resources>

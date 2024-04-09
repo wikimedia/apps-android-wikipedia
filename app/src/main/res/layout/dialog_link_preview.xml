@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    app:behavior_peekHeight="@dimen/bottomSheetPeekHeight">
+    android:layout_gravity="bottom">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -36,28 +35,49 @@
                     android:layout_height="@dimen/defaultListItemSize"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginVertical="16dp"
                     android:contentDescription="@null"
                     android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/link_preview_title"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
+                    android:layout_marginVertical="16dp"
                     android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:fontFamily="serif"
-                    android:lineSpacingMultiplier="0.9"
-                    android:maxLines="3"
-                    android:paddingBottom="4dp"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="20sp"
-                    tools:text="Lorem ipsum" />
+                    android:orientation="vertical"
+                    android:paddingBottom="4dp">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                    <TextView
+                        android:id="@+id/link_preview_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="serif"
+                        android:lineSpacingMultiplier="0.9"
+                        android:maxLines="3"
+                        android:textColor="?attr/primary_color"
+                        android:textSize="20sp"
+                        tools:text="Lorem ipsum" />
+
+                    <TextView
+                        style="@style/H4"
+                        android:id="@+id/link_preview_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="?attr/success_color"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginStart="-4dp"
+                        android:visibility="gone"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="4dp"
+                        app:drawableStartCompat="@drawable/location_gradient"
+                        tools:text="Lorem ipsum" />
+
+                </LinearLayout>
+
+                <ImageView
                     android:id="@+id/link_preview_overflow_button"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -68,7 +88,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                    app:tint="?attr/material_theme_secondary_color" />
+                    app:tint="?attr/secondary_color" />
             </LinearLayout>
 
             <View
@@ -76,7 +96,7 @@
                 android:layout_height="0.5dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:background="?attr/material_theme_border_color" />
+                android:background="?attr/border_color" />
 
             <LinearLayout
                 android:id="@+id/dialog_link_preview_content_container"
@@ -97,6 +117,17 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="4dp" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/linkPreviewEditButton"
+                    style="@style/App.Button.Tertiary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/menu_edit_article"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_mode_edit_white_24dp"
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <org.wikipedia.page.linkpreview.LinkPreviewErrorView
@@ -120,5 +151,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
+    <View
+        android:layout_width="32dp"
+        android:layout_height="4dp"
+        android:layout_marginVertical="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_2dp_fill"/>
 
 </FrameLayout>

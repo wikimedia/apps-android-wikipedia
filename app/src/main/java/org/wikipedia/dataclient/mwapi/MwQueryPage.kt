@@ -2,9 +2,16 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.decodeFromJsonElement
+import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
+import org.wikipedia.util.DateUtil
 
 @Serializable
 class MwQueryPage {
@@ -19,10 +26,11 @@ class MwQueryPage {
     @SerialName("entityterms") val entityTerms: EntityTerms? = null
 
     private val ns = 0
-    private var coordinates: List<Coordinates>? = null
+    val coordinates: List<Coordinates>? = null
     private val thumbnail: Thumbnail? = null
-    private val varianttitles: Map<String, String>? = null
+    val varianttitles: Map<String, String>? = null
     private val actions: Map<String, List<MwServiceError>>? = null
+    private val editintro: JsonElement? = null
 
     val index = 0
     var title: String = ""
@@ -38,15 +46,13 @@ class MwQueryPage {
     val watched = false
     val lastrevid: Long = 0
 
+    val tasktype: String? = null
+    val difficulty: String? = null
+    val qualityGateIds: List<String>? = null
+    val growthimagesuggestiondata: List<GrowthImageSuggestion>? = null
+
     fun namespace(): Namespace {
         return Namespace.of(ns)
-    }
-
-    fun coordinates(): List<Coordinates>? {
-        // TODO: Handle null values in lists during deserialization, perhaps with a new
-        // @RequiredElements annotation and corresponding TypeAdapter
-        coordinates = coordinates?.filterNotNull()
-        return coordinates
     }
 
     fun thumbUrl(): String? {
@@ -76,25 +82,34 @@ class MwQueryPage {
         return actions?.get(actionName) ?: emptyList()
     }
 
+    fun getEditNotices(): Map<String, String> {
+        return if (editintro != null && editintro is JsonObject) JsonUtil.json.decodeFromJsonElement(editintro) else emptyMap()
+    }
+
     @Serializable
     class Revision {
-
-        @SerialName("contentformat") private val contentFormat: String? = null
-        @SerialName("contentmodel") private val contentModel: String? = null
-        @SerialName("timestamp") val timeStamp: String = ""
-
         private val slots: Map<String, RevisionSlot>? = null
         val minor = false
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
+        @SerialName("timestamp") val timeStamp: String = ""
         val size = 0
         val user: String = ""
-        val content: String = ""
         val comment: String = ""
         val parsedcomment: String = ""
 
+        private val oresscores: JsonElement? = null
+        val ores: MwQueryResult.OresResult?
+            get() = if (oresscores != null && oresscores !is JsonArray) {
+                JsonUtil.json.decodeFromJsonElement<MwQueryResult.OresResult>(oresscores)
+            } else null
+
+        val contentMain get() = getContentFromSlot("main")
+
         var diffSize = 0
+
+        val localDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timeStamp) }
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()
@@ -110,7 +125,7 @@ class MwQueryPage {
     class LangLink(val lang: String = "", val title: String = "")
 
     @Serializable
-    class Coordinates(val lat: Double? = null, val lon: Double? = null)
+    class Coordinates(val lat: Double = 0.0, val lon: Double = 0.0)
 
     @Serializable
     internal class Thumbnail(val source: String? = null,

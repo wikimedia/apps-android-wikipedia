@@ -74,7 +74,6 @@
   <string name="preferences_general_heading">સામાન્ય</string>
   <string name="preferences_account_heading">ખાતું</string>
   <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
-  <string name="preferences_privacy_settings_heading">ગોપનીયતા</string>
   <string name="settings_activity_title" fuzzy="true">ગોઠવણીઓ</string>
   <string name="privacy_policy_description">ગોપનિયતા નીતિ</string>
   <string name="terms_of_use_description">વપરાશની શરતો</string>
@@ -129,4 +128,13 @@
   <string name="wikipedia_languages_your_languages_text">તમારી ભાષાઓ</string>
   <string name="wikitext_template">ઢાંચો</string>
   <string name="wikitext_reference">સંદર્ભો</string>
+  <string name="watchlist_filter_title">ધ્યાનસૂચિ ગરળી</string>
+  <string name="watchlist_filter_wiki_filter_header">વિકિ</string>
+  <string name="watchlist_filter_all_text">બધા</string>
+  <string name="watchlist_filter_user_status_experienced">અનુભવી સભ્યો</string>
+  <string name="watchlist_filter_significance_minor">નાના સંપાદનો</string>
+  <string name="watchlist_filter_type_of_change_header">ફેરફારનો પ્રકાર</string>
+  <string name="watchlist_filter_type_of_change_new_users">નવા સભ્યો</string>
+  <string name="watchlist_filter_reset_button">ફરી ગોઠવો</string>
+  <string name="watchlist_search_bar_filter_hint">ધ્યાનસૂચિ ગરળી</string>
 </resources>
