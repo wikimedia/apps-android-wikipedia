@@ -35,6 +35,7 @@ import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
+import org.wikipedia.topics.TopicsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -121,6 +122,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (invokeSource == InvokeSource.PLACES) {
             PlacesEvent.logImpression("search_view")
         }
+
+        binding.topicsButton.setOnClickListener { startActivity(Intent(requireActivity(), TopicsActivity::class.java)) }
+
         return binding.root
     }
 
@@ -130,14 +134,21 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         startSearch(query, langBtnClicked)
         binding.searchCabView.setCloseButtonVisibility(query)
         recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
-        if (!query.isNullOrEmpty()) {
+        //if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
-        }
+        //}
     }
 
     override fun onPause() {
         super.onPause()
         Prefs.selectedLanguagePositionInSearch = binding.searchLanguageScrollView.selectedPosition
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        startSearch(query, true)
+        showPanel(PANEL_SEARCH_RESULTS)
     }
 
     private fun handleIntent(intent: Intent) {
@@ -258,7 +269,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             showPanel(PANEL_SEARCH_RESULTS)
         }
         query = term
-        if (term.isNullOrBlank() && !force) {
+
+        val topics = Prefs.selectedTopics
+
+        if (topics.isEmpty() && term.isNullOrBlank() && !force) {
             return
         }
         binding.searchContainer.postDelayed({

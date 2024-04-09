@@ -43,6 +43,8 @@ class TopicsActivity : BaseActivity() {
             viewHolder.textView.text = dataSet[position]
             if (topics.contains(dataSet[position])) {
                 viewHolder.textView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.border_color))
+            } else {
+                viewHolder.textView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
             }
             viewHolder.textView.setOnClickListener {
                 val topic = (it as TextView).text.toString()
