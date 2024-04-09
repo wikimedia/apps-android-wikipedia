@@ -25,8 +25,9 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:text="@string/topics_floating_button_text"
-            android:textColor="?attr/progressive_color"
-            app:iconTint="?attr/progressive_color"
+            android:textColor="@color/white"
+            app:backgroundTint="?attr/progressive_color"
+            app:iconTint="@color/white"
             app:icon="@drawable/ic_filter_list_24" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
