@@ -259,18 +259,19 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun startSearch(term: String?, force: Boolean) {
+        val topics = Prefs.selectedTopics
+
         if (!isSearchActive) {
             openSearch()
         }
-        if (term.isNullOrEmpty()) {
+        if (topics.isEmpty() && term.isNullOrEmpty()) {
             showPanel(PANEL_RECENT_SEARCHES)
         } else if (activePanel == PANEL_RECENT_SEARCHES) {
             // start with title search...
             showPanel(PANEL_SEARCH_RESULTS)
         }
-        query = term
 
-        val topics = Prefs.selectedTopics
+        query = term
 
         if (topics.isEmpty() && term.isNullOrBlank() && !force) {
             return
