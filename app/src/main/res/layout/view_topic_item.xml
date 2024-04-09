@@ -1,18 +1,22 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/selectableItemBackground"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:textColor="?attr/primary_color"
-        android:textSize="20sp" />
+    <com.google.android.material.chip.Chip
+        android:id="@+id/topicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:text="Topic"
+        android:textSize="18sp"
+        android:checkable="true"
+        app:checkedIconEnabled="true"
+        app:checkedIcon="@drawable/checked"
+        />
 
 </FrameLayout>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.chip.Chip
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityTopicsBinding
@@ -30,7 +31,7 @@ class TopicsActivity : BaseActivity() {
         var topics = Prefs.selectedTopics.toMutableSet()
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val textView: TextView = view.findViewById(R.id.textView)
+            val chip: Chip = view.findViewById(R.id.topicName)
         }
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -40,14 +41,14 @@ class TopicsActivity : BaseActivity() {
         }
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            viewHolder.textView.text = dataSet[position]
+            viewHolder.chip.text = dataSet[position]
             if (topics.contains(dataSet[position])) {
-                viewHolder.textView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.border_color))
+                viewHolder.chip.isChecked = true
             } else {
-                viewHolder.textView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
+                viewHolder.chip.isChecked = false
             }
-            viewHolder.textView.setOnClickListener {
-                val topic = (it as TextView).text.toString()
+            viewHolder.chip.setOnClickListener {
+                val topic = (it as Chip).text.toString()
                 if (topics.contains(topic)) {
                     topics.remove(topic)
                 } else {
