@@ -1757,4 +1757,9 @@
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <!-- /Places -->
+
+    <!-- Topics -->
+    <string name="topics_floating_button_text">Topics</string>
+    <string name="topics_floating_button_text_selected">Topics (%d)</string>
+    <!-- Topics -->
 </resources>

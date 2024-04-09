@@ -147,8 +147,15 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     override fun onResume() {
         super.onResume()
 
+        updateTopicsButton()
         startSearch(query, true)
         showPanel(PANEL_SEARCH_RESULTS)
+    }
+
+    private fun updateTopicsButton() {
+        val topics = Prefs.selectedTopics
+        binding.topicsButton.text = if (topics.isEmpty())
+            getString(R.string.topics_floating_button_text) else getString(R.string.topics_floating_button_text_selected, topics.size)
     }
 
     private fun handleIntent(intent: Intent) {
