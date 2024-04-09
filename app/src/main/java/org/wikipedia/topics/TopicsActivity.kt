@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
@@ -13,7 +12,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityTopicsBinding
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ResourceUtil
 
 class TopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTopicsBinding

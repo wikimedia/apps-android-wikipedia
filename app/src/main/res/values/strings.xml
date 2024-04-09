@@ -1761,5 +1761,6 @@
     <!-- Topics -->
     <string name="topics_floating_button_text">Topics</string>
     <string name="topics_floating_button_text_selected">Topics (%d)</string>
+    <string name="onboarding_topics_title">What do you want to read about?</string>
     <!-- Topics -->
 </resources>
