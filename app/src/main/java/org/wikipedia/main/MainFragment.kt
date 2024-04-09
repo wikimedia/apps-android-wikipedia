@@ -172,6 +172,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
+
+        updateTopicsButton()
         binding.topicsButton.setOnClickListener { startActivity(Intent(requireActivity(), TopicsActivity::class.java)) }
         maybeShowPlacesTooltip()
     }
@@ -457,6 +459,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (AccountUtil.isLoggedIn) {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
+    }
+
+    private fun updateTopicsButton() {
+        val topics = Prefs.selectedTopics
+        binding.topicsButton.text = if (topics.isEmpty())
+            getString(R.string.topics_floating_button_text) else getString(R.string.topics_floating_button_text_selected, topics.size)
     }
 
     fun setBottomNavVisible(visible: Boolean) {
