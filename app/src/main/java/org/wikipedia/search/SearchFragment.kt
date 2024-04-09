@@ -149,7 +149,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
         updateTopicsButton()
         startSearch(query, true)
-        showPanel(PANEL_SEARCH_RESULTS)
     }
 
     private fun updateTopicsButton() {
