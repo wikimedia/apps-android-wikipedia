@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
-            android:text="Topics"
+            android:text="@string/topics_floating_button_text"
             android:textColor="?attr/progressive_color"
             app:iconTint="?attr/progressive_color"
             app:icon="@drawable/ic_filter_list_24" />
