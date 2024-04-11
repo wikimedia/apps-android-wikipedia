@@ -72,6 +72,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
             val view = inflater.inflate(OnboardingPage.of(position).layout, container, false) as OnboardingPageView
             view.tag = position
             view.callback = callback
+            view.setTopics(position == OnboardingPage.PAGE_DATA_TOPICS.ordinal)
             return view
         }
 
@@ -90,7 +91,8 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
         PAGE_WELCOME(R.layout.inflate_initial_onboarding_page_zero),
         PAGE_EXPLORE(R.layout.inflate_initial_onboarding_page_one),
         PAGE_READING_LISTS(R.layout.inflate_initial_onboarding_page_two),
-        PAGE_DATA_PRIVACY(R.layout.inflate_initial_onboarding_page_three);
+        PAGE_DATA_PRIVACY(R.layout.inflate_initial_onboarding_page_three),
+        PAGE_DATA_TOPICS(R.layout.inflate_initial_topics);
 
         override fun code(): Int {
             return ordinal

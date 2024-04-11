@@ -80,6 +80,19 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
         return this
     }
 
+    fun hide(): CardHeaderView {
+        binding.viewListCardHeaderLangCode.visibility = View.GONE
+        return this
+    }
+
+    fun setTopic(topic: String?): CardHeaderView {
+        if (!topic.isNullOrEmpty()) {
+            binding.topic.visibility = VISIBLE
+            binding.topic.text = topic
+        }
+        return this
+    }
+
     fun setSecondaryIcon(@DrawableRes id: Int): CardHeaderView {
         binding.viewListCardHeaderSecondaryIcon.setImageResource(id)
         binding.viewListCardHeaderSecondaryIcon.isVisible = true

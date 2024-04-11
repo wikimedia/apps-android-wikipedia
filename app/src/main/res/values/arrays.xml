@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="topics">
+        <item>women</item>
+        <item>biography</item>
+        <item>literature</item>
+        <item>books</item>
+        <item>entertainment</item>
+        <item>films</item>
+        <item>media</item>
+        <item>music</item>
+        <item>radio</item>
+        <item>television</item>
+        <item>sports</item>
+        <item>architecture</item>
+        <item>fashion</item>
+        <item>geographical</item>
+        <item>africa</item>
+        <item>asia</item>
+        <item>europe</item>
+        <item>oceania</item>
+        <item>education</item>
+        <item>history</item>
+        <item>society</item>
+        <item>biology</item>
+        <item>chemistry</item>
+        <item>engineering</item>
+        <item>mathematics</item>
+        <item>physics</item>
+        <item>stem</item>
+        <item>technology</item>
+        <item>space</item>
+    </string-array>
+</resources>

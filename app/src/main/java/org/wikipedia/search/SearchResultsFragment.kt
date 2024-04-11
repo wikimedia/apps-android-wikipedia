@@ -31,6 +31,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
@@ -115,7 +116,9 @@ class SearchResultsFragment : Fragment() {
         viewModel.searchTerm = term
         viewModel.languageCode = searchLanguageCode
 
-        if (term.isNullOrBlank()) {
+        val topics = Prefs.selectedTopics
+
+        if (term.isNullOrBlank() && topics.isEmpty()) {
             clearResults()
             return
         }

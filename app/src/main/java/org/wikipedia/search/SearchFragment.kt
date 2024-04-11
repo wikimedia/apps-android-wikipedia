@@ -35,6 +35,7 @@ import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
+import org.wikipedia.topics.TopicsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -121,6 +122,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (invokeSource == InvokeSource.PLACES) {
             PlacesEvent.logImpression("search_view")
         }
+
+        binding.topicsButton.setOnClickListener { startActivity(Intent(requireActivity(), TopicsActivity::class.java)) }
+
         return binding.root
     }
 
@@ -130,14 +134,27 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         startSearch(query, langBtnClicked)
         binding.searchCabView.setCloseButtonVisibility(query)
         recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
-        if (!query.isNullOrEmpty()) {
+        //if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
-        }
+        //}
     }
 
     override fun onPause() {
         super.onPause()
         Prefs.selectedLanguagePositionInSearch = binding.searchLanguageScrollView.selectedPosition
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        updateTopicsButton()
+        startSearch(query, true)
+    }
+
+    private fun updateTopicsButton() {
+        val topics = Prefs.selectedTopics
+        binding.topicsButton.text = if (topics.isEmpty())
+            getString(R.string.topics_floating_button_text) else getString(R.string.topics_floating_button_text_selected, topics.size)
     }
 
     private fun handleIntent(intent: Intent) {
@@ -248,17 +265,21 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun startSearch(term: String?, force: Boolean) {
+        val topics = Prefs.selectedTopics
+
         if (!isSearchActive) {
             openSearch()
         }
-        if (term.isNullOrEmpty()) {
+        if (topics.isEmpty() && term.isNullOrEmpty()) {
             showPanel(PANEL_RECENT_SEARCHES)
         } else if (activePanel == PANEL_RECENT_SEARCHES) {
             // start with title search...
             showPanel(PANEL_SEARCH_RESULTS)
         }
+
         query = term
-        if (term.isNullOrBlank() && !force) {
+
+        if (topics.isEmpty() && term.isNullOrBlank() && !force) {
             return
         }
         binding.searchContainer.postDelayed({

@@ -71,6 +71,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <include
+                    android:id="@+id/topicsContainer"
+                    layout="@layout/view_onboarding_topics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+
                 <org.wikipedia.views.GoneIfEmptyTextView
                     android:id="@+id/tertiaryTextView"
                     style="@style/List"

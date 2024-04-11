@@ -1493,6 +1493,9 @@
   <string name="user_contrib_current">Label indicating that this contribution is the current revision of the article.\n{{identical|Current}}</string>
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
+  <string name="user_contrib_wiki_select">Screen title for viewing the contributions of a user from a selected wiki.</string>
+  <string name="featured_topic">Featured Topic</string>
+  <string name="featured_topic_subtitle">Articles based on topic of your choice</string>
   <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
   <string name="action_item_view_on_map">Menu label for accessing the map for the geographical coordinates of the page.</string>
   <string name="action_item_view_on_map_unavailable">Message that indicates the geographical coordinates of the page are not available.</string>
@@ -1677,4 +1680,6 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="topics_floating_button_text">Label for the Topics floating button.</string>
+  <string name="topics_floating_button_text_selected">Label for the Topics floating button. %d will be replaced by the number of selected topics.</string>
 </resources>

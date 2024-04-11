@@ -1,6 +1,7 @@
 package org.wikipedia.onboarding
 
 import android.content.Context
+import android.content.Intent
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -15,11 +16,14 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.chip.Chip
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewOnboardingPageBinding
 import org.wikipedia.onboarding.OnboardingPageView.LanguageListAdapter.OptionsViewHolder
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.settings.Prefs
+import org.wikipedia.topics.TopicsActivity
 import org.wikipedia.util.StringUtil
 import java.util.Locale
 
@@ -38,6 +42,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     private val binding = ViewOnboardingPageBinding.inflate(LayoutInflater.from(context), this)
     private var listDataType: String? = null
     private var viewHeightDetected: Boolean = false
+     var showTopics: Boolean = false
 
     init {
         attrs?.let { attrSet ->
@@ -79,8 +84,29 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                     callback?.onListActionButtonClicked(this@OnboardingPageView)
                 }
 
+                binding.topicsContainer?.topicWomen?.setOnClickListener {
+                    checkTopic(binding.topicsContainer.topicWomen)
+                }
+                binding.topicsContainer?.topicArt?.setOnClickListener {
+                    checkTopic(binding.topicsContainer.topicArt)
+                }
+                binding.topicsContainer?.topicScience?.setOnClickListener {
+                    checkTopic(binding.topicsContainer.topicScience)
+                }
+                binding.topicsContainer?.topicMore?.setOnClickListener {
+                    context.startActivity(Intent(context, TopicsActivity::class.java))
+                }
                 binding.patrollerTasksButtonsContainer?.root?.isVisible = showPatrollerTasksButtons
             }
+        }
+    }
+    var topics = Prefs.selectedTopics.toMutableSet()
+
+    fun checkTopic(topic: Chip) {
+        if (topic.isChecked) {
+            topics.add(topic.text.toString().lowercase())
+        } else {
+            topics.remove(topic.text.toString().lowercase())
         }
     }
 
@@ -88,6 +114,9 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         binding.secondaryTextView.text = text
     }
 
+    fun setTopics(showTopics: Boolean) {
+        binding.topicsContainer?.root?.isVisible = showTopics
+    }
     fun setTertiaryTextViewVisible(isVisible: Boolean) {
         binding.tertiaryTextView.isVisible = isVisible
     }

@@ -22,6 +22,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 
 class SearchResultsViewModel : ViewModel() {
@@ -63,42 +64,64 @@ class SearchResultsViewModel : ViewModel() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
             return try {
-                if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
+                val topics = Prefs.selectedTopics
+
+                val searchPhrase = if (topics.isEmpty()) {
+                    searchTerm
+                } else {
+                    "articletopic:" + topics.joinToString("|") + (if (searchTerm.isNullOrEmpty()) "" else " " + searchTerm)
+                }
+
+                val actualSearchTerm = searchTerm ?: ""
+                val actualLangCode = languageCode ?: ""
+
+                if (topics.isEmpty() && (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty())) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
+
+
+
                 var continuation: Int? = null
-                val wikiSite = WikiSite.forLanguageCode(languageCode)
+                val wikiSite = WikiSite.forLanguageCode(actualLangCode)
                 var response: MwQueryResponse? = null
                 val resultList = mutableListOf<SearchResult>()
                 if (prefixSearch) {
-                    if (searchTerm.length > 2 && invokeSource != Constants.InvokeSource.PLACES) {
+                    if (actualSearchTerm.length > 2 && invokeSource != Constants.InvokeSource.PLACES) {
                         withContext(Dispatchers.IO) {
                             listOf(async {
-                                getSearchResultsFromTabs(searchTerm)
+                                getSearchResultsFromTabs(actualSearchTerm)
                             }, async {
-                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm)
+                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(actualSearchTerm)
                             }, async {
-                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm)
+                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(actualSearchTerm)
                             }).awaitAll().forEach {
                                 resultList.addAll(it.results.take(1))
                             }
                         }
                     }
-                    response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, 0)
+                    if (topics.isEmpty()) {
+                        response = ServiceFactory.get(wikiSite)
+                            .prefixSearch(actualSearchTerm, params.loadSize, 0)
+                    }
                     continuation = 0
                     prefixSearch = false
                 }
 
-                resultList.addAll(response?.query?.pages?.let { list ->
-                    (if (invokeSource == Constants.InvokeSource.PLACES)
-                        list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                        .map { SearchResult(it, wikiSite, it.coordinates) }
-                } ?: emptyList())
+                if (topics.isEmpty()) {
+                    resultList.addAll(response?.query?.pages?.let { list ->
+                        (if (invokeSource == Constants.InvokeSource.PLACES)
+                            list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                            .map { SearchResult(it, wikiSite, it.coordinates) }
+                    } ?: emptyList())
+                }
+
+
+
 
                 if (resultList.size < params.loadSize) {
                     response = ServiceFactory.get(wikiSite)
-                        .fullTextSearch(searchTerm, params.loadSize, params.key)
+                        .fullTextSearch(searchPhrase, params.loadSize, params.key)
                     continuation = response.continuation?.gsroffset
 
                     resultList.addAll(response.query?.pages?.let { list ->
@@ -122,7 +145,7 @@ class SearchResultsViewModel : ViewModel() {
                             }
                             if (countResultSize == 0) {
                                 val fullTextSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                        .fullTextSearch(searchTerm, params.loadSize, null)
+                                        .fullTextSearch(searchPhrase, params.loadSize, null)
                                 countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
                             resultsCount?.add(countResultSize)

@@ -1480,6 +1480,8 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <string name="featured_topic">Featured Topic</string>
+    <string name="featured_topic_subtitle">Articles based on topic of your choice</string>
     <string name="watchlist_filter_title">Watchlist filter</string>
     <string name="watchlist_filter_wiki_filter_header">Wiki</string>
     <string name="watchlist_filter_all_text">All</string>
@@ -1755,4 +1757,10 @@
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <!-- /Places -->
+
+    <!-- Topics -->
+    <string name="topics_floating_button_text">Topics</string>
+    <string name="topics_floating_button_text_selected">Topics (%d)</string>
+    <string name="onboarding_topics_title">What do you want to read about?</string>
+    <!-- Topics -->
 </resources>
