@@ -500,6 +500,11 @@
   <string name="error_blocked_footer">Puedes contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o otro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; para hablar sobre el bloque.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalice su barra de herramientas</string>
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
+  <string name="temp_account_not_logged_in">No has iniciado sesión</string>
+  <string name="temp_account_anon_dialog_body">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicie sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;cree una cuenta&lt;/a&gt; para obtener crédito para futuras ediciones y acceder a otras funciones.</string>
+  <string name="temp_account_temp_dialog_body">Tu edición se atribuirá a %1$s . Su dirección IP será visible para los administradores.&lt;br /&gt;&lt;br /&gt; Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;creas una cuenta&lt;/a&gt; , tus ediciones se atribuirán al nombre que elijas, entre otros beneficios.</string>
+  <string name="temp_account_dialog_ok">Conseguido</string>
+  <string name="temp_account_using_title">Estás usando una cuenta temporal</string>
   <string name="temp_account_dialog_discard">Descartar cambios e iniciar sesión</string>
   <plurals name="temp_account_created">
     <item quantity="one">La cuenta temporal %1$s se creó después de que se publicara su edición. Caducará en %2$d día.</item>
@@ -509,6 +514,10 @@
     <item quantity="one">La cuenta caducará en %d días.</item>
     <item quantity="other">La cuenta caducará en %d días.</item>
   </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;No estás conectado.&lt;/b&gt; Una vez que realice una edición, se creará una cuenta temporal para proteger su privacidad. &lt;a href=\"%1$s\"&gt;Aprenda más&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Estás usando una cuenta temporal.&lt;/b&gt; Su edición se atribuirá a %1$s. &lt;a href=\"%2$s\"&gt;Aprenda más&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Actualmente estás utilizando una cuenta temporal.&lt;/b&gt; Las ediciones realizadas con la cuenta temporal %1$s no se transferirán a su cuenta permanente cuando inicie sesión. Inicie sesión o cree una cuenta para obtener crédito para su nombre de usuario, entre otros beneficios.</string>
+  <string name="temp_account_end_session">Finalizar sesión</string>
   <string name="temp_account_end_session_confirm">Esto cerrará la sesión de su cuenta temporal. ¿Quieres continuar?</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
