@@ -263,8 +263,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Image_tags</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
@@ -459,6 +459,18 @@
   <string name="temp_account_dialog_ok">הבנתי</string>
   <string name="temp_account_using_title">זהו חשבון זמני</string>
   <string name="temp_account_dialog_discard">לזרוק את השינויים ולהיכנס לחשבון</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד יום אחד.</item>
+    <item quantity="two">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד יומיים.</item>
+    <item quantity="many">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד %2$d ימים.</item>
+    <item quantity="other">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד %2$d ימים</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">החשבון יפוג בעוד יום אחד.</item>
+    <item quantity="two">החשבון יפוג בעוד יומיים.</item>
+    <item quantity="many">החשבון יפוג בעוד %d ימים.</item>
+    <item quantity="other">החשבון יפוג בעוד %d ימים</item>
+  </plurals>
   <string name="temp_account_anon_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר ביצוע עריכה, ייווצר בשבילך חשבון זמני כדי להגן על פרטיותך. &lt;a href\n=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;החשבון שלך זמני.&lt;/b&gt; העריכה שלך תיוחס לשם המשתמש %1$s. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;זהו חשבון זמני.&lt;/b&gt; עריכות שנעשו עם החשבון הזמני %1$s לא יועברו לחשבון הקבוע שלך בעת הכניסה. כניסה או יצירת חשבון תאפשר לך לקבל קרדיט על עריכות עתידיות, ויש לזה גם יתרונות נוספים.</string>
@@ -932,8 +944,8 @@
   <string name="description_edit_voice_input_description">קלט קולי</string>
   <string name="description_edit_learn_more">מידע נוסף על תיאורי ערכים</string>
   <string name="description_edit_image_caption_learn_more">מידע נוסף על כיתובי תמונה</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Image_captions</string>
   <string name="description_too_short">הטקסט קצר מדי.</string>
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>

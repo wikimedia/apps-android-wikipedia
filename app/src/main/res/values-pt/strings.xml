@@ -24,6 +24,7 @@
 * SandroHc
 * Svjatysberega
 * Tooguether
+* Vinickw
 * Vitorvicentevalente
 * Webysther
 -->
@@ -768,8 +769,8 @@
   <string name="notifications_menu_uncheck_all">Desmarcar todos os elementos</string>
   <string name="notifications_wiki_filter_header">Filtro de wikis</string>
   <string name="notifications_type_filter_header">Filtro de tipos</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Todas as \"wikis\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Todos os \"tipos\"</string>
+  <string name="notifications_all_wikis_text">Todas as wikis</string>
+  <string name="notifications_all_types_text">Todos os tipos</string>
   <string name="notifications_menu_user_talk_page">Página de discussão de %s</string>
   <string name="notifications_offline_disable_message">A função não está disponível offline.</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
@@ -1593,10 +1594,10 @@
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Toque em &lt;b&gt;\'Ver no mapa\'&lt;/b&gt; para explorar a localização deste artigo</string>
+  <string name="places_article_menu_tooltip_message">Toque em «Ver no mapa» para explorar a localização deste artigo</string>
   <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
   <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Ajudar a melhorar \"Lugares\"</string>
+  <string name="places_survey_dialog_title">Ajudar a melhorar «Lugares»</string>
   <string name="places_survey_feedback_dialog_title">Como pode a funcionalidade \"Lugares\" ser melhorada?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">O que gostaria que mudássemos ou melhorássemos?</string>
   <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>
