@@ -29,6 +29,10 @@ class TopicsActivity : BaseActivity() {
             chip.setCheckedIconResource(R.drawable.checked)
             chip.isCheckedIconVisible = true
             binding.chipGroup.addView(chip)
+            if (topics.contains(it)) {
+                chip.isChecked = true
+            }
+
             chip.setOnClickListener {
                 val topic = (it as Chip).text.toString()
                 if (topics.contains(topic)) {
