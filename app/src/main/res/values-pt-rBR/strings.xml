@@ -43,6 +43,7 @@
 * Teles
 * TheEduGobi
 * Trooper57
+* Vinickw
 * Walesson
 * Webysther
 * Welerson98
@@ -161,6 +162,7 @@
   <string name="langlinks_your_wikipedia_languages">Seus idiomas da Wikipédia</string>
   <string name="menu_save_changes">Publicar alterações</string>
   <string name="edit_saved_successfully">Edição publicada!</string>
+  <string name="stub_article_edit_saved_successfully">Edição publicada! As alterações podem levar algum tempo para aparecerem.</string>
   <string name="dialog_message_edit_failed">Falha de edição!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
@@ -203,6 +205,8 @@
   <string name="logged_out_in_background_dialog">Você foi desconectado da Wikipedia. Gostaria de entrar novamente?</string>
   <string name="logged_out_in_background_login">Entrar</string>
   <string name="logged_out_in_background_cancel">Cancelar</string>
+  <string name="account_vanish_request_title">Conta abandonada</string>
+  <string name="account_vanish_request_confirm_title">Aviso de conta abandonada</string>
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>
   <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>
   <string name="history_offline_articles_toast">Alguns artigos no histórico podem não ser visualizados enquanto estiver off-line.</string>
@@ -276,15 +280,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Tags_de_imagem</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license" fuzzy="true">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -406,6 +410,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">O artigo não pode ser carregado enquanto estiver offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Dica: Adicione o artigo a uma lista de leitura e ele será baixado assim que estiver online novamente.</string>
   <string name="page_offline_notice_last_date">Você está lendo uma versão offline deste artigo salvo em %s.</string>
+  <string name="redirected_from_snackbar">Redirecionado de %s</string>
   <string name="button_get_directions">Obter itinerário</string>
   <string name="error_no_maps_app">Não foi possível encontrar aplicativos que forneceçam rotas.</string>
   <string name="preference_title_customize_explore_feed">Feed de Explorar</string>
@@ -428,6 +433,10 @@
   <string name="multi_select_items_selected">%d selecionado</string>
   <string name="error_message_generic">Ocorreu um erro</string>
   <string name="view_link_preview_error_button_dismiss">Ignorar</string>
+  <string name="link_preview_dialog_read_button">Ler</string>
+  <string name="link_preview_dialog_save_button">Salvar</string>
+  <string name="link_preview_dialog_saved_button">Salvo</string>
+  <string name="link_preview_dialog_share_button">Compartilhar</string>
   <string name="error_page_does_not_exist">Esta página não existe</string>
   <string name="error_user_page_does_not_exist">A Wikipedia não tem uma &lt;a href=\"%1$s\"&gt;página de usuário&lt;/a&gt; com este nome exato. Em geral, esta página deve ser criada e editada por &lt;b&gt;%2$s&lt;/b&gt;. Em caso de dúvida, verifique se \"%3$s\" existe.</string>
   <string name="view_wiki_error_message_offline">Não foi possível conectar-se à Internet</string>
@@ -783,8 +792,8 @@
   <string name="notifications_menu_uncheck_all">Desmarque todos os itens</string>
   <string name="notifications_wiki_filter_header">Filtro de wiki</string>
   <string name="notifications_type_filter_header">Tipo de filtro</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Todas as \"wikis\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Todos os \"tipos\"</string>
+  <string name="notifications_all_wikis_text">Todas as wikis</string>
+  <string name="notifications_all_types_text">Todos os tipos</string>
   <string name="notifications_menu_user_talk_page">página de discussão de %s</string>
   <string name="notifications_offline_disable_message">A função não está disponível enquanto estiver desconectado.</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
@@ -872,8 +881,8 @@
   <string name="description_edit_voice_input_description">Entrada de voz</string>
   <string name="description_edit_learn_more">Saiba mais sobre as descrições de artigos</string>
   <string name="description_edit_image_caption_learn_more">Saiba mais sobre as legendas de imagens</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br#Descrições_de_artigos</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br#Legendas_da_imagem</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Descrições_de_artigos</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Legendas_da_imagem</string>
   <string name="description_too_short">O texto é muito curto.</string>
   <string name="description_ends_with_punctuation">O texto não deve terminar com pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos como \"a\", \"o\" \"as\" ou \"os\".</string>
@@ -1032,7 +1041,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloqueado</string>
   <string name="suggested_edits_last_edited">Última edição</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new" fuzzy="true">novo</string>
+  <string name="suggested_edits_task_new">Novo</string>
   <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Edições sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Obrigado por editar a Wikipédia! Por que não continuar de onde parou?</string>
@@ -1086,7 +1095,7 @@
     <item quantity="other">Você adicionou %d caracteres</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Imagem do artigo:</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decida se uma imagem sugerida irá melhorar um artigo.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Adicione imagens sugeridas aos artigos da Wikipedia para melhorar a compreensão.</string>
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sim</string>
   <string name="image_recommendation_reject">Não</string>
@@ -1200,9 +1209,9 @@
   <string name="insert_media_settings">Adicionar detalhes da imagem</string>
   <string name="insert_media_settings_uploaded_image">Imagem carregada</string>
   <string name="insert_media_settings_caption">Legenda da imagem</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Rótulo exibido ao lado do item para todos os leitores</string>
+  <string name="insert_media_settings_caption_description">Etiqueta de imagem visível no artigo</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descrição em texto para leitores que não podem ver a imagem</string>
+  <string name="insert_media_settings_alternative_text_description">Descrição para leitores que não podem ver a imagem</string>
   <string name="insert_media_advanced_settings">Configurações avançadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Dispor o texto em torno da imagem</string>
   <string name="insert_media_advanced_settings_image_position">Posição da imagem</string>
@@ -1238,6 +1247,13 @@
   <string name="talk_user_title">Discussão: %s</string>
   <string name="talk_new_topic">Novo tópico</string>
   <string name="talk_new_topic_submitted">Tópico postado.</string>
+  <string name="talk_warn_save_dialog_title">Salvar alterações?</string>
+  <string name="talk_warn_save_dialog_message">Salvar como uma nova mensagem</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Salvar como uma nova mensagem na lista</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Atualizar mensagem existente</string>
+  <string name="talk_warn_save_dialog_hint">Título da mensagem</string>
+  <string name="talk_warn_save_dialog_publish">Publicar</string>
+  <string name="talk_warn_save_dialog_cancel">Cancelar</string>
   <string name="talk_warn_save_dialog_dont_save">Não salve</string>
   <string name="talk_page_empty">Esta página de discussão está vazia.</string>
   <string name="talk_page_empty_title">A conversa começa aqui</string>
@@ -1325,9 +1341,9 @@
   <string name="revision_diff_line_removed">Linha removida</string>
   <string name="revision_diff_paragraph_added">Parágrafo adicionado</string>
   <string name="revision_diff_paragraph_removed">Parágrafo removido</string>
-  <string name="revision_undo_title" fuzzy="true">Desfazer edição</string>
-  <string name="revision_undo_message" fuzzy="true">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
-  <string name="revision_undo_reason" fuzzy="true">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
+  <string name="revision_undo_title">Tem certeza que deseja desfazer esta edição?</string>
+  <string name="revision_undo_message">Desfazer significa reverter os efeitos de uma ou mais edições.</string>
+  <string name="revision_undo_reason">Compartilhar o motivo para a reversão</string>
   <string name="revision_undo_success">A revisão foi desfeita.</string>
   <string name="revision_rollback_dialog_title">Tem certeza de que deseja reverter as edições?</string>
   <string name="revision_rollback_success">Edições revertidas.</string>
@@ -1447,4 +1463,5 @@
   <string name="talk_warn_saved_messages_usage_instruction">Use a mensagem exemplo abaixo para personalizar, enviar e salvar suas mensagens.</string>
   <string name="data_opt_in_accept">Aceitar</string>
   <string name="data_opt_in_reject">Recusar</string>
+  <string name="places_toggle_buttons_map">Mapa</string>
 </resources>
