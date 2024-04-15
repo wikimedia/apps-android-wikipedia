@@ -435,7 +435,7 @@
   <string name="preference_title_prefer_offline_content">محتوای آفلاین را ترجیح بده</string>
   <string name="preference_summary_prefer_offline_content">به‌جای دریافت آخرین نسخهٔ مقاله، با بارگیری محتوایی که در حالت آفلاین در دسترس است، می‌توانید در مصرف داده صرفه‌جویی کنید</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">تطبیق با زمینه سامانه</string>
-  <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.</string>
+  <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده باشد.</string>
   <string name="empty_tab_title">زبانۀ جدید</string>
   <string name="menu_save_all_tabs">ذخیرهٔ همهٔ برگه‌ها</string>
   <string name="error_blocked_title">دسترسی حساب کاربری یا نشانی آی‌پی شما قطع شده است.</string>
