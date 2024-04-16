@@ -43,7 +43,7 @@ class WidgetFeaturedPageWorker(
             val pageTitle = summary.getPageTitle(app.wikiSite)
             pageTitle.displayText = summary.displayTitle
 
-            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle, false)
+            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle)
 
             Result.success()
         } catch (e: Exception) {
