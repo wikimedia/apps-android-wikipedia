@@ -102,11 +102,11 @@ interface Service {
                 "&origin=*&piprop=thumbnail&prop=pageimages|description|info|pageprops" +
                 "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
-    fun searchMoreLike(
+    suspend fun searchMoreLike(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("pilimit") piLimit: Int,
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     // ------- Miscellaneous -------
 
@@ -497,6 +497,11 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
+
+    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions")
+    suspend fun getWikidataDescription(@Query("titles") titles: String,
+                                       @Query("sites") sites: String,
+                                       @Query("languages") langCode: String): Entities
 
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded

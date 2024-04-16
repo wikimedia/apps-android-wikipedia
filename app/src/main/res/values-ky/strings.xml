@@ -119,6 +119,7 @@
   <string name="about_contributors_heading" fuzzy="true">авторлор</string>
   <string name="about_translators_heading">Котормочулар</string>
   <string name="about_translators_translatewiki">Бул тиркеме &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'деги ыктыярчылар тарабынан которулган.</string>
+  <string name="about_app_license_heading">Лицензия</string>
   <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
   <string name="about_activity_title">Тиркеме жөнүндө</string>
   <string name="edit_abandon_confirm">Барак өзгөрүлдү. Сиз өзгөртүүлөрдү сактабай чыгууңузга ишенесизби?</string>
@@ -152,6 +153,7 @@
   <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
   <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
   <string name="dialog_close_description">Жабуу</string>
+  <string name="gallery_menu_share">Бөлүшүү</string>
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
@@ -177,6 +179,7 @@
   <string name="notification_syncing_cancel_button">Жокко чыгаруу</string>
   <string name="notifications_channel_group_other_title">Башка</string>
   <string name="view_featured_image_card_download">Жүктөп алуу</string>
+  <string name="view_featured_image_card_share">Бөлүшүү</string>
   <string name="view_continue_reading_card_subtitle_today">бүгүнкү</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>

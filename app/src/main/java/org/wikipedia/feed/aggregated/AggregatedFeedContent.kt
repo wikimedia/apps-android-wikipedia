@@ -9,10 +9,10 @@ import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.feed.topread.TopRead
 
 @Serializable
-class AggregatedFeedContent {
-    val tfa: PageSummary? = null
-    val news: List<NewsItem>? = null
-    @SerialName("mostread") val topRead: TopRead? = null
-    @SerialName("image") val potd: FeaturedImage? = null
+class AggregatedFeedContent(
+    val tfa: PageSummary? = null,
+    val news: List<NewsItem>? = null,
+    @SerialName("mostread") val topRead: TopRead? = null,
+    @SerialName("image") val potd: FeaturedImage? = null,
     val onthisday: List<OnThisDay.Event>? = null
-}
+)

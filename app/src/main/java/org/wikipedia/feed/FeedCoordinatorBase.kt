@@ -21,7 +21,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Collections
 
 abstract class FeedCoordinatorBase(private val context: Context) {
 
@@ -149,7 +149,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         if (pendingClients.isNotEmpty()) {
             pendingClients.removeAt(0)
         }
-        if (lastCard !is ProgressCard && shouldShowProgressCard(pendingClients[0])) {
+        if (lastCard !is ProgressCard && shouldShowProgressCard(pendingClients.getOrNull(0))) {
             requestProgressCard()
         }
         requestCard(wiki)
@@ -262,10 +262,11 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 card is FeaturedImageCard
     }
 
-    private fun shouldShowProgressCard(pendingClient: FeedClient): Boolean {
+    private fun shouldShowProgressCard(pendingClient: FeedClient?): Boolean {
         return pendingClient is SuggestedEditsFeedClient ||
                 pendingClient is AnnouncementClient ||
-                pendingClient is BecauseYouReadClient
+                pendingClient is BecauseYouReadClient ||
+                pendingClient == null
     }
 
     companion object {

@@ -217,7 +217,7 @@
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
   <string name="about_translators_heading">Iwwersetzer</string>
@@ -379,6 +379,9 @@
   <string name="error_blocked_id">Spär-ID: %s</string>
   <string name="error_blocked_footer">Dir kënnt &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder een aneren &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéiere fir iwwer d\'Spär ze diskutéieren.</string>
   <string name="error_blocked_footer_no_blocker">Dir kënnt een &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéieren fir iwwer d\'Spär ze diskutéieren.</string>
+  <string name="temp_account_not_logged_in">Dir sidd net ageloggt</string>
+  <string name="temp_account_dialog_ok">Verstanen</string>
+  <string name="temp_account_using_title">Dir benotzt en temporäre Kont</string>
   <string name="crash_report_activity_title">Feeler vum Programm</string>
   <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
@@ -761,8 +764,8 @@
   <string name="description_edit_voice_input_description">Sprooch Input</string>
   <string name="description_edit_learn_more">Méi iwwer Artikelbeschreiwunge gewuer ginn</string>
   <string name="description_edit_image_caption_learn_more">Méi iwwer Bildbeschreiwunge gewuer ginn</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Den Text ass ze kuerz.</string>
   <string name="description_ends_with_punctuation">Den Text däerf net mat engem Sazzeechen ophalen.</string>
   <string name="description_starts_with_uppercase">Fänkt mat engem klenge Buschtaf ob ausser wann dat éischt Wuert e Substantiv oder een Numm ass.</string>
