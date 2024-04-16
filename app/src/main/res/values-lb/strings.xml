@@ -1312,7 +1312,6 @@
   <string name="patroller_onboarding_two_thank_title">Merci</string>
   <string name="patroller_onboarding_two_thank_content">Dir gesitt eng produktiv Ännerung? Sot dem Benotzer Merci fir seng Kontributioun.</string>
   <string name="patroller_onboarding_two_watch_title">Iwwerwaachen</string>
-  <string name="patroller_onboarding_two_warn_title">Warnen</string>
   <string name="patroller_diff_feedback_dialog_title">Hëlleft eis dës Funktioun ze verbesseren</string>
   <string name="patroller_diff_feedback_dialog_message">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Zefridden</string>

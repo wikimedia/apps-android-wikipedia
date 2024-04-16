@@ -1584,8 +1584,6 @@
   <string name="patroller_onboarding_two_thank_content">Verimli bir düzenleme mi gördünüz? Katkılarından dolayı bir kullanıcıya teşekkür edin.</string>
   <string name="patroller_onboarding_two_watch_title">İzle</string>
   <string name="patroller_onboarding_two_watch_content">Madde düzenlemelerini takip etmek mi istiyorsunuz? İzleme Listenize ekleyin. \'Diğer\' altında görüntüleyin.</string>
-  <string name="patroller_onboarding_two_warn_title">Uyar</string>
-  <string name="patroller_onboarding_two_warn_content">Bir düzenleyicinin tartışma sayfasında uyarı iletileri oluşturun, gönderin ve saklayın.</string>
   <string name="patroller_onboarding_two_undo_title">Geri Al/Geri Döndür</string>
   <string name="patroller_onboarding_two_undo_content">Zararlı olabilecek bir düzenlemeyi geri almak ya da geri döndürmek için \'Geri Al\'ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Hasar, bir düzenlemenin vikiye zarar verip vermeyeceğini kestirir.</string>

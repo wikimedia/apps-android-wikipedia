@@ -778,6 +778,5 @@
   <string name="patroller_tasks_filters_automated_contributions_human">Айдеме (бот огыл)</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Ончалаш</string>
   <string name="patroller_onboarding_two_watch_title">Эскераш</string>
-  <string name="patroller_onboarding_two_warn_title">Шижтарымаш</string>
   <string name="data_opt_in_reject">Ӧрдыжтараш</string>
 </resources>

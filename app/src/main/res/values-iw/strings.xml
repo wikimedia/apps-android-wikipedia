@@ -1694,8 +1694,6 @@
   <string name="patroller_onboarding_two_thank_content">רואה עריכה מועילה? אפשר לשלוח תודה למשתמש על תרומתו.</string>
   <string name="patroller_onboarding_two_watch_title">מעקב</string>
   <string name="patroller_onboarding_two_watch_content">רוצה לעקוב אחר עריכות בערך? אפשר להוסיף לרשימת המעקב שלך. אפשר להציג אותה תחת \"עוד\".</string>
-  <string name="patroller_onboarding_two_warn_title">אזהרה</string>
-  <string name="patroller_onboarding_two_warn_content">יצירה, שליחה ואחסון של הודעות אזהרה בדף שיחה של עורך.</string>
   <string name="patroller_onboarding_two_undo_title">ביטול/שחזור</string>
   <string name="patroller_onboarding_two_undo_content">יש לבחור \"ביטול\" כדי לבטל או לשחזור עריכה שעשויה להיות הרסנית.</string>
   <string name="patroller_diff_tooltip_one">מדד \"נזק\" מנבא אם עריכה גורמת נזק לוויקי.</string>
