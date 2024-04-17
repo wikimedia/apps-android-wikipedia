@@ -24,13 +24,13 @@ class BecauseYouReadClient : FeedClient {
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
         clientJob?.cancel()
-        clientJob = CoroutineScope(Dispatchers.Default).launch(
+        clientJob = CoroutineScope(Dispatchers.Main).launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
                 cb.success(emptyList())
             }
         ) {
-            withContext(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
                 val entries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
                 if (entries.size <= age) {
                     cb.success(emptyList())

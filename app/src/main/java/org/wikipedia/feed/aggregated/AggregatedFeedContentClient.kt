@@ -140,13 +140,13 @@ class AggregatedFeedContentClient {
         private fun requestAggregated() {
             aggregatedClient.clientJob?.cancel()
             val date = DateUtil.getUtcRequestDateFor(age)
-            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Default).launch(
+            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Main).launch(
                 CoroutineExceptionHandler { _, caught ->
                     L.v(caught)
                     cb.error(caught)
                 }
             ) {
-                withContext(Dispatchers.Main) {
+                withContext(Dispatchers.IO) {
                     val cards = mutableListOf<Card>()
                     FeedContentType.aggregatedLanguages.forEach { langCode ->
                         val wikiSite = WikiSite.forLanguageCode(langCode)
