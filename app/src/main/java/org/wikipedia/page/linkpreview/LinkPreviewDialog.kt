@@ -398,7 +398,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             )
         )
         val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
-        val editVisibility = contents.extract.isNullOrBlank() && viewModel.pageTitle.namespace() == Namespace.MAIN
+        val editVisibility = contents.extract.isNullOrBlank() && contents.ns?.id == Namespace.MAIN.code()
         binding.linkPreviewEditButton.isVisible = editVisibility
         binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
         val extract = if (editVisibility) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
