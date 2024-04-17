@@ -76,7 +76,6 @@ class RandomItemFragment : Fragment() {
         super.onDestroyView()
     }
 
-
     private fun setErrorState(t: Throwable) {
         L.e(t)
         binding.randomItemErrorView.setError(t)
