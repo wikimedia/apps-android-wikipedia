@@ -1588,8 +1588,6 @@
   <string name="patroller_onboarding_two_thank_content">Har du hittat en produktiv redigering? Tacka en användare för deras bidrag.</string>
   <string name="patroller_onboarding_two_watch_title">Bevaka</string>
   <string name="patroller_onboarding_two_watch_content">Vill du spåra artikelredigeringar? Lägg till i din bevakningslista. Se den under \"Mer\".</string>
-  <string name="patroller_onboarding_two_warn_title">Varna</string>
-  <string name="patroller_onboarding_two_warn_content">Skapa, skicka och lagra varningsmeddelanden på en redigerares diskussionssida.</string>
   <string name="patroller_onboarding_two_undo_title">Gör ogjord/Rulla tillbaka</string>
   <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
   <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>

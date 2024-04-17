@@ -1544,8 +1544,6 @@
   <string name="patroller_onboarding_two_thank_content">Samarali tahrir qilmoqchimisiz? Foydalanuvchiga hissasi uchun tashakkur.</string>
   <string name="patroller_onboarding_two_watch_title">Kuzatmoq</string>
   <string name="patroller_onboarding_two_watch_content">Maqola tahrirlarini kuzatishni xohlaysizmi? Kuzatuv roʻyxatingizga qoʻshing. Uni \'Batafsil\' koʻrib chiqing.</string>
-  <string name="patroller_onboarding_two_warn_title">Ogohlantirish</string>
-  <string name="patroller_onboarding_two_warn_content">Tahrirlovchining munozara sahifasida ogohlantirish xabarlarini yarating, yuboring va saqlang.</string>
   <string name="patroller_onboarding_two_undo_title">Bekor qilish/Qayta tiklash</string>
   <string name="patroller_onboarding_two_undo_content">Ehtimoliy notoʻgʻri tahrirni bekor qilish yoki orqaga qaytarish uchun “Bekor qilish” bandini tanlang.</string>
   <string name="patroller_diff_tooltip_one">Zarar, tahrir vikiga zarar yetkazish yoki yo‘qligini bashorat qiladi.</string>

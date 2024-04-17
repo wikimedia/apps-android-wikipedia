@@ -1525,8 +1525,6 @@
   <string name="patroller_onboarding_two_thank_content">Melihat suntingan yang produktif? Ucapkan terima kasih kepada pengguna atas kontribusinya.</string>
   <string name="patroller_onboarding_two_watch_title">Pantau</string>
   <string name="patroller_onboarding_two_watch_content">Ingin melacak suntingan artikel? Tambahkan ke Daftar Pantauan Anda. Lihat di bawah \'Lainnya\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Peringatkan</string>
-  <string name="patroller_onboarding_two_warn_content">Membuat, mengirim, dan menyimpan pesan peringatan di halaman pembicaraan editor.</string>
   <string name="patroller_onboarding_two_undo_title">Batalkan/Kembalikan</string>
   <string name="patroller_onboarding_two_undo_content">Pilih \'Batalkan\' untuk membatalkan atau mengembalikan penyuntingan yang berpotensi merusak.</string>
   <string name="patroller_diff_tooltip_one">Kerusakan memperkirakan jika suatu suntingan menyebabkan kerusakan pada wiki.</string>

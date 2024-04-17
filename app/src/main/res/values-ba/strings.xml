@@ -1526,8 +1526,6 @@
   <string name="patroller_onboarding_two_thank_content">Һөҙөмтәле үҙгәртеү күрәһегеҙме? Индергән өлөшө өсөн ҡатнашыусыға рәхмәт әйтегеҙ.</string>
   <string name="patroller_onboarding_two_watch_title">Күҙәтергә</string>
   <string name="patroller_onboarding_two_watch_content">Мәҡәләләрҙәге үҙгәртеүҙәрҙе күҙәтеп барырға теләйһегеҙме? Күҙәтеү исемлегегеҙгә өҫтәгеҙ. Уны \"Ентеклерәк\" тип аталған бүлектә ҡарағыҙ.</string>
-  <string name="patroller_onboarding_two_warn_title">Иҫкәртеү</string>
-  <string name="patroller_onboarding_two_warn_content">Мөхәррирҙең фекер алышыу битендә иҫкәртеү хәбәрҙәрен яҙығыҙ, ебәрегеҙ, һаҡлағыҙ.</string>
   <string name="patroller_onboarding_two_undo_title">Кире алырға</string>
   <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
   <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>

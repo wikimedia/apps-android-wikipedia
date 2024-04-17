@@ -1540,8 +1540,6 @@
   <string name="patroller_onboarding_two_thank_content">Vide tu un modification productive? Regratia le autor de illo pro su contribution.</string>
   <string name="patroller_onboarding_two_watch_title">Observar</string>
   <string name="patroller_onboarding_two_watch_content">Vole traciar le modificationes de un articulo? Adde lo a tu Observatorio. Iste se trova sub ‘Plus’.</string>
-  <string name="patroller_onboarding_two_warn_title">Advertir</string>
-  <string name="patroller_onboarding_two_warn_content">Crear, inviar e immagazinar messages de advertimento sur le pagina de discussion de un redactor.</string>
   <string name="patroller_onboarding_two_undo_title">Disfacer/Revocar</string>
   <string name="patroller_onboarding_two_undo_content">Elige ‘Disfacer’ pro disfacer o revocar un modification potentialmente destructive.</string>
   <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>

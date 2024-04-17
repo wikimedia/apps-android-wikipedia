@@ -1511,8 +1511,6 @@
   <string name="patroller_onboarding_two_thank_title">감사 표현</string>
   <string name="patroller_onboarding_two_watch_title">주시</string>
   <string name="patroller_onboarding_two_watch_content">문서의 편집 내용을 추적하고 싶으신가요? 주시문서 목록에 추가하세요. \'더보기\'에서 확인하세요.</string>
-  <string name="patroller_onboarding_two_warn_title">경고</string>
-  <string name="patroller_onboarding_two_warn_content">편집자의 토론 페이지에 경고 메시지를 만들고, 보내고, 저장하세요.</string>
   <string name="patroller_onboarding_two_undo_title">편집 취소/일괄 되돌리기</string>
   <string name="patroller_onboarding_two_undo_content">문서 훼손 가능성이 있는 편집을 실행 취소하거나 되돌리려면 \'실행 취소\'를 선택하세요.</string>
   <string name="patroller_diff_tooltip_one">손해는 이 편집으로 위키가 훼손될 것인지 예측합니다.</string>

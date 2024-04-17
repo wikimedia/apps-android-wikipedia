@@ -1581,8 +1581,6 @@
   <string name="patroller_onboarding_two_thank_content">Видовте продуктивно уредување? Заблагодарете му се не корисникот.</string>
   <string name="patroller_onboarding_two_watch_title">Набљудувај</string>
   <string name="patroller_onboarding_two_watch_content">Сакате да гу следите уредувањата во статијата? Додајте ја во Набљудуваните. Погледајте ја во „Повеќе“.</string>
-  <string name="patroller_onboarding_two_warn_title">Предупреди</string>
-  <string name="patroller_onboarding_two_warn_content">Создавајте, испраќајте и складирајте предупредителни пораки на корисничка разговорна страница.</string>
   <string name="patroller_onboarding_two_undo_title">Враќање/Поништување</string>
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>

@@ -1559,8 +1559,6 @@
   <string name="patroller_onboarding_two_thank_content">Viu uma edição produtiva? Agradeça a um utilizador a contribuição.</string>
   <string name="patroller_onboarding_two_watch_title">Vigiar</string>
   <string name="patroller_onboarding_two_watch_content">Quer monitorizar as edições do artigo? Adicione-o às suas páginas vigiadas. Veja-o em \'Mais\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Avisar</string>
-  <string name="patroller_onboarding_two_warn_content">Criar, enviar e armazenar mensagens de aviso na página de discussão de um editor.</string>
   <string name="patroller_onboarding_two_undo_title">Desfazer/Reverter</string>
   <string name="patroller_onboarding_two_undo_content">Escolher \'Desfazer\' para desfazer ou reverter uma edição potencialmente destrutiva.</string>
   <string name="patroller_diff_tooltip_one">\"Danos\" prevê se uma edição causa dano a uma wiki.</string>

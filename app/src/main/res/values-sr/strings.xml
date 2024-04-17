@@ -1556,8 +1556,6 @@
   <string name="patroller_onboarding_two_thank_content">Видите продуктивну измену? Захвалите се кориснику за његов допринос.</string>
   <string name="patroller_onboarding_two_watch_title">Надгледај</string>
   <string name="patroller_onboarding_two_watch_content">Да ли желите да пратите измене чланка? Додајте га на свој списак надгледања. Погледајте га под \'Више\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Упозори</string>
-  <string name="patroller_onboarding_two_warn_content">Правите, шаљите, и чувајте поруке упозорења на уредничкој страници за разговор</string>
   <string name="patroller_onboarding_two_undo_title">Поништи/врати</string>
   <string name="patroller_onboarding_two_undo_content">Одаберите \'Поништи\' да би сте поништили или вратили потенционалну деструктивну измену.</string>
   <string name="patroller_diff_feedback_dialog_title">Помозите нам да унапредимо ову могућност</string>
