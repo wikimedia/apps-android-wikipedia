@@ -6,7 +6,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -22,29 +21,27 @@ class RandomClient : FeedClient {
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        clientJob = CoroutineScope(Dispatchers.Default).launch(
+        clientJob = CoroutineScope(Dispatchers.Main).launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
                 cb.error(caught)
             }
         ) {
-            withContext(Dispatchers.Main) {
-                val list = mutableListOf<RandomCard>()
-                FeedContentType.aggregatedLanguages.forEach { lang ->
-                    val wikiSite = WikiSite.forLanguageCode(lang)
-                    val randomSummary = try {
-                        ServiceFactory.getRest(wikiSite).getRandomSummary()
-                    } catch (e: Exception) {
-                        AppDatabase.instance.readingListPageDao().getRandomPage()?.let {
-                            ReadingListPage.toPageSummary(it)
-                        } ?: run {
-                            throw e
-                        }
+            val list = mutableListOf<RandomCard>()
+            FeedContentType.aggregatedLanguages.forEach { lang ->
+                val wikiSite = WikiSite.forLanguageCode(lang)
+                val randomSummary = try {
+                    ServiceFactory.getRest(wikiSite).getRandomSummary()
+                } catch (e: Exception) {
+                    AppDatabase.instance.readingListPageDao().getRandomPage()?.let {
+                        ReadingListPage.toPageSummary(it)
+                    } ?: run {
+                        throw e
                     }
-                    list.add(RandomCard(randomSummary, age, wikiSite))
                 }
-                FeedCoordinator.postCardsToCallback(cb, list)
+                list.add(RandomCard(randomSummary, age, wikiSite))
             }
+            FeedCoordinator.postCardsToCallback(cb, list)
         }
     }
 
