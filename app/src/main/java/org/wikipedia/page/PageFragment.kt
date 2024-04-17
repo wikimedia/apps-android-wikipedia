@@ -485,7 +485,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.title?.run {
             historyEntry.referrer = uri
         }
-        if (title.namespace() !== Namespace.MAIN || !Prefs.isLinkPreviewEnabled) {
+        if (!Prefs.isLinkPreviewEnabled) {
             loadPage(title, historyEntry)
         } else {
             callback()?.onPageShowLinkPreview(historyEntry)
