@@ -23,7 +23,6 @@ class BecauseYouReadClient : FeedClient {
     private var clientJob: Job? = null
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        clientJob?.cancel()
         clientJob = CoroutineScope(Dispatchers.Default).launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
