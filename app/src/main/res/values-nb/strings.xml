@@ -1561,8 +1561,6 @@
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Takk en bruker for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåk</string>
   <string name="patroller_onboarding_two_watch_content">Vil du spore artikkelredigeringer? Legg til på overvåkningslisten din. Se den under «Mer».</string>
-  <string name="patroller_onboarding_two_warn_title">Advar</string>
-  <string name="patroller_onboarding_two_warn_content">Opprett, send og lagre advarselsmeldinger på en bidragsyters diskusjonsside.</string>
   <string name="patroller_onboarding_two_undo_title">Omgjør/Tilbakestill</string>
   <string name="patroller_onboarding_two_undo_content">Velg «Gjør om» for å omgjøre eller tilbakestille en potensielt ødeleggende redigering.</string>
   <string name="patroller_diff_tooltip_one">Skade forutsier om en redigering forårsaker skade på en wiki.</string>

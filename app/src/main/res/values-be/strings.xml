@@ -1621,8 +1621,6 @@
   <string name="patroller_onboarding_two_thank_content">Бачыце прадуктыўную праўку? Дзякуй карыстальнікам за іх уклад.</string>
   <string name="patroller_onboarding_two_watch_title">Назіраць</string>
   <string name="patroller_onboarding_two_watch_content">Хочаце адсочваць праўкі артыкулаў? Дадайце ў свой спіс назірання. Праглядзіце яго ў раздзеле \"Яшчэ\".</string>
-  <string name="patroller_onboarding_two_warn_title">Папярэджанне</string>
-  <string name="patroller_onboarding_two_warn_content">Стварыць, адправіць і захаваць папярэджанні на старонцы абмеркавання карыстальніка.</string>
   <string name="patroller_onboarding_two_undo_title">Адмена/Адкат</string>
   <string name="patroller_onboarding_two_undo_content">Выберыце \"Адкаціць\" для скасавання або адкату патэнцыйна разбуральнай праўкі.</string>
   <string name="patroller_diff_tooltip_one">\"Пашкоджанне\" прадказвае, калі праўка прычыняе шкоду ў вікі.</string>

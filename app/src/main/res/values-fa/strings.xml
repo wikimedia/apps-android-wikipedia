@@ -1491,7 +1491,6 @@
   <string name="patroller_onboarding_two_thank_title">تشکر</string>
   <string name="patroller_onboarding_two_thank_content">ویرایش سازنده‌ای می‌بینید؟ از  کاربر برای مشارکت‌شان تشکر کنید</string>
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
-  <string name="patroller_onboarding_two_warn_title">هشدار</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
   <string name="patroller_diff_feedback_dialog_message">آیا از این ویژگی راضی هستید؟</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">راضی</string>

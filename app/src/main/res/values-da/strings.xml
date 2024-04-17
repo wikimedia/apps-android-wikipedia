@@ -1531,8 +1531,6 @@
   <string name="patroller_onboarding_two_thank_title">Tak</string>
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Tak en bruger for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåg</string>
-  <string name="patroller_onboarding_two_warn_title">Advar</string>
-  <string name="patroller_onboarding_two_warn_content">Opret, send og gem advarselsmeddelelser på en bidragyders diskussionsside.</string>
   <string name="patroller_diff_feedback_dialog_message">Er du tilfreds med denne funktion?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tilfreds</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>

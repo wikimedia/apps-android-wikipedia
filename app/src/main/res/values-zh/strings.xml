@@ -1573,7 +1573,6 @@
   <string name="patroller_tasks_overflow_learn">了解更多</string>
   <string name="patroller_onboarding_two_thank_title">感谢</string>
   <string name="patroller_onboarding_two_watch_title">监视</string>
-  <string name="patroller_onboarding_two_warn_title">警告</string>
   <string name="patroller_diff_feedback_dialog_title">帮助我们改进此功能</string>
   <string name="patroller_diff_feedback_dialog_message">您对该功能满意吗？</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">满意</string>

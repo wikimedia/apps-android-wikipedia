@@ -1508,7 +1508,6 @@
   <string name="patroller_tasks_overflow_learn">Күбрәк белергә</string>
   <string name="patroller_onboarding_two_thank_title">Рәхмәт</string>
   <string name="patroller_onboarding_two_watch_title">Күзәтү</string>
-  <string name="patroller_onboarding_two_warn_title">Кисәтү</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
   <string name="patroller_diff_feedback_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="patroller_diff_feedback_dialog_message">Сезне бу функция канәгатьләндерәме?</string>
