@@ -145,6 +145,7 @@
   <string name="langlinks_your_wikipedia_languages">내 위키백과 언어</string>
   <string name="menu_save_changes">변경사항 게시</string>
   <string name="edit_saved_successfully">편집이 게시됐습니다!</string>
+  <string name="stub_article_edit_saved_successfully">편집이 게시되었습니다! 변경사항이 표시되기까지 시간이 걸릴 수 있습니다.</string>
   <string name="dialog_message_edit_failed">편집에 실패했습니다!</string>
   <string name="dialog_message_edit_failed_retry">다시 시도</string>
   <string name="dialog_message_edit_failed_cancel">취소</string>
@@ -329,6 +330,7 @@
   <string name="widget_title_featured_page">오늘의 알찬 글:</string>
   <string name="widget_name_search">위키백과 검색</string>
   <string name="widget_description_search">위키백과를 검색하는 가장 빠른 방법</string>
+  <string name="widget_description_featured_page">위키백과가 제공하는 최고의 문서</string>
   <string name="wiktionary_no_definitions_found">정의가 발견되지 않았습니다</string>
   <string name="alpha_update_notification_title">새로운 알파 업데이트를 이용할 수 있습니다</string>
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
@@ -416,6 +418,7 @@
   <string name="link_preview_dialog_save_button">저장</string>
   <string name="link_preview_dialog_saved_button">저장됨</string>
   <string name="link_preview_dialog_share_button">공유</string>
+  <string name="link_preview_stub_placeholder_text">이 문서는 토막글입니다. 이는 미리 보기를 생성할 만큼 문서 내용이 충분하지 않음을 의미합니다. 그러나 여러분이 이를 바꿀 수 있습니다.</string>
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
   <string name="error_user_page_does_not_exist">위키백과에 이 이름의 &lt;a href=\"%1$s\"&gt;사용자 문서&lt;/a&gt;가 없습니다. 일반적으로 이 문서는 &lt;b&gt;%2$s&lt;/b&gt;님이 만들고 편집해야 합니다. 의심이 들면 \"%3$s\" 문서가 존재하는지 확인해 주십시오.</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
@@ -438,6 +441,10 @@
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="theme_chooser_menu_item_short_tooltip">도구 모음 사용자 지정</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
+  <string name="temp_account_not_logged_in">로그인하고 있지 않습니다</string>
+  <string name="temp_account_dialog_ok">알겠습니다</string>
+  <string name="temp_account_using_title">임시 계정을 사용하고 있습니다</string>
+  <string name="temp_account_dialog_discard">변경사항을 버리고 로그인</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>
@@ -1224,6 +1231,7 @@
   <string name="talk_warn_save_dialog_hint">메시지 제목</string>
   <string name="talk_warn_save_dialog_publish">게시</string>
   <string name="talk_warn_save_dialog_cancel">취소</string>
+  <string name="talk_warn_save_dialog_dont_save">저장하지 않음</string>
   <string name="talk_warn_submitted">편집자의 사용자 토론 페이지에 게시된 메시지</string>
   <string name="talk_warn_submitted_and_saved">편집자의 사용자 토론 페이지에 메시지가 저장 및 게시되었습니다.</string>
   <string name="talk_page_empty">이 토론 문서는 비어있습니다.</string>
@@ -1448,6 +1456,7 @@
     <item quantity="other">메시지가 삭제되었음</item>
   </plurals>
   <string name="talk_templates_message_title_empty">제목은 비워둘 수 없습니다.</string>
+  <string name="talk_templates_example_messages_tab_title">예시 메시지</string>
   <string name="patroller_tasks_edits_list_search_hint">편집 내용 검색 또는 필터링</string>
   <string name="patroller_tasks_edits_list_card_tags_text">태그: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">없음</string>
