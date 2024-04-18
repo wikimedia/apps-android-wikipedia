@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -53,35 +54,38 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                 isFromCommons = !(firstPage.isImageShared)
             }
 
-            val imageInfo = firstPage?.imageInfo()!!
-            pageSummaryForEdit = PageSummaryForEdit(
-                pageTitle.prefixedText,
-                pageTitle.wikiSite.languageCode,
-                pageTitle,
-                pageTitle.displayText,
-                StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString().ifBlank { null },
-                imageInfo.thumbUrl,
-                null,
-                null,
-                imageInfo.timestamp,
-                imageInfo.user,
-                imageInfo.metadata
-            )
+            firstPage?.imageInfo()?.let { imageInfo ->
+                pageSummaryForEdit = PageSummaryForEdit(
+                    pageTitle.prefixedText,
+                    pageTitle.wikiSite.languageCode,
+                    pageTitle,
+                    pageTitle.displayText,
+                    StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString().ifBlank { null },
+                    imageInfo.thumbUrl,
+                    null,
+                    null,
+                    imageInfo.timestamp,
+                    imageInfo.user,
+                    imageInfo.metadata
+                )
 
-            val imageTagsResponse = ImageTagsProvider.getImageTags(firstPage.pageId, pageSummaryForEdit!!.lang)
-            val isEditProtected = ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfoSuspend(pageTitle.prefixedText).query?.isEditProtected ?: false
+                val imageTagsResponse = async { ImageTagsProvider.getImageTags(firstPage.pageId, pageSummaryForEdit!!.lang) }
+                val isEditProtected = async { ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfoSuspend(pageTitle.prefixedText).query?.isEditProtected ?: false }
 
-            val filePage = FilePage().apply {
-                imageFromCommons = isFromCommons
-                showEditButton = allowEdit && isFromCommons && !isEditProtected
-                showFilename = true
-                page = firstPage
-                imageTags = imageTagsResponse
-                thumbnailWidth = imageInfo.thumbHeight
-                thumbnailHeight = imageInfo.thumbWidth
+                val filePage = FilePage().apply {
+                    imageFromCommons = isFromCommons
+                    showEditButton = allowEdit && isFromCommons && !isEditProtected.await()
+                    showFilename = true
+                    page = firstPage
+                    imageTags = imageTagsResponse.await()
+                    thumbnailWidth = imageInfo.thumbHeight
+                    thumbnailHeight = imageInfo.thumbWidth
+                }
+
+                _uiState.value = Resource.Success(filePage)
+            } ?: run {
+                _uiState.value = Resource.Error(Throwable("No image info found."))
             }
-
-            _uiState.value = Resource.Success(filePage)
         }
     }
 

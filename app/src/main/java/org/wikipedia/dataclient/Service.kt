@@ -154,7 +154,7 @@ interface Service {
     fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
-    fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
+    suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteMatrix: Observable<SiteMatrix>

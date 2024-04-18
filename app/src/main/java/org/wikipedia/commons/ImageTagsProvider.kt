@@ -15,7 +15,7 @@ object ImageTagsProvider {
                 .onErrorReturnItem(Claims())
                 .flatMap { claims ->
                     val ids = getDepictsClaims(claims.claims)
-                    if (ids.isNullOrEmpty()) {
+                    if (ids.isEmpty()) {
                         Observable.just(MwQueryResponse())
                     } else {
                         ServiceFactory.get(Constants.wikidataWikiSite).getWikidataEntityTerms(ids.joinToString(separator = "|"), LanguageUtil.convertToUselangIfNeeded(langCode))
