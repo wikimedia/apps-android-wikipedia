@@ -1498,6 +1498,7 @@
   <string name="patroller_onboarding_two_thank_title">Ringrazia</string>
   <string name="patroller_onboarding_two_watch_title">Osserva</string>
   <string name="patroller_onboarding_two_watch_content">Vuoi tenere traccia delle modifiche delle voci? Aggiungilo alla tua lista osservati. Visualizzalo in \"Altro\".</string>
+  <string name="patroller_onboarding_two_talk_title">Discussione</string>
   <string name="patroller_onboarding_two_undo_title">Annulla/Ripristina</string>
   <string name="patroller_onboarding_two_undo_content">Scegli \"Annulla\" per annullare o ripristinare una modifica potenzialmente distruttiva.</string>
   <string name="patroller_diff_feedback_dialog_message">Sei soddisfatto di questa funzionalità?</string>
