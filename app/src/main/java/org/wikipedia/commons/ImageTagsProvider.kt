@@ -36,8 +36,8 @@ object ImageTagsProvider {
         return if (ids.isEmpty()) {
             emptyMap()
         } else {
-            val response = ServiceFactory.get(Constants.wikidataWikiSite)
-                .getWikidataEntityTermsSuspend(ids.joinToString(separator = "|"),LanguageUtil.convertToUselangIfNeeded(langCode))
+            val response = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataEntityTermsSuspend(ids.joinToString(separator = "|"),
+                LanguageUtil.convertToUselangIfNeeded(langCode))
             val labelList = response.query?.pages?.mapNotNull {
                 it.entityTerms?.label?.firstOrNull()
             }

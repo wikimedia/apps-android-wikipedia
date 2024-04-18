@@ -1,6 +1,5 @@
 package org.wikipedia.commons
 
-
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

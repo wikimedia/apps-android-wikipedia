@@ -45,7 +45,6 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
         }
     }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFilePageBinding.inflate(inflater, container, false)
