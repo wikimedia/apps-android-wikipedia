@@ -4,9 +4,7 @@ import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Test
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.test.MockRetrofitTest
 
 class RandomSummaryClientTest : MockRetrofitTest() {

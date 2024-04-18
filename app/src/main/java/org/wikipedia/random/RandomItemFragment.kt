@@ -100,6 +100,7 @@ class RandomItemFragment : Fragment() {
             }
             binding.randomItemWikiArticleCardView.setImageUri(imageUri, false)
         }
+        parent().onChildLoaded()
     }
 
     private fun parent(): RandomFragment {
