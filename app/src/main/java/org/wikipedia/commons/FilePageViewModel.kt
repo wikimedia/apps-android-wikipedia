@@ -78,8 +78,8 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                     showFilename = true
                     page = firstPage
                     imageTags = imageTagsResponse.await()
-                    thumbnailWidth = imageInfo.thumbHeight
-                    thumbnailHeight = imageInfo.thumbWidth
+                    thumbnailWidth = imageInfo.thumbWidth
+                    thumbnailHeight = imageInfo.thumbHeight
                 }
 
                 _uiState.value = Resource.Success(filePage)
