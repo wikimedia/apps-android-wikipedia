@@ -23,6 +23,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 
@@ -101,7 +102,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
                 it,
                 filePage.imageTags,
                 filePage.page,
-                binding.container.width,
+                DimenUtil.displayWidthPx,
                 filePage.thumbnailWidth,
                 filePage.thumbnailHeight,
                 imageFromCommons = filePage.imageFromCommons,
