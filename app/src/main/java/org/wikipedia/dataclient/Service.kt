@@ -144,14 +144,17 @@ interface Service {
     ): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|entityterms&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getImageInfoWithEntityTerms(
+    suspend fun getImageInfoWithEntityTerms(
             @Query("titles") titles: String,
             @Query("iiextmetadatalanguage") metadataLang: String,
             @Query("wbetlanguage") entityLang: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
+    fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteMatrix: Observable<SiteMatrix>
@@ -489,11 +492,23 @@ interface Service {
             @Query("wbetlanguage") lang: String
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
+    suspend fun getWikidataEntityTermsSuspend(
+        @Query("titles") titles: String,
+        @Query("wbetlanguage") lang: String
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=wbgetclaims")
     fun getClaims(
         @Query("entity") entity: String,
         @Query("property") property: String?
     ): Observable<Claims>
+
+    @GET(MW_API_PREFIX + "action=wbgetclaims")
+    suspend fun getClaimsSuspend(
+        @Query("entity") entity: String,
+        @Query("property") property: String?
+    ): Claims
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
