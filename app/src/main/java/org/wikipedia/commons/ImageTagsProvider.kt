@@ -31,17 +31,21 @@ object ImageTagsProvider {
     }
 
     suspend fun getImageTags(pageId: Int, langCode: String): Map<String, List<String>> {
-        val claims = ServiceFactory.get(Constants.commonsWikiSite).getClaimsSuspend("M$pageId", "P180")
-        val ids = getDepictsClaims(claims.claims)
-        return if (ids.isEmpty()) {
-            emptyMap()
-        } else {
-            val response = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataEntityTermsSuspend(ids.joinToString(separator = "|"),
-                LanguageUtil.convertToUselangIfNeeded(langCode))
-            val labelList = response.query?.pages?.mapNotNull {
-                it.entityTerms?.label?.firstOrNull()
+        try {
+            val claims = ServiceFactory.get(Constants.commonsWikiSite).getClaimsSuspend("M$pageId", "P180")
+            val ids = getDepictsClaims(claims.claims)
+            return if (ids.isEmpty()) {
+                emptyMap()
+            } else {
+                val response = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataEntityTermsSuspend(ids.joinToString(separator = "|"),
+                    LanguageUtil.convertToUselangIfNeeded(langCode))
+                val labelList = response.query?.pages?.mapNotNull {
+                    it.entityTerms?.label?.firstOrNull()
+                }
+                if (labelList.isNullOrEmpty()) emptyMap() else mapOf(langCode to labelList)
             }
-            if (labelList.isNullOrEmpty()) emptyMap() else mapOf(langCode to labelList)
+        } catch (e: Exception) {
+            return emptyMap()
         }
     }
 
