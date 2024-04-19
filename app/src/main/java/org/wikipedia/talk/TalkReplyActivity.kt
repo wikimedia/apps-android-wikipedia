@@ -185,6 +185,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 binding.replySubjectText.setText(it.subject)
                 binding.replyInputView.editText.setText(it.message)
                 shouldWatchText = true
+                setSaveButtonEnabled(true)
             }
         }
 
@@ -213,7 +214,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun onInitialLoad() {
-        setSaveButtonEnabled(false)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
         binding.learnMoreButton.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
@@ -235,6 +235,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
         shouldWatchText = true
         EditAttemptStepEvent.logInit(viewModel.pageTitle)
+
+        setSaveButtonEnabled(binding.replyInputView.editText.text.isNotEmpty())
 
         if (viewModel.isNewTopic || viewModel.isFromDiff) {
             if (viewModel.isNewTopic) {
