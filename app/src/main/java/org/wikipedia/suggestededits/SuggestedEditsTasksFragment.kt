@@ -348,7 +348,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
 
         if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
-            SuggestedEditsRecentEditsActivity.AVAILABLE_WIKIS.contains(WikipediaApp.instance.wikiSite.languageCode)) {
+            SuggestedEditsRecentEditsActivity.AVAILABLE_WIKIS.contains(WikipediaApp.instance.wikiSite.subdomain())) {
             // TODO: limit to the primary language now.
             Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
             displayedTasks.add(vandalismPatrolTask)

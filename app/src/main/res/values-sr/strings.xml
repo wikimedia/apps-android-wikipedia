@@ -1086,7 +1086,7 @@
   <string name="image_recommendation_tooltip_next">Следеће</string>
   <string name="image_recommendation_tooltip_warning">Молимо Вас да прегледате чланак да би сте разумели његову тему и проверите слику</string>
   <string name="image_recommendation_depleted">Извините, у овом моменту нема више доступних слика за предлагање. Погледајте остале &lt;a href=\"#\"&gt;предложене измене&lt;/a&gt; или покушајте касније.</string>
-  <string name="suggested_edits_report_feature">Проблем са могућношћу</string>
+  <string name="suggested_edits_report_feature">Проблем са функцијом</string>
   <string name="suggested_edits_report_feature_subject">Проблем са Предложеним изменама</string>
   <string name="edit_summary_added_image">Додата слика</string>
   <string name="edit_summary_added_caption">Додат натпис</string>
@@ -1547,7 +1547,7 @@
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Сигурно врати измене?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Враћање извршено</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Прикажи</string>
-  <string name="patroller_tasks_overflow_report">Проблем са могућношћу</string>
+  <string name="patroller_tasks_overflow_report">Проблем са функцијом</string>
   <string name="patroller_tasks_overflow_learn">Сазнајте више</string>
   <string name="patroller_onboarding_one_title">Допринесите надзору или одобравању измена на Википедији.</string>
   <string name="patroller_onboarding_one_content">Побољшајте квалитет садржаја Википедије активним прегледом фида скорашњих измена и пружањем смерница, контролом квалитета и охрабривањем других уредника/ца.</string>

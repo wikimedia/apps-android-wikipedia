@@ -197,6 +197,7 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkronisere lohkanlisttuid iešguđet ovttadagaid gaskka, go vurket daid iežat Wikipedia dovddaldahkii \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sihko synkroniserejuvvon lohkanlisttuid \"%s:is\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dát ollasit sihkku visot ovdal synkroniserejuvvon lohkanlisttuid gáiddusvuorkkás. Jávkat visot synkroniserejuvvon listtuid iežat dovddaldagas \"%s\"?</string>
+  <string name="history_filter_list_hint">Sille historjjá</string>
   <string name="error_can_not_process_link">Dán liŋkka čájeheapmi ii lihkostuvvan</string>
   <string name="page_protected_autoconfirmed">Dát siidu lea beallesuodjaluvvon.</string>
   <string name="page_protected_sysop">Dát siidu lea ollásit suodjaluvvon.</string>
@@ -234,6 +235,7 @@
   <string name="table_other">Lassedieđut</string>
   <string name="table_close">Gidde</string>
   <string name="widget_name_search">Wikipedia-ohcan</string>
+  <string name="wiktionary_no_definitions_found">Meroštallan ii gávdno.</string>
   <string name="dialog_close_description">Gidde</string>
   <string name="preference_title_show_images">Čájet govaid</string>
   <string name="read_more_section">Loga eambbo</string>
@@ -251,6 +253,7 @@
   <string name="close_all_tabs_confirm">Áiggutgo don duođaid buot leavggaid giddet?</string>
   <string name="button_close_tab">Gidde leavgga</string>
   <string name="tool_tip_bookmark_icon_title">Lasit lohkanlistui</string>
+  <string name="error_unknown">Dovdameahttun meattáhus iđii.</string>
   <string name="format_error_server_message">Diehtu: ”%s”</string>
   <string name="button_continue_to_article">Loga artihkkala</string>
   <string name="button_add_to_reading_list">Lasit lohkanlistui</string>
@@ -258,8 +261,10 @@
   <string name="nav_item_donate">Skeaŋkkat</string>
   <string name="enable_location_service">Váldde atnui</string>
   <string name="view_link_preview_error_button_dismiss">Gidde</string>
+  <string name="link_preview_dialog_read_button">Loga</string>
   <string name="link_preview_dialog_save_button">Vurke</string>
   <string name="link_preview_dialog_saved_button">Vurkejuvvon</string>
+  <string name="link_preview_dialog_share_button">Juoge</string>
   <string name="error_page_does_not_exist">Dát siidu ii gávdno</string>
   <string name="reference_title">Gáldu %s</string>
   <string name="reference_list_title">Gáldut</string>
@@ -268,9 +273,12 @@
   <string name="menu_save_all_tabs">Vurke buot leavggaid</string>
   <string name="error_blocked_title">Du geavaheaddjinamma dahje IP-čujuhus lea hehttejuvvon.</string>
   <string name="error_blocked_reason">Sivva hehttemii lea: %s</string>
+  <string name="temp_account_not_logged_in">It leat čálihuvvon sisa</string>
+  <string name="temp_account_dialog_ok">Ok, ipmirdin.</string>
   <string name="article_menu_bar_save_button">Vurke</string>
   <string name="article_menu_bar_language_button">Giella</string>
   <string name="article_menu_bar_search_button">Oza</string>
+  <string name="article_menu_bar_theme_button">Temá</string>
   <string name="article_menu_bar_contents_button">Sisdoallu</string>
   <string name="article_header_edit_hint">Rievdat…</string>
   <string name="article_header_edit_description">Rievdat artihkkala govvádusa</string>
@@ -280,6 +288,9 @@
   <string name="reading_list_article_added_to_default_list">%s lea vurkejuvvon. Háliidatgo dan listui lasihit?</string>
   <string name="reading_list_added_view_button">Čájet listtu</string>
   <string name="reading_list_add_to_list_button">Lasit listui</string>
+  <string name="reading_list_sort">Sirre</string>
+  <string name="reading_list_sort_ellipsis">Sirrenvuohki…</string>
+  <string name="reading_list_sort_by_name">Sirre nama mielde</string>
   <string name="reading_list_menu_delete">Sihko listtu</string>
   <string name="reading_list_menu_select">Vállje</string>
   <string name="reading_list_action_menu_add_to_another_list">Lasit nuppi listui</string>
@@ -296,6 +307,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Váldde synkroniserema atnui</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ii giitu</string>
   <string name="default_reading_list_name">Vurkejuvvon</string>
+  <string name="reading_lists_menu_sort_by">Sirrenvuohki</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Gaskkalduhte</string>
@@ -417,6 +429,7 @@
   <string name="file_page_edit_button_content_description">Rievdat %s</string>
   <string name="description_edit_login_cancel_button_text">Gaskkalduhte</string>
   <string name="onboarding_continue">Joatkke</string>
+  <string name="onboarding_got_it">Ok, ipmirdin.</string>
   <string name="onboarding_multilingual_add_language_text">Lasit dahje rievdat gielaid</string>
   <string name="app_shortcuts_search">Oza</string>
   <string name="languages_list_activity_title">Lasit giela</string>
@@ -454,7 +467,9 @@
   <string name="talk_warn_save_dialog_title">Vurke rievdadusaid?</string>
   <string name="talk_warn_save_dialog_publish">Almmut</string>
   <string name="talk_warn_save_dialog_cancel">Gaskkalduhte</string>
+  <string name="talk_warn_save_dialog_dont_save">Ale vurke</string>
   <string name="talk_add_reply">Vástit</string>
+  <string name="talk_overflow_sort_by">Sirrenvuohki</string>
   <string name="talk_overflow_sort_date_updated">Maŋemus rievdaduvvon</string>
   <string name="talk_list_item_overflow_subscribe">Diŋgo</string>
   <string name="menu_option_edit_source">Rievdat wikiteavsttain</string>
@@ -479,6 +494,7 @@
   <string name="category_tab_subcategories">Vuollekategoriijat</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Ok, ipmirdin.</string>
   <string name="talk_templates_new_message_save">Vurke</string>
   <string name="talk_templates_new_message_dialog_title">Vurke rievdadusaid</string>
   <string name="talk_templates_new_message_dialog_save">Vurke</string>
@@ -493,5 +509,6 @@
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
   <string name="patroller_tasks_overflow_learn">Lassedieđut</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Máhcahat</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>
