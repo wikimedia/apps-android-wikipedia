@@ -1666,7 +1666,7 @@
   <string name="donate_gpay_dialog_pay_button">Button that leads to the Google Pay donation screen.</string>
   <string name="donate_gpay_dialog_other_button">Button that leads to the general donation workflow in a web browser.</string>
   <string name="donate_gpay_activity_title">Title for screen where the donation amount is selected.</string>
-  <string name="donate_gpay_check_transaction_fee">Label for checkbox that adds the transaction fees to the donation amount.</string>
+  <string name="donate_gpay_check_transaction_fee">Label for checkbox that adds the transaction fees to the donation amount. The %s symbol is replaced with the transaction fee amount, which will include the currency symbol.</string>
   <string name="donate_gpay_check_recurring">Label for checkbox that makes the donation into a recurring one.</string>
   <string name="donate_gpay_check_send_email">Label for checkbox that indicates consent to receive email communications.</string>
   <string name="donate_gpay_minimum_amount">Error message shown when the specified donation amount is less than the minimum allowed. The %s symbol is replaced with the minimum amount, which will include the currency symbol.</string>
