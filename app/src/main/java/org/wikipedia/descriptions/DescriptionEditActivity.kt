@@ -19,7 +19,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.views.ImagePreviewDialog
+import org.wikipedia.commons.ImagePreviewDialog
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 
 class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback {

@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
@@ -25,7 +24,7 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
         _uiState.value = Resource.Error(throwable)
     }
     private val allowEdit = bundle.getBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT, true)
-    val pageTitle: PageTitle = bundle.parcelable(Constants.ARG_TITLE)!!
+    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     var pageSummaryForEdit: PageSummaryForEdit? = null
 
     private val _uiState = MutableStateFlow(Resource<FilePage>())
@@ -40,15 +39,20 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(handler) {
             var isFromCommons = false
             var firstPage = ServiceFactory.get(Constants.commonsWikiSite)
-                .getImageInfoWithEntityTerms(pageTitle.prefixedText, pageTitle.wikiSite.languageCode,
-                    LanguageUtil.convertToUselangIfNeeded(pageTitle.wikiSite.languageCode)).query?.firstPage()
+                .getImageInfoWithEntityTerms(
+                    pageTitle.prefixedText, pageTitle.wikiSite.languageCode,
+                    LanguageUtil.convertToUselangIfNeeded(pageTitle.wikiSite.languageCode)
+                ).query?.firstPage()
 
             // set image caption to pageTitle description
             pageTitle.description = firstPage?.entityTerms?.label?.firstOrNull()
             if (firstPage?.imageInfo() == null) {
                 // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                 firstPage = ServiceFactory.get(pageTitle.wikiSite)
-                    .getImageInfoSuspend(pageTitle.prefixedText, pageTitle.wikiSite.languageCode).query?.firstPage()
+                    .getImageInfoSuspend(
+                        pageTitle.prefixedText,
+                        pageTitle.wikiSite.languageCode
+                    ).query?.firstPage()
             } else {
                 // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
                 isFromCommons = !(firstPage.isImageShared)
@@ -60,7 +64,8 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                     pageTitle.wikiSite.languageCode,
                     pageTitle,
                     pageTitle.displayText,
-                    StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString().ifBlank { null },
+                    StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString()
+                        .ifBlank { null },
                     imageInfo.thumbUrl,
                     null,
                     null,
@@ -69,8 +74,17 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                     imageInfo.metadata
                 )
 
-                val imageTagsResponse = async { ImageTagsProvider.getImageTags(firstPage.pageId, pageSummaryForEdit!!.lang) }
-                val isEditProtected = async { ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfoSuspend(pageTitle.prefixedText).query?.isEditProtected ?: false }
+                val imageTagsResponse = async {
+                    ImageTagsProvider.getImageTags(
+                        firstPage.pageId,
+                        pageSummaryForEdit!!.lang
+                    )
+                }
+                val isEditProtected = async {
+                    ServiceFactory.get(Constants.commonsWikiSite)
+                        .getProtectionInfoSuspend(pageTitle.prefixedText).query?.isEditProtected
+                        ?: false
+                }
 
                 val filePage = FilePage().apply {
                     imageFromCommons = isFromCommons
@@ -87,16 +101,6 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                 _uiState.value = Resource.Error(Throwable("No image info found."))
             }
         }
-    }
-
-    class FilePage {
-        var thumbnailWidth = 0
-        var thumbnailHeight = 0
-        var imageFromCommons = false
-        var showEditButton = false
-        var showFilename = false
-        var page = MwQueryPage()
-        var imageTags = emptyMap<String, List<String>>()
     }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {

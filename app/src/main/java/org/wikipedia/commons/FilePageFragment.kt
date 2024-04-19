@@ -94,7 +94,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
         binding.progressBar.visibility = View.VISIBLE
     }
 
-    private fun onSuccess(filePage: FilePageViewModel.FilePage) {
+    private fun onSuccess(filePage: FilePage) {
         viewModel.pageSummaryForEdit?.let {
             binding.filePageView.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
