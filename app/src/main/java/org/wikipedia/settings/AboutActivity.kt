@@ -4,6 +4,15 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Text
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.descendants
 import org.wikipedia.BuildConfig
@@ -12,6 +21,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityAboutBinding
 import org.wikipedia.richtext.setHtml
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 
 class AboutActivity : BaseActivity() {
 
@@ -31,8 +41,27 @@ class AboutActivity : BaseActivity() {
         binding.aboutContainer.descendants.filterIsInstance<TextView>().forEach {
             it.movementMethod = LinkMovementMethodCompat.getInstance()
         }
-        binding.sendFeedbackText.setOnClickListener {
-            FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
+
+        binding.sendFeedbackTextCompose.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                FilledTonalButton(
+                    onClick = {
+                        FeedbackUtil.composeFeedbackEmail(this@AboutActivity, "Android App ${BuildConfig.VERSION_NAME} Feedback")
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(ResourceUtil.getThemedColor(this@AboutActivity, R.attr.background_color)))
+                ) {
+                    // TODO: needs to convert xml style to Compose Style method/class.
+                    Text(
+                        text = getString(R.string.send_feedback),
+                        style = TextStyle(
+                            fontSize = TextUnit(16f, TextUnitType.Sp),
+                            fontWeight = FontWeight.Medium,
+                            color = Color(ResourceUtil.getThemedColor(this@AboutActivity, R.attr.progressive_color))
+                        )
+                    )
+                }
+            }
         }
     }
 

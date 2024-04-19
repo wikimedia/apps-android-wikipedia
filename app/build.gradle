@@ -63,7 +63,13 @@ android {
     buildFeatures {
         viewBinding true
         buildConfig true
+        compose true
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.11"
+    }
+
 
     androidResources {
         generateLocaleConfig = true
@@ -184,6 +190,7 @@ dependencies {
     String espressoVersion = '3.5.1'
     String serialization_version = '1.6.3'
     String metricsVersion = '2.4'
+    def composeBom = platform('androidx.compose:compose-bom:2024.04.01')
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
@@ -238,6 +245,16 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation "androidx.room:room-rxjava3:$roomVersion"
 
+    // Jetpack Compose
+    implementation composeBom
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.activity:activity-compose:1.9.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
     // For language detection during editing
     prodImplementation "com.google.mlkit:language-id:$mlKitVersion"
     betaImplementation "com.google.mlkit:language-id:$mlKitVersion"
@@ -270,6 +287,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0'
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
+    androidTestImplementation composeBom
     androidTestUtil 'androidx.test:orchestrator:1.4.2'
 }
 
