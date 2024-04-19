@@ -1136,7 +1136,7 @@
     <string name="image_recommendation_reject">No</string>
     <string name="image_recommendation_notsure">Not sure</string>
     <string name="image_recommendation_reject_title">Publicly reject?</string>
-    <string name="image_recommendation_reject_subtitle">While your rejection is public, the rejection reason is anonymous and will improve future image suggestions.</string>
+    <string name="image_recommendation_reject_subtitle">While this action is public, the rejection reason is anonymous and will improve future image suggestions.</string>
     <string name="image_recommendation_reject_not_relevant">Image is not relevant</string>
     <string name="image_recommendation_reject_no_info">Not enough information to decide</string>
     <string name="image_recommendation_reject_offensive">Image is offensive</string>
