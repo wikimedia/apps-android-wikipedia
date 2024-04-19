@@ -28,7 +28,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private val binding get() = _binding!!
     private val viewModel: ImagePreviewViewModel by viewModels { ImagePreviewViewModel.Factory(requireArguments()) }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImagePreviewBinding.inflate(inflater, container, false)
         setConditionalLayoutDirection(binding.root, viewModel.pageSummaryForEdit.lang)
