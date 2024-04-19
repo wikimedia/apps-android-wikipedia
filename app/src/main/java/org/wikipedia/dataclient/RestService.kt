@@ -84,9 +84,9 @@ interface RestService {
     @GET("page/definition/{title}")
     fun getDefinition(@Path("title") title: String): Observable<Map<String, List<RbDefinition.Usage>>>
 
-    @get:GET("page/random/summary")
-    @get:Headers("Accept: $ACCEPT_HEADER_SUMMARY")
-    val randomSummary: Observable<PageSummary>
+    @GET("page/random/summary")
+    @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
+    suspend fun getRandomSummary(): PageSummary
 
     @GET("page/media-list/{title}/{revision}")
     fun getMediaList(
