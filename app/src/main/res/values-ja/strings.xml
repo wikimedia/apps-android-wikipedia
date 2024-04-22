@@ -1103,8 +1103,8 @@
   <string name="image_recommendation_accept">はい</string>
   <string name="image_recommendation_reject">いいえ</string>
   <string name="image_recommendation_notsure">わからない</string>
-  <string name="image_recommendation_reject_title">なぜだめですか？</string>
-  <string name="image_recommendation_reject_subtitle">あなたの回答により、将来の提案が改善されます。</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">なぜだめですか？</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">あなたの回答により、将来の提案が改善されます。</string>
   <string name="image_recommendation_reject_not_relevant">関連する画像ではありません</string>
   <string name="image_recommendation_reject_no_info">判断するのに十分な情報がありません</string>
   <string name="image_recommendation_reject_offensive">不快な画像です</string>

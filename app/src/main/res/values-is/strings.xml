@@ -1052,8 +1052,8 @@
   <string name="image_recommendation_accept">Já</string>
   <string name="image_recommendation_reject">Nei</string>
   <string name="image_recommendation_notsure">Ekki viss</string>
-  <string name="image_recommendation_reject_title">Af hverju ekki?</string>
-  <string name="image_recommendation_reject_subtitle">Svör þínar bæta tillögur í framtíðinni.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Af hverju ekki?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Svör þínar bæta tillögur í framtíðinni.</string>
   <string name="image_recommendation_reject_not_relevant">Mynd er ekki viðeigandi</string>
   <string name="image_recommendation_reject_no_info">Ekki nægar upplýsingar til að ákveða</string>
   <string name="image_recommendation_reject_offensive">Myndin er ögrandi</string>

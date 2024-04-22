@@ -187,7 +187,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Terusin sonder surlès</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tambahin aderès surlès</string>
   <string name="create_account_button">Keja rèkening</string>
-  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang bèda.</string>
+  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang béda.</string>
   <string name="create_account_ip_block_message">Maap, lu punya aderès IP sekarang ni lagi digibang deri pengejaan rèkening baru.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Tètèk bengèk</string>
@@ -1046,8 +1046,8 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Kaga\'</string>
   <string name="image_recommendation_notsure">Kaga\' yakin</string>
-  <string name="image_recommendation_reject_title">Ngapa kaga\'?</string>
-  <string name="image_recommendation_reject_subtitle">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ngapa kaga\'?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
   <string name="image_recommendation_reject_not_relevant">Gambar kaga\' nyambung</string>
   <string name="image_recommendation_reject_no_info">Kaga\' cukup pengabaran bakal nentuin</string>
   <string name="image_recommendation_reject_offensive">Gambarnya nyinggung</string>

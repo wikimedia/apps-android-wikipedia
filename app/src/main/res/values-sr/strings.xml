@@ -1067,7 +1067,7 @@
   <string name="image_recommendation_reject">Не</string>
   <string name="image_recommendation_notsure">Нисам сигуран</string>
   <string name="image_recommendation_reject_title">Зашто не?</string>
-  <string name="image_recommendation_reject_subtitle">Ваши одговори унапређују будуће предлоге.</string>
+  <string name="image_recommendation_reject_subtitle">Ваши одговори су анонимни и унапређују будуће предлоге.</string>
   <string name="image_recommendation_reject_not_relevant">Слика није релевантна</string>
   <string name="image_recommendation_reject_no_info">Недовољно информација за одлуку</string>
   <string name="image_recommendation_reject_offensive">Слика је увредљива</string>
@@ -1556,6 +1556,7 @@
   <string name="patroller_onboarding_two_thank_content">Видите продуктивну измену? Захвалите се кориснику за његов допринос.</string>
   <string name="patroller_onboarding_two_watch_title">Надгледај</string>
   <string name="patroller_onboarding_two_watch_content">Да ли желите да пратите измене чланка? Додајте га на свој списак надгледања. Погледајте га под \'Више\'.</string>
+  <string name="patroller_onboarding_two_talk_title">Разговор</string>
   <string name="patroller_onboarding_two_undo_title">Поништи/врати</string>
   <string name="patroller_onboarding_two_undo_content">Одаберите \'Поништи\' да би сте поништили или вратили потенционалну деструктивну измену.</string>
   <string name="patroller_diff_feedback_dialog_title">Помозите нам да унапредимо ову могућност</string>
@@ -1585,6 +1586,20 @@
   <string name="donation_campaign_donated_snackbar">Хвала, драги донаторе! Ваша великодушност помаже да Википедија и њени сестрински сајтови буду успешни.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори у прегледачу</string>
+  <string name="donate_gpay_dialog_title">Донирајте путем Google Pay-а?</string>
+  <string name="donate_gpay_dialog_description">Донирајте путем Google Pay-а или одаберите други начин плаћања.</string>
+  <string name="donate_gpay_dialog_pay_button">Донирајте путем Google Pay-а</string>
+  <string name="donate_gpay_dialog_other_button">Други начини донирања</string>
+  <string name="donate_gpay_activity_title">Изаберите износ</string>
+  <string name="donate_gpay_check_recurring">Донирај аутоматски сваког месеца.</string>
+  <string name="donate_gpay_check_send_email">Да, нека ми Задужбина Викимедија периодично шаље имејлове.</string>
+  <string name="donate_gpay_minimum_amount">Изаберите износ (најмање %s)</string>
+  <string name="donate_gpay_maximum_amount">Нисмо у могућности да прихватимо донације веће од %s путем наше апликације. Контактирајте наш тим за поклоне на benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Хвала пуно!&lt;/b&gt; Ваша великодушност ка Википедији значи нам много.</string>
+  <string name="donate_gpay_help_problems">Проблема при донирању?</string>
+  <string name="donate_gpay_help_other_ways">Други начини донирања</string>
+  <string name="donate_gpay_help_faq">Често постављана питања</string>
+  <string name="donate_gpay_help_tax">Подаци о пореским олакшицама</string>
   <string name="places_title">Места</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>

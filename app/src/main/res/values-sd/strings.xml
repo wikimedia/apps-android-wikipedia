@@ -987,8 +987,8 @@
   <string name="image_recommendation_accept">ھا</string>
   <string name="image_recommendation_reject">نہ</string>
   <string name="image_recommendation_notsure">پڪ ناھي</string>
-  <string name="image_recommendation_reject_title">ڇو نہ؟</string>
-  <string name="image_recommendation_reject_subtitle">توھان جا جواب ايندڙ صلاحن کي بھتر ڪن ٿا.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">ڇو نہ؟</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">توھان جا جواب ايندڙ صلاحن کي بھتر ڪن ٿا.</string>
   <string name="image_recommendation_reject_not_relevant">عڪس لاڳاپيل نہ آھي</string>
   <string name="image_recommendation_reject_no_info">فيصلي ڪرڻ لاءِ مناسب معلومات ناھي</string>
   <string name="image_recommendation_reject_offensive">عڪس چڙڏياريندڙ آھي</string>
