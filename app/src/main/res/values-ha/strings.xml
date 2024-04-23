@@ -1058,8 +1058,8 @@
   <string name="image_recommendation_accept">E</string>
   <string name="image_recommendation_reject">A\'a</string>
   <string name="image_recommendation_notsure">Ba tabbatacce ba ne</string>
-  <string name="image_recommendation_reject_title">Me ya sa?</string>
-  <string name="image_recommendation_reject_subtitle">Amsoshinku suna inganta shawarwari na gaba.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Me ya sa?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Amsoshinku suna inganta shawarwari na gaba.</string>
   <string name="image_recommendation_reject_not_relevant">Hoton ba ya dace</string>
   <string name="image_recommendation_reject_no_info">Babu isasshen bayani don yanke shawara</string>
   <string name="image_recommendation_reject_offensive">Hoton yana da banƙyama</string>

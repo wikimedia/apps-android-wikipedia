@@ -664,7 +664,7 @@
   <string name="suggested_edits_image_recommendations_task_title">Статьян сӱретше</string>
   <string name="image_recommendation_accept">Туге</string>
   <string name="image_recommendation_reject">Уке</string>
-  <string name="image_recommendation_reject_title">Молан уке?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Молан уке?</string>
   <string name="image_recommendation_reject_offensive">Сӱрет шӱктарыше улеш</string>
   <string name="image_recommendation_reject_low_quality">Уда сайлыкан сӱрет</string>
   <string name="image_recommendation_reject_other">Моло</string>

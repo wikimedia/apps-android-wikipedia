@@ -1052,8 +1052,8 @@
   <string name="image_recommendation_accept">Әйе</string>
   <string name="image_recommendation_reject">Юк</string>
   <string name="image_recommendation_notsure">Җавап бирергә кыенсынам</string>
-  <string name="image_recommendation_reject_title">Ник булмасын?</string>
-  <string name="image_recommendation_reject_subtitle">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ник булмасын?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
   <string name="image_recommendation_reject_not_relevant">Сурәтнең катнашы юк</string>
   <string name="image_recommendation_reject_no_info">Карар кабул итү өчен җитәрлек мәгълүмат юк</string>
   <string name="image_recommendation_reject_offensive">Сурәт мыскыллы</string>

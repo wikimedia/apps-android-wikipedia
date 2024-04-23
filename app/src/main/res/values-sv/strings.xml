@@ -1094,8 +1094,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nej</string>
   <string name="image_recommendation_notsure">Inte säker</string>
-  <string name="image_recommendation_reject_title">Varför inte?</string>
-  <string name="image_recommendation_reject_subtitle">Dina svar förbättrar kvaliteten på framtida förslag.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Varför inte?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Dina svar förbättrar kvaliteten på framtida förslag.</string>
   <string name="image_recommendation_reject_not_relevant">Bilden är inte relevant</string>
   <string name="image_recommendation_reject_no_info">Inte tillräckligt med information för att avgöra</string>
   <string name="image_recommendation_reject_offensive">Bilden är kränkande</string>

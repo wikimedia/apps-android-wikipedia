@@ -1149,8 +1149,8 @@
   <string name="image_recommendation_accept">Так</string>
   <string name="image_recommendation_reject">Ні</string>
   <string name="image_recommendation_notsure">Не впевнений</string>
-  <string name="image_recommendation_reject_title">Чому ні?</string>
-  <string name="image_recommendation_reject_subtitle">Ваші відповіді допоможуть покращити наступні пропозиції.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Чому ні?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Ваші відповіді допоможуть покращити наступні пропозиції.</string>
   <string name="image_recommendation_reject_not_relevant">Зображення не релевантне</string>
   <string name="image_recommendation_reject_no_info">Недостатньо інформації, щоб прийняти рішення</string>
   <string name="image_recommendation_reject_offensive">Зображення образливе</string>
