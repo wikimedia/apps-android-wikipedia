@@ -7,8 +7,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.LanguageUtil
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.staticdata.ContributionsNameData
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
@@ -72,7 +72,7 @@ data class PageTitle(
 
     val isMainPage: Boolean
         get() {
-            val mainPageTitle = SiteInfoClient.getMainPageForLang(wikiSite.languageCode)
+            val mainPageTitle = MainPageNameData.valueFor(wikiSite.languageCode)
             return mainPageTitle == displayText
         }
 
@@ -131,7 +131,7 @@ data class PageTitle(
     constructor(title: String?, wiki: WikiSite, thumbUrl: String? = null) :
             this(null, wiki, title.orEmpty(), null, thumbUrl, null, null, null) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
-        var text = title.orEmpty().ifEmpty { SiteInfoClient.getMainPageForLang(wiki.languageCode) }
+        var text = title.orEmpty().ifEmpty { MainPageNameData.valueFor(wiki.languageCode) }
 
         // Split off any fragment (#...) from the title
         var parts = text.split("#".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()

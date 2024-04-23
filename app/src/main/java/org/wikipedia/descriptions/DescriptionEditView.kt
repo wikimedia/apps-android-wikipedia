@@ -67,7 +67,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
     init {
-        FeedbackUtil.setButtonLongPressToast(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton)
+        FeedbackUtil.setButtonTooltip(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton)
         orientation = VERTICAL
         mlKitLanguageDetector.callback = this
 

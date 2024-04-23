@@ -219,8 +219,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
   <string name="about_activity_title">Informus</string>
   <string name="edit_abandon_confirm_yes">Eja</string>

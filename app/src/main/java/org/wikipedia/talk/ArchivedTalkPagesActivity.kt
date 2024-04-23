@@ -88,7 +88,7 @@ class ArchivedTalkPagesActivity : BaseActivity() {
                 val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_ARCHIVED_TALK)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
             }
-            FeedbackUtil.setButtonLongPressToast(it)
+            FeedbackUtil.setButtonTooltip(it)
         }
         supportActionBar?.title = title
     }

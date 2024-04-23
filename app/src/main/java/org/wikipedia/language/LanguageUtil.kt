@@ -7,7 +7,7 @@ import androidx.core.os.LocaleListCompat
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 object LanguageUtil {
 

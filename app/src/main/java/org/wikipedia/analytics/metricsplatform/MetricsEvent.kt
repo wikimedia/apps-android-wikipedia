@@ -11,7 +11,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.ReleaseUtil
 
 open class MetricsEvent {
 
@@ -29,13 +28,11 @@ open class MetricsEvent {
         interactionData: InteractionData?,
         pageData: PageData? = null
     ) {
-        if (ReleaseUtil.isPreProdRelease) {
-            MetricsPlatform.client.submitInteraction(
-                streamName,
-                EVENT_NAME_BASE + eventName,
-                getClientData(pageData),
-                interactionData)
-        }
+        MetricsPlatform.client.submitInteraction(
+            streamName,
+            EVENT_NAME_BASE + eventName,
+            getClientData(pageData),
+            interactionData)
     }
 
     /**
@@ -56,16 +53,14 @@ open class MetricsEvent {
         interactionData: InteractionData?,
         pageData: PageData? = null
     ) {
-        if (ReleaseUtil.isPreProdRelease) {
-            MetricsPlatform.client.submitInteraction(
-                streamName,
-                schemaId,
-                EVENT_NAME_BASE + eventName,
-                getClientData(pageData),
-                interactionData,
-                customData
-            )
-        }
+        MetricsPlatform.client.submitInteraction(
+            streamName,
+            schemaId,
+            EVENT_NAME_BASE + eventName,
+            getClientData(pageData),
+            interactionData,
+            customData
+        )
     }
 
     private fun getClientData(pageData: PageData?): ClientData {

@@ -344,7 +344,6 @@
   <string name="talk_templates_edit_message_dialog_save">پاشەکەفت</string>
   <string name="talk_templates_edit_message_dialog_delete">سڕینەوە</string>
   <string name="talk_templates_edit_message_updated">پەێام وەڕووژکریاێە</string>
-  <string name="patroller_tasks_edits_list_title">پێرست دەسکاریەگان</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">زانیاری وەکاربەر</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">دیین بەشداریەیل وەکاربەر</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">سپاس</string>

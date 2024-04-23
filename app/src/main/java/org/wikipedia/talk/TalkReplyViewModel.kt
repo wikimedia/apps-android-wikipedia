@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -15,25 +18,39 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesRepository
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.log.L
 
 class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
 
     var talkTemplateSaved = false
     val talkTemplatesList = mutableListOf<TalkTemplate>()
-    var selectedTemplate: TalkTemplate? = null
 
     val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     val topic = bundle.parcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
     val isFromDiff = bundle.getBoolean(TalkReplyActivity.EXTRA_FROM_DIFF, false)
-    val isNewTopic = topic == null
+    val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkReplyActivity.EXTRA_SELECTED_TEMPLATE)
+    val isExampleTemplate = bundle.getBoolean(TalkReplyActivity.EXTRA_EXAMPLE_TEMPLATE, false)
+    val templateManagementMode = bundle.getBoolean(TalkReplyActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
+    val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID, -1)
+    val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID, -1)
+    val isNewTopic = topic == null && !isFromDiff
+
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
-    val loadTemplateData = SingleLiveData<Resource<Int>>()
 
     init {
         if (isFromDiff) {
             loadTemplates()
+        }
+    }
+
+    private fun loadTemplates() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            talkTemplatesList.clear()
+            talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
         }
     }
 
@@ -80,16 +97,6 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
                 }
                 saveTemplateData.postValue(Resource.Success(talkTemplate))
             }
-        }
-    }
-
-    fun loadTemplates() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            loadTemplateData.postValue(Resource.Error(throwable))
-        }) {
-            talkTemplatesList.clear()
-            talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
-            loadTemplateData.postValue(Resource.Success(talkTemplatesList.size))
         }
     }
 

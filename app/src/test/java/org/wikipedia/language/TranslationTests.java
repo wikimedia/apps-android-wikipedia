@@ -214,6 +214,13 @@ public class TranslationTests {
             String name = element.attr("name");
             String value = element.text();
 
+            // Exclude pre-packaged messages for use with the patrolling feature, since they are
+            // intended to contain wikitext.
+            // TODO: test these messages separately and more thoroughly.
+            if (name.startsWith("patroller_saved_message_body")) {
+                continue;
+            }
+
             List<Integer> countList = new ArrayList<>();
             for (String param : params) {
                 int count = 0;

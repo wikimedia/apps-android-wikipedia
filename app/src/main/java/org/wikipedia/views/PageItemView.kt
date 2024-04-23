@@ -41,7 +41,7 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
         isFocusable = true
         setOnClickListeners()
         DeviceUtil.setContextClickAsLongClick(this)
-        FeedbackUtil.setButtonLongPressToast(binding.pageListItemAction)
+        FeedbackUtil.setButtonTooltip(binding.pageListItemAction)
     }
 
     override fun setSelected(selected: Boolean) {

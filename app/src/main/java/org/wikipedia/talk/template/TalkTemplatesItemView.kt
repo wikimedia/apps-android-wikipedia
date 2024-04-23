@@ -2,19 +2,22 @@ package org.wikipedia.talk.template
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Build
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
-class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class TalkTemplatesItemView(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
         fun onClick(position: Int)
@@ -41,8 +44,18 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         else ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(talkTemplate: TalkTemplate, position: Int) {
-        binding.listItem.text = talkTemplate.title
+    fun setContents(talkTemplate: TalkTemplate, position: Int, isSaveMessagesTab: Boolean = false) {
+        val nonTemplateMessage = isSaveMessagesTab && position == 0
+        binding.listItemTitle.isVisible = !nonTemplateMessage
+        binding.listItemTitle.text = talkTemplate.subject
+        binding.listItemDescription.text = talkTemplate.message
+        binding.listItemDescription.setTypeface(Typeface.SANS_SERIF, if (nonTemplateMessage) Typeface.ITALIC else Typeface.NORMAL)
+        binding.listItemDescription.isSingleLine = !(nonTemplateMessage)
+        binding.listItem.setBackgroundResource(ResourceUtil.getThemedAttributeId(context,
+            if (nonTemplateMessage) R.attr.background_color else android.R.attr.selectableItemBackground))
+        binding.listItemDescription.ellipsize =
+            if (nonTemplateMessage) null else TextUtils.TruncateAt.END
+
         binding.listItem.setOnClickListener {
             callback?.onClick(position)
         }

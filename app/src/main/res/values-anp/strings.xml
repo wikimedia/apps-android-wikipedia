@@ -182,8 +182,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://anp.wikipedia.org/wiki/विकिपीडिया:एगो_खाता_केरौ_अनुरोध</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ क प्रयोग होलै</string>
   <string name="about_contributors_heading">योगदानकर्ता सिनी</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
@@ -388,8 +388,8 @@
   <string name="notifications_menu_uncheck_all">सब्भे आइटम्स प सँ चयन हटाबौ</string>
   <string name="notifications_wiki_filter_header">विकी चालनी</string>
   <string name="notifications_type_filter_header">प्रकार चालनी</string>
-  <string name="notifications_all_wikis_text">सब्भे \"विकी\"</string>
-  <string name="notifications_all_types_text">सब्भे \"प्रकार\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">सब्भे \"विकी\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">सब्भे \"प्रकार\"</string>
   <string name="notifications_menu_user_talk_page">%s क वार्ता पृष्ठ</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
   <string name="view_random_article_card_title">कोय्यो लेख</string>

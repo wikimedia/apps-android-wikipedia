@@ -117,6 +117,17 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="4dp" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/linkPreviewEditButton"
+                    style="@style/App.Button.Tertiary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/menu_edit_article"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_mode_edit_white_24dp"
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <org.wikipedia.page.linkpreview.LinkPreviewErrorView

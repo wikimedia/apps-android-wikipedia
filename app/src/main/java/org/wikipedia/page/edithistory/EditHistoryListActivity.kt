@@ -389,7 +389,7 @@ class EditHistoryListActivity : BaseActivity() {
                 showFilterOverflowMenu()
             }
 
-            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+            FeedbackUtil.setButtonTooltip(binding.filterByButton)
             binding.root.isVisible = true
         }
 

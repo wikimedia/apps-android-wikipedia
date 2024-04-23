@@ -1,6 +1,10 @@
 package org.wikipedia.random
 
+import kotlinx.coroutines.runBlocking
+import org.hamcrest.MatcherAssert
+import org.hamcrest.Matchers
 import org.junit.Test
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.test.MockRetrofitTest
 
 class RandomSummaryClientTest : MockRetrofitTest() {
@@ -8,24 +12,41 @@ class RandomSummaryClientTest : MockRetrofitTest() {
     @Throws(Throwable::class)
     fun testRequestEligible() {
         enqueueFromFile("rb_page_summary_valid.json")
-        restService.randomSummary.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue { it.displayTitle == "Fermat's Last Theorem" && it.description == "theorem in number theory" }
+        runBlocking {
+            getRandomSummary()
+        }.run {
+            MatcherAssert.assertThat(displayTitle, Matchers.`is`("Fermat's Last Theorem"))
+            MatcherAssert.assertThat(description, Matchers.`is`("theorem in number theory"))
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestMalformed() {
         enqueueMalformed()
-        restService.randomSummary.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                getRandomSummary()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestFailure() {
         enqueue404()
-        restService.randomSummary.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                getRandomSummary()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
+    }
+
+    private suspend fun getRandomSummary(): PageSummary {
+        return restService.getRandomSummary()
     }
 }

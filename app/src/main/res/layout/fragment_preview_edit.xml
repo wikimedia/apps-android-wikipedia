@@ -25,16 +25,15 @@
             android:layout_height="0.5dp"
             android:background="?attr/border_color"/>
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/licenseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:lineSpacingMultiplier="1.2"
-            android:linksClickable="true"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="?attr/secondary_color"
-            android:drawableStart="@drawable/ic_license_cc"
+            app:drawableStartCompat="@drawable/ic_license_cc"
             app:drawableTint="?attr/secondary_color"
             android:drawablePadding="8dp"
             tools:text="Lorem ipsum" />

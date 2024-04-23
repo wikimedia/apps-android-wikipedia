@@ -3,7 +3,7 @@ package org.wikipedia.talk.template
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
 
-class TalkTemplatesRepository constructor(private val talkTemplateDao: TalkTemplateDao) {
+class TalkTemplatesRepository(private val talkTemplateDao: TalkTemplateDao) {
 
     suspend fun getAllTemplates() = talkTemplateDao.getAllTemplates()
 

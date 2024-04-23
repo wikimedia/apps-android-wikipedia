@@ -26,7 +26,8 @@
             android:layout_marginVertical="12dp"
             android:layout_marginHorizontal="16dp"
             android:visibility="gone"
-            android:text="@string/donation_campaign_go_back_button"/>
+            android:text="@string/donation_campaign_go_back_button"
+            tools:visibility="visible"/>
 
     </LinearLayout>
 

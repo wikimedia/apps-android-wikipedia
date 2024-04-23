@@ -16,6 +16,7 @@
 
         <org.wikipedia.views.UserMentionEditText
             android:id="@+id/inputEditText"
+            style="@style/P"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="24dp"
@@ -24,9 +25,7 @@
             android:paddingEnd="4dp"
             android:imeOptions="flagNoExtractUi|actionNone"
             android:inputType="textMultiLine"
-            android:lineSpacingExtra="6sp"
-            android:textColorHighlight="?attr/addition_color"
-            android:textSize="16sp" />
+            android:textColorHighlight="?attr/addition_color" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView

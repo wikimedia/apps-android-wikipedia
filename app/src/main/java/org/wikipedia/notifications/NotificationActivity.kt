@@ -534,7 +534,7 @@ class NotificationActivity : BaseActivity() {
                 resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
             }
 
-            FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
+            FeedbackUtil.setButtonTooltip(notificationFilterButton)
         }
 
         fun updateFilterIconAndCount() {

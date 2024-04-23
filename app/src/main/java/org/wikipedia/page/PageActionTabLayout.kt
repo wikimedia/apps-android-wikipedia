@@ -45,7 +45,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.id = item.viewId
             view.text = context.getString(item.titleResId)
             view.contentDescription = view.text
-            FeedbackUtil.setButtonLongPressToast(view)
+            FeedbackUtil.setButtonTooltip(view)
             TextViewCompat.setCompoundDrawableTintList(view, tintColor)
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)

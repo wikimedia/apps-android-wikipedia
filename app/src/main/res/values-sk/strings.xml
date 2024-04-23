@@ -244,8 +244,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka tímu&lt;/a&gt;</string>
@@ -729,8 +729,8 @@
   <string name="notifications_menu_uncheck_all">Odobrať všetky položky</string>
   <string name="notifications_wiki_filter_header">Wiki filter</string>
   <string name="notifications_type_filter_header">Type filter</string>
-  <string name="notifications_all_wikis_text">Všetky \"wiki\"</string>
-  <string name="notifications_all_types_text">Všetky \"type\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Všetky \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Všetky \"type\"</string>
   <string name="notifications_menu_user_talk_page">Diskusná stránka používateľa %s</string>
   <string name="notifications_offline_disable_message">Funkcia nie je dostupná offline.</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>

@@ -35,7 +35,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -232,7 +231,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         override fun accept(event: Any) {
             if (event is SplitLargeListsEvent) {
                 MaterialAlertDialogBuilder(this@BaseActivity)
-                        .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.maxPagesPerReadingList))
+                        .setMessage(getString(R.string.split_reading_list_message, Constants.MAX_READING_LIST_ARTICLE_LIMIT))
                         .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show()
             } else if (event is ReadingListsNoLongerSyncedEvent) {

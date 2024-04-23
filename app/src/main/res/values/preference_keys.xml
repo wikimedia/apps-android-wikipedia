@@ -27,7 +27,6 @@
     <string name="preference_key_retrofit_log_level">retrofitLog</string>
     <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
     <string name="preference_key_talk_offline_cleanup_task_name">talkOfflineCleanupTask</string>
-    <string name="preference_key_login_user_id_map">userIDMap</string>
     <string name="preference_key_login_groups">groups</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
     <string name="preference_key_last_run_time_format">%s-lastrun</string>
@@ -170,4 +169,5 @@
     <string name="preference_key_show_places_main_nav_onboarding_tooltip_shown">showPlacesMainNavOnboardingTooltip</string>
     <string name="preference_key_places_last_location_and_zoom_level">placesLastLocationAndZoomLevel</string>
     <string name="preference_key_places_show_one_time_survey">placesShowOneTimeSurvey</string>
+    <string name="preference_key_recent_used_templates">recentUsedTemplates</string>
 </resources>

@@ -5,6 +5,8 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 
 @Suppress("unused")
@@ -42,9 +44,12 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle) {
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
                 WikipediaApp.instance.appInstallID, "", editorInterface,
-                INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0,
-                    if (AccountUtil.isLoggedIn) AccountUtil.getUserIdForLanguage(pageTitle.wikiSite.languageCode) else 0,
+                INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0, getUserIdForWikiSite(pageTitle.wikiSite),
                 1, pageTitle.prefixedText, pageTitle.namespace().code())))
+        }
+
+        private fun getUserIdForWikiSite(wikiSite: WikiSite): Int {
+            return if (AccountUtil.isLoggedIn) SharedPreferenceCookieManager.instance.getCookieByName("UserID", wikiSite.authority(), false)?.toIntOrNull() ?: 0 else 0
         }
     }
 }

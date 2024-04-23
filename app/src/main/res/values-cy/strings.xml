@@ -364,7 +364,7 @@
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
   <string name="image_recommendation_accept">Ie</string>
   <string name="image_recommendation_reject">Na</string>
-  <string name="image_recommendation_reject_title">Pam?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Pam?</string>
   <string name="image_recommendation_reject_submit">Cyflwyno</string>
   <string name="edit_summary_added_image">Ychwanegu delwedd</string>
   <string name="insert_media_settings_caption">Pennawd y ddelwedd</string>

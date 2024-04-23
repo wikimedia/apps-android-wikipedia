@@ -32,7 +32,7 @@ class CabSearchView(
         searchCloseBtn = findViewById(androidx.appcompat.R.id.search_close_btn)
         searchCloseBtn.visibility = GONE
         searchCloseBtn.setColorFilter(themedIconColor)
-        FeedbackUtil.setButtonLongPressToast(searchCloseBtn)
+        FeedbackUtil.setButtonTooltip(searchCloseBtn)
         searchSrcTextView.filters += PlainTextInputFilter()
     }
 

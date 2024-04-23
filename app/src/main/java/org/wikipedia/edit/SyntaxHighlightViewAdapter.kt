@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import org.wikipedia.Constants
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.edit.templates.TemplatesSearchActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -61,6 +62,15 @@ class SyntaxHighlightViewAdapter(
         }
     }
 
+    private val requestInsertTemplate = activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == TemplatesSearchActivity.RESULT_INSERT_TEMPLATE_SUCCESS) {
+            it.data?.let { data ->
+                val newWikiText = data.getStringExtra(TemplatesSearchActivity.RESULT_WIKI_TEXT)
+                editText.inputConnection?.commitText(newWikiText, 1)
+            }
+        }
+    }
+
     override fun onPreviewLink(title: String) {
         val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK))
         ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, dialog)
@@ -79,6 +89,10 @@ class SyntaxHighlightViewAdapter(
         requestInsertMedia.launch(InsertMediaActivity.newIntent(activity, pageTitle.wikiSite,
             if (invokeSource == Constants.InvokeSource.EDIT_ACTIVITY) pageTitle.displayText else "",
             invokeSource))
+    }
+
+    override fun onRequestInsertTemplate() {
+        requestInsertTemplate.launch(TemplatesSearchActivity.newIntent(activity, pageTitle.wikiSite, invokeSource))
     }
 
     override fun onRequestInsertLink() {

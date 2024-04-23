@@ -300,7 +300,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                     deleteSelectedPages()
                 }
             }
-            FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton)
+            FeedbackUtil.setButtonTooltip(historyFilterButton, clearHistoryButton)
             adjustSearchCardView(searchCardView)
         }
     }

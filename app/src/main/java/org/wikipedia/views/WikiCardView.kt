@@ -15,24 +15,21 @@ open class WikiCardView(context: Context, attrs: AttributeSet? = null) : Materia
 
     init {
         if (!isInEditMode) {
-            val (hasBorder, cardRadius, elevation) = context
+            val (hasBorder, elevation) = context
                 .obtainStyledAttributes(attrs, R.styleable.WikiCardView)
                 .use {
-                    Triple(
+                    Pair(
                         it.getBoolean(R.styleable.WikiCardView_hasBorder, true),
-                        it.getDimension(R.styleable.WikiCardView_radius,
-                            context.resources.getDimension(R.dimen.wiki_card_radius)),
                         it.getDimension(R.styleable.WikiCardView_elevation,
                             DimenUtil.dpToPx(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) 8f else 2f))
                     )
                 }
 
-            setup(cardRadius, elevation, hasBorder)
+            setup(elevation, hasBorder)
         }
     }
 
-    private fun setup(cardRadius: Float, elevation: Float, hasBorder: Boolean) {
-        radius = cardRadius
+    private fun setup(elevation: Float, hasBorder: Boolean) {
         if (hasBorder) {
             setDefaultBorder()
         }

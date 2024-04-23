@@ -15,6 +15,11 @@
         app:showAsAction="ifRoom">
         <menu>
             <item
+                android:id="@+id/menu_saved_messages"
+                android:title="@string/talk_warn_saved_messages"
+                android:icon="@drawable/ic_manage_template"
+                app:iconTint="?attr/secondary_color" />
+            <item
                 android:id="@+id/menu_report_feature"
                 android:title="@string/patroller_tasks_overflow_report"
                 android:icon="@drawable/ic_report_flag"

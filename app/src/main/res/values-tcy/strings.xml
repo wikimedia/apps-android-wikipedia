@@ -379,4 +379,6 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ಬಾಸೆನ್ ಸೇರಾಲೆ</string>
   <string name="edit_type_all">ಮಾತ ಕಾನಿಕೆಲು</string>
   <string name="preview_edit_summarize_edit_hint">ಈರ್ ಇ ಪುಟೊನ್ ವಾ ನಮೂಡೆಡ್ ಎಡ್ಡೆ ಮಲ್ತರ್?</string>
+  <string name="patroller_saved_message_title_art_imp">ಲೇಕನ ಸುದಾರಣೆ ಸಲಹೆ</string>
+  <string name="talk_templates_menu_edit_title">ಸಂಪೊಲಿಪುಲೆ</string>
 </resources>

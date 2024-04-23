@@ -245,8 +245,8 @@
   <string name="preference_title_notification_poll">ꯅꯣꯇꯤꯐꯤꯀꯦꯁꯟꯁꯤꯡ ꯃꯆꯩ</string>
   <string name="preference_title_notification_thanks">ꯊꯥꯒꯠꯆꯔꯤ</string>
   <string name="preference_summary_notification_thanks">ꯀꯅꯥꯒꯨꯝꯕ ꯑꯃꯅꯥ ꯅꯪꯒꯤ ꯁꯦꯝꯒꯠꯄꯗꯨ ꯊꯥꯒꯠꯂꯛꯂꯤ</string>
-  <string name="notifications_all_wikis_text">\"ꯋꯤꯀꯤ\" ꯄꯨꯂꯞ</string>
-  <string name="notifications_all_types_text">\"ꯃꯈꯜ\" ꯄꯨꯂꯞ</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"ꯋꯤꯀꯤ\" ꯄꯨꯂꯞ</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"ꯃꯈꯜ\" ꯄꯨꯂꯞ</string>
   <string name="notifications_menu_user_talk_page">%sꯒꯤ ꯋꯥ ꯍꯥꯏꯐꯝ ꯂꯃꯥꯏ</string>
   <string name="view_main_page_card_title">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥꯗ ꯉꯁꯤ</string>
   <string name="view_main_page_card_action">ꯃꯔꯨꯑꯣꯏꯕ ꯂꯃꯥꯏ ꯌꯦꯡꯉꯨ</string>

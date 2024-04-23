@@ -224,14 +224,14 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Erabilitako liburutegiak</string>
   <string name="about_contributors_heading">Ekarleak</string>
   <string name="about_translators_heading">Itzultzaileak</string>
   <string name="about_translators_translatewiki">Aplikazio hau boluntarioek itzuli dute hementxe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lizentzia</string>
-  <string name="about_app_license">Iturburu kodea eskuragarri &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;-en eta &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-en &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lizentziapean&lt;/a&gt;. Bestela zehazten ez bada, edukia &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Creative Commons Aitortu-PartekatuBerdin Lizentziapean&lt;/a&gt; dago eskuragarri.</string>
+  <string name="about_app_license" fuzzy="true">Iturburu kodea eskuragarri &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;-en eta &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-en &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lizentziapean&lt;/a&gt;. Bestela zehazten ez bada, edukia &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Creative Commons Aitortu-PartekatuBerdin Lizentziapean&lt;/a&gt; dago eskuragarri.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
   <string name="edit_abandon_confirm">Orrialde honek aldaketak jasan ditu. Ziur zaude zure aldaketak gorde gabe irten nahi duzula?</string>

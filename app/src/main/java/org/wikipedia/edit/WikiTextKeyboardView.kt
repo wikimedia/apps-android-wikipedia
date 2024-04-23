@@ -19,6 +19,7 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
         fun onPreviewLink(title: String)
         fun onRequestInsertMedia()
         fun onRequestInsertLink()
+        fun onRequestInsertTemplate()
         fun onRequestHeading()
         fun onRequestFormatting()
         fun onSyntaxOverlayCollapse()
@@ -64,9 +65,7 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
         }
 
         binding.wikitextButtonTemplate.setOnClickListener {
-            editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(editText, it, "{{", "}}")
-            }
+            callback?.onRequestInsertTemplate()
         }
 
         binding.wikitextButtonRef.setOnClickListener {
