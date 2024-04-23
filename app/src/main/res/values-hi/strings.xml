@@ -1077,8 +1077,8 @@
   <string name="image_recommendation_tutorial">अनुशिक्षण</string>
   <string name="image_recommendation_accept">हाँ</string>
   <string name="image_recommendation_reject">नहीं</string>
-  <string name="image_recommendation_reject_title">क्यों नहीं?</string>
-  <string name="image_recommendation_reject_subtitle">आपका उत्तर आनेवाले सजेशंस में सुधार कर सकता है|</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">क्यों नहीं?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">आपका उत्तर आनेवाले सजेशंस में सुधार कर सकता है|</string>
   <string name="image_recommendation_reject_not_relevant">ईमेज रिलेवेंट नहीं है</string>
   <string name="image_recommendation_reject_no_info">डिसाइड करने के लिए यह जानकारी काफी नहीं है</string>
   <string name="image_recommendation_reject_offensive">ईमेज ऑफेंसिव है</string>

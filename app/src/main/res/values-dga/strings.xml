@@ -1027,8 +1027,8 @@
   <string name="image_recommendation_accept">Ɔɔ</string>
   <string name="image_recommendation_reject">Aayi</string>
   <string name="image_recommendation_notsure">Ba sage di baare</string>
-  <string name="image_recommendation_reject_title">Boŋ zuiŋ?</string>
-  <string name="image_recommendation_reject_subtitle">Fo nɔ-iri baa la nandaare teɛrɛ.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Boŋ zuiŋ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Fo nɔ-iri baa la nandaare teɛrɛ.</string>
   <string name="image_recommendation_reject_not_relevant">Enfuoni ba taa tɔna</string>
   <string name="image_recommendation_reject_no_info">Duoro ba seŋ bone na teɛre</string>
   <string name="image_recommendation_reject_offensive">Enfuoni ŋmaara la doŋ</string>
@@ -1159,6 +1159,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Wogiroŋ</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">De eŋ</string>
+  <string name="templates_param_suggested_value">Aseŋ %s</string>
   <string name="main_drawer_help">Soŋ</string>
   <string name="main_drawer_login">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
   <string name="main_tooltip_text">Hi %s, fo baŋ ka neɛzaa na baŋ maale la Wikipiideɛ eŋ?</string>
@@ -1455,6 +1456,8 @@
   <string name="patroller_onboarding_one_content">Zɛgere wikipiideɛ yelbulo papa ne deedee duori maale eŋ paala leɛkaabo ane hakelɛ teɛbo, soŋguubo ane korɔ maale enneba eŋyuori.</string>
   <string name="patroller_onboarding_two_thank_title">Bareka</string>
   <string name="patroller_onboarding_two_watch_title">Bɛll</string>
+  <string name="patroller_onboarding_two_talk_title">Yeli</string>
+  <string name="patroller_onboarding_two_talk_content">Yeli yɛlɛ ne fo maale eŋ taaba. Biŋ tontona yelyeli peegyi tonaa naŋ pore duoro bee toŋ ne tɛmplɛte.</string>
   <string name="patroller_onboarding_two_undo_title">Leɛ e/leɛ puori</string>
   <string name="patroller_diff_feedback_dialog_title">Soŋ te baa nandaa ŋa</string>
   <string name="patroller_diff_feedback_dialog_message">A nandaa ŋa sege fo laa?</string>

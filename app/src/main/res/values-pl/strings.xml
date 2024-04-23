@@ -996,8 +996,8 @@
   <string name="image_recommendation_accept">Tak</string>
   <string name="image_recommendation_reject">Nie</string>
   <string name="image_recommendation_notsure">Nie jestem pewien</string>
-  <string name="image_recommendation_reject_title">Dlaczego nie?</string>
-  <string name="image_recommendation_reject_subtitle">Twoje odpowiedzi ulepszają przyszłe sugestie.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Dlaczego nie?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Twoje odpowiedzi ulepszają przyszłe sugestie.</string>
   <string name="image_recommendation_reject_not_relevant">Obraz nie jest istotny</string>
   <string name="image_recommendation_reject_no_info">Za mało informacji, żeby podjąć decyzję</string>
   <string name="image_recommendation_reject_offensive">Obraz jest obraźliwy</string>
