@@ -740,7 +740,7 @@
   <string name="image_recommendation_accept">Bəle</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Cətine vote</string>
-  <string name="image_recommendation_reject_title">Buci ne?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Buci ne?</string>
   <string name="image_recommendation_reject_other">Čo</string>
   <string name="image_recommendation_reject_submit">Vyǧandej</string>
   <string name="image_recommendation_tooltip_next">Dumotono šə</string>

@@ -1138,8 +1138,8 @@
   <string name="image_recommendation_accept">Da</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Nisem prepričan_a</string>
-  <string name="image_recommendation_reject_title">Zakaj ne?</string>
-  <string name="image_recommendation_reject_subtitle">Vaši odgovori izboljšujej prihodnje predloge.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Zakaj ne?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Vaši odgovori izboljšujej prihodnje predloge.</string>
   <string name="image_recommendation_reject_not_relevant">Slika ni relevantna</string>
   <string name="image_recommendation_reject_no_info">Ni dovolj informacij za odločitev</string>
   <string name="image_recommendation_reject_offensive">Slika je žaljiva</string>

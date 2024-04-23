@@ -1057,8 +1057,8 @@
   <string name="image_recommendation_accept">Эйе</string>
   <string name="image_recommendation_reject">Юҡ</string>
   <string name="image_recommendation_notsure">Яуап бирергә ҡыйынһынам</string>
-  <string name="image_recommendation_reject_title">Ни өсөн юҡ?</string>
-  <string name="image_recommendation_reject_subtitle">Һеҙҙең яуаптарығыҙ кәңәштәрҙең сифатын яҡшыртасаҡ.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ни өсөн юҡ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Һеҙҙең яуаптарығыҙ кәңәштәрҙең сифатын яҡшыртасаҡ.</string>
   <string name="image_recommendation_reject_not_relevant">Рәсем көнүҙәк түгел</string>
   <string name="image_recommendation_reject_no_info">Ҡарар сығарыу өсөн мәғлүмәт етешмәй</string>
   <string name="image_recommendation_reject_offensive">Мыҫҡыллы һүрәт</string>

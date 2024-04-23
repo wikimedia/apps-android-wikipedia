@@ -1101,8 +1101,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nee</string>
   <string name="image_recommendation_notsure">Niet zeker</string>
-  <string name="image_recommendation_reject_title">Waarom niet?</string>
-  <string name="image_recommendation_reject_subtitle">Uw antwoorden verbeteren toekomstige suggesties.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Waarom niet?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Uw antwoorden verbeteren toekomstige suggesties.</string>
   <string name="image_recommendation_reject_not_relevant">Afbeelding is niet relevant</string>
   <string name="image_recommendation_reject_no_info">Onvoldoende informatie om te beslissen</string>
   <string name="image_recommendation_reject_offensive">De afbeelding is aanstootgevend</string>

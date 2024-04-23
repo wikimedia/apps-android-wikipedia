@@ -1122,8 +1122,8 @@
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
-  <string name="image_recommendation_reject_title">¿Por qué no?</string>
-  <string name="image_recommendation_reject_subtitle">Tu respuesta puede mejorar futuras sugerencias.</string>
+  <string name="image_recommendation_reject_title">Motivo del rechazo</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Tu respuesta puede mejorar futuras sugerencias.</string>
   <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
   <string name="image_recommendation_reject_no_info">No hay información suficiente para decidir</string>
   <string name="image_recommendation_reject_offensive">La imagen es ofensiva</string>
@@ -1467,6 +1467,16 @@
   <string name="data_opt_in_reject">Rechazar</string>
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
+  <string name="donate_gpay_dialog_title">¿Donar con Google Pay?</string>
+  <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Otro método de pago</string>
+  <string name="donate_gpay_check_recurring">Hacer de esta una donación mensual periódica.</string>
+  <string name="donate_gpay_minimum_amount">Por favor elegir una cantidad (mínimo %s)</string>
+  <string name="donate_gpay_maximum_amount">No podemos aceptar donaciones superiores a %s a través de nuestra aplicación. Contacte a nuestro personal de donaciones importantes en benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;¡Gracias!&lt;/b&gt; Su generosidad con Wikipedia significa mucho para nosotros.</string>
+  <string name="donate_gpay_help_problems">¿Problemas para donar?</string>
+  <string name="donate_gpay_help_faq">Preguntas frecuentes</string>
+  <string name="donate_gpay_help_tax">Información sobre desgravación de impuestos</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_survey_dialog_cancel">Cancelar</string>

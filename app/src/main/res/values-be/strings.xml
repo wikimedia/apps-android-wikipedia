@@ -1141,8 +1141,8 @@
   <string name="image_recommendation_accept">Так</string>
   <string name="image_recommendation_reject">Не</string>
   <string name="image_recommendation_notsure">Не ўпэўнены</string>
-  <string name="image_recommendation_reject_title">Чаму не?</string>
-  <string name="image_recommendation_reject_subtitle">Вашы адказы паляпшаюць будучыя прапановы.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Чаму не?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Вашы адказы паляпшаюць будучыя прапановы.</string>
   <string name="image_recommendation_reject_not_relevant">Відарыс недарэчны</string>
   <string name="image_recommendation_reject_no_info">Недастаткова інфармацыі, каб прыняць рашэнне</string>
   <string name="image_recommendation_reject_offensive">Відарыс абразлівы</string>

@@ -1077,8 +1077,8 @@
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
   <string name="image_recommendation_notsure">No n\'estic segur</string>
-  <string name="image_recommendation_reject_title">Per què no?</string>
-  <string name="image_recommendation_reject_subtitle">Les vostres respostes milloren suggeriments futurs.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Per què no?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Les vostres respostes milloren suggeriments futurs.</string>
   <string name="image_recommendation_reject_not_relevant">La imatge no és rellevant</string>
   <string name="image_recommendation_reject_no_info">No hi ha prou informació per a decidir</string>
   <string name="image_recommendation_reject_offensive">La imatge és ofensiva</string>

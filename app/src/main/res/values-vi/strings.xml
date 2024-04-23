@@ -965,7 +965,7 @@
   </plurals>
   <string name="image_recommendation_tutorial">Hướng dẫn</string>
   <string name="image_recommendation_reject">Không</string>
-  <string name="image_recommendation_reject_title">Tại sao không?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Tại sao không?</string>
   <string name="image_recommendation_tooltip_next">Kế tiếp</string>
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
