@@ -1284,7 +1284,7 @@
   <string name="talk_last_modified">&lt;b&gt;Ахыр тюзетиу %1$s датада&lt;/b&gt; %2$s этди</string>
   <string name="talk_snackbar_survey_text">Сюзюу бетлени хайырланнганыгъыз ючюн сау болугъуз. Анкетагъа къошулуб, къошакъны маджаллашдырыуубузгъа болушурмусуз?</string>
   <string name="talk_snackbar_survey_action_text">Башла</string>
-  <string name="talk_share_discussion_subject">Википедия - сюзюу бетдеги \"%s%\" темада сюзюу</string>
+  <string name="talk_share_discussion_subject">Википедия - сюзюу бетдеги \"%s\" темада сюзюу</string>
   <string name="talk_share_talk_page">Википедия - сюзюу бетдеги сюзюуле</string>
   <string name="talk_edit_disclaimer">Бу сюзюу бетди. Тилейбиз, сюзюу бетни джорукъларына сыйыныгъыз эмда джибергенлеригизни тёрт тильда джазыб, къол салыргъа унутмагъыз: викитекстни хайырланыб, джибергенигигзни ахырына ~~~~ къошугъуз.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://krc.wikipedia.org/wiki/Vikipedi:Сюзюу бет\"&gt;Википедия: Сюзюу бет&lt;/a&gt;</string>
   <string name="talk_search_hint">Бирлдириулени изле</string>
