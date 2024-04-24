@@ -79,6 +79,9 @@
         <!-- Opt out of metrics collection for the System WebView. -->
         <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
 
+        <!-- Necessary for Google Pay API -->
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
+
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
@@ -360,6 +363,9 @@
         <activity
             android:name=".talk.template.TalkTemplatesActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".donate.GooglePayActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"
