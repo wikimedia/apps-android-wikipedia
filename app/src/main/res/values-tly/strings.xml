@@ -740,7 +740,7 @@
   <string name="image_recommendation_accept">Bəle</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Cətine vote</string>
-  <string name="image_recommendation_reject_title">Buci ne?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Buci ne?</string>
   <string name="image_recommendation_reject_other">Čo</string>
   <string name="image_recommendation_reject_submit">Vyǧandej</string>
   <string name="image_recommendation_tooltip_next">Dumotono šə</string>
@@ -1011,7 +1011,6 @@
   <string name="patroller_tasks_overflow_learn">Ve omute</string>
   <string name="patroller_onboarding_two_thank_title">Sepas</string>
   <string name="patroller_onboarding_two_watch_title">Rymuz kardej</string>
-  <string name="patroller_onboarding_two_warn_title">Cocašin</string>
   <string name="data_opt_in_accept">Ǧəbul kardej</string>
   <string name="data_opt_in_reject">Ohaštej</string>
   <string name="page_issues_title">Səhifə problemon</string>

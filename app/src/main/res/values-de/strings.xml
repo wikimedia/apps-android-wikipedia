@@ -1109,8 +1109,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nein</string>
   <string name="image_recommendation_notsure">Nicht sicher</string>
-  <string name="image_recommendation_reject_title">Warum nicht?</string>
-  <string name="image_recommendation_reject_subtitle">Deine Antworten können zukünftige Vorschläge verbessern.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Warum nicht?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Deine Antworten können zukünftige Vorschläge verbessern.</string>
   <string name="image_recommendation_reject_not_relevant">Bild ist nicht zutreffend</string>
   <string name="image_recommendation_reject_no_info">Nicht genügend Informationen für eine Entscheidung</string>
   <string name="image_recommendation_reject_offensive">Bild ist anstößig</string>

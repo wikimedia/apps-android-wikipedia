@@ -1101,8 +1101,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nee</string>
   <string name="image_recommendation_notsure">Niet zeker</string>
-  <string name="image_recommendation_reject_title">Waarom niet?</string>
-  <string name="image_recommendation_reject_subtitle">Uw antwoorden verbeteren toekomstige suggesties.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Waarom niet?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Uw antwoorden verbeteren toekomstige suggesties.</string>
   <string name="image_recommendation_reject_not_relevant">Afbeelding is niet relevant</string>
   <string name="image_recommendation_reject_no_info">Onvoldoende informatie om te beslissen</string>
   <string name="image_recommendation_reject_offensive">De afbeelding is aanstootgevend</string>
@@ -1592,8 +1592,6 @@
   <string name="patroller_onboarding_two_thank_content">Ziet u een productieve bewerking? Bedank een gebruiker voor diens bijdrage.</string>
   <string name="patroller_onboarding_two_watch_title">Volgen</string>
   <string name="patroller_onboarding_two_watch_content">Wilt u de bewerkingen van een artikel bijhouden? Voeg het toe aan uw volglijst. Bekijk het onder ‘Meer’.</string>
-  <string name="patroller_onboarding_two_warn_title">Waarschuwen</string>
-  <string name="patroller_onboarding_two_warn_content">Creëer, verzend en bewaar waarschuwingsberichten op de overlegpagina van een redacteur.</string>
   <string name="patroller_onboarding_two_undo_title">Ongedaan maken/terugdraaien</string>
   <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk schadelijke bewerking ongedaan te maken of terug te draaien.</string>
   <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>

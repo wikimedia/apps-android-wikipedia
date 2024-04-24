@@ -475,7 +475,7 @@
   <string name="image_recommendation_accept">جیا</string>
   <string name="image_recommendation_reject">کو</string>
   <string name="image_recommendation_notsure">پک کائنی</string>
-  <string name="image_recommendation_reject_title">کیوں نہ؟</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">کیوں نہ؟</string>
   <string name="image_recommendation_reject_not_relevant">تصویر غیرمتعلقہ ہے</string>
   <string name="image_recommendation_reject_no_info">فیصلہ کرݨ کیتے کافی معلومات کائنی</string>
   <string name="image_recommendation_reject_other">ٻیا</string>

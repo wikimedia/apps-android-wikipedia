@@ -1063,11 +1063,12 @@
   <string name="suggested_edits_ip_blocked_title">Dirección IP bloqueada</string>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new" fuzzy="true">nuevo</string>
+  <string name="suggested_edits_task_new">Nuevo</string>
   <string name="suggested_edits_cc0_notice">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la &lt;a href=\"%2$s\"&gt;licencia&lt;/a&gt;</string>
   <string name="suggested_edits_reactivation_notification_title">Ediciones sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracias por editar Wikipedia! ¿Por qué no continúas donde lo dejaste?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">¿Tienes un minuto para seguir mejorando Wikipedia? Echa un vistazo a estas sugerencias de edición.</string>
+  <string name="suggested_edits_contributions_screen_title">Contribuciones de %s</string>
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Fecha y hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
@@ -1121,8 +1122,8 @@
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
-  <string name="image_recommendation_reject_title">¿Por qué no?</string>
-  <string name="image_recommendation_reject_subtitle">Tu respuesta puede mejorar futuras sugerencias.</string>
+  <string name="image_recommendation_reject_title">Motivo del rechazo</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Tu respuesta puede mejorar futuras sugerencias.</string>
   <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
   <string name="image_recommendation_reject_no_info">No hay información suficiente para decidir</string>
   <string name="image_recommendation_reject_offensive">La imagen es ofensiva</string>
@@ -1331,7 +1332,7 @@
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
   <string name="revision_undo_title">¿Estás seguro de que quieres deshacer esta edición?</string>
   <string name="revision_undo_message" fuzzy="true">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
-  <string name="revision_undo_reason" fuzzy="true">Para continuar, proporcione un motivo para deshacer esta edición:</string>
+  <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
@@ -1401,11 +1402,42 @@
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
   <string name="talk_templates_empty_message">Cree sus propios mensajes de o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
   <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">El mensaje se ha eliminado</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Se ha eliminado el mensaje</item>
+    <item quantity="other">Se han eliminado los mensajes</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">El título no puede estar vacío.</string>
   <string name="talk_templates_your_messages_tab_title">Sus mensajes</string>
   <string name="talk_templates_example_messages_tab_title">Mensajes de ejemplo</string>
+  <string name="patroller_tasks_edits_list_search_hint">Buscar o filtrar ediciones</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Etiquetas: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Ninguna</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Ver página de usuario</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Ver página de discusión</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Información de usuario</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta de: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Editar recuento: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_filters_significance_edits">Ediciones no menores</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Predicciones de calidad de las contribuciones</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Muy probablemente buenas</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Muy preciso para encontrar casi todas las ediciones que no plantean problemas.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Pueden tener problemas</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Encuentra la mayoría de ediciones erróneas o perjudiciales, pero con menor precisión.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Probablemente tienen problemas</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Con precisión media, encuentra una fracción intermedia de ediciones problemáticas.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Muy probablemente tienen problemas</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Encuentra con gran precisión las ediciones claramente más erróneas o dañinas.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Predicciones de las intenciones del usuario</string>
+  <string name="patroller_tasks_filters_user_intent_good">Muy probablemente de buena fe</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Muy preciso para encontrar casi todas las ediciones realizadas de buena fe.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Pueden ser de mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Encuentra la mayoría de ediciones de mala fe, pero con menor precisión.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Probablemente de mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Con precisión media, encuentra una fracción intermedia de ediciones de mala fe.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Muy probablemente de mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Encuentra con gran precisión las ediciones de mala fe más obvias.</string>
+  <string name="patroller_onboarding_two_talk_title">Discusión</string>
+  <string name="patroller_onboarding_two_talk_content">Comunicarse con otros editores. Guarde los mensajes de la página de discusión de uso común o use una plantilla.</string>
   <string name="patroller_diff_menu_edit_history_title">Historial de edición del artículo</string>
   <string name="patroller_diff_feedback_dialog_submit">Enviar</string>
   <string name="patroller_saved_message_title_vandalism">Advertencia de vandalismo</string>
@@ -1435,6 +1467,16 @@
   <string name="data_opt_in_reject">Rechazar</string>
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
+  <string name="donate_gpay_dialog_title">¿Donar con Google Pay?</string>
+  <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Otro método de pago</string>
+  <string name="donate_gpay_check_recurring">Hacer de esta una donación mensual periódica.</string>
+  <string name="donate_gpay_minimum_amount">Por favor elegir una cantidad (mínimo %s)</string>
+  <string name="donate_gpay_maximum_amount">No podemos aceptar donaciones superiores a %s a través de nuestra aplicación. Contacte a nuestro personal de donaciones importantes en benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;¡Gracias!&lt;/b&gt; Su generosidad con Wikipedia significa mucho para nosotros.</string>
+  <string name="donate_gpay_help_problems">¿Problemas para donar?</string>
+  <string name="donate_gpay_help_faq">Preguntas frecuentes</string>
+  <string name="donate_gpay_help_tax">Información sobre desgravación de impuestos</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_survey_dialog_cancel">Cancelar</string>

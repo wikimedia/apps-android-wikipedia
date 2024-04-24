@@ -1135,8 +1135,8 @@
     <string name="image_recommendation_accept">Yes</string>
     <string name="image_recommendation_reject">No</string>
     <string name="image_recommendation_notsure">Not sure</string>
-    <string name="image_recommendation_reject_title">Why not?</string>
-    <string name="image_recommendation_reject_subtitle">Your answers improve future suggestions.</string>
+    <string name="image_recommendation_reject_title">Rejection reason</string>
+    <string name="image_recommendation_reject_subtitle">The rejection reason is anonymous and will improve future image suggestions.</string>
     <string name="image_recommendation_reject_not_relevant">Image is not relevant</string>
     <string name="image_recommendation_reject_no_info">Not enough information to decide</string>
     <string name="image_recommendation_reject_offensive">Image is offensive</string>
@@ -1678,8 +1678,8 @@
     <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
     <string name="patroller_onboarding_two_watch_title">Watch</string>
     <string name="patroller_onboarding_two_watch_content">Want to track article edits? Add to your Watchlist. View it under \'More\'.</string>
-    <string name="patroller_onboarding_two_warn_title">Warn</string>
-    <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
+    <string name="patroller_onboarding_two_talk_title">Talk</string>
+    <string name="patroller_onboarding_two_talk_content">Communicate with other editors. Save commonly used talk page messages or use a template.</string>
     <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
@@ -1736,6 +1736,21 @@
     <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
+    <string name="donate_gpay_dialog_title">Donate with Google Pay?</string>
+    <string name="donate_gpay_dialog_description">Donate with Google Pay or choose another payment method.</string>
+    <string name="donate_gpay_dialog_pay_button">Donate with Google Pay</string>
+    <string name="donate_gpay_dialog_other_button">Other payment method</string>
+    <string name="donate_gpay_activity_title">Select an amount</string>
+    <string name="donate_gpay_check_transaction_fee">I\'ll generously add %s to cover the transaction fees so you can keep 100%% of my donation.</string>
+    <string name="donate_gpay_check_recurring">Make this a monthly recurring donation.</string>
+    <string name="donate_gpay_check_send_email">Yes, the Wikimedia Foundation can send me an occasional email.</string>
+    <string name="donate_gpay_minimum_amount">Please select an amount (minimum %s)</string>
+    <string name="donate_gpay_maximum_amount">We cannot accept donations greater than %s through our app. Please contact our major gifts staff at benefactors@wikimedia.org.</string>
+    <string name="donate_gpay_success_message"><![CDATA[<b>Thank you!</b> Your generosity to Wikipedia means so much to us.]]></string>
+    <string name="donate_gpay_help_problems">Problems donating?</string>
+    <string name="donate_gpay_help_other_ways">Other ways to give</string>
+    <string name="donate_gpay_help_faq">Frequently asked questions</string>
+    <string name="donate_gpay_help_tax">Tax deductibility information</string>
     <!-- Donor experience -->
 
     <!-- Places -->

@@ -664,7 +664,7 @@
   <string name="suggested_edits_image_recommendations_task_title">Статьян сӱретше</string>
   <string name="image_recommendation_accept">Туге</string>
   <string name="image_recommendation_reject">Уке</string>
-  <string name="image_recommendation_reject_title">Молан уке?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Молан уке?</string>
   <string name="image_recommendation_reject_offensive">Сӱрет шӱктарыше улеш</string>
   <string name="image_recommendation_reject_low_quality">Уда сайлыкан сӱрет</string>
   <string name="image_recommendation_reject_other">Моло</string>
@@ -778,6 +778,5 @@
   <string name="patroller_tasks_filters_automated_contributions_human">Айдеме (бот огыл)</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Ончалаш</string>
   <string name="patroller_onboarding_two_watch_title">Эскераш</string>
-  <string name="patroller_onboarding_two_warn_title">Шижтарымаш</string>
   <string name="data_opt_in_reject">Ӧрдыжтараш</string>
 </resources>

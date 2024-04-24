@@ -955,8 +955,8 @@
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
   <string name="image_recommendation_notsure">Не съм сигурен/а</string>
-  <string name="image_recommendation_reject_title">Защо не?</string>
-  <string name="image_recommendation_reject_subtitle">Вашите отговори подобряват бъдещите предложения.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Защо не?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Вашите отговори подобряват бъдещите предложения.</string>
   <string name="image_recommendation_reject_not_relevant">Изображението не е уместно</string>
   <string name="image_recommendation_reject_no_info">Няма достатъчно информация за вземане на решение</string>
   <string name="image_recommendation_reject_offensive">Изображението е обидно</string>
@@ -1284,7 +1284,6 @@
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
   <string name="patroller_onboarding_two_thank_title">Благодарност</string>
   <string name="patroller_onboarding_two_watch_title">Наблюдение</string>
-  <string name="patroller_onboarding_two_warn_title">Предупреждение</string>
   <string name="patroller_diff_feedback_dialog_title">Помогнете ни да подобрим тази възможност</string>
   <string name="patroller_diff_feedback_dialog_message">Доволни ли сте от тази възможност?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна</string>

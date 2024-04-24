@@ -1088,8 +1088,8 @@
   <string name="image_recommendation_accept">Igen</string>
   <string name="image_recommendation_reject">Nem</string>
   <string name="image_recommendation_notsure">Nem tudom</string>
-  <string name="image_recommendation_reject_title">Miért nem?</string>
-  <string name="image_recommendation_reject_subtitle">A válaszaid javítják a jövőbeli javaslatokat.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Miért nem?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">A válaszaid javítják a jövőbeli javaslatokat.</string>
   <string name="image_recommendation_reject_not_relevant">A kép nem releváns</string>
   <string name="image_recommendation_reject_no_info">Nincs elég információ a döntéshez</string>
   <string name="image_recommendation_reject_offensive">A kép sértő</string>
@@ -1579,7 +1579,6 @@
   <string name="patroller_onboarding_two_thank_title">Köszönet</string>
   <string name="patroller_onboarding_two_thank_content">Hatékony szerkesztést láttál? Köszönd meg a felhasználó közreműködését!</string>
   <string name="patroller_onboarding_two_watch_title">Lap figyelése</string>
-  <string name="patroller_onboarding_two_warn_title">Figyelmeztetés</string>
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>

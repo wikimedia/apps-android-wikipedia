@@ -907,8 +907,8 @@
   <string name="image_recommendation_accept">হ্যাঁ</string>
   <string name="image_recommendation_reject">না</string>
   <string name="image_recommendation_notsure">নিশ্চিত না</string>
-  <string name="image_recommendation_reject_title">\"না\" কেন?</string>
-  <string name="image_recommendation_reject_subtitle">আপনার উত্তরসমূহ ভবিষ্যত পরামর্শগুলোকে উন্নত করবে।</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">\"না\" কেন?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">আপনার উত্তরসমূহ ভবিষ্যত পরামর্শগুলোকে উন্নত করবে।</string>
   <string name="image_recommendation_reject_not_relevant">চিত্রটি প্রাসঙ্গিক নয়</string>
   <string name="image_recommendation_reject_no_info">সিদ্ধান্ত নেয়ার মত যথেষ্ট তথ্য নেই</string>
   <string name="image_recommendation_reject_offensive">চিত্রটি আপত্তিকর</string>
@@ -1178,6 +1178,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_close">বন্ধ</string>
   <string name="patroller_tasks_filters_wiki_filter_header">উইকি</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">দেখুন</string>
+  <string name="patroller_onboarding_two_talk_title">আলাপ</string>
   <string name="patroller_diff_feedback_dialog_message">আপনি এই বৈশিষ্ট্যের সঙ্গে সন্তুষ্ট?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">সন্তুষ্ট</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">নিরপেক্ষ</string>

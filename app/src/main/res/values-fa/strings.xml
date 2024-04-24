@@ -1054,8 +1054,8 @@
   <string name="image_recommendation_accept">بله</string>
   <string name="image_recommendation_reject">خیر</string>
   <string name="image_recommendation_notsure">مطمئن نیستم</string>
-  <string name="image_recommendation_reject_title">دلیل رد کردن آن چیست؟</string>
-  <string name="image_recommendation_reject_subtitle">پاسخ شما می</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">دلیل رد کردن آن چیست؟</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">پاسخ شما می</string>
   <string name="image_recommendation_reject_not_relevant">تصویر مرتبط نیست.</string>
   <string name="image_recommendation_reject_no_info">اطلاعات کافی برای تصمیم گیری وجود ندارد.</string>
   <string name="image_recommendation_reject_offensive">تصویر توهین آمیز است.</string>
@@ -1491,7 +1491,6 @@
   <string name="patroller_onboarding_two_thank_title">تشکر</string>
   <string name="patroller_onboarding_two_thank_content">ویرایش سازنده‌ای می‌بینید؟ از  کاربر برای مشارکت‌شان تشکر کنید</string>
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
-  <string name="patroller_onboarding_two_warn_title">هشدار</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
   <string name="patroller_diff_feedback_dialog_message">آیا از این ویژگی راضی هستید؟</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">راضی</string>

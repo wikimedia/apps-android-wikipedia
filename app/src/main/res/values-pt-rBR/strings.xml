@@ -32,6 +32,7 @@
 * Macofe
 * McDutchie
 * Mello25
+* Mellogabi03
 * Mordecool
 * MuratTheTurkish
 * Peter Fernando
@@ -410,7 +411,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">O artigo não pode ser carregado enquanto estiver offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Dica: Adicione o artigo a uma lista de leitura e ele será baixado assim que estiver online novamente.</string>
   <string name="page_offline_notice_last_date">Você está lendo uma versão offline deste artigo salvo em %s.</string>
-  <string name="redirected_from_snackbar">Redirecionado de %s</string>
+  <string name="redirected_from_snackbar">Redirecionado a partir de %s</string>
   <string name="button_get_directions">Obter itinerário</string>
   <string name="error_no_maps_app">Não foi possível encontrar aplicativos que forneceçam rotas.</string>
   <string name="preference_title_customize_explore_feed">Feed de Explorar</string>
@@ -1100,7 +1101,7 @@
   <string name="image_recommendation_accept">Sim</string>
   <string name="image_recommendation_reject">Não</string>
   <string name="image_recommendation_notsure">Não tenho certeza</string>
-  <string name="image_recommendation_reject_title">Por que não?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Por que não?</string>
   <string name="image_recommendation_reject_not_relevant">A imagem não é relevante</string>
   <string name="image_recommendation_reject_no_info">Não há informações suficientes para decidir</string>
   <string name="image_recommendation_reject_offensive">A imagem é ofensiva</string>
