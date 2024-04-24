@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/paper_color"
             android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,8 +115,48 @@
                 android:id="@+id/payButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp"
-                />
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/linkProblemsDonating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_problems" />
+
+            <TextView
+                android:id="@+id/linkOtherWays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_other_ways" />
+
+            <TextView
+                android:id="@+id/linkFAQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_faq" />
+
+            <TextView
+                android:id="@+id/linkTaxDeduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_tax" />
 
         </LinearLayout>
 

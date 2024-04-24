@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -29,6 +30,7 @@ import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.UriUtil
 
 class GooglePayActivity : BaseActivity() {
     private lateinit var binding: ActivityDonateBinding
@@ -106,6 +108,19 @@ class GooglePayActivity : BaseActivity() {
                 }
             }
             setButtonHighlighted(buttonToHighlight)
+        }
+
+        binding.linkProblemsDonating.setOnClickListener {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_problems_url)))
+        }
+        binding.linkOtherWays.setOnClickListener {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_other_ways_url)))
+        }
+        binding.linkFAQ.setOnClickListener {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_faq_url)))
+        }
+        binding.linkTaxDeduct.setOnClickListener {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_tax_url)))
         }
     }
 
