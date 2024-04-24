@@ -7,10 +7,12 @@ import android.widget.TextView
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.descendants
@@ -44,23 +46,28 @@ class AboutActivity : BaseActivity() {
         binding.sendFeedbackTextCompose.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                FilledTonalButton(
-                    onClick = {
-                        FeedbackUtil.composeFeedbackEmail(this@AboutActivity, "Android App ${BuildConfig.VERSION_NAME} Feedback")
-                    },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(ResourceUtil.getThemedColor(this@AboutActivity, R.attr.background_color)))
-                ) {
-                    // TODO: needs to convert xml style to Compose Style method/class.
-                    Text(
-                        text = getString(R.string.send_feedback),
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Medium,
-                            color = Color(ResourceUtil.getThemedColor(this@AboutActivity, R.attr.progressive_color))
-                        )
-                    )
-                }
+                SetFeedbackButton()
             }
+        }
+    }
+
+    @Composable
+    private fun SetFeedbackButton() {
+        FilledTonalButton(
+            onClick = {
+                FeedbackUtil.composeFeedbackEmail(this@AboutActivity, "Android App ${BuildConfig.VERSION_NAME} Feedback")
+            },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(ResourceUtil.getThemedColor(this@AboutActivity, R.attr.background_color)))
+        ) {
+            // TODO: needs to convert xml style to Compose Style method/class.
+            Text(
+                text = getString(R.string.send_feedback),
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(ResourceUtil.getThemedColor(this@AboutActivity, R.attr.progressive_color))
+                )
+            )
         }
     }
 
