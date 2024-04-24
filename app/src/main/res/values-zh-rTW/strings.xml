@@ -1665,7 +1665,7 @@
   <string name="donate_gpay_dialog_pay_button">使用 Google Pay 捐款</string>
   <string name="donate_gpay_dialog_other_button">其他支付方式</string>
   <string name="donate_gpay_activity_title">選擇金額</string>
-  <string name="donate_gpay_check_transaction_fee">我願意慷慨地添加 %s 來支付手續費，這樣維基百科就可以保有我的 100% 捐款。</string>
+  <string name="donate_gpay_check_transaction_fee">我願意慷慨地添加 %s 來支付手續費，這樣維基百科就可以保有我的 100%% 捐款。</string>
   <string name="donate_gpay_check_recurring">將此作為每月定期捐款。</string>
   <string name="donate_gpay_check_send_email">是的，維基媒體基金會可以臨時對我發送電子郵件。</string>
   <string name="donate_gpay_minimum_amount">請選擇金額（最少 %s）</string>
