@@ -8,10 +8,16 @@ import com.google.android.gms.wallet.WalletConstants
 import kotlinx.coroutines.tasks.await
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.DecimalFormat
 
 internal object GooglePayComponent {
 
-    const val PAYMENTS_API_URL = "https://payments.wikimedia.org"
+    const val PAYMENTS_API_URL = "https://payments.wikimedia.org/"
+    const val PAYMENT_METHOD_NAME = "paywithgoogle"
+
+    private val CURRENCIES_THREE_DECIMAL = arrayOf("BHD", "CLF", "IQD", "KWD", "LYD", "MGA", "MRO", "OMR", "TND")
+    private val CURRENCIES_NO_DECIMAL = arrayOf("CLP", "DJF", "IDR", "JPY", "KMF", "KRW", "MGA", "PYG", "VND", "XAF", "XOF", "XPF")
+
     private const val MERCHANT_NAME = "Wikimedia Foundation"
     private const val GATEWAY_NAME = "adyen"
 
@@ -28,16 +34,21 @@ internal object GooglePayComponent {
             put("allowedAuthMethods", JSONArray(allAllowedAuthMethods))
         })
     }
+
     private val googlePayBaseConfiguration = JSONObject().apply {
         put("apiVersion", GPAY_API_VERSION)
         put("apiVersionMinor", GPAY_API_VERSION_MINOR)
         put("allowedPaymentMethods", JSONArray().put(baseCardPaymentMethod))
     }
 
+    fun getDecimalFormat(currencyCode: String): DecimalFormat {
+        return DecimalFormat(if (CURRENCIES_THREE_DECIMAL.contains(currencyCode)) "0.000" else if (CURRENCIES_NO_DECIMAL.contains(currencyCode)) "0" else "0.00")
+    }
+
     fun createPaymentsClient(activity: Activity): PaymentsClient {
         val walletOptions = Wallet.WalletOptions.Builder()
-            .setEnvironment(WalletConstants.ENVIRONMENT_TEST).build()
-            // .setEnvironment(WalletConstants.ENVIRONMENT_PRODUCTION).build()
+            // .setEnvironment(WalletConstants.ENVIRONMENT_TEST).build()
+            .setEnvironment(WalletConstants.ENVIRONMENT_PRODUCTION).build()
         return Wallet.getPaymentsClient(activity, walletOptions)
     }
 
