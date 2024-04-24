@@ -138,16 +138,6 @@
                 android:layout_marginBottom="12dp"
                 android:layout_gravity="start" />
 
-<!--            <Button-->
-<!--                android:id="@+id/send_feedback_text"-->
-<!--                style="@style/App.Button.Secondary"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="start"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:layout_marginBottom="12dp"-->
-<!--                android:text="@string/send_feedback" />-->
-
         </LinearLayout>
 
         <ImageView
