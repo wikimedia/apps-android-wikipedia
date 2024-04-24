@@ -1,12 +1,14 @@
 package org.wikipedia.donate
 
 import android.app.Activity
+import android.content.Intent
 
 object GooglePayComponent {
     suspend fun isGooglePayAvailable(activity: Activity): Boolean {
         return false
     }
 
-    fun onGooglePayButtonClicked(activity: Activity) {
+    fun getDonateActivityIntent(activity: Activity): Intent {
+        return Intent()
     }
 }

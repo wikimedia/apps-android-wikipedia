@@ -67,8 +67,7 @@ class GooglePayActivity : BaseActivity() {
                                 onContentsReceived(resource.data)
                             }
                             is GooglePayViewModel.DonateSuccess -> {
-                                // TODO: show this snackbar in the parent activity instead of this one.
-                                FeedbackUtil.showMessage(this@GooglePayActivity, R.string.donate_gpay_success_message)
+                                setResult(RESULT_OK)
                                 finish()
                             }
                         }
@@ -119,6 +118,7 @@ class GooglePayActivity : BaseActivity() {
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_problems_url)))
         }
         binding.linkOtherWays.setOnClickListener {
+            finish()
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_other_ways_url)))
         }
         binding.linkFAQ.setOnClickListener {

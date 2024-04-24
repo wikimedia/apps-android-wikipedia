@@ -24,6 +24,7 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.connectivity.ConnectionStateMonitor
+import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -53,6 +54,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             callback?.onPermissionResult(this, isGranted)
+    }
+
+    private val requestDonateActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -173,6 +180,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onGoOffline() {}
 
     override fun onGoOnline() {}
+
+    fun requestDonateActivity() {
+        requestDonateActivity.launch(GooglePayComponent.getDonateActivityIntent(this))
+    }
 
     private fun removeSplashBackground() {
         window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))

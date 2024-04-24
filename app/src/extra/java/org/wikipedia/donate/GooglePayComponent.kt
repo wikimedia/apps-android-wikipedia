@@ -1,6 +1,7 @@
 package org.wikipedia.donate
 
 import android.app.Activity
+import android.content.Intent
 import com.google.android.gms.wallet.IsReadyToPayRequest
 import com.google.android.gms.wallet.PaymentsClient
 import com.google.android.gms.wallet.Wallet
@@ -60,8 +61,8 @@ internal object GooglePayComponent {
         return readyToPayTask.result
     }
 
-    fun onGooglePayButtonClicked(activity: Activity) {
-        activity.startActivity(GooglePayActivity.newIntent(activity))
+    fun getDonateActivityIntent(activity: Activity): Intent {
+        return GooglePayActivity.newIntent(activity)
     }
 
     fun getPaymentDataRequestJson(

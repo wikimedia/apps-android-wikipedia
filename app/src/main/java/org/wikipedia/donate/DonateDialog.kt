@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.CustomTabsUtil
@@ -33,7 +34,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.donateGooglePayButton.setOnClickListener {
-            GooglePayComponent.onGooglePayButtonClicked(requireActivity())
+            (requireActivity() as? BaseActivity)?.requestDonateActivity()
+            dismiss()
         }
 
         lifecycleScope.launch {
