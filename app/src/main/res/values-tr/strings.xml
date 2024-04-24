@@ -1103,8 +1103,8 @@
   <string name="image_recommendation_accept">Evet</string>
   <string name="image_recommendation_reject">Hayır</string>
   <string name="image_recommendation_notsure">Emin değilim</string>
-  <string name="image_recommendation_reject_title">Neden?</string>
-  <string name="image_recommendation_reject_subtitle">Yanıtlarınız gelecek önerileri iyileştirir.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Neden?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Yanıtlarınız gelecek önerileri iyileştirir.</string>
   <string name="image_recommendation_reject_not_relevant">Görsel ilgili değil</string>
   <string name="image_recommendation_reject_no_info">Karar vermek için yeterli bilgi yok</string>
   <string name="image_recommendation_reject_offensive">Görsel rahatsız edici</string>

@@ -940,7 +940,7 @@
   <string name="suggested_edits_image_recommendations_task_title">వ్యాస చిత్రాలు</string>
   <string name="suggested_edits_image_recommendations_task_detail">వికీపీడియా వ్యాసాలను మరింత మెరుగ్గా అర్థం చేసుకోవడానికి సూచించిన చిత్రాలను చేర్చండి.</string>
   <string name="image_recommendation_accept">సరే</string>
-  <string name="image_recommendation_reject_title">ఎందుకని వద్దు?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">ఎందుకని వద్దు?</string>
   <string name="image_recommendation_reject_dont_know">ఈ విషయం గురించి నాకు తెలియదు</string>
   <string name="image_recommendation_onboarding_2">సూచించబడిన చిత్రాన్ని వికీపీడియా వ్యాసంలో చేర్చాలా వద్దా అనేది నిర్ణయించవలసినది మీరే.</string>
   <string name="image_recommendation_onboarding_3">ఈ సూచనలు యాంత్రికంగా తయారైనవి. వీటిని స్వీకరించాలో తిరస్కరించాలో లేదో మీ విజ్ఞతతో మీరే నిర్ణయించుకోవాలి.</string>

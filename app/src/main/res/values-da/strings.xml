@@ -1099,8 +1099,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nej</string>
   <string name="image_recommendation_notsure">Ikke sikker</string>
-  <string name="image_recommendation_reject_title">Hvorfor ikke?</string>
-  <string name="image_recommendation_reject_subtitle">Dine svar forbedrer fremtidige forslag.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Hvorfor ikke?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Dine svar forbedrer fremtidige forslag.</string>
   <string name="image_recommendation_reject_not_relevant">Billedet er ikke relevant</string>
   <string name="image_recommendation_reject_no_info">Ikke nok information til at beslutte</string>
   <string name="image_recommendation_reject_offensive">Billedet er stødende</string>

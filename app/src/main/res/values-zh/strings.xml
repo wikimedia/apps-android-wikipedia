@@ -1121,8 +1121,8 @@
   <string name="image_recommendation_accept">会</string>
   <string name="image_recommendation_reject">否</string>
   <string name="image_recommendation_notsure">不确定</string>
-  <string name="image_recommendation_reject_title">为什么不会呢？</string>
-  <string name="image_recommendation_reject_subtitle">您的回答有助于改进今后关于图片的建议。</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">为什么不会呢？</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">您的回答有助于改进今后关于图片的建议。</string>
   <string name="image_recommendation_reject_not_relevant">图片与条目无关</string>
   <string name="image_recommendation_reject_no_info">信息不足，无法决定</string>
   <string name="image_recommendation_reject_offensive">图片令人不悦</string>

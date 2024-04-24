@@ -1046,8 +1046,8 @@
   <string name="image_recommendation_accept">iin</string>
   <string name="image_recommendation_reject">Aayi</string>
   <string name="image_recommendation_notsure">m-bi dihitabili</string>
-  <string name="image_recommendation_reject_title">Bɔ n-lee chɛ ka anfɔɔni maa bɛ lu n zahim lahibali ŋɔ?</string>
-  <string name="image_recommendation_reject_subtitle">A labisiɣu maa ni sɔŋ mali tooni lahabali sɔŋda n-niŋ.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Bɔ n-lee chɛ ka anfɔɔni maa bɛ lu n zahim lahibali ŋɔ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">A labisiɣu maa ni sɔŋ mali tooni lahabali sɔŋda n-niŋ.</string>
   <string name="image_recommendation_reject_not_relevant">Anfɔɔni bɛ tuhi</string>
   <string name="image_recommendation_reject_no_info">Lahabali kani din yan gbaai</string>
   <string name="image_recommendation_reject_offensive">Anfooni nyɛla taali</string>

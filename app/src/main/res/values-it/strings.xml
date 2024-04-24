@@ -6,6 +6,7 @@
 * Beta16
 * Black Sky83
 * Bsitzmann
+* Champ0999
 * Ciampix
 * Dbrant
 * Elitre
@@ -435,6 +436,10 @@
   <string name="multi_select_items_selected">%d selezionati</string>
   <string name="error_message_generic">Si è verificato un errore</string>
   <string name="view_link_preview_error_button_dismiss">Nascondi</string>
+  <string name="link_preview_dialog_read_button">Leggi</string>
+  <string name="link_preview_dialog_save_button">Salva</string>
+  <string name="link_preview_dialog_saved_button">Salvato</string>
+  <string name="link_preview_dialog_share_button">Condividi</string>
   <string name="error_page_does_not_exist">Questa pagina non esiste</string>
   <string name="error_user_page_does_not_exist">Wikipedia non ha una &lt;a href=\"%1$s\"&gt;pagina utente&lt;/a&gt; con questo esatto nome. In generale, questa pagina dovrebbe essere creata e modificata da &lt;b&gt;%2$s&lt;/b&gt;. Se sei in dubbio, per favore verifica se \"%3$s\" esiste.</string>
   <string name="view_wiki_error_message_offline">Non è possibile connettersi ad internet</string>
@@ -457,6 +462,8 @@
   <string name="error_blocked_footer">Puoi contattare &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altro &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalizza la barra degli strumenti</string>
   <string name="error_blocked_footer_no_blocker">Puoi contattare un\'&lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
+  <string name="temp_account_not_logged_in">Non hai effettuato l\'accesso</string>
+  <string name="temp_account_end_session">Termina la sessione</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
@@ -1082,15 +1089,21 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Immagini della voce</string>
   <string name="suggested_edits_image_recommendations_task_detail">Aggiungi immagini suggerite alle voci di Wikipedia per migliorarne la comprensione.</string>
+  <string name="image_recommendation_task_instruction">Vuoi aggiungere questa immagine alla voce?</string>
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sì</string>
   <string name="image_recommendation_reject">No</string>
   <string name="image_recommendation_notsure">Non sono sicuro</string>
-  <string name="image_recommendation_reject_title">Perché no?</string>
+  <string name="image_recommendation_reject_title">Motivo del rifiuto</string>
+  <string name="image_recommendation_reject_not_relevant">L\'immagine non è rilevante</string>
+  <string name="image_recommendation_reject_offensive">L\'immagine è offensiva</string>
+  <string name="image_recommendation_reject_low_quality">L\'immagine è di bassa qualità</string>
   <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
   <string name="image_recommendation_reject_other">Altro</string>
   <string name="image_recommendation_reject_submit">Invia</string>
   <string name="image_recommendation_tooltip_main">Aggiungi le immagini mancanti alle voci in Modifiche suggerite</string>
+  <string name="image_recommendation_onboarding_3">I suggerimenti sono generati automaticamente e dovrai scegliere tu se accettarli o rifiutarli.</string>
+  <string name="image_recommendation_tooltip_3">Decidi se l\'immagine aiuta i lettori a comprendere meglio questo argomento</string>
   <string name="image_recommendation_tooltip_next">Successivo</string>
   <string name="suggested_edits_report_feature_subject">Problemi con le modifiche suggerite</string>
   <string name="edit_summary_added_image">Immagine aggiunta</string>
@@ -1241,6 +1254,7 @@
   <string name="talk_new_topic">Nuovo argomento</string>
   <string name="talk_new_topic_submitted">Argomento pubblicato.</string>
   <string name="talk_warn_save_dialog_message">Salva come nuovo messaggio</string>
+  <string name="talk_warn_save_dialog_hint">Titolo del messaggio</string>
   <string name="talk_warn_save_dialog_publish">Pubblica</string>
   <string name="talk_warn_save_dialog_cancel">Annulla</string>
   <string name="talk_warn_save_dialog_dont_save">Non salvare</string>
@@ -1430,6 +1444,8 @@
   <string name="media_playback_error">Errore durante la riproduzione del contenuto multimediale.</string>
   <string name="user_contrib_menu_label">Contributi</string>
   <string name="user_contrib_filter_activity_title">Filtra i contributi</string>
+  <string name="action_item_view_on_map">Visualizza sulla mappa</string>
+  <string name="action_item_view_on_map_unavailable">Le coordinate geografiche non sono disponibili per questa pagina</string>
   <string name="shareable_reading_lists_import_dialog_title">Importa elenco di lettura condiviso</string>
   <string name="shareable_reading_lists_import_dialog_content">Come vorresti nominare l\'elenco che è stato condiviso con te?</string>
   <string name="shareable_reading_lists_new_indicator">*nuovo*</string>
@@ -1443,6 +1459,7 @@
   <string name="reading_list_share_survey_title">Puoi aiutarci a migliorare \"Condividi elenchi di lettura\"?</string>
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
   <string name="talk_templates_new_message_title">Nuovo messaggio</string>
+  <string name="talk_templates_new_message_subject_hint">Oggetto</string>
   <string name="talk_templates_new_message_compose_hint">Scrivi un messaggio</string>
   <string name="talk_templates_new_message_save">Salva</string>
   <string name="talk_templates_new_message_dialog_title">Salva modifiche</string>
@@ -1474,6 +1491,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vedi la pagina utente</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Vedi la pagina di discussione</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Visualizza i contributi degli utenti</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Ringrazia</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Informazioni sull\'utente</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Chiudi</string>
@@ -1481,6 +1499,11 @@
   <string name="patroller_tasks_filters_reset">Reimposta</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Tutto</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Non registrato</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Contributori che non hanno effettuato l\'accesso.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registrato</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Contributori che hanno effettuato l\'accesso.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Nuovi utenti</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contributi automatici</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_significance_minor">Modifiche minori</string>
@@ -1520,6 +1543,17 @@
   <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
+  <string name="donate_gpay_dialog_title">Donare con Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Dona con Google Pay o scegli un altro metodo di pagamento.</string>
+  <string name="donate_gpay_dialog_pay_button">Dona con Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Altro metodo di pagamento</string>
+  <string name="donate_gpay_check_recurring">Rendila una donazione mensile ricorrente.</string>
+  <string name="donate_gpay_minimum_amount">Si prega di selezionare un importo (minimo %s)</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Grazie!&lt;/b&gt; La tua generosità verso Wikipedia significa molto per noi.</string>
+  <string name="donate_gpay_help_problems">Problemi con la donazione?</string>
+  <string name="donate_gpay_help_faq">Domande frequenti</string>
+  <string name="donate_gpay_help_tax">Informazioni di deducibilità fiscale</string>
+  <string name="places_toggle_buttons_map">Mappa</string>
   <string name="places_nav_tab_tooltip_message">Scopri le voci di Wikipedia intorno a te con Luoghi</string>
   <string name="places_article_menu_tooltip_message">Tocca \"Visualizza sulla mappa\" per esplorare la posizione di questa voce</string>
   <string name="places_survey_dialog_title">Aiuta a migliorare \'Luoghi\'</string>

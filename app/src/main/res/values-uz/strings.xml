@@ -1064,8 +1064,8 @@
   <string name="image_recommendation_accept">Ha</string>
   <string name="image_recommendation_reject">Yoʻq</string>
   <string name="image_recommendation_notsure">Balki yoʻq</string>
-  <string name="image_recommendation_reject_title">Nega yoʻq?</string>
-  <string name="image_recommendation_reject_subtitle">Javoblaringiz kelajakdagi takliflarni yaxshilaydi.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Nega yoʻq?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Javoblaringiz kelajakdagi takliflarni yaxshilaydi.</string>
   <string name="image_recommendation_reject_not_relevant">Rasm tegishli emas</string>
   <string name="image_recommendation_reject_no_info">Qaror qabul qilish uchun yetarli maʼlumot yoʻq</string>
   <string name="image_recommendation_reject_offensive">Rasm haqoratli</string>
