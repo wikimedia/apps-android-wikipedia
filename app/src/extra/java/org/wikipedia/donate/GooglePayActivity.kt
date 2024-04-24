@@ -38,6 +38,8 @@ class GooglePayActivity : BaseActivity() {
 
     private val viewModel: GooglePayViewModel by viewModels()
 
+    private var shouldWatchText = true
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDonateBinding.inflate(layoutInflater)
@@ -99,6 +101,9 @@ class GooglePayActivity : BaseActivity() {
 
         binding.donateAmountText.addTextChangedListener { text ->
             validateInput(text.toString())
+            if (!shouldWatchText) {
+                return@addTextChangedListener
+            }
             val buttonToHighlight = binding.amountPresetsContainer.children.firstOrNull { child ->
                 if (child is MaterialButton) {
                     val amount = text.toString().toFloatOrNull() ?: 0f
@@ -181,7 +186,9 @@ class GooglePayActivity : BaseActivity() {
             binding.amountPresetsContainer.addView(button)
             button.setOnClickListener {
                 setButtonHighlighted(it)
+                shouldWatchText = false
                 binding.donateAmountText.setText(viewModel.decimalFormat.format(it.tag as Float))
+                shouldWatchText = true
             }
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
