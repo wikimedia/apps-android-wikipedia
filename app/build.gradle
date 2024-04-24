@@ -71,11 +71,10 @@ android {
 
     sourceSets {
 
-        prod { java.srcDirs += 'src/extra/java' }
-        beta { java.srcDirs += 'src/extra/java' }
-        alpha { java.srcDirs += 'src/extra/java' }
-        dev { java.srcDirs += 'src/extra/java' }
-        custom { java.srcDirs += 'src/extra/java' }
+        [ prod, beta, alpha, dev, custom ].forEach {
+            it.java.srcDirs += 'src/extra/java'
+            it.res.srcDirs += 'src/extra/res'
+        }
 
         androidTest {
             assets.srcDirs += files("$projectDir/schemas".toString())
@@ -180,6 +179,7 @@ dependencies {
     String kotlinCoroutinesVersion = '1.8.0'
     String firebaseMessagingVersion = '23.4.1'
     String mlKitVersion = '17.0.5'
+    String googlePayVersion = '19.3.0'
     String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.6.3'
@@ -251,6 +251,13 @@ dependencies {
     alphaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
     devImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
     customImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+
+    // For integrating with Google Pay for donations
+    prodImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    betaImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    alphaImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    devImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    customImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
