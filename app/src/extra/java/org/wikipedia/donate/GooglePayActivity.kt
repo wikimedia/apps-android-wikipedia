@@ -97,6 +97,15 @@ class GooglePayActivity : BaseActivity() {
 
         binding.donateAmountText.addTextChangedListener { text ->
             validateInput(text.toString())
+            val buttonToHighlight = binding.amountPresetsContainer.children.firstOrNull { child ->
+                if (child is MaterialButton) {
+                    val amount = text.toString().toFloatOrNull() ?: 0f
+                    child.tag == amount
+                } else {
+                    false
+                }
+            }
+            setButtonHighlighted(buttonToHighlight)
         }
     }
 
@@ -153,10 +162,11 @@ class GooglePayActivity : BaseActivity() {
             val button = MaterialButton(this)
             button.text = viewModel.currencyFormat.format(amount)
             button.id = viewId
+            button.tag = amount
             binding.amountPresetsContainer.addView(button)
             button.setOnClickListener {
                 setButtonHighlighted(it)
-                binding.donateAmountText.setText(viewModel.decimalFormat.format(amount))
+                binding.donateAmountText.setText(viewModel.decimalFormat.format(it.tag as Float))
             }
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
