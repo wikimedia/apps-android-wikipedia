@@ -1452,6 +1452,7 @@
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
   <string name="donation_campaign_go_back_button">वापस जाएँ</string>
+  <string name="donate_gpay_activity_title">राशि चुनें</string>
   <string name="places_title">स्थानों</string>
   <string name="places_permissions_denied">मैप पर अपना लोकेशन देखने के लिए लोकेशन परमिशन की आवश्यकता है। कृपया दोबारा प्रयास करें।</string>
   <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
