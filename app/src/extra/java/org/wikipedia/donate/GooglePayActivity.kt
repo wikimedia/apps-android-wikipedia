@@ -64,7 +64,7 @@ class GooglePayActivity : BaseActivity() {
                                 setErrorState(resource.throwable)
                             }
                             is GooglePayViewModel.NoPaymentMethod -> {
-                                setResult(DonateDialog.RESULT_GPAY_FAILED)
+                                DonateDialog.launchDonateLink(this@GooglePayActivity, intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
                                 finish()
                             }
                             is Resource.Success -> {
@@ -224,7 +224,8 @@ class GooglePayActivity : BaseActivity() {
                             viewModel.submit(paymentData,
                                 binding.checkBoxTransactionFee.isChecked,
                                 binding.checkBoxRecurring.isChecked,
-                                binding.checkBoxAllowEmail.isChecked)
+                                binding.checkBoxAllowEmail.isChecked,
+                                intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
                         }
                     }
                 }
@@ -245,8 +246,10 @@ class GooglePayActivity : BaseActivity() {
     companion object {
         private const val LOAD_PAYMENT_DATA_REQUEST_CODE = 42
 
-        fun newIntent(context: Context): Intent {
+        fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null): Intent {
             return Intent(context, GooglePayActivity::class.java)
+                .putExtra(DonateDialog.ARG_CAMPAIGN_ID, campaignId)
+                .putExtra(DonateDialog.ARG_DONATE_URL, donateUrl)
         }
     }
 }

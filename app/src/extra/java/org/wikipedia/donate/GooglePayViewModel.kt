@@ -77,7 +77,8 @@ class GooglePayViewModel : ViewModel() {
         paymentData: PaymentData,
         payTheFee: Boolean,
         recurring: Boolean,
-        optInEmail: Boolean
+        optInEmail: Boolean,
+        campaignId: String
     ) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             uiState.value = Resource.Error(throwable)
@@ -94,7 +95,7 @@ class GooglePayViewModel : ViewModel() {
                 .submitPayment(
                     decimalFormat.format(finalAmount),
                     BuildConfig.VERSION_NAME,
-                    "", // TODO?
+                    campaignId,
                     billingObj.optString("locality", ""),
                     infoObj.optString("countryCode", currentCountryCode),
                     currencyCode,

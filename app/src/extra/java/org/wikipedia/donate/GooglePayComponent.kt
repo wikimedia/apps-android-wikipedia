@@ -61,8 +61,8 @@ internal object GooglePayComponent {
         return readyToPayTask.result
     }
 
-    fun getDonateActivityIntent(activity: Activity): Intent {
-        return GooglePayActivity.newIntent(activity)
+    fun getDonateActivityIntent(activity: Activity, campaignId: String? = null, donateUrl: String? = null): Intent {
+        return GooglePayActivity.newIntent(activity, campaignId, donateUrl)
     }
 
     fun getPaymentDataRequestJson(
