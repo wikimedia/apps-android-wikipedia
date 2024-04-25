@@ -192,6 +192,7 @@
   <string name="langlinks_your_wikipedia_languages">Ваши языки Википедии</string>
   <string name="menu_save_changes">Опубликовать изменения</string>
   <string name="edit_saved_successfully">Правка сохранена!</string>
+  <string name="stub_article_edit_saved_successfully">Правка опубликована! Для появления изменений может потребоваться некоторое время.</string>
   <string name="dialog_message_edit_failed">Ошибка редактирования!</string>
   <string name="dialog_message_edit_failed_retry">Повторить</string>
   <string name="dialog_message_edit_failed_cancel">Отмена</string>
@@ -234,6 +235,9 @@
   <string name="logged_out_in_background_dialog">Вы вышли из учётной записи Википедии. Желаете войти снова?</string>
   <string name="logged_out_in_background_login">Войти</string>
   <string name="logged_out_in_background_cancel">Отмена</string>
+  <string name="account_vanish_request_title">Удалить учётную запись</string>
+  <string name="account_vanish_request_confirm_title">Предупреждение об удалении учётной записи</string>
+  <string name="account_vanish_request_confirm">Исчезновение — это &lt;b&gt;последнее средство&lt;/b&gt; , и его следует &lt;b&gt;использовать только в том случае, если вы хотите навсегда прекратить редактирование&lt;/b&gt; , а также скрыть как можно больше своих прошлых ассоциаций.&lt;br/&gt;&lt;br/&gt; Удаление учетной записи в Википедии осуществляется путем изменения имени вашей учетной записи, чтобы другие не могли признать ваш вклад в процесс, называемый исчезновением учетной записи. &lt;b&gt;Vanishing не гарантирует полную анонимность и не удаляет вклады в проекты&lt;/b&gt; .</string>
   <string name="history_empty_title">Нет недавно просмотренных статей</string>
   <string name="history_empty_message">Отслеживайте здесь прочитанные вами статьи.</string>
   <string name="history_offline_articles_toast">Некоторые страницы в истории могут быть недоступны оффлайн.</string>
@@ -307,8 +311,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Теги_изображений</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница команды&lt;/a&gt;</string>
@@ -474,6 +478,7 @@
   <string name="link_preview_dialog_save_button">Сохранить</string>
   <string name="link_preview_dialog_saved_button">Сохранено</string>
   <string name="link_preview_dialog_share_button">Поделиться</string>
+  <string name="link_preview_stub_placeholder_text">Эта статья является незавершенной, что означает, что в ней недостаточно содержимого для предварительного просмотра. Однако вы можете это изменить.</string>
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
   <string name="error_user_page_does_not_exist">В Википедии нет &lt;a href=\"%1$s\"&gt;страницы участника_цы&lt;/a&gt; с точно таким именем. Как правило, эта страница должна быть создана и редактироваться участником_цей &lt;b&gt;%2$s&lt;/b&gt;. Если есть сомнения, пожалуйста, проверьте, существует ли «%3$s».</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к интернету</string>
@@ -496,6 +501,17 @@
   <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
+  <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
+  <string name="temp_account_anon_dialog_body">После внесения изменений для вас будет создана &lt;b&gt;временная учетная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создайте учетную запись&lt;/a&gt; , чтобы получить признание за будущие изменения и получить доступ к другим функциям.</string>
+  <string name="temp_account_temp_dialog_body">Ваше изменение будет отнесено к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдете в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадите учетную запись&lt;/a&gt; , ваши изменения будут связаны с выбранным вами именем, помимо других преимуществ.</string>
+  <string name="temp_account_dialog_ok">Понятно</string>
+  <string name="temp_account_using_title">Вы используете временную учётную запись</string>
+  <string name="temp_account_dialog_discard">Отменить изменения и войти в систему</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Вы не вошли в систему.&lt;/b&gt; После внесения изменений для вас будет создана временная учетная запись для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Вы используете временную учетную запись.&lt;/b&gt; Ваше изменение будет отнесено к %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Подробнее...&lt;/a&gt; .</string>
+  <string name="temp_account_login_status">&lt;b&gt;В настоящее время вы используете временную учетную запись.&lt;/b&gt; Изменения, внесенные с помощью временной учетной записи %1$s не будут перенесены в вашу постоянную учетную запись при входе в систему. Войдите в систему или создайте учетную запись, чтобы получить кредит на свое имя пользователя, помимо других преимуществ.</string>
+  <string name="temp_account_end_session">Завершить сеанс</string>
+  <string name="temp_account_end_session_confirm">Это приведет к выходу из вашей временной учетной записи. Вы хотите продолжать?</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
@@ -571,6 +587,7 @@
   <string name="reading_list_menu_export">Экспортировать список</string>
   <string name="reading_list_menu_select">Выбрать</string>
   <string name="reading_list_menu_unselect">Отменить выбор</string>
+  <string name="reading_list_export_write_permission_rationale">Для сохранения изображений требуется разрешение на запись в хранилище вашего устройства.</string>
   <string name="reading_list_menu_rename">Изменить название/описание</string>
   <string name="reading_list_action_menu_remove_from_offline">Удалить из офлайн-режима</string>
   <string name="reading_list_action_menu_save_for_offline">Сохранить в автономный режим</string>
@@ -596,7 +613,10 @@
     <item quantity="other">Статей удалено из %s: %d</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">Список по умолчанию (%s) не может быть удалён</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s удалено, но список по умолчанию (%2$s) невозможно удалить.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Списки удалены. Список по умолчанию (%s) не может быть удалён.</string>
+  <string name="single_list_json_file_name">%s (Список для чтения в Википедии).json</string>
+  <string name="multiple_lists_json_file_name">Списки для чтения в Википедии (%s и другие).json</string>
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_lists_item_deleted">%s удалено из списков</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
@@ -659,6 +679,7 @@
   <string name="reading_list_article_limit_message">Невозможно добавить в текущий список. Вы исчерпали лимит %2$d статей для \"%1$s\".</string>
   <string name="reading_lists_limit_message">Невозможно создать новый список. Вы достигли лимита в 100 списков для одной учётной записи.</string>
   <string name="reading_lists_menu_create_list">Создать новый список</string>
+  <string name="reading_lists_menu_import_list">Импортированный список</string>
   <string name="reading_lists_menu_sort_by">Сортировать по</string>
   <string name="reading_lists_refresh_sync_option">Перезапустить синхронизацию</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Войти / зарегистрироваться</string>
@@ -685,6 +706,7 @@
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Удалить</string>
   <string name="reading_list_activity_title">Список чтения: %s</string>
+  <string name="reading_list_notification_title">Списк(и) для чтения экспортирован(ы).</string>
   <string name="reading_lists_action_menu_export_lists">Экспортировать</string>
   <string name="reading_lists_import_file_picker_title">Выберите файл для импорта</string>
   <string name="reading_lists_import_failure_message">Не удалось импортировать списки чтения</string>
@@ -927,8 +949,8 @@
   <string name="description_edit_voice_input_description">Голосовой ввод</string>
   <string name="description_edit_learn_more">Подробнее об описаниях статей</string>
   <string name="description_edit_image_caption_learn_more">Подробнее о подписях к изображениям</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B8_%D0%BA_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Описания_статей</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Подписи_к_изображениям</string>
   <string name="description_too_short">Этот текст слишком короткий.</string>
   <string name="description_ends_with_punctuation">Текст не должен заканчиваться знаками препинания.</string>
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>
@@ -1164,8 +1186,8 @@
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Нет</string>
   <string name="image_recommendation_notsure">Затрудняюсь ответить</string>
-  <string name="image_recommendation_reject_title">Почему нет?</string>
-  <string name="image_recommendation_reject_subtitle">Ваши ответы улучшают качество будущих подсказок.</string>
+  <string name="image_recommendation_reject_title">Причина отклонения</string>
+  <string name="image_recommendation_reject_subtitle">Причина отклонения является анонимной и позволит улучшить будущие предложения изображений.</string>
   <string name="image_recommendation_reject_not_relevant">Изображение не релевантно</string>
   <string name="image_recommendation_reject_no_info">Мало информации, чтобы решить</string>
   <string name="image_recommendation_reject_offensive">Изображение оскорбительно</string>
@@ -1339,10 +1361,12 @@
   <string name="talk_warn">Предупреждение</string>
   <string name="talk_warn_save_dialog_title">Сохранить изменения?</string>
   <string name="talk_warn_save_dialog_message">Сохранить как новое сообщение</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Обновить существующее сообщение</string>
   <string name="talk_warn_save_dialog_hint">Заголовок сообщения</string>
   <string name="talk_warn_save_dialog_publish">Опубликовать</string>
   <string name="talk_warn_save_dialog_cancel">Отмена</string>
   <string name="talk_warn_save_dialog_dont_save">Не сохранять</string>
+  <string name="talk_warn_saved_messages">Сохранённые сообщения</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_page_empty_title">Обсуждение начинается здесь</string>
   <string name="talk_add_reply">Ответить</string>
@@ -1557,6 +1581,7 @@
   <string name="talk_templates_new_message_dialog_hint">Заголовок сообщения</string>
   <string name="talk_templates_new_message_dialog_save">Сохранить</string>
   <string name="talk_templates_new_message_dialog_cancel">Отмена</string>
+  <string name="talk_templates_new_message_dialog_exists">Шаблон «%s» уже существует.</string>
   <string name="talk_templates_new_message_saved">Сообщение сохранено</string>
   <string name="talk_templates_edit_message_dialog_title">Редактировать сообщение</string>
   <string name="talk_templates_edit_message_dialog_save">Сохранить</string>
@@ -1623,17 +1648,29 @@
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
+  <string name="patroller_tasks_overflow_report">Проблема с функцией</string>
   <string name="patroller_tasks_overflow_learn">Узнать больше</string>
   <string name="patroller_onboarding_two_thank_title">Благодарность</string>
+  <string name="patroller_onboarding_two_thank_content">Видите продуктивную правку? Поблагодарите участника за его вклад.</string>
+  <string name="patroller_onboarding_two_talk_title">Обсуждение</string>
+  <string name="patroller_onboarding_two_talk_content">Общайтесь с другими редакторами. Сохраняйте часто используемые сообщения на странице обсуждения или используйте шаблон.</string>
   <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Доволен</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Воздержусь</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Недоволен</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Как мы можем улучшить эту функцию?</string>
+  <string name="patroller_diff_menu_edit_history_title">История редактирования статьи</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
   <string name="patroller_diff_feedback_dialog_submit">Отправить</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Обратная связь отправлена.</string>
+  <string name="patroller_saved_message_title_vandalism">Предупреждение о вандализме</string>
+  <string name="patroller_saved_message_title_npov">Нейтральная точка зрения</string>
+  <string name="patroller_saved_message_title_auto_trans">Автоматический перевод</string>
+  <string name="patroller_saved_message_title_coi_rem">Напоминание о конфликте интересов</string>
+  <string name="patroller_saved_message_title_final_warning">Последнее предупреждение</string>
   <string name="patroller_saved_message_title_copy_vio">Предупреждение о нарушении авторских прав</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Оставить описания правки</string>
+  <string name="patroller_saved_message_title_art_imp">Предложение по улучшению статьи</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Используйте примеры сообщения ниже для настройки, отправки и сохранения его в своих сообщениях.</string>
   <string name="data_opt_in_accept">Принять</string>
@@ -1644,8 +1681,11 @@
   <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
+  <string name="donate_gpay_dialog_other_button">Другой способ оплаты</string>
   <string name="places_title">Места</string>
+  <string name="places_permissions_denied">Чтобы увидеть ваше местоположение на карте, требуется разрешение на определение местоположения. Пожалуйста, попробуйте ещё раз.</string>
   <string name="places_search_hint">Поиск мест</string>
+  <string name="places_filter_title">Фильтр по языку</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
   <string name="places_survey_very_satisfied_option">Очень доволен</string>

@@ -1046,8 +1046,8 @@
   <string name="image_recommendation_accept">iin</string>
   <string name="image_recommendation_reject">Aayi</string>
   <string name="image_recommendation_notsure">m-bi dihitabili</string>
-  <string name="image_recommendation_reject_title">Bɔ n-lee chɛ ka anfɔɔni maa bɛ lu n zahim lahibali ŋɔ?</string>
-  <string name="image_recommendation_reject_subtitle">A labisiɣu maa ni sɔŋ mali tooni lahabali sɔŋda n-niŋ.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Bɔ n-lee chɛ ka anfɔɔni maa bɛ lu n zahim lahibali ŋɔ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">A labisiɣu maa ni sɔŋ mali tooni lahabali sɔŋda n-niŋ.</string>
   <string name="image_recommendation_reject_not_relevant">Anfɔɔni bɛ tuhi</string>
   <string name="image_recommendation_reject_no_info">Lahabali kani din yan gbaai</string>
   <string name="image_recommendation_reject_offensive">Anfooni nyɛla taali</string>
@@ -1518,8 +1518,6 @@
   <string name="patroller_onboarding_two_thank_content">Nyam maliniŋ din nyɛ chirichi? Puhimi ka paɣi ba ni bɛ tohibu maa</string>
   <string name="patroller_onboarding_two_watch_title">Lihima</string>
   <string name="patroller_onboarding_two_watch_content">A bori ni a tooi doli lahabali maliniŋnima? dinŋuna zaŋmili pahi a nini ni pa shɛŋa zuɣu. A ni tooi yulli \'din pahi\' yaɣili</string>
-  <string name="patroller_onboarding_two_warn_title">zuɣuni kpahibu lahabali</string>
-  <string name="patroller_onboarding_two_warn_content">Namma, zaŋ n-ti ha, ka gu zuɣu kpahibu lahabaya niŋ ŋun su maliniŋ yɛltɔɣa paagi ni</string>
   <string name="patroller_onboarding_two_undo_title">yihimi niŋsim/labisim nyaanga</string>
   <string name="patroller_onboarding_two_undo_content">Piimi \'m bi lanniŋ\' n yihi niŋsim bee n labisi yihi maliniŋ din ni tooi ti lahabali barina.</string>
   <string name="patroller_diff_tooltip_one">Barina buɣisi ti lahabali di yi niŋ ka maliniŋ ni too tahi barina na Wiki puuni.</string>

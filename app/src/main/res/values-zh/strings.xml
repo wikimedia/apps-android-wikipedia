@@ -184,6 +184,7 @@
   <string name="langlinks_your_wikipedia_languages">您的维基百科语言</string>
   <string name="menu_save_changes">发布更改</string>
   <string name="edit_saved_successfully">编辑已发布！</string>
+  <string name="stub_article_edit_saved_successfully">编辑已发布！更改可能需要一些时间才能显示。</string>
   <string name="dialog_message_edit_failed">编辑失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
@@ -327,6 +328,7 @@
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
   <string name="edit_warn">警告</string>
+  <string name="edit_damage">破坏：%s</string>
   <string name="edit_intent">意图%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s字节</item>
@@ -484,6 +486,7 @@
   <string name="error_blocked_footer">您可以联系&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或另一&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论此封禁。</string>
   <string name="theme_chooser_menu_item_short_tooltip">自定义您的工具栏</string>
   <string name="error_blocked_footer_no_blocker">您可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理员&lt;/a&gt;来讨论此封禁。</string>
+  <string name="temp_account_not_logged_in">您尚未登录</string>
   <string name="crash_report_activity_title">应用程序错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重启</string>
@@ -1121,8 +1124,8 @@
   <string name="image_recommendation_accept">会</string>
   <string name="image_recommendation_reject">否</string>
   <string name="image_recommendation_notsure">不确定</string>
-  <string name="image_recommendation_reject_title">为什么不会呢？</string>
-  <string name="image_recommendation_reject_subtitle">您的回答有助于改进今后关于图片的建议。</string>
+  <string name="image_recommendation_reject_title">拒绝原因</string>
+  <string name="image_recommendation_reject_subtitle">拒绝原因采用匿名方式，用于改进今后的图片建议。</string>
   <string name="image_recommendation_reject_not_relevant">图片与条目无关</string>
   <string name="image_recommendation_reject_no_info">信息不足，无法决定</string>
   <string name="image_recommendation_reject_offensive">图片令人不悦</string>
@@ -1573,7 +1576,6 @@
   <string name="patroller_tasks_overflow_learn">了解更多</string>
   <string name="patroller_onboarding_two_thank_title">感谢</string>
   <string name="patroller_onboarding_two_watch_title">监视</string>
-  <string name="patroller_onboarding_two_warn_title">警告</string>
   <string name="patroller_diff_feedback_dialog_title">帮助我们改进此功能</string>
   <string name="patroller_diff_feedback_dialog_message">您对该功能满意吗？</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">满意</string>

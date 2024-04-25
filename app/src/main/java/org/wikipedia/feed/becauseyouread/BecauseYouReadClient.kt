@@ -6,7 +6,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -23,49 +22,46 @@ class BecauseYouReadClient : FeedClient {
     private var clientJob: Job? = null
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        clientJob?.cancel()
-        clientJob = CoroutineScope(Dispatchers.Default).launch(
+        clientJob = CoroutineScope(Dispatchers.Main).launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
                 cb.success(emptyList())
             }
         ) {
-            withContext(Dispatchers.Main) {
-                val entries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
-                if (entries.size <= age) {
-                    cb.success(emptyList())
-                } else {
-                    val entry = entries[age]
-                    val langCode = entry.title.wikiSite.languageCode
-                    // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
-                    // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
-                    val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
-                    val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
-                    val relatedPages = mutableListOf<PageSummary>()
+            val entries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
+            if (entries.size <= age) {
+                cb.success(emptyList())
+            } else {
+                val entry = entries[age]
+                val langCode = entry.title.wikiSite.languageCode
+                // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
+                // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
+                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
+                val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
+                val relatedPages = mutableListOf<PageSummary>()
 
-                    val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
-                        Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
+                val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
+                    Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
 
-                    val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
-                        entry.title.extract, entry.title.thumbUrl, langCode)
+                val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
+                    entry.title.extract, entry.title.thumbUrl, langCode)
 
-                    moreLikeResponse.query?.pages?.forEach {
-                        if (it.title != searchTerm) {
-                            if (hasParentLanguageCode) {
-                                val pageSummary = ServiceFactory.getRest(entry.title.wikiSite).getPageSummary(entry.referrer, it.title)
-                                relatedPages.add(pageSummary)
-                            } else {
-                                relatedPages.add(PageSummary(it.displayTitle(langCode), it.title, it.description,
-                                    it.extract, it.thumbUrl(), langCode))
-                            }
+                moreLikeResponse.query?.pages?.forEach {
+                    if (it.title != searchTerm) {
+                        if (hasParentLanguageCode) {
+                            val pageSummary = ServiceFactory.getRest(entry.title.wikiSite).getPageSummary(entry.referrer, it.title)
+                            relatedPages.add(pageSummary)
+                        } else {
+                            relatedPages.add(PageSummary(it.displayTitle(langCode), it.title, it.description,
+                                it.extract, it.thumbUrl(), langCode))
                         }
                     }
-
-                    FeedCoordinator.postCardsToCallback(cb,
-                        if (relatedPages.isEmpty()) emptyList()
-                        else listOf(toBecauseYouReadCard(relatedPages, headerPage, entry.title.wikiSite))
-                    )
                 }
+
+                FeedCoordinator.postCardsToCallback(cb,
+                    if (relatedPages.isEmpty()) emptyList()
+                    else listOf(toBecauseYouReadCard(relatedPages, headerPage, entry.title.wikiSite))
+                )
             }
         }
     }

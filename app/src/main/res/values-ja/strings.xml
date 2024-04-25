@@ -1103,8 +1103,8 @@
   <string name="image_recommendation_accept">はい</string>
   <string name="image_recommendation_reject">いいえ</string>
   <string name="image_recommendation_notsure">わからない</string>
-  <string name="image_recommendation_reject_title">なぜだめですか？</string>
-  <string name="image_recommendation_reject_subtitle">あなたの回答により、将来の提案が改善されます。</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">なぜだめですか？</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">あなたの回答により、将来の提案が改善されます。</string>
   <string name="image_recommendation_reject_not_relevant">関連する画像ではありません</string>
   <string name="image_recommendation_reject_no_info">判断するのに十分な情報がありません</string>
   <string name="image_recommendation_reject_offensive">不快な画像です</string>
@@ -1573,8 +1573,6 @@
   <string name="patroller_onboarding_one_content">最近の編集のフィードを積極的にレビューし、他の編集者にガイダンス、品質管理、励ましを提供することで、Wikipedia コンテンツの品質を向上させます。</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
   <string name="patroller_onboarding_two_watch_title">ウォッチ</string>
-  <string name="patroller_onboarding_two_warn_title">警告</string>
-  <string name="patroller_onboarding_two_warn_content">編集者のトーク ページで警告メッセージを作成、送信、保存します。</string>
   <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
   <string name="patroller_diff_feedback_dialog_title">この機能の改善にご協力ください</string>
   <string name="patroller_diff_feedback_dialog_message">この機能に満足していますか?</string>

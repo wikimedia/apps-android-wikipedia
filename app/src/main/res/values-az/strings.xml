@@ -3,6 +3,7 @@
 * AZISS
 * Masalli qasimli
 * NMW03
+* Nemoralis
 * Neriman2003
 * Serkanland
 * Toghrul Rahimli
@@ -624,5 +625,7 @@
   <string name="talk_templates_empty_message" fuzzy="true">Başlamaq üçün öz xəbərdarlıq mesajlarınızı yaradın və ya &lt;a href=\"#\"&gt;nümunə mesajlarından&lt;/a&gt; istifadə edin.</string>
   <string name="talk_templates_your_messages_tab_title">Mesajlarınız</string>
   <string name="talk_templates_example_messages_tab_title">Nümunə mesajlar</string>
+  <string name="patroller_onboarding_two_talk_title">Müzakirə</string>
+  <string name="patroller_onboarding_two_talk_content">Digər redaktorlarla əlaqə saxlayın. Tez-tez istifadə olunan müzakirə səhifəsi mesajlarını yadda saxlayın və ya şablondan istifadə edin.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Mesajlarınızı fərdiləşdirmək, göndərmək və saxlamaq üçün aşağıdakı nümunə mesajından istifadə edin.</string>
 </resources>

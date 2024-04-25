@@ -1058,8 +1058,8 @@
   <string name="image_recommendation_accept">E</string>
   <string name="image_recommendation_reject">A\'a</string>
   <string name="image_recommendation_notsure">Ba tabbatacce ba ne</string>
-  <string name="image_recommendation_reject_title">Me ya sa?</string>
-  <string name="image_recommendation_reject_subtitle">Amsoshinku suna inganta shawarwari na gaba.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Me ya sa?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Amsoshinku suna inganta shawarwari na gaba.</string>
   <string name="image_recommendation_reject_not_relevant">Hoton ba ya dace</string>
   <string name="image_recommendation_reject_no_info">Babu isasshen bayani don yanke shawara</string>
   <string name="image_recommendation_reject_offensive">Hoton yana da banƙyama</string>
@@ -1536,8 +1536,6 @@
   <string name="patroller_onboarding_two_thank_content">Dubi gyare-gyare mai amfani? Na gode wa mai amfani saboda gudummawar da suka bayar.</string>
   <string name="patroller_onboarding_two_watch_title">Kalli</string>
   <string name="patroller_onboarding_two_watch_content">Yana so ya bi diddigin gyaran labarin? Ƙara a cikin Watchlist. Dubi shi a ƙarƙashin \'More\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Gargadi</string>
-  <string name="patroller_onboarding_two_warn_content">Ka ƙirƙira, aikawa, da adana saƙonnin gargadi a shafin tattaunawa na edita.</string>
   <string name="patroller_onboarding_two_undo_title">Maimaita/Bayarwa</string>
   <string name="patroller_onboarding_two_undo_content">Zaɓi \'Undo\' don warwarewa ko juyawa wani gyare-gyare mai lalacewa.</string>
   <string name="patroller_diff_tooltip_one">Lalacewar tana hasashen idan gyare-gyare yana haifar da lalacewa ga wiki.</string>

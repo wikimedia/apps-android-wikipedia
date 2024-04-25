@@ -1077,8 +1077,8 @@
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
   <string name="image_recommendation_notsure">No n\'estic segur</string>
-  <string name="image_recommendation_reject_title">Per què no?</string>
-  <string name="image_recommendation_reject_subtitle">Les vostres respostes milloren suggeriments futurs.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Per què no?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Les vostres respostes milloren suggeriments futurs.</string>
   <string name="image_recommendation_reject_not_relevant">La imatge no és rellevant</string>
   <string name="image_recommendation_reject_no_info">No hi ha prou informació per a decidir</string>
   <string name="image_recommendation_reject_offensive">La imatge és ofensiva</string>
@@ -1543,7 +1543,6 @@
   <string name="patroller_onboarding_one_title">Contribuïu a la supervisió i aprovació de les edicions de la Viquipèdia.</string>
   <string name="patroller_onboarding_two_thank_title">Agraeix</string>
   <string name="patroller_onboarding_two_watch_title">Vigila</string>
-  <string name="patroller_onboarding_two_warn_title">Avisa</string>
   <string name="patroller_diff_feedback_dialog_title">Ajudeu-nos a millorar aquesta funcionalitat</string>
   <string name="patroller_diff_feedback_dialog_message">Esteu satisfet amb aquesta funcionalitat?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfet</string>

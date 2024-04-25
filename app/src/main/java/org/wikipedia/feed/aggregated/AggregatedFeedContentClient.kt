@@ -140,42 +140,40 @@ class AggregatedFeedContentClient {
         private fun requestAggregated() {
             aggregatedClient.clientJob?.cancel()
             val date = DateUtil.getUtcRequestDateFor(age)
-            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Default).launch(
+            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Main).launch(
                 CoroutineExceptionHandler { _, caught ->
                     L.v(caught)
                     cb.error(caught)
                 }
             ) {
-                withContext(Dispatchers.Main) {
-                    val cards = mutableListOf<Card>()
-                    FeedContentType.aggregatedLanguages.forEach { langCode ->
-                        val wikiSite = WikiSite.forLanguageCode(langCode)
-                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
-                        var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
+                val cards = mutableListOf<Card>()
+                FeedContentType.aggregatedLanguages.forEach { langCode ->
+                    val wikiSite = WikiSite.forLanguageCode(langCode)
+                    val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
+                    var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
 
-                        // TODO: This is a temporary fix for T355192
-                        if (hasParentLanguageCode) {
-                            // TODO: Needs to update tfa and most read
-                            feedContentResponse.tfa?.let {
-                                val tfaResponse = getPageSummaryForLanguageVariant(it, wikiSite)
-                                feedContentResponse = AggregatedFeedContent(
-                                    tfa = tfaResponse,
-                                    news = feedContentResponse.news,
-                                    topRead = feedContentResponse.topRead,
-                                    potd = feedContentResponse.potd,
-                                    onthisday = feedContentResponse.onthisday
-                                )
-                            }
+                    // TODO: This is a temporary fix for T355192
+                    if (hasParentLanguageCode) {
+                        // TODO: Needs to update tfa and most read
+                        feedContentResponse.tfa?.let {
+                            val tfaResponse = getPageSummaryForLanguageVariant(it, wikiSite)
+                            feedContentResponse = AggregatedFeedContent(
+                                tfa = tfaResponse,
+                                news = feedContentResponse.news,
+                                topRead = feedContentResponse.topRead,
+                                potd = feedContentResponse.potd,
+                                onthisday = feedContentResponse.onthisday
+                            )
                         }
+                    }
 
-                        aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
-                        aggregatedClient.aggregatedResponseAge = age
-                    }
-                    if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
-                        getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
-                    }
-                    FeedCoordinator.postCardsToCallback(cb, cards)
+                    aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
+                    aggregatedClient.aggregatedResponseAge = age
                 }
+                if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
+                    getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
+                }
+                FeedCoordinator.postCardsToCallback(cb, cards)
             }
         }
 
