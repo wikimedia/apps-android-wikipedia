@@ -94,8 +94,10 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onRequestInsertTemplate() {
-        val activeInterface = if (invokeSource == Constants.InvokeSource.TALK_REPLY_ACTIVITY) "pt_talk" else "pt_edit"
-        PatrollerExperienceEvent.logAction("template_init", activeInterface)
+        if (isFromDiff) {
+            val activeInterface = if (invokeSource == Constants.InvokeSource.TALK_REPLY_ACTIVITY) "pt_talk" else "pt_edit"
+            PatrollerExperienceEvent.logAction("template_init", activeInterface)
+        }
         requestInsertTemplate.launch(TemplatesSearchActivity.newIntent(activity, pageTitle.wikiSite, isFromDiff, invokeSource))
     }
 
