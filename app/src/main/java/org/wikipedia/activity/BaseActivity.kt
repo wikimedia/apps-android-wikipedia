@@ -15,6 +15,7 @@ import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.functions.Consumer
+import org.wikipedia.BuildConfig
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -24,10 +25,12 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.connectivity.ConnectionStateMonitor
+import org.wikipedia.donate.DonateDialog
 import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.ReadingListsReceiveSurveyHelper
 import org.wikipedia.readinglist.ReadingListsShareSurveyHelper
@@ -37,6 +40,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -59,6 +63,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private val requestDonateActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
+        } else if (it.resultCode == DonateDialog.RESULT_GPAY_FAILED) {
+            launchDonateLink()
         }
     }
 
@@ -181,8 +187,17 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     override fun onGoOnline() {}
 
-    fun requestDonateActivity() {
+    fun launchDonateDialog() {
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance())
+    }
+
+    fun launchDonateActivity() {
         requestDonateActivity.launch(GooglePayComponent.getDonateActivityIntent(this))
+    }
+
+    fun launchDonateLink() {
+        CustomTabsUtil.openInCustomTab(this, getString(R.string.donate_url,
+            WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
     }
 
     private fun removeSplashBackground() {

@@ -63,6 +63,10 @@ class GooglePayActivity : BaseActivity() {
                             is Resource.Error -> {
                                 setErrorState(resource.throwable)
                             }
+                            is GooglePayViewModel.NoPaymentMethod -> {
+                                setResult(DonateDialog.RESULT_GPAY_FAILED)
+                                finish()
+                            }
                             is Resource.Success -> {
                                 onContentsReceived(resource.data)
                             }

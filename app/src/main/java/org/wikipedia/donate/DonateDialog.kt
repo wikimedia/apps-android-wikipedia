@@ -10,13 +10,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
-import org.wikipedia.BuildConfig
-import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 
@@ -34,7 +30,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.donateGooglePayButton.setOnClickListener {
-            (requireActivity() as? BaseActivity)?.requestDonateActivity()
+            (requireActivity() as? BaseActivity)?.launchDonateActivity()
             dismiss()
         }
 
@@ -75,12 +71,13 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun onDonateClicked() {
-        CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.donate_url,
-            WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
+        (requireActivity() as? BaseActivity)?.launchDonateLink()
         dismiss()
     }
 
     companion object {
+        const val RESULT_GPAY_FAILED = -100
+
         fun newInstance(): DonateDialog {
             return DonateDialog()
         }

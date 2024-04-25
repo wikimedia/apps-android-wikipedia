@@ -25,9 +25,9 @@ import java.util.Locale
 class GooglePayViewModel : ViewModel() {
     val uiState = MutableStateFlow(Resource<DonationConfig>())
     var donationConfig: DonationConfig? = null
-    var paymentMethod: PaymentMethod? = null
+    private var paymentMethod: PaymentMethod? = null
+    private val currentCountryCode: String get() = GeoUtil.geoIPCountry.orEmpty()
 
-    val currentCountryCode: String get() = GeoUtil.geoIPCountry.orEmpty()
     val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.getDefault())
 
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: "USD"
@@ -56,10 +56,12 @@ class GooglePayViewModel : ViewModel() {
             val donationConfigCall = async { DonationConfigHelper.getConfig() }
 
             donationConfig = donationConfigCall.await()
-            val paymentMethods = paymentMethodsCall.await().response!!.paymentMethods
-            paymentMethod = paymentMethods.find { it.type == GooglePayComponent.PAYMENT_METHOD_NAME }!!
-
-            uiState.value = Resource.Success(donationConfig!!)
+            paymentMethod = paymentMethodsCall.await().response?.paymentMethods?.find { it.type == GooglePayComponent.PAYMENT_METHOD_NAME }
+            if (paymentMethod == null) {
+                uiState.value = NoPaymentMethod()
+            } else {
+                uiState.value = Resource.Success(donationConfig!!)
+            }
         }
     }
 
@@ -83,33 +85,23 @@ class GooglePayViewModel : ViewModel() {
             uiState.value = Resource.Loading()
 
             val paymentDataObj = JSONObject(paymentData.toJson())
-            val email = paymentDataObj.optString("email", "")
             val paymentMethodObj = paymentDataObj.getJSONObject("paymentMethodData")
             val infoObj = paymentMethodObj.getJSONObject("info")
             val billingObj = infoObj.getJSONObject("billingAddress")
             val token = paymentMethodObj.getJSONObject("tokenizationData").getString("token")
 
-            val amount = decimalFormat.format(finalAmount)
-            val locality = billingObj.optString("locality", "")
-            val countryCode = infoObj.optString("countryCode", currentCountryCode)
-            val fullName = billingObj.optString("name", "")
-            val cardNetwork = infoObj.optString("cardNetwork", "")
-            val postalCode = billingObj.optString("postalCode", "")
-            val administrativeArea = billingObj.optString("administrativeArea", "")
-            val address1 = billingObj.optString("address1", "")
-
             val response = ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
                 .submitPayment(
-                    amount,
+                    decimalFormat.format(finalAmount),
                     BuildConfig.VERSION_NAME,
                     "", // TODO?
-                    locality,
-                    countryCode,
+                    billingObj.optString("locality", ""),
+                    infoObj.optString("countryCode", currentCountryCode),
                     currencyCode,
                     currentCountryCode,
-                    email,
+                    paymentDataObj.optString("email", ""),
                     "",
-                    fullName,
+                    billingObj.optString("name", ""),
                     WikipediaApp.instance.appOrSystemLanguageCode,
                     "",
                     if (recurring) "1" else "0",
@@ -117,10 +109,10 @@ class GooglePayViewModel : ViewModel() {
                     if (optInEmail) "1" else "0",
                     if (payTheFee) "1" else "0",
                     GooglePayComponent.PAYMENT_METHOD_NAME,
-                    cardNetwork,
-                    postalCode,
-                    administrativeArea,
-                    address1,
+                    infoObj.optString("cardNetwork", ""),
+                    billingObj.optString("postalCode", ""),
+                    billingObj.optString("administrativeArea", ""),
+                    billingObj.optString("address1", ""),
                 )
 
             L.d("Payment response: $response")
@@ -129,5 +121,6 @@ class GooglePayViewModel : ViewModel() {
         }
     }
 
+    class NoPaymentMethod : Resource<DonationConfig>()
     class DonateSuccess : Resource<DonationConfig>()
 }

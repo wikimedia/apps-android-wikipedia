@@ -13,8 +13,6 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
-import org.wikipedia.donate.DonateDialog
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
@@ -28,6 +26,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun settingsClick()
         fun watchlistClick()
         fun contribsClick()
+        fun donateClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -79,8 +78,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerDonateContainer.setOnClickListener {
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
+            callback()?.donateClick()
             dismiss()
-            ExclusiveBottomSheetPresenter.show(requireActivity().supportFragmentManager, DonateDialog.newInstance())
         }
 
         updateState()
