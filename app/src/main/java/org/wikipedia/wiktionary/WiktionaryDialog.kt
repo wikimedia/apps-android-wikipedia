@@ -17,7 +17,6 @@ import org.wikipedia.databinding.ItemWiktionaryDefinitionWithExamplesBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionsListBinding
 import org.wikipedia.databinding.ItemWiktionaryExampleBinding
 import org.wikipedia.dataclient.restbase.RbDefinition
-import org.wikipedia.dataclient.restbase.RbDefinition.Usage
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -75,7 +74,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         binding.dialogWiktionaryProgress.visibility = View.GONE
     }
 
-    private fun onSuccess(usageList: List<Usage>) {
+    private fun onSuccess(usageList: List<RbDefinition.Usage>) {
         binding.wiktionaryNoDefinitionsFound.visibility = View.GONE
         binding.dialogWiktionaryProgress.visibility = View.GONE
         usageList.forEach {
@@ -83,7 +82,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    private fun layOutUsage(currentUsage: Usage): View {
+    private fun layOutUsage(currentUsage: RbDefinition.Usage): View {
         val usageBinding = ItemWiktionaryDefinitionsListBinding.inflate(layoutInflater, binding.root, false)
         usageBinding.wiktionaryPartOfSpeech.text = currentUsage.partOfSpeech
         for (i in currentUsage.definitions.indices) {

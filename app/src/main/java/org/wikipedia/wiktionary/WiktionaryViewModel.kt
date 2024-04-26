@@ -22,7 +22,6 @@ import java.util.Locale
 class WiktionaryViewModel(bundle: Bundle) : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        L.d("response 2: Error occurred: $throwable")
         _uiState.value = Resource.Error(throwable)
     }
 
@@ -41,7 +40,6 @@ class WiktionaryViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(handler) {
             if (selectedText.isNullOrEmpty()) {
                 definitionsNotFound()
-                L.d("response 1: $selectedText")
                 return@launch
             }
             val query = StringUtil.addUnderscores(selectedText)
