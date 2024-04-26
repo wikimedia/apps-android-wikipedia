@@ -20,6 +20,7 @@ class SyntaxHighlighter(
     private val highlightDelayMillis: Long = HIGHLIGHT_DELAY_MILLIS,
 ) {
     private val syntaxRules = listOf(
+            SyntaxRule("{{{", "}}}", SyntaxRuleStyle.PRE_TEMPLATE),
             SyntaxRule("{{", "}}", SyntaxRuleStyle.TEMPLATE),
             SyntaxRule("[[", "]]", SyntaxRuleStyle.INTERNAL_LINK),
             SyntaxRule("[", "]", SyntaxRuleStyle.EXTERNAL_LINK),

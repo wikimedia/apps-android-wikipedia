@@ -279,8 +279,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
@@ -883,8 +883,8 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_edit_learn_more">Madde açıklamaları hakkında daha fazla bilgi edinin</string>
   <string name="description_edit_image_caption_learn_more">Görsel alt yazıları hakkında daha fazla bilgi edinin</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_A%C3%A7%C4%B1klamalar%C4%B1</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Ba%C5%9Fl%C4%B1klar%C4%B1</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_Açıklamaları</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Başlıkları</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
   <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
@@ -1103,8 +1103,8 @@
   <string name="image_recommendation_accept">Evet</string>
   <string name="image_recommendation_reject">Hayır</string>
   <string name="image_recommendation_notsure">Emin değilim</string>
-  <string name="image_recommendation_reject_title">Neden?</string>
-  <string name="image_recommendation_reject_subtitle">Yanıtlarınız gelecek önerileri iyileştirir.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Neden?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Yanıtlarınız gelecek önerileri iyileştirir.</string>
   <string name="image_recommendation_reject_not_relevant">Görsel ilgili değil</string>
   <string name="image_recommendation_reject_no_info">Karar vermek için yeterli bilgi yok</string>
   <string name="image_recommendation_reject_offensive">Görsel rahatsız edici</string>
@@ -1279,8 +1279,6 @@
   <string name="talk_warn_save_dialog_cancel">İptal</string>
   <string name="talk_warn_submitted">İleti, düzenleyicinin kullanıcı tartışma sayfasında yayımlandı</string>
   <string name="talk_warn_submitted_and_saved">İleti, düzenleyicinin kullanıcı tartışma sayfasında saklandı ve yayımlandı</string>
-  <string name="talk_warn_saved_message">Var olan bir uyarı iletisini seçin ya da yeni bir ileti oluşturun.</string>
-  <string name="talk_warn_saved_message_dropdown">Saklanan iletiler</string>
   <string name="talk_warn_saved_messages">Saklanan iletiler</string>
   <string name="talk_page_empty">Bu tartışma sayfası boş.</string>
   <string name="talk_page_empty_title">Konuşma burada başlıyor</string>
@@ -1487,10 +1485,8 @@
   <string name="reading_list_share_message_v2">Merhaba! Vikipedi okuma listemi seninle paylaşmak istiyorum:</string>
   <string name="reading_list_share_survey_title">\"Okuma listelerini paylaş\" özelliğini iyileştirmemize yardımcı olabilir misiniz?</string>
   <string name="reading_list_share_survey_body">\"Okuma listelerini paylaş\" bir deneme özelliğidir ve iyileştirmek ya da kaldırmak için geri bildiriminize ihtiyacımız var.</string>
-  <string name="talk_templates_manage_title">Şablonları yönet</string>
-  <string name="talk_templates_empty_message">Saklanan herhangi bir uyarı iletiniz yok.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Saklanan herhangi bir uyarı iletiniz yok.</string>
   <string name="talk_templates_new_message_title">Yeni ileti</string>
-  <string name="talk_templates_new_message_description">Uyarı iletisi oluşturun.</string>
   <string name="talk_templates_new_message_subject_hint">Konu</string>
   <string name="talk_templates_new_message_compose_hint">İleti oluştur</string>
   <string name="talk_templates_new_message_save">Sakla</string>
@@ -1515,7 +1511,6 @@
     <item quantity="other">İletiler silindi</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Başlık boş olamaz.</string>
-  <string name="patroller_tasks_edits_list_title">Değişiklik listesi</string>
   <string name="patroller_tasks_edits_list_search_hint">Değişiklikleri ara ya da filtrele</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiketler: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hiçbiri</string>
@@ -1575,7 +1570,6 @@
     <item quantity="one">%d süzgeci</item>
     <item quantity="other">%d süzgeci</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Kolluk değişikliği</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Madde düzenleme geçmişi</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Geri alma tamamlandı</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Geri dönmek istediğinizden emin misiniz?</string>
@@ -1590,8 +1584,6 @@
   <string name="patroller_onboarding_two_thank_content">Verimli bir düzenleme mi gördünüz? Katkılarından dolayı bir kullanıcıya teşekkür edin.</string>
   <string name="patroller_onboarding_two_watch_title">İzle</string>
   <string name="patroller_onboarding_two_watch_content">Madde düzenlemelerini takip etmek mi istiyorsunuz? İzleme Listenize ekleyin. \'Diğer\' altında görüntüleyin.</string>
-  <string name="patroller_onboarding_two_warn_title">Uyar</string>
-  <string name="patroller_onboarding_two_warn_content">Bir düzenleyicinin tartışma sayfasında uyarı iletileri oluşturun, gönderin ve saklayın.</string>
   <string name="patroller_onboarding_two_undo_title">Geri Al/Geri Döndür</string>
   <string name="patroller_onboarding_two_undo_content">Zararlı olabilecek bir düzenlemeyi geri almak ya da geri döndürmek için \'Geri Al\'ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Hasar, bir düzenlemenin vikiye zarar verip vermeyeceğini kestirir.</string>

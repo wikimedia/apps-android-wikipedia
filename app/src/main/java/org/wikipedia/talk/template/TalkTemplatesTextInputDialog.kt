@@ -2,40 +2,40 @@ package org.wikipedia.talk.template
 
 import android.app.Activity
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.view.WindowManager
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogTalkTemplatesTextInputBinding
-import org.wikipedia.talk.TalkReplyActivity
 
-class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
-                                               positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
-                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Input) {
+class TalkTemplatesTextInputDialog(
+    activity: Activity,
+    positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
+    negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text,
+    isExisting: Boolean = false
+) : MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Input) {
     interface Callback {
-        fun onShow(dialog: TalkTemplatesTextInputDialog)
-        fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog)
-        fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence)
+        fun onSuccess(subjectText: String)
         fun onCancel()
+        fun onTextChanged(text: String, dialog: TalkTemplatesTextInputDialog)
         fun onDismiss()
+        fun getSubjectText(): String
     }
 
     private var binding = DialogTalkTemplatesTextInputBinding.inflate(LayoutInflater.from(context))
     private var dialog: AlertDialog? = null
     var callback: Callback? = null
-    val isSaveAsNewChecked get() = binding.dialogSaveAsNewCheckbox.isChecked
-    val isSaveExistingChecked get() = binding.dialogSaveExistingCheckbox.isChecked
+    val isSaveAsNewChecked get() = binding.dialogSaveAsNewRadio.isChecked
+    val isSaveExistingChecked get() = binding.dialogSaveExistingRadio.isChecked
 
     init {
         setView(binding.root)
-        binding.titleInputContainer.isErrorEnabled = true
 
         setPositiveButton(positiveButtonText) { _, _ ->
-            callback?.onSuccess(binding.titleInput.text.toString().trim(), binding.subjectTextInput.text.toString().trim(), binding.bodyTextInput.editText.text.toString().trim())
+            callback?.onSuccess(binding.subjectInput.text.toString())
         }
         setNegativeButton(negativeButtonText) { _, _ ->
             callback?.onCancel()
@@ -43,32 +43,13 @@ class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
         setOnDismissListener {
             callback?.onDismiss()
         }
-        binding.titleInput.doOnTextChanged { text, _, _, _ ->
-            if (binding.dialogSaveAsNewCheckbox.isVisible && !binding.dialogSaveAsNewCheckbox.isChecked) {
-                binding.dialogSaveAsNewCheckbox.isChecked = true
-                binding.dialogSaveExistingCheckbox.isChecked = false
-            }
-            callback?.onTextChanged(text ?: "", this)
+        binding.subjectInput.doOnTextChanged { text, _, _, _ ->
+            callback?.onTextChanged(text.toString(), this)
         }
-        binding.dialogSaveAsNewCheckbox.setOnClickListener {
-            if (binding.dialogSaveExistingCheckbox.isChecked) {
-                binding.dialogSaveAsNewCheckbox.isChecked = true
-                binding.dialogSaveExistingCheckbox.isChecked = false
-            }
-            setPositiveButtonEnabled(binding.titleInput.text?.isNotBlank() ?: false)
-        }
-        binding.dialogSaveExistingCheckbox.setOnClickListener {
-            if (binding.dialogSaveAsNewCheckbox.isChecked) {
-                binding.dialogSaveAsNewCheckbox.isChecked = false
-                binding.dialogSaveExistingCheckbox.isChecked = true
-            }
-            setError(null)
-            setPositiveButtonEnabled(true)
-        }
-        binding.dialogSaveAsNewCheckbox.setOnCheckedChangeListener { _, isChecked ->
-            if (!isChecked) {
-                setError(null)
-                binding.root.requestFocus()
+        binding.dialogSaveExistingRadio.isVisible = isExisting
+        binding.dialogSaveExistingRadio.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                callback?.onTextChanged(binding.subjectInput.text.toString(), this)
             }
         }
     }
@@ -77,107 +58,21 @@ class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
         dialog = super.create()
         dialog?.setOnShowListener {
             dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            callback?.onShow(this@TalkTemplatesTextInputDialog)
-            addTextWatcher()
+            binding.dialogSaveAsNewRadio.isChecked = true
         }
+        binding.subjectInput.setText(callback?.getSubjectText())
         return dialog!!
     }
 
-    private fun addTextWatcher() {
-        val textWatcher = binding.titleInput.doOnTextChanged { _, _, _, _ ->
-            binding.titleInputContainer.error = null
-            binding.subjectTextInputContainer.error = null
-            binding.bodyTextInput.textInputLayout.error = null
-            val title = binding.titleInput.text.toString().trim()
-            val subject = binding.subjectTextInput.text.toString().trim()
-            val body = binding.bodyTextInput.editText.text.toString().trim()
-            if (title.isEmpty()) {
-                sendPatrollerExperienceEvent("publish_error_title")
-                binding.titleInputContainer.error = context.getString(R.string.talk_templates_message_title_empty)
-            }
-            if (subject.isEmpty()) {
-                sendPatrollerExperienceEvent("save_error_subject")
-                binding.subjectTextInputContainer.error = context.getString(R.string.talk_subject_empty)
-            }
-            if (body.isEmpty()) {
-                sendPatrollerExperienceEvent("save_error_message")
-                binding.bodyTextInput.textInputLayout.error = context.getString(R.string.talk_message_empty)
-            }
-            if (binding.subjectTextInputContainer.isVisible && binding.bodyTextInput.isVisible) {
-                setPositiveButtonEnabled(title.isNotBlank() && subject.isNotBlank() && body.isNotBlank())
-            } else {
-                setPositiveButtonEnabled(title.isNotBlank())
-            }
-        }
-        binding.subjectTextInput.addTextChangedListener(textWatcher)
-        binding.bodyTextInput.editText.addTextChangedListener(textWatcher)
-    }
-
-    fun requestFocus() {
-        binding.titleInput.requestFocus()
-    }
-
-    fun showTemplateCheckboxes(hasTemplate: Boolean) {
-        binding.dialogSaveAsNewCheckbox.isVisible = true
-        if (!hasTemplate) {
-            binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_message)
-        } else {
-            binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_existing_new_message)
-            binding.dialogSaveExistingCheckbox.isVisible = true
-        }
-    }
-
-    private fun sendPatrollerExperienceEvent(action: String) {
-        PatrollerExperienceEvent.logAction(
-            action, if (activity is TalkReplyActivity) "pt_warning_messages" else "pt_templates"
-        )
-    }
-
-    fun setDialogMessage(text: String) {
-        binding.dialogMessage.text = text
-    }
-
-    fun setTitleText(text: CharSequence?) {
-        binding.titleInput.setText(text)
-    }
-
-    fun setSubjectText(text: CharSequence?) {
-        binding.subjectTextInput.setText(text)
-    }
-
-    fun setBodyText(text: CharSequence?) {
-        binding.bodyTextInput.editText.setText(text)
-    }
-
-    fun showDialogMessage(show: Boolean) {
-        binding.dialogMessage.isVisible = show
-    }
-
-    fun showSubjectText(show: Boolean) {
-        binding.subjectTextInputContainer.isVisible = show
-    }
-
-    fun showBodyText(show: Boolean) {
-        binding.bodyTextInput.isVisible = show
-    }
-
-    fun setTitleHint(@StringRes id: Int) {
-        binding.titleInputContainer.hint = context.resources.getString(id)
-    }
-
-    fun setSubjectHint(@StringRes id: Int) {
-        binding.subjectTextInputContainer.hint = context.resources.getString(id)
-    }
-
-    fun setBodyHint(@StringRes id: Int) {
-        binding.bodyTextInput.textInputLayout.hint = context.resources.getString(id)
-    }
-
     fun setError(text: CharSequence?) {
-        binding.titleInputContainer.error = text
+        binding.subjectInputContainer.error = text
     }
 
     fun setPositiveButtonEnabled(enabled: Boolean) {
         dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = enabled
+    }
+
+    fun getView(): ViewGroup {
+        return binding.root
     }
 }

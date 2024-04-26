@@ -135,6 +135,7 @@
   <string name="langlinks_your_wikipedia_languages">Dine Wikipedia-sprog</string>
   <string name="menu_save_changes">Offentliggør ændringer</string>
   <string name="edit_saved_successfully">Redigering offentliggjort!</string>
+  <string name="stub_article_edit_saved_successfully">Redigering udgivet! Det kan tage et øjeblik inden ændringerne vises.</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
   <string name="dialog_message_edit_failed_cancel">Annuller</string>
@@ -252,15 +253,15 @@
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license" fuzzy="true">Kildekode er tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngiv - Del på samme vilkår Licens&lt;/a&gt;.</string>
+  <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-licensen&lt;/a&gt; . Medmindre andet er angivet, er indhold tilgængeligt under en &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-Del på samme Vilkår-licens&lt;/a&gt; .</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
@@ -413,6 +414,7 @@
   <string name="link_preview_dialog_save_button">Gem</string>
   <string name="link_preview_dialog_saved_button">Gemt</string>
   <string name="link_preview_dialog_share_button">Del</string>
+  <string name="link_preview_stub_placeholder_text">Denne artikel er en spire, hvilket betyder, at der ikke er nok indhold i artiklen til at generere en forhåndsvisning. Det kan du dog ændre på.</string>
   <string name="error_page_does_not_exist">Denne side findes ikke.</string>
   <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s\"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \"%3$s\" eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
@@ -435,6 +437,25 @@
   <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en anden &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tilpas din værktøjslinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
+  <string name="temp_account_not_logged_in">Du er ikke logget ind</string>
+  <string name="temp_account_anon_dialog_body">Når du har foretaget en redigering, vil der blive oprettet en &lt;b&gt;midlertidig konto&lt;/b&gt; til dig for at beskytte dit privatliv. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Lær mere&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opret en konto&lt;/a&gt; for at få kredit for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
+  <string name="temp_account_temp_dialog_body">Din redigering vil blive tilskrevet %1$s. Din IP-adresse vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opretter en konto&lt;/a&gt;, vil dine redigeringer blive tilskrevet et navn, du vælger, blandt andre fordele.</string>
+  <string name="temp_account_dialog_ok">Forstået</string>
+  <string name="temp_account_using_title">Du bruger en midlertidig konto</string>
+  <string name="temp_account_dialog_discard">Kassér ændringer og log ind</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Midlertidig konto %1$s blev oprettet efter din redigering blev offentliggjort. Den udløber om %2$d dag.</item>
+    <item quantity="other">Den midlertidige konto %1$s blev oprettet, efter din redigering blev offentliggjort. Den udløber om %2$d dage.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Konto udløber om %d dag.</item>
+    <item quantity="other">Konto udløber om %d dage.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Du er ikke logget ind.&lt;/b&gt; Når du har foretaget en redigering, oprettes en midlertidig konto til dig for at beskytte dit privatliv. &lt;a href=\"%1$s\"&gt;Lær mere&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Du bruger en midlertidig konto.&lt;/b&gt; Din redigering vil blive tilskrevet til %1$s. &lt;a href=\"%2$s\"&gt;Lær mere&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Du bruger i øjeblikket en midlertidig konto.&lt;/b&gt; Redigeringer foretaget med den midlertidige konto %1$s vil ikke blive overført til din permanente konto, når du logger ind. Log ind eller opret en konto for at få kredittering til dit brugernavn, blandt andre fordele.</string>
+  <string name="temp_account_end_session">Afslut session</string>
+  <string name="temp_account_end_session_confirm">Dette vil logge dig ud af din midlertidige konto. Vil du fortsætte?</string>
   <string name="crash_report_activity_title">Applikationsfejl</string>
   <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.\n\nVil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
@@ -856,8 +877,8 @@
   <string name="description_edit_voice_input_description">Taleinput</string>
   <string name="description_edit_learn_more">Lær mere om artikelbeskrivelser</string>
   <string name="description_edit_image_caption_learn_more">Lær mere om billedtekster</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_ends_with_punctuation">Teksten må ikke ende med skilletegn.</string>
   <string name="description_starts_with_uppercase">Begynd med et lille bogstav med mindre det første ord er et egennavn.</string>
@@ -1078,8 +1099,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nej</string>
   <string name="image_recommendation_notsure">Ikke sikker</string>
-  <string name="image_recommendation_reject_title">Hvorfor ikke?</string>
-  <string name="image_recommendation_reject_subtitle">Dine svar forbedrer fremtidige forslag.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Hvorfor ikke?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Dine svar forbedrer fremtidige forslag.</string>
   <string name="image_recommendation_reject_not_relevant">Billedet er ikke relevant</string>
   <string name="image_recommendation_reject_no_info">Ikke nok information til at beslutte</string>
   <string name="image_recommendation_reject_offensive">Billedet er stødende</string>
@@ -1221,6 +1242,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Uden ramme</string>
   <string name="insert_media_advanced_settings_image_type_frame">Ramme</string>
   <string name="insert_media_advanced_settings_image_type_basic">Simpel</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Du kan indstille, hvordan medieelementet vises på siden. Dette bør være miniatureformatet for at være i overensstemmelse med andre sider i næsten alle tilfælde.</string>
   <string name="insert_media_advanced_settings_image_size">Billedestørrelse</string>
   <string name="insert_media_advanced_settings_image_size_default">Standard</string>
   <string name="insert_media_advanced_settings_image_size_custom">Tilpas</string>
@@ -1228,6 +1250,14 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Højde</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Indsæt</string>
+  <string name="templates_search_hint">Søg skabeloner</string>
+  <string name="templates_insert_button">Indsæt</string>
+  <string name="templates_param_suggested_value">fx %s</string>
+  <string name="templates_param_optional_hint">%s (Valgfrit)</string>
+  <string name="templates_param_suggested_hint">%s (Foreslået)</string>
+  <string name="templates_learn_more_link">Lær mere</string>
+  <string name="templates_description_incomplete">Skabeloner er brugergenererede og kan mangle fuldstændige beskrivelser.</string>
+  <string name="templates_description_empty">Skabelonen \"%s\" har endnu ikke en beskrivelse.</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
   <string name="main_tooltip_text">Hej %s , vidste du, at alle kan redigere Wikipedia?</string>
@@ -1251,9 +1281,9 @@
   <string name="talk_warn_save_dialog_hint">Beskedens titel</string>
   <string name="talk_warn_save_dialog_publish">Udgiv</string>
   <string name="talk_warn_save_dialog_cancel">Annullér</string>
+  <string name="talk_warn_save_dialog_dont_save">Gem ikke</string>
   <string name="talk_warn_submitted">Besked offentliggjort på brugerens brugerdiskussionsside</string>
   <string name="talk_warn_submitted_and_saved">Beskeden er gemt og offentliggjort på brugerens brugerdiskussionsside</string>
-  <string name="talk_warn_saved_message_dropdown">Gemte beskeder</string>
   <string name="talk_warn_saved_messages">Gemte beskeder</string>
   <string name="talk_page_empty">Diskussionssiden er tom.</string>
   <string name="talk_page_empty_title">Samtalen begynder her</string>
@@ -1437,7 +1467,6 @@
   <string name="reading_list_share_menu_tooltip">Del din læseliste med andre</string>
   <string name="reading_list_share_message_v2">Hej! Jeg vil gerne dele min Wikipedia-læseliste med dig:</string>
   <string name="talk_templates_new_message_title">Ny besked</string>
-  <string name="talk_templates_new_message_description">Skriv en advarselsmeddelelse.</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv besked</string>
   <string name="talk_templates_new_message_save">Gem</string>
@@ -1457,7 +1486,7 @@
     <item quantity="one">Beskeden er slettet</item>
     <item quantity="other">Beskederne er slettet</item>
   </plurals>
-  <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
+  <string name="talk_templates_your_messages_tab_title">Dine beskeder</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vis brugerside</string>
@@ -1489,6 +1518,11 @@
   <string name="patroller_tasks_filters_significance_header">Betydning</string>
   <string name="patroller_tasks_filters_significance_minor">Mindre ændringer</string>
   <string name="patroller_tasks_filters_significance_edits">Ikke-mindre ændringer</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="other">%d filtre</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artiklens redigeringshistorik</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Er du sikker på, at du vil rulle ændringerne tilbage?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Tilbageføring fuldført</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Vis</string>
@@ -1497,16 +1531,36 @@
   <string name="patroller_onboarding_two_thank_title">Tak</string>
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Tak en bruger for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåg</string>
-  <string name="patroller_onboarding_two_warn_title">Advar</string>
-  <string name="patroller_onboarding_two_warn_content">Opret, send og gem advarselsmeddelelser på en bidragyders diskussionsside.</string>
+  <string name="patroller_diff_feedback_dialog_message">Er du tilfreds med denne funktion?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tilfreds</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Hvordan kan vi forbedre funktionen?</string>
+  <string name="patroller_diff_menu_edit_history_title">Artiklens redigeringshistorik</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
   <string name="patroller_diff_feedback_dialog_submit">Indsend</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Feedback indsendt.</string>
+  <string name="patroller_saved_message_title_vandalism">Advarsel om muligt hærværk</string>
+  <string name="patroller_saved_message_title_npov">Neutral synvinkel</string>
+  <string name="patroller_saved_message_title_auto_trans">Automatisk oversættelse</string>
+  <string name="patroller_saved_message_title_coi_rem">Påmindelse om interessekonflikt</string>
+  <string name="patroller_saved_message_title_final_warning">Sidste advarsel</string>
+  <string name="patroller_saved_message_title_copy_vio">Advarsel om mulig krænkelse af ophavsret</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Giv et redigeringsresumé</string>
+  <string name="patroller_saved_message_title_do_not_censor">Undlad at censurere</string>
+  <string name="patroller_saved_message_title_art_imp">Forslag til artikelforbedring</string>
+  <string name="patroller_saved_message_body_vandalism">Hej {{{username}}}, jeg vil gerne fortælle dig, at jeg har tilbageført et eller flere af dine [{{{diffLink}}}|nylige bidrag], fordi de ikke virker konstruktive. Hvis du mener, jeg har lavet en fejl eller har spørgsmål, kan du lægge en besked på [[User talk:{{{senderUserName}}}|min diskussionsside]]. Vær opmærksom på, at eventuel hærværk kan føre til restriktioner.</string>
+  <string name="patroller_saved_message_body_editing_tests">Hej {{{username}}}, jeg er glad for, at Wikipedia har fanget din opmærksomhed, og at du er interesseret i at lære, hvordan du kan redigere her. Redigeringstesten du lavede virkede; Du skal dog huske på, at målet med dette projekt er at udvikle en pålidelig og komplet encyklopædi, som alle kan benytte. Din redigering påvirkede indholdet, så det er blevet fjernet.\nHvis du vil lære at redigere Wikipedia, står [[Wikipedia:Sandbox|sandbox]] til din rådighed. Hvis dine kommentarer var specifikke for en artikel, er det korrekte sted artiklens diskussionsside.</string>
+  <string name="patroller_saved_message_body_final_warning">Fordi du har lavet flere destruktive redigeringer, er dette din sidste advarsel. Skulle du igen vandalisere Wikipedia, vil du blive udelukket fra at redigere.</string>
+  <string name="patroller_saved_message_body_copy_vio">Din seneste redigering ser ud til at inkludere ophavsretligt beskyttet materiale uden tilladelse. Sørg for at alt indhold overholder denne Wikipedias [[Wikipedia:Copyrights|copyright]]-politikker for at undgå fjernelse.</string>
+  <string name="patroller_saved_message_body_edit_summary">Hej {{{username}}}, det ser ud til, at du har fjernet indhold fra Wikipedia uden at efterlade et redigeringsresumé. Efterlad venligst et redigeringsresumé, hver gang du tilføjer eller fjerner indhold til Wikipedia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Hej {{{username}}}, det ser ud til, at du har fjernet indhold uden at diskutere det på artiklens diskussionsside. Bemærk venligst, at Wikipedia ikke er censureret, og indhold bør ikke fjernes, fordi det er kontroversielt. Hvis du mener, at oplysningerne er unøjagtige, bedes du nå til enighed på artiklens diskussionsside.</string>
+  <string name="patroller_saved_message_body_art_imp">Hej {{{username}}}. Din artikel er en god start! For at gøre det endnu bedre, overvej at tilføje flere referencer til pålidelige kilder. Dette hjælper med at verificere oplysningerne og forbedrer artiklens kvalitet. Tjek denne Wikipedias retningslinjer om [[Wikipedia:Reliable_sources|pålidelige kilder]] for flere detaljer.</string>
+  <string name="talk_templates_menu_edit_title">Rediger</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Afvis</string>
+  <string name="page_issues_title">Problemer med siden</string>
+  <string name="generic_release_notes">Mindre fejlrettelser og forbedringer</string>
   <string name="donation_campaign_go_back_button">Gå tilbage</string>
   <string name="menu_single_webview_open_external">Åbn i systembrowser</string>
   <string name="places_title">Steder</string>

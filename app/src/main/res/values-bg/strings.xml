@@ -235,8 +235,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
@@ -955,8 +955,8 @@
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
   <string name="image_recommendation_notsure">Не съм сигурен/а</string>
-  <string name="image_recommendation_reject_title">Защо не?</string>
-  <string name="image_recommendation_reject_subtitle">Вашите отговори подобряват бъдещите предложения.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Защо не?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Вашите отговори подобряват бъдещите предложения.</string>
   <string name="image_recommendation_reject_not_relevant">Изображението не е уместно</string>
   <string name="image_recommendation_reject_no_info">Няма достатъчно информация за вземане на решение</string>
   <string name="image_recommendation_reject_offensive">Изображението е обидно</string>
@@ -1282,10 +1282,8 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Списъкът за четене е внесен</string>
   <string name="reading_list_share_menu_label">Споделяне...</string>
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
-  <string name="patroller_tasks_patrol_edit_title">Патрулиране на редакция</string>
   <string name="patroller_onboarding_two_thank_title">Благодарност</string>
   <string name="patroller_onboarding_two_watch_title">Наблюдение</string>
-  <string name="patroller_onboarding_two_warn_title">Предупреждение</string>
   <string name="patroller_diff_feedback_dialog_title">Помогнете ни да подобрим тази възможност</string>
   <string name="patroller_diff_feedback_dialog_message">Доволни ли сте от тази възможност?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна</string>

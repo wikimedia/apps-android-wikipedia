@@ -2,6 +2,7 @@
 <!-- Authors:
 * Amire80
 * Athena in Wonderland
+* B3rnas
 * Caiofernandes
 * CaiusSPQR
 * Dbrant
@@ -23,6 +24,7 @@
 * SandroHc
 * Svjatysberega
 * Tooguether
+* Vinickw
 * Vitorvicentevalente
 * Webysther
 -->
@@ -254,8 +256,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Contribuidores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipa&lt;/a&gt;</string>
@@ -767,8 +769,8 @@
   <string name="notifications_menu_uncheck_all">Desmarcar todos os elementos</string>
   <string name="notifications_wiki_filter_header">Filtro de wikis</string>
   <string name="notifications_type_filter_header">Filtro de tipos</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Todas as \"wikis\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Todos os \"tipos\"</string>
+  <string name="notifications_all_wikis_text">Todas as wikis</string>
+  <string name="notifications_all_types_text">Todos os tipos</string>
   <string name="notifications_menu_user_talk_page">Página de discussão de %s</string>
   <string name="notifications_offline_disable_message">A função não está disponível offline.</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
@@ -856,8 +858,8 @@
   <string name="description_edit_voice_input_description">Entrada de voz</string>
   <string name="description_edit_learn_more">Saiba mais sobre as descrições de artigos</string>
   <string name="description_edit_image_caption_learn_more">Saiba mais sobre as legendas de imagens</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt#Descrições_de_artigos</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt#Legendas_de_imagens</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">O texto é demasiado curto.</string>
   <string name="description_ends_with_punctuation">O texto não pode terminar com um sinal de pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos, como \"um\" e \"o\".</string>
@@ -1079,8 +1081,8 @@
   <string name="image_recommendation_accept">Sim</string>
   <string name="image_recommendation_reject">Não</string>
   <string name="image_recommendation_notsure">Não tenho a certeza</string>
-  <string name="image_recommendation_reject_title">Por que não?</string>
-  <string name="image_recommendation_reject_subtitle">Sua resposta pode melhorar sugestões futuras.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Por que não?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Sua resposta pode melhorar sugestões futuras.</string>
   <string name="image_recommendation_reject_not_relevant">A imagem não é relevante</string>
   <string name="image_recommendation_reject_no_info">Não há informações suficientes para decidir</string>
   <string name="image_recommendation_reject_offensive">A imagem é ofensiva</string>
@@ -1253,8 +1255,6 @@
   <string name="talk_warn_save_dialog_cancel">Cancelar</string>
   <string name="talk_warn_submitted">Mensagem publicada na página de discussão do editor</string>
   <string name="talk_warn_submitted_and_saved">Mensagem gravada e publicada na página de discussão do editor</string>
-  <string name="talk_warn_saved_message">Selecionar uma mensagem de aviso existente ou redigir uma mensagem nova.</string>
-  <string name="talk_warn_saved_message_dropdown">Mensagens gravadas</string>
   <string name="talk_page_empty">Esta página de discussão está vazia.</string>
   <string name="talk_page_empty_title">A conversa começa aqui</string>
   <string name="talk_page_empty_content">É nas páginas de discussão que as pessoas debatem como tornar o conteúdo da Wikipédia o melhor possível. Comece por adicionar um tópico de discussão novo para estabelecer uma ligação e colaborar com uma comunidade de wikipedistas.</string>
@@ -1460,10 +1460,8 @@
   <string name="reading_list_share_message_v2">Olá! Gostaria de partilhar a minha lista de leitura da Wikipédia consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar \"Partilhar listas de leitura\"?</string>
   <string name="reading_list_share_survey_body">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
-  <string name="talk_templates_manage_title">Gerir predefinições</string>
-  <string name="talk_templates_empty_message">Não tem nenhuma mensagem de aviso gravada.</string>
+  <string name="talk_templates_empty_message">Crie as suas próprias mensagens ou use &lt;a href=\"#\"&gt;mensagens de exemplo&lt;/a&gt; para começar.</string>
   <string name="talk_templates_new_message_title">Mensagem nova</string>
-  <string name="talk_templates_new_message_description">Compor uma mensagem de aviso.</string>
   <string name="talk_templates_new_message_subject_hint">Assunto</string>
   <string name="talk_templates_new_message_compose_hint">Compor mensagem</string>
   <string name="talk_templates_new_message_save">Gravar</string>
@@ -1488,7 +1486,6 @@
     <item quantity="other">As mensagens foram excluídas</item>
   </plurals>
   <string name="talk_templates_message_title_empty">O título não pode ficar vazio.</string>
-  <string name="patroller_tasks_edits_list_title">Lista de edições</string>
   <string name="patroller_tasks_edits_list_search_hint">Pesquisar ou filtrar edições</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiquetas: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nenhuma</string>
@@ -1548,7 +1545,6 @@
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patrulhar edição</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historial de revisões do artigo</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Reversão concluída</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Tem a certeza de que deseja desfazer as edições?</string>
@@ -1563,8 +1559,6 @@
   <string name="patroller_onboarding_two_thank_content">Viu uma edição produtiva? Agradeça a um utilizador a contribuição.</string>
   <string name="patroller_onboarding_two_watch_title">Vigiar</string>
   <string name="patroller_onboarding_two_watch_content">Quer monitorizar as edições do artigo? Adicione-o às suas páginas vigiadas. Veja-o em \'Mais\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Avisar</string>
-  <string name="patroller_onboarding_two_warn_content">Criar, enviar e armazenar mensagens de aviso na página de discussão de um editor.</string>
   <string name="patroller_onboarding_two_undo_title">Desfazer/Reverter</string>
   <string name="patroller_onboarding_two_undo_content">Escolher \'Desfazer\' para desfazer ou reverter uma edição potencialmente destrutiva.</string>
   <string name="patroller_diff_tooltip_one">\"Danos\" prevê se uma edição causa dano a uma wiki.</string>
@@ -1598,10 +1592,10 @@
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Toque em &lt;b&gt;\'Ver no mapa\'&lt;/b&gt; para explorar a localização deste artigo</string>
+  <string name="places_article_menu_tooltip_message">Toque em «Ver no mapa» para explorar a localização deste artigo</string>
   <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
   <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Ajudar a melhorar \"Lugares\"</string>
+  <string name="places_survey_dialog_title">Ajudar a melhorar «Lugares»</string>
   <string name="places_survey_feedback_dialog_title">Como pode a funcionalidade \"Lugares\" ser melhorada?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">O que gostaria que mudássemos ou melhorássemos?</string>
   <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>

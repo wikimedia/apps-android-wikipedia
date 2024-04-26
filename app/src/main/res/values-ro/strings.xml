@@ -246,8 +246,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ro</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteci utilizate</string>
   <string name="about_contributors_heading">Contribuitori</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina echipă&lt;/a&gt;</string>
@@ -1336,7 +1336,6 @@
   <string name="talk_templates_new_message_dialog_save">Salvează</string>
   <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
   <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
-  <string name="patroller_tasks_edits_list_title">Lista modificărilor</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Vezi pagina de discuții</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cont de la:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Număr de editări:&lt;/b&gt; %s</string>
@@ -1354,9 +1353,7 @@
   <string name="patroller_tasks_filters_user_intent_may_problems_desc">Găsește cele mai multe editări de rea-credință, dar cu o precizie mai mică.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil cu rea-credință</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Foarte precis în găsirea celor mai evidente editări de rea-credință.</string>
-  <string name="patroller_tasks_patrol_edit_title">Patrulează editările</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Revenire finalizată</string>
-  <string name="patroller_onboarding_two_warn_content">Creați, trimiteți și stocați mesaje de avertizare pe pagina de discuții a unui editor.</string>
   <string name="patroller_diff_feedback_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Mulțumit</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutru</string>

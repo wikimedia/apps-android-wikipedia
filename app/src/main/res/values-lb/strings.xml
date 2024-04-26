@@ -107,7 +107,7 @@
   <string name="map_view_link_text">Op enger Kaart weisen</string>
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
+  <string name="edit_save_action_license_logged_in">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwidderrufflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;-Lizenz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
@@ -217,13 +217,13 @@
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_app_license_heading">Lizenz</string>
-  <string name="about_app_license" fuzzy="true">Quellcode disponibel op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ënner der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache-2.0-Lizenz&lt;/a&gt;. Wann et net anescht uginn ass, ass den Inhalt disponibel ënner enger &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt;.</string>
+  <string name="about_app_license">Quellcode disponibel op &lt;a&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ënner der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache-2.0-Lizenz&lt;/a&gt;. Wann et net anescht uginn ass, ass den Inhalt disponibel ënner enger &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt;.</string>
   <string name="about_wmf">E Produkt vun der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
   <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd dir sécher datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
@@ -379,6 +379,9 @@
   <string name="error_blocked_id">Spär-ID: %s</string>
   <string name="error_blocked_footer">Dir kënnt &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder een aneren &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéiere fir iwwer d\'Spär ze diskutéieren.</string>
   <string name="error_blocked_footer_no_blocker">Dir kënnt een &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéieren fir iwwer d\'Spär ze diskutéieren.</string>
+  <string name="temp_account_not_logged_in">Dir sidd net ageloggt</string>
+  <string name="temp_account_dialog_ok">Verstanen</string>
+  <string name="temp_account_using_title">Dir benotzt en temporäre Kont</string>
   <string name="crash_report_activity_title">Feeler vum Programm</string>
   <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
@@ -761,8 +764,8 @@
   <string name="description_edit_voice_input_description">Sprooch Input</string>
   <string name="description_edit_learn_more">Méi iwwer Artikelbeschreiwunge gewuer ginn</string>
   <string name="description_edit_image_caption_learn_more">Méi iwwer Bildbeschreiwunge gewuer ginn</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Den Text ass ze kuerz.</string>
   <string name="description_ends_with_punctuation">Den Text däerf net mat engem Sazzeechen ophalen.</string>
   <string name="description_starts_with_uppercase">Fänkt mat engem klenge Buschtaf ob ausser wann dat éischt Wuert e Substantiv oder een Numm ass.</string>
@@ -918,8 +921,8 @@
   <string name="image_recommendation_accept">Jo</string>
   <string name="image_recommendation_reject">Neen</string>
   <string name="image_recommendation_notsure">Net sécher</string>
-  <string name="image_recommendation_reject_title">Firwat net?</string>
-  <string name="image_recommendation_reject_subtitle">Är Äntwerte wäerten zukünfteg Virschléi besser maachen.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Firwat net?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Är Äntwerte wäerten zukünfteg Virschléi besser maachen.</string>
   <string name="image_recommendation_reject_not_relevant">D\'Bild ass net relevant</string>
   <string name="image_recommendation_reject_no_info">Net genuch Informatioune fir ze decidéieren</string>
   <string name="image_recommendation_reject_low_quality">Bild huet eng niddreg Qualitéit</string>
@@ -1020,7 +1023,7 @@
   <string name="insert_media_settings_uploaded_image">Eropgeluedent Bild</string>
   <string name="insert_media_settings_caption">Bildbeschreiwung</string>
   <string name="insert_media_settings_alternative_text">Alternativen Text</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Textbeschreiwung fir Lieser, déi d\'Bild net gesi kënnen</string>
+  <string name="insert_media_settings_alternative_text_description">Beschreiwung fir visuell behënnert Lieser</string>
   <string name="insert_media_advanced_settings">Erweidert Astellungen</string>
   <string name="insert_media_advanced_settings_wrap_image">Text ronderëm d\'Bild fléisse loossen</string>
   <string name="insert_media_advanced_settings_image_position">Bildpositioun</string>
@@ -1039,6 +1042,9 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Héicht</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Drasetzen</string>
+  <string name="templates_insert_button">Drasetzen</string>
+  <string name="templates_param_suggested_value">z.&amp;nbsp;B %s</string>
+  <string name="templates_param_optional_hint">%s (Fakultativ)</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_drawer_login">Aloggen / bei Wikipedia matmaachen</string>
   <string name="main_tooltip_text">Salut %s, wousst Dir, datt jiddwereen op Wikipedia Ännerunge maache kann?</string>
@@ -1059,7 +1065,7 @@
   <string name="talk_warn_save_dialog_hint">Titel vum Message</string>
   <string name="talk_warn_save_dialog_publish">Verëffentlechen</string>
   <string name="talk_warn_save_dialog_cancel">Ofbriechen</string>
-  <string name="talk_warn_saved_message_dropdown">Gespäichert Messagen</string>
+  <string name="talk_warn_save_dialog_dont_save">Net späicheren</string>
   <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
   <string name="talk_page_empty_title">D\'Konversatioun fänkt hei un</string>
   <string name="talk_add_reply">Äntweren</string>
@@ -1231,7 +1237,6 @@
   <string name="reading_list_share_survey_title">Kéint Dir eis hëllefe fir d\'Funktioun \"Lieslëscht deelen\" besser ze maachen?</string>
   <string name="reading_list_share_survey_body">\"Lieslëscht deelen\" ass eng Testfunktioun a mir sinn op Äre Feedback ugewise fir se ze verbesseren oder eventuell ewechzehuelen.</string>
   <string name="talk_templates_new_message_title">Neie Message</string>
-  <string name="talk_templates_new_message_description">Warnmessage schreiwen.</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
   <string name="talk_templates_new_message_compose_hint">Message schreiwen</string>
   <string name="talk_templates_new_message_save">Späicheren</string>
@@ -1252,7 +1257,8 @@
     <item quantity="other">Messagë goufe geläscht</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Den Titel däerf net eidel sinn.</string>
-  <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
+  <string name="talk_templates_your_messages_tab_title">Är Messagen</string>
+  <string name="talk_templates_example_messages_tab_title">Beispillmessagen</string>
   <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benotzersäit weisen</string>
@@ -1306,7 +1312,6 @@
   <string name="patroller_onboarding_two_thank_title">Merci</string>
   <string name="patroller_onboarding_two_thank_content">Dir gesitt eng produktiv Ännerung? Sot dem Benotzer Merci fir seng Kontributioun.</string>
   <string name="patroller_onboarding_two_watch_title">Iwwerwaachen</string>
-  <string name="patroller_onboarding_two_warn_title">Warnen</string>
   <string name="patroller_diff_feedback_dialog_title">Hëlleft eis dës Funktioun ze verbesseren</string>
   <string name="patroller_diff_feedback_dialog_message">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Zefridden</string>
@@ -1324,6 +1329,15 @@
   <string name="page_issues_title">Problemer mat der Säit</string>
   <string name="donation_campaign_maybe_later_snackbar">Mir erënneren Iech muer nach eng Kéier.</string>
   <string name="donation_campaign_go_back_button">Zréckgoen</string>
+  <string name="donate_gpay_dialog_title">Een Don iwwer Google Pay maachen?</string>
+  <string name="donate_gpay_dialog_pay_button">Een Don iwwer Google Pay maachen</string>
+  <string name="donate_gpay_dialog_other_button">Aner Bezuelmethod</string>
+  <string name="donate_gpay_activity_title">Wielt ee Betrag</string>
+  <string name="donate_gpay_minimum_amount">Wielt wgl. ee Betrag (mindestens %s)</string>
+  <string name="donate_gpay_maximum_amount">Mir kënnen iwwer eis App keng Donen iwwer %s akzeptéieren. Kontaktéiert wgl. eist Personal fir gréisser Done iwwer benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Merci!&lt;/b&gt; Är Generositéit géigeniwwer Wikipedia bedeit eis vill.</string>
+  <string name="donate_gpay_help_problems">Probleemer fir en Don ze maachen?</string>
+  <string name="donate_gpay_help_faq">Dacks gestallte Froen</string>
   <string name="places_title">Plazen</string>
   <string name="places_toggle_buttons_map">Kaart</string>
   <string name="places_toggle_buttons_list">Lëscht</string>

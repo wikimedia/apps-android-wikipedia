@@ -234,8 +234,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ไลบรารีที่ใช้งาน</string>
   <string name="about_contributors_heading">ผู้มีส่วนร่วม</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
@@ -643,8 +643,8 @@
   <string name="notifications_menu_mark_as_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
   <string name="notifications_swipe_action_read">อ่านแล้ว</string>
   <string name="notifications_wiki_filter_header">ตัวกรองวิกิ</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">ทุก \"วิกิ\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">ทุก \"ชนิด\"</string>
+  <string name="notifications_all_wikis_text">วิกิทั้งหมด</string>
+  <string name="notifications_all_types_text">ทุกประเภท</string>
   <string name="notifications_menu_user_talk_page">หน้าคุยของ %s</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
@@ -856,7 +856,7 @@
   <string name="suggested_edits_ip_blocked_title">เลขที่อยู่ไอพีถูกระงับ</string>
   <string name="suggested_edits_last_edited">แก้ไขล่าสุดเมื่อ</string>
   <string name="suggested_edits_last_edited_never">ไม่เคย</string>
-  <string name="suggested_edits_task_new" fuzzy="true">ใหม่</string>
+  <string name="suggested_edits_task_new">ใหม่</string>
   <string name="suggested_edits_reactivation_notification_title">การแก้ไขที่แนะนำ</string>
   <string name="suggested_edits_contributions_screen_title">เรื่องที่มีส่วนร่วมของ %s</string>
   <string name="suggested_edits_contribution_language_label">ภาษา</string>

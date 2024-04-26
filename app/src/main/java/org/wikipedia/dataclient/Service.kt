@@ -6,6 +6,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
+import org.wikipedia.dataclient.donate.PaymentResponseContainer
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwPostResponse
@@ -84,15 +85,28 @@ interface Service {
     ): MwQueryResponse
 
     @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|info" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle"
+    )
+    suspend fun fullTextSearchTemplates(
+        @Query("gsrsearch") searchTerm: String,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("gsroffset") gsrOffset: Int?,
+    ): MwQueryResponse
+
+    @GET(
         MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
                 "&origin=*&piprop=thumbnail&prop=pageimages|description|info|pageprops" +
                 "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
-    fun searchMoreLike(
+    suspend fun searchMoreLike(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("pilimit") piLimit: Int,
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     // ------- Miscellaneous -------
 
@@ -223,6 +237,35 @@ interface Service {
         @Query("ggslimit") ggsLimit: Int,
         @Query("colimit") coLimit: Int,
     ): MwQueryResponse
+
+    @GET("api.php?format=json&action=getPaymentMethods")
+    suspend fun getPaymentMethods(@Query("country") country: String): PaymentResponseContainer
+
+    @FormUrlEncoded
+    @POST("api.php?format=json&action=submitPayment")
+    suspend fun submitPayment(
+        @Field("amount") amount: String,
+        @Field("app_version") appVersion: String,
+        @Field("banner") banner: String,
+        @Field("city") city: String,
+        @Field("country") country: String,
+        @Field("currency") currency: String,
+        @Field("donor_country") donorCountry: String,
+        @Field("email") email: String,
+        @Field("first_name") firstName: String,
+        @Field("full_name") fullName: String,
+        @Field("language") language: String,
+        @Field("last_name") lastName: String,
+        @Field("recurring") recurring: String,
+        @Field("payment_token") paymentToken: String,
+        @Field("opt_in") optIn: String,
+        @Field("pay_the_fee") payTheFee: String,
+        @Field("payment_method") paymentMethod: String,
+        @Field("payment_network") paymentNetwork: String,
+        @Field("postal_code") postalCode: String,
+        @Field("state_province") stateProvince: String,
+        @Field("street_address") streetAddress: String
+    ): PaymentResponseContainer
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -454,6 +497,11 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
+
+    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions")
+    suspend fun getWikidataDescription(@Query("titles") titles: String,
+                                       @Query("sites") sites: String,
+                                       @Query("languages") langCode: String): Entities
 
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded

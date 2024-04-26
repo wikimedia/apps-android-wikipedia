@@ -242,8 +242,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Levraouegoù implijet</string>
   <string name="about_contributors_heading">Kenlabourerien</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pajenn ar skipailh&lt;/a&gt;</string>
@@ -415,6 +415,9 @@
   <string name="error_blocked_expiry">Dibenn ar stankadenn: %s</string>
   <string name="error_blocked_id">ID ar stankadur: %s</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personelaat ho parrenn-ostilhoù</string>
+  <string name="temp_account_not_logged_in">N\'oc\'h ket kevreet</string>
+  <string name="temp_account_dialog_ok">Komprenet am eus</string>
+  <string name="temp_account_using_title">Ur c\'hont da c\'hortoz emaoc\'h oc\'h implij</string>
   <string name="crash_report_activity_title">Fazi an arload</string>
   <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.\n\nHa c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
@@ -835,6 +838,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù e deskrivadurioù pennadoù. Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia mar plij ganeoc\'h.</string>
   <string name="description_edit_license_notice">Pa gemann deskrivadur ar pennad e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Re verr eo an destenn-mañ.</string>
   <string name="description_edit_success_saved">Embannet eo bet deskrivadur ar pennad !</string>
   <string name="description_edit_success_saved_snackbar">Embannet eo bet deskrivadur ar pennad !</string>
@@ -988,7 +993,7 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Ket</string>
   <string name="image_recommendation_notsure">N\'on ket sur</string>
-  <string name="image_recommendation_reject_title">Perak pas ?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Perak pas ?</string>
   <string name="image_recommendation_reject_offensive">Tagus eo ar skeudenn</string>
   <string name="image_recommendation_reject_low_quality">Skeudenn a galite izel</string>
   <string name="image_recommendation_reject_other">All</string>
@@ -1107,6 +1112,11 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Uhelder</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Ensoc\'hañ</string>
+  <string name="templates_search_hint">Klask ur patrom</string>
+  <string name="templates_param_suggested_value">da skouer: %s</string>
+  <string name="templates_param_optional_hint">%s (Diret)</string>
+  <string name="templates_param_suggested_hint">%s (Erbedet)</string>
+  <string name="templates_learn_more_link">Gouzout hiroc\'h</string>
   <string name="main_drawer_help">Skoazell</string>
   <string name="main_drawer_login">Kevreañ ouzh/ mont gant Wikipedia</string>
   <string name="main_tooltip_action_button">Stagañ ganti</string>
@@ -1123,7 +1133,7 @@
   <string name="talk_warn_save_dialog_hint">Titl ar gemennadenn</string>
   <string name="talk_warn_save_dialog_publish">Embann</string>
   <string name="talk_warn_save_dialog_cancel">Nullañ</string>
-  <string name="talk_warn_saved_message_dropdown">Kemmadennoù enrollet</string>
+  <string name="talk_warn_save_dialog_dont_save">Na enrollañ</string>
   <string name="talk_page_empty">Goullo eo ar bejenn gaozeal-mañ.</string>
   <string name="talk_add_reply">Respont</string>
   <string name="talk_no_subject">(Danvez ebet)</string>
@@ -1255,7 +1265,7 @@
   <string name="talk_templates_edit_message_dialog_delete">Dilemel</string>
   <string name="talk_templates_edit_message_updated">Hizivaet eo bet ar gemennadenn</string>
   <string name="talk_templates_menu_remove_message">Lemel ar gemennadenn</string>
-  <string name="patroller_tasks_edits_list_title">Roll ar c\'hemmoù</string>
+  <string name="talk_templates_your_messages_tab_title">Ho kemennadennoù</string>
   <string name="patroller_tasks_edits_list_search_hint">Klask pe silañ ar c\'hemmoù</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tikedennoù: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hini ebet</string>
@@ -1292,7 +1302,7 @@
   <string name="patroller_tasks_overflow_learn">Gouzout hiroc\'h</string>
   <string name="patroller_onboarding_two_thank_title">Trugarekaat</string>
   <string name="patroller_onboarding_two_watch_title">Evezhiañ</string>
-  <string name="patroller_onboarding_two_warn_title">Diwall</string>
+  <string name="patroller_onboarding_two_talk_title">Kaozeadenn</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Roit hoc\'h ali</string>
   <string name="patroller_diff_feedback_dialog_submit">Kas</string>
   <string name="patroller_saved_message_title_npov">Sav-boent neptu</string>

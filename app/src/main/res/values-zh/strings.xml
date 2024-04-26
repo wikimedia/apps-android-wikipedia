@@ -62,6 +62,7 @@
 * Zhang8569
 * Zjzengdongyang
 * 予弦
+* 人间百态
 * 佛壁灯
 * 列维劳德
 * 水獭很懒
@@ -183,6 +184,7 @@
   <string name="langlinks_your_wikipedia_languages">您的维基百科语言</string>
   <string name="menu_save_changes">发布更改</string>
   <string name="edit_saved_successfully">编辑已发布！</string>
+  <string name="stub_article_edit_saved_successfully">编辑已发布！更改可能需要一些时间才能显示。</string>
   <string name="dialog_message_edit_failed">编辑失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
@@ -274,7 +276,7 @@
   <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账号，在不同设备上同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科帐户“%s”，在不同设备上同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表？</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表么？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表吗？</string>
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
   <string name="preference_summary_auto_upload_crash_reports">允许应用自动发送崩溃报告至第三方服务提供方，这样我们可以更快、更容易地浏览您的崩溃报告，并修复漏洞。</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>
@@ -287,7 +289,7 @@
   <string name="page_protected_can_not_edit_anon">对不起，该页面目前不能匿名编辑。</string>
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">添加到监视列表</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">跟踪你感兴趣的条目正在发生的事情。点击下拉菜单并选择&lt;b&gt;添加到监视列表&lt;/b&gt;以查看条目的变化。</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">跟踪您感兴趣条目的最新状况。点击下拉菜单并选择&lt;b&gt;添加到监视列表&lt;/b&gt;以查看条目的变化。</string>
   <string name="settings_item_preferences">设置</string>
   <string name="settings_activity_title">设置</string>
   <string name="about_description">关于维基百科应用</string>
@@ -299,9 +301,10 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#图片标签</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
   <string name="about_contributors">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队页面&lt;/a&gt;</string>
@@ -325,6 +328,7 @@
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
   <string name="edit_warn">警告</string>
+  <string name="edit_damage">破坏：%s</string>
   <string name="edit_intent">意图%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s字节</item>
@@ -348,7 +352,7 @@
   <string name="find_first_occurence">这是首次出现</string>
   <string name="find_last_occurence">这是最后一次出现</string>
   <string name="article_opened_in_background_tab">条目已在后台标签页中打开。</string>
-  <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要发布它么？</string>
+  <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要发布它吗？</string>
   <string name="abusefilter_title_disallow">您不能发布该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全部大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>
   <string name="abusefilter_text_disallow">自动过滤器识别该编辑为没有潜在建设性的编辑或是潜在的破坏。&lt;br /&gt;&lt;br /&gt;维基百科是一部百科全书，只收录中立、有关注度的内容。</string>
@@ -380,7 +384,7 @@
   <string name="preference_title_show_images">显示图像</string>
   <string name="preference_summary_show_images">启用或禁用页面中图像的加载。如果您的网络连接过慢或数据流量有限时，请取消选中该设置。</string>
   <string name="preference_title_download_only_over_wifi">仅通过Wi-Fi下载</string>
-  <string name="dialog_title_download_only_over_wifi">确认使用移动数据下载么？</string>
+  <string name="dialog_title_download_only_over_wifi">确认使用移动数据下载吗？</string>
   <string name="dialog_text_download_only_over_wifi">您已在设置中启用“仅通过Wi-Fi下载”。您是否希望只在这次下载中使用您的移动数据流量？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
@@ -482,6 +486,7 @@
   <string name="error_blocked_footer">您可以联系&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或另一&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论此封禁。</string>
   <string name="theme_chooser_menu_item_short_tooltip">自定义您的工具栏</string>
   <string name="error_blocked_footer_no_blocker">您可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理员&lt;/a&gt;来讨论此封禁。</string>
+  <string name="temp_account_not_logged_in">您尚未登录</string>
   <string name="crash_report_activity_title">应用程序错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重启</string>
@@ -899,8 +904,8 @@
   <string name="description_edit_voice_input_description">语音输入</string>
   <string name="description_edit_learn_more">了解有关条目描述的更多信息</string>
   <string name="description_edit_image_caption_learn_more">了解有关图像说明的更多信息</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#%E5%9B%BE%E7%89%87%E8%AF%B4%E6%98%8E</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文本过短。</string>
   <string name="description_ends_with_punctuation">文本不能以标点符号结尾。</string>
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
@@ -1020,13 +1025,13 @@
   <string name="suggested_edits_image_tags_exit_dialog_message">未发布的标签不会被保存</string>
   <string name="suggested_edits_image_zoom_tooltip">缩放此图像。</string>
   <string name="suggested_edits_encouragement_message">%s，感谢您的编辑。下面您可以找到更多的方法来为维基百科做贡献。</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s&lt;/b&gt;，下面，您可以找到一些简捷的方法来帮助改进维基百科。你一开始就会看到你做出的更改。祝您编辑愉快!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;您好，%s&lt;/b&gt;，在下方您可以找到一些快速且简易的方法来改善维基百科。只要您开始编辑，您就可以看到您作出的更改。祝您编辑愉快!</string>
   <string name="suggested_edits_image_captions_task_detail">描述图像以帮助读者理解其含义和情境。</string>
   <string name="suggested_edits_add_descriptions_task_detail">概述条目以帮助读者一目了然地了解主题。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您迄今为止的贡献总数。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">您已连续贡献了几天。如果您有一段时间没有贡献，则会显示您最后贡献的日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您贡献项目的总浏览量。</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">根据你的某个贡献被回退的次数（被其他编者撤销）。被回退的编辑：%d。</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">根据您的某个贡献被回退的次数（被其他编者撤销）。被回退的编辑：%d。</string>
   <string name="suggested_edits_paused_message">已暂停编辑建议，直至%1$s。很抱歉，%2$s，您最近的部分贡献遭到了回退。</string>
   <string name="suggested_edits_disabled_message">已禁用编辑建议。很抱歉，%s，您近期的贡献有太多遭到回退。</string>
   <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。</string>
@@ -1119,8 +1124,8 @@
   <string name="image_recommendation_accept">会</string>
   <string name="image_recommendation_reject">否</string>
   <string name="image_recommendation_notsure">不确定</string>
-  <string name="image_recommendation_reject_title">为什么不会呢？</string>
-  <string name="image_recommendation_reject_subtitle">您的回答有助于改进今后关于图片的建议。</string>
+  <string name="image_recommendation_reject_title">拒绝原因</string>
+  <string name="image_recommendation_reject_subtitle">拒绝原因采用匿名方式，用于改进今后的图片建议。</string>
   <string name="image_recommendation_reject_not_relevant">图片与条目无关</string>
   <string name="image_recommendation_reject_no_info">信息不足，无法决定</string>
   <string name="image_recommendation_reject_offensive">图片令人不悦</string>
@@ -1295,8 +1300,6 @@
   <string name="talk_warn_save_dialog_cancel">取消</string>
   <string name="talk_warn_submitted">消息发布到编辑的用户的讨论页面</string>
   <string name="talk_warn_submitted_and_saved">消息已保存并发布到编辑的用户的讨论页面</string>
-  <string name="talk_warn_saved_message">选择已有的警告消息或撰写新消息。</string>
-  <string name="talk_warn_saved_message_dropdown">已保存的消息</string>
   <string name="talk_warn_saved_messages">已保存的消息</string>
   <string name="talk_page_empty">此讨论页为空。</string>
   <string name="talk_page_empty_title">对话从这里开始</string>
@@ -1496,10 +1499,8 @@
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
-  <string name="talk_templates_manage_title">管理模板</string>
-  <string name="talk_templates_empty_message">您没有保存任何警告消息。</string>
+  <string name="talk_templates_empty_message">创建您自己的消息，或使用&lt;a href=\"#\"&gt;示例消息&lt;/a&gt;来开始。</string>
   <string name="talk_templates_new_message_title">新留言</string>
-  <string name="talk_templates_new_message_description">撰写警告留言。</string>
   <string name="talk_templates_new_message_subject_hint">主题</string>
   <string name="talk_templates_new_message_compose_hint">撰写消息</string>
   <string name="talk_templates_new_message_save">保存</string>
@@ -1517,7 +1518,6 @@
   <plurals name="talk_templates_message_deleted">
     <item quantity="other">消息已删除</item>
   </plurals>
-  <string name="patroller_tasks_edits_list_title">编辑列表</string>
   <string name="patroller_tasks_edits_list_search_hint">搜索或过滤编辑</string>
   <string name="patroller_tasks_edits_list_card_tags_text">标签： %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">无</string>
@@ -1576,7 +1576,6 @@
   <string name="patroller_tasks_overflow_learn">了解更多</string>
   <string name="patroller_onboarding_two_thank_title">感谢</string>
   <string name="patroller_onboarding_two_watch_title">监视</string>
-  <string name="patroller_onboarding_two_warn_title">警告</string>
   <string name="patroller_diff_feedback_dialog_title">帮助我们改进此功能</string>
   <string name="patroller_diff_feedback_dialog_message">您对该功能满意吗？</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">满意</string>

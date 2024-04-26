@@ -219,8 +219,8 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/استعمالٕکی شرٲئطہٕ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia: کھاتہٕ کھٲترٕ درخواست</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کُتُب خانہٕ استعمال</string>
   <string name="about_contributors_heading">صٲرفیٖن</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
@@ -424,6 +424,8 @@
   <string name="reading_lists_preview_save_button">مَحفوٗظ</string>
   <string name="reading_lists_preview_save_dialog_cancel">مَنسوٗخ</string>
   <string name="reading_lists_preview_save_dialog_save">مَحفوٗظ</string>
+  <string name="reading_lists_preview_saved_snackbar_action">وُچھِو</string>
+  <string name="user_option_sync_label">ترجِیحات</string>
   <string name="notification_syncing_pause_button">رُکٲوِو</string>
   <string name="notification_syncing_resume_button">بییہٚ ترٲوِو یَلہٕ</string>
   <string name="notification_syncing_cancel_button">مَنسوٗخ</string>
@@ -431,6 +433,10 @@
   <string name="notifications_activity_title">اِطلاع</string>
   <string name="notifications_activity_title_archived">اطلاعات (چُھپِتھ)</string>
   <string name="notifications_search">اطلاع کٔرِو تلاش</string>
+  <string name="notifications_poll_enable_positive">یَلہٕ کرن</string>
+  <string name="notifications_poll_enable_negative">وُنہِ نہٕ</string>
+  <string name="notifications_mark_unread">نِشٲنی تھٲوِو پَرنَے</string>
+  <string name="notifications_mark_all_as_read">نِشٲنی تھٲوِو پورمُت</string>
   <string name="notifications_direct_reply_action">جَوآب</string>
   <string name="watchlist_title">نَظَرِ تَل فِہرِست</string>
   <string name="preference_title_notification_system">سِسٹَم</string>
@@ -471,6 +477,7 @@
   <string name="notifications_all_wikis_text" fuzzy="true">سأری \"وِکیٖ\"</string>
   <string name="notifications_all_types_text" fuzzy="true">سأری \"قٕسم\"</string>
   <string name="notifications_menu_user_talk_page">%s\'s بَحث صَفہٕ</string>
+  <string name="view_because_you_read_card_title">کیازِ کِہ تُہؠ چھِو پَران</string>
   <string name="view_random_card_title">کانٛہہ تہِ مَضموٗن</string>
   <string name="view_random_article_card_title">کانٛہہ تہِ مَضموٗن</string>
   <string name="view_random_article_card_action">مٔذیٖد مَضموٗن</string>
@@ -532,6 +539,7 @@
     <item quantity="one">1 contribution</item>
     <item quantity="other">%d شَرکٲژٕ</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">تَجویٖز دِنہٕ آمٔتؠ اؠڈِٹ</string>
   <string name="suggested_edits_feed_card_add_description_button">مَضموٗنٕچ وَضاحَت لیکھِو</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">مَضموٗنٕچ وَضاحَت لیکھِو (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروعات کٕریٚو</string>
@@ -552,8 +560,11 @@
   <string name="suggested_edits_quality_excellent_text">بهترین</string>
   <string name="suggested_edits_quality_very_good_text">واریاہ اَصٕل</string>
   <string name="suggested_edits_quality_okay_text">تھیٖک چھُ</string>
+  <string name="suggested_edits_label">تَجویٖز دِنہٕ آمٔتؠ اؠڈِٹ</string>
+  <string name="suggested_edits_what_is_title">تَجویٖز دِنہٕ آمٔتؠ اؠڈِٹ کیا چھِ؟</string>
   <string name="suggested_edits_last_edited_never">زانٛہہ نہٕ</string>
   <string name="suggested_edits_task_new" fuzzy="true">نٔو</string>
+  <string name="suggested_edits_reactivation_notification_title">تَجویٖز دِنہٕ آمٔتؠ اؠڈِٹ</string>
   <string name="suggested_edits_contribution_language_label">زَبان</string>
   <string name="suggested_edits_contribution_date_time_label">تٲریٖخ/وَقت</string>
   <string name="suggested_edits_contribution_type_label">شَرکٲژٕ قٕسم:</string>
@@ -564,6 +575,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">راتھ</string>
   <string name="suggested_edits_encourage_account_creation_title">تُہؠ چھا خَبَر ہَر کانٛہہ ہیٚکہِ وِکیٖپیٖڈیا اؠڈِٹ کٔرِتھ؟</string>
   <string name="suggested_edits_encourage_account_creation_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمِل گژھُن</string>
+  <string name="suggested_card_more_edits">مٔزیٖد تَجویٖز دِنہٕ آمٔتؠ اؠڈِٹ</string>
   <string name="suggested_edits_report_suggestion">رَپوٹھ کٔرِو</string>
   <string name="suggested_edits_suggestion_report_submitted">رَپوٹھ آے دِنہٕ</string>
   <string name="image_recommendation_tooltip_next">برٛونٛہہ</string>
@@ -777,6 +789,22 @@
   <string name="user_contrib_menu_label">شَرکٔژ</string>
   <string name="user_contrib_filter_activity_title" fuzzy="true">کُن شَرکٲژٕ:</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">آو سمٕج!</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">شُکرِیا</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">رُکُن مولوٗماتھ</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;اؠدِٹَن ہُنٛد تَعداد&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">بَنٛد</string>
+  <string name="patroller_tasks_filters_title">فِلٹَر</string>
+  <string name="patroller_tasks_filters_reset">رِسیٚٹ</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">وِکی</string>
+  <string name="patroller_tasks_filters_all_text">سٲری</string>
+  <string name="patroller_tasks_filters_user_status_registered">دَرٕج کٔرِتھ</string>
+  <string name="patroller_tasks_filters_user_status_learners">ہیٚچھَن وٲلؠ صٲرِف</string>
+  <string name="patroller_tasks_filters_user_status_experienced">تَجرُبہٕ کار صٲرِف</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">دَرٕج صٲرِف یِمو 500 کھوتہٕ زیادٕ اؠڑِٹہٕ تہٕ 30 دۄہ کٲم چھِ۔</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">تازٕ گردان</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">تازٕ گردان</string>
   <string name="data_opt_in_accept">تسلیٖم کرُن</string>
   <string name="data_opt_in_reject">رد کرن</string>
+  <string name="places_toggle_buttons_list">فِہرِست</string>
+  <string name="places_survey_dialog_cancel">مَنسوٗخ</string>
 </resources>

@@ -235,8 +235,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Laburaren da aka yi amfani da su</string>
   <string name="about_contributors_heading">Gudummuwa</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
@@ -836,8 +836,8 @@
   <string name="description_edit_voice_input_description">Shigar da murya</string>
   <string name="description_edit_learn_more">Ƙari koyo game da bayanin labarin</string>
   <string name="description_edit_image_caption_learn_more">Koyi ƙarin bayani game da rubutun hoto</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_cations</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_cations</string>
   <string name="description_too_short">Rubutun ya yi gajeren lokaci.</string>
   <string name="description_ends_with_punctuation">Dole ne rubutun ya ƙare da alamar rubutu ba.</string>
   <string name="description_starts_with_uppercase">Farawa da ƙananan harafi sai dai idan kalmar farko ta dace.</string>
@@ -1058,8 +1058,8 @@
   <string name="image_recommendation_accept">E</string>
   <string name="image_recommendation_reject">A\'a</string>
   <string name="image_recommendation_notsure">Ba tabbatacce ba ne</string>
-  <string name="image_recommendation_reject_title">Me ya sa?</string>
-  <string name="image_recommendation_reject_subtitle">Amsoshinku suna inganta shawarwari na gaba.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Me ya sa?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Amsoshinku suna inganta shawarwari na gaba.</string>
   <string name="image_recommendation_reject_not_relevant">Hoton ba ya dace</string>
   <string name="image_recommendation_reject_no_info">Babu isasshen bayani don yanke shawara</string>
   <string name="image_recommendation_reject_offensive">Hoton yana da banƙyama</string>
@@ -1232,8 +1232,6 @@
   <string name="talk_warn_save_dialog_cancel">Yanke</string>
   <string name="talk_warn_submitted">Sakon da aka buga ga shafin tattaunawa na mai amfani</string>
   <string name="talk_warn_submitted_and_saved">Saƙon da aka adana kuma aka buga zuwa shafin tattaunawa na mai amfani</string>
-  <string name="talk_warn_saved_message">Zaɓi saƙon gargadi na yanzu ko rubuta sabon saƙo.</string>
-  <string name="talk_warn_saved_message_dropdown">Saƙonnin da aka adana</string>
   <string name="talk_page_empty">Wannan shafin magana ba kome ba ne.</string>
   <string name="talk_page_empty_title">Tattaunawar ta fara a nan</string>
   <string name="talk_page_empty_content">Shafukan tattaunawa sune inda mutane ke tattauna yadda za a sanya abun cikin Wikipedia mafi kyau. Farawa ta hanyar ƙara sabon batun tattaunawa don haɗi da haɗin gwiwa tare da al\'ummar Wikipedians.</string>
@@ -1439,10 +1437,8 @@
   <string name="reading_list_share_message_v2">Ya kasance! Ina so in raba jerin karatun Wikipedia tare da ku:</string>
   <string name="reading_list_share_survey_title">Shin za ku iya taimaka mana mu inganta \"Listunan karatu na raba\"?</string>
   <string name="reading_list_share_survey_body">\"Listing Reading Sharing\" fasalin gwaji ne kuma muna buƙatar ra\'ayoyinku don ingantawa ko cire shi.</string>
-  <string name="talk_templates_manage_title">Sarrafa samfura</string>
-  <string name="talk_templates_empty_message">Ba ku da saƙonnin gargadi da aka adana.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Ba ku da saƙonnin gargadi da aka adana.</string>
   <string name="talk_templates_new_message_title">Sabon saƙo</string>
-  <string name="talk_templates_new_message_description">Ƙirƙiri saƙon gargaɗi</string>
   <string name="talk_templates_new_message_subject_hint">Batu</string>
   <string name="talk_templates_new_message_compose_hint">Rubuta saƙo</string>
   <string name="talk_templates_new_message_save">Ajiye</string>
@@ -1467,7 +1463,6 @@
     <item quantity="other">An share saƙo</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Batun ba zai iya zama komai ba.</string>
-  <string name="patroller_tasks_edits_list_title">Jerin gyare-gyare</string>
   <string name="patroller_tasks_edits_list_search_hint">Bincike ko gyaran tacewa</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Alamomi: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Babu</string>
@@ -1527,7 +1522,6 @@
     <item quantity="one">%d tace</item>
     <item quantity="other"> %d tacewa</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Gyaran Patrol</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Tarihin gyaran labarin</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Komawa cikakke</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Shin kun tabbata kuna son rufe duk shafuka?</string>
@@ -1542,8 +1536,6 @@
   <string name="patroller_onboarding_two_thank_content">Dubi gyare-gyare mai amfani? Na gode wa mai amfani saboda gudummawar da suka bayar.</string>
   <string name="patroller_onboarding_two_watch_title">Kalli</string>
   <string name="patroller_onboarding_two_watch_content">Yana so ya bi diddigin gyaran labarin? Ƙara a cikin Watchlist. Dubi shi a ƙarƙashin \'More\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Gargadi</string>
-  <string name="patroller_onboarding_two_warn_content">Ka ƙirƙira, aikawa, da adana saƙonnin gargadi a shafin tattaunawa na edita.</string>
   <string name="patroller_onboarding_two_undo_title">Maimaita/Bayarwa</string>
   <string name="patroller_onboarding_two_undo_content">Zaɓi \'Undo\' don warwarewa ko juyawa wani gyare-gyare mai lalacewa.</string>
   <string name="patroller_diff_tooltip_one">Lalacewar tana hasashen idan gyare-gyare yana haifar da lalacewa ga wiki.</string>
