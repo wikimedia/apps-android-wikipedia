@@ -31,7 +31,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import java.util.*
+import java.util.Locale
 
 class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -66,7 +66,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             binding.filenameView.binding.contentText.setTextIsSelectable(false)
             binding.filenameView.binding.contentText.maxLines = 3
             binding.filenameView.binding.contentText.ellipsize = TextUtils.TruncateAt.END
-            binding.filenameView.binding.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle.orEmpty())
+            binding.filenameView.binding.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle)
             binding.filenameView.binding.divider.visibility = View.GONE
         }
 

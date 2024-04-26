@@ -10,6 +10,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.ImagePreviewDialog
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -19,7 +20,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.views.ImagePreviewDialog
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 
 class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback {
