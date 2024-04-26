@@ -54,13 +54,13 @@ class ImagePreviewViewModel(bundle: Bundle) : ViewModel() {
 
                 val imageTagsResponse = async { ImageTagsProvider.getImageTags(firstPage.pageId, pageSummaryForEdit.lang) }
 
-                val filePage = FilePage().apply {
-                    imageFromCommons = isFromCommons
-                    page = firstPage
-                    imageTags = imageTagsResponse.await()
-                    thumbnailWidth = imageInfo.thumbWidth
-                    thumbnailHeight = imageInfo.thumbHeight
-                }
+                val filePage = FilePage(
+                    imageFromCommons = isFromCommons,
+                    page = firstPage,
+                    imageTags = imageTagsResponse.await(),
+                    thumbnailWidth = imageInfo.thumbWidth,
+                    thumbnailHeight = imageInfo.thumbHeight,
+                )
 
                 _uiState.value = Resource.Success(filePage)
             } ?: run {

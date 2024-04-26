@@ -86,15 +86,15 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                         ?: false
                 }
 
-                val filePage = FilePage().apply {
-                    imageFromCommons = isFromCommons
-                    showEditButton = allowEdit && isFromCommons && !isEditProtected.await()
-                    showFilename = true
-                    page = firstPage
-                    imageTags = imageTagsResponse.await()
-                    thumbnailWidth = imageInfo.thumbWidth
+                val filePage = FilePage(
+                    imageFromCommons = isFromCommons,
+                    showEditButton = allowEdit && isFromCommons && !isEditProtected.await(),
+                    showFilename = true,
+                    page = firstPage,
+                    imageTags = imageTagsResponse.await(),
+                    thumbnailWidth = imageInfo.thumbWidth,
                     thumbnailHeight = imageInfo.thumbHeight
-                }
+                )
 
                 _uiState.value = Resource.Success(filePage)
             } ?: run {
