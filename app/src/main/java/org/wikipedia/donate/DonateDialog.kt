@@ -38,7 +38,6 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         binding.donateGooglePayButton.setOnClickListener {
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), arguments?.getString(ARG_CAMPAIGN_ID), arguments?.getString(ARG_DONATE_URL)))
-            dismiss()
         }
 
         lifecycleScope.launch {

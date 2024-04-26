@@ -46,8 +46,8 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     override fun onPositiveAction(url: String) {
         DonorExperienceEvent.logAction("donate_start_click", "article_banner", campaignId = campaign.id)
         val customTabUrl = Prefs.announcementCustomTabTestUrl.orEmpty().ifEmpty { url }
-        if (dialog?.ownerActivity is BaseActivity) {
-            (dialog?.ownerActivity as? BaseActivity)?.launchDonateDialog(campaign.id, customTabUrl)
+        if (context is BaseActivity) {
+            (context as? BaseActivity)?.launchDonateDialog(campaign.id, customTabUrl)
         } else {
             CustomTabsUtil.openInCustomTab(context, customTabUrl)
         }

@@ -60,6 +60,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val requestDonateActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
+            ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
             FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
         }
     }

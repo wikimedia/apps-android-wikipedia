@@ -743,4 +743,8 @@ object Prefs {
         currentSet.addAll(set)
         recentUsedTemplates = if (currentSet.size < maxStoredIds) currentSet else set
     }
+
+    var isDonationTestEnvironment
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
 }

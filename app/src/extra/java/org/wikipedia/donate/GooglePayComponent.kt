@@ -9,6 +9,7 @@ import com.google.android.gms.wallet.WalletConstants
 import kotlinx.coroutines.tasks.await
 import org.json.JSONArray
 import org.json.JSONObject
+import org.wikipedia.settings.Prefs
 import java.text.DecimalFormat
 
 internal object GooglePayComponent {
@@ -48,8 +49,7 @@ internal object GooglePayComponent {
 
     fun createPaymentsClient(activity: Activity): PaymentsClient {
         val walletOptions = Wallet.WalletOptions.Builder()
-            // .setEnvironment(WalletConstants.ENVIRONMENT_TEST).build()
-            .setEnvironment(WalletConstants.ENVIRONMENT_PRODUCTION).build()
+            .setEnvironment(if (Prefs.isDonationTestEnvironment) WalletConstants.ENVIRONMENT_TEST else WalletConstants.ENVIRONMENT_PRODUCTION).build()
         return Wallet.getPaymentsClient(activity, walletOptions)
     }
 

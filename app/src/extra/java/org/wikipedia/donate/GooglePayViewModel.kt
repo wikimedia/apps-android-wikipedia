@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.dataclient.donate.PaymentMethod
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
@@ -84,6 +85,11 @@ class GooglePayViewModel : ViewModel() {
             uiState.value = Resource.Error(throwable)
         }) {
             uiState.value = Resource.Loading()
+
+            if (Prefs.isDonationTestEnvironment) {
+                uiState.value = DonateSuccess()
+                return@launch
+            }
 
             val paymentDataObj = JSONObject(paymentData.toJson())
             val paymentMethodObj = paymentDataObj.getJSONObject("paymentMethodData")
