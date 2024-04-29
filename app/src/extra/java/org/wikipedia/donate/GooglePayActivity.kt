@@ -138,10 +138,10 @@ class GooglePayActivity : BaseActivity() {
         val min = viewModel.donationConfig?.currencyMinimumDonation?.get(viewModel.currencyCode) ?: 0f
         val max = viewModel.donationConfig?.currencyMaximumDonation?.get(viewModel.currencyCode) ?: 0f
 
-        if (amount < min) {
+        if (amount <= 0f || amount < min) {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_minimum_amount, viewModel.currencyFormat.format(min))
             return false
-        } else if (amount > max) {
+        } else if (max > 0f && amount > max) {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_maximum_amount, viewModel.currencyFormat.format(max))
             return false
         } else {
