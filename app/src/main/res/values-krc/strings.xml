@@ -201,7 +201,7 @@
   <string name="preferences_account_heading">Хыйсаб</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Къошакъ ючюн кери билдириу джибер</string>
-  <string name="create_account_account_created_toast">Тергеу джазыу къуралды!</string>
+  <string name="create_account_account_created_toast">Хыйсаб къуралды!</string>
   <string name="preferences_heading_syncing">Синхронизация</string>
   <string name="preferences_heading_data_usage">Трафик хайырланыу</string>
   <string name="preferences_heading_experimental">Экспериментли</string>
@@ -408,7 +408,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Суратланы къарартыу (Къарангы тема ючюн)</string>
   <string name="preference_title_prefer_offline_content">Оффлайн контентни сайла</string>
   <string name="preference_summary_prefer_offline_content">Бу статьяны ахыр версиясын джюклер орнуна, хар кере оффлайн хайырланырча статьяланы джюклеб, трафикни аяулу эт</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Система темагъа келишеди</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Система темагъа келишдир</string>
   <string name="page_footer_license_text">Башха белгиленмеген эсе, ичиндегиси,  $1 лицензиягъа кёре бериледи.</string>
   <string name="empty_tab_title">Джангы салгъыч</string>
   <string name="menu_save_all_tabs">Бютеу салгъычланы сакъландыр</string>
@@ -655,7 +655,7 @@
   <string name="notification_reverted_title">Кери алыннган тюзетиу</string>
   <string name="notification_channel_title">Статьяла эндириледиле</string>
   <string name="notification_channel_description">Эндириуню прогресси</string>
-  <string name="notification_syncing_pause_button">Пауза</string>
+  <string name="notification_syncing_pause_button">Туракълат</string>
   <string name="notification_syncing_resume_button">Бардыр</string>
   <string name="notification_syncing_cancel_button">Ызына ал</string>
   <string name="notification_syncing_reading_list_channel_title">Окъуу тизмеле синхронизация этиле турады</string>
@@ -1017,7 +1017,7 @@
   <string name="suggested_edits_what_is_title">Теджелген тюзетиулен недиле?</string>
   <string name="suggested_edits_what_is_text">Теджелген тюзетиуле, Википедияда гитче, алай а джашау магъаналы къошумла ючюн амал бередиле.</string>
   <string name="suggested_edits_learn_more">Аслам бил</string>
-  <string name="suggested_edits_paused_title">Пауза этилди</string>
+  <string name="suggested_edits_paused_title">Туракълатылды</string>
   <string name="suggested_edits_disabled_title">Джукъланыбды</string>
   <string name="suggested_edits_ip_blocked_title">IP блок этилди</string>
   <string name="suggested_edits_last_edited">Ахыр тюзетиу</string>
