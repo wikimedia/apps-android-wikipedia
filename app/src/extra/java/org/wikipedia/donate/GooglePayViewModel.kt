@@ -30,13 +30,14 @@ class GooglePayViewModel : ViewModel() {
     private val currentCountryCode: String get() = GeoUtil.geoIPCountry.orEmpty()
 
     val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.getDefault())
-
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: "USD"
     val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
     val decimalFormat = GooglePayComponent.getDecimalFormat(currencyCode)
 
     val transactionFee: Float get() = donationConfig?.currencyTransactionFees?.get(currencyCode)
         ?: donationConfig?.currencyTransactionFees?.get("default") ?: 0f
+
+    val emailOptInRequired get() = donationConfig?.countryCodeEmailOptInRequired.orEmpty().contains(currentCountryCode)
 
     var finalAmount = 0f
 

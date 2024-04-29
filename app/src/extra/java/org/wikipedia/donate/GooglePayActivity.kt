@@ -168,6 +168,8 @@ class GooglePayActivity : BaseActivity() {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
+        binding.checkBoxAllowEmail.isVisible = viewModel.emailOptInRequired
+
         val transactionFee = donationConfig.currencyTransactionFees[viewModel.currencyCode] ?: donationConfig.currencyTransactionFees["default"] ?: 0f
         binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee, viewModel.currencyFormat.format(transactionFee))
 
@@ -224,7 +226,7 @@ class GooglePayActivity : BaseActivity() {
                             viewModel.submit(paymentData,
                                 binding.checkBoxTransactionFee.isChecked,
                                 binding.checkBoxRecurring.isChecked,
-                                binding.checkBoxAllowEmail.isChecked,
+                                if (viewModel.emailOptInRequired) binding.checkBoxAllowEmail.isChecked else true,
                                 intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
                         }
                     }
