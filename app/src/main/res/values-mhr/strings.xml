@@ -282,6 +282,7 @@
   <string name="article_opened_in_background_tab">Статьям фон вкладкыште почмо.</string>
   <string name="abusefilter_title_warn">Тиде йӧрдымӧ тӧрлымаш лийын кертеш. Тый тудым савыктынетак?</string>
   <string name="abusefilter_title_disallow">Тый тиде тӧрлымашым савыктен от керт. Поро лий, пӧртыл да тудым вашталте.</string>
+  <string name="abusefilter_text_disallow">Автоматический фильтр тиде тӧрлымашым йӧндымӧ але вандализм лийын кертше семын палемден.&lt;br /&gt;&lt;br /&gt;Википедий энциклопедий улеш, садлан тыште лач   уто шонымашым таратыдыше да шотыш налаш йӧрышо контент вераҥдыме лийын кертеш.</string>
   <string name="page_similar_titles">Икгайрак велыж-влак</string>
   <string name="search_did_you_mean">Тый тидын нерген ойлет \"%s\"?</string>
   <string name="search_recent_header">Пытартыш кычалмаш:</string>
