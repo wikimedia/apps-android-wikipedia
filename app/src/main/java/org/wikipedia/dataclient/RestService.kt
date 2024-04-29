@@ -73,16 +73,9 @@ interface RestService {
         @Path("title") title: String
     ): PageSummary
 
-    // todo: this Content Service-only endpoint is under page/ but that implementation detail should
-    //       probably not be reflected here. Move to WordDefinitionClient
-    /**
-     * Gets selected Wiktionary content for a given title derived from user-selected text
-     *
-     * @param title the Wiktionary page title derived from user-selected Wikipedia article text
-     */
     @Headers("Accept: $ACCEPT_HEADER_DEFINITION")
     @GET("page/definition/{title}")
-    fun getDefinition(@Path("title") title: String): Observable<Map<String, List<RbDefinition.Usage>>>
+    suspend fun getDefinition(@Path("title") title: String): Map<String, List<RbDefinition.Usage>>
 
     @GET("page/random/summary")
     @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
