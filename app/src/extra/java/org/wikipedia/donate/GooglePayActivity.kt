@@ -145,7 +145,7 @@ class GooglePayActivity : BaseActivity() {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_maximum_amount, viewModel.currencyFormat.format(max))
             return false
         } else {
-            binding.donateAmountInput.error = null
+            binding.donateAmountInput.isErrorEnabled = false
         }
         return true
     }
