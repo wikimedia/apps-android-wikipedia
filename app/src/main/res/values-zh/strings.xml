@@ -1614,6 +1614,12 @@
   <string name="donation_campaign_donated_snackbar">谢谢您，亲爱的捐赠者！您的慷慨解囊会帮助维基百科和姊妹网站蓬勃发展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系统浏览器中打开</string>
+  <string name="donate_gpay_dialog_title">使用Google Pay捐款？</string>
+  <string name="donate_gpay_dialog_pay_button">使用Google Pay捐款</string>
+  <string name="donate_gpay_dialog_other_button">其他付款方式</string>
+  <string name="donate_gpay_help_problems">捐赠时遇到问题？</string>
+  <string name="donate_gpay_help_faq">常见问题</string>
+  <string name="donate_gpay_help_tax">减税信息</string>
   <string name="places_title">地点</string>
   <string name="places_permissions_denied">需要位置权限才能在地图上显示您的位置。请重试。</string>
   <string name="places_search_hint">搜索地点</string>

@@ -245,7 +245,8 @@
   <string name="view_continue_reading_card_subtitle_today">täʹbbe</string>
   <string name="view_announcement_card_negative_action">Ij späʹsseb</string>
   <string name="view_static_card_save_button_label">Ruõkk</string>
-  <string name="feed_configure_menu_select_all">Čuäʹjet pukid</string>
+  <string name="feed_configure_menu_select_all">Čuäʹjet puk</string>
+  <string name="feed_configure_menu_deselect_all">Čiõǥǥ puk</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_accessibility_card_load_more_button">Laadd lââʹzz</string>
