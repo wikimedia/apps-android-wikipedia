@@ -67,12 +67,14 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="false"
                 app:expandedHintEnabled="false"
+                app:prefixTextAppearance="@style/H1"
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/donateAmountText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
                     style="@style/H1"
                     android:textAlignment="center"
                     android:inputType="numberDecimal" />
