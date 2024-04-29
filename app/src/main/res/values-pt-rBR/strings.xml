@@ -1266,7 +1266,7 @@
   <string name="talk_message_hint">Compor mensagem</string>
   <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
   <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
-  <string name="talk_subject_duplicate">O assunto já existe. Tente um diferente.</string>
+  <string name="talk_subject_duplicate">O nome do assunto já existe. Tente um diferente.</string>
   <string name="talk_response_submitted">Resposta postada.</string>
   <string name="talk_snackbar_undo">Desfazer</string>
   <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; por %2$s</string>
@@ -1461,7 +1461,7 @@
   <string name="talk_templates_empty_message">Crie suas próprias mensagens ou use &lt;uma href=\"#\"&gt;mensagem de exemplo&lt;/a&gt; para iniciar.</string>
   <string name="talk_templates_your_messages_tab_title">Suas mensagens</string>
   <string name="talk_templates_example_messages_tab_title">Mensagens exemplo</string>
-  <string name="talk_warn_saved_messages_usage_instruction">Use a mensagem exemplo abaixo para personalizar, enviar e salvar suas mensagens.</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Use uma mensagem exemplo abaixo para personalizar, enviar e salvar suas mensagens.</string>
   <string name="data_opt_in_accept">Aceitar</string>
   <string name="data_opt_in_reject">Recusar</string>
   <string name="places_toggle_buttons_map">Mapa</string>

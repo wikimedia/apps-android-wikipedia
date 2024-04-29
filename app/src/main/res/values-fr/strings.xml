@@ -222,6 +222,9 @@
   <string name="logged_out_in_background_dialog">Vous avez été déconnecté de Wikipédia. Voulez-vous vous reconnecter ?</string>
   <string name="logged_out_in_background_login">Se connecter</string>
   <string name="logged_out_in_background_cancel">Annuler</string>
+  <string name="account_vanish_request_title">Faire disparaître le compte</string>
+  <string name="account_vanish_request_confirm_title">Avertissement de disparition du compte</string>
+  <string name="account_vanish_request_confirm">La disparition est à utiliser en &lt;b&gt;dernier recours&lt;/b&gt; et ne doit &lt;b&gt;uniquement lorsque vous souhaitez arrêter les modifications pour toujours&lt;/b&gt; et également pour masquer autant de vos associations passées que possible.&lt;br/&gt;&lt;br/&gt;\nLa suppression du compte sur Wikipédia est réalisée en changeant le nom de votre compte pour que les autres ne puissent pas reconnaître vos contributions dans un processus appelé disparition de compte. &lt;b&gt;La disparition ne garantit pas l’anonymat complet et ne supprime pas les contributions aux projets&lt;/b&gt;.</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Retrace ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l’historique peuvent ne pas être consultables en mode déconnecté.</string>
@@ -367,6 +370,8 @@
   <string name="widget_name_featured_page">Page mise en avant de Wikipédia</string>
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
   <string name="widget_name_search">Recherche sur Wikipédia</string>
+  <string name="widget_description_search">Le moyen le plus rapide de rechercher sur Wikipedia</string>
+  <string name="widget_description_featured_page">Les meilleurs articles que Wikipédia propose</string>
   <string name="wiktionary_no_definitions_found">Aucune définition trouvée.</string>
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
   <string name="alpha_update_notification_text">Appuyez pour télécharger</string>
@@ -454,6 +459,7 @@
   <string name="link_preview_dialog_save_button">Enregistrer</string>
   <string name="link_preview_dialog_saved_button">Enregistré</string>
   <string name="link_preview_dialog_share_button">Partager</string>
+  <string name="link_preview_stub_placeholder_text">Cet article est une ébauche, ce qui signifie qu\'il n\'y a pas assez de contenu dans l\'article pour générer un aperçu. Toutefois, vous pouvez y remédier.</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et modifiée par &lt;b&gt;%2$s&lt;/b&gt;. En cas de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
@@ -476,6 +482,9 @@
   <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter le blocage.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
+  <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
+  <string name="temp_account_end_session">Terminer la session</string>
+  <string name="temp_account_end_session_confirm">Cela vous déconnectera de votre compte temporaire. Voulez-vous continuer ?</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
@@ -1121,8 +1130,8 @@
   <string name="image_recommendation_accept">Oui</string>
   <string name="image_recommendation_reject">Non</string>
   <string name="image_recommendation_notsure">Pas sûr</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Pourquoi pas ?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Vos réponses améliorent les prochaines suggestions.</string>
+  <string name="image_recommendation_reject_title">Motif du rejet</string>
+  <string name="image_recommendation_reject_subtitle">Le motif du rejet est anonyme et améliorera les futures suggestions d’images.</string>
   <string name="image_recommendation_reject_not_relevant">L’image n’est pas pertinente</string>
   <string name="image_recommendation_reject_no_info">Pas assez d’informations pour décider</string>
   <string name="image_recommendation_reject_offensive">L’image est offensante</string>
@@ -1272,6 +1281,10 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Hauteur</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Insérer</string>
+  <string name="templates_search_hint">Modèles de recherche</string>
+  <string name="templates_insert_button">Insérer</string>
+  <string name="templates_param_suggested_value">par exemple %s</string>
+  <string name="templates_param_optional_hint">%s (facultatif)</string>
   <string name="main_drawer_help">Aide</string>
   <string name="main_drawer_login">Se connecter / rejoindre Wikipédia</string>
   <string name="main_tooltip_text">Bonjour %s, saviez-vous que chacun peut mettre à jour Wikipédia ?</string>
@@ -1647,6 +1660,7 @@
   <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
+  <string name="donate_gpay_help_faq">Foire aux questions</string>
   <string name="places_title">Lieux</string>
   <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>
