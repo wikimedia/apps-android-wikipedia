@@ -7,6 +7,7 @@
 * Bhatakati aatma
 * Cooltey
 * Dbrant
+* DreamRimmer
 * Kaartic
 * Mgaved
 * MuratTheTurkish
@@ -1440,6 +1441,7 @@
   <string name="talk_templates_new_message_dialog_cancel">रद्द करें</string>
   <string name="talk_templates_menu_remove_message">संदेश हटाएँ</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">कोई नहीं</string>
+  <string name="patroller_onboarding_two_talk_title">वार्ता</string>
   <string name="patroller_diff_feedback_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">संतुष्ट</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">ना संतुष्ट ना असंतुष्ट</string>
