@@ -15,18 +15,19 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.dataclient.donate.DonationConfigHelper
-import org.wikipedia.dataclient.donate.PaymentMethod
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import java.text.NumberFormat
+import java.time.Instant
 import java.util.Locale
+import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 class GooglePayViewModel : ViewModel() {
     val uiState = MutableStateFlow(Resource<DonationConfig>())
     var donationConfig: DonationConfig? = null
-    private var paymentMethod: PaymentMethod? = null
     private val currentCountryCode: String get() = GeoUtil.geoIPCountry.orEmpty()
 
     val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.getDefault())
@@ -52,14 +53,30 @@ class GooglePayViewModel : ViewModel() {
         }) {
             uiState.value = Resource.Loading()
 
-            val paymentMethodsCall = async { ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
-                .getPaymentMethods(currentCountryCode) }
-
             val donationConfigCall = async { DonationConfigHelper.getConfig() }
 
             donationConfig = donationConfigCall.await()
-            paymentMethod = paymentMethodsCall.await().response?.paymentMethods?.find { it.type == GooglePayComponent.PAYMENT_METHOD_NAME }
-            if (paymentMethod == null) {
+
+            // The paymentMethods API is rate limited, so we cache it manually.
+            val now = Instant.now().epochSecond
+            if (abs(now - Prefs.paymentMethodsLastQueryTime) > TimeUnit.DAYS.toSeconds(7)) {
+                Prefs.paymentMethodsMerchantId = ""
+                Prefs.paymentMethodsGatewayId = ""
+
+                val paymentMethodsCall = async {
+                    ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
+                        .getPaymentMethods(currentCountryCode)
+                }
+                paymentMethodsCall.await().response?.let { response ->
+                    Prefs.paymentMethodsLastQueryTime = now
+                    response.paymentMethods.find { it.type == GooglePayComponent.PAYMENT_METHOD_NAME }?.let {
+                        Prefs.paymentMethodsMerchantId = it.configuration?.merchantId.orEmpty()
+                        Prefs.paymentMethodsGatewayId = it.configuration?.gatewayMerchantId.orEmpty()
+                    }
+                }
+            }
+
+            if (Prefs.paymentMethodsMerchantId.isEmpty() || Prefs.paymentMethodsGatewayId.isEmpty()) {
                 uiState.value = NoPaymentMethod()
             } else {
                 uiState.value = Resource.Success(donationConfig!!)
@@ -70,8 +87,8 @@ class GooglePayViewModel : ViewModel() {
     fun getPaymentDataRequest(): PaymentDataRequest {
         return PaymentDataRequest.fromJson(GooglePayComponent.getPaymentDataRequestJson(finalAmount,
             currencyCode,
-            paymentMethod?.configuration?.merchantId,
-            paymentMethod?.configuration?.gatewayMerchantId
+            Prefs.paymentMethodsMerchantId,
+            Prefs.paymentMethodsGatewayId
         ).toString())
     }
 
