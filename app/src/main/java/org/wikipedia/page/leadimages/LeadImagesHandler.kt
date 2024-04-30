@@ -96,7 +96,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private fun updateCallToAction() {
         dispose()
         pageHeaderView.callToActionText = null
-        if (!AccountUtil.isLoggedIn || leadImageUrl == null || !leadImageUrl!!.contains(Service.URL_FRAGMENT_FROM_COMMONS) || page == null) {
+        if (!AccountUtil.isLoggedIn || leadImageUrl?.contains(Service.URL_FRAGMENT_FROM_COMMONS) != true || page == null) {
             return
         }
         title?.let {
