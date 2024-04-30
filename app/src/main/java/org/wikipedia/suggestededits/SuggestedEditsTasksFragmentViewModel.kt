@@ -39,7 +39,6 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var revertSeverity = 0
 
     var wikiSupportsImageRecommendations = false
-    // TODO: remove this limitation later.
     var allowToPatrolEdits = false
 
     fun fetchData() {

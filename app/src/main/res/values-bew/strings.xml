@@ -187,7 +187,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Terusin sonder surlès</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tambahin aderès surlès</string>
   <string name="create_account_button">Keja rèkening</string>
-  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang bèda.</string>
+  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang béda.</string>
   <string name="create_account_ip_block_message">Maap, lu punya aderès IP sekarang ni lagi digibang deri pengejaan rèkening baru.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Tètèk bengèk</string>
@@ -227,8 +227,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_luar_jala_èn_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Pertanyaan_Sering_Android</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipédi:Bikinin_rèkening</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Tenger_gambar</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Tenger_gambar</string>
   <string name="about_libraries_heading">Miswar nyang dipaké</string>
   <string name="about_contributors_heading">Penyumbang</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
@@ -824,8 +824,8 @@
   <string name="description_edit_voice_input_description">Masupan suara</string>
   <string name="description_edit_learn_more">Belajarin lebi lanjut pasal jabaran makalah</string>
   <string name="description_edit_image_caption_learn_more">Belajarin lebi lanjut pasal keterangan gambar</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Tèks – kepèndèkan.</string>
   <string name="description_ends_with_punctuation">Tèks kaga\' bolé akirannya tenger baca.</string>
   <string name="description_starts_with_uppercase">Mulain paké hurup kecil, kecuali kalo kata pertamanya – nama peada dèwèk.</string>
@@ -1046,8 +1046,8 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Kaga\'</string>
   <string name="image_recommendation_notsure">Kaga\' yakin</string>
-  <string name="image_recommendation_reject_title">Ngapa kaga\'?</string>
-  <string name="image_recommendation_reject_subtitle">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ngapa kaga\'?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
   <string name="image_recommendation_reject_not_relevant">Gambar kaga\' nyambung</string>
   <string name="image_recommendation_reject_no_info">Kaga\' cukup pengabaran bakal nentuin</string>
   <string name="image_recommendation_reject_offensive">Gambarnya nyinggung</string>
@@ -1221,7 +1221,7 @@
   <string name="talk_warn_submitted_and_saved">Pesen disimpen èn diterebitin ke pemermak punya halaman kongko pemaké</string>
   <string name="talk_page_empty">Ni halaman oborolan – kosong.</string>
   <string name="talk_page_empty_title">Kongko mulain di mari</string>
-  <string name="talk_page_empty_content">Halaman kongko ièlah tempat di mana orang pada guntengan bakal ngeja isi Wikipédi sebagus-bagusnya. Mulain dengen nambahin topik perhadring baru bakal bungselan ama gawé bareng ama komunitèt tukang Wikipédi.</string>
+  <string name="talk_page_empty_content">Halaman kongko ièlah tempat di mana orang pada guntengan bakal ngeja isi Wikipédi sebagus-bagusnya. Mulain dengen nambahin topik perhadring baru bakal bungselan ama gawé bareng ama jema\'ah tukang Wikipédi.</string>
   <string name="talk_add_reply">Bales</string>
   <string name="talk_no_subject">(Kaga\' ada perihal)</string>
   <string name="talk_reply_subject">Perihal</string>
@@ -1496,7 +1496,6 @@
   <string name="patroller_tasks_overflow_learn">Belajarin lebi lanjut</string>
   <string name="patroller_onboarding_two_thank_title">Makasi</string>
   <string name="patroller_onboarding_two_watch_title">Pantengin</string>
-  <string name="patroller_onboarding_two_warn_title">Wanti-wanti</string>
   <string name="patroller_onboarding_two_undo_title">Balikin/Aterèt</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>

@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -14,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 
 @Suppress("unused")
@@ -61,8 +59,5 @@ class LogoutPreference : Preference {
                     }.show()
             }
         }
-
-        // TODO: remove when ready
-        holder.itemView.findViewById<View>(R.id.accountVanishButton).isVisible = ReleaseUtil.isPreProdRelease
     }
 }

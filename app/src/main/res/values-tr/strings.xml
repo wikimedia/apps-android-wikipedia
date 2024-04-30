@@ -279,8 +279,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
@@ -883,8 +883,8 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_edit_learn_more">Madde açıklamaları hakkında daha fazla bilgi edinin</string>
   <string name="description_edit_image_caption_learn_more">Görsel alt yazıları hakkında daha fazla bilgi edinin</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_A%C3%A7%C4%B1klamalar%C4%B1</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Ba%C5%9Fl%C4%B1klar%C4%B1</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_Açıklamaları</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Başlıkları</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
   <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
@@ -1103,8 +1103,8 @@
   <string name="image_recommendation_accept">Evet</string>
   <string name="image_recommendation_reject">Hayır</string>
   <string name="image_recommendation_notsure">Emin değilim</string>
-  <string name="image_recommendation_reject_title">Neden?</string>
-  <string name="image_recommendation_reject_subtitle">Yanıtlarınız gelecek önerileri iyileştirir.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Neden?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Yanıtlarınız gelecek önerileri iyileştirir.</string>
   <string name="image_recommendation_reject_not_relevant">Görsel ilgili değil</string>
   <string name="image_recommendation_reject_no_info">Karar vermek için yeterli bilgi yok</string>
   <string name="image_recommendation_reject_offensive">Görsel rahatsız edici</string>
@@ -1584,8 +1584,6 @@
   <string name="patroller_onboarding_two_thank_content">Verimli bir düzenleme mi gördünüz? Katkılarından dolayı bir kullanıcıya teşekkür edin.</string>
   <string name="patroller_onboarding_two_watch_title">İzle</string>
   <string name="patroller_onboarding_two_watch_content">Madde düzenlemelerini takip etmek mi istiyorsunuz? İzleme Listenize ekleyin. \'Diğer\' altında görüntüleyin.</string>
-  <string name="patroller_onboarding_two_warn_title">Uyar</string>
-  <string name="patroller_onboarding_two_warn_content">Bir düzenleyicinin tartışma sayfasında uyarı iletileri oluşturun, gönderin ve saklayın.</string>
   <string name="patroller_onboarding_two_undo_title">Geri Al/Geri Döndür</string>
   <string name="patroller_onboarding_two_undo_content">Zararlı olabilecek bir düzenlemeyi geri almak ya da geri döndürmek için \'Geri Al\'ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Hasar, bir düzenlemenin vikiye zarar verip vermeyeceğini kestirir.</string>

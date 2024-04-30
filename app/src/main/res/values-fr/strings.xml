@@ -27,6 +27,7 @@
 * Golmore
 * Gomoko
 * Great11
+* Hecatonchire
 * Hydros
 * Iketsi
 * JeanPlu
@@ -54,6 +55,7 @@
 * Papawy
 * Seb35
 * SleaY
+* Tacsipacsi
 * The RedBurn
 * Thibaut120094
 * Trial
@@ -220,6 +222,9 @@
   <string name="logged_out_in_background_dialog">Vous avez été déconnecté de Wikipédia. Voulez-vous vous reconnecter ?</string>
   <string name="logged_out_in_background_login">Se connecter</string>
   <string name="logged_out_in_background_cancel">Annuler</string>
+  <string name="account_vanish_request_title">Faire disparaître le compte</string>
+  <string name="account_vanish_request_confirm_title">Avertissement de disparition du compte</string>
+  <string name="account_vanish_request_confirm">La disparition est à utiliser en &lt;b&gt;dernier recours&lt;/b&gt; et ne doit &lt;b&gt;uniquement lorsque vous souhaitez arrêter les modifications pour toujours&lt;/b&gt; et également pour masquer autant de vos associations passées que possible.&lt;br/&gt;&lt;br/&gt;\nLa suppression du compte sur Wikipédia est réalisée en changeant le nom de votre compte pour que les autres ne puissent pas reconnaître vos contributions dans un processus appelé disparition de compte. &lt;b&gt;La disparition ne garantit pas l’anonymat complet et ne supprime pas les contributions aux projets&lt;/b&gt;.</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Retrace ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l’historique peuvent ne pas être consultables en mode déconnecté.</string>
@@ -293,15 +298,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Légendes_d\'images</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l’équipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license" fuzzy="true">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
+  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
@@ -365,6 +370,8 @@
   <string name="widget_name_featured_page">Page mise en avant de Wikipédia</string>
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
   <string name="widget_name_search">Recherche sur Wikipédia</string>
+  <string name="widget_description_search">Le moyen le plus rapide de rechercher sur Wikipedia</string>
+  <string name="widget_description_featured_page">Les meilleurs articles que Wikipédia propose</string>
   <string name="wiktionary_no_definitions_found">Aucune définition trouvée.</string>
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
   <string name="alpha_update_notification_text">Appuyez pour télécharger</string>
@@ -452,6 +459,7 @@
   <string name="link_preview_dialog_save_button">Enregistrer</string>
   <string name="link_preview_dialog_saved_button">Enregistré</string>
   <string name="link_preview_dialog_share_button">Partager</string>
+  <string name="link_preview_stub_placeholder_text">Cet article est une ébauche, ce qui signifie qu\'il n\'y a pas assez de contenu dans l\'article pour générer un aperçu. Toutefois, vous pouvez y remédier.</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et modifiée par &lt;b&gt;%2$s&lt;/b&gt;. En cas de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
@@ -474,6 +482,9 @@
   <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter le blocage.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
+  <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
+  <string name="temp_account_end_session">Terminer la session</string>
+  <string name="temp_account_end_session_confirm">Cela vous déconnectera de votre compte temporaire. Voulez-vous continuer ?</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
@@ -807,8 +818,8 @@
   <string name="notifications_menu_uncheck_all">Décocher tous les éléments</string>
   <string name="notifications_wiki_filter_header">Filtre de wikis</string>
   <string name="notifications_type_filter_header">Filtre de types</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Tous les « wikis »</string>
-  <string name="notifications_all_types_text" fuzzy="true">Tous les « types »</string>
+  <string name="notifications_all_wikis_text">Tous les wikis</string>
+  <string name="notifications_all_types_text">Tous les types</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
   <string name="notifications_offline_disable_message">Cette fonction n’est pas disponible hors ligne.</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
@@ -896,8 +907,8 @@
   <string name="description_edit_voice_input_description">Entrée vocale</string>
   <string name="description_edit_learn_more">En savoir plus sur les descriptions d’articles</string>
   <string name="description_edit_image_caption_learn_more">En savoir plus sur les légendes des images</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Descriptions_d\'articles</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Descriptions_d\'articles</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Légendes_d\'images</string>
   <string name="description_too_short">Le texte est trop court.</string>
   <string name="description_ends_with_punctuation">Le texte ne doit pas se terminer par une ponctuation.</string>
   <string name="description_starts_with_article">Éviter de commencer avec des articles comme « un » ou « le ».</string>
@@ -1119,8 +1130,8 @@
   <string name="image_recommendation_accept">Oui</string>
   <string name="image_recommendation_reject">Non</string>
   <string name="image_recommendation_notsure">Pas sûr</string>
-  <string name="image_recommendation_reject_title">Pourquoi pas ?</string>
-  <string name="image_recommendation_reject_subtitle">Vos réponses améliorent les prochaines suggestions.</string>
+  <string name="image_recommendation_reject_title">Motif du rejet</string>
+  <string name="image_recommendation_reject_subtitle">Le motif du rejet est anonyme et améliorera les futures suggestions d’images.</string>
   <string name="image_recommendation_reject_not_relevant">L’image n’est pas pertinente</string>
   <string name="image_recommendation_reject_no_info">Pas assez d’informations pour décider</string>
   <string name="image_recommendation_reject_offensive">L’image est offensante</string>
@@ -1270,6 +1281,10 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Hauteur</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Insérer</string>
+  <string name="templates_search_hint">Modèles de recherche</string>
+  <string name="templates_insert_button">Insérer</string>
+  <string name="templates_param_suggested_value">par exemple %s</string>
+  <string name="templates_param_optional_hint">%s (facultatif)</string>
   <string name="main_drawer_help">Aide</string>
   <string name="main_drawer_login">Se connecter / rejoindre Wikipédia</string>
   <string name="main_tooltip_text">Bonjour %s, saviez-vous que chacun peut mettre à jour Wikipédia ?</string>
@@ -1500,7 +1515,7 @@
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Vous n’avez pas de message d’avertissement enregistré.</string>
+  <string name="talk_templates_empty_message">Créez vos propres messages ou utilisez &lt;a href=\"#\"&gt;message d\'exemple&lt;/a&gt; pour commencer.</string>
   <string name="talk_templates_new_message_title">Nouveau message</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
   <string name="talk_templates_new_message_compose_hint">Composer le message</string>
@@ -1599,8 +1614,6 @@
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
   <string name="patroller_onboarding_two_watch_content">Vous souhaitez suivre les modifications d’articles ? Ajoutez à votre liste de surveillance. Consultez-la sous « Plus ».</string>
-  <string name="patroller_onboarding_two_warn_title">Avertissement</string>
-  <string name="patroller_onboarding_two_warn_content">Créez, envoyez et stockez des messages d’avertissement sur la page de discussion d’un éditeur.</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
   <string name="patroller_onboarding_two_undo_content">Choisissez « Annuler » pour révoquer ou annuler une modification potentiellement problématique.</string>
   <string name="patroller_diff_tooltip_one">Dommage prédit si une modification cause des dommages à un wiki.</string>
@@ -1647,6 +1660,7 @@
   <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
+  <string name="donate_gpay_help_faq">Foire aux questions</string>
   <string name="places_title">Lieux</string>
   <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>

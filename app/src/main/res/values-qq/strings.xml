@@ -14,6 +14,7 @@
 * Kimberli Mäkäräinen (WMNO)
 * Kizule
 * KuboF
+* Lc97
 * Liuxinyu970226
 * MarcoAurelio
 * Matma Rex
@@ -40,9 +41,9 @@
 * Zoranzoki21
 -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="all">
-  <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
-  <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
-  <string name="app_name_alpha">Name of the alpha version of the application.</string>
+  <string name="app_name_prod">{{Doc-protected-established}}\n\nName of the app as it will appear on the home screen. Should be the canonical, locally-trademarked name of Wikipedia, and identical to these messages:\n* iOS app name: {{msg-wm|Wikipedia-ios-meta-CFBundleDisplayName}}\n* Portal site name: {{msg-wm|Portals-wiki.name}}\n{{Identical|Wikipedia}}</string>
+  <string name="app_name_beta">{{Doc-protected-established}}\n\nName of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
+  <string name="app_name_alpha">{{Doc-protected-established}}\n\nName of the alpha version of the application.</string>
   <string name="wikimedia">Wikimedia\'s name.\n{{Identical|Wikimedia}}</string>
   <string name="nav_item_back">Button label for navigating to the previous page.\n\n{{Identical|Back}}</string>
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
@@ -456,6 +457,25 @@
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
+  <string name="temp_account_not_logged_in">Title of dialog informing the user that a temporary account is being used.</string>
+  <string name="temp_account_anon_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_temp_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_dialog_ok">Positive action button in Temporary Account info dialog.</string>
+  <string name="temp_account_using_title">Title of dialog informing the user that a temporary account is being used.</string>
+  <string name="temp_account_dialog_discard">Action button for going directly to the Login screen.</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Message shown when a temporary account with a name of %1$s is created, and will expire in 1 day.</item>
+    <item quantity="other">Message shown when a temporary account with a name of %1$s is created, and will expire in %2$d days.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Message shown when a temporary account will expire in 1 day.</item>
+    <item quantity="other">Message shown when a temporary account will expire in %d days.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">Status message shown while editing anonymously, explaining that a temporary account will be created if an edit is made. Please preserve any HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_edit_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting. The %2$s symbol is replaced with a URL.</string>
+  <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting.</string>
+  <string name="temp_account_end_session">Button label for discarding the current temporary account.</string>
+  <string name="temp_account_end_session_confirm">Confirmation message for logging out of a temporary account.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
@@ -1292,7 +1312,7 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
-  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk messgage with duplicate subject.</string>
+  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk message with duplicate subject.</string>
   <string name="talk_response_submitted">Message shown when the response has been submitted.</string>
   <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.\n\n{{Identical|Undo}}</string>
   <string name="talk_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
@@ -1589,8 +1609,8 @@
   <string name="patroller_onboarding_two_thank_content">Content of the thank section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_watch_title">Title of the watch section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_watch_content">Content of the watch section of the second patroller tasks onboarding screen.</string>
-  <string name="patroller_onboarding_two_warn_title">Title of the warn section of the second patroller tasks onboarding screen.</string>
-  <string name="patroller_onboarding_two_warn_content">Content of the warn section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_talk_title">Title of the talk section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_talk_content">Content of the talk section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_diff_tooltip_one">Text of the first tooltip for edit diff screen.</string>
@@ -1642,6 +1662,21 @@
   <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
   <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
   <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
+  <string name="donate_gpay_dialog_title">Title of popup dialog asking if the user wants to donate via Google Pay.</string>
+  <string name="donate_gpay_dialog_description">Description of popup dialog asking if the user wants to donate via Google Pay.</string>
+  <string name="donate_gpay_dialog_pay_button">Button that leads to the Google Pay donation screen.</string>
+  <string name="donate_gpay_dialog_other_button">Button that leads to the general donation workflow in a web browser.</string>
+  <string name="donate_gpay_activity_title">Title for screen where the donation amount is selected.</string>
+  <string name="donate_gpay_check_transaction_fee">Label for checkbox that adds the transaction fees to the donation amount. The %s symbol is replaced with the transaction fee amount, which will include the currency symbol. Please preserve the double-percent (100%%) escaping.</string>
+  <string name="donate_gpay_check_recurring">Label for checkbox that makes the donation into a recurring one.</string>
+  <string name="donate_gpay_check_send_email">Label for checkbox that indicates consent to receive email communications.</string>
+  <string name="donate_gpay_minimum_amount">Error message shown when the specified donation amount is less than the minimum allowed. The %s symbol is replaced with the minimum amount, which will include the currency symbol.</string>
+  <string name="donate_gpay_maximum_amount">Error message shown when the specified donation amount is greater than the maximum allowed. The %s symbol is replaced with the maximum amount, which will include the currency symbol. Please keep the email address as-is.</string>
+  <string name="donate_gpay_success_message">Message shown when a donation was completed successfully.</string>
+  <string name="donate_gpay_help_problems">Label for a link to documentation in case of any problems while donating.</string>
+  <string name="donate_gpay_help_other_ways">Label for a link to resources with other ways to contribute.</string>
+  <string name="donate_gpay_help_faq">Label for a link to a FAQ page about donating.</string>
+  <string name="donate_gpay_help_tax">Label for a link to documentation about making donations tax-deductible.</string>
   <string name="places_title">Title for the Places screen.</string>
   <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>

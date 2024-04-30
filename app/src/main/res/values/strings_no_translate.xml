@@ -63,7 +63,7 @@
     <string name="page_deleted">delete</string>
     <string name="page_protected">protect</string>
     <string name="meta_edit_summary_url">https://meta.wikimedia.org/wiki/Help:Edit_summary</string>
-    <string name="meta_minor_edit_url">https://meta.wikimedia.org/wiki/Help:Minor_edit</string>
+    <string name="meta_minor_edit_url">https://www.mediawiki.org/wiki/Help:Minor_edit</string>
     <string name="meta_watching_pages_url">https://www.mediawiki.org/wiki/Help:Watching_pages</string>
 
     <!-- Font family -->

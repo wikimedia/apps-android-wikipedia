@@ -257,8 +257,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk#Теги_зображень</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk#Теги_зображень</string>
   <string name="about_libraries_heading">Використовувані бібліотеки</string>
   <string name="about_contributors_heading">Співавтори</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Сторінка команди&lt;/a&gt;</string>
@@ -908,8 +908,8 @@
   <string name="description_edit_voice_input_description">Голосове введення</string>
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
   <string name="description_starts_with_article">Уникайте артиклів на початку, на зразок «a» чи «the».</string>
@@ -1149,8 +1149,8 @@
   <string name="image_recommendation_accept">Так</string>
   <string name="image_recommendation_reject">Ні</string>
   <string name="image_recommendation_notsure">Не впевнений</string>
-  <string name="image_recommendation_reject_title">Чому ні?</string>
-  <string name="image_recommendation_reject_subtitle">Ваші відповіді допоможуть покращити наступні пропозиції.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Чому ні?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Ваші відповіді допоможуть покращити наступні пропозиції.</string>
   <string name="image_recommendation_reject_not_relevant">Зображення не релевантне</string>
   <string name="image_recommendation_reject_no_info">Недостатньо інформації, щоб прийняти рішення</string>
   <string name="image_recommendation_reject_offensive">Зображення образливе</string>
@@ -1628,8 +1628,6 @@
   <string name="patroller_onboarding_two_thank_content">Бачите продуктивне редагування? Подякуйте користувачу за їхній внесок.</string>
   <string name="patroller_onboarding_two_watch_title">Спостереження</string>
   <string name="patroller_onboarding_two_watch_content">Хочете відстежувати редагування статті? Додайте її до свого списку спостереження. Перегляньте його в розділі «Більше».</string>
-  <string name="patroller_onboarding_two_warn_title">Попередження</string>
-  <string name="patroller_onboarding_two_warn_content">Створюйте, надсилайте та зберігайте попереджувальні повідомлення на сторінці обговорення редактора.</string>
   <string name="patroller_onboarding_two_undo_title">Скасування / відкіт</string>
   <string name="patroller_onboarding_two_undo_content">Виберіть «Скасувати», щоб скасувати або повернути потенційно деструктивні зміни.</string>
   <string name="patroller_diff_tooltip_one">«Шкода» передбачає, що редагування завдає шкоди вікі.</string>

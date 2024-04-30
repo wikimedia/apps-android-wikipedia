@@ -247,6 +247,7 @@
   <string name="menu_save_all_tabs">ساریاں ٹیباں محفوظ کرو</string>
   <string name="error_blocked_id">بلاک آئی ڈی: %s</string>
   <string name="error_blocked_footer">بلاک بحث کرݨ کیتے تساں &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; or another &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ایڈمن&lt;/a&gt; نال رابطہ کر سڳدے ہو۔</string>
+  <string name="temp_account_dialog_ok">سمجھ آڳئی</string>
   <string name="crash_report_relaunch">ول شروع کرو</string>
   <string name="crash_report_quit">نکلو</string>
   <string name="article_menu_bar_save_button">بچاؤ</string>
@@ -475,7 +476,7 @@
   <string name="image_recommendation_accept">جیا</string>
   <string name="image_recommendation_reject">کو</string>
   <string name="image_recommendation_notsure">پک کائنی</string>
-  <string name="image_recommendation_reject_title">کیوں نہ؟</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">کیوں نہ؟</string>
   <string name="image_recommendation_reject_not_relevant">تصویر غیرمتعلقہ ہے</string>
   <string name="image_recommendation_reject_no_info">فیصلہ کرݨ کیتے کافی معلومات کائنی</string>
   <string name="image_recommendation_reject_other">ٻیا</string>
@@ -571,6 +572,7 @@
   <string name="talk_new_topic">نواں عنوان</string>
   <string name="talk_warn">خبردار</string>
   <string name="talk_warn_save_dialog_cancel">منسوخ</string>
+  <string name="talk_warn_save_dialog_dont_save">محفوظ نہ کرو</string>
   <string name="talk_page_empty_content">ڳالھ مہاڑ ورقے تے تے بھُوم ڳوجھی تے مواد کوں ممکن حد تائیں بہتر بݨاوݨ کیتے لوک بحث کریندے ہن۔ وکی پیڈیا برادری نال رل تے کم کرݨ تے رابطے کیتے  نواں بحث دا موضوع شامل کرݨ نال شروع کرو۔</string>
   <string name="talk_add_reply">جواب</string>
   <string name="talk_no_subject">(عنوان کائنی)</string>
@@ -671,6 +673,7 @@
   <string name="talk_templates_edit_message_dialog_save">بچاؤ</string>
   <string name="talk_templates_edit_message_dialog_delete">مٹاؤ</string>
   <string name="talk_templates_menu_remove_message">سنیہا ہٹاؤ</string>
+  <string name="talk_templates_your_messages_tab_title">تہاݙے سنیہے</string>
   <string name="patroller_tasks_edits_list_card_tags_text">ٹیگاں: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">کوئی وی کائنی</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ورتݨ آلے دا ورقہ ݙیکھو</string>
@@ -681,6 +684,7 @@
   <string name="patroller_tasks_filters_automated_contributions_bot">ٻوٹ</string>
   <string name="patroller_tasks_filters_significance_minor">معمولی تبدیلیاں</string>
   <string name="patroller_tasks_overflow_learn">ٻیا سِکھو</string>
+  <string name="patroller_onboarding_two_talk_title">ڳالھ مہاڑ</string>
   <string name="patroller_diff_feedback_dialog_input_hint">فیڈ بیک</string>
   <string name="patroller_diff_feedback_dialog_submit">جمع کرواؤ</string>
   <string name="talk_templates_menu_edit_title">لکھو</string>

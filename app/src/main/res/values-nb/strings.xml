@@ -250,8 +250,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.no</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.no</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek brukt</string>
   <string name="about_contributors_heading">Bidragsytere</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamets side&lt;/a&gt;</string>
@@ -855,8 +855,8 @@
   <string name="description_edit_voice_input_description">Stemmestyring</string>
   <string name="description_edit_learn_more">Lær mer om artikkelbeskrivelser</string>
   <string name="description_edit_image_caption_learn_more">Lær mer om bildetekster</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_ends_with_punctuation">Teksten kan ikke slutte med punktum.</string>
   <string name="description_starts_with_article">Ikke legg til «a» eller «the» i begynnelsen av artikkeltitler.</string>
@@ -1078,8 +1078,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nei</string>
   <string name="image_recommendation_notsure">Usikker</string>
-  <string name="image_recommendation_reject_title">Hvorfor ikke?</string>
-  <string name="image_recommendation_reject_subtitle">Svarene dine hjelper til å forbedre framtidige forslag.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Hvorfor ikke?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Svarene dine hjelper til å forbedre framtidige forslag.</string>
   <string name="image_recommendation_reject_not_relevant">Bildet er ikke relevant</string>
   <string name="image_recommendation_reject_no_info">Ikke nok informasjon til å avgjøre</string>
   <string name="image_recommendation_reject_offensive">Bildet er støtende</string>
@@ -1252,6 +1252,7 @@
   <string name="talk_warn_save_dialog_hint">Meldingstittel</string>
   <string name="talk_warn_save_dialog_publish">Publiser</string>
   <string name="talk_warn_save_dialog_cancel">Avbryt</string>
+  <string name="talk_warn_save_dialog_dont_save">Ikke lagre</string>
   <string name="talk_warn_submitted">Melding publisert på bidragsyterens brukerdiskusjonsside</string>
   <string name="talk_warn_submitted_and_saved">Melding lagret og publisert på bidragsyterens brukerdiskusjonsside</string>
   <string name="talk_page_empty">Denne diskusjonssiden er tom.</string>
@@ -1485,6 +1486,8 @@
     <item quantity="other">Beskjedene har blitt slettet</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Tittelen kan ikke være tom.</string>
+  <string name="talk_templates_your_messages_tab_title">Dine meldinger</string>
+  <string name="talk_templates_example_messages_tab_title">Eksempelmeldinger</string>
   <string name="patroller_tasks_edits_list_search_hint">Søk i eller filtrer redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tagger: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
@@ -1558,8 +1561,6 @@
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Takk en bruker for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåk</string>
   <string name="patroller_onboarding_two_watch_content">Vil du spore artikkelredigeringer? Legg til på overvåkningslisten din. Se den under «Mer».</string>
-  <string name="patroller_onboarding_two_warn_title">Advar</string>
-  <string name="patroller_onboarding_two_warn_content">Opprett, send og lagre advarselsmeldinger på en bidragsyters diskusjonsside.</string>
   <string name="patroller_onboarding_two_undo_title">Omgjør/Tilbakestill</string>
   <string name="patroller_onboarding_two_undo_content">Velg «Gjør om» for å omgjøre eller tilbakestille en potensielt ødeleggende redigering.</string>
   <string name="patroller_diff_tooltip_one">Skade forutsier om en redigering forårsaker skade på en wiki.</string>
