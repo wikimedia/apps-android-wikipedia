@@ -59,6 +59,7 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/full_backup_rules"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:icon="@mipmap/launcher"
         android:label="@string/app_name"
@@ -304,7 +305,8 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".talk.TalkReplyActivity" />
+            android:name=".talk.TalkReplyActivity"
+            android:configChanges="orientation|screenSize"/>
 
         <activity
             android:name=".talk.ArchivedTalkPagesActivity" />
@@ -314,6 +316,7 @@
 
         <activity
             android:name=".activity.SingleWebViewActivity"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme" />
 
         <activity
@@ -344,6 +347,11 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
+            android:name=".edit.templates.TemplatesSearchActivity"
+            android:label="@string/templates_search_hint"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
             android:name=".places.PlacesActivity" />
 
         <activity
@@ -352,11 +360,6 @@
         <activity
             android:name=".talk.template.TalkTemplatesActivity"
             android:theme="@style/AppTheme" />
-
-        <activity
-            android:name=".talk.template.AddTemplateActivity"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <provider
             android:name=".WikipediaFileProvider"

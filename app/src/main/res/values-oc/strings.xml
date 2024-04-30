@@ -313,6 +313,8 @@
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
   <string name="suggested_edits_task_multilingual_positive">Ajustar de lengas</string>
   <string name="suggested_edits_article_cta_snackbar_action">Monstrar</string>
+  <string name="suggested_edits_label">Edicions suggeridas</string>
   <string name="suggested_edits_reactivation_notification_title">Edicions suggeridas</string>
   <string name="talk_list_item_last_comment_date">Darrièr comentari: %s</string>
+  <string name="page_issues_title">Problèmas de la pagina</string>
 </resources>

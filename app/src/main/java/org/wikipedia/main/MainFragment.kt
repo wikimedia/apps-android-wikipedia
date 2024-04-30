@@ -22,6 +22,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.descendants
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -131,7 +132,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             it.maxLines = 2
         }
 
-        FeedbackUtil.setButtonLongPressToast(binding.navMoreContainer)
+        FeedbackUtil.setButtonTooltip(binding.navMoreContainer)
         binding.navMoreContainer.setOnClickListener {
             ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
         }
@@ -271,7 +272,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             tabCountsView!!.contentDescription = getString(R.string.menu_page_show_tabs)
             tabsItem.actionView = tabCountsView
             tabsItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(tabCountsView!!)
+            FeedbackUtil.setButtonTooltip(tabCountsView!!)
             showTabCountsAnimation = false
         }
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
@@ -286,7 +287,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -456,7 +457,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     fun setBottomNavVisible(visible: Boolean) {
-        binding.mainNavTabContainer.visibility = if (visible) View.VISIBLE else View.GONE
+        binding.mainNavTabBorder.isVisible = visible
+        binding.mainNavTabContainer.isVisible = visible
     }
 
     fun onGoOffline() {

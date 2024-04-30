@@ -665,8 +665,8 @@
   <string name="notifications_menu_uncheck_all">سڀني تان نشان ختم ڪريو</string>
   <string name="notifications_wiki_filter_header">وڪي ڇاڻي</string>
   <string name="notifications_type_filter_header">ڇاڻي جو قسم</string>
-  <string name="notifications_all_wikis_text">سڀ \"وڪي\"</string>
-  <string name="notifications_all_types_text">سڀ \"قسم\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">سڀ \"وڪي\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">سڀ \"قسم\"</string>
   <string name="notifications_menu_user_talk_page">%s جو بحث صفحو</string>
   <string name="notifications_offline_disable_message">آفلائين ھجڻ دوران ھي فنڪشن موجود نہ آھي.</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>

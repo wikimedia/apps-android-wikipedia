@@ -239,7 +239,7 @@
   <string name="about_translators_heading">lɛbigiriba</string>
   <string name="about_translators_translatewiki">Ninvuɣ\'shɛb ban paɣi bɛ suhiri n daa sɔŋ lɛbigi App ŋɔ zuliya maa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;. puuni</string>
   <string name="about_app_license_heading">Shɛhira gbaŋ din dihi nua</string>
-  <string name="about_app_license">di yibu shɛɛ kɔɔd nyɛla din beni &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Naɣila nyini n zalili laa, din be di puuni gba beni kpɛ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">di yibu shɛɛ kɔɔd nyɛla din beni &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Naɣila nyini n zalili laa, din be di puuni gba beni kpɛ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">A product of the &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Dini nye shem</string>
   <string name="edit_abandon_confirm">taɣibu niŋla yaɣili ŋɔ. A dihitabili ni a bori ni a yi ka bi gu lala taɣibu maa?</string>
@@ -743,8 +743,8 @@
   <string name="notifications_menu_uncheck_all">Dihi yihi binshɛlikam zuɣu</string>
   <string name="notifications_wiki_filter_header">Wiki jɛhibu</string>
   <string name="notifications_type_filter_header">jɛhibu pubu</string>
-  <string name="notifications_all_wikis_text">\"Wiki\" zaa</string>
-  <string name="notifications_all_types_text">\"Balli kaa\" zaa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"Wiki\" zaa</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"Balli kaa\" zaa</string>
   <string name="notifications_menu_user_talk_page">%s\'s yɛltɔɣa yaɣili</string>
   <string name="notifications_offline_disable_message">Niŋsim ŋɔ kani a yi ka pɔhim zuɣu.</string>
   <string name="view_because_you_read_card_title">A ni karimi maa zuɣu</string>
@@ -1219,8 +1219,6 @@
   <string name="talk_warn_save_dialog_cancel">Nyahima</string>
   <string name="talk_warn_submitted">Lahabali nyɛla din zaŋ wuhi maliniŋlana yɛltɔɣa paagi zuɣu</string>
   <string name="talk_warn_submitted_and_saved">Lahabali nyɛla din gu n-zali ka zaŋ wuhi maliniŋlana yɛltɔɣa paagi zuɣu</string>
-  <string name="talk_warn_saved_message">Piimi zuɣuni kpahibu lahabali din pun beni bee ka a nam lahabali palli</string>
-  <string name="talk_warn_saved_message_dropdown">gum lahabaya zali</string>
   <string name="talk_page_empty">Shɛli ka yɛltɔɣa paagi ŋɔ ni</string>
   <string name="talk_page_empty_title">Fiila maa dibu piini la kpɛ</string>
   <string name="talk_page_empty_content">Yɛltɔɣa paaginima nyɛla luɣisheli niriba ni gbaairi saawara zaŋchaŋ bɛ ni yɛn niŋ shɛm viɛligi din be wikipedia puuni. Piligima ni alizama din jɛndi yɛltɔɣikpani shɛli din ni chɛ ka a mini a mabihi Wikimedianima laɣim gbaai maligu saawara ka niŋ niŋgbuna ni taba.</string>
@@ -1424,10 +1422,8 @@
   <string name="reading_list_share_message_v2">N-zo! n suhu di yuya ni n-ti a n yu-karinda</string>
   <string name="reading_list_share_survey_title">A ku sɔŋ ti ka ti bo berisuŋ \"ni yu-karinda taribu ni taba\"?</string>
   <string name="reading_list_share_survey_body">\"tarimi yu-karinda ni taba\" nyɛla binshɛli din na be zahimbu ni ka ti bori a ni nyali shɛm labisigu din ni sɔŋ ka ti kpaŋsili bee ka ti yihi li.</string>
-  <string name="talk_templates_manage_title">Maalimi tɛmpleti nima zali viɛnyela</string>
-  <string name="talk_templates_empty_message">A ka zuɣuni kpahibu lahabali shɛli ka di gu n-doya.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">A ka zuɣuni kpahibu lahabali shɛli ka di gu n-doya.</string>
   <string name="talk_templates_new_message_title">Satari palli</string>
-  <string name="talk_templates_new_message_description">Namni zuɣuni kpahibu satarili</string>
   <string name="talk_templates_new_message_subject_hint">Baŋsim yaɣili</string>
   <string name="talk_templates_new_message_compose_hint">nammi lahabali</string>
   <string name="talk_templates_new_message_save">Zaŋpkɛhi</string>
@@ -1450,7 +1446,6 @@
     <item quantity="other">yini=lahabali nyahiya</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Di yuli maa shɛɛ ku tooi ka binshɛɣu.</string>
-  <string name="patroller_tasks_edits_list_title">Maliniŋ nima pɛ n-doli taba</string>
   <string name="patroller_tasks_edits_list_search_hint">vihima bee jɛhimi mali niŋ nima</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Lobu lahabaya: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Kadi shɛli</string>
@@ -1509,7 +1504,6 @@
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="other">yini=%d jɛhima</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Maliniŋ go n-kaai</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Atikil maliniŋ din pun gari lahabali</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Di labisili din pun be shɛm naai</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">A dihitabili ni a bori ni a labisi niŋ maliniŋ ŋɔ?</string>

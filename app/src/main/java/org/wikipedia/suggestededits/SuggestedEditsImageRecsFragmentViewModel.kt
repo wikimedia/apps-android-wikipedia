@@ -25,6 +25,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
@@ -33,7 +34,7 @@ import java.util.*
 class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
 
     lateinit var recommendation: GrowthImageSuggestion
@@ -43,7 +44,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     var attemptInsertInfobox = false
 
     val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -51,7 +52,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun fetchRecommendation() {
-        _uiState.value = UiState.Loading()
+        _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
             var page: MwQueryPage?
             var tries = 0
@@ -60,7 +61,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             } while (tries++ < 10 && page?.growthimagesuggestiondata.isNullOrEmpty())
 
             if (page?.growthimagesuggestiondata.isNullOrEmpty()) {
-                _uiState.value = UiState.Depleted()
+                _uiState.value = Depleted()
                 return@launch
             }
 
@@ -111,7 +112,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
 
-            _uiState.value = UiState.Success()
+            _uiState.value = Resource.Success(Unit)
         }
     }
 
@@ -159,10 +160,5 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    open class UiState {
-        class Loading : UiState()
-        class Success : UiState()
-        class Depleted : UiState()
-        class Error(val throwable: Throwable) : UiState()
-    }
+    class Depleted : Resource<Unit>()
 }

@@ -589,8 +589,8 @@
   <string name="notifications_menu_uncheck_all">Ce həmmə objektonku nyšonon pegəte</string>
   <string name="notifications_wiki_filter_header">Viki parzyn</string>
   <string name="notifications_type_filter_header">Parzyni tispir</string>
-  <string name="notifications_all_wikis_text">Həmmə \"viki\"</string>
-  <string name="notifications_all_types_text">Həmmə «tispiron»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Həmmə \"viki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Həmmə «tispiron»</string>
   <string name="notifications_menu_user_talk_page">No-pegəti səhifə %s</string>
   <string name="notifications_offline_disable_message">Ym funksijə oflajnədə dastrəs ni.</string>
   <string name="view_because_you_read_card_title">Šymə handə gylon bynədə</string>
@@ -848,7 +848,6 @@
   <string name="talk_warn_save_dialog_title">Ovaxtətijon ogəte?</string>
   <string name="talk_warn_save_dialog_publish">Edaštej</string>
   <string name="talk_warn_save_dialog_cancel">Ohaštej</string>
-  <string name="talk_warn_saved_message_dropdown">Ogətə byə ǧədəǧon</string>
   <string name="talk_page_empty_title">No-pegət ijo bino bejdə</string>
   <string name="talk_add_reply">Čəvob doj</string>
   <string name="talk_no_subject">(Be myžori)</string>
@@ -988,7 +987,6 @@
   <string name="talk_templates_edit_message_dialog_title">Ǧədəǧə sərost kardej</string>
   <string name="talk_templates_edit_message_dialog_save">Ogətej</string>
   <string name="talk_templates_edit_message_dialog_delete">Mole</string>
-  <string name="patroller_tasks_edits_list_title">Ovaxtətijon sijohi</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tegon: %s</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Ištirokəkə tohfə dijəkə</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Sepas</string>

@@ -237,7 +237,7 @@
   <string name="about_translators_heading">pian\'alɛbigirib</string>
   <string name="about_translators_translatewiki">Sɔ\' da pɛsigi o mɛŋi lɛbig app kaŋa bɛ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Kasɛta gbaʋŋ</string>
-  <string name="about_app_license">Din yi zin\'isia na koodi bɛ</string>
+  <string name="about_app_license" fuzzy="true">Din yi zin\'isia na koodi bɛ</string>
   <string name="about_wmf">Laʋk kanɛ yi &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Din yɛla</string>
   <string name="edit_abandon_confirm">Lakir la tiaknɛ. Fʋ sid siak ye fʋ bɔɔd ye fʋ yi  ka pʋ su\'a dinɛ ka fʋ tiak laa?</string>
@@ -642,8 +642,8 @@
   <string name="notifications_swipe_action_unread">Pʋ karim</string>
   <string name="notifications_menu_check_all">Kpansim la\'ad wʋsa</string>
   <string name="notifications_menu_uncheck_all">Da kpans la\'ad wʋsaa</string>
-  <string name="notifications_all_wikis_text">Wiki wʋsa</string>
-  <string name="notifications_all_types_text">Buudi wʋsa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Wiki wʋsa</string>
+  <string name="notifications_all_types_text" fuzzy="true">Buudi wʋsa</string>
   <string name="notifications_menu_user_talk_page">%s\'s sɔnsʋg lakir zin\'ig</string>
   <string name="view_because_you_read_card_title">Fʋn karim la zug</string>
   <string name="view_random_card_title">Yɔɔg-yɔɔg</string>
@@ -946,7 +946,6 @@
   <string name="talk_warn_save_dialog_hint">Labaar pian\'azug</string>
   <string name="talk_warn_save_dialog_publish">Zaŋim niŋ</string>
   <string name="talk_warn_save_dialog_cancel">Basim</string>
-  <string name="talk_warn_saved_message_dropdown">Kpɛn\'ɛsim labaya</string>
   <string name="talk_page_empty">Sɔnsʋg lakir kaŋa anɛ zaalim.</string>
   <string name="talk_page_empty_title">Sɔnsʋg la pin\'inɛ kpɛla</string>
   <string name="talk_add_reply">Lɛbisim</string>
