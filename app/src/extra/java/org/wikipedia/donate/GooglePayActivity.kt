@@ -126,7 +126,6 @@ class GooglePayActivity : BaseActivity() {
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_problems_url)))
         }
         binding.linkOtherWays.setOnClickListener {
-            finish()
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_other_ways_url)))
         }
         binding.linkFAQ.setOnClickListener {
