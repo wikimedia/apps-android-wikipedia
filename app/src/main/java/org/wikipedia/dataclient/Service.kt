@@ -479,6 +479,12 @@ interface Service {
         @Query("sites") sites: String
     ): Observable<Entities>
 
+    @GET(MW_API_PREFIX + "action=wbgetentities")
+    suspend fun getEntitiesByTitleSuspend(
+        @Query("titles") titles: String,
+        @Query("sites") sites: String
+    ): Entities
+
     @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
     fun searchEntities(
         @Query("search") searchTerm: String,
