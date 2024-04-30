@@ -84,17 +84,21 @@ class GooglePayActivity : BaseActivity() {
             onBackPressed()
         }
 
+        binding.checkBoxTransactionFee.setOnCheckedChangeListener { _, isChecked ->
+            val amountText = binding.donateAmountText.text.toString()
+            if (!validateInput(amountText)) {
+                return@setOnCheckedChangeListener
+            }
+            val amount = amountText.toFloatOrNull() ?: 0f
+            setAmountText(if (isChecked) amount + viewModel.transactionFee else amount - viewModel.transactionFee)
+        }
+
         binding.payButton.setOnClickListener {
             val amountText = binding.donateAmountText.text.toString()
             if (!validateInput(amountText)) {
                 return@setOnClickListener
             }
-
-            var amount = amountText.toFloatOrNull() ?: 0f
-            if (binding.checkBoxTransactionFee.isChecked) {
-                amount += viewModel.transactionFee
-            }
-            viewModel.finalAmount = amount
+            viewModel.finalAmount = amountText.toFloatOrNull() ?: 0f
 
             AutoResolveHelper.resolveTask(
                 paymentsClient.loadPaymentData(viewModel.getPaymentDataRequest()),
@@ -170,8 +174,7 @@ class GooglePayActivity : BaseActivity() {
 
         binding.checkBoxAllowEmail.isVisible = viewModel.emailOptInRequired
 
-        val transactionFee = donationConfig.currencyTransactionFees[viewModel.currencyCode] ?: donationConfig.currencyTransactionFees["default"] ?: 0f
-        binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee, viewModel.currencyFormat.format(transactionFee))
+        binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee, viewModel.currencyFormat.format(viewModel.transactionFee))
 
         val methods = JSONArray().put(GooglePayComponent.baseCardPaymentMethod)
         binding.payButton.initialize(ButtonOptions.newBuilder()
@@ -192,9 +195,11 @@ class GooglePayActivity : BaseActivity() {
             binding.amountPresetsContainer.addView(button)
             button.setOnClickListener {
                 setButtonHighlighted(it)
-                shouldWatchText = false
-                binding.donateAmountText.setText(viewModel.decimalFormat.format(it.tag as Float))
-                shouldWatchText = true
+                var selectedAmount = it.tag as Float
+                if (binding.checkBoxTransactionFee.isChecked) {
+                    selectedAmount += viewModel.transactionFee
+                }
+                setAmountText(selectedAmount)
             }
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
@@ -213,6 +218,12 @@ class GooglePayActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    private fun setAmountText(amount: Float) {
+        shouldWatchText = false
+        binding.donateAmountText.setText(viewModel.decimalFormat.format(amount))
+        shouldWatchText = true
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
