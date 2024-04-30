@@ -562,6 +562,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         invalidateOptionsMenu()
     }
 
+    override fun isNewPage(): Boolean {
+        return !viewModel.doesPageExist
+    }
+
     companion object {
         const val EXTRA_PARENT_SUBJECT = "parentSubject"
         const val EXTRA_TOPIC = "topic"
@@ -608,7 +612,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     .putExtra(EXTRA_EXAMPLE_TEMPLATE, isExampleTemplate)
                     .putExtra(FROM_REVISION_ID, fromRevisionId)
                     .putExtra(TO_REVISION_ID, toRevisionId)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
