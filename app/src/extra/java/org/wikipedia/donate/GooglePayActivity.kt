@@ -89,7 +89,7 @@ class GooglePayActivity : BaseActivity() {
             if (!validateInput(amountText)) {
                 return@setOnCheckedChangeListener
             }
-            val amount = amountText.toFloatOrNull() ?: 0f
+            val amount = getAmountFloat(amountText)
             setAmountText(if (isChecked) amount + viewModel.transactionFee else amount - viewModel.transactionFee)
         }
 
@@ -98,7 +98,7 @@ class GooglePayActivity : BaseActivity() {
             if (!validateInput(amountText)) {
                 return@setOnClickListener
             }
-            viewModel.finalAmount = amountText.toFloatOrNull() ?: 0f
+            viewModel.finalAmount = getAmountFloat(amountText)
 
             AutoResolveHelper.resolveTask(
                 paymentsClient.loadPaymentData(viewModel.getPaymentDataRequest()),
@@ -113,7 +113,7 @@ class GooglePayActivity : BaseActivity() {
             }
             val buttonToHighlight = binding.amountPresetsContainer.children.firstOrNull { child ->
                 if (child is MaterialButton) {
-                    val amount = text.toString().toFloatOrNull() ?: 0f
+                    val amount = getAmountFloat(text.toString())
                     child.tag == amount
                 } else {
                     false
@@ -137,7 +137,7 @@ class GooglePayActivity : BaseActivity() {
     }
 
     private fun validateInput(text: String): Boolean {
-        val amount = text.toFloatOrNull() ?: 0f
+        val amount = getAmountFloat(text)
         val min = viewModel.donationConfig?.currencyMinimumDonation?.get(viewModel.currencyCode) ?: 0f
         val max = viewModel.donationConfig?.currencyMaximumDonation?.get(viewModel.currencyCode) ?: 0f
 
@@ -217,6 +217,16 @@ class GooglePayActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    private fun getAmountFloat(text: String): Float {
+        var result: Float? = null
+        result = text.toFloatOrNull()
+        if (result == null) {
+            val text2 = if (text.contains(".")) text.replace(".", ",") else text.replace(",", ".")
+            result = text2.toFloatOrNull()
+        }
+        return result ?: 0f
     }
 
     private fun setAmountText(amount: Float) {
