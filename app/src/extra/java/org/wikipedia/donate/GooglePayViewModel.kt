@@ -30,7 +30,8 @@ class GooglePayViewModel : ViewModel() {
     var donationConfig: DonationConfig? = null
     private val currentCountryCode: String get() = GeoUtil.geoIPCountry.orEmpty()
 
-    val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.getDefault())
+    val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
+        .setRegion(currentCountryCode).setLanguage(WikipediaApp.instance.appOrSystemLanguageCode).build())
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: "USD"
     val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
     val decimalFormat = GooglePayComponent.getDecimalFormat(currencyCode)
