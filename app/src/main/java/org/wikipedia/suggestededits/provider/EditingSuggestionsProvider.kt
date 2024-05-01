@@ -331,9 +331,9 @@ object EditingSuggestionsProvider {
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
                             .getPagesWithImageRecommendations(10)
                         // TODO: make use of continuation parameter?
-                        response.query?.pages?.forEach {
-                            if (it.growthimagesuggestiondata?.get(0)?.images != null) {
-                                articlesWithImageRecommendationsCache.push(it)
+                        response.query?.pages?.forEach { page ->
+                            if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
+                                articlesWithImageRecommendationsCache.push(page)
                             }
                         }
                     }
