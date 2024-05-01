@@ -332,7 +332,7 @@ object EditingSuggestionsProvider {
                             .getPagesWithImageRecommendations(10)
                         // TODO: make use of continuation parameter?
                         response.query?.pages?.forEach { page ->
-                            if (page.thumbUrl() == null && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
+                            if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
                                 articlesWithImageRecommendationsCache.push(page)
                             }
                         }
