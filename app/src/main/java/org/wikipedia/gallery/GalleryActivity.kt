@@ -61,14 +61,13 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
-import org.wikipedia.wiktionary.WiktionaryViewModel
 import java.io.File
 
 class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, GalleryItemFragment.Callback {
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var galleryAdapter: GalleryItemAdapter
-    private val viewModel: GalleryViewModel by viewModels { WiktionaryViewModel.Factory(intent.extras!!) }
+    private val viewModel: GalleryViewModel by viewModels { GalleryViewModel.Factory(intent.extras!!) }
     private var pageChangeListener = GalleryPageChangeListener()
     private var imageEditType: ImageEditType? = null
     private var controlsShowing = true
@@ -218,8 +217,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     override fun onDownload(item: GalleryItemFragment) {
-        if (item.imageTitle != null && item.mediaInfo != null) {
-            downloadReceiver.download(this, item.imageTitle!!, item.mediaInfo!!)
+        if (item.mediaInfo != null) {
+            downloadReceiver.download(this, item.imageTitle, item.mediaInfo!!)
             FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
         } else {
             FeedbackUtil.showMessage(this, R.string.err_cannot_save_file)
@@ -264,7 +263,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun startCaptionEdit(item: GalleryItemFragment) {
-        val title = PageTitle(item.imageTitle!!.prefixedText,
+        val title = PageTitle(item.imageTitle.prefixedText,
             WikiSite(Service.COMMONS_URL, viewModel.sourceWikiSite.languageCode))
         val currentCaption = item.mediaInfo!!.captions[viewModel.sourceWikiSite.languageCode]
         title.description = currentCaption
@@ -276,7 +275,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     private fun onTranslateClick() {
         val item = currentItem
-        if (item?.imageTitle == null || item.mediaInfo?.metadata == null || imageEditType == null) {
+        if (item?.mediaInfo?.metadata == null || imageEditType == null) {
             return
         }
         when (imageEditType) {
@@ -287,13 +286,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun startTagsEdit(item: GalleryItemFragment) {
-        requestAddImageTagsLauncher.launch(SuggestedEditsImageTagEditActivity.newIntent(this, item.mediaPage!!,
-            InvokeSource.GALLERY_ACTIVITY))
+        item.mediaPage?.let {
+            requestAddImageTagsLauncher.launch(SuggestedEditsImageTagEditActivity.newIntent(this, it, InvokeSource.GALLERY_ACTIVITY))
+        }
     }
 
     private fun startCaptionTranslation(item: GalleryItemFragment) {
-        val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, viewModel.sourceWikiSite.languageCode))
-        val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
+        val sourceTitle = PageTitle(item.imageTitle.prefixedText, WikiSite(Service.COMMONS_URL, viewModel.sourceWikiSite.languageCode))
+        val targetTitle = PageTitle(item.imageTitle.prefixedText, WikiSite(Service.COMMONS_URL,
             targetLanguageCode ?: WikipediaApp.instance.languageState.appLanguageCodes[1]))
         val currentCaption = item.mediaInfo!!.captions[viewModel.sourceWikiSite.languageCode].orEmpty().ifEmpty {
             RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
@@ -486,20 +486,20 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     fun fetchGalleryDescription(callingFragment: GalleryItemFragment?) {
         val item = currentItem
-        if (item != callingFragment) {
+        if (item != callingFragment || item == null) {
             return
         }
-        if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
+        if (item.mediaInfo?.metadata == null) {
             binding.infoContainer.visibility = View.GONE
             return
         }
 
-        viewModel.fetchGalleryDescription(item.imageTitle!!)
+        viewModel.fetchGalleryDescription(item.imageTitle)
     }
 
     private fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
         val item = currentItem
-        if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
+        if (item?.mediaInfo?.metadata == null) {
             binding.infoContainer.visibility = View.GONE
             return
         }

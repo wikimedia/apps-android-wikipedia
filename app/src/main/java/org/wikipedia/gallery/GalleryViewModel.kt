@@ -31,9 +31,6 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
     private val _descriptionState = MutableStateFlow(Resource<Pair<Boolean, Entities.Entity?>>())
     val descriptionState = _descriptionState.asStateFlow()
 
-    init {
-    }
-
     fun fetchGalleryItems() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
