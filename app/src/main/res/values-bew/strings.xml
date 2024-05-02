@@ -323,7 +323,7 @@
   <string name="gallery_edit_button_content_description">Permak keterangan gambar</string>
   <string name="gallery_add_image_caption_button">Tambahin keterangan gambar</string>
   <string name="gallery_add_image_caption_in_language_button">Tambahin keterangan gambar (%s)</string>
-  <string name="err_cannot_save_file">Kaga\' bisa nyimpen berekas</string>
+  <string name="err_cannot_save_file">Kaga\' bisa nyimpen gepokan</string>
   <string name="expand_refs">Teken bakal nèmprakin</string>
   <string name="cc_logo">Ongji Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
@@ -876,7 +876,7 @@
   <string name="suggested_edits_edit_caption_button">Permak keterangan</string>
   <string name="suggested_edits_review_image_caption">Perèksa ulang keterangan gambar</string>
   <string name="suggested_edits_my_contributions">Gua punya sumbangan</string>
-  <string name="suggested_edits_no_description">Ni berekas kaga\' punya jabaran</string>
+  <string name="suggested_edits_no_description">Ni gepokan kaga\' punya jabaran</string>
   <string name="suggested_edits_license_notice">Dengen nambahin jabaran, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelosin gua punya sumbangan di bawah ongji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dengen nambahin keterangan gambar, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelosin gua punya sumbangan di bawah ongji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Inpo</string>
@@ -915,7 +915,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Sumber/Tukang jeprèt</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Ongji</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Inpo laènnya</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Halaman berekas di Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Halaman gepokan di Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Halaman gepokan di Wikipédi</string>
   <string name="suggested_edits_article_cta_image_tags">Tambahin tenger gambar</string>
   <string name="suggested_edits_article_cta_image_caption">Tambahin keterangan gambar</string>
@@ -1166,7 +1166,7 @@
   <string name="wikitext_preview_link">Sènggètan terawangan</string>
   <string name="wikitext_mention_user">Sebut pemaké</string>
   <string name="insert_media_title">Selesepin wasilah</string>
-  <string name="insert_media_search_description">Pilih berekas deri Wikimedia Commons</string>
+  <string name="insert_media_search_description">Pilih gepokan deri Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cari wasilah</string>
   <string name="insert_media_settings">Tambahin tètèk bengèk gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar nyang diangkat</string>
