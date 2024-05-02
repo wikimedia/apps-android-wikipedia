@@ -267,7 +267,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                         return
                     }
                     imageTitle.let { title ->
-                        callback()?.onShare(this@GalleryItemFragment, bitmap, StringUtil.removeHTMLTags(viewModel.pageTitle.displayText), title)
+                        callback()?.onShare(this@GalleryItemFragment, bitmap, StringUtil.removeHTMLTags(viewModel.imageTitle.displayText), title)
                     }
                 }
             }[requireContext()]

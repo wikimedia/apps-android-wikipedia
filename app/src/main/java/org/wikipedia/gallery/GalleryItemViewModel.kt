@@ -20,8 +20,8 @@ import org.wikipedia.util.StringUtil
 
 class GalleryItemViewModel(bundle: Bundle) : ViewModel() {
 
-    var mediaListItem = bundle.parcelable<MediaListItem>(GalleryItemFragment.ARG_GALLERY_ITEM)!!
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE) ?: PageTitle(mediaListItem.title, Constants.commonsWikiSite)
+    private var mediaListItem = bundle.parcelable<MediaListItem>(GalleryItemFragment.ARG_GALLERY_ITEM)!!
+    private val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE) ?: PageTitle(mediaListItem.title, Constants.commonsWikiSite)
     var imageTitle = PageTitle("File:${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle.wikiSite)
     var mediaPage: MwQueryPage? = null
 
@@ -32,16 +32,16 @@ class GalleryItemViewModel(bundle: Bundle) : ViewModel() {
         loadMedia()
     }
 
-    fun loadMedia() {
+    private fun loadMedia() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = Resource.Error(throwable)
         }) {
-            val wikiSite = if (mediaListItem.isInCommons) Constants.commonsWikiSite else pageTitle.wikiSite
+            val wikiSite = if (mediaListItem.isInCommons) Constants.commonsWikiSite else imageTitle.wikiSite
             val response = if (mediaListItem.isVideo) {
-                ServiceFactory.get(wikiSite).getVideoInfo(pageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
+                ServiceFactory.get(wikiSite).getVideoInfo(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
             } else {
-                ServiceFactory.get(wikiSite).getImageInfoSuspend(pageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
+                ServiceFactory.get(wikiSite).getImageInfoSuspend(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
             }
             mediaPage = response.query?.firstPage()
             _uiState.value = Resource.Success(FileUtil.isVideo(mediaPage?.imageInfo()?.mime.orEmpty()))

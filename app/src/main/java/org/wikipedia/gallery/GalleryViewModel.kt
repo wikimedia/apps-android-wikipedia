@@ -21,7 +21,7 @@ import org.wikipedia.util.Resource
 class GalleryViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)
-    val sourceWikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
+    val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     val revision = bundle.getLong(GalleryActivity.EXTRA_REVISION, 0)
     var initialFilename = bundle.getString(GalleryActivity.EXTRA_FILENAME)
 
