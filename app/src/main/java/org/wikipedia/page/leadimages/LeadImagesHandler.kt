@@ -229,7 +229,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                         leadImageUrl!!, true)
                     GalleryActivity.setTransitionInfo(hitInfo)
                     val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
-                    callback?.onPageRequestGallery(it, filename, wiki, parentFragment.revision, GalleryActivity.SOURCE_LEAD_IMAGE, options)
+                    callback?.onPageRequestGallery(it, filename, wiki, parentFragment.revision, true, options)
                 }
             }
         }

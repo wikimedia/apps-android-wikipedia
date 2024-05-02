@@ -180,7 +180,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
             .doAfterTerminate {
                 updateProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
-                (requireActivity() as GalleryActivity).layOutGalleryDescription(this)
+                (requireActivity() as GalleryActivity).fetchGalleryDescription(this)
             }
             .subscribe({ response ->
                 mediaPage = response.query?.firstPage()
@@ -226,7 +226,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
             binding.videoView.setOnPreparedListener {
                 updateProgressBar(false)
                 // ...update the parent activity, which will trigger us to start playing!
-                (requireActivity() as GalleryActivity).layOutGalleryDescription(this@GalleryItemFragment)
+                (requireActivity() as GalleryActivity).fetchGalleryDescription(this@GalleryItemFragment)
                 // hide the video thumbnail, since we're about to start playback
                 binding.videoThumbnail.visibility = View.GONE
                 binding.videoPlayButton.visibility = View.GONE
