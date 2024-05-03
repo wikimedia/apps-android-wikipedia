@@ -135,7 +135,6 @@ class AnnouncementClientTest : MockRetrofitTest() {
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), Matchers.`is`(false))
     }
 
-
     private suspend fun getAnnouncement(): AnnouncementList {
         return restService.getAnnouncements()
     }
