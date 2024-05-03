@@ -1,6 +1,5 @@
 package org.wikipedia.gallery
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -91,10 +90,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         if (it.resultCode == RESULT_OK) {
             val action = DescriptionEditActivity.Action.ADD_IMAGE_TAGS
             SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode, true) {
-                currentItem?.let { fragment ->
-                    fragment.imageTitle?.let { pageTitle ->
-                        startActivity(FilePageActivity.newIntent(this@GalleryActivity, pageTitle))
-                    }
+                currentItem?.let {
+                    startActivity(FilePageActivity.newIntent(this@GalleryActivity, it.imageTitle))
                 }
             }
             fetchGalleryDescription(currentItem)
@@ -107,8 +104,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         binding = ActivityGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = ""
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = ""
         setNavigationBarColor(Color.BLACK)
         binding.toolbarGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.TOP)
         binding.infoGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.BOTTOM)
@@ -131,11 +128,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             // if we have a savedInstanceState, then the initial index overrides
             // the initial Title from our intent.
             viewModel.initialFilename = null
-            val fm = supportFragmentManager
             if (supportFragmentManager.backStackEntryCount > 0) {
                 val ft = supportFragmentManager.beginTransaction()
-                for (i in 0 until fm.backStackEntryCount) {
-                    val fragment = fm.findFragmentById(fm.getBackStackEntryAt(i).id)
+                for (i in 0 until supportFragmentManager.backStackEntryCount) {
+                    val fragment = supportFragmentManager.findFragmentById(supportFragmentManager.getBackStackEntryAt(i).id)
                     if (fragment is GalleryItemFragment) {
                         ft.remove(fragment)
                     }
@@ -217,19 +213,20 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     override fun onDownload(item: GalleryItemFragment) {
-        if (item.mediaInfo != null) {
-            downloadReceiver.download(this, item.imageTitle, item.mediaInfo!!)
+        item.mediaInfo?.let {
+            downloadReceiver.download(this, item.imageTitle, it)
             FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
-        } else {
+        } ?: run {
             FeedbackUtil.showMessage(this, R.string.err_cannot_save_file)
         }
     }
 
     override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
-        if (bitmap != null && item.mediaInfo != null) {
-            ShareUtil.shareImage(this, bitmap,
-                File(ImageUrlUtil.getUrlForPreferredSize(item.mediaInfo!!.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)).name,
-                subject, title.uri)
+        if (bitmap != null) {
+            item.mediaInfo?.let {
+                ShareUtil.shareImage(this, bitmap,
+                    File(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)).name, subject, title.uri)
+            }
         } else {
             ShareUtil.shareText(this, title)
         }
@@ -249,7 +246,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
             return
         }
-        val isProtected = v.tag != null && v.tag as Boolean
+
+        val isProtected = v.tag as Boolean
         if (isProtected) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
@@ -263,14 +261,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun startCaptionEdit(item: GalleryItemFragment) {
-        val title = PageTitle(item.imageTitle.prefixedText,
-            WikiSite(Service.COMMONS_URL, viewModel.wikiSite.languageCode))
-        val currentCaption = item.mediaInfo!!.captions[viewModel.wikiSite.languageCode]
-        title.description = currentCaption
-        val summary = PageSummaryForEdit(title.prefixedText, viewModel.wikiSite.languageCode, title,
-            title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription()), item.mediaInfo!!.thumbUrl)
-        requestAddCaptionLauncher.launch(DescriptionEditActivity.newIntent(this, title, null, summary, null,
-            DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY))
+        item.mediaInfo?.let {
+            val title = PageTitle(item.imageTitle.prefixedText,
+                WikiSite(Service.COMMONS_URL, viewModel.wikiSite.languageCode))
+            title.description = it.captions[viewModel.wikiSite.languageCode]
+            val summary = PageSummaryForEdit(title.prefixedText, viewModel.wikiSite.languageCode, title,
+                title.displayText, RichTextUtil.stripHtml(it.metadata?.imageDescription()), it.thumbUrl)
+            requestAddCaptionLauncher.launch(DescriptionEditActivity.newIntent(this, title, null, summary, null,
+                DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY))
+        }
     }
 
     private fun onTranslateClick() {
@@ -292,27 +291,27 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun startCaptionTranslation(item: GalleryItemFragment) {
-        val sourceTitle = PageTitle(item.imageTitle.prefixedText, WikiSite(Service.COMMONS_URL, viewModel.wikiSite.languageCode))
-        val targetTitle = PageTitle(item.imageTitle.prefixedText, WikiSite(Service.COMMONS_URL,
-            targetLanguageCode ?: WikipediaApp.instance.languageState.appLanguageCodes[1]))
-        val currentCaption = item.mediaInfo!!.captions[viewModel.wikiSite.languageCode].orEmpty().ifEmpty {
-            RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
+        item.mediaInfo?.let {
+            val sourceTitle = PageTitle(item.imageTitle.prefixedText, WikiSite(Service.COMMONS_URL, viewModel.wikiSite.languageCode))
+            val targetTitle = PageTitle(item.imageTitle.prefixedText, WikiSite(Service.COMMONS_URL,
+                targetLanguageCode ?: WikipediaApp.instance.languageState.appLanguageCodes[1]))
+            val currentCaption = it.captions[viewModel.wikiSite.languageCode].orEmpty().ifEmpty {
+                RichTextUtil.stripHtml(it.metadata?.imageDescription())
+            }
+            val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode,
+                sourceTitle, sourceTitle.displayText, currentCaption, it.thumbUrl)
+            val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode,
+                targetTitle, targetTitle.displayText, null, it.thumbUrl)
+            requestAddCaptionLauncher.launch(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
+                targetSummary, if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION
+                else DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.GALLERY_ACTIVITY))
         }
-        val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode,
-                            sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
-        val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode,
-            targetTitle, targetTitle.displayText, null, item.mediaInfo!!.thumbUrl)
-        requestAddCaptionLauncher.launch(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
-            targetSummary, if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION
-            else DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.GALLERY_ACTIVITY))
     }
 
     private fun onLicenseClick() {
-        if (binding.licenseIcon.contentDescription == null) {
-            return
+        binding.licenseIcon.contentDescription?.let {
+            FeedbackUtil.showMessageAsPlainText(this, it)
         }
-        FeedbackUtil.showMessageAsPlainText((binding.licenseIcon.context as Activity),
-            binding.licenseIcon.contentDescription)
     }
 
     private fun onLicenseLongClick(): Boolean {
@@ -398,10 +397,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY)))
     }
 
-    fun setViewPagerEnabled(enabled: Boolean) {
-        binding.pager.isUserInputEnabled = enabled
-    }
-
     private val linkMovementMethod = LinkMovementMethodExt { urlStr ->
         L.v("Link clicked was $urlStr")
         var url = UriUtil.resolveProtocolRelativeUrl(urlStr)
@@ -411,8 +406,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         } else {
             val uri = Uri.parse(url)
             val authority = uri.authority
-            if (authority != null && WikiSite.supportedAuthority(authority) &&
-                uri.path != null && uri.path!!.startsWith("/wiki/")) {
+            if (authority != null && WikiSite.supportedAuthority(authority) && uri.path?.startsWith("/wiki/") == true) {
                 val title = PageTitle.titleForUri(uri, WikiSite(uri))
                 showLinkPreview(title)
             } else {
@@ -525,41 +519,43 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun decideImageEditType(item: GalleryItemFragment, tagsCount: Int) {
-        imageEditType = null
-        if (!item.mediaInfo!!.captions.containsKey(viewModel.wikiSite.languageCode)) {
-            imageEditType = ImageEditType.ADD_CAPTION
-            targetLanguageCode = viewModel.wikiSite.languageCode
-            binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_button)
-            return
-        }
-        if (tagsCount == 0) {
-            imageEditType = ImageEditType.ADD_TAGS
-            binding.ctaButtonText.text = getString(R.string.suggested_edits_feed_card_add_image_tags)
-            return
-        }
-
-        // and if we have another language in which the caption doesn't exist, then offer
-        // it to be translatable.
-        val languageState = WikipediaApp.instance.languageState
-        if (languageState.appLanguageCodes.size > 1) {
-            languageState.appLanguageCodes.firstOrNull { !item.mediaInfo!!.captions.containsKey(it) }?.let {
-                targetLanguageCode = it
-                imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
-                binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_in_language_button,
-                    WikipediaApp.instance.languageState.getAppLanguageLocalizedName(targetLanguageCode))
+        item.mediaInfo?.let { mediaInfo ->
+            imageEditType = null
+            if (!mediaInfo.captions.containsKey(viewModel.wikiSite.languageCode)) {
+                imageEditType = ImageEditType.ADD_CAPTION
+                targetLanguageCode = viewModel.wikiSite.languageCode
+                binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_button)
+                return
             }
+            if (tagsCount == 0) {
+                imageEditType = ImageEditType.ADD_TAGS
+                binding.ctaButtonText.text = getString(R.string.suggested_edits_feed_card_add_image_tags)
+                return
+            }
+
+            // and if we have another language in which the caption doesn't exist, then offer
+            // it to be translatable.
+            val languageState = WikipediaApp.instance.languageState
+            if (languageState.appLanguageCodes.size > 1) {
+                languageState.appLanguageCodes.firstOrNull { !mediaInfo.captions.containsKey(it) }?.let {
+                    targetLanguageCode = it
+                    imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
+                    binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_in_language_button,
+                        WikipediaApp.instance.languageState.getAppLanguageLocalizedName(targetLanguageCode))
+                }
+            }
+            binding.ctaContainer.isVisible = imageEditType != null
         }
-        binding.ctaContainer.visibility = if (imageEditType == null) View.GONE else View.VISIBLE
     }
 
     private fun displayApplicableDescription(item: GalleryItemFragment) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        val descriptionStr = item.mediaInfo?.captions!!.getOrElse(viewModel.wikiSite.languageCode) {
-            StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription())
+        val descriptionStr = item.mediaInfo?.captions?.getOrElse(viewModel.wikiSite.languageCode) {
+            StringUtil.fromHtml(item.mediaInfo?.metadata?.imageDescription())
         }
 
-        if (descriptionStr.isNotEmpty()) {
+        if (!descriptionStr.isNullOrEmpty()) {
             binding.descriptionContainer.visibility = View.VISIBLE
             binding.descriptionText.text = StringUtil.strip(descriptionStr)
         } else {
