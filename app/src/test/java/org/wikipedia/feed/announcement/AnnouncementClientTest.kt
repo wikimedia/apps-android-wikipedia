@@ -28,11 +28,9 @@ class AnnouncementClientTest : MockRetrofitTest() {
     fun testRequestSuccess() {
         enqueueFromFile(ANNOUNCEMENT_JSON_FILE)
         runBlocking {
-            runBlocking {
-                getAnnouncement()
-            }.run {
-                MatcherAssert.assertThat(items.size, Matchers.`is`(8))
-            }
+            getAnnouncement()
+        }.run {
+            MatcherAssert.assertThat(items.size, Matchers.`is`(8))
         }
     }
 
