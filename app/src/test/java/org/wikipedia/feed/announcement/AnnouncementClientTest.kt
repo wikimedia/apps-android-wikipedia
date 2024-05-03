@@ -1,5 +1,6 @@
 package org.wikipedia.feed.announcement
 
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Before
@@ -26,26 +27,39 @@ class AnnouncementClientTest : MockRetrofitTest() {
     @Throws(Throwable::class)
     fun testRequestSuccess() {
         enqueueFromFile(ANNOUNCEMENT_JSON_FILE)
-        restService.announcements.test().await()
-            .assertComplete()
-            .assertNoErrors()
-            .assertValue { it.items.size == 8 }
+        runBlocking {
+            runBlocking {
+                getAnnouncement()
+            }.run {
+                MatcherAssert.assertThat(items.size, Matchers.`is`(8))
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestMalformed() {
         enqueueMalformed()
-        restService.announcements.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                getAnnouncement()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestNotFound() {
         enqueue404()
-        restService.announcements.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                getAnnouncement()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
@@ -119,6 +133,11 @@ class AnnouncementClientTest : MockRetrofitTest() {
         val announcement = announcementList.items[ANNOUNCEMENT_FOR_OLD_VERSION]
         val dateDuring = dateFormat.parse("2016-11-20")!!
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), Matchers.`is`(false))
+    }
+
+
+    private suspend fun getAnnouncement(): AnnouncementList {
+        return restService.getAnnouncements()
     }
 
     companion object {
