@@ -375,12 +375,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             if (!isAdded) {
                 return@ImagePipelineBitmapGetter
             }
-            if (bitmap != null) {
-                ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
-                    ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
-            } else {
-                FeedbackUtil.showMessage(this@MainFragment, getString(R.string.gallery_share_error, card.baseImage().title))
-            }
+            ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
+                ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
         }
     }
 
