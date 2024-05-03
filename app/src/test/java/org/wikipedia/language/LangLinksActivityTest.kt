@@ -53,12 +53,7 @@ class LangLinksActivityTest {
         get() {
             val result = baseLanguageEntries
             result.add(PageTitle("洋基体育场 (1923年)", forLanguageCode("zh-hans")))
-            result.add(
-                PageTitle(
-                    "洋基体育场 (1923年)",
-                    forLanguageCode("zh-hant")
-                )
-            ) // TODO: change to correct variant, an API issue
+            result.add(PageTitle("洋基体育场 (1923年)", forLanguageCode("zh-hant"))) // TODO: change to correct variant, an API issue
             return result
         }
 
@@ -74,7 +69,6 @@ class LangLinksActivityTest {
             ) // TODO: change to correct variant, an API issue
             return result
         }
-
 
     private val expectedZhHantResults: List<PageTitle>
         get() {
@@ -108,16 +102,8 @@ class LangLinksActivityTest {
 
     private fun compareLists(list1: List<PageTitle>, list2: List<PageTitle>) {
         for (i in list1.indices) {
-            MatcherAssert.assertThat(
-                list1[i].uri, Matchers.`is`(
-                    list2[i].uri
-                )
-            )
-            MatcherAssert.assertThat(
-                list1[i].displayText, Matchers.`is`(
-                    list2[i].displayText
-                )
-            )
+            MatcherAssert.assertThat(list1[i].uri, Matchers.`is`(list2[i].uri))
+            MatcherAssert.assertThat(list1[i].displayText, Matchers.`is`(list2[i].displayText))
         }
     }
 }
