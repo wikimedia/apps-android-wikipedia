@@ -16,6 +16,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.CustomTabsUtil
@@ -32,10 +33,12 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
 
         binding.donateOtherButton.setOnClickListener {
+            DonorExperienceEvent.logAction("webpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
             onDonateClicked()
         }
 
         binding.donateGooglePayButton.setOnClickListener {
+            DonorExperienceEvent.logAction("gpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), arguments?.getString(ARG_CAMPAIGN_ID), arguments?.getString(ARG_DONATE_URL)))
         }

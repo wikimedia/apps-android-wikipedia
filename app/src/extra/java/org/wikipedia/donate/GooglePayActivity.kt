@@ -25,6 +25,7 @@ import org.json.JSONArray
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivityDonateBinding
 import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.util.FeedbackUtil
@@ -39,6 +40,7 @@ class GooglePayActivity : BaseActivity() {
     private val viewModel: GooglePayViewModel by viewModels()
 
     private var shouldWatchText = true
+    private var typedManually = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,9 +70,11 @@ class GooglePayActivity : BaseActivity() {
                                 finish()
                             }
                             is Resource.Success -> {
+                                DonorExperienceEvent.logAction("impression", "googlepay_initiated")
                                 onContentsReceived(resource.data)
                             }
                             is GooglePayViewModel.DonateSuccess -> {
+                                DonorExperienceEvent.logAction("impression", "gpay_processed", campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
                                 setResult(RESULT_OK)
                                 finish()
                             }
@@ -100,6 +104,12 @@ class GooglePayActivity : BaseActivity() {
             }
             viewModel.finalAmount = getAmountFloat(amountText)
 
+            if (typedManually) {
+                DonorExperienceEvent.logAction("amount_entered", "gpay")
+            }
+            DonorExperienceEvent.submit("donate_confirm_click", "gpay",
+                "add_transaction: ${binding.checkBoxTransactionFee.isChecked}, recurring: ${binding.checkBoxRecurring.isChecked}, email_subscribe: ${binding.checkBoxAllowEmail.isChecked}")
+
             AutoResolveHelper.resolveTask(
                 paymentsClient.loadPaymentData(viewModel.getPaymentDataRequest()),
                 this, LOAD_PAYMENT_DATA_REQUEST_CODE
@@ -119,19 +129,24 @@ class GooglePayActivity : BaseActivity() {
                     false
                 }
             }
+            typedManually = true
             setButtonHighlighted(buttonToHighlight)
         }
 
         binding.linkProblemsDonating.setOnClickListener {
+            DonorExperienceEvent.logAction("report_problem_click", "gpay")
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_problems_url)))
         }
         binding.linkOtherWays.setOnClickListener {
+            DonorExperienceEvent.logAction("other_give_click", "gpay")
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_other_ways_url)))
         }
         binding.linkFAQ.setOnClickListener {
+            DonorExperienceEvent.logAction("faq_click", "gpay")
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_faq_url)))
         }
         binding.linkTaxDeduct.setOnClickListener {
+            DonorExperienceEvent.logAction("taxinfo_click", "gpay")
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_tax_url)))
         }
     }
@@ -143,9 +158,11 @@ class GooglePayActivity : BaseActivity() {
 
         if (amount <= 0f || amount < min) {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_minimum_amount, viewModel.currencyFormat.format(min))
+            DonorExperienceEvent.submit("submission_error", "gpay", "error_reason: min_amount")
             return false
         } else if (max > 0f && amount > max) {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_maximum_amount, viewModel.currencyFormat.format(max))
+            DonorExperienceEvent.submit("submission_error", "gpay", "error_reason: max_amount")
             return false
         } else {
             binding.donateAmountInput.isErrorEnabled = false
@@ -199,6 +216,7 @@ class GooglePayActivity : BaseActivity() {
                     selectedAmount += viewModel.transactionFee
                 }
                 setAmountText(selectedAmount)
+                DonorExperienceEvent.logAction("amount_selected", "gpay")
             }
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
