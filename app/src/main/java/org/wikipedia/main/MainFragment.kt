@@ -6,7 +6,6 @@ import android.app.ActivityOptions
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -372,16 +371,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     override fun onFeedShareImage(card: FeaturedImageCard) {
         val thumbUrl = card.baseImage().thumbnailUrl
         val fullSizeUrl = card.baseImage().original.source
-        object : ImagePipelineBitmapGetter(thumbUrl) {
-            override fun onSuccess(bitmap: Bitmap?) {
-                if (bitmap != null) {
-                    ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
-                            ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
-                } else {
-                    FeedbackUtil.showMessage(this@MainFragment, getString(R.string.gallery_share_error, card.baseImage().title))
-                }
+        ImagePipelineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+            if (!isAdded) {
+                return@ImagePipelineBitmapGetter
             }
-        }[requireContext()]
+            ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
+                ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
+        }
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
