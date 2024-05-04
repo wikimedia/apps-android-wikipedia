@@ -281,17 +281,15 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     private fun shareImage() {
         mediaInfo?.let {
-            object : ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl,
-                    Constants.PREFERRED_GALLERY_IMAGE_SIZE)) {
-                override fun onSuccess(bitmap: Bitmap?) {
-                    if (!isAdded) {
-                        return
-                    }
-                    imageTitle?.let { title ->
-                        callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject, title)
-                    }
+            val imageUrl = ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)
+            ImagePipelineBitmapGetter(requireContext(), imageUrl) { bitmap ->
+                if (!isAdded) {
+                    return@ImagePipelineBitmapGetter
                 }
-            }[requireContext()]
+                imageTitle?.let { title ->
+                    callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject, title)
+                }
+            }
         }
     }
 
