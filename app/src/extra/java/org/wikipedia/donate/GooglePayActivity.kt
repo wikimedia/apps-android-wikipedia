@@ -63,9 +63,11 @@ class GooglePayActivity : BaseActivity() {
                                 setLoadingState()
                             }
                             is Resource.Error -> {
+                                DonorExperienceEvent.logAction("error_other", "gpay")
                                 setErrorState(resource.throwable)
                             }
                             is GooglePayViewModel.NoPaymentMethod -> {
+                                DonorExperienceEvent.logAction("no_payment_method", "gpay")
                                 DonateDialog.launchDonateLink(this@GooglePayActivity, intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
                                 finish()
                             }
