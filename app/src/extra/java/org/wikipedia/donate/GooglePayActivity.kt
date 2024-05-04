@@ -247,7 +247,7 @@ class GooglePayActivity : BaseActivity() {
                                 binding.checkBoxTransactionFee.isChecked,
                                 binding.checkBoxRecurring.isChecked,
                                 if (viewModel.emailOptInRequired) binding.checkBoxAllowEmail.isChecked else true,
-                                intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
+                                intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
                         }
                     }
                 }
@@ -267,6 +267,7 @@ class GooglePayActivity : BaseActivity() {
 
     companion object {
         private const val LOAD_PAYMENT_DATA_REQUEST_CODE = 42
+        private const val CAMPAIGN_ID_APP_MENU = "appmenu"
 
         fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null): Intent {
             return Intent(context, GooglePayActivity::class.java)
