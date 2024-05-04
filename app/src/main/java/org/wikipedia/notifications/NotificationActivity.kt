@@ -54,6 +54,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -138,8 +139,8 @@ class NotificationActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
-                        is NotificationViewModel.UiState.Error -> setErrorState(it.throwable)
+                        is Resource.Success -> onNotificationsComplete(it.data.first, it.data.second)
+                        is Resource.Error -> setErrorState(it.throwable)
                     }
                 }
             }
