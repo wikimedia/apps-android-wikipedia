@@ -144,8 +144,6 @@
   <string name="preferences_account_heading">ⴰⵎⵉⴹⴰⵏ</string>
   <string name="create_account_account_created_toast">ⴰⵎⵉⴹⴰⵏ ⵉⵜⵜⵓⵙⵏⴼⵍⵓⵍ!</string>
   <string name="preferences_heading_data_usage">ⴰⵙⵙⵎⵔⵙ ⵏ ⵉⵙⴼⴽⴰ</string>
-  <string name="preferences_privacy_settings_heading">ⵜⵉⵏⵏⵓⵜⵍⴰ</string>
-  <string name="preference_title_eventlogging_opt_in">ⴰⵣⵏ ⵉⵏⵇⵇⵉⵙⵏ ⵏ ⵓⵙⵙⵎⵔⵙ</string>
   <string name="page_protected_can_not_edit_title">ⵜⴰⵙⵏⴰ ⴰⴷ ⵜⴻⵜⵜⵓⴼⵔⴰⴳ</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ⵔⵏⵓ ⵉ ⵜⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵕ</string>
   <string name="settings_item_preferences">ⵜⵉⵙⵖⴰⵍ</string>
@@ -159,8 +157,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">ⵉⵏⴰⵎⵓⵜⵏ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ⵉⵎⵙⵙⵓⵖⵍⵏ</string>

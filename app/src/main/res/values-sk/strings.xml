@@ -220,9 +220,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovať zoznamy na prečítanie naprieč rôznymi zariadeniami pomocou ich uloženia do vášho účtu „%s“ na Wikipédii.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Chcete odstrániť synchronizované zoznamy na prečítanie z účtu „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Táto akcia odstráni všetky predtým synchronizované zoznamy na prečítanie z úložného priestoru. Odstrániť všetky synchronizované zoznamy z vášho účtu „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Súkromie</string>
-  <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
-  <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimedii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožňuje aplikácii automaticky odosielať hlásenia o chybách tretím stranám, aby sme mohli chybu preskúmať a opraviť ju rýchlejšie a jednoduchšie.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
@@ -247,8 +244,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka tímu&lt;/a&gt;</string>
@@ -732,8 +729,8 @@
   <string name="notifications_menu_uncheck_all">Odobrať všetky položky</string>
   <string name="notifications_wiki_filter_header">Wiki filter</string>
   <string name="notifications_type_filter_header">Type filter</string>
-  <string name="notifications_all_wikis_text">Všetky \"wiki\"</string>
-  <string name="notifications_all_types_text">Všetky \"type\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Všetky \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Všetky \"type\"</string>
   <string name="notifications_menu_user_talk_page">Diskusná stránka používateľa %s</string>
   <string name="notifications_offline_disable_message">Funkcia nie je dostupná offline.</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
@@ -1061,8 +1058,6 @@
   <string name="onboarding_explore_text">Ponorte sa do Wikipédie s priebežne aktualizovaným kanálom Objaviť. &lt;br/&gt; &lt;b&gt;Prispôsobte&lt;/b&gt; si ho podľa svojich záujmov – či už je to &lt;b&gt;V tento deň&lt;/ b&gt; alebo &lt;b&gt;Náhodný článok&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Zoznamy na prečítanie so synchronizáciou</string>
   <string name="onboarding_reading_list_sync_text_v2">Môžete si vytvárať zoznamy na prečítanie z článkov, ktoré si chcete prečítať, aj keď sa odhlásite od svojho účtu.&lt;br/&gt;Prihláste sa do svojho účtu na Wikipédii, aby ste mohli svoje zoznamy na prečítanie synchronizovať.&lt;br/&gt;&lt;a href=\"#login\"&gt;Pripojiť sa k Wikipédii&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>
-  <string name="onboarding_analytics_offline_text">Pomôžte nám spraviť aplikáciu lepšou tak, že nám dáte vedieť ako ju používate. Tieto informácie sa zbierajú anonymne. &lt;a href=\"#privacy\"&gt;Zistite viac&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Posielať informácie o používaní</string>
   <string name="onboarding_got_it">Rozumiem</string>
   <string name="onboarding_multilingual_secondary_text">Na vašom zariadení sme našli nasledujúce jazyky:</string>

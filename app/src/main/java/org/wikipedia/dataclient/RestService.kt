@@ -12,11 +12,23 @@ import org.wikipedia.feed.configure.FeedAvailability
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.gallery.MediaList
 import org.wikipedia.readinglist.sync.SyncedReadingLists
-import org.wikipedia.readinglist.sync.SyncedReadingLists.*
+import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponse
+import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
+import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
+import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
+import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch
 import org.wikipedia.suggestededits.provider.SuggestedEditItem
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface RestService {
 
@@ -108,11 +120,11 @@ interface RestService {
 
     @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
     @GET("feed/featured/{year}/{month}/{day}")
-    fun getAggregatedFeed(
+    suspend fun getFeedFeatured(
         @Path("year") year: String?,
         @Path("month") month: String?,
         @Path("day") day: String?
-    ): Observable<AggregatedFeedContent>
+    ): AggregatedFeedContent
 
     @get:GET("feed/availability")
     val feedAvailability: Observable<FeedAvailability>

@@ -71,7 +71,7 @@ class RandomFragment : Fragment() {
         _binding = FragmentRandomBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        FeedbackUtil.setButtonLongPressToast(binding.randomNextButton, binding.randomSaveButton)
+        FeedbackUtil.setButtonTooltip(binding.randomNextButton, binding.randomSaveButton)
 
         wikiSite = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
 
@@ -130,14 +130,6 @@ class RandomFragment : Fragment() {
 
         if (saveButtonState) {
             LongPressMenu(binding.randomSaveButton, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onOpenLink(entry: HistoryEntry) {
-                    // ignore
-                }
-
-                override fun onOpenInNewTab(entry: HistoryEntry) {
-                    // ignore
-                }
-
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, addToDefault, InvokeSource.RANDOM_ACTIVITY) {
                         updateSaveShareButton(title)
@@ -249,6 +241,11 @@ class RandomFragment : Fragment() {
             prevPosition = position
 
             updateSaveShareButton()
+
+            val storedOffScreenPagesCount = binding.randomItemPager.offscreenPageLimit * 2 + 1
+            if (position >= storedOffScreenPagesCount) {
+                (binding.randomItemPager.adapter as RandomItemAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import android.location.Location
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,8 +12,10 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.places.PlacesFragment
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
@@ -120,10 +123,6 @@ object Prefs {
     var editingTextSizeMultiplier
         get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_multiplier, 0)
         set(multiplier) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_multiplier, multiplier)
-
-    var isEventLoggingEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_eventlogging_opt_in, false)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_eventlogging_opt_in, enabled)
 
     val geoIPCountryOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_announcement_country_override, null)
@@ -502,10 +501,6 @@ object Prefs {
     val exploreFeedVisitCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_explore_feed_visit_count, 0)
 
-    var loggedInPageActivityVisitCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_logged_in_page_activity_visit_count, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_logged_in_page_activity_visit_count, value)
-
     var selectedLanguagePositionInSearch
         get() = PrefsIoUtil.getInt(R.string.preference_key_selected_language_position_in_search, 0)
         set(position) = PrefsIoUtil.setInt(R.string.preference_key_selected_language_position_in_search, position)
@@ -541,14 +536,6 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_crash_report_local_class_name, "")
         set(className) = PrefsIoUtil.setString(R.string.preference_key_crash_report_local_class_name, className)
 
-    var isWatchlistPageOnboardingTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, false)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, enabled)
-
-    var isWatchlistMainOnboardingTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, false)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled)
-
     var autoShowEditNotices
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_auto_show_edit_notices, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_auto_show_edit_notices, value)
@@ -562,14 +549,13 @@ object Prefs {
 
     var customizeToolbarOrder
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_order, null))
-            ?: listOf(0, 1, 2, 3, 4)
+            ?: PageActionItem.DEFAULT_TOOLBAR_LIST
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_order, JsonUtil.encodeToString(orderList))
 
     var customizeToolbarMenuOrder: List<Int>
         get() {
-            val notInToolbarList = PageActionItem.entries.map { it.code() }.subtract(customizeToolbarOrder)
-            val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
-                    ?: notInToolbarList
+            val notInToolbarList = PageActionItem.entries.map { it.code() }.subtract(customizeToolbarOrder.toSet())
+            val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null)) ?: PageActionItem.DEFAULT_OVERFLOW_MENU_LIST
             return currentList.union(notInToolbarList).toList()
         }
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_menu_order, JsonUtil.encodeToString(orderList))
@@ -709,4 +695,52 @@ object Prefs {
     var showOneTimeRecentEditsFeedbackForm
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_recent_edits_feedback_form, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_recent_edits_feedback_form, value)
+
+    var placesWikiCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
+
+    var shouldShowOneTimePlacesSurvey
+        get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, PlacesFragment.SURVEY_NOT_INITIALIZED)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_places_show_one_time_survey, value)
+
+    var showOneTimePlacesPageOnboardingTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, value)
+
+    var showOneTimePlacesMainNavOnboardingTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, value)
+
+    var placesLastLocationAndZoomLevel: Pair<Location, Double>?
+        get() {
+            // latitude|longitude|zoomLevel
+            val infoList = PrefsIoUtil.getString(R.string.preference_key_places_last_location_and_zoom_level, null)?.split("|")?.map { it.toDouble() }
+            return infoList?.let {
+                val location = Location("").apply {
+                    latitude = infoList[0]
+                    longitude = infoList[1]
+                }
+                val zoomLevel = infoList[2]
+                Pair(location, zoomLevel)
+            }
+        }
+        set(pair) {
+            var locationAndZoomLevelString: String? = null
+            pair?.let {
+                locationAndZoomLevelString = "${pair.first.latitude}|${pair.first.longitude}|${pair.second}"
+            }
+            PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
+        }
+
+    var recentUsedTemplates
+        get() = JsonUtil.decodeFromString<Set<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptySet()
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(set))
+
+    fun addRecentUsedTemplates(set: Set<PageTitle>) {
+        val maxStoredIds = 100
+        val currentSet = recentUsedTemplates.toMutableSet()
+        currentSet.addAll(set)
+        recentUsedTemplates = if (currentSet.size < maxStoredIds) currentSet else set
+    }
 }

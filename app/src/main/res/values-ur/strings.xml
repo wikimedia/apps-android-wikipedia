@@ -58,6 +58,8 @@
   <string name="menu_page_other_languages">زبان تبدیل کریں</string>
   <string name="menu_page_find_in_page">مضمون میں تلاش کریں</string>
   <string name="menu_page_add_to_watchlist">زیر نظر فہرست میں شامل کریں</string>
+  <string name="menu_page_watch">دیکھیں</string>
+  <string name="menu_page_unwatch">اندیکھا کریں</string>
   <string name="menu_page_remove_from_watchlist">زیرنظر فہرست سے نکال دیں</string>
   <string name="edit_section_find_in_page">صفحہ میں تلاش کریں</string>
   <string name="menu_page_font_and_theme">فانٹ اور پوشاک</string>
@@ -180,9 +182,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">اس \"%s\" کھاتے/اکاؤنٹ سے مختلف آلات پر زیر مطالعہ مضامین کی فہرست کو یکجا کر لیں۔</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" کی زیر مطالعہ فہرست مٹا دیں؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">\"%s\" کی زیر مطالعہ فہرست کو مکمل طور پر ریموٹ اسٹوریج سے مٹا دیا جائے گا۔ کیا آپ ایسا کرنا چاہتے ہیں؟</string>
-  <string name="preferences_privacy_settings_heading">نجی نوعیت</string>
-  <string name="preference_title_eventlogging_opt_in">استعمال کی رپورٹ بھیجیں</string>
-  <string name="preference_summary_eventlogging_opt_in">ویکیمیڈیا کو اجازت دیں کہ وہ آپ کے اس ایپ کے استعمال کی معلومات حاصل کرے تاکہ اس اطلاقیے کو مزید بہتر بنایا جا سکے۔</string>
   <string name="preference_title_auto_upload_crash_reports">نقائص کی اطلاع بھیجیں</string>
   <string name="preference_summary_auto_upload_crash_reports">اس ایپ کو از خود تھرڈ پارٹی سروس کی خدمت میں نقائص اور خامیوں کی اطلاع بھیجنے کی اجازت دیں تاکہ ہم جلد از جلد اور بآسانی ان خامیوں کو درست کر سکیں۔</string>
   <string name="editing_error_spamblacklist">ممنوعہ برقی پتوں (%s) کو پرکھا گیا ہے۔ براہ کرم انہیں ہٹاکر پھر کوشش کریں۔</string>
@@ -204,8 +203,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ur.wikipedia.org/wiki/وپ:اکاؤنٹ کے لیے درخواست دیں</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل کتب خانے</string>
   <string name="about_contributors_heading">مشارکت کنندگان</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;ٹیم page&lt;/a&gt;</string>
@@ -340,6 +339,10 @@
   <string name="multi_select_items_selected">%d منتخب</string>
   <string name="error_message_generic">کوئی غلطی ہوئی ہے</string>
   <string name="view_link_preview_error_button_dismiss">بند کریں</string>
+  <string name="link_preview_dialog_read_button">پڑھیں</string>
+  <string name="link_preview_dialog_save_button">محفوظ کریں</string>
+  <string name="link_preview_dialog_saved_button">محفوظ کیا گیا</string>
+  <string name="link_preview_dialog_share_button">بانٹیں</string>
   <string name="error_page_does_not_exist">یہ صفحہ موجود نہیں ہے</string>
   <string name="view_wiki_error_message_offline">انٹرنیٹ سے رابطہ نہیں ہو سکا</string>
   <string name="view_wiki_error_message_timeout">ویکیپیڈیا سے رابطہ نہیں ہو پا رہا۔ براہ کرم اپنے انٹرنیٹ کی جانچ کریں، یا کچھ دیر بعد کوشش کریں</string>
@@ -630,8 +633,8 @@
   <string name="onboarding_explore_title">اکتشاف کی نئی راہیں</string>
   <string name="onboarding_explore_text">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed۔ &lt;br/&gt; &lt;b&gt;حسب ضرورت&lt;/b&gt; the feed to your interests – whether it’s learning about تاریخی واقعات &lt;b&gt;آج کے دن&lt;/b&gt;، یا لڈو کے ڈانے کو گھما کے &lt;b&gt;بے ترتیب&lt;/b&gt;۔</string>
   <string name="onboarding_reading_list_sync_title">موجودہ وقت تک فہرستیں برائے مطالعہ</string>
-  <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
+  <string name="onboarding_got_it">سمجھ آ گیا</string>
   <string name="onboarding_multilingual_secondary_text">ہمیں آپ کے آلات پر یہ ملا:</string>
   <string name="onboarding_multilingual_add_language_text">زبانیں شامل یا ان میں ترمیم کریں</string>
   <string name="onboarding_welcome_title_v2">آزاد دائرۃ المعارف\n… 300 ‎سے زیادہ زبانوں میں</string>
@@ -687,9 +690,29 @@
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
+  <string name="action_item_view_on_map">نقشے پر دیکھیں</string>
   <string name="reading_list_share_menu_label">شیئر کریں...</string>
   <string name="reading_list_share_menu_tooltip">اس مطالعہ کی فہرست \n کو دوسروں کے ساتھ شیئر کریں</string>
   <string name="reading_list_share_message_v2">آداب! میں آپ کے ساتھ اپنی ویکیپیڈیا کی مطالعہ کی فہرست شیئر کرنا چاہتا/چاہتی ہوں:</string>
   <string name="reading_list_share_survey_title">کیا آپ \'مطالعہ کی فہرستیں شیئر کریں\' کو بہتر بنانے میں ہماری مدد کر سکتے ہیں؟</string>
   <string name="reading_list_share_survey_body">مطالعہ کی فہرستیں\' شیئر کریں ایک ٹیسٹنگ خصوصیت ہے اور اسے بہتر بنانے یا ہٹانے کے لیے ہمیں آپ کے تاثرات درکار ہیں۔</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">مطمئن</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">غیر جانبدار</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">غیر مطمئن</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">رائے</string>
+  <string name="patroller_diff_feedback_dialog_submit">جمع کریں</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">رائے دی گئ۔ شکریہ!</string>
+  <string name="places_title">مقامات</string>
+  <string name="places_permissions_denied">نقشے پر آپ کا مقام دیکھنے کے لیے مقام کی اجازت درکار ہے۔ دوبارہ کوشش کریں.</string>
+  <string name="places_search_hint">مقامات تلاش کریں</string>
+  <string name="places_filter_title">زبان کو فلٹر کریں</string>
+  <string name="places_toggle_buttons_map">نقشہ</string>
+  <string name="places_toggle_buttons_list">فہرست</string>
+  <string name="places_nav_tab_tooltip_message">مقامات کے ساتھ اپنے ارد گرد ویکیپیڈیا کے مضامین دریافت کریں</string>
+  <string name="places_article_menu_tooltip_message">اس مضمون کا مقام دریافت کرنے کے لیے \'نقشے پر دیکھیں\' پر ٹیپ کریں۔</string>
+  <string name="places_survey_very_satisfied_option">بہت مطمئن</string>
+  <string name="places_survey_very_unsatisfied_option">بہت غیر مطمئن</string>
+  <string name="places_survey_dialog_title">مقامات\' کو بہتر بنانے میں مدد کریں</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">ہمیں کیا بدلنا یا بہتر کرنا چاہیے؟</string>
+  <string name="places_empty_list">یہ علاقہ خالی ہے۔ نقشے پر زوم آؤٹ کریں۔</string>
 </resources>

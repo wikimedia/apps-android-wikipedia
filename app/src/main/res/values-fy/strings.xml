@@ -170,9 +170,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Lêslisten mei oare apparaten syngronisearje troch se te bewarjen yn jo Wikipedy-akkount \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Syngronisearre lêslisten fan \"%s\" fuorthelje?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Sa wiskje jo folslein alle earder syngronisearre lêslisten fan \'e opslach om utens. Alle syngronisearre listen út jo akkount \"%s\" fuorthelje?</string>
-  <string name="preferences_privacy_settings_heading">Priveesfear</string>
-  <string name="preference_title_eventlogging_opt_in">Gebrûksrapporten ferstjoere</string>
-  <string name="preference_summary_eventlogging_opt_in">Wikimedia tastean om, ta ferbettering fan \'e app, ynformaasje te sammeljen oer hoe\'t jo him brûke</string>
   <string name="preference_title_auto_upload_crash_reports">Steuringsrapporten ferstjoere</string>
   <string name="preference_summary_auto_upload_crash_reports">De app tastean om automatysk steuringsrapporten te ferstjoeren oan in treddepartij-tsjinstferliener, sadat wy jo probleem mei de app besjen kinne, en de flater flugger en makliker ferhelpe.</string>
   <string name="editing_error_spamblacklist">Keppelings nei útsletten domeinen (%s) ûntdutsen. Helje dy graach fuort, en besykje it nochris.</string>
@@ -197,8 +194,8 @@
   <string name="android_app_request_an_account_url">https://fy.wikipedia.org/wiki/Wikipedy:Gasteboek</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fy</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fy</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Brûkte subprogrammatuer</string>
   <string name="about_contributors_heading">Bydragers</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tiimside&lt;/a&gt;</string>
@@ -849,8 +846,6 @@
   <string name="onboarding_explore_text">Dûk yn \'e Wikipedy-kninehoale mei in altyd bywurke Ferkenner-oanfier. &lt;br/&gt; &lt;b&gt;Personalisearje&lt;/b&gt; de oanfier nei wêr\'t jo niget oan hawwe – oft dat no learen oer histoaryske barrens &lt;b&gt;Op dizze dei&lt;/b&gt; is, of de dobbelstien smiten foar &lt;b&gt;Samar wat&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Lêslisten mei syngronisaasje</string>
   <string name="onboarding_reading_list_sync_text_v2">Jo kinne lêslisten meitsje fan artikels dy\'t jo letter lêze wolle, sels sûnder netwurkferbining. &lt;br/&gt;Meld jo oan op jo Wikipedy-akkount en syngronisearje jo lêslisten. &lt;a href=\"#login\"&gt;Kom by de Wikipedy&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Anonime data ferstjoere</string>
-  <string name="onboarding_analytics_offline_text">Help de app better te meitsjen, troch ús op \'e hichte te hâlden hoe\'t jo him brûke. De sammele data is anonym. &lt;a href=\"#privacy\"&gt;Mear witte&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Gebrûksdata ferstjoere</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">Wy hawwe it folgjende op jo apparaat fûn:</string>

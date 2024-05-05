@@ -32,17 +32,6 @@
                     android:paddingBottom="12dp"
                     android:background="?attr/paper_color">
 
-                    <com.google.android.material.progressindicator.LinearProgressIndicator
-                        android:id="@+id/progressBar"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:indeterminate="true"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:visibility="visible" />
-
                     <TextView
                         android:id="@+id/articleTitleView"
                         android:layout_width="0dp"
@@ -320,6 +309,14 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/diffRecyclerView"
         android:layout_width="match_parent"
@@ -560,7 +557,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
                 app:tint="?attr/placeholder_color"
-                app:srcCompat="@drawable/ic_warning_outline_24" />
+                app:srcCompat="@drawable/ic_notification_user_talk" />
 
             <TextView
                 style="@style/BottomNavigationTextAppearance"
@@ -569,7 +566,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="44dp"
                 android:textAlignment="center"
-                android:text="@string/talk_warn"
+                android:text="@string/talk_title"
                 android:textColor="?attr/placeholder_color"/>
 
         </FrameLayout>

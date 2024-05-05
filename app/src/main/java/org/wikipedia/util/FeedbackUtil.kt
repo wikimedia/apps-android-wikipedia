@@ -3,6 +3,7 @@ package org.wikipedia.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -34,13 +36,9 @@ import org.wikipedia.util.log.L
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
-    const val LENGTH_DEFAULT = 5000
+    private const val LENGTH_DEFAULT = 5000
     const val LENGTH_MEDIUM = 8000
     const val LENGTH_LONG = 15000
-    private val TOOLBAR_LONG_CLICK_LISTENER = View.OnLongClickListener { v ->
-        showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
-        true
-    }
     private val TOOLBAR_ON_CLICK_LISTENER = View.OnClickListener { v ->
         showToastOverView(v, v.contentDescription, LENGTH_SHORT)
     }
@@ -87,6 +85,10 @@ object FeedbackUtil {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)))
     }
 
+    fun showTermsOfUse(context: Context) {
+        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.terms_of_use_url)))
+    }
+
     fun showOfflineReadingAndData(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.offline_reading_and_data_url)))
     }
@@ -119,21 +121,24 @@ object FeedbackUtil {
         }
     }
 
-    fun setButtonLongPressToast(vararg views: View) {
-        views.forEach { it.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER) }
+    fun setButtonTooltip(vararg views: View) {
+        views.forEach { TooltipCompat.setTooltipText(it, it.contentDescription) }
     }
 
     fun setButtonOnClickToast(vararg views: View) {
         views.forEach { it.setOnClickListener(TOOLBAR_ON_CLICK_LISTENER) }
     }
 
-    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
-        val view = findBestView(activity)
+    fun makeSnackbar(view: View, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
         return snackbar
+    }
+
+    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
+        return makeSnackbar(findBestView(activity), text, duration, wikiSite)
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
@@ -179,7 +184,16 @@ object FeedbackUtil {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         binding.buttonView.isVisible = showDismissButton
-        binding.buttonView.setText(dismissButtonText)
+
+        // Explicitly measure the width of the button text and set the button width, with some padding.
+        // The Balloon library seems to present our custom layout in a way that causes the automatic
+        // sizing of the button to be incorrect.
+        val dismissText = context.getString(dismissButtonText)
+        val bounds = Rect()
+        binding.buttonView.paint.getTextBounds(dismissText, 0, dismissText.length, bounds)
+        binding.buttonView.layoutParams = binding.buttonView.layoutParams.apply {
+            width = bounds.width() + DimenUtil.roundedDpToPx(40f)
+        }
 
         if (countTotal > 0) {
             binding.countView.isVisible = true

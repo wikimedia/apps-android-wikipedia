@@ -147,9 +147,6 @@
   <string name="create_account_account_created_toast">קאָנטע באַשאַפֿן!</string>
   <string name="preferences_heading_data_usage">דאטן־באניצן</string>
   <string name="preferences_heading_experimental">עקספערימענטאל</string>
-  <string name="preferences_privacy_settings_heading">פריוואטקייט</string>
-  <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
-  <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
   <string name="error_can_not_process_link">נישט מעגלעך צו ווײַזן דעם לינק</string>
   <string name="page_protected_autoconfirmed">דער בלאט איז געווארן האלב געשיצט.</string>
   <string name="page_protected_sysop">דער בלאט איז געווארן גאנג געשיצט</string>

@@ -117,6 +117,7 @@
   <string name="langlinks_your_wikipedia_languages">Тыйын Википедийысе йылме-влак</string>
   <string name="menu_save_changes">Вашталтышым савыкташ</string>
   <string name="edit_saved_successfully">Вашталтышым аралыме!</string>
+  <string name="stub_article_edit_saved_successfully">Тӧрлымаш савыктыме! Вашталтыш лекташлан жап кӱлеш лийын кертеш.</string>
   <string name="dialog_message_edit_failed">Тӧрлатыме годым йоҥылыш!</string>
   <string name="dialog_message_edit_failed_retry">Уэштараш</string>
   <string name="dialog_message_edit_failed_cancel">Чараш</string>
@@ -159,6 +160,8 @@
   <string name="logged_out_in_background_dialog">Тый Википедий шке аккаунт гыч лектынат. Угыч пурынет?</string>
   <string name="logged_out_in_background_login">Пураш</string>
   <string name="logged_out_in_background_cancel">Чараш</string>
+  <string name="account_vanish_request_title">Аккаунт йоммаш</string>
+  <string name="account_vanish_request_confirm_title">Аккаунт йоммо нерген палдарымаш</string>
   <string name="history_empty_title">Шукерте огыл ончен лекме статья уке</string>
   <string name="history_empty_message">Тыште тыйын лудмо статья-влакым эскере.</string>
   <string name="history_offline_articles_toast">Эртылыкысе южо велыж-влак офлайн шот дене логалдыме лийын кертыт.</string>
@@ -198,14 +201,19 @@
   <string name="preferences_heading_syncing">Синхронизаций</string>
   <string name="preferences_heading_data_usage">Трафикым кучылтмаш</string>
   <string name="preferences_heading_experimental">Экспериментлык</string>
+  <string name="preference_title_sync_reading_lists_from_account">Лудмо спискым ик шотыш кондымаш</string>
   <string name="preference_title_download_reading_list_articles">Лудашлан спсике гыч статья-влакым тулен налаш</string>
-  <string name="preferences_privacy_settings_heading">Шолыплык</string>
-  <string name="preference_title_eventlogging_opt_in">Кучылтмо нерген отчётым колтедылаш</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s гыч ик шотыш кондымо лудмо списке влакым кораҥгдаш?</string>
   <string name="preference_title_auto_upload_crash_reports">Тӧрсыр лекме нерген отчётым колтедылаш</string>
+  <string name="editing_error_spamblacklist">Чарыме домен-влаклан (%s) кылверлам мумо. Поро лий, нуным кораҥде да угыч тӧчен ончо.</string>
   <string name="history_filter_list_hint">Фильтрын историйже</string>
   <string name="error_can_not_process_link">Тиде кылверым ончыктен кертме огыл</string>
+  <string name="page_protected_autoconfirmed">Тиде велыж тичмашын огыл аралыме.</string>
+  <string name="page_protected_sysop">Тиде велыжым тичмашын аралыме.</string>
+  <string name="page_protected_other">Тиде велыж тыгай кӱкшытлаште аралыме:%s</string>
   <string name="page_protected_can_not_edit">Чаманыман, кызытсе жаплан тиде велыжым тӧрлаташлан тыйын аккаунтын ситыше праваже уке.</string>
   <string name="page_protected_can_not_edit_anon">Чаманыман, кызытсе жаплан тиде велыжым лӱмдымын тӧрлатылаш огеш лий.</string>
+  <string name="page_protected_can_not_edit_title">Тиде велыж аралыме</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Эскерыме спискыш ешараш</string>
   <string name="settings_item_preferences">Келыштарымаш</string>
   <string name="settings_activity_title">Келыштарымаш</string>
@@ -217,8 +225,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mhr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кучылтмо библиотеке-влак</string>
   <string name="about_contributors_heading">Автор-влак</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Командын велыжше&lt;/a&gt;</string>
@@ -258,11 +266,15 @@
   <string name="edit_notices">Шижтарымашым тӧрлаташ</string>
   <string name="edit_notices_please_read">Порылий, тӧрлатымаш деч ончыч лудын лек</string>
   <string name="edit_notices_show_auto">Тӧрлымаш нерген шижтарымашым вигак ончыктылаш</string>
+  <string name="edit_notices_tooltip">Статья тӧрлымӧ нерген палдарымашым ончалашлан тиде кнопкым темдал.</string>
   <string name="find_next">Умбакыже муаш</string>
   <string name="find_previous">Ондыкше муаш</string>
   <string name="find_first_occurence">Тиде икымше икгайлык</string>
   <string name="find_last_occurence">Тиде пытартыш икгайлык</string>
+  <string name="abusefilter_title_warn">Тиде йӧрдымӧ тӧрлымаш лийын кертеш. Тый тудым савыктынетак?</string>
+  <string name="abusefilter_title_disallow">Тый тиде тӧрлымашым савыктен от керт. Поро лий, пӧртыл да тудым вашталте.</string>
   <string name="page_similar_titles">Икгайрак велыж-влак</string>
+  <string name="search_did_you_mean">Тый тидын нерген ойлет \"%s\"?</string>
   <string name="search_recent_header">Пытартыш кычалмаш:</string>
   <string name="search_results_count_zero">Лектыш уке</string>
   <plurals name="search_results_count">
@@ -270,6 +282,7 @@
     <item quantity="other">%d лектыш</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Пытартыш кычалме йодмаш спискым эрыкташ</string>
+  <string name="clear_recent_searches_confirm">Тый кычалмаш эртылыкым эрыктынетак?</string>
   <string name="clear_recent_searches_confirm_yes">Туге</string>
   <string name="clear_recent_searches_confirm_no">Уке</string>
   <string name="error_browser_not_found">Веб-велыжым почын кертме огыл (браузерын приложенийжым мумо огыл).</string>
@@ -357,7 +370,7 @@
   <string name="color_theme_test_title">Текст пример</string>
   <string name="text_size_increase">Шрифт кугытым кугемдаш</string>
   <string name="text_size_decrease">Шрифт кугытым иземдаш</string>
-  <string name="text_size_percent_default">%s (ойлыде)</string>
+  <string name="text_size_percent_default">%s (ончылгочсо)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Лудмаш</string>
   <string name="theme_category_editing">Тöрлатымаш</string>
@@ -476,8 +489,8 @@
   <string name="notifications_menu_uncheck_all">Чыла объект гыч палемдымым кораҥдаш</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="notifications_type_filter_header">Фильтр тӱрлылык</string>
-  <string name="notifications_all_wikis_text">Чыла \"вики\"</string>
-  <string name="notifications_all_types_text">Чыла \"тӱрлылык\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Чыла \"вики\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Чыла \"тӱрлылык\"</string>
   <string name="notifications_menu_user_talk_page">%s каҥашымаш велыж</string>
   <string name="view_because_you_read_card_title">Лудмо негызеш</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -542,8 +555,8 @@
   <string name="description_edit_voice_input_description">Йӱкан пуртымаш</string>
   <string name="description_edit_learn_more">Статьян возен ончыктымашыже нерген кумданрак</string>
   <string name="description_edit_image_caption_learn_more">Сӱрет деке возыш нерген кумданрак</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Статьян_возен_ончыктымашыже</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Сӱрет_деке_возыш</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Статьян_возен_ончыктымашыже</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Сӱрет_деке_возыш</string>
   <string name="description_too_short">Тиде текст утыжден кӱчык.</string>
   <string name="description_ends_with_punctuation">Текст препинаний пале-влак дене пытышаш огыл.</string>
   <string name="description_starts_with_uppercase">Икымше мут шкенле вуйлӱм огыл гын, изи буква дене тӱҥал.</string>
