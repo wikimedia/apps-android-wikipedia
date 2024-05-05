@@ -11,7 +11,6 @@ object Constants {
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
     const val ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING = 65
-    const val ACTIVITY_REQUEST_LANGLINKS = 50
     const val ACTIVITY_REQUEST_LOGIN = 53
     const val ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62
     const val ACTIVITY_REQUEST_SETTINGS = 41
@@ -19,6 +18,7 @@ object Constants {
 
     const val ARG_TITLE = "title"
     const val ARG_WIKISITE = "wikiSite"
+    const val ARG_TEXT = "text"
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"
@@ -49,6 +49,8 @@ object Constants {
     const val COMMONS_DB_NAME = "commonswiki"
     const val WIKI_CODE_WIKIDATA = "wikidata"
     const val WIKIDATA_DB_NAME = "wikidatawiki"
+
+    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta")
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
@@ -96,7 +98,6 @@ object Constants {
         TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
         TALK_TOPIC_ACTIVITY("talkTopicActivity"),
         TALK_REPLY_ACTIVITY("talkReplyActivity"),
-        ADD_TEMPLATE_ACTIVITY("addTemplateActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),

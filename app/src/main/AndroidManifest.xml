@@ -37,8 +37,8 @@
     <!-- For keeping the device awake while performing background tasks, such as syncing offline articles. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false" />
 
     <!--
         Don't let Google Play filter out devices that just have fake touch
@@ -59,6 +59,7 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/full_backup_rules"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:icon="@mipmap/launcher"
         android:label="@string/app_name"
@@ -77,6 +78,9 @@
 
         <!-- Opt out of metrics collection for the System WebView. -->
         <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
+
+        <!-- Necessary for Google Pay API -->
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
 
         <activity
             android:name=".main.MainActivity"
@@ -304,7 +308,8 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".talk.TalkReplyActivity" />
+            android:name=".talk.TalkReplyActivity"
+            android:configChanges="orientation|screenSize"/>
 
         <activity
             android:name=".talk.ArchivedTalkPagesActivity" />
@@ -314,6 +319,7 @@
 
         <activity
             android:name=".activity.SingleWebViewActivity"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme" />
 
         <activity
@@ -344,6 +350,11 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
+            android:name=".edit.templates.TemplatesSearchActivity"
+            android:label="@string/templates_search_hint"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
             android:name=".places.PlacesActivity" />
 
         <activity
@@ -354,9 +365,7 @@
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".talk.template.AddTemplateActivity"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+            android:name=".donate.GooglePayActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"

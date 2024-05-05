@@ -9,6 +9,11 @@ import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil
 
 enum class SyntaxRuleStyle {
+    PRE_TEMPLATE {
+        override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
+            return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.success_color), Color.TRANSPARENT, spanStart, syntaxItem)
+        }
+    },
     TEMPLATE {
         override fun createSpan(ctx: Context, spanStart: Int, syntaxItem: SyntaxRule): SpanExtents {
             return ColorSpanEx(ResourceUtil.getThemedColor(ctx, R.attr.placeholder_color), Color.TRANSPARENT, spanStart, syntaxItem)

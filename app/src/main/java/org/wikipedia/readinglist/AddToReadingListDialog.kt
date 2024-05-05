@@ -27,7 +27,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListTitleDialog.readingListTitleDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.FeedbackUtil.makeSnackbar
@@ -123,8 +122,8 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun addAndDismiss(readingList: ReadingList, titles: List<PageTitle>?) {
-        if (readingList.pages.size + titles!!.size > SiteInfoClient.maxPagesPerReadingList) {
-            val message = getString(R.string.reading_list_article_limit_message, readingList.title, SiteInfoClient.maxPagesPerReadingList)
+        if (readingList.pages.size + titles!!.size > Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
+            val message = getString(R.string.reading_list_article_limit_message, readingList.title, Constants.MAX_READING_LIST_ARTICLE_LIMIT)
             makeSnackbar(requireActivity(), message).show()
             dismiss()
             return

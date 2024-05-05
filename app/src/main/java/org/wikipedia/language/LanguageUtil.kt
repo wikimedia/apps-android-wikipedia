@@ -7,15 +7,16 @@ import androidx.core.os.LocaleListCompat
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 object LanguageUtil {
 
+    private const val MAX_SUGGESTED_LANGUAGES = 8
     private const val HONG_KONG_COUNTRY_CODE = "HK"
     private const val MACAU_COUNTRY_CODE = "MO"
     private val TRADITIONAL_CHINESE_COUNTRY_CODES = listOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
 
-    val availableLanguages: List<String>
+    val suggestedLanguagesFromSystem: List<String>
         get() {
             val languages = mutableListOf<String>()
 
@@ -76,7 +77,7 @@ object LanguageUtil {
                     }
                 }
             }
-            return languages
+            return languages.take(MAX_SUGGESTED_LANGUAGES)
         }
 
     @JvmStatic

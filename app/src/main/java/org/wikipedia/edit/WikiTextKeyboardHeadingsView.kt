@@ -47,7 +47,7 @@ class WikiTextKeyboardHeadingsView : FrameLayout {
             }
         }
 
-        FeedbackUtil.setButtonLongPressToast(binding.closeButton, binding.wikitextButtonH2, binding.wikitextButtonH3,
+        FeedbackUtil.setButtonTooltip(binding.closeButton, binding.wikitextButtonH2, binding.wikitextButtonH3,
                 binding.wikitextButtonH4, binding.wikitextButtonH5)
     }
 }

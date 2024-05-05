@@ -6,7 +6,16 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
-import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.donate.PaymentResponseContainer
+import org.wikipedia.dataclient.mwapi.CreateAccountResponse
+import org.wikipedia.dataclient.mwapi.MwParseResponse
+import org.wikipedia.dataclient.mwapi.MwPostResponse
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
+import org.wikipedia.dataclient.mwapi.ParamInfoResponse
+import org.wikipedia.dataclient.mwapi.ShortenUrlResponse
+import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
@@ -16,7 +25,13 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import retrofit2.http.Query
 
 /**
  * Retrofit service layer for all API interactions, including regular MediaWiki and RESTBase.
@@ -70,20 +85,33 @@ interface Service {
     ): MwQueryResponse
 
     @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|info" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle"
+    )
+    suspend fun fullTextSearchTemplates(
+        @Query("gsrsearch") searchTerm: String,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("gsroffset") gsrOffset: Int?,
+    ): MwQueryResponse
+
+    @GET(
         MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
                 "&origin=*&piprop=thumbnail&prop=pageimages|description|info|pageprops" +
                 "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
-    fun searchMoreLike(
+    suspend fun searchMoreLike(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("pilimit") piLimit: Int,
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     // ------- Miscellaneous -------
 
-    @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
-    val newCaptcha: Observable<Captcha>
+    @GET(MW_API_PREFIX + "action=fancycaptchareload")
+    suspend fun getNewCaptcha(): Captcha
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
     suspend fun getLangLinks(@Query("titles") title: String): MwQueryResponse
@@ -116,14 +144,17 @@ interface Service {
     ): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|entityterms&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getImageInfoWithEntityTerms(
+    suspend fun getImageInfoWithEntityTerms(
             @Query("titles") titles: String,
             @Query("iiextmetadatalanguage") metadataLang: String,
             @Query("wbetlanguage") entityLang: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
+    suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteMatrix: Observable<SiteMatrix>
@@ -209,6 +240,35 @@ interface Service {
         @Query("ggslimit") ggsLimit: Int,
         @Query("colimit") coLimit: Int,
     ): MwQueryResponse
+
+    @GET("api.php?format=json&action=getPaymentMethods")
+    suspend fun getPaymentMethods(@Query("country") country: String): PaymentResponseContainer
+
+    @FormUrlEncoded
+    @POST("api.php?format=json&action=submitPayment")
+    suspend fun submitPayment(
+        @Field("amount") amount: String,
+        @Field("app_version") appVersion: String,
+        @Field("banner") banner: String,
+        @Field("city") city: String,
+        @Field("country") country: String,
+        @Field("currency") currency: String,
+        @Field("donor_country") donorCountry: String,
+        @Field("email") email: String,
+        @Field("first_name") firstName: String,
+        @Field("full_name") fullName: String,
+        @Field("language") language: String,
+        @Field("last_name") lastName: String,
+        @Field("recurring") recurring: String,
+        @Field("payment_token") paymentToken: String,
+        @Field("opt_in") optIn: String,
+        @Field("pay_the_fee") payTheFee: String,
+        @Field("payment_method") paymentMethod: String,
+        @Field("payment_network") paymentNetwork: String,
+        @Field("postal_code") postalCode: String,
+        @Field("state_province") stateProvince: String,
+        @Field("street_address") streetAddress: String
+    ): PaymentResponseContainer
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -383,6 +443,7 @@ interface Service {
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
+        @Query("ucnamespace") ns: Int?,
         @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 
@@ -418,6 +479,12 @@ interface Service {
         @Query("sites") sites: String
     ): Observable<Entities>
 
+    @GET(MW_API_PREFIX + "action=wbgetentities")
+    suspend fun getEntitiesByTitleSuspend(
+        @Query("titles") titles: String,
+        @Query("sites") sites: String
+    ): Entities
+
     @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
     fun searchEntities(
         @Query("search") searchTerm: String,
@@ -431,14 +498,31 @@ interface Service {
             @Query("wbetlanguage") lang: String
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
+    suspend fun getWikidataEntityTermsSuspend(
+        @Query("titles") titles: String,
+        @Query("wbetlanguage") lang: String
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=wbgetclaims")
     fun getClaims(
         @Query("entity") entity: String,
         @Query("property") property: String?
     ): Observable<Claims>
 
+    @GET(MW_API_PREFIX + "action=wbgetclaims")
+    suspend fun getClaimsSuspend(
+        @Query("entity") entity: String,
+        @Query("property") property: String?
+    ): Claims
+
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
+
+    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions")
+    suspend fun getWikidataDescription(@Query("titles") titles: String,
+                                       @Query("sites") sites: String,
+                                       @Query("languages") langCode: String): Entities
 
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
@@ -636,7 +720,7 @@ interface Service {
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
+    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
     suspend fun getPagesWithImageRecommendations(
         @Query("gsrlimit") count: Int
     ): MwQueryResponse
@@ -654,6 +738,10 @@ interface Service {
     suspend fun getParamInfo(
         @Query("modules") modules: String
     ): ParamInfoResponse
+
+    @GET(MW_API_PREFIX + "action=templatedata&includeMissingTitles=&converttitles=")
+    suspend fun getTemplateData(@Query("lang") langCode: String,
+                                @Query("titles") titles: String): TemplateDataResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

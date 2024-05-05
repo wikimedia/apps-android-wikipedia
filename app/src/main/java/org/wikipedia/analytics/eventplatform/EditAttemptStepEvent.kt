@@ -5,11 +5,13 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/legacy/editattemptstep/1.4.0")
+@SerialName("/analytics/legacy/editattemptstep/2.0.3")
 class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) : Event(STREAM_NAME) {
 
     companion object {
@@ -40,10 +42,14 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         }
 
         private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle) {
-            EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action, "", editorInterface,
-                INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0,
-                    if (AccountUtil.isLoggedIn) AccountUtil.getUserIdForLanguage(pageTitle.wikiSite.languageCode) else 0,
+            EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
+                WikipediaApp.instance.appInstallID, "", editorInterface,
+                INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0, getUserIdForWikiSite(pageTitle.wikiSite),
                 1, pageTitle.prefixedText, pageTitle.namespace().code())))
+        }
+
+        private fun getUserIdForWikiSite(wikiSite: WikiSite): Int {
+            return if (AccountUtil.isLoggedIn) SharedPreferenceCookieManager.instance.getCookieByName("UserID", wikiSite.authority(), false)?.toIntOrNull() ?: 0 else 0
         }
     }
 }
@@ -51,6 +57,7 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
 @Suppress("unused")
 @Serializable
 class EditAttemptStepInteractionEvent(private val action: String,
+                                      private val app_install_id: String,
                                       private val editing_session_id: String,
                                       private val editor_interface: String,
                                       private val integration: String,

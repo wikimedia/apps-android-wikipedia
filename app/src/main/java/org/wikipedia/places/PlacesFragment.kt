@@ -6,7 +6,6 @@ import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import android.location.Location
 import android.os.Bundle
 import android.view.Gravity
@@ -27,8 +26,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.transition.Transition
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -56,6 +53,7 @@ import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -343,14 +341,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
                 if (haveLocationPermissions()) {
                     startLocationTracking()
-                    viewModel.location?.let {
-                        goToLocation(it)
-                    } ?: run {
-                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                }
+
+                viewModel.location?.let {
+                    goToLocation(it)
+                } ?: run {
+                    val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                    goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+
+                    if (!haveLocationPermissions()) {
+                        locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                     }
-                } else {
-                    locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 }
             }
         }
@@ -434,7 +435,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
         binding.langCodeButton.setLangCode(Prefs.placesWikiCode)
 
-        FeedbackUtil.setButtonLongPressToast(binding.tabsButton, binding.langCodeButton)
+        FeedbackUtil.setButtonTooltip(binding.tabsButton, binding.langCodeButton)
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
@@ -613,25 +614,23 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
-        if (haveLocationPermissions()) {
-            binding.viewButtonsGroup.check(R.id.mapViewButton)
-            mapboxMap?.let {
-                viewModel.lastKnownLocation = getLastKnownUserLocation()
-                var currentLatLngLoc: LatLng? = null
-                viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
-                val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
-                val targetLocation = location ?: currentLatLngLoc
-                targetLocation?.let { target ->
-                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
-                        override fun onCancel() { }
+        binding.viewButtonsGroup.check(R.id.mapViewButton)
+        mapboxMap?.let {
+            viewModel.lastKnownLocation = getLastKnownUserLocation()
+            var currentLatLngLoc: LatLng? = null
+            viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+            val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
+            val targetLocation = location ?: currentLatLngLoc
+            targetLocation?.let { target ->
+                it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                    override fun onCancel() { }
 
-                        override fun onFinish() {
-                            if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
-                                showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
-                            }
+                    override fun onFinish() {
+                        if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                            showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
                         }
-                    })
-                }
+                    }
+                })
             }
         }
     }
@@ -642,29 +641,22 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             return
         }
 
-        Glide.with(requireContext())
-            .asBitmap()
-            .load(url)
-            .into(object : CustomTarget<Bitmap>() {
-                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                    if (!isAdded) {
-                        return
-                    }
-                    annotationCache.find { it.pageId == page.pageId }?.let {
-                        val bmp = getMarkerBitmap(resource)
-                        it.bitmap = bmp
+        ImagePipelineBitmapGetter(requireContext(), url) { bitmap ->
+            if (!isAdded) {
+                return@ImagePipelineBitmapGetter
+            }
+            annotationCache.find { it.pageId == page.pageId }?.let {
+                val bmp = getMarkerBitmap(bitmap)
+                it.bitmap = bmp
 
-                        mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
+                mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
 
-                        it.annotation?.let { annotation ->
-                            annotation.iconImage = url
-                            symbolManager?.update(annotation)
-                        }
-                    }
+                it.annotation?.let { annotation ->
+                    annotation.iconImage = url
+                    symbolManager?.update(annotation)
                 }
-
-                override fun onLoadCleared(placeholder: Drawable?) {}
-            })
+            }
+        }
     }
 
     private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {

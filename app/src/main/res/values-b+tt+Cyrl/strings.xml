@@ -233,15 +233,15 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tt</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tt</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
   <string name="about_contributors_heading">Авторлар</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_translators_translatewiki">Бу кушымта ирекмәннәр тарафыннан &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; адресы буенча тәрҗемә ителде.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license">Башлангыч кодны &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; бүлегендә  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; карарга була. Әгәр дә башкасы күрсәтелмәсә, эчтәлек  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; сылтамасы буенча бар.</string>
+  <string name="about_app_license" fuzzy="true">Башлангыч кодны &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; бүлегендә  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; карарга була. Әгәр дә башкасы күрсәтелмәсә, эчтәлек  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; сылтамасы буенча бар.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Викимедиа Фонды&lt;/a&gt; продукты</string>
   <string name="about_activity_title">Кушымта турында</string>
   <string name="edit_abandon_confirm">Бит үзгәртелгән. Сез үзгәрешләрне сакламыйча чыгарга телисезме?</string>
@@ -742,8 +742,8 @@
   <string name="notifications_menu_uncheck_all">Барлык элементлардан да тамгаларны алыгыз</string>
   <string name="notifications_wiki_filter_header">Вики-фильтр</string>
   <string name="notifications_type_filter_header">Фильтр төре</string>
-  <string name="notifications_all_wikis_text">Барлык \"вики\"</string>
-  <string name="notifications_all_types_text">Барлык \"төрләр\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Барлык \"вики\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Барлык \"төрләр\"</string>
   <string name="notifications_menu_user_talk_page">%s фикер алышу бите</string>
   <string name="notifications_offline_disable_message">Бу функция автоном режимда кулланылмый</string>
   <string name="view_because_you_read_card_title">Укыганнар нигезендә</string>
@@ -830,8 +830,8 @@
   <string name="description_edit_voice_input_description">Тавышлы язма</string>
   <string name="description_edit_learn_more">Мәкаләләрнең тасвирламалары турында тулырак</string>
   <string name="description_edit_image_caption_learn_more">Сурәтләргә язмалар турында тулырак</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст бик кыска.</string>
   <string name="description_ends_with_punctuation">Текст тыныш билгеләре белән тәмамланырга тиеш түгел.</string>
   <string name="description_starts_with_uppercase">Беренче сүз ялгызлык исем булмаса, юл хрефтән башлагыз.</string>
@@ -1052,8 +1052,8 @@
   <string name="image_recommendation_accept">Әйе</string>
   <string name="image_recommendation_reject">Юк</string>
   <string name="image_recommendation_notsure">Җавап бирергә кыенсынам</string>
-  <string name="image_recommendation_reject_title">Ник булмасын?</string>
-  <string name="image_recommendation_reject_subtitle">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ник булмасын?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
   <string name="image_recommendation_reject_not_relevant">Сурәтнең катнашы юк</string>
   <string name="image_recommendation_reject_no_info">Карар кабул итү өчен җитәрлек мәгълүмат юк</string>
   <string name="image_recommendation_reject_offensive">Сурәт мыскыллы</string>
@@ -1226,8 +1226,6 @@
   <string name="talk_warn_save_dialog_cancel">Кире алу</string>
   <string name="talk_warn_submitted">Хәбәр редактор кулланучыларының фикер алышу битендә басылган</string>
   <string name="talk_warn_submitted_and_saved">Хәбәр редактор кулланучының фикер алышу битендә сакланган һәм бастырылган.</string>
-  <string name="talk_warn_saved_message">Гамәлдәге кисәтә торган хәбәрне сайлагыз яисә яңа хәбәр төзегез.</string>
-  <string name="talk_warn_saved_message_dropdown">Сакланган хәбәрләр</string>
   <string name="talk_page_empty">Фикер алышуның бу бите буш.</string>
   <string name="talk_page_empty_title">Фикер алышу монда башлана</string>
   <string name="talk_page_empty_content">Фикер алышу битләре - кешеләр Википедиянең эчтәлеген мөмкин кадәр яхшы итү турында фикер алышкан урын. Википедистлар җәмгыяте белән хезмәттәшлек итү һәм элемтә урнаштыру өчен фикер алышуга яңа теманы өстәүдән башлагыз.</string>
@@ -1431,10 +1429,8 @@
   <string name="reading_list_share_message_v2">Сәлам! Мин сезнең белән Википедиядәге үземнең уку исемлеге белән уртаклашырга телим.</string>
   <string name="reading_list_share_survey_title">Сез безгә \"Уку исемлекләре белән уртаклашырга\" дигән функцияне яхшыртырга ярдәм итә аласызмы?</string>
   <string name="reading_list_share_survey_body">\"Уку исемлекләре белән уртаклашырга\" — бу текст функциясе һәм безгә аны яхшырту яки бетерү өчен сезнең фикерләрегез кирәк.</string>
-  <string name="talk_templates_manage_title">Калыплар белән идарә итү</string>
-  <string name="talk_templates_empty_message">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
   <string name="talk_templates_new_message_title">Яңа хәбәр</string>
-  <string name="talk_templates_new_message_description">Кисәтү хәбәре ясагыз.</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Хәбәр язарга</string>
   <string name="talk_templates_new_message_save">Сакларга</string>
@@ -1450,7 +1446,6 @@
   <string name="talk_templates_edit_message_dialog_delete">Бетерергә</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңартылды</string>
   <string name="talk_templates_message_deleted" fuzzy="true">Хәбәр бетерелде</string>
-  <string name="patroller_tasks_edits_list_title">Төзәтмәләр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Үзгәрешләрне эзләү яки фильтрлау</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Теглар: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Һичкем</string>
@@ -1513,7 +1508,6 @@
   <string name="patroller_tasks_overflow_learn">Күбрәк белергә</string>
   <string name="patroller_onboarding_two_thank_title">Рәхмәт</string>
   <string name="patroller_onboarding_two_watch_title">Күзәтү</string>
-  <string name="patroller_onboarding_two_warn_title">Кисәтү</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
   <string name="patroller_diff_feedback_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="patroller_diff_feedback_dialog_message">Сезне бу функция канәгатьләндерәме?</string>

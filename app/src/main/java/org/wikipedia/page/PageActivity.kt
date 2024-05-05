@@ -58,7 +58,7 @@ import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
@@ -190,7 +190,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
-        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
+        FeedbackUtil.setButtonTooltip(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
@@ -484,13 +484,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     return
                 }
                 // Special cases:
-                // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
-                // after having donated), then bounce it out to an external browser, since we don't have
-                // the same cookie state as the browser does.
+                // If the subdomain of the URL is not a "language" subdomain as we expect, then
+                // bounce it out to an external browser. This can be links to the "donate." or
+                // "thankyou." subdomains, or the Wikiquote "quote." subdomain, and possibly others.
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
-                val isDonationRelated = language == "donate" || language == "thankyou"
-                if (isDonationRelated || (title.isSpecial && !title.isContributions)) {
-                    // Stop bouncing out if the URL is from the Android app customTab.
+                if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
+                    // ...Except if the URL came as a result of a successful donation, in which case
+                    // open it in a Custom Tab.
                     val utmCampaign = uri.getQueryParameter("utm_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
                         // TODO: need to verify if the page can be displayed and logged properly.
@@ -589,7 +589,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun loadMainPage(position: TabPosition) {
-        val title = PageTitle(SiteInfoClient.getMainPageForLang(app.appOrSystemLanguageCode), app.wikiSite)
+        val title = PageTitle(MainPageNameData.valueFor(app.appOrSystemLanguageCode), app.wikiSite)
         val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE)
         loadPage(title, historyEntry, position)
     }
