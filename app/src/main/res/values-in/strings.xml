@@ -268,15 +268,15 @@
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.id</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
+  <string name="about_app_license" fuzzy="true">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
@@ -761,8 +761,8 @@
   <string name="notifications_menu_uncheck_all">Hapus centang semua item</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Saringan jenis</string>
-  <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
-  <string name="notifications_all_types_text">Semua \"jenis\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Semua \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
   <string name="notifications_menu_user_talk_page">Halaman pembicaraan %s</string>
   <string name="notifications_offline_disable_message">Fungsi ini tidak tersedia ketika luring.</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
@@ -850,8 +850,8 @@
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
   <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
@@ -1227,8 +1227,6 @@
   <string name="talk_warn_save_dialog_cancel">Batal</string>
   <string name="talk_warn_submitted">Pesan diterbitkan ke halaman diskusi pengguna milik penyunting</string>
   <string name="talk_warn_submitted_and_saved">Pesan disimpan dan diterbitkan ke halaman diskusi pengguna milik penyunting.</string>
-  <string name="talk_warn_saved_message">Pilih pesan peringatan yang sudah ada atau tulis pesan yang baru.</string>
-  <string name="talk_warn_saved_message_dropdown">Pesan yang disimpan</string>
   <string name="talk_page_empty">Halaman pembicaraan ini kosong.</string>
   <string name="talk_page_empty_title">Percakapan dimulai di sini</string>
   <string name="talk_page_empty_content">Laman pembicaraan adalah tempat orang berdiskusi tentang cara membuat konten Wikipedia sebaik mungkin. Mulailah dengan menambahkan topik diskusi baru untuk terhubung dan berkolaborasi dengan komunitas Wikipediawan.</string>
@@ -1431,10 +1429,8 @@
   <string name="reading_list_share_message_v2">Hai! Saya ingin berbagi daftar bacaan Wikipedia saya dengan Anda:</string>
   <string name="reading_list_share_survey_title">Bisakah Anda membantu kami meningkatkan \"Bagikan daftar bacaan\"?</string>
   <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
-  <string name="talk_templates_manage_title">Kelola templat</string>
-  <string name="talk_templates_empty_message">Anda tidak memiliki pesan peringatan yang disimpan.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Anda tidak memiliki pesan peringatan yang disimpan.</string>
   <string name="talk_templates_new_message_title">pesan baru</string>
-  <string name="talk_templates_new_message_description">Tulis pesan peringatan.</string>
   <string name="talk_templates_new_message_subject_hint">Subyek</string>
   <string name="talk_templates_new_message_compose_hint">Tulis pesan</string>
   <string name="talk_templates_new_message_save">Simpan</string>
@@ -1457,7 +1453,6 @@
     <item quantity="other">Pesan telah dihapus</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Judul pesan tidak boleh kosong</string>
-  <string name="patroller_tasks_edits_list_title">Daftar suntingan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atau saring suntingan</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tag: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Tidak ada</string>
@@ -1516,7 +1511,6 @@
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="other">%d penyaring</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patroli suntingan</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Riwayat suntingan artikel</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Pembalikan selesai</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Anda yakin ingin mengembalikan?</string>
@@ -1547,6 +1541,26 @@
   <string name="patroller_diff_feedback_dialog_submit">Kirim</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Umpan balik dikirimkan.</string>
   <string name="patroller_diff_feedback_tooltip">Ketuk menu luapan untuk mengirimkan masukan kapan saja di \'Masalah dengan fitur\'.</string>
+  <string name="patroller_saved_message_title_vandalism">Peringatan vandalisme</string>
+  <string name="patroller_saved_message_title_editing_tests">Ujicoba penyuntingan</string>
+  <string name="patroller_saved_message_title_npov">Sudut pandang netral</string>
+  <string name="patroller_saved_message_title_auto_trans">Terjemahan otomatis</string>
+  <string name="patroller_saved_message_title_coi_rem">Pengingat konflik kepentingan</string>
+  <string name="patroller_saved_message_title_final_warning">Peringatan terakhir</string>
+  <string name="patroller_saved_message_title_copy_vio">Peringatan pelanggaran hak cipta</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Cantumkan ringkasan penyuntingan</string>
+  <string name="patroller_saved_message_title_do_not_censor">Jangan melakukan penyensoran informasi</string>
+  <string name="patroller_saved_message_title_art_imp">Saran perbaikan artikel</string>
+  <string name="patroller_saved_message_body_vandalism">Halo {{{username}}}!\nSaya ingin memberitahukan bahwa [{{{diffLink}}}|salah satu suntingan] Anda telah saya kembalikan karena tidak sesuai dengan aturan Wikipedia. Apabila menurut Anda saya melakukan kesalahan, atau ingin mengajukan pertanyaan, silakan sampaikan di halaman pembicaraan saya di [[Pembicaraan pengguna:{{{senderUserName}}}|halaman pembicaraan saya]].\n\nSebagai catatan bahwa Anda akan dicekal atau diblokir jika melakukan tindakan vandalisme secara terus menerus.</string>
+  <string name="patroller_saved_message_body_editing_tests">Halo {{{username}}}!\n\nSaya mengapresiasi antusias Anda dalam mencoba berkontribusi di Wikipedia dengan menyunting artikelnya, serta saya pastikan bahwa suntingan Anda telah tampil dengan baik. Namun, sayangnya suntingan yang Anda lakukan itu memengaruhi kualitas artikel Wikipedia dan saya putuskan untuk mengembalikan suntingan tersebut.\n\nJika Anda ingin belajar menyunting di Wikipedia, silakan menggunakan halaman [https://id.wikipedia.org/wiki/Wikipedia:Bak_pasir bak pasir]. Apabila Anda ingin memberikan pendapat dari salah satu artikel Wikipedia, silakan sampaikan di halaman pembicaraan artikelnya.</string>
+  <string name="patroller_saved_message_body_npov">Halo {{{username}}}!\n\nSebagian kontribusi yang Anda lakukan tidak sesuai dengan kriteria [https://id.wikipedia.org/wiki/WP:NPOV sudut pandang netral] yang berlaku di Wikipedia. Maka dari itu, sebagian kontribusi tersebut sudah dikembalikan atau dihapus. Kami sangat menyarankan Anda untuk memperbaiki suntingan yang tidak sesuai dengan kriteria sudut pandang netral tersebut.</string>
+  <string name="patroller_saved_message_body_auto_trans">Halo {{{username}}}!\n\nSebagian kontribusi yang Anda lakukan menggunakan terjemahan mesin. Jika tidak diperbaiki, maka suntingan tersebut akan dihapus. Silakan hubungi saya melalui [[Pembicaraan pengguna:{{{senderUserName}}}|halaman pembicaraan]] jika ada yang ingin ditanyakan. Terlepas dari semua itu, jangan berkecil hati karena kontribusi Anda tetaplah bermanfaat bagi Wikipedia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Halo {{{username}}}!\n\nTerima kasih karena telah bersedia dan menyempatkan waktunya untuk berkontribusi di Wikipedia. Namun, suntingan yang Anda lakukan tidak sesuai dengan pedoman [https://id.wikipedia.org/wiki/Wikipedia:Konflik_kepentingan konflik kepentingan] yang berlaku di Wikipedia. Sekadar informasi bahwa Wikipedia mengedepankan prinsip [https://id.wikipedia.org/wiki/Wikipedia:Sudut_pandang_netral sudut pandang netral] dan Anda tidak diperkenankan untuk melebih-lebihkan subjek. Silakan melihat kebijakan berikut agar mendapatkan gambaran lebih: [https://id.wikipedia.org/wiki/Wikipedia:Wikipedia_bukanlah Wikipedia bukanlah], [https://id.wikipedia.org/wiki/Wikipedia:Bukan_riset_asli bukan riset asli], [https://id.wikipedia.org/wiki/Wikipedia:Hak_cipta hak cipta], dan [https://id.wikipedia.org/wiki/Wikipedia:Pemastian pemastian].\n\nJika Anda memiliki konflik kepentingan dengan subjek dari artikel Wikipedia tersebut, Anda tetap diperbolehkan untuk berkontribusi dengan syarat sebagai [https://id.wikipedia.org/wiki/Wikipedia:Memberitahukan_kontribusi_yang_dibayar berikut]. Apabila Anda tidak melakukan syarat tersebut, maka Anda akan diblokir dari Wikipedia.\n\nSilakan menghubungi saya melalui [[Pembicaraan pengguna:{{{senderUserName}}}|halaman pembicaraan]] apabila ada yang ingin ditanyakan.</string>
+  <string name="patroller_saved_message_body_final_warning">Halo {{{username}}}!\n\nBerhubung Anda sudah melakukan vandalisme di Wikipedia secara berulang, maka ini adalah peringatan terakhir untuk Anda agar tidak melakukan vandalisme. Jika tetap dilanggar, maka Anda akan disekat atau diblokir dari Wikipedia.</string>
+  <string name="patroller_saved_message_body_copy_vio">Halo {{{username}}}!\n\nSuntingan terakhir yang Anda lakukan telah melanggar hak cipta dengan menyertakan materi berhak cipta tanpa izin. Pastikan untuk mengunggah dan/atau menyunting di Wikipedia sesuai dengan ketentuan [https://id.wikipedia.org/wiki/Wikipedia:Hak_cipta hak cipta] yang berlaku untuk mencegah penghapusan.</string>
+  <string name="patroller_saved_message_body_edit_summary">Halo {{{username}}}!\n\nSepertinya Anda menghapus beberapa konten di Wikipedia tanpa meninggalkan ringkasan penyuntingan. Silakan memberikan keterangan di ringkasan penyuntingan untuk memberitahukan kepada kontributor lain apa yang Anda lakukan di Wikipedia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Halo {{{username}}}!\n\nSepertinya Anda menghapus beberapa konten di Wikipedia karena dianggap kontroversial tanpa mengajukan diskusi terlebih dahulu. Wikipedia bukanlah tempat untuk menyensor segala sesuatu, selama suntingan yang dianggap kontroversial terdapat rujukan dari sumber tepercaya maka suntingan tersebut harus dipertahankan.\n\nJika Anda sangat yakin bahwa suntingan tersebut tidak faktual, maka diskusikan terlebih dahulu di halaman pembicaraan artikelnya alih-alih langsung menghapus.</string>
+  <string name="patroller_saved_message_body_art_imp">Halo {{{username}}}!\n\nArtikel yang telah Anda buat sudah bagus. Kami menyarankan Anda untuk menambahkan beberapa rujukan dari [https://id.wikipedia.org/wiki/Wikipedia:Sumber_tepercaya sumber tepercaya]. Hal ini bertujuan untuk meningkatkan kualitas dari artikel itu sendiri.</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>

@@ -242,15 +242,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sl</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Uporabljene knjižnice</string>
   <string name="about_contributors_heading">Sodelavci</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stran ekipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorna koda je na voljo v shrambah &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.sl\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Izvorna koda je na voljo v shrambah &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.sl\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
   <string name="about_wmf">Izdelek &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O projektu</string>
   <string name="edit_abandon_confirm">Stran je bila spremenjena. Ali jo res želite zapustiti, ne da bi shranili svoje spremembe?</string>
@@ -806,8 +806,8 @@
   <string name="notifications_menu_uncheck_all">Odznači vse predmete</string>
   <string name="notifications_wiki_filter_header">Filter vikijev</string>
   <string name="notifications_type_filter_header">Filter tipov</string>
-  <string name="notifications_all_wikis_text">Vsi vikiji</string>
-  <string name="notifications_all_types_text">Vse vrste</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Vsi vikiji</string>
+  <string name="notifications_all_types_text" fuzzy="true">Vse vrste</string>
   <string name="notifications_menu_user_talk_page">%s: pogovorna stran</string>
   <string name="notifications_offline_disable_message">Ta funkcija ni na voljo brez internetne povezave.</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
@@ -897,8 +897,8 @@
   <string name="description_edit_voice_input_description">Glasovni vnos</string>
   <string name="description_edit_learn_more">Več o opisih člankov</string>
   <string name="description_edit_image_caption_learn_more">Več o napisih slik</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Besedilo je prekratko.</string>
   <string name="description_ends_with_punctuation">Besedilo se ne sme končati z ločilom.</string>
   <string name="description_starts_with_article">Izogibajte se začenjanju s členi, kot je »ta« ali \"to\".</string>
@@ -1174,7 +1174,7 @@
   <string name="description_edit_revert_reason2">vaš prispevek je bil videti kot eksperiment ali vandalizem.</string>
   <string name="description_edit_revert_history">Če želite, si lahko ogledate &lt;a href=\"%1$s\"&gt;zgodovino urejanj&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Prekliči</string>
-  <string name="offline_read_permission_rationale">Za bsrkanje brez povezave je potrebno dovoljenje za dostop do vaše naprave.</string>
+  <string name="offline_read_permission_rationale">Za brskanje brez povezave je potrebno dovoljenje za dostop do prostora za shranjevanje vaše naprave.</string>
   <string name="offline_read_final_rationale">Za uporabo Nepovezane knjižnice je potrebno dovoljenje za dostop do pomnilnika vaše naprave.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
@@ -1316,8 +1316,6 @@
   <string name="talk_warn_save_dialog_cancel">Prekliči</string>
   <string name="talk_warn_submitted">Sporočilo je bilo objavljeno na urejevalčevi uporabniški pogovorni strani</string>
   <string name="talk_warn_submitted_and_saved">Sporočilo je shranjeno in objavljeno na urejevalčevi pogovorni strani</string>
-  <string name="talk_warn_saved_message">Izberite obstoječe opozorilo ali sestavite novega</string>
-  <string name="talk_warn_saved_message_dropdown">Shranjena sporočila</string>
   <string name="talk_page_empty">Ta pogovorna stran je prazna.</string>
   <string name="talk_page_empty_title">Pogovor se začne tukaj</string>
   <string name="talk_page_empty_content">Pogovorne strani so namenjene razpravam o tem, kako čim bolj izboljšati vsebino v Wikipediji. Začnite z dodajanjem nove pogovorne teme, da se povežete in sodelujete s skupnostjo Wikipedistov.</string>
@@ -1529,10 +1527,8 @@
   <string name="reading_list_share_message_v2">Zdravo! S tabo želim deliti svoj bralni seznam Wikipedije:</string>
   <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati možnost »Deli bralne sezname«?</string>
   <string name="reading_list_share_survey_body">»Deli bralne sezname« je preizkusna možnost in potrebujemo vaše povratne informacije, da jo izboljšamo ali odstranimo.</string>
-  <string name="talk_templates_manage_title">Upravljanje predlog</string>
-  <string name="talk_templates_empty_message">Nimate nobenega shranjenega opozorila.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Nimate nobenega shranjenega opozorila.</string>
   <string name="talk_templates_new_message_title">Novo sporočilo</string>
-  <string name="talk_templates_new_message_description">Sestavite opozorilno sporočilo.</string>
   <string name="talk_templates_new_message_subject_hint">Tema</string>
   <string name="talk_templates_new_message_compose_hint">Sestavi sporočilo</string>
   <string name="talk_templates_new_message_save">Shrani</string>
@@ -1561,7 +1557,6 @@
     <item quantity="other">Sporočila so izbrisana</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Naslov ne sme biti prazen.</string>
-  <string name="patroller_tasks_edits_list_title">Seznam urejanj</string>
   <string name="patroller_tasks_edits_list_search_hint">Iskanje ali filtriranje urejanj</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Brez</string>
@@ -1623,7 +1618,6 @@
     <item quantity="few">%d filtri</item>
     <item quantity="other">%d filtrov</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Pregled urejanja</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Zgodovina urejanja članka</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Vračanje opravljeno</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Ste prepričani, da želite vrniti?</string>

@@ -120,6 +120,7 @@
   <string name="langlinks_your_wikipedia_languages">Tu linguas de Wikipedia</string>
   <string name="menu_save_changes">Publicar cambiamentos</string>
   <string name="edit_saved_successfully">Modification publicate!</string>
+  <string name="stub_article_edit_saved_successfully">Modification publicate! Le cambiamentos pote prender un tempore pro apparer.</string>
   <string name="dialog_message_edit_failed">Modification fallite!</string>
   <string name="dialog_message_edit_failed_retry">Reprobar</string>
   <string name="dialog_message_edit_failed_cancel">Cancellar</string>
@@ -162,6 +163,9 @@
   <string name="logged_out_in_background_dialog">Tu session de Wikipedia ha essite claudite. Vole tu reaperir session?</string>
   <string name="logged_out_in_background_login">Aperir session</string>
   <string name="logged_out_in_background_cancel">Cancellar</string>
+  <string name="account_vanish_request_title">Facer disparer le conto</string>
+  <string name="account_vanish_request_confirm_title">Advertimento concernente le disparition del conto</string>
+  <string name="account_vanish_request_confirm">Le disparition es un &lt;b&gt;ultime recurso&lt;/b&gt; e debe &lt;b&gt;solmente esser usate quando tu vole cessar de modificar pro sempre&lt;/b&gt; e celar le maximo possibile de tu associationes anterior.&lt;br/&gt;&lt;br/&gt;Le deletion del conto sur Wikipedia se effectua cambiante tu nomine de conto de maniera que alteres non pote recognoscer tu contributiones. Iste processo se appella le disparition del conto. &lt;b&gt;Le disparition non garanti le anonymitate complete ni remove contributiones al projectos.&lt;/b&gt;</string>
   <string name="history_empty_title">Il non ha paginas recentemente visitate</string>
   <string name="history_empty_message">Tracia hic le paginas que tu ha legite.</string>
   <string name="history_offline_articles_toast">Alcun articulos in le historia pote non esser accessibile sin connexion.</string>
@@ -233,15 +237,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
-  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
+  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A proposito</string>
   <string name="edit_abandon_confirm">Le pagina ha essite modificate. Es tu secur de voler exir sin salveguardar tu cambiamentos?</string>
@@ -305,6 +309,8 @@
   <string name="widget_name_featured_page">Pagina de Wikipedia in prime plano</string>
   <string name="widget_title_featured_page">Pagina in prime plano de hodie:</string>
   <string name="widget_name_search">Recerca sur Wikipedia</string>
+  <string name="widget_description_search">Le maniera le plus rapide de cercar in Wikipedia</string>
+  <string name="widget_description_featured_page">Le melior articulos que Wikipedia pote offerer</string>
   <string name="wiktionary_no_definitions_found">Necun definition trovate.</string>
   <string name="alpha_update_notification_title">Nove actualisation alpha disponibile</string>
   <string name="alpha_update_notification_text">Tocca pro discargar</string>
@@ -388,6 +394,11 @@
   <string name="multi_select_items_selected">%d seligite</string>
   <string name="error_message_generic">Un error ha occurrite</string>
   <string name="view_link_preview_error_button_dismiss">Clauder</string>
+  <string name="link_preview_dialog_read_button">Leger</string>
+  <string name="link_preview_dialog_save_button">Salveguardar</string>
+  <string name="link_preview_dialog_saved_button">Salveguardate</string>
+  <string name="link_preview_dialog_share_button">Condivider</string>
+  <string name="link_preview_stub_placeholder_text">Iste articulo es un pecietta, lo que vole dicer que il non ha sufficiente contento in le articulo pro generar un previsualisation. Ma tu pote cambiar isto!</string>
   <string name="error_page_does_not_exist">Iste pagina non existe</string>
   <string name="error_user_page_does_not_exist">Wikipedia non ha un &lt;a href=\"%1$s\"&gt;pagina de usator&lt;/a&gt; con iste nomine exacte. In general, iste pagina debe esser create e modificate per &lt;b&gt;%2$s&lt;/b&gt;. In caso de dubita, per favor verifica que \"%3$s\" existe.</string>
   <string name="view_wiki_error_message_offline">Non pote connecter a Internet</string>
@@ -830,8 +841,8 @@
   <string name="description_edit_voice_input_description">Entrata vocal</string>
   <string name="description_edit_learn_more">Leger plus sur le descriptiones de articulos</string>
   <string name="description_edit_image_caption_learn_more">Leger plus sur le legendas de imagines</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Le texto es troppo curte.</string>
   <string name="description_ends_with_punctuation">Le texto non debe terminar per un signo de punctuation.</string>
   <string name="description_starts_with_uppercase">Comencia con un littera minuscule, excepte si le prime parola es un nomine proprie.</string>
@@ -1100,6 +1111,7 @@
   <string name="onboarding_explore_text">Immerge te in le mundo de Wikipedia con un canal Explorar continuemente actualisate.&lt;br/&gt; &lt;b&gt;Personalisa&lt;/b&gt; le canal secundo tu interesses: apprende eventos historic con &lt;b&gt;Sur iste die&lt;/b&gt; o jecta le datos con &lt;b&gt;Aleatori&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Tu pote facer listas de lectura de articulos que tu vole leger plus tarde, mesmo quando tu es disconnectite. &lt;br/&gt;Aperi session in tu conto de Wikipedia pro synchronisar tu listas de lectura. &lt;a href=\"#login\"&gt;Crear un conto sur Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Datos e vita private</string>
   <string name="onboarding_analytics_switch_title">Inviar datos de uso</string>
   <string name="onboarding_got_it">Comprendite</string>
   <string name="onboarding_multilingual_secondary_text">Nos ha trovate lo sequente sur tu apparato:</string>
@@ -1226,8 +1238,6 @@
   <string name="talk_warn_save_dialog_cancel">Cancellar</string>
   <string name="talk_warn_submitted">Message publicate sur le pagina de discussion del contributor</string>
   <string name="talk_warn_submitted_and_saved">Message salveguardate e publicate sur le pagina de discussion de usator del contributor</string>
-  <string name="talk_warn_saved_message">Selige un message de advertimento existente o compone un nove message.</string>
-  <string name="talk_warn_saved_message_dropdown">Messages salveguardate</string>
   <string name="talk_page_empty">Iste pagina de discussion es vacue.</string>
   <string name="talk_page_empty_title">Le conversation comencia hic</string>
   <string name="talk_page_empty_content">Le paginas de discussion es ubi le gente discute como facer le contento de Wikipedia le melior que pote esser. Adde un nove topico de discussion pro connecter te e collaborar con un communitate de wikipedianos.</string>
@@ -1431,10 +1441,8 @@
   <string name="reading_list_share_message_v2">Salute! Io vole condivider mi lista de lectura de Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Poterea tu adjutar nos a meliorar \"Condivider listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Condivider listas de lectura\" es un function in test e nos ha besonio de tu retroaction pro meliorar o remover lo.</string>
-  <string name="talk_templates_manage_title">Gerer patronos</string>
-  <string name="talk_templates_empty_message">Tu non ha messages de advertimento salveguardate.</string>
+  <string name="talk_templates_empty_message">Crea tu proprie messages o usa le &lt;a href=\"#\"&gt;messages de exemplo&lt;/a&gt; pro comenciar.</string>
   <string name="talk_templates_new_message_title">Nove message</string>
-  <string name="talk_templates_new_message_description">Componer message de advertimento.</string>
   <string name="talk_templates_new_message_subject_hint">Subjecto</string>
   <string name="talk_templates_new_message_compose_hint">Componer message</string>
   <string name="talk_templates_new_message_save">Salveguardar</string>
@@ -1459,7 +1467,6 @@
     <item quantity="other">Le messages ha essite delite</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Le titulo non pote esser vacue.</string>
-  <string name="patroller_tasks_edits_list_title">Lista de modificationes</string>
   <string name="patroller_tasks_edits_list_search_hint">Cercar o filtrar modificationes</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiquettas: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Necun</string>
@@ -1519,7 +1526,6 @@
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patruliar modification</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historia de modificationes del articulo</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Reversion succedite</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Es tu secur de voler revocar?</string>

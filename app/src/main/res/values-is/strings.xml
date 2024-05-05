@@ -236,15 +236,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.is</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.is</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">notuð aðgerðasöfn</string>
   <string name="about_contributors_heading">framlög frá</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Síða teymisins&lt;/a&gt;</string>
   <string name="about_translators_heading">þýðendur</string>
   <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Notkunarleyfi</string>
-  <string name="about_app_license">Grunnkóðinn er tiltækur á &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; með &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt; Apache 2.0 notkunarleyfinu&lt;/a&gt;. Ef ekkert annað er tekið fram, er allt efnið tiltækt með &lt;a href=\"https://creativecommons\n.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike notkunarleyfi&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Grunnkóðinn er tiltækur á &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; með &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt; Apache 2.0 notkunarleyfinu&lt;/a&gt;. Ef ekkert annað er tekið fram, er allt efnið tiltækt með &lt;a href=\"https://creativecommons\n.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike notkunarleyfi&lt;/a&gt;.</string>
   <string name="about_wmf">Í boði &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Um hugbúnaðinn</string>
   <string name="edit_abandon_confirm">Síðunni hefur verið breytt. Ertu viss um að þú viljir hætta án þess að vista breytingarnar þínar ?</string>
@@ -743,8 +743,8 @@
   <string name="notifications_menu_uncheck_all">Afmerkja öll atriði</string>
   <string name="notifications_wiki_filter_header">Wiki-sía</string>
   <string name="notifications_type_filter_header">Tegundasía</string>
-  <string name="notifications_all_wikis_text">Allt \"wiki\"</string>
-  <string name="notifications_all_types_text">Allt \"type\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Allt \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Allt \"type\"</string>
   <string name="notifications_menu_user_talk_page">Spjallsíða %s</string>
   <string name="notifications_offline_disable_message">Aðgerðin er ekki tiltæk í ónettengdum ham.</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
@@ -832,8 +832,8 @@
   <string name="description_edit_voice_input_description">Raddskipun</string>
   <string name="description_edit_learn_more">Frekari upplýsingar um lýsingar á greinum</string>
   <string name="description_edit_image_caption_learn_more">Frekari upplýsingar um myndatexta</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Textinn er of stuttur.</string>
   <string name="description_ends_with_punctuation">Textinn má ekki enda á greinarmerkjum.</string>
   <string name="description_starts_with_article">Forðastu að byrja greinar með “a” eða “the”.</string>

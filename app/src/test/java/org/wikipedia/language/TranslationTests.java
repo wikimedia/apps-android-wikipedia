@@ -35,7 +35,7 @@ public class TranslationTests {
                                                                         "\\[\\[.*?\\]\\]",
                                                                         "\\*\\*.*?\\*\\*",
                                                                         "''.*?''"};
-    private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land"};
+    private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night"};
 
     private static File BASE_FILE;
     private static File QQ_FILE;
@@ -213,6 +213,13 @@ public class TranslationTests {
         for (Element element : stringElements) {
             String name = element.attr("name");
             String value = element.text();
+
+            // Exclude pre-packaged messages for use with the patrolling feature, since they are
+            // intended to contain wikitext.
+            // TODO: test these messages separately and more thoroughly.
+            if (name.startsWith("patroller_saved_message_body")) {
+                continue;
+            }
 
             List<Integer> countList = new ArrayList<>();
             for (String param : params) {

@@ -71,7 +71,7 @@ class RandomFragment : Fragment() {
         _binding = FragmentRandomBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        FeedbackUtil.setButtonLongPressToast(binding.randomNextButton, binding.randomSaveButton)
+        FeedbackUtil.setButtonTooltip(binding.randomNextButton, binding.randomSaveButton)
 
         wikiSite = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
 
@@ -241,6 +241,11 @@ class RandomFragment : Fragment() {
             prevPosition = position
 
             updateSaveShareButton()
+
+            val storedOffScreenPagesCount = binding.randomItemPager.offscreenPageLimit * 2 + 1
+            if (position >= storedOffScreenPagesCount) {
+                (binding.randomItemPager.adapter as RandomItemAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
+            }
         }
     }
 

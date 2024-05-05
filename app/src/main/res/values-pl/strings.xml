@@ -265,15 +265,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Strona zespołu&lt;/a&gt;</string>
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
-  <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubie&lt;/a&gt; na licencji &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. O ile nie określono inaczej, zawartość jest dostępna na licencji &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubie&lt;/a&gt; na licencji &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. O ile nie określono inaczej, zawartość jest dostępna na licencji &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
@@ -715,8 +715,8 @@
   <string name="notifications_menu_uncheck_all">Odznacz wszystkie elementy</string>
   <string name="notifications_wiki_filter_header">Filtr Wiki</string>
   <string name="notifications_type_filter_header">Filtr typów</string>
-  <string name="notifications_all_wikis_text">Wszystkie \"wiki\"</string>
-  <string name="notifications_all_types_text">Wszystkie \"typy\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Wszystkie \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Wszystkie \"typy\"</string>
   <string name="notifications_menu_user_talk_page">strona dyskusji %s</string>
   <string name="notifications_offline_disable_message">Funkcja nie jest dostępna w trybie offline.</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
@@ -804,8 +804,8 @@
   <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
   <string name="description_starts_with_article">Unikaj rozpoczynania artykułów od „a” bądź „the” (ang).</string>
@@ -1281,10 +1281,8 @@
   <string name="archive_empty">Nie znaleziono zarchiwizowanych stron.</string>
   <string name="user_contrib_filter_all">Wszystkie przestrzenie nazw</string>
   <string name="namespace_article">Artykuł</string>
-  <string name="talk_templates_manage_title">Zarządzaj szablonami</string>
-  <string name="talk_templates_empty_message">Nie masz zapisanych żadnych komunikatów ostrzegawczych.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Nie masz zapisanych żadnych komunikatów ostrzegawczych.</string>
   <string name="talk_templates_new_message_title">Nowa wiadomość</string>
-  <string name="talk_templates_new_message_description">Utwórz wiadomość ostrzegawczą.</string>
   <string name="talk_templates_new_message_subject_hint">Tytuł</string>
   <string name="talk_templates_new_message_compose_hint">Utwórz wiadomość</string>
   <string name="talk_templates_new_message_save">Zapisz</string>
@@ -1299,7 +1297,6 @@
   <string name="talk_templates_edit_message_dialog_save">Zapisz</string>
   <string name="talk_templates_edit_message_dialog_delete">Usuń</string>
   <string name="talk_templates_edit_message_updated">Wiadomość została zaktualizowana</string>
-  <string name="patroller_tasks_edits_list_title">Lista zmian</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Wyświetl stronę użytkownika</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Zobacz stronę dyskusji</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informacje o użytkowniku</string>

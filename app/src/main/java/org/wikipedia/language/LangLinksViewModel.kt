@@ -13,7 +13,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.StringUtil
@@ -84,7 +84,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 // remove the language code and replace it with its variants
                 it.remove()
                 for (variant in languageVariants) {
-                    it.add(PageTitle(if (pageTitle.isMainPage) SiteInfoClient.getMainPageForLang(variant) else link.prefixedText,
+                    it.add(PageTitle(if (pageTitle.isMainPage) MainPageNameData.valueFor(variant) else link.prefixedText,
                             WikiSite.forLanguageCode(variant)))
                 }
             }
@@ -130,7 +130,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
                         if (!title.wikiSite.languageCode.contains(languageCode)) {
-                            val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
+                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
                             pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
                             languageEntries.add(pageTitle)
                         }

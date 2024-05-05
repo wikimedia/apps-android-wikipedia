@@ -2,6 +2,7 @@
 <!-- Authors:
 * Amire80
 * Athena in Wonderland
+* B3rnas
 * Caiofernandes
 * CaiusSPQR
 * Dbrant
@@ -23,6 +24,7 @@
 * SandroHc
 * Svjatysberega
 * Tooguether
+* Vinickw
 * Vitorvicentevalente
 * Webysther
 -->
@@ -254,15 +256,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Contribuidores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipa&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -767,8 +769,8 @@
   <string name="notifications_menu_uncheck_all">Desmarcar todos os elementos</string>
   <string name="notifications_wiki_filter_header">Filtro de wikis</string>
   <string name="notifications_type_filter_header">Filtro de tipos</string>
-  <string name="notifications_all_wikis_text">Todas as \"wikis\"</string>
-  <string name="notifications_all_types_text">Todos os \"tipos\"</string>
+  <string name="notifications_all_wikis_text">Todas as wikis</string>
+  <string name="notifications_all_types_text">Todos os tipos</string>
   <string name="notifications_menu_user_talk_page">Página de discussão de %s</string>
   <string name="notifications_offline_disable_message">A função não está disponível offline.</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
@@ -856,8 +858,8 @@
   <string name="description_edit_voice_input_description">Entrada de voz</string>
   <string name="description_edit_learn_more">Saiba mais sobre as descrições de artigos</string>
   <string name="description_edit_image_caption_learn_more">Saiba mais sobre as legendas de imagens</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt#Descrições_de_artigos</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt#Legendas_de_imagens</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">O texto é demasiado curto.</string>
   <string name="description_ends_with_punctuation">O texto não pode terminar com um sinal de pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos, como \"um\" e \"o\".</string>
@@ -1253,8 +1255,6 @@
   <string name="talk_warn_save_dialog_cancel">Cancelar</string>
   <string name="talk_warn_submitted">Mensagem publicada na página de discussão do editor</string>
   <string name="talk_warn_submitted_and_saved">Mensagem gravada e publicada na página de discussão do editor</string>
-  <string name="talk_warn_saved_message">Selecionar uma mensagem de aviso existente ou redigir uma mensagem nova.</string>
-  <string name="talk_warn_saved_message_dropdown">Mensagens gravadas</string>
   <string name="talk_page_empty">Esta página de discussão está vazia.</string>
   <string name="talk_page_empty_title">A conversa começa aqui</string>
   <string name="talk_page_empty_content">É nas páginas de discussão que as pessoas debatem como tornar o conteúdo da Wikipédia o melhor possível. Comece por adicionar um tópico de discussão novo para estabelecer uma ligação e colaborar com uma comunidade de wikipedistas.</string>
@@ -1460,10 +1460,8 @@
   <string name="reading_list_share_message_v2">Olá! Gostaria de partilhar a minha lista de leitura da Wikipédia consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar \"Partilhar listas de leitura\"?</string>
   <string name="reading_list_share_survey_body">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
-  <string name="talk_templates_manage_title">Gerir predefinições</string>
-  <string name="talk_templates_empty_message">Não tem nenhuma mensagem de aviso gravada.</string>
+  <string name="talk_templates_empty_message">Crie as suas próprias mensagens ou use &lt;a href=\"#\"&gt;mensagens de exemplo&lt;/a&gt; para começar.</string>
   <string name="talk_templates_new_message_title">Mensagem nova</string>
-  <string name="talk_templates_new_message_description">Compor uma mensagem de aviso.</string>
   <string name="talk_templates_new_message_subject_hint">Assunto</string>
   <string name="talk_templates_new_message_compose_hint">Compor mensagem</string>
   <string name="talk_templates_new_message_save">Gravar</string>
@@ -1488,7 +1486,6 @@
     <item quantity="other">As mensagens foram excluídas</item>
   </plurals>
   <string name="talk_templates_message_title_empty">O título não pode ficar vazio.</string>
-  <string name="patroller_tasks_edits_list_title">Lista de edições</string>
   <string name="patroller_tasks_edits_list_search_hint">Pesquisar ou filtrar edições</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiquetas: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nenhuma</string>
@@ -1548,7 +1545,6 @@
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patrulhar edição</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historial de revisões do artigo</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Reversão concluída</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Tem a certeza de que deseja desfazer as edições?</string>
@@ -1598,10 +1594,10 @@
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Toque em &lt;b&gt;\'Ver no mapa\'&lt;/b&gt; para explorar a localização deste artigo</string>
+  <string name="places_article_menu_tooltip_message">Toque em «Ver no mapa» para explorar a localização deste artigo</string>
   <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
   <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Ajudar a melhorar \"Lugares\"</string>
+  <string name="places_survey_dialog_title">Ajudar a melhorar «Lugares»</string>
   <string name="places_survey_feedback_dialog_title">Como pode a funcionalidade \"Lugares\" ser melhorada?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">O que gostaria que mudássemos ou melhorássemos?</string>
   <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>

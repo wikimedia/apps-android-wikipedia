@@ -24,6 +24,7 @@
 * Ssola
 * Toniher
 * Unapersona
+* V27t
 * Vfc
 * Xavier Dengra
 -->
@@ -255,15 +256,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ca</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
-  <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Reconeixement-CompartirIgual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Reconeixement-CompartirIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Un projecte de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
@@ -764,8 +765,8 @@
   <string name="notifications_menu_uncheck_all">Desmarca tots els elements</string>
   <string name="notifications_wiki_filter_header">Filtre wiki</string>
   <string name="notifications_type_filter_header">Filtre de tipus</string>
-  <string name="notifications_all_wikis_text">Totes les de «wiki»</string>
-  <string name="notifications_all_types_text">Totes les de «tipus»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Totes les de «wiki»</string>
+  <string name="notifications_all_types_text" fuzzy="true">Totes les de «tipus»</string>
   <string name="notifications_menu_user_talk_page">Pàgina de discussió de %s</string>
   <string name="notifications_offline_disable_message">La funció no és disponible fora de línia.</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
@@ -853,8 +854,8 @@
   <string name="description_edit_voice_input_description">Entrada de veu</string>
   <string name="description_edit_learn_more">Quant a les descripcions dels articles</string>
   <string name="description_edit_image_caption_learn_more">Quant a les llegendes de les imatges</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">El text és massa curt.</string>
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
@@ -1124,6 +1125,7 @@
   <string name="onboarding_explore_text">Capbusseu-vos a l\'univers de la Viquipèdia amb el canal d\'actualització contínua «Exploreu». &lt;br/&gt;&lt;b&gt;Personalitzeu&lt;/b&gt; el canal amb els vostres interessos, llegiu sobre els esdeveniments històrics d\'&lt;b&gt;Un dia com avui&lt;/b&gt; o jugueu als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text_v2">Podeu fer llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan sigueu fora de línia. &lt;br/&gt;Inicieu una sessió al vostre compte de Viquipèdia per sincronitzar les llistes de lectura. &lt;a href=\"#login\"&gt;Uniu-vos a la Viquipèdia&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Dades i privadesa</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_got_it">Entesos</string>
   <string name="onboarding_multilingual_secondary_text">Hem trobat el següent en el dispositiu:</string>
@@ -1225,6 +1227,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Alçària</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Insereix</string>
+  <string name="templates_insert_button">Insereix</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
@@ -1250,8 +1253,6 @@
   <string name="talk_warn_save_dialog_cancel">Cancel·la</string>
   <string name="talk_warn_submitted">Missatge publicat a la pàgina de discussió d\'usuari de l\'editor</string>
   <string name="talk_warn_submitted_and_saved">Missatge desat i publicat a la pàgina de discussió d\'usuari de l\'editor</string>
-  <string name="talk_warn_saved_message">Seleccioneu un missatge d\'avís existent o redacteu-ne un de nou.</string>
-  <string name="talk_warn_saved_message_dropdown">Missatges desats</string>
   <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
   <string name="talk_page_empty_title">La conversa comença aquí</string>
   <string name="talk_page_empty_content">Les pàgines de discussió és on es discuteix on fer el contingut de la Viquipèdia el millor possible. Inicieu-vos-hi afegint-hi un nou tema de discussió per a connectar-vos i col·laborar amb una comunitat viquipedista.</string>
@@ -1455,10 +1456,8 @@
   <string name="reading_list_share_message_v2">Hola! Voldria compartir-vos la meva llista de lectura de la Viquipèdia:</string>
   <string name="reading_list_share_survey_title">Ens podeu ajudar a millorar la funcionalitat de «Comparteix llistes de lectura»?</string>
   <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>
-  <string name="talk_templates_manage_title">Gestiona les plantilles</string>
-  <string name="talk_templates_empty_message">No teniu cap missatge d\'avís desat.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">No teniu cap missatge d\'avís desat.</string>
   <string name="talk_templates_new_message_title">Missatge nou</string>
-  <string name="talk_templates_new_message_description">Redacta el missatge d\'avís.</string>
   <string name="talk_templates_new_message_subject_hint">Assumpte</string>
   <string name="talk_templates_new_message_compose_hint">Redacta el missatge</string>
   <string name="talk_templates_new_message_save">Desa</string>
@@ -1475,7 +1474,6 @@
   <string name="talk_templates_edit_message_updated">El missatge s\'ha actualitzat</string>
   <string name="talk_templates_message_deleted" fuzzy="true">El missatge s\'ha suprimit</string>
   <string name="talk_templates_message_title_empty">El títol no pot ser en blanc.</string>
-  <string name="patroller_tasks_edits_list_title">Llista d\'edicions</string>
   <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra edicions</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiquetes: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Cap</string>
@@ -1535,7 +1533,6 @@
     <item quantity="one">%d filtre</item>
     <item quantity="other">%d filtres</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patrulla l\'edició</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historial d\'edició de l\'article</string>
   <string name="patroller_tasks_patrol_edit_undo_success">S\'ha completat la reversió</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Esteu segur que voleu revertir enrere?</string>

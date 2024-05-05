@@ -20,7 +20,7 @@ class WikiTextKeyboardFormattingView : FrameLayout {
         binding.closeButton.setOnClickListener {
             callback?.onSyntaxOverlayCollapse()
         }
-        FeedbackUtil.setButtonLongPressToast(binding.closeButton)
+        FeedbackUtil.setButtonTooltip(binding.closeButton)
         binding.wikitextButtonBold.setOnClickListener {
             editText?.inputConnection?.let {
                 WikiTextKeyboardView.toggleSyntaxAroundCurrentSelection(editText, it, "'''", "'''")

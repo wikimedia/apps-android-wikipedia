@@ -242,15 +242,15 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Levraouegoù implijet</string>
   <string name="about_contributors_heading">Kenlabourerien</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pajenn ar skipailh&lt;/a&gt;</string>
   <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
-  <string name="about_app_license">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;aotre-implijout Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;aotre-implijout Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Ur produ gant &lt;a href=\"https://wikimediafoundation.org/\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
@@ -396,6 +396,10 @@
   <string name="multi_select_items_selected">%d diuzet</string>
   <string name="error_message_generic">Ur fazi zo c\'hoarvezet</string>
   <string name="view_link_preview_error_button_dismiss">Disteurel</string>
+  <string name="link_preview_dialog_read_button">Lenn</string>
+  <string name="link_preview_dialog_save_button">Enrollañ</string>
+  <string name="link_preview_dialog_saved_button">Enrollet</string>
+  <string name="link_preview_dialog_share_button">Rannañ</string>
   <string name="error_page_does_not_exist">N\'eus ket eus ar bajenn-mañ.</string>
   <string name="view_wiki_error_message_offline">N\'haller ket kevreañ ouzh ar Genrouedad</string>
   <string name="view_wiki_error_message_timeout">N\'haller ket kennaskañ ouzh Wikipedia. Gwiriit ma\'z oc\'h kennasket ouzh ar rouedad pe klaskit adarre diwezhatoc\'h</string>
@@ -411,6 +415,9 @@
   <string name="error_blocked_expiry">Dibenn ar stankadenn: %s</string>
   <string name="error_blocked_id">ID ar stankadur: %s</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personelaat ho parrenn-ostilhoù</string>
+  <string name="temp_account_not_logged_in">N\'oc\'h ket kevreet</string>
+  <string name="temp_account_dialog_ok">Komprenet am eus</string>
+  <string name="temp_account_using_title">Ur c\'hont da c\'hortoz emaoc\'h oc\'h implij</string>
   <string name="crash_report_activity_title">Fazi an arload</string>
   <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.\n\nHa c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
@@ -496,6 +503,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Lemel pep tra eus ezlinenn</string>
   <string name="reading_list_action_menu_save_all_for_offline">Enrollañ pep tra evit ezlinenn</string>
   <string name="reading_list_action_menu_add_to_another_list">Ouzhpennañ d\'ur roll all</string>
+  <string name="reading_list_action_menu_move_to_another_list">Dilerc\'hiañ d\'ur roll all</string>
   <string name="reading_list_name_sample">Ma roll lenn</string>
   <string name="reading_list_name_hint">Anv ar roll-mañ</string>
   <string name="reading_list_description_hint">Deskrivadur (diret)</string>
@@ -526,6 +534,7 @@
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s dilamet. Ne c\'haller ket dilemel ar roll dre ziouer (%2$s).</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Dilamet eo bet ar rolloù. Ne c\'haller ket dilemel ar roll dre ziouer (%s).</string>
   <string name="reading_list_items_deleted">%d pennad lamet a-ziwar ar roll</string>
+  <string name="reading_lists_item_deleted">%s dilamet diouzh ar rolloù</string>
   <string name="reading_list_item_delete_undo">Dizober</string>
   <string name="reading_list_deleted">%s dilamet</string>
   <string name="saved_list_empty_title">Roll lenn ebet c\'hoazh.</string>
@@ -619,11 +628,13 @@
   <string name="reading_lists_preview_saved_snackbar_action">Gwelet</string>
   <string name="user_option_sync_label">Penndibaboù</string>
   <string name="notification_reverted_title">Kemm distaolet</string>
+  <string name="notification_channel_title">O pellgargañ ar pennadoù...</string>
   <string name="notification_channel_description">Araokadur ar pellgargañ</string>
   <string name="notification_syncing_pause_button">Ehan</string>
   <string name="notification_syncing_resume_button">Adstagañ ganti</string>
   <string name="notification_syncing_cancel_button">Nullañ</string>
   <string name="notification_syncing_reading_list_channel_description">Emeur o sinkronelaat ar rolloù lenn</string>
+  <string name="notification_many_unread">%d a gemennoù ho peus da lenn</string>
   <plurals name="notification_channel_name">
     <item quantity="one">O pellgargañ pennad</item>
     <item quantity="two">O pellgargañ pennadoù</item>
@@ -749,8 +760,8 @@
   <string name="notifications_swipe_action_read">Lenn</string>
   <string name="notifications_swipe_action_unread">N\'eo ket bet lennet</string>
   <string name="notifications_wiki_filter_header">Sil wiki</string>
-  <string name="notifications_all_wikis_text">Pep \"wiki\"</string>
-  <string name="notifications_all_types_text">Pep \"seurt\"</string>
+  <string name="notifications_all_wikis_text">An holl wikioù</string>
+  <string name="notifications_all_types_text">Pep seurt</string>
   <string name="notifications_menu_user_talk_page">Pajenn gaozeal %s</string>
   <string name="notifications_offline_disable_message">An arc\'hwel-mañ n\'eo ket hegerz pa vezer ezlinenn.</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
@@ -827,6 +838,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù e deskrivadurioù pennadoù. Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia mar plij ganeoc\'h.</string>
   <string name="description_edit_license_notice">Pa gemann deskrivadur ar pennad e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Re verr eo an destenn-mañ.</string>
   <string name="description_edit_success_saved">Embannet eo bet deskrivadur ar pennad !</string>
   <string name="description_edit_success_saved_snackbar">Embannet eo bet deskrivadur ar pennad !</string>
@@ -919,6 +932,7 @@
   <string name="suggested_edits_image_tags_add_tag">Ouzhpennañ un dikedenn</string>
   <string name="suggested_edits_image_zoom_tooltip">Piñsit evit zoumañ war ar skeudenn-mañ.</string>
   <string name="suggested_edits_views_label_text">Gweladennoù</string>
+  <string name="suggested_edits_quality_label_text">Kalite ar c\'hemmoù</string>
   <string name="suggested_edits_quality_perfect_text">Peurvat</string>
   <string name="suggested_edits_quality_excellent_text">Dispar</string>
   <string name="suggested_edits_quality_very_good_text">Mat-tre</string>
@@ -970,6 +984,8 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Dec\'h</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kevreañ ouzh / mont gant Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Tikedenn ar skeudenn</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">N\'eus ket a-walc\'h a ditouroù</string>
+  <string name="suggested_edits_inappropriate_suggestion">Kinnig dizereat</string>
   <string name="suggested_edits_report_suggestion">Danevelliñ</string>
   <string name="suggested_edits_image_recommendations_task_title">Skeudennoù ar pennad</string>
   <string name="image_recommendation_task_instruction">Daoust hag ec\'h ouzhpennfec\'h ar skeudenn-mañ er pennad?</string>
@@ -1005,6 +1021,7 @@
   <string name="onboarding_explore_title">Doareoù ergerzhet nevez</string>
   <string name="onboarding_reading_list_sync_title">Rolloù lenn gant sinkronelaat</string>
   <string name="onboarding_reading_list_sync_text_v2">Gallout a reot krouiñ rolloù lenn adalek ar pennadoù hoc\'h eus c\'hoant da lenn diwezhatoc\'h, ha pa vefe ezlinenn. &lt;br/&gt;Kevreit ouzh ho kont Wikipedia evit sinkronelaat ho rolloù lenn. &lt;a href=\"#login\"&gt;Mont gant Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Roadennoù &amp; Prevezded</string>
   <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
   <string name="onboarding_got_it">Mat eo</string>
   <string name="onboarding_multilingual_secondary_text">An dra-mañ hon eus kavet en hoc\'h ardinvik :</string>
@@ -1055,6 +1072,7 @@
   <string name="reverted_edit_dialog_ok_button_text">Mat eo</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Nullañ</string>
   <string name="edit_type_all">An holl degasadennoù</string>
+  <string name="content_description_for_page_indicator">Pajenn %1$d diwar %2$d</string>
   <string name="wikitext_bold">Tev</string>
   <string name="wikitext_italic">Italek</string>
   <string name="wikitext_underline">Islinennañ</string>
@@ -1070,6 +1088,7 @@
   <string name="wikitext_headings">Titloù</string>
   <string name="wikitext_template">Patrom</string>
   <string name="wikitext_reference">Dave</string>
+  <string name="wikitext_mention_user">Menegiñ un implijer·ez</string>
   <string name="insert_media_search_hint">Klask ur media</string>
   <string name="insert_media_settings">Ouzhpennañ munudoù d\'ar skeudenn</string>
   <string name="insert_media_settings_uploaded_image">Skeudenn enporzhiet</string>
@@ -1093,6 +1112,11 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Uhelder</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Ensoc\'hañ</string>
+  <string name="templates_search_hint">Klask ur patrom</string>
+  <string name="templates_param_suggested_value">da skouer: %s</string>
+  <string name="templates_param_optional_hint">%s (Diret)</string>
+  <string name="templates_param_suggested_hint">%s (Erbedet)</string>
+  <string name="templates_learn_more_link">Gouzout hiroc\'h</string>
   <string name="main_drawer_help">Skoazell</string>
   <string name="main_drawer_login">Kevreañ ouzh/ mont gant Wikipedia</string>
   <string name="main_tooltip_action_button">Stagañ ganti</string>
@@ -1109,9 +1133,10 @@
   <string name="talk_warn_save_dialog_hint">Titl ar gemennadenn</string>
   <string name="talk_warn_save_dialog_publish">Embann</string>
   <string name="talk_warn_save_dialog_cancel">Nullañ</string>
-  <string name="talk_warn_saved_message_dropdown">Kemmadennoù enrollet</string>
+  <string name="talk_warn_save_dialog_dont_save">Na enrollañ</string>
   <string name="talk_page_empty">Goullo eo ar bejenn gaozeal-mañ.</string>
   <string name="talk_add_reply">Respont</string>
+  <string name="talk_no_subject">(Danvez ebet)</string>
   <string name="talk_reply_subject">Danvez</string>
   <string name="talk_response_submitted">Respont kaset.</string>
   <string name="talk_snackbar_undo">Dizober</string>
@@ -1136,6 +1161,8 @@
   <string name="menu_option_edit_source">Kemmañ ar vammenn</string>
   <string name="menu_option_user_page">Pajenn implijer %s</string>
   <string name="talk_menu_copy_text">Eilañ an destenn</string>
+  <string name="watchlist_details_watching_label">Oc\'h evezhiañ</string>
+  <string name="watchlist_details_watch_label">Evezhiañ</string>
   <string name="watchlist_details_next_edit">Kemm war-lerc\'h</string>
   <string name="watchlist_details_prev_edit">Kemm kent</string>
   <string name="thank_label">Trugarekaat</string>
@@ -1152,6 +1179,7 @@
   <string name="revision_diff_lines_from_to">Linennoù %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linenn ouzhpennet</string>
   <string name="revision_undo_summary_hint">Diverradur (diret)</string>
+  <string name="revision_rollback_success">Kemmoù disc\'hraet.</string>
   <string name="revision_compare_button">Keñveriañ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Kemmañ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">da badout</string>
@@ -1175,9 +1203,11 @@
   <string name="watchlist_page_deleted">Dilamet</string>
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">An holl</string>
+  <string name="watchlist_filter_user_status_registered">Enskrivet</string>
   <string name="watchlist_filter_user_status_newcomers">Tud nevez-deuet</string>
   <string name="watchlist_filter_user_status_learners">Deskarded</string>
   <string name="watchlist_filter_user_status_experienced">Implijerien arroutet</string>
+  <string name="watchlist_filter_contribution_authorship_header">Aozer ar c\'hemmoù</string>
   <string name="watchlist_filter_contribution_authorship_own">Bet kemmet ganeoc\'h</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Bet kemmet gant tud all</string>
   <string name="watchlist_filter_automated_contributions_header">Degasadennoù emgefre</string>
@@ -1200,6 +1230,11 @@
     <item quantity="many">%d sil</item>
     <item quantity="other">%d sil</item>
   </plurals>
+  <string name="preview_edit_title">Kemm kent</string>
+  <string name="preview_edit_summarize_edit_title">Diverradur ar c\'hemmoù</string>
+  <string name="preview_edit_summarize_edit_hint">Penaos eo bet gwellaet ar bajenn ganeoc\'h?</string>
+  <string name="preview_edit_minor_edit">Ur c\'hemm dister eo hemañ</string>
+  <string name="preview_edit_watch_this_page">Evezhiañ ar bajenn-mañ</string>
   <string name="action_item_categories">Rummadoù</string>
   <string name="category_tab_articles">Pennadoù</string>
   <string name="category_tab_subcategories">Isrummadoù</string>
@@ -1208,14 +1243,18 @@
   <string name="user_contrib_activity_title">Degasadennoù gant %s</string>
   <string name="archive_empty">Diell ebet kavet.</string>
   <string name="namespace_article">Pennad</string>
+  <string name="user_contrib_current">a-vremañ</string>
   <string name="user_contrib_menu_label">Degasadennoù</string>
+  <string name="action_item_view_on_map">Diskwel war ar gartenn</string>
   <string name="shareable_reading_lists_new_indicator">*nevez*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Mat eo</string>
   <string name="reading_list_share_menu_label">Rannañ…</string>
   <string name="talk_templates_new_message_title">Kemennadenn nevez</string>
+  <string name="talk_templates_new_message_subject_hint">Danvez</string>
   <string name="talk_templates_new_message_compose_hint">Skrivañ ur gemennadenn</string>
   <string name="talk_templates_new_message_save">Enrollañ</string>
   <string name="talk_templates_new_message_dialog_title">Enrollañ ar c\'hemmoù</string>
+  <string name="talk_templates_new_message_dialog_description">Ouzhpennit un titl hag enrollit ar gemennadenn.</string>
   <string name="talk_templates_new_message_dialog_hint">Titl ar gemennadenn</string>
   <string name="talk_templates_new_message_dialog_save">Enrollañ</string>
   <string name="talk_templates_new_message_dialog_cancel">Nullañ</string>
@@ -1226,6 +1265,8 @@
   <string name="talk_templates_edit_message_dialog_delete">Dilemel</string>
   <string name="talk_templates_edit_message_updated">Hizivaet eo bet ar gemennadenn</string>
   <string name="talk_templates_menu_remove_message">Lemel ar gemennadenn</string>
+  <string name="talk_templates_your_messages_tab_title">Ho kemennadennoù</string>
+  <string name="patroller_tasks_edits_list_search_hint">Klask pe silañ ar c\'hemmoù</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tikedennoù: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hini ebet</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Gwelet pajenn an implijer</string>
@@ -1241,13 +1282,22 @@
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Pep tra</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Aozerien n\'int ket kevreet.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Enskrivet</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Tud nevez-deuet</string>
   <string name="patroller_tasks_filters_user_status_learners">Deskarded</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Degasadennoù emgefre</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Robot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Den (n\'eo ket ur robot)</string>
   <string name="patroller_tasks_filters_significance_header">Talvoudegezh</string>
   <string name="patroller_tasks_filters_significance_minor">Kemmoù dister</string>
   <string name="patroller_tasks_filters_significance_edits">Kemmoù n\'int ket dister</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d sil</item>
+    <item quantity="two">%d sil</item>
+    <item quantity="few">%d sil</item>
+    <item quantity="many">%d sil</item>
+    <item quantity="other">%d sil</item>
+  </plurals>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Gwelet</string>
   <string name="patroller_tasks_overflow_learn">Gouzout hiroc\'h</string>
   <string name="patroller_onboarding_two_thank_title">Trugarekaat</string>
@@ -1255,9 +1305,18 @@
   <string name="patroller_onboarding_two_warn_title">Diwall</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Roit hoc\'h ali</string>
   <string name="patroller_diff_feedback_dialog_submit">Kas</string>
+  <string name="patroller_saved_message_title_npov">Sav-boent neptu</string>
+  <string name="patroller_saved_message_title_auto_trans">Troidigezh emgefreek</string>
+  <string name="talk_templates_menu_edit_title">Kemmañ</string>
   <string name="data_opt_in_accept">Asantiñ</string>
   <string name="data_opt_in_reject">Disteurel</string>
   <string name="page_issues_title">Kudennoù war ar bajenn</string>
   <string name="donation_campaign_maybe_later_snackbar">Ni a gemenno ac\'hanoc\'h en-dro warc\'hoazh.</string>
   <string name="donation_campaign_go_back_button">Distreiñ</string>
+  <string name="places_title">Lec\'hioù</string>
+  <string name="places_search_hint">Klask lec\'hioù</string>
+  <string name="places_filter_title">Silañ dre yezh</string>
+  <string name="places_toggle_buttons_map">Kartenn</string>
+  <string name="places_toggle_buttons_list">Roll</string>
+  <string name="places_survey_dialog_cancel">Nullañ</string>
 </resources>
