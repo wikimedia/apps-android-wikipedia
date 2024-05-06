@@ -162,10 +162,10 @@ object JavaScriptActionHandler {
                 "})"
     }
 
-    fun mobileWebChromeShim(): String {
+    fun mobileWebChromeShim(marginTop: Int, marginBottom: Int): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 48px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: 72px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: ${marginTop}px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: ${marginBottom}px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }

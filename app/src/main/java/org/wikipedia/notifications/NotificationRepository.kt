@@ -7,20 +7,16 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 
-class NotificationRepository constructor(private val notificationDao: NotificationDao) {
+class NotificationRepository(private val notificationDao: NotificationDao) {
 
     fun getAllNotifications() = notificationDao.getAllNotifications()
 
-    fun insertNotifications(notifications: List<Notification>) {
+    private fun insertNotifications(notifications: List<Notification>) {
         notificationDao.insertNotifications(notifications)
     }
 
     suspend fun updateNotification(notification: Notification) {
         notificationDao.updateNotification(notification)
-    }
-
-    suspend fun deleteNotification(notification: Notification) {
-        notificationDao.deleteNotification(notification)
     }
 
     suspend fun fetchUnreadWikiDbNames(): Map<String, WikiSite> {

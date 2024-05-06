@@ -643,8 +643,8 @@
   <string name="notifications_search_bar_filter_hint">Penapis pemberitahuan</string>
   <string name="notifications_swipe_action_read">Baca</string>
   <string name="notifications_wiki_filter_header">Penapis Wiki</string>
-  <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
-  <string name="notifications_all_types_text">Semua \"jenis\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Semua \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
   <string name="notifications_menu_user_talk_page">Laman perbincangan %s</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
@@ -768,7 +768,7 @@
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
   <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
   <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
-  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
+  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk penyunting berbilang bahasa</string>
   <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
@@ -939,6 +939,7 @@
   <string name="talk_title">Bincang</string>
   <string name="talk_user_title">Perbincangan: %s</string>
   <string name="talk_new_topic">Topik baru</string>
+  <string name="talk_warn_save_dialog_publish">Terbitkan</string>
   <string name="talk_page_empty">Halaman perbincangan ini kosong.</string>
   <string name="talk_add_reply">Balas</string>
   <string name="talk_no_subject">(Tiada subjek)</string>
@@ -947,6 +948,7 @@
   <string name="talk_message_hint">Tulis pesanan</string>
   <string name="talk_message_empty">Pesanan jangan dibiarkan kosong.</string>
   <string name="talk_subject_empty">Subjek jangan dibiarkan kosong.</string>
+  <string name="talk_last_modified">&lt;b&gt;Kali terakhir disunting %1$s&lt;/b&gt; oleh %2$s</string>
   <string name="talk_search_hint">Cari mesej</string>
   <string name="talk_search_topics_hint">Cari topik</string>
   <string name="talk_overflow_sort_topic_name">Nama topik</string>
@@ -970,6 +972,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">untuk 1 minggu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">untuk 1 bulan</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">untuk 3 bulan</string>
+  <string name="watchlist_expiry_dialog_permanent">Kekal</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
   <string name="watchlist_expiry_dialog_one_month">1 bulan</string>
   <string name="watchlist_expiry_dialog_three_months">3 bulan</string>
