@@ -1099,8 +1099,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nej</string>
   <string name="image_recommendation_notsure">Ikke sikker</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Hvorfor ikke?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Dine svar forbedrer fremtidige forslag.</string>
+  <string name="image_recommendation_reject_title">Grund til afvisning</string>
+  <string name="image_recommendation_reject_subtitle">Årsagen til afvisningen er anonym og vil forbedre fremtidige billedforslag.</string>
   <string name="image_recommendation_reject_not_relevant">Billedet er ikke relevant</string>
   <string name="image_recommendation_reject_no_info">Ikke nok information til at beslutte</string>
   <string name="image_recommendation_reject_offensive">Billedet er stødende</string>
@@ -1258,6 +1258,7 @@
   <string name="templates_learn_more_link">Lær mere</string>
   <string name="templates_description_incomplete">Skabeloner er brugergenererede og kan mangle fuldstændige beskrivelser.</string>
   <string name="templates_description_empty">Skabelonen \"%s\" har endnu ikke en beskrivelse.</string>
+  <string name="templates_description_missing_data">Denne skabelon mangler &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, og dens parametre er blevet &lt;a href=\"%2$s\"&gt;autogenereret&lt;/a&gt;. Som et resultat heraf mangler skabelonen og dens parametre beskrivelser.</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
   <string name="main_tooltip_text">Hej %s , vidste du, at alle kan redigere Wikipedia?</string>
@@ -1287,6 +1288,7 @@
   <string name="talk_warn_saved_messages">Gemte beskeder</string>
   <string name="talk_page_empty">Diskussionssiden er tom.</string>
   <string name="talk_page_empty_title">Samtalen begynder her</string>
+  <string name="talk_page_empty_content">Talesider er, hvor folk diskuterer, hvordan man gør Wikipedia-indhold bedst muligt. Start med at tilføje et nyt diskussionsemne for at forbinde og samarbejde med et fællesskab af Wikipedianere.</string>
   <string name="talk_add_reply">Svar</string>
   <string name="talk_no_subject">(Intet emne)</string>
   <string name="talk_reply_subject">Emne</string>
@@ -1486,7 +1488,9 @@
     <item quantity="one">Beskeden er slettet</item>
     <item quantity="other">Beskederne er slettet</item>
   </plurals>
+  <string name="talk_templates_message_title_empty">Titlen må ikke være tom.</string>
   <string name="talk_templates_your_messages_tab_title">Dine beskeder</string>
+  <string name="talk_templates_example_messages_tab_title">Beskedeksempler</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vis brugerside</string>
@@ -1561,8 +1565,24 @@
   <string name="data_opt_in_reject">Afvis</string>
   <string name="page_issues_title">Problemer med siden</string>
   <string name="generic_release_notes">Mindre fejlrettelser og forbedringer</string>
+  <string name="donation_campaign_donated_snackbar">Tak, kære donor! Din generøsitet hjælper med at holde Wikipedia og dets søsterwebsteder i gang.</string>
   <string name="donation_campaign_go_back_button">Gå tilbage</string>
   <string name="menu_single_webview_open_external">Åbn i systembrowser</string>
+  <string name="donate_gpay_dialog_title">Donér med Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Donér med Google Pay eller vælg en anden betalingsmetode.</string>
+  <string name="donate_gpay_dialog_pay_button">Donér med Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Anden betalingsmetode</string>
+  <string name="donate_gpay_activity_title">Vælg et beløb</string>
+  <string name="donate_gpay_check_transaction_fee">Jeg vil også gerne have lov til at tilføje %s, til dækning af transaktionsgebyrer, sådan at I kan beholde 100% af min donation.</string>
+  <string name="donate_gpay_check_recurring">Gør dette til en månedlig gentagende donation.</string>
+  <string name="donate_gpay_check_send_email">Ja, Wikimedia Foundation må gerne sende mig en lejlighedsvis e-mail.</string>
+  <string name="donate_gpay_minimum_amount">Vælg venligst et beløb (minimum %s)</string>
+  <string name="donate_gpay_maximum_amount">Vi kan ikke acceptere donationer på mere end %s via vores app. Kontakt venligst vores personlale for store gaver på benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Tak!&lt;/b&gt; Din generøsitet over for Wikipedia betyder så meget for os.</string>
+  <string name="donate_gpay_help_problems">Problemer med at donere?</string>
+  <string name="donate_gpay_help_other_ways">Andre måder at give på</string>
+  <string name="donate_gpay_help_faq">Ofte stillede spørgsmål</string>
+  <string name="donate_gpay_help_tax">Information om skattefradrag</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Placeringstilladelse er påkrævet for at se din placering på kortet. Prøv igen.</string>
   <string name="places_search_hint">Søg steder</string>
