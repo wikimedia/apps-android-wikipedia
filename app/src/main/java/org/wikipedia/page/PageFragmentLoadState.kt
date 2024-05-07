@@ -1,14 +1,14 @@
 package org.wikipedia.page
 
 import android.widget.Toast
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -48,7 +48,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private var networkErrorCallback: ErrorCallback? = null
     private val app = WikipediaApp.instance
-    private val disposables = CompositeDisposable()
+    private var clientJob: Job? = null
 
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
@@ -129,73 +129,77 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
-            disposables.clear()
-            disposables.add(Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { pageLoadFromNetwork { fragment.onPageLoadError(it) } }
-                    .subscribe())
+            clientJob?.cancel()
+            clientJob = CoroutineScope(Dispatchers.Main).launch {
+                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+                pageLoadFromNetwork(it) { fragment.onPageLoadError(it) }
+            }
         }
     }
 
-    private fun pageLoadFromNetwork(errorCallback: ErrorCallback) {
-        model.title?.let { title ->
-            fragment.updateQuickActionsAndMenuOptions()
-            networkErrorCallback = errorCallback
-            if (!fragment.isAdded) {
-                return
-            }
+    private suspend fun pageLoadFromNetwork(title: PageTitle, errorCallback: ErrorCallback) {
+        fragment.updateQuickActionsAndMenuOptions()
+        networkErrorCallback = errorCallback
+        if (!fragment.isAdded) {
+            return
+        }
+        fragment.requireActivity().invalidateOptionsMenu()
+        fragment.callback()?.onPageUpdateProgressBar(true)
+        model.page = null
+        val delayLoadHtml = title.prefixedText.contains(":")
+        if (!delayLoadHtml) {
+            bridge.resetHtml(title)
+        }
+        if (title.namespace() === Namespace.SPECIAL) {
+            // Short-circuit the entire process of fetching the Summary, since Special: pages
+            // are not supported in RestBase.
+            bridge.resetHtml(title)
+            leadImagesHandler.loadLeadImage()
             fragment.requireActivity().invalidateOptionsMenu()
-            fragment.callback()?.onPageUpdateProgressBar(true)
-            model.page = null
-            val delayLoadHtml = title.prefixedText.contains(":")
-            if (!delayLoadHtml) {
-                bridge.resetHtml(title)
-            }
-            if (title.namespace() === Namespace.SPECIAL) {
-                // Short-circuit the entire process of fetching the Summary, since Special: pages
-                // are not supported in RestBase.
-                bridge.resetHtml(title)
-                leadImagesHandler.loadLeadImage()
-                fragment.requireActivity().invalidateOptionsMenu()
-                fragment.onPageMetadataLoaded()
-                return
-            }
-            disposables.add(Observable.zip(ServiceFactory.getRest(title.wikiSite)
-                    .getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
-                            if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                            title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)),
-                    if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
-                    else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                    else Observable.just(MwQueryResponse())) { first, second -> Pair(first, second) }
-                .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pair ->
-                        val pageSummaryResponse = pair.first
-                        val watchedResponse = pair.second
-                        val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
-                        val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
-                        if (pageSummaryResponse.body() == null) {
-                            throw RuntimeException("Summary response was invalid.")
-                        }
-                        val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
-                        createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
-                        if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                            showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                        }
-                        if (delayLoadHtml) {
-                            bridge.resetHtml(title)
-                        }
-                        fragment.onPageMetadataLoaded(redirectedFrom)
+            fragment.onPageMetadataLoaded()
+            return
+        }
 
-                        if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
-                            checkAnonNotifications(title)
-                        }
-                    }) {
-                        L.e("Page details network response error: ", it)
-                        commonSectionFetchOnCatch(it)
+        withContext(Dispatchers.Main) {
+            try {
+                val pageSummaryRequest = async { ServiceFactory.getRest(title.wikiSite)
+                    .getSummaryResponseSuspend(title.prefixedText, null, model.cacheControl.toString(),
+                        if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
+                        title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)) }
+                val watchedRequest = async {
+                    if (app.isOnline && AccountUtil.isLoggedIn) {
+                        ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
+                    } else if (app.isOnline && !AccountUtil.isLoggedIn) {
+                        AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
+                    } else {
+                        MwQueryResponse()
                     }
-            )
+                }
+
+                val pageSummaryResponse = pageSummaryRequest.await()
+                val watchedResponse = watchedRequest.await()
+                val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
+                val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                if (pageSummaryResponse.body() == null) {
+                    throw RuntimeException("Summary response was invalid.")
+                }
+                val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
+                createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+                if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
+                    showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
+                }
+                if (delayLoadHtml) {
+                    bridge.resetHtml(title)
+                }
+                fragment.onPageMetadataLoaded(redirectedFrom)
+
+                if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
+                    checkAnonNotifications(title)
+                }
+            } catch (e: Exception) {
+                L.e("Page details network error: ", e)
+                commonSectionFetchOnCatch(e)
+            }
         }
     }
 

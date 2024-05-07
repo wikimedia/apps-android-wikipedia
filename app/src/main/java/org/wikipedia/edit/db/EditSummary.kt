@@ -2,7 +2,7 @@ package org.wikipedia.edit.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+import java.util.Date
 
 @Entity
 class EditSummary constructor(
