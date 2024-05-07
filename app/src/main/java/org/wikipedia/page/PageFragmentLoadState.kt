@@ -1,8 +1,6 @@
 package org.wikipedia.page
 
 import android.widget.Toast
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -162,10 +160,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
         withContext(Dispatchers.Main) {
             try {
-                val pageSummaryRequest = async { ServiceFactory.getRest(title.wikiSite)
-                    .getSummaryResponseSuspend(title.prefixedText, null, model.cacheControl.toString(),
-                        if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                        title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)) }
+                val pageSummaryRequest = async {
+                    ServiceFactory.getRest(title.wikiSite).getSummaryResponseSuspend(title.prefixedText, null, model.cacheControl.toString(),
+                        if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null, title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText))
+                }
                 val watchedRequest = async {
                     if (app.isOnline && AccountUtil.isLoggedIn) {
                         ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
@@ -205,7 +203,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun checkAnonNotifications(title: PageTitle) {
         CoroutineScope(Dispatchers.Main).launch {
-            val response = ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
+            val response = ServiceFactory.get(title.wikiSite)
+                .getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
             if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(response, title)) {
                 fragment.showAnonNotification()
             }
@@ -249,10 +248,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
             fragment.requireActivity().invalidateOptionsMenu()
 
             // Update our history entry, in case the Title was changed (i.e. normalized)
-            val curEntry = model.curEntry
-            curEntry?.let {
-                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp)
-                model.curEntry!!.referrer = it.referrer
+            model.curEntry?.let {
+                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp).apply {
+                    referrer = it.referrer
+                }
             }
 
             // Update our tab list to prevent ZH variants issue.
@@ -260,7 +259,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
+            CoroutineScope(Dispatchers.IO).launch {
+                AppDatabase.instance.pageImagesDao().insertPageImage(pageImage)
+            }
             title.thumbUrl = pageImage.imageName
         }
     }
