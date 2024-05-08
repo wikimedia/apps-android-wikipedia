@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * Ernác
 * Къарачайлы
 -->
@@ -149,7 +150,7 @@
   <string name="login_in_progress_dialog_message">Системагъа кириледи...</string>
   <string name="login_success_toast">Авторизация тыйыншлы ётдю!</string>
   <string name="reset_password_title">Паролунгу сал</string>
-  <string name="reset_password_description">Кёзюулю пароль бла кирдигиз. Кириуню тамамлар ючюн, былайда джангы пароль салыгъыз.</string>
+  <string name="reset_password_description">Кёзюулю пароль бла кирдигиз. Кириуню тамамлар ючюн, тилейбиз, былайда джангы пароль салыгъыз.</string>
   <string name="reset_password_hint">Джангы пароль</string>
   <string name="reset_password_button">Сакъла эмда кир</string>
   <string name="preference_title_logout">Чыкъ</string>
@@ -200,7 +201,7 @@
   <string name="preferences_account_heading">Хыйсаб</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Къошакъ ючюн кери билдириу джибер</string>
-  <string name="create_account_account_created_toast">Тергеу джазыу къуралды!</string>
+  <string name="create_account_account_created_toast">Хыйсаб къуралды!</string>
   <string name="preferences_heading_syncing">Синхронизация</string>
   <string name="preferences_heading_data_usage">Трафик хайырланыу</string>
   <string name="preferences_heading_experimental">Экспериментли</string>
@@ -407,7 +408,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Суратланы къарартыу (Къарангы тема ючюн)</string>
   <string name="preference_title_prefer_offline_content">Оффлайн контентни сайла</string>
   <string name="preference_summary_prefer_offline_content">Бу статьяны ахыр версиясын джюклер орнуна, хар кере оффлайн хайырланырча статьяланы джюклеб, трафикни аяулу эт</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Система темагъа келишеди</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Система темагъа келишдир</string>
   <string name="page_footer_license_text">Башха белгиленмеген эсе, ичиндегиси,  $1 лицензиягъа кёре бериледи.</string>
   <string name="empty_tab_title">Джангы салгъыч</string>
   <string name="menu_save_all_tabs">Бютеу салгъычланы сакъландыр</string>
@@ -468,7 +469,7 @@
   <string name="theme_category_editing">Тюзетиу</string>
   <string name="reading_focus_mode">Окъууну фокус режими</string>
   <string name="reading_focus_mode_detail">Тюзетиу энчиликлени эмда скроллингде адыр панелни джашырады</string>
-  <string name="editing_syntax_highlight_label">Синтаксисни джарыкъ бла чертиу</string>
+  <string name="editing_syntax_highlight_label">Синтаксисни джарыкъ чертиу</string>
   <string name="editing_line_numbers_label">Тизгин номерлени кёргюз</string>
   <string name="editing_monospace_font_label">Монобошлукълу шрифтны хайырлан</string>
   <string name="editing_typing_suggestions">Джазыу теджеулени кёргюз</string>
@@ -625,14 +626,14 @@
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Кетер</string>
   <string name="reading_list_activity_title">Окъуу тизме: %s</string>
-  <string name="reading_list_notification_title">Окъургъа тизме(ле) экспорт болду</string>
+  <string name="reading_list_notification_title">Окъуу тизме(ле) экспорт болду</string>
   <string name="reading_list_notification_text">%d Окъуу тимзе/тизмеле \'reading_lists export.json\' болуб эндирилгенле папкагъа экспорт этилди</string>
   <string name="reading_list_notification_detailed_text">Окъуу тизмеле \'reading_lists_export.json\' болуб экспорт этилди</string>
   <string name="reading_lists_action_menu_export_lists">Эспорт эт</string>
   <string name="reading_lists_import_file_picker_title">Импорт этиллик файлны сайла</string>
-  <string name="reading_lists_import_failure_message">Окъургъа тизме импорт болалмады</string>
+  <string name="reading_lists_import_failure_message">Окъуу тизме импорт болалмады</string>
   <string name="reading_lists_export_select_lists_message">Эспорт этиллик тизмени/тизмелени сайла</string>
-  <string name="reading_lists_export_completed_message">Окъургъа тизме(ле) экспорт болду</string>
+  <string name="reading_lists_export_completed_message">Окъуу тизме(ле) экспорт болду</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">Окъуу тизме экспорт джетишимсиз болду</item>
     <item quantity="other">Окъуу тизме экспорт джетишимсиз болду</item>
@@ -654,7 +655,7 @@
   <string name="notification_reverted_title">Кери алыннган тюзетиу</string>
   <string name="notification_channel_title">Статьяла эндириледиле</string>
   <string name="notification_channel_description">Эндириуню прогресси</string>
-  <string name="notification_syncing_pause_button">Пауза</string>
+  <string name="notification_syncing_pause_button">Туракълат</string>
   <string name="notification_syncing_resume_button">Бардыр</string>
   <string name="notification_syncing_cancel_button">Ызына ал</string>
   <string name="notification_syncing_reading_list_channel_title">Окъуу тизмеле синхронизация этиле турады</string>
@@ -738,7 +739,7 @@
   <string name="preference_summary_notification_user_talk">Сюзюу бетдеден келген билдируле эмда джууабла</string>
   <string name="preference_title_notification_email_user">Электрон мектуб алынды</string>
   <string name="preference_summary_notification_email_user">Ким эсе да сизге викини юсю бла электрон мектуб джиберди</string>
-  <string name="preference_title_notification_user_rights">Хайырланыучу хакъ тюрлениуле</string>
+  <string name="preference_title_notification_user_rights">Хайырланыучу хакълада тюрлениуле</string>
   <string name="preference_summary_notification_user_rights">Хайырланыучу хакъларыгъыз тюрленсе алыныр</string>
   <string name="preference_title_notification_article_linked">Къурагъан статьяларыгъызгъа джибериуле</string>
   <string name="preference_summary_notification_article_linked">Къурагъан бетге джангы джибериу этилсе алыныр</string>
@@ -794,7 +795,7 @@
   <string name="menu_feed_card_edit_card_languages">Картчыкъны тиллерин тюзет</string>
   <string name="menu_feed_overflow_label">Аслам сайлам</string>
   <string name="feed_featured_image_share_subject">Викигёзенни сайланнган суратлары</string>
-  <string name="feed">Тинт</string>
+  <string name="feed">Аула</string>
   <string name="home">Баш бет</string>
   <string name="view_static_card_icon_content_description">Картчыкъны белгичиги</string>
   <string name="view_card_news_title">Джангылыкълада</string>
@@ -1016,7 +1017,7 @@
   <string name="suggested_edits_what_is_title">Теджелген тюзетиулен недиле?</string>
   <string name="suggested_edits_what_is_text">Теджелген тюзетиуле, Википедияда гитче, алай а джашау магъаналы къошумла ючюн амал бередиле.</string>
   <string name="suggested_edits_learn_more">Аслам бил</string>
-  <string name="suggested_edits_paused_title">Пауза этилди</string>
+  <string name="suggested_edits_paused_title">Туракълатылды</string>
   <string name="suggested_edits_disabled_title">Джукъланыбды</string>
   <string name="suggested_edits_ip_blocked_title">IP блок этилди</string>
   <string name="suggested_edits_last_edited">Ахыр тюзетиу</string>
@@ -1075,7 +1076,7 @@
     <item quantity="other">%d символ къошдугъуз</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Статья суратла</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Ангылашаллыгъын ёздюрюр ючюн, Википедияны статьяларына теджелген суратланы къошугъуз.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Ангылашаллыгъын ёсдюрюр ючюн, Википедияны статьяларына теджелген суратланы къошугъуз.</string>
   <string name="image_recommendation_task_instruction">Бу суратны статьягъа къошармы эдигиз?</string>
   <string name="image_recommendation_tutorial">Юретиучю</string>
   <string name="image_recommendation_accept">Хоу</string>
@@ -1097,7 +1098,7 @@
   <string name="image_recommendation_onboarding_4">Суратла, Википедия хайырланнган эркин лицензиялы сурат коллекция Викигёзенден алыныр.</string>
   <string name="image_recommendation_tooltip_1">Темасын ангылар ючюн бу статьяны тинтигиз</string>
   <string name="image_recommendation_tooltip_2">Суратны эмда байламлы информацияны тинтигиз</string>
-  <string name="image_recommendation_tooltip_3">Суратны, окъуучуланы бу теманы андан да иги ангыларларына болушлукъ болуб болмагъанына оноу этигиз.</string>
+  <string name="image_recommendation_tooltip_3">Суратны, окъуучуланы бу теманы андан да иги ангыларларына болушлукъ болуб болмагъанына оноу этигиз</string>
   <string name="image_recommendation_tooltip_next">Эндиги</string>
   <string name="image_recommendation_tooltip_warning">Темасын ангылар ючюн, тилейбиз, статьягъа джангыдан кёз джетдиригиз эмда суратны тинтигиз</string>
   <string name="image_recommendation_depleted">Кечериксиз, бусагъатда башха теджелген сурат джокъду. Тилейбиз &lt;a href=\"#\"&gt;теджелген башха тюзетиулени&lt;/a&gt; тинтигиз неда кечирек кери къайтыгъыз.</string>
@@ -1294,7 +1295,7 @@
   <string name="talk_overflow_sort_date_published">Басмаланыу датасы</string>
   <string name="talk_overflow_sort_date_updated">Джангыртыу датасы</string>
   <string name="talk_overflow_sort_topic_name">Теманы аты</string>
-  <string name="talk_new_topic_exit_dialog_title">Чыгъаргъа излегенигзге таукелмисиз?</string>
+  <string name="talk_new_topic_exit_dialog_title">Чыгъаргъа излегенигзге ишексизмисиз?</string>
   <string name="talk_new_topic_exit_dialog_message">Тема бла текстни ичи сакъланныкъ тюлдюле.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Джууабны кёргюз</item>
@@ -1468,7 +1469,7 @@
   <string name="shareable_reading_lists_new_install_dialog_title">Окъургъа тизме сизни бла юлешиннгенди</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Сизни бла окъургъа тизмени юлешгенлерин эследик. Программада тизмеге къарар ючюн, ал билдириуге къайтыгъыз эмда джибериуге джангыдан басыгъыз.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Англашынды</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">Окъургъа тизме импорт болду</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Окъуу тизме импорт болду</string>
   <string name="reading_list_share_menu_label">Ортагъа салыргъа...</string>
   <string name="reading_list_share_menu_tooltip">Бу окъургъа тизмени башхала бла арагъа сал</string>
   <string name="reading_list_share_message_v2">Салам! Мен кесими окъургъа тизмеми сизге джаяргъа излей эдим:</string>

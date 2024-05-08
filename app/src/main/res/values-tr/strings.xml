@@ -1115,7 +1115,7 @@
   <string name="image_recommendation_tooltip_main">Önerilen Düzenlemelerde, maddelere eksik görseller ekleyin</string>
   <string name="image_recommendation_onboarding_1">Görseller insanların anlamalarına yardımcı olur, ancak birçok maddede yoktur.</string>
   <string name="image_recommendation_onboarding_2">Önerilen bir görselin bir Vikipedi maddesine yerleştirilip yerleştirilmeyeceğine siz karar vereceksiniz.</string>
-  <string name="image_recommendation_onboarding_3">Önerileri makine oluşturulmuştur ve bunları kabul edip etmemeye karar vermek için sağduyunuzu kullanırsınız.</string>
+  <string name="image_recommendation_onboarding_3">Öneriler makine ile oluşturulmuştur ve bunları kabul edip etmemeye karar vermek için sağduyunuzu kullanırsınız.</string>
   <string name="image_recommendation_onboarding_4">Görseller, Vikipedi tarafından kullanılan özgür lisanslı görsel koleksiyonu Wikimedia Commons\'tan gelir.</string>
   <string name="image_recommendation_tooltip_1">Konusunu anlamak için bu maddeyi inceleyin</string>
   <string name="image_recommendation_tooltip_2">Görseli ve ilişkili bilgileri inceleyin</string>

@@ -1109,8 +1109,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nein</string>
   <string name="image_recommendation_notsure">Nicht sicher</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Warum nicht?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Deine Antworten können zukünftige Vorschläge verbessern.</string>
+  <string name="image_recommendation_reject_title">Ablehnungsgrund</string>
+  <string name="image_recommendation_reject_subtitle">Der Ablehnungsgrund ist anonym und wird zukünftige Bildvorschläge verbessern.</string>
   <string name="image_recommendation_reject_not_relevant">Bild ist nicht zutreffend</string>
   <string name="image_recommendation_reject_no_info">Nicht genügend Informationen für eine Entscheidung</string>
   <string name="image_recommendation_reject_offensive">Bild ist anstößig</string>
@@ -1567,6 +1567,14 @@
   <string name="donation_campaign_maybe_later_snackbar">Wir werden dich morgen erneut erinnern.</string>
   <string name="donation_campaign_go_back_button">Zurück</string>
   <string name="menu_single_webview_open_external">Im Systembrowser öffnen</string>
+  <string name="donate_gpay_dialog_title">Mit Google Pay spenden?</string>
+  <string name="donate_gpay_dialog_pay_button">Mit Google Pay spenden</string>
+  <string name="donate_gpay_dialog_other_button">Andere Zahlungsmethode</string>
+  <string name="donate_gpay_maximum_amount">Wir können über unsere App keine Spenden annehmen, die höher als %s sind. Bitte wende dich an unser Teammitglied für Großspenden unter benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Danke!&lt;/b&gt; Deine Großzügigkeit gegenüber Wikipedia bedeutet uns so viel.</string>
+  <string name="donate_gpay_help_problems">Probleme beim Spenden?</string>
+  <string name="donate_gpay_help_faq">Häufig gestellte Fragen</string>
+  <string name="donate_gpay_help_tax">Informationen zur steuerlichen Absetzbarkeit</string>
   <string name="places_title">Orte</string>
   <string name="places_permissions_denied">Um deinen Standort auf der Karte anzeigen zu können, ist die Standortberechtigung erforderlich. Bitte versuche es erneut.</string>
   <string name="places_search_hint">Orte suchen</string>

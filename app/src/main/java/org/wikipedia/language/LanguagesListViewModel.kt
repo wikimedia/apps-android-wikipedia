@@ -16,7 +16,7 @@ import org.wikipedia.util.log.L
 
 class LanguagesListViewModel : ViewModel() {
 
-    private val suggestedLanguageCodes = WikipediaApp.instance.languageState.remainingAvailableLanguageCodes
+    private val suggestedLanguageCodes = WikipediaApp.instance.languageState.remainingSuggestedLanguageCodes
     private val nonSuggestedLanguageCodes = WikipediaApp.instance.languageState.appMruLanguageCodes.filterNot {
             suggestedLanguageCodes.contains(it) || WikipediaApp.instance.languageState.appLanguageCodes.contains(it)
         }

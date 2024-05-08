@@ -38,10 +38,23 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
 
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
+    var doesPageExist = false
 
     init {
         if (isFromDiff) {
             loadTemplates()
+        }
+        checkPageExists()
+    }
+
+    @Suppress("KotlinConstantConditions")
+    private fun checkPageExists() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
+                doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
+            }
         }
     }
 

@@ -21,11 +21,9 @@ import androidx.core.text.HtmlCompat
 import androidx.core.text.getSpans
 import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.transition.Transition
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.WhiteBackgroundTransformation
@@ -148,21 +146,15 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                             uri = Service.COMMONS_URL + uri.replace("./", "")
                         }
 
-                        Glide.with(view)
-                            .asBitmap()
-                            .load(uri)
-                            .into(object : CustomTarget<Bitmap>() {
-                                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                                    if (!drawable.bitmap.isRecycled) {
-                                        drawable.bitmap.applyCanvas {
-                                            drawBitmap(resource, Rect(0, 0, resource.width, resource.height), drawable.bounds, null)
-                                        }
-                                        WhiteBackgroundTransformation.maybeDimImage(drawable.bitmap)
-                                        view.postInvalidate()
-                                    }
+                        ImagePipelineBitmapGetter(view.context, uri) { bitmap ->
+                            if (!drawable.bitmap.isRecycled) {
+                                drawable.bitmap.applyCanvas {
+                                    drawBitmap(bitmap, Rect(0, 0, bitmap.width, bitmap.height), drawable.bounds, null)
                                 }
-                                override fun onLoadCleared(placeholder: Drawable?) { }
-                            })
+                                WhiteBackgroundTransformation.maybeDimImage(drawable.bitmap)
+                                view.postInvalidate()
+                            }
+                        }
                     }
                 }
             } else if (tag == "a") {

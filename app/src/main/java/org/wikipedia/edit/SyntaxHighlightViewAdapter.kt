@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import org.wikipedia.Constants
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.templates.TemplatesSearchActivity
 import org.wikipedia.extensions.parcelableExtra
@@ -28,6 +29,7 @@ class SyntaxHighlightViewAdapter(
     private val wikiTextKeyboardHeadingsView: WikiTextKeyboardHeadingsView,
     private val invokeSource: Constants.InvokeSource,
     private val requestInsertMedia: ActivityResultLauncher<Intent>,
+    private val isFromDiff: Boolean = false,
     showUserMention: Boolean = false
 ) : WikiTextKeyboardView.Callback {
 
@@ -92,7 +94,11 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onRequestInsertTemplate() {
-        requestInsertTemplate.launch(TemplatesSearchActivity.newIntent(activity, pageTitle.wikiSite, invokeSource))
+        if (isFromDiff) {
+            val activeInterface = if (invokeSource == Constants.InvokeSource.TALK_REPLY_ACTIVITY) "pt_talk" else "pt_edit"
+            PatrollerExperienceEvent.logAction("template_init", activeInterface)
+        }
+        requestInsertTemplate.launch(TemplatesSearchActivity.newIntent(activity, pageTitle.wikiSite, isFromDiff, invokeSource))
     }
 
     override fun onRequestInsertLink() {

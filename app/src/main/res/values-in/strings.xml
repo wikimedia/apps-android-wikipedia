@@ -1051,7 +1051,7 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Tidak</string>
   <string name="image_recommendation_notsure">Tidak yakin</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Kenapa tidak?</string>
+  <string name="image_recommendation_reject_title">Alasan penolakan</string>
   <string name="image_recommendation_reject_subtitle" fuzzy="true">Jawaban Anda akan meningkatkan saran di masa mendatang.</string>
   <string name="image_recommendation_reject_not_relevant">Gambar tidak relevan</string>
   <string name="image_recommendation_reject_no_info">Tidak cukup informasi untuk memutuskan</string>

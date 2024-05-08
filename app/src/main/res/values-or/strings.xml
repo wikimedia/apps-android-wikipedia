@@ -137,4 +137,5 @@
   <string name="view_static_card_icon_content_description">କାର୍ଡ ଆଇକନ</string>
   <string name="view_card_news_title">ଖବରରେ</string>
   <string name="suggested_edits_feed_card_add_image_caption">ଛବିରେ ଶୀର୍ଷକ ଯୋଡନ୍ତୁ</string>
+  <string name="watchlist_expiry_dialog_permanent">ସ୍ଥାୟୀ</string>
 </resources>

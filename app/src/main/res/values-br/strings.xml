@@ -1313,6 +1313,8 @@
   <string name="page_issues_title">Kudennoù war ar bajenn</string>
   <string name="donation_campaign_maybe_later_snackbar">Ni a gemenno ac\'hanoc\'h en-dro warc\'hoazh.</string>
   <string name="donation_campaign_go_back_button">Distreiñ</string>
+  <string name="donate_gpay_dialog_title">Reiñ gant Google Pay?</string>
+  <string name="donate_gpay_dialog_pay_button">Reiñ un donezon gant Google Pay</string>
   <string name="places_title">Lec\'hioù</string>
   <string name="places_search_hint">Klask lec\'hioù</string>
   <string name="places_filter_title">Silañ dre yezh</string>

@@ -13,7 +13,6 @@ import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import android.location.Location
 import android.os.Bundle
 import android.view.Gravity
@@ -36,8 +35,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.transition.Transition
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -70,6 +67,7 @@ import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -675,29 +673,22 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             return
         }
 
-        Glide.with(requireContext())
-            .asBitmap()
-            .load(url)
-            .into(object : CustomTarget<Bitmap>() {
-                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                    if (!isAdded) {
-                        return
-                    }
-                    annotationCache.find { it.pageId == page.pageId }?.let {
-                        val bmp = getMarkerBitmap(resource)
-                        it.bitmap = bmp
+        ImagePipelineBitmapGetter(requireContext(), url) { bitmap ->
+            if (!isAdded) {
+                return@ImagePipelineBitmapGetter
+            }
+            annotationCache.find { it.pageId == page.pageId }?.let {
+                val bmp = getMarkerBitmap(bitmap)
+                it.bitmap = bmp
 
-                        mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
+                mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
 
-                        it.annotation?.let { annotation ->
-                            annotation.iconImage = url
-                            symbolManager?.update(annotation)
-                        }
-                    }
+                it.annotation?.let { annotation ->
+                    annotation.iconImage = url
+                    symbolManager?.update(annotation)
                 }
-
-                override fun onLoadCleared(placeholder: Drawable?) {}
-            })
+            }
+        }
     }
 
     private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {

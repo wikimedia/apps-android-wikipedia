@@ -1088,7 +1088,7 @@
   <string name="image_recommendation_accept">Kyllä</string>
   <string name="image_recommendation_reject">Ei</string>
   <string name="image_recommendation_notsure">Epävarma</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Miksi ei?</string>
+  <string name="image_recommendation_reject_title">Hylkäämisen syy</string>
   <string name="image_recommendation_reject_subtitle" fuzzy="true">Vastauksesi parantavat tulevia ehdotuksia.</string>
   <string name="image_recommendation_reject_not_relevant">Kuva ei liity aiheeseen</string>
   <string name="image_recommendation_reject_no_info">Ei riittävästi tietoa päätöksentekoon</string>

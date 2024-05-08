@@ -14,7 +14,10 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -273,22 +276,22 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     }
 
     private fun updateDescriptionContents() {
-        binding.viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle)
+        binding.viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit?.displayTitle)
         binding.viewArticleTitle.visibility = VISIBLE
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
             binding.viewArticleSubtitleContainer.visibility = VISIBLE
-            binding.viewArticleSubtitle.text = addedContribution.ifEmpty { sourceSummaryForEdit!!.description }
+            binding.viewArticleSubtitle.text = addedContribution.ifEmpty { sourceSummaryForEdit?.description }
         }
 
         binding.viewImageSummaryContainer.visibility = GONE
 
-        binding.viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummaryForEdit!!.extractHtml!!)
+        binding.viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummaryForEdit?.extractHtml)
         if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
             binding.viewArticleImagePlaceholder.visibility = GONE
         } else {
             binding.viewArticleImagePlaceholder.visibility = VISIBLE
-            binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+            binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit?.getPreferredSizeThumbnailUrl()))
         }
     }
 
@@ -301,16 +304,16 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         }
 
         binding.viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
-        binding.viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummaryForEdit!!.displayTitle!!))
+        binding.viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummaryForEdit?.displayTitle.orEmpty()))
 
-        if (!sourceSummaryForEdit!!.user.isNullOrEmpty()) {
+        if (!sourceSummaryForEdit?.user.isNullOrEmpty()) {
             binding.viewImageArtist.setTitleText(getString(R.string.suggested_edits_image_caption_summary_title_author))
-            binding.viewImageArtist.setDetailText(sourceSummaryForEdit!!.user)
+            binding.viewImageArtist.setDetailText(sourceSummaryForEdit?.user)
         } else {
-            binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist()))
+            binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit?.metadata?.artist()))
         }
 
-        binding.viewImageDate.setDetailText(DateUtil.getTimeAndDateString(requireContext(), sourceSummaryForEdit!!.timestamp!!))
+        binding.viewImageDate.setDetailText(DateUtil.getTimeAndDateString(requireContext(), sourceSummaryForEdit?.timestamp.orEmpty()))
         binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
         binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 

@@ -248,7 +248,7 @@
   <string name="logged_out_in_background_login">Iniciar sesión</string>
   <string name="logged_out_in_background_cancel">Cancelar</string>
   <string name="account_vanish_request_title">Desaparecer cuenta</string>
-  <string name="account_vanish_request_confirm_title">Advertencia de cuenta desaparecida</string>
+  <string name="account_vanish_request_confirm_title">Advertencia sobre desaparecer cuenta</string>
   <string name="account_vanish_request_confirm">La desaparición es un &lt;b&gt;último recurso&lt;/b&gt; y solo se debe usar cuando desee dejar de editar para siempre y también para ocultar tantas asociaciones pasadas como sea posible.&lt;br/&gt;&lt;br/&gt; La eliminación de cuentas en Wikipedia se hace cambiando el nombre de su cuenta para que otros no puedan reconocer sus contribuciones en un proceso llamado desaparición de cuentas. &lt;b&gt;La desaparición no garantiza el anonimato total ni elimina las contribuciones a los proyectos&lt;/b&gt;.</string>
   <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
   <string name="history_empty_message">Consulta lo que has leído aquí.</string>
@@ -357,7 +357,7 @@
   <string name="edit_summary_tag_other_hint">Otras formas en las que has mejorado la página</string>
   <string name="edit_conflict_title">Conflicto de edición</string>
   <string name="edit_conflict_message">Otro usuario ya ha modificado la página y ello interfiere con tu edición. Copia tus cambios, vuelve atrás y actualiza la página. A continuación, intenta editar de nuevo.</string>
-  <string name="edit_notices">Editar avisos</string>
+  <string name="edit_notices">Avisos de edición</string>
   <string name="edit_notices_please_read">Por favor, leer antes de editar</string>
   <string name="edit_notices_show_auto">Mostrar automáticamente los avisos de edición</string>
   <string name="edit_notices_tooltip">Toque este botón para ver los avisos de edición de este artículo.</string>
@@ -821,6 +821,8 @@
   <string name="notifications_swipe_action_unread">No leída</string>
   <string name="notifications_menu_check_all">Marcar todas</string>
   <string name="notifications_menu_uncheck_all">Desmarcar todas</string>
+  <string name="notifications_wiki_filter_header">Filtro de wiki</string>
+  <string name="notifications_type_filter_header">Filtro de tipo</string>
   <string name="notifications_all_wikis_text">Todas las wikis</string>
   <string name="notifications_all_types_text">Todos los tipos</string>
   <string name="notifications_menu_user_talk_page">Página de discusión de %s</string>
@@ -1123,7 +1125,7 @@
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
   <string name="image_recommendation_reject_title">Motivo del rechazo</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Tu respuesta puede mejorar futuras sugerencias.</string>
+  <string name="image_recommendation_reject_subtitle">El motivo del rechazo es anónimo y mejorará futuras sugerencias de imágenes.</string>
   <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
   <string name="image_recommendation_reject_no_info">No hay información suficiente para decidir</string>
   <string name="image_recommendation_reject_offensive">La imagen es ofensiva</string>
@@ -1309,6 +1311,7 @@
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="menu_option_edit_source">Editar código</string>
+  <string name="menu_option_copy_link_to_clipboard">Copiar enlace en el portapapeles</string>
   <string name="watchlist_details_watching_label">Vigilando</string>
   <string name="watchlist_details_watch_label">Vigilar</string>
   <string name="watchlist_details_next_edit">Siguiente edición</string>
@@ -1320,6 +1323,8 @@
   <string name="thank_dialog_positive_button_text">Agradecer</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">Tu \'Gracias\' ha sido enviado a %s 👍</string>
+  <string name="menu_option_view_user_profile">Ver página de usuario</string>
+  <string name="menu_option_view_user_talk">Ver página de discusión</string>
   <string name="menu_option_view_user_contributions">Ver las contribuciones de los usuarios</string>
   <string name="revision_diff_compare">Compara las revisiones</string>
   <string name="revision_diff_compare_title">Comparar las revisiones: %s</string>
@@ -1415,8 +1420,9 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Ver página de usuario</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Ver página de discusión</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Información de usuario</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta de: &lt;/b&gt; %s</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Editar recuento: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta desde: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Número de ediciones: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Cerrar</string>
   <string name="patroller_tasks_filters_significance_edits">Ediciones no menores</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Predicciones de calidad de las contribuciones</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Muy probablemente buenas</string>
@@ -1468,15 +1474,21 @@
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
   <string name="donate_gpay_dialog_title">¿Donar con Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Donar con Google Pay o elegir otro método de pago.</string>
   <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Otro método de pago</string>
+  <string name="donate_gpay_activity_title">Seleccionar cantidad</string>
+  <string name="donate_gpay_check_transaction_fee">Agregaré generosamente %s para cubrir las tarifas de transacción para que puedas conservar el 100%% de mi donación.</string>
   <string name="donate_gpay_check_recurring">Hacer de esta una donación mensual periódica.</string>
+  <string name="donate_gpay_check_send_email">Sí, la Fundación Wikimedia puede enviarme un correo electrónico ocasional.</string>
   <string name="donate_gpay_minimum_amount">Por favor elegir una cantidad (mínimo %s)</string>
   <string name="donate_gpay_maximum_amount">No podemos aceptar donaciones superiores a %s a través de nuestra aplicación. Contacte a nuestro personal de donaciones importantes en benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;¡Gracias!&lt;/b&gt; Su generosidad con Wikipedia significa mucho para nosotros.</string>
   <string name="donate_gpay_help_problems">¿Problemas para donar?</string>
+  <string name="donate_gpay_help_other_ways">Otras maneras de donar</string>
   <string name="donate_gpay_help_faq">Preguntas frecuentes</string>
   <string name="donate_gpay_help_tax">Información sobre desgravación de impuestos</string>
+  <string name="places_permissions_denied">Se requiere permiso de Ubicación para ver tu ubicación en el mapa.  Por favor, inténtalo de nuevo.</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_survey_dialog_cancel">Cancelar</string>

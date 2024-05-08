@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -122,8 +123,10 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        @JvmStatic
         fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
+            if (languageEntries.isEmpty()) {
+                return
+            }
             val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
             if (parentLanguageCode != null) {
                 val languageVariants = language.getLanguageVariants(parentLanguageCode)

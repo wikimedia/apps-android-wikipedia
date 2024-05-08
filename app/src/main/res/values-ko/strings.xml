@@ -1064,8 +1064,8 @@
   <string name="image_recommendation_accept">예</string>
   <string name="image_recommendation_reject">아니오</string>
   <string name="image_recommendation_notsure">확실치 않음</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">그렇게 하지 않는 이유는 무엇입니까?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">귀하의 답변은 향후 제안을 개선합니다.</string>
+  <string name="image_recommendation_reject_title">거부 이유</string>
+  <string name="image_recommendation_reject_subtitle">거부 이유는 익명으로 처리되며 향후 이미지 제안에 도움이 될 것입니다.</string>
   <string name="image_recommendation_reject_not_relevant">이미지가 적절하지 않습니다</string>
   <string name="image_recommendation_reject_no_info">결정할 정보가 충분하지 않습니다</string>
   <string name="image_recommendation_reject_offensive">이미지가 공격적입니다</string>
@@ -1562,6 +1562,19 @@
   <string name="donation_campaign_donated_snackbar">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 자매 사이트의 발전에 큰 힘이 되었습니다.</string>
   <string name="donation_campaign_go_back_button">돌아가기</string>
   <string name="menu_single_webview_open_external">시스템 브라우저에서 열기</string>
+  <string name="donate_gpay_dialog_title">구글 페이로 기부하시겠습니까?</string>
+  <string name="donate_gpay_dialog_description">구글 페이로 기부하거나 다른 결제 방법을 선택하세요.</string>
+  <string name="donate_gpay_dialog_pay_button">구글 페이로 기부하기</string>
+  <string name="donate_gpay_dialog_other_button">다른 결제 방법</string>
+  <string name="donate_gpay_activity_title">금액 선택</string>
+  <string name="donate_gpay_check_recurring">월간 정기 기부로 설정해 보세요.</string>
+  <string name="donate_gpay_check_send_email">네, 위키미디어 재단에서 가끔 이메일을 보내드릴 수 있게 됩니다.</string>
+  <string name="donate_gpay_minimum_amount">금액을 선택해 주십시오 (최소 %s)</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;감사합니다!&lt;/b&gt; 위키백과에 베풀어 주신 귀하의 아량은 우리에게 큰 의미가 있습니다.</string>
+  <string name="donate_gpay_help_problems">기부하시는데 문제가 있습니까?</string>
+  <string name="donate_gpay_help_other_ways">다른 기부 방법</string>
+  <string name="donate_gpay_help_faq">자주 묻는 질문</string>
+  <string name="donate_gpay_help_tax">세금 공제 정보</string>
   <string name="places_title">장소</string>
   <string name="places_search_hint">장소 검색</string>
   <string name="places_filter_title">언어 필터링</string>

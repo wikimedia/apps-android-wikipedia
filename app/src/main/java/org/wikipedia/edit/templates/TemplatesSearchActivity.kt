@@ -23,6 +23,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityTemplatesSearchBinding
 import org.wikipedia.databinding.ItemTemplatesSearchBinding
 import org.wikipedia.dataclient.WikiSite
@@ -66,7 +67,7 @@ class TemplatesSearchActivity : BaseActivity() {
         binding = ActivityTemplatesSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-
+        sendPatrollerExperienceEvent("search_init", "pt_templates")
         initSearchView()
 
         templatesSearchAdapter = TemplatesSearchAdapter()
@@ -77,6 +78,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
         binding.insertTemplateButton.setOnClickListener {
             viewModel.selectedPageTitle?.let {
+                sendPatrollerExperienceEvent("template_insert_click", "pt_templates")
                 Prefs.addRecentUsedTemplates(setOf(it))
                 val wikiText = insertTemplateFragment.collectParamsInfoAndBuildWikiText()
                 val intent = Intent().putExtra(RESULT_WIKI_TEXT, wikiText)
@@ -149,6 +151,12 @@ class TemplatesSearchActivity : BaseActivity() {
         binding.toolbarContainer.elevation = if (enabled) DimenUtil.dpToPx(1f) else 0f
     }
 
+    fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
+        if (viewModel.isFromDiff) {
+            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+        }
+    }
+
     override fun onBackPressed() {
         if (insertTemplateFragment.handleBackPressed()) {
             if (templatesSearchAdapter != null) {
@@ -207,11 +215,13 @@ class TemplatesSearchActivity : BaseActivity() {
     }
 
     companion object {
+        const val EXTRA_FROM_DIFF = "isFromDiff"
         const val RESULT_INSERT_TEMPLATE_SUCCESS = 100
         const val RESULT_WIKI_TEXT = "resultWikiText"
-        fun newIntent(context: Context, wikiSite: WikiSite, invokeSource: Constants.InvokeSource): Intent {
+        fun newIntent(context: Context, wikiSite: WikiSite, isFromDiff: Boolean, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TemplatesSearchActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
+                .putExtra(EXTRA_FROM_DIFF, isFromDiff)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
