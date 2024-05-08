@@ -1,7 +1,9 @@
 package org.wikipedia.page
 
-import android.annotation.SuppressLint
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -16,19 +18,16 @@ object PageAvailableOfflineHandler {
         callback.onFinish(WikipediaApp.instance.isOnline || (page.offline && !page.saving))
     }
 
-    @SuppressLint("CheckResult")
     fun check(pageTitle: PageTitle, callback: Callback) {
         if (WikipediaApp.instance.isOnline) {
             callback.onFinish(true)
             return
         }
-        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, exception ->
-            run {
-                callback.onFinish(false)
-                L.w(exception)
-            }
+        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, exception ->
+            callback.onFinish(false)
+            L.w(exception)
         }) {
-            val readingListPage = withContext(Dispatchers.IO) { AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle) }
+            val readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle)
             callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
         }
     }
