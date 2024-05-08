@@ -42,6 +42,7 @@ import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
@@ -466,7 +467,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
                     Prefs.readingListRecentReceivedId = it.id
                     requireActivity().startActivity(MainActivity.newIntent(requireContext())
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS))
                     requireActivity().finish()
                 }
                 .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)

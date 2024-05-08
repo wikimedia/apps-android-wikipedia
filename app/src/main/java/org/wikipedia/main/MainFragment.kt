@@ -42,6 +42,7 @@ import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
@@ -303,16 +304,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             startActivity(PageActivity.newIntent(requireActivity()))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS)
-        } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB) &&
-                !(binding.mainNavTabLayout.selectedItemId == NavTab.EXPLORE.code() &&
-                        intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()) == NavTab.EXPLORE.code())) {
-            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
-        } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
-            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
-        } else if (intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
-            goToTab(NavTab.READING_LISTS)
-        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
-            startActivity(PageActivity.newIntent(requireContext()))
+        } else {
+            val tab = intent.serializableExtra<NavTab>(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
+            if (tab != null && (binding.mainNavTabLayout.selectedItemId != NavTab.EXPLORE.code() ||
+                        tab != NavTab.EXPLORE)) {
+                goToTab(tab)
+            } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
+                startActivity(PageActivity.newIntent(requireContext()))
+            }
         }
     }
 

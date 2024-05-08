@@ -33,13 +33,9 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.VANDALISM_PATROL
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.extensions.serializable
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
@@ -86,7 +82,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        action = arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
+        action = requireArguments().serializable(Constants.INTENT_EXTRA_ACTION)!!
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -96,7 +92,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         (requireActivity() as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.title = getActionBarTitle(intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action)
+            supportActionBar?.title = getActionBarTitle(intent.serializableExtra(Constants.INTENT_EXTRA_ACTION)!!)
         }
 
         return binding.root

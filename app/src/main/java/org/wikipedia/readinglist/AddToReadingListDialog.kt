@@ -22,6 +22,7 @@ import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogAddToReadingListBinding
 import org.wikipedia.extensions.parcelableArrayList
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListTitleDialog.readingListTitleDialog
@@ -48,9 +49,10 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        titles = requireArguments().parcelableArrayList(PAGE_TITLE_LIST)!!
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        showDefaultList = requireArguments().getBoolean(SHOW_DEFAULT_LIST)
+        val arguments = requireArguments()
+        titles = arguments.parcelableArrayList(PAGE_TITLE_LIST)!!
+        invokeSource = arguments.serializable(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+        showDefaultList = arguments.getBoolean(SHOW_DEFAULT_LIST)
         adapter = ReadingListAdapter()
     }
 

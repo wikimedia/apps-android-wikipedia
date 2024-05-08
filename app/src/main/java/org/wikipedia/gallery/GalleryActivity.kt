@@ -38,6 +38,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -92,7 +93,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     private val requestAddCaptionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            val action = it.data?.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
+            val action = it.data?.serializableExtra<DescriptionEditActivity.Action>(Constants.INTENT_EXTRA_ACTION)
             SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode, false)
             layOutGalleryDescription(currentItem)
             setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED)
