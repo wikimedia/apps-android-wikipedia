@@ -97,7 +97,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private fun updateCallToAction() {
         dispose()
         pageHeaderView.callToActionText = null
-        if (!AccountUtil.isLoggedIn || leadImageUrl?.contains(Service.URL_FRAGMENT_FROM_COMMONS) != true || page == null) {
+        if (!WikipediaApp.instance.isOnline || !AccountUtil.isLoggedIn || leadImageUrl?.contains(Service.URL_FRAGMENT_FROM_COMMONS) != true || page == null) {
             return
         }
         title?.let {
