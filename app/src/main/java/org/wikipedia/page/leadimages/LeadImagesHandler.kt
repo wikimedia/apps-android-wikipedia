@@ -28,6 +28,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 
 class LeadImagesHandler(private val parentFragment: PageFragment,
@@ -108,35 +109,39 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             }
             handlerJob = parentFragment.lifecycleScope.launch {
                 withContext(Dispatchers.Main) {
-                    lastImageTitleForCallToAction = imageTitle
-                    val isProtected = ServiceFactory.get(Constants.commonsWikiSite)
-                        .getProtectionInfoSuspend(imageTitle).query?.isEditProtected ?: false
-                    if (!isProtected) {
-                        val firstEntity = async {
-                            ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first
-                        }
-                        val firstImageInfo = async {
-                            ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
-                        }
-                        val labelMap = firstEntity.await()?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
-                        val depicts = ImageTagsProvider.getDepictsClaims(firstEntity.await()?.getStatements().orEmpty())
-                        imagePage = firstImageInfo.await()
-                        captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
-                        captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
-                        if (!labelMap.containsKey(it.wikiSite.languageCode)) {
-                            imageEditType = ImageEditType.ADD_CAPTION
-                        }
-                        if (WikipediaApp.instance.languageState.appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                            WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull { lang -> !labelMap.containsKey(lang) }?.run {
-                                imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
-                                captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, this))
+                    try {
+                        lastImageTitleForCallToAction = imageTitle
+                        val isProtected = ServiceFactory.get(Constants.commonsWikiSite)
+                            .getProtectionInfoSuspend(imageTitle).query?.isEditProtected ?: false
+                        if (!isProtected) {
+                            val firstEntity = async {
+                                ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first
+                            }
+                            val firstImageInfo = async {
+                                ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
+                            }
+                            val labelMap = firstEntity.await()?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
+                            val depicts = ImageTagsProvider.getDepictsClaims(firstEntity.await()?.getStatements().orEmpty())
+                            imagePage = firstImageInfo.await()
+                            captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
+                            captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
+                            if (!labelMap.containsKey(it.wikiSite.languageCode)) {
+                                imageEditType = ImageEditType.ADD_CAPTION
+                            }
+                            if (WikipediaApp.instance.languageState.appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                                WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull { lang -> !labelMap.containsKey(lang) }?.run {
+                                    imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
+                                    captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, this))
+                                }
+                            }
+                            if (imageEditType != ImageEditType.ADD_CAPTION && depicts.isEmpty()) {
+                                imageEditType = ImageEditType.ADD_TAGS
                             }
                         }
-                        if (imageEditType != ImageEditType.ADD_CAPTION && depicts.isEmpty()) {
-                            imageEditType = ImageEditType.ADD_TAGS
-                        }
+                        finalizeCallToAction()
+                    } catch (e: Exception) {
+                        L.w(e)
                     }
-                    finalizeCallToAction()
                 }
             }
         }
