@@ -135,6 +135,7 @@
   <string name="langlinks_your_wikipedia_languages">Dina Wikipedia-språk</string>
   <string name="menu_save_changes">Publicera ändringar</string>
   <string name="edit_saved_successfully">Redigeringen publicerades!</string>
+  <string name="stub_article_edit_saved_successfully">Redigeringen publicerades! Det kan ta en stund innan ändringarna visas.</string>
   <string name="dialog_message_edit_failed">Redigeringen gick inte att spara!</string>
   <string name="dialog_message_edit_failed_retry">Försök igen</string>
   <string name="dialog_message_edit_failed_cancel">Avbryt</string>
@@ -177,6 +178,9 @@
   <string name="logged_out_in_background_dialog">Du har loggats ut från Wikipedia. Vill du logga in igen?</string>
   <string name="logged_out_in_background_login">Logga in</string>
   <string name="logged_out_in_background_cancel">Avbryt</string>
+  <string name="account_vanish_request_title">Få kontot att försvinna</string>
+  <string name="account_vanish_request_confirm_title">Varning om försvinnande konto</string>
+  <string name="account_vanish_request_confirm">Att få kontot att försvinna är en &lt;b&gt;sista utväg&lt;/b&gt; och bör &lt;b&gt;endast användas när du vill sluta redigera för alltid&lt;/b&gt; och även dölja så många av dina tidigare associationer som möjligt.&lt;br/&gt;&lt;br/&gt;Konton raderas på Wikipedia genom att ändra kontonamnet för att göra så att andra inte kan känna igen bidragen i en process som kallas kontoförsvinnande. &lt;b&gt;Försvinnande garanterar inte fullständig anonymitet eller att bidrag tas bort från projekten&lt;/b&gt;.</string>
   <string name="history_empty_title">Inga nyligen lästa artiklar</string>
   <string name="history_empty_message">Håll koll på vad du har läst här.</string>
   <string name="history_offline_articles_toast">En del artiklar i historiken kanske inte kan läsas utan uppkoppling.</string>
@@ -224,9 +228,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkronisera läslistor över olika enheter genom att spara dem till ditt Wikipedia-konto %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ta bort synkroniserade läslistor från \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Integritet</string>
-  <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till en tredjepartstjänst så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
@@ -247,21 +248,21 @@
   <string name="terms_of_use_description">Användarvillkor</string>
   <string name="about_wikipedia_url">https://sv.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/sv</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Läslistor_och_läsa_offline</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek som har använts</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamsidan&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/sv\"&gt;Teamsidan&lt;/a&gt;</string>
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
+  <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
@@ -325,6 +326,8 @@
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sökning</string>
+  <string name="widget_description_search">Det snabbaste sättet att söka på Wikipedia</string>
+  <string name="widget_description_featured_page">De bästa artiklarna som Wikipedia har att erbjuda</string>
   <string name="wiktionary_no_definitions_found">Inga definitioner hittades.</string>
   <string name="alpha_update_notification_title">Ny alpha-uppdatering tillgänglig</string>
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
@@ -408,6 +411,10 @@
   <string name="multi_select_items_selected">%d markerade</string>
   <string name="error_message_generic">Ett fel inträffade</string>
   <string name="view_link_preview_error_button_dismiss">Stäng</string>
+  <string name="link_preview_dialog_read_button">Läs</string>
+  <string name="link_preview_dialog_save_button">Spara</string>
+  <string name="link_preview_dialog_saved_button">Sparades</string>
+  <string name="link_preview_dialog_share_button">Dela</string>
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
   <string name="error_user_page_does_not_exist">Wikipedia har inte en &lt;a href=\"%1$s\"&gt;användarsida&lt;/a&gt; med exakt detta namn. I allmänhet bör denna sida ha skapats och redigerats av &lt;b&gt;%2$s&lt;/b&gt;. Om du är osäker bör du verifiera att \"%3$s\" finns.</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
@@ -430,6 +437,19 @@
   <string name="error_blocked_footer">Du kan kontakta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Anpassa ditt verktygsfält</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
+  <string name="temp_account_not_logged_in">Du är inte inloggad</string>
+  <string name="temp_account_dialog_ok">Jag förstår</string>
+  <string name="temp_account_using_title">Du använder ett tillfälligt konto</string>
+  <string name="temp_account_dialog_discard">Släng ändringar och logga in</string>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Kontot upphör om %d dag.</item>
+    <item quantity="other">Kontot upphör om %d dagar.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Du är inte inloggad.&lt;/b&gt; När du har gjort en redigering skapas ett temporärt konto för att skydda din integritet. &lt;a href=\"%1$s\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Du använder ett temporärt konto.&lt;/b&gt; Din redigering kommer att tillskrivas till %1$s. &lt;a href=\"%2$s\"&gt;Läs mer&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Du använder för närvarande ett temporärt konto.&lt;/b&gt; Redigeringar som görs med det temporära kontot %1$s kommer inte att överföras till ditt permanenta konto när du loggar in. Logga in eller skapa ett konto för att få erkännande med ditt användarnamn, bland andra förmåner.</string>
+  <string name="temp_account_end_session">Avsluta session</string>
+  <string name="temp_account_end_session_confirm">Detta kommer att logga ut dig från ditt temporära konto. Vill du fortsätta?</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
@@ -552,8 +572,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikeln förekommer i flera listor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
   <string name="reading_lists_sync_reminder_title">Aktivera synkronisering av läslistor?</string>
-  <string name="reading_lists_sync_reminder_text">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktivera synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
   <string name="reading_lists_login_reminder_text">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas.</string>
@@ -762,8 +782,8 @@
   <string name="notifications_menu_uncheck_all">Avmarkera alla objekt</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Typfilter</string>
-  <string name="notifications_all_wikis_text">Alla \"wikier\"</string>
-  <string name="notifications_all_types_text">Alla \"typer\"</string>
+  <string name="notifications_all_wikis_text">Alla wikier</string>
+  <string name="notifications_all_types_text">Alla typer</string>
   <string name="notifications_menu_user_talk_page">%ss diskussionssida</string>
   <string name="notifications_offline_disable_message">Funktionen är inte tillgänglig när du saknar uppkoppling.</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
@@ -851,8 +871,8 @@
   <string name="description_edit_voice_input_description">Röstinmatning</string>
   <string name="description_edit_learn_more">Läs mer om artikelbeskrivningar</string>
   <string name="description_edit_image_caption_learn_more">Läs mer om bildtexter</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv#Artikelbeskrivningar</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv#Bildtexter</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Image_captions</string>
   <string name="description_too_short">Texten är för kort.</string>
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
   <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
@@ -1074,8 +1094,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nej</string>
   <string name="image_recommendation_notsure">Inte säker</string>
-  <string name="image_recommendation_reject_title">Varför inte?</string>
-  <string name="image_recommendation_reject_subtitle">Dina svar förbättrar kvaliteten på framtida förslag.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Varför inte?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Dina svar förbättrar kvaliteten på framtida förslag.</string>
   <string name="image_recommendation_reject_not_relevant">Bilden är inte relevant</string>
   <string name="image_recommendation_reject_no_info">Inte tillräckligt med information för att avgöra</string>
   <string name="image_recommendation_reject_offensive">Bilden är kränkande</string>
@@ -1122,8 +1142,8 @@
   <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskarflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;br/&gt;Logga in på ditt Wikipedia-konto för att synkronisera dina läslistor. &lt;a href=\"#login\"&gt;Registrera dig på Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Skicka anonym data</string>
-  <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data och integritet</string>
+  <string name="onboarding_data_privacy_text">Vi anser att du inte ska behöva lämna personlig information för att delta i rörelsen för fri kunskap. Användningsdata som samlas in för den här appen är anonym. Läs mer om vår &lt;a href=\"#privacy\"&gt;integritetspolicy&lt;/a&gt; och &lt;a href=\"#termsOfUse\"&gt;användarvillkor&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
   <string name="onboarding_got_it">Jag förstår</string>
   <string name="onboarding_multilingual_secondary_text">Vi har hittat följande på din enhet:</string>
@@ -1225,6 +1245,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Höjd</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Infoga</string>
+  <string name="templates_search_hint">Sök efter mallar</string>
+  <string name="templates_insert_button">Infoga</string>
+  <string name="templates_param_suggested_value">t.ex. %s</string>
+  <string name="templates_param_optional_hint">%s (valfritt)</string>
+  <string name="templates_param_suggested_hint">%s (föreslagen)</string>
+  <string name="templates_learn_more_link">Läs mer</string>
+  <string name="templates_description_incomplete">Mallar är användargenererade och kanske saknar fullständiga beskrivningar.</string>
+  <string name="templates_description_empty">Mallen \"%s\" har ännu ingen beskrivning.</string>
+  <string name="templates_description_missing_data">Den här mallen saknar &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; och dess parametrar har &lt;a href=\"%2$s\"&gt;genererats automatiskt&lt;/a&gt;. Därför saknar mallen och dess parametrar beskrivningar.</string>
   <string name="main_drawer_help">Hjälp</string>
   <string name="main_drawer_login">Logga in / skapa konto på Wikipedia</string>
   <string name="main_tooltip_text">Hej, %s. Visste du att alla kan redigera på Wikipedia?</string>
@@ -1248,10 +1277,10 @@
   <string name="talk_warn_save_dialog_hint">Meddelandetitel</string>
   <string name="talk_warn_save_dialog_publish">Publicera</string>
   <string name="talk_warn_save_dialog_cancel">Avbryt</string>
+  <string name="talk_warn_save_dialog_dont_save">Spara inte</string>
   <string name="talk_warn_submitted">Meddelandet publicerades på redigerarens användardiskussionssida</string>
   <string name="talk_warn_submitted_and_saved">Meddelandet sparades och publicerades på redigerarens användardiskussionssida</string>
-  <string name="talk_warn_saved_message">Välj ett befintligt varningsmeddelande eller skriv ett nytt.</string>
-  <string name="talk_warn_saved_message_dropdown">Sparade meddelanden</string>
+  <string name="talk_warn_saved_messages">Sparade meddelanden</string>
   <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
   <string name="talk_page_empty_title">Konversationen börjar här</string>
   <string name="talk_page_empty_content">Diskussionssidor är platsen där folk diskuterar hur man gör innehåll på Wikipedia så bra som möjligt. Börja med att lägga till ett nytt diskussionsämne för att få kontakt och samarbeta med en gemenskap av wikipedianer.</string>
@@ -1262,6 +1291,7 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
+  <string name="talk_subject_duplicate">Ämnesnamnet finns redan. Prova ett annat.</string>
   <string name="talk_response_submitted">Svaret skickades.</string>
   <string name="talk_snackbar_undo">Ångra</string>
   <string name="talk_last_modified">&lt;b&gt;Senast redigerad %1$s&lt;/b&gt; av %2$s</string>
@@ -1443,6 +1473,8 @@
   <string name="media_playback_error">Fel uppstod när media spelades upp.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
   <string name="user_contrib_filter_activity_title">Filterbidrag</string>
+  <string name="action_item_view_on_map">Visa på kartan</string>
+  <string name="action_item_view_on_map_unavailable">Geografiska koordinater är inte tillgängliga för den här sidan</string>
   <string name="shareable_reading_lists_import_dialog_title">Importera delad läslista</string>
   <string name="shareable_reading_lists_import_dialog_content">Hur vill du namnge listan som har delats med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
@@ -1455,10 +1487,8 @@
   <string name="reading_list_share_message_v2">Hej! Jag skulle vilja dela min Wikipedia-läslista med dig:</string>
   <string name="reading_list_share_survey_title">Kan du hjälpa oss att förbättra \"Dela läslistor\"?</string>
   <string name="reading_list_share_survey_body">\"Dela läslistor\" är en testfunktion och vi behöver din återkoppling för att förbättra eller ta bort den.</string>
-  <string name="talk_templates_manage_title">Hantera mallar</string>
-  <string name="talk_templates_empty_message">Du har inga varningsmeddelanden sparade.</string>
+  <string name="talk_templates_empty_message">Skapa dina egna meddelanden eller använd &lt;a href=\"#\"&gt;exempelmeddelanden&lt;/a&gt; för att komma igång.</string>
   <string name="talk_templates_new_message_title">Nytt meddelande</string>
-  <string name="talk_templates_new_message_description">Skriv varningsmeddelande.</string>
   <string name="talk_templates_new_message_subject_hint">Ämne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv meddelande</string>
   <string name="talk_templates_new_message_save">Spara</string>
@@ -1483,7 +1513,8 @@
     <item quantity="other">Meddelanden har raderats</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Titeln kan inte vara tom.</string>
-  <string name="patroller_tasks_edits_list_title">Lista över redigeringar</string>
+  <string name="talk_templates_your_messages_tab_title">Dina meddelanden</string>
+  <string name="talk_templates_example_messages_tab_title">Exempelmeddelanden</string>
   <string name="patroller_tasks_edits_list_search_hint">Sök eller filtrera redigeringar</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Taggar: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Inga</string>
@@ -1543,7 +1574,6 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filter</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patrullredigering</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikelns redigeringshistorik</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Återställdes</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Är du säker på att du vill rulla tillbaka?</string>
@@ -1558,8 +1588,6 @@
   <string name="patroller_onboarding_two_thank_content">Har du hittat en produktiv redigering? Tacka en användare för deras bidrag.</string>
   <string name="patroller_onboarding_two_watch_title">Bevaka</string>
   <string name="patroller_onboarding_two_watch_content">Vill du spåra artikelredigeringar? Lägg till i din bevakningslista. Se den under \"Mer\".</string>
-  <string name="patroller_onboarding_two_warn_title">Varna</string>
-  <string name="patroller_onboarding_two_warn_content">Skapa, skicka och lagra varningsmeddelanden på en redigerares diskussionssida.</string>
   <string name="patroller_onboarding_two_undo_title">Gör ogjord/Rulla tillbaka</string>
   <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
   <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
@@ -1570,10 +1598,29 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Inte nöjd</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hur kan vi förbättra funktionen?</string>
+  <string name="patroller_diff_menu_edit_history_title">Artikelns redigeringshistorik</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Återkoppling</string>
   <string name="patroller_diff_feedback_dialog_submit">Skicka</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Återkoppling har skickats.</string>
   <string name="patroller_diff_feedback_tooltip">Tryck på överflödesmenyn för att skicka återkoppling när som helst under \"Problem med funktion\".</string>
+  <string name="patroller_saved_message_title_vandalism">Vandalismvarning</string>
+  <string name="patroller_saved_message_title_editing_tests">Redigeringstester</string>
+  <string name="patroller_saved_message_title_npov">Neutral synvinkel</string>
+  <string name="patroller_saved_message_title_auto_trans">Automatisk översättning</string>
+  <string name="patroller_saved_message_title_coi_rem">Påminnelse om intressekonflikt</string>
+  <string name="patroller_saved_message_title_final_warning">Sista varningen</string>
+  <string name="patroller_saved_message_title_copy_vio">Varning om upphovsrättsbrott</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Lämna en redigeringssammanfattning</string>
+  <string name="patroller_saved_message_title_do_not_censor">Censurera inte</string>
+  <string name="patroller_saved_message_title_art_imp">Förslag på förbättring av artikel</string>
+  <string name="patroller_saved_message_body_final_warning">Eftersom du har gjort flera destruktiva redigeringar kommer detta att fungera som din sista varning. Skulle du vandalisera Wikipedia igen kommer du att förbjudas att redigera.</string>
+  <string name="patroller_saved_message_body_copy_vio">Din senaste redigering verkar innehålla upphovsrättsskyddat material utan tillstånd. Se till att allt innehåll följer Wikipedias policyer om [[Wikipedia:Copyrights|upphovsrätt]] för att undvika borttagning.</string>
+  <string name="patroller_saved_message_body_edit_summary">Hej {{{username}}}, det verkar som att du har tagit bort innehåll från Wikipedia utan att lämna en redigeringssammanfattning. Lämna en redigeringssammanfattning när du lägger till eller tar bort innehåll på Wikipedia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Hej {{{username}}}, det verkar som att du har tagit bort innehåll utan att diskutera detta på artikelns diskussionssida. Observera att Wikipedia inte censureras och innehåll bör inte tas bort eftersom det är kontroversiellt. Om du anser att informationen är felaktig, var god nå en konsensus på artikelns diskussionssida.</string>
+  <string name="talk_warn_learn_more_label">Läs mer om platshållare för meddelanden</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Använd ett exempelmeddelande nedan för att anpassa, skicka och spara i dina meddelanden.</string>
+  <string name="patroller_saved_message_body_art_imp">Hej {{{username}}}. Din artikel är en bra början! För att göra det ännu bättre kan du överväga att lägga till fler referenser till pålitliga källor. Detta hjälper till att verifiera informationen och förbättrar artikelns kvalitet. Se Wikipedias riktlinjer för [[Wikipedia:Reliable_sources|pålitliga källor]] för mer information.</string>
+  <string name="talk_templates_menu_edit_title">Redigera</string>
   <string name="data_opt_in_accept">Acceptera</string>
   <string name="data_opt_in_reject">Avvisa</string>
   <string name="page_issues_title">Sidproblem</string>
@@ -1586,4 +1633,19 @@
   <string name="donation_campaign_donated_snackbar">Tack, kära donator! Din generositet hjälper till att hålla Wikipedia och dess systerwebbplatser blomstrande.</string>
   <string name="donation_campaign_go_back_button">Gå tillbaka</string>
   <string name="menu_single_webview_open_external">Öppna i systemwebbläsaren</string>
+  <string name="places_title">Platser</string>
+  <string name="places_permissions_denied">Platsbehörighet krävs för att se din plats på kartan. Var god försök igen.</string>
+  <string name="places_search_hint">Sök platser</string>
+  <string name="places_filter_title">Filtrera språk</string>
+  <string name="places_toggle_buttons_map">Karta</string>
+  <string name="places_toggle_buttons_list">Lista</string>
+  <string name="places_nav_tab_tooltip_message">Upptäck Wikipedia-artiklar omkring dig med Platser</string>
+  <string name="places_article_menu_tooltip_message">Tryck på \"Visa på kartan\" för att utforska den här artikelns plats</string>
+  <string name="places_survey_very_satisfied_option">Mycket nöjd</string>
+  <string name="places_survey_very_unsatisfied_option">Mycket missnöjd</string>
+  <string name="places_survey_dialog_title">Hjälp till att förbättra \"Platser\"</string>
+  <string name="places_survey_feedback_dialog_title">Hur kan \"Platser\" förbättras?</string>
+  <string name="places_survey_dialog_cancel">Avbryt</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Vad vill du att vi ska förändra eller förbättra?</string>
+  <string name="places_empty_list">Det här området är tomt. Zooma ut &lt;a href=\"#\"&gt;på kartan&lt;/a&gt;.</string>
 </resources>

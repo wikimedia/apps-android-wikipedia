@@ -202,9 +202,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj spiskove za čitanje na raznim uređajima tako što ćeš ih sačuvati na svoj Wikipedia račun \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Želiš ukloniti sinhronizirane spiskove za čitanje sa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovo će u potpunosti izbrisati sve prethodno sinhronizirane spiskove za čitanje iz memorije. Želiš ukloniti sve sinhronizirane spiske sa svog računa \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privatnost</string>
-  <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
-  <string name="preference_summary_eventlogging_opt_in">Dozvolite Wikimediji da prikupi informacije o tom kako koristite aplikaciju da bismo je poboljšali</string>
   <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
   <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izvještaje o tehničkim poteškoćama pružaocu usluga treće strane da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
   <string name="editing_error_spamblacklist">Otkriven link ka blokiranim domenama (%s). Uklonite ih i pokušajte ponovo.</string>
@@ -229,8 +226,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bs</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>
   <string name="about_contributors_heading">Saradnici</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stranice ekipe&lt;/a&gt;</string>
@@ -680,8 +677,6 @@
   <string name="onboarding_explore_text">Uronite u svijet Wikipedije sa stranicom \"Istraži\" koja se neprestano ažurira. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; je svojim interesima – saznajte o historijskim događajima koji su se desili &lt;b&gt;Na današnji dan&lt;/b&gt; ili okušajte sreću s &lt;b&gt;Nasumičnom&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Spiskovi za čitanje sa sinhronizacijom</string>
   <string name="onboarding_reading_list_sync_text_v2">Možete praviti spiskove za čitanje od članaka koje želite čitati kasnije, čak i kad niste na mreži. &lt;br/&gt;Prijavite se na Wikipediju da biste sinhronizirali spiskove. &lt;a href=\"#login\"&gt;Pridružite se Wikipediji&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Šalji anonimne podatke</string>
-  <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju tako što ćete nam slati podatke o tome kako je koristite. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Detaljnije&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
   <string name="onboarding_got_it">Razumijem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće jezike na Vašem uređaju:</string>

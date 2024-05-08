@@ -209,9 +209,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinchronizuokite skaitymo sąrašus skirtinguose įrenginiuose išsaugodami juos savo Vikipedijos paskyroje „%s“</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Pašalinti sinchronizuotus skaitymo sąrašus iš „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tai visiškai ištrins ankščiau sinchronizuotus skaitymo sąrašus iš nuotolinės saugyklos. Pašalinti visus sinchronizuotus sąrašus iš jūsų paskyros „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Privatumas</string>
-  <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
-  <string name="preference_summary_eventlogging_opt_in">Leisti Vikimedijai rinkti informaciją apie programėlės naudojimą, taip ją tobulinant</string>
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
   <string name="preference_summary_auto_upload_crash_reports">Leisti programėlei siųsti trikčių ataskaitas trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
   <string name="editing_error_spamblacklist">Aptiktos nuorodos į užblokuotus domenus (%s). Pašalinkite juos ir bandykite dar kartą.</string>
@@ -239,7 +236,7 @@
   <string name="about_translators_heading">Vertėjai</string>
   <string name="about_translators_translatewiki">Ši programėlė buvo išversta savanorių vertėjų &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
-  <string name="about_app_license">Šaltinio kodas prieinamas &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ir &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pagal &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 licenciją&lt;/a&gt;. Jeigu nenurodyta kitaip, turinys pateikiamas pagal &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike licenciją&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Šaltinio kodas prieinamas &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ir &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pagal &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 licenciją&lt;/a&gt;. Jeigu nenurodyta kitaip, turinys pateikiamas pagal &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike licenciją&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimedijos fondo&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>
   <string name="edit_abandon_confirm">Puslapis buvo pakeistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>
@@ -639,8 +636,8 @@
   <string name="notifications_menu_uncheck_all">Atžymėti visus elementus</string>
   <string name="notifications_wiki_filter_header">Viki filtras</string>
   <string name="notifications_type_filter_header">Tipo filtras</string>
-  <string name="notifications_all_wikis_text">Visi „viki“</string>
-  <string name="notifications_all_types_text">Visi „tipai“</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Visi „viki“</string>
+  <string name="notifications_all_types_text" fuzzy="true">Visi „tipai“</string>
   <string name="notifications_menu_user_talk_page">%s aptarmo puslapis</string>
   <string name="notifications_offline_disable_message">Ši funkcija neprieinama neprisijungus.</string>
   <string name="view_because_you_read_card_title">Nes jūs skaitėte</string>
@@ -898,8 +895,8 @@
   <string name="image_recommendation_accept">Taip</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Nežinau</string>
-  <string name="image_recommendation_reject_title">Kodėl ne?</string>
-  <string name="image_recommendation_reject_subtitle">Jūsų atsakymai pagerina būsimus siūlymus.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Kodėl ne?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Jūsų atsakymai pagerina būsimus siūlymus.</string>
   <string name="image_recommendation_reject_not_relevant">Paveikslėlis neaktualus</string>
   <string name="image_recommendation_reject_no_info">Nepakanka informacijos apsispręsti</string>
   <string name="image_recommendation_reject_offensive">Paveikslėlis įžeidžiantis</string>
@@ -945,8 +942,6 @@
   <string name="onboarding_explore_text">Pasinerkite į Vikipedija su nuolat atsinaujinančiu Tyrinėjimo srautu. &lt;br/&gt; &lt;b&gt;Tinkinkite&lt;/b&gt; šį srautą pagal savo interesus – tai gali būti noras sužinoti apie &lt;b&gt;Šios dienos&lt;/b&gt; istorinius įvykius ar laimės išbandymas pasirenkant &lt;b&gt;Atsitiktinį&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Skaitymo sąrašai su sinchronizacija</string>
   <string name="onboarding_reading_list_sync_text_v2">Iš straipsnių, kuriuos norite skaityti vėliau, galite sudaryti skaitymo sąrašus, net kai esate neprisijungę. &lt;br/&gt;Prisijunkite su savo Vikipedijos paskyra, kad sinchronizuotumėte savo skaitymo sąrašus. &lt;a href=\"#login\"&gt;Užsiregistruokite Vikipedijoje&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Siųsti anoniminius duomenis</string>
-  <string name="onboarding_analytics_offline_text">Padėkite mums padaryti programėlę geresne leidžiant mums sužinoti kaip ją naudojate. Surenkami duomenys yra anonimiški. &lt;a href=\"#privacy\"&gt;Sinokite daugiau&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Siųsti naudojimo duomenis</string>
   <string name="onboarding_got_it">Supratau</string>
   <string name="onboarding_multilingual_secondary_text">Radome šias jūsų įrenginyje:</string>

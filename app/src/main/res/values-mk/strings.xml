@@ -120,6 +120,7 @@
   <string name="langlinks_your_wikipedia_languages">Ваши википедиски јазици</string>
   <string name="menu_save_changes">Објави промени</string>
   <string name="edit_saved_successfully">Уредувањето е објавено!</string>
+  <string name="stub_article_edit_saved_successfully">Уредувањето е објавено! Ќе треба некое време за промените да се појават.</string>
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>
   <string name="dialog_message_edit_failed_retry">Повтори</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
@@ -162,6 +163,9 @@
   <string name="logged_out_in_background_dialog">Одјавени сте од Википедија. Дали сакате пак да се најавите?</string>
   <string name="logged_out_in_background_login">Најава</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
+  <string name="account_vanish_request_title">Гаснење на сметка</string>
+  <string name="account_vanish_request_confirm_title">Предупредување за гаснење на сметка</string>
+  <string name="account_vanish_request_confirm">Гаснењето е &lt;b&gt;последно средство&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши така со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена гаснење на сметка.&lt;b&gt;Гаснењето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="history_offline_articles_toast">Некои статии во историјата може да се недостапни вонмрежно.</string>
@@ -209,9 +213,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Усогласувајте списоци за читање низ разни уреди зачувувајќи ги во вашата сметка „%s“ на Википедија</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Да отстранам усогласени списоци за читање од вашата сметка „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Со ова целосно ќе се избришат сите претходно усогласени списоци за читање од далечински склад. Дали да ги избришам сите усогласени списоци за читање од вашата сметка „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Лични податоци</string>
-  <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
-  <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
   <string name="preference_title_auto_upload_crash_reports">Испраќај извештаи за уривање</string>
   <string name="preference_summary_auto_upload_crash_reports">Прилогот да испраќа извештаи за уривање на надворешен услужник за да може уривањата да се разгледуваат и поправаат полесно и побрзо.</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
@@ -238,15 +239,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
+  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
@@ -310,6 +311,8 @@
   <string name="widget_name_featured_page">Избрана страница на Википедија</string>
   <string name="widget_title_featured_page">Избрана страница за денес:</string>
   <string name="widget_name_search">Пребарување по Википедија</string>
+  <string name="widget_description_search">Најбрзиот начин за пребарување на Википедија</string>
+  <string name="widget_description_featured_page">Најдобрите статии кои може да ги понуди Викимедија</string>
   <string name="wiktionary_no_definitions_found">Не најдов ништо во речникот.</string>
   <string name="alpha_update_notification_title">Имаме нова алфа-надградба</string>
   <string name="alpha_update_notification_text">Допрете за да ја симнете</string>
@@ -397,6 +400,7 @@
   <string name="link_preview_dialog_save_button">Зачувај</string>
   <string name="link_preview_dialog_saved_button">Зачувано</string>
   <string name="link_preview_dialog_share_button">Сподели</string>
+  <string name="link_preview_stub_placeholder_text">Оваа статија е никулец, што значи дека нема доволно содржина за да се создаде преглед. Но можете да го промените тоа.</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со точно тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
@@ -419,6 +423,25 @@
   <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Прилагодете си го алатникот</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
+  <string name="temp_account_not_logged_in">Не сте најавени</string>
+  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;Создајте сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
+  <string name="temp_account_dialog_ok">Јасно</string>
+  <string name="temp_account_using_title">Користите привремена сметка</string>
+  <string name="temp_account_dialog_discard">Отфрли промени и најави ме</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Создадена е привремената сметка %1$s откако беше објавено вашето уредување. Таа ќе истече за %2$d ден.</item>
+    <item quantity="other">Создадена е привремената сметка %1$s откако беше објавено вашето уредување. Таа ќе истече за %2$d дена.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Сметката ќе истече за %d ден.</item>
+    <item quantity="other">Сметката ќе истече за %d дена.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Откако ќе направите уредување, ќе ви биде создадена привремена сметка за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Користите привремена сметка.&lt;/b&gt; Вашето уредување му е припишано на %1$s. &lt;a href=\"%2$s\"&gt;Дознајте повеќе&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Моменталално користите приврмена сметка.&lt;/b&gt; Уредувањата направени од привремената сметка %1$s нема да се префрлат во трајната сметка кога ќе се најавите. Најавете се или направете сметка за уредувањата да му се припишуваат на вашето корисничко име, меѓу други поволности.</string>
+  <string name="temp_account_end_session">Заврши седница</string>
+  <string name="temp_account_end_session_confirm">Ова ќе ве одјави од вашата привремена сметка. Сакате да продолжите?</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
@@ -752,8 +775,8 @@
   <string name="notifications_menu_uncheck_all">Отштиклирај ги сите</string>
   <string name="notifications_wiki_filter_header">Викифилтер</string>
   <string name="notifications_type_filter_header">Типски филтер</string>
-  <string name="notifications_all_wikis_text">Сите „вики“</string>
-  <string name="notifications_all_types_text">Сите „типски“</string>
+  <string name="notifications_all_wikis_text">Сите викија</string>
+  <string name="notifications_all_types_text">Сите видови</string>
   <string name="notifications_menu_user_talk_page">Разговорна страница на %s</string>
   <string name="notifications_offline_disable_message">Функцијата е недостапна вонмрежно.</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
@@ -841,8 +864,8 @@
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
   <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
   <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
@@ -862,7 +885,7 @@
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
-  <string name="description_edit_success_article_edit_hint">Со прилогов можете да уредувате и статии. Следен пат, пробајте да исправите мали гршеки при пишување и реченици стискајќи на иконата ^1</string>
+  <string name="description_edit_success_article_edit_hint">Со прилогов можете да уредувате и статии. Следен пат, пробајте да исправите мали грешки при пишување и реченици стискајќи на иконата ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Описи на статиите</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Дава караток опис на статијата, давајќи им претстава на читателите за што се работи</string>
   <string name="description_edit_tutorial_keep_it_short">Мора да биде кратко</string>
@@ -1064,8 +1087,8 @@
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
   <string name="image_recommendation_notsure">Не знам</string>
-  <string name="image_recommendation_reject_title">Зошто не?</string>
-  <string name="image_recommendation_reject_subtitle">Вашите одговори ги подобруваат идните предлози.</string>
+  <string name="image_recommendation_reject_title">Причина за одбивање</string>
+  <string name="image_recommendation_reject_subtitle">Причината за одбивање е анонимна и ги идните предлози.</string>
   <string name="image_recommendation_reject_not_relevant">Сликата е нерелевантна</string>
   <string name="image_recommendation_reject_no_info">Немам доволно сознанија за да одлучам</string>
   <string name="image_recommendation_reject_offensive">Сликата е неумесна</string>
@@ -1112,8 +1135,8 @@
   <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Истражи“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите списоци за читање од статиите што сакате да ги читате подоцна, дури и кога немате линија. &lt;br/&gt;Најавете се на Википедија за да ги усогласите списоците. &lt;a href=\"#login\"&gt;Приклучете се на Википедија&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
-  <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Податоци и приватност</string>
+  <string name="onboarding_data_privacy_text">Сметаме дека не треба да давате лични информации за да учествувате во движењето за слободно знаење. Податоците за употреба на овој прилог што ги собираме се анонимни. Дознајте повеќе за нашите &lt;a href=\"#privacy\"&gt;правила за лични податоци&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условите на употреба&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
   <string name="onboarding_got_it">Јасно</string>
   <string name="onboarding_multilingual_secondary_text">Го пронајдов следново на вашиот уред:</string>
@@ -1215,6 +1238,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Висина</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">п</string>
   <string name="insert_media_insert_button">Вметни</string>
+  <string name="templates_search_hint">Пребарај предлошки</string>
+  <string name="templates_insert_button">Вметни</string>
+  <string name="templates_param_suggested_value">на пр. %s</string>
+  <string name="templates_param_optional_hint">%s (незадолжително)</string>
+  <string name="templates_param_suggested_hint">%s (предложено)</string>
+  <string name="templates_learn_more_link">Дознајте повеќе</string>
+  <string name="templates_description_incomplete">Предлошките се создадени од корисници и може да немаат потполни описи.</string>
+  <string name="templates_description_empty">Предлошката „%s“ сè уште нема опис.</string>
+  <string name="templates_description_missing_data">На оваа предлошка ѝ недостасуваат &lt;a href=\"%1$s\"&gt;Предложни податоци&lt;/a&gt;, и нејзините параметри се &lt;a href=\"%2$s\"&gt;автосоздадени&lt;/a&gt;. Поради тоа, предлошката и нејзините параметри немаат описи.</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
   <string name="main_tooltip_text">Здраво, %s. Дали знаевте дека Википедија може да ја уредува секој?</string>
@@ -1238,10 +1270,10 @@
   <string name="talk_warn_save_dialog_hint">Наслов на пораката</string>
   <string name="talk_warn_save_dialog_publish">Објави</string>
   <string name="talk_warn_save_dialog_cancel">Откажи</string>
+  <string name="talk_warn_save_dialog_dont_save">Не зачувувај</string>
   <string name="talk_warn_submitted">Пораката е објавена на разговорната страница на корисникот</string>
   <string name="talk_warn_submitted_and_saved">Пораката е зачувана и објавена на разговорната страница на уредникот</string>
-  <string name="talk_warn_saved_message">Изберете постоечка предупредувачка порака или напишете нова.</string>
-  <string name="talk_warn_saved_message_dropdown">Зачувани пораки</string>
+  <string name="talk_warn_saved_messages">Зачувани пораки</string>
   <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
   <string name="talk_page_empty_title">Разговорот започнува тука</string>
   <string name="talk_page_empty_content">Разговорните страници се места кајшто луѓето дискутираат како да ја направат содржината на Википедија што подобра. Почнете нова тема на разговор за да се поврзете и да соработувате со заедница на википедијанци.</string>
@@ -1252,6 +1284,7 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
+  <string name="talk_subject_duplicate">Таков наслов веќе постои. Внесете друг.</string>
   <string name="talk_response_submitted">Одговорот е објавен.</string>
   <string name="talk_snackbar_undo">Врати</string>
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
@@ -1447,10 +1480,8 @@
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
   <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
-  <string name="talk_templates_manage_title">Раководење со предлошки</string>
-  <string name="talk_templates_empty_message">Немате зачувано ниедна предупредувачка порака.</string>
+  <string name="talk_templates_empty_message">Создавајте ваши пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
-  <string name="talk_templates_new_message_description">Напиши предупредувачка порака.</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>
   <string name="talk_templates_new_message_compose_hint">Напиши порака</string>
   <string name="talk_templates_new_message_save">Зачувај</string>
@@ -1475,7 +1506,8 @@
     <item quantity="other">Пораките се избришани</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
-  <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
+  <string name="talk_templates_your_messages_tab_title">Ваши пораки</string>
+  <string name="talk_templates_example_messages_tab_title">Примерни пораки</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаки: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Нема</string>
@@ -1535,7 +1567,6 @@
     <item quantity="one">%d филтер</item>
     <item quantity="other">%d филтри</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Патролирај уредување</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја на уредување на статијата</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Враќањето е завршено</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Дали сигурно сакате да отповикате?</string>
@@ -1550,8 +1581,8 @@
   <string name="patroller_onboarding_two_thank_content">Видовте продуктивно уредување? Заблагодарете му се не корисникот.</string>
   <string name="patroller_onboarding_two_watch_title">Набљудувај</string>
   <string name="patroller_onboarding_two_watch_content">Сакате да гу следите уредувањата во статијата? Додајте ја во Набљудуваните. Погледајте ја во „Повеќе“.</string>
-  <string name="patroller_onboarding_two_warn_title">Предупреди</string>
-  <string name="patroller_onboarding_two_warn_content">Создавајте, испраќајте и складирајте предупредителни пораки на корисничка разговорна страница.</string>
+  <string name="patroller_onboarding_two_talk_title">Разговор</string>
+  <string name="patroller_onboarding_two_talk_content">Општете со други уредници. Зачувајте често користени разговорни страници или користете предлошка.</string>
   <string name="patroller_onboarding_two_undo_title">Враќање/Поништување</string>
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
@@ -1562,10 +1593,34 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна е</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можеме да ја подобриме функцијата?</string>
+  <string name="patroller_diff_menu_edit_history_title">Историја на уредување на статијата</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Мислење</string>
   <string name="patroller_diff_feedback_dialog_submit">Поднеси</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Мислењето е поднесено.</string>
   <string name="patroller_diff_feedback_tooltip">Допрете на расклопното мени за да поднесете мислење во било кое време со „Проблем со функцијата“.</string>
+  <string name="patroller_saved_message_title_vandalism">Предупредување за вандализам</string>
+  <string name="patroller_saved_message_title_editing_tests">Пробни уредувања</string>
+  <string name="patroller_saved_message_title_npov">Неутрална гледна точка</string>
+  <string name="patroller_saved_message_title_auto_trans">Автоматски превод</string>
+  <string name="patroller_saved_message_title_coi_rem">Потсетник за спротиставеност на интереси</string>
+  <string name="patroller_saved_message_title_final_warning">Последна опомена</string>
+  <string name="patroller_saved_message_title_copy_vio">Напомена за нарушено авторско право</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Ставете опис на уредувањето</string>
+  <string name="patroller_saved_message_title_do_not_censor">Не цензурирајте</string>
+  <string name="patroller_saved_message_title_art_imp">Предлог за подобрување на статија</string>
+  <string name="patroller_saved_message_body_vandalism">Здраво {{{username}}}. Сакам да ви соопштам дека вратив еден или повеќе ваши [{{{diffLink}}}|скорешни придонеси] бидејќи не ми делуваат на конструктивни. Ако мислите дека направив грешка или имате прашања, пишете ми на [[User talk:{{{senderUserName}}}|мојата разговорна страница]]. Имајте на ум дека постојаниот вандализам може да доведе до ограничувања.</string>
+  <string name="patroller_saved_message_body_editing_tests">Здраво {{{username}}}. Задоволство ми е што сте заинтересирани за Википедија и сакате да дознаете како да уредувате. Пробното уредување што го направивте работеше; Меѓутоа, треба да имате на ум дека целта на овој проект е да изработи доверлива и сеопфатна енциклопедија која би му служела секому. Вашето уредување ја засегна содржината, па затоа е отстрането.\nАко сакате да дознаете како да ја уредувате Википедија, на располагање ви стои [[Википедија:Песок|уредувачкиот песок]]. Ако вашите коментари се однесуваа на конкретна статија, правилното место за ова е разговорната страница на статијата.</string>
+  <string name="patroller_saved_message_body_npov">Здраво {{{username}}}. Некои ваши придонеси не ги задоволуваат неутралноста потребна за исполнување на правилата за [[Википедија:Неутрална гледна точка|неутрална гледна точка]] на оваа Википедија. Поради оваа причина, некои содржини се изменети или отстранети. Изменете ги пасусите или одделите кои покажуваат пристрасност, заменувајќи ги со понеутралнен и пообјективен текст во склад со она што се очекува од една енциклопедија.</string>
+  <string name="patroller_saved_message_body_auto_trans">Здраво {{{username}}}. Некои ваши придонеси веројатно се машински преведени, поради што се изменети или означени со предлошката. Ако некој (вие или друг) не ја подобри статијата, истата може да биде избришана.\n\nДоколку, покрај информациите што ви ги дадов, имате некакви прашања, слободно пишете ми на [[User talk:{{{senderUserName}}}|мојата разговорна страница]]. Нека не ве обесхрабрува оваа мала случка. Вашите придонеси се многу важни за Википедија.</string>
+  <string name="patroller_saved_message_body_coi_rem">Здраво {{{username}}}. Ја ценам вашата соработка на Википедија; Меѓутоа, забележав дека имате [[Wikipedia:Conflict_of_interest|судир на интереси]]. Судирот на интереси е нескладност помеѓу целите на Википедија за неутралност и читливост и дадените цели на поединечни уредници, поединци, ентитети или претпријатија од секаков вид.\nСите придонеси во главниот простор се подлежат на критериумите за содржини на оваа Википедија ([[Википедија:Што не е Википедија|што не е Википедија]]), енциклопедиски квалитет ([[Википедија:Проверливост|проверливост]] и [[Википедија:Без свои истражувања|без свои истражувања]]), уредувачки метод ([[Википедија:Неутрална гледна точка|неутрална гледна точка]]) и законитоста на содржините ([[Википедија:Авторски права|авторски права]]). Сите објавувачи мора да се придржуваат кон овие правила кога создаваат и оценуваат содржини, да покажат уважување и да претпоставуваат добронамерност за дејствата на другите објавувачи за да обезбедиме придржување кон правилата.\n\nАко уредувате во судир на интереси, ќе мора да го примените соодветното правило со особено внимание; Во спротивно, може да сметаме дека вашата сметка е „сметка за лични цели“ и да биде блокирана. Слободно пишете ми на мојата разговорна страница ако имате некакви прашања.</string>
+  <string name="patroller_saved_message_body_final_warning">Бидејќи направивте повеќе деструктивни уредувања, ова ќе ви биде последна опомена. Ако повторно ја вандализирате Википедија, уредувањето ќе ви биде забрането.</string>
+  <string name="patroller_saved_message_body_copy_vio">Се чини дека вашето скорешно уредување вклучува материјал заштитен со авторски права кој сте го искористиле без дозвола. Сета содржина мора да се придржува кон [[Википедија:Авторски права|авторскоправните]] правила на оваа Википедија за да не биде избришана.</string>
+  <string name="patroller_saved_message_body_edit_summary">Здраво {{{username}}}. Се чини дека отстранивте содржина од Википедија без да внесете опис на уредувањето. Ставајте опис кога додавате или отстранувате содржини.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Здраво {{{username}}}. Се чини дека отстранивте содржина без да ја продискутирате на разговорната страница на статијата. Имајте на ум дека Википедија не се цензурира, и дека содржините не се отстрануваат ако се спорни или контроверзни. Ако сметате дека информациите се неточни, постигнете консензус на разговорната страница на статијата.</string>
+  <string name="talk_warn_learn_more_label">Дознајте за пополнувачите на пораки</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Послужете се со примерната порака подолу за да ги прилагодување, испраќате и зачувувате вашите пораки.</string>
+  <string name="patroller_saved_message_body_art_imp">Здраво {{{username}}}. Вашата статија е добар почеток! За да ја направите уште подобра, додајте повеќе наводи кон доверливи извори. Ова ќе ни помогне да ги провериме информациите и го подобрува квалитетот на статијата. Погледајте ги насоките за [[Wikipedia:Reliable_sources|доверливи извори]] на оваа Википедија.</string>
+  <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прифати</string>
   <string name="data_opt_in_reject">Одбиј</string>
   <string name="page_issues_title">Проблеми со страницата</string>
@@ -1578,6 +1633,21 @@
   <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и нејзините збратимени проекти напредуваат благодарение на вашата великодушност.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори во системскиот прелистувач</string>
+  <string name="donate_gpay_dialog_title">Дарувате со Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Дарувајте со Google Pay или изберете друг начин на плаќање.</string>
+  <string name="donate_gpay_dialog_pay_button">Дарувај со Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Друг начин на плаќање</string>
+  <string name="donate_gpay_activity_title">Изберете износ</string>
+  <string name="donate_gpay_check_transaction_fee">Великодушно ќе додадам %s за да ја покријам трансакциската провизија за да задржите 100%% од мојот дар.</string>
+  <string name="donate_gpay_check_recurring">Повторувај го овој дар секој месец.</string>
+  <string name="donate_gpay_check_send_email">Да, Фондацијата Викимедија може повремено да ми испраќа е-пошта.</string>
+  <string name="donate_gpay_minimum_amount">Одберете износ (барем %s)</string>
+  <string name="donate_gpay_maximum_amount">Не можеме да прифатиме износи поголеми од %s преку нашиот прилог. Обратете се кај персоналот за големи дарови на benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Ви благодариме!&lt;/b&gt; Вашата великодушност кон Википедија многу ни значи.</string>
+  <string name="donate_gpay_help_problems">Имате проблеми при дарувањето?</string>
+  <string name="donate_gpay_help_other_ways">Други начини на дарување</string>
+  <string name="donate_gpay_help_faq">Често поставувани прашања</string>
+  <string name="donate_gpay_help_tax">Информации за даночното олеснување</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Потребна е дозвола за споделување на вашата местоположба на карта. Обидете се повторно.</string>
   <string name="places_search_hint">Пребарај места</string>
@@ -1585,11 +1655,12 @@
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
   <string name="places_nav_tab_tooltip_message">Откривајте Википедиини статии околу вас со Места</string>
-  <string name="places_article_menu_tooltip_message">Допрете на &lt;b&gt;\'Погл. на карта\'&lt;/b&gt; за да го истражите наоѓалиштето на оваа статија</string>
+  <string name="places_article_menu_tooltip_message">Допрете на „Погл. на карта“ за да го истражите наоѓалиштето на оваа статија</string>
   <string name="places_survey_very_satisfied_option">Многу задоволен</string>
   <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
   <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
   <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
+  <string name="places_survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
 </resources>

@@ -147,7 +147,6 @@
         <item name="android:textSize">20sp</item>
         <item name="lineHeight">28sp</item>
         <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:layout_marginBottom">5dp</item>
     </style>
 
     <style name="H2.MessageCard">
@@ -173,8 +172,6 @@
     <style name="H3.Article">
         <item name="android:fontFamily">serif</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">24sp</item>
-        <item name="lineHeight">32sp</item>
     </style>
 
     <style name="H4">
@@ -274,6 +271,10 @@
 
     <style name="List.MaterialListSubtitle">
         <item name="android:textColor">?attr/secondary_color</item>
+    </style>
+
+    <style name="List.MaterialListDescription">
+        <item name="android:textColor">?attr/placeholder_color</item>
     </style>
 
     <style name="Small">
@@ -517,6 +518,20 @@
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
     </style>
 
+    <style name="DialogIconWithTint" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
+        <item name="tint">?attr/primary_color</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon">
+        <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.Material3.Title.Panel.CenterStacked</item>
+        <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon.Delete">
+        <item name="buttonBarPositiveButtonStyle">@style/DestructiveDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
+    </style>
+
     <style name="AlertDialogTheme.Input">
         <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
     </style>
@@ -553,6 +568,16 @@
     <style name="FloatingActionButtonRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="PlacesToggleStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">?attr/paper_color</item>
     </style>
 
 </resources>

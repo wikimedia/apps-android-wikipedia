@@ -18,6 +18,7 @@ import org.wikipedia.databinding.DialogUserInformationBinding
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
@@ -51,9 +52,9 @@ class UserInformationDialog : DialogFragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is UserInformationDialogViewModel.UiState.Loading -> onLoading()
-                        is UserInformationDialogViewModel.UiState.Success -> onSuccess(it.editCount, it.registrationDate)
-                        is UserInformationDialogViewModel.UiState.Error -> onError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> onSuccess(it.data.first, it.data.second)
+                        is Resource.Error -> onError(it.throwable)
                     }
                 }
             }

@@ -3,6 +3,7 @@
 * AZISS
 * Masalli qasimli
 * NMW03
+* Nemoralis
 * Neriman2003
 * Serkanland
 * Toghrul Rahimli
@@ -213,9 +214,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Vikipediya hesabına \"%s\" yazaraq müxtəlif cihazlar arasında oxuma siyahısını sinxronlaşdırın</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxronlaşdırılmış oxuma siyahılarını \"%s\"-dan sil?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Bu, əvvəlcədən sinxronlaşdırılmış oxuma siyahılarını tamamilə siləcəkdir. Bütün sinxronlaşdırılmış siyahıları \"%s\" hesabınızdan silinsin?</string>
-  <string name="preferences_privacy_settings_heading">Məxfilik</string>
-  <string name="preference_title_eventlogging_opt_in">İstifadə hesabatlarını göndərin</string>
-  <string name="preference_summary_eventlogging_opt_in">Vikimediaya tətbiqin daha yaxşı tətbiq edilməsi üçün necə istifadə etdiyinə dair məlumat toplamaq imkanı verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
   <string name="preference_summary_auto_upload_crash_reports">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
@@ -238,15 +236,15 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
   <string name="about_contributors_heading">Tərtibatçılar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
   <string name="about_translators_heading">Tərcüməçilər</string>
   <string name="about_translators_translatewiki">Bu proqramlar, könüllü tərcüməçilər tərəfindən &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net saytında&lt;/a&gt; tərcümə edildi</string>
   <string name="about_app_license_heading">Lisenziya</string>
-  <string name="about_app_license">Mənbə kodu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; və &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisenziyası&lt;/a&gt; altında mövcuddur. Başqa cür göstərilmədiyi halda, məzmun &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike Lisenziyası&lt;/a&gt; altında yayımlanır.</string>
+  <string name="about_app_license" fuzzy="true">Mənbə kodu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; və &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisenziyası&lt;/a&gt; altında mövcuddur. Başqa cür göstərilmədiyi halda, məzmun &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike Lisenziyası&lt;/a&gt; altında yayımlanır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya fondunun&lt;/a&gt; məhsulu</string>
   <string name="about_activity_title">Haqqında</string>
   <string name="edit_abandon_confirm">Səhifə redaktə edildi. Dəyişikliklərinizi saxlamadan çıxmaq istədiyinizə əminsiniz?</string>
@@ -621,5 +619,13 @@
   <string name="wikitext_bold">Qalın</string>
   <string name="wikitext_template">Şablon</string>
   <string name="main_drawer_help">Kömək</string>
+  <string name="talk_warn_save_dialog_dont_save">Yadda saxlama</string>
+  <string name="talk_subject_duplicate">Mövzu adı artıq mövcuddur. Başqasını sınayın.</string>
   <string name="watchlist_expiry_dialog_title">İzləmədə saxlama müddətini seçin</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Başlamaq üçün öz xəbərdarlıq mesajlarınızı yaradın və ya &lt;a href=\"#\"&gt;nümunə mesajlarından&lt;/a&gt; istifadə edin.</string>
+  <string name="talk_templates_your_messages_tab_title">Mesajlarınız</string>
+  <string name="talk_templates_example_messages_tab_title">Nümunə mesajlar</string>
+  <string name="patroller_onboarding_two_talk_title">Müzakirə</string>
+  <string name="patroller_onboarding_two_talk_content">Digər redaktorlarla əlaqə saxlayın. Tez-tez istifadə olunan müzakirə səhifəsi mesajlarını yadda saxlayın və ya şablondan istifadə edin.</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Mesajlarınızı fərdiləşdirmək, göndərmək və saxlamaq üçün aşağıdakı nümunə mesajından istifadə edin.</string>
 </resources>

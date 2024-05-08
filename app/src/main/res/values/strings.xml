@@ -126,6 +126,7 @@
     <string name="langlinks_your_wikipedia_languages">Your Wikipedia languages</string>
     <string name="menu_save_changes">Publish changes</string>
     <string name="edit_saved_successfully">Edit published!</string>
+    <string name="stub_article_edit_saved_successfully">Edit published! Changes may take time to appear.</string>
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
     <string name="dialog_message_edit_failed_cancel">Cancel</string>
@@ -147,7 +148,7 @@
     <string name="login_password_hint">Password</string>
     <string name="account_creation_password_hint">Password</string>
     <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-    <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required!  Please return to the main activity and log in with your 2FA token, then retry.</string>
+    <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required! Please return to the main activity and log in with your 2FA token, then retry.</string>
     <string name="onboarding_card_login">Log in</string>
     <string name="page_editing_login">Log in</string>
     <string name="reading_lists_sync_login">Log in</string>
@@ -168,6 +169,9 @@
     <string name="logged_out_in_background_dialog">You have been logged out of Wikipedia. Would you like to log in again?</string>
     <string name="logged_out_in_background_login">Log in</string>
     <string name="logged_out_in_background_cancel">Cancel</string>
+    <string name="account_vanish_request_title">Vanish account</string>
+    <string name="account_vanish_request_confirm_title">Vanish account warning</string>
+    <string name="account_vanish_request_confirm"><![CDATA[Vanishing is a <b>last resort</b> and should <b>only be used when you wish to stop editing forever</b> and also to hide as many of your past associations as possible.<br/><br/>Account deletion on Wikipedia is done by changing your account name to make it so others cannot recognize your contributions in a process called account vanishing. <b>Vanishing does not guarantee complete anonymity or remove contributions to the projects</b>.]]></string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
@@ -241,15 +245,15 @@
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
     <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-    <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+    <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
     <string name="about_libraries_heading">Libraries used</string>
     <string name="about_contributors_heading">Contributors</string>
     <string name="about_contributors"><![CDATA[<a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android">Team page</a>]]></string>
     <string name="about_translators_heading">Translators</string>
     <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_app_license_heading">License</string>
-    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
+    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
@@ -314,6 +318,8 @@
     <string name="widget_name_featured_page">Wikipedia featured page</string>
     <string name="widget_title_featured_page">Today\'s featured page:</string>
     <string name="widget_name_search">Wikipedia search</string>
+    <string name="widget_description_search">The fastest way to search Wikipedia</string>
+    <string name="widget_description_featured_page">The best articles Wikipedia has to offer</string>
     <string name="wiktionary_no_definitions_found">No definitions found.</string>
     <string name="alpha_update_notification_title">New alpha update available</string>
     <string name="alpha_update_notification_text">Tap to download</string>
@@ -401,6 +407,7 @@
     <string name="link_preview_dialog_save_button">Save</string>
     <string name="link_preview_dialog_saved_button">Saved</string>
     <string name="link_preview_dialog_share_button">Share</string>
+    <string name="link_preview_stub_placeholder_text">This article is a stub, which means there isn\'t enough content in the article to generate a preview. However, you can change that.</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
@@ -424,6 +431,26 @@
     <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
     <string name="theme_chooser_menu_item_short_tooltip">Customize your toolbar</string>
     <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+
+    <string name="temp_account_not_logged_in">You are not logged in</string>
+    <string name="temp_account_anon_dialog_body"><![CDATA[Once you make an edit, a <b>temporary account</b> will be created for you to protect your privacy. <a href="%1$s">Learn more</a>.<br /><br /><a href="https://#login">Log in</a> or <a href="https://#login">Create an account</a> to get credit for future edits and to access other features.]]></string>
+    <string name="temp_account_temp_dialog_body"><![CDATA[Your edit will be attributed to %1$s. Your IP address will be visible to administrators.<br /><br />If you <a href="https://#login">log in</a> or <a href="https://#login">create an account</a>, your edits will be attributed to a name you choose, among other benefits.]]></string>
+    <string name="temp_account_dialog_ok">Got it</string>
+    <string name="temp_account_using_title">You are using a temporary account</string>
+    <string name="temp_account_dialog_discard">Discard changes and log in</string>
+    <plurals name="temp_account_created">
+        <item quantity="one">Temporary account %1$s was created after your edit was published. It will expire in %2$d day.</item>
+        <item quantity="other">Temporary account %1$s was created after your edit was published. It will expire in %2$d days.</item>
+    </plurals>
+    <plurals name="temp_account_expiry">
+        <item quantity="one">Account will expire in %d day.</item>
+        <item quantity="other">Account will expire in %d days.</item>
+    </plurals>
+    <string name="temp_account_anon_edit_status"><![CDATA[<b>You are not logged in.</b> Once you make an edit, a temporary account will be created for you to protect your privacy. <a href="%1$s">Learn more</a>]]></string>
+    <string name="temp_account_edit_status"><![CDATA[<b>You are using a temporary account.</b> Your edit will be attributed to %1$s. <a href="%2$s">Learn more</a>.]]></string>
+    <string name="temp_account_login_status"><![CDATA[<b>You are currently using a temporary account.</b> Edits made with the temporary account %1$s will not be carried over to your permanent account when you log in. Log in or create an account to get credit to your username, among other benefits.]]></string>
+    <string name="temp_account_end_session">End session</string>
+    <string name="temp_account_end_session_confirm">This will log you out of your temporary account. Do you want to continue?</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
@@ -774,8 +801,8 @@
     <string name="notifications_menu_uncheck_all">Uncheck all items</string>
     <string name="notifications_wiki_filter_header">Wiki filter</string>
     <string name="notifications_type_filter_header">Type filter</string>
-    <string name="notifications_all_wikis_text">All \"wiki\"</string>
-    <string name="notifications_all_types_text">All \"type\"</string>
+    <string name="notifications_all_wikis_text">All wikis</string>
+    <string name="notifications_all_types_text">All types</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
     <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->
@@ -872,8 +899,8 @@
     <string name="description_edit_voice_input_description">Voice input</string>
     <string name="description_edit_learn_more">Learn more about article descriptions</string>
     <string name="description_edit_image_caption_learn_more">Learn more about image captions</string>
-    <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-    <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+    <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+    <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
 
     <string name="description_too_short">The text is too short.</string>
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
@@ -1108,8 +1135,8 @@
     <string name="image_recommendation_accept">Yes</string>
     <string name="image_recommendation_reject">No</string>
     <string name="image_recommendation_notsure">Not sure</string>
-    <string name="image_recommendation_reject_title">Why not?</string>
-    <string name="image_recommendation_reject_subtitle">Your answers improve future suggestions.</string>
+    <string name="image_recommendation_reject_title">Rejection reason</string>
+    <string name="image_recommendation_reject_subtitle">The rejection reason is anonymous and will improve future image suggestions.</string>
     <string name="image_recommendation_reject_not_relevant">Image is not relevant</string>
     <string name="image_recommendation_reject_no_info">Not enough information to decide</string>
     <string name="image_recommendation_reject_offensive">Image is offensive</string>
@@ -1292,6 +1319,18 @@
     <string name="insert_media_insert_button">Insert</string>
     <!-- /Insert media -->
 
+    <!-- Templates -->
+    <string name="templates_search_hint">Search templates</string>
+    <string name="templates_insert_button">Insert</string>
+    <string name="templates_param_suggested_value">e.g. %s</string>
+    <string name="templates_param_optional_hint">%s (Optional)</string>
+    <string name="templates_param_suggested_hint">%s (Suggested)</string>
+    <string name="templates_learn_more_link">Learn more</string>
+    <string name="templates_description_incomplete">Templates are user-generated and may lack complete descriptions.</string>
+    <string name="templates_description_empty">The \"%s\" template doesn\'t yet have a description.</string>
+    <string name="templates_description_missing_data"><![CDATA[This template is missing <a href="%1$s">TemplateData</a>, and its parameters have been <a href="%2$s">autogenerated</a>. As a result the template and its parameters lack descriptions.]]></string>
+    <!-- /Templates -->
+
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>
@@ -1316,10 +1355,10 @@
     <string name="talk_warn_save_dialog_hint">Message title</string>
     <string name="talk_warn_save_dialog_publish">Publish</string>
     <string name="talk_warn_save_dialog_cancel">Cancel</string>
+    <string name="talk_warn_save_dialog_dont_save">Don\'t save</string>
     <string name="talk_warn_submitted">Message published to editor\'s user talk page</string>
     <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
-    <string name="talk_warn_saved_message">Select an existing warning message or compose a new message.</string>
-    <string name="talk_warn_saved_message_dropdown">Saved messages</string>
+    <string name="talk_warn_saved_messages">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
     <string name="talk_page_empty_content">Talk pages are where people discuss how to make Wikipedia content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
@@ -1330,6 +1369,7 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="talk_subject_duplicate">Subject name already exists. Try a different one.</string>
     <string name="talk_response_submitted">Reply posted.</string>
     <string name="talk_snackbar_undo">Undo</string>
     <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
@@ -1537,10 +1577,8 @@
     <!-- /Shareable reading lists -->
 
     <!-- Patroller task -->
-    <string name="talk_templates_manage_title">Manage templates</string>
-    <string name="talk_templates_empty_message">You do not have any warning messages saved.</string>
+    <string name="talk_templates_empty_message"><![CDATA[Create your own messages or use <a href="#">example messages</a> to get started.]]></string>
     <string name="talk_templates_new_message_title">New message</string>
-    <string name="talk_templates_new_message_description">Compose warning message.</string>
     <string name="talk_templates_new_message_subject_hint">Subject</string>
     <string name="talk_templates_new_message_compose_hint">Compose message</string>
     <string name="talk_templates_new_message_save">Save</string>
@@ -1565,7 +1603,8 @@
         <item quantity="other">Messages have been deleted</item>
     </plurals>
     <string name="talk_templates_message_title_empty">The title cannot be empty.</string>
-    <string name="patroller_tasks_edits_list_title">List of edits</string>
+    <string name="talk_templates_your_messages_tab_title">Your messages</string>
+    <string name="talk_templates_example_messages_tab_title">Example messages</string>
     <string name="patroller_tasks_edits_list_search_hint">Search or filter edits</string>
     <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
     <string name="patroller_tasks_edits_list_card_tags_text_none">None</string>
@@ -1625,7 +1664,6 @@
         <item quantity="one">%d filter</item>
         <item quantity="other">%d filters</item>
     </plurals>
-    <string name="patroller_tasks_patrol_edit_title">Patrol edit</string>
     <string name="patroller_tasks_patrol_edit_overflow_edit_history">Article edit history</string>
     <string name="patroller_tasks_patrol_edit_undo_success">Revert complete</string>
     <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Are you sure you want to rollback?</string>
@@ -1640,8 +1678,8 @@
     <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
     <string name="patroller_onboarding_two_watch_title">Watch</string>
     <string name="patroller_onboarding_two_watch_content">Want to track article edits? Add to your Watchlist. View it under \'More\'.</string>
-    <string name="patroller_onboarding_two_warn_title">Warn</string>
-    <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
+    <string name="patroller_onboarding_two_talk_title">Talk</string>
+    <string name="patroller_onboarding_two_talk_content">Communicate with other editors. Save commonly used talk page messages or use a template.</string>
     <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
@@ -1652,10 +1690,35 @@
     <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
     <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
     <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
+    <string name="patroller_diff_menu_edit_history_title">Article edit history</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
     <string name="patroller_diff_feedback_dialog_submit">Submit</string>
     <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
     <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
+    <string name="patroller_saved_message_title_vandalism">Vandalism warning</string>
+    <string name="patroller_saved_message_title_editing_tests">Editing tests</string>
+    <string name="patroller_saved_message_title_npov">Neutral point of view</string>
+    <string name="patroller_saved_message_title_auto_trans">Automatic translation</string>
+    <string name="patroller_saved_message_title_coi_rem">Conflict of interest reminder</string>
+    <string name="patroller_saved_message_title_final_warning">Final warning</string>
+    <string name="patroller_saved_message_title_copy_vio">Copyright violation alert</string>
+    <string name="patroller_saved_message_title_edit_summary_reminder">Leave an edit summary</string>
+    <string name="patroller_saved_message_title_do_not_censor">Do not censor</string>
+    <string name="patroller_saved_message_title_art_imp">Article improvement suggestion</string>
+    <string name="patroller_saved_message_body_vandalism">Hi {{{username}}}, I want to let you know I\'ve reverted one or more of your [{{{diffLink}}}|recent contributions] because they do not seem constructive. If you think I made a mistake or have questions, you can leave a message on [[User talk:{{{senderUserName}}}|my talk page]]. Please note that continued vandalism may lead to restrictions.</string>
+    <string name="patroller_saved_message_body_editing_tests">Hi {{{username}}}, I am delighted that Wikipedia has caught your attention and that you have been interested in learning how to edit on it. The editing test you did worked; However, you should keep in mind that the goal of this project is to develop a reliable and complete encyclopedia that everyone can consult. Your edit affected the content, so it has been removed.\nIf you want to learn how to edit Wikipedia, the [[Wikipedia:Sandbox|sandbox]] is at your disposal. If your comments were specific to an article, the correct place is that article\'s talk page.</string>
+    <string name="patroller_saved_message_body_npov">Hello {{{username}}}, some contributions you have made do not meet the neutrality required to comply with this Wikipedia\'s [[Wikipedia:NPOV|neutral point of view]] policy. For this reason, some content has been modified or removed. Please modify the paragraphs or sections that show a partial point of view, replacing them with a more neutral and objective text in line with what is expected in an encyclopedia.</string>
+    <string name="patroller_saved_message_body_auto_trans">Hello {{{username}}}, some contributions you have made are possibly machine translations, which is why they have been modified or marked with the template. If no improvements are made to the article, it may be deleted.\n\nIf, despite all this information, you still have any questions, feel free to leave a message on [[User talk:{{{senderUserName}}}|my talk page]]. Don\'t be discouraged by this little incident. Your contributions are very important to Wikipedia.</string>
+    <string name="patroller_saved_message_body_coi_rem">Hello {{{username}}}, I appreciate your collaboration on Wikipedia; However, I noticed you are in a [[Wikipedia:Conflict_of_interest|conflict of interest]].A conflict of interest is the incompatibility between Wikipedia\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\n\nAll contributions in the main space are subject to the policies of content criteria of this Wikipedia ([[Wikipedia:What_Wikipedia_is_not|what Wikipedia is not]]), encyclopedic quality ([[Wikipedia:Verifiability|verifiability]] and [[Wikipedia:No_original_research|no original research]]), editorial method ([[Wikipedia:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Wikipedia:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\n\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.</string>
+    <string name="patroller_saved_message_body_final_warning">Because you made multiple destructive edits, this will serve as your final warning. Should you vandalize Wikipedia again, you will be banned from editing.</string>
+    <string name="patroller_saved_message_body_copy_vio">Your recent edit appears to include copyrighted material without permission. Please ensure all content complies with this Wikipedia\'s [[Wikipedia:Copyrights|copyright]] policies to avoid removal.</string>
+    <string name="patroller_saved_message_body_edit_summary">Hi {{{username}}}, it appears you removed content from Wikipedia without leaving an edit summary. Please leave an edit summary whenever you add or remove content to Wikipedia.</string>
+    <string name="patroller_saved_message_body_do_not_censor">Hi {{{username}}}, it appears you removed content without discussing it on the article talk page. Please note that Wikipedia is not censored, and content should not be removed because it is controversial. If you believe the information is inaccurate, please reach a consensus on the article talk page.</string>
+    <string name="talk_warn_learn_more_label">Learn about message placeholders</string>
+    <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
+    <string name="talk_warn_saved_messages_usage_instruction">Use an example message below to customize, send and save to your messages.</string>
+    <string name="patroller_saved_message_body_art_imp">Hello {{{username}}}. Your article is a great start! To make it even better, consider adding more references to reliable sources. This helps verify the information and improves the article\'s quality. Check out this Wikipedia\'s guidelines on [[Wikipedia:Reliable_sources|reliable sources]] for more details.</string>
+    <string name="talk_templates_menu_edit_title">Edit</string>
 
     <!-- /Patroller task -->
 
@@ -1673,6 +1736,21 @@
     <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
+    <string name="donate_gpay_dialog_title">Donate with Google Pay?</string>
+    <string name="donate_gpay_dialog_description">Donate with Google Pay or choose another payment method.</string>
+    <string name="donate_gpay_dialog_pay_button">Donate with Google Pay</string>
+    <string name="donate_gpay_dialog_other_button">Other payment method</string>
+    <string name="donate_gpay_activity_title">Select an amount</string>
+    <string name="donate_gpay_check_transaction_fee">I\'ll generously add %s to cover the transaction fees so you can keep 100%% of my donation.</string>
+    <string name="donate_gpay_check_recurring">Make this a monthly recurring donation.</string>
+    <string name="donate_gpay_check_send_email">Yes, the Wikimedia Foundation can send me an occasional email.</string>
+    <string name="donate_gpay_minimum_amount">Please select an amount (minimum %s)</string>
+    <string name="donate_gpay_maximum_amount">We cannot accept donations greater than %s through our app. Please contact our major gifts staff at benefactors@wikimedia.org.</string>
+    <string name="donate_gpay_success_message"><![CDATA[<b>Thank you!</b> Your generosity to Wikipedia means so much to us.]]></string>
+    <string name="donate_gpay_help_problems">Problems donating?</string>
+    <string name="donate_gpay_help_other_ways">Other ways to give</string>
+    <string name="donate_gpay_help_faq">Frequently asked questions</string>
+    <string name="donate_gpay_help_tax">Tax deductibility information</string>
     <!-- Donor experience -->
 
     <!-- Places -->
@@ -1683,11 +1761,12 @@
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
     <string name="places_nav_tab_tooltip_message">Discover Wikipedia articles around you with Places</string>
-    <string name="places_article_menu_tooltip_message"><![CDATA[Tap <b>\'View on map\'</b> to explore this article\'s location]]></string>
+    <string name="places_article_menu_tooltip_message">Tap \'View on map\' to explore this article\'s location</string>
     <string name="places_survey_very_satisfied_option">Very satisfied</string>
     <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
-    <string name="places_survey_dialog_title">Help improve \"Places\"</string>
+    <string name="places_survey_dialog_title">Help improve \'Places\'</string>
     <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
+    <string name="places_survey_dialog_cancel">Cancel</string>
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <!-- /Places -->

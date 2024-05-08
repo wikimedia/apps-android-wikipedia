@@ -80,9 +80,6 @@
   <string name="wikipedia_app_faq">विकिपीडिया-अनुप्रयोगाय सामान्यजिज्ञासाः</string>
   <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>
   <string name="create_account_account_created_toast">सदस्यता प्राप्ता !</string>
-  <string name="preferences_privacy_settings_heading">गोपनीयता</string>
-  <string name="preference_title_eventlogging_opt_in">उपयोगस्य वृत्तान्तं प्रेषयतु</string>
-  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगे आवश्यकपरिवर्तनं कर्तुं भवान्/भवती विकिपीडिया-अनुप्रयोगस्य कथम् उपयोगं करोति इत्यस्य सूचनां क्रोडीकर्तुं विकिपीडिया-जालाय अनुमतिं ददातु ।</string>
   <string name="preference_title_auto_upload_crash_reports">ध्वंसस्य वृत्तान्तं प्रेषयतु</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">अनुप्रयोगस्य ध्वंसवृत्तान्तं HockeyApp इत्यत्र उत तृतीयपक्षप्रदात्रे प्रेष्यताम्, येन वयं समीक्षां कृत्वा भवतः/भवत्याः ध्वंसमत्कुणं सारल्येन समीकर्तुं शक्नुमः ।</string>
   <string name="editing_error_spamblacklist">(%s) इत्येतानि स्थगितानि जालस्थानि प्राप्तानि । कृपया तानि अपाकृत्य पुनः प्रयत्यताम् ।</string>

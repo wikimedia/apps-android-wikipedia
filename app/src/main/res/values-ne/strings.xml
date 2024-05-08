@@ -65,6 +65,7 @@
   <string name="page_edit_history_filter_by_all">सबै सम्पादनहरू (%s)</string>
   <string name="page_edit_history_filter_by_user">प्रयोगकर्ता सम्पादनहरू (%s)</string>
   <string name="page_edit_history_filter_by_bot">बोट सम्पादनहरू (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s देखि %2$s सम्मका मेट्रिकहरू</string>
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
   <string name="menu_page_find_in_page">लेखमा खोज्ने</string>
@@ -204,9 +205,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">अध्ययन सूची विकिपिडिया खाता \"%s\" मा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस् \\</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" बाट समक्रमण गरिएको अध्ययन सूची हटाउने?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
-  <string name="preferences_privacy_settings_heading">गोपनीयता</string>
-  <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
-  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
@@ -249,6 +247,8 @@
   <string name="edit_undo">अन्डू गर्नुहोस्</string>
   <string name="edit_redo">पुन: कायम गर्नुहाेस्</string>
   <string name="edit_rollback">पूर्ववत गर्ने</string>
+  <string name="edit_warn">चेतावनी</string>
+  <string name="edit_damage">क्षति %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s बाइट</item>
     <item quantity="other">%s बाइटहरू</item>
@@ -273,6 +273,10 @@
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
   <string name="search_results_count_zero">कुनै पनि नतिजा फेला परेनन्</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 परिणाम</item>
+    <item quantity="other"> %d परिणाम</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">भर्खरैका खोजहरू खाली गर्नुहोस्</string>
   <string name="clear_recent_searches_confirm">के तपाईं साच्चै आफ्नो खोज इतिहास खाली गर्न चाहनुहुन्छ?</string>
   <string name="clear_recent_searches_confirm_yes">हो</string>
@@ -345,6 +349,10 @@
   <string name="multi_select_items_selected">%d चयन गरियो</string>
   <string name="error_message_generic">एउटा त्रुटी देखियो</string>
   <string name="view_link_preview_error_button_dismiss">खारेज गर्नुहोस्</string>
+  <string name="link_preview_dialog_read_button">पढ्नुहोस्</string>
+  <string name="link_preview_dialog_save_button">सङ्ग्रह गर्नुहोस्</string>
+  <string name="link_preview_dialog_saved_button">सुरक्षित गरिएको</string>
+  <string name="link_preview_dialog_share_button">साझेदारी गर्नुहोस्</string>
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
   <string name="reference_title">सन्दर्भ %s</string>
@@ -740,4 +748,5 @@
   <string name="category_tab_subcategories">उपश्रेणीहरू</string>
   <string name="category_empty">यस श्रेणीमा कुनै लेख फेला परेन।</string>
   <string name="user_contrib_menu_label">योगदानहरू</string>
+  <string name="patroller_onboarding_two_talk_title">वार्तालाप</string>
 </resources>

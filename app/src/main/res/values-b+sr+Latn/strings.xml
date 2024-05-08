@@ -206,9 +206,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinhronizujte liste za čitanje na različitim uređajima tako što ćete ih sačuvati na svoj nalog „%s” na Vikipediji</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ukloniti sinhronizovane liste za čitanje sa naloga „%s”?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovim ćete u potpunosti izbrisati sve ranije sinhronizovane liste za čitanje sa udaljenog skladišta. Ukloniti sve sinhronizovane liste sa naloga „%s”?</string>
-  <string name="preferences_privacy_settings_heading">Privatnost</string>
-  <string name="preference_title_eventlogging_opt_in">Šalji izveštaje o upotrebi</string>
-  <string name="preference_summary_eventlogging_opt_in">Dozvolite Vikimediji da prikuplja informacije o tome kako koristite aplikaciju u cilju njenog poboljšanja</string>
   <string name="preference_title_auto_upload_crash_reports">Šalji izveštaje o otkazivanjima</string>
   <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izveštaje o otkazivanjima nezavisnoj usluzi kako bismo ispitali vaš slučaj i ispravili grešku brže i lakše.</string>
   <string name="editing_error_spamblacklist">Otkriveni su linkovi do blokiranih domena (%s). Uklonite ih pa pokušajte ponovo.</string>
@@ -234,15 +231,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sr_LATN</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr#Oznake_slika</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr#Oznake_slika</string>
   <string name="about_libraries_heading">Korišćene biblioteke</string>
   <string name="about_contributors_heading">Saradnici</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stranica tima&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevodioci</string>
   <string name="about_translators_translatewiki">Aplikaciju su preveli dobrovoljci na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorni kôd je dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-u&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-u&lt;/a&gt; pod licencom &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Sadržaj je dostupan pod licencom &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Autorstvo—Deliti pod istim uslovima&lt;/a&gt;, osim ako nije drugačije navedeno.</string>
+  <string name="about_app_license" fuzzy="true">Izvorni kôd je dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-u&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-u&lt;/a&gt; pod licencom &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Sadržaj je dostupan pod licencom &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Autorstvo—Deliti pod istim uslovima&lt;/a&gt;, osim ako nije drugačije navedeno.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Zadužbine Vikimedija&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaciji</string>
   <string name="edit_abandon_confirm">Stranica je izmenjena. Želite li zaista da izađete bez čuvanja promene?</string>
@@ -729,8 +726,8 @@
   <string name="notifications_menu_check_all">Izaberi sve</string>
   <string name="notifications_wiki_filter_header">Filter vikija</string>
   <string name="notifications_type_filter_header">Tip filtera</string>
-  <string name="notifications_all_wikis_text">Svi \"vikiji\"</string>
-  <string name="notifications_all_types_text">Svi \"tipovi\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Svi \"vikiji\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Svi \"tipovi\"</string>
   <string name="notifications_menu_user_talk_page">Stranica za razgovor %s</string>
   <string name="notifications_offline_disable_message">Funkcija nije dostupna dok ste van mreže.</string>
   <string name="view_because_you_read_card_title">Na osnovu pročitanog</string>
@@ -1029,8 +1026,8 @@
   <string name="image_recommendation_accept">Da</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Nisam siguran</string>
-  <string name="image_recommendation_reject_title">Zašto ne?</string>
-  <string name="image_recommendation_reject_subtitle">Vaši odgovori unapređuju buduće predloge.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Zašto ne?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Vaši odgovori unapređuju buduće predloge.</string>
   <string name="image_recommendation_reject_not_relevant">Slika nije relevantna</string>
   <string name="image_recommendation_reject_no_info">Nedovoljno informacija za odluku</string>
   <string name="image_recommendation_reject_offensive">Slika je uvredljiva</string>
@@ -1077,8 +1074,6 @@
   <string name="onboarding_explore_text">Zavirite u nepoznati svet Vikipedije pomoću fida „Istraži“ koji se neprekidno ažurira.&lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; fid svojim interesima – upoznajte istorijske događaje koji su se odigrali &lt;b&gt;na današnji dan&lt;/b&gt; ili iskušajte sreću sa &lt;b&gt;slučajnim člankom&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Liste za čitanje sa sinhronizacijom</string>
   <string name="onboarding_reading_list_sync_text_v2">Možete da pravite liste za čitanje od članaka koje želite da čitate kasnije, čak i kada ste oflajn. &lt;br/&gt;Prijavite se na svoj nalog na Vikipediji da biste sinhronizovali liste za čitanje. &lt;a href=\"#login\"&gt;Pridružite se Vikipediji&lt;/a&gt;.</string>
-  <string name="onboarding_analytics_title">Slanje anonimnih podataka</string>
-  <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju slanjem informacija o upotrebi. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Saznajte više&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sledeće na vašem uređaju:</string>
@@ -1205,8 +1200,6 @@
   <string name="talk_warn_save_dialog_cancel">Otkaži</string>
   <string name="talk_warn_submitted">Poruka je objavljena na urednikovoj stranici za razgovor</string>
   <string name="talk_warn_submitted_and_saved">Poruka je sačuvana i objavljena na urednikovoj stranici za razgovor</string>
-  <string name="talk_warn_saved_message">Odaberi postojeću poruku upozorenja ili započnite novu poruku.</string>
-  <string name="talk_warn_saved_message_dropdown">Sačuvane poruke</string>
   <string name="talk_page_empty">Ova stranica za razgovor je prazna.</string>
   <string name="talk_page_empty_title">Razgovor počinje ovde</string>
   <string name="talk_page_empty_content">Stranice za razgovor su mesta gde urednici diskutuju kako da učine sadržaj Vikipediji najboljim mogućim. Počnite dodavanjem nove teme za diskusiju da bi ste se povezali i sarađivali sa zajednicom Vikipedijanaca.</string>
@@ -1410,10 +1403,8 @@
   <string name="reading_list_share_message_v2">Zdravo! Želim da podelim moju listu za čitanje na Vikipediji sa vama:</string>
   <string name="reading_list_share_survey_title">Da li možete da nam pomognete u unapređivanju \"deljenja listi za čitanje\"?</string>
   <string name="reading_list_share_survey_body">\"Deljenje listi za čitanje\" je testna mogućnost i potrebne su vam vaše povratne informacije da bi smo je unapredili ili uklonili.</string>
-  <string name="talk_templates_manage_title">Upravljanje šablonima</string>
-  <string name="talk_templates_empty_message">Nemate sačuvane poruke upozorenja.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Nemate sačuvane poruke upozorenja.</string>
   <string name="talk_templates_new_message_title">Nova poruka</string>
-  <string name="talk_templates_new_message_description">Sastavi poruku upozorenja.</string>
   <string name="talk_templates_new_message_subject_hint">Tema</string>
   <string name="talk_templates_new_message_compose_hint">Napiši poruku</string>
   <string name="talk_templates_new_message_save">Sačuvaj</string>
@@ -1429,7 +1420,6 @@
   <string name="talk_templates_edit_message_dialog_delete">Obriši</string>
   <string name="talk_templates_edit_message_updated">Poruka je izmenjena</string>
   <string name="talk_templates_message_deleted" fuzzy="true">Poruka je obrisana</string>
-  <string name="patroller_tasks_edits_list_title">Spisak izmena</string>
   <string name="patroller_tasks_edits_list_search_hint">Pretraga ili filtriranje izmena</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nema</string>
@@ -1489,7 +1479,6 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filtera</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patroliraj izmenu</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Istorija</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Vraćanje je završeno</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Sigurno vrati izmene?</string>
@@ -1504,8 +1493,6 @@
   <string name="patroller_onboarding_two_thank_content">Vidite produktivnu izmenu? Zahvalite se korisniku za njegov doprinos.</string>
   <string name="patroller_onboarding_two_watch_title">Nadgledaj</string>
   <string name="patroller_onboarding_two_watch_content">Da li želite da pratite izmene članka? Dodajte ga na svoj spisak nadgledanja. Pogledajte ga pod \'Više\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Upozori</string>
-  <string name="patroller_onboarding_two_warn_content">Pravite, šaljite, i čuvajte poruke upozorenja na uredničkoj stranici za razgovor</string>
   <string name="patroller_onboarding_two_undo_title">Poništi/vrati</string>
   <string name="patroller_onboarding_two_undo_content">Odaberite \'Poništi\' da bi ste poništili ili vratili potencionalnu destruktivnu izmenu.</string>
   <string name="patroller_diff_feedback_dialog_title">Pomozite nam da unapredimo ovu mogućnost</string>

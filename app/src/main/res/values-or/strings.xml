@@ -80,9 +80,6 @@
   <string name="wikipedia_app_faq">ଉଇକିପିଡ଼ିଆ ଆପ ବାବଦରେ ଜାଣିବାକଥା</string>
   <string name="send_feedback">ଆପ ବାବଦରେ ମତାମତ ପଠାନ୍ତୁ</string>
   <string name="create_account_account_created_toast">ଖାତାଟି ଖୋଲିଗଲା!</string>
-  <string name="preferences_privacy_settings_heading">ଗୋପନୀୟତା</string>
-  <string name="preference_title_eventlogging_opt_in">ବ୍ୟବହାର ବିବରଣୀ ପଠାନ୍ତୁ</string>
-  <string name="preference_summary_eventlogging_opt_in">ଏହି ଆପ୍ଲିକେସନଟିକୁ ଆହୁରି ଉନ୍ନତ କରିବା ପାଇଁ ଉଇକିମିଡ଼ିଆକୁ ସହଯୋଗ କରନ୍ତୁ</string>
   <string name="preference_title_auto_upload_crash_reports">କ୍ରାସ ବିବରଣୀ ପଠାନ୍ତୁ</string>
   <string name="editing_error_spamblacklist">ଅଟକାଯାଇଥିବା ଡୋମେନସବୁ (%s) ମିଳିଲା । ଦୟାକରି ସେସବୁ କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
   <string name="error_can_not_process_link">ଲିଙ୍କ ଦେଖାଇ ହେଲାନାହିଁ</string>
@@ -140,4 +137,5 @@
   <string name="view_static_card_icon_content_description">କାର୍ଡ ଆଇକନ</string>
   <string name="view_card_news_title">ଖବରରେ</string>
   <string name="suggested_edits_feed_card_add_image_caption">ଛବିରେ ଶୀର୍ଷକ ଯୋଡନ୍ତୁ</string>
+  <string name="watchlist_expiry_dialog_permanent">ସ୍ଥାୟୀ</string>
 </resources>

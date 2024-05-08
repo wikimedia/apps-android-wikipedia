@@ -210,9 +210,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">ပချဳဓရာင် စရင် လိက်ဗွဟ် ပ္ဍဲအကံက် ဝဳကဳပဳဒဳယာမၞး %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ပတိတ်ထောအ် ပွမပချဳဓရာင် စရင် ဗွဟ် နူ %s？</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ဣဏအ်ဂှ် သွက်ဂွံပလီုထောအ် ပွမပချဳဓရာင် စရင် လိက်ဗွဟ် နူကဵု ဒၞာဲမဂိုင်ဒိပ်၊၊ မၞးပတိတ်ထောအ် စရင်မချဳဓရာင် နူအကံက် %s သီုဖအိုတ်ဟာ？</string>
-  <string name="preferences_privacy_settings_heading">မဒှ်ဒြပ်ပူဂဵု</string>
-  <string name="preference_title_eventlogging_opt_in">ပလံင် ညးမသုင်စောဲ လိက်ဒုင်စဳရေင်</string>
-  <string name="preference_summary_eventlogging_opt_in">ကဵုအခေါင် ကုဝဳကဳပဳဒဳယာ သွက်ဂွံပကောံတင်ဂၞင် ပရူဗီုလဵုမၞး မသုင်စောဲ app သွက်ဂွံပခိုဟ်ပတိုန် app</string>
   <string name="preference_title_auto_upload_crash_reports">ပလံင် လိက်စဳရေင် ကိစ္စဟွံစှ်ေကဵုသၞောဝ်</string>
   <string name="preference_summary_auto_upload_crash_reports">ကဵုအခေါင် ကု အာပ် သွက်ဂွံပလံင် လိက်ဒုင်စဳရေင် ကုHockeyApp / a third-party service provider အဝ်တဝ်မတေတ် တုဲမ္ဂး ပိုယ်ဂွံ သ္ၚေဝ်ဂၠေပ် အရာမလီုလာ် တုဲ ဂွံပလေဝ် ပခိုဟ်ပတိုန်၊၊</string>
   <string name="editing_error_spamblacklist">လေန် %s ဝေပ်သာ်ဂှ် ဒှ်ဝေပ်သာ် မစဵုဒၞာလဝ်ရောင်ဂှ် မဂွံတီကေတ်၊၊ ဟိုတ်ဂှ်ရ ပဂုန်တုဲ ပတိတ်ထောအ် လေန်ဂှ်တုဲ ကလေင် ကၠောန်ပၠန်၊၊</string>
@@ -234,15 +231,15 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">တိုက်ဗွဟ်လိက် မသုင်စောဲလဝ်</string>
   <string name="about_contributors_heading">ညးမချူလိက်ဂမၠိုၚ်</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ညးတြာဲဘာသာဂမၠိုင်</string>
   <string name="about_translators_translatewiki">app ဏအ်ဂှ် ကၠာဲစၠောအ်လဝ် နကဵုမၞိဟ်မကၠာဲဘာသာ နကဵုစေတနာ ပ္ဍဲ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">လာင်ဇြေန်</string>
-  <string name="about_app_license">ကုဒ်တင်ဂၞင် မကလိဂွံမာန်နူလ္တူ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;။ သီုမဍိုက်ပေၚ်တဴကဵုတၞဟ်ခြာဟွံကၠောန်ချိုတ်တ်ပၠိုတ်တ်မ္ဂး၊ ပရောပရာမနွံအမှဝ်မရပ်စကာမာန် &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;။</string>
+  <string name="about_app_license" fuzzy="true">ကုဒ်တင်ဂၞင် မကလိဂွံမာန်နူလ္တူ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;။ သီုမဍိုက်ပေၚ်တဴကဵုတၞဟ်ခြာဟွံကၠောန်ချိုတ်တ်ပၠိုတ်တ်မ္ဂး၊ ပရောပရာမနွံအမှဝ်မရပ်စကာမာန် &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;။</string>
   <string name="about_wmf">မဒှ်အရာ မကၠောန်ပတိတ် နူ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">ပရူ</string>
   <string name="edit_abandon_confirm">မုက်လိက်ဏအ် ပလေဝ်ပလေတ်လဝ်၊၊ မၞး မိက်ဂွံတိတ် နူမုက်လိက် သီုဟွံဂိုင်သိပ် ကွေဟ်ဟ်ရဟာ？</string>
@@ -643,6 +640,7 @@
   <string name="notifications_filter_label">စဳရေၚ် တၚ်မကဵုသမ္တီဂမၠိုၚ်</string>
   <string name="notifications_filter_icon_content_description">စဳရေၚ် တၚ်မကဵုသမ္တဳဂမၠိုၚ်</string>
   <string name="notifications_filter_update_app_languages">သၠုၚ်ပတိုန် ဘာသာမန် ပ္ဍဲ အေပဳပဳ</string>
+  <string name="notifications_swipe_action_unread">ဟွံဂွံဗှ်ဏီ</string>
   <string name="view_because_you_read_card_title">ဟိုတ်နူ မၞး ဗှ်</string>
   <string name="view_random_card_title">ဂဇျောမ်</string>
   <string name="view_random_article_card_title">လိက်ပရေင် လၟက်</string>
@@ -931,8 +929,6 @@
   <string name="onboarding_explore_text">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. &lt;br/&gt; &lt;b&gt;Customize&lt;/b&gt; the feed to your interests – whether it’s learning about historical events &lt;b&gt;On this day&lt;/b&gt;, or rolling the dice with &lt;b&gt;Random&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">စရင် လိက်ဗွဟ် နကဵု ကချဳဓရာင်</string>
   <string name="onboarding_reading_list_sync_text_v2"> ခၞံကၠောန် စရင် လိက်ဗွဟ် နူကဵု လိက်ပရေင် မၞးမိက်ဂွံဗှ် ကာလ မၞးမဂွံအခိင် ၜိုန်ရ မၞးနွံဒၟံင် မ္ၚးလာင်၊၊ &lt;br/&gt;လုပ်လံက်အေန် ပ္ဍဲအကံက် ဝဳကဳပဳဒဳယာ မၞး သွက်ဂွံ ပချဳဓရာင် စရင် လိက်ဗွဟ် မၞး &lt;a href=\"#login\"&gt;လုပ်ပံင်တောဲ ဝဳကဳပဳဒဳယာ&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">ပလံင် တင်ဂၞင် နကဵု ဓလုက်ယၟု</string>
-  <string name="onboarding_analytics_offline_text">အရီုအဗင် ဖန်ဗဒှ်ကဵု ညံင် app ဂွံခိုဟ် ဂၠိုင်တိုန် နကဵုမလဴဗ္စ ဗီုလဵု မၞုံ မသုင်စောဲ၊၊ ပ္ဍဲပကောံတင်ဂၞင်ဂှ် ဟွံဗၟံက်ယၟု၊၊ &lt;a href=\"#privacy\"&gt;Learn more&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ပလံင် တင်ဂၞင် မသုင်စောဲ</string>
   <string name="onboarding_got_it">ကလိဂွံ</string>
   <string name="onboarding_multilingual_secondary_text">အရာ ဗွဲသၟဝ်ဝွံ ပိုဲဂွံဆဵု ပ္ဍဲ device မၞး -</string>

@@ -331,9 +331,9 @@ object EditingSuggestionsProvider {
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
                             .getPagesWithImageRecommendations(10)
                         // TODO: make use of continuation parameter?
-                        response.query?.pages?.forEach {
-                            if (it.growthimagesuggestiondata?.get(0)?.images != null) {
-                                articlesWithImageRecommendationsCache.push(it)
+                        response.query?.pages?.forEach { page ->
+                            if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
+                                articlesWithImageRecommendationsCache.push(page)
                             }
                         }
                     }
@@ -384,10 +384,10 @@ object EditingSuggestionsProvider {
                             // has a few changes to flip through. Otherwise, start fetching *newer* changes,
                             // starting from the last recorded timestamp.
                             val triple = if (revertCandidateLastRevId == 0L)
+                                SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite)
+                            else
                                 SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
-                                10, Instant.now(), "older", null, mutableListOf())
-                            else SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
-                                10, revertCandidateLastTimeStamp, "newer", null, mutableListOf())
+                                    startTimeStamp = revertCandidateLastTimeStamp, direction = "newer")
 
                             // Retrieve the list of filtered changes from our filter, but *also* get
                             // the list of total changes so that we can update our maxRevId and latest

@@ -167,8 +167,6 @@
   <string name="create_account_account_created_toast">Հաշիվը ստեղծված է</string>
   <string name="preferences_heading_syncing">Համաժամացում</string>
   <string name="preferences_heading_experimental">Փորձնական</string>
-  <string name="preferences_privacy_settings_heading">Գաղտնիություն</string>
-  <string name="preference_title_eventlogging_opt_in">Ուղարկել օգտագործման մասին տեղեկություններ</string>
   <string name="history_filter_list_hint">Զտիչի պատմությունը</string>
   <string name="error_can_not_process_link">Չհաջողվեց ցուցադրել այս հղումը</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ավելացնել հսկացանկին</string>

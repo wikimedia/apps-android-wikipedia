@@ -14,7 +14,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
-import java.time.*
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Date
 
 @Serializable
@@ -207,7 +209,7 @@ class MwQueryResult {
         private val minor = false
         val oldlen = 0
         val newlen = 0
-        val timestamp: String = ""
+        private val timestamp: String = ""
 
         @SerialName("parsedcomment") val parsedComment: String = ""
         private val tags: List<String>? = null

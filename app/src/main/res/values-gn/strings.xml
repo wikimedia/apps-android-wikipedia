@@ -180,7 +180,6 @@
   <string name="preference_title_sync_reading_lists_from_account">Embojuehepa moñeꞌẽrã rysýi</string>
   <string name="preference_title_download_reading_list_articles">Emboguejy umi kuatia ne moñe\'ẽrã rysýipe</string>
   <string name="preference_summary_sync_reading_lists">Embojuehe ne moñeꞌẽrã rysýi opaichagua tembipuru rupive eñongatúvo chupekuéra nde kuatia Vikipetãme</string>
-  <string name="preferences_privacy_settings_heading">Mba\'e ñemiguáva</string>
   <string name="history_filter_list_hint">Embogua tembiasakue</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Emoĩ tembiapo ñangarekoha rysýipe</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Ehechapa mba\'épa oiko umi kuatiápe iporãvéva ndéve, epoko pe poravorã rehe ha eiporavo &lt;b&gt;Emoĩ tembiapo ñangarekoha rysýipe&lt;/b&gt; rehecha hag̃ua umi ñemoambue peteĩ kuatiápe.</string>
@@ -321,7 +320,7 @@
   <string name="image_recommendation_accept">Upéicha</string>
   <string name="image_recommendation_reject">Nahániri</string>
   <string name="image_recommendation_notsure">Ndaikuaái</string>
-  <string name="image_recommendation_reject_title">Mba\'ére piko?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Mba\'ére piko?</string>
   <string name="image_recommendation_reject_dont_know">Ndaikuaái ko mba\'e</string>
   <string name="image_recommendation_reject_other">Ambuéva</string>
   <string name="image_recommendation_reject_submit">Emondo</string>
