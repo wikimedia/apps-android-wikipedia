@@ -8,21 +8,18 @@ import androidx.core.view.MenuItemCompat
 import org.wikipedia.views.SearchActionProvider
 
 abstract class SearchActionModeCallback : ActionMode.Callback {
-    override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-        mode.tag = ACTION_MODE_TAG
-        val menuItem = menu.add(getSearchHintString())
-        // Manually setup a action provider to be able to adjust the left margin of the search field.
-        MenuItemCompat.setActionProvider(
-            menuItem,
-            SearchActionProvider(getParentContext(), getSearchHintString()) { onQueryChange(it) }
-        )
-
-        return true
-    }
 
     protected abstract fun getSearchHintString(): String
     protected abstract fun onQueryChange(s: String)
     protected abstract fun getParentContext(): Context
+
+    override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+        mode.tag = ACTION_MODE_TAG
+        val menuItem = menu.add(getSearchHintString())
+        // Manually setup a action provider to be able to adjust the left margin of the search field.
+        MenuItemCompat.setActionProvider(menuItem, SearchActionProvider(getParentContext(), getSearchHintString()) { onQueryChange(it) })
+        return true
+    }
 
     override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
         return true
@@ -39,7 +36,7 @@ abstract class SearchActionModeCallback : ActionMode.Callback {
         const val ACTION_MODE_TAG: String = "searchActionMode"
 
         fun matches(mode: ActionMode?): Boolean {
-            return mode != null && ACTION_MODE_TAG == mode.tag
+            return ACTION_MODE_TAG == mode?.tag
         }
     }
 }
