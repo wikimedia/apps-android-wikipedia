@@ -1574,7 +1574,7 @@
   <string name="donate_gpay_dialog_pay_button">Donér med Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Anden betalingsmetode</string>
   <string name="donate_gpay_activity_title">Vælg et beløb</string>
-  <string name="donate_gpay_check_transaction_fee">Jeg vil også gerne have lov til at tilføje %s, til dækning af transaktionsgebyrer, sådan at I kan beholde 100% af min donation.</string>
+  <string name="donate_gpay_check_transaction_fee">Jeg vil også gerne have lov til at tilføje %s, til dækning af transaktionsgebyrer, sådan at I kan beholde 100%% af min donation.</string>
   <string name="donate_gpay_check_recurring">Gør dette til en månedlig gentagende donation.</string>
   <string name="donate_gpay_check_send_email">Ja, Wikimedia Foundation må gerne sende mig en lejlighedsvis e-mail.</string>
   <string name="donate_gpay_minimum_amount">Vælg venligst et beløb (minimum %s)</string>
