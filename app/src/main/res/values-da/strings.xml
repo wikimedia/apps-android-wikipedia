@@ -1296,6 +1296,7 @@
   <string name="talk_message_hint">Skriv besked</string>
   <string name="talk_message_empty">Beskeden må ikke være tom.</string>
   <string name="talk_subject_empty">Emnet må ikke være tomt.</string>
+  <string name="talk_subject_duplicate">Emnenavnet findes allerede. Prøv et andet.</string>
   <string name="talk_response_submitted">Svaret er sendt.</string>
   <string name="talk_snackbar_undo">Fortryd</string>
   <string name="talk_last_modified">&lt;b&gt;Redigerede sidst %1$s&lt;/b&gt; af %2$s</string>
@@ -1573,7 +1574,7 @@
   <string name="donate_gpay_dialog_pay_button">Donér med Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Anden betalingsmetode</string>
   <string name="donate_gpay_activity_title">Vælg et beløb</string>
-  <string name="donate_gpay_check_transaction_fee">Jeg vil også gerne have lov til at tilføje %s, til dækning af transaktionsgebyrer, sådan at I kan beholde 100%% af min donation.</string>
+  <string name="donate_gpay_check_transaction_fee">Jeg vil også gerne have lov til at tilføje %s, til dækning af transaktionsgebyrer, sådan at I kan beholde 100% af min donation.</string>
   <string name="donate_gpay_check_recurring">Gør dette til en månedlig gentagende donation.</string>
   <string name="donate_gpay_check_send_email">Ja, Wikimedia Foundation må gerne sende mig en lejlighedsvis e-mail.</string>
   <string name="donate_gpay_minimum_amount">Vælg venligst et beløb (minimum %s)</string>
