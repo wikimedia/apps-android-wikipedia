@@ -1296,6 +1296,7 @@
   <string name="talk_message_hint">Skriv besked</string>
   <string name="talk_message_empty">Beskeden må ikke være tom.</string>
   <string name="talk_subject_empty">Emnet må ikke være tomt.</string>
+  <string name="talk_subject_duplicate">Emnenavnet findes allerede. Prøv et andet.</string>
   <string name="talk_response_submitted">Svaret er sendt.</string>
   <string name="talk_snackbar_undo">Fortryd</string>
   <string name="talk_last_modified">&lt;b&gt;Redigerede sidst %1$s&lt;/b&gt; af %2$s</string>
