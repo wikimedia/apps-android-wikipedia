@@ -106,7 +106,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 finalizeCallToAction()
                 return
             }
-            handlerJob = parentFragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            handlerJob = parentFragment.viewLifecycleOwner.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
             }) {
                 lastImageTitleForCallToAction = imageTitle
