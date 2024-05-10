@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
@@ -30,7 +31,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     var selectedImage = bundle.parcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
     var selectedImageSource = bundle.getString(InsertMediaActivity.EXTRA_IMAGE_SOURCE).orEmpty()
     var selectedImageSourceProjects = bundle.getString(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS).orEmpty()
-    var imagePosition: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_POS, IMAGE_POSITION_RIGHT)
+    var imagePosition: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_POS, defaultImagePositionForLang(wikiSite.languageCode))
     var imageType: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_TYPE, IMAGE_TYPE_THUMBNAIL)
     var imageSize: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_SIZE, IMAGE_SIZE_DEFAULT)
 
@@ -164,6 +165,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             magicWords[IMAGE_ALT_TEXT] = "alt=$1"
         }
 
+        fun defaultImagePositionForLang(langCode: String): String {
+            return if (L10nUtil.isLangRTL(langCode)) IMAGE_POSITION_LEFT else IMAGE_POSITION_RIGHT
+        }
+
         fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
                                     imageAltText: String, imageSize: String, imageType: String, imagePos: String,
                                     cursorPos: Int = 0, autoInsert: Boolean = false, attemptInfobox: Boolean = false): Triple<String, Boolean, Pair<Int, Int>> {
@@ -177,8 +182,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             magicWords[imageType]?.let { type ->
                 template += "|$type"
             }
-            magicWords[imagePos]?.let { pos ->
-                template += "|$pos"
+            if (!(imageType == IMAGE_TYPE_THUMBNAIL && imagePos == defaultImagePositionForLang(langCode))) {
+                magicWords[imagePos]?.let { pos ->
+                    template += "|$pos"
+                }
             }
             if (imageAltText.isNotEmpty()) {
                 template += "|" + magicWords[IMAGE_ALT_TEXT].orEmpty().replace("$1", imageAltText)
