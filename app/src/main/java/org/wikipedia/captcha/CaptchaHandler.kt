@@ -57,7 +57,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
 
     fun requestNewCaptcha() {
         binding.captchaImageProgress.visibility = View.VISIBLE
-        activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+        clientJob = activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             cancelCaptcha()
             FeedbackUtil.showError(activity, throwable)
         }) {
