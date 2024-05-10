@@ -3,11 +3,10 @@ package org.wikipedia.page.leadimages
 import android.net.Uri
 import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
@@ -107,42 +106,38 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 finalizeCallToAction()
                 return
             }
-            handlerJob = parentFragment.lifecycleScope.launch {
-                withContext(Dispatchers.Main) {
-                    try {
-                        lastImageTitleForCallToAction = imageTitle
-                        val isProtected = ServiceFactory.get(Constants.commonsWikiSite)
-                            .getProtectionInfoSuspend(imageTitle).query?.isEditProtected ?: false
-                        if (!isProtected) {
-                            val firstEntity = async {
-                                ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first
-                            }
-                            val firstImageInfo = async {
-                                ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
-                            }
-                            val labelMap = firstEntity.await()?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
-                            val depicts = ImageTagsProvider.getDepictsClaims(firstEntity.await()?.getStatements().orEmpty())
-                            imagePage = firstImageInfo.await()
-                            captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
-                            captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
-                            if (!labelMap.containsKey(it.wikiSite.languageCode)) {
-                                imageEditType = ImageEditType.ADD_CAPTION
-                            }
-                            if (WikipediaApp.instance.languageState.appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                                WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull { lang -> !labelMap.containsKey(lang) }?.run {
-                                    imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
-                                    captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, this))
-                                }
-                            }
-                            if (imageEditType != ImageEditType.ADD_CAPTION && depicts.isEmpty()) {
-                                imageEditType = ImageEditType.ADD_TAGS
-                            }
+            handlerJob = parentFragment.viewLifecycleOwner.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+            }) {
+                lastImageTitleForCallToAction = imageTitle
+                val isProtected = ServiceFactory.get(Constants.commonsWikiSite)
+                    .getProtectionInfoSuspend(imageTitle).query?.isEditProtected ?: false
+                if (!isProtected) {
+                    val firstEntity = async {
+                        ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first
+                    }
+                    val firstImageInfo = async {
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
+                    }
+                    val labelMap = firstEntity.await()?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
+                    val depicts = ImageTagsProvider.getDepictsClaims(firstEntity.await()?.getStatements().orEmpty())
+                    imagePage = firstImageInfo.await()
+                    captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
+                    captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
+                    if (!labelMap.containsKey(it.wikiSite.languageCode)) {
+                        imageEditType = ImageEditType.ADD_CAPTION
+                    }
+                    if (WikipediaApp.instance.languageState.appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                        WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull { lang -> !labelMap.containsKey(lang) }?.run {
+                            imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
+                            captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, this))
                         }
-                        finalizeCallToAction()
-                    } catch (e: Exception) {
-                        L.w(e)
+                    }
+                    if (imageEditType != ImageEditType.ADD_CAPTION && depicts.isEmpty()) {
+                        imageEditType = ImageEditType.ADD_TAGS
                     }
                 }
+                finalizeCallToAction()
             }
         }
     }
