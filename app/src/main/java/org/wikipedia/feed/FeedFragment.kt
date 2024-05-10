@@ -118,6 +118,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
                 if (feedAdapter.itemCount < 2) {
                     binding.emptyContainer.visibility = View.VISIBLE
                 } else {
+                    binding.emptyContainer.visibility = View.GONE
                     if (shouldUpdatePreviousCard) {
                         feedAdapter.notifyItemChanged(feedAdapter.itemCount - 1)
                     }
