@@ -77,7 +77,9 @@ class GooglePayViewModel : ViewModel() {
                 }
             }
 
-            if (Prefs.paymentMethodsMerchantId.isEmpty() || Prefs.paymentMethodsGatewayId.isEmpty()) {
+            if (Prefs.paymentMethodsMerchantId.isEmpty() ||
+                Prefs.paymentMethodsGatewayId.isEmpty() ||
+                !donationConfig!!.currencyAmountPresets.containsKey(currencyCode)) {
                 uiState.value = NoPaymentMethod()
             } else {
                 uiState.value = Resource.Success(donationConfig!!)
