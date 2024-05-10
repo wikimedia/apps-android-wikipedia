@@ -68,6 +68,7 @@
                 app:hintEnabled="false"
                 app:expandedHintEnabled="false"
                 app:prefixTextAppearance="@style/H1"
+                app:prefixTextColor="?attr/secondary_color"
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -86,6 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/P"
+                android:textColor="?attr/primary_color"
                 android:paddingStart="8dp"
                 android:minHeight="0dp"
                 android:text="@string/donate_gpay_check_transaction_fee"
@@ -96,6 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/P"
+                android:textColor="?attr/primary_color"
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:minHeight="0dp"
@@ -107,6 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/P"
+                android:textColor="?attr/primary_color"
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:minHeight="0dp"
