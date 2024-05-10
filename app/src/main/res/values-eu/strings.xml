@@ -345,7 +345,7 @@
   <string name="error_voice_search_not_available">Barkatu, ahots ezagutza ez dago erabilgarri.</string>
   <string name="location_service_disabled">Kokapen zerbitzuak desgaituak daude.</string>
   <string name="enable_location_service">Gaitu</string>
-  <string name="location_permissions_enable_prompt">Gaitu kokapen baimenak zure gertukoak ikusteko.</string>
+  <string name="location_permissions_enable_prompt">Gaitu kokapen baimenak zure hurbilekoak ikusteko.</string>
   <string name="location_permissions_enable_action">Piztu</string>
   <string name="error_webview_updating">Android System WebView eguneratzen ari da une honetan. Mesedez, berriz saiatu geroago.</string>
   <string name="multi_select_items_selected">%d hautatu</string>

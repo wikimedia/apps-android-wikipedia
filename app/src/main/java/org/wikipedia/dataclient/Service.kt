@@ -110,8 +110,8 @@ interface Service {
 
     // ------- Miscellaneous -------
 
-    @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
-    val newCaptcha: Observable<Captcha>
+    @GET(MW_API_PREFIX + "action=fancycaptchareload")
+    suspend fun getNewCaptcha(): Captcha
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
     suspend fun getLangLinks(@Query("titles") title: String): MwQueryResponse
@@ -469,6 +469,12 @@ interface Service {
     ): RollbackPostResponse
 
     // ------- Wikidata -------
+
+    @GET(MW_API_PREFIX + "action=wbgetentities")
+    suspend fun getEntitiesByTitleSuspend(
+        @Query("titles") titles: String,
+        @Query("sites") sites: String
+    ): Entities
 
     @GET(MW_API_PREFIX + "action=wbgetentities")
     suspend fun getEntitiesByTitleSuspend(

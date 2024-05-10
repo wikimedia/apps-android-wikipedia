@@ -447,6 +447,10 @@
   <string name="error_blocked_footer">Voit olla yhteydessä käyttäjään &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tai toiseen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Mukauta työkalupalkkia</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
+  <string name="temp_account_not_logged_in">Et ole kirjautunut sisään</string>
+  <string name="temp_account_using_title">Käytät väliaikaista käyttäjätunnusta</string>
+  <string name="temp_account_dialog_discard">Hylkää muutokset ja kirjaudu sisään</string>
+  <string name="temp_account_end_session_confirm">Tämä kirjaa sinut ulos väliaikaiselta tililtäsi. Haluatko jatkaa?</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-sovellus lopetti toimintansa teknisen vian takia.\n\nKäynnistetäänkö sovellus uudelleen vai poistutaanko?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
