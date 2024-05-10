@@ -182,7 +182,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             magicWords[imageType]?.let { type ->
                 template += "|$type"
             }
-            if (imagePos != defaultImagePositionForLang(langCode)) {
+            if (!(imageType == IMAGE_TYPE_THUMBNAIL && imagePos == defaultImagePositionForLang(langCode))) {
                 magicWords[imagePos]?.let { pos ->
                     template += "|$pos"
                 }
