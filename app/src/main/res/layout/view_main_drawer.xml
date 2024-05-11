@@ -177,14 +177,6 @@
                     android:layout_weight="1"
                     android:text="@string/nav_item_donate" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="16dp"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_open_in_new_black_24px"
-                    app:tint="?attr/secondary_color" />
             </LinearLayout>
 
         </LinearLayout>
