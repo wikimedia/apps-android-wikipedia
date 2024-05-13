@@ -32,12 +32,26 @@ class GooglePayViewModel : ViewModel() {
 
     val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
         .setRegion(currentCountryCode).setLanguage(WikipediaApp.instance.appOrSystemLanguageCode).build())
-    val currencyCode get() = currencyFormat.currency?.currencyCode ?: "USD"
+    val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
     val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
     val decimalFormat = GooglePayComponent.getDecimalFormat(currencyCode)
 
     val transactionFee get() = donationConfig?.currencyTransactionFees?.get(currencyCode)
         ?: donationConfig?.currencyTransactionFees?.get("default") ?: 0f
+
+    val minimumAmount get() = donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f
+
+    val maximumAmount: Float get() {
+        var max = donationConfig?.currencyMaximumDonation?.get(currencyCode) ?: 0f
+        if (max == 0f) {
+            val defaultMin = donationConfig?.currencyMinimumDonation?.get(GooglePayComponent.CURRENCY_FALLBACK) ?: 0f
+            if (defaultMin > 0f) {
+                max = (donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f) / defaultMin *
+                        (donationConfig?.currencyMaximumDonation?.get(GooglePayComponent.CURRENCY_FALLBACK) ?: 0f)
+            }
+        }
+        return max
+    }
 
     val emailOptInRequired get() = donationConfig?.countryCodeEmailOptInRequired.orEmpty().contains(currentCountryCode)
 
