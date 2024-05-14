@@ -743,4 +743,20 @@ object Prefs {
         currentSet.addAll(set)
         recentUsedTemplates = if (currentSet.size < maxStoredIds) currentSet else set
     }
+
+    var paymentMethodsLastQueryTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_payment_methods_last_query_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_payment_methods_last_query_time, value)
+
+    var paymentMethodsMerchantId
+        get() = PrefsIoUtil.getString(R.string.preference_key_payment_methods_merchant_id, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_payment_methods_merchant_id, value)
+
+    var paymentMethodsGatewayId
+        get() = PrefsIoUtil.getString(R.string.preference_key_payment_methods_gateway_id, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_payment_methods_gateway_id, value)
+
+    var isDonationTestEnvironment
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
 }
