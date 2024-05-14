@@ -19,6 +19,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -38,6 +39,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.donateGooglePayButton.setOnClickListener {
+            invalidateCampaign()
             DonorExperienceEvent.logAction("gpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), arguments?.getString(ARG_CAMPAIGN_ID), arguments?.getString(ARG_DONATE_URL)))
@@ -81,7 +83,14 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun onDonateClicked() {
         launchDonateLink(requireContext(), arguments?.getString(ARG_DONATE_URL))
+        invalidateCampaign()
         dismiss()
+    }
+
+    private fun invalidateCampaign() {
+        arguments?.getString(ARG_CAMPAIGN_ID)?.let {
+            Prefs.announcementShownDialogs = setOf(it)
+        }
     }
 
     companion object {

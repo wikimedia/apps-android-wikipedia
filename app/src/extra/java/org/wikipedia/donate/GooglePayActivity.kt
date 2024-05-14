@@ -155,8 +155,8 @@ class GooglePayActivity : BaseActivity() {
 
     private fun validateInput(text: String): Boolean {
         val amount = getAmountFloat(text)
-        val min = viewModel.donationConfig?.currencyMinimumDonation?.get(viewModel.currencyCode) ?: 0f
-        val max = viewModel.donationConfig?.currencyMaximumDonation?.get(viewModel.currencyCode) ?: 0f
+        val min = viewModel.minimumAmount
+        val max = viewModel.maximumAmount
 
         if (amount <= 0f || amount < min) {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_minimum_amount, viewModel.currencyFormat.format(min))
