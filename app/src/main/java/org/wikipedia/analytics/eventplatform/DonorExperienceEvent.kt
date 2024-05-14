@@ -5,33 +5,26 @@ import org.wikipedia.WikipediaApp
 class DonorExperienceEvent {
 
     companion object {
-        fun logImpression(activeInterface: String, campaignId: String? = null, wikiId: String = "") {
-            submitDonorExperienceEvent("impression", activeInterface, getActionDataString(campaignId), wikiId)
-        }
 
         fun logAction(
             action: String,
             activeInterface: String,
-            wikiId: String = "",
+            wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode,
             campaignId: String? = null
         ) {
-            submitDonorExperienceEvent(
+            submit(
                 action,
                 activeInterface,
-                getActionDataString(campaignId),
+                campaignId?.let { "campaign_id: $it, " }.orEmpty(),
                 wikiId
             )
         }
 
-        fun getActionDataString(campaignId: String? = null): String {
-            return campaignId?.let { "campaign_id: $it, " }.orEmpty()
-        }
-
-        private fun submitDonorExperienceEvent(
+        fun submit(
             action: String,
             activeInterface: String,
             actionData: String,
-            wikiId: String
+            wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
         ) {
             EventPlatformClient.submit(
                 AppInteractionEvent(

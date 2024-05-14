@@ -674,8 +674,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
                     availableCampaign?.let {
                         if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logImpression("article_banner",
-                                it.id, pageTitle.wikiSite.languageCode)
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
