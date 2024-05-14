@@ -12,30 +12,30 @@ class GeoIPCookieUnmarshallerTest {
     @Test
     fun testGeoIPWithLocation() {
         val cookie = unmarshal("US:California:San Francisco:$LATITUDE:$LONGITUDE:v4")
-        MatcherAssert.assertThat(cookie.country(), Matchers.`is`("US"))
-        MatcherAssert.assertThat(cookie.region(), Matchers.`is`("California"))
-        MatcherAssert.assertThat(cookie.city(), Matchers.`is`("San Francisco"))
-        MatcherAssert.assertThat(cookie.location(), Matchers.`is`(Matchers.notNullValue()))
-        MatcherAssert.assertThat(cookie.location()?.latitude, Matchers.`is`(LATITUDE))
-        MatcherAssert.assertThat(cookie.location()?.longitude, Matchers.`is`(LONGITUDE))
+        MatcherAssert.assertThat(cookie.country, Matchers.`is`("US"))
+        MatcherAssert.assertThat(cookie.region, Matchers.`is`("California"))
+        MatcherAssert.assertThat(cookie.city, Matchers.`is`("San Francisco"))
+        MatcherAssert.assertThat(cookie.location, Matchers.`is`(Matchers.notNullValue()))
+        MatcherAssert.assertThat(cookie.location?.latitude, Matchers.`is`(LATITUDE))
+        MatcherAssert.assertThat(cookie.location?.longitude, Matchers.`is`(LONGITUDE))
     }
 
     @Test
     fun testGeoIPWithoutLocation() {
         val cookie = unmarshal("FR::Paris:::v4")
-        MatcherAssert.assertThat(cookie.country(), Matchers.`is`("FR"))
-        MatcherAssert.assertThat(cookie.region(), Matchers.`is`(""))
-        MatcherAssert.assertThat(cookie.city(), Matchers.`is`("Paris"))
-        MatcherAssert.assertThat(cookie.location(), Matchers.`is`(Matchers.nullValue()))
+        MatcherAssert.assertThat(cookie.country, Matchers.`is`("FR"))
+        MatcherAssert.assertThat(cookie.region, Matchers.`is`(""))
+        MatcherAssert.assertThat(cookie.city, Matchers.`is`("Paris"))
+        MatcherAssert.assertThat(cookie.location, Matchers.`is`(Matchers.nullValue()))
     }
 
     @Test
     fun testGeoIPEmpty() {
         val cookie = unmarshal(":::::v4")
-        MatcherAssert.assertThat(cookie.country(), Matchers.`is`(""))
-        MatcherAssert.assertThat(cookie.region(), Matchers.`is`(""))
-        MatcherAssert.assertThat(cookie.city(), Matchers.`is`(""))
-        MatcherAssert.assertThat(cookie.location(), Matchers.`is`(Matchers.nullValue()))
+        MatcherAssert.assertThat(cookie.country, Matchers.`is`(""))
+        MatcherAssert.assertThat(cookie.region, Matchers.`is`(""))
+        MatcherAssert.assertThat(cookie.city, Matchers.`is`(""))
+        MatcherAssert.assertThat(cookie.location, Matchers.`is`(Matchers.nullValue()))
     }
 
     @Test(expected = IllegalArgumentException::class)
