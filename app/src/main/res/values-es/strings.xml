@@ -66,6 +66,7 @@
 * Mouse21
 * Mynor Archila
 * No se
+* PPenloglou-WMF
 * Pantareje
 * Papouten
 * Pedro Zimmer
@@ -945,8 +946,8 @@
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
-  <string name="suggested_edits_caption_images">Leyenda de imágenes</string>
-  <string name="suggested_edits_tag_images">Etiqueta de imágenes</string>
+  <string name="suggested_edits_caption_images">Subtitular imágenes</string>
+  <string name="suggested_edits_tag_images">Etiquetar imágenes</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>
   <string name="suggested_edits_edit_description_button">Editar descripción</string>
@@ -1009,7 +1010,7 @@
   <string name="suggested_edits_task_action_text_add">Añadir</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Leyendas de imágenes</string>
-  <string name="suggested_edits_image_tags">Etiquetas de imagen</string>
+  <string name="suggested_edits_image_tags">Etiquetas de imágenes</string>
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicado</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar las imágenes facilita poderlas encontrar.</string>
@@ -1118,7 +1119,7 @@
     <item quantity="one">Añadiste %d carácter</item>
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Imágenes del artículo</string>
+  <string name="suggested_edits_image_recommendations_task_title">Imágenes de artículos</string>
   <string name="suggested_edits_image_recommendations_task_detail">Agrega las imágenes sugeridas a los artículos de Wikipedia para mejorar la comprensión</string>
   <string name="image_recommendation_task_instruction">¿Agregarías esta imagen al artículo?</string>
   <string name="image_recommendation_tutorial">Tutorial</string>
@@ -1473,14 +1474,18 @@
   <string name="data_opt_in_reject">Rechazar</string>
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Volveremos a intentarlo mañana.</string>
+  <string name="donation_campaign_donated_snackbar">¡Gracias por tu donación! Tu generosidad mantiene viva la Wikipedia y otros proyectos relacionados.</string>
+  <string name="donation_campaign_go_back_button">Atrás</string>
+  <string name="menu_single_webview_open_external">Abrir en el navegador del sistema</string>
   <string name="donate_gpay_dialog_title">¿Donar con Google Pay?</string>
   <string name="donate_gpay_dialog_description">Donar con Google Pay o elegir otro método de pago.</string>
   <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Otro método de pago</string>
-  <string name="donate_gpay_activity_title">Seleccionar cantidad</string>
-  <string name="donate_gpay_check_transaction_fee">Agregaré generosamente %s para cubrir las tarifas de transacción para que puedas conservar el 100%% de mi donación.</string>
-  <string name="donate_gpay_check_recurring">Hacer de esta una donación mensual periódica.</string>
-  <string name="donate_gpay_check_send_email">Sí, la Fundación Wikimedia puede enviarme un correo electrónico ocasional.</string>
+  <string name="donate_gpay_activity_title">Selecciona un importe</string>
+  <string name="donate_gpay_check_transaction_fee">Generosamente, acepto añadir %s a la donación para cubrir los gastos bancarios y que Wikimedia reciba el 100 %% de mi donación.</string>
+  <string name="donate_gpay_check_recurring">Quiero hacer una donación recurrente.</string>
+  <string name="donate_gpay_check_send_email">Sí, acepto que Wikimedia Foundation me envíe correos ocasionalmente.</string>
   <string name="donate_gpay_minimum_amount">Por favor elegir una cantidad (mínimo %s)</string>
   <string name="donate_gpay_maximum_amount">No podemos aceptar donaciones superiores a %s a través de nuestra aplicación. Contacte a nuestro personal de donaciones importantes en benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;¡Gracias!&lt;/b&gt; Su generosidad con Wikipedia significa mucho para nosotros.</string>
