@@ -108,7 +108,7 @@
   <string name="preference_title_language">Lingui di Wikipedia</string>
   <string name="langlinks_filter_hint">Risciduta</string>
   <string name="langlinks_empty">Sta pàggina nun è dispunìbbili n àutri lingui.</string>
-  <string name="langlinks_no_match">Nudda lingua attruvata</string>
+  <string name="langlinks_no_match">Nuḍḍa lingua attruvata</string>
   <string name="langlinks_activity_title">Àutri lingui</string>
   <string name="langlinks_your_wikipedia_languages">Li tò lingui di Wikipedia</string>
   <string name="menu_save_changes">Pùbbrica li canciamenti</string>
@@ -120,10 +120,10 @@
   <string name="dialog_message_leaving_edit_leave">Lassa</string>
   <string name="dialog_message_leaving_edit_stay">Arresta</string>
   <string name="menu_show_toc">Ìnnici</string>
-  <string name="search_no_results_found">Nuddu risurtatu attruvatu</string>
-  <string name="search_reading_list_no_results">Nuddu risurtatu attruvatu n \"%s\"</string>
-  <string name="search_reading_lists_no_results">Nuddu risurtatu attruvatu nti l\'elenchi di littura</string>
-  <string name="search_history_no_results">Nuddu risurtatu attruvatu ntâ crunuluggìa</string>
+  <string name="search_no_results_found">Nuḍḍu risurtatu attruvatu</string>
+  <string name="search_reading_list_no_results">Nuḍḍu risurtatu attruvatu n \"%s\"</string>
+  <string name="search_reading_lists_no_results">Nuḍḍu risurtatu attruvatu nti l\'elenchi di littura</string>
+  <string name="search_history_no_results">Nuḍḍu risurtatu attruvatu ntâ crunuluggìa</string>
   <string name="edit_section_captcha_message">P\'aiutari a cummàttiri lu spam autumàticu, nzirisci pi favuri li palori chi cumpàrunu sutta</string>
   <string name="edit_section_captcha_request_an_account_message">Nun arrinesci a taliari la mmàggini? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Richiedi nu cuntu&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Arripeti li palori di supra</string>
@@ -197,7 +197,7 @@
   <string name="edit_undo">Annulla</string>
   <string name="edit_summary_tag_other">Àutru</string>
   <string name="page_similar_titles">Pàggini sìmili</string>
-  <string name="search_results_count_zero">Nuddu risurtatu</string>
+  <string name="search_results_count_zero">Nuḍḍu risurtatu</string>
   <plurals name="search_results_count">
     <item quantity="one">1 risurtatu</item>
     <item quantity="other">%d risurtati</item>

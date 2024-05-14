@@ -463,6 +463,10 @@
             android:key="@string/preference_key_places_show_one_time_survey"
             android:title="Survey status for places feature \n(-1=not initiated, 1=show survey, >1=do not show survey)" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_donation_test_env"
+            android:title="Donation test environment" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

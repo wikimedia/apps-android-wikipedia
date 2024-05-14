@@ -33,6 +33,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
@@ -451,6 +452,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (AccountUtil.isLoggedIn) {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
+    }
+
+    override fun donateClick() {
+        (requireActivity() as? BaseActivity)?.launchDonateDialog()
     }
 
     fun setBottomNavVisible(visible: Boolean) {
