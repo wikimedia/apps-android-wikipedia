@@ -21,7 +21,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
+import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.connectivity.ConnectionStateMonitor
@@ -119,14 +121,17 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         super.onDestroy()
     }
 
-    override fun onStop() {
+    override fun onPause() {
+        super.onPause()
         WikipediaApp.instance.appSessionEvent.persistSession()
-        super.onStop()
+        MetricsPlatform.client.onAppPause()
+        EventPlatformClient.flushCachedEvents()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
+        MetricsPlatform.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
 
         // allow this activity's exclusive bus methods to override any existing ones.

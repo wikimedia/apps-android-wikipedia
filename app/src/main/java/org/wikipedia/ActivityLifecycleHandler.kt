@@ -6,8 +6,6 @@ import android.content.ComponentCallbacks2
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -47,13 +45,10 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
 
     override fun onActivityResumed(activity: Activity) {
         isAnyActivityResumed = true
-        MetricsPlatform.client.onAppResume()
     }
 
     override fun onActivityPaused(activity: Activity) {
         isAnyActivityResumed = false
-        MetricsPlatform.client.onAppPause()
-        EventPlatformClient.flushCachedEvents()
     }
 
     override fun onActivityStopped(activity: Activity) {}
@@ -63,10 +58,6 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
     override fun onActivityDestroyed(activity: Activity) {
         if (activity is MainActivity) {
             haveMainActivity = false
-        }
-        if (activity.isTaskRoot) {
-            MetricsPlatform.client.onAppClose()
-            EventPlatformClient.flushCachedEvents()
         }
     }
 
