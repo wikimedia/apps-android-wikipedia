@@ -48,10 +48,11 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         val customTabUrl = Prefs.announcementCustomTabTestUrl.orEmpty().ifEmpty { url }
         if (context is BaseActivity) {
             context.launchDonateDialog(campaign.id, customTabUrl)
+            dismissDialog(false)
         } else {
             CustomTabsUtil.openInCustomTab(context, customTabUrl)
+            dismissDialog()
         }
-        dismissDialog()
     }
 
     override fun onNegativeAction() {
