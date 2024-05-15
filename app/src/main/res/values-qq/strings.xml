@@ -1692,4 +1692,10 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="feed_language_variants_removal_dialog_title">Title text for the dialog of selecting a new Chinese language variant as the primary language.</string>
+  <string name="feed_language_variants_removal_dialog_message">Message text for the dialog of selecting a new Chinese language variant as the primary language.</string>
+  <string name="feed_language_variants_removal_dialog_save">Button label for the dialog of selecting a new Chinese language variant as the primary language.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Title text for the dialog of going to the Settings for selecting the new secondary languages.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Message text for the dialog of going to the Settings for selecting the new secondary languages.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Button label for the dialog of going to the Settings for selecting the new secondary languages.</string>
 </resources>
