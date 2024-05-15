@@ -90,7 +90,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.SurveyDialog
 import org.wikipedia.views.ViewUtil
 import java.util.Locale
 import kotlin.math.abs
@@ -395,8 +394,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
-
-        maybeShowSurvey()
     }
 
     private fun updateToggleViews(isMapVisible: Boolean) {
@@ -748,15 +745,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
         return false
-    }
-
-    private fun maybeShowSurvey() {
-        binding.root.postDelayed({
-            if (isAdded && Prefs.shouldShowOneTimePlacesSurvey == 1) {
-                Prefs.shouldShowOneTimePlacesSurvey++
-                SurveyDialog.showFeedbackOptionsDialog(requireActivity(), Constants.InvokeSource.PLACES)
-            }
-        }, 1000)
     }
 
     private inner class RecyclerViewAdapter(val nearbyPages: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
