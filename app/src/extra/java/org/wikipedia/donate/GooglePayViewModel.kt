@@ -93,6 +93,7 @@ class GooglePayViewModel : ViewModel() {
 
             if (Prefs.paymentMethodsMerchantId.isEmpty() ||
                 Prefs.paymentMethodsGatewayId.isEmpty() ||
+                !donationConfig!!.countryCodeGooglePayEnabled.contains(currentCountryCode) ||
                 !donationConfig!!.currencyAmountPresets.containsKey(currencyCode)) {
                 uiState.value = NoPaymentMethod()
             } else {
