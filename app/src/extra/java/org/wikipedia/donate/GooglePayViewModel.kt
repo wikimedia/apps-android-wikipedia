@@ -133,9 +133,13 @@ class GooglePayViewModel : ViewModel() {
             val billingObj = infoObj.getJSONObject("billingAddress")
             val token = paymentMethodObj.getJSONObject("tokenizationData").getString("token")
 
+            // The backend expects the final amount in the canonical decimal format, instead of
+            // any localized format, e.g. comma as decimal separator.
+            val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(currencyCode, true)
+
             val response = ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
                 .submitPayment(
-                    decimalFormat.format(finalAmount),
+                    decimalFormatCanonical.format(finalAmount),
                     BuildConfig.VERSION_NAME,
                     campaignId,
                     billingObj.optString("locality", ""),
