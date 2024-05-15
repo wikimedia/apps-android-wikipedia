@@ -11,6 +11,8 @@ import org.json.JSONArray
 import org.json.JSONObject
 import org.wikipedia.settings.Prefs
 import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import java.util.Locale
 
 internal object GooglePayComponent {
 
@@ -44,8 +46,9 @@ internal object GooglePayComponent {
         put("allowedPaymentMethods", JSONArray().put(baseCardPaymentMethod))
     }
 
-    fun getDecimalFormat(currencyCode: String): DecimalFormat {
-        return DecimalFormat(if (CURRENCIES_THREE_DECIMAL.contains(currencyCode)) "0.000" else if (CURRENCIES_NO_DECIMAL.contains(currencyCode)) "0" else "0.00")
+    fun getDecimalFormat(currencyCode: String, canonical: Boolean = false): DecimalFormat {
+        val formatSpec = if (CURRENCIES_THREE_DECIMAL.contains(currencyCode)) "0.000" else if (CURRENCIES_NO_DECIMAL.contains(currencyCode)) "0" else "0.00"
+        return if (canonical) DecimalFormat(formatSpec, DecimalFormatSymbols.getInstance(Locale.ROOT)) else DecimalFormat(formatSpec)
     }
 
     fun createPaymentsClient(activity: Activity): PaymentsClient {
