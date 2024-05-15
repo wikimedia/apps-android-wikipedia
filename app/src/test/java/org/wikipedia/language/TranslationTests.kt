@@ -15,9 +15,7 @@ class TranslationTests {
         val mismatches = StringBuilder()
 
         // Step 1: collect counts of parameters in en/strings.xml
-        val baseMap = findMatchedParamsInXML(
-            baseFile, POSSIBLE_PARAMS, true
-        )
+        val baseMap = findMatchedParamsInXML(baseFile, POSSIBLE_PARAMS, true)
 
         // Step 2: finding parameters in other languages
         for (dir in allFiles) {
@@ -57,8 +55,7 @@ class TranslationTests {
         // Step 3: check if item exists in qq/strings.xml
         for (item in baseList) {
             if (!qqList.contains(item)) {
-                mismatches.append("Missing item in qq/strings.xml ")
-                    .append(item).append(" \n")
+                mismatches.append("Missing item in qq/strings.xml ").append(item).append(" \n")
             }
         }
 
@@ -108,11 +105,10 @@ class TranslationTests {
             // Skip "qq" since it contains a lot of {{Identical}} tags
             if (lang != "qq") {
                 val targetStringsXml = File(dir, STRINGS_XML_NAME)
-                val targetMap =
-                    findMatchedParamsInXML(targetStringsXml, UNSUPPORTED_TEXTS_REGEX, false)
+                val targetMap = findMatchedParamsInXML(targetStringsXml, UNSUPPORTED_TEXTS_REGEX, false)
 
                 // compare the counts inside the maps
-                targetMap.forEach { (targetKey: String, targetList: List<Int>) ->
+                targetMap.forEach { (targetKey, targetList) ->
                     val baseList = baseMap[targetKey]
                     if (baseList != null && baseList != targetList) {
                         mismatches.append("Unsupported Wikitext/Markdown in ")
