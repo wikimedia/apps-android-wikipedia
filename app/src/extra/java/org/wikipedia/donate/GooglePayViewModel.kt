@@ -93,6 +93,7 @@ class GooglePayViewModel : ViewModel() {
 
             if (Prefs.paymentMethodsMerchantId.isEmpty() ||
                 Prefs.paymentMethodsGatewayId.isEmpty() ||
+                !donationConfig!!.countryCodeGooglePayEnabled.contains(currentCountryCode) ||
                 !donationConfig!!.currencyAmountPresets.containsKey(currencyCode)) {
                 uiState.value = NoPaymentMethod()
             } else {
@@ -132,15 +133,19 @@ class GooglePayViewModel : ViewModel() {
             val billingObj = infoObj.getJSONObject("billingAddress")
             val token = paymentMethodObj.getJSONObject("tokenizationData").getString("token")
 
+            // The backend expects the final amount in the canonical decimal format, instead of
+            // any localized format, e.g. comma as decimal separator.
+            val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(currencyCode, true)
+
             val response = ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
                 .submitPayment(
-                    decimalFormat.format(finalAmount),
+                    decimalFormatCanonical.format(finalAmount),
                     BuildConfig.VERSION_NAME,
                     campaignId,
                     billingObj.optString("locality", ""),
-                    infoObj.optString("countryCode", currentCountryCode),
-                    currencyCode,
                     currentCountryCode,
+                    currencyCode,
+                    billingObj.optString("countryCode", currentCountryCode),
                     paymentDataObj.optString("email", ""),
                     billingObj.optString("name", ""),
                     WikipediaApp.instance.appOrSystemLanguageCode,
