@@ -869,6 +869,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="feed_accessibility_card_text">Short description for the accessibility card that tells user it is the bottom of the explore feed.</string>
   <string name="feed_accessibility_card_load_more_button">Button lable for manually loading more cards to the explore feed.</string>
+  <string name="feed_language_variants_removal_dialog_title">Title text for the dialog of selecting a new Chinese language variant as the primary language.</string>
+  <string name="feed_language_variants_removal_dialog_message">Message text for the dialog of selecting a new Chinese language variant as the primary language.</string>
+  <string name="feed_language_variants_removal_dialog_save">Button label for the dialog of selecting a new Chinese language variant as the primary language.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Title text for the dialog of going to the Settings for selecting the new secondary languages.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Message text for the dialog of going to the Settings for selecting the new secondary languages.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Button label for the dialog of going to the Settings for selecting the new secondary languages.</string>
   <string name="top_read_activity_title">Title for the screen with all top read links. \"%s\" represents the date string</string>
   <string name="tabs_activity_title">Title for the tabs screen.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
@@ -1692,10 +1698,4 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
-  <string name="feed_language_variants_removal_dialog_title">Title text for the dialog of selecting a new Chinese language variant as the primary language.</string>
-  <string name="feed_language_variants_removal_dialog_message">Message text for the dialog of selecting a new Chinese language variant as the primary language.</string>
-  <string name="feed_language_variants_removal_dialog_save">Button label for the dialog of selecting a new Chinese language variant as the primary language.</string>
-  <string name="feed_language_variants_removal_secondary_dialog_title">Title text for the dialog of going to the Settings for selecting the new secondary languages.</string>
-  <string name="feed_language_variants_removal_secondary_dialog_message">Message text for the dialog of going to the Settings for selecting the new secondary languages.</string>
-  <string name="feed_language_variants_removal_secondary_dialog_settings">Button label for the dialog of going to the Settings for selecting the new secondary languages.</string>
 </resources>

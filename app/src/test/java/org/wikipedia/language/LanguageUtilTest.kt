@@ -20,12 +20,8 @@ class LanguageUtilTest {
                 "zh-MO" to AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)
 
         list.forEach {
-            val defaultLocale = Locale.getDefault()
-            val locale = Locale.forLanguageTag(it.first)
-            Locale.setDefault(locale)
             val wikiLang = LanguageUtil.localeToWikiLanguageCode(Locale.forLanguageTag(it.first))
             Assert.assertEquals(wikiLang, it.second)
-            Locale.setDefault(defaultLocale)
         }
     }
 
@@ -35,11 +31,8 @@ class LanguageUtilTest {
                 Locale.TAIWAN to AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
                 Locale.CHINA to AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)
         list.forEach {
-            val defaultLocale = Locale.getDefault()
-            Locale.setDefault(it.first)
             val wikiLang = LanguageUtil.localeToWikiLanguageCode(it.first)
             Assert.assertEquals(wikiLang, it.second)
-            Locale.setDefault(defaultLocale)
         }
     }
 }

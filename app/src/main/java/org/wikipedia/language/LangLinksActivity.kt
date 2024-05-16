@@ -1,6 +1,7 @@
 package org.wikipedia.language
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -12,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -233,13 +235,13 @@ class LangLinksActivity : BaseActivity() {
         }
     }
 
-    private open inner class DefaultViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private open inner class DefaultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         open fun bindItem(pageTitle: PageTitle) {
             itemView.findViewById<TextView>(R.id.section_header_text).text = StringUtil.fromHtml(pageTitle.displayText)
         }
     }
 
-    private inner class LangLinksItemViewHolder constructor(itemView: View) : DefaultViewHolder(itemView), View.OnClickListener {
+    private inner class LangLinksItemViewHolder(itemView: View) : DefaultViewHolder(itemView), View.OnClickListener {
         private val localizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
         private val nonLocalizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.non_localized_language_name)
         private val articleTitleTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
@@ -263,8 +265,7 @@ class LangLinksActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             app.languageState.addMruLanguageCode(pageTitle.wikiSite.languageCode)
-            val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK)
-            val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, pageTitle, false)
+            val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK), pageTitle, false)
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
             DeviceUtil.hideSoftKeyboard(this@LangLinksActivity)
             finish()
@@ -273,9 +274,12 @@ class LangLinksActivity : BaseActivity() {
 
     companion object {
         const val ACTIVITY_RESULT_LANGLINK_SELECT = 1
-        const val ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title"
-
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+
+        fun newIntent(context: Context, title: PageTitle): Intent {
+            return Intent(context, LangLinksActivity::class.java)
+                .putExtra(Constants.ARG_TITLE, title)
+        }
     }
 }
