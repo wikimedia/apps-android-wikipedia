@@ -1562,6 +1562,7 @@
   <string name="user_contrib_menu_label">Вклад</string>
   <string name="user_contrib_filter_activity_title">фильтровать вклад</string>
   <string name="action_item_view_on_map">Посмотреть на карте</string>
+  <string name="action_item_view_on_map_unavailable">Географические координаты недоступны для этой страницы.</string>
   <string name="shareable_reading_lists_import_dialog_title">Импортирование расшаренного списка для чтения</string>
   <string name="shareable_reading_lists_import_dialog_content">Как бы вы хотели назвать список, которым с вами поделились?</string>
   <string name="shareable_reading_lists_new_indicator">*новый*</string>
@@ -1646,12 +1647,14 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Со средней точностью находит промежуточную часть недобросовестных изменений.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">История редактирования статьи</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
   <string name="patroller_tasks_overflow_report">Проблема с функцией</string>
   <string name="patroller_tasks_overflow_learn">Узнать больше</string>
   <string name="patroller_onboarding_two_thank_title">Благодарность</string>
   <string name="patroller_onboarding_two_thank_content">Видите продуктивную правку? Поблагодарите участника за его вклад.</string>
+  <string name="patroller_onboarding_two_watch_title">Следить</string>
   <string name="patroller_onboarding_two_talk_title">Обсуждение</string>
   <string name="patroller_onboarding_two_talk_content">Общайтесь с другими редакторами. Сохраняйте часто используемые сообщения на странице обсуждения или используйте шаблон.</string>
   <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
@@ -1673,6 +1676,7 @@
   <string name="patroller_saved_message_title_art_imp">Предложение по улучшению статьи</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Используйте примеры сообщения ниже для настройки, отправки и сохранения его в своих сообщениях.</string>
+  <string name="talk_templates_menu_edit_title">Править</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
   <string name="page_issues_title">Проблемы страницы</string>
@@ -1681,7 +1685,14 @@
   <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
+  <string name="donate_gpay_dialog_title">Пожертвовать через Google Pay?</string>
+  <string name="donate_gpay_dialog_pay_button">Пожертвовать через Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Другой способ оплаты</string>
+  <string name="donate_gpay_activity_title">Выберите сумму</string>
+  <string name="donate_gpay_help_problems">Возникла проблема с пожертвованием?</string>
+  <string name="donate_gpay_help_other_ways">Другие способы сделать пожертвование</string>
+  <string name="donate_gpay_help_faq">Часто задаваемые вопросы</string>
+  <string name="donate_gpay_help_tax">Информация об освобождении пожертвований от налогов</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Чтобы увидеть ваше местоположение на карте, требуется разрешение на определение местоположения. Пожалуйста, попробуйте ещё раз.</string>
   <string name="places_search_hint">Поиск мест</string>

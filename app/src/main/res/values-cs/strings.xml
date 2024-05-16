@@ -897,7 +897,7 @@
   <string name="customize_toolbar_title">Přizpůsobit panel nástrojů</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Přetáhněte své oblíbené položky sem 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Obnovit do základu</string>
+  <string name="customize_toolbar_reset_to_default_button">Obnovit výchozí</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Chcete-li položku přesunout, podržte ikonu přetažení</string>
   <string name="customize_toolbar_item_default_tooltip">Stisknutím a přetažením položky přemístěte</string>
   <string name="suggested_edits_describe_articles">Popište články</string>
@@ -1076,6 +1076,7 @@
   <string name="image_recommendation_tooltip_3">Rozhodněte, zda obrázek pomůže čtenářům lépe porozumět tomuto tématu</string>
   <string name="image_recommendation_tooltip_next">Další</string>
   <string name="suggested_edits_report_feature">Problém s funkcí</string>
+  <string name="edit_summary_added_image">Přidán obrázek</string>
   <string name="file_page_activity_title">Stránka souboru</string>
   <string name="file_page_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="file_page_add_image_tags_button">Přidejte značky obrázků</string>
@@ -1246,6 +1247,10 @@
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Řádek %d</string>
   <string name="revision_diff_lines_from_to">Řádky %1$d-%2$d</string>
+  <string name="revision_diff_line_added">Přidán řádek</string>
+  <string name="revision_diff_line_removed">Odstraněn řádek</string>
+  <string name="revision_diff_paragraph_added">Přidán odstavec</string>
+  <string name="revision_diff_paragraph_removed">Odstraněn odstavec</string>
   <string name="revision_compare_button">Porovnat</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
@@ -1319,6 +1324,11 @@
   <string name="user_contrib_menu_label">Příspěvky</string>
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
   <string name="action_item_view_on_map">Zobrazit na mapě</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Informace o uživateli</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informace o uživateli</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Účet od: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Počet úprav: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Zavřít</string>
   <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
   <string name="patroller_diff_feedback_dialog_message">Jste s touto funkcí spokojen(a)?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Spokojen(a)</string>
