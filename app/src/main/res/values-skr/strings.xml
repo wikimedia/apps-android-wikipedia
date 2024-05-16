@@ -389,6 +389,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">منسوخ</string>
   <string name="feed_accessibility_card_load_more_button">ٻئے لوڈ کرو</string>
+  <string name="feed_language_variants_removal_dialog_save">محفوظ کرو</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">ترتیباں تے ون٘ڄو</string>
   <string name="tabs_activity_title">ٹیباں</string>
   <string name="description_edit_text_hint">مضمون تفصیل</string>
   <string name="description_edit_article_description_label">مضمون</string>
