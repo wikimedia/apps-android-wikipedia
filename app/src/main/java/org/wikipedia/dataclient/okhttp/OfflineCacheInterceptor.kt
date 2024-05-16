@@ -230,7 +230,6 @@ class OfflineCacheInterceptor : Interceptor {
         const val SAVE_HEADER_SAVE = "save"
         const val OFFLINE_PATH = "offline_files"
 
-        @JvmStatic
         fun shouldSave(request: Request): Boolean {
             return "GET" == request.method && SAVE_HEADER_SAVE == request.header(SAVE_HEADER)
         }
