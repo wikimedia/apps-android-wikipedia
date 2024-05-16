@@ -2,7 +2,7 @@ package org.wikipedia.language
 
 import android.content.Context
 import org.wikipedia.R
-import java.util.*
+import java.util.Locale
 
 class AppLanguageLookUpTable(context: Context) {
     private val resources = context.resources
@@ -86,6 +86,12 @@ class AppLanguageLookUpTable(context: Context) {
     }
 
     companion object {
+        private const val TAIWAN_COUNTRY_CODE = "TW"
+        private const val HONG_KONG_COUNTRY_CODE = "HK"
+        private const val MACAU_COUNTRY_CODE = "MO"
+        private const val SINGAPORE_COUNTRY_CODE = "SG"
+        private const val MALAYSIA_COUNTRY_CODE = "MY"
+        private const val CHINA_COUNTRY_CODE = "CN"
         const val SIMPLIFIED_CHINESE_LANGUAGE_CODE = "zh-hans"
         const val TRADITIONAL_CHINESE_LANGUAGE_CODE = "zh-hant"
         const val CHINESE_CN_LANGUAGE_CODE = "zh-cn"
@@ -102,5 +108,22 @@ class AppLanguageLookUpTable(context: Context) {
         const val BELARUSIAN_TARASK_LANGUAGE_CODE = "be-tarask"
         const val TEST_LANGUAGE_CODE = "test"
         const val FALLBACK_LANGUAGE_CODE = "en" // Must exist in preference_language_keys.
+
+        fun chineseLocaleToWikiLanguageCode(locale: Locale): String {
+            // When build a Locale with a language tag that starts with "zh-", the script is empty.
+            if (locale.script == "Hans" || locale.script == "Hant" || locale.toLanguageTag().startsWith("zh-")) {
+                when (locale.country) {
+                    TAIWAN_COUNTRY_CODE -> return CHINESE_TW_LANGUAGE_CODE
+                    HONG_KONG_COUNTRY_CODE -> return CHINESE_HK_LANGUAGE_CODE
+                    MACAU_COUNTRY_CODE -> return CHINESE_MO_LANGUAGE_CODE
+                    SINGAPORE_COUNTRY_CODE -> return CHINESE_SG_LANGUAGE_CODE
+                    MALAYSIA_COUNTRY_CODE -> return CHINESE_MY_LANGUAGE_CODE
+                    CHINA_COUNTRY_CODE -> return CHINESE_CN_LANGUAGE_CODE
+                }
+                return if (locale.script == "Hans") SIMPLIFIED_CHINESE_LANGUAGE_CODE
+                else TRADITIONAL_CHINESE_LANGUAGE_CODE
+            }
+            return TRADITIONAL_CHINESE_LANGUAGE_CODE
+        }
     }
 }
