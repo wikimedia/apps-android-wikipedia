@@ -33,7 +33,7 @@ object GeoUtil {
             if (!Prefs.geoIPCountryOverride.isNullOrEmpty()) {
                 Prefs.geoIPCountryOverride
             } else {
-                GeoIPCookieUnmarshaller.unmarshal().country()
+                GeoIPCookieUnmarshaller.unmarshal().country
             }
         } catch (e: IllegalArgumentException) {
             // For our purposes, don't care about malformations in the GeoIP cookie for now.
