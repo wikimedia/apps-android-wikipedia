@@ -849,6 +849,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="feed_accessibility_card_text">Hai raggiunto la fine del feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carica di più</string>
+  <string name="feed_language_variants_removal_dialog_title">Seleziona una variante linguistica regionale per un\'esperienza di lettura migliore</string>
+  <string name="feed_language_variants_removal_dialog_message">Al momento stai utilizzando una variante generica della lingua cinese non supportata come lingua principale di Wikipedia</string>
+  <string name="feed_language_variants_removal_dialog_save">Salva</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Aggiorna le tue lingue secondarie</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Al momento stai utilizzando una variante generica della lingua cinese non supportata come lingua secondaria. Vai alle impostazioni per selezionare una nuova lingua secondaria o per confermare l\'elenco delle lingue.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Vai alle impostazioni</string>
   <string name="top_read_activity_title">Tendenze del %s</string>
   <string name="tabs_activity_title">Schede</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
