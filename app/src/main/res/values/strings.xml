@@ -865,6 +865,12 @@
     <string name="feed_lang_selection_dialog_cancel_button_text">Cancel</string>
     <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
     <string name="feed_accessibility_card_load_more_button">Load more</string>
+    <string name="feed_language_variants_removal_dialog_title">Select a regional language variant for an improved reading experience</string>
+    <string name="feed_language_variants_removal_dialog_message">You are currently using an unsupported generic Chinese language variant as your primary Wikipedia language</string>
+    <string name="feed_language_variants_removal_dialog_save">Save</string>
+    <string name="feed_language_variants_removal_secondary_dialog_title">Please update your secondary languages</string>
+    <string name="feed_language_variants_removal_secondary_dialog_message">You are currently using an unsupported generic Chinese language variant as a secondary language. Please go to your settings to select a new secondary language or to confirm your language list.</string>
+    <string name="feed_language_variants_removal_secondary_dialog_settings">Go to Settings</string>
     <!-- /The Feed -->
 
     <string name="top_read_activity_title">Top read on %s</string>
