@@ -50,12 +50,16 @@ class AppLanguageLookUpTable(context: Context) {
     fun getLocalizedName(code: String?): String? {
         var name = localizedNames.getOrNull(indexOfCode(code))
         if (name.isNullOrEmpty() && !code.isNullOrEmpty()) {
-            if (code == Locale.CHINESE.language) {
-                name = Locale.CHINESE.getDisplayName(Locale.CHINESE)
-            } else if (code == NORWEGIAN_LEGACY_LANGUAGE_CODE) {
-                name = localizedNames.getOrNull(indexOfCode(NORWEGIAN_BOKMAL_LANGUAGE_CODE))
-            } else if (code == BELARUSIAN_TARASK_LANGUAGE_CODE) {
-                name = localizedNames.getOrNull(indexOfCode(BELARUSIAN_LEGACY_LANGUAGE_CODE))
+            when (code) {
+                Locale.CHINESE.language -> {
+                    name = Locale.CHINESE.getDisplayName(Locale.CHINESE)
+                }
+                NORWEGIAN_LEGACY_LANGUAGE_CODE -> {
+                    name = localizedNames.getOrNull(indexOfCode(NORWEGIAN_BOKMAL_LANGUAGE_CODE))
+                }
+                BELARUSIAN_TARASK_LANGUAGE_CODE -> {
+                    name = localizedNames.getOrNull(indexOfCode(BELARUSIAN_LEGACY_LANGUAGE_CODE))
+                }
             }
         }
         return name
@@ -111,6 +115,7 @@ class AppLanguageLookUpTable(context: Context) {
 
         fun chineseLocaleToWikiLanguageCode(locale: Locale): String {
             // When build a Locale with a language tag that starts with "zh-", the script is empty.
+            // Fall back to Traditional Chinese if the script is not specified.
             if (locale.script == "Hans" || locale.script == "Hant" || locale.toLanguageTag().startsWith("zh-")) {
                 when (locale.country) {
                     TAIWAN_COUNTRY_CODE -> return CHINESE_TW_LANGUAGE_CODE
