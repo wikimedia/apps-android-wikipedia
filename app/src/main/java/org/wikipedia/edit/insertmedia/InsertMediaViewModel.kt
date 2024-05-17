@@ -220,7 +220,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
 
-            if (autoInsert && attemptInfobox && infoboxMatch != null) {
+            // Verify a few conditions before attempting to insert into an infobox, including
+            // whether the infobox actually exists, and whether the current language wiki is
+            // supported by our hardcoded infoboxVars.
+            if (autoInsert && attemptInfobox && infoboxMatch != null && infoboxVarsByLang.containsKey(langCode)) {
                 val infoboxStartIndex = infoboxMatch.range.first
                 val infoboxEndIndex = infoboxMatch.range.last
 
