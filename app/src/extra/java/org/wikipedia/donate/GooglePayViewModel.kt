@@ -27,11 +27,11 @@ import kotlin.math.abs
 
 class GooglePayViewModel : ViewModel() {
     val uiState = MutableStateFlow(Resource<DonationConfig>())
-    var donationConfig: DonationConfig? = null
+    private var donationConfig: DonationConfig? = null
     private val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
 
     val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
-        .setRegion(currentCountryCode).setLanguage(WikipediaApp.instance.appOrSystemLanguageCode).build())
+        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
     val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
     val decimalFormat = GooglePayComponent.getDecimalFormat(currencyCode)
