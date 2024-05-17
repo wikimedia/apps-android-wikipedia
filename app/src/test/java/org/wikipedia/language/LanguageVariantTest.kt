@@ -18,14 +18,14 @@ class LanguageVariantTest {
         val defaultLocale = Locale.getDefault()
         val appLanguage = WikipediaApp.instance.languageState.appLanguageCode
 
-        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-Hant;q=0.8", "zh", Locale.TRADITIONAL_CHINESE)
-        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-Hans;q=0.8", "zh", Locale.SIMPLIFIED_CHINESE)
+        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-Hant-TW;q=0.8", "zh", Locale.TRADITIONAL_CHINESE)
+        testDefaultLocaleAndAcceptLanguageAgree("zh,zh-Hans-CN;q=0.8", "zh", Locale.SIMPLIFIED_CHINESE)
         testDefaultLocaleAndAcceptLanguageAgree("zh,en;q=0.8", "zh", Locale.US)
         testDefaultLocaleAndAcceptLanguageAgree("zh,en;q=0.8", "zh", Locale.ENGLISH)
-        testDefaultLocaleAndAcceptLanguageAgree("en,zh-Hans;q=0.8", "en", Locale.SIMPLIFIED_CHINESE)
-        testDefaultLocaleAndAcceptLanguageAgree("test,zh-Hans;q=0.8", "test", Locale.SIMPLIFIED_CHINESE)
-        testDefaultLocaleAndAcceptLanguageAgree("es,zh-Hans;q=0.9,zh-Hant;q=0.8", AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, Locale.TRADITIONAL_CHINESE, WikiSite.forLanguageCode("es"))
-        testDefaultLocaleAndAcceptLanguageAgree("zh-Hant", AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, Locale.TRADITIONAL_CHINESE)
+        testDefaultLocaleAndAcceptLanguageAgree("en,zh-Hans-CN;q=0.8", "en", Locale.SIMPLIFIED_CHINESE)
+        testDefaultLocaleAndAcceptLanguageAgree("test,zh-Hans-CN;q=0.8", "test", Locale.SIMPLIFIED_CHINESE)
+        testDefaultLocaleAndAcceptLanguageAgree("es,zh-Hans;q=0.9,zh-Hant-TW;q=0.8", AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, Locale.TRADITIONAL_CHINESE, WikiSite.forLanguageCode("es"))
+        testDefaultLocaleAndAcceptLanguageAgree("zh-Hant,zh-Hant-TW;q=0.8", AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, Locale.TRADITIONAL_CHINESE)
 
         WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(appLanguage))
         Locale.setDefault(defaultLocale)
