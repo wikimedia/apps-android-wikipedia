@@ -27,25 +27,19 @@ object LanguageUtil {
             return if (actualTag.isNotEmpty()) Locale.forLanguageTag(actualTag) else null
         }
 
-    val suggestedLanguagesFromSystem: List<String>
+    val suggestedLanguagesFromSystem: Sequence<String>
         get() {
-            val languages = mutableSetOf<String>()
-
             // First, look at languages installed on the system itself.
-            val localeList = LocaleListCompat.getDefault()
-            for (i in 0 until localeList.size()) {
-                localeList[i]?.let {
-                    languages.add(localeToWikiLanguageCode(it))
+            val systemLocales = sequence {
+                val localeList = LocaleListCompat.getDefault()
+                for (i in 0 until localeList.size()) {
+                    yield(localeList[i]!!)
                 }
             }
-            if (languages.isEmpty()) {
-                // Always default to at least one system language in the list.
-                languages.add(localeToWikiLanguageCode(Locale.getDefault()))
-            }
 
-            // Query the installed keyboard languages, and add them to the set, if they don't exist.
+            // Query the installed keyboard languages lazily.
             val imm = WikipediaApp.instance.getSystemService<InputMethodManager>()!!
-            languages += imm.enabledInputMethodList.asSequence()
+            val keyboardLocales = imm.enabledInputMethodList.asSequence()
                 .flatMap { imm.getEnabledInputMethodSubtypeList(it, true) }
                 .filter { it.mode == "keyboard" }
                 .mapNotNull { it.localeObject }
@@ -54,11 +48,12 @@ object LanguageUtil {
                     // both Simplified and Traditional in that case.
                     if (it == Locale.SIMPLIFIED_CHINESE) listOf(it, Locale.TRADITIONAL_CHINESE) else listOf(it)
                 }
+
+            return (systemLocales + keyboardLocales)
                 .distinct()
                 .map { localeToWikiLanguageCode(it) }
                 .filter { it.isNotEmpty() && it != "und" }
-
-            return languages.take(MAX_SUGGESTED_LANGUAGES)
+                .take(MAX_SUGGESTED_LANGUAGES)
         }
 
     fun localeToWikiLanguageCode(locale: Locale): String {
