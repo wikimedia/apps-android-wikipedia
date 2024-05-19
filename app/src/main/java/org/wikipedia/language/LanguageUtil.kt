@@ -50,8 +50,8 @@ object LanguageUtil {
                 }
 
             return (systemLocales + keyboardLocales)
-                .distinct()
                 .map { localeToWikiLanguageCode(it) }
+                .distinct()
                 .filter { it.isNotEmpty() && it != "und" }
                 .take(MAX_SUGGESTED_LANGUAGES)
         }
