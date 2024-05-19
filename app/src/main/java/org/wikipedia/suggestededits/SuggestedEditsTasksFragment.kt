@@ -44,11 +44,14 @@ import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -115,10 +118,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Loading -> onLoading()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Success -> setFinalUIState()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.RequireLogin -> onRequireLogin()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Error -> showError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> setFinalUIState()
+                        is SuggestedEditsTasksFragmentViewModel.RequireLogin -> onRequireLogin()
+                        is Resource.Error -> showError(it.throwable)
                     }
                 }
             }
@@ -285,7 +288,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
+            val localDateTime = LocalDateTime.ofInstant(pauseEndDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
+            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logPaused()
             return true
@@ -343,9 +347,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
         vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
 
-        if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
-            SuggestedEditsRecentEditsActivity.AVAILABLE_WIKIS.contains(WikipediaApp.instance.wikiSite.languageCode)) {
-            // TODO: limit to the primary language now.
+        if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty()) {
             Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
             displayedTasks.add(vandalismPatrolTask)
         }

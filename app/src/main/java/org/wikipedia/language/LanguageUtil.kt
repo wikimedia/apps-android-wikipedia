@@ -10,6 +10,7 @@ import org.wikipedia.WikipediaApp
 import java.util.Locale
 
 object LanguageUtil {
+    private const val MAX_SUGGESTED_LANGUAGES = 8
     private const val HONG_KONG_COUNTRY_CODE = "HK"
     private const val MACAU_COUNTRY_CODE = "MO"
     private val TRADITIONAL_CHINESE_COUNTRY_CODES = listOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
@@ -26,7 +27,7 @@ object LanguageUtil {
             return if (actualTag.isNotEmpty()) Locale.forLanguageTag(actualTag) else null
         }
 
-    val availableLanguages: Set<String>
+    val suggestedLanguagesFromSystem: List<String>
         get() {
             val languages = mutableSetOf<String>()
 
@@ -57,7 +58,7 @@ object LanguageUtil {
                 .map { localeToWikiLanguageCode(it) }
                 .filter { it.isNotEmpty() && it != "und" }
 
-            return languages
+            return languages.take(MAX_SUGGESTED_LANGUAGES)
         }
 
     fun localeToWikiLanguageCode(locale: Locale): String {

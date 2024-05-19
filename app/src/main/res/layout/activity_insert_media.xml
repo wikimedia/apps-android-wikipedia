@@ -99,7 +99,7 @@
             android:focusable="true"
             android:transitionName="@string/transition_search_bar"
             app:elevation="0dp"
-            app:radius="22dp">
+            app:cardCornerRadius="22dp">
 
             <ImageView
                 android:layout_width="48dp"

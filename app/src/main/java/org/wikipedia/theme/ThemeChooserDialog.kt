@@ -60,7 +60,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.textSettingsCategory.text = getString(if (isEditing) R.string.theme_category_editing else R.string.theme_category_reading)
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
         binding.buttonIncreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.INCREASE))
-        FeedbackUtil.setButtonLongPressToast(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
+        FeedbackUtil.setButtonTooltip(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
         binding.buttonThemeLight.setOnClickListener(ThemeButtonListener(Theme.LIGHT))
         binding.buttonThemeDark.setOnClickListener(ThemeButtonListener(Theme.DARK))
         binding.buttonThemeBlack.setOnClickListener(ThemeButtonListener(Theme.BLACK))

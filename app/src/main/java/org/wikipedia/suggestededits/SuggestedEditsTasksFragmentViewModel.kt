@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,6 +14,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.usercontrib.UserContribStats
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ThrowableUtil
 import java.time.temporal.ChronoUnit
 import java.util.Date
@@ -20,11 +22,13 @@ import java.util.Date
 class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
+
+    private var clientJob: Job? = null
 
     var blockMessageWikipedia: String? = null
     var blockMessageWikidata: String? = null
@@ -38,19 +42,18 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var revertSeverity = 0
 
     var wikiSupportsImageRecommendations = false
-    // TODO: remove this limitation later.
     var allowToPatrolEdits = false
 
     fun fetchData() {
-        _uiState.value = UiState.Loading()
+        _uiState.value = Resource.Loading()
         wikiSupportsImageRecommendations = false
 
         if (!AccountUtil.isLoggedIn) {
-            _uiState.value = UiState.RequireLogin()
+            _uiState.value = RequireLogin()
             return
         }
-
-        viewModelScope.launch(handler) {
+        clientJob?.cancel()
+        clientJob = viewModelScope.launch(handler) {
             blockMessageWikipedia = null
             blockMessageWikidata = null
             blockMessageCommons = null
@@ -97,10 +100,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                 }
             }
 
+            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
             totalContributions += wikidataResponse.query?.userInfo!!.editCount
             totalContributions += commonsResponse.query?.userInfo!!.editCount
-            totalContributions += homeSiteResponse.query?.userInfo!!.editCount
-            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
+            totalContributions += homeContributions
 
             latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
 
@@ -121,7 +124,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
             totalPageviews = UserContribStats.getPageViews(wikidataResponse)
 
-            _uiState.value = UiState.Success()
+            _uiState.value = Resource.Success(Unit)
         }
     }
 
@@ -137,10 +140,5 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             .count()
     }
 
-    open class UiState {
-        class Loading : UiState()
-        class RequireLogin : UiState()
-        class Success : UiState()
-        class Error(val throwable: Throwable) : UiState()
-    }
+    class RequireLogin : Resource<Unit>()
 }

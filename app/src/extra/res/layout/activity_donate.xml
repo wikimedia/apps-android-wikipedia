@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle.Small"
+        app:title="@string/donate_gpay_activity_title"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp" />
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/errorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:indeterminate="true" />
+
+    <ScrollView
+        android:id="@+id/contentsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/amountPresetsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/amountPresetsFlow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:flow_horizontalGap="16dp"
+                    app:flow_verticalGap="16dp"
+                    app:flow_horizontalStyle="packed"
+                    app:flow_wrapMode="chain"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/donateAmountInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:expandedHintEnabled="false"
+                app:prefixTextAppearance="@style/H1"
+                app:prefixTextColor="?attr/secondary_color"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/donateAmountText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    style="@style/H1"
+                    android:textAlignment="center"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/checkBoxTransactionFee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/P"
+                android:textColor="?attr/primary_color"
+                android:paddingStart="8dp"
+                android:minHeight="0dp"
+                android:text="@string/donate_gpay_check_transaction_fee"
+                />
+
+            <CheckBox
+                android:id="@+id/checkBoxRecurring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/P"
+                android:textColor="?attr/primary_color"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:minHeight="0dp"
+                android:text="@string/donate_gpay_check_recurring"
+                />
+
+            <CheckBox
+                android:id="@+id/checkBoxAllowEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/P"
+                android:textColor="?attr/primary_color"
+                android:layout_marginTop="16dp"
+                android:paddingStart="8dp"
+                android:minHeight="0dp"
+                android:text="@string/donate_gpay_check_send_email"
+                />
+
+            <com.google.android.gms.wallet.button.PayButton
+                android:id="@+id/payButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/linkProblemsDonating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_problems" />
+
+            <TextView
+                android:id="@+id/linkOtherWays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_other_ways" />
+
+            <TextView
+                android:id="@+id/linkFAQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_faq" />
+
+            <TextView
+                android:id="@+id/linkTaxDeduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                style="@style/P"
+                android:gravity="center_vertical"
+                android:textColor="?attr/progressive_color"
+                android:text="@string/donate_gpay_help_tax" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

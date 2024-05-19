@@ -28,6 +28,8 @@ import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.edit.EditHandler
+import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
 import org.wikipedia.history.HistoryEntry
@@ -145,11 +147,25 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
 
+    private val requestStubArticleEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            overlayView?.let { overlay ->
+                FeedbackUtil.makeSnackbar(overlay.rootView, getString(R.string.stub_article_edit_saved_successfully))
+                    .setAnchorView(overlay.secondaryButtonView).show()
+            }
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogLinkPreviewBinding.inflate(inflater, container, false)
         binding.linkPreviewToolbar.setOnClickListener { goToLinkedPage(false) }
         binding.linkPreviewOverflowButton.setOnClickListener {
             setupOverflowMenu()
+        }
+        binding.linkPreviewEditButton.setOnClickListener {
+            viewModel.pageTitle.run {
+                requestStubArticleEditLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
+            }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
@@ -374,23 +390,25 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun setPreviewContents(contents: LinkPreviewContents) {
-        if (!contents.extract.isNullOrEmpty()) {
-            binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
-            val colorHex = ResourceUtil.colorToCssString(
-                    ResourceUtil.getThemedColor(
-                            requireContext(),
-                            android.R.attr.textColorPrimary
-                    )
+        binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
+        val colorHex = ResourceUtil.colorToCssString(
+            ResourceUtil.getThemedColor(
+                requireContext(),
+                android.R.attr.textColorPrimary
             )
-            val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
-            binding.linkPreviewExtractWebview.loadDataWithBaseURL(
-                    null,
-                    "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">${contents.extract}</div>",
-                    "text/html",
-                    "UTF-8",
-                    null
-            )
-        }
+        )
+        val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
+        val editVisibility = contents.extract.isNullOrBlank() && contents.ns?.id == Namespace.MAIN.code()
+        binding.linkPreviewEditButton.isVisible = editVisibility
+        binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
+        val extract = if (editVisibility) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
+        binding.linkPreviewExtractWebview.loadDataWithBaseURL(
+            null,
+            "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$extract</div>",
+            "text/html",
+            "UTF-8",
+            null
+        )
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.linkPreviewThumbnail, it)

@@ -173,7 +173,7 @@
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="account_creation_password_hint">Heslo</string>
-  <string name="login_2fa_hint">Dvoufaktorový autentizační kód</string>
+  <string name="login_2fa_hint">Dvoufázový ověřovací kód</string>
   <string name="login_2fa_other_workflow_error_msg">Dvoufázové ověření je povinné! Prosíme, přihlaste se pomocí tokenu dvoufázového ověření; poté to zkuste znovu.</string>
   <string name="onboarding_card_login">Přihlásit se</string>
   <string name="page_editing_login">Přihlásit se</string>
@@ -194,7 +194,7 @@
   <string name="logged_out_in_background_title">Byli jste odhlášeni</string>
   <string name="logged_out_in_background_dialog">Byli jste odhlášeni z Wikipedie. Chcete se znovu přihlásit?</string>
   <string name="logged_out_in_background_login">Přihlásit se</string>
-  <string name="logged_out_in_background_cancel">Ne</string>
+  <string name="logged_out_in_background_cancel">Storno</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -268,15 +268,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka produkčního týmu&lt;/a&gt;</string>
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
+  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -776,8 +776,8 @@
   <string name="notifications_menu_uncheck_all">Odebrat všechny položky</string>
   <string name="notifications_wiki_filter_header">Wiki filtr</string>
   <string name="notifications_type_filter_header">Filtr typu</string>
-  <string name="notifications_all_wikis_text">Vše \"wiki\"</string>
-  <string name="notifications_all_types_text">Všechny „typy“</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Vše \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Všechny „typy“</string>
   <string name="notifications_menu_user_talk_page">Diskusní stránka uživatele %s</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
@@ -897,7 +897,7 @@
   <string name="customize_toolbar_title">Přizpůsobit panel nástrojů</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Přetáhněte své oblíbené položky sem 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Obnovit do základu</string>
+  <string name="customize_toolbar_reset_to_default_button">Obnovit výchozí</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Chcete-li položku přesunout, podržte ikonu přetažení</string>
   <string name="customize_toolbar_item_default_tooltip">Stisknutím a přetažením položky přemístěte</string>
   <string name="suggested_edits_describe_articles">Popište články</string>
@@ -1076,6 +1076,7 @@
   <string name="image_recommendation_tooltip_3">Rozhodněte, zda obrázek pomůže čtenářům lépe porozumět tomuto tématu</string>
   <string name="image_recommendation_tooltip_next">Další</string>
   <string name="suggested_edits_report_feature">Problém s funkcí</string>
+  <string name="edit_summary_added_image">Přidán obrázek</string>
   <string name="file_page_activity_title">Stránka souboru</string>
   <string name="file_page_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="file_page_add_image_tags_button">Přidejte značky obrázků</string>
@@ -1246,6 +1247,10 @@
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Řádek %d</string>
   <string name="revision_diff_lines_from_to">Řádky %1$d-%2$d</string>
+  <string name="revision_diff_line_added">Přidán řádek</string>
+  <string name="revision_diff_line_removed">Odstraněn řádek</string>
+  <string name="revision_diff_paragraph_added">Přidán odstavec</string>
+  <string name="revision_diff_paragraph_removed">Odstraněn odstavec</string>
   <string name="revision_compare_button">Porovnat</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
@@ -1318,5 +1323,25 @@
   <string name="user_contrib_current">aktuální</string>
   <string name="user_contrib_menu_label">Příspěvky</string>
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
+  <string name="action_item_view_on_map">Zobrazit na mapě</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Informace o uživateli</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informace o uživateli</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Účet od: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Počet úprav: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Zavřít</string>
   <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
+  <string name="patroller_diff_feedback_dialog_message">Jste s touto funkcí spokojen(a)?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Spokojen(a)</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutrální</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nespokojen(a)</string>
+  <string name="places_title">Místa</string>
+  <string name="places_search_hint">Hledat místa</string>
+  <string name="places_filter_title">Filtrovat jazyk</string>
+  <string name="places_toggle_buttons_map">Mapa</string>
+  <string name="places_toggle_buttons_list">Seznam</string>
+  <string name="places_nav_tab_tooltip_message">Objevujte články na Wikipedii kolem sebe pomocí záložky Místa</string>
+  <string name="places_article_menu_tooltip_message">Klepnutím na „Zobrazit na mapě“ prozkoumáte polohu tohoto článku</string>
+  <string name="places_survey_very_satisfied_option">Velmi spokojen(a)</string>
+  <string name="places_survey_very_unsatisfied_option">Velmi nespokojen(a)</string>
+  <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>
 </resources>

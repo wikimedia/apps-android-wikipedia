@@ -7,8 +7,15 @@
             android:value="F-Droid"
             tools:replace="android:value" />
 
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled"
+            tools:node="remove"/>
+
         <service
             android:name=".push.WikipediaFirebaseMessagingService"
+            tools:node="remove"/>
+
+        <activity
+            android:name=".donate.GooglePayActivity"
             tools:node="remove"/>
 
     </application>

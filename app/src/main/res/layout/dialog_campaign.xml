@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:strokeColor="@color/red700"
     app:strokeWidth="2dp"
-    app:radius="0dp"
+    app:cardCornerRadius="0dp"
     app:hasBorder="false">
 
     <LinearLayout

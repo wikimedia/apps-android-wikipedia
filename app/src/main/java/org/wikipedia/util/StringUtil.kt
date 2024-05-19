@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.icu.text.CompactDecimalFormat
+import android.location.Location
 import android.os.Build
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
@@ -240,5 +241,30 @@ object StringUtil {
 
     fun capitalize(str: String?): String? {
         return str?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+    }
+
+    fun geoHackToLocation(params: String?): Location? {
+        if (!params.isNullOrBlank()) {
+            val regex = """(([\d.]+)_)(([\d.]+)_)?(([\d.]+)_)?(([NS])_)(([\d.]+)_)?(([\d.]+)_)?(([\d.]+)_)?([EW])""".toRegex()
+            val match = regex.find(params)
+            if (match != null) {
+                val latDeg = match.groupValues[2].ifEmpty { "0" }
+                val latMin = match.groupValues[4].ifEmpty { "0" }
+                val latSec = match.groupValues[6].ifEmpty { "0" }
+                val latDir = match.groupValues[8].ifEmpty { "0" }
+                val lonDeg = match.groupValues[10].ifEmpty { "0" }
+                val lonMin = match.groupValues[12].ifEmpty { "0" }
+                val lonSec = match.groupValues[14].ifEmpty { "0" }
+                val lonDir = match.groupValues[15].ifEmpty { "0" }
+                val lat = latDeg.toDouble() + latMin.toDouble() / 60 + latSec.toDouble() / 3600
+                val lon = lonDeg.toDouble() + lonMin.toDouble() / 60 + lonSec.toDouble() / 3600
+
+                return Location("").apply {
+                    latitude = if (latDir == "S") -lat else lat
+                    longitude = if (lonDir == "W") -lon else lon
+                }
+            }
+        }
+        return null
     }
 }

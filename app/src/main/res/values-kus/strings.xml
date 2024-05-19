@@ -229,15 +229,15 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gbana buoris banɛ zaŋi tʋm</string>
   <string name="about_contributors_heading">Tʋntʋnnib</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tʋntʋnnib lakir&lt;/a&gt;</string>
   <string name="about_translators_heading">pian\'alɛbigirib</string>
   <string name="about_translators_translatewiki">Sɔ\' da pɛsigi o mɛŋi lɛbig app kaŋa bɛ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Kasɛta gbaʋŋ</string>
-  <string name="about_app_license">Din yi zin\'isia na koodi bɛ</string>
+  <string name="about_app_license" fuzzy="true">Din yi zin\'isia na koodi bɛ</string>
   <string name="about_wmf">Laʋk kanɛ yi &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Din yɛla</string>
   <string name="edit_abandon_confirm">Lakir la tiaknɛ. Fʋ sid siak ye fʋ bɔɔd ye fʋ yi  ka pʋ su\'a dinɛ ka fʋ tiak laa?</string>
@@ -642,8 +642,8 @@
   <string name="notifications_swipe_action_unread">Pʋ karim</string>
   <string name="notifications_menu_check_all">Kpansim la\'ad wʋsa</string>
   <string name="notifications_menu_uncheck_all">Da kpans la\'ad wʋsaa</string>
-  <string name="notifications_all_wikis_text">Wiki wʋsa</string>
-  <string name="notifications_all_types_text">Buudi wʋsa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Wiki wʋsa</string>
+  <string name="notifications_all_types_text" fuzzy="true">Buudi wʋsa</string>
   <string name="notifications_menu_user_talk_page">%s\'s sɔnsʋg lakir zin\'ig</string>
   <string name="view_because_you_read_card_title">Fʋn karim la zug</string>
   <string name="view_random_card_title">Yɔɔg-yɔɔg</string>
@@ -708,8 +708,8 @@
   <string name="description_edit_voice_input_description">Pian\'a nɛ kʋkɔri kpɛn\'ɛs</string>
   <string name="description_edit_learn_more">Zamis atikil pa\'ala bɛdegɔ</string>
   <string name="description_edit_image_caption_learn_more">Zamisim footo pian\'azut yɛla bɛdegʋ</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Sɔbʋg la gimnɛ galis.</string>
   <string name="description_starts_with_uppercase">Pin\'ilim nɛ sɔb Biel baanlim asɛɛ yiiga pian\'uk la na an yʋ\'ʋmɛŋir</string>
   <string name="description_starts_with_lowercase">Da pin\'in nɛ sɔb biel baanlʋgɔ.</string>
@@ -824,8 +824,8 @@
   <string name="image_recommendation_accept">Ɛɛn</string>
   <string name="image_recommendation_reject">Ayei</string>
   <string name="image_recommendation_notsure">Pʋ tis sidaa</string>
-  <string name="image_recommendation_reject_title">Bɔ\' ka di kʋ nyaŋɛ?</string>
-  <string name="image_recommendation_reject_subtitle">Fʋ gandigi la na sʋŋ bɛog sa pʋtɛnda.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Bɔ\' ka di kʋ nyaŋɛ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Fʋ gandigi la na sʋŋ bɛog sa pʋtɛnda.</string>
   <string name="image_recommendation_reject_not_relevant">Footo la pʋ mɔr sʋŋirɛ</string>
   <string name="image_recommendation_reject_no_info">Labaar la pʋ zu\'oe ka m na gban\'e gban\'arɛ</string>
   <string name="image_recommendation_reject_offensive">Footo la mɔr daʋŋ</string>
@@ -946,7 +946,6 @@
   <string name="talk_warn_save_dialog_hint">Labaar pian\'azug</string>
   <string name="talk_warn_save_dialog_publish">Zaŋim niŋ</string>
   <string name="talk_warn_save_dialog_cancel">Basim</string>
-  <string name="talk_warn_saved_message_dropdown">Kpɛn\'ɛsim labaya</string>
   <string name="talk_page_empty">Sɔnsʋg lakir kaŋa anɛ zaalim.</string>
   <string name="talk_page_empty_title">Sɔnsʋg la pin\'inɛ kpɛla</string>
   <string name="talk_add_reply">Lɛbisim</string>

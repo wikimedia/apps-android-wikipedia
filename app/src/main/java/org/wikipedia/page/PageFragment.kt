@@ -19,6 +19,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
@@ -399,7 +400,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         onPageSetupEvent()
                         bridge.onMetadataReady()
                         bridge.onPcsReady()
-                        bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())
+                        bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(DimenUtil.roundedPxToDp(((requireActivity() as AppCompatActivity).supportActionBar?.height ?: 0).toFloat()),
+                            DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
                     }
                 }
             }
@@ -672,8 +674,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
                     availableCampaign?.let {
                         if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logImpression("article_banner",
-                                it.id, pageTitle.wikiSite.languageCode)
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
