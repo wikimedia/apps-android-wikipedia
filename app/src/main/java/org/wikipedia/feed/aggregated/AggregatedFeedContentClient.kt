@@ -24,6 +24,7 @@ import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class AggregatedFeedContentClient {
@@ -224,7 +225,7 @@ class AggregatedFeedContentClient {
                 }
 
                 list.forEach { pageSummary ->
-                    val displayTitle = mwQueryResponse.await().query?.pages?.find { it.title == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
+                    val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
                     val newPageSummary = pageSummary.apply {
                         val newDisplayTitle = displayTitle ?: pageSummary.displayTitle
                         this.titles = PageSummary.Titles(
