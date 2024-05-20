@@ -826,6 +826,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_accessibility_card_text">Дошли сте до краја фида.</string>
   <string name="feed_accessibility_card_load_more_button">Учитај још</string>
+  <string name="feed_language_variants_removal_dialog_save">Сачувај</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Подешавања</string>
   <string name="top_read_activity_title">Најчитаније на %s</string>
   <string name="tabs_activity_title">Језичци</string>
   <string name="description_edit_text_hint">Опис чланка</string>
@@ -1601,6 +1603,8 @@
   <string name="donate_gpay_help_faq">Често постављана питања</string>
   <string name="donate_gpay_help_tax">Подаци о пореским олакшицама</string>
   <string name="places_title">Места</string>
+  <string name="places_search_hint">Претражи места</string>
+  <string name="places_filter_title">Филтрирај по језику</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>
   <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>

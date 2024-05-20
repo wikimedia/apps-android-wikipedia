@@ -3,8 +3,9 @@ package org.wikipedia.edit.summaries
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.page.PageTitle
@@ -18,14 +19,12 @@ class EditSummaryHandler(private val container: View,
         container.setOnClickListener { summaryEdit.requestFocus() }
         setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode)
 
-        AppDatabase.instance.editSummaryDao().getEditSummaries()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { summaries ->
-                if (container.isAttachedToWindow) {
-                    updateAutoCompleteList(summaries)
-                }
+        CoroutineScope(Dispatchers.Main).launch {
+            val summaries = AppDatabase.instance.editSummaryDao().getEditSummaries()
+            if (container.isAttachedToWindow) {
+                updateAutoCompleteList(summaries)
             }
+        }
     }
 
     private fun updateAutoCompleteList(editSummaries: List<EditSummary>) {
@@ -38,9 +37,9 @@ class EditSummaryHandler(private val container: View,
     }
 
     fun persistSummary() {
-        AppDatabase.instance.editSummaryDao().insertEditSummary(EditSummary(summary = summaryEdit.text.toString()))
-            .subscribeOn(Schedulers.io())
-            .subscribe()
+        CoroutineScope(Dispatchers.IO).launch {
+            AppDatabase.instance.editSummaryDao().insertEditSummary(EditSummary(summary = summaryEdit.text.toString()))
+        }
     }
 
     fun handleBackPressed(): Boolean {
