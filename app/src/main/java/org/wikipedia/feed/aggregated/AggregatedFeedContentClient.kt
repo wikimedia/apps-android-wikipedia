@@ -225,6 +225,7 @@ class AggregatedFeedContentClient {
                 }
 
                 list.forEach { pageSummary ->
+                    // Find the correct display title from the varianttitles map, and insert the new page summary to the list.
                     val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
                     val newPageSummary = pageSummary.apply {
                         val newDisplayTitle = displayTitle ?: pageSummary.displayTitle
