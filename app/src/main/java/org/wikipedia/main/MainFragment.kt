@@ -6,7 +6,6 @@ import android.app.ActivityOptions
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -34,6 +33,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
@@ -372,16 +372,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     override fun onFeedShareImage(card: FeaturedImageCard) {
         val thumbUrl = card.baseImage().thumbnailUrl
         val fullSizeUrl = card.baseImage().original.source
-        object : ImagePipelineBitmapGetter(thumbUrl) {
-            override fun onSuccess(bitmap: Bitmap?) {
-                if (bitmap != null) {
-                    ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
-                            ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
-                } else {
-                    FeedbackUtil.showMessage(this@MainFragment, getString(R.string.gallery_share_error, card.baseImage().title))
-                }
+        ImagePipelineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+            if (!isAdded) {
+                return@ImagePipelineBitmapGetter
             }
-        }[requireContext()]
+            ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
+                ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
+        }
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
@@ -455,6 +452,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (AccountUtil.isLoggedIn) {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
+    }
+
+    override fun donateClick() {
+        (requireActivity() as? BaseActivity)?.launchDonateDialog()
     }
 
     fun setBottomNavVisible(visible: Boolean) {

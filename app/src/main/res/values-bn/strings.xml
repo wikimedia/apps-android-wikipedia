@@ -716,6 +716,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="feed_accessibility_card_text">আপনি ফিডের একদম শেষে পৌঁছে গেছেন।</string>
   <string name="feed_accessibility_card_load_more_button">আরও লোড করুন</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">সেটিংসে যান</string>
   <string name="top_read_activity_title">%s-এ শীর্ষ পঠিত</string>
   <string name="tabs_activity_title">ট্যাব</string>
   <string name="description_edit_text_hint">নিবন্ধের বিবরণ</string>
@@ -1197,6 +1198,7 @@
   <string name="page_issues_title">পাতার সমস্যা</string>
   <string name="donation_campaign_go_back_button">ফিরে যান</string>
   <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
+  <string name="donate_gpay_help_faq">প্রায়শই জিজ্ঞাসিত প্রশ্নসমূহ</string>
   <string name="places_title">স্থানগুলি</string>
   <string name="places_permissions_denied">মানচিত্রে আপনার লোকেশন দেখতেলোকেশনের অনুমতি প্রয়োজন। অনুগ্রহকরে আবার চেষ্টা করুন।</string>
   <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>

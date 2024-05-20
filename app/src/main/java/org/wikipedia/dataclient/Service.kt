@@ -110,8 +110,8 @@ interface Service {
 
     // ------- Miscellaneous -------
 
-    @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
-    val newCaptcha: Observable<Captcha>
+    @GET(MW_API_PREFIX + "action=fancycaptchareload")
+    suspend fun getNewCaptcha(): Captcha
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
     suspend fun getLangLinks(@Query("titles") title: String): MwQueryResponse
@@ -144,14 +144,17 @@ interface Service {
     ): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|entityterms&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getImageInfoWithEntityTerms(
+    suspend fun getImageInfoWithEntityTerms(
             @Query("titles") titles: String,
             @Query("iiextmetadatalanguage") metadataLang: String,
             @Query("wbetlanguage") entityLang: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
+    suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteMatrix: Observable<SiteMatrix>
@@ -252,10 +255,8 @@ interface Service {
         @Field("currency") currency: String,
         @Field("donor_country") donorCountry: String,
         @Field("email") email: String,
-        @Field("first_name") firstName: String,
         @Field("full_name") fullName: String,
         @Field("language") language: String,
-        @Field("last_name") lastName: String,
         @Field("recurring") recurring: String,
         @Field("payment_token") paymentToken: String,
         @Field("opt_in") optIn: String,
@@ -476,6 +477,12 @@ interface Service {
         @Query("sites") sites: String
     ): Observable<Entities>
 
+    @GET(MW_API_PREFIX + "action=wbgetentities")
+    suspend fun getEntitiesByTitleSuspend(
+        @Query("titles") titles: String,
+        @Query("sites") sites: String
+    ): Entities
+
     @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
     fun searchEntities(
         @Query("search") searchTerm: String,
@@ -489,11 +496,23 @@ interface Service {
             @Query("wbetlanguage") lang: String
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
+    suspend fun getWikidataEntityTermsSuspend(
+        @Query("titles") titles: String,
+        @Query("wbetlanguage") lang: String
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=wbgetclaims")
     fun getClaims(
         @Query("entity") entity: String,
         @Query("property") property: String?
     ): Observable<Claims>
+
+    @GET(MW_API_PREFIX + "action=wbgetclaims")
+    suspend fun getClaimsSuspend(
+        @Query("entity") entity: String,
+        @Query("property") property: String?
+    ): Claims
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
@@ -699,7 +718,7 @@ interface Service {
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
+    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
     suspend fun getPagesWithImageRecommendations(
         @Query("gsrlimit") count: Int
     ): MwQueryResponse

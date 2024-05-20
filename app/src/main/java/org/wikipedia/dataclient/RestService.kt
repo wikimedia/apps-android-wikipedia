@@ -73,16 +73,9 @@ interface RestService {
         @Path("title") title: String
     ): PageSummary
 
-    // todo: this Content Service-only endpoint is under page/ but that implementation detail should
-    //       probably not be reflected here. Move to WordDefinitionClient
-    /**
-     * Gets selected Wiktionary content for a given title derived from user-selected text
-     *
-     * @param title the Wiktionary page title derived from user-selected Wikipedia article text
-     */
     @Headers("Accept: $ACCEPT_HEADER_DEFINITION")
     @GET("page/definition/{title}")
-    fun getDefinition(@Path("title") title: String): Observable<Map<String, List<RbDefinition.Usage>>>
+    suspend fun getDefinition(@Path("title") title: String): Map<String, List<RbDefinition.Usage>>
 
     @GET("page/random/summary")
     @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
@@ -114,9 +107,9 @@ interface RestService {
     fun getOnThisDay(@Path("mm") month: Int, @Path("dd") day: Int): Observable<OnThisDay>
 
     // TODO: Remove this before next fundraising campaign in 2024
-    @get:GET("feed/announcements")
-    @get:Headers("Accept: " + ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
-    val announcements: Observable<AnnouncementList>
+    @GET("feed/announcements")
+    @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
+    suspend fun getAnnouncements(): AnnouncementList
 
     @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
     @GET("feed/featured/{year}/{month}/{day}")

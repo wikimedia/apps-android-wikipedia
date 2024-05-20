@@ -2,10 +2,11 @@ package org.wikipedia.page.leadimages
 
 import android.net.Uri
 import androidx.core.app.ActivityOptionsCompat
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
@@ -26,6 +27,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 
 class LeadImagesHandler(private val parentFragment: PageFragment,
@@ -45,7 +47,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private val title get() = parentFragment.title
     private val page get() = parentFragment.page
     private val activity get() = parentFragment.requireActivity()
-    private val disposables = CompositeDisposable()
+    private var handlerJob: Job? = null
 
     private val isLeadImageEnabled get() = Prefs.isImageDownloadEnabled && !DimenUtil.isLandscape(activity) && displayHeightDp >= MIN_SCREEN_HEIGHT_DP && !isMainPage && !leadImageUrl.isNullOrEmpty()
     private val leadImageWidth get() = page?.run { pageProperties.leadImageWidth } ?: pageHeaderView.imageView.width
@@ -94,7 +96,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private fun updateCallToAction() {
         dispose()
         pageHeaderView.callToActionText = null
-        if (!AccountUtil.isLoggedIn || leadImageUrl == null || !leadImageUrl!!.contains(Service.URL_FRAGMENT_FROM_COMMONS) || page == null) {
+        if (!WikipediaApp.instance.isOnline || !AccountUtil.isLoggedIn || leadImageUrl?.contains(Service.URL_FRAGMENT_FROM_COMMONS) != true || page == null) {
             return
         }
         title?.let {
@@ -104,44 +106,39 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 finalizeCallToAction()
                 return
             }
-            disposables.add(ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(imageTitle)
-                .subscribeOn(Schedulers.io())
-                .map { response -> response.query?.isEditProtected ?: false }
-                .flatMap { isProtected ->
-                    if (isProtected) Observable.empty() else Observable.zip(ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitle(imageTitle, Constants.COMMONS_DB_NAME),
-                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(imageTitle, WikipediaApp.instance.appOrSystemLanguageCode)) { first, second -> Pair(first, second) }
-                }
-                .flatMap { pair ->
-                    val labelMap = pair.first.first?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
-                    val depicts = ImageTagsProvider.getDepictsClaims(pair.first.first?.getStatements().orEmpty())
+            handlerJob = parentFragment.viewLifecycleOwner.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+            }) {
+                lastImageTitleForCallToAction = imageTitle
+                val isProtected = ServiceFactory.get(Constants.commonsWikiSite)
+                    .getProtectionInfoSuspend(imageTitle).query?.isEditProtected ?: false
+                if (!isProtected) {
+                    val firstEntity = async {
+                        ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first
+                    }
+                    val firstImageInfo = async {
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
+                    }
+                    val labelMap = firstEntity.await()?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
+                    val depicts = ImageTagsProvider.getDepictsClaims(firstEntity.await()?.getStatements().orEmpty())
+                    imagePage = firstImageInfo.await()
                     captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
                     captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
-                    imagePage = pair.second.query?.firstPage()
-                    imageEditType = null // Need to clear value from precious call
                     if (!labelMap.containsKey(it.wikiSite.languageCode)) {
                         imageEditType = ImageEditType.ADD_CAPTION
-                        return@flatMap Observable.just(depicts)
                     }
                     if (WikipediaApp.instance.languageState.appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                        for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
-                            if (!labelMap.containsKey(lang)) {
-                                imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
-                                captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, lang))
-                                break
-                            }
+                        WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull { lang -> !labelMap.containsKey(lang) }?.run {
+                            imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
+                            captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, this))
                         }
                     }
-                    Observable.just(depicts)
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { depicts ->
                     if (imageEditType != ImageEditType.ADD_CAPTION && depicts.isEmpty()) {
                         imageEditType = ImageEditType.ADD_TAGS
                     }
-                    finalizeCallToAction()
-                    lastImageTitleForCallToAction = imageTitle
                 }
-            )
+                finalizeCallToAction()
+            }
         }
     }
 
@@ -239,7 +236,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     }
 
     fun dispose() {
-        disposables.clear()
+        handlerJob?.cancel()
         callToActionSourceSummary = null
         callToActionTargetSummary = null
         callToActionIsTranslation = false

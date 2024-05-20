@@ -56,7 +56,7 @@
   <string name="menu_page_reading_lists">Lookkâmliist</string>
   <string name="menu_page_archive">Arkiiv</string>
   <string name="menu_long_press_open_page">Ääʹved</string>
-  <string name="menu_long_press_open_in_new_tab">Ääʹved ođđ kõskklõõstâst</string>
+  <string name="menu_long_press_open_in_new_tab">Ääʹved ođđ kõskklõʹstte</string>
   <string name="menu_long_press_copy_page">Kopiââʹst liiŋk addrõõzz</string>
   <string name="menu_text_select_define">Meäʹrtelm</string>
   <string name="on_this_day_page_share">Jueʹjj</string>
@@ -245,7 +245,8 @@
   <string name="view_continue_reading_card_subtitle_today">täʹbbe</string>
   <string name="view_announcement_card_negative_action">Ij späʹsseb</string>
   <string name="view_static_card_save_button_label">Ruõkk</string>
-  <string name="feed_configure_menu_select_all">Čuäʹjet pukid</string>
+  <string name="feed_configure_menu_select_all">Čuäʹjet puk</string>
+  <string name="feed_configure_menu_deselect_all">Čiõǥǥ puk</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_accessibility_card_load_more_button">Laadd lââʹzz</string>
