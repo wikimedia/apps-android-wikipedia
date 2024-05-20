@@ -915,6 +915,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
   <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
+  <string name="feed_language_variants_removal_dialog_title">נא לבחור תקן כתיב אזורי לחוויית קריאה משופרת</string>
+  <string name="feed_language_variants_removal_dialog_message">בחרת בתקן כתיב סיני שאינו נתמך בתור שפת הוויקיפדיה הראשית שלך</string>
+  <string name="feed_language_variants_removal_dialog_save">שמירה</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">נא לעדכן את השפות המשניות שלך</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">בחרת בתקן כתיב סיני שאינו נתמך בתור השפה המשנית שלך. נא לעבור להגדרות שלך ולבחור שפה משנית חדשה או לאשר את רשימת השפות שלך.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">לעבור להגדרות</string>
   <string name="top_read_activity_title">ערכים מובילים ב%s</string>
   <string name="tabs_activity_title">לשוניות</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
