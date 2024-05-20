@@ -12,9 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
@@ -29,10 +27,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
@@ -40,6 +39,7 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.okhttp.HttpStatusException
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
@@ -53,9 +53,9 @@ import org.wikipedia.suggestededits.SuggestedEditsCardsFragment
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
+import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
@@ -64,6 +64,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SurveyDialog
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 
@@ -85,30 +86,25 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
         }
 
-    private val requestWarn = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || it.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
-            viewModel.revisionTo?.let { revision ->
-                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                val message = if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
-                    sendPatrollerExperienceEvent("publish_message_toast", "pt_warning_messages")
-                    R.string.talk_warn_submitted
-                } else {
-                    sendPatrollerExperienceEvent("publish_message_saved_toast", "pt_warning_messages")
-                    R.string.talk_warn_submitted_and_saved
-                }
-                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
-                snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
-                    sendPatrollerExperienceEvent("publish_message_view_click", "pt_warning_messages")
-                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
-                }
-                snackbar.show()
+    private val requestTalk = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            val pageTitle = result.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE) ?: viewModel.pageTitle
+            val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
+                PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted
+            } else {
+                PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted_and_saved
             }
-        }
-    }
-
-    private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
-        if (viewModel.fromRecentEdits) {
-            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
+                .setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
+                    if (isAdded) {
+                        PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
+                        startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
+                    }
+                }
+                .setAnchorView(binding.navTabContainer)
+                .show()
         }
     }
 
@@ -126,7 +122,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
+        FeedbackUtil.setButtonTooltip(binding.newerIdButton, binding.olderIdButton)
         return binding.root
     }
 
@@ -135,6 +131,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         setUpListeners()
         setLoadingState()
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+        if (savedInstanceState == null) {
+            EditAttemptStepEvent.logInit(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+        }
 
         if (!viewModel.fromRecentEdits) {
             (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.revision_diff_compare)
@@ -199,6 +199,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         viewModel.undoEditResponse.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
+                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.edit!!.newRevId)
                 sendPatrollerExperienceEvent("undo_success", "pt_edit",
@@ -207,6 +208,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 editHistoryInteractionEvent?.logUndoSuccess()
                 callback()?.onUndoSuccess()
             } else if (it is Resource.Error) {
+                EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
                 editHistoryInteractionEvent?.logUndoFail()
@@ -226,6 +228,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         viewModel.rollbackResponse.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
+                EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
                 sendPatrollerExperienceEvent("rollback_success", "pt_edit",
@@ -233,6 +236,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 showRollbackSnackbar()
                 callback()?.onRollbackSuccess()
             } else if (it is Resource.Error) {
+                EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
@@ -311,7 +315,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         binding.undoButton.setOnClickListener {
             val canUndo = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
             val canRollback = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
-
+            EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             if (canUndo && canRollback) {
                 PopupMenu(requireContext(), binding.undoLabel, Gravity.END).apply {
                     menuInflater.inflate(R.menu.menu_context_undo, menu)
@@ -352,7 +356,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             sendPatrollerExperienceEvent("warn_init", "pt_toolbar")
             viewModel.revisionTo?.let { revision ->
                 val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+                requestTalk.launch(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, fromRevisionId = viewModel.revisionFromId, toRevisionId = viewModel.revisionToId))
             }
         }
 
@@ -368,6 +372,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         menu.findItem(R.id.menu_view_edit_history).isVisible = viewModel.fromRecentEdits
         menu.findItem(R.id.menu_report_feature).isVisible = viewModel.fromRecentEdits
         menu.findItem(R.id.menu_learn_more).isVisible = viewModel.fromRecentEdits
+        menu.findItem(R.id.menu_saved_messages).isVisible = viewModel.fromRecentEdits
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -396,6 +401,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             R.id.menu_report_feature -> {
                 sendPatrollerExperienceEvent("top_menu_feedback_click", "pt_edit")
                 showFeedbackOptionsDialog(true)
+                true
+            }
+            R.id.menu_saved_messages -> {
+                sendPatrollerExperienceEvent("diff_saved_init", "pt_warning_messages")
+                val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), viewModel.pageTitle.text, viewModel.pageTitle.wikiSite)
+                requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
             else -> false
@@ -544,52 +555,54 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         updateWatchButton(false)
         if (!viewModel.isWatched) {
             sendPatrollerExperienceEvent("unwatch_success_toast", "pt_watchlist")
-            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
-            snackbar.addCallback(object : Snackbar.Callback() {
-                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                    if (!isAdded) {
-                        return
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
+                .addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                        if (!isAdded) {
+                            return
+                        }
+                        showFeedbackOptionsDialog()
                     }
-                    showFeedbackOptionsDialog()
-                }
-            })
-            snackbar.show()
+                })
+                .setAnchorView(binding.navTabContainer)
+                .show()
         } else if (viewModel.isWatched) {
             sendPatrollerExperienceEvent("watch_success_toast", "pt_watchlist")
-            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+            FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             viewModel.pageTitle.displayText,
                             getString(WatchlistExpiry.NEVER.stringId)))
-            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
-            }
-            snackbar.addCallback(object : Snackbar.Callback() {
-                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                    if (!isAdded) {
-                        return
-                    }
-                    showFeedbackOptionsDialog()
+                .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
                 }
-            })
-            snackbar.show()
+                        .addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                        if (!isAdded) {
+                            return
+                        }
+                        showFeedbackOptionsDialog()
+                    }
+                })
+                .setAnchorView(binding.navTabContainer)
+                .show()
         }
     }
 
     private fun showThankSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.thank_success_message,
-            viewModel.revisionTo?.user))
         binding.thankIcon.setImageResource(R.drawable.ic_heart_24)
         binding.thankButton.isEnabled = false
-        snackbar.addCallback(object : Snackbar.Callback() {
-            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                if (!isAdded) {
-                    return
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.thank_success_message, viewModel.revisionTo?.user))
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
                 }
-                showFeedbackOptionsDialog()
-            }
-        })
+            })
+            .setAnchorView(binding.navTabContainer)
+            .show()
         sendPatrollerExperienceEvent("thank_success", "pt_thank")
-        snackbar.show()
     }
 
     private fun showThankDialog() {
@@ -614,6 +627,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             if (viewModel.fromRecentEdits) InvokeSource.SUGGESTED_EDITS_RECENT_EDITS else null) { text ->
                 viewModel.revisionTo?.let {
                     binding.progressBar.isVisible = true
+                    EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                     viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
                 }
         }
@@ -621,16 +635,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     private fun showUndoSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_undo_success))
-        snackbar.addCallback(object : Snackbar.Callback() {
-            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                if (!isAdded) {
-                    return
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_undo_success))
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
                 }
-                showFeedbackOptionsDialog()
-            }
-        })
-        snackbar.show()
+            })
+            .setAnchorView(binding.navTabContainer)
+            .show()
     }
 
     private fun showRollbackDialog() {
@@ -640,6 +655,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 sendPatrollerExperienceEvent("rollback_confirm", "pt_edit")
                 binding.progressBar.isVisible = true
                 viewModel.revisionTo?.let {
+                    EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                     viewModel.postRollback(viewModel.pageTitle, it.user)
                 }
             }
@@ -650,16 +666,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     private fun showRollbackSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_rollback_success))
-        snackbar.addCallback(object : Snackbar.Callback() {
-            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                if (!isAdded) {
-                    return
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_rollback_success))
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
                 }
-                showFeedbackOptionsDialog()
-            }
-        })
-        snackbar.show()
+            })
+            .setAnchorView(binding.navTabContainer)
+            .show()
     }
 
     private fun showFeedbackOptionsDialog(skipPreference: Boolean = false) {
@@ -669,74 +686,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         if (Prefs.showOneTimeRecentEditsFeedbackForm) {
             sendPatrollerExperienceEvent("toolbar_first_feedback", "pt_feedback")
         }
-        var dialog: AlertDialog? = null
-        val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
-
-        val clickListener = View.OnClickListener {
-            viewModel.feedbackOption = (it as TextView).text.toString()
-            dialog?.dismiss()
-            if (viewModel.feedbackOption == getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
-                showFeedbackSnackbarAndTooltip()
-            } else {
-                showFeedbackInputDialog()
-            }
-            sendPatrollerExperienceEvent("feedback_selection", "pt_feedback",
-                PatrollerExperienceEvent.getActionDataString(feedbackOption = viewModel.feedbackOption))
-        }
-
-        feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
-        PatrollerExperienceEvent.logImpression("pt_feedback")
-        dialog = MaterialAlertDialogBuilder(requireActivity())
-            .setTitle(R.string.patroller_diff_feedback_dialog_title)
-            .setCancelable(false)
-            .setView(feedbackView)
-            .show()
-    }
-
-    private fun showFeedbackInputDialog() {
-        if (!viewModel.fromRecentEdits) {
-            return
-        }
-        val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
-        sendPatrollerExperienceEvent("feedback_input_impression", "pt_feedback")
-        MaterialAlertDialogBuilder(requireActivity())
-            .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
-            .setView(feedbackView)
-            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
-                viewModel.feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
-                sendPatrollerExperienceEvent("feedback_submit", "pt_feedback",
-                    PatrollerExperienceEvent.getActionDataString(feedbackText = viewModel.feedbackInput))
-                showFeedbackSnackbarAndTooltip()
-            }
-            .show()
-    }
-
-    private fun showFeedbackSnackbarAndTooltip() {
-        if (!viewModel.fromRecentEdits) {
-            return
-        }
-        FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
-        sendPatrollerExperienceEvent("feedback_submit_toast", "pt_feedback")
-        requireActivity().window.decorView.postDelayed({
-            val anchorView = requireActivity().findViewById<View>(R.id.more_options)
-            if (!requireActivity().isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                sendPatrollerExperienceEvent("tooltip_impression", "pt_feedback")
-                FeedbackUtil.getTooltip(
-                    requireActivity(),
-                    getString(R.string.patroller_diff_feedback_tooltip),
-                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
-                    topOrBottomMargin = 0,
-                    aboveOrBelow = false,
-                    autoDismiss = false,
-                    showDismissButton = true
-                ).apply {
-                    showAlignBottom(anchorView)
-                    Prefs.showOneTimeRecentEditsFeedbackForm = false
-                }
-            }
-        }, 100)
+        SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.SUGGESTED_EDITS_RECENT_EDITS)
     }
 
     private fun updateActionButtons() {
@@ -762,18 +712,24 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
+    private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
+        if (viewModel.fromRecentEdits) {
+            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+        }
+    }
+
     private fun callback(): Callback? {
         return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
     companion object {
-        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, fromRecentEdits: Boolean): ArticleEditDetailsFragment {
+        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, source: InvokeSource): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
                     ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
                     ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
                     ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo,
-                    ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS to fromRecentEdits)
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
             }
         }
     }

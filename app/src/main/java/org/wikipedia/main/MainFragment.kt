@@ -6,7 +6,6 @@ import android.app.ActivityOptions
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -22,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.descendants
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -33,7 +33,9 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -68,7 +70,7 @@ import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
-import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
@@ -130,7 +132,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             it.maxLines = 2
         }
 
-        FeedbackUtil.setButtonLongPressToast(binding.navMoreContainer)
+        FeedbackUtil.setButtonTooltip(binding.navMoreContainer)
         binding.navMoreContainer.setOnClickListener {
             ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
         }
@@ -169,7 +171,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
-        maybeShowWatchlistTooltip()
+        maybeShowPlacesTooltip()
     }
 
     override fun onDestroyView() {
@@ -200,7 +202,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 return
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                val entry = HistoryEntry(PageTitle(getMainPageForLang(WikipediaApp.instance.appOrSystemLanguageCode),
+                val entry = HistoryEntry(PageTitle(
+                    MainPageNameData.valueFor(WikipediaApp.instance.appOrSystemLanguageCode),
                         WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
@@ -270,7 +273,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             tabCountsView!!.contentDescription = getString(R.string.menu_page_show_tabs)
             tabsItem.actionView = tabCountsView
             tabsItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(tabCountsView!!)
+            FeedbackUtil.setButtonTooltip(tabCountsView!!)
             showTabCountsAnimation = false
         }
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
@@ -285,7 +288,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -369,16 +372,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     override fun onFeedShareImage(card: FeaturedImageCard) {
         val thumbUrl = card.baseImage().thumbnailUrl
         val fullSizeUrl = card.baseImage().original.source
-        object : ImagePipelineBitmapGetter(thumbUrl) {
-            override fun onSuccess(bitmap: Bitmap?) {
-                if (bitmap != null) {
-                    ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
-                            ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
-                } else {
-                    FeedbackUtil.showMessage(this@MainFragment, getString(R.string.gallery_share_error, card.baseImage().title))
-                }
+        ImagePipelineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+            if (!isAdded) {
+                return@ImagePipelineBitmapGetter
             }
-        }[requireContext()]
+            ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
+                ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
+        }
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
@@ -454,8 +454,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
+    override fun donateClick() {
+        (requireActivity() as? BaseActivity)?.launchDonateDialog()
+    }
+
     fun setBottomNavVisible(visible: Boolean) {
-        binding.mainNavTabContainer.visibility = if (visible) View.VISIBLE else View.GONE
+        binding.mainNavTabBorder.isVisible = visible
+        binding.mainNavTabContainer.isVisible = visible
     }
 
     fun onGoOffline() {
@@ -551,14 +556,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private fun maybeShowWatchlistTooltip() {
-        if (Prefs.isWatchlistPageOnboardingTooltipShown &&
-                !Prefs.isWatchlistMainOnboardingTooltipShown && AccountUtil.isLoggedIn) {
+    private fun maybeShowPlacesTooltip() {
+        if (Prefs.showOneTimePlacesMainNavOnboardingTooltip && Prefs.exploreFeedVisitCount > SHOW_PLACES_MAIN_NAV_TOOLTIP) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
-                        .setOnBalloonDismissListener {
-                            Prefs.isWatchlistMainOnboardingTooltipShown = true
-                        }
+                PlacesEvent.logImpression("main_nav_tooltip")
+                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
+                    getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false, showDismissButton = true).setOnBalloonDismissListener {
+                    Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
+                    PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")
+                }
             }
         }
     }
@@ -606,6 +612,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     companion object {
         // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
         private const val SHOW_EDITS_SNACKBAR_COUNT = 2
+        private const val SHOW_PLACES_MAIN_NAV_TOOLTIP = 1
 
         fun newInstance(): MainFragment {
             return MainFragment().apply {

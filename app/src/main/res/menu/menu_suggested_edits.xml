@@ -7,6 +7,6 @@
         android:id="@+id/menu_help"
         android:title="@string/suggested_edits_menu_info"
         android:icon="@drawable/ic_info_outline_black_24dp"
-        app:tint="?attr/progressive_color"
+        app:iconTint="?attr/progressive_color"
         app:showAsAction="ifRoom" />
 </menu>

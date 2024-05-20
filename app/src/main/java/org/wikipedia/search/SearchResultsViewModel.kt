@@ -2,10 +2,21 @@ package org.wikipedia.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
-import kotlinx.coroutines.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import androidx.paging.filter
+import androidx.paging.map
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -21,10 +32,11 @@ class SearchResultsViewModel : ViewModel() {
     var resultsCount = mutableListOf<Int>()
     var searchTerm: String? = null
     var languageCode: String? = null
+    lateinit var invokeSource: Constants.InvokeSource
 
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, totalResults)
+        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, totalResults, invokeSource)
     }.flow.debounce(delayMillis).map { pagingData ->
         pagingData.filter { searchResult ->
             totalResults.find { it.pageTitle.prefixedText == searchResult.pageTitle.prefixedText } == null
@@ -43,7 +55,8 @@ class SearchResultsViewModel : ViewModel() {
         private val searchTerm: String?,
         private val languageCode: String?,
         private var resultsCount: MutableList<Int>?,
-        private var totalResults: MutableList<SearchResult>?
+        private var totalResults: MutableList<SearchResult>?,
+        private var invokeSource: Constants.InvokeSource
     ) : PagingSource<Int, SearchResult>() {
 
         private var prefixSearch = true
@@ -59,7 +72,7 @@ class SearchResultsViewModel : ViewModel() {
                 var response: MwQueryResponse? = null
                 val resultList = mutableListOf<SearchResult>()
                 if (prefixSearch) {
-                    if (searchTerm.length > 2) {
+                    if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
                         withContext(Dispatchers.IO) {
                             listOf(async {
                                 getSearchResultsFromTabs(searchTerm)
@@ -78,7 +91,9 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 resultList.addAll(response?.query?.pages?.let { list ->
-                    list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                    (if (invokeSource == Constants.InvokeSource.PLACES)
+                        list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                        .map { SearchResult(it, wikiSite, it.coordinates) }
                 } ?: emptyList())
 
                 if (resultList.size < params.loadSize) {
@@ -87,7 +102,9 @@ class SearchResultsViewModel : ViewModel() {
                     continuation = response.continuation?.gsroffset
 
                     resultList.addAll(response.query?.pages?.let { list ->
-                        list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                        (if (invokeSource == Constants.InvokeSource.PLACES)
+                            list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                            .map { SearchResult(it, wikiSite, it.coordinates) }
                     } ?: emptyList())
                 }
 
@@ -130,12 +147,10 @@ class SearchResultsViewModel : ViewModel() {
         }
 
         private fun getSearchResultsFromTabs(searchTerm: String): SearchResults {
-            if (searchTerm.length >= 2) {
-                WikipediaApp.instance.tabList.forEach { tab ->
-                    tab.backStackPositionTitle?.let {
-                        if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
-                            return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
-                        }
+            WikipediaApp.instance.tabList.forEach { tab ->
+                tab.backStackPositionTitle?.let {
+                    if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
+                        return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                     }
                 }
             }

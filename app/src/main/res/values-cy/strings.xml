@@ -181,9 +181,6 @@
   <string name="create_account_account_created_toast">Wedi creu cyfrif!</string>
   <string name="preferences_heading_data_usage">Defnydd data</string>
   <string name="preferences_heading_experimental">Arbrofol</string>
-  <string name="preferences_privacy_settings_heading">Preifatrwydd</string>
-  <string name="preference_title_eventlogging_opt_in">Danfon adroddiad am y defnydd</string>
-  <string name="preference_summary_eventlogging_opt_in">Caniatau i Wicipedia gasglu gwybodaeth am sut rydych yn defnyddio\'r ap, er mwyn ei wella</string>
   <string name="preference_title_auto_upload_crash_reports">Danfon adroddiad am y gwall</string>
   <string name="history_filter_list_hint">Hidlo hanes</string>
   <string name="error_can_not_process_link">methwyd ag arddangos y ddolen</string>
@@ -367,7 +364,7 @@
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
   <string name="image_recommendation_accept">Ie</string>
   <string name="image_recommendation_reject">Na</string>
-  <string name="image_recommendation_reject_title">Pam?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Pam?</string>
   <string name="image_recommendation_reject_submit">Cyflwyno</string>
   <string name="edit_summary_added_image">Ychwanegu delwedd</string>
   <string name="insert_media_settings_caption">Pennawd y ddelwedd</string>
@@ -386,4 +383,5 @@
   <string name="patroller_tasks_filters_all_text">Popeth</string>
   <string name="data_opt_in_accept">Cytuno</string>
   <string name="data_opt_in_reject">Gwrthod</string>
+  <string name="places_survey_dialog_cancel">Canslo</string>
 </resources>

@@ -9,6 +9,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -30,6 +32,8 @@ import org.wikipedia.watchlist.WatchlistExpiry
 
 class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
+    private val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
     val rollbackRights = MutableLiveData<Resource<Boolean>>()
     val revisionDetails = MutableLiveData<Resource<Unit>>()
@@ -40,9 +44,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val undoEditResponse = SingleLiveData<Resource<Edit>>()
     val rollbackResponse = SingleLiveData<Resource<RollbackPostResponse>>()
 
-    var watchlistExpiryChanged = false
-
-    val fromRecentEdits = bundle.getBoolean(ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS, false)
+    val fromRecentEdits = invokeSource == InvokeSource.SUGGESTED_EDITS_RECENT_EDITS
 
     var pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
         private set
@@ -55,9 +57,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var canGoForward = false
     var hasRollbackRights = false
     var isWatched = false
-
-    var feedbackOption = ""
-    var feedbackInput = ""
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
@@ -228,7 +227,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
             var summary = if (undoMessage != null) "$undoMessage $comment" else comment
             if (fromRecentEdits) {
-                summary += DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
+                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
             }
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
@@ -241,10 +240,14 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
+
+            val rollbackSummaryMsg = ServiceFactory.get(title.wikiSite).getMessages("revertpage", null)
+                .query?.allmessages?.firstOrNull { it.name == "revertpage" }?.content
+
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            var summary: String? = null
+            var summary = rollbackSummaryMsg
             if (fromRecentEdits) {
-                summary = DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
+                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
             }
             val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))

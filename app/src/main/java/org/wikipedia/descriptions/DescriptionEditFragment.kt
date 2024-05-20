@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -16,7 +17,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -46,11 +48,13 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
-import java.lang.Runnable
-import java.util.*
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class DescriptionEditFragment : Fragment() {
@@ -140,7 +144,7 @@ class DescriptionEditFragment : Fragment() {
             val loginIntent = LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_EDIT)
             loginLauncher.launch(loginIntent)
         }
-        captchaHandler = CaptchaHandler(requireActivity(), pageTitle.wikiSite, binding.fragmentDescriptionEditView.getCaptchaContainer().root,
+        captchaHandler = CaptchaHandler(requireActivity() as AppCompatActivity, pageTitle.wikiSite, binding.fragmentDescriptionEditView.getCaptchaContainer().root,
             binding.fragmentDescriptionEditView.getDescriptionEditTextView(), "", null)
         return binding.root
     }
@@ -545,6 +549,7 @@ class DescriptionEditFragment : Fragment() {
         const val SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT = "#suggestededit-translate-desc $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_IMAGE_TAGS_COMMENT = "#suggestededit-add-tag $SUGGESTED_EDITS_UI_VERSION"
 
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`

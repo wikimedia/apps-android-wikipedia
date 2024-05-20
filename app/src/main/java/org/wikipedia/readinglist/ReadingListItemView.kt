@@ -103,7 +103,7 @@ class ReadingListItemView : ConstraintLayout {
             }
         }
 
-        FeedbackUtil.setButtonLongPressToast(binding.itemShareButton, binding.itemOverflowMenu)
+        FeedbackUtil.setButtonTooltip(binding.itemShareButton, binding.itemOverflowMenu)
     }
 
     fun setReadingList(readingList: ReadingList, description: Description, selectMode: Boolean = false, newImport: Boolean = false) {

@@ -164,9 +164,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Бикипиэдьийэҕэ бэлиэтэммит \"%s\" ааккынан ааҕар испиһиэги араас тэриллэргэр тэҥниир мэнэйдээһин</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Мэнэйдэммит ааҕар испииһэктэри \"%s\" сотоҕун дуо?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Туох баар урут мэнэйдэммит испииһэктэр сотуллуохтара. \"%s\" бэлиэ-аат мэнэйдэммит ааҕар испииһэктэрин сотоҕун дуо?</string>
-  <string name="preferences_privacy_settings_heading">Тус эйгэни көмүскээһин</string>
-  <string name="preference_title_eventlogging_opt_in">Туһаныы отчуоттарын ыыт</string>
-  <string name="preference_summary_eventlogging_opt_in">Дьибилгэти туһанар туһунан Викимедиаҕа ыытары көҥүллээтэххинэ дьибилгэти тупсарарга көмөлөһүөҥ.</string>
   <string name="preference_title_auto_upload_crash_reports">Охтуу отчуоттарын ыытар буол</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо биһиги саахал туһунан тута билиэ этибит уонна алҕаһы түргэнник көннөрүө этибит.</string>
   <string name="editing_error_spamblacklist">Хааччахтаммыт дэмиэннэргэ сигэммиккин (%s). Бука диэн ону сотон баран хатылаан көр.</string>
@@ -187,7 +184,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
   <string name="about_contributors_heading">Оҥорсооччулар</string>
   <string name="about_translators_heading">Тылбаасчыттар</string>
@@ -653,7 +650,6 @@
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
   <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхроннаах ааҕыы испииһэгэ</string>
-  <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>
   <string name="onboarding_analytics_switch_title">Ыытарга</string>
   <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>

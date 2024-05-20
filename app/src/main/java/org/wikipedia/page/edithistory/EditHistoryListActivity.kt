@@ -389,7 +389,7 @@ class EditHistoryListActivity : BaseActivity() {
                 showFilterOverflowMenu()
             }
 
-            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+            FeedbackUtil.setButtonTooltip(binding.filterByButton)
             binding.root.isVisible = true
         }
 
@@ -432,7 +432,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle, viewModel.pageId, revision.revId))
+                        viewModel.pageTitle, viewModel.pageId, revisionTo = revision.revId))
             }
         }
 
