@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 @Entity
-class EditSummary constructor(
+class EditSummary(
     @PrimaryKey val summary: String,
     val lastUsed: Date = Date()) {
 
