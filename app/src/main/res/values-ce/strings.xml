@@ -199,7 +199,7 @@
     <item quantity="other">%d шо хьалкха</item>
   </plurals>
   <string name="add_wikipedia_languages_text">ТӀетоха меттанаш Википедехь</string>
-    <string name="templates_description_incomplete">Кепаш кхуллуш йу декъашхоша, цундела уьш хила мега чулацам кхачаме боцуш</string>
+  <string name="templates_description_incomplete">Кепаш кхуллуш йу декъашхоша, цундела уьш хила мега чулацам кхачаме боцуш</string>
   <string name="main_tooltip_watchlist_title">Тергаме могӀам</string>
   <string name="talk_title">Дийцар</string>
   <string name="talk_user_title">Дийцар: %s</string>

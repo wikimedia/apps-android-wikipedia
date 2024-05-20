@@ -538,6 +538,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">அனைத்து மொழிகளையும் நீக்க இயலவில்லை</string>
   <string name="more_language_options">மேலும்</string>
   <string name="add_wikipedia_languages_text">விக்கிபீடியா மொழிகளைச் சேர்க்கவும்</string>
-    <string name="main_drawer_help">உதவி</string>
+  <string name="main_drawer_help">உதவி</string>
   <string name="main_drawer_login">விக்கிபீடியாவில் புகுபதிக / இணைக</string>
 </resources>

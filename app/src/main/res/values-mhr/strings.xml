@@ -704,7 +704,7 @@
   <string name="onboarding_welcome_title_v2">Эрыкан энциклопедий\n…300 деч шукырак йылме дене</string>
   <string name="app_shortcuts_random">Чокым</string>
   <string name="app_shortcuts_search">Кычалаш</string>
-    <string name="remove_language_dialog_cancel_button_text">Чараш</string>
+  <string name="remove_language_dialog_cancel_button_text">Чараш</string>
   <string name="remove_language_dialog_ok_button_text">Йӧра</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Йӧра</string>
   <string name="protected_page_warning_dialog_ok_button_text">Йӧра</string>
