@@ -439,8 +439,7 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">ಎಲ್ಲಾ ಭಾಷೆಗಳನ್ನು ತೆಗೆಯಲು ಆಗುವುದಿಲ್ಲ</string>
   <string name="more_language_options">ಇನ್ನಷ್ಟು</string>
   <string name="add_wikipedia_languages_text">ವಿಕಿಪೀಡಿಯ ಭಾಷೆಗಳನ್ನು ಸೇರಿಸಿ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ಭಾಷೆಗಳನ್ನು ಸಂಪಾದಿಸಿ</string>
-  <string name="remove_language_dialog_cancel_button_text">ರದ್ದುಮಾಡಿ</string>
+    <string name="remove_language_dialog_cancel_button_text">ರದ್ದುಮಾಡಿ</string>
   <string name="remove_language_dialog_ok_button_text">ಸರಿ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ಸರಿ</string>
   <string name="protected_page_warning_dialog_ok_button_text">ಸರಿ</string>

@@ -1208,10 +1208,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">請保留至少一種用在搜尋與閱讀內容的維基語言。</string>
   <string name="more_language_options">更多</string>
   <string name="add_wikipedia_languages_text">新增維基百科語言</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">從您的應用程式語言裡移除中文異體?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">在您的應用程式語言裡，目前有繁體與簡體的中文異體設定。要更新您的應用程式語言設定嗎？</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">編輯語言</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，謝謝</string>
   <string name="remove_language_dialog_cancel_button_text">取消</string>
   <string name="remove_language_dialog_ok_button_text">確認</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">確認</string>

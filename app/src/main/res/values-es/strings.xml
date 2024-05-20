@@ -1207,10 +1207,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Conserva al menos un idioma Wikipedia por el cual buscar y leer contenido.</string>
   <string name="more_language_options">más</string>
   <string name="add_wikipedia_languages_text">Añadir idiomas de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">¿Quieres quitar una variante del chino de los idiomas de la aplicación?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ahora tienes definidos tanto el chino tradicional como el simplificado en los idiomas de la aplicación. ¿Quieres actualizar la configuración lingüística?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar idiomas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gracias</string>
   <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
   <string name="remove_language_dialog_ok_button_text">Aceptar</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Aceptar</string>

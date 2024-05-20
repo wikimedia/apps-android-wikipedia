@@ -631,8 +631,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Si̱ mi̱n nga a̱mgba̱m lilyem wu bah</string>
   <string name="more_language_options">nkyang njhyang</string>
   <string name="add_wikipedia_languages_text">Mbeang lilyem Wikipidya</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Jhyuk lilyem</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Kaai a̱gwai</string>
   <string name="remove_language_dialog_cancel_button_text">Lyang</string>
   <string name="remove_language_dialog_ok_button_text">Ndei</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Ndei</string>

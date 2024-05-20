@@ -1137,10 +1137,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">دست‌کم یک زبان را برای جستجو و مطالعهٔ محتوای ویکی‌پدیا نگه دارید.</string>
   <string name="more_language_options">بیشتر</string>
   <string name="add_wikipedia_languages_text">افزودن زبان‌های ویکی‌پدیا</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">آیا می‌خواهید چینی از بخش زبان‌های نرم‌افزار حذف شود؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">اکنون هر دو زبان ساده و سنتی چینی در نرم‌افزار شما فعال شده است. تنظیمات زبان نرم‌افزار روزآمد شود؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ویرایش زبان‌ها</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نه ممنون</string>
   <string name="remove_language_dialog_cancel_button_text">لغو</string>
   <string name="remove_language_dialog_ok_button_text">تأیید</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">تأیید</string>
