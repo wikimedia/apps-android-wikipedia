@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.metricsplatform
 
+import android.os.Build
 import org.wikimedia.metrics_platform.MetricsClient
 import org.wikimedia.metrics_platform.context.AgentData
 import org.wikimedia.metrics_platform.context.ClientData
@@ -19,6 +20,7 @@ object MetricsPlatform {
         "WikipediaApp/" + BuildConfig.VERSION_NAME,
         "android",
         "app",
+        Build.MODEL + Build.DEVICE,
         WikipediaApp.instance.languageState.systemLanguageCode,
         if (ReleaseUtil.isProdRelease) "prod" else "dev"
     )
