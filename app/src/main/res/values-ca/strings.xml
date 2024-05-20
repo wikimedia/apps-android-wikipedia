@@ -19,6 +19,7 @@
 * McDutchie
 * Mguix
 * Paucabot
+* Rbndev
 * SMP
 * Skurz0
 * Ssola
@@ -130,6 +131,7 @@
   <string name="map_view_link_text">Mostra al mapa</string>
   <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="edit_anon_warning">Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt;, gaudireu de més privadesa.</string>
@@ -141,6 +143,7 @@
   <string name="langlinks_your_wikipedia_languages">Les vostres llengües de la Viquipèdia</string>
   <string name="menu_save_changes">Publica els canvis</string>
   <string name="edit_saved_successfully">Modificació publicada!</string>
+  <string name="stub_article_edit_saved_successfully">S\'ha publicat l\'edició. Els canvis poden trigar un temps a aparèixer.</string>
   <string name="dialog_message_edit_failed">La modificació no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Torna-ho a provar</string>
   <string name="dialog_message_edit_failed_cancel">Cancel·la</string>
@@ -183,6 +186,8 @@
   <string name="logged_out_in_background_dialog">Heu finalitzat la sessió de la Viquipèdia. Voleu provar d\'iniciar la sessió de nou?</string>
   <string name="logged_out_in_background_login">Inicia una sessió</string>
   <string name="logged_out_in_background_cancel">Cancel·la</string>
+  <string name="account_vanish_request_title">Fes desaparèixer el compte</string>
+  <string name="account_vanish_request_confirm_title">Avís de supressió del compte</string>
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="history_offline_articles_toast">Alguns articles de l\'historial potser no són visibles quan s\'és fora de línia.</string>
@@ -390,9 +395,9 @@
   <string name="redirected_from_snackbar">Redirigit de «%s»</string>
   <string name="button_get_directions">Obtén indicacions</string>
   <string name="error_no_maps_app">No es pot trobar cap aplicació que proporcioni direccions.</string>
-  <string name="preference_title_customize_explore_feed">Canal d\'exploració</string>
+  <string name="preference_title_customize_explore_feed">Canal «Exploreu»</string>
   <string name="preference_title_show_link_previews">Mostra l\'enllaç de vistes prèvies</string>
-  <string name="preference_summary_customize_explore_feed">Personalitza el canal d\'exploració</string>
+  <string name="preference_summary_customize_explore_feed">Personalitza el canal «Exploreu»</string>
   <string name="preference_summary_show_link_previews">Mostra una vista prèvia ràpida d\'articles en tocar enllaços.</string>
   <string name="preference_title_collapse_tables">Amaga les taules</string>
   <string name="preference_summary_collapse_tables">Amaga automàticament les taules en els articles. Per exemple, amb les infotaules, les referències i les anotacions.</string>
@@ -410,6 +415,9 @@
   <string name="multi_select_items_selected">%d seleccionats</string>
   <string name="error_message_generic">S\'ha produït un error</string>
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
+  <string name="link_preview_dialog_save_button">Desa</string>
+  <string name="link_preview_dialog_saved_button">S\'ha desat</string>
+  <string name="link_preview_dialog_share_button">Comparteix</string>
   <string name="error_page_does_not_exist">La pàgina no existeix</string>
   <string name="error_user_page_does_not_exist">La Viquipèdia no té cap &lt;a href=\"%1$s\"&gt;pàgina d\'usuari&lt;/a&gt; amb aquest nom exacte. En general, la pàgina hauria de ser creada i editada per &lt;b&gt;%2$s&lt;/b&gt;. Si teniu cap dubte, verifiqueu que «%3$s» existeixi.</string>
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
@@ -432,6 +440,9 @@
   <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalitza la barra d\'eines</string>
   <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt; administrador o una administradora&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="temp_account_dialog_ok">D\'acord</string>
+  <string name="temp_account_using_title">Esteu utilitzant un compte temporal</string>
+  <string name="temp_account_dialog_discard">Descarta els canvis i inicia sessió</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
@@ -1159,7 +1170,7 @@
     <item quantity="one">Voleu suprimir la llengua seleccionada?</item>
     <item quantity="other">Voleu suprimir les llengües seleccionades?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Només veureu el contingut del canal d\'exploració i els filtres de cerca ràpids per a les llengües de Viquipèdia restants.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Només veureu el contingut del canal «Exploreu» i els filtres de cerca ràpids per a les llengües de Viquipèdia restants.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es poden suprimir totes les llengües</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantingueu com a mínim una llengua de Viquipèdia a partir de la qual cercar i llegir contingut.</string>
   <string name="more_language_options">més</string>
@@ -1228,6 +1239,8 @@
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Insereix</string>
   <string name="templates_insert_button">Insereix</string>
+  <string name="templates_learn_more_link">Més informació</string>
+  <string name="templates_description_incomplete">Les plantilles són creacions dels usuaris i poden tenir descripcions incompletes.</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
@@ -1562,4 +1575,11 @@
   <string name="email_report_patroller_tasks_body">He trobat un problema amb la funcionalitat de patrulla d\'edicions: \n- [Descriviu el problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada] \n\n[Captures de pantalla o enllaços]</string>
   <string name="donation_campaign_go_back_button">Enrere</string>
   <string name="menu_single_webview_open_external">Obre al navegador del sistema</string>
+  <string name="places_title">Llocs</string>
+  <string name="places_permissions_denied">Cal permís d\'ubicació per a veure la teva ubicació al mapa. Torneu-ho a provar.</string>
+  <string name="places_search_hint">Cerqueu llocs</string>
+  <string name="places_filter_title">Filtra per llengua</string>
+  <string name="places_toggle_buttons_map">Mapa</string>
+  <string name="places_toggle_buttons_list">Llista</string>
+  <string name="places_survey_dialog_cancel">Cancel·la</string>
 </resources>
