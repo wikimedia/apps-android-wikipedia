@@ -41,13 +41,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
 
-    private fun interface ErrorCallback {
-        fun call(error: Throwable)
-    }
-
-    private var networkErrorCallback: ErrorCallback? = null
-    private val app = WikipediaApp.instance
-
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
@@ -119,10 +112,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
         if (!fragment.isAdded) {
             return
         }
-        val callback = networkErrorCallback
-        networkErrorCallback = null
         fragment.requireActivity().invalidateOptionsMenu()
-        callback?.call(caught)
+        fragment.onPageLoadError(caught)
     }
 
     private fun pageLoadCheckReadingLists() {
@@ -132,14 +123,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 commonSectionFetchOnCatch(throwable)
             }) {
                 model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
-                pageLoadFromNetwork(it) { fragment.onPageLoadError(it) }
+                pageLoadFromNetwork(it)
             }
         }
     }
 
-    private suspend fun pageLoadFromNetwork(title: PageTitle, errorCallback: ErrorCallback) {
+    private suspend fun pageLoadFromNetwork(title: PageTitle) {
         fragment.updateQuickActionsAndMenuOptions()
-        networkErrorCallback = errorCallback
         if (!fragment.isAdded) {
             return
         }
@@ -166,9 +156,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null, title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText))
             }
             val watchedRequest = async {
-                if (app.isOnline && AccountUtil.isLoggedIn) {
+                if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
                     ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
-                } else if (app.isOnline && !AccountUtil.isLoggedIn) {
+                } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
                     AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
                 } else {
                     MwQueryResponse()
@@ -236,7 +226,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 title.fragment = response.raw().request.url.fragment
             }
             if (title.description.isNullOrEmpty()) {
-                app.appSessionEvent.noDescription()
+                WikipediaApp.instance.appSessionEvent.noDescription()
             }
             if (!title.isMainPage) {
                 title.displayText = page?.displayTitle.orEmpty()
@@ -252,7 +242,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
 
             // Update our tab list to prevent ZH variants issue.
-            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(title)
+            WikipediaApp.instance.tabList.getOrNull(WikipediaApp.instance.tabCount - 1)?.setBackStackPositionTitle(title)
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
