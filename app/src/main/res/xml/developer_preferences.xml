@@ -123,11 +123,6 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
-            android:key="@string/preference_key_login_user_id_map"
-            android:title="@string/preference_key_login_user_id_map" />
-
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/DataStringPreference"
             android:key="@string/preference_key_language"
             android:title="@string/preference_key_language" />
 
@@ -463,10 +458,9 @@
             android:key="ab_test_mBART25"
             android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_places_show_one_time_survey"
-            android:title="Survey status for places feature \n(-1=not initiated, 1=show survey, >1=do not show survey)" />
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_donation_test_env"
+            android:title="Donation test environment" />
 
     </PreferenceCategory>
 

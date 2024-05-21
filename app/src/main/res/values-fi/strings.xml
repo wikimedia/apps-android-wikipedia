@@ -176,7 +176,7 @@
   <string name="reading_lists_sync_login">Kirjaudu sisään</string>
   <string name="create_account_login">Kirjaudu sisään</string>
   <string name="menu_login">Kirjaudu sisään</string>
-  <string name="login_activity_title">Kirjaudu</string>
+  <string name="login_activity_title">Kirjaudu sisään</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
   <string name="login_success_toast">Kirjauduttu sisään!</string>
   <string name="reset_password_title">Aseta salasanasi</string>
@@ -192,6 +192,7 @@
   <string name="logged_out_in_background_login">Kirjaudu sisään</string>
   <string name="logged_out_in_background_cancel">Peruuta</string>
   <string name="account_vanish_request_title">Häivytä käyttäjätunnus</string>
+  <string name="account_vanish_request_confirm_title">Varoitus häivyttämisestä</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemastasi.</string>
   <string name="history_offline_articles_toast">Jotkut lukuhistorian artikkelit eivät ehkä ole nähtävissä ilman verkkoyhteyttä.</string>
@@ -222,7 +223,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Lisää sähköpostiosoite</string>
   <string name="create_account_button">Luo käyttäjätunnus</string>
   <string name="create_account_name_unavailable">Käyttäjänimi \"%s\" ei ole käytettävissä. Valitse toinen nimi.</string>
-  <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia tunnuksia.</string>
+  <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia käyttäjätunnuksia.</string>
   <string name="create_account_ip_block_help_url">https://fi.wikipedia.org/wiki/Wikipedia:Esto</string>
   <string name="create_account_ip_block_details">Tiedot</string>
   <string name="preferences_general_heading">Yleiset</string>
@@ -265,8 +266,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fi</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fi#Kuvatunnisteet</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi#Kuvatunnisteet</string>
   <string name="about_libraries_heading">Käytetyt kirjastot</string>
   <string name="about_contributors_heading">Tekijät</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tiimin sivu&lt;/a&gt;</string>
@@ -446,6 +447,10 @@
   <string name="error_blocked_footer">Voit olla yhteydessä käyttäjään &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tai toiseen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Mukauta työkalupalkkia</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
+  <string name="temp_account_not_logged_in">Et ole kirjautunut sisään</string>
+  <string name="temp_account_using_title">Käytät väliaikaista käyttäjätunnusta</string>
+  <string name="temp_account_dialog_discard">Hylkää muutokset ja kirjaudu sisään</string>
+  <string name="temp_account_end_session_confirm">Tämä kirjaa sinut ulos väliaikaiselta tililtäsi. Haluatko jatkaa?</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-sovellus lopetti toimintansa teknisen vian takia.\n\nKäynnistetäänkö sovellus uudelleen vai poistutaanko?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
@@ -584,15 +589,15 @@
     <item quantity="other">Haluatko varmasti poistaa %d listaa?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tunnuksellesi.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen käyttäjätunnuksellesi.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Peruuta</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kirjaudu sisään</string>
   <string name="reading_list_turned_sync_off_dialog_title">Lukulistojen synkronointi pois käytöstä</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Lukulistojen synkronointi on pois päältä tunnuksellesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke lukulistojen synkronointi päälle asetuksista.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Lukulistojen synkronointi on pois päältä käyttäjätunnuksellesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke lukulistojen synkronointi päälle asetuksista.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Asetukset</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Otetaanko lukulistan synkronointi käyttöön?</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikkelit, jotka on tallennettu lukulistoihin, voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikkelit, jotka on tallennettu lukulistoihin, voidaan nyt synkronoida Wikipedia-käyttäjätunnuksellesi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Älä näytä tätä uudelleen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ei kiitos</string>
@@ -865,8 +870,8 @@
   <string name="description_edit_voice_input_description">Äänisyöte</string>
   <string name="description_edit_learn_more">Lue lisää artikkelien kuvauksista</string>
   <string name="description_edit_image_caption_learn_more">Lue lisää kuvateksteistä</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fi#Artikkelien_kuvaukset</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fi#Kuvatekstit</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Artikkelien_kuvaukset</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi#Kuvatekstit</string>
   <string name="description_too_short">Teksti on liian lyhyt.</string>
   <string name="description_ends_with_punctuation">Teksti ei saa päättyä välimerkkeihin.</string>
   <string name="description_starts_with_uppercase">Aloita pienellä kirjaimella, ellei ensimmäinen sana ole erisnimi.</string>
@@ -1087,8 +1092,8 @@
   <string name="image_recommendation_accept">Kyllä</string>
   <string name="image_recommendation_reject">Ei</string>
   <string name="image_recommendation_notsure">Epävarma</string>
-  <string name="image_recommendation_reject_title">Miksi ei?</string>
-  <string name="image_recommendation_reject_subtitle">Vastauksesi parantavat tulevia ehdotuksia.</string>
+  <string name="image_recommendation_reject_title">Hylkäämisen syy</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Vastauksesi parantavat tulevia ehdotuksia.</string>
   <string name="image_recommendation_reject_not_relevant">Kuva ei liity aiheeseen</string>
   <string name="image_recommendation_reject_no_info">Ei riittävästi tietoa päätöksentekoon</string>
   <string name="image_recommendation_reject_offensive">Kuva on loukkaava</string>
@@ -1233,7 +1238,10 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Korkeus</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">kuvapistettä</string>
   <string name="insert_media_insert_button">Lisää</string>
+  <string name="templates_insert_button">Lisää</string>
   <string name="templates_param_suggested_value">esim. %s</string>
+  <string name="templates_param_optional_hint">%s (valinnainen)</string>
+  <string name="templates_param_suggested_hint">%s (ehdotettu)</string>
   <string name="templates_learn_more_link">Lisätietoja</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
@@ -1258,6 +1266,7 @@
   <string name="talk_warn_save_dialog_hint">Viestin otsikko</string>
   <string name="talk_warn_save_dialog_publish">Julkaise</string>
   <string name="talk_warn_save_dialog_cancel">Peruuta</string>
+  <string name="talk_warn_save_dialog_dont_save">Älä tallenna</string>
   <string name="talk_warn_submitted">Viesti julkaistu muokkaajan keskustelusivulla</string>
   <string name="talk_warn_submitted_and_saved">Viesti tallennettu ja julkaistu muokkaajan keskustelusivulla</string>
   <string name="talk_warn_saved_messages">Tallennetut viestit</string>
@@ -1466,7 +1475,7 @@
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
   <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
   <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Sinulla ei ole tallennettuja varoitusviestejä.</string>
+  <string name="talk_templates_empty_message">Luo omia viestejä tai käytä &lt;a href=\"#\"&gt;malliviestejä&lt;/a&gt; aloittaaksesi.</string>
   <string name="talk_templates_new_message_title">Uusi viesti</string>
   <string name="talk_templates_new_message_subject_hint">Aihe</string>
   <string name="talk_templates_new_message_compose_hint">Kirjoita viesti</string>
@@ -1492,6 +1501,8 @@
     <item quantity="other">Viestit on poistettu</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Otsikko ei voi olla tyhjä.</string>
+  <string name="talk_templates_your_messages_tab_title">Omat viestit</string>
+  <string name="talk_templates_example_messages_tab_title">Esimerkkiviestit</string>
   <string name="patroller_tasks_edits_list_search_hint">Etsi tai suodata muokkauksia</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Merkinnät: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ei mitään</string>
@@ -1559,7 +1570,6 @@
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
   <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelien muokkauksia? Lisää artikkeli tarkkailuluetteloosi. Löydät sen \"Lisää\"-valikosta.</string>
-  <string name="patroller_onboarding_two_warn_title">Varoita</string>
   <string name="patroller_onboarding_two_undo_title">Kumoa</string>
   <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
   <string name="patroller_diff_feedback_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>

@@ -56,6 +56,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
+    private var shouldWatchText = true
     private var subjectOrBodyModified = false
     private var savedSuccess = false
 
@@ -114,6 +115,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
         textWatcher = binding.replySubjectText.doOnTextChanged { text, _, _, _ ->
+            if (!shouldWatchText) {
+                return@doOnTextChanged
+            }
             subjectOrBodyModified = true
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
@@ -177,14 +181,17 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         viewModel.selectedTemplate?.let {
             binding.root.post {
+                shouldWatchText = false
                 binding.replySubjectText.setText(it.subject)
                 binding.replyInputView.editText.setText(it.message)
+                shouldWatchText = true
+                setSaveButtonEnabled(true)
             }
         }
 
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, showUserMention = true, isFromDiff = viewModel.isFromDiff)
 
         messagePreviewFragment = supportFragmentManager.findFragmentById(R.id.message_preview_fragment) as EditPreviewFragment
 
@@ -207,7 +214,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun onInitialLoad() {
-        setSaveButtonEnabled(false)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
         binding.learnMoreButton.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
@@ -221,12 +227,16 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
 
         binding.progressBar.isVisible = false
+        shouldWatchText = false
         binding.replySubjectText.setText(intent.getCharSequenceExtra(EXTRA_SUBJECT))
         if (intent.hasExtra(EXTRA_BODY) && binding.replyInputView.editText.text.isEmpty()) {
             binding.replyInputView.editText.setText(intent.getCharSequenceExtra(EXTRA_BODY))
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
+        shouldWatchText = true
         EditAttemptStepEvent.logInit(viewModel.pageTitle)
+
+        setSaveButtonEnabled(binding.replyInputView.editText.text.isNotEmpty())
 
         if (viewModel.isNewTopic || viewModel.isFromDiff) {
             if (viewModel.isNewTopic) {
@@ -245,7 +255,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     binding.replyInputView.editText.requestFocus()
                     DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
                     binding.talkScrollContainer.postDelayed({
-                        binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
+                        if (!isDestroyed) {
+                            binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
+                        }
                     }, 500)
                 }
             }
@@ -307,7 +319,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun showSaveDialog(subject: String, body: String) {
         TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_warn_save_dialog_dont_save).let { textInputDialog ->
+            R.string.talk_warn_save_dialog_dont_save,
+            !viewModel.isExampleTemplate && viewModel.selectedTemplate != null).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
 
                 override fun onSuccess(subjectText: String) {
@@ -346,10 +359,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                                 if (textInputDialog.isSaveExistingChecked) {
                                     return
                                 }
-                                dialog.getView().postDelayed({
-                                    dialog.setError(dialog.context.getString(R.string.talk_subject_duplicate))
-                                    dialog.setPositiveButtonEnabled(false)
-                                }, 250)
+                                dialog.setError(dialog.context.getString(R.string.talk_subject_duplicate))
+                                dialog.setPositiveButtonEnabled(false)
                             }
 
                             else -> {
@@ -382,7 +393,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         if (messagePreviewFragment.isActive) {
             EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
-            PatrollerExperienceEvent.logAction("publish_message_click", "pt_warning_messages")
+            sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages")
             binding.progressBar.isVisible = true
             setSaveButtonEnabled(false)
             viewModel.postReply(subject, getWikitextBody())
@@ -445,17 +456,16 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun getWikitextBody(): String {
-        var body = binding.replyInputView.editText.text.toString().trim()
-        body = body.replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
-        body = body.replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
-        body = body.replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
-        return body
+        return binding.replyInputView.editText.text.toString().trim()
+            .replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
+            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
+            .replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
     }
 
     private fun onSaveSuccess(newRevision: Long) {
         AnonymousNotificationHelper.onEditSubmitted()
 
-        PatrollerExperienceEvent.logAction("publish_message_success", "pt_warning_messages",
+        sendPatrollerExperienceEvent("publish_message_success", "pt_warning_messages",
             PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.selectedTemplate != null && subjectOrBodyModified,
                 isSaved = viewModel.talkTemplateSaved, isExample = viewModel.isExampleTemplate, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else null))
 
@@ -499,8 +509,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
         sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
-        if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
-                    binding.replyInputView.editText.text.isNotEmpty())) {
+        if (messagePreviewFragment.isActive) {
+            showProgressBar(false)
+            binding.talkScrollContainer.isVisible = true
+            messagePreviewFragment.hide()
+            setSaveButtonEnabled(true)
+            binding.replyNextButton.text = getString(R.string.edit_next)
+            setToolbarTitle(viewModel.pageTitle)
+        } else if (subjectOrBodyModified) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
@@ -513,14 +529,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
                 }
                 .show()
-        } else if (viewModel.isFromDiff && messagePreviewFragment.isActive) {
-            showProgressBar(true)
-            binding.talkScrollContainer.isVisible = true
-            messagePreviewFragment.hide()
-            setSaveButtonEnabled(true)
-            binding.replyNextButton.text = getString(R.string.edit_next)
-            setToolbarTitle(viewModel.pageTitle)
-            binding.root.postDelayed({ showProgressBar(false) }, 250)
         } else {
             super.onBackPressed()
         }
@@ -552,6 +560,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     override fun showProgressBar(visible: Boolean) {
         binding.progressBar.isVisible = visible
         invalidateOptionsMenu()
+    }
+
+    override fun isNewPage(): Boolean {
+        return !viewModel.doesPageExist
     }
 
     companion object {
@@ -600,7 +612,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     .putExtra(EXTRA_EXAMPLE_TEMPLATE, isExampleTemplate)
                     .putExtra(FROM_REVISION_ID, fromRevisionId)
                     .putExtra(TO_REVISION_ID, toRevisionId)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
