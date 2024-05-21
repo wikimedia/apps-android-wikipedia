@@ -340,8 +340,14 @@ class DescriptionEditFragment : Fragment() {
                         val baseRevId = mwQueryResponse.query?.firstPage()!!.revisions[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
+                        val automaticallyAddedEditSummary = getString(if (pageTitle.description.isNullOrEmpty()) R.string.edit_summary_added_short_description
+                        else R.string.edit_summary_updated_short_description)
+                        var editSummary = automaticallyAddedEditSummary
+                        getEditComment()?.let {
+                            editSummary += ", $it"
+                        }
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
-                            getEditComment().orEmpty(),
+                            editSummary,
                             if (AccountUtil.isLoggedIn) "user"
                             else null, text, null, baseRevId, editToken,
                             if (captchaHandler.isActive) captchaHandler.captchaId() else null,
