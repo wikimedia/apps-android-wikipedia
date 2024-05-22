@@ -459,6 +459,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
                 sidePanelHandler.setupForNewPage(page)
                 sidePanelHandler.setEnabled(true)
+                model.isReadMoreLoaded = false
             }
         }
         bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->
@@ -1013,7 +1014,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.curEntry = entry
         model.page = null
         model.readingListPage = null
-        model.isReadMoreLoaded = false
         model.forceNetwork = isRefresh
         webView.visibility = View.VISIBLE
         binding.pageActionsTabLayout.visibility = View.VISIBLE
