@@ -425,7 +425,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
+        if (SearchActionModeCallback.matches(actionMode)) {
             finishActionMode()
         }
         if (!isTagType(actionMode)) {

@@ -328,18 +328,10 @@ class InsertMediaActivity : BaseActivity() {
     private inner class SearchCallback : SearchActionModeCallback() {
         var searchActionProvider: SearchActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchActionProvider = SearchActionProvider(this@InsertMediaActivity, searchHintString,
-                object : SearchActionProvider.Callback {
-                    override fun onQueryTextChange(s: String) {
-                        onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
-                    }
-                })
+            searchActionProvider = SearchActionProvider(this@InsertMediaActivity, getSearchHintString()) { onQueryChange(it) }
             searchActionProvider?.setQueryText(viewModel.searchQuery)
             searchActionProvider?.selectAllQueryTexts()
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
             actionMode = mode
             binding.imageInfoContainer.isVisible = false
