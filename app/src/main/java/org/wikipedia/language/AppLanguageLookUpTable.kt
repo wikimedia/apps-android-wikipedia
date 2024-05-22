@@ -2,6 +2,7 @@ package org.wikipedia.language
 
 import android.content.Context
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import java.util.Locale
 
 class AppLanguageLookUpTable(context: Context) {
@@ -129,6 +130,11 @@ class AppLanguageLookUpTable(context: Context) {
                 else TRADITIONAL_CHINESE_LANGUAGE_CODE
             }
             return TRADITIONAL_CHINESE_LANGUAGE_CODE
+        }
+
+        fun hasNonRegionalChineseCodes(): Boolean {
+            val list = listOf(TRADITIONAL_CHINESE_LANGUAGE_CODE, SIMPLIFIED_CHINESE_LANGUAGE_CODE)
+            return WikipediaApp.instance.languageState.appLanguageCodes.any(list::contains)
         }
     }
 }

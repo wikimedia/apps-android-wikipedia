@@ -12,7 +12,6 @@ import org.wikipedia.databinding.ItemLanguageVariantSelectionBinding
 import org.wikipedia.language.AppLanguageLookUpTable
 
 class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDialogBuilder(context) {
-
     private lateinit var dialog: AlertDialog
     private var binding = DialogRegionalLanguageVariantSelectionBinding.inflate(LayoutInflater.from(context))
     // TODO: discuss the which one should be the default language code
@@ -25,6 +24,8 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
         buildRadioButtons()
         setPositiveButton(R.string.feed_language_variants_removal_dialog_save) { _, _ ->
             val list = WikipediaApp.instance.languageState.appLanguageCodes.toMutableList()
+            // Remove non-regional language variants before assigning the selected language code
+            list.removeAll(nonRegionalLanguageVariants)
             list.add(0, selectedLanguageCode)
             WikipediaApp.instance.languageState.setAppLanguageCodes(list)
         }
@@ -55,7 +56,11 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
     }
 
     companion object {
-        val regionalLanguageVariants = listOf(
+        private val nonRegionalLanguageVariants = listOf(
+            AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
+            AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE
+        )
+        private val regionalLanguageVariants = listOf(
             AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE,
             AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE,
             AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE,
