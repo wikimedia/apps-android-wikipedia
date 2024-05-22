@@ -1,6 +1,12 @@
 package org.wikipedia.readinglist.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
+import androidx.room.Update
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -130,7 +136,7 @@ interface ReadingListPageDao {
         updateThumbAndDescriptionByName(pageProto.lang, pageProto.apiTitle, thumbUrl, description)
     }
 
-    fun findPageInAnyList(title: PageTitle): ReadingListPage? {
+    suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
