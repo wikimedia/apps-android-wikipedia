@@ -1194,10 +1194,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>
   <string name="more_language_options">mehr</string>
   <string name="add_wikipedia_languages_text">Wikipedia-Sprachen hinzufügen</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eine chinesische Variante von deinen App-Sprachen entfernen?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du hast derzeit sowohl die Variantensätze für das traditionelle als auch für das vereinfachte Chinesisch in deinen App-Sprachen. Einstellungen für deine App-Sprachen aktualisieren?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sprachen bearbeiten</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nein danke</string>
   <string name="remove_language_dialog_cancel_button_text">Abbrechen</string>
   <string name="remove_language_dialog_ok_button_text">Okay</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Okay</string>

@@ -1253,10 +1253,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Залиште хоча б одну мову Вікіпедії, якою шукатимете й читатимете матеріали.</string>
   <string name="more_language_options">більше</string>
   <string name="add_wikipedia_languages_text">Додати мови Вікіпедії</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Вилучити китайський варіант з мов вашого додатку?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Зараз у мовах вашого додатку є і традиційна, і спрощена китайська. Оновити мовні налаштування додатку?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редагувати мови</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ні, дякую</string>
   <string name="remove_language_dialog_cancel_button_text">Скасувати</string>
   <string name="remove_language_dialog_ok_button_text">Гаразд</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Гаразд</string>

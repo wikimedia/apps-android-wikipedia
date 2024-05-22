@@ -31,7 +31,6 @@ import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
@@ -131,23 +130,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
         return binding.root
     }
 
-    private fun showRemoveChineseVariantPrompt() {
-        if (app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
-            app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
-            Prefs.shouldShowRemoveChineseVariantPrompt) {
-            MaterialAlertDialogBuilder(requireActivity())
-                .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
-                .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
-                .setPositiveButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_edit) { _, _ -> showLanguagesActivity(InvokeSource.LANG_VARIANT_DIALOG) }
-                .setNegativeButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_no, null)
-                .show()
-        }
-        Prefs.shouldShowRemoveChineseVariantPrompt = false
-    }
-
     override fun onResume() {
         super.onResume()
-        showRemoveChineseVariantPrompt()
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices. (TODO: investigate further)

@@ -1192,10 +1192,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Houd ten minste één Wikipedia-taal waarin u inhoud kunt zoeken en lezen.</string>
   <string name="more_language_options">meer</string>
   <string name="add_wikipedia_languages_text">Voeg Wikipedia-talen toe</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Verwijder een Chinees-variant uit uw talen in de app?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">U heeft momenteel zowel traditioneel als versimpeld Chinees in de talen van uw app. Wilt u de app-instellingen voor talen bijwerken?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Talen aanpassen</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, bedankt</string>
   <string name="remove_language_dialog_cancel_button_text">Annuleren</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

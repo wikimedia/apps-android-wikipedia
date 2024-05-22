@@ -1231,10 +1231,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Выкарыстоўвайце хаця б адну мову Вікіпедыі для пошуку і чытання кантэнту.</string>
   <string name="more_language_options">болей</string>
   <string name="add_wikipedia_languages_text">Дадаць мову Вікіпедыі</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Выдаліць варыянт кітайскай мовы з вашых моў праграмы?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Зараз сярод моў вашай праграмы ўсталяваны як традыцыйны, так і спрошчаны варыянты кітайскай мовы. Абнавіць налады моў вашай праграмы?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Рэдагаваць мовы</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, дзякуй</string>
   <string name="remove_language_dialog_cancel_button_text">Скасаваць</string>
   <string name="remove_language_dialog_ok_button_text">Добра</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Добра</string>

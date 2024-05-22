@@ -407,9 +407,6 @@
   </plurals>
   <string name="more_language_options">ավելին</string>
   <string name="add_wikipedia_languages_text">Ավելացնել Վիքիպեդիայի լեզուներ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Հեռացնե՞լ չինարեն ձեր հավելվածի լեզուներից</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Խմբագրել լեզուներ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ոչ, շնորհակալություն</string>
   <string name="remove_language_dialog_cancel_button_text">Չեղարկել</string>
   <string name="remove_language_dialog_ok_button_text">Լավ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Լավ</string>
