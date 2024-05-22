@@ -1,6 +1,5 @@
 package org.wikipedia.feed.view
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog

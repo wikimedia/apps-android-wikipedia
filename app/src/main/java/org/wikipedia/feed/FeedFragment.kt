@@ -30,7 +30,9 @@ import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
@@ -331,6 +333,12 @@ class FeedFragment : Fragment(), BackPressedHandler {
                 }
                 .setNegativeButton(R.string.feed_lang_selection_dialog_cancel_button_text, null)
                 .show()
+        }
+    }
+
+    private fun maybeShowRegionalLanguageVariantDialog() {
+        if (AppLanguageLookUpTable.hasNonRegionalChineseCodes()) {
+            RegionalLanguageVariantSelectionDialog(requireContext()).show()
         }
     }
 
