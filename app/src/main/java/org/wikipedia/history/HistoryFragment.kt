@@ -155,7 +155,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
+        if (SearchActionModeCallback.matches(actionMode)) {
             finishActionMode()
         }
     }
@@ -231,7 +231,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun onLoadItemsFinished(items: List<Any>) {
         val list = mutableListOf<Any>()
-        if (!SearchActionModeCallback.`is`(actionMode)) {
+        if (!SearchActionModeCallback.matches(actionMode)) {
             list.add(SearchBar())
         }
         list.addAll(items)

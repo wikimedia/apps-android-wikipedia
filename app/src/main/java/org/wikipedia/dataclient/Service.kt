@@ -520,7 +520,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
 
-    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions")
+    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels")
     suspend fun getWikidataDescription(@Query("titles") titles: String,
                                        @Query("sites") sites: String,
                                        @Query("languages") langCode: String): Entities
@@ -739,6 +739,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=templatedata&includeMissingTitles=&converttitles=")
     suspend fun getTemplateData(@Query("lang") langCode: String,
                                 @Query("titles") titles: String): TemplateDataResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&inprop=varianttitles")
+    suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
