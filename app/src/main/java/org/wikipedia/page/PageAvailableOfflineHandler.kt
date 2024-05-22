@@ -18,12 +18,12 @@ object PageAvailableOfflineHandler {
         callback.onFinish(WikipediaApp.instance.isOnline || (page.offline && !page.saving))
     }
 
-    fun check(pageTitle: PageTitle, callback: Callback) {
+    fun check(lifeCycleScope: CoroutineScope, pageTitle: PageTitle, callback: Callback) {
         if (WikipediaApp.instance.isOnline) {
             callback.onFinish(true)
             return
         }
-        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, exception ->
+        lifeCycleScope.launch(CoroutineExceptionHandler { _, exception ->
             callback.onFinish(false)
             L.w(exception)
         }) {

@@ -316,7 +316,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             view.setDescription(entry.title.description)
             view.setImageUrl(entry.title.thumbUrl)
             view.isSelected = selectedEntries.contains(entry)
-            PageAvailableOfflineHandler.check(entry.title) { view.setViewsGreyedOut(!it) }
+            PageAvailableOfflineHandler.check(lifecycleScope, entry.title) { view.setViewsGreyedOut(!it) }
         }
 
         override fun onSwipe() {
