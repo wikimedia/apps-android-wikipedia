@@ -137,8 +137,6 @@ object JavaScriptActionHandler {
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
-        val baseURL = ServiceFactory.getRestBasePath(model.title?.wikiSite!!).trimEnd('/')
-        val apiBaseURL = WikiSite.DEFAULT_SCHEME + "://" + model.title?.wikiSite!!.authority().trimEnd('/')
         return "pcs.c1.Footer.add({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
