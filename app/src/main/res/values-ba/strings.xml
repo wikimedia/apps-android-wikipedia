@@ -1143,10 +1143,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Эҙләү һәм уҡыу өсөн бер телде булһа ла ҡалдырығыҙ.</string>
   <string name="more_language_options">күберәк телдәр</string>
   <string name="add_wikipedia_languages_text">Википедия телдәрен өҫтәү</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Ҡытай телен телдәр исемлегегеҙҙән юйырғамы?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Әлеге ваҡытта ҡушымтағыҙҙа Ҡытай теленең традицион һәм ябай варианттары ҡуйылған. Телдәрҙе яңыртырға теләйһегеҙме?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Телдәрҙе мөхәррирләргә</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Юҡ, рәхмәт</string>
   <string name="remove_language_dialog_cancel_button_text">Кире алырға</string>
   <string name="remove_language_dialog_ok_button_text">Яҡшы</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Яҡшы</string>

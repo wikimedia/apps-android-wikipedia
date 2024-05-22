@@ -900,9 +900,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">အကြောင်းအရာ ရှာဖွေ၊ ဖတ်ရှုရန် ဝီကီပီးဒီးယား ဘာသာစကား အနည်းဆုံး ၁ ခု ထားရှိပါ။</string>
   <string name="more_language_options">ပို၍</string>
   <string name="add_wikipedia_languages_text">ဝီကီပီဒီးယား ဘာသာစကားများ ပေါင်းထည့်ရန်</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">သင်၏ app ဘာသာစကားများမှ တရုတ်မူကွဲကို ဖယ်ရှားမှာလား</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ဘာသာစကားများ တည်းဖြတ်ရန်</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
   <string name="remove_language_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="remove_language_dialog_ok_button_text">အိုကေ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">အိုကေ</string>

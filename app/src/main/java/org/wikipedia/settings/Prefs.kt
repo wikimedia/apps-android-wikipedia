@@ -372,10 +372,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_multilingual_search_tooltip_shown, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_multilingual_search_tooltip_shown, enabled)
 
-    var shouldShowRemoveChineseVariantPrompt
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)
-
     var remoteNotificationsSeenTime
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
         set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime)

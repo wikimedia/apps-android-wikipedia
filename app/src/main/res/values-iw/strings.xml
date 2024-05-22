@@ -1282,10 +1282,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
   <string name="more_language_options">עוד</string>
   <string name="add_wikipedia_languages_text">הוספת שפות ויקיפדיה</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">להסיר הגוון אחד של סינית מהגדרות השפה של היישום?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית מפושטת בהגדרות השפה של היישום שלך. האם ברצונך לעדכן את הגדרות השפה של היישום?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">עריכת השפות</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">לא, תודה</string>
   <string name="remove_language_dialog_cancel_button_text">ביטול</string>
   <string name="remove_language_dialog_ok_button_text">אישור</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">אישור</string>

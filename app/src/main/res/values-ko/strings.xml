@@ -1146,10 +1146,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">내용을 검색하고 읽을 위키백과 언어는 적어도 하나를 유지하십시오.</string>
   <string name="more_language_options">더 보기</string>
   <string name="add_wikipedia_languages_text">위키백과 언어 추가</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">앱 언어에서 중국어를 제거하시겠습니까?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">현재 앱 언어에서 정체 중국어와 간체 중국어가 설정되어 있습니다. 앱 언어 설정을 업데이트하시겠습니까?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">언어 편집</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">괜찮습니다</string>
   <string name="remove_language_dialog_cancel_button_text">취소</string>
   <string name="remove_language_dialog_ok_button_text">확인</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">확인</string>

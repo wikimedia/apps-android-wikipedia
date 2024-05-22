@@ -928,9 +928,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
   <string name="more_language_options">περισσότερα</string>
   <string name="add_wikipedia_languages_text">Πρόσθεση γλωσσών Βικιπαίδειας</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Αφαίρεση μιας Κινεζικής παραλλαγής από τις γλώσσες εφαρμογής σας;</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Επεξεργασία γλωσσών</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Όχι, ευχαριστώ</string>
   <string name="remove_language_dialog_cancel_button_text">Ακύρωση</string>
   <string name="remove_language_dialog_ok_button_text">Εντάξει</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Εντάξει</string>

@@ -1121,10 +1121,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Цхьа мотт мукъагӀа бита бéза хьа, дéша а лаха а йиш хургйолаш</string>
   <string name="more_language_options">кхы а да метташ</string>
   <string name="add_wikipedia_languages_text">Википеден метташ тӀатоха</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Метташта юкъера ченкий мотт дӀабаккха безий?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Къаьнара ченкий а цхьалха ченкий а метташ да хьога. Царех цаӀ дӀабаккха йиш хургйолаш, меттай оттамаш кердадаха дезий?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Метташ хувца</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Эшац, хӀанзара оттамаш дита.</string>
   <string name="remove_language_dialog_cancel_button_text">А</string>
   <string name="remove_language_dialog_ok_button_text">ХӀАЪА</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ХӀАЪА</string>
