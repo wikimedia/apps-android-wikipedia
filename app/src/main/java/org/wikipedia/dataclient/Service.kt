@@ -325,6 +325,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
+    suspend fun getUserInfo(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
 
@@ -568,10 +571,6 @@ interface Service {
     ): Observable<EntityPostResponse>
 
     // ------- Watchlist -------
-
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
-    fun getWatchedInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
