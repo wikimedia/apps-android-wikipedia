@@ -1,15 +1,15 @@
 package org.wikipedia.talk
 
 import android.app.Activity
-import android.content.Context
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -23,7 +23,7 @@ import java.util.*
 
 class TalkTopicHolder internal constructor(
         private val binding: ItemTalkTopicBinding,
-        private val context: Context,
+        private val context: AppCompatActivity,
         private val viewModel: TalkTopicsViewModel,
         private val invokeSource: Constants.InvokeSource
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
@@ -124,7 +124,7 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun showOverflowMenu(anchorView: View) {
-        CoroutineScope(Dispatchers.Main).launch {
+        context.lifecycleScope.launch {
             val subscribed = viewModel.isSubscribed(threadItem.name)
             threadItem.subscribed = subscribed
 

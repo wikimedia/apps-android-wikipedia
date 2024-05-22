@@ -3,25 +3,25 @@ package org.wikipedia.feed.random
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedContentType
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.log.L
 
-class RandomClient : FeedClient {
+class RandomClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
 
     private var clientJob: Job? = null
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        clientJob = CoroutineScope(Dispatchers.Main).launch(
+        clientJob = coroutineScope.launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
                 cb.error(caught)
@@ -41,7 +41,7 @@ class RandomClient : FeedClient {
                 }
                 list.add(RandomCard(randomSummary, age, wikiSite))
             }
-            FeedCoordinator.postCardsToCallback(cb, list)
+            cb.success(list)
         }
     }
 

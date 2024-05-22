@@ -363,7 +363,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 adapter.notifyDataSetChanged()
                 updateEmptyState(query)
             } else {
-                ReadingListBehaviorsUtil.searchListsAndPages(query) { lists ->
+                ReadingListBehaviorsUtil.searchListsAndPages(lifecycleScope, query) { lists ->
                     displayedLists = lists
                     adapter.notifyDataSetChanged()
                     updateEmptyState(query)
@@ -533,7 +533,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onToggleItemOffline(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) {
+        ReadingListBehaviorsUtil.togglePageOffline(requireActivity() as AppCompatActivity, page) {
             adapter.notifyDataSetChanged()
             update()
         }
@@ -568,7 +568,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val page = getPageById(pageId) ?: return
         readingList?.let {
             val listsContainPage = if (currentSearchQuery.isNullOrEmpty()) listOf(it) else ReadingListBehaviorsUtil.getListsContainPage(page)
-            ReadingListBehaviorsUtil.deletePages(requireActivity(), listsContainPage, page, { updateReadingListData() }, {
+            ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listsContainPage, page, { updateReadingListData() }, {
                 update()
             })
         }
@@ -643,7 +643,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
             readingList?.let {
                 if (currentSearchQuery.isNullOrEmpty()) {
-                    ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(it), page, { updateReadingListData() }, {
+                    ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listOf(it), page, { updateReadingListData() }, {
                         update()
                     })
                 }

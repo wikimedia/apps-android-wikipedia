@@ -15,6 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -223,7 +224,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
         if (bitmap != null && item.mediaInfo != null) {
-            ShareUtil.shareImage(this, bitmap,
+            ShareUtil.shareImage(lifecycleScope, this, bitmap,
                 File(ImageUrlUtil.getUrlForPreferredSize(item.mediaInfo!!.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)).name,
                 subject, title.uri)
         } else {

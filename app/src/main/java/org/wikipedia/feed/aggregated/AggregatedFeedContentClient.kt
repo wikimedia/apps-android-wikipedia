@@ -32,8 +32,7 @@ class AggregatedFeedContentClient {
     private var aggregatedResponseAge = -1
     var clientJob: Job? = null
 
-    class OnThisDayFeed(aggregatedClient: AggregatedFeedContentClient) :
-        BaseClient(aggregatedClient) {
+    class OnThisDayFeed(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient) : BaseClient(coroutineScope, aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
@@ -50,7 +49,7 @@ class AggregatedFeedContentClient {
         }
     }
 
-    class InTheNews(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
+    class InTheNews(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient) : BaseClient(coroutineScope, aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
@@ -65,7 +64,7 @@ class AggregatedFeedContentClient {
         }
     }
 
-    class FeaturedArticle(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
+    class FeaturedArticle(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient) : BaseClient(coroutineScope, aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
@@ -80,7 +79,7 @@ class AggregatedFeedContentClient {
         }
     }
 
-    class TopReadArticles(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
+    class TopReadArticles(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient) : BaseClient(coroutineScope, aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
@@ -100,7 +99,7 @@ class AggregatedFeedContentClient {
         }
     }
 
-    class FeaturedImage(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
+    class FeaturedImage(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient) : BaseClient(coroutineScope, aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
@@ -117,7 +116,10 @@ class AggregatedFeedContentClient {
         aggregatedResponseAge = -1
     }
 
-    abstract class BaseClient internal constructor(private val aggregatedClient: AggregatedFeedContentClient) : FeedClient {
+    abstract class BaseClient internal constructor(
+        private val coroutineScope: CoroutineScope,
+        private val aggregatedClient: AggregatedFeedContentClient
+    ) : FeedClient {
         private lateinit var cb: FeedClient.Callback
         private lateinit var wiki: WikiSite
         private var age = 0
@@ -131,7 +133,7 @@ class AggregatedFeedContentClient {
             if (aggregatedClient.aggregatedResponseAge == age && aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
                 val cards = mutableListOf<Card>()
                 getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
-                FeedCoordinator.postCardsToCallback(cb, cards)
+                cb.success(cards)
             } else {
                 requestAggregated()
             }
@@ -142,7 +144,7 @@ class AggregatedFeedContentClient {
         private fun requestAggregated() {
             aggregatedClient.clientJob?.cancel()
             val date = DateUtil.getUtcRequestDateFor(age)
-            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Main).launch(
+            aggregatedClient.clientJob = coroutineScope.launch(
                 CoroutineExceptionHandler { _, caught ->
                     L.v(caught)
                     cb.error(caught)
@@ -185,7 +187,7 @@ class AggregatedFeedContentClient {
                 if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
                     getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
                 }
-                FeedCoordinator.postCardsToCallback(cb, cards)
+                cb.success(cards)
             }
         }
 
