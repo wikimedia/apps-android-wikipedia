@@ -183,7 +183,7 @@ dependencies {
     String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.6.3'
-    String metricsVersion = '2.5'
+    String metricsVersion = '2.7'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 

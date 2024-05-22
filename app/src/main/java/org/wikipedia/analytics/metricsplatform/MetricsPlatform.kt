@@ -20,7 +20,7 @@ object MetricsPlatform {
         "WikipediaApp/" + BuildConfig.VERSION_NAME,
         "android",
         "app",
-        Build.MODEL + Build.DEVICE,
+        Build.BRAND + " " + Build.MODEL,
         WikipediaApp.instance.languageState.systemLanguageCode,
         if (ReleaseUtil.isProdRelease) "prod" else "dev"
     )
