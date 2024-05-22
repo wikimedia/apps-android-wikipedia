@@ -2,7 +2,9 @@ package org.wikipedia.page
 
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -26,8 +28,10 @@ object PageAvailableOfflineHandler {
             callback.onFinish(false)
             L.w(exception)
         }) {
-            val readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle)
-            callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
+            withContext(Dispatchers.IO) {
+                val readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle)
+                callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
+            }
         }
     }
 }
