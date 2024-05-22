@@ -4,14 +4,14 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalTextDirection
 
-class EditSummaryHandler(private val container: View,
+class EditSummaryHandler(private val coroutineScope: CoroutineScope,
+                         private val container: View,
                          private val summaryEdit: AutoCompleteTextView,
                          title: PageTitle) {
 
@@ -19,11 +19,9 @@ class EditSummaryHandler(private val container: View,
         container.setOnClickListener { summaryEdit.requestFocus() }
         setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode)
 
-        CoroutineScope(Dispatchers.Main).launch {
+        coroutineScope.launch {
             val summaries = AppDatabase.instance.editSummaryDao().getEditSummaries()
-            if (container.isAttachedToWindow) {
-                updateAutoCompleteList(summaries)
-            }
+            updateAutoCompleteList(summaries)
         }
     }
 
@@ -37,7 +35,7 @@ class EditSummaryHandler(private val container: View,
     }
 
     fun persistSummary() {
-        CoroutineScope(Dispatchers.IO).launch {
+        coroutineScope.launch {
             AppDatabase.instance.editSummaryDao().insertEditSummary(EditSummary(summary = summaryEdit.text.toString()))
         }
     }
