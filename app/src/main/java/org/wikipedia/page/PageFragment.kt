@@ -414,10 +414,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
 
-            override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {
-                onPageLoadError(RuntimeException(description))
-            }
-
             override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
                 if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
                     // If the request is anything except the main mobile-html content request, then
