@@ -1054,15 +1054,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
-            disposables.add(
-                Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate {
-                        updateQuickActionsAndMenuOptions()
-                        requireActivity().invalidateOptionsMenu()
-                    }
-                    .subscribe())
+            lifecycleScope.launch {
+                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+                updateQuickActionsAndMenuOptions()
+                requireActivity().invalidateOptionsMenu()
+            }
         }
     }
 
