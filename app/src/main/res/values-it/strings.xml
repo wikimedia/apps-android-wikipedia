@@ -318,6 +318,8 @@
   <string name="edit_summary_tag_links">Aggiunti collegamenti</string>
   <string name="edit_summary_tag_other">Altro</string>
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
+  <string name="edit_summary_added_short_description">Aggiunta descrizione breve</string>
+  <string name="edit_summary_updated_short_description">Aggiornata descrizione breve</string>
   <string name="edit_conflict_title">Conflitto di edizione</string>
   <string name="edit_conflict_message">La pagina è già stata modificata da un altro utente ed è in conflitto con la tua modifica. Copia le modifiche, torna indietro e aggiorna la pagina, quindi prova a modificare di nuovo.</string>
   <string name="edit_notices">Avvisi per le modifiche</string>
