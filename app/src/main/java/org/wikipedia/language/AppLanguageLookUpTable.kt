@@ -131,10 +131,5 @@ class AppLanguageLookUpTable(context: Context) {
             }
             return TRADITIONAL_CHINESE_LANGUAGE_CODE
         }
-
-        fun hasNonRegionalChineseCodes(): Boolean {
-            val list = listOf(TRADITIONAL_CHINESE_LANGUAGE_CODE, SIMPLIFIED_CHINESE_LANGUAGE_CODE)
-            return WikipediaApp.instance.languageState.appLanguageCodes.any(list::contains)
-        }
     }
 }

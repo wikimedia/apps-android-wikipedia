@@ -337,8 +337,22 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun maybeShowRegionalLanguageVariantDialog() {
-        if (AppLanguageLookUpTable.hasNonRegionalChineseCodes()) {
+        val deprecatedLanguageCodes = listOf(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)
+        val primaryLanguage = WikipediaApp.instance.languageState.appLanguageCode
+        val remainingLanguages = WikipediaApp.instance.languageState.appLanguageCodes.toMutableList().apply {
+            remove(primaryLanguage)
+        }
+        if (deprecatedLanguageCodes.contains(primaryLanguage)) {
             RegionalLanguageVariantSelectionDialog(requireContext()).show()
+        } else if (remainingLanguages.any(deprecatedLanguageCodes::contains)) {
+            MaterialAlertDialogBuilder(requireContext())
+                .setCancelable(false)
+                .setTitle(R.string.feed_language_variants_removal_secondary_dialog_title)
+                .setMessage(R.string.feed_language_variants_removal_secondary_dialog_message)
+                .setPositiveButton(R.string.feed_language_variants_removal_secondary_dialog_settings) { _, _ ->
+                    showLanguagesActivity(InvokeSource.FEED)
+                }
+                .show()
         }
     }
 
