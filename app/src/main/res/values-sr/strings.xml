@@ -285,6 +285,8 @@
   <string name="edit_summary_tag_links">Додати линкови</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
+  <string name="edit_summary_added_short_description">Додат кратак опис</string>
+  <string name="edit_summary_updated_short_description">Ажуриран кратак опис</string>
   <string name="edit_conflict_title">Сукоб измена</string>
   <string name="edit_conflict_message">Дошло је до сукоба измена јер је други корисник већ изменио страницу. Копирајте своје измене, вратите се и освежите страницу, па покушајте поново.</string>
   <string name="edit_notices">Обавештење о чланку</string>
@@ -1117,6 +1119,7 @@
   <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
   <string name="onboarding_data_privacy_title">Подаци &amp; приватност</string>
+  <string name="onboarding_data_privacy_text">Ми верујемо да не морате одавати личне информације да би учествовали у покрету за слободно знање. Подаци о употреби ове апликације се прикупљају анонимно. Сазнајте више о нашој &lt;a href=\"#privacy\"&gt;политици приватности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условима коришћења&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
