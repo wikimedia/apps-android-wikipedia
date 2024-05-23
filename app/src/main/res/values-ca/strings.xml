@@ -261,8 +261,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ca</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ca</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags/ca</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
@@ -1088,7 +1088,7 @@
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
   <string name="image_recommendation_notsure">No n\'estic segur</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Per què no?</string>
+  <string name="image_recommendation_reject_title">Motiu del rebuig</string>
   <string name="image_recommendation_reject_subtitle" fuzzy="true">Les vostres respostes milloren suggeriments futurs.</string>
   <string name="image_recommendation_reject_not_relevant">La imatge no és rellevant</string>
   <string name="image_recommendation_reject_no_info">No hi ha prou informació per a decidir</string>
@@ -1234,6 +1234,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Alçària</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Insereix</string>
+  <string name="templates_search_hint">Cerqueu plantilles</string>
   <string name="templates_insert_button">Insereix</string>
   <string name="templates_learn_more_link">Més informació</string>
   <string name="templates_description_incomplete">Les plantilles són creacions dels usuaris i poden tenir descripcions incompletes.</string>
@@ -1262,6 +1263,7 @@
   <string name="talk_warn_save_dialog_cancel">Cancel·la</string>
   <string name="talk_warn_submitted">Missatge publicat a la pàgina de discussió d\'usuari de l\'editor</string>
   <string name="talk_warn_submitted_and_saved">Missatge desat i publicat a la pàgina de discussió d\'usuari de l\'editor</string>
+  <string name="talk_warn_saved_messages">Missatges desats</string>
   <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
   <string name="talk_page_empty_title">La conversa comença aquí</string>
   <string name="talk_page_empty_content">Les pàgines de discussió és on es discuteix on fer el contingut de la Viquipèdia el millor possible. Inicieu-vos-hi afegint-hi un nou tema de discussió per a connectar-vos i col·laborar amb una comunitat viquipedista.</string>
@@ -1453,6 +1455,7 @@
   <string name="media_playback_error">Error de reproducció multimèdia</string>
   <string name="user_contrib_menu_label">Contribucions</string>
   <string name="user_contrib_filter_activity_title">Filtra les contribucions</string>
+  <string name="action_item_view_on_map">Mostra al mapa</string>
   <string name="shareable_reading_lists_import_dialog_title">Importa la llista de lectura compartida</string>
   <string name="shareable_reading_lists_import_dialog_content">Com voleu anomenar la llista que se us ha compartit?</string>
   <string name="shareable_reading_lists_new_indicator">*nova*</string>
@@ -1483,6 +1486,7 @@
   <string name="talk_templates_edit_message_updated">El missatge s\'ha actualitzat</string>
   <string name="talk_templates_message_deleted" fuzzy="true">El missatge s\'ha suprimit</string>
   <string name="talk_templates_message_title_empty">El títol no pot ser en blanc.</string>
+  <string name="talk_templates_example_messages_tab_title">Missatges d\'exemple</string>
   <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra edicions</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiquetes: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Cap</string>
@@ -1561,6 +1565,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Comentaris</string>
   <string name="patroller_diff_feedback_dialog_submit">Tramet</string>
   <string name="patroller_diff_feedback_submitted_snackbar">S\'han tramès els comentaris.</string>
+  <string name="talk_templates_menu_edit_title">Edita</string>
   <string name="data_opt_in_accept">Accepta</string>
   <string name="data_opt_in_reject">Rebutja</string>
   <string name="page_issues_title">Problemes de la pàgina</string>
@@ -1569,8 +1574,14 @@
   <string name="email_report_image_recommendations_body">He trobat un problema amb la funcionalitat de recomanació d\'imatges: \n- [Descriviu un problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada]</string>
   <string name="email_report_patroller_tasks_subject">Informe d\'incidència - Funcionalitat de la patrulla d\'edicions</string>
   <string name="email_report_patroller_tasks_body">He trobat un problema amb la funcionalitat de patrulla d\'edicions: \n- [Descriviu el problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada] \n\n[Captures de pantalla o enllaços]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Demà us ho tornarem a recordar.</string>
   <string name="donation_campaign_go_back_button">Enrere</string>
   <string name="menu_single_webview_open_external">Obre al navegador del sistema</string>
+  <string name="donate_gpay_dialog_title">Voleu fer una donació amb Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Feu una donació amb Google Pay o trieu un altre mètode de pagament.</string>
+  <string name="donate_gpay_dialog_pay_button">Feu una donació amb Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Un altre mètode de pagament</string>
+  <string name="donate_gpay_activity_title">Seleccioneu una quantitat</string>
   <string name="places_title">Llocs</string>
   <string name="places_permissions_denied">Cal permís d\'ubicació per a veure la teva ubicació al mapa. Torneu-ho a provar.</string>
   <string name="places_search_hint">Cerqueu llocs</string>

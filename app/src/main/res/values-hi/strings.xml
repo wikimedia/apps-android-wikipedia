@@ -296,6 +296,7 @@
   <string name="edit_summary_tag_links">कड़ियाँ लगाई</string>
   <string name="edit_summary_tag_other">अन्य</string>
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
+  <string name="edit_summary_added_short_description">संक्षिप्त विवरण जोड़ा गया</string>
   <string name="edit_conflict_title">संपादन अंतर्विरोध</string>
   <string name="edit_conflict_message">इस पेज को पहले ही किसी अन्य यूज़र के द्वारा संपादित किया जा चुका है और आपके संपादन के साथ परस्पर-विरोध हो रहा है। कृपया अपने संपादन को कॉपी कर ले, वापस जाएं और पेज रिफ्रेश कर पुनः संपादन का प्रयास करें।</string>
   <string name="edit_notices">नोटिस संपादित करें</string>
@@ -831,6 +832,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">रद्द करें</string>
   <string name="feed_accessibility_card_text">आप फ़ीड की अंत तक पहुंच गए हैं।</string>
   <string name="feed_accessibility_card_load_more_button">और लोड करें</string>
+  <string name="feed_language_variants_removal_dialog_save">सहेजें</string>
   <string name="top_read_activity_title">%s को सबसे सर्वाधिक पठित</string>
   <string name="tabs_activity_title">टैब्स</string>
   <string name="description_edit_text_hint">लेख वर्णन</string>
