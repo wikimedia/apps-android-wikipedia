@@ -234,6 +234,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
+        webView.addOnScrollChangeListener { _, scrollY, _ ->
+            if (scrollY > (DimenUtil.roundedDpToPx(webView.contentHeight.toFloat()) - (DimenUtil.displayHeightPx * 2)) &&
+                !model.isReadMoreLoaded) {
+                bridge.execute(JavaScriptActionHandler.appendReadMode(model))
+                model.isReadMoreLoaded = true
+            }
+        }
+
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
@@ -446,6 +454,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
                 sidePanelHandler.setupForNewPage(page)
                 sidePanelHandler.setEnabled(true)
+                model.isReadMoreLoaded = false
             }
         }
         bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->

@@ -224,7 +224,8 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
             @Query("ammessages") messages: String,
-            @Query("amargs") args: String?
+            @Query("amargs") args: String?,
+            @Query("amlang") lang: String? = null
     ): MwQueryResponse
 
     @FormUrlEncoded

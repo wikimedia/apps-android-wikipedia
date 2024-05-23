@@ -277,6 +277,8 @@
   <string name="edit_summary_tag_links">Додадени врски</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
+  <string name="edit_summary_added_short_description">Додаден краток опис</string>
+  <string name="edit_summary_updated_short_description">Изменет краток опис</string>
   <string name="edit_conflict_title">Спротивставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
   <string name="edit_notices">Белешки за уредување</string>

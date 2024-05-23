@@ -798,8 +798,8 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">来自维基百科的通知</string>
   <string name="notifications_channel_group_other_title">其他</string>
   <string name="notifications_channel_group_other_description">来自应用程序的其他通知</string>
-  <string name="notifications_filter_label">过滤通知</string>
-  <string name="notifications_filter_icon_content_description">过滤通知</string>
+  <string name="notifications_filter_label">筛选通知</string>
+  <string name="notifications_filter_icon_content_description">筛选通知</string>
   <string name="notifications_filter_update_app_languages">更改应用程序语言</string>
   <string name="notifications_empty_search_message">请移除所设的%s来查看更多通知</string>
   <plurals name="notifications_number_of_filters">
@@ -1281,6 +1281,8 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">高度</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">像素</string>
   <string name="insert_media_insert_button">插入</string>
+  <string name="templates_search_hint">搜索模板</string>
+  <string name="templates_insert_button">插入</string>
   <string name="templates_param_suggested_value">例如%s</string>
   <string name="templates_param_optional_hint">%s（选填）</string>
   <string name="templates_param_suggested_hint">%s（推荐）</string>
