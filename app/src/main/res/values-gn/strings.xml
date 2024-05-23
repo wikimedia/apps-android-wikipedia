@@ -320,7 +320,7 @@
   <string name="image_recommendation_accept">Upéicha</string>
   <string name="image_recommendation_reject">Nahániri</string>
   <string name="image_recommendation_notsure">Ndaikuaái</string>
-  <string name="image_recommendation_reject_title">Mba\'ére piko?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Mba\'ére piko?</string>
   <string name="image_recommendation_reject_dont_know">Ndaikuaái ko mba\'e</string>
   <string name="image_recommendation_reject_other">Ambuéva</string>
   <string name="image_recommendation_reject_submit">Emondo</string>

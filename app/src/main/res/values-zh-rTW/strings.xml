@@ -267,8 +267,8 @@
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE</string>
   <string name="about_libraries_heading">使用的函式庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;團隊頁面&lt;/a&gt;</string>
@@ -486,7 +486,7 @@
   <string name="color_theme_light">明亮</string>
   <string name="color_theme_dark">陰暗</string>
   <string name="color_theme_black">漆黑</string>
-  <string name="color_theme_sepia">深褐</string>
+  <string name="color_theme_sepia">棕褐色</string>
   <string name="color_theme_test_title">試樣文字</string>
   <string name="color_theme_test_text">拖拉滑標來變更使用在閱讀條目的文字大小。要設定應用程式之外其餘文字大小部份，請在您的系統文字大小做變更。</string>
   <string name="preference_title_app_theme">套用佈景主題</string>
@@ -862,6 +862,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
+  <string name="feed_language_variants_removal_dialog_title">選擇區域語言變體來改善閱讀體驗</string>
+  <string name="feed_language_variants_removal_dialog_message">您目前使用了未受支援通用中文語言變體來作為您的主要維基百科語言</string>
+  <string name="feed_language_variants_removal_dialog_save">儲存</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">請更新您的次要語言</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">您目前使用了未受支援通用中文語言變體來作為您的次要語言。請前往設定來選擇新的次要語言，或是確認您的語言清單。</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">前往設定</string>
   <string name="top_read_activity_title">在 %s 的熱門條目</string>
   <string name="tabs_activity_title">分頁</string>
   <string name="description_edit_text_hint">條目描述</string>
@@ -891,8 +897,8 @@
   <string name="description_edit_voice_input_description">語音輸入</string>
   <string name="description_edit_learn_more">了解更多關於條目描述的內容</string>
   <string name="description_edit_image_caption_learn_more">了解更多關於圖片說明的內容</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#条目描述</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#图片说明</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文字太短。</string>
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
   <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
@@ -1114,8 +1120,8 @@
   <string name="image_recommendation_accept">是</string>
   <string name="image_recommendation_reject">否</string>
   <string name="image_recommendation_notsure">不確定</string>
-  <string name="image_recommendation_reject_title">為何不呢？</string>
-  <string name="image_recommendation_reject_subtitle">您的回答可以改善往後建議。</string>
+  <string name="image_recommendation_reject_title">拒絕原因</string>
+  <string name="image_recommendation_reject_subtitle">拒絕原因採用匿名方式，用於改善未來的圖片建議。</string>
   <string name="image_recommendation_reject_not_relevant">圖片不相關</string>
   <string name="image_recommendation_reject_no_info">沒有足夠資訊來決定</string>
   <string name="image_recommendation_reject_offensive">圖片令人感到不快</string>
@@ -1608,8 +1614,8 @@
   <string name="patroller_onboarding_two_thank_content">有看到優質內容的編輯嗎？來對使用者感謝他們的貢獻。</string>
   <string name="patroller_onboarding_two_watch_title">監視</string>
   <string name="patroller_onboarding_two_watch_content">想要追蹤條目的編輯嗎？添加到您的監視清單。在「更多」下方查看。</string>
-  <string name="patroller_onboarding_two_warn_title">警告</string>
-  <string name="patroller_onboarding_two_warn_content">在編輯者的討論頁面上建立、發送，和儲存警告訊息。</string>
+  <string name="patroller_onboarding_two_talk_title">討論</string>
+  <string name="patroller_onboarding_two_talk_content">與其他編輯者交流。儲存常用的討論頁訊息或使用模版。</string>
   <string name="patroller_onboarding_two_undo_title">撤銷/回退</string>
   <string name="patroller_onboarding_two_undo_content">選擇「撤銷」以撤銷或回退可能帶有破壞性的編輯。</string>
   <string name="patroller_diff_tooltip_one">破壞預測編輯是否有對 wiki 造成破壞。</string>
@@ -1660,6 +1666,21 @@
   <string name="donation_campaign_donated_snackbar">謝謝您，親愛的捐贈者！您的慷慨贊助會幫助維基百科與相關姐妹網站蓬勃發展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系統瀏覽器開啟</string>
+  <string name="donate_gpay_dialog_title">使用 Google Pay 捐款？</string>
+  <string name="donate_gpay_dialog_description">使用 Google Pay 或選擇其他支付方式捐款。</string>
+  <string name="donate_gpay_dialog_pay_button">使用 Google Pay 捐款</string>
+  <string name="donate_gpay_dialog_other_button">其他支付方式</string>
+  <string name="donate_gpay_activity_title">選擇金額</string>
+  <string name="donate_gpay_check_transaction_fee">我願意慷慨地添加 %s 來支付手續費，這樣維基百科就可以保有我的 100%% 捐款。</string>
+  <string name="donate_gpay_check_recurring">將此作為每月定期捐款。</string>
+  <string name="donate_gpay_check_send_email">是的，維基媒體基金會可以臨時對我發送電子郵件。</string>
+  <string name="donate_gpay_minimum_amount">請選擇金額（最少 %s）</string>
+  <string name="donate_gpay_maximum_amount">我們無法透過我們的應用程式接受超過 %s 的捐款。請藉由 benefactors@wikimedia.org 電郵帳號來聯絡我們的贈品專門處理人員。</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;感謝您！&lt;/b&gt;您對維基百科的慷慨捐款對我們至關重要。</string>
+  <string name="donate_gpay_help_problems">捐贈時遇到問題？</string>
+  <string name="donate_gpay_help_other_ways">其他給予方式</string>
+  <string name="donate_gpay_help_faq">常見問題</string>
+  <string name="donate_gpay_help_tax">減稅資訊</string>
   <string name="places_title">地點</string>
   <string name="places_permissions_denied">需要位置權限才能在地圖上查看您的位置。請再試一次。</string>
   <string name="places_search_hint">搜尋地點</string>

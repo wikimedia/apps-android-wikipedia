@@ -82,11 +82,11 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     private val requestNewTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        binding.talkTemplatesTabLayout.getTabAt(0)?.select()
         if (result.resultCode == RESULT_OK || result.resultCode == RESULT_BACK_FROM_TOPIC) {
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
             if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
+                binding.talkTemplatesTabLayout.getTabAt(0)?.select()
                 FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
             }
         } else if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
@@ -97,10 +97,10 @@ class TalkTemplatesFragment : Fragment() {
 
     private val requestEditTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK || result.resultCode == RESULT_BACK_FROM_TOPIC) {
-            binding.talkTemplatesTabLayout.getTabAt(0)?.select()
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("update_message_toast", "pt_templates")
             if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
+                binding.talkTemplatesTabLayout.getTabAt(0)?.select()
                 FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
             }
         } else if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {

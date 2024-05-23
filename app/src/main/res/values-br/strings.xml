@@ -814,6 +814,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Mat eo</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Nullañ</string>
   <string name="feed_accessibility_card_load_more_button">Kargañ muioc\'h</string>
+  <string name="feed_language_variants_removal_dialog_save">Enrollañ</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Mont d\'an arventennoù</string>
   <string name="tabs_activity_title">Steudennoù</string>
   <string name="description_edit_text_hint">Deskrivadur ar pennad</string>
   <string name="description_edit_article_description_label">Pennad</string>
@@ -993,7 +995,7 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Ket</string>
   <string name="image_recommendation_notsure">N\'on ket sur</string>
-  <string name="image_recommendation_reject_title">Perak pas ?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Perak pas ?</string>
   <string name="image_recommendation_reject_offensive">Tagus eo ar skeudenn</string>
   <string name="image_recommendation_reject_low_quality">Skeudenn a galite izel</string>
   <string name="image_recommendation_reject_other">All</string>
@@ -1302,7 +1304,7 @@
   <string name="patroller_tasks_overflow_learn">Gouzout hiroc\'h</string>
   <string name="patroller_onboarding_two_thank_title">Trugarekaat</string>
   <string name="patroller_onboarding_two_watch_title">Evezhiañ</string>
-  <string name="patroller_onboarding_two_warn_title">Diwall</string>
+  <string name="patroller_onboarding_two_talk_title">Kaozeadenn</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Roit hoc\'h ali</string>
   <string name="patroller_diff_feedback_dialog_submit">Kas</string>
   <string name="patroller_saved_message_title_npov">Sav-boent neptu</string>
@@ -1313,6 +1315,8 @@
   <string name="page_issues_title">Kudennoù war ar bajenn</string>
   <string name="donation_campaign_maybe_later_snackbar">Ni a gemenno ac\'hanoc\'h en-dro warc\'hoazh.</string>
   <string name="donation_campaign_go_back_button">Distreiñ</string>
+  <string name="donate_gpay_dialog_title">Reiñ gant Google Pay?</string>
+  <string name="donate_gpay_dialog_pay_button">Reiñ un donezon gant Google Pay</string>
   <string name="places_title">Lec\'hioù</string>
   <string name="places_search_hint">Klask lec\'hioù</string>
   <string name="places_filter_title">Silañ dre yezh</string>

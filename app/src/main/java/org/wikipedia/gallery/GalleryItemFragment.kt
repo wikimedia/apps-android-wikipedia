@@ -184,7 +184,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
             }
             .subscribe({ response ->
                 mediaPage = response.query?.firstPage()
-                if (FileUtil.isVideo(mediaListItem.type)) {
+                if (FileUtil.isVideo(mediaPage?.imageInfo()?.mime.orEmpty())) {
                     loadVideo()
                 } else {
                     loadImage(ImageUrlUtil.getUrlForPreferredSize(mediaInfo!!.thumbUrl,
@@ -197,7 +197,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     }
 
     private fun getMediaInfoDisposable(title: String, lang: String): Observable<MwQueryResponse> {
-        return if (FileUtil.isVideo(mediaListItem.type)) {
+        return if (mediaListItem.isVideo) {
             ServiceFactory.get(if (mediaListItem.isInCommons) Constants.commonsWikiSite
             else pageTitle!!.wikiSite).getVideoInfo(title, lang)
         } else {
@@ -209,13 +209,12 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private val videoThumbnailClickListener: View.OnClickListener = object : View.OnClickListener {
         private var loading = false
         override fun onClick(v: View) {
-            val derivative = mediaInfo?.getBestDerivativeForSize(Constants.PREFERRED_GALLERY_IMAGE_SIZE)
-            if (loading || derivative == null) {
+            if (loading) {
                 return
             }
-            val bestDerivative = derivative.src
+            val bestUrl = mediaInfo?.getBestDerivativeForSize(Constants.PREFERRED_GALLERY_IMAGE_SIZE)?.src ?: mediaInfo?.originalUrl ?: return
             loading = true
-            L.d("Loading video from url: $bestDerivative")
+            L.d("Loading video from url: $bestUrl")
             binding.videoView.visibility = View.VISIBLE
             mediaController = MediaController(requireActivity())
             if (!DeviceUtil.isNavigationBarShowing) {
@@ -244,7 +243,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                 loading = false
                 true
             }
-            binding.videoView.setVideoURI(Uri.parse(bestDerivative))
+            binding.videoView.setVideoURI(Uri.parse(bestUrl))
         }
     }
 
@@ -282,17 +281,15 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     private fun shareImage() {
         mediaInfo?.let {
-            object : ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl,
-                    Constants.PREFERRED_GALLERY_IMAGE_SIZE)) {
-                override fun onSuccess(bitmap: Bitmap?) {
-                    if (!isAdded) {
-                        return
-                    }
-                    imageTitle?.let { title ->
-                        callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject, title)
-                    }
+            val imageUrl = ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)
+            ImagePipelineBitmapGetter(requireContext(), imageUrl) { bitmap ->
+                if (!isAdded) {
+                    return@ImagePipelineBitmapGetter
                 }
-            }[requireContext()]
+                imageTitle?.let { title ->
+                    callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject, title)
+                }
+            }
         }
     }
 

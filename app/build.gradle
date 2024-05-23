@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 34
-        versionCode 50481
+        versionCode 50489
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -71,11 +71,10 @@ android {
 
     sourceSets {
 
-        prod { java.srcDirs += 'src/extra/java' }
-        beta { java.srcDirs += 'src/extra/java' }
-        alpha { java.srcDirs += 'src/extra/java' }
-        dev { java.srcDirs += 'src/extra/java' }
-        custom { java.srcDirs += 'src/extra/java' }
+        [ prod, beta, alpha, dev, custom ].forEach {
+            it.java.srcDirs += 'src/extra/java'
+            it.res.srcDirs += 'src/extra/res'
+        }
 
         androidTest {
             assets.srcDirs += files("$projectDir/schemas".toString())
@@ -173,17 +172,18 @@ dependencies {
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
     String okHttpVersion = '4.12.0'
-    String retrofitVersion = '2.10.0'
+    String retrofitVersion = '2.11.0'
     String glideVersion = '4.16.0'
     String mockitoVersion = '5.2.0'
-    String leakCanaryVersion = '2.13'
-    String kotlinCoroutinesVersion = '1.8.0'
-    String firebaseMessagingVersion = '23.4.1'
+    String leakCanaryVersion = '2.14'
+    String kotlinCoroutinesVersion = '1.8.1'
+    String firebaseMessagingVersion = '24.0.0'
     String mlKitVersion = '17.0.5'
+    String googlePayVersion = '19.3.0'
     String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
-    String serialization_version = '1.6.2'
-    String metricsVersion = '2.4'
+    String serialization_version = '1.6.3'
+    String metricsVersion = '2.7'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
@@ -192,12 +192,12 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
-    implementation "com.google.android.material:material:1.11.0"
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation "androidx.core:core-ktx:1.12.0"
+    implementation 'androidx.core:core-ktx:1.13.1'
     implementation "androidx.browser:browser:1.8.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.fragment:fragment-ktx:1.6.2"
+    implementation 'androidx.fragment:fragment-ktx:1.7.0'
     implementation "androidx.paging:paging-runtime-ktx:3.2.1"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.2.1"
@@ -251,6 +251,13 @@ dependencies {
     alphaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
     devImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
     customImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+
+    // For integrating with Google Pay for donations
+    prodImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    betaImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    alphaImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    devImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
+    customImplementation "com.google.android.gms:play-services-wallet:$googlePayVersion"
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"

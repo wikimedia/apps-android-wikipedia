@@ -239,8 +239,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
@@ -835,6 +835,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
   <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
+  <string name="feed_language_variants_removal_dialog_title">Изберете регионална јазична варијанта за да го подобрите читачкото доживување</string>
+  <string name="feed_language_variants_removal_dialog_message">Моментално користите неподдржана општа варијанта на кинескиот јазик како ваш главен јазик на Википедија</string>
+  <string name="feed_language_variants_removal_dialog_save">Зачувај</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Подновете ги вашите споредни јазици</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Моментално користите неподдржана општа варијанта на кинескиот јазик како спореден јазик. Одете во нагодувањата за да  изберете нов спореден јазик или за да го потврдите вашиот список на јазици.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Оди на Нагодувањата</string>
   <string name="top_read_activity_title">Најчитани на %s</string>
   <string name="tabs_activity_title">Јазичиња</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
@@ -864,8 +870,8 @@
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
   <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
   <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
@@ -1087,8 +1093,8 @@
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
   <string name="image_recommendation_notsure">Не знам</string>
-  <string name="image_recommendation_reject_title">Зошто не?</string>
-  <string name="image_recommendation_reject_subtitle">Вашите одговори ги подобруваат идните предлози.</string>
+  <string name="image_recommendation_reject_title">Причина за одбивање</string>
+  <string name="image_recommendation_reject_subtitle">Причината за одбивање е анонимна и ги идните предлози.</string>
   <string name="image_recommendation_reject_not_relevant">Сликата е нерелевантна</string>
   <string name="image_recommendation_reject_no_info">Немам доволно сознанија за да одлучам</string>
   <string name="image_recommendation_reject_offensive">Сликата е неумесна</string>
@@ -1581,8 +1587,8 @@
   <string name="patroller_onboarding_two_thank_content">Видовте продуктивно уредување? Заблагодарете му се не корисникот.</string>
   <string name="patroller_onboarding_two_watch_title">Набљудувај</string>
   <string name="patroller_onboarding_two_watch_content">Сакате да гу следите уредувањата во статијата? Додајте ја во Набљудуваните. Погледајте ја во „Повеќе“.</string>
-  <string name="patroller_onboarding_two_warn_title">Предупреди</string>
-  <string name="patroller_onboarding_two_warn_content">Создавајте, испраќајте и складирајте предупредителни пораки на корисничка разговорна страница.</string>
+  <string name="patroller_onboarding_two_talk_title">Разговор</string>
+  <string name="patroller_onboarding_two_talk_content">Општете со други уредници. Зачувајте често користени разговорни страници или користете предлошка.</string>
   <string name="patroller_onboarding_two_undo_title">Враќање/Поништување</string>
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
@@ -1633,6 +1639,21 @@
   <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и нејзините збратимени проекти напредуваат благодарение на вашата великодушност.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори во системскиот прелистувач</string>
+  <string name="donate_gpay_dialog_title">Дарувате со Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Дарувајте со Google Pay или изберете друг начин на плаќање.</string>
+  <string name="donate_gpay_dialog_pay_button">Дарувај со Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Друг начин на плаќање</string>
+  <string name="donate_gpay_activity_title">Изберете износ</string>
+  <string name="donate_gpay_check_transaction_fee">Великодушно ќе додадам %s за да ја покријам трансакциската провизија за да задржите 100%% од мојот дар.</string>
+  <string name="donate_gpay_check_recurring">Повторувај го овој дар секој месец.</string>
+  <string name="donate_gpay_check_send_email">Да, Фондацијата Викимедија може повремено да ми испраќа е-пошта.</string>
+  <string name="donate_gpay_minimum_amount">Одберете износ (барем %s)</string>
+  <string name="donate_gpay_maximum_amount">Не можеме да прифатиме износи поголеми од %s преку нашиот прилог. Обратете се кај персоналот за големи дарови на benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Ви благодариме!&lt;/b&gt; Вашата великодушност кон Википедија многу ни значи.</string>
+  <string name="donate_gpay_help_problems">Имате проблеми при дарувањето?</string>
+  <string name="donate_gpay_help_other_ways">Други начини на дарување</string>
+  <string name="donate_gpay_help_faq">Често поставувани прашања</string>
+  <string name="donate_gpay_help_tax">Информации за даночното олеснување</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Потребна е дозвола за споделување на вашата местоположба на карта. Обидете се повторно.</string>
   <string name="places_search_hint">Пребарај места</string>

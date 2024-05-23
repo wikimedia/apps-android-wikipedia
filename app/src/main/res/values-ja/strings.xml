@@ -31,6 +31,7 @@
 * Mugenpman
 * Omotecho
 * Otokoume
+* PPenloglou-WMF
 * Penn Station
 * RYOUMA1117
 * RYU N
@@ -163,8 +164,8 @@
   <string name="other_languages_indication_text">別の言語で閲覧</string>
   <string name="language_count_link_text">他に%dの言語で利用可能</string>
   <string name="content_license_cc_by_sa">CC 表示-継承 4.0</string>
-  <string name="edit_save_action_license_logged_in">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンスの下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
-  <string name="edit_save_action_license_anon">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
+  <string name="edit_save_action_license_logged_in">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;ライセンスの下で投稿の再利用を許諾することになります。これは撤回できません。</string>
+  <string name="edit_save_action_license_anon">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;ライセンス下での投稿の再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="edit_anon_warning">編集はあなたのデバイスのIPアドレスに帰属します。&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;すれば、よりプライバシーが高まります。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="langlinks_filter_hint">検索</string>
@@ -291,15 +292,15 @@
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Image_tags</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
-  <string name="about_app_license" fuzzy="true">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;の下で提供されます。</string>
+  <string name="about_app_license">ソースコードは&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;の下に&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能です。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;クリエイティブ・コモンズ 表示-継承ライセンス&lt;/a&gt;の下で、利用可能です。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ウィキメディア財団&lt;/a&gt;のプロダクト</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
@@ -470,6 +471,8 @@
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;&lt;/a&gt;または別の&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;管理者&lt;/ aに連絡できます。 &gt;ブロックについて話し合う。%1$s</string>
   <string name="theme_chooser_menu_item_short_tooltip">ツールバーをカスタマイズする</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
+  <string name="temp_account_not_logged_in">ログインしていません</string>
+  <string name="temp_account_using_title">あなたは臨時アカウントを使用しています</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -617,7 +620,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_text">あとで読むリストに保存された記事は、あなたのウィキペディアアカウントと同期できるようになりました。&lt;a href=\"#faq\"&gt;もっと詳しく&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">いいえ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">いいえ、結構です。</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
@@ -826,7 +829,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今日</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s閲覧</string>
-  <string name="view_announcement_card_negative_action">いいえ</string>
+  <string name="view_announcement_card_negative_action">いいえ、結構です。</string>
   <string name="view_offline_card_text">オフラインではコンテンツが読み込めません。</string>
   <string name="view_featured_article_card_title">秀逸な記事</string>
   <string name="view_static_card_save_button_label">保存</string>
@@ -881,8 +884,8 @@
   <string name="description_edit_voice_input_description">音声入力</string>
   <string name="description_edit_learn_more">記事の説明に関してもっと知る</string>
   <string name="description_edit_image_caption_learn_more">画像のキャプションに関してもっと知る</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#記事の説明</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#画像のキャプション</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Image_captions</string>
   <string name="description_too_short">文章が短すぎます。</string>
   <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>
   <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>
@@ -1103,8 +1106,8 @@
   <string name="image_recommendation_accept">はい</string>
   <string name="image_recommendation_reject">いいえ</string>
   <string name="image_recommendation_notsure">わからない</string>
-  <string name="image_recommendation_reject_title">なぜだめですか？</string>
-  <string name="image_recommendation_reject_subtitle">あなたの回答により、将来の提案が改善されます。</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">なぜだめですか？</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">あなたの回答により、将来の提案が改善されます。</string>
   <string name="image_recommendation_reject_not_relevant">関連する画像ではありません</string>
   <string name="image_recommendation_reject_no_info">判断するのに十分な情報がありません</string>
   <string name="image_recommendation_reject_offensive">不快な画像です</string>
@@ -1146,7 +1149,7 @@
   <string name="onboarding_skip">スキップ</string>
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>
-  <string name="onboarding_maybe_later">あとで</string>
+  <string name="onboarding_maybe_later">あとで寄付する</string>
   <string name="onboarding_explore_title">新しいツールで探検しよう</string>
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
@@ -1193,7 +1196,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">中国語の文字違い版をアプリの言語から削除しますか?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">現在、繁体字と簡体字の両方の中国語版をアプリの言語として指定しています。アプリの言語設定を更新しますか?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">言語の設定を編集</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">やめます</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">いいえ、結構です。</string>
   <string name="remove_language_dialog_cancel_button_text">キャンセル</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1253,6 +1256,9 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">高さ</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">ピクセル</string>
   <string name="insert_media_insert_button">挿入</string>
+  <string name="templates_param_suggested_value">例: %s</string>
+  <string name="templates_param_optional_hint">%s (省略可能)</string>
+  <string name="templates_learn_more_link">詳細</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
   <string name="main_tooltip_text">%sさん、ウィキペディアは誰でも編集できることをご存知でしたか?</string>
@@ -1573,8 +1579,7 @@
   <string name="patroller_onboarding_one_content">最近の編集のフィードを積極的にレビューし、他の編集者にガイダンス、品質管理、励ましを提供することで、Wikipedia コンテンツの品質を向上させます。</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
   <string name="patroller_onboarding_two_watch_title">ウォッチ</string>
-  <string name="patroller_onboarding_two_warn_title">警告</string>
-  <string name="patroller_onboarding_two_warn_content">編集者のトーク ページで警告メッセージを作成、送信、保存します。</string>
+  <string name="patroller_onboarding_two_talk_title">トーク</string>
   <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
   <string name="patroller_diff_feedback_dialog_title">この機能の改善にご協力ください</string>
   <string name="patroller_diff_feedback_dialog_message">この機能に満足していますか?</string>
@@ -1582,6 +1587,7 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">満足していない</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">どうすれば機能を改善できるでしょうか?</string>
+  <string name="patroller_diff_menu_edit_history_title">記事の編集履歴</string>
   <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
   <string name="patroller_diff_feedback_dialog_submit">送信</string>
   <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
@@ -1594,10 +1600,18 @@
   <string name="email_report_image_recommendations_body">画像お勧め機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
-  <string name="donation_campaign_maybe_later_snackbar">明日改めてお知らせいたします。</string>
-  <string name="donation_campaign_donated_snackbar">親愛なる寄付者様、ありがとうございます！あなたの寛大なご協力により、ウィキペディアとその姉妹サイトが繁栄し続けることができます。</string>
+  <string name="donation_campaign_maybe_later_snackbar">明日、再度お知らせいたします。</string>
+  <string name="donation_campaign_donated_snackbar">ご寄付をしてくださり、ありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその姉妹サイトの繁栄を支えています。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
-  <string name="menu_single_webview_open_external">システムブラウザで開く</string>
+  <string name="menu_single_webview_open_external">規定のブラウザで開く</string>
+  <string name="donate_gpay_dialog_title">Google Payで寄付しますか?</string>
+  <string name="donate_gpay_dialog_description">Google Payで寄付するか、他の支払い方法を選択してください。</string>
+  <string name="donate_gpay_dialog_pay_button">Google Pay で寄付する</string>
+  <string name="donate_gpay_dialog_other_button">その他の支払方法</string>
+  <string name="donate_gpay_activity_title">金額を選択する</string>
+  <string name="donate_gpay_check_transaction_fee">寄付の100%%が確実に届くよう、手数料として%sを追加してお支払いします。</string>
+  <string name="donate_gpay_check_recurring">毎月、この金額を定期的に寄付します。</string>
+  <string name="donate_gpay_check_send_email">はい、ウィキメディア財団はごく稀に私にメールを送ることができます。</string>
   <string name="places_title">場所</string>
   <string name="places_permissions_denied">地図上に自分の位置を表示するには、位置情報の許可が必要です。もう一度試してください。</string>
   <string name="places_search_hint">場所を検索</string>

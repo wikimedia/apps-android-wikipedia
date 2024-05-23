@@ -187,7 +187,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Terusin sonder surlès</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tambahin aderès surlès</string>
   <string name="create_account_button">Keja rèkening</string>
-  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang bèda.</string>
+  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang béda.</string>
   <string name="create_account_ip_block_message">Maap, lu punya aderès IP sekarang ni lagi digibang deri pengejaan rèkening baru.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Tètèk bengèk</string>
@@ -323,7 +323,7 @@
   <string name="gallery_edit_button_content_description">Permak keterangan gambar</string>
   <string name="gallery_add_image_caption_button">Tambahin keterangan gambar</string>
   <string name="gallery_add_image_caption_in_language_button">Tambahin keterangan gambar (%s)</string>
-  <string name="err_cannot_save_file">Kaga\' bisa nyimpen berekas</string>
+  <string name="err_cannot_save_file">Kaga\' bisa nyimpen gepokan</string>
   <string name="expand_refs">Teken bakal nèmprakin</string>
   <string name="cc_logo">Ongji Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
@@ -876,7 +876,7 @@
   <string name="suggested_edits_edit_caption_button">Permak keterangan</string>
   <string name="suggested_edits_review_image_caption">Perèksa ulang keterangan gambar</string>
   <string name="suggested_edits_my_contributions">Gua punya sumbangan</string>
-  <string name="suggested_edits_no_description">Ni berekas kaga\' punya jabaran</string>
+  <string name="suggested_edits_no_description">Ni gepokan kaga\' punya jabaran</string>
   <string name="suggested_edits_license_notice">Dengen nambahin jabaran, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelosin gua punya sumbangan di bawah ongji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dengen nambahin keterangan gambar, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelosin gua punya sumbangan di bawah ongji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Inpo</string>
@@ -915,7 +915,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Sumber/Tukang jeprèt</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Ongji</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Inpo laènnya</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Halaman berekas di Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Halaman gepokan di Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Halaman gepokan di Wikipédi</string>
   <string name="suggested_edits_article_cta_image_tags">Tambahin tenger gambar</string>
   <string name="suggested_edits_article_cta_image_caption">Tambahin keterangan gambar</string>
@@ -1046,8 +1046,8 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Kaga\'</string>
   <string name="image_recommendation_notsure">Kaga\' yakin</string>
-  <string name="image_recommendation_reject_title">Ngapa kaga\'?</string>
-  <string name="image_recommendation_reject_subtitle">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ngapa kaga\'?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
   <string name="image_recommendation_reject_not_relevant">Gambar kaga\' nyambung</string>
   <string name="image_recommendation_reject_no_info">Kaga\' cukup pengabaran bakal nentuin</string>
   <string name="image_recommendation_reject_offensive">Gambarnya nyinggung</string>
@@ -1166,7 +1166,7 @@
   <string name="wikitext_preview_link">Sènggètan terawangan</string>
   <string name="wikitext_mention_user">Sebut pemaké</string>
   <string name="insert_media_title">Selesepin wasilah</string>
-  <string name="insert_media_search_description">Pilih berekas deri Wikimedia Commons</string>
+  <string name="insert_media_search_description">Pilih gepokan deri Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cari wasilah</string>
   <string name="insert_media_settings">Tambahin tètèk bengèk gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar nyang diangkat</string>
@@ -1496,7 +1496,6 @@
   <string name="patroller_tasks_overflow_learn">Belajarin lebi lanjut</string>
   <string name="patroller_onboarding_two_thank_title">Makasi</string>
   <string name="patroller_onboarding_two_watch_title">Pantengin</string>
-  <string name="patroller_onboarding_two_warn_title">Wanti-wanti</string>
   <string name="patroller_onboarding_two_undo_title">Balikin/Aterèt</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>

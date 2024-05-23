@@ -1026,8 +1026,8 @@
   <string name="image_recommendation_accept">Da</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Nisam siguran</string>
-  <string name="image_recommendation_reject_title">Zašto ne?</string>
-  <string name="image_recommendation_reject_subtitle">Vaši odgovori unapređuju buduće predloge.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Zašto ne?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Vaši odgovori unapređuju buduće predloge.</string>
   <string name="image_recommendation_reject_not_relevant">Slika nije relevantna</string>
   <string name="image_recommendation_reject_no_info">Nedovoljno informacija za odluku</string>
   <string name="image_recommendation_reject_offensive">Slika je uvredljiva</string>
@@ -1493,8 +1493,6 @@
   <string name="patroller_onboarding_two_thank_content">Vidite produktivnu izmenu? Zahvalite se korisniku za njegov doprinos.</string>
   <string name="patroller_onboarding_two_watch_title">Nadgledaj</string>
   <string name="patroller_onboarding_two_watch_content">Da li želite da pratite izmene članka? Dodajte ga na svoj spisak nadgledanja. Pogledajte ga pod \'Više\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Upozori</string>
-  <string name="patroller_onboarding_two_warn_content">Pravite, šaljite, i čuvajte poruke upozorenja na uredničkoj stranici za razgovor</string>
   <string name="patroller_onboarding_two_undo_title">Poništi/vrati</string>
   <string name="patroller_onboarding_two_undo_content">Odaberite \'Poništi\' da bi ste poništili ili vratili potencionalnu destruktivnu izmenu.</string>
   <string name="patroller_diff_feedback_dialog_title">Pomozite nam da unapredimo ovu mogućnost</string>

@@ -21,8 +21,10 @@ import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class AggregatedFeedContentClient {
@@ -140,42 +142,50 @@ class AggregatedFeedContentClient {
         private fun requestAggregated() {
             aggregatedClient.clientJob?.cancel()
             val date = DateUtil.getUtcRequestDateFor(age)
-            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Default).launch(
+            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Main).launch(
                 CoroutineExceptionHandler { _, caught ->
                     L.v(caught)
                     cb.error(caught)
                 }
             ) {
-                withContext(Dispatchers.Main) {
-                    val cards = mutableListOf<Card>()
-                    FeedContentType.aggregatedLanguages.forEach { langCode ->
-                        val wikiSite = WikiSite.forLanguageCode(langCode)
-                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
-                        var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
+                val cards = mutableListOf<Card>()
+                FeedContentType.aggregatedLanguages.forEach { langCode ->
+                    val wikiSite = WikiSite.forLanguageCode(langCode)
+                    val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
+                    var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
 
-                        // TODO: This is a temporary fix for T355192
-                        if (hasParentLanguageCode) {
-                            // TODO: Needs to update tfa and most read
-                            feedContentResponse.tfa?.let {
-                                val tfaResponse = getPageSummaryForLanguageVariant(it, wikiSite)
-                                feedContentResponse = AggregatedFeedContent(
-                                    tfa = tfaResponse,
-                                    news = feedContentResponse.news,
-                                    topRead = feedContentResponse.topRead,
-                                    potd = feedContentResponse.potd,
-                                    onthisday = feedContentResponse.onthisday
-                                )
-                            }
+                    // TODO: This is a temporary fix for T355192
+                    if (hasParentLanguageCode) {
+                        // TODO: Needs to update tfa and most read
+                        feedContentResponse.tfa?.let {
+                            val tfaResponse = getPageSummaryForLanguageVariant(it, wikiSite)
+                            feedContentResponse = AggregatedFeedContent(
+                                tfa = tfaResponse,
+                                news = feedContentResponse.news,
+                                topRead = feedContentResponse.topRead,
+                                potd = feedContentResponse.potd,
+                                onthisday = feedContentResponse.onthisday
+                            )
                         }
+                        feedContentResponse.topRead?.let {
+                            val topReadResponse = getPagesForLanguageVariant(it.articles, wikiSite)
+                            feedContentResponse = AggregatedFeedContent(
+                                tfa = feedContentResponse.tfa,
+                                news = feedContentResponse.news,
+                                topRead = TopRead(it.date, topReadResponse),
+                                potd = feedContentResponse.potd,
+                                onthisday = feedContentResponse.onthisday
+                            )
+                        }
+                    }
 
-                        aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
-                        aggregatedClient.aggregatedResponseAge = age
-                    }
-                    if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
-                        getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
-                    }
-                    FeedCoordinator.postCardsToCallback(cb, cards)
+                    aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
+                    aggregatedClient.aggregatedResponseAge = age
                 }
+                if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
+                    getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
+                }
+                FeedCoordinator.postCardsToCallback(cb, cards)
             }
         }
 
@@ -198,6 +208,39 @@ class AggregatedFeedContentClient {
                 }
             }
             return newPageSummary
+        }
+
+        private suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite): List<PageSummary> {
+            val newList = mutableListOf<PageSummary>()
+            withContext(Dispatchers.IO) {
+                val titles = list.joinToString(separator = "|") { it.apiTitle }
+                // First, get the correct description from Wikidata directly.
+                val wikiDataResponse = async {
+                    ServiceFactory.get(Constants.wikidataWikiSite)
+                        .getWikidataDescription(titles = titles, sites = wikiSite.dbName(), langCode = wikiSite.languageCode)
+                }
+                // Second, fetch varianttitles from prop=info endpoint.
+                val mwQueryResponse = async {
+                    ServiceFactory.get(wikiSite).getVariantTitlesByTitles(titles)
+                }
+
+                list.forEach { pageSummary ->
+                    // Find the correct display title from the varianttitles map, and insert the new page summary to the list.
+                    val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
+                    val newPageSummary = pageSummary.apply {
+                        val newDisplayTitle = displayTitle ?: pageSummary.displayTitle
+                        this.titles = PageSummary.Titles(
+                            canonical = pageSummary.apiTitle,
+                            display = newDisplayTitle
+                        )
+                        this.description = wikiDataResponse.await().entities.values.firstOrNull {
+                            it.labels[wikiSite.languageCode]?.value == newDisplayTitle
+                        }?.descriptions?.get(wikiSite.languageCode)?.value ?: pageSummary.description
+                    }
+                    newList.add(newPageSummary)
+                }
+            }
+            return newList
         }
     }
 }

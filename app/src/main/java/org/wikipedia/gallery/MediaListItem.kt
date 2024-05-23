@@ -19,6 +19,8 @@ class MediaListItem constructor(val title: String = "",
 
     val isInCommons get() = srcSets.firstOrNull()?.src?.contains(Service.URL_FRAGMENT_FROM_COMMONS) == true
 
+    val isVideo get() = type == "video"
+
     fun getImageUrl(deviceScale: Float): String {
         var imageUrl = srcSets[0].src
         var lastScale = 1.0f

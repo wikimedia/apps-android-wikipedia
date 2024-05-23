@@ -17,6 +17,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
+import org.wikipedia.commons.ImagePreviewDialog
 import org.wikipedia.databinding.FragmentInsertMediaSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -27,7 +28,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.AppTextViewWithImages
-import org.wikipedia.views.ImagePreviewDialog
 import org.wikipedia.views.ViewUtil
 
 class InsertMediaSettingsFragment : Fragment() {

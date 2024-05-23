@@ -419,8 +419,8 @@
   <string name="suggested_edits_image_recommendations_task_title">ਲੇਖ ਚਿੱਤਰ</string>
   <string name="suggested_edits_image_recommendations_task_detail">ਸਮਝ ਨੂੰ ਵਧਾਉਣ ਲਈ ਵਿਕੀਪੀਡੀਆ ਲੇਖਾਂ ਵਿੱਚ ਸੁਝਾਏ ਚਿੱਤਰ ਸ਼ਾਮਲ ਕਰੋ।</string>
   <string name="image_recommendation_accept">ਹਾਂ</string>
-  <string name="image_recommendation_reject_title">ਕਿਉਂ ਨਹੀਂ?</string>
-  <string name="image_recommendation_reject_subtitle">ਤੁਹਾਡੇ ਜਵਾਬ ਭਵਿੱਖ ਦੇ ਸੁਝਾਵਾਂ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦੇ ਹਨ।</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">ਕਿਉਂ ਨਹੀਂ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">ਤੁਹਾਡੇ ਜਵਾਬ ਭਵਿੱਖ ਦੇ ਸੁਝਾਵਾਂ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦੇ ਹਨ।</string>
   <string name="image_recommendation_reject_low_quality">ਚਿੱਤਰ ਘੱਟ ਗੁਣਵੱਤਾ ਵਾਲਾ ਹੈ</string>
   <string name="image_recommendation_reject_dont_know">ਮੈ ਇਹ ਵਿਸ਼ਾ ਨਹੀਂ ਜਾਣਦਾ</string>
   <string name="image_recommendation_onboarding_2">ਤੁਸੀਂ ਫੈਸਲਾ ਕਰੋਗੇ ਕਿ ਸੁਝਾਏ ਚਿੱਤਰ ਨੂੰ ਵਿਕੀਪੀਡੀਆ ਲੇਖ ਵਿੱਚ ਰੱਖਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।</string>

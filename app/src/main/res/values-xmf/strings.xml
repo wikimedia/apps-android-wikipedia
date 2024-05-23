@@ -453,7 +453,7 @@
   <string name="image_recommendation_accept">ქო</string>
   <string name="image_recommendation_reject">ვარი</string>
   <string name="image_recommendation_notsure">ვამაფუ გინოჭყვადილჷ</string>
-  <string name="image_recommendation_reject_title">მუშენ ვარ?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">მუშენ ვარ?</string>
   <string name="image_recommendation_reject_no_info">ვა რე დასაბაღუ ინფორმაცია გინაჭყვიდირალო</string>
   <string name="image_recommendation_reject_offensive">სურათი კუჩხიშ გემადგჷმუ რე</string>
   <string name="image_recommendation_reject_low_quality">სურათი დაბალი ხარისხიშ რე</string>

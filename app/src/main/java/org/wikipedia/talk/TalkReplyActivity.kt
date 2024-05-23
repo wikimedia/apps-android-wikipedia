@@ -186,12 +186,13 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 binding.replySubjectText.setText(it.subject)
                 binding.replyInputView.editText.setText(it.message)
                 shouldWatchText = true
+                setSaveButtonEnabled(true)
             }
         }
 
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, showUserMention = true, isFromDiff = viewModel.isFromDiff)
 
         messagePreviewFragment = supportFragmentManager.findFragmentById(R.id.message_preview_fragment) as EditPreviewFragment
 
@@ -214,7 +215,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun onInitialLoad() {
-        setSaveButtonEnabled(false)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
         binding.learnMoreButton.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
@@ -236,6 +236,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
         shouldWatchText = true
         EditAttemptStepEvent.logInit(viewModel.pageTitle)
+
+        setSaveButtonEnabled(binding.replyInputView.editText.text.isNotEmpty())
 
         if (viewModel.isNewTopic || viewModel.isFromDiff) {
             if (viewModel.isNewTopic) {
@@ -391,7 +393,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         if (messagePreviewFragment.isActive) {
             EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
-            PatrollerExperienceEvent.logAction("publish_message_click", "pt_warning_messages")
+            sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages")
             binding.progressBar.isVisible = true
             setSaveButtonEnabled(false)
             viewModel.postReply(subject, getWikitextBody())
@@ -463,7 +465,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private fun onSaveSuccess(newRevision: Long) {
         AnonymousNotificationHelper.onEditSubmitted()
 
-        PatrollerExperienceEvent.logAction("publish_message_success", "pt_warning_messages",
+        sendPatrollerExperienceEvent("publish_message_success", "pt_warning_messages",
             PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.selectedTemplate != null && subjectOrBodyModified,
                 isSaved = viewModel.talkTemplateSaved, isExample = viewModel.isExampleTemplate, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else null))
 
@@ -560,6 +562,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         invalidateOptionsMenu()
     }
 
+    override fun isNewPage(): Boolean {
+        return !viewModel.doesPageExist
+    }
+
     companion object {
         const val EXTRA_PARENT_SUBJECT = "parentSubject"
         const val EXTRA_TOPIC = "topic"
@@ -606,7 +612,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     .putExtra(EXTRA_EXAMPLE_TEMPLATE, isExampleTemplate)
                     .putExtra(FROM_REVISION_ID, fromRevisionId)
                     .putExtra(TO_REVISION_ID, toRevisionId)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

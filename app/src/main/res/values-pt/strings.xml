@@ -18,6 +18,7 @@
 * Macofe
 * Mansil
 * Mansil alfalb
+* Marinaazev
 * MuratTheTurkish
 * Ngl2016
 * Ruila
@@ -141,6 +142,7 @@
   <string name="langlinks_your_wikipedia_languages">As suas línguas da Wikipédia</string>
   <string name="menu_save_changes">Publicar alterações</string>
   <string name="edit_saved_successfully">Edição publicada!</string>
+  <string name="stub_article_edit_saved_successfully">Edição publicada! As mudanças podem levar algum tempo para aparecer.</string>
   <string name="dialog_message_edit_failed">A edição falhou!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
@@ -183,6 +185,9 @@
   <string name="logged_out_in_background_dialog">A sua sessão na Wikipédia foi terminada. Pretende entrar novamente?</string>
   <string name="logged_out_in_background_login">Entrar</string>
   <string name="logged_out_in_background_cancel">Cancelar</string>
+  <string name="account_vanish_request_title">Desaparecer conta</string>
+  <string name="account_vanish_request_confirm_title">Aviso de desaparecimento de conta</string>
+  <string name="account_vanish_request_confirm">O desaparecimento é um &lt;b&gt;recurso de última instância&lt;/b&gt; que &lt;b&gt;só deve ser usado quando pretende parar de editar para sempre&lt;/b&gt; e ocultar o máximo possível das suas associações anteriores.\n\nA eliminação de contas na Wikipédia é feita alterando o seu nome de utilizador para que as pessoas não possam reconhecer as suas contribuições, num processo chamado desaparecimento de conta. &lt;b&gt;O desaparecimento não garante o anonimato completo nem remove as participações nos projetos&lt;/b&gt;.</string>
   <string name="history_empty_title">Não há artigos vistos recentemente</string>
   <string name="history_empty_message">Acompanhe o que tem estado a ler aqui.</string>
   <string name="history_offline_articles_toast">Alguns artigos do historial podem não ser consultáveis enquanto estiver off-line.</string>
@@ -264,7 +269,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license" fuzzy="true">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
+  <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -328,6 +333,8 @@
   <string name="widget_name_featured_page">Página em destaque na Wikipédia</string>
   <string name="widget_title_featured_page">Página em destaque de hoje:</string>
   <string name="widget_name_search">Pesquisa na Wikipédia</string>
+  <string name="widget_description_search">A maneira mais rápida de pesquisar na Wikipedia</string>
+  <string name="widget_description_featured_page">Os melhores artigos que a Wikipédia tem a oferecer</string>
   <string name="wiktionary_no_definitions_found">Não foram encontradas definições.</string>
   <string name="alpha_update_notification_title">Nova atualização alfa disponível</string>
   <string name="alpha_update_notification_text">Toque para descarregar</string>
@@ -415,6 +422,7 @@
   <string name="link_preview_dialog_save_button">Gravar</string>
   <string name="link_preview_dialog_saved_button">Gravado</string>
   <string name="link_preview_dialog_share_button">Partilhar</string>
+  <string name="link_preview_stub_placeholder_text">Este artigo é um esboço, o que significa que não há conteúdo suficiente no artigo para gerar uma visualização. No entanto, você pode mudar isso.</string>
   <string name="error_page_does_not_exist">Esta página não existe.</string>
   <string name="error_user_page_does_not_exist">A Wikipédia não tem uma &lt;a href=\"%1$s\"&gt;página de utilizador&lt;/a&gt; com este nome exato. Em geral, esta página deve ser criada e editada por &lt;b&gt;%2$s&lt;/b&gt;. Em caso de dúvida verifique que \"%3$s\" existe, por favor.</string>
   <string name="view_wiki_error_message_offline">Não foi possível ligar à Internet</string>
@@ -437,6 +445,7 @@
   <string name="error_blocked_footer">Pode entrar em contacto com &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalizar a sua barra de ferramentas</string>
   <string name="error_blocked_footer_no_blocker">Pode entrar em contacto com um &lt;a href=\"https://pt.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
+  <string name="temp_account_not_logged_in">Não tem sessão iniciada</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
@@ -1081,8 +1090,8 @@
   <string name="image_recommendation_accept">Sim</string>
   <string name="image_recommendation_reject">Não</string>
   <string name="image_recommendation_notsure">Não tenho a certeza</string>
-  <string name="image_recommendation_reject_title">Por que não?</string>
-  <string name="image_recommendation_reject_subtitle">Sua resposta pode melhorar sugestões futuras.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Por que não?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Sua resposta pode melhorar sugestões futuras.</string>
   <string name="image_recommendation_reject_not_relevant">A imagem não é relevante</string>
   <string name="image_recommendation_reject_no_info">Não há informações suficientes para decidir</string>
   <string name="image_recommendation_reject_offensive">A imagem é ofensiva</string>
@@ -1559,8 +1568,6 @@
   <string name="patroller_onboarding_two_thank_content">Viu uma edição produtiva? Agradeça a um utilizador a contribuição.</string>
   <string name="patroller_onboarding_two_watch_title">Vigiar</string>
   <string name="patroller_onboarding_two_watch_content">Quer monitorizar as edições do artigo? Adicione-o às suas páginas vigiadas. Veja-o em \'Mais\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Avisar</string>
-  <string name="patroller_onboarding_two_warn_content">Criar, enviar e armazenar mensagens de aviso na página de discussão de um editor.</string>
   <string name="patroller_onboarding_two_undo_title">Desfazer/Reverter</string>
   <string name="patroller_onboarding_two_undo_content">Escolher \'Desfazer\' para desfazer ou reverter uma edição potencialmente destrutiva.</string>
   <string name="patroller_diff_tooltip_one">\"Danos\" prevê se uma edição causa dano a uma wiki.</string>

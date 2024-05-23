@@ -1088,8 +1088,8 @@
   <string name="image_recommendation_accept">Igen</string>
   <string name="image_recommendation_reject">Nem</string>
   <string name="image_recommendation_notsure">Nem tudom</string>
-  <string name="image_recommendation_reject_title">Miért nem?</string>
-  <string name="image_recommendation_reject_subtitle">A válaszaid javítják a jövőbeli javaslatokat.</string>
+  <string name="image_recommendation_reject_title">A visszautasítás oka</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">A válaszaid javítják a jövőbeli javaslatokat.</string>
   <string name="image_recommendation_reject_not_relevant">A kép nem releváns</string>
   <string name="image_recommendation_reject_no_info">Nincs elég információ a döntéshez</string>
   <string name="image_recommendation_reject_offensive">A kép sértő</string>
@@ -1579,7 +1579,7 @@
   <string name="patroller_onboarding_two_thank_title">Köszönet</string>
   <string name="patroller_onboarding_two_thank_content">Hatékony szerkesztést láttál? Köszönd meg a felhasználó közreműködését!</string>
   <string name="patroller_onboarding_two_watch_title">Lap figyelése</string>
-  <string name="patroller_onboarding_two_warn_title">Figyelmeztetés</string>
+  <string name="patroller_onboarding_two_talk_title">Vitalap</string>
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>
@@ -1617,6 +1617,20 @@
   <string name="donation_campaign_donated_snackbar">Köszönjük, kedves adományozó! Nagylelkűségeddel segíted a Wikipédia és testvéroldalainak fejlődését!</string>
   <string name="donation_campaign_go_back_button">Visszalépés</string>
   <string name="menu_single_webview_open_external">Nyisd meg a rendszerböngészőben!</string>
+  <string name="donate_gpay_dialog_description">Adományozás Google Play-jel vagy más fizetési módokon.</string>
+  <string name="donate_gpay_dialog_pay_button">Adományozás Google Pay-jel</string>
+  <string name="donate_gpay_dialog_other_button">Más fizetési módok</string>
+  <string name="donate_gpay_activity_title">Összeg megadása</string>
+  <string name="donate_gpay_check_transaction_fee">További %s összeget hozzáadok, hogy a tranzakciós díjat átvállalva az adományom 100%%-a kerüljön átutalásra.</string>
+  <string name="donate_gpay_check_recurring">Legyen havonta ismétlődő adomány!</string>
+  <string name="donate_gpay_check_send_email">Igen, a Wikimedia Alapítvány néha küldhet nekem e-mailt.</string>
+  <string name="donate_gpay_minimum_amount">Kérlek válassz a minimum összegnél többet (%s)</string>
+  <string name="donate_gpay_maximum_amount">Az alkalmazáson keresztül sajnos nem tudunk a maximális összegnél (%s) nagyobb adományt fogadni. Kérlek vedd fel velünk a kapcsolatot a benefactors@wikimedia.org e-mail-címen!</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Köszönjük szépen!&lt;/b&gt; A Wikipédia iránti nagylelkűséged sokat jelent számunkra.</string>
+  <string name="donate_gpay_help_problems">Probléma az adományozással?</string>
+  <string name="donate_gpay_help_other_ways">Egyéb adományozási módok</string>
+  <string name="donate_gpay_help_faq">Gyakran ismételt kérdések</string>
+  <string name="donate_gpay_help_tax">Adózással kapcsolatos információk</string>
   <string name="places_title">Helyek</string>
   <string name="places_permissions_denied">Helyadat hozzáférés szükséges a hely térképen történő megjelenítéséhez. Próbáld újra!</string>
   <string name="places_search_hint">Helyek keresése</string>
