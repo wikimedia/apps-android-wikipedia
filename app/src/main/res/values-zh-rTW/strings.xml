@@ -305,6 +305,8 @@
   <string name="edit_summary_tag_links">新增連結</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
+  <string name="edit_summary_added_short_description">已新增簡短描述</string>
+  <string name="edit_summary_updated_short_description">已更新簡短描述</string>
   <string name="edit_conflict_title">編輯衝突</string>
   <string name="edit_conflict_message">頁面已被不同的使用者給變動，並且有與您的編輯產生衝突。請複製您的編輯並返回來重整頁面，然後再重試編輯。</string>
   <string name="edit_notices">編輯說明</string>
