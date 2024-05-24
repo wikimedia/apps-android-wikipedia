@@ -23,6 +23,7 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
         buildRadioButtons(context)
         setPositiveButton(R.string.feed_language_variants_removal_dialog_save) { _, _ ->
             val list = removeNonRegionalLanguageVariants()
+            list.remove(selectedLanguageCode) // Remove the existing one to add it to the top
             list.add(0, selectedLanguageCode)
             WikipediaApp.instance.languageState.setAppLanguageCodes(list)
         }

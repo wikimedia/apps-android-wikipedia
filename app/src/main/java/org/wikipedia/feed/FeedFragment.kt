@@ -346,6 +346,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
         if (deprecatedLanguageCodes.contains(primaryLanguage)) {
              val dialog = RegionalLanguageVariantSelectionDialog(requireContext()).show()
             dialog.setOnDismissListener {
+                // TODO: investigate why this does not work properly
                 refresh()
             }
         } else if (remainingLanguages.any(deprecatedLanguageCodes::contains)) {
