@@ -151,7 +151,7 @@ class NotificationActivity : BaseActivity() {
         super.onResume()
         actionMode?.let {
             postprocessAndDisplay()
-            if (SearchActionModeCallback.`is`(it)) {
+            if (SearchActionModeCallback.matches(it)) {
                 searchActionModeCallback.refreshProvider()
             }
         }
@@ -318,7 +318,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
+        if (SearchActionModeCallback.matches(actionMode)) {
             finishActionMode()
         }
         if (!MultiSelectActionModeCallback.isTagType(actionMode)) {
@@ -582,13 +582,10 @@ class NotificationActivity : BaseActivity() {
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             adjustRefreshViewLayoutParams(true)
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -605,7 +602,7 @@ class NotificationActivity : BaseActivity() {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

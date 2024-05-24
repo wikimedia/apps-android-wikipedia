@@ -21,8 +21,10 @@ import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class AggregatedFeedContentClient {
@@ -165,6 +167,16 @@ class AggregatedFeedContentClient {
                                 onthisday = feedContentResponse.onthisday
                             )
                         }
+                        feedContentResponse.topRead?.let {
+                            val topReadResponse = getPagesForLanguageVariant(it.articles, wikiSite)
+                            feedContentResponse = AggregatedFeedContent(
+                                tfa = feedContentResponse.tfa,
+                                news = feedContentResponse.news,
+                                topRead = TopRead(it.date, topReadResponse),
+                                potd = feedContentResponse.potd,
+                                onthisday = feedContentResponse.onthisday
+                            )
+                        }
                     }
 
                     aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
@@ -196,6 +208,39 @@ class AggregatedFeedContentClient {
                 }
             }
             return newPageSummary
+        }
+
+        private suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite): List<PageSummary> {
+            val newList = mutableListOf<PageSummary>()
+            withContext(Dispatchers.IO) {
+                val titles = list.joinToString(separator = "|") { it.apiTitle }
+                // First, get the correct description from Wikidata directly.
+                val wikiDataResponse = async {
+                    ServiceFactory.get(Constants.wikidataWikiSite)
+                        .getWikidataDescription(titles = titles, sites = wikiSite.dbName(), langCode = wikiSite.languageCode)
+                }
+                // Second, fetch varianttitles from prop=info endpoint.
+                val mwQueryResponse = async {
+                    ServiceFactory.get(wikiSite).getVariantTitlesByTitles(titles)
+                }
+
+                list.forEach { pageSummary ->
+                    // Find the correct display title from the varianttitles map, and insert the new page summary to the list.
+                    val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
+                    val newPageSummary = pageSummary.apply {
+                        val newDisplayTitle = displayTitle ?: pageSummary.displayTitle
+                        this.titles = PageSummary.Titles(
+                            canonical = pageSummary.apiTitle,
+                            display = newDisplayTitle
+                        )
+                        this.description = wikiDataResponse.await().entities.values.firstOrNull {
+                            it.labels[wikiSite.languageCode]?.value == newDisplayTitle
+                        }?.descriptions?.get(wikiSite.languageCode)?.value ?: pageSummary.description
+                    }
+                    newList.add(newPageSummary)
+                }
+            }
+            return newList
         }
     }
 }

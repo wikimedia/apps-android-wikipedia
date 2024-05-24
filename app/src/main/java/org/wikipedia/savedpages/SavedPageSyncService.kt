@@ -291,7 +291,7 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     private fun persistPageThumbnail(title: PageTitle, url: String) {
-        AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(title, url))
+        AppDatabase.instance.pageImagesDao().insertPageImageSync(PageImage(title, url))
     }
 
     private fun isRetryable(t: Throwable): Boolean {

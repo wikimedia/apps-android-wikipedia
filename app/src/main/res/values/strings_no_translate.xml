@@ -19,6 +19,8 @@
     <string name="donate_other_ways_url">https://donate.wikimedia.org/wiki/Special:LandingCheck?landing_page=Ways_to_Give&amp;basic=true</string>
     <string name="donate_faq_url">https://donate.wikimedia.org/wiki/Special:LandingCheck?landing_page=FAQ&amp;basic=true</string>
     <string name="donate_tax_url">https://donate.wikimedia.org/wiki/Special:LandingCheck?landing_page=Tax_deductibility&amp;basic=true</string>
+    <string name="donate_email">donate@wikimedia.org</string>
+    <string name="donor_privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Donor_privacy_policy</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
