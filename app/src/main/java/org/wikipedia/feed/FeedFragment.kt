@@ -183,7 +183,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
         binding.emptyContainer.visibility = View.GONE
         coordinator.reset()
         feedAdapter.notifyDataSetChanged()
-        coordinator.more(app.wikiSite)
+        WikipediaApp.instance.resetWikiSite()
+        coordinator.more(WikipediaApp.instance.wikiSite)
     }
 
     fun updateHiddenCards() {
