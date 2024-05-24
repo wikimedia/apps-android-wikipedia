@@ -285,6 +285,8 @@
   <string name="edit_summary_tag_links">Додати линкови</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
+  <string name="edit_summary_added_short_description">Додат кратак опис</string>
+  <string name="edit_summary_updated_short_description">Ажуриран кратак опис</string>
   <string name="edit_conflict_title">Сукоб измена</string>
   <string name="edit_conflict_message">Дошло је до сукоба измена јер је други корисник већ изменио страницу. Копирајте своје измене, вратите се и освежите страницу, па покушајте поново.</string>
   <string name="edit_notices">Обавештење о чланку</string>
@@ -826,6 +828,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_accessibility_card_text">Дошли сте до краја фида.</string>
   <string name="feed_accessibility_card_load_more_button">Учитај још</string>
+  <string name="feed_language_variants_removal_dialog_save">Сачувај</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Подешавања</string>
   <string name="top_read_activity_title">Најчитаније на %s</string>
   <string name="tabs_activity_title">Језичци</string>
   <string name="description_edit_text_hint">Опис чланка</string>
@@ -1115,6 +1119,7 @@
   <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
   <string name="onboarding_data_privacy_title">Подаци &amp; приватност</string>
+  <string name="onboarding_data_privacy_text">Ми верујемо да не морате одавати личне информације да би учествовали у покрету за слободно знање. Подаци о употреби ове апликације се прикупљају анонимно. Сазнајте више о нашој &lt;a href=\"#privacy\"&gt;политици приватности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условима коришћења&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
@@ -1601,6 +1606,8 @@
   <string name="donate_gpay_help_faq">Често постављана питања</string>
   <string name="donate_gpay_help_tax">Подаци о пореским олакшицама</string>
   <string name="places_title">Места</string>
+  <string name="places_search_hint">Претражи места</string>
+  <string name="places_filter_title">Филтрирај по језику</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>
   <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>

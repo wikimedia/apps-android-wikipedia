@@ -318,6 +318,8 @@
   <string name="edit_summary_tag_links">Aggiunti collegamenti</string>
   <string name="edit_summary_tag_other">Altro</string>
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
+  <string name="edit_summary_added_short_description">Aggiunta descrizione breve</string>
+  <string name="edit_summary_updated_short_description">Aggiornata descrizione breve</string>
   <string name="edit_conflict_title">Conflitto di edizione</string>
   <string name="edit_conflict_message">La pagina è già stata modificata da un altro utente ed è in conflitto con la tua modifica. Copia le modifiche, torna indietro e aggiorna la pagina, quindi prova a modificare di nuovo.</string>
   <string name="edit_notices">Avvisi per le modifiche</string>
@@ -849,6 +851,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="feed_accessibility_card_text">Hai raggiunto la fine del feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carica di più</string>
+  <string name="feed_language_variants_removal_dialog_title">Seleziona una variante linguistica regionale per un\'esperienza di lettura migliore</string>
+  <string name="feed_language_variants_removal_dialog_message">Al momento stai utilizzando una variante generica della lingua cinese non supportata come lingua principale di Wikipedia</string>
+  <string name="feed_language_variants_removal_dialog_save">Salva</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Aggiorna le tue lingue secondarie</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Al momento stai utilizzando una variante generica della lingua cinese non supportata come lingua secondaria. Vai alle impostazioni per selezionare una nuova lingua secondaria o per confermare l\'elenco delle lingue.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Vai alle impostazioni</string>
   <string name="top_read_activity_title">Tendenze del %s</string>
   <string name="tabs_activity_title">Schede</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
