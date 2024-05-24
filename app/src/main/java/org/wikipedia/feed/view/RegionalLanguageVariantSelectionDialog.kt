@@ -2,7 +2,9 @@ package org.wikipedia.feed.view
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.children
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -18,7 +20,6 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
     init {
         setView(binding.root)
         setCancelable(false)
-        setPositiveButtonEnabled(false)
         buildRadioButtons(context)
         setPositiveButton(R.string.feed_language_variants_removal_dialog_save) { _, _ ->
             val list = removeNonRegionalLanguageVariants()
@@ -29,20 +30,31 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
 
     override fun show(): AlertDialog {
         dialog = super.show()
+        setPositiveButtonEnabled(false)
         return dialog!!
     }
 
     private fun buildRadioButtons(context: Context) {
         regionalLanguageVariants.forEach { languageCode ->
             val radioButtonBinding = ItemLanguageVariantSelectionBinding.inflate(LayoutInflater.from(context))
+            radioButtonBinding.root.tag = languageCode
             radioButtonBinding.radioButtonTitle.text = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode)
             radioButtonBinding.radioButtonDescription.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
             radioButtonBinding.radioButton.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
+                    selectedLanguageCode = languageCode
                     setPositiveButtonEnabled(true)
+                    clearCheckedButtons()
                 }
             }
             binding.radioGroup.addView(radioButtonBinding.root)
+        }
+    }
+
+    private fun clearCheckedButtons() {
+        binding.radioGroup.children.iterator().forEach {
+            val radioButton = it.findViewById<RadioButton>(R.id.radioButton)
+            radioButton.isChecked = selectedLanguageCode == it.tag
         }
     }
 
