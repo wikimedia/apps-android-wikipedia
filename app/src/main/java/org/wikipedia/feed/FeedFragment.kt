@@ -134,6 +134,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
     override fun onResume() {
         super.onResume()
+        maybeShowRegionalLanguageVariantDialog()
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices. (TODO: investigate further)
@@ -343,13 +344,15 @@ class FeedFragment : Fragment(), BackPressedHandler {
             remove(primaryLanguage)
         }
         if (deprecatedLanguageCodes.contains(primaryLanguage)) {
-            RegionalLanguageVariantSelectionDialog(requireContext()).show()
+             RegionalLanguageVariantSelectionDialog(requireContext()).show()
         } else if (remainingLanguages.any(deprecatedLanguageCodes::contains)) {
             MaterialAlertDialogBuilder(requireContext())
                 .setCancelable(false)
                 .setTitle(R.string.feed_language_variants_removal_secondary_dialog_title)
                 .setMessage(R.string.feed_language_variants_removal_secondary_dialog_message)
                 .setPositiveButton(R.string.feed_language_variants_removal_secondary_dialog_settings) { _, _ ->
+                    val list = RegionalLanguageVariantSelectionDialog.removeNonRegionalLanguageVariants()
+                    WikipediaApp.instance.languageState.setAppLanguageCodes(list)
                     showLanguagesActivity(InvokeSource.FEED)
                 }
                 .show()
