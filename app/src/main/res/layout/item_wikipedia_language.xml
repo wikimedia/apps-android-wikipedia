@@ -47,6 +47,7 @@
         android:layout_weight="1"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
+        android:gravity="center_vertical"
         tools:text="Lorem ipsum" />
 
     <ImageView
