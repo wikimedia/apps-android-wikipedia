@@ -347,7 +347,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
         if (deprecatedLanguageCodes.contains(primaryLanguage)) {
              val dialog = RegionalLanguageVariantSelectionDialog(requireContext()).show()
             dialog.setOnDismissListener {
-                // TODO: investigate why this does not work properly
                 refresh()
             }
         } else if (remainingLanguages.any(deprecatedLanguageCodes::contains)) {
@@ -358,6 +357,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
                 .setPositiveButton(R.string.feed_language_variants_removal_secondary_dialog_settings) { _, _ ->
                     val list = RegionalLanguageVariantSelectionDialog.removeNonRegionalLanguageVariants()
                     WikipediaApp.instance.languageState.setAppLanguageCodes(list)
+                    refresh()
                     showLanguagesActivity(InvokeSource.FEED)
                 }
                 .show()
