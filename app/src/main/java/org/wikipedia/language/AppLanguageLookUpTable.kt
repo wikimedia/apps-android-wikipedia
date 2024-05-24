@@ -2,7 +2,6 @@ package org.wikipedia.language
 
 import android.content.Context
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import java.util.Locale
 
 class AppLanguageLookUpTable(context: Context) {
