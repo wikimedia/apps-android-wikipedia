@@ -41,6 +41,7 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
             radioButtonBinding.root.tag = languageCode
             radioButtonBinding.radioButtonTitle.text = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode)
             radioButtonBinding.radioButtonDescription.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
+            radioButtonBinding.root.setOnClickListener { radioButtonBinding.radioButton.isChecked = true }
             radioButtonBinding.radioButton.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     selectedLanguageCode = languageCode
