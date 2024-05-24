@@ -344,7 +344,10 @@ class FeedFragment : Fragment(), BackPressedHandler {
             remove(primaryLanguage)
         }
         if (deprecatedLanguageCodes.contains(primaryLanguage)) {
-             RegionalLanguageVariantSelectionDialog(requireContext()).show()
+             val dialog = RegionalLanguageVariantSelectionDialog(requireContext()).show()
+            dialog.setOnDismissListener {
+                refresh()
+            }
         } else if (remainingLanguages.any(deprecatedLanguageCodes::contains)) {
             MaterialAlertDialogBuilder(requireContext())
                 .setCancelable(false)
