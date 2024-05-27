@@ -1,6 +1,0 @@
-- Sostanziali miglioramenti all'UI elenchi di lettura
-- È ora possibile selezionare più di un articolo degli elenchi di lettura
-- Gli articoli dei singoli elenchi d lettura possono ora essere attivati o disattivati.
-- Le immagini sono ora memorizzate nella cache per la disponibilità offline
-- Il feed casuale ora estrae un articolo casuale dagli elenchi di lettura dell'utente quando è offline
-- Molte altre correzioni di errori e aggiornamenti dell'interfaccia utente

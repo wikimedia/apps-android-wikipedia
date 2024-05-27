@@ -1,6 +1,0 @@
-- Irakurketa zerrendaren interfazean hobekuntzak
- - Hainbat irakurketa zerrenda aldi berean aukeratu daitezke orain
- - Irakurketa zerrendako artikuluak banaka ezarri daitezke lineaz kanpo irakurtzeko
- - Irudiak orain lineaz kanpo cacheatzen dira
- - Ausazko jarioak irakurketa zerrendako artikulu bat hartzen du lineaz kanpo zaudenean
- - Akatsen konponketak eta interfazean hobekuntzak

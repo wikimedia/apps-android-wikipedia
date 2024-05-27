@@ -1,6 +1,0 @@
-- gravaj plibonigoj por uzant-interfaco de leg-listoj
-- povas elekti plurajn listojn de artikoloj per unufoje
-- povas baskuli ĉiun liston de artikoloj ekster-/en-rete
-- bildoj estas kaŝmemorigataj por esti disponeblaj eksterrete
-- langeto de hazarda abonfluo nun elŝutas hazardan artikolon de leg-listoj de uzanto kiam eksterrete
-- multaj aliaj erar-riparoj kaj plibonigoj

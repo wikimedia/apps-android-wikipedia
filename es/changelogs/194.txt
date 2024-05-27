@@ -1,6 +1,0 @@
-- Mejoras sustanciales al interfaz de las listas de lectura. Ahora…
-- Se pueden seleccionar a la vez múltiples artículos de lista de lectura
-- Los artículos de lista de lectura se puede conectar/desconectar individualmente
-- Las imágenes se almacenan en caché para disponibilidad sin conexión
-- La tarjeta de alimentación aleatoria extrae un artículo aleatorio de las listas de lectura del usuario cuando está offline
-- Muchas otras correcciones de errores y actualizaciones de la interfaz

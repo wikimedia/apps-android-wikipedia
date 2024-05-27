@@ -1,6 +1,0 @@
-- Melhorias substanciais na interface de leitura
- - Vários artigos da lista de leitura agora podem ser selecionados de uma só vez
- - Agora, os artigos da lista de leitura individual podem ser alternados on / offline.
- - As imagens agora são armazenadas em cache para disponibilidade offline
- - A placa de alimentação aleatória agora puxa um artigo aleatório das listas de leitura do utilizador quando estiver offline
- - Muitas outras correções de bugs e atualizações da interface do utilizador

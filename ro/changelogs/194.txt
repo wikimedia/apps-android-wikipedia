@@ -1,6 +1,0 @@
-- Îmbunătățiri substanțiale la lista de citire UI
-- Mai multe articole din lista de citire pot fi selectate deodată
-- Articolele individuale din lista de citire pot fi acum activate/dezactivate.
-- Imaginile sunt acum stocate în memoria cache pentru disponibilitatea offline
-- Cardul de alimentare aleatorie extrage acum un articol aleatoriu din listele de citire ale utilizatorului atunci când este offline
-- Multe alte corecturi de erori și actualizări UI

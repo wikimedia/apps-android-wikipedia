@@ -1,6 +1,0 @@
-- Melhorias substanciais na interface do usuário das listas de leitura
-- Vários artigos da lista de leitura agora podem ser selecionados de uma só vez
-- Os artigos individuais da lista de leitura agora podem ser ativados/offline.
-- As imagens agora são armazenadas em cache para disponibilidade off-line
-- Aleatório o cartão de feed agora extrai um artigo aleatório das listas de leitura do usuário quando está off-line
-- Muitas outras correções de bugs e atualizações de interface do usuário

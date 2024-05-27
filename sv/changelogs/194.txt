@@ -1,6 +1,0 @@
-- Väsentliga förbättringar i användargränssnittet för läslistor
-- Flera artiklar från läslistor kan nu väljas samtidigt
-- Individuella artiklar från läslistor kan nu växlas upp-/frånkopplade.
-- Bilder cachas nu för frånkopplad tillgänglighet
-- Slumpmässig kanalkort hämtar nu en slumpmässig artikel från användarens läslistor då frånkopplad
-- Många andra programfixar och användargränssnittsuppdateringar

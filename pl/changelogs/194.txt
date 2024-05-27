@@ -1,6 +1,0 @@
-- Istotne ulepszenia interfejsu użytkownika list do czytania 
-- Można teraz wybrać wiele artykułów z listy do czytania jednocześnie 
-- Poszczególne artykuły z listy do czytania można teraz przełączać na /offline.
-- Obrazy są teraz buforowane w celu dostępności w trybie offline 
-- Losowo karta danych pobiera teraz losowy artykuł z list czytelniczych użytkownika w trybie offline 
-- Wiele innych poprawek błędów i aktualizacji interfejsu użytkownika

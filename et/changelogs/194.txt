@@ -1,6 +1,0 @@
-- Olulised täiendused loendite lugemise liidesele
- - Lugemisloendist saab nüüd valida korraga mitu artiklit
- - Artiklite valimine lugemisloendites võrguühendusega või ilma
- - Piltide puhverdamine ühenduseta režiimiks
- - Võrguühenduse puudumisel valib juhusliku voo kaart juhusliku artikli kasutaja lugemisloendist
- - Mitmed muud veaparandused ja liidese täiustused
