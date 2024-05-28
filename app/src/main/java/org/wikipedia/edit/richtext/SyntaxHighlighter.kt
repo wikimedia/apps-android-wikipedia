@@ -8,7 +8,6 @@ import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 import org.wikipedia.edit.SyntaxHighlightableEditText
 import org.wikipedia.util.log.L
 import java.util.*
@@ -40,6 +39,7 @@ class SyntaxHighlighter(
             SyntaxRule("==", "==", SyntaxRuleStyle.HEADING_LARGE),
     )
 
+    private var currentHighlightJob: Job? = null
     private var lastScrollY = -1
     private var searchQueryPositions: List<Int>? = null
     private var searchQueryLength = 0
@@ -49,10 +49,11 @@ class SyntaxHighlighter(
         set(value) {
             field = value
             if (!value) {
+                currentHighlightJob?.cancel()
                 textBox.text.getSpans<SpanExtents>().forEach { textBox.text.removeSpan(it) }
             } else {
                 activity.lifecycleScope.launch {
-                    runHighlightTasks(highlightDelayMillis)
+                    performHighlight(highlightDelayMillis)
                 }
             }
         }
@@ -60,7 +61,7 @@ class SyntaxHighlighter(
     init {
         textBox.doAfterTextChanged {
             activity.lifecycleScope.launch {
-                runHighlightTasks(highlightDelayMillis * 2)
+                performHighlight(highlightDelayMillis * 2)
             }
         }
         textBox.scrollView = scrollView
@@ -69,64 +70,69 @@ class SyntaxHighlighter(
         }
     }
 
+    private fun performHighlight(delayMillis: Long = 0) {
+        currentHighlightJob?.cancel()
+        currentHighlightJob = activity.lifecycleScope.launch {
+            runHighlightTasks(delayMillis)
+        }
+    }
+
     private suspend fun runHighlightTasks(delayMillis: Long) {
         if (!enabled) {
             return
         }
         delay(delayMillis)
-        flow {
-            val layout = textBox.layout!!
-            val maxLast = layout.lineCount - 1
 
-            val firstVisibleLine = scrollView?.let { layout.getLineForVertical(it.scrollY) } ?: 0
-            val lastVisibleLine = scrollView?.let {
-                layout.getLineForVertical(it.scrollY + it.height)
-                    .coerceIn(firstVisibleLine, maxLast)
-            } ?: maxLast
-
-            val firstVisibleIndex = layout.getLineStart(firstVisibleLine)
-            val lastVisibleIndex = layout.getLineEnd(lastVisibleLine)
-            val textToHighlight = textBox.text.substring(firstVisibleIndex, lastVisibleIndex)
-
-            val list = coroutineScope {
-                listOf(
-                    async { getHighlightSpans(textToHighlight, firstVisibleIndex) },
-                    async { getSyntaxMatches(firstVisibleIndex, textToHighlight.length) },
-                ).awaitAll().flatten()
-            }
-            emit(list)
+        while (textBox.layout == null) {
+            delay(HIGHLIGHT_DELAY_MILLIS)
         }
-            .retry(10)
-            .flowOn(Dispatchers.Default)
-            .catch { L.e(it) }
-            .collectLatest { result ->
-                textBox.enqueueNoScrollingLayoutChange()
 
-                var time = System.currentTimeMillis()
-                val oldSpans = textBox.text.getSpans<SpanExtents>().toMutableList()
-                val newSpans = result.toMutableList()
+        val layout = textBox.layout!!
+        val maxLast = layout.lineCount - 1
 
-                val dupes = oldSpans.filter { item ->
-                    val r = result.find {
-                        it.start == textBox.text.getSpanStart(item) &&
-                                it.end == textBox.text.getSpanEnd(item) &&
-                                it.syntaxRule == item.syntaxRule
-                    }
-                    if (r != null) {
-                        newSpans.remove(r)
-                    }
-                    r != null
-                }
-                oldSpans.removeAll(dupes)
+        val firstVisibleLine = scrollView?.let { layout.getLineForVertical(it.scrollY) } ?: 0
+        val lastVisibleLine = scrollView?.let {
+            layout.getLineForVertical(it.scrollY + it.height)
+                .coerceIn(firstVisibleLine, maxLast)
+        } ?: maxLast
 
-                oldSpans.forEach { textBox.text.removeSpan(it) }
-                newSpans.forEach {
-                    textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-                }
+        val firstVisibleIndex = layout.getLineStart(firstVisibleLine)
+        val lastVisibleIndex = layout.getLineEnd(lastVisibleLine)
+        val textToHighlight = textBox.text.substring(firstVisibleIndex, lastVisibleIndex)
 
-                time = System.currentTimeMillis() - time
-                L.d("Took $time ms to remove ${oldSpans.size} spans and add ${newSpans.size} new.")
+        val result = withContext(Dispatchers.Default) {
+            listOf(
+                async { getHighlightSpans(textToHighlight, firstVisibleIndex) },
+                async { getSyntaxMatches(firstVisibleIndex, textToHighlight.length) },
+            ).awaitAll().flatten()
+        }
+
+        textBox.enqueueNoScrollingLayoutChange()
+
+        var time = System.currentTimeMillis()
+        val oldSpans = textBox.text.getSpans<SpanExtents>().toMutableList()
+        val newSpans = result.toMutableList()
+
+        val dupes = oldSpans.filter { item ->
+            val r = result.find {
+                it.start == textBox.text.getSpanStart(item) &&
+                        it.end == textBox.text.getSpanEnd(item) &&
+                        it.syntaxRule == item.syntaxRule
             }
+            if (r != null) {
+                newSpans.remove(r)
+            }
+            r != null
+        }
+        oldSpans.removeAll(dupes)
+
+        oldSpans.forEach { textBox.text.removeSpan(it) }
+        newSpans.forEach {
+            textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+        }
+
+        time = System.currentTimeMillis() - time
+        L.d("Took $time ms to remove ${oldSpans.size} spans and add ${newSpans.size} new.")
     }
 
     private fun getHighlightSpans(text: CharSequence, startOffset: Int): List<SpanExtents> {
@@ -225,7 +231,7 @@ class SyntaxHighlighter(
         this.searchQueryLength = searchQueryLength
         this.searchQueryPositionIndex = searchQueryPositionIndex
         activity.lifecycleScope.launch {
-            runHighlightTasks(0)
+            performHighlight()
         }
     }
 
@@ -241,7 +247,7 @@ class SyntaxHighlighter(
         scrollView?.let {
             if (lastScrollY != it.scrollY) {
                 lastScrollY = it.scrollY
-                runHighlightTasks(0)
+                performHighlight()
             }
             delay(highlightDelayMillis)
             highlightOnScroll()
