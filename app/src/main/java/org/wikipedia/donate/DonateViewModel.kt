@@ -7,6 +7,8 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.util.GeoUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 
 class DonateViewModel : ViewModel() {
@@ -19,7 +21,14 @@ class DonateViewModel : ViewModel() {
         }) {
             _uiState.value = Resource.Loading()
 
-            _uiState.value = Resource.Success(GooglePayComponent.isGooglePayAvailable(activity))
+            val isGooglePayAvailable = GooglePayComponent.isGooglePayAvailable(activity) &&
+                    (ReleaseUtil.isPreProdRelease || ALLOWED_COUNTRIES.contains(GeoUtil.geoIPCountry.orEmpty())) // TODO: remove when ready
+
+            _uiState.value = Resource.Success(isGooglePayAvailable)
         }
+    }
+
+    companion object {
+        private val ALLOWED_COUNTRIES = listOf("JP")
     }
 }
