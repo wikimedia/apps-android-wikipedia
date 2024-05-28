@@ -9,12 +9,12 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -25,7 +25,6 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 
 class LongPressMenu(
-    private val coroutineScope: CoroutineScope,
     private val anchorView: View,
     private val existsInAnyList: Boolean = true,
     private var menuRes: Int = R.menu.menu_long_press,
@@ -45,7 +44,7 @@ class LongPressMenu(
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
-            coroutineScope.launch {
+            anchorView.coroutineScope().launch {
                 listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
                         AppDatabase.instance.readingListPageDao().getAllPageOccurrences(it.title)
                     )

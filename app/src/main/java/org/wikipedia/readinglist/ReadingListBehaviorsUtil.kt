@@ -292,10 +292,10 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun addToDefaultList(activity: AppCompatActivity, title: PageTitle, addToDefault: Boolean, invokeSource: InvokeSource, listener: DialogInterface.OnDismissListener? = null) {
+    fun addToDefaultList(activity: Activity, title: PageTitle, addToDefault: Boolean, invokeSource: InvokeSource, listener: DialogInterface.OnDismissListener? = null) {
         if (addToDefault) {
             // If the title is a redirect, resolve it before saving to the reading list.
-            activity.lifecycleScope.launch(exceptionHandler) {
+            (activity as AppCompatActivity).lifecycleScope.launch(exceptionHandler) {
                 var finalPageTitle = title
                 try {
                     ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
