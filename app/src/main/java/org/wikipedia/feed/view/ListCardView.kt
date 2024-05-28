@@ -9,7 +9,6 @@ import org.wikipedia.databinding.ViewListCardBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.views.DrawableItemDecoration
 
-@Suppress("LeakingThis")
 abstract class ListCardView<T : Card?>(context: Context) : DefaultFeedCardView<T>(context) {
     interface Callback {
         fun onFooterClick(card: Card)
