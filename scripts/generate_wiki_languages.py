@@ -17,11 +17,15 @@ QUERY_LANGLIST = 'https://www.mediawiki.org/w/api.php?action=query&format=json' 
 QUERY_ALLUSERS = '/w/api.php?action=query&format=json&formatversion=2&list=allusers' \
     '&aulimit=50&auactiveusers=1&auwitheditsonly=1'
 
+QUERY_LANG_VARIANTS = 'https://www.mediawiki.org/w/api.php?action=query&format=json' \
+    '&meta=languageinfo&formatversion=2&liprop=variantnames&licode='
+
 lang_keys = []
 lang_bcp47_keys = []
 lang_local_names = []
 lang_eng_names = []
 lang_variants = []
+lang_variantnames = []
 lang_rank = []
 
 
@@ -108,9 +112,17 @@ for key, value in data[u"sitematrix"].items():
             en_lang_name = ""
             variant_bcp47 = variant
 
+            lang_variantnames = json.loads(requests.get(QUERY_LANG_VARIANTS + variant).text)
+            language_info = lang_variantnames[u"query"][u"languageinfo"]
+            variantname = name[u"name"]
+
+            if len(language_info) > 0:
+                variantname = language_info.get(variant)[u"variantnames"].get(variant)
+                print ("Variant code to localname " + variant + ": " + variantname)
+
             for name in lang_list_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
-                    variant_lang_name = name[u"name"]
+                    variant_lang_name = variantname
                     variant_bcp47 = name[u"bcp47"]
                     break
 
