@@ -4,10 +4,10 @@
     android:installLocation="auto"
     tools:node="strict">
     <!--
-    If the build is intended to be Google Play-updateable, the package name
+    If the build is intended to be Google Play-updatable, the package name
     should be the same as for Google Play (name depends on Beta or Stable).
-    Otherwise, if the build is not intended to be Google Play-updateable (e.g.,
-    updateable via an alternative appstore update mechanism), the package name
+    Otherwise, if the build is not intended to be Google Play-updatable (e.g.,
+    updatable via an alternative appstore update mechanism), the package name
     should be specific to the update mechanism channel.
     -->
 
