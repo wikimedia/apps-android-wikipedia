@@ -6,7 +6,6 @@ import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardOnThisDayBinding
@@ -137,12 +136,12 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                             }
 
                             override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                                ReadingListBehaviorsUtil.addToDefaultList(context as AppCompatActivity, entry.title, addToDefault, InvokeSource.ON_THIS_DAY_CARD_BODY)
+                                ReadingListBehaviorsUtil.addToDefaultList(context as Activity, entry.title, addToDefault, InvokeSource.ON_THIS_DAY_CARD_BODY)
                             }
 
                             override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                                 page?.let {
-                                    ReadingListBehaviorsUtil.moveToList(context as AppCompatActivity, page.listId, entry.title, InvokeSource.ON_THIS_DAY_CARD_BODY)
+                                    ReadingListBehaviorsUtil.moveToList(context as Activity, page.listId, entry.title, InvokeSource.ON_THIS_DAY_CARD_BODY)
                                 }
                             }
                         }).show(entry)

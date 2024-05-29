@@ -5,10 +5,9 @@ import android.os.Parcelable
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -16,7 +15,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -25,9 +23,10 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.util.*
 
-class SuggestedEditsFeedClient : FeedClient {
+class SuggestedEditsFeedClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
 
     fun interface ClientCallback {
         fun onComplete(suggestedEditsSummary: SuggestedEditsSummary?, imageTagPage: MwQueryPage?)
@@ -51,20 +50,16 @@ class SuggestedEditsFeedClient : FeedClient {
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
             // Suggested Edits feature is paused or disabled, the next time the feed is refreshed.
-            CoroutineScope(Dispatchers.Main).launch {
-                withContext(Dispatchers.IO) {
-                    try {
-                        UserContribStats.verifyEditCountsAndPauseState()
-                    } catch (e: Exception) {
-                        // Log the exception; will retry next time the feed is refreshed.
-                        L.e(e)
-                    }
-                }
+            coroutineScope.launch(CoroutineExceptionHandler { _, caught ->
+                // Log the exception; will retry next time the feed is refreshed.
+                L.e(caught)
+            }) {
+                UserContribStats.verifyEditCountsAndPauseState()
             }
         }
 
         if (UserContribStats.isDisabled() || UserContribStats.maybePauseAndGetEndDate() != null) {
-            FeedCoordinator.postCardsToCallback(cb, Collections.emptyList())
+            cb.success(emptyList())
             return
         }
 
@@ -72,7 +67,7 @@ class SuggestedEditsFeedClient : FeedClient {
         getCardTypeAndData(DescriptionEditActivity.Action.ADD_DESCRIPTION) { descriptionSummary, _ ->
             getCardTypeAndData(DescriptionEditActivity.Action.ADD_CAPTION) { captionSummary, _ ->
                 getCardTypeAndData(DescriptionEditActivity.Action.ADD_IMAGE_TAGS) { _, imageTagsPage ->
-                    FeedCoordinator.postCardsToCallback(cb,
+                    cb.success(
                         listOf(
                             SuggestedEditsCard(
                                 listOf(descriptionSummary!!, captionSummary!!),

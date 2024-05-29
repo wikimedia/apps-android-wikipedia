@@ -40,8 +40,10 @@ class TopReadFragment : Fragment() {
 
         val card = viewModel.card
 
-        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        appCompatActivity.supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+        (requireActivity() as AppCompatActivity).run {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+        }
 
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
 
@@ -57,8 +59,6 @@ class TopReadFragment : Fragment() {
         _binding = null
         super.onDestroyView()
     }
-
-    private val appCompatActivity get() = requireActivity() as AppCompatActivity
 
     private class RecyclerAdapter constructor(items: List<TopReadItemCard>, private val callback: Callback) :
         DefaultRecyclerAdapter<TopReadItemCard, ListCardItemView>(items) {
