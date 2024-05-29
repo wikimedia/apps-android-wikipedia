@@ -4,6 +4,10 @@ import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -13,7 +17,8 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.net.HttpURLConnection
-import java.util.*
+import java.util.Random
+import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 
 object EventPlatformClient {
@@ -159,39 +164,38 @@ object EventPlatformClient {
             }
         }
 
-        @SuppressLint("CheckResult")
         private fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
-            (if (ReleaseUtil.isDevRelease)
-                ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
-            else
-                ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events))
-                    .subscribeOn(Schedulers.io())
-                    .subscribe({
-                        when (it.code()) {
-                            HttpURLConnection.HTTP_CREATED,
-                            HttpURLConnection.HTTP_ACCEPTED -> {}
-                            else -> {
-                                // Received successful response, but unexpected HTTP code.
-                                // TODO: queue up to retry?
-                            }
-                        }
-                    }) {
-                        L.e(it)
-                        if (it is HttpStatusException) {
-                            if (it.code >= HttpURLConnection.HTTP_INTERNAL_ERROR) {
-                                // TODO: For errors >= 500, queue up to retry?
-                            } else {
-                                // Something unexpected happened.
-                                if (ReleaseUtil.isDevRelease) {
-                                    // If it's a pre-beta release, show a loud toast to signal that
-                                    // a potential issue should be investigated.
-                                    WikipediaApp.instance.mainThreadHandler.post {
-                                        Toast.makeText(WikipediaApp.instance, it.message, Toast.LENGTH_LONG).show()
-                                    }
-                                }
+            if (!WikipediaApp.instance.isOnline) {
+                return
+            }
+            CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, caught ->
+                L.e(caught)
+                if (caught is HttpStatusException) {
+                    if (caught.code >= HttpURLConnection.HTTP_INTERNAL_ERROR) {
+                        // TODO: For errors >= 500, queue up to retry?
+                    } else {
+                        // Something unexpected happened.
+                        if (ReleaseUtil.isDevRelease) {
+                            // If it's a pre-beta release, show a loud toast to signal that
+                            // a potential issue should be investigated.
+                            WikipediaApp.instance.mainThreadHandler.post {
+                                Toast.makeText(WikipediaApp.instance, caught.message, Toast.LENGTH_LONG).show()
                             }
                         }
                     }
+                }
+            }) {
+                val eventService = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events) else
+                    ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events)
+                when (eventService.code()) {
+                    HttpURLConnection.HTTP_CREATED,
+                    HttpURLConnection.HTTP_ACCEPTED -> {}
+                    else -> {
+                        // Received successful response, but unexpected HTTP code.
+                        // TODO: queue up to retry?
+                    }
+                }
+            }
         }
     }
 
