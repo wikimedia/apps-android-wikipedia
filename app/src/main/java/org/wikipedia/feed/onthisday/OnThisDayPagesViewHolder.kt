@@ -1,12 +1,11 @@
 package org.wikipedia.feed.onthisday
 
-import android.app.Activity
 import android.app.ActivityOptions
 import android.net.Uri
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.fragment.app.FragmentManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -26,8 +25,7 @@ import org.wikipedia.util.TransitionUtil
 import org.wikipedia.views.FaceAndColorDetectImageView
 
 class OnThisDayPagesViewHolder(
-    private val activity: Activity,
-    private val fragmentManager: FragmentManager,
+    private val activity: AppCompatActivity,
     v: View,
     private val wiki: WikiSite
 ) : RecyclerView.ViewHolder(v) {

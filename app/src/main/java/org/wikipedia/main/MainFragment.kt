@@ -24,6 +24,7 @@ import androidx.core.view.descendants
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -376,7 +377,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             if (!isAdded) {
                 return@ImagePipelineBitmapGetter
             }
-            ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
+            ShareUtil.shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
                 ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
         }
     }

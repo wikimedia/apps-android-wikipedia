@@ -224,7 +224,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
         if (bitmap != null) {
             item.mediaInfo?.let {
-                ShareUtil.shareImage(this, bitmap,
+                ShareUtil.shareImage(lifecycleScope, this, bitmap,
                     File(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)).name, subject, title.uri)
             }
         } else {
