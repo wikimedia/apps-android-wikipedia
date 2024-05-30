@@ -275,6 +275,8 @@
   <string name="edit_summary_tag_links">Ligamines addite</string>
   <string name="edit_summary_tag_other">Altere</string>
   <string name="edit_summary_tag_other_hint">Altere manieras del quales tu ha meliorate iste pagina</string>
+  <string name="edit_summary_added_short_description">Curte description addite</string>
+  <string name="edit_summary_updated_short_description">Curte description actualisate</string>
   <string name="edit_conflict_title">Conflicto inter modificationes</string>
   <string name="edit_conflict_message">Le pagina ha ja essite modificate per un altere usator e es in conflicto con tu modification. Per favor copia tu modificationes, va retro e refresca le pagina, alora tenta modificar lo de novo.</string>
   <string name="edit_notices">Avisos de modification</string>

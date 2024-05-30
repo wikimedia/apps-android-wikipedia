@@ -8,7 +8,6 @@ import android.text.Spanned
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -46,9 +45,6 @@ object ReadingListBehaviorsUtil {
 
     private var allReadingLists = listOf<ReadingList>()
 
-    // Kotlin coroutine
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
-    private val scope = CoroutineScope(Dispatchers.Main)
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
     fun getListsContainPage(readingListPage: ReadingListPage) =
@@ -119,11 +115,13 @@ object ReadingListBehaviorsUtil {
             .show()
     }
 
-    fun deletePages(activity: Activity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
+    fun deletePages(activity: AppCompatActivity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
         if (listsContainPage.size > 1) {
-            scope.launch(exceptionHandler) {
-                val pages = withContext(dispatcher) { AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage)) }
-                val lists = withContext(dispatcher) { AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages) }
+            activity.lifecycleScope.launch(exceptionHandler) {
+                val lists = withContext(Dispatchers.IO) {
+                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage))
+                    AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                }
                 RemoveFromReadingListsDialog(lists).deleteOrShowDialog(activity) { list, page ->
                     showDeletePageFromListsUndoSnackbar(activity, list, page, snackbarCallback)
                     callback.onCompleted()
@@ -255,14 +253,16 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun togglePageOffline(activity: Activity, page: ReadingListPage?, callback: Callback) {
+    fun togglePageOffline(activity: AppCompatActivity, page: ReadingListPage?, callback: Callback) {
         if (page == null) {
             return
         }
         if (page.offline) {
-            scope.launch(exceptionHandler) {
-                val pages = withContext(dispatcher) { AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page)) }
-                val lists = withContext(dispatcher) { AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages) }
+            activity.lifecycleScope.launch(exceptionHandler) {
+                val lists = withContext(Dispatchers.IO) {
+                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page))
+                    AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                }
                 if (lists.size > 1) {
                     MaterialAlertDialogBuilder(activity)
                             .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
@@ -295,7 +295,7 @@ object ReadingListBehaviorsUtil {
     fun addToDefaultList(activity: Activity, title: PageTitle, addToDefault: Boolean, invokeSource: InvokeSource, listener: DialogInterface.OnDismissListener? = null) {
         if (addToDefault) {
             // If the title is a redirect, resolve it before saving to the reading list.
-            (activity as AppCompatActivity).lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+            (activity as AppCompatActivity).lifecycleScope.launch(exceptionHandler) {
                 var finalPageTitle = title
                 try {
                     ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
@@ -365,10 +365,9 @@ object ReadingListBehaviorsUtil {
         return StringUtil.fromHtml(result)
     }
 
-    fun searchListsAndPages(searchQuery: String?, callback: SearchCallback) {
-        scope.launch(exceptionHandler) {
-            allReadingLists = withContext(dispatcher) { AppDatabase.instance.readingListDao().getAllLists() }
-            val list = withContext(dispatcher) { applySearchQuery(searchQuery, allReadingLists) }
+    fun searchListsAndPages(coroutineScope: CoroutineScope, searchQuery: String?, callback: SearchCallback) {
+        coroutineScope.launch(exceptionHandler) {
+            val list = withContext(Dispatchers.IO) { applySearchQuery(searchQuery, AppDatabase.instance.readingListDao().getAllLists()) }
             if (searchQuery.isNullOrEmpty()) {
                 ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
             }

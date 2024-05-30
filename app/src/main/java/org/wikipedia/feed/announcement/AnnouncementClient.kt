@@ -4,14 +4,12 @@ import android.content.Context
 import androidx.annotation.VisibleForTesting
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.settings.Prefs
@@ -20,20 +18,22 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.Date
 
-class AnnouncementClient : FeedClient {
+class AnnouncementClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
 
     private var clientJob: Job? = null
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        clientJob = CoroutineScope(Dispatchers.Main).launch(
+        clientJob = coroutineScope.launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
                 cb.error(caught)
             }
         ) {
             val announcementsResponse = ServiceFactory.getRest(wiki).getAnnouncements()
-            FeedCoordinator.postCardsToCallback(cb, buildCards(announcementsResponse.items))
+            cb.success(buildCards(announcementsResponse.items))
         }
     }
 

@@ -137,12 +137,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false) {
         threadSha(threadItem)?.let {
             viewModelScope.launch(actionHandler) {
-                withContext(Dispatchers.Main) {
-                    if (topicSeen(threadItem) && !force) {
-                        talkPageDao.deleteTalkPageSeen(it)
-                    } else {
-                        talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
-                    }
+                if (topicSeen(threadItem) && !force) {
+                    talkPageDao.deleteTalkPageSeen(it)
+                } else {
+                    talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
                 }
             }
         }

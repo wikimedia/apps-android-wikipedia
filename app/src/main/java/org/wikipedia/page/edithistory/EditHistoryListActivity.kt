@@ -481,13 +481,10 @@ class EditHistoryListActivity : BaseActivity() {
         val searchBarFilterIcon get() = searchAndFilterActionProvider?.filterIcon
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@EditHistoryListActivity, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@EditHistoryListActivity, getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -503,7 +500,7 @@ class EditHistoryListActivity : BaseActivity() {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

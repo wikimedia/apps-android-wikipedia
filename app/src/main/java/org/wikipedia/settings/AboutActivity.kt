@@ -1,6 +1,7 @@
 package org.wikipedia.settings
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -54,7 +55,7 @@ class AboutActivity : BaseActivity() {
     private fun SetFeedbackButton() {
         FilledTonalButton(
             onClick = {
-                FeedbackUtil.composeFeedbackEmail(this@AboutActivity, "Android App ${BuildConfig.VERSION_NAME} Feedback")
+                FeedbackUtil.composeFeedbackEmail(this@AboutActivity, "Android App ${BuildConfig.VERSION_NAME} Feedback",  deviceInformation())
             },
             colors = ButtonDefaults.buttonColors(containerColor = Color(ResourceUtil.getThemedColor(this@AboutActivity, R.attr.background_color)))
         ) {
@@ -68,6 +69,10 @@ class AboutActivity : BaseActivity() {
                 )
             )
         }
+    }
+
+    private fun deviceInformation(): String {
+        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
     }
 
     private class AboutLogoClickListener : View.OnClickListener {
