@@ -137,9 +137,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
-                binding.mainNavTabLayout.selectedItemId = currentNavTab.code()
-                binding.mainNavTabLayout.findViewById<View>(currentNavTab.id).performClick()
-                return@setOnItemSelectedListener true
+                return@setOnItemSelectedListener false
             }
             currentNavTab = NavTab.of(item.order)
             val fragment = currentFragment
