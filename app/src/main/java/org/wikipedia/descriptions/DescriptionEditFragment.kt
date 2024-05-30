@@ -35,6 +35,8 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.liftwing.DescriptionSuggestion
+import org.wikipedia.dataclient.liftwing.LiftWingModelService
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -227,7 +229,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = true
                 ReleaseUtil.isPreBetaRelease && MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
@@ -243,8 +245,9 @@ class DescriptionEditFragment : Fragment() {
             L.e(throwable)
             analyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
         }) {
-            val response = ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
-                .getSuggestion(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)
+
+            val response = ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
+                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2))
 
             // Perform some post-processing on the predictions.
             // 1) Capitalize them, if we're dealing with enwiki.
