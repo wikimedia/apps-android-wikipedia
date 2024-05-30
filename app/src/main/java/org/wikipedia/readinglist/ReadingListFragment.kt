@@ -35,10 +35,8 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -322,14 +320,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         FeedbackUtil.showError(requireActivity(), throwable)
                         requireActivity().finish()
                     }) {
-                        withContext(Dispatchers.Main) {
-                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
-                            readingList?.let {
-                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
-                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                            }
-                            update()
+                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
+                        readingList?.let {
+                            ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
+                            binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                         }
+                        update()
                     }
                 }
             } else {
