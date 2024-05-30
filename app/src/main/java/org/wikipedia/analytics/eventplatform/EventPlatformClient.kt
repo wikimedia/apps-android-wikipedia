@@ -37,6 +37,8 @@ object EventPlatformClient {
      */
     private var ENABLED = WikipediaApp.instance.isOnline
 
+    private val coroutineScope = CoroutineScope(Dispatchers.IO)
+
     fun setStreamConfig(streamConfig: StreamConfig) {
         STREAM_CONFIGS[streamConfig.streamName] = streamConfig
     }
@@ -165,10 +167,7 @@ object EventPlatformClient {
         }
 
         private fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
-            if (!WikipediaApp.instance.isOnline) {
-                return
-            }
-            CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, caught ->
+            coroutineScope.launch(CoroutineExceptionHandler { _, caught ->
                 L.e(caught)
                 if (caught is HttpStatusException) {
                     if (caught.code >= HttpURLConnection.HTTP_INTERNAL_ERROR) {
