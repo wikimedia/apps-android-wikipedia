@@ -104,6 +104,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private val pageChangeCallback = PageChangeCallback()
     private val disposables = CompositeDisposable()
     private var exclusiveTooltipRunnable: Runnable? = null
+    private var currentNavTab = NavTab.EXPLORE
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -133,12 +134,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             it.maxLines = 2
         }
 
-        FeedbackUtil.setButtonTooltip(binding.navMoreContainer)
-        binding.navMoreContainer.setOnClickListener {
-            ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
-        }
-
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            if (item.order == NavTab.MORE.code()) {
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
+                binding.mainNavTabLayout.selectedItemId = currentNavTab.code()
+                binding.mainNavTabLayout.findViewById<View>(currentNavTab.id).performClick()
+                return@setOnItemSelectedListener true
+            }
+            currentNavTab = NavTab.of(item.order)
             val fragment = currentFragment
             if (fragment is FeedFragment && item.order == 0) {
                 fragment.scrollToTop()
@@ -461,7 +464,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     fun setBottomNavVisible(visible: Boolean) {
         binding.mainNavTabBorder.isVisible = visible
-        binding.mainNavTabContainer.isVisible = visible
+        binding.mainNavTabLayout.isVisible = visible
     }
 
     fun onGoOffline() {
@@ -561,7 +564,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (Prefs.showOneTimePlacesMainNavOnboardingTooltip && Prefs.exploreFeedVisitCount > SHOW_PLACES_MAIN_NAV_TOOLTIP) {
             enqueueTooltip {
                 PlacesEvent.logImpression("main_nav_tooltip")
-                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
+                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.MORE.id),
                     getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false, showDismissButton = true).setOnBalloonDismissListener {
                     Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
                     PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")
