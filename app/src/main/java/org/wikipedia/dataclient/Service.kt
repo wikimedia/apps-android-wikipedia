@@ -224,7 +224,8 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
             @Query("ammessages") messages: String,
-            @Query("amargs") args: String?
+            @Query("amargs") args: String?,
+            @Query("amlang") lang: String? = null
     ): MwQueryResponse
 
     @FormUrlEncoded
@@ -324,6 +325,9 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
+    suspend fun getUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
@@ -517,7 +521,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
 
-    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions")
+    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels")
     suspend fun getWikidataDescription(@Query("titles") titles: String,
                                        @Query("sites") sites: String,
                                        @Query("languages") langCode: String): Entities
@@ -568,10 +572,6 @@ interface Service {
     ): Observable<EntityPostResponse>
 
     // ------- Watchlist -------
-
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
-    fun getWatchedInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
@@ -740,6 +740,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=templatedata&includeMissingTitles=&converttitles=")
     suspend fun getTemplateData(@Query("lang") langCode: String,
                                 @Query("titles") titles: String): TemplateDataResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&inprop=varianttitles")
+    suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

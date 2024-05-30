@@ -298,6 +298,8 @@
   <string name="edit_summary_tag_links">추가된 링크</string>
   <string name="edit_summary_tag_other">기타</string>
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
+  <string name="edit_summary_added_short_description">짧은 설명을 추가함</string>
+  <string name="edit_summary_updated_short_description">짧을 설명을 갱신함</string>
   <string name="edit_conflict_title">편집 충돌</string>
   <string name="edit_conflict_message">이 문서는 이미 다른 사용자에 의해 수정되었으며 편집과 충돌합니다. 편집을 복사하고 뒤로 돌아가서 문서를 새로 고친 다음 다시 편집을 시도하십시오.</string>
   <string name="edit_notices">편집 알림</string>
@@ -822,6 +824,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
+  <string name="feed_language_variants_removal_dialog_save">저장</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">설정으로 이동</string>
   <string name="top_read_activity_title">%s의 가장 많이 읽은 글</string>
   <string name="tabs_activity_title">탭</string>
   <string name="description_edit_text_hint">문서 설명</string>

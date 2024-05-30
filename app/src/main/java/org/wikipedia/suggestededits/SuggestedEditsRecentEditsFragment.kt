@@ -157,7 +157,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     override fun onResume() {
         super.onResume()
         actionMode?.let {
-            if (SearchActionModeCallback.`is`(it)) {
+            if (SearchActionModeCallback.matches(it)) {
                 searchActionModeCallback.refreshProvider()
             }
         }
@@ -427,13 +427,10 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -449,7 +446,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 
