@@ -229,7 +229,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
                 ReleaseUtil.isPreBetaRelease && MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
