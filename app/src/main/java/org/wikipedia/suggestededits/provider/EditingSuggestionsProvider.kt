@@ -1,8 +1,7 @@
 package org.wikipedia.suggestededits.provider
 
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
@@ -47,265 +46,224 @@ object EditingSuggestionsProvider {
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
-    fun getNextArticleWithMissingDescription(
-        wiki: WikiSite,
-        retryLimit: Long = MAX_RETRY_LIMIT
-    ): Observable<PageSummary> {
-        return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedTitle = ""
-            if (articlesWithMissingDescriptionCacheLang != wiki.languageCode) {
-                // evict the cache if the language has changed.
-                articlesWithMissingDescriptionCache.clear()
-            }
-            if (!articlesWithMissingDescriptionCache.empty()) {
-                cachedTitle = articlesWithMissingDescriptionCache.pop()
-            }
+    suspend fun getNextArticleWithMissingDescription(wiki: WikiSite, retryLimit: Long = MAX_RETRY_LIMIT): PageSummary {
+        var pageSummary: PageSummary
+        withContext(Dispatchers.IO) {
+            mutex.acquire()
+            try {
+                var title = ""
+                if (articlesWithMissingDescriptionCacheLang != wiki.languageCode) {
+                    // evict the cache if the language has changed.
+                    articlesWithMissingDescriptionCache.clear()
+                }
+                if (!articlesWithMissingDescriptionCache.empty()) {
+                    title = articlesWithMissingDescriptionCache.pop()
+                }
 
-            if (cachedTitle.isNotEmpty()) {
-                Observable.just(cachedTitle)
-            } else {
-                ServiceFactory.getRest(Constants.wikidataWikiSite)
-                    .getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode))
-                    .flatMap { pages ->
-                        ServiceFactory.get(wiki)
-                            .getDescription(pages.joinToString("|") { it.title() })
-                            .subscribeOn(Schedulers.io())
+                var tries = 0
+                do {
+                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
+                        .getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode))
+                    val mwQueryResponse = ServiceFactory.get(wiki)
+                        .getDescription(listOfSuggestedEditItem.joinToString("|") { it.title() })
+                    articlesWithMissingDescriptionCacheLang = wiki.languageCode
+                    mwQueryResponse.query?.pages?.forEach {
+                        if (it.description.isNullOrEmpty()) {
+                            articlesWithMissingDescriptionCache.push(it.title)
+                        }
                     }
-                    .map { pages ->
-                        var title: String? = null
-                        articlesWithMissingDescriptionCacheLang = wiki.languageCode
-                        pages.query?.pages?.forEach {
-                            if (it.description.isNullOrEmpty()) {
-                                articlesWithMissingDescriptionCache.push(it.title)
-                            }
-                        }
-                        if (!articlesWithMissingDescriptionCache.empty()) {
-                            title = articlesWithMissingDescriptionCache.pop()
-                        }
-                        if (title == null) {
-                            throw ListEmptyException()
-                        }
-                        title
+                    if (!articlesWithMissingDescriptionCache.empty()) {
+                        title = articlesWithMissingDescriptionCache.pop()
                     }
-                    .retry(retryLimit) { it is ListEmptyException }
+                } while (tries++ < retryLimit && title.isEmpty())
+
+                pageSummary = ServiceFactory.getRest(wiki).getPageSummary(null, title)
+            } finally {
+                mutex.release()
             }
-        }.flatMap { title -> ServiceFactory.getRest(wiki).getSummary(null, title) }
-            .doFinally { mutex.release() }
+        }
+        return pageSummary
     }
 
-    fun getNextArticleWithMissingDescription(
-        sourceWiki: WikiSite,
-        targetLang: String,
-        sourceLangMustExist: Boolean,
-        retryLimit: Long = MAX_RETRY_LIMIT
-    ): Observable<Pair<PageSummary, PageSummary>> {
-        return Observable.fromCallable { mutex.acquire() }.flatMap {
-            val targetWiki = WikiSite.forLanguageCode(targetLang)
-            var cachedPair: Pair<PageTitle, PageTitle>? = null
-            if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode ||
-                articlesWithTranslatableDescriptionCacheToLang != targetLang
-            ) {
-                // evict the cache if the language has changed.
-                articlesWithTranslatableDescriptionCache.clear()
-            }
-            if (!articlesWithTranslatableDescriptionCache.empty()) {
-                cachedPair = articlesWithTranslatableDescriptionCache.pop()
-            }
+    suspend fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean,
+                                                     retryLimit: Long = MAX_RETRY_LIMIT): Pair<PageSummary, PageSummary> {
+        var pair = Pair(PageSummary(), PageSummary())
+        withContext(Dispatchers.IO) {
+            mutex.acquire()
+            try {
+                val targetWiki = WikiSite.forLanguageCode(targetLang)
+                var titles: Pair<PageTitle, PageTitle>? = null
+                if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode ||
+                    articlesWithTranslatableDescriptionCacheToLang != targetLang
+                ) {
+                    // evict the cache if the language has changed.
+                    articlesWithTranslatableDescriptionCache.clear()
+                }
+                if (!articlesWithTranslatableDescriptionCache.empty()) {
+                    titles = articlesWithTranslatableDescriptionCache.pop()
+                }
 
-            if (cachedPair != null) {
-                Observable.just(cachedPair)
-            } else {
-                ServiceFactory.getRest(Constants.wikidataWikiSite)
-                    .getArticlesWithTranslatableDescriptions(
-                        WikiSite.normalizeLanguageCode(sourceWiki.languageCode),
+                var tries = 0
+                do {
+                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
+                        .getArticlesWithTranslatableDescriptions(
+                            WikiSite.normalizeLanguageCode(
+                                sourceWiki.languageCode
+                            ), WikiSite.normalizeLanguageCode(targetLang)
+                        )
+                    val mwQueryPages = ServiceFactory.get(targetWiki)
+                        .getDescription(listOfSuggestedEditItem.joinToString("|") { it.title() }).query?.pages
+
+                    articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode
+                    articlesWithTranslatableDescriptionCacheToLang = targetLang
+
+                    listOfSuggestedEditItem.forEach { item ->
+                        val page = mwQueryPages?.find { it.title == item.title() }
+                        if (page != null && page.description.isNullOrEmpty()) {
+                            return@forEach
+                        }
+                        val entity = item.entity
+                        if (entity == null || entity.descriptions.containsKey(targetLang) ||
+                            sourceLangMustExist && !entity.descriptions.containsKey(sourceWiki.languageCode) ||
+                            !entity.sitelinks.containsKey(sourceWiki.dbName()) ||
+                            !entity.sitelinks.containsKey(targetWiki.dbName())
+                        ) {
+                            return@forEach
+                        }
+                        val sourceTitle =
+                            PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki)
+                        sourceTitle.description =
+                            entity.descriptions[sourceWiki.languageCode]?.value
+                        articlesWithTranslatableDescriptionCache.push(
+                            PageTitle(
+                                entity.sitelinks[targetWiki.dbName()]!!.title,
+                                targetWiki
+                            ) to sourceTitle
+                        )
+                    }
+
+                    if (!articlesWithTranslatableDescriptionCache.empty()) {
+                        titles = articlesWithTranslatableDescriptionCache.pop()
+                    }
+                } while (tries++ < retryLimit && titles == null)
+
+                titles?.let {
+                    val targetPageSummary = async {
+                        ServiceFactory.getRest(it.first.wikiSite).getPageSummary(null, it.first.prefixedText).apply {
+                            if (description.isNullOrEmpty()) {
+                                description = it.first.description
+                            }
+                        }
+                    }
+                    val sourcePageSummary = async {
+                        ServiceFactory.getRest(it.second.wikiSite).getPageSummary(null, it.second.prefixedText)
+                    }
+                    pair = sourcePageSummary.await() to targetPageSummary.await()
+                }
+            } finally {
+                mutex.release()
+            }
+        }
+        return pair
+    }
+
+    suspend fun getNextImageWithMissingCaption(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): String {
+        var title = ""
+        withContext(Dispatchers.IO) {
+            mutex.acquire()
+            try {
+                if (imagesWithMissingCaptionsCacheLang != lang) {
+                    // evict the cache if the language has changed.
+                    imagesWithMissingCaptionsCache.clear()
+                }
+                if (!imagesWithMissingCaptionsCache.empty()) {
+                    title = imagesWithMissingCaptionsCache.pop()
+                }
+                imagesWithMissingCaptionsCacheLang = lang
+                var tries = 0
+                do {
+                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.commonsWikiSite)
+                        .getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
+                    listOfSuggestedEditItem.forEach {
+                        imagesWithMissingCaptionsCache.push(it.title())
+                    }
+                    if (!imagesWithMissingCaptionsCache.empty()) {
+                        title = imagesWithMissingCaptionsCache.pop()
+                    }
+                } while (tries++ < retryLimit && title.isEmpty())
+            } finally {
+                mutex.release()
+            }
+        }
+        return title
+    }
+
+    suspend fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String,
+                                               retryLimit: Long = MAX_RETRY_LIMIT): Pair<String, String> {
+        var pair = Pair("", "")
+        withContext(Dispatchers.IO) {
+            mutex.acquire()
+            try {
+                if (imagesWithTranslatableCaptionCacheFromLang != sourceLang ||
+                    imagesWithTranslatableCaptionCacheToLang != targetLang
+                ) {
+                    // evict the cache if the language has changed.
+                    imagesWithTranslatableCaptionCache.clear()
+                }
+                if (!imagesWithTranslatableCaptionCache.empty()) {
+                    pair = imagesWithTranslatableCaptionCache.pop()
+                }
+                imagesWithTranslatableCaptionCacheFromLang = sourceLang
+                imagesWithTranslatableCaptionCacheToLang = targetLang
+                var tries = 0
+                do {
+                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.commonsWikiSite).getImagesWithTranslatableCaptions(
+                        WikiSite.normalizeLanguageCode(sourceLang),
                         WikiSite.normalizeLanguageCode(targetLang)
                     )
-                    .flatMap({ pages ->
-                        if (pages.isEmpty()) {
-                            throw ListEmptyException()
-                        }
-                        val titleList = pages.map { it.title() }
-                        ServiceFactory.get(WikiSite.forLanguageCode(targetLang))
-                            .getDescription(titleList.joinToString("|"))
-                    }, { pages, response -> Pair(pages, response) })
-                    .map { pair ->
-                        val pages = pair.first
-                        val mwPages = pair.second.query?.pages!!
-                        var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
-                        articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode
-                        articlesWithTranslatableDescriptionCacheToLang = targetLang
-                        for (page in pages) {
-                            val mwPage = mwPages.find { it.title == page.title() }
-                            if (mwPage != null && !mwPage.description.isNullOrEmpty()) {
-                                continue
-                            }
-                            val entity = page.entity
-                            if (entity == null || entity.descriptions.containsKey(targetLang) ||
-                                sourceLangMustExist && !entity.descriptions.containsKey(sourceWiki.languageCode) ||
-                                !entity.sitelinks.containsKey(sourceWiki.dbName()) ||
-                                !entity.sitelinks.containsKey(targetWiki.dbName())
-                            ) {
-                                continue
-                            }
-                            val sourceTitle =
-                                PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki)
-                            sourceTitle.description =
-                                entity.descriptions[sourceWiki.languageCode]?.value
-                            articlesWithTranslatableDescriptionCache.push(
-                                PageTitle(
-                                    entity.sitelinks[targetWiki.dbName()]!!.title,
-                                    targetWiki
-                                ) to sourceTitle
+                    listOfSuggestedEditItem.forEach {
+                        if (!it.captions.containsKey(sourceLang) || it.captions.containsKey(
+                                targetLang
                             )
+                        ) {
+                            return@forEach
                         }
-                        if (!articlesWithTranslatableDescriptionCache.empty()) {
-                            targetAndSourcePageTitles =
-                                articlesWithTranslatableDescriptionCache.pop()
-                        }
-                        if (targetAndSourcePageTitles == null) {
-                            throw ListEmptyException()
-                        }
-                        targetAndSourcePageTitles
+                        imagesWithTranslatableCaptionCache.push((it.captions[sourceLang] ?: error("")) to it.title())
                     }
-                    .retry(retryLimit) { it is ListEmptyException }
+                    if (!imagesWithTranslatableCaptionCache.empty()) {
+                        pair = imagesWithTranslatableCaptionCache.pop()
+                    }
+                } while (tries++ < retryLimit && (pair.first.isEmpty() || pair.second.isEmpty()))
+            } finally {
+                mutex.release()
             }
-        }.flatMap { getSummary(it) }
-            .doFinally { mutex.release() }
+        }
+        return pair
     }
 
-    private fun getSummary(targetAndSourcePageTitles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
-        return Observable.zip(ServiceFactory.getRest(targetAndSourcePageTitles.first.wikiSite)
-            .getSummary(null, targetAndSourcePageTitles.first.prefixedText),
-            ServiceFactory.getRest(targetAndSourcePageTitles.second.wikiSite)
-                .getSummary(null, targetAndSourcePageTitles.second.prefixedText),
-            { target, source ->
-                if (target.description.isNullOrEmpty()) {
-                    target.description = targetAndSourcePageTitles.first.description
+    suspend fun getNextImageWithMissingTags(retryLimit: Long = MAX_RETRY_LIMIT): MwQueryPage {
+        var page: MwQueryPage
+        withContext(Dispatchers.IO) {
+            mutex.acquire()
+            try {
+                if (!imagesWithMissingTagsCache.empty()) {
+                    page = imagesWithMissingTagsCache.pop()
                 }
-                Pair(source, target)
-            })
-    }
-
-    fun getNextImageWithMissingCaption(
-        lang: String,
-        retryLimit: Long = MAX_RETRY_LIMIT
-    ): Observable<String> {
-        return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedTitle: String? = null
-            if (imagesWithMissingCaptionsCacheLang != lang) {
-                // evict the cache if the language has changed.
-                imagesWithMissingCaptionsCache.clear()
-            }
-            if (!imagesWithMissingCaptionsCache.empty()) {
-                cachedTitle = imagesWithMissingCaptionsCache.pop()
-            }
-
-            if (cachedTitle != null) {
-                Observable.just(cachedTitle)
-            } else {
-                ServiceFactory.getRest(Constants.commonsWikiSite)
-                    .getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
-                    .map { pages ->
-                        imagesWithMissingCaptionsCacheLang = lang
-                        pages.forEach { imagesWithMissingCaptionsCache.push(it.title()) }
-                        var item: String? = null
-                        if (!imagesWithMissingCaptionsCache.empty()) {
-                            item = imagesWithMissingCaptionsCache.pop()
+                var tries = 0
+                do {
+                    val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomWithImageInfo()
+                    response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }?.forEach { page ->
+                        if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
+                            imagesWithMissingTagsCache.push(page)
                         }
-                        if (item == null) {
-                            throw ListEmptyException()
-                        }
-                        item
                     }
-                    .retry(retryLimit) { it is ListEmptyException }
+                } while (tries++ < retryLimit && imagesWithMissingTagsCache.empty())
+                page = imagesWithMissingTagsCache.pop()
+            } finally {
+                mutex.release()
             }
-        }.doFinally { mutex.release() }
-    }
-
-    fun getNextImageWithMissingCaption(
-        sourceLang: String,
-        targetLang: String,
-        retryLimit: Long = MAX_RETRY_LIMIT
-    ): Observable<Pair<String, String>> {
-        return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedPair: Pair<String, String>? = null
-            if (imagesWithTranslatableCaptionCacheFromLang != sourceLang ||
-                imagesWithTranslatableCaptionCacheToLang != targetLang
-            ) {
-                // evict the cache if the language has changed.
-                imagesWithTranslatableCaptionCache.clear()
-            }
-            if (!imagesWithTranslatableCaptionCache.empty()) {
-                cachedPair = imagesWithTranslatableCaptionCache.pop()
-            }
-
-            if (cachedPair != null) {
-                Observable.just(cachedPair)
-            } else {
-                ServiceFactory.getRest(Constants.commonsWikiSite).getImagesWithTranslatableCaptions(
-                    WikiSite.normalizeLanguageCode(sourceLang),
-                    WikiSite.normalizeLanguageCode(targetLang)
-                )
-                    .map { pages ->
-                        imagesWithTranslatableCaptionCacheFromLang = sourceLang
-                        imagesWithTranslatableCaptionCacheToLang = targetLang
-
-                        var item: Pair<String, String>? = null
-                        for (page in pages) {
-                            if (!page.captions.containsKey(sourceLang) || page.captions.containsKey(
-                                    targetLang
-                                )
-                            ) {
-                                continue
-                            }
-                            imagesWithTranslatableCaptionCache.push(
-                                (page.captions[sourceLang]
-                                    ?: error("")) to page.title()
-                            )
-                        }
-                        if (!imagesWithTranslatableCaptionCache.empty()) {
-                            item = imagesWithTranslatableCaptionCache.pop()
-                        }
-                        if (item == null) {
-                            throw ListEmptyException()
-                        }
-                        item
-                    }
-                    .retry(retryLimit) { it is ListEmptyException }
-            }
-        }.doFinally { mutex.release() }
-    }
-
-    fun getNextImageWithMissingTags(retryLimit: Long = MAX_RETRY_LIMIT): Observable<MwQueryPage> {
-        return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedItem: MwQueryPage? = null
-            if (!imagesWithMissingTagsCache.empty()) {
-                cachedItem = imagesWithMissingTagsCache.pop()
-            }
-
-            if (cachedItem != null) {
-                Observable.just(cachedItem)
-            } else {
-                ServiceFactory.get(Constants.commonsWikiSite).randomWithImageInfo
-                    .map { response ->
-                        response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }
-                            ?.forEach { page ->
-                                if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
-                                    imagesWithMissingTagsCache.push(page)
-                                }
-                            }
-                        var item: MwQueryPage? = null
-                        if (!imagesWithMissingTagsCache.empty()) {
-                            item = imagesWithMissingTagsCache.pop()
-                        }
-                        if (item == null) {
-                            throw ListEmptyException()
-                        }
-                        item
-                    }
-                    .retry(retryLimit) { it is ListEmptyException }
-            }
-        }.doFinally { mutex.release() }
+        }
+        return page
     }
 
     suspend fun getNextArticleWithImageRecommendation(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): MwQueryPage {
