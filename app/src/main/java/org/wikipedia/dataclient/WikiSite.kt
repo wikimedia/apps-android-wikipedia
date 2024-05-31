@@ -132,7 +132,6 @@ data class WikiSite(
             DEFAULT_BASE_URL = url.ifEmpty { Service.WIKIPEDIA_URL }
         }
 
-        @JvmStatic
         fun forLanguageCode(languageCode: String): WikiSite {
             val uri = ensureScheme(Uri.parse(DEFAULT_BASE_URL))
             return WikiSite(

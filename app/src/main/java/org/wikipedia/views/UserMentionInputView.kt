@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.ComponentActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -49,7 +50,8 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         binding.inputEditText.listener = this
         binding.userListRecycler.layoutManager = LinearLayoutManager(context)
         binding.userListRecycler.adapter = UserNameAdapter()
-        syntaxHighlighter = SyntaxHighlighter(context, binding.inputEditText, null, 200)
+        syntaxHighlighter = SyntaxHighlighter(context as ComponentActivity, binding.inputEditText,
+            null, 200)
     }
 
     override fun onDetachedFromWindow() {

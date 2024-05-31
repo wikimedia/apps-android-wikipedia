@@ -1354,7 +1354,6 @@
   <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil cu rea-credință</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Foarte precis în găsirea celor mai evidente editări de rea-credință.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Revenire finalizată</string>
-  <string name="patroller_onboarding_two_warn_content">Creați, trimiteți și stocați mesaje de avertizare pe pagina de discuții a unui editor.</string>
   <string name="patroller_diff_feedback_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Mulțumit</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutru</string>

@@ -20,6 +20,7 @@
 * Nasir8891
 * R4356th
 * Rasal Lia
+* RiazACU
 * Sandipan
 * Sayma Jahan
 * Sibabrata Banerjee
@@ -716,6 +717,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="feed_accessibility_card_text">আপনি ফিডের একদম শেষে পৌঁছে গেছেন।</string>
   <string name="feed_accessibility_card_load_more_button">আরও লোড করুন</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">সেটিংসে যান</string>
   <string name="top_read_activity_title">%s-এ শীর্ষ পঠিত</string>
   <string name="tabs_activity_title">ট্যাব</string>
   <string name="description_edit_text_hint">নিবন্ধের বিবরণ</string>
@@ -907,8 +909,8 @@
   <string name="image_recommendation_accept">হ্যাঁ</string>
   <string name="image_recommendation_reject">না</string>
   <string name="image_recommendation_notsure">নিশ্চিত না</string>
-  <string name="image_recommendation_reject_title">\"না\" কেন?</string>
-  <string name="image_recommendation_reject_subtitle">আপনার উত্তরসমূহ ভবিষ্যত পরামর্শগুলোকে উন্নত করবে।</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">\"না\" কেন?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">আপনার উত্তরসমূহ ভবিষ্যত পরামর্শগুলোকে উন্নত করবে।</string>
   <string name="image_recommendation_reject_not_relevant">চিত্রটি প্রাসঙ্গিক নয়</string>
   <string name="image_recommendation_reject_no_info">সিদ্ধান্ত নেয়ার মত যথেষ্ট তথ্য নেই</string>
   <string name="image_recommendation_reject_offensive">চিত্রটি আপত্তিকর</string>
@@ -1178,6 +1180,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_close">বন্ধ</string>
   <string name="patroller_tasks_filters_wiki_filter_header">উইকি</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">দেখুন</string>
+  <string name="patroller_onboarding_two_talk_title">আলাপ</string>
   <string name="patroller_diff_feedback_dialog_message">আপনি এই বৈশিষ্ট্যের সঙ্গে সন্তুষ্ট?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">সন্তুষ্ট</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">নিরপেক্ষ</string>
@@ -1196,6 +1199,7 @@
   <string name="page_issues_title">পাতার সমস্যা</string>
   <string name="donation_campaign_go_back_button">ফিরে যান</string>
   <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
+  <string name="donate_gpay_help_faq">প্রায়শই জিজ্ঞাসিত প্রশ্নসমূহ</string>
   <string name="places_title">স্থানগুলি</string>
   <string name="places_permissions_denied">মানচিত্রে আপনার লোকেশন দেখতেলোকেশনের অনুমতি প্রয়োজন। অনুগ্রহকরে আবার চেষ্টা করুন।</string>
   <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>

@@ -235,15 +235,15 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
-  <string name="about_app_license" fuzzy="true">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bg\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bg\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондация Уикимедия&lt;/a&gt;</string>
   <string name="about_activity_title">Относно</string>
   <string name="edit_abandon_confirm">Страницата е била променена. Сигурни ли сте, че искате да излезете, без да запазите промените си?</string>
@@ -689,8 +689,8 @@
   <string name="notifications_menu_uncheck_all">Премахване на отметката на всички</string>
   <string name="notifications_wiki_filter_header">Филтриране по Уики</string>
   <string name="notifications_type_filter_header">Филтриране по тип</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Всички уикита</string>
-  <string name="notifications_all_types_text" fuzzy="true">Всички типове</string>
+  <string name="notifications_all_wikis_text">Всички уикита</string>
+  <string name="notifications_all_types_text">Всички типове</string>
   <string name="notifications_menu_user_talk_page">Беседа на %s</string>
   <string name="notifications_offline_disable_message">Функцията не е налична, докато сте офлайн.</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
@@ -954,9 +954,9 @@
   <string name="image_recommendation_tutorial">Ръководство</string>
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
-  <string name="image_recommendation_notsure">Не съм сигурен/а</string>
-  <string name="image_recommendation_reject_title">Защо не?</string>
-  <string name="image_recommendation_reject_subtitle">Вашите отговори подобряват бъдещите предложения.</string>
+  <string name="image_recommendation_notsure">Затруднявам се да отговоря</string>
+  <string name="image_recommendation_reject_title">Причина за отказ</string>
+  <string name="image_recommendation_reject_subtitle">Причината за отказа е анонимна и ще подобри бъдещите предложения за изображения.</string>
   <string name="image_recommendation_reject_not_relevant">Изображението не е уместно</string>
   <string name="image_recommendation_reject_no_info">Няма достатъчно информация за вземане на решение</string>
   <string name="image_recommendation_reject_offensive">Изображението е обидно</string>

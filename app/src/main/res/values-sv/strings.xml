@@ -292,6 +292,8 @@
   <string name="edit_summary_tag_links">Lade till länkar</string>
   <string name="edit_summary_tag_other">Övrigt</string>
   <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
+  <string name="edit_summary_added_short_description">La till kort beskrivning</string>
+  <string name="edit_summary_updated_short_description">Uppdaterade kort beskrivning</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Sidan har redan modifierats av en annan användare och är i konflikt med din redigering. Var god kopiera dina ändringar, gå tillbaka och uppdatera sidan samt försök sedan att redigera igen.</string>
   <string name="edit_notices">Redigeringsnotiser</string>
@@ -1094,8 +1096,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nej</string>
   <string name="image_recommendation_notsure">Inte säker</string>
-  <string name="image_recommendation_reject_title">Varför inte?</string>
-  <string name="image_recommendation_reject_subtitle">Dina svar förbättrar kvaliteten på framtida förslag.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Varför inte?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Dina svar förbättrar kvaliteten på framtida förslag.</string>
   <string name="image_recommendation_reject_not_relevant">Bilden är inte relevant</string>
   <string name="image_recommendation_reject_no_info">Inte tillräckligt med information för att avgöra</string>
   <string name="image_recommendation_reject_offensive">Bilden är kränkande</string>

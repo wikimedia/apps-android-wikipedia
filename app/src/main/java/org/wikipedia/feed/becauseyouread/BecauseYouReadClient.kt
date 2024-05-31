@@ -3,7 +3,6 @@ package org.wikipedia.feed.becauseyouread
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -13,17 +12,17 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class BecauseYouReadClient : FeedClient {
+class BecauseYouReadClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
     private var clientJob: Job? = null
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        clientJob?.cancel()
-        clientJob = CoroutineScope(Dispatchers.Main).launch(
+        clientJob = coroutineScope.launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
                 cb.success(emptyList())
@@ -59,7 +58,7 @@ class BecauseYouReadClient : FeedClient {
                     }
                 }
 
-                FeedCoordinator.postCardsToCallback(cb,
+                cb.success(
                     if (relatedPages.isEmpty()) emptyList()
                     else listOf(toBecauseYouReadCard(relatedPages, headerPage, entry.title.wikiSite))
                 )

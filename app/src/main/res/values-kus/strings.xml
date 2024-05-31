@@ -824,8 +824,8 @@
   <string name="image_recommendation_accept">Ɛɛn</string>
   <string name="image_recommendation_reject">Ayei</string>
   <string name="image_recommendation_notsure">Pʋ tis sidaa</string>
-  <string name="image_recommendation_reject_title">Bɔ\' ka di kʋ nyaŋɛ?</string>
-  <string name="image_recommendation_reject_subtitle">Fʋ gandigi la na sʋŋ bɛog sa pʋtɛnda.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Bɔ\' ka di kʋ nyaŋɛ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Fʋ gandigi la na sʋŋ bɛog sa pʋtɛnda.</string>
   <string name="image_recommendation_reject_not_relevant">Footo la pʋ mɔr sʋŋirɛ</string>
   <string name="image_recommendation_reject_no_info">Labaar la pʋ zu\'oe ka m na gban\'e gban\'arɛ</string>
   <string name="image_recommendation_reject_offensive">Footo la mɔr daʋŋ</string>

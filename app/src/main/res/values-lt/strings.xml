@@ -895,8 +895,8 @@
   <string name="image_recommendation_accept">Taip</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Nežinau</string>
-  <string name="image_recommendation_reject_title">Kodėl ne?</string>
-  <string name="image_recommendation_reject_subtitle">Jūsų atsakymai pagerina būsimus siūlymus.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Kodėl ne?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Jūsų atsakymai pagerina būsimus siūlymus.</string>
   <string name="image_recommendation_reject_not_relevant">Paveikslėlis neaktualus</string>
   <string name="image_recommendation_reject_no_info">Nepakanka informacijos apsispręsti</string>
   <string name="image_recommendation_reject_offensive">Paveikslėlis įžeidžiantis</string>
