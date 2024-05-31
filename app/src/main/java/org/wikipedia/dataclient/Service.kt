@@ -493,15 +493,8 @@ interface Service {
         @Query("language") searchLang: String,
         @Query("uselang") resultLang: String
     ): Observable<Search>
-
     @GET(MW_API_PREFIX + "action=query&prop=entityterms")
-    fun getWikidataEntityTerms(
-            @Query("titles") titles: String,
-            @Query("wbetlanguage") lang: String
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
-    suspend fun getWikidataEntityTermsSuspend(
+    suspend fun getWikidataEntityTerms(
         @Query("titles") titles: String,
         @Query("wbetlanguage") lang: String
     ): MwQueryResponse

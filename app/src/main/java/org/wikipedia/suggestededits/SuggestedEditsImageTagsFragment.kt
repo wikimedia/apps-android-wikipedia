@@ -17,10 +17,15 @@ import android.widget.Toast
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.children
 import androidx.core.widget.ImageViewCompat
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -36,14 +41,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditFragment
-import org.wikipedia.language.LanguageUtil
+import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -55,6 +60,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: SuggestedEditsImageTagsViewModel by viewModels()
 
     var publishing = false
     private var publishSuccess = false
@@ -119,8 +125,25 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
 
         getNextItem()
-        updateContents()
         updateTagChips()
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> {
+                                page = it.data.first
+                                updateContents(it.data.first.imageInfo(), it.data.second)
+                                updateTagChips()
+                            }
+                            is Resource.Error -> setErrorState(it.throwable)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onStart() {
@@ -137,14 +160,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page != null) {
             return
         }
-        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    this.page = it
-                    updateContents()
-                    updateTagChips()
-                }, { setErrorState(it) }))
+        viewModel.findNextSuggestedEditsItem(callback().getLangCode())
+    }
+
+    private fun onLoading() {
+        binding.cardItemErrorView.visibility = GONE
+        binding.cardItemProgressBar.visibility = VISIBLE
+        binding.contentContainer.visibility = GONE
     }
 
     private fun setErrorState(t: Throwable) {
@@ -155,40 +177,26 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.contentContainer.visibility = GONE
     }
 
-    private fun updateContents() {
+    private fun updateContents(imageInfo: ImageInfo?, caption: String?) {
         binding.cardItemErrorView.visibility = GONE
-        binding.contentContainer.visibility = if (page != null) VISIBLE else GONE
-        binding.cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
-        if (page == null) {
-            return
-        }
-
+        binding.contentContainer.visibility = VISIBLE
+        binding.cardItemProgressBar.visibility = GONE
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
         ImageZoomHelper.setViewZoomable(binding.imageView)
-
-        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
-
-        disposables.add(
-                ServiceFactory.get(Constants.commonsWikiSite).getWikidataEntityTerms(page!!.title, LanguageUtil.convertToUselangIfNeeded(callback().getLangCode()))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { response ->
-                    val caption = response.query?.firstPage()?.entityTerms?.label?.firstOrNull()
-                    if (!caption.isNullOrEmpty()) {
-                        binding.imageCaption.text = caption
-                        binding.imageCaption.visibility = VISIBLE
-                    } else {
-                        if (page?.imageInfo()?.metadata != null) {
-                            binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
-                            binding.imageCaption.visibility = VISIBLE
-                            binding.imageView.contentDescription = binding.imageCaption.text
-                        } else {
-                            binding.imageCaption.visibility = GONE
-                        }
-                    }
-                })
-
+        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(imageInfo?.thumbUrl.orEmpty(), Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+        if (!caption.isNullOrEmpty()) {
+            binding.imageCaption.text = caption
+            binding.imageCaption.visibility = VISIBLE
+        } else {
+            if (imageInfo?.metadata != null) {
+                binding.imageCaption.text = StringUtil.fromHtml(imageInfo.metadata.imageDescription()).toString().trim()
+                binding.imageCaption.visibility = VISIBLE
+                binding.imageView.contentDescription = binding.imageCaption.text
+            } else {
+                binding.imageCaption.visibility = GONE
+            }
+        }
         updateLicenseTextShown()
         callback().updateActionButton()
     }
