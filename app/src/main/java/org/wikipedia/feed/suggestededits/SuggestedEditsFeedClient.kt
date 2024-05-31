@@ -2,11 +2,9 @@ package org.wikipedia.feed.suggestededits
 
 import android.content.Context
 import android.os.Parcelable
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
@@ -31,7 +29,7 @@ class SuggestedEditsFeedClient(
 
     private lateinit var cb: FeedClient.Callback
     private var age: Int = 0
-    private val disposables = CompositeDisposable()
+    private var clientJob: Job? = null
     private var appLanguages = WikipediaApp.instance.languageState.appLanguageCodes
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
@@ -55,38 +53,32 @@ class SuggestedEditsFeedClient(
         }
 
         // Request three different SE cards
-        coroutineScope.launch(CoroutineExceptionHandler { _, caught ->
+        clientJob = coroutineScope.launch(CoroutineExceptionHandler { _, caught ->
             L.e(caught)
             cb.error(caught)
         }) {
             val addDescriptionCard = async { getCardTypeAndData(DescriptionEditActivity.Action.ADD_DESCRIPTION) }
-        }
-        getCardTypeAndData(DescriptionEditActivity.Action.ADD_DESCRIPTION) { descriptionSummary, _ ->
-            getCardTypeAndData(DescriptionEditActivity.Action.ADD_CAPTION) { captionSummary, _ ->
-                getCardTypeAndData(DescriptionEditActivity.Action.ADD_IMAGE_TAGS) { _, imageTagsPage ->
-                    cb.success(
-                        listOf(
-                            SuggestedEditsCard(
-                                listOf(descriptionSummary!!, captionSummary!!),
-                                imageTagsPage,
-                                wiki,
-                                age
-                            )
-                        )
-                    )
-                    cancel()
-                }
-            }
+            val addCaptionCard = async { getCardTypeAndData(DescriptionEditActivity.Action.ADD_CAPTION) }
+            val addImageTagsCard = async { getCardTypeAndData(DescriptionEditActivity.Action.ADD_IMAGE_TAGS) }
+            cb.success(listOf(
+                SuggestedEditsCard(
+                    listOf(addDescriptionCard.await().first, addCaptionCard.await().first),
+                    addImageTagsCard.await().second,
+                    wiki,
+                    age
+                )
+            ))
+            cancel()
         }
     }
 
     override fun cancel() {
-        disposables.clear()
+        clientJob?.cancel()
     }
 
     private suspend fun getCardTypeAndData(cardActionType: DescriptionEditActivity.Action): Pair<SuggestedEditsSummary, MwQueryPage?> {
         val suggestedEditsCard = SuggestedEditsSummary(cardActionType)
-        val imageTagPage: MwQueryPage? = null
+        var imageTagPage: MwQueryPage? = null
         val langFromCode = appLanguages.first()
         val targetLanguage = appLanguages.getOrElse(age % appLanguages.size) { langFromCode }
         if (appLanguages.size > 1) {
