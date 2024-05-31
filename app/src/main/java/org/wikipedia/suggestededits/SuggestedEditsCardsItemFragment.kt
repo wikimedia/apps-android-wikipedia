@@ -55,7 +55,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.cardItemErrorView.retryClickListener = View.OnClickListener {
             viewModel.findNextSuggestedEditsItem(parent().action, parent().langFromCode, parent().langToCode)
         }
-        
+
         if (sourceSummaryForEdit == null) {
             viewModel.findNextSuggestedEditsItem(parent().action, parent().langFromCode, parent().langToCode)
         }

@@ -39,7 +39,7 @@ class SuggestedEditsCardsItemViewModel() : ViewModel() {
                     run {
                         repeat(MAX_RETRIES) {
                             pair = EditingSuggestionsProvider
-                                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(fromLangCode),toLangCode, true)
+                                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(fromLangCode), toLangCode, true)
                             if (!pair.first.description.isNullOrEmpty()) {
                                 return@run
                             }
