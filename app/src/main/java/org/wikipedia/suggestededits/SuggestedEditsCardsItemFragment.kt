@@ -7,24 +7,20 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.Constants
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsItemBinding
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
-import org.wikipedia.page.Namespace
-import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
@@ -32,6 +28,7 @@ import org.wikipedia.views.ImageZoomHelper
 class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     private var _binding: FragmentSuggestedEditsCardsItemBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: SuggestedEditsCardsItemViewModel by viewModels()
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var addedContribution: String = ""
@@ -56,12 +53,11 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
         binding.cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.cardItemErrorView.retryClickListener = View.OnClickListener {
-            binding.cardItemProgressBar.visibility = VISIBLE
-            getArticleWithMissingDescription()
+            viewModel.findNextSuggestedEditsItem(parent().action, parent().langFromCode, parent().langToCode)
         }
-        updateContents()
+        
         if (sourceSummaryForEdit == null) {
-            getArticleWithMissingDescription()
+            viewModel.findNextSuggestedEditsItem(parent().action, parent().langFromCode, parent().langToCode)
         }
 
         binding.viewArticleContainer.setOnClickListener {
@@ -70,35 +66,25 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             }
         }
         showAddedContributionView(addedContribution)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> updateContents(it.data)
+                            is Resource.Error -> setErrorState(it.throwable)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
-    }
-
-    private fun getArticleWithMissingDescription() {
-        when (parent().action) {
-
-            else -> {
-                disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ pageSummary ->
-                            sourceSummaryForEdit = PageSummaryForEdit(
-                                    pageSummary.apiTitle,
-                                    parent().langFromCode,
-                                    pageSummary.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
-                                    pageSummary.displayTitle,
-                                    pageSummary.description,
-                                    pageSummary.thumbnailUrl,
-                                    pageSummary.extract,
-                                    pageSummary.extractHtml
-                            )
-                            updateContents()
-                        }, { setErrorState(it) }))
-            }
-        }
     }
 
     fun showAddedContributionView(addedContribution: String?) {
@@ -109,6 +95,12 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         }
     }
 
+    private fun onLoading() {
+        binding.cardItemProgressBar.visibility = VISIBLE
+        binding.cardItemContainer.visibility = GONE
+        binding.cardItemErrorView.visibility = GONE
+    }
+
     private fun setErrorState(t: Throwable) {
         L.e(t)
         binding.cardItemErrorView.setError(t)
@@ -117,15 +109,13 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.cardItemContainer.visibility = GONE
     }
 
-    private fun updateContents() {
-        val sourceAvailable = sourceSummaryForEdit != null
+    private fun updateContents(pair: Pair<PageSummaryForEdit?, PageSummaryForEdit?>) {
+        sourceSummaryForEdit = pair.first
+        targetSummaryForEdit = pair.second
         binding.cardItemErrorView.visibility = GONE
-        binding.cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
-        binding.cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
+        binding.cardItemContainer.visibility = VISIBLE
+        binding.cardItemProgressBar.visibility = GONE
         binding.viewArticleImage.contentDescription = getString(R.string.image_content_description, sourceSummaryForEdit?.displayTitle)
-        if (!sourceAvailable) {
-            return
-        }
 
         ImageZoomHelper.setViewZoomable(binding.viewArticleImage)
 

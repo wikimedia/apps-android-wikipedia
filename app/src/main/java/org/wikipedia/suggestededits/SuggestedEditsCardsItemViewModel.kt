@@ -24,10 +24,10 @@ class SuggestedEditsCardsItemViewModel() : ViewModel() {
         _uiState.value = Resource.Error(throwable)
     }
 
-    private val _uiState = MutableStateFlow(Resource<Triple<DescriptionEditActivity.Action, PageSummaryForEdit?, PageSummaryForEdit?>>())
+    private val _uiState = MutableStateFlow(Resource<Pair<PageSummaryForEdit?, PageSummaryForEdit?>>())
     val uiState = _uiState.asStateFlow()
 
-    private fun findNextSuggestedEditsItem(action: DescriptionEditActivity.Action, fromLangCode: String, toLangCode: String) {
+    fun findNextSuggestedEditsItem(action: DescriptionEditActivity.Action, fromLangCode: String, toLangCode: String) {
         var sourceSummaryForEdit: PageSummaryForEdit? = null
         var targetSummaryForEdit: PageSummaryForEdit? = null
         _uiState.value = Resource.Loading()
@@ -105,7 +105,7 @@ class SuggestedEditsCardsItemViewModel() : ViewModel() {
                         )
                     }
                 }
-                
+
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
                     val pair = EditingSuggestionsProvider.getNextImageWithMissingCaption(fromLangCode, toLangCode)
                     val fileCaption = pair.first
@@ -166,7 +166,7 @@ class SuggestedEditsCardsItemViewModel() : ViewModel() {
                     )
                 }
             }
-            _uiState.value = Resource.Success(Triple(action, sourceSummaryForEdit, targetSummaryForEdit))
+            _uiState.value = Resource.Success(sourceSummaryForEdit to targetSummaryForEdit)
         }
     }
 
