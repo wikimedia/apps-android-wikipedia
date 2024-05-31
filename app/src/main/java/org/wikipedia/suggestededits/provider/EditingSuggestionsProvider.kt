@@ -22,8 +22,7 @@ object EditingSuggestionsProvider {
 
     private val articlesWithMissingDescriptionCache: Stack<String> = Stack()
     private var articlesWithMissingDescriptionCacheLang: String = ""
-    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageTitle, PageTitle>> =
-        Stack()
+    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageTitle, PageTitle>> = Stack()
     private var articlesWithTranslatableDescriptionCacheFromLang: String = ""
     private var articlesWithTranslatableDescriptionCacheToLang: String = ""
 
