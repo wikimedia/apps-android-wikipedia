@@ -23,8 +23,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -34,13 +32,10 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -54,7 +49,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import java.util.UUID
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
 
@@ -139,6 +133,22 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                                 updateTagChips()
                             }
                             is Resource.Error -> setErrorState(it.throwable)
+                        }
+                    }
+                }
+                launch {
+                    viewModel.actionState.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                if (it.data != null) {
+                                    EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                                }
+                                publishSuccess = true
+                                ImageRecommendationsEvent.logEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
+                                    "commons", it.data?.lastRevId ?: 0)
+                                onSuccess()
+                            }
+                            is Resource.Error -> onError(it.throwable)
                         }
                     }
                 }
@@ -358,61 +368,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishOverlayContainer.visibility = VISIBLE
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
-
-        disposables.add(CsrfTokenClient.getToken(Constants.commonsWikiSite)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ token ->
-                    val mId = "M" + page!!.pageId
-                    var claimStr = "{\"claims\":["
-                    var commentStr = "/* add-depicts: "
-                    var first = true
-                    for (label in acceptedLabels) {
-                        if (!first) {
-                            claimStr += ","
-                        }
-                        if (!first) {
-                            commentStr += ","
-                        }
-                        first = false
-                        claimStr += "{\"mainsnak\":" +
-                                "{\"snaktype\":\"value\",\"property\":\"P180\"," +
-                                "\"datavalue\":{\"value\":" +
-                                "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
-                                "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
-                                "\"type\":\"statement\"," +
-                                "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
-                                "\"rank\":\"normal\"}"
-                        commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
-                    }
-                    claimStr += "]}"
-                    commentStr += " */" + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
-
-                    disposables.add(ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, token, claimStr, commentStr, null)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .doAfterTerminate {
-                                publishing = false
-                            }
-                            .subscribe({
-                                if (it.entity != null) {
-                                    EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                }
-                                publishSuccess = true
-                                ImageRecommendationsEvent.logEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
-                                    "commons", it.entity?.lastRevId ?: 0)
-                                onSuccess()
-                            }, {
-                                onError(it)
-                            })
-                    )
-                }, {
-                    onError(it)
-                }))
+        viewModel.publishImageTags(page!!, acceptedLabels)
     }
 
     private fun onSuccess() {
-
+        publishing = false
         val duration = 500L
         binding.publishProgressBar.alpha = 1f
         binding.publishProgressBar.animate()

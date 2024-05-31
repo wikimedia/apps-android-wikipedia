@@ -556,13 +556,13 @@ interface Service {
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
     @FormUrlEncoded
-    fun postEditEntity(
+    suspend fun postEditEntity(
         @Field("id") id: String,
         @Field("token") token: String,
         @Field("data") data: String?,
         @Field("summary") summary: String?,
         @Field("tags") tags: String?
-    ): Observable<EntityPostResponse>
+    ): EntityPostResponse
 
     // ------- Watchlist -------
 
