@@ -231,8 +231,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">bachinima kahigibu kundinima din zaŋ tum tuma</string>
   <string name="about_contributors_heading">tohiriba</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
@@ -831,8 +831,8 @@
   <string name="description_edit_voice_input_description">Kukɔli lahabali kpɛhibu</string>
   <string name="description_edit_learn_more">Bohimmi pahi zaŋkpa atikil buɣisibu lahabalinima polo</string>
   <string name="description_edit_image_caption_learn_more">Bohammi baŋsim zaŋkpa anfooni yuli tibu m-pahi</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Sabbu maa ji n-yaɣi.</string>
   <string name="description_ends_with_punctuation">Sabbu maa bi tu ni di naai ni maliniŋ bia.</string>
   <string name="description_starts_with_uppercase">piligimli ni bachikobbila naɣila di tuuli bachi maa nyɛla yuli bachinamdimaŋli.</string>
@@ -1046,8 +1046,8 @@
   <string name="image_recommendation_accept">iin</string>
   <string name="image_recommendation_reject">Aayi</string>
   <string name="image_recommendation_notsure">m-bi dihitabili</string>
-  <string name="image_recommendation_reject_title">Bɔ n-lee chɛ ka anfɔɔni maa bɛ lu n zahim lahibali ŋɔ?</string>
-  <string name="image_recommendation_reject_subtitle">A labisiɣu maa ni sɔŋ mali tooni lahabali sɔŋda n-niŋ.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Bɔ n-lee chɛ ka anfɔɔni maa bɛ lu n zahim lahibali ŋɔ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">A labisiɣu maa ni sɔŋ mali tooni lahabali sɔŋda n-niŋ.</string>
   <string name="image_recommendation_reject_not_relevant">Anfɔɔni bɛ tuhi</string>
   <string name="image_recommendation_reject_no_info">Lahabali kani din yan gbaai</string>
   <string name="image_recommendation_reject_offensive">Anfooni nyɛla taali</string>
@@ -1518,8 +1518,6 @@
   <string name="patroller_onboarding_two_thank_content">Nyam maliniŋ din nyɛ chirichi? Puhimi ka paɣi ba ni bɛ tohibu maa</string>
   <string name="patroller_onboarding_two_watch_title">Lihima</string>
   <string name="patroller_onboarding_two_watch_content">A bori ni a tooi doli lahabali maliniŋnima? dinŋuna zaŋmili pahi a nini ni pa shɛŋa zuɣu. A ni tooi yulli \'din pahi\' yaɣili</string>
-  <string name="patroller_onboarding_two_warn_title">zuɣuni kpahibu lahabali</string>
-  <string name="patroller_onboarding_two_warn_content">Namma, zaŋ n-ti ha, ka gu zuɣu kpahibu lahabaya niŋ ŋun su maliniŋ yɛltɔɣa paagi ni</string>
   <string name="patroller_onboarding_two_undo_title">yihimi niŋsim/labisim nyaanga</string>
   <string name="patroller_onboarding_two_undo_content">Piimi \'m bi lanniŋ\' n yihi niŋsim bee n labisi yihi maliniŋ din ni tooi ti lahabali barina.</string>
   <string name="patroller_diff_tooltip_one">Barina buɣisi ti lahabali di yi niŋ ka maliniŋ ni too tahi barina na Wiki puuni.</string>

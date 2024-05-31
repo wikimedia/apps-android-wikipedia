@@ -210,8 +210,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Oko doə byə kitobxonon</string>
   <string name="about_contributors_heading">Myəllifon</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Dastə səhifə&lt;/a&gt;</string>
@@ -740,7 +740,7 @@
   <string name="image_recommendation_accept">Bəle</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Cətine vote</string>
-  <string name="image_recommendation_reject_title">Buci ne?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Buci ne?</string>
   <string name="image_recommendation_reject_other">Čo</string>
   <string name="image_recommendation_reject_submit">Vyǧandej</string>
   <string name="image_recommendation_tooltip_next">Dumotono šə</string>
@@ -1011,7 +1011,6 @@
   <string name="patroller_tasks_overflow_learn">Ve omute</string>
   <string name="patroller_onboarding_two_thank_title">Sepas</string>
   <string name="patroller_onboarding_two_watch_title">Rymuz kardej</string>
-  <string name="patroller_onboarding_two_warn_title">Cocašin</string>
   <string name="data_opt_in_accept">Ǧəbul kardej</string>
   <string name="data_opt_in_reject">Ohaštej</string>
   <string name="page_issues_title">Səhifə problemon</string>

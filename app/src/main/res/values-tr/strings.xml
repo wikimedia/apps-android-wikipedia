@@ -279,8 +279,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
@@ -462,6 +462,10 @@
   <string name="error_blocked_footer">Engellemeyi görüşmek için &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ya da başka bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Araç çubuğunuzu özelleştirin</string>
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
+  <string name="temp_account_not_logged_in">Oturum açmadınız</string>
+  <string name="temp_account_dialog_ok">Anladım</string>
+  <string name="temp_account_using_title">Geçici bir hesap kullanıyorsunuz</string>
+  <string name="temp_account_end_session">Oturumu bitir</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlatmak mı yoksa çıkmak mı istersiniz?</string>
   <string name="crash_report_relaunch">Baştan başlat</string>
@@ -854,6 +858,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">İptal</string>
   <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
   <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
+  <string name="feed_language_variants_removal_dialog_save">Sakla</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Ayarlara git</string>
   <string name="top_read_activity_title">%s tarihinde en çok okunanlar</string>
   <string name="tabs_activity_title">Sekmeler</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
@@ -883,8 +889,8 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_edit_learn_more">Madde açıklamaları hakkında daha fazla bilgi edinin</string>
   <string name="description_edit_image_caption_learn_more">Görsel alt yazıları hakkında daha fazla bilgi edinin</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_A%C3%A7%C4%B1klamalar%C4%B1</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Ba%C5%9Fl%C4%B1klar%C4%B1</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_Açıklamaları</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Başlıkları</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
   <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
@@ -1103,8 +1109,8 @@
   <string name="image_recommendation_accept">Evet</string>
   <string name="image_recommendation_reject">Hayır</string>
   <string name="image_recommendation_notsure">Emin değilim</string>
-  <string name="image_recommendation_reject_title">Neden?</string>
-  <string name="image_recommendation_reject_subtitle">Yanıtlarınız gelecek önerileri iyileştirir.</string>
+  <string name="image_recommendation_reject_title">Geri çevirme gerekçesi</string>
+  <string name="image_recommendation_reject_subtitle">Geri çevirme gerekçesi anonimdir ve gelecek görsel önerilerini iyileştirir.</string>
   <string name="image_recommendation_reject_not_relevant">Görsel ilgili değil</string>
   <string name="image_recommendation_reject_no_info">Karar vermek için yeterli bilgi yok</string>
   <string name="image_recommendation_reject_offensive">Görsel rahatsız edici</string>
@@ -1115,7 +1121,7 @@
   <string name="image_recommendation_tooltip_main">Önerilen Düzenlemelerde, maddelere eksik görseller ekleyin</string>
   <string name="image_recommendation_onboarding_1">Görseller insanların anlamalarına yardımcı olur, ancak birçok maddede yoktur.</string>
   <string name="image_recommendation_onboarding_2">Önerilen bir görselin bir Vikipedi maddesine yerleştirilip yerleştirilmeyeceğine siz karar vereceksiniz.</string>
-  <string name="image_recommendation_onboarding_3">Önerileri makine oluşturulmuştur ve bunları kabul edip etmemeye karar vermek için sağduyunuzu kullanırsınız.</string>
+  <string name="image_recommendation_onboarding_3">Öneriler makine ile oluşturulmuştur ve bunları kabul edip etmemeye karar vermek için sağduyunuzu kullanırsınız.</string>
   <string name="image_recommendation_onboarding_4">Görseller, Vikipedi tarafından kullanılan özgür lisanslı görsel koleksiyonu Wikimedia Commons\'tan gelir.</string>
   <string name="image_recommendation_tooltip_1">Konusunu anlamak için bu maddeyi inceleyin</string>
   <string name="image_recommendation_tooltip_2">Görseli ve ilişkili bilgileri inceleyin</string>
@@ -1254,6 +1260,11 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Yükseklik</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Ekle</string>
+  <string name="templates_insert_button">Ekle</string>
+  <string name="templates_param_suggested_value">ör. %s</string>
+  <string name="templates_param_optional_hint">%s (İsteğe bağlı)</string>
+  <string name="templates_param_suggested_hint">%s (Önerilen)</string>
+  <string name="templates_learn_more_link">Daha fazla bilgi edin</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
@@ -1277,6 +1288,7 @@
   <string name="talk_warn_save_dialog_hint">İleti başlığı</string>
   <string name="talk_warn_save_dialog_publish">Yayımla</string>
   <string name="talk_warn_save_dialog_cancel">İptal</string>
+  <string name="talk_warn_save_dialog_dont_save">Saklama</string>
   <string name="talk_warn_submitted">İleti, düzenleyicinin kullanıcı tartışma sayfasında yayımlandı</string>
   <string name="talk_warn_submitted_and_saved">İleti, düzenleyicinin kullanıcı tartışma sayfasında saklandı ve yayımlandı</string>
   <string name="talk_warn_saved_messages">Saklanan iletiler</string>
@@ -1511,6 +1523,8 @@
     <item quantity="other">İletiler silindi</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Başlık boş olamaz.</string>
+  <string name="talk_templates_your_messages_tab_title">İletileriniz</string>
+  <string name="talk_templates_example_messages_tab_title">Örnek iletiler</string>
   <string name="patroller_tasks_edits_list_search_hint">Değişiklikleri ara ya da filtrele</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiketler: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hiçbiri</string>
@@ -1584,8 +1598,6 @@
   <string name="patroller_onboarding_two_thank_content">Verimli bir düzenleme mi gördünüz? Katkılarından dolayı bir kullanıcıya teşekkür edin.</string>
   <string name="patroller_onboarding_two_watch_title">İzle</string>
   <string name="patroller_onboarding_two_watch_content">Madde düzenlemelerini takip etmek mi istiyorsunuz? İzleme Listenize ekleyin. \'Diğer\' altında görüntüleyin.</string>
-  <string name="patroller_onboarding_two_warn_title">Uyar</string>
-  <string name="patroller_onboarding_two_warn_content">Bir düzenleyicinin tartışma sayfasında uyarı iletileri oluşturun, gönderin ve saklayın.</string>
   <string name="patroller_onboarding_two_undo_title">Geri Al/Geri Döndür</string>
   <string name="patroller_onboarding_two_undo_content">Zararlı olabilecek bir düzenlemeyi geri almak ya da geri döndürmek için \'Geri Al\'ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Hasar, bir düzenlemenin vikiye zarar verip vermeyeceğini kestirir.</string>
@@ -1601,6 +1613,13 @@
   <string name="patroller_diff_feedback_dialog_submit">Gönder</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Geri bildirim gönderildi.</string>
   <string name="patroller_diff_feedback_tooltip">\'Özellikle ilgili sorun\' altında istediğiniz zaman geri bildirim göndermek için taşan menüye dokunun.</string>
+  <string name="patroller_saved_message_title_npov">Tarafsız bakış açısı</string>
+  <string name="patroller_saved_message_title_auto_trans">Otomatik çeviri</string>
+  <string name="patroller_saved_message_title_final_warning">Son uyarı</string>
+  <string name="patroller_saved_message_title_copy_vio">Telif hakkı ihlali uyarısı</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Düzenleme özeti bırakın</string>
+  <string name="patroller_saved_message_title_art_imp">Madde iyileştirme önerisi</string>
+  <string name="talk_templates_menu_edit_title">Düzenle</string>
   <string name="data_opt_in_accept">Kabul et</string>
   <string name="data_opt_in_reject">Reddet</string>
   <string name="page_issues_title">Sayfa sorunları</string>
@@ -1613,6 +1632,18 @@
   <string name="donation_campaign_donated_snackbar">Teşekkürler sevgili bağışçı! Cömertliğiniz Vikipedi\'nin ve kardeş sitelerinin gelişmesine yardımcı oluyor.</string>
   <string name="donation_campaign_go_back_button">Geri dön</string>
   <string name="menu_single_webview_open_external">Sistem tarayıcısında aç</string>
+  <string name="donate_gpay_dialog_title">Google Pay ile bağış yapmak ister misiniz?</string>
+  <string name="donate_gpay_dialog_pay_button">Google Pay ile bağış yapın</string>
+  <string name="donate_gpay_dialog_other_button">Diğer ödeme yöntemi</string>
+  <string name="donate_gpay_activity_title">Bir tutar seçin</string>
+  <string name="donate_gpay_check_transaction_fee">Bağışımın %%100\'ünü alabilmeniz için işlem ücretlerini karşılamak üzere cömertçe %s ekleyeceğim.</string>
+  <string name="donate_gpay_check_recurring">Bunu aylık olarak yinelenen bir bağış yapın.</string>
+  <string name="donate_gpay_check_send_email">Evet, Wikimedia Vakfı bana ara sıra e-posta gönderebilir.</string>
+  <string name="donate_gpay_minimum_amount">Lütfen bir miktar seçin (en az %s)</string>
+  <string name="donate_gpay_maximum_amount">Uygulamamız aracılığıyla %s üzerindeki bağışları kabul edemiyoruz. Lütfen benefactors@wikimedia.org adresinde büyük bağışlar ekibimizle iletişime geçin.</string>
+  <string name="donate_gpay_help_problems">Bağış sorunları mı yaşıyorsunuz?</string>
+  <string name="donate_gpay_help_faq">Sıkça sorulan sorular</string>
+  <string name="donate_gpay_help_tax">Vergiden düşülebilirlik bilgileri</string>
   <string name="places_title">Yerler</string>
   <string name="places_permissions_denied">Haritadaki yerinizi görmek için konum izni gereklidir. Lütfen tekrar deneyin.</string>
   <string name="places_search_hint">Yerleri ara</string>

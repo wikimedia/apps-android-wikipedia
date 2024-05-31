@@ -6,7 +6,6 @@ import android.content.ComponentCallbacks2
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -66,9 +65,5 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
 
     override fun onLowMemory() {}
 
-    override fun onTrimMemory(trimMemoryType: Int) {
-        if (trimMemoryType == ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
-            EventPlatformClient.flushCachedEvents()
-        }
-    }
+    override fun onTrimMemory(trimMemoryType: Int) {}
 }

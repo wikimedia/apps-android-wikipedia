@@ -731,6 +731,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         invalidateOptionsMenu()
     }
 
+    override fun isNewPage(): Boolean {
+        return false
+    }
+
     override fun onBackPressed() {
         val addImageTitle = intent.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
         val addImageSource = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)

@@ -5,26 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogWiktionaryBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionWithExamplesBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionsListBinding
 import org.wikipedia.databinding.ItemWiktionaryExampleBinding
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.RbDefinition
-import org.wikipedia.dataclient.restbase.RbDefinition.Usage
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
-import java.util.Locale
 
 class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -34,79 +32,58 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
     private var _binding: DialogWiktionaryBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var pageTitle: PageTitle
-    private lateinit var selectedText: String
-    private var currentDefinition: RbDefinition? = null
-    private val disposables = CompositeDisposable()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().parcelable(TITLE)!!
-        selectedText = requireArguments().getString(SELECTED_TEXT)!!
-    }
-
-    override fun onDestroyView() {
-        disposables.clear()
-        _binding = null
-        super.onDestroyView()
-    }
+    private val viewModel: WiktionaryViewModel by viewModels { WiktionaryViewModel.Factory(requireArguments()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         _binding = DialogWiktionaryBinding.inflate(inflater, container, false)
-        binding.wiktionaryDefinitionDialogTitle.text = sanitizeForDialogTitle(selectedText)
-        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
-        loadDefinitions()
         return binding.root
     }
 
-    private fun loadDefinitions() {
-        if (selectedText.trim().isEmpty()) {
-            displayNoDefinitionsFound()
-            return
-        }
-
-        // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
-        val finalSelectedText = StringUtil.addUnderscores(selectedText)
-        disposables.add(ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN)).getDefinition(finalSelectedText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .onErrorReturn {
-                    L.w("Cannot find the definition. Try to use lowercase text.")
-                    ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN))
-                        .getDefinition(finalSelectedText.lowercase(Locale.getDefault())).blockingFirst()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.wiktionaryDefinitionDialogTitle.text = sanitizeForDialogTitle(viewModel.selectedText)
+        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> onSuccess(it.data)
+                            is Resource.Error -> onError()
+                        }
+                    }
                 }
-                .map { usages -> RbDefinition(usages) }
-                .subscribe({ definition ->
-                    binding.dialogWiktionaryProgress.visibility = View.GONE
-                    currentDefinition = definition
-                    layOutDefinitionsByUsage()
-                }) { throwable ->
-                    displayNoDefinitionsFound()
-                    L.e(throwable)
-                })
+            }
+        }
     }
 
-    private fun displayNoDefinitionsFound() {
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+    }
+
+    private fun onLoading() {
+        binding.wiktionaryNoDefinitionsFound.visibility = View.GONE
+        binding.dialogWiktionaryProgress.visibility = View.VISIBLE
+    }
+
+    private fun onError() {
         binding.wiktionaryNoDefinitionsFound.visibility = View.VISIBLE
         binding.dialogWiktionaryProgress.visibility = View.GONE
     }
 
-    private fun layOutDefinitionsByUsage() {
-        currentDefinition?.usagesByLang?.get("en")?.let { usageList ->
-            if (usageList.isEmpty()) {
-                displayNoDefinitionsFound()
-                return
-            }
-            usageList.forEach {
-                binding.wiktionaryDefinitionsByPartOfSpeech.addView(layOutUsage(it))
-            }
+    private fun onSuccess(usageList: List<RbDefinition.Usage>) {
+        binding.wiktionaryNoDefinitionsFound.visibility = View.GONE
+        binding.dialogWiktionaryProgress.visibility = View.GONE
+        usageList.forEach {
+            binding.wiktionaryDefinitionsByPartOfSpeech.addView(layOutUsage(it))
         }
     }
 
-    private fun layOutUsage(currentUsage: Usage): View {
-        val usageBinding = ItemWiktionaryDefinitionsListBinding.inflate(LayoutInflater.from(context), binding.root, false)
+    private fun layOutUsage(currentUsage: RbDefinition.Usage): View {
+        val usageBinding = ItemWiktionaryDefinitionsListBinding.inflate(layoutInflater, binding.root, false)
         usageBinding.wiktionaryPartOfSpeech.text = currentUsage.partOfSpeech
         for (i in currentUsage.definitions.indices) {
             usageBinding.listWiktionaryDefinitionsWithExamples.addView(layOutDefinitionWithExamples(currentUsage.definitions[i], i + 1))
@@ -115,7 +92,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun layOutDefinitionWithExamples(currentDefinition: RbDefinition.Definition, count: Int): View {
-        val definitionBinding = ItemWiktionaryDefinitionWithExamplesBinding.inflate(LayoutInflater.from(context), binding.root, false)
+        val definitionBinding = ItemWiktionaryDefinitionWithExamplesBinding.inflate(layoutInflater, binding.root, false)
         val definitionWithCount = "$count. ${currentDefinition.definition}"
         definitionBinding.wiktionaryDefinition.text = StringUtil.fromHtml(definitionWithCount)
         definitionBinding.wiktionaryDefinition.movementMethod = linkMovementMethod
@@ -126,7 +103,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun layoutExamples(example: String): View {
-        val exampleBinding = ItemWiktionaryExampleBinding.inflate(LayoutInflater.from(context), binding.root, false)
+        val exampleBinding = ItemWiktionaryExampleBinding.inflate(layoutInflater, binding.root, false)
         exampleBinding.itemWiktionaryExample.text = StringUtil.fromHtml(example)
         exampleBinding.itemWiktionaryExample.movementMethod = linkMovementMethod
         return exampleBinding.root
@@ -161,11 +138,9 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
-        private const val WIKTIONARY_DOMAIN = ".wiktionary.org"
-        private const val TITLE = "title"
-        private const val SELECTED_TEXT = "selected_text"
         private const val PATH_WIKI = "/wiki/"
         private const val PATH_CURRENT = "./"
+        const val WIKTIONARY_DOMAIN = ".wiktionary.org"
 
         // Try to get the correct definition from glossary terms: https://en.wiktionary.org/wiki/Appendix:Glossary
         private const val GLOSSARY_OF_TERMS = ":Glossary"
@@ -174,7 +149,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(title: PageTitle, selectedText: String): WiktionaryDialog {
             return WiktionaryDialog().apply {
-                arguments = bundleOf(TITLE to title, SELECTED_TEXT to selectedText)
+                arguments = bundleOf(Constants.ARG_TITLE to title, Constants.ARG_TEXT to selectedText)
             }
         }
     }

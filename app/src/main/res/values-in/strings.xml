@@ -268,8 +268,8 @@
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.id</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
@@ -850,8 +850,8 @@
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
   <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
@@ -1051,8 +1051,8 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Tidak</string>
   <string name="image_recommendation_notsure">Tidak yakin</string>
-  <string name="image_recommendation_reject_title">Kenapa tidak?</string>
-  <string name="image_recommendation_reject_subtitle">Jawaban Anda akan meningkatkan saran di masa mendatang.</string>
+  <string name="image_recommendation_reject_title">Alasan penolakan</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Jawaban Anda akan meningkatkan saran di masa mendatang.</string>
   <string name="image_recommendation_reject_not_relevant">Gambar tidak relevan</string>
   <string name="image_recommendation_reject_no_info">Tidak cukup informasi untuk memutuskan</string>
   <string name="image_recommendation_reject_offensive">Gambarnya menyinggung</string>
@@ -1525,8 +1525,6 @@
   <string name="patroller_onboarding_two_thank_content">Melihat suntingan yang produktif? Ucapkan terima kasih kepada pengguna atas kontribusinya.</string>
   <string name="patroller_onboarding_two_watch_title">Pantau</string>
   <string name="patroller_onboarding_two_watch_content">Ingin melacak suntingan artikel? Tambahkan ke Daftar Pantauan Anda. Lihat di bawah \'Lainnya\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Peringatkan</string>
-  <string name="patroller_onboarding_two_warn_content">Membuat, mengirim, dan menyimpan pesan peringatan di halaman pembicaraan editor.</string>
   <string name="patroller_onboarding_two_undo_title">Batalkan/Kembalikan</string>
   <string name="patroller_onboarding_two_undo_content">Pilih \'Batalkan\' untuk membatalkan atau mengembalikan penyuntingan yang berpotensi merusak.</string>
   <string name="patroller_diff_tooltip_one">Kerusakan memperkirakan jika suatu suntingan menyebabkan kerusakan pada wiki.</string>

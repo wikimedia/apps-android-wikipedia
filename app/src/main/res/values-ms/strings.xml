@@ -257,7 +257,7 @@
   <string name="edit_how_page_improved">Bagaimanakah anda menambah baik laman ini?</string>
   <string name="edit_next">Seterusnya</string>
   <string name="edit_done">Terbitkan</string>
-  <string name="edit_preview">Pralihat</string>
+  <string name="edit_preview">Pratayang</string>
   <string name="edit_undo">Nyahbuat</string>
   <string name="edit_redo">Buat semula</string>
   <string name="edit_zoom_in">Zum dekat</string>
@@ -768,7 +768,7 @@
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
   <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
   <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
-  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
+  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk penyunting berbilang bahasa</string>
   <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>

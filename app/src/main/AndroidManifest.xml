@@ -32,19 +32,20 @@
     <!-- For being able to receive notifications upon boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <!--
+    List of hardware features that are implicitly used, but not required. These need to be
+    declared as optional, so that the app can be installed on devices that don't have them.
+    -->
     <uses-feature android:name="android.hardware.wifi" android:required="false"  />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
     <!-- For keeping the device awake while performing background tasks, such as syncing offline articles. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!--
-        Don't let Google Play filter out devices that just have fake touch
-        (e.g. mouse and keyboard instead of a real touchscreen).
-    -->
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false" />
 
     <queries>
         <intent>
@@ -78,6 +79,9 @@
 
         <!-- Opt out of metrics collection for the System WebView. -->
         <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
+
+        <!-- Necessary for Google Pay API -->
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
 
         <activity
             android:name=".main.MainActivity"
@@ -360,6 +364,9 @@
         <activity
             android:name=".talk.template.TalkTemplatesActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".donate.GooglePayActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"

@@ -49,6 +49,8 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Date
 
 class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
@@ -104,7 +106,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         super.onResume()
         actionMode?.let {
             viewModel.updateList(false)
-            if (SearchActionModeCallback.`is`(it)) {
+            if (SearchActionModeCallback.matches(it)) {
                 searchActionModeCallback.refreshProvider()
             }
         }
@@ -211,7 +213,8 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
-            textView.text = DateUtil.getShortDateString(date)
+            val localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()).toLocalDate()
+            textView.text = DateUtil.getShortDateString(localDateTime)
         }
     }
 
@@ -292,13 +295,10 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -315,7 +315,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

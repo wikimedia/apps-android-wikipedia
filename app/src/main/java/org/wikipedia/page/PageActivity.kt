@@ -432,11 +432,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestLangLinks(title: PageTitle) {
-        val langIntent = Intent()
-        langIntent.setClass(this, LangLinksActivity::class.java)
-        langIntent.action = LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE
-        langIntent.putExtra(Constants.ARG_TITLE, title)
-        requestHandleIntentLauncher.launch(langIntent)
+        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title))
     }
 
     override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?) {
@@ -496,7 +492,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     val utmCampaign = uri.getQueryParameter("utm_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
                         // TODO: need to verify if the page can be displayed and logged properly.
-                        DonorExperienceEvent.logImpression("webpay_processed")
+                        DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
                         startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
                             true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
                         finish()

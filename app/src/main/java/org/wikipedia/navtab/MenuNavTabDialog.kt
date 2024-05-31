@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import org.wikipedia.BuildConfig
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -18,7 +16,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 
@@ -30,6 +27,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun settingsClick()
         fun watchlistClick()
         fun contribsClick()
+        fun donateClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -81,8 +79,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerDonateContainer.setOnClickListener {
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
-            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.donate_url,
-                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
+            callback()?.donateClick()
             dismiss()
         }
 
