@@ -139,7 +139,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageCloseActionMode()
         fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
         fun onPageRequestLangLinks(title: PageTitle)
-        fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?)
+        fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
@@ -632,7 +632,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, GalleryActivity.SOURCE_NON_LEAD_IMAGE, options)
+                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, false, options)
                     }
                 }
             }

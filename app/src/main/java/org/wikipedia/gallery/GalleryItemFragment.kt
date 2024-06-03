@@ -18,32 +18,28 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentGalleryItemBinding
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.FileUtil
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
@@ -59,13 +55,13 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private var _binding: FragmentGalleryItemBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var mediaListItem: MediaListItem
-    private val disposables = CompositeDisposable()
+    private val viewModel: GalleryItemViewModel by viewModels { GalleryItemViewModel.Factory(requireArguments()) }
+
     private var mediaController: MediaController? = null
-    private var pageTitle: PageTitle? = null
-    var imageTitle: PageTitle? = null
-    var mediaPage: MwQueryPage? = null
-    val mediaInfo get() = mediaPage?.imageInfo()
+
+    val imageTitle get() = viewModel.imageTitle
+    val mediaPage get() = viewModel.mediaPage
+    val mediaInfo get() = viewModel.mediaPage?.imageInfo()
 
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
         if (isGranted) {
@@ -73,14 +69,6 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         } else {
             FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_image_write_permission_rationale)
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mediaListItem = requireArguments().parcelable(ARG_GALLERY_ITEM)!!
-        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)
-            ?: PageTitle(mediaListItem.title, Constants.commonsWikiSite)
-        imageTitle = PageTitle("File:${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -98,12 +86,27 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                 binding.imageView.setAllowParentInterceptOnEdge(abs(binding.imageView.scale - 1f) < 0.01f)
             }
         }
-        loadMedia()
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading(true)
+                            is Resource.Success -> onSuccess(it.data)
+                            is Resource.Error -> onError(it.throwable)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     override fun onDestroyView() {
-        disposables.clear()
         binding.imageView.setOnMatrixChangeListener(null)
         binding.imageView.setOnClickListener(null)
         binding.videoThumbnail.setOnClickListener(null)
@@ -121,10 +124,6 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         }
     }
 
-    private fun updateProgressBar(visible: Boolean) {
-        binding.progressBar.visibility = if (visible) View.VISIBLE else View.GONE
-    }
-
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.menu_gallery, menu)
     }
@@ -133,19 +132,16 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         if (!isAdded) {
             return
         }
+        val enableShareAndSave = mediaInfo?.thumbUrl?.isNotEmpty() == true && binding.imageView.drawable != null
         menu.findItem(R.id.menu_gallery_visit_image_page).isEnabled = mediaInfo != null
-        menu.findItem(R.id.menu_gallery_share).isEnabled = mediaInfo != null &&
-                mediaInfo!!.thumbUrl.isNotEmpty() && binding.imageView.drawable != null
-        menu.findItem(R.id.menu_gallery_save).isEnabled = mediaInfo != null &&
-                mediaInfo!!.thumbUrl.isNotEmpty() && binding.imageView.drawable != null
+        menu.findItem(R.id.menu_gallery_share).isEnabled = enableShareAndSave
+        menu.findItem(R.id.menu_gallery_save).isEnabled = enableShareAndSave
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_gallery_visit_image_page -> {
-                if (mediaInfo != null && imageTitle != null) {
-                    startActivity(FilePageActivity.newIntent(requireContext(), imageTitle!!))
-                }
+                startActivity(FilePageActivity.newIntent(requireContext(), imageTitle))
                 true
             }
             R.id.menu_gallery_save -> {
@@ -169,41 +165,24 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         }
     }
 
-    private fun loadMedia() {
-        if (pageTitle == null || imageTitle == null) {
-            return
-        }
-        updateProgressBar(true)
-        disposables.add(getMediaInfoDisposable(imageTitle!!.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doAfterTerminate {
-                updateProgressBar(false)
-                requireActivity().invalidateOptionsMenu()
-                (requireActivity() as GalleryActivity).layOutGalleryDescription(this)
-            }
-            .subscribe({ response ->
-                mediaPage = response.query?.firstPage()
-                if (FileUtil.isVideo(mediaPage?.imageInfo()?.mime.orEmpty())) {
-                    loadVideo()
-                } else {
-                    loadImage(ImageUrlUtil.getUrlForPreferredSize(mediaInfo!!.thumbUrl,
-                        Constants.PREFERRED_GALLERY_IMAGE_SIZE))
-                }
-            }) { throwable ->
-                FeedbackUtil.showMessage(requireActivity(), R.string.gallery_error_draw_failed)
-                L.d(throwable)
-            })
+    private fun onLoading(visible: Boolean) {
+        binding.progressBar.isVisible = visible
     }
 
-    private fun getMediaInfoDisposable(title: String, lang: String): Observable<MwQueryResponse> {
-        return if (mediaListItem.isVideo) {
-            ServiceFactory.get(if (mediaListItem.isInCommons) Constants.commonsWikiSite
-            else pageTitle!!.wikiSite).getVideoInfo(title, lang)
+    private fun onSuccess(isVideo: Boolean) {
+        if (isVideo) {
+            loadVideo()
         } else {
-            ServiceFactory.get(if (mediaListItem.isInCommons) Constants.commonsWikiSite
-            else pageTitle!!.wikiSite).getImageInfo(title, lang)
+            loadImage(ImageUrlUtil.getUrlForPreferredSize(mediaInfo?.thumbUrl.orEmpty(), Constants.PREFERRED_GALLERY_IMAGE_SIZE))
         }
+        onLoading(false)
+        requireActivity().invalidateOptionsMenu()
+        (requireActivity() as GalleryActivity).fetchGalleryDescription(this)
+    }
+
+    private fun onError(throwable: Throwable) {
+        FeedbackUtil.showMessage(requireActivity(), R.string.gallery_error_draw_failed)
+        L.d(throwable)
     }
 
     private val videoThumbnailClickListener: View.OnClickListener = object : View.OnClickListener {
@@ -221,12 +200,12 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                 mediaController?.setPadding(0, 0, 0,
                     DimenUtil.dpToPx(DimenUtil.getNavigationBarHeight(requireContext())).toInt())
             }
-            updateProgressBar(true)
+            onLoading(true)
             binding.videoView.setMediaController(mediaController)
             binding.videoView.setOnPreparedListener {
-                updateProgressBar(false)
+                onLoading(false)
                 // ...update the parent activity, which will trigger us to start playing!
-                (requireActivity() as GalleryActivity).layOutGalleryDescription(this@GalleryItemFragment)
+                (requireActivity() as GalleryActivity).fetchGalleryDescription(this@GalleryItemFragment)
                 // hide the video thumbnail, since we're about to start playback
                 binding.videoThumbnail.visibility = View.GONE
                 binding.videoPlayButton.visibility = View.GONE
@@ -235,7 +214,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                 loading = false
             }
             binding.videoView.setOnErrorListener { _, _, _ ->
-                updateProgressBar(false)
+                onLoading(false)
                 FeedbackUtil.showMessage(activity!!, R.string.gallery_error_video_failed)
                 binding.videoView.visibility = View.GONE
                 binding.videoThumbnail.visibility = View.VISIBLE
@@ -251,7 +230,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         binding.videoContainer.visibility = View.VISIBLE
         binding.videoPlayButton.visibility = View.VISIBLE
         binding.videoView.visibility = View.GONE
-        if (mediaInfo == null || mediaInfo!!.thumbUrl.isEmpty()) {
+        if (mediaInfo?.thumbUrl?.isNotEmpty() != true) {
             binding.videoThumbnail.visibility = View.GONE
         } else {
             // show the video thumbnail while the video loads...
@@ -263,7 +242,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     private fun loadImage(url: String) {
         binding.imageView.visibility = View.INVISIBLE
-        updateProgressBar(true)
+        onLoading(true)
         ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
     }
 
@@ -286,14 +265,11 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                 if (!isAdded) {
                     return@ImagePipelineBitmapGetter
                 }
-                imageTitle?.let { title ->
-                    callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject, title)
-                }
+                callback()?.onShare(this@GalleryItemFragment, bitmap,
+                    StringUtil.removeHTMLTags(viewModel.imageTitle.displayText), imageTitle)
             }
         }
     }
-
-    private val shareSubject get() = StringUtil.removeHTMLTags(pageTitle?.displayText)
 
     private fun saveImage() {
         mediaInfo?.let { callback()?.onDownload(this) }
@@ -304,7 +280,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     }
 
     companion object {
-        private const val ARG_GALLERY_ITEM = "galleryItem"
+        const val ARG_GALLERY_ITEM = "galleryItem"
 
         fun newInstance(pageTitle: PageTitle?, item: MediaListItem): GalleryItemFragment {
             return GalleryItemFragment().apply {
