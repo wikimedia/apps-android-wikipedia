@@ -13,6 +13,7 @@
 * Diskdance
 * Ff98sha
 * GoForceX
+* Googology
 * Grace03
 * GuoPC
 * Hehua
@@ -341,6 +342,7 @@
   <string name="edit_summary_tag_links">添加链接</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
+  <string name="edit_summary_added_short_description">添加了简短描述</string>
   <string name="edit_conflict_title">编辑冲突</string>
   <string name="edit_conflict_message">页面已被不同的用户修改过，并且与您的编辑冲突。请复制您的编辑，返回并刷新页面，然后重试编辑。</string>
   <string name="edit_notices">编辑提示</string>
