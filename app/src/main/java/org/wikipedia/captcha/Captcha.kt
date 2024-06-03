@@ -1,12 +1,13 @@
 package org.wikipedia.captcha
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwResponse
 
 @Serializable
-data class Captcha(private val fancycaptchareload: FancyCaptchaReload) : MwResponse() {
+data class Captcha(@SerialName("fancycaptchareload") private val fancyCaptchaReload: FancyCaptchaReload) : MwResponse() {
     fun captchaId(): String {
-        return fancycaptchareload.index.orEmpty()
+        return fancyCaptchaReload.index.orEmpty()
     }
 
     @Serializable

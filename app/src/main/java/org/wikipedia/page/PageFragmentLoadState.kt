@@ -1,17 +1,15 @@
 package org.wikipedia.page
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.page.Protection
@@ -30,22 +28,17 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
 
-    private val app = WikipediaApp.instance
-    val disposables = CompositeDisposable()
-
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
-        // clear any remaining disposables from the previous page load.
-        disposables.clear()
 
         // point of no return: null out the current page object.
         model.page = null
         model.readingListPage = null
-        pageLoadFromNetwork()
+        pageLoad()
     }
 
     fun loadFromBackStack(isRefresh: Boolean = false) {
@@ -106,46 +99,65 @@ class PageFragmentLoadState(private var model: PageViewModel,
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
     }
 
-    private fun pageLoadFromNetwork() {
+    private fun commonSectionFetchOnCatch(caught: Throwable) {
+        if (!fragment.isAdded) {
+            return
+        }
+        fragment.requireActivity().invalidateOptionsMenu()
+        fragment.onPageLoadError(caught)
+    }
+
+    private fun pageLoad() {
         model.title?.let { title ->
-            fragment.updateQuickActionsAndMenuOptions()
-            fragment.requireActivity().invalidateOptionsMenu()
-            fragment.callback()?.onPageUpdateProgressBar(true)
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e("Page details network error: ", throwable)
+                commonSectionFetchOnCatch(throwable)
+            }) {
+                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
-            // kick off loading mobile-html contents into the WebView.
-            bridge.resetHtml(title)
+                fragment.updateQuickActionsAndMenuOptions()
+                fragment.requireActivity().invalidateOptionsMenu()
+                fragment.callback()?.onPageUpdateProgressBar(true)
 
-            // The final step is to fetch the watched status of the page (in the background),
-            // but not if it's a Special page, which can't be watched.
-            if (title.namespace() === Namespace.SPECIAL) {
-                return
-            }
+                // Kick off loading mobile-html contents into the WebView.
+                // The onPageFinished callback, which should be called by the WebView, will signal
+                // the next stage of the loading process.
+                bridge.resetHtml(title)
 
-            disposables.add((if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
-                    else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                    else Observable.just(MwQueryResponse()))
-                .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ watchedResponse ->
-                        model.isWatched = watchedResponse.query?.firstPage()?.watched ?: false
-                        model.hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                // The final step is to fetch the watched status of the page (in the background),
+                // but not if it's a Special page, which can't be watched.
+                if (title.namespace() === Namespace.SPECIAL) {
+                    return@launch
+                }
 
-                        fragment.updateQuickActionsAndMenuOptions()
-                        fragment.requireActivity().invalidateOptionsMenu()
-
-                        if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
-                            checkAnonNotifications(title)
-                        }
-                    }) {
-                        L.e(it)
+                val watchedRequest = async {
+                    if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
+                        ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
+                    } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
+                        AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
+                    } else {
+                        MwQueryResponse()
                     }
-            )
+                }
+
+                val watchedResponse = watchedRequest.await()
+                model.isWatched = watchedResponse.query?.firstPage()?.watched ?: false
+                model.hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
+
+                fragment.updateQuickActionsAndMenuOptions()
+                fragment.requireActivity().invalidateOptionsMenu()
+
+                if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
+                    checkAnonNotifications(title)
+                }
+            }
         }
     }
 
     private fun checkAnonNotifications(title: PageTitle) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val response = ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
+        fragment.lifecycleScope.launch {
+            val response = ServiceFactory.get(title.wikiSite)
+                .getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
             if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(response, title)) {
                 fragment.showAnonNotification()
             }

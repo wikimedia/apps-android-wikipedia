@@ -202,6 +202,8 @@
   <string name="logged_out_in_background_login">Aanmelden</string>
   <string name="logged_out_in_background_cancel">Annuleren</string>
   <string name="account_vanish_request_title">Account laten verdwijnen</string>
+  <string name="account_vanish_request_confirm_title">Waarschuwing verdwijnen account</string>
+  <string name="account_vanish_request_confirm">Verdwijnen is een &lt;b&gt;laatste redmiddel&lt;/b&gt; en moet &lt;b&gt;alleen worden gebruikt als u voor altijd wilt stoppen met bewerken&lt;/b&gt; en ook om zoveel mogelijk van uw vroegere relaties te verbergen.&lt;br/&gt;&lt;br/&gt;Accountverwijdering op Wikipedia gebeurt door uw accountnaam te wijzigen zodat anderen uw bijdragen niet kunnen herkennen. Deze procedure wordt accountverdwijning genoemd. &lt;b&gt;Door het verdwijnen wordt geen volledige anonimiteit gegarandeerd en worden geen bijdragen aan de projecten verwijderd.&lt;/b&gt;</string>
   <string name="history_empty_title">Geen recent bekeken artikelen</string>
   <string name="history_empty_message">Blijf hier op de hoogte van wat u hebt gelezen.</string>
   <string name="history_offline_articles_toast">Sommige artikelen in de geschiedenis zijn mogelijk niet offline zichtbaar.</string>
@@ -275,8 +277,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teampagina&lt;/a&gt;</string>
@@ -436,6 +438,7 @@
   <string name="link_preview_dialog_save_button">Opslaan</string>
   <string name="link_preview_dialog_saved_button">Opgeslagen</string>
   <string name="link_preview_dialog_share_button">Delen</string>
+  <string name="link_preview_stub_placeholder_text">Dit artikel is een beginnetje. Dat betekent dat het artikel niet lang genoeg is om een voorvertoning te genereren. U kunt daar echter verandering in brengen.</string>
   <string name="error_page_does_not_exist">Deze pagina bestaat niet</string>
   <string name="error_user_page_does_not_exist">Wikipedia heeft geen &lt;a href=\"%1$s\"&gt;gebruikerspagina&lt;/a&gt; met deze exacte naam. Over het algemeen moet deze pagina worden gemaakt en bewerkt door &lt;b&gt;%2$s&lt;/b&gt;. Controleer bij twijfel of \"%3$s\" bestaat.</string>
   <string name="view_wiki_error_message_offline">Er kan geen verbinding gemaakt worden met het internet</string>
@@ -458,6 +461,7 @@
   <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
   <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="temp_account_not_logged_in">U bent niet aangemeld</string>
   <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u opnieuw beginnen of stoppen?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
@@ -879,8 +883,8 @@
   <string name="description_edit_voice_input_description">Steminvoer</string>
   <string name="description_edit_learn_more">Meer informatie over artikelbeschrijvingen</string>
   <string name="description_edit_image_caption_learn_more">Meer informatie over afbeeldingsbijschriften</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">De tekst is te kort.</string>
   <string name="description_ends_with_punctuation">Tekst mag niet eindigen met een interpuctie.</string>
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
@@ -1101,8 +1105,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nee</string>
   <string name="image_recommendation_notsure">Niet zeker</string>
-  <string name="image_recommendation_reject_title">Waarom niet?</string>
-  <string name="image_recommendation_reject_subtitle">Uw antwoorden verbeteren toekomstige suggesties.</string>
+  <string name="image_recommendation_reject_title">Reden voor afwijzing</string>
+  <string name="image_recommendation_reject_subtitle">De reden voor afwijzing is anoniem en wordt gebruikt om toekomstige afbeeldingssuggesties verbeteren.</string>
   <string name="image_recommendation_reject_not_relevant">Afbeelding is niet relevant</string>
   <string name="image_recommendation_reject_no_info">Onvoldoende informatie om te beslissen</string>
   <string name="image_recommendation_reject_offensive">De afbeelding is aanstootgevend</string>
@@ -1491,7 +1495,7 @@
   <string name="reading_list_share_message_v2">Hoi! Ik wil graag mijn Wikipedia leeslijst met je delen:</string>
   <string name="reading_list_share_survey_title">Kunt u ons helpen om \"Leeslijsten delen\" te verbeteren?</string>
   <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Maak uw eigen waarschuwingsberichten of gebruik &lt;a href=\"#\"&gt;voorbeeldberichten&lt;/a&gt; om aan de slag te gaan.</string>
+  <string name="talk_templates_empty_message">Maak uw eigen berichten of gebruik &lt;a href=\"#\"&gt;voorbeeldberichten&lt;/a&gt; om aan de slag te gaan.</string>
   <string name="talk_templates_new_message_title">Nieuw bericht</string>
   <string name="talk_templates_new_message_subject_hint">Onderwerp</string>
   <string name="talk_templates_new_message_compose_hint">Bericht opstellen</string>
@@ -1592,8 +1596,6 @@
   <string name="patroller_onboarding_two_thank_content">Ziet u een productieve bewerking? Bedank een gebruiker voor diens bijdrage.</string>
   <string name="patroller_onboarding_two_watch_title">Volgen</string>
   <string name="patroller_onboarding_two_watch_content">Wilt u de bewerkingen van een artikel bijhouden? Voeg het toe aan uw volglijst. Bekijk het onder ‘Meer’.</string>
-  <string name="patroller_onboarding_two_warn_title">Waarschuwen</string>
-  <string name="patroller_onboarding_two_warn_content">Creëer, verzend en bewaar waarschuwingsberichten op de overlegpagina van een redacteur.</string>
   <string name="patroller_onboarding_two_undo_title">Ongedaan maken/terugdraaien</string>
   <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk schadelijke bewerking ongedaan te maken of terug te draaien.</string>
   <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>

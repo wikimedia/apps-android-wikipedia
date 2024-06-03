@@ -37,6 +37,10 @@ class Entities : MwResponse() {
                 emptyMap()
             }
         }
+
+        fun getDescription(langCode: String): String? {
+            return descriptions[langCode]?.value
+        }
     }
 
     @Serializable

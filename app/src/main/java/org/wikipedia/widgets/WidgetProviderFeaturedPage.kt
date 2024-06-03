@@ -95,7 +95,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     companion object {
         private var lastServerUpdateMillis = 0L
 
-        fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null, sendIntent: Boolean = true) {
+        fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null) {
             val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext)
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderFeaturedPage::class.java))
             ids.forEach { id ->
@@ -105,7 +105,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 options.putParcelable(Constants.ARG_TITLE, bundle)
                 appWidgetManager.updateAppWidgetOptions(id, options)
             }
-            if (ids.isNotEmpty() && sendIntent) {
+            if (ids.isNotEmpty()) {
                 context.sendBroadcast(Intent(context, WidgetProviderFeaturedPage::class.java)
                     .setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
                     .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids))

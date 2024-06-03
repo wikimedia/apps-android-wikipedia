@@ -235,8 +235,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Laburaren da aka yi amfani da su</string>
   <string name="about_contributors_heading">Gudummuwa</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
@@ -836,8 +836,8 @@
   <string name="description_edit_voice_input_description">Shigar da murya</string>
   <string name="description_edit_learn_more">Ƙari koyo game da bayanin labarin</string>
   <string name="description_edit_image_caption_learn_more">Koyi ƙarin bayani game da rubutun hoto</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_cations</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_cations</string>
   <string name="description_too_short">Rubutun ya yi gajeren lokaci.</string>
   <string name="description_ends_with_punctuation">Dole ne rubutun ya ƙare da alamar rubutu ba.</string>
   <string name="description_starts_with_uppercase">Farawa da ƙananan harafi sai dai idan kalmar farko ta dace.</string>
@@ -1058,8 +1058,8 @@
   <string name="image_recommendation_accept">E</string>
   <string name="image_recommendation_reject">A\'a</string>
   <string name="image_recommendation_notsure">Ba tabbatacce ba ne</string>
-  <string name="image_recommendation_reject_title">Me ya sa?</string>
-  <string name="image_recommendation_reject_subtitle">Amsoshinku suna inganta shawarwari na gaba.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Me ya sa?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Amsoshinku suna inganta shawarwari na gaba.</string>
   <string name="image_recommendation_reject_not_relevant">Hoton ba ya dace</string>
   <string name="image_recommendation_reject_no_info">Babu isasshen bayani don yanke shawara</string>
   <string name="image_recommendation_reject_offensive">Hoton yana da banƙyama</string>
@@ -1536,8 +1536,6 @@
   <string name="patroller_onboarding_two_thank_content">Dubi gyare-gyare mai amfani? Na gode wa mai amfani saboda gudummawar da suka bayar.</string>
   <string name="patroller_onboarding_two_watch_title">Kalli</string>
   <string name="patroller_onboarding_two_watch_content">Yana so ya bi diddigin gyaran labarin? Ƙara a cikin Watchlist. Dubi shi a ƙarƙashin \'More\'.</string>
-  <string name="patroller_onboarding_two_warn_title">Gargadi</string>
-  <string name="patroller_onboarding_two_warn_content">Ka ƙirƙira, aikawa, da adana saƙonnin gargadi a shafin tattaunawa na edita.</string>
   <string name="patroller_onboarding_two_undo_title">Maimaita/Bayarwa</string>
   <string name="patroller_onboarding_two_undo_content">Zaɓi \'Undo\' don warwarewa ko juyawa wani gyare-gyare mai lalacewa.</string>
   <string name="patroller_diff_tooltip_one">Lalacewar tana hasashen idan gyare-gyare yana haifar da lalacewa ga wiki.</string>

@@ -21,7 +21,10 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
 import org.wikipedia.extensions.parcelable
@@ -67,7 +70,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     }
                     val pageTitle = previousSourceSummaryForEdit!!.pageTitle
                     if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE))
+                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0))
                     } else {
                         startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
                     }
@@ -178,8 +181,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.articleDescriptionPlaceHolder2.visibility = VISIBLE
         binding.viewArticleTitle.visibility = VISIBLE
         binding.divider.visibility = VISIBLE
-        binding.viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle!!)
-        binding.viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit!!.extract)
+        binding.viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit?.displayTitle)
+        binding.viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit?.extract)
         binding.viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         showItemImage()
     }

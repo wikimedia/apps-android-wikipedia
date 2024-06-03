@@ -245,8 +245,8 @@
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
     <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-    <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+    <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
     <string name="about_libraries_heading">Libraries used</string>
     <string name="about_contributors_heading">Contributors</string>
     <string name="about_contributors"><![CDATA[<a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android">Team page</a>]]></string>
@@ -283,6 +283,8 @@
     <string name="edit_summary_tag_links">Added links</string>
     <string name="edit_summary_tag_other">Other</string>
     <string name="edit_summary_tag_other_hint">Other ways you improved the page</string>
+    <string name="edit_summary_added_short_description">Added short description</string>
+    <string name="edit_summary_updated_short_description">Updated short description</string>
     <string name="edit_conflict_title">Edit conflict</string>
     <string name="edit_conflict_message">The page has already been modified by a different user, and is conflicting with your edit. Please copy your edits, go back and refresh the page, then try editing again.</string>
     <string name="edit_notices">Edit notices</string>
@@ -865,6 +867,12 @@
     <string name="feed_lang_selection_dialog_cancel_button_text">Cancel</string>
     <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
     <string name="feed_accessibility_card_load_more_button">Load more</string>
+    <string name="feed_language_variants_removal_dialog_title">Select a regional language variant for an improved reading experience</string>
+    <string name="feed_language_variants_removal_dialog_message">You are currently using an unsupported generic Chinese language variant as your primary Wikipedia language</string>
+    <string name="feed_language_variants_removal_dialog_save">Save</string>
+    <string name="feed_language_variants_removal_secondary_dialog_title">Please update your secondary languages</string>
+    <string name="feed_language_variants_removal_secondary_dialog_message">You are currently using an unsupported generic Chinese language variant as a secondary language. Please go to your settings to select a new secondary language or to confirm your language list.</string>
+    <string name="feed_language_variants_removal_secondary_dialog_settings">Go to Settings</string>
     <!-- /The Feed -->
 
     <string name="top_read_activity_title">Top read on %s</string>
@@ -899,8 +907,8 @@
     <string name="description_edit_voice_input_description">Voice input</string>
     <string name="description_edit_learn_more">Learn more about article descriptions</string>
     <string name="description_edit_image_caption_learn_more">Learn more about image captions</string>
-    <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-    <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+    <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+    <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
 
     <string name="description_too_short">The text is too short.</string>
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
@@ -1135,8 +1143,8 @@
     <string name="image_recommendation_accept">Yes</string>
     <string name="image_recommendation_reject">No</string>
     <string name="image_recommendation_notsure">Not sure</string>
-    <string name="image_recommendation_reject_title">Why not?</string>
-    <string name="image_recommendation_reject_subtitle">Your answers improve future suggestions.</string>
+    <string name="image_recommendation_reject_title">Rejection reason</string>
+    <string name="image_recommendation_reject_subtitle">The rejection reason is anonymous and will improve future image suggestions.</string>
     <string name="image_recommendation_reject_not_relevant">Image is not relevant</string>
     <string name="image_recommendation_reject_no_info">Not enough information to decide</string>
     <string name="image_recommendation_reject_offensive">Image is offensive</string>
@@ -1678,8 +1686,8 @@
     <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
     <string name="patroller_onboarding_two_watch_title">Watch</string>
     <string name="patroller_onboarding_two_watch_content">Want to track article edits? Add to your Watchlist. View it under \'More\'.</string>
-    <string name="patroller_onboarding_two_warn_title">Warn</string>
-    <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
+    <string name="patroller_onboarding_two_talk_title">Talk</string>
+    <string name="patroller_onboarding_two_talk_content">Communicate with other editors. Save commonly used talk page messages or use a template.</string>
     <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
@@ -1736,6 +1744,21 @@
     <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
+    <string name="donate_gpay_dialog_title">Donate with Google Pay?</string>
+    <string name="donate_gpay_dialog_description">Donate with Google Pay or choose another payment method.</string>
+    <string name="donate_gpay_dialog_pay_button">Donate with Google Pay</string>
+    <string name="donate_gpay_dialog_other_button">Other payment method</string>
+    <string name="donate_gpay_activity_title">Select an amount</string>
+    <string name="donate_gpay_check_transaction_fee">I\'ll generously add %s to cover the transaction fees so you can keep 100%% of my donation.</string>
+    <string name="donate_gpay_check_recurring">Make this a monthly recurring donation.</string>
+    <string name="donate_gpay_check_send_email">Yes, the Wikimedia Foundation can send me an occasional email.</string>
+    <string name="donate_gpay_minimum_amount">Please select an amount (minimum %s)</string>
+    <string name="donate_gpay_maximum_amount">We cannot accept donations greater than %s through our app. Please contact our major gifts staff at benefactors@wikimedia.org.</string>
+    <string name="donate_gpay_success_message"><![CDATA[<b>Thank you!</b> Your generosity to Wikipedia means so much to us.]]></string>
+    <string name="donate_gpay_help_problems">Problems donating?</string>
+    <string name="donate_gpay_help_other_ways">Other ways to give</string>
+    <string name="donate_gpay_help_faq">Frequently asked questions</string>
+    <string name="donate_gpay_help_tax">Tax deductibility information</string>
     <!-- Donor experience -->
 
     <!-- Places -->

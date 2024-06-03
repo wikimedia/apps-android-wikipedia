@@ -1,11 +1,11 @@
 package org.wikipedia.captcha
 
-import android.app.Activity
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.databinding.GroupCaptchaBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -17,12 +17,13 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
 
-class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
+class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: WikiSite,
                      captchaView: View, private val primaryView: View,
                      private val prevTitle: String, submitButtonText: String?) {
     private val binding = GroupCaptchaBinding.bind(captchaView)
-    private val disposables = CompositeDisposable()
     private var captchaResult: CaptchaResult? = null
+    private var clientJob: Job? = null
+
     var token: String? = null
     val isActive get() = captchaResult != null
 
@@ -45,7 +46,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
     }
 
     fun dispose() {
-        disposables.clear()
+        clientJob?.cancel()
     }
 
     fun handleCaptcha(token: String?, captchaResult: CaptchaResult) {
@@ -56,17 +57,15 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
 
     fun requestNewCaptcha() {
         binding.captchaImageProgress.visibility = View.VISIBLE
-        disposables.add(ServiceFactory.get(wiki).newCaptcha
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doAfterTerminate { binding.captchaImageProgress.visibility = View.GONE }
-            .subscribe({ response ->
-                captchaResult = CaptchaResult(response.captchaId())
-                handleCaptcha(true)
-            }) { caught ->
-                cancelCaptcha()
-                FeedbackUtil.showError(activity, caught)
-            })
+        clientJob = activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            cancelCaptcha()
+            FeedbackUtil.showError(activity, throwable)
+        }) {
+            val response = ServiceFactory.get(wiki).getNewCaptcha()
+            captchaResult = CaptchaResult(response.captchaId())
+            handleCaptcha(true)
+            binding.captchaImageProgress.visibility = View.GONE
+        }
     }
 
     private fun handleCaptcha(isReload: Boolean) {
@@ -83,7 +82,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
     }
 
     fun hideCaptcha() {
-        (activity as AppCompatActivity).supportActionBar?.title = prevTitle
+        activity.supportActionBar?.title = prevTitle
         ViewAnimations.crossFade(binding.root, primaryView)
     }
 

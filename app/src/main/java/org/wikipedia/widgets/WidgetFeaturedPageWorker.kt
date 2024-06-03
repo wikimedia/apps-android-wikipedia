@@ -29,7 +29,12 @@ class WidgetFeaturedPageWorker(
 
             // TODO: don't use PageSummary.
             val summary = if (result.tfa != null) {
-                result.tfa
+                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(WikipediaApp.instance.wikiSite.languageCode).isNullOrEmpty()
+                if (hasParentLanguageCode) {
+                    ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(null, result.tfa.apiTitle)
+                } else {
+                    result.tfa
+                }
             } else {
                 val response = ServiceFactory.get(mainPageTitle.wikiSite).parseTextForMainPage(mainPageTitle.prefixedText)
                 ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(null, findFeaturedArticleTitle(response.text))
@@ -38,7 +43,7 @@ class WidgetFeaturedPageWorker(
             val pageTitle = summary.getPageTitle(app.wikiSite)
             pageTitle.displayText = summary.displayTitle
 
-            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle, false)
+            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle)
 
             Result.success()
         } catch (e: Exception) {

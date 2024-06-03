@@ -19,6 +19,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
@@ -144,7 +145,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageCloseActionMode()
         fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
         fun onPageRequestLangLinks(title: PageTitle)
-        fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?)
+        fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
@@ -186,6 +187,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
+    var revision = 0L
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
@@ -201,7 +203,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
-
         webView = binding.pageWebView
         webView.addOnUpOrCancelMotionEventListener {
             // update our session, since it's possible for the user to remain on the page for
@@ -210,7 +211,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         webView.addOnContentHeightChangedListener(scrollTriggerListener)
         webView.webViewClient = pageWebViewClient
-
         binding.pageRefreshContainer.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
@@ -247,6 +247,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
+        webView.addOnScrollChangeListener { _, scrollY, _ ->
+            if (scrollY > (DimenUtil.roundedDpToPx(webView.contentHeight.toFloat()) - (DimenUtil.displayHeightPx * 2)) &&
+                !model.isReadMoreLoaded) {
+                bridge.execute(JavaScriptActionHandler.appendReadMode(model))
+                model.isReadMoreLoaded = true
+            }
+        }
+
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
@@ -277,7 +285,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         sidePanelHandler.log()
         leadImagesHandler.dispose()
         disposables.clear()
-        pageFragmentLoadState.disposables.clear()
         webView.clearAllListeners()
         (webView.parent as ViewGroup).removeView(webView)
         Prefs.isSuggestedEditsHighestPriorityEnabled = false
@@ -387,6 +394,42 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 activity.intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)))
     }
 
+    inner class PageWebViewClient : OkHttpWebViewClient() {
+        override val model get() = this@PageFragment.model
+        override val linkHandler get() = this@PageFragment.linkHandler
+
+        override fun onPageFinished(view: WebView, url: String) {
+            bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
+                if (!isAdded) {
+                    return@evaluateImmediate
+                }
+                // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
+                // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
+                // doesn't support PCS, meaning that we will never receive the `setup` event that
+                // tells us the page is finished loading. In such a case, we must infer that the
+                // page has now loaded and trigger the remaining logic ourselves.
+                if ("true" != pcsExists) {
+                    onPageSetupEvent(false)
+                    bridge.onMetadataReady()
+                    bridge.onPcsReady()
+                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(DimenUtil.roundedPxToDp(((requireActivity() as AppCompatActivity).supportActionBar?.height ?: 0).toFloat()),
+                        DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
+                }
+
+                onPageMetadataLoaded()
+            }
+        }
+
+        override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
+            if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
+                // If the request is anything except the main mobile-html content request, then
+                // don't worry about any errors and let the WebView deal with it.
+                return
+            }
+            onPageLoadError(HttpStatusException(errorResponse.statusCode, request.url.toString(), UriUtil.decodeURL(errorResponse.reasonPhrase)))
+        }
+    }
+
     private fun onPageSetupEvent(havePcs: Boolean = true) {
         if (!isAdded) {
             return
@@ -417,6 +460,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
                     sidePanelHandler.setupForNewPage(page)
                     sidePanelHandler.setEnabled(true)
+                    model.isReadMoreLoaded = false
                 }
             }
         } else {
@@ -495,8 +539,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(it, ImageUrlUtil.getUrlForPreferredSize(page?.pageProperties?.leadImageUrl.orEmpty(), Service.PREFERRED_THUMB_SIZE))
-            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
             it.thumbUrl = pageImage.imageName
+            lifecycleScope.launch {
+                AppDatabase.instance.pageImagesDao().insertPageImage(pageImage)
+            }
         }
 
         leadImagesHandler.loadLeadImage()
@@ -668,7 +714,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, model.page?.pageProperties?.revisionId ?: 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE, options)
+                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, false, options)
                     }
                 }
             }
@@ -715,8 +761,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
                     availableCampaign?.let {
                         if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logImpression("article_banner",
-                                it.id, pageTitle.wikiSite.languageCode)
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
@@ -782,9 +827,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
         }
         bridge.addListener("link", linkHandler)
-        bridge.addListener("setup") { _, _ ->
-            onPageSetupEvent()
-        }
+        bridge.addListener("setup") { _, _ -> onPageSetupEvent() }
         bridge.addListener("final_setup") { _, _ ->
             if (!isAdded) {
                 return@addListener
@@ -945,6 +988,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         updateBookmarkAndMenuOptionsFromDao()
         binding.pageRefreshContainer.isEnabled = true
         binding.pageRefreshContainer.isRefreshing = false
+
         if (model.page == null) {
             return
         }
@@ -953,6 +997,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         editHandler.setPage(model.page)
         requireActivity().invalidateOptionsMenu()
+
         model.readingListPage?.let { page ->
             model.title?.let { title ->
                 if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
@@ -966,11 +1011,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
         }
-
         if (pageWebViewClient.lastPageHtmlOfflineDate != null) {
             showPageOfflineMessage(pageWebViewClient.lastPageHtmlOfflineDate)
         }
-
         maybeShowAnnouncement()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
@@ -1056,6 +1099,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         updateProgressBar(true)
         pageRefreshed = isRefresh
         references = null
+        revision = 0
         pageFragmentLoadState.load(pushBackStack)
         scrollTriggerListener.stagedScrollY = stagedScrollY
     }
@@ -1102,15 +1146,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
-            disposables.add(
-                Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate {
-                        updateQuickActionsAndMenuOptions()
-                        requireActivity().invalidateOptionsMenu()
-                    }
-                    .subscribe())
+            lifecycleScope.launch {
+                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+                updateQuickActionsAndMenuOptions()
+                requireActivity().invalidateOptionsMenu()
+            }
         }
     }
 
@@ -1551,45 +1591,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
-        }
-    }
-
-    inner class PageWebViewClient : OkHttpWebViewClient() {
-        override val model get() = this@PageFragment.model
-        override val linkHandler get() = this@PageFragment.linkHandler
-
-        override fun onPageFinished(view: WebView, url: String) {
-            bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
-                if (!isAdded) {
-                    return@evaluateImmediate
-                }
-                // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
-                // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
-                // doesn't support PCS, meaning that we will never receive the `setup` event that
-                // tells us the page is finished loading. In such a case, we must infer that the
-                // page has now loaded and trigger the remaining logic ourselves.
-                if ("true" != pcsExists) {
-                    onPageSetupEvent(false)
-                    bridge.onMetadataReady()
-                    bridge.onPcsReady()
-                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(toolbarMargin, DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
-                }
-
-                onPageMetadataLoaded()
-            }
-        }
-
-        override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {
-            onPageLoadError(RuntimeException(description))
-        }
-
-        override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
-            if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
-                // If the request is anything except the main mobile-html content request, then
-                // don't worry about any errors and let the WebView deal with it.
-                return
-            }
-            onPageLoadError(HttpStatusException(errorResponse.statusCode, request.url.toString(), UriUtil.decodeURL(errorResponse.reasonPhrase)))
         }
     }
 

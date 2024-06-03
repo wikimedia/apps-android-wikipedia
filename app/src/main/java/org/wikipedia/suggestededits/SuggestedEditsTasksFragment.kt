@@ -50,6 +50,8 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -286,7 +288,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
+            val localDateTime = LocalDateTime.ofInstant(pauseEndDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
+            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logPaused()
             return true
@@ -344,9 +347,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
         vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
 
-        if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
-            SuggestedEditsRecentEditsActivity.AVAILABLE_WIKIS.contains(WikipediaApp.instance.wikiSite.languageCode)) {
-            // TODO: limit to the primary language now.
+        if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty()) {
             Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
             displayedTasks.add(vandalismPatrolTask)
         }
