@@ -141,6 +141,9 @@ class SuggestedEditsFeedClient(
         val source = pair.first
         val target = pair.second
 
+        L.d("translateDescription source: ${source.apiTitle}")
+        L.d("translateDescription target: ${target.apiTitle}")
+
         return PageSummaryForEdit(
                 source.apiTitle,
                 langFromCode,

@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
+import org.wikipedia.util.log.L
 import java.time.Instant
 import java.util.Stack
 import java.util.concurrent.Semaphore
@@ -126,21 +127,17 @@ object EditingSuggestionsProvider {
                         ) {
                             return@forEach
                         }
-                        val sourceTitle =
-                            PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki)
-                        sourceTitle.description =
-                            entity.descriptions[sourceWiki.languageCode]?.value
+                        val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki)
+                        sourceTitle.description = entity.descriptions[sourceWiki.languageCode]?.value
                         articlesWithTranslatableDescriptionCache.push(
-                            PageTitle(
-                                entity.sitelinks[targetWiki.dbName()]!!.title,
-                                targetWiki
-                            ) to sourceTitle
+                            PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle
                         )
                     }
 
                     if (!articlesWithTranslatableDescriptionCache.empty()) {
                         titles = articlesWithTranslatableDescriptionCache.pop()
                     }
+                    L.d("Retried $tries times")
                 } while (tries++ < retryLimit && titles == null)
 
                 titles?.let {
