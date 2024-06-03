@@ -64,7 +64,6 @@ class WikipediaApp : Application() {
     private var defaultWikiSite: WikiSite? = null
 
     val connectionStateMonitor = ConnectionStateMonitor()
-    val bus = FlowEventBus()
     val tabList = mutableListOf<Tab>()
 
     var currentTheme = Theme.fallback
@@ -72,7 +71,7 @@ class WikipediaApp : Application() {
             if (value !== field) {
                 field = value
                 Prefs.currentThemeId = currentTheme.marshallingId
-                bus.post(ThemeFontChangeEvent())
+                FlowEventBus.post(ThemeFontChangeEvent())
             }
         }
 
@@ -191,7 +190,7 @@ class WikipediaApp : Application() {
         val multiplier = constrainFontSizeMultiplier(mult)
         if (multiplier != Prefs.textSizeMultiplier) {
             Prefs.textSizeMultiplier = multiplier
-            bus.post(ChangeTextSizeEvent())
+            FlowEventBus.post(ChangeTextSizeEvent())
             return true
         }
         return false
@@ -200,7 +199,7 @@ class WikipediaApp : Application() {
     fun setFontFamily(fontFamily: String) {
         if (fontFamily != Prefs.fontFamily) {
             Prefs.fontFamily = fontFamily
-            bus.post(ThemeFontChangeEvent())
+            FlowEventBus.post(ThemeFontChangeEvent())
         }
     }
 

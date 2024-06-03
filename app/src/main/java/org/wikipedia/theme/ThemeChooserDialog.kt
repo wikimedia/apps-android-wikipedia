@@ -25,6 +25,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -119,7 +120,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     if (event is WebViewInvalidateEvent) {
                         updatingFont = false
                         updateComponents()

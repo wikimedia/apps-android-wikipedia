@@ -13,7 +13,7 @@ import androidx.preference.SwitchPreferenceCompat
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent
 import org.wikipedia.events.ReadingListsEnabledStatusEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
@@ -28,7 +28,7 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     when (event) {
                         is ReadingListsEnabledStatusEvent -> {
                             setReadingListSyncPref(true)

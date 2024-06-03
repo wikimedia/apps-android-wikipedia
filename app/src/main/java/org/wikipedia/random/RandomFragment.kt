@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentRandomBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -74,7 +74,7 @@ class RandomFragment : Fragment() {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     if (event is ArticleSavedOrDeletedEvent) {
                         if (topTitle != null) {
                             for (page in event.pages) {

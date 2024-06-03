@@ -28,6 +28,7 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.donate.DonateDialog
 import org.wikipedia.events.*
@@ -110,7 +111,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     if (event is ThemeFontChangeEvent) {
                         ActivityCompat.recreate(this@BaseActivity)
                     }
@@ -120,7 +121,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     if (event is SplitLargeListsEvent) {
                         MaterialAlertDialogBuilder(this@BaseActivity)
                             .setMessage(getString(R.string.split_reading_list_message, Constants.MAX_READING_LIST_ARTICLE_LIMIT))

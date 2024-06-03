@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentThemeFittingRoomBinding
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.events.WebViewInvalidateEvent
@@ -30,10 +31,10 @@ class ThemeFittingRoomFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     if (event is ChangeTextSizeEvent) {
                         updateTextSize()
-                        binding.themeTestText.post { WikipediaApp.instance.bus.post(WebViewInvalidateEvent()) }
+                        binding.themeTestText.post { FlowEventBus.post(WebViewInvalidateEvent()) }
                     }
                 }
             }

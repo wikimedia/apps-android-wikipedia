@@ -4,6 +4,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -88,6 +89,6 @@ object CsrfTokenClient {
         // Signal to the rest of the app that we're explicitly logging out in the background.
         WikipediaApp.instance.logOut()
         Prefs.loggedOutInBackground = true
-        WikipediaApp.instance.bus.post(LoggedOutInBackgroundEvent())
+        FlowEventBus.post(LoggedOutInBackgroundEvent())
     }
 }

@@ -40,6 +40,7 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.ActivityPageBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -173,7 +174,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     when (event) {
                         is ChangeTextSizeEvent -> {
                             pageFragment.updateFontSize()

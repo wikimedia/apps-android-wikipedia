@@ -36,10 +36,10 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -119,7 +119,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                WikipediaApp.instance.bus.events.collectLatest { event ->
+                FlowEventBus.events.collectLatest { event ->
                     if (event is ReadingListSyncEvent) {
                         binding.recyclerView.post {
                             if (isAdded) {
