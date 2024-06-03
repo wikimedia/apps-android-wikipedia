@@ -105,11 +105,8 @@ object EditingSuggestionsProvider {
                 var tries = 0
                 do {
                     val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
-                        .getArticlesWithTranslatableDescriptions(
-                            WikiSite.normalizeLanguageCode(
-                                sourceWiki.languageCode
-                            ), WikiSite.normalizeLanguageCode(targetLang)
-                        )
+                        .getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode),
+                            WikiSite.normalizeLanguageCode(targetLang))
                     val mwQueryPages = ServiceFactory.get(targetWiki)
                         .getDescription(listOfSuggestedEditItem.joinToString("|") { it.title() }).query?.pages
 

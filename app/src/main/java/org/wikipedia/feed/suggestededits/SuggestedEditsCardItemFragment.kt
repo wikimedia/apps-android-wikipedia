@@ -238,7 +238,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         private const val AGE = "age"
         private const val PAGE_SUMMARY = "pageSummary"
         private const val IMAGE_TAG_PAGE = "imageTagPage"
-        const val MAX_RETRY_LIMIT: Long = 5
+        const val MAX_RETRY_LIMIT = 5L
 
         fun newInstance(age: Int, pageSummary: SuggestedEditsFeedClient.SuggestedEditsSummary?, imageTagPage: MwQueryPage?) =
                 SuggestedEditsCardItemFragment().apply {
