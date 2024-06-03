@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
-import org.wikipedia.util.log.L
 import java.time.Instant
 import java.util.Stack
 import java.util.concurrent.Semaphore
@@ -23,7 +22,7 @@ object EditingSuggestionsProvider {
 
     private val articlesWithMissingDescriptionCache: Stack<String> = Stack()
     private var articlesWithMissingDescriptionCacheLang: String = ""
-    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageTitle, PageTitle>> = Stack()
+    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageSummary, PageSummary>> = Stack()
     private var articlesWithTranslatableDescriptionCacheFromLang: String = ""
     private var articlesWithTranslatableDescriptionCacheToLang: String = ""
 
@@ -92,17 +91,14 @@ object EditingSuggestionsProvider {
             mutex.acquire()
             try {
                 val targetWiki = WikiSite.forLanguageCode(targetLang)
-                var titles: Pair<PageTitle, PageTitle>? = null
                 if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode ||
-                    articlesWithTranslatableDescriptionCacheToLang != targetLang
-                ) {
+                    articlesWithTranslatableDescriptionCacheToLang != targetLang) {
                     // evict the cache if the language has changed.
                     articlesWithTranslatableDescriptionCache.clear()
                 }
                 if (!articlesWithTranslatableDescriptionCache.empty()) {
-                    titles = articlesWithTranslatableDescriptionCache.pop()
+                    pair = articlesWithTranslatableDescriptionCache.pop()
                 }
-
                 var tries = 0
                 do {
                     val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
@@ -127,32 +123,28 @@ object EditingSuggestionsProvider {
                         ) {
                             return@forEach
                         }
-                        val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki)
-                        sourceTitle.description = entity.descriptions[sourceWiki.languageCode]?.value
-                        articlesWithTranslatableDescriptionCache.push(
-                            PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle
-                        )
+                        val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki).apply {
+                            description = entity.descriptions[sourceWiki.languageCode]?.value
+                        }
+                        val targetTitle = PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki)
+
+                        val targetPageSummary = async {
+                            ServiceFactory.getRest(targetTitle.wikiSite).getPageSummary(null, targetTitle.prefixedText).apply {
+                                if (description.isNullOrEmpty()) {
+                                    description = targetTitle.description
+                                }
+                            }
+                        }
+                        val sourcePageSummary = async {
+                            ServiceFactory.getRest(sourceTitle.wikiSite).getPageSummary(null, sourceTitle.prefixedText)
+                        }
+                        articlesWithTranslatableDescriptionCache.push(sourcePageSummary.await() to targetPageSummary.await())
                     }
 
                     if (!articlesWithTranslatableDescriptionCache.empty()) {
-                        titles = articlesWithTranslatableDescriptionCache.pop()
+                        pair = articlesWithTranslatableDescriptionCache.pop()
                     }
-                    L.d("Retried $tries times")
-                } while (tries++ < retryLimit && titles == null)
-
-                titles?.let {
-                    val targetPageSummary = async {
-                        ServiceFactory.getRest(it.first.wikiSite).getPageSummary(null, it.first.prefixedText).apply {
-                            if (description.isNullOrEmpty()) {
-                                description = it.first.description
-                            }
-                        }
-                    }
-                    val sourcePageSummary = async {
-                        ServiceFactory.getRest(it.second.wikiSite).getPageSummary(null, it.second.prefixedText)
-                    }
-                    pair = sourcePageSummary.await() to targetPageSummary.await()
-                }
+                } while (tries++ < retryLimit && (pair.first.apiTitle.isEmpty() || pair.second.apiTitle.isEmpty()))
             } finally {
                 mutex.release()
             }
@@ -215,10 +207,7 @@ object EditingSuggestionsProvider {
                         WikiSite.normalizeLanguageCode(targetLang)
                     )
                     listOfSuggestedEditItem.forEach {
-                        if (!it.captions.containsKey(sourceLang) || it.captions.containsKey(
-                                targetLang
-                            )
-                        ) {
+                        if (!it.captions.containsKey(sourceLang) || it.captions.containsKey(targetLang)) {
                             return@forEach
                         }
                         imagesWithTranslatableCaptionCache.push((it.captions[sourceLang] ?: error("")) to it.title())

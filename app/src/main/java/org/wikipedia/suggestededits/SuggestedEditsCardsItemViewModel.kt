@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -18,7 +17,7 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-class SuggestedEditsCardsItemViewModel() : ViewModel() {
+class SuggestedEditsCardsItemViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
@@ -34,18 +33,7 @@ class SuggestedEditsCardsItemViewModel() : ViewModel() {
         viewModelScope.launch(handler) {
             when (action) {
                 DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                    var pair = Pair(PageSummary(), PageSummary())
-
-                    run {
-                        repeat(MAX_RETRIES) {
-                            pair = EditingSuggestionsProvider
-                                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(fromLangCode), toLangCode, true)
-                            if (!pair.first.description.isNullOrEmpty()) {
-                                return@run
-                            }
-                        }
-                    }
-
+                    val pair = EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(fromLangCode), toLangCode, true)
                     val source = pair.first
                     val target = pair.second
 
@@ -168,9 +156,5 @@ class SuggestedEditsCardsItemViewModel() : ViewModel() {
             }
             _uiState.value = Resource.Success(sourceSummaryForEdit to targetSummaryForEdit)
         }
-    }
-
-    companion object {
-        const val MAX_RETRIES = 50
     }
 }
