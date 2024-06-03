@@ -303,6 +303,8 @@
   <string name="edit_summary_tag_links">הוספתי קישורים</string>
   <string name="edit_summary_tag_other">אחר</string>
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
+  <string name="edit_summary_added_short_description">נוסף תיאור קצר</string>
+  <string name="edit_summary_updated_short_description">עודכן תיאור קצר</string>
   <string name="edit_conflict_title">התנגשות עריכה</string>
   <string name="edit_conflict_message">הדף כבר שונה על־ידי משתמש אחר, וזה מתנגש עם העריכה שלך. נא להעתיק את העריכות שלך, לחזור, לרענן את הדף, ולנסות לערוך שוב.</string>
   <string name="edit_notices">הודעות לעורכים</string>
