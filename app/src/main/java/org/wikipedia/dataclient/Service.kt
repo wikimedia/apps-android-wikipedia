@@ -138,7 +138,7 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getVideoInfo(
+    suspend fun getVideoInfo(
         @Query("titles") titles: String,
         @Query("viextmetadatalanguage") lang: String
     ): MwQueryResponse
