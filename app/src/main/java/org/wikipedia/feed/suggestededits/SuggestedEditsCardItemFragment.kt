@@ -46,9 +46,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private lateinit var cardActionType: Action
     private var age = 0
-    private var app = WikipediaApp.instance
-    private var appLanguages = app.languageState.appLanguageCodes
-    private var langFromCode: String = appLanguages[0]
     private var targetLanguage: String? = null
     private var sourceSummaryForEdit: PageSummaryForEdit? = null
     private var targetSummaryForEdit: PageSummaryForEdit? = null
@@ -65,7 +62,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
                 val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
                     if (cardActionType === ADD_IMAGE_TAGS) {
-                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title, WikiSite(appLanguages[0]))))
+                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title, WikiSite(WikipediaApp.instance.appOrSystemLanguageCode))))
                         return@OpenPageListener
                     }
                     val pageTitle = previousSourceSummaryForEdit!!.pageTitle
@@ -190,7 +187,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateDescriptionUI() {
         showAddDescriptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
-                app.languageState.getAppLanguageCanonicalName(targetLanguage))
+                WikipediaApp.instance.languageState.getAppLanguageCanonicalName(targetLanguage))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }
@@ -206,7 +203,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateImageCaptionUI() {
         showAddImageCaptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
-                app.languageState.getAppLanguageCanonicalName(targetLanguage))
+                WikipediaApp.instance.languageState.getAppLanguageCanonicalName(targetLanguage))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }
