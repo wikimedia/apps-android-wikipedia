@@ -18,7 +18,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.concurrency.RxBus
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
@@ -64,7 +64,7 @@ class WikipediaApp : Application() {
     private var defaultWikiSite: WikiSite? = null
 
     val connectionStateMonitor = ConnectionStateMonitor()
-    val bus = RxBus()
+    val bus = FlowEventBus()
     val tabList = mutableListOf<Tab>()
 
     var currentTheme = Theme.fallback

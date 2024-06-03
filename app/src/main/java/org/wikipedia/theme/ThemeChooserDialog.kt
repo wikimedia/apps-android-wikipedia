@@ -12,10 +12,13 @@ import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -48,7 +51,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private var app = WikipediaApp.instance
     private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
     private lateinit var invokeSource: InvokeSource
-    private val disposables = CompositeDisposable()
     private var updatingFont = false
     private var isEditing = false
 
@@ -115,7 +117,16 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.onEditingPrefsChanged()
         }
 
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                WikipediaApp.instance.bus.events.collectLatest { event ->
+                    if (event is WebViewInvalidateEvent) {
+                        updatingFont = false
+                        updateComponents()
+                    }
+                }
+            }
+        }
 
         return binding.root
     }
@@ -133,7 +144,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        disposables.clear()
         _binding = null
     }
 
@@ -321,15 +331,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 }
             }
             appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is WebViewInvalidateEvent) {
-                updatingFont = false
-                updateComponents()
-            }
         }
     }
 

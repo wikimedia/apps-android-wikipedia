@@ -25,10 +25,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -102,7 +103,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
     private val pageChangeCallback = PageChangeCallback()
-    private val disposables = CompositeDisposable()
     private var exclusiveTooltipRunnable: Runnable? = null
 
     // The permissions request API doesn't take a callback, so in the event we have to
@@ -125,7 +125,18 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                WikipediaApp.instance.bus.events.collectLatest { event ->
+                    if (event is LoggedOutInBackgroundEvent) {
+                        refreshContents()
+                    } else if (event is ImportReadingListsEvent) {
+                        maybeShowImportReadingListsNewInstallDialog()
+                    }
+                }
+            }
+        }
+
         binding.mainViewPager.isUserInputEnabled = false
         binding.mainViewPager.adapter = NavTabFragmentPagerAdapter(this)
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
@@ -179,7 +190,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainViewPager.adapter = null
         binding.mainViewPager.unregisterOnPageChangeCallback(pageChangeCallback)
         _binding = null
-        disposables.dispose()
         super.onDestroyView()
     }
 
@@ -578,16 +588,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private inner class MediaDownloadReceiverCallback : MediaDownloadReceiver.Callback {
         override fun onSuccess() {
             FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_success)
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is LoggedOutInBackgroundEvent) {
-                refreshContents()
-            } else if (event is ImportReadingListsEvent) {
-                maybeShowImportReadingListsNewInstallDialog()
-            }
         }
     }
 

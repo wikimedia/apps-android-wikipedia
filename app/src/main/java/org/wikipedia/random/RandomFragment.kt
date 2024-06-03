@@ -14,7 +14,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -63,11 +63,26 @@ class RandomFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                val eventBus = WikipediaApp.instance.bus.subscribe(EventBusConsumer())
                 viewModel.uiState.collect {
                     when (it) {
                         is Resource.Success -> setSaveButton()
                         is Resource.Error -> L.w(it.throwable)
+                    }
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                WikipediaApp.instance.bus.events.collectLatest { event ->
+                    if (event is ArticleSavedOrDeletedEvent) {
+                        if (topTitle != null) {
+                            for (page in event.pages) {
+                                if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode == topTitle?.wikiSite?.languageCode) {
+                                    updateSaveButton(topTitle)
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -214,21 +229,6 @@ class RandomFragment : Fragment() {
             val storedOffScreenPagesCount = binding.randomItemPager.offscreenPageLimit * 2 + 1
             if (position >= storedOffScreenPagesCount) {
                 (binding.randomItemPager.adapter as RandomItemAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
-            }
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is ArticleSavedOrDeletedEvent) {
-                if (!isAdded || topTitle == null) {
-                    return
-                }
-                for (page in event.pages) {
-                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode == topTitle?.wikiSite?.languageCode) {
-                        updateSaveButton(topTitle)
-                    }
-                }
             }
         }
     }

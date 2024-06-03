@@ -7,9 +7,11 @@ import android.view.MenuItem
 import android.view.View
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.SwitchPreferenceCompat
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent
@@ -19,20 +21,31 @@ import org.wikipedia.settings.DeveloperSettingsActivity.Companion.newIntent
 
 class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
     private lateinit var preferenceLoader: SettingsPreferenceLoader
-    private val disposables = CompositeDisposable()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                WikipediaApp.instance.bus.events.collectLatest { event ->
+                    when (event) {
+                        is ReadingListsEnabledStatusEvent -> {
+                            setReadingListSyncPref(true)
+                        }
+                        is ReadingListsNoLongerSyncedEvent -> {
+                            setReadingListSyncPref(false)
+                        }
+                        is ReadingListsEnableSyncStatusEvent -> {
+                            setReadingListSyncPref(Prefs.isReadingListSyncEnabled)
+                        }
+                    }
+                }
+            }
+        }
 
         // TODO: Kick off a sync of reading lists, which will call back to us whether lists
         // are enabled or not. (Not sure if this is necessary yet.)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        disposables.clear()
     }
 
     override fun loadPreferences() {
@@ -80,22 +93,6 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
 
     private fun setReadingListSyncPref(checked: Boolean) {
         (preferenceLoader.findPreference(R.string.preference_key_sync_reading_lists) as SwitchPreferenceCompat).isChecked = checked
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            when (event) {
-                is ReadingListsEnabledStatusEvent -> {
-                    setReadingListSyncPref(true)
-                }
-                is ReadingListsNoLongerSyncedEvent -> {
-                    setReadingListSyncPref(false)
-                }
-                is ReadingListsEnableSyncStatusEvent -> {
-                    setReadingListSyncPref(Prefs.isReadingListSyncEnabled)
-                }
-            }
-        }
     }
 
     companion object {
