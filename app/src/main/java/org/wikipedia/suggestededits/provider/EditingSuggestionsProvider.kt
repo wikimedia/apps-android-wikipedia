@@ -138,14 +138,14 @@ object EditingSuggestionsProvider {
 
                 titles?.let {
                     val sourcePageSummary = async {
-                        ServiceFactory.getRest(it.first.wikiSite).getPageSummary(null, it.first.prefixedText)
-                    }
-                    val targetPageSummary = async {
-                        ServiceFactory.getRest(it.second.wikiSite).getPageSummary(null, it.second.prefixedText).apply {
+                        ServiceFactory.getRest(it.first.wikiSite).getPageSummary(null, it.first.prefixedText).apply {
                             if (description.isNullOrEmpty()) {
-                                description = it.second.description
+                                description = it.first.description
                             }
                         }
+                    }
+                    val targetPageSummary = async {
+                        ServiceFactory.getRest(it.second.wikiSite).getPageSummary(null, it.second.prefixedText)
                     }
                     pair = sourcePageSummary.await() to targetPageSummary.await()
                 }
