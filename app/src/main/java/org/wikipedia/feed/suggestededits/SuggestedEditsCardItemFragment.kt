@@ -70,7 +70,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     }
                     val pageTitle = previousSourceSummaryForEdit!!.pageTitle
                     if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE))
+                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0))
                     } else {
                         startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
                     }
