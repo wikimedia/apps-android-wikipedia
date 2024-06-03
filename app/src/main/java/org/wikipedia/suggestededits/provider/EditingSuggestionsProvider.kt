@@ -22,7 +22,7 @@ object EditingSuggestionsProvider {
 
     private val articlesWithMissingDescriptionCache: Stack<String> = Stack()
     private var articlesWithMissingDescriptionCacheLang: String = ""
-    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageSummary, PageSummary>> = Stack()
+    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageTitle, PageTitle>> = Stack()
     private var articlesWithTranslatableDescriptionCacheFromLang: String = ""
     private var articlesWithTranslatableDescriptionCacheToLang: String = ""
 
@@ -91,13 +91,14 @@ object EditingSuggestionsProvider {
             mutex.acquire()
             try {
                 val targetWiki = WikiSite.forLanguageCode(targetLang)
+                var titles: Pair<PageTitle, PageTitle>? = null
                 if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode ||
                     articlesWithTranslatableDescriptionCacheToLang != targetLang) {
                     // evict the cache if the language has changed.
                     articlesWithTranslatableDescriptionCache.clear()
                 }
                 if (!articlesWithTranslatableDescriptionCache.empty()) {
-                    pair = articlesWithTranslatableDescriptionCache.pop()
+                    titles = articlesWithTranslatableDescriptionCache.pop()
                 }
                 var tries = 0
                 do {
@@ -112,7 +113,7 @@ object EditingSuggestionsProvider {
 
                     listOfSuggestedEditItem.forEach { item ->
                         val page = mwQueryPages?.find { it.title == item.title() }
-                        if (page != null && page.description.isNullOrEmpty()) {
+                        if (page != null && !page.description.isNullOrEmpty()) {
                             return@forEach
                         }
                         val entity = item.entity
@@ -127,24 +128,27 @@ object EditingSuggestionsProvider {
                             description = entity.descriptions[sourceWiki.languageCode]?.value
                         }
                         val targetTitle = PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki)
-
-                        val targetPageSummary = async {
-                            ServiceFactory.getRest(targetTitle.wikiSite).getPageSummary(null, targetTitle.prefixedText).apply {
-                                if (description.isNullOrEmpty()) {
-                                    description = targetTitle.description
-                                }
-                            }
-                        }
-                        val sourcePageSummary = async {
-                            ServiceFactory.getRest(sourceTitle.wikiSite).getPageSummary(null, sourceTitle.prefixedText)
-                        }
-                        articlesWithTranslatableDescriptionCache.push(sourcePageSummary.await() to targetPageSummary.await())
+                        articlesWithTranslatableDescriptionCache.push(sourceTitle to targetTitle)
                     }
 
                     if (!articlesWithTranslatableDescriptionCache.empty()) {
-                        pair = articlesWithTranslatableDescriptionCache.pop()
+                        titles = articlesWithTranslatableDescriptionCache.pop()
                     }
-                } while (tries++ < retryLimit && (pair.first.apiTitle.isEmpty() || pair.second.apiTitle.isEmpty()))
+                } while (tries++ < retryLimit && titles == null)
+
+                titles?.let {
+                    val sourcePageSummary = async {
+                        ServiceFactory.getRest(it.first.wikiSite).getPageSummary(null, it.first.prefixedText)
+                    }
+                    val targetPageSummary = async {
+                        ServiceFactory.getRest(it.second.wikiSite).getPageSummary(null, it.second.prefixedText).apply {
+                            if (description.isNullOrEmpty()) {
+                                description = it.second.description
+                            }
+                        }
+                    }
+                    pair = sourcePageSummary.await() to targetPageSummary.await()
+                }
             } finally {
                 mutex.release()
             }
