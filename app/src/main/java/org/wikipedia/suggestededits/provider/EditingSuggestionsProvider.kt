@@ -13,28 +13,27 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
 import java.time.Instant
-import java.util.Stack
 import java.util.concurrent.Semaphore
 import kotlin.math.abs
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
 
-    private val articlesWithMissingDescriptionCache: Stack<String> = Stack()
+    private val articlesWithMissingDescriptionCache = ArrayDeque<String>()
     private var articlesWithMissingDescriptionCacheLang: String = ""
-    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageTitle, PageTitle>> = Stack()
+    private val articlesWithTranslatableDescriptionCache = ArrayDeque<Pair<PageTitle, PageTitle>>()
     private var articlesWithTranslatableDescriptionCacheFromLang: String = ""
     private var articlesWithTranslatableDescriptionCacheToLang: String = ""
 
-    private val imagesWithMissingCaptionsCache: Stack<String> = Stack()
+    private val imagesWithMissingCaptionsCache = ArrayDeque<String>()
     private var imagesWithMissingCaptionsCacheLang: String = ""
-    private val imagesWithTranslatableCaptionCache: Stack<Pair<String, String>> = Stack()
+    private val imagesWithTranslatableCaptionCache = ArrayDeque<Pair<String, String>>()
     private var imagesWithTranslatableCaptionCacheFromLang: String = ""
     private var imagesWithTranslatableCaptionCacheToLang: String = ""
 
-    private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
+    private val imagesWithMissingTagsCache = ArrayDeque<MwQueryPage>()
 
-    private val articlesWithImageRecommendationsCache: Stack<MwQueryPage> = Stack()
+    private val articlesWithImageRecommendationsCache = ArrayDeque<MwQueryPage>()
     private var articlesWithImageRecommendationsCacheLang: String = ""
     private var articlesWithImageRecommendationsLastMillis: Long = 0
 
@@ -55,8 +54,8 @@ object EditingSuggestionsProvider {
                     // evict the cache if the language has changed.
                     articlesWithMissingDescriptionCache.clear()
                 }
-                if (!articlesWithMissingDescriptionCache.empty()) {
-                    title = articlesWithMissingDescriptionCache.pop()
+                if (!articlesWithMissingDescriptionCache.isEmpty()) {
+                    title = articlesWithMissingDescriptionCache.removeFirst()
                 }
 
                 var tries = 0
@@ -68,11 +67,11 @@ object EditingSuggestionsProvider {
                     articlesWithMissingDescriptionCacheLang = wiki.languageCode
                     mwQueryResponse.query?.pages?.forEach {
                         if (it.description.isNullOrEmpty()) {
-                            articlesWithMissingDescriptionCache.push(it.title)
+                            articlesWithMissingDescriptionCache.addFirst(it.title)
                         }
                     }
-                    if (!articlesWithMissingDescriptionCache.empty()) {
-                        title = articlesWithMissingDescriptionCache.pop()
+                    if (!articlesWithMissingDescriptionCache.isEmpty()) {
+                        title = articlesWithMissingDescriptionCache.removeFirst()
                     }
                 } while (tries++ < retryLimit && title.isEmpty())
 
@@ -97,8 +96,8 @@ object EditingSuggestionsProvider {
                     // evict the cache if the language has changed.
                     articlesWithTranslatableDescriptionCache.clear()
                 }
-                if (!articlesWithTranslatableDescriptionCache.empty()) {
-                    titles = articlesWithTranslatableDescriptionCache.pop()
+                if (!articlesWithTranslatableDescriptionCache.isEmpty()) {
+                    titles = articlesWithTranslatableDescriptionCache.removeFirst()
                 }
                 var tries = 0
                 do {
@@ -128,11 +127,11 @@ object EditingSuggestionsProvider {
                             description = entity.descriptions[sourceWiki.languageCode]?.value
                         }
                         val targetTitle = PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki)
-                        articlesWithTranslatableDescriptionCache.push(sourceTitle to targetTitle)
+                        articlesWithTranslatableDescriptionCache.addFirst(sourceTitle to targetTitle)
                     }
 
-                    if (!articlesWithTranslatableDescriptionCache.empty()) {
-                        titles = articlesWithTranslatableDescriptionCache.pop()
+                    if (!articlesWithTranslatableDescriptionCache.isEmpty()) {
+                        titles = articlesWithTranslatableDescriptionCache.removeFirst()
                     }
                 } while (tries++ < retryLimit && titles == null)
 
@@ -165,8 +164,8 @@ object EditingSuggestionsProvider {
                     // evict the cache if the language has changed.
                     imagesWithMissingCaptionsCache.clear()
                 }
-                if (!imagesWithMissingCaptionsCache.empty()) {
-                    title = imagesWithMissingCaptionsCache.pop()
+                if (!imagesWithMissingCaptionsCache.isEmpty()) {
+                    title = imagesWithMissingCaptionsCache.removeFirst()
                 }
                 imagesWithMissingCaptionsCacheLang = lang
                 var tries = 0
@@ -174,10 +173,10 @@ object EditingSuggestionsProvider {
                     val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.commonsWikiSite)
                         .getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
                     listOfSuggestedEditItem.forEach {
-                        imagesWithMissingCaptionsCache.push(it.title())
+                        imagesWithMissingCaptionsCache.addFirst(it.title())
                     }
-                    if (!imagesWithMissingCaptionsCache.empty()) {
-                        title = imagesWithMissingCaptionsCache.pop()
+                    if (!imagesWithMissingCaptionsCache.isEmpty()) {
+                        title = imagesWithMissingCaptionsCache.removeFirst()
                     }
                 } while (tries++ < retryLimit && title.isEmpty())
             } finally {
@@ -199,8 +198,8 @@ object EditingSuggestionsProvider {
                     // evict the cache if the language has changed.
                     imagesWithTranslatableCaptionCache.clear()
                 }
-                if (!imagesWithTranslatableCaptionCache.empty()) {
-                    pair = imagesWithTranslatableCaptionCache.pop()
+                if (!imagesWithTranslatableCaptionCache.isEmpty()) {
+                    pair = imagesWithTranslatableCaptionCache.removeFirst()
                 }
                 imagesWithTranslatableCaptionCacheFromLang = sourceLang
                 imagesWithTranslatableCaptionCacheToLang = targetLang
@@ -214,10 +213,10 @@ object EditingSuggestionsProvider {
                         if (!it.captions.containsKey(sourceLang) || it.captions.containsKey(targetLang)) {
                             return@forEach
                         }
-                        imagesWithTranslatableCaptionCache.push((it.captions[sourceLang] ?: error("")) to it.title())
+                        imagesWithTranslatableCaptionCache.addFirst((it.captions[sourceLang] ?: error("")) to it.title())
                     }
-                    if (!imagesWithTranslatableCaptionCache.empty()) {
-                        pair = imagesWithTranslatableCaptionCache.pop()
+                    if (!imagesWithTranslatableCaptionCache.isEmpty()) {
+                        pair = imagesWithTranslatableCaptionCache.removeFirst()
                     }
                 } while (tries++ < retryLimit && (pair.first.isEmpty() || pair.second.isEmpty()))
             } finally {
@@ -232,19 +231,19 @@ object EditingSuggestionsProvider {
         withContext(Dispatchers.IO) {
             mutex.acquire()
             try {
-                if (!imagesWithMissingTagsCache.empty()) {
-                    page = imagesWithMissingTagsCache.pop()
+                if (!imagesWithMissingTagsCache.isEmpty()) {
+                    page = imagesWithMissingTagsCache.removeFirst()
                 }
                 var tries = 0
                 do {
                     val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomWithImageInfo()
                     response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }?.forEach { page ->
                         if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
-                            imagesWithMissingTagsCache.push(page)
+                            imagesWithMissingTagsCache.addFirst(page)
                         }
                     }
-                } while (tries++ < retryLimit && imagesWithMissingTagsCache.empty())
-                page = imagesWithMissingTagsCache.pop()
+                } while (tries++ < retryLimit && imagesWithMissingTagsCache.isEmpty())
+                page = imagesWithMissingTagsCache.removeFirst()
             } finally {
                 mutex.release()
             }
@@ -271,19 +270,19 @@ object EditingSuggestionsProvider {
 
                 var tries = 0
                 do {
-                    if (articlesWithImageRecommendationsCache.empty()) {
+                    if (articlesWithImageRecommendationsCache.isEmpty()) {
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
                             .getPagesWithImageRecommendations(10)
                         // TODO: make use of continuation parameter?
                         response.query?.pages?.forEach { page ->
                             if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
-                                articlesWithImageRecommendationsCache.push(page)
+                                articlesWithImageRecommendationsCache.addFirst(page)
                             }
                         }
                     }
-                } while (tries++ < retryLimit && articlesWithImageRecommendationsCache.empty())
+                } while (tries++ < retryLimit && articlesWithImageRecommendationsCache.isEmpty())
 
-                page = articlesWithImageRecommendationsCache.pop()
+                page = articlesWithImageRecommendationsCache.removeFirst()
             } finally {
                 mutex.release()
             }
