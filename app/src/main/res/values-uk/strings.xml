@@ -302,6 +302,8 @@
   <string name="edit_summary_tag_links">Додано посилання</string>
   <string name="edit_summary_tag_other">Інше</string>
   <string name="edit_summary_tag_other_hint">Інші способи, якими ви поліпшили сторінку</string>
+  <string name="edit_summary_added_short_description">Додано короткий опис</string>
+  <string name="edit_summary_updated_short_description">Оновлений короткий опис</string>
   <string name="edit_conflict_title">Конфлікт редагувань</string>
   <string name="edit_conflict_message">Сторінку вже змінив інший користувач, і це конфліктує з Вашим редагуванням. Будь ласка, скопіюйте свої зміни, поверніться назад та оновіть сторінку, після чого спробуйте відредагувати ще раз.</string>
   <string name="edit_notices">Редагувати повідомлення</string>

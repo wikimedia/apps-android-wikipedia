@@ -293,6 +293,8 @@
   <string name="edit_summary_tag_links">Hivatkozások hozzáadása</string>
   <string name="edit_summary_tag_other">Egyéb</string>
   <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
+  <string name="edit_summary_added_short_description">Rövid leírás hozzáadása</string>
+  <string name="edit_summary_updated_short_description">Rövid leírás módosítása</string>
   <string name="edit_conflict_title">Szerkesztési ütközés</string>
   <string name="edit_conflict_message">Ezt a lapot egy másik felhasználó már módosította, és ez ütközik a szerkesztéseddel. Másold ki a szerkesztéseidet, menj vissza az előző oldalra és frissítsd az oldalt, majd próbálkozz újra a szerkesztéssel.</string>
   <string name="edit_notices">Szerkesztési megjegyzés</string>
@@ -442,6 +444,11 @@
   <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
   <string name="temp_account_dialog_ok">Értem</string>
   <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
+  <string name="temp_account_dialog_discard">Változtatások elvetése és bejelentkezés</string>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">A felhasználói fiókod %d nap múlva lejár.</item>
+    <item quantity="other">A felhasználói fiókod %d nap múlva lejár.</item>
+  </plurals>
   <string name="temp_account_end_session">Munkamenet befejezése</string>
   <string name="temp_account_end_session_confirm">Ezzel kijelentkezel ideiglenes fiókodból. Akarod folytatni?</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
@@ -836,6 +843,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="feed_accessibility_card_text">Elérted a hírfolyamod alját.</string>
   <string name="feed_accessibility_card_load_more_button">Továbbiak betöltése</string>
+  <string name="feed_language_variants_removal_dialog_title">Válassz egy regionális nyelvváltozatot a jobb olvasási élmény érdekében</string>
+  <string name="feed_language_variants_removal_dialog_message">Jelenleg egy nem támogatott általános kínai nyelvváltozatot használod elsődleges Wikipédia-nyelvként</string>
+  <string name="feed_language_variants_removal_dialog_save">Mentés</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Kérjük, válassz másodlagos nyelveket</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Jelenleg egy nem támogatott általános kínai nyelvváltozatot használsz másodlagos nyelvként. Nyisd meg a beállításokat egy új másodlagos nyelv kiválasztásához vagy a nyelvlista megerősítéséhez.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Menj a beállításokhoz</string>
   <string name="top_read_activity_title">Legtöbbet megnézve ekkor %s</string>
   <string name="tabs_activity_title">Fülek</string>
   <string name="description_edit_text_hint">Szócikk leírása</string>
@@ -1089,7 +1102,7 @@
   <string name="image_recommendation_reject">Nem</string>
   <string name="image_recommendation_notsure">Nem tudom</string>
   <string name="image_recommendation_reject_title">A visszautasítás oka</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">A válaszaid javítják a jövőbeli javaslatokat.</string>
+  <string name="image_recommendation_reject_subtitle">Az elutasítás oka névtelen, és javítja a jövőbeli képjavaslatokat.</string>
   <string name="image_recommendation_reject_not_relevant">A kép nem releváns</string>
   <string name="image_recommendation_reject_no_info">Nincs elég információ a döntéshez</string>
   <string name="image_recommendation_reject_offensive">A kép sértő</string>
@@ -1613,6 +1626,7 @@
   <string name="donation_campaign_donated_snackbar">Köszönjük, kedves adományozó! Nagylelkűségeddel segíted a Wikipédia és testvéroldalainak fejlődését!</string>
   <string name="donation_campaign_go_back_button">Visszalépés</string>
   <string name="menu_single_webview_open_external">Nyisd meg a rendszerböngészőben!</string>
+  <string name="donate_gpay_dialog_title">Adományozás Google Pay-jel?</string>
   <string name="donate_gpay_dialog_description">Adományozás Google Play-jel vagy más fizetési módokon.</string>
   <string name="donate_gpay_dialog_pay_button">Adományozás Google Pay-jel</string>
   <string name="donate_gpay_dialog_other_button">Más fizetési módok</string>

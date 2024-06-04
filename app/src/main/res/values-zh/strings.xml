@@ -13,6 +13,7 @@
 * Diskdance
 * Ff98sha
 * GoForceX
+* Googology
 * Grace03
 * GuoPC
 * Hehua
@@ -260,7 +261,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">添加电子邮件地址</string>
   <string name="create_account_button">创建账号</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
-  <string name="create_account_ip_block_message">对不起，您的IP地址当前被封禁，不能创建新账号。</string>
+  <string name="create_account_ip_block_message">对不起，您的IP地址目前受到封禁，不能创建新账号。</string>
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">通用</string>
@@ -341,6 +342,7 @@
   <string name="edit_summary_tag_links">添加链接</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
+  <string name="edit_summary_added_short_description">添加了简短描述</string>
   <string name="edit_conflict_title">编辑冲突</string>
   <string name="edit_conflict_message">页面已被不同的用户修改过，并且与您的编辑冲突。请复制您的编辑，返回并刷新页面，然后重试编辑。</string>
   <string name="edit_notices">编辑提示</string>

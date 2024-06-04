@@ -829,7 +829,7 @@
     <item quantity="one">1 Kontributioun</item>
     <item quantity="other">%d Kontributiounen</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_feed_card_title">Ännerungsvirschléi</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschreiwungen derbäisetzen</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschreiwungen derbäisetzen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
@@ -866,7 +866,7 @@
   <string name="suggested_edits_quality_sufficient_text">Genügend</string>
   <string name="suggested_edits_quality_poor_text">Schwaach</string>
   <string name="suggested_edits_quality_bad_text">Schlecht</string>
-  <string name="suggested_edits_label">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_label">Ännerungsvirschléi</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Kontributioun</item>
     <item quantity="other">Kontributiounen</item>
@@ -884,7 +884,7 @@
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="suggested_edits_task_new">Nei</string>
-  <string name="suggested_edits_reactivation_notification_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_reactivation_notification_title">Ännerungsvirschléi</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci fir Är Ännerungen op Wikipedia! Firwat net einfach do weidermaachen, wou Dir opgehalen hutt?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hutt Dir eng Minutt Zäit fir d\'Wikipedia weider ze verbesseren? Kuckt Iech dës Virschléi, fir Ännerungen ze maachen, un.</string>
   <string name="suggested_edits_contributions_screen_title">Kontributioune vum %s</string>

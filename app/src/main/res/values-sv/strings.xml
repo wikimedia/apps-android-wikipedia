@@ -292,6 +292,8 @@
   <string name="edit_summary_tag_links">Lade till länkar</string>
   <string name="edit_summary_tag_other">Övrigt</string>
   <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
+  <string name="edit_summary_added_short_description">La till kort beskrivning</string>
+  <string name="edit_summary_updated_short_description">Uppdaterade kort beskrivning</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Sidan har redan modifierats av en annan användare och är i konflikt med din redigering. Var god kopiera dina ändringar, gå tillbaka och uppdatera sidan samt försök sedan att redigera igen.</string>
   <string name="edit_notices">Redigeringsnotiser</string>

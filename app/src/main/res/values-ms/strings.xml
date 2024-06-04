@@ -15,6 +15,7 @@
 * Macofe
 * MuratTheTurkish
 * SHaran (WMF)
+* Stress 043
 * Tofeiku
 -->
 <resources>
@@ -119,6 +120,7 @@
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Suntingan akan diatribusikan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, maka privasi anda bertambah baik.</string>
+  <string name="edit_anon_warning">Suntingan akan dihubungkan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, anda akan mendapat lebih privasi.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
@@ -127,6 +129,7 @@
   <string name="langlinks_your_wikipedia_languages">Bahasa Wikipedia anda</string>
   <string name="menu_save_changes">Terbit perubahan</string>
   <string name="edit_saved_successfully">Suntingan diterbitkan!</string>
+  <string name="stub_article_edit_saved_successfully">Suntingan diterbitkan! Perubahan mungkin mengambil masa untuk disiarkan.</string>
   <string name="dialog_message_edit_failed">Suntingan gagal disimpan!</string>
   <string name="dialog_message_edit_failed_retry">Cuba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batalkan</string>
@@ -169,6 +172,9 @@
   <string name="logged_out_in_background_dialog">Anda telah dilog keluar dari Wikipedia. Adakah anda ingin log masuk semula?</string>
   <string name="logged_out_in_background_login">Log masuk</string>
   <string name="logged_out_in_background_cancel">Batalkan</string>
+  <string name="account_vanish_request_title">Lenyapkan akaun</string>
+  <string name="account_vanish_request_confirm_title">Amaran pelenyapan akaun</string>
+  <string name="account_vanish_request_confirm">Pelenyapan ialah &lt;b&gt;pilihan terakhir&lt;/b&gt; dan sepatutnya &lt;b&gt;hanya digunakan jika anda tidak lagi meneruskan penyuntingan buat selamanya&lt;/b&gt; dan juga menyembunyikan seberapa banyak sumbangan anda yang lalu.&lt;br/&gt;&lt;br/&gt;Penghapusan akaun di Wikipedia dilakukan dengan menukar nama akaun anda supaya pengguna lain tidak dapat mengenalpasti sumbangan anda menerusi proses dipanggil pelenyapan akaun.&lt;b&gt;Pelenyapan tidak menjamin kerahsiaan atau menghilangkan sumbangan kepada projek.&lt;/b&gt;</string>
   <string name="history_empty_title">Tiada rencana baru dilihat</string>
   <string name="history_empty_message">Menjejaki apa yang anda telah membaca di sini.</string>
   <string name="history_offline_articles_toast">Beberapa rencana dalam sejarah mungkin tidak boleh dilihat semasa di luar talian.</string>
