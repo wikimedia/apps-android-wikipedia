@@ -230,7 +230,6 @@ class LoginActivity : BaseActivity() {
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
         const val SOURCE_NAV = "navigation"
         const val SOURCE_EDIT = "edit"
-        const val SOURCE_BLOCKED = "blocked"
         const val SOURCE_SYSTEM = "system"
         const val SOURCE_ONBOARDING = "onboarding"
         const val SOURCE_SETTINGS = "settings"
@@ -239,7 +238,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
 
-        fun newIntent(context: Context, source: String, token: String? = null): Intent {
+        fun newIntent(context: Context, source: String): Intent {
             return Intent(context, LoginActivity::class.java)
                     .putExtra(LOGIN_REQUEST_SOURCE, source)
         }
