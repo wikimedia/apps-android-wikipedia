@@ -138,10 +138,10 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getVideoInfo(
+    suspend fun getVideoInfo(
         @Query("titles") titles: String,
         @Query("viextmetadatalanguage") lang: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|entityterms&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getImageInfoWithEntityTerms(
@@ -149,9 +149,6 @@ interface Service {
             @Query("iiextmetadatalanguage") metadataLang: String,
             @Query("wbetlanguage") entityLang: String
     ): MwQueryResponse
-
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
-    fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
@@ -474,12 +471,6 @@ interface Service {
     ): RollbackPostResponse
 
     // ------- Wikidata -------
-
-    @GET(MW_API_PREFIX + "action=wbgetentities")
-    fun getEntitiesByTitle(
-        @Query("titles") titles: String,
-        @Query("sites") sites: String
-    ): Observable<Entities>
 
     @GET(MW_API_PREFIX + "action=wbgetentities")
     suspend fun getEntitiesByTitleSuspend(
