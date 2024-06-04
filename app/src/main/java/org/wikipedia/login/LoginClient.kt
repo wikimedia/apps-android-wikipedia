@@ -32,7 +32,7 @@ class LoginClient {
             cb.error(throwable)
         }) {
             val loginToken = token ?: getLoginToken(wiki)
-            val loginResult = getLoginResponse(wiki, userName, password,retypedPassword, twoFactorCode, loginToken).toLoginResult(wiki, password)
+            val loginResult = getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, loginToken).toLoginResult(wiki, password)
             if (loginResult != null) {
                 if (loginResult.pass() && userName.isNotEmpty()) {
                     ServiceFactory.get(wiki).getUserInfo().query?.userInfo?.let {
