@@ -239,7 +239,11 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
         fun newInstance(age: Int, pageSummary: SuggestedEditsFeedClient.SuggestedEditsSummary?, imageTagPage: MwQueryPage?) =
                 SuggestedEditsCardItemFragment().apply {
-                    arguments = bundleOf(AGE to age, PAGE_SUMMARY to pageSummary, IMAGE_TAG_PAGE to JsonUtil.encodeToString(imageTagPage))
+                    arguments = bundleOf(
+                        AGE to age,
+                        PAGE_SUMMARY to pageSummary,
+                        IMAGE_TAG_PAGE to JsonUtil.encodeToString(imageTagPage)
+                    )
                 }
     }
 }
