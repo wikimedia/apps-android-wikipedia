@@ -283,6 +283,8 @@
     <string name="edit_summary_tag_links">Added links</string>
     <string name="edit_summary_tag_other">Other</string>
     <string name="edit_summary_tag_other_hint">Other ways you improved the page</string>
+    <string name="edit_summary_added_short_description">Added short description</string>
+    <string name="edit_summary_updated_short_description">Updated short description</string>
     <string name="edit_conflict_title">Edit conflict</string>
     <string name="edit_conflict_message">The page has already been modified by a different user, and is conflicting with your edit. Please copy your edits, go back and refresh the page, then try editing again.</string>
     <string name="edit_notices">Edit notices</string>

@@ -31,6 +31,7 @@
 * Mugenpman
 * Omotecho
 * Otokoume
+* PPenloglou-WMF
 * Penn Station
 * RYOUMA1117
 * RYU N
@@ -328,6 +329,8 @@
   <string name="edit_summary_tag_links">リンクを追加</string>
   <string name="edit_summary_tag_other">その他</string>
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
+  <string name="edit_summary_added_short_description">短い説明を追加</string>
+  <string name="edit_summary_updated_short_description">短い説明を更新</string>
   <string name="edit_conflict_title">編集の競合</string>
   <string name="edit_conflict_message">ページが他の利用者によって既に変更されており、あなたの編集と競合しています。編集中のテキストをコピーして、戻ってページを読み込み直した上で、再度編集してください。</string>
   <string name="edit_notices">編集の通知</string>
@@ -619,7 +622,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_text">あとで読むリストに保存された記事は、あなたのウィキペディアアカウントと同期できるようになりました。&lt;a href=\"#faq\"&gt;もっと詳しく&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">いいえ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">いいえ、結構です。</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
@@ -828,7 +831,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今日</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s閲覧</string>
-  <string name="view_announcement_card_negative_action">いいえ</string>
+  <string name="view_announcement_card_negative_action">いいえ、結構です。</string>
   <string name="view_offline_card_text">オフラインではコンテンツが読み込めません。</string>
   <string name="view_featured_article_card_title">秀逸な記事</string>
   <string name="view_static_card_save_button_label">保存</string>
@@ -1148,7 +1151,7 @@
   <string name="onboarding_skip">スキップ</string>
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>
-  <string name="onboarding_maybe_later">あとで</string>
+  <string name="onboarding_maybe_later">あとで寄付する</string>
   <string name="onboarding_explore_title">新しいツールで探検しよう</string>
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
@@ -1195,7 +1198,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">中国語の文字違い版をアプリの言語から削除しますか?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">現在、繁体字と簡体字の両方の中国語版をアプリの言語として指定しています。アプリの言語設定を更新しますか?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">言語の設定を編集</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">やめます</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">いいえ、結構です。</string>
   <string name="remove_language_dialog_cancel_button_text">キャンセル</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1590,6 +1593,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
   <string name="patroller_diff_feedback_dialog_submit">送信</string>
   <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
+  <string name="patroller_saved_message_title_auto_trans">自動翻訳</string>
   <string name="talk_templates_menu_edit_title">編集</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
@@ -1599,13 +1603,18 @@
   <string name="email_report_image_recommendations_body">画像お勧め機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
-  <string name="donation_campaign_maybe_later_snackbar">明日改めてお知らせいたします。</string>
-  <string name="donation_campaign_donated_snackbar">親愛なる寄付者様、ありがとうございます！あなたの寛大なご協力により、ウィキペディアとその姉妹サイトが繁栄し続けることができます。</string>
+  <string name="donation_campaign_maybe_later_snackbar">明日、再度お知らせいたします。</string>
+  <string name="donation_campaign_donated_snackbar">ご寄付をしてくださり、ありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその姉妹サイトの繁栄を支えています。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
-  <string name="menu_single_webview_open_external">システムブラウザで開く</string>
+  <string name="menu_single_webview_open_external">規定のブラウザで開く</string>
   <string name="donate_gpay_dialog_title">Google Payで寄付しますか?</string>
   <string name="donate_gpay_dialog_description">Google Payで寄付するか、他の支払い方法を選択してください。</string>
   <string name="donate_gpay_dialog_pay_button">Google Pay で寄付する</string>
+  <string name="donate_gpay_dialog_other_button">その他の支払方法</string>
+  <string name="donate_gpay_activity_title">金額を選択する</string>
+  <string name="donate_gpay_check_transaction_fee">寄付の100%%が確実に届くよう、手数料として%sを追加してお支払いします。</string>
+  <string name="donate_gpay_check_recurring">毎月、この金額を定期的に寄付します。</string>
+  <string name="donate_gpay_check_send_email">はい、ウィキメディア財団はごく稀に私にメールを送ることができます。</string>
   <string name="places_title">場所</string>
   <string name="places_permissions_denied">地図上に自分の位置を表示するには、位置情報の許可が必要です。もう一度試してください。</string>
   <string name="places_search_hint">場所を検索</string>

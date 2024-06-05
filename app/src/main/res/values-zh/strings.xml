@@ -13,6 +13,7 @@
 * Diskdance
 * Ff98sha
 * GoForceX
+* Googology
 * Grace03
 * GuoPC
 * Hehua
@@ -260,7 +261,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">添加电子邮件地址</string>
   <string name="create_account_button">创建账号</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
-  <string name="create_account_ip_block_message">对不起，您的IP地址当前被封禁，不能创建新账号。</string>
+  <string name="create_account_ip_block_message">对不起，您的IP地址目前受到封禁，不能创建新账号。</string>
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">通用</string>
@@ -341,6 +342,7 @@
   <string name="edit_summary_tag_links">添加链接</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
+  <string name="edit_summary_added_short_description">添加了简短描述</string>
   <string name="edit_conflict_title">编辑冲突</string>
   <string name="edit_conflict_message">页面已被不同的用户修改过，并且与您的编辑冲突。请复制您的编辑，返回并刷新页面，然后重试编辑。</string>
   <string name="edit_notices">编辑提示</string>
@@ -798,8 +800,8 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">来自维基百科的通知</string>
   <string name="notifications_channel_group_other_title">其他</string>
   <string name="notifications_channel_group_other_description">来自应用程序的其他通知</string>
-  <string name="notifications_filter_label">过滤通知</string>
-  <string name="notifications_filter_icon_content_description">过滤通知</string>
+  <string name="notifications_filter_label">筛选通知</string>
+  <string name="notifications_filter_icon_content_description">筛选通知</string>
   <string name="notifications_filter_update_app_languages">更改应用程序语言</string>
   <string name="notifications_empty_search_message">请移除所设的%s来查看更多通知</string>
   <plurals name="notifications_number_of_filters">
@@ -879,8 +881,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已到达信息流的底部。</string>
   <string name="feed_accessibility_card_load_more_button">加载更多</string>
+  <string name="feed_language_variants_removal_dialog_title">为改善阅读体验，请选择区域语言变体</string>
+  <string name="feed_language_variants_removal_dialog_message">您当前使用了未受支持的通用中文语言变体作为您的主要维基百科语言</string>
   <string name="feed_language_variants_removal_dialog_save">保存</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">请更新您的次要语言</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">您当前使用了未受支持的通用中文语言变体作为您的次要维基百科语言。请前往设置来选择新的次要语言，或确认您当前的语言列表。</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">前往设置</string>
   <string name="top_read_activity_title">%s的热门阅读</string>
   <string name="tabs_activity_title">分页</string>
   <string name="description_edit_text_hint">条目描述</string>
@@ -1281,6 +1287,8 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">高度</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">像素</string>
   <string name="insert_media_insert_button">插入</string>
+  <string name="templates_search_hint">搜索模板</string>
+  <string name="templates_insert_button">插入</string>
   <string name="templates_param_suggested_value">例如%s</string>
   <string name="templates_param_optional_hint">%s（选填）</string>
   <string name="templates_param_suggested_hint">%s（推荐）</string>
