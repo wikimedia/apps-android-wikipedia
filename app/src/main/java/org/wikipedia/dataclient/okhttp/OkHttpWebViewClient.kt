@@ -41,7 +41,15 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             return null
         }
         if (request.method == "POST" ||
-            request.url.toString().contains(RestService.PAGE_HTML_PREVIEW_ENDPOINT)) {
+            request.url.toString().contains(RestService.PAGE_HTML_PREVIEW_ENDPOINT) ||
+            request.requestHeaders.containsKey("Range") || request.requestHeaders.containsKey("range")) {
+            // We do NOT want to intercept requests coming from the WebView in the following cases:
+            // 1. POST requests, because the WebView doesn't provide us the Body of the request,
+            //    for security (?) reasons.
+            // 2. Page previews, because we're not interested in saving or caching them.
+            // 3. Requests with any kind of "Range" header, since this is very likely a request for
+            //    playback of an audio or video file, which is problematic for us to intercept in
+            //    the way that we do, and can lead to unintended behavior.
             return null
         }
         var response: WebResourceResponse
@@ -56,8 +64,9 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             }
             val contentType = rsp.header(HEADER_CONTENT_TYPE).orEmpty()
             response = if (contentType.startsWith("audio") || contentType.startsWith("video")) {
+                // One last check to make sure we're not intercepting a media file (see comments above).
                 rsp.close()
-                return super.shouldInterceptRequest(view, request)
+                return null
             } else {
                 // noinspection ConstantConditions
                 WebResourceResponse(rsp.body!!.contentType()!!.type + "/" + rsp.body!!.contentType()!!.subtype,
