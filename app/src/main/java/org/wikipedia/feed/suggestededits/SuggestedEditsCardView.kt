@@ -66,7 +66,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         }
 
         override fun createFragment(position: Int): Fragment {
-            return SuggestedEditsCardItemFragment.newInstance(card.age, card.summaryList?.getOrNull(position), card.imageTagsPage)
+            return SuggestedEditsCardItemFragment.newInstance(card.age, card.cardTypes[position])
         }
     }
 }
