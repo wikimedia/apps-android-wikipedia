@@ -1,7 +1,6 @@
 package org.wikipedia.suggestededits
 
 import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +8,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
@@ -81,6 +81,23 @@ class SuggestedEditsTasksFragment : Fragment() {
         BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
     }
 
+    private val requestAddLanguage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        binding.tasksRecyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    private val requestAddImageTags = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            Prefs.showImageTagsOnboarding = false
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
+        }
+    }
+
+    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            clearContents()
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -145,18 +162,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         refreshContents()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
-            binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
-            Prefs.showImageTagsOnboarding = false
-            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            clearContents()
-        }
-    }
-
     override fun onDestroyView() {
         binding.tasksRecyclerView.adapter = null
         binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
@@ -170,7 +175,9 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onRequireLogin() {
         clearContents()
-        binding.disabledStatesView.setRequiredLogin(this)
+        binding.disabledStatesView.setRequiredLogin {
+            requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
+        }
         binding.disabledStatesView.isVisible = true
     }
 
@@ -377,10 +384,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
             if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
-                startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
-                return
-            }
-            if (task == addDescriptionsTask) {
+                requestAddLanguage.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS))
+            } else if (task == addDescriptionsTask) {
                 ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION, Constants.InvokeSource.SUGGESTED_EDITS))
             } else if (task == addImageCaptionsTask) {
@@ -389,7 +394,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             } else if (task == addImageTagsTask) {
                 ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
                 if (Prefs.showImageTagsOnboarding) {
-                    startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
+                    requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
