@@ -277,6 +277,8 @@
   <string name="edit_summary_tag_links">Додадени врски</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
+  <string name="edit_summary_added_short_description">Додаден краток опис</string>
+  <string name="edit_summary_updated_short_description">Изменет краток опис</string>
   <string name="edit_conflict_title">Спротивставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
   <string name="edit_notices">Белешки за уредување</string>
@@ -835,6 +837,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
   <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
+  <string name="feed_language_variants_removal_dialog_title">Изберете регионална јазична варијанта за да го подобрите читачкото доживување</string>
+  <string name="feed_language_variants_removal_dialog_message">Моментално користите неподдржана општа варијанта на кинескиот јазик како ваш главен јазик на Википедија</string>
+  <string name="feed_language_variants_removal_dialog_save">Зачувај</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Подновете ги вашите споредни јазици</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Моментално користите неподдржана општа варијанта на кинескиот јазик како спореден јазик. Одете во нагодувањата за да  изберете нов спореден јазик или за да го потврдите вашиот список на јазици.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Оди на Нагодувањата</string>
   <string name="top_read_activity_title">Најчитани на %s</string>
   <string name="tabs_activity_title">Јазичиња</string>
   <string name="description_edit_text_hint">Опис на статијата</string>

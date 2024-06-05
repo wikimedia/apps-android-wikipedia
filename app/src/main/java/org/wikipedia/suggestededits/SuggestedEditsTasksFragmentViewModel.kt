@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -27,6 +28,8 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
 
+    private var clientJob: Job? = null
+
     var blockMessageWikipedia: String? = null
     var blockMessageWikidata: String? = null
     var blockMessageCommons: String? = null
@@ -49,8 +52,8 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             _uiState.value = RequireLogin()
             return
         }
-
-        viewModelScope.launch(handler) {
+        clientJob?.cancel()
+        clientJob = viewModelScope.launch(handler) {
             blockMessageWikipedia = null
             blockMessageWikidata = null
             blockMessageCommons = null
@@ -97,10 +100,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                 }
             }
 
+            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
             totalContributions += wikidataResponse.query?.userInfo!!.editCount
             totalContributions += commonsResponse.query?.userInfo!!.editCount
-            totalContributions += homeSiteResponse.query?.userInfo!!.editCount
-            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
+            totalContributions += homeContributions
 
             latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
 

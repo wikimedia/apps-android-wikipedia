@@ -305,6 +305,8 @@
   <string name="edit_summary_tag_links">新增連結</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
+  <string name="edit_summary_added_short_description">已新增簡短描述</string>
+  <string name="edit_summary_updated_short_description">已更新簡短描述</string>
   <string name="edit_conflict_title">編輯衝突</string>
   <string name="edit_conflict_message">頁面已被不同的使用者給變動，並且有與您的編輯產生衝突。請複製您的編輯並返回來重整頁面，然後再重試編輯。</string>
   <string name="edit_notices">編輯說明</string>
@@ -486,7 +488,7 @@
   <string name="color_theme_light">明亮</string>
   <string name="color_theme_dark">陰暗</string>
   <string name="color_theme_black">漆黑</string>
-  <string name="color_theme_sepia">深褐</string>
+  <string name="color_theme_sepia">棕褐色</string>
   <string name="color_theme_test_title">試樣文字</string>
   <string name="color_theme_test_text">拖拉滑標來變更使用在閱讀條目的文字大小。要設定應用程式之外其餘文字大小部份，請在您的系統文字大小做變更。</string>
   <string name="preference_title_app_theme">套用佈景主題</string>
@@ -862,6 +864,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
+  <string name="feed_language_variants_removal_dialog_title">選擇區域語言變體來改善閱讀體驗</string>
+  <string name="feed_language_variants_removal_dialog_message">您目前使用了未受支援通用中文語言變體來作為您的主要維基百科語言</string>
+  <string name="feed_language_variants_removal_dialog_save">儲存</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">請更新您的次要語言</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">您目前使用了未受支援通用中文語言變體來作為您的次要語言。請前往設定來選擇新的次要語言，或是確認您的語言清單。</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">前往設定</string>
   <string name="top_read_activity_title">在 %s 的熱門條目</string>
   <string name="tabs_activity_title">分頁</string>
   <string name="description_edit_text_hint">條目描述</string>

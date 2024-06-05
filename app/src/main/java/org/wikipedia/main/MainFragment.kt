@@ -24,6 +24,7 @@ import androidx.core.view.descendants
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -33,6 +34,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
@@ -131,12 +133,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             it.maxLines = 2
         }
 
-        FeedbackUtil.setButtonTooltip(binding.navMoreContainer)
-        binding.navMoreContainer.setOnClickListener {
-            ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
-        }
-
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            if (item.order == NavTab.MORE.code()) {
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
+                return@setOnItemSelectedListener false
+            }
             val fragment = currentFragment
             if (fragment is FeedFragment && item.order == 0) {
                 fragment.scrollToTop()
@@ -375,7 +376,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             if (!isAdded) {
                 return@ImagePipelineBitmapGetter
             }
-            ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
+            ShareUtil.shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
                 ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
         }
     }
@@ -453,9 +454,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
+    override fun donateClick() {
+        (requireActivity() as? BaseActivity)?.launchDonateDialog()
+    }
+
     fun setBottomNavVisible(visible: Boolean) {
         binding.mainNavTabBorder.isVisible = visible
-        binding.mainNavTabContainer.isVisible = visible
+        binding.mainNavTabLayout.isVisible = visible
     }
 
     fun onGoOffline() {
@@ -555,7 +560,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (Prefs.showOneTimePlacesMainNavOnboardingTooltip && Prefs.exploreFeedVisitCount > SHOW_PLACES_MAIN_NAV_TOOLTIP) {
             enqueueTooltip {
                 PlacesEvent.logImpression("main_nav_tooltip")
-                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
+                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.MORE.id),
                     getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false, showDismissButton = true).setOnBalloonDismissListener {
                     Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
                     PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")

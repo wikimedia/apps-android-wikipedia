@@ -19,11 +19,7 @@ object CsrfTokenClient {
     private const val ANON_TOKEN = "+\\"
     private const val MAX_RETRIES = 3
 
-    fun getToken(site: WikiSite, type: String = "csrf"): Observable<String> {
-        return getToken(site, type, null)
-    }
-
-    fun getToken(site: WikiSite, type: String = "csrf", svc: Service?): Observable<String> {
+    fun getToken(site: WikiSite, type: String = "csrf", svc: Service? = null): Observable<String> {
         return Observable.create { emitter ->
             var token = ""
             try {

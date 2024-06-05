@@ -17,7 +17,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class LangLinksViewModel(bundle: Bundle) : ViewModel() {
@@ -124,17 +123,14 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
 
     companion object {
         fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
-            if (languageEntries.isEmpty()) {
-                return
-            }
             val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
             if (parentLanguageCode != null) {
                 val languageVariants = language.getLanguageVariants(parentLanguageCode)
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
                         if (!title.wikiSite.languageCode.contains(languageCode)) {
-                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
-                            pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
+                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.prefixedText, WikiSite.forLanguageCode(languageCode))
+                            pageTitle.displayText = title.displayText
                             languageEntries.add(pageTitle)
                         }
                     }

@@ -393,7 +393,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         if (messagePreviewFragment.isActive) {
             EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
-            PatrollerExperienceEvent.logAction("publish_message_click", "pt_warning_messages")
+            sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages")
             binding.progressBar.isVisible = true
             setSaveButtonEnabled(false)
             viewModel.postReply(subject, getWikitextBody())
@@ -465,7 +465,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private fun onSaveSuccess(newRevision: Long) {
         AnonymousNotificationHelper.onEditSubmitted()
 
-        PatrollerExperienceEvent.logAction("publish_message_success", "pt_warning_messages",
+        sendPatrollerExperienceEvent("publish_message_success", "pt_warning_messages",
             PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.selectedTemplate != null && subjectOrBodyModified,
                 isSaved = viewModel.talkTemplateSaved, isExample = viewModel.isExampleTemplate, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else null))
 

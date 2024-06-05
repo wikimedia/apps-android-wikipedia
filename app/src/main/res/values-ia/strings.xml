@@ -275,6 +275,8 @@
   <string name="edit_summary_tag_links">Ligamines addite</string>
   <string name="edit_summary_tag_other">Altere</string>
   <string name="edit_summary_tag_other_hint">Altere manieras del quales tu ha meliorate iste pagina</string>
+  <string name="edit_summary_added_short_description">Curte description addite</string>
+  <string name="edit_summary_updated_short_description">Curte description actualisate</string>
   <string name="edit_conflict_title">Conflicto inter modificationes</string>
   <string name="edit_conflict_message">Le pagina ha ja essite modificate per un altere usator e es in conflicto con tu modification. Per favor copia tu modificationes, va retro e refresca le pagina, alora tenta modificar lo de novo.</string>
   <string name="edit_notices">Avisos de modification</string>
@@ -832,6 +834,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancellar</string>
   <string name="feed_accessibility_card_text">Tu ha attingite le fin del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar plus</string>
+  <string name="feed_language_variants_removal_dialog_title">Selige un variante linguistic regional pro un experientia de lectura melior</string>
+  <string name="feed_language_variants_removal_dialog_message">Tu usa al momento un variante generic del lingua chinese non supportate como lingua principal de Wikipedia</string>
+  <string name="feed_language_variants_removal_dialog_save">Salveguardar</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Per favor actualisa tu linguas secundari</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Tu usa al momento un variante generic del lingua chinese non supportate como lingua secundari. Per favor visita tu parametros pro seliger un nove lingua secundari o pro confirmar tu lista de linguas.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Ir al parametros</string>
   <string name="top_read_activity_title">Le plus legite del %s</string>
   <string name="tabs_activity_title">Schedas</string>
   <string name="description_edit_text_hint">Description del articulo</string>

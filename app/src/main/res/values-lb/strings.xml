@@ -736,6 +736,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
   <string name="feed_accessibility_card_load_more_button">Méi lueden</string>
+  <string name="feed_language_variants_removal_dialog_save">Späicheren</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Op d’Astellunge goen</string>
   <string name="top_read_activity_title">Am meeschte gelies de(n) %s</string>
   <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Artikelbeschreiwung</string>
@@ -827,7 +829,7 @@
     <item quantity="one">1 Kontributioun</item>
     <item quantity="other">%d Kontributiounen</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_feed_card_title">Ännerungsvirschléi</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschreiwungen derbäisetzen</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschreiwungen derbäisetzen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
@@ -864,7 +866,7 @@
   <string name="suggested_edits_quality_sufficient_text">Genügend</string>
   <string name="suggested_edits_quality_poor_text">Schwaach</string>
   <string name="suggested_edits_quality_bad_text">Schlecht</string>
-  <string name="suggested_edits_label">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_label">Ännerungsvirschléi</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Kontributioun</item>
     <item quantity="other">Kontributiounen</item>
@@ -882,7 +884,7 @@
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="suggested_edits_task_new">Nei</string>
-  <string name="suggested_edits_reactivation_notification_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_reactivation_notification_title">Ännerungsvirschléi</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci fir Är Ännerungen op Wikipedia! Firwat net einfach do weidermaachen, wou Dir opgehalen hutt?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hutt Dir eng Minutt Zäit fir d\'Wikipedia weider ze verbesseren? Kuckt Iech dës Virschléi, fir Ännerungen ze maachen, un.</string>
   <string name="suggested_edits_contributions_screen_title">Kontributioune vum %s</string>

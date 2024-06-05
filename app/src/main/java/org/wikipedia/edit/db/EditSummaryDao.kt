@@ -1,17 +1,18 @@
 package org.wikipedia.edit.db
 
-import androidx.room.*
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Single
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 @Dao
 interface EditSummaryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertEditSummary(summary: EditSummary): Completable
+    suspend fun insertEditSummary(summary: EditSummary)
 
     @Query("SELECT * FROM EditSummary ORDER BY lastUsed DESC")
-    fun getEditSummaries(): Single<List<EditSummary>>
+    suspend fun getEditSummaries(): List<EditSummary>
 
     @Query("DELETE FROM EditSummary")
-    fun deleteAll(): Completable
+    suspend fun deleteAll()
 }
