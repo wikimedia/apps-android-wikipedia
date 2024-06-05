@@ -15,7 +15,6 @@ import org.wikipedia.page.PageViewModel
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
-import java.io.InputStream
 import java.nio.charset.Charset
 
 abstract class OkHttpWebViewClient : WebViewClient() {
@@ -55,8 +54,8 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             if (rsp.networkResponse != null && shouldLogLatency) {
                 WikipediaApp.instance.appSessionEvent.pageFetchEnd()
             }
-            response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE) ||
-                    CONTENT_TYPE_WEBM == rsp.header(HEADER_CONTENT_TYPE)) {
+            val contentType = rsp.header(HEADER_CONTENT_TYPE).orEmpty()
+            response = if (contentType.startsWith("audio") || contentType.startsWith("video")) {
                 rsp.close()
                 return super.shouldInterceptRequest(view, request)
             } else {
@@ -66,7 +65,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                     rsp.code,
                     rsp.message.ifBlank { "Unknown error" },
                     addResponseHeaders(rsp.headers).toMap(),
-                    getInputStream(rsp))
+                    rsp.body?.byteStream())
             }
         } catch (e: Exception) {
             val reasonCode = if (e.message.isNullOrEmpty()) "Unknown error" else UriUtil.encodeURL(e.message!!)
@@ -129,20 +128,8 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         return headers.newBuilder().set("Access-Control-Allow-Origin", "*").build()
     }
 
-    private fun getInputStream(rsp: Response): InputStream? {
-        return rsp.body?.let {
-            var inputStream = it.byteStream()
-            if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE)) {
-                inputStream = AvailableInputStream(it.byteStream(), it.contentLength())
-            }
-            inputStream
-        }
-    }
-
     companion object {
         private const val HEADER_CONTENT_TYPE = "content-type"
-        private const val CONTENT_TYPE_OGG = "application/ogg"
-        private const val CONTENT_TYPE_WEBM = "video/webm"
         private val SUPPORTED_SCHEMES = listOf("http", "https")
     }
 }
