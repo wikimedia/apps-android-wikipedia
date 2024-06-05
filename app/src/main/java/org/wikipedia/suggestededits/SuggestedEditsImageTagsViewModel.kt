@@ -17,7 +17,7 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import java.util.UUID
 
-class SuggestedEditsImageTagsViewModel() : ViewModel() {
+class SuggestedEditsImageTagsViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
