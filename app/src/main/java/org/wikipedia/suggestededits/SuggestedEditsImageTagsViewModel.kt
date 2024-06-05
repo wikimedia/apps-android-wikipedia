@@ -29,10 +29,10 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
     private val _actionState = MutableStateFlow(Resource<Entities.Entity?>())
     val actionState = _actionState.asStateFlow()
 
-    fun findNextSuggestedEditsItem(languageCode: String) {
+    fun findNextSuggestedEditsItem(languageCode: String, page: MwQueryPage?) {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
-            val mwQueryPage = EditingSuggestionsProvider.getNextImageWithMissingTags()
+            val mwQueryPage = page ?: EditingSuggestionsProvider.getNextImageWithMissingTags()
             val caption = ServiceFactory.get(Constants.commonsWikiSite)
                 .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode))
                 .query?.firstPage()?.entityTerms?.label?.firstOrNull()

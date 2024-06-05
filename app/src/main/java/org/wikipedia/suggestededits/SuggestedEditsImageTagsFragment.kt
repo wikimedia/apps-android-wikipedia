@@ -128,7 +128,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         when (it) {
                             is Resource.Loading -> onLoading()
                             is Resource.Success -> {
-                                page = it.data.first
                                 updateContents(it.data.first.imageInfo(), it.data.second)
                                 updateTagChips()
                             }
@@ -167,10 +166,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun getNextItem() {
-        if (page != null) {
-            return
-        }
-        viewModel.findNextSuggestedEditsItem(callback().getLangCode())
+        viewModel.findNextSuggestedEditsItem(callback().getLangCode(), page)
     }
 
     private fun onLoading() {
