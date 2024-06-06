@@ -65,7 +65,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.seCardErrorView.retryClickListener = View.OnClickListener { viewModel.fetchCardData() }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 launch {
                     viewModel.uiState.collect {
                         when (it) {

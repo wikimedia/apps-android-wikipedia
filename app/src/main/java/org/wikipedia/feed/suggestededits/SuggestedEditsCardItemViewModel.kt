@@ -35,13 +35,15 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
 
     private val _uiState = MutableStateFlow(Resource<Boolean>())
     val uiState = _uiState.asStateFlow()
+
     init {
         fetchCardData()
     }
     fun fetchCardData() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiState.value = Resource.Error(throwable)
+            // Give retry option to user in case of network error
+            _uiState.value = Resource.Error(SocketTimeoutException(throwable.message))
         }) {
             withTimeoutOrNull(10000) {
                 val langFromCode = appLanguages.first()
