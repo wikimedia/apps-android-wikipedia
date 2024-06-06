@@ -1,6 +1,7 @@
 package org.wikipedia.feed.suggestededits
 
 import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -48,29 +50,11 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private var itemClickable = false
 
-    private val requestSuggestedEditsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            if (isAdded) {
-                val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
-                    if (viewModel.cardActionType === ADD_IMAGE_TAGS) {
-                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(viewModel.imageTagPage?.title, WikiSite(WikipediaApp.instance.appOrSystemLanguageCode))))
-                        return@OpenPageListener
-                    }
-                    val pageTitle = viewModel.sourceSummaryForEdit!!.pageTitle
-                    if (viewModel.cardActionType === ADD_CAPTION || viewModel.cardActionType === TRANSLATE_CAPTION) {
-                        startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0))
-                    } else {
-                        startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
-                    }
-                }
-                SuggestedEditsSnackbars.show(requireActivity(), viewModel.cardActionType, true, viewModel.targetSummaryForEdit?.lang, true, openPageListener)
-                showCardContent()
-            }
-        }
-    }
+    private var requestSuggestedEditsLauncher: ActivityResultLauncher<Intent>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSuggestedEditsCardItemBinding.inflate(inflater, container, false)
+        initRequestLauncher()
         return binding.root
     }
 
@@ -95,6 +79,29 @@ class SuggestedEditsCardItemFragment : Fragment() {
         }
     }
 
+    private fun initRequestLauncher() {
+        requestSuggestedEditsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                if (isAdded) {
+                    val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
+                        if (viewModel.cardActionType === ADD_IMAGE_TAGS) {
+                            startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(viewModel.imageTagPage?.title, WikiSite(WikipediaApp.instance.appOrSystemLanguageCode))))
+                            return@OpenPageListener
+                        }
+                        val pageTitle = viewModel.sourceSummaryForEdit!!.pageTitle
+                        if (viewModel.cardActionType === ADD_CAPTION || viewModel.cardActionType === TRANSLATE_CAPTION) {
+                            startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0))
+                        } else {
+                            startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
+                        }
+                    }
+                    SuggestedEditsSnackbars.show(requireActivity(), viewModel.cardActionType, true, viewModel.targetSummaryForEdit?.lang, true, openPageListener)
+                    showCardContent()
+                }
+            }
+        }
+    }
+
     private fun updateContents() {
         binding.cardItemContainer.setOnClickListener(startDescriptionEditScreenListener())
         binding.callToActionButton.setOnClickListener(startDescriptionEditScreenListener())
@@ -113,13 +120,13 @@ class SuggestedEditsCardItemFragment : Fragment() {
         }
         if (viewModel.cardActionType == ADD_IMAGE_TAGS) {
             viewModel.imageTagPage?.let {
-                requestSuggestedEditsLauncher.launch(SuggestedEditsImageTagEditActivity.newIntent(requireActivity(), it, FEED))
+                requestSuggestedEditsLauncher?.launch(SuggestedEditsImageTagEditActivity.newIntent(requireActivity(), it, FEED))
             }
             return
         }
         viewModel.sourceSummaryForEdit?.let {
             val pageTitle = if (viewModel.cardActionType == TRANSLATE_DESCRIPTION || viewModel.cardActionType == TRANSLATE_CAPTION) viewModel.targetSummaryForEdit!!.pageTitle else it.pageTitle
-            requestSuggestedEditsLauncher.launch(DescriptionEditActivity.newIntent(
+            requestSuggestedEditsLauncher?.launch(DescriptionEditActivity.newIntent(
                 requireContext(), pageTitle, null, viewModel.sourceSummaryForEdit, viewModel.targetSummaryForEdit, viewModel.cardActionType, FEED
             ))
         }
