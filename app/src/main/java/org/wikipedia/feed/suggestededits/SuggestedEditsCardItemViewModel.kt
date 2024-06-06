@@ -8,6 +8,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -20,6 +21,7 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
+import java.net.SocketTimeoutException
 
 class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
 
@@ -34,7 +36,6 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
     private val _uiState = MutableStateFlow(Resource<Boolean>())
     val uiState = _uiState.asStateFlow()
     init {
-        // TODO: check if we want to reload the data every time the view model is created
         fetchCardData()
     }
     fun fetchCardData() {
@@ -42,44 +43,48 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = Resource.Error(throwable)
         }) {
-            val langFromCode = appLanguages.first()
-            val targetLanguage = appLanguages.getOrElse(age % appLanguages.size) { langFromCode }
-            if (appLanguages.size > 1) {
-                if (cardActionType == DescriptionEditActivity.Action.ADD_DESCRIPTION && targetLanguage != langFromCode)
-                    cardActionType = DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
-                if (cardActionType == DescriptionEditActivity.Action.ADD_CAPTION && targetLanguage != langFromCode)
-                    cardActionType = DescriptionEditActivity.Action.TRANSLATE_CAPTION
-            }
-            when (cardActionType) {
-                DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
-                    sourceSummaryForEdit = addDescription(langFromCode)
+            withTimeoutOrNull(10000) {
+                val langFromCode = appLanguages.first()
+                val targetLanguage = appLanguages.getOrElse(age % appLanguages.size) { langFromCode }
+                if (appLanguages.size > 1) {
+                    if (cardActionType == DescriptionEditActivity.Action.ADD_DESCRIPTION && targetLanguage != langFromCode)
+                        cardActionType = DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
+                    if (cardActionType == DescriptionEditActivity.Action.ADD_CAPTION && targetLanguage != langFromCode)
+                        cardActionType = DescriptionEditActivity.Action.TRANSLATE_CAPTION
                 }
-                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                    translateDescription(langFromCode, targetLanguage).let {
-                        sourceSummaryForEdit = it.first
-                        targetSummaryForEdit = it.second
+                when (cardActionType) {
+                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
+                        sourceSummaryForEdit = addDescription(langFromCode)
+                    }
+                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
+                        translateDescription(langFromCode, targetLanguage).let {
+                            sourceSummaryForEdit = it.first
+                            targetSummaryForEdit = it.second
+                        }
+                    }
+                    DescriptionEditActivity.Action.ADD_CAPTION -> {
+                        sourceSummaryForEdit = addCaption(langFromCode)
+                    }
+                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
+                        translateCaption(langFromCode, targetLanguage)?.let {
+                            sourceSummaryForEdit = it.first
+                            targetSummaryForEdit = it.second
+                        }
+                    }
+                    DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> {
+                        imageTagPage = addImageTags()
+                    }
+                    DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS -> {
+                        // ignore
+                    }
+                    else -> {
+                        // ignore
                     }
                 }
-                DescriptionEditActivity.Action.ADD_CAPTION -> {
-                    sourceSummaryForEdit = addCaption(langFromCode)
-                }
-                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
-                    translateCaption(langFromCode, targetLanguage)?.let {
-                        sourceSummaryForEdit = it.first
-                        targetSummaryForEdit = it.second
-                    }
-                }
-                DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> {
-                    imageTagPage = addImageTags()
-                }
-                DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS -> {
-                    // ignore
-                }
-                else -> {
-                    // ignore
-                }
+                _uiState.value = Resource.Success(true)
+            } ?: run {
+                _uiState.value = Resource.Error(SocketTimeoutException())
             }
-            _uiState.value = Resource.Success(true)
         }
     }
 

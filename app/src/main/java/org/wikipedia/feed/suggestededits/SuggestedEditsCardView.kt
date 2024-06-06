@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewSuggestedEditsCardBinding
-import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
@@ -20,20 +19,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
-    private var mapFragment = mutableMapOf<Int, List<Fragment>>()
+    private var fragmentMap = mutableMapOf<Int, List<Fragment>>()
 
     override var card: SuggestedEditsCard? = null
         set(value) {
             field = value
             value?.let {
-                if (!mapFragment.containsKey(it.age)) {
-                    // Create fragments for each of the three Suggested Edits actions.
-                    mapFragment[it.age] = listOf(
-                        SuggestedEditsCardItemFragment.newInstance(it.age, DescriptionEditActivity.Action.ADD_DESCRIPTION),
-                        SuggestedEditsCardItemFragment.newInstance(it.age, DescriptionEditActivity.Action.ADD_CAPTION),
-                        SuggestedEditsCardItemFragment.newInstance(it.age, DescriptionEditActivity.Action.ADD_IMAGE_TAGS)
-                    )
-                }
+                buildFragmentMap(it)
                 header(it)
                 updateContents(it)
             }
@@ -50,7 +42,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun updateContents(card: SuggestedEditsCard) {
-        binding.seCardsPager.adapter = SECardsPagerAdapter(card.age, mapFragment)
+        binding.seCardsPager.adapter = SECardsPagerAdapter(card)
         binding.seCardsPager.offscreenPageLimit = 3
         binding.cardFooter.callback = this
         L10nUtil.setConditionalLayoutDirection(binding.seCardsPager, WikipediaApp.instance.wikiSite.languageCode)
@@ -66,13 +58,25 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             .setCallback(callback)
     }
 
-    private inner class SECardsPagerAdapter(private val age: Int, private val map: Map<Int, List<Fragment>>) : PositionAwareFragmentStateAdapter(context as AppCompatActivity) {
+    private fun buildFragmentMap(card: SuggestedEditsCard) {
+        if (!fragmentMap.containsKey(card.age)) {
+            // Create fragments for each of the three Suggested Edits actions.
+            val list = mutableListOf<Fragment>()
+            card.cardTypes.forEach { action ->
+                list.add(SuggestedEditsCardItemFragment.newInstance(card.age, action))
+            }
+            fragmentMap[card.age] = list
+        }
+    }
+
+    private inner class SECardsPagerAdapter(private val card: SuggestedEditsCard) : PositionAwareFragmentStateAdapter(context as AppCompatActivity) {
         override fun getItemCount(): Int {
             return 3 // description, caption, image tags
         }
 
         override fun createFragment(position: Int): Fragment {
-            return map[age]?.get(position) ?: throw RuntimeException("Invalid position")
+            // Get fragment from map first instead of creating a new one.
+            return fragmentMap[card.age]?.get(position) ?: SuggestedEditsCardItemFragment.newInstance(card.age, card.cardTypes[position])
         }
     }
 }
