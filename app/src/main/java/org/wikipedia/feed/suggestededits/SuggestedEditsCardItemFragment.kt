@@ -77,6 +77,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.seCardErrorView.backClickListener = View.OnClickListener { viewModel.fetchCardData() }
+        binding.seCardErrorView.retryClickListener = View.OnClickListener { viewModel.fetchCardData() }
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
@@ -95,10 +98,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun updateContents() {
         binding.cardItemContainer.setOnClickListener(startDescriptionEditScreenListener())
         binding.callToActionButton.setOnClickListener(startDescriptionEditScreenListener())
-        binding.seCardErrorView.retryClickListener = View.OnClickListener {
-            binding.seCardErrorView.visibility = GONE
-            viewModel.fetchCardData()
-        }
         showCardContent()
     }
 

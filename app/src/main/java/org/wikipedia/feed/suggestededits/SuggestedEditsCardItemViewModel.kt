@@ -37,7 +37,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
         // TODO: check if we want to reload the data every time the view model is created
         fetchCardData()
     }
-    private fun fetchCardData() {
+    fun fetchCardData() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = Resource.Error(throwable)
