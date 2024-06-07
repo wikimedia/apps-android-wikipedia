@@ -3,9 +3,7 @@ package org.wikipedia.readinglist.sync
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.sync.SyncedReadingLists.*
-import org.wikipedia.util.log.L
 import retrofit2.Response
 import java.io.IOException
 import java.time.Instant
@@ -123,9 +121,6 @@ class ReadingListClient(private val wiki: WikiSite) {
 
     @Throws(Throwable::class)
     fun createList(csrfToken: String, list: RemoteReadingList): Long {
-
-        L.d(">>>>>: " + JsonUtil.encodeToString(list))
-
         val response = ServiceFactory.getCoreRest(wiki).createReadingList(csrfToken, list).execute()
         val idResponse = response.body() ?: throw IOException("Incorrect response format.")
         saveLastDateHeader(response)
