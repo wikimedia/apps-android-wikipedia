@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient
 
 interface ServiceError {
-    val title: String
-    val details: String
+    val key: String
+    val message: String
 }

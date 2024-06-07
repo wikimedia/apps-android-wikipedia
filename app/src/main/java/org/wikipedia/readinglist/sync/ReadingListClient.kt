@@ -176,7 +176,7 @@ class ReadingListClient(private val wiki: WikiSite) {
     }
 
     fun isErrorType(t: Throwable?, errorType: String): Boolean {
-        return t is HttpStatusException && t.serviceError?.title?.contains(errorType) == true
+        return t is HttpStatusException && t.serviceError?.key?.contains(errorType) == true
     }
 
     fun isServiceError(t: Throwable?): Boolean {

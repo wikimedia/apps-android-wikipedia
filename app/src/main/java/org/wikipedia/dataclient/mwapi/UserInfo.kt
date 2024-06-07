@@ -22,7 +22,7 @@ class UserInfo : BlockInfo() {
     @SerialName("cancreateerror") private val canCreateError: List<MwServiceError>? = null
     val options: Options? = null
 
-    val error get() = canCreateError?.get(0)?.title.orEmpty()
+    val error get() = canCreateError?.get(0)?.key.orEmpty()
     val hasBlockError get() = error.contains("block")
 
     fun groups(): Set<String> {

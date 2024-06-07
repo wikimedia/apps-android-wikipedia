@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 class MwException(val error: MwServiceError) : RuntimeException() {
 
     val title: String
-        get() = error.title
+        get() = error.key
 
     override val message: String
-        get() = error.details
+        get() = error.message
 }
