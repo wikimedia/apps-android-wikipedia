@@ -19,6 +19,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
+    // TODO: to introduce a function to clear the fragmentMap when the card is refreshed.
     private var fragmentMap = mutableMapOf<Int, List<Fragment>>()
 
     override var card: SuggestedEditsCard? = null
