@@ -421,6 +421,24 @@ interface Service {
     ): Observable<Edit>
 
     @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=edit")
+    suspend fun postEditSubmitSuspend(
+        @Field("title") title: String,
+        @Field("section") section: String?,
+        @Field("sectiontitle") newSectionTitle: String?,
+        @Field("summary") summary: String,
+        @Field("assert") user: String?,
+        @Field("text") text: String?,
+        @Field("appendtext") appendText: String?,
+        @Field("baserevid") baseRevId: Long,
+        @Field("token") token: String,
+        @Field("captchaid") captchaId: String?,
+        @Field("captchaword") captchaWord: String?,
+        @Field("minor") minor: Boolean? = null,
+        @Field("watchlist") watchlist: String? = null,
+    ): Edit
+
+    @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=visualeditoredit")
     suspend fun postVisualEditorEdit(
         @Field("paction") action: String,
