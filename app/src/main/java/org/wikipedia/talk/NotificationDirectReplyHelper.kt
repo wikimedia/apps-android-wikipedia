@@ -34,7 +34,7 @@ object NotificationDirectReplyHelper {
                     replyTo: String, notificationId: Int) {
         Toast.makeText(context, context.getString(R.string.notifications_direct_reply_progress, replyTo), Toast.LENGTH_SHORT).show()
 
-        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler {  _, throwable ->
+        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             fallBackToTalkPage(context, title)
         }) {
