@@ -158,7 +158,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         suspend fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             withContext(Dispatchers.IO) {
-                val token = CsrfTokenClient.getToken(wiki).blockingSingle()
+                val token = CsrfTokenClient.getTokenBlocking(wiki)
                 notifications.windowed(50, partialWindows = true).forEach { window ->
                     val idListStr = window.joinToString("|")
                     ServiceFactory.get(wiki).markRead(token, if (unread) null else idListStr, if (unread) idListStr else null)
