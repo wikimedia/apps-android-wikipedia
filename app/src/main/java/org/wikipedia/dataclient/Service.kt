@@ -24,7 +24,7 @@ import org.wikipedia.dataclient.wikidata.Entities
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
-import org.wikipedia.login.LoginClient.LoginResponse
+import org.wikipedia.login.LoginResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -289,29 +289,29 @@ interface Service {
         @Field("captchaWord") captchaWord: String?
     ): Observable<CreateAccountResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @get:Headers("Cache-Control: no-cache")
-    val loginToken: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
+    @Headers("Cache-Control: no-cache")
+    suspend fun getLoginToken(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    fun postLogIn(
+    suspend fun postLogIn(
         @Field("username") user: String?,
         @Field("password") pass: String?,
         @Field("logintoken") token: String?,
         @Field("loginreturnurl") url: String?
-    ): Observable<LoginResponse>
+    ): LoginResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    fun postLogIn(
+    suspend fun postLogIn(
         @Field("username") user: String?,
         @Field("password") pass: String?,
         @Field("retype") retypedPass: String?,
         @Field("OATHToken") twoFactorCode: String?,
         @Field("logintoken") token: String?,
         @Field("logincontinue") loginContinue: Boolean
-    ): Observable<LoginResponse>
+    ): LoginResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=logout")
