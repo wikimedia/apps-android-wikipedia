@@ -1,9 +1,8 @@
 package org.wikipedia.login
 
 import android.widget.Toast
-import androidx.lifecycle.LifecycleCoroutineScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -15,8 +14,6 @@ import java.io.IOException
 
 class LoginClient {
 
-    private var clientJob: Job? = null
-
     interface LoginCallback {
         fun success(result: LoginResult)
         fun twoFactorPrompt(caught: Throwable, token: String?)
@@ -24,10 +21,9 @@ class LoginClient {
         fun error(caught: Throwable)
     }
 
-    fun login(coroutineScope: LifecycleCoroutineScope, wiki: WikiSite, userName: String, password: String,
+    fun login(coroutineScope: CoroutineScope, wiki: WikiSite, userName: String, password: String,
               retypedPassword: String?, twoFactorCode: String?, token: String?, cb: LoginCallback) {
-        cancel()
-        clientJob = coroutineScope.launch(CoroutineExceptionHandler { _, throwable ->
+        coroutineScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e("Login process failed. $throwable")
             cb.error(throwable)
         }) {
@@ -83,9 +79,5 @@ class LoginClient {
         return if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty())
             ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
         else ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true)
-    }
-
-    fun cancel() {
-        clientJob?.cancel()
     }
 }

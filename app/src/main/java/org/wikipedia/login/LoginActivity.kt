@@ -98,7 +98,6 @@ class LoginActivity : BaseActivity() {
 
     override fun onStop() {
         binding.viewProgressBar.visibility = View.GONE
-        loginClient.cancel()
         super.onStop()
     }
 
