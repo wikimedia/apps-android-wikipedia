@@ -29,6 +29,7 @@ import org.wikipedia.util.log.L
 object NotificationDirectReplyHelper {
     private const val DIRECT_REPLY_EDIT_COMMENT = "#directreply-1.0"
 
+    // TODO: This is not being used anywhere. Please test before using it.
     // TODO: update this to use DiscussionTools API, and enable.
     fun handleReply(context: Context, wiki: WikiSite, title: PageTitle, replyText: String,
                     replyTo: String, notificationId: Int) {
