@@ -1,6 +1,5 @@
 package org.wikipedia
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,7 +11,9 @@ import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
@@ -239,21 +240,24 @@ class WikipediaApp : Application() {
         defaultWikiSite = null
     }
 
-    @SuppressLint("CheckResult")
     fun logOut() {
-        L.d("Logging out")
-        AccountUtil.removeAccount()
-        Prefs.isPushNotificationTokenSubscribed = false
-        Prefs.pushNotificationTokenOld = ""
-        ServiceFactory.get(wikiSite).getTokenObservable()
-                .subscribeOn(Schedulers.io())
-                .flatMap {
-                    val csrfToken = it.query!!.csrfToken()
-                    WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
-                            .flatMap { ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
-                }
-                .doFinally { SharedPreferenceCookieManager.instance.clearAllCookies() }
-                .subscribe({ L.d("Logout complete.") }) { L.e(it) }
+        MainScope().launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            try {
+                L.d("Logging out")
+                AccountUtil.removeAccount()
+                Prefs.isPushNotificationTokenSubscribed = false
+                Prefs.pushNotificationTokenOld = ""
+
+                val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
+                WikipediaFirebaseMessagingService.unsubscribePushToken(token!!, Prefs.pushNotificationToken)
+                ServiceFactory.get(wikiSite).postLogout(token)
+            } finally {
+                SharedPreferenceCookieManager.instance.clearAllCookies()
+                L.d("Logout complete.")
+            }
+        }
     }
 
     private fun enableWebViewDebugging() {

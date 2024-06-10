@@ -210,10 +210,10 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
-    fun postSetOptions(
+    suspend fun postSetOptions(
         @Field("change") change: String,
         @Field("token") token: String
-    ): Observable<MwPostResponse>
+    ): MwPostResponse
 
     @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
     val streamConfigs: Observable<MwStreamConfigsResponse>
@@ -315,7 +315,7 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=logout")
-    fun postLogout(@Field("token") token: String): Observable<MwPostResponse>
+    suspend fun postLogout(@Field("token") token: String): MwPostResponse
 
     @get:GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     val authManagerInfo: Observable<MwQueryResponse>
@@ -371,17 +371,17 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
-    fun subscribePush(
+    suspend fun subscribePush(
         @Field("token") csrfToken: String,
         @Field("providertoken") providerToken: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=delete&provider=fcm")
-    fun unsubscribePush(
+    suspend fun unsubscribePush(
         @Field("token") csrfToken: String,
         @Field("providertoken") providerToken: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     // ------- Editing -------
 
