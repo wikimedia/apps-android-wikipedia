@@ -149,6 +149,11 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onResume() {
         super.onResume()
         showRemoveChineseVariantPrompt()
+
+        // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
+        // on certain devices.
+        // https://issuetracker.google.com/issues/188096921
+        feedAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

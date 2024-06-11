@@ -107,7 +107,7 @@
   <string name="other_languages_indication_text">अर्को भाषामा पढ्नुहोस्</string>
   <string name="language_count_link_text">अरू %d ओटा भाषाहरूमा उपलब्ध</string>
   <string name="content_license_cc_by_sa">CC BY-SA ४.०</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
+  <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">प्रकाशन गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनहरू तपाईँको उपकरणको आइपओ ठेगानामा एट्रिब्युट गरिनेछन् । यदि &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;,  गर्नु भयो भने राम्रो गोपनियता प्राप्त हुनसक्छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
@@ -117,6 +117,7 @@
   <string name="langlinks_your_wikipedia_languages">तपाईंको विकिपिडिया भाषाहरू</string>
   <string name="menu_save_changes">परिवर्तनहरू प्रकाशित गर्नुहोस्</string>
   <string name="edit_saved_successfully">प्रकाशित भएकोलाई सम्पादन गर्नुहोस्!</string>
+  <string name="stub_article_edit_saved_successfully">सम्पादन प्रकाशित भयो! परिवर्तनहरू देखा पर्न समय लाग्न सक्छ।</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
   <string name="dialog_message_edit_failed_retry">पुनः प्रयास गर्नुहोस्</string>
   <string name="dialog_message_edit_failed_cancel">रद्द गर्नुहोस्</string>
@@ -159,6 +160,8 @@
   <string name="logged_out_in_background_dialog">तपाईं विकिपिडियाबाट निर्गमन गरिनु भएको छ। के फेरि प्रवेश गर्न चाहनुहुन्छ?</string>
   <string name="logged_out_in_background_login">प्रवेग</string>
   <string name="logged_out_in_background_cancel">रद्द गर्नुहोस्</string>
+  <string name="account_vanish_request_title">खाता नष्ट</string>
+  <string name="account_vanish_request_confirm_title">खाताको चेतावनी समाप्त गर्नुहोस्</string>
   <string name="history_empty_title">भर्खरै हेरिएको कुनै पनि लेख छैन</string>
   <string name="history_empty_message">आफूले पढिरहेका कुराहरूलाई यहाँबाट पहिल्याउनुहोस्।</string>
   <string name="history_offline_articles_toast">केही इतिहासका लेखहरू अफलाइन भएको बेला हेर्न मिल्दैन।</string>
