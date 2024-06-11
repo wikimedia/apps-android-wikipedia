@@ -343,6 +343,7 @@
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
   <string name="edit_summary_added_short_description">添加了简短描述</string>
+  <string name="edit_summary_updated_short_description">已更新简短描述</string>
   <string name="edit_conflict_title">编辑冲突</string>
   <string name="edit_conflict_message">页面已被不同的用户修改过，并且与您的编辑冲突。请复制您的编辑，返回并刷新页面，然后重试编辑。</string>
   <string name="edit_notices">编辑提示</string>
@@ -466,6 +467,7 @@
   <string name="link_preview_dialog_save_button">保存</string>
   <string name="link_preview_dialog_saved_button">已保存</string>
   <string name="link_preview_dialog_share_button">分享</string>
+  <string name="link_preview_stub_placeholder_text">本条目是一篇小作品，这意味着条目中的内容不足以生成预览。不过，您可以动手来改善条目内容。</string>
   <string name="error_page_does_not_exist">该页面不存在</string>
   <string name="error_user_page_does_not_exist">维基百科没有具有此确切名称的&lt;a href=\"%1$s\"&gt;用户页&lt;/a&gt;。通常来说，此页面只应由&lt;b&gt;%2$s&lt;/b&gt;来创建和编辑。如果您对此抱有疑惑，请验证“%3$s”是否存在。</string>
   <string name="view_wiki_error_message_offline">无法连接至互联网</string>
@@ -1464,6 +1466,7 @@
   <string name="watchlist_filter_automated_contributions_header">自动贡献</string>
   <string name="watchlist_filter_automated_contributions_bot">机器人</string>
   <string name="watchlist_filter_automated_contributions_human">人工（非机器人）</string>
+  <string name="watchlist_filter_significance_header">重要性</string>
   <string name="watchlist_filter_significance_minor">小编辑</string>
   <string name="watchlist_filter_significance_edits">不是小编辑</string>
   <string name="watchlist_filter_latest_revisions_header">最新修订版本</string>
@@ -1539,6 +1542,9 @@
   <plurals name="talk_templates_message_deleted">
     <item quantity="other">消息已删除</item>
   </plurals>
+  <string name="talk_templates_message_title_empty">标题不能为空。</string>
+  <string name="talk_templates_your_messages_tab_title">您的消息</string>
+  <string name="talk_templates_example_messages_tab_title">示例消息</string>
   <string name="patroller_tasks_edits_list_search_hint">搜索或过滤编辑</string>
   <string name="patroller_tasks_edits_list_card_tags_text">标签： %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">无</string>
@@ -1593,7 +1599,12 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">以中等精度查找到中等概率的存在恶意的编辑。</string>
   <string name="patroller_tasks_filters_user_intent_bad">高概率恶意</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">以极高精度查找出大多数明显存在恶意的编辑。</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">条目编辑历史</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">回退完成</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">您确定要回退么？</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">回退完成</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">查看</string>
+  <string name="patroller_tasks_overflow_report">功能问题</string>
   <string name="patroller_tasks_overflow_learn">了解更多</string>
   <string name="patroller_onboarding_two_thank_title">感谢</string>
   <string name="patroller_onboarding_two_watch_title">监视</string>
