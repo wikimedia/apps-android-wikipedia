@@ -124,7 +124,7 @@
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>
   <string name="langlinks_your_wikipedia_languages">ਤੁਹਾਡੀਆਂ ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾਵਾਂ</string>
   <string name="menu_save_changes">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
-  <string name="edit_saved_successfully">ਸੋਧ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤੀ ਗਈ!</string>
+  <string name="edit_saved_successfully">ਸੋਧ ਛਾਪ ਦਿੱਤੀ ਗਈ!</string>
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
@@ -289,7 +289,7 @@
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="preference_title_download_only_over_wifi">ਸਿਰਫ਼ ਵਾਈ-ਫਾਈ \'ਤੇ ਡਾਊਨਲੋਡ ਕਰੋ</string>
-  <string name="dialog_title_download_only_over_wifi">ਮੋਬਾਈਲ ਡਾਟਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਡਾਊਨਲੋਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ?</string>
+  <string name="dialog_title_download_only_over_wifi">ਮੋਬਾਈਲ ਡੇਟਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਉਤਾਰੇ ਦੀ ਤਸਦੀਕ ਕਰੋ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">ਇਜਾਜ਼ਤ ਦਿਓ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="about_article_section">ਇਸ ਲੇਖ ਬਾਰੇ</string>
@@ -385,7 +385,7 @@
   <string name="view_top_read_card_action">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="view_next_random_article">ਕੋਈ ਹੋਰ ਬੇਤਰਤੀਬ ਲੇਖ ਲੋਡ ਕਰੋ</string>
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
-  <string name="view_main_page_card_action">ਮੁੱਢਲਾ ਸਫ਼ਾ ਵੇਖੋ</string>
+  <string name="view_main_page_card_action">ਮੁੱਖ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
   <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>
