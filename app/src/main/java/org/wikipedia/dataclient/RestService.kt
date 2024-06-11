@@ -218,7 +218,7 @@ interface RestService {
     //  ------- Talk pages -------
     @Headers("Cache-Control: no-cache")
     @GET("page/talk/{title}")
-    fun getTalkPage(@Path("title") title: String?): Observable<TalkPage>
+    suspend fun getTalkPage(@Path("title") title: String?): TalkPage
 
     @Headers("Cache-Control: no-cache")
     @GET("metrics/edits/per-page/{wikiAuthority}/{title}/all-editor-types/monthly/{fromDate}/{toDate}")

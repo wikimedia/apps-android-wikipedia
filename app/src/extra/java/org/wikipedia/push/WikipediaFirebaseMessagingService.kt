@@ -4,10 +4,13 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -20,7 +23,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
-
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         L.d("Message from: ${remoteMessage.from}")
 
@@ -53,7 +55,8 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         const val MESSAGE_TYPE_CHECK_ECHO = "checkEchoV1"
         private const val SUBSCRIBE_RETRY_COUNT = 5
         private const val UNSUBSCRIBE_RETRY_COUNT = 3
-        private var csrfDisposables = CompositeDisposable()
+
+        private var subscriptionJob: Job? = null
 
         fun isUsingPush(): Boolean {
             return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.instance) == ConnectionResult.SUCCESS &&
@@ -67,24 +70,22 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 return
             }
 
-            csrfDisposables.clear()
+            subscriptionJob?.cancel()
 
-            for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
-                csrfDisposables.add(CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang))
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
-                        if (lang == WikipediaApp.instance.appOrSystemLanguageCode) {
-                            subscribeWithCsrf(it)
-                        }
-                        setNotificationOptions(lang, it)
-                    }, {
-                        L.e(it)
-                    }))
+            subscriptionJob = MainScope().launch(CoroutineExceptionHandler { _, t ->
+                L.e(t)
+            }) {
+                for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
+                    val csrfToken = withContext(Dispatchers.IO) { CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang)).blockingSingle() }
+                    if (lang == WikipediaApp.instance.appOrSystemLanguageCode) {
+                        subscribeWithCsrf(csrfToken)
+                    }
+                    setNotificationOptions(lang, csrfToken)
+                }
             }
         }
 
-        private fun subscribeWithCsrf(csrfToken: String) {
+        private suspend fun subscribeWithCsrf(csrfToken: String) {
             if (Prefs.isPushNotificationTokenSubscribed || Prefs.pushNotificationToken.isEmpty()) {
                 // Don't do anything if the token is already subscribed, or if the token is empty.
                 return
@@ -96,39 +97,48 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             // Make sure to unsubscribe the previous token, if any
             if (oldToken.isNotEmpty()) {
                 if (oldToken != token) {
-                    unsubscribePushToken(csrfToken, oldToken)
-                            .subscribe({
-                                L.d("Previous token unsubscribed successfully.")
-                                Prefs.pushNotificationTokenOld = ""
-                            }, {
-                                L.e(it)
-                                if (it is MwException && it.error.title == "echo-push-token-not-found") {
-                                    // token was not found in the database, so consider it gone.
-                                    Prefs.pushNotificationTokenOld = ""
-                                }
-                            })
+                    try {
+                        unsubscribePushToken(csrfToken, oldToken)
+                        L.d("Previous token unsubscribed successfully.")
+                        Prefs.pushNotificationTokenOld = ""
+                    } catch (e: Exception) {
+                        if (e is CancellationException) {
+                            throw e
+                        } else if (e is MwException && e.error.title == "echo-push-token-not-found") {
+                            // token was not found in the database, so consider it gone.
+                            Prefs.pushNotificationTokenOld = ""
+                        } else {
+                            L.e(e)
+                        }
+                    }
                 } else {
                     Prefs.pushNotificationTokenOld = ""
                 }
             }
 
-            ServiceFactory.get(WikipediaApp.instance.wikiSite).subscribePush(csrfToken, token)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .retry(SUBSCRIBE_RETRY_COUNT.toLong())
-                    .subscribe({
+            withContext(Dispatchers.IO) {
+                for (i in 0 until SUBSCRIBE_RETRY_COUNT) {
+                    try {
+                        ServiceFactory.get(WikipediaApp.instance.wikiSite).subscribePush(csrfToken, token)
                         L.d("Token subscribed successfully.")
                         Prefs.isPushNotificationTokenSubscribed = true
-                    }, {
-                        L.e(it)
-                        if (it is MwException && it.error.title == "echo-push-token-exists") {
+                    } catch (e: Exception) {
+                        if (e is CancellationException) {
+                            throw e
+                        } else if (e is MwException && e.error.title == "echo-push-token-exists") {
                             // token already exists in the database, so consider it subscribed.
                             Prefs.isPushNotificationTokenSubscribed = true
+                        } else {
+                            L.e(e)
+                            continue
                         }
-                    })
+                    }
+                    break
+                }
+            }
         }
 
-        private fun setNotificationOptions(lang: String, csrfToken: String) {
+        private suspend fun setNotificationOptions(lang: String, csrfToken: String) {
             if (Prefs.isPushNotificationOptionsSet) {
                 return
             }
@@ -144,24 +154,27 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             )
 
             ServiceFactory.get(WikiSite.forLanguageCode(lang)).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
-                        L.d("Notification options updated successfully.")
-                        Prefs.isPushNotificationOptionsSet = true
-                    }, {
-                        L.e(it)
-                    })
+            L.d("Notification options updated successfully.")
+            Prefs.isPushNotificationOptionsSet = true
         }
 
-        fun unsubscribePushToken(csrfToken: String, pushToken: String): Observable<MwQueryResponse> {
+        suspend fun unsubscribePushToken(csrfToken: String, pushToken: String): MwQueryResponse {
             if (pushToken.isEmpty()) {
-                return Observable.just(MwQueryResponse())
+                return MwQueryResponse()
             }
-            return ServiceFactory.get(WikipediaApp.instance.wikiSite).unsubscribePush(csrfToken, pushToken)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
+            return withContext(Dispatchers.IO) {
+                for (i in 0 until UNSUBSCRIBE_RETRY_COUNT) {
+                    try {
+                        return@withContext ServiceFactory.get(WikipediaApp.instance.wikiSite).unsubscribePush(csrfToken, pushToken)
+                    } catch (e: Exception) {
+                        if (e is CancellationException) {
+                            throw e
+                        }
+                        L.e(e)
+                    }
+                }
+                MwQueryResponse()
+            }
         }
     }
 }
