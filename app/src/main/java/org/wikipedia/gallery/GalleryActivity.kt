@@ -568,14 +568,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         val license = ImageLicense(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
 
         // determine which icon to display...
-        if (license.licenseIcon == R.drawable.ic_license_by) {
+        if (license.licenseIcon() == R.drawable.ic_license_by) {
             binding.licenseIcon.setImageResource(R.drawable.ic_license_cc)
             binding.licenseIconBy.setImageResource(R.drawable.ic_license_by)
             binding.licenseIconBy.visibility = View.VISIBLE
             binding.licenseIconSa.setImageResource(R.drawable.ic_license_sharealike)
             binding.licenseIconSa.visibility = View.VISIBLE
         } else {
-            binding.licenseIcon.setImageResource(license.licenseIcon)
+            binding.licenseIcon.setImageResource(license.licenseIcon())
             binding.licenseIconBy.visibility = View.GONE
             binding.licenseIconSa.visibility = View.GONE
         }
