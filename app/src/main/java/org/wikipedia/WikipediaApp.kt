@@ -244,19 +244,17 @@ class WikipediaApp : Application() {
         MainScope().launch(CoroutineExceptionHandler { _, t ->
             L.e(t)
         }) {
-            try {
-                L.d("Logging out")
-                AccountUtil.removeAccount()
-                Prefs.isPushNotificationTokenSubscribed = false
-                Prefs.pushNotificationTokenOld = ""
+            L.d("Logging out")
+            AccountUtil.removeAccount()
+            Prefs.isPushNotificationTokenSubscribed = false
+            Prefs.pushNotificationTokenOld = ""
 
-                val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
-                WikipediaFirebaseMessagingService.unsubscribePushToken(token!!, Prefs.pushNotificationToken)
-                ServiceFactory.get(wikiSite).postLogout(token)
-            } finally {
-                SharedPreferenceCookieManager.instance.clearAllCookies()
-                L.d("Logout complete.")
-            }
+            val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
+            WikipediaFirebaseMessagingService.unsubscribePushToken(token!!, Prefs.pushNotificationToken)
+            ServiceFactory.get(wikiSite).postLogout(token)
+        }.invokeOnCompletion {
+            SharedPreferenceCookieManager.instance.clearAllCookies()
+            L.d("Logout complete.")
         }
     }
 
