@@ -42,7 +42,7 @@ object DimenUtil {
     }
 
     fun getFontSizeFromSp(window: Window, fontSp: Float): Float {
-        return fontSp / window.context.resources.displayMetrics.density
+        return fontSp / window.context.resources.displayMetrics.scaledDensity
     }
 
     // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
