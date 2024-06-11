@@ -102,7 +102,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                                 Prefs.pushNotificationTokenOld = ""
                             }, {
                                 L.e(it)
-                                if (it is MwException && it.error.title == "echo-push-token-not-found") {
+                                if (it is MwException && it.error.key == "echo-push-token-not-found") {
                                     // token was not found in the database, so consider it gone.
                                     Prefs.pushNotificationTokenOld = ""
                                 }
@@ -121,7 +121,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                         Prefs.isPushNotificationTokenSubscribed = true
                     }, {
                         L.e(it)
-                        if (it is MwException && it.error.title == "echo-push-token-exists") {
+                        if (it is MwException && it.error.key == "echo-push-token-exists") {
                             // token already exists in the database, so consider it subscribed.
                             Prefs.isPushNotificationTokenSubscribed = true
                         }

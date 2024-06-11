@@ -13,7 +13,7 @@ abstract class MwResponse {
     init {
         if (errors?.isNotEmpty() == true) {
             // prioritize "blocked" or "abusefilter" errors over others.
-            throw MwException(errors.firstOrNull { it.title.contains("blocked") || it.title.startsWith("abusefilter-") } ?: errors.first())
+            throw MwException(errors.firstOrNull { it.key.contains("blocked") || it.key.startsWith("abusefilter-") } ?: errors.first())
         }
     }
 }

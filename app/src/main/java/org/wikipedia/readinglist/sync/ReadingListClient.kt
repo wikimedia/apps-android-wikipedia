@@ -19,7 +19,7 @@ class ReadingListClient(private val wiki: WikiSite) {
     @Throws(Throwable::class)
     fun setup(csrfToken: String): Boolean {
         return try {
-            ServiceFactory.getRest(wiki).setupReadingLists(csrfToken).execute()
+            ServiceFactory.getCoreRest(wiki).setupReadingLists(csrfToken).execute()
             true
         } catch (t: Throwable) {
             if (isErrorType(t, "already-set-up")) {
@@ -32,7 +32,7 @@ class ReadingListClient(private val wiki: WikiSite) {
     @Throws(Throwable::class)
     fun tearDown(csrfToken: String) {
         try {
-            ServiceFactory.getRest(wiki).tearDownReadingLists(csrfToken).execute()
+            ServiceFactory.getCoreRest(wiki).tearDownReadingLists(csrfToken).execute()
         } catch (t: Throwable) {
             if (isErrorType(t, "not-set-up")) {
                 return
@@ -48,7 +48,7 @@ class ReadingListClient(private val wiki: WikiSite) {
             var totalCycles = 0
             var continueStr: String? = null
             do {
-                val response = ServiceFactory.getRest(wiki).getReadingLists(continueStr).execute()
+                val response = ServiceFactory.getCoreRest(wiki).getReadingLists(continueStr).execute()
                 val lists = response.body()
                 if (lists?.lists == null) {
                     throw IOException("Incorrect response format.")
@@ -67,7 +67,7 @@ class ReadingListClient(private val wiki: WikiSite) {
         var totalCycles = 0
         var continueStr: String? = null
         do {
-            val response = ServiceFactory.getRest(wiki).getReadingListChangesSince(date, continueStr).execute()
+            val response = ServiceFactory.getCoreRest(wiki).getReadingListChangesSince(date, continueStr).execute()
             val body = response.body() ?: throw IOException("Incorrect response format.")
             body.lists?.let {
                 totalLists.addAll(it)
@@ -88,7 +88,7 @@ class ReadingListClient(private val wiki: WikiSite) {
         var totalCycles = 0
         var continueStr: String? = null
         do {
-            val response = ServiceFactory.getRest(wiki)
+            val response = ServiceFactory.getCoreRest(wiki)
                     .getReadingListsContaining(entry.project(), entry.title(), continueStr).execute()
             val lists = response.body()
             if (lists?.lists == null) {
@@ -107,7 +107,7 @@ class ReadingListClient(private val wiki: WikiSite) {
         var totalCycles = 0
         var continueStr: String? = null
         do {
-            val response = ServiceFactory.getRest(wiki).getReadingListEntries(listId, continueStr).execute()
+            val response = ServiceFactory.getCoreRest(wiki).getReadingListEntries(listId, continueStr).execute()
             val body = response.body()
             if (body?.entries == null) {
                 throw IOException("Incorrect response format.")
@@ -121,7 +121,7 @@ class ReadingListClient(private val wiki: WikiSite) {
 
     @Throws(Throwable::class)
     fun createList(csrfToken: String, list: RemoteReadingList): Long {
-        val response = ServiceFactory.getRest(wiki).createReadingList(csrfToken, list).execute()
+        val response = ServiceFactory.getCoreRest(wiki).createReadingList(csrfToken, list).execute()
         val idResponse = response.body() ?: throw IOException("Incorrect response format.")
         saveLastDateHeader(response)
         return idResponse.id
@@ -129,17 +129,17 @@ class ReadingListClient(private val wiki: WikiSite) {
 
     @Throws(Throwable::class)
     fun updateList(csrfToken: String, listId: Long, list: RemoteReadingList) {
-        saveLastDateHeader(ServiceFactory.getRest(wiki).updateReadingList(listId, csrfToken, list).execute())
+        saveLastDateHeader(ServiceFactory.getCoreRest(wiki).updateReadingList(listId, csrfToken, list).execute())
     }
 
     @Throws(Throwable::class)
     fun deleteList(csrfToken: String, listId: Long) {
-        saveLastDateHeader(ServiceFactory.getRest(wiki).deleteReadingList(listId, csrfToken).execute())
+        saveLastDateHeader(ServiceFactory.getCoreRest(wiki).deleteReadingList(listId, csrfToken).execute())
     }
 
     @Throws(Throwable::class)
     fun addPageToList(csrfToken: String, listId: Long, entry: RemoteReadingListEntry): Long {
-        val response = ServiceFactory.getRest(wiki).addEntryToReadingList(listId, csrfToken, entry).execute()
+        val response = ServiceFactory.getCoreRest(wiki).addEntryToReadingList(listId, csrfToken, entry).execute()
         val idResponse = response.body() ?: throw IOException("Incorrect response format.")
         saveLastDateHeader(response)
         return idResponse.id
@@ -153,7 +153,7 @@ class ReadingListClient(private val wiki: WikiSite) {
                 break
             }
             try {
-                val response = ServiceFactory.getRest(wiki).addEntriesToReadingList(listId, csrfToken, RemoteReadingListEntryBatch(batch)).execute()
+                val response = ServiceFactory.getCoreRest(wiki).addEntriesToReadingList(listId, csrfToken, RemoteReadingListEntryBatch(batch)).execute()
                 val idResponse = response.body() ?: throw IOException("Incorrect response format.")
                 saveLastDateHeader(response)
                 for (id in idResponse.batch) {
@@ -172,11 +172,11 @@ class ReadingListClient(private val wiki: WikiSite) {
 
     @Throws(Throwable::class)
     fun deletePageFromList(csrfToken: String, listId: Long, entryId: Long) {
-        saveLastDateHeader(ServiceFactory.getRest(wiki).deleteEntryFromReadingList(listId, entryId, csrfToken).execute())
+        saveLastDateHeader(ServiceFactory.getCoreRest(wiki).deleteEntryFromReadingList(listId, entryId, csrfToken).execute())
     }
 
     fun isErrorType(t: Throwable?, errorType: String): Boolean {
-        return t is HttpStatusException && t.serviceError?.title?.contains(errorType) == true
+        return t is HttpStatusException && t.serviceError?.key?.contains(errorType) == true
     }
 
     fun isServiceError(t: Throwable?): Boolean {

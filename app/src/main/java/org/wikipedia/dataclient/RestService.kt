@@ -11,24 +11,12 @@ import org.wikipedia.feed.announcement.AnnouncementList
 import org.wikipedia.feed.configure.FeedAvailability
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.gallery.MediaList
-import org.wikipedia.readinglist.sync.SyncedReadingLists
-import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponse
-import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
-import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
-import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
-import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch
 import org.wikipedia.suggestededits.provider.SuggestedEditItem
-import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
-import retrofit2.http.POST
-import retrofit2.http.PUT
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface RestService {
 
@@ -121,80 +109,6 @@ interface RestService {
 
     @get:GET("feed/availability")
     val feedAvailability: Observable<FeedAvailability>
-
-    // ------- Reading lists -------
-    @POST("data/lists/setup")
-    fun setupReadingLists(@Query("csrf_token") token: String?): Call<Unit>
-
-    @POST("data/lists/teardown")
-    fun tearDownReadingLists(@Query("csrf_token") token: String?): Call<Unit>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/lists/")
-    fun getReadingLists(@Query("next") next: String?): Call<SyncedReadingLists>
-
-    @POST("data/lists/")
-    fun createReadingList(
-        @Query("csrf_token") token: String?,
-        @Body list: RemoteReadingList?
-    ): Call<RemoteIdResponse>
-
-    @Headers("Cache-Control: no-cache")
-    @PUT("data/lists/{id}")
-    fun updateReadingList(
-        @Path("id") listId: Long, @Query("csrf_token") token: String?,
-        @Body list: RemoteReadingList?
-    ): Call<Unit>
-
-    @Headers("Cache-Control: no-cache")
-    @DELETE("data/lists/{id}")
-    fun deleteReadingList(
-        @Path("id") listId: Long,
-        @Query("csrf_token") token: String?
-    ): Call<Unit>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/lists/changes/since/{date}")
-    fun getReadingListChangesSince(
-        @Path("date") iso8601Date: String?,
-        @Query("next") next: String?
-    ): Call<SyncedReadingLists>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/lists/pages/{project}/{title}")
-    fun getReadingListsContaining(
-        @Path("project") project: String?,
-        @Path("title") title: String?,
-        @Query("next") next: String?
-    ): Call<SyncedReadingLists>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/lists/{id}/entries/")
-    fun getReadingListEntries(
-        @Path("id") listId: Long,
-        @Query("next") next: String?
-    ): Call<SyncedReadingLists>
-
-    @POST("data/lists/{id}/entries/")
-    fun addEntryToReadingList(
-        @Path("id") listId: Long,
-        @Query("csrf_token") token: String?,
-        @Body entry: RemoteReadingListEntry?
-    ): Call<RemoteIdResponse>
-
-    @POST("data/lists/{id}/entries/batch")
-    fun addEntriesToReadingList(
-        @Path("id") listId: Long,
-        @Query("csrf_token") token: String?,
-        @Body batch: RemoteReadingListEntryBatch?
-    ): Call<RemoteIdResponseBatch>
-
-    @Headers("Cache-Control: no-cache")
-    @DELETE("data/lists/{id}/entries/{entry_id}")
-    fun deleteEntryFromReadingList(
-        @Path("id") listId: Long, @Path("entry_id") entryId: Long,
-        @Query("csrf_token") token: String?
-    ): Call<Unit>
 
     // ------- Recommendations -------
     @Headers("Cache-Control: no-cache")

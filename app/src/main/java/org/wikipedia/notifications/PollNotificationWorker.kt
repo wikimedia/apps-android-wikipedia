@@ -25,7 +25,7 @@ class PollNotificationWorker(
             }
             Result.success()
         } catch (t: Throwable) {
-            if (t is MwException && t.error.title == "login-required") {
+            if (t is MwException && t.error.key == "login-required") {
                 assertLoggedIn()
             }
             L.e(t)
