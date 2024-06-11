@@ -61,13 +61,14 @@ object NotificationDirectReplyHelper {
     }
 
     private suspend fun waitForUpdatedRevision(context: Context, wiki: WikiSite, title: PageTitle, newRevision: Long, notificationId: Int) {
-        var talkPageResponse = ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText)
-        var tires = 0
-        while (talkPageResponse.revision < newRevision && tires < 20) {
-            delay(2000)
-            talkPageResponse = ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText)
-            tires++
-        }
+        var tries = 0
+        do {
+            if (tries > 0) {
+                delay(2000)
+            }
+            val talkPageResponse = ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText)
+            tries++
+        } while (talkPageResponse.revision < newRevision && tries < 20)
         Toast.makeText(context, R.string.notifications_direct_reply_success, Toast.LENGTH_LONG).show()
         cancelNotification(context, notificationId)
     }
