@@ -8,19 +8,11 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.ZoneOffset
+import java.time.*
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
-import java.util.Calendar
-import java.util.Date
-import java.util.GregorianCalendar
-import java.util.Locale
-import java.util.TimeZone
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
@@ -34,6 +26,10 @@ object DateUtil {
 
     fun iso8601LocalDateTimeParse(timestamp: String): LocalDateTime {
         return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
+    }
+
+    fun iso8601LocalDateParse(timestamp: String): LocalDate {
+        return LocalDate.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
 
     fun dbDateFormat(date: Date): String {
@@ -64,7 +60,7 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
 
-    fun getYearOnlyDateString(date: Date): String {
+    fun getYearOnlyDateString(date: LocalDate): String {
         return getDateStringWithSkeletonPattern(date, "yyyy")
     }
 

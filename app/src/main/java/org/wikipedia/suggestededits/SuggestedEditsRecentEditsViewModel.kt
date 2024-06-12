@@ -21,10 +21,9 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
-import java.time.Duration
 import java.time.Instant
-import java.util.Calendar
-import java.util.Date
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 import kotlin.math.max
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
@@ -222,7 +221,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     var qualifiedUser = false
                     userInfo?.let {
                         val editsCount = userInfo.editCount
-                        val diffDays = diffDays(userInfo.registrationDate)
+                        val diffDays = userInfo.registrationDate.until(LocalDate.now(), ChronoUnit.DAYS)
                         findUserExperienceFilters.forEach { type ->
                             val userExperienceArray = type.value.split("|")
                             val requiredEdits = userExperienceArray.first().split(",")
@@ -295,12 +294,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 }
             }
             return recentChanges
-        }
-
-        private fun diffDays(date: Date): Long {
-            val nowDate = Calendar.getInstance().toInstant()
-            val beginDate = date.toInstant()
-            return Duration.between(beginDate, nowDate).toDays()
         }
     }
 }

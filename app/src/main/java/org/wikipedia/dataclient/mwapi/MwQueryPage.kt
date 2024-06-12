@@ -109,7 +109,9 @@ class MwQueryPage {
 
         var diffSize = 0
 
-        val localDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timeStamp) }
+        val localDateTime by lazy {
+            if (timeStamp.isNotBlank()) DateUtil.iso8601LocalDateTimeParse(timeStamp) else null
+        }
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()

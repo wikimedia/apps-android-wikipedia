@@ -4,7 +4,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
-import java.util.*
+import java.time.LocalDate
+import java.util.Date
 
 @Serializable
 class UserInfo : BlockInfo() {
@@ -38,16 +39,15 @@ class UserInfo : BlockInfo() {
             return date
         }
 
-    val registrationDate: Date
-        get() {
-            var date = Date(0)
-            if (!regDate.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(regDate)
-            } else if (!registration.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(registration)
-            }
-            return date
+    val registrationDate: LocalDate by lazy {
+        if (!regDate.isNullOrEmpty()) {
+            DateUtil.iso8601LocalDateParse(regDate)
+        } else if (!registration.isNullOrEmpty()) {
+            DateUtil.iso8601LocalDateParse(registration)
+        } else {
+            LocalDate.EPOCH
         }
+    }
 
     @Serializable
     class Options {
