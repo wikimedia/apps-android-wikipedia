@@ -1376,6 +1376,7 @@
   <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="revision_compare_button">Comparar</string>
+  <string name="revision_compare_two_only">Solo se pueden seleccionar dos revisiones.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
@@ -1437,6 +1438,8 @@
   <string name="user_contrib_current">Actual</string>
   <string name="media_playback_error">Error al reproducir medios.</string>
   <string name="user_contrib_menu_label">Contribuciones</string>
+  <string name="action_item_view_on_map">Ver en mapa</string>
+  <string name="action_item_view_on_map_unavailable">No hay coordenadas geográficas disponibles para esta página</string>
   <string name="reading_list_share_menu_label">Compartir…</string>
   <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
