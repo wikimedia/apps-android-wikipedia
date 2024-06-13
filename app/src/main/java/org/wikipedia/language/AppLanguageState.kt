@@ -6,7 +6,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
-import java.util.*
+import java.util.Locale
 
 class AppLanguageState(context: Context) {
 
@@ -37,7 +37,9 @@ class AppLanguageState(context: Context) {
         get() = appLanguageCodes.first()
 
     val remainingSuggestedLanguageCodes: List<String>
-        get() = LanguageUtil.suggestedLanguagesFromSystem.filter { !_appLanguageCodes.contains(it) && appLanguageLookUpTable.isSupportedCode(it) }
+        get() = LanguageUtil.suggestedLanguagesFromSystem
+            .filter { it !in _appLanguageCodes && appLanguageLookUpTable.isSupportedCode(it) }
+            .toList()
 
     val systemLanguageCode: String
         get() {
