@@ -24,6 +24,7 @@
 * DarkGames26
 * David.novella
 * Dbrant
+* Descubriunaisla
 * Destinid10 2
 * Dgstranz
 * DiegoAmbrocio
@@ -349,6 +350,12 @@
   <string name="edit_redo">Rehacer</string>
   <string name="edit_rollback">Revertir</string>
   <string name="edit_warn">Advertir</string>
+  <string name="edit_damage">Daño %s</string>
+  <string name="edit_intent">Intención %s</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s bytes</item>
+  </plurals>
   <string name="edit_zoom_in">Acercar</string>
   <string name="edit_zoom_out">Alejar</string>
   <string name="edit_summary_tag_typo">Ortografía corregida</string>
@@ -356,6 +363,8 @@
   <string name="edit_summary_tag_links">Enlaces añadidos</string>
   <string name="edit_summary_tag_other">Otro</string>
   <string name="edit_summary_tag_other_hint">Otras formas en las que has mejorado la página</string>
+  <string name="edit_summary_added_short_description">Descripción corta añadida</string>
+  <string name="edit_summary_updated_short_description">Descripción corta actualizada</string>
   <string name="edit_conflict_title">Conflicto de edición</string>
   <string name="edit_conflict_message">Otro usuario ya ha modificado la página y ello interfiere con tu edición. Copia tus cambios, vuelve atrás y actualiza la página. A continuación, intenta editar de nuevo.</string>
   <string name="edit_notices">Avisos de edición</string>
@@ -619,6 +628,11 @@
     <item quantity="one">%d lista eliminada</item>
     <item quantity="other">%d listas eliminadas</item>
   </plurals>
+  <string name="reading_lists_default_list_delete_message">La lista predeterminada (%s) no puede ser eliminada</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s eliminado. La lista predeterminada (%2$s) no puede ser eliminada.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listas eliminadas. La lista predeterminada ( %s ) no puede ser eliminada.</string>
+  <string name="single_list_json_file_name">%s (lista de lectura de Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name">Listas de lectura de Wikipedia (%s y más).json</string>
   <string name="reading_list_items_deleted">%d artículos eliminados de la lista</string>
   <string name="reading_lists_item_deleted">%s eliminado de las listas</string>
   <string name="reading_list_item_delete_undo">Deshacer</string>
@@ -651,6 +665,11 @@
   <string name="reading_list_articles_added_to_named">Se añadieron %1$d artículos a %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d artículos movidos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Eliminar la(s) lista(s) seleccionada(s)?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">¿Estás seguro de que deseas eliminar la lista de %d?</item>
+    <item quantity="other">¿Estás seguro de que deseas eliminar las listas de %d?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accede para activar la sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accede a tu cuenta para permitir que se guarden tus listas de lectura.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
@@ -674,6 +693,7 @@
   <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
   <string name="reading_lists_menu_create_list">Crear lista nueva</string>
+  <string name="reading_lists_menu_import_list">Importar lista</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Recargar sincronización</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Acceder/crear cuenta</string>
@@ -696,6 +716,8 @@
   <string name="reading_list_split_dialog_ok_button_text">Aceptar</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Eliminar</string>
   <string name="reading_list_activity_title">Lista de lectura: %s</string>
+  <string name="reading_list_notification_title">Lista(s) de lectura exportadas</string>
+  <string name="reading_list_notification_text">%d Las listas de lectura se han exportado como \'reading_lists export.json\' a su carpeta de descargas.</string>
   <string name="reading_lists_preview_header_title">Lista compartida</string>
   <string name="reading_lists_preview_save_button">Guardar</string>
   <string name="reading_lists_preview_save_dialog_title">Guardar lista</string>
@@ -1302,7 +1324,16 @@
   <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="talk_share_talk_page">Wikipedia - discusiones en página de discusión</string>
   <string name="talk_search_topics_hint">Temas de búsqueda</string>
-  <string name="talk_list_item_overflow_subscribe">Subscribirse</string>
+  <string name="talk_search_find_in_talk_topics_hint">Buscar en el tema de página de discusión</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Mostrar respuesta</item>
+    <item quantity="other">Mostrar respuestas (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Ocultar respuesta</item>
+    <item quantity="other">Ocultar respuestas (%d)</item>
+  </plurals>
+  <string name="talk_list_item_overflow_subscribe">Suscribirse</string>
   <string name="talk_list_item_overflow_share">Compartir</string>
   <string name="talk_list_item_user_icon_content_description">Icono de usuario</string>
   <string name="talk_list_item_swipe_mark_as_read">Leer</string>
@@ -1312,7 +1343,11 @@
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="menu_option_edit_source">Editar código</string>
+  <string name="menu_option_find_in_talk_page_topic">Buscar en el tema de página de discusión</string>
   <string name="menu_option_copy_link_to_clipboard">Copiar enlace en el portapapeles</string>
+  <string name="talk_menu_copy_text">Copiar texto</string>
+  <string name="talk_menu_expand_threads">Expandir hilos</string>
+  <string name="talk_menu_collapse_threads">Contraer hilos</string>
   <string name="watchlist_details_watching_label">Vigilando</string>
   <string name="watchlist_details_watch_label">Vigilar</string>
   <string name="watchlist_details_next_edit">Siguiente edición</string>
@@ -1340,6 +1375,8 @@
   <string name="revision_undo_message" fuzzy="true">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
   <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
+  <string name="revision_compare_button">Comparar</string>
+  <string name="revision_compare_two_only">Solo se pueden seleccionar dos revisiones.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
@@ -1401,6 +1438,8 @@
   <string name="user_contrib_current">Actual</string>
   <string name="media_playback_error">Error al reproducir medios.</string>
   <string name="user_contrib_menu_label">Contribuciones</string>
+  <string name="action_item_view_on_map">Ver en mapa</string>
+  <string name="action_item_view_on_map_unavailable">No hay coordenadas geográficas disponibles para esta página</string>
   <string name="reading_list_share_menu_label">Compartir…</string>
   <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>

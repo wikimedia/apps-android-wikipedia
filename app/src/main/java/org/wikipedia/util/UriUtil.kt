@@ -136,7 +136,7 @@ object UriUtil {
     /** Get language variant code from a Uri path, e.g. "/wiki/Foo" or "/zh-tw/Foo".
      * It will return "zh-tw" or an empty string */
     fun getLanguageVariantFromUri(uri: Uri): String {
-        return uri.path?.split('/')?.getOrNull(1)?.takeUnless { it == "wiki" }.orEmpty()
+        return uri.path?.split('/')?.getOrNull(1)?.takeUnless { it == "wiki" || it == "w" }.orEmpty()
     }
 
     /** For internal links only  */

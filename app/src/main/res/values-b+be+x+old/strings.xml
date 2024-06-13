@@ -154,7 +154,7 @@
   <string name="login_join_wikipedia">Далучайцеся да Вікіпэдыі</string>
   <string name="login_forgot_password">Забылі пароль?</string>
   <string name="create_account_already_have">Ужо маеце ўліковы запіс?</string>
-  <string name="create_account_activity_title">Стварыць рахунак</string>
+  <string name="create_account_activity_title">Стварыць уліковы запіс</string>
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>
   <string name="create_account_password_repeat_hint">Паўтарыць пароль</string>
@@ -163,10 +163,10 @@
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
   <string name="create_account_username_error">Недапушчальныя сымбалі ў імені ўдзельніка</string>
   <string name="create_account_password_error">Пароль мусіць мець прынамсі 8 сымбалеў</string>
-  <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
+  <string name="create_account_generic_error">Немагчыма стварыць уліковы запіс</string>
   <string name="create_account_next">Далей</string>
   <string name="email_recommendation_dialog_title">Стварыць уліковы запіс без э-пошты?</string>
-  <string name="create_account_button">Стварыць рахунак</string>
+  <string name="create_account_button">Стварыць уліковы запіс</string>
   <string name="preferences_general_heading">Агульныя</string>
   <string name="wikipedia_app_faq">Частыя пытаньні па дастасаваньню Вікіпэдыя</string>
   <string name="send_feedback">Дастаць водгук пра дастасаваньне</string>
