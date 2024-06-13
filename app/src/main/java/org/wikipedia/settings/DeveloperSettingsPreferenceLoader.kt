@@ -23,7 +23,7 @@ import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.StringUtil.fromHtml
 
-internal class DeveloperSettingsPreferenceLoader(val fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
+internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     private val setMediaWikiBaseUriChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
         resetMediaWikiSettings()
         true
@@ -191,7 +191,7 @@ internal class DeveloperSettingsPreferenceLoader(val fragment: PreferenceFragmen
         return toString().trim().toIntOrNull() ?: defaultValue
     }
 
-    private class TestException constructor(message: String?) : RuntimeException(message)
+    private class TestException(message: String?) : RuntimeException(message)
 
     companion object {
         private const val TEXT_OF_TEST_READING_LIST = "Test reading list"

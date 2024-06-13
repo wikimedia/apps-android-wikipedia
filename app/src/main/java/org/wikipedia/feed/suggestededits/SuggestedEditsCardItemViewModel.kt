@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeoutOrNull
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -21,7 +20,6 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
-import java.net.SocketTimeoutException
 
 class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
 
@@ -30,8 +28,6 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var imageTagPage: MwQueryPage? = null
-
-    private val appLanguages = WikipediaApp.instance.languageState.appLanguageCodes
 
     private val _uiState = MutableStateFlow(Resource<Boolean>())
     val uiState = _uiState.asStateFlow()
@@ -43,50 +39,47 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             // Give retry option to user in case of network error
-            _uiState.value = Resource.Error(SocketTimeoutException(throwable.message))
+            _uiState.value = Resource.Error(throwable)
         }) {
-            withTimeoutOrNull(10000) {
-                val langFromCode = appLanguages.first()
-                val targetLanguage = appLanguages.getOrElse(age % appLanguages.size) { langFromCode }
-                if (appLanguages.size > 1) {
-                    if (cardActionType == DescriptionEditActivity.Action.ADD_DESCRIPTION && targetLanguage != langFromCode)
-                        cardActionType = DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
-                    if (cardActionType == DescriptionEditActivity.Action.ADD_CAPTION && targetLanguage != langFromCode)
-                        cardActionType = DescriptionEditActivity.Action.TRANSLATE_CAPTION
-                }
-                when (cardActionType) {
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
-                        sourceSummaryForEdit = addDescription(langFromCode)
-                    }
-                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                        translateDescription(langFromCode, targetLanguage).let {
-                            sourceSummaryForEdit = it.first
-                            targetSummaryForEdit = it.second
-                        }
-                    }
-                    DescriptionEditActivity.Action.ADD_CAPTION -> {
-                        sourceSummaryForEdit = addCaption(langFromCode)
-                    }
-                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
-                        translateCaption(langFromCode, targetLanguage)?.let {
-                            sourceSummaryForEdit = it.first
-                            targetSummaryForEdit = it.second
-                        }
-                    }
-                    DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> {
-                        imageTagPage = addImageTags()
-                    }
-                    DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS -> {
-                        // ignore
-                    }
-                    else -> {
-                        // ignore
-                    }
-                }
-                _uiState.value = Resource.Success(true)
-            } ?: run {
-                _uiState.value = Resource.Error(SocketTimeoutException())
+            val appLanguages = WikipediaApp.instance.languageState.appLanguageCodes
+            val langFromCode = appLanguages.first()
+            val targetLanguage = appLanguages.getOrElse(age % appLanguages.size) { langFromCode }
+            if (appLanguages.size > 1) {
+                if (cardActionType == DescriptionEditActivity.Action.ADD_DESCRIPTION && targetLanguage != langFromCode)
+                    cardActionType = DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
+                if (cardActionType == DescriptionEditActivity.Action.ADD_CAPTION && targetLanguage != langFromCode)
+                    cardActionType = DescriptionEditActivity.Action.TRANSLATE_CAPTION
             }
+            when (cardActionType) {
+                DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
+                    sourceSummaryForEdit = addDescription(langFromCode)
+                }
+                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
+                    translateDescription(langFromCode, targetLanguage).let {
+                        sourceSummaryForEdit = it.first
+                        targetSummaryForEdit = it.second
+                    }
+                }
+                DescriptionEditActivity.Action.ADD_CAPTION -> {
+                    sourceSummaryForEdit = addCaption(langFromCode)
+                }
+                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
+                    translateCaption(langFromCode, targetLanguage)?.let {
+                        sourceSummaryForEdit = it.first
+                        targetSummaryForEdit = it.second
+                    }
+                }
+                DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> {
+                    imageTagPage = addImageTags()
+                }
+                DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS -> {
+                    // ignore
+                }
+                else -> {
+                    // ignore
+                }
+            }
+            _uiState.value = Resource.Success(true)
         }
     }
 
