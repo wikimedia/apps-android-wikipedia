@@ -70,7 +70,9 @@ open class PageSummary(
     }
 
     fun getPageTitle(wiki: WikiSite): PageTitle {
-        return PageTitle(apiTitle, wiki, thumbnailUrl, description, displayTitle, extract)
+        return PageTitle(apiTitle, wiki, thumbnailUrl, description, displayTitle, extract).apply {
+            namespace = ns.name
+        }
     }
 
     override fun toString(): String {
