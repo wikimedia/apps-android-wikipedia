@@ -492,7 +492,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         model.title = newTitle
-        model.page = Page(newTitle, pageProperties = PageProperties(newTitle, newTitle.isMainPage))
+        model.page = Page(newTitle, pageProperties = PageProperties(namespace = newTitle.namespace(), displayTitle = newTitle.displayText, isMainPage = newTitle.isMainPage))
         model.page?.pageProperties?.let {
             it.isMainPage = model.title!!.isMainPage
             if (metadata != null) {
