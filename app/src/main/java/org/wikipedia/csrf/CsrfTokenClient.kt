@@ -37,7 +37,7 @@ object CsrfTokenClient {
                         // TODO: convert this with coroutines
                         runBlocking {
                             try {
-                                LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
+                                LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
                             } catch (e: Exception) {
                                 L.e(e)
                                 lastError = e

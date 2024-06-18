@@ -532,6 +532,10 @@
         <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
     </style>
 
+    <style name="AlertDialogTheme.Icon.NegativeInactive">
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
+    </style>
+
     <style name="AlertDialogTheme.Input">
         <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
     </style>
