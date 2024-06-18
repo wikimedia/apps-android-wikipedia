@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import io.reactivex.rxjava3.internal.functions.Functions
@@ -37,7 +36,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.UUID
 
 class WikipediaApp : Application() {
     init {
@@ -225,12 +224,11 @@ class WikipediaApp : Application() {
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
-     * @param window The window on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    fun getFontSize(window: Window, editing: Boolean = false): Float {
-        return DimenUtil.getFontSizeFromSp(window,
-                resources.getDimension(R.dimen.textSize)) * (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
+    fun getFontSize(editing: Boolean = false): Float {
+        return DimenUtil.getFontSizeFromSp(resources.getDimension(R.dimen.textSize)) *
+                (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
                 DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
