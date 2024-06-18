@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_talk_topic_share"
-        android:icon="@drawable/ic_share_material_secondary_themed"
+        android:icon="@drawable/ic_share"
         android:title="@string/talk_list_item_overflow_share"
         app:iconTint="?attr/secondary_color"
         app:showAsAction="never" />

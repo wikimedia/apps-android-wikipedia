@@ -17,7 +17,7 @@ import java.util.Date
 
 @Parcelize
 @TypeParceler<Date, DateParceler>()
-data class PageProperties constructor(
+data class PageProperties(
     var pageId: Int = 0,
     var namespace: Namespace,
     var revisionId: Long = 0,
@@ -64,9 +64,6 @@ data class PageProperties constructor(
         wikiBaseItem = pageSummary.wikiBaseItem,
         descriptionSource = pageSummary.descriptionSource
     )
-
-    constructor(title: PageTitle, isMainPage: Boolean) : this(namespace = title.namespace(),
-        displayTitle = title.displayText, isMainPage = isMainPage)
 
     private val isLoggedInUserAllowedToEdit: Boolean
         get() = protection?.run { AccountUtil.isMemberOf(editRoles) } ?: false

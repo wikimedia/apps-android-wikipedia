@@ -7,6 +7,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
@@ -131,7 +132,7 @@ object JavaScriptActionHandler {
                 "   \"areTablesInitiallyExpanded\": ${isPreview || !Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
-                "   \"userGroups\": \"${AccountUtil.groups}\"," +
+                "   \"userGroups\": ${JsonUtil.encodeToString(AccountUtil.groups)}," +
                 "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }

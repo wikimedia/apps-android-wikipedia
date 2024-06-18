@@ -21,19 +21,18 @@ class ImageLicense(
     private val isLicenseCCBySa: Boolean
         get() = (licenseName.replace("-", "").startsWith(CC_BY_SA, true) || licenseShortName.replace("-", "").startsWith(CC_BY_SA, true))
 
-    @get:DrawableRes
-    val licenseIcon: Int
-        get() {
-            if (isLicensePD) {
-                return R.drawable.ic_license_pd
-            }
-            if (isLicenseCCBySa) {
-                return R.drawable.ic_license_by
-            }
-            return if (isLicenseCC) {
-                R.drawable.ic_license_cc
-            } else R.drawable.ic_license_cite
+    @DrawableRes
+    fun licenseIcon(): Int {
+        return if (isLicensePD) {
+            R.drawable.ic_license_pd
+        } else if (isLicenseCCBySa) {
+            R.drawable.ic_license_by
+        } else if (isLicenseCC) {
+            R.drawable.ic_license_cc
+        } else {
+            R.drawable.ic_license_cite
         }
+    }
 
     companion object {
         private const val CREATIVE_COMMONS_PREFIX = "cc"

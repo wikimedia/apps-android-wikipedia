@@ -15,7 +15,6 @@ import org.wikipedia.page.PageViewModel
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
-import java.io.InputStream
 import java.nio.charset.Charset
 import java.time.Instant
 
@@ -46,7 +45,15 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             return null
         }
         if (request.method == "POST" ||
-            request.url.toString().contains(RestService.PAGE_HTML_PREVIEW_ENDPOINT)) {
+            request.url.toString().contains(RestService.PAGE_HTML_PREVIEW_ENDPOINT) ||
+            request.requestHeaders.containsKey("Range") || request.requestHeaders.containsKey("range")) {
+            // We do NOT want to intercept requests coming from the WebView in the following cases:
+            // 1. POST requests, because the WebView doesn't provide us the Body of the request,
+            //    for security (?) reasons.
+            // 2. Page previews, because we're not interested in saving or caching them.
+            // 3. Requests with any kind of "Range" header, since this is very likely a request for
+            //    playback of an audio or video file, which is problematic for us to intercept in
+            //    the way that we do, and can lead to unintended behavior.
             return null
         }
         var response: WebResourceResponse
@@ -60,10 +67,11 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             if (rsp.networkResponse != null && isPageHtmlCall) {
                 WikipediaApp.instance.appSessionEvent.pageFetchEnd()
             }
-            response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE) ||
-                    CONTENT_TYPE_WEBM == rsp.header(HEADER_CONTENT_TYPE)) {
+            val contentType = rsp.header(HEADER_CONTENT_TYPE).orEmpty()
+            response = if (contentType.startsWith("audio") || contentType.startsWith("video")) {
+                // One last check to make sure we're not intercepting a media file (see comments above).
                 rsp.close()
-                return super.shouldInterceptRequest(view, request)
+                return null
             } else {
                 if (isPageHtmlCall) {
                     lastPageHtmlWasRedirect = rsp.priorResponse?.isRedirect == true
@@ -77,7 +85,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                     rsp.code,
                     rsp.message.ifBlank { "Unknown error" },
                     addResponseHeaders(rsp.headers).toMap(),
-                    getInputStream(rsp))
+                    rsp.body?.byteStream())
             }
         } catch (e: Exception) {
             val reasonCode = if (e.message.isNullOrEmpty()) "Unknown error" else UriUtil.encodeURL(e.message!!)
@@ -140,20 +148,8 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         return headers.newBuilder().set("Access-Control-Allow-Origin", "*").build()
     }
 
-    private fun getInputStream(rsp: Response): InputStream? {
-        return rsp.body?.let {
-            var inputStream = it.byteStream()
-            if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE)) {
-                inputStream = AvailableInputStream(it.byteStream(), it.contentLength())
-            }
-            inputStream
-        }
-    }
-
     companion object {
         private const val HEADER_CONTENT_TYPE = "content-type"
-        private const val CONTENT_TYPE_OGG = "application/ogg"
-        private const val CONTENT_TYPE_WEBM = "video/webm"
         private val SUPPORTED_SCHEMES = listOf("http", "https")
     }
 }
