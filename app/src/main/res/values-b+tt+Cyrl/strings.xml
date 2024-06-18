@@ -233,8 +233,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tt</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tt</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
   <string name="about_contributors_heading">Авторлар</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
@@ -830,8 +830,8 @@
   <string name="description_edit_voice_input_description">Тавышлы язма</string>
   <string name="description_edit_learn_more">Мәкаләләрнең тасвирламалары турында тулырак</string>
   <string name="description_edit_image_caption_learn_more">Сурәтләргә язмалар турында тулырак</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст бик кыска.</string>
   <string name="description_ends_with_punctuation">Текст тыныш билгеләре белән тәмамланырга тиеш түгел.</string>
   <string name="description_starts_with_uppercase">Беренче сүз ялгызлык исем булмаса, юл хрефтән башлагыз.</string>
@@ -1052,8 +1052,8 @@
   <string name="image_recommendation_accept">Әйе</string>
   <string name="image_recommendation_reject">Юк</string>
   <string name="image_recommendation_notsure">Җавап бирергә кыенсынам</string>
-  <string name="image_recommendation_reject_title">Ник булмасын?</string>
-  <string name="image_recommendation_reject_subtitle">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ник булмасын?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
   <string name="image_recommendation_reject_not_relevant">Сурәтнең катнашы юк</string>
   <string name="image_recommendation_reject_no_info">Карар кабул итү өчен җитәрлек мәгълүмат юк</string>
   <string name="image_recommendation_reject_offensive">Сурәт мыскыллы</string>
@@ -1508,7 +1508,6 @@
   <string name="patroller_tasks_overflow_learn">Күбрәк белергә</string>
   <string name="patroller_onboarding_two_thank_title">Рәхмәт</string>
   <string name="patroller_onboarding_two_watch_title">Күзәтү</string>
-  <string name="patroller_onboarding_two_warn_title">Кисәтү</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
   <string name="patroller_diff_feedback_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="patroller_diff_feedback_dialog_message">Сезне бу функция канәгатьләндерәме?</string>

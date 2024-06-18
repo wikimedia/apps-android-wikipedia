@@ -132,7 +132,7 @@ class EditSummaryFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)
+        editSummaryHandler = EditSummaryHandler(lifecycleScope, binding.root, binding.editSummaryText, title)
     }
 
     override fun onResume() {

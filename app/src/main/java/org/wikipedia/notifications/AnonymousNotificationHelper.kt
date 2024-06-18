@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -8,7 +7,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
-import java.util.*
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 object AnonymousNotificationHelper {
@@ -20,11 +19,11 @@ object AnonymousNotificationHelper {
         }
     }
 
-    fun observableForAnonUserInfo(wikiSite: WikiSite): Observable<MwQueryResponse> {
+    suspend fun observableForAnonUserInfo(wikiSite: WikiSite): MwQueryResponse {
         return if (Date().time - Prefs.lastAnonEditTime < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)) {
-            ServiceFactory.get(wikiSite).userInfo
+            ServiceFactory.get(wikiSite).getUserInfo()
         } else {
-            Observable.just(MwQueryResponse())
+            MwQueryResponse()
         }
     }
 

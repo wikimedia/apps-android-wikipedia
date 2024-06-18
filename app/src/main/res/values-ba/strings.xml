@@ -242,8 +242,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Файҙаланылған китапханалар</string>
   <string name="about_contributors_heading">Авторҙар</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
@@ -838,8 +838,8 @@
   <string name="description_edit_voice_input_description">Тауыш ярҙамында мәғлүмәт индереү</string>
   <string name="description_edit_learn_more">Мәҡәләләр тураһында ентекләберәк</string>
   <string name="description_edit_image_caption_learn_more">Рәсемдәр тасуирламаһы тураһында ентекләберәк</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B8_%D0%BA_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B8_%D0%BA_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC</string>
   <string name="description_too_short">Текст бик ҡыҫҡа.</string>
   <string name="description_ends_with_punctuation">Текст тыныш билдәләре менән тамамланырға тейеш түгел.</string>
   <string name="description_starts_with_uppercase">Беренсе һүҙ яңғыҙлыҡ исем булмаһа, бәләкәй хәрефтән башлағыҙ</string>
@@ -1057,8 +1057,8 @@
   <string name="image_recommendation_accept">Эйе</string>
   <string name="image_recommendation_reject">Юҡ</string>
   <string name="image_recommendation_notsure">Яуап бирергә ҡыйынһынам</string>
-  <string name="image_recommendation_reject_title">Ни өсөн юҡ?</string>
-  <string name="image_recommendation_reject_subtitle">Һеҙҙең яуаптарығыҙ кәңәштәрҙең сифатын яҡшыртасаҡ.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Ни өсөн юҡ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Һеҙҙең яуаптарығыҙ кәңәштәрҙең сифатын яҡшыртасаҡ.</string>
   <string name="image_recommendation_reject_not_relevant">Рәсем көнүҙәк түгел</string>
   <string name="image_recommendation_reject_no_info">Ҡарар сығарыу өсөн мәғлүмәт етешмәй</string>
   <string name="image_recommendation_reject_offensive">Мыҫҡыллы һүрәт</string>
@@ -1526,8 +1526,6 @@
   <string name="patroller_onboarding_two_thank_content">Һөҙөмтәле үҙгәртеү күрәһегеҙме? Индергән өлөшө өсөн ҡатнашыусыға рәхмәт әйтегеҙ.</string>
   <string name="patroller_onboarding_two_watch_title">Күҙәтергә</string>
   <string name="patroller_onboarding_two_watch_content">Мәҡәләләрҙәге үҙгәртеүҙәрҙе күҙәтеп барырға теләйһегеҙме? Күҙәтеү исемлегегеҙгә өҫтәгеҙ. Уны \"Ентеклерәк\" тип аталған бүлектә ҡарағыҙ.</string>
-  <string name="patroller_onboarding_two_warn_title">Иҫкәртеү</string>
-  <string name="patroller_onboarding_two_warn_content">Мөхәррирҙең фекер алышыу битендә иҫкәртеү хәбәрҙәрен яҙығыҙ, ебәрегеҙ, һаҡлағыҙ.</string>
   <string name="patroller_onboarding_two_undo_title">Кире алырға</string>
   <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
   <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>

@@ -1,8 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -121,11 +119,10 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
             return str.replace(".", "%2E").replace(":", "%3A")
         }
 
-        suspend fun setUserExperienced() =
-            withContext(Dispatchers.Default) {
-                val totalContributions = ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                    .globalUserInfo(AccountUtil.userName!!).query?.globalUserInfo?.editCount ?: 0
-                Prefs.suggestedEditsMachineGeneratedDescriptionsIsExperienced = totalContributions > 50
-            }
+        suspend fun setUserExperienced() {
+            val totalContributions = ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                .globalUserInfo(AccountUtil.userName!!).query?.globalUserInfo?.editCount ?: 0
+            Prefs.suggestedEditsMachineGeneratedDescriptionsIsExperienced = totalContributions > 50
+        }
     }
 }

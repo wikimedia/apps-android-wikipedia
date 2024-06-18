@@ -529,17 +529,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private inner class SearchCallback : SearchActionModeCallback() {
         var searchActionProvider: SearchActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchActionProvider = SearchActionProvider(this@TalkTopicsActivity, searchHintString,
-                object : SearchActionProvider.Callback {
-                    override fun onQueryTextChange(s: String) {
-                        onQueryChange(s)
-                    }
+            searchActionProvider = SearchActionProvider(this@TalkTopicsActivity, getSearchHintString()) { onQueryChange(it) }
 
-                    override fun onQueryTextFocusChange() {
-                    }
-                })
-
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
 

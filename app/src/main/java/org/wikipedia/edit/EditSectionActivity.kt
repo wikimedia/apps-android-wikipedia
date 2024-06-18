@@ -602,7 +602,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     }
 
     private fun updateTextSize() {
-        binding.editSectionText.textSize = WikipediaApp.instance.getFontSize(window, editing = true)
+        binding.editSectionText.textSize = WikipediaApp.instance.getFontSize(editing = true)
     }
 
     private fun resetToStart() {
@@ -729,6 +729,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     override fun showProgressBar(visible: Boolean) {
         binding.viewProgressBar.isVisible = visible
         invalidateOptionsMenu()
+    }
+
+    override fun isNewPage(): Boolean {
+        return false
     }
 
     override fun onBackPressed() {

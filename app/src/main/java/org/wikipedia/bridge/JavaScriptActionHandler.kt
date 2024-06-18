@@ -6,8 +6,8 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
@@ -118,7 +118,7 @@ object JavaScriptActionHandler {
                 "   \"areTablesInitiallyExpanded\": ${isPreview || !Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
-                "   \"userGroups\": \"${AccountUtil.groups}\"," +
+                "   \"userGroups\": ${JsonUtil.encodeToString(AccountUtil.groups)}," +
                 "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }
@@ -137,7 +137,6 @@ object JavaScriptActionHandler {
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
-        val baseURL = ServiceFactory.getRestBasePath(model.title?.wikiSite!!).trimEnd('/')
         return "pcs.c1.Footer.add({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
@@ -152,6 +151,22 @@ object JavaScriptActionHandler {
                 "       fragment: \"pcs-menu\"," +
                 "       editedDaysAgo: $editedDaysAgo" +
                 "   }," +
+                "   readMore: { " +
+                "       itemCount: 3," +
+                "       readMoreLazy: true," +
+                "       fragment: \"pcs-read-more\"" +
+                "   }" +
+                "})"
+    }
+
+    fun appendReadMode(model: PageViewModel): String {
+        if (model.page == null) {
+            return ""
+        }
+        val baseURL = model.title?.wikiSite!!.scheme() + "://" + model.title?.wikiSite!!.uri.authority!!.trimEnd('/')
+        return "pcs.c1.Footer.appendReadMore({" +
+                "   platform: \"android\"," +
+                "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
                 "   readMore: { " +
                 "       itemCount: 3," +
                 "       baseURL: \"$baseURL\"," +

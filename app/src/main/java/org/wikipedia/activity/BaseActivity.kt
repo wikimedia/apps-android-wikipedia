@@ -1,5 +1,6 @@
 package org.wikipedia.activity
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
@@ -20,13 +21,17 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
+import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.connectivity.ConnectionStateMonitor
+import org.wikipedia.donate.DonateDialog
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.ReadingListsReceiveSurveyHelper
 import org.wikipedia.readinglist.ReadingListsShareSurveyHelper
@@ -53,6 +58,13 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             callback?.onPermissionResult(this, isGranted)
+    }
+
+    private val requestDonateActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
+            FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,14 +121,17 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         super.onDestroy()
     }
 
-    override fun onStop() {
+    override fun onPause() {
+        super.onPause()
         WikipediaApp.instance.appSessionEvent.persistSession()
-        super.onStop()
+        MetricsPlatform.client.onAppPause()
+        EventPlatformClient.flushCachedEvents()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
+        MetricsPlatform.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
 
         // allow this activity's exclusive bus methods to override any existing ones.
@@ -173,6 +188,14 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onGoOffline() {}
 
     override fun onGoOnline() {}
+
+    fun launchDonateDialog(campaignId: String? = null, donateUrl: String? = null) {
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId, donateUrl))
+    }
+
+    fun launchDonateActivity(intent: Intent) {
+        requestDonateActivity.launch(intent)
+    }
 
     private fun removeSplashBackground() {
         window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))

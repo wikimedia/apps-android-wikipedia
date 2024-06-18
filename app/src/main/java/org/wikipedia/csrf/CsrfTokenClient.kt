@@ -2,6 +2,7 @@ package org.wikipedia.csrf
 
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.runBlocking
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
@@ -19,11 +20,7 @@ object CsrfTokenClient {
     private const val ANON_TOKEN = "+\\"
     private const val MAX_RETRIES = 3
 
-    fun getToken(site: WikiSite, type: String = "csrf"): Observable<String> {
-        return getToken(site, type, null)
-    }
-
-    fun getToken(site: WikiSite, type: String = "csrf", svc: Service?): Observable<String> {
+    fun getToken(site: WikiSite, type: String = "csrf", svc: Service? = null): Observable<String> {
         return Observable.create { emitter ->
             var token = ""
             try {
@@ -37,12 +34,15 @@ object CsrfTokenClient {
                 for (retry in 0 until MAX_RETRIES) {
                     if (retry > 0) {
                         // Log in explicitly
-                        LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
-                                .subscribeOn(Schedulers.io())
-                                .blockingSubscribe({ }) {
-                                    L.e(it)
-                                    lastError = it
-                                }
+                        // TODO: convert this with coroutines
+                        runBlocking {
+                            try {
+                                LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
+                            } catch (e: Exception) {
+                                L.e(e)
+                                lastError = e
+                            }
+                        }
                     }
                     if (emitter.isDisposed) {
                         return@create

@@ -4,9 +4,12 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.FormBody
 import okhttp3.Request
 import okhttp3.Response
@@ -29,7 +32,6 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
-import java.util.*
 
 class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
 
