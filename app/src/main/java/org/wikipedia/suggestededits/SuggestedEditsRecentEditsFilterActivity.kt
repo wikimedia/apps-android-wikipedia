@@ -109,12 +109,9 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         SuggestedEditsRecentEditsFilterTypes.BOT_EDITS_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
         }
+        // TODO: rename to "revert risk":
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_contribution_quality_header))
         SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
-        }
-        filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_user_intent_header))
-        SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_significance_header))
