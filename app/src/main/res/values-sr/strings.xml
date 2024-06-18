@@ -28,7 +28,7 @@
   <string name="nav_item_back">Назад</string>
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Напред</string>
-  <string name="search_hint">Претражи Википедију</string>
+  <string name="search_hint">Претрага</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_languages">Претражи језике</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирај моје листе</string>
@@ -254,7 +254,7 @@
   <string name="about_contributors_heading">Сарадници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница тима&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводиоци</string>
-  <string name="about_translators_translatewiki">Апликацију су превели добровољци на сајту &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Апликацију су превели волонтери &lt;a href=\"https://translatewiki.net\"&gt;Транслејтвикија&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
   <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Ауторство—Делити под истим условима&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
@@ -273,7 +273,8 @@
   <string name="edit_redo">Понови</string>
   <string name="edit_rollback">Врати</string>
   <string name="edit_warn">Упозори</string>
-  <string name="edit_damage">Оштећено %s</string>
+  <string name="edit_damage">Штетно %s</string>
+  <string name="edit_intent">Намера %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s бајт</item>
     <item quantity="other">%s бајтова</item>
@@ -328,7 +329,7 @@
   <string name="alpha_update_notification_text">Додирните да бисте преузели</string>
   <string name="dialog_close_description">Затвори</string>
   <string name="preference_title_show_images">Приказуј слике</string>
-  <string name="preference_summary_show_images">Омогућите или онемогућите учитавање слика на страницама. Уклоните ознаку са овог подешавања ако је ваша веза са интернетом спора или вам је ограничена тарифа за пренос података.</string>
+  <string name="preference_summary_show_images">Омогућите или онемогућите учитавање слика на страницама. Искључите ову опцију ако Вам је интернет веза спора или Вам је ограничена количина података за пренос.</string>
   <string name="preference_title_download_only_over_wifi">Преузимај само преко Wi-Fi-а</string>
   <string name="dialog_title_download_only_over_wifi">Потврдити преузимање са мобилним подацима?</string>
   <string name="dialog_text_download_only_over_wifi">У подешавањима сте омогућили опцију „Преузимај само преко Wi-Fi-а”. Желите ли да дозволите преузимање са мобилним подацима само у овом случају?</string>
@@ -974,9 +975,9 @@
   <string name="suggested_edits_image_captions_task_detail">Опишите слику да бисте помогли читаоцима да разумеју њено значење и контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Опишите чланак да бисте помогли читаоцима да на први поглед разумеју тему.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Укупан број доприноса до сада.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Колико дана заредом сте доприносили. Уколико нисте доприносили неко време, приказује се последњи датум вашег доприноса.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Колико дана заредом сте доприносили. Уколико нисте доприносили неко време, приказује се датум Вашег последњег доприноса.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Укупни прегледи страница ставки којима сте допринели у последњих 30 дана.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Базирано на томе колико пута су ваше измене враћене (поништене од стране другог уредника/це). Враћено измена: %d</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Базирано на томе колико пута су Ваше измене враћене (поништене од стране другог уредника/це). Враћено измена: %d</string>
   <string name="suggested_edits_paused_message">Предложене измене су паузиране до %1$s. Извините %2$s, неки од ваших скорашњих доприноса су били враћени.</string>
   <string name="suggested_edits_disabled_message">Предложене измене су онемогућене. Извините %s, велики број ваших скорашњих доприноса је враћен.</string>
   <string name="suggested_edits_ip_blocked_message">Изгледа да је Ваша IP адреса (или опсег адреса) тренутно блокиран на Википедији.</string>
@@ -1004,7 +1005,7 @@
     <item quantity="other">%d дани</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Шта су „Предложене измене”?</string>
-  <string name="suggested_edits_what_is_text">Предложене измене приказују прилике за мале али значајне доприносе Википедији.</string>
+  <string name="suggested_edits_what_is_text">Предложене измене дају прилику за мале али значајне доприносе Википедији.</string>
   <string name="suggested_edits_learn_more">Детаљније</string>
   <string name="suggested_edits_paused_title">Паузирано</string>
   <string name="suggested_edits_disabled_title">Онемогућено</string>
@@ -1115,11 +1116,11 @@
   <string name="onboarding_get_started">Започните</string>
   <string name="onboarding_maybe_later">Можда касније</string>
   <string name="onboarding_explore_title">Нови начини за истраживање</string>
-  <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
-  <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
+  <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересовањима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title">Спискови за читање са синхронизацијом</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
-  <string name="onboarding_data_privacy_title">Подаци &amp; приватност</string>
-  <string name="onboarding_data_privacy_text">Ми верујемо да не морате одавати личне информације да би учествовали у покрету за слободно знање. Подаци о употреби ове апликације се прикупљају анонимно. Сазнајте више о нашој &lt;a href=\"#privacy\"&gt;политици приватности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условима коришћења&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_title">Подаци и приватност</string>
+  <string name="onboarding_data_privacy_text">Ми верујемо да не морате одавати личне податке да би учествовали у покрету за слободно знање. Подаци о употреби ове апликације се прикупљају анонимно. Сазнајте више о нашој &lt;a href=\"#privacy\"&gt;политици приватности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условима коришћења&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
@@ -1208,7 +1209,7 @@
   <string name="insert_media_advanced_settings_image_position_left">Лево</string>
   <string name="insert_media_advanced_settings_image_position_center">Средина</string>
   <string name="insert_media_advanced_settings_image_position_none">Ништа</string>
-  <string name="insert_media_advanced_settings_image_type">Врста слике</string>
+  <string name="insert_media_advanced_settings_image_type">Поставка слике</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Минијатура</string>
   <string name="insert_media_advanced_settings_image_type_frameless">Без оквира</string>
   <string name="insert_media_advanced_settings_image_type_frame">Оквир</string>
@@ -1328,9 +1329,9 @@
   <string name="thank_dialog_positive_button_text">Захвали се</string>
   <string name="thank_dialog_negative_button_text">Откажи</string>
   <string name="thank_success_message">Ваше хвала је послато %s 👍</string>
-  <string name="menu_option_view_user_profile">Прикажи страницу уредника</string>
-  <string name="menu_option_view_user_talk">Прикажи страницу за разговор</string>
-  <string name="menu_option_view_user_contributions">Прикажи доприносе</string>
+  <string name="menu_option_view_user_profile">Страница корисника</string>
+  <string name="menu_option_view_user_talk">Страницу за разговор</string>
+  <string name="menu_option_view_user_contributions">Доприноси</string>
   <string name="revision_diff_compare">Упореди измене</string>
   <string name="revision_diff_compare_title">Упоређивање измена: %s</string>
   <string name="revision_diff_from">Од:</string>
@@ -1380,12 +1381,12 @@
   <string name="watchlist_filter_watchlist_activity_header">Активност списка надгледања</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Непогледане измене</string>
   <string name="watchlist_filter_watchlist_activity_seen">Погледане измене</string>
-  <string name="watchlist_filter_contribution_quality_header">Предвиђање квалитета доприноса</string>
+  <string name="watchlist_filter_contribution_quality_header">Процена квалитета доприноса</string>
   <string name="watchlist_filter_contribution_quality_good">Врло вероватно добро</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Проблематично</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Проблематично</string>
   <string name="watchlist_filter_contribution_quality_bad">Врло вероватно има проблеме</string>
-  <string name="watchlist_filter_user_intent_header">Предвиђање намера корисника</string>
+  <string name="watchlist_filter_user_intent_header">Процена намера корисника</string>
   <string name="watchlist_filter_user_intent_good">Врло вероватно добронамерно</string>
   <string name="watchlist_filter_user_intent_may_problems">Можда злонамерно</string>
   <string name="watchlist_filter_user_intent_likely_problems">Вероватно злонамерно</string>
@@ -1460,7 +1461,7 @@
   <string name="reading_list_share_message_v2">Здраво! Желим да поделим моју листу за читање на Википедији са вама:</string>
   <string name="reading_list_share_survey_title">Да ли можете да нам помогнете у унапређивању \"дељења листи за читање\"?</string>
   <string name="reading_list_share_survey_body">\"Дељење листи за читање\" је тестна могућност и потребне су вам ваше повратне информације да би смо је унапредили или уклонили.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Немате сачуване поруке упозорења.</string>
+  <string name="talk_templates_empty_message">Напишите своју поруку или користите &lt;a href=\"#\"&gt;примере порука&lt;/a&gt; да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порука</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Напиши поруку</string>
@@ -1524,24 +1525,24 @@
   <string name="patroller_tasks_filters_significance_header">Значај</string>
   <string name="patroller_tasks_filters_significance_minor">Мање измене</string>
   <string name="patroller_tasks_filters_significance_edits">Нису мање измене</string>
-  <string name="patroller_tasks_filters_contribution_quality_header">Предвиђање квалитета доприноса</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Процена квалитета доприноса</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Врло вероватно добро</string>
-  <string name="patroller_tasks_filters_contribution_quality_good_desc">Веома прецизно проналази готово све непроблематичне измене.</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Веома прецизно, проналази готово све добрр измене.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Можда има проблеме</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Проналази већину мањкавих или штетних измена, али с мањом прецизношћу.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Проблематично</string>
-  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Са средњом прецизношћу проналази средњи удео проблематичних измена.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Средња прецизност, проналази средњи удео проблематичних измена.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Врло вероватно има проблеме</string>
-  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Високопрецизно проналази већину очигледно мањкавих или штетних измена.</string>
-  <string name="patroller_tasks_filters_user_intent_header">Предвиђање намера корисника</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Веома прецизно, проналази већину очигледно мањкавих или штетних измена.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Процена намера корисника</string>
   <string name="patroller_tasks_filters_user_intent_good">Врло вероватно добра намера</string>
-  <string name="patroller_tasks_filters_user_intent_good_desc">Високопрецизно проналази готово све добронамерне измене.</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Веома прецизно, проналази готово све добронамерне измене.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Можда злонамерно</string>
   <string name="patroller_tasks_filters_user_intent_may_problems_desc">Проналази већину злонамерних измена, али са мањом прецизношћу.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Вероватно злонамерно</string>
-  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Са средњом прецизношћу проналази средњи удео проблематичних измена.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Средња прецизност, проналази средњи удео проблематичних измена.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Врло вероватно злонамерно</string>
-  <string name="patroller_tasks_filters_user_intent_bad_desc">Високопрецизно проналази већину очигледно злонамерних измена.</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Веома прецизно, проналази већину очигледно злонамерних измена.</string>
   <string name="patroller_tasks_filters_empty_search_message">Уклоните %s да видите више измена</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d филтер</item>
@@ -1556,14 +1557,17 @@
   <string name="patroller_tasks_overflow_learn">Сазнајте више</string>
   <string name="patroller_onboarding_one_title">Допринесите надзору или одобравању измена на Википедији.</string>
   <string name="patroller_onboarding_one_content">Побољшајте квалитет садржаја Википедије активним прегледом фида скорашњих измена и пружањем смерница, контролом квалитета и охрабривањем других уредника/ца.</string>
-  <string name="patroller_onboarding_two_title">Предлажите повратне информације, пратите измене, и преузимајте акције на екрану за разлику</string>
+  <string name="patroller_onboarding_two_title">Предлажите повратне информације, пратите измене, и предузимајте радње на екрану за разлике</string>
   <string name="patroller_onboarding_two_thank_title">Хвала</string>
   <string name="patroller_onboarding_two_thank_content">Видите продуктивну измену? Захвалите се кориснику за његов допринос.</string>
   <string name="patroller_onboarding_two_watch_title">Надгледај</string>
-  <string name="patroller_onboarding_two_watch_content">Да ли желите да пратите измене чланка? Додајте га на свој списак надгледања. Погледајте га под \'Више\'.</string>
+  <string name="patroller_onboarding_two_watch_content">Пратите измене чланка. Додајте га на свој списак надгледања. Погледајте га под \'Више\'.</string>
   <string name="patroller_onboarding_two_talk_title">Разговор</string>
+  <string name="patroller_onboarding_two_talk_content">Комуницирајте са другим уредницима. Сачувајте често употребљаване поруке или користите шаблон.</string>
   <string name="patroller_onboarding_two_undo_title">Поништи/врати</string>
   <string name="patroller_onboarding_two_undo_content">Одаберите \'Поништи\' да би сте поништили или вратили потенционалну деструктивну измену.</string>
+  <string name="patroller_diff_tooltip_one">Процена штетности измене.</string>
+  <string name="patroller_diff_tooltip_two">Процена добронамерности измене.</string>
   <string name="patroller_diff_feedback_dialog_title">Помозите нам да унапредимо ову могућност</string>
   <string name="patroller_diff_feedback_dialog_message">Да ли сте задовољни са овом могућношћу?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задовољавајуће</string>
@@ -1574,10 +1578,14 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Повратне информације</string>
   <string name="patroller_diff_feedback_dialog_submit">Пошаљи</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Повратне информације послате.</string>
+  <string name="patroller_saved_message_title_vandalism">Немојте вандализовати</string>
   <string name="patroller_saved_message_title_npov">Неутрална тачка гледишта</string>
   <string name="patroller_saved_message_title_auto_trans">Аутоматски превод</string>
   <string name="patroller_saved_message_title_final_warning">Последње упозорење</string>
+  <string name="patroller_saved_message_title_copy_vio">Кршење ауторских права</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Наведите опис измене</string>
+  <string name="patroller_saved_message_title_do_not_censor">Не цензуришите</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Користите примере порука испод да прилагодите, шаљете и сачувате у својим порукама.</string>
   <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прихватам</string>
   <string name="data_opt_in_reject">Одбаци</string>

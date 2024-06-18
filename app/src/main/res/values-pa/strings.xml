@@ -46,7 +46,7 @@
   <string name="search_tab_tooltip">ਖੋਜ ਸ਼ਬਦ ਨੂੰ ਸਿੱਧਾ ਟਾਈਪ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਈਕਾਨ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ।</string>
   <string name="history_list_title">ਅਤੀਤ</string>
   <string name="image_content_description">ਤਸਵੀਰ: %s</string>
-  <string name="page_content_description">ਪੰਨਾ: %s</string>
+  <string name="page_content_description">ਸਫ਼ਾ: %s</string>
   <string name="wikimedia_commons">ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼</string>
   <string name="wikidata">ਵਿਕੀਡਾਟਾ</string>
   <string name="dialog_title_clear_history"> ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
@@ -87,7 +87,7 @@
   <string name="menu_page_edit_history">ਸੋਧ ਅਤੀਤ</string>
   <string name="menu_page_remove_from_watchlist">ਨਿਗਰਾਨੀ-ਸੂਚੀ ’ਚੋਂ ਹਟਾਓ</string>
   <string name="menu_page_watched">ਨਿਗਰਾਨੀ ਰੱਖੀ ਗਈ</string>
-  <string name="edit_section_find_in_page">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
+  <string name="edit_section_find_in_page">ਸਫ਼ੇ ਵਿੱਚ ਲੱਭੋ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
   <string name="menu_page_add_to_default_list">ਸੰਭਾਲੋ</string>
@@ -110,7 +110,7 @@
   <string name="menu_text_select_edit_here">ਇੱਥੋਂ ਸੋਧੋ</string>
   <string name="menu_edit_article">ਲੇਖ ਸੋਧੋ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਉੱਨਤੀਕਰਨ %s</string>
-  <string name="talk_page_link_text">ਗੱਲ-ਬਾਤ ਵਾਲਾ ਪੰਨਾ ਦਿਖਾਓ</string>
+  <string name="talk_page_link_text">ਗੱਲਬਾਤ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="edit_history_link_text">ਸੋਧ ਇਤਿਹਾਸ ਦਿਖਾਓ</string>
   <string name="map_view_link_text">ਨਕਸ਼ੇ ਤੇ ਵੇਖੋ</string>
   <string name="other_languages_indication_text">ਹੋਰ ਭਾਸ਼ਾ ਵਿੱਚ ਪੜ੍ਹੋ</string>
@@ -119,12 +119,12 @@
   <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾਵਾਂ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
-  <string name="langlinks_empty">ਇਹ ਪੰਨਾ ਹੋਰਨਾਂ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>
+  <string name="langlinks_empty">ਇਹ ਸਫ਼ਾ ਹੋਰਨਾ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="langlinks_no_match">ਕੋਈ ਭਾਸ਼ਾਵਾਂ ਨਹੀਂ ਮਿਲੀਆਂ</string>
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>
   <string name="langlinks_your_wikipedia_languages">ਤੁਹਾਡੀਆਂ ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾਵਾਂ</string>
   <string name="menu_save_changes">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
-  <string name="edit_saved_successfully">ਸੋਧ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤੀ ਗਈ!</string>
+  <string name="edit_saved_successfully">ਸੋਧ ਛਾਪ ਦਿੱਤੀ ਗਈ!</string>
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
@@ -160,7 +160,7 @@
   <string name="preference_title_logout">ਬਾਹਰ ਆਉ</string>
   <string name="toast_logout_complete">ਬਾਹਰ ਆਏ</string>
   <string name="logout_dialog_cancel_button_text">ਰੱਦ ਕਰੋ</string>
-  <string name="logged_out_in_background_title">ਬਾਹਰ ਨਿਕਲੇ</string>
+  <string name="logged_out_in_background_title">ਬਾਹਰ ਆ ਗਏ</string>
   <string name="logged_out_in_background_dialog">ਤੁਸੀਂ ਵਿਕੀਪੀਡੀਆ \'ਚੋਂ ਬਾਹਰ ਨਿਕਲ ਚੁੱਕੇ ਹੋ। ਕੀ ਤੁਸੀਂ ਦੁਬਾਰਾ ਦਾਖਲ ਹੋਣਾ ਚਾਹੋਗੇ?</string>
   <string name="logged_out_in_background_login">ਦਾਖਲ ਹੋਵੋ</string>
   <string name="logged_out_in_background_cancel">ਰੱਦ ਕਰੋ</string>
@@ -278,8 +278,8 @@
   <string name="table_infobox">ਵਿਸ਼ੇਸ਼ ਤੱਥ</string>
   <string name="table_other">ਹੋਰ ਜਾਣਕਾਰੀ</string>
   <string name="table_close">ਬੰਦ ਕਰੋ</string>
-  <string name="widget_name_featured_page">ਵਿਕੀਪੀਡੀਆ ਦਾ ਚੋਣਵਾਂ  ਪੰਨਾ</string>
-  <string name="widget_title_featured_page">ਅੱਜ ਦਾ ਚੋਣਵਾਂ ਪੰਨਾ:</string>
+  <string name="widget_name_featured_page">ਵਿਕੀਪੀਡੀਆ ਦਾ ਚੋਣਵਾਂ ਸਫ਼ਾ</string>
+  <string name="widget_title_featured_page">ਅੱਜ ਦਾ ਚੋਣਵਾਂ ਸਫ਼ਾ:</string>
   <string name="widget_name_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜ</string>
   <string name="widget_description_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜਣ ਦਾ ਸਭ ਤੋਂ ਤੇਜ਼ ਤਰੀਕਾ</string>
   <string name="widget_description_featured_page">ਵਿਕੀਪੀਡੀਆ ਵੱਲੋਂ ਪੇਸ਼ ਕੀਤੇ ਜਾਣ ਵਾਲੇ ਸਭ ਤੋਂ ਵਧੀਆ ਲੇਖ</string>
@@ -289,7 +289,7 @@
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="preference_title_download_only_over_wifi">ਸਿਰਫ਼ ਵਾਈ-ਫਾਈ \'ਤੇ ਡਾਊਨਲੋਡ ਕਰੋ</string>
-  <string name="dialog_title_download_only_over_wifi">ਮੋਬਾਈਲ ਡਾਟਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਡਾਊਨਲੋਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ?</string>
+  <string name="dialog_title_download_only_over_wifi">ਮੋਬਾਈਲ ਡੇਟਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਉਤਾਰੇ ਦੀ ਤਸਦੀਕ ਕਰੋ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">ਇਜਾਜ਼ਤ ਦਿਓ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="about_article_section">ਇਸ ਲੇਖ ਬਾਰੇ</string>
@@ -337,7 +337,7 @@
   <string name="error_voice_search_not_available">ਮੁਆਫ ਕਰਨਾ, ਆਵਾਜ਼ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="enable_location_service">ਚਾਲੂ ਕਰੋ</string>
   <string name="view_link_preview_error_button_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
-  <string name="error_page_does_not_exist">ਇਹ ਪੰਨਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
+  <string name="error_page_does_not_exist">ਇਹ ਸਫ਼ਾ ਹਾਲੇ ਮੌਜੂਦ ਨਹੀਂ ਹੈ</string>
   <string name="view_wiki_error_message_offline">ਇੰਟਰਨੈਟ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਦੇ</string>
   <string name="reference_title">ਹਵਾਲੇ %s</string>
   <string name="empty_tab_title">ਨਵਾਂ ਟੈਬ</string>
@@ -385,7 +385,7 @@
   <string name="view_top_read_card_action">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="view_next_random_article">ਕੋਈ ਹੋਰ ਬੇਤਰਤੀਬ ਲੇਖ ਲੋਡ ਕਰੋ</string>
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
-  <string name="view_main_page_card_action">ਮੁੱਖ ਸਫ਼ਾ ਦੇਖੋ</string>
+  <string name="view_main_page_card_action">ਮੁੱਖ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
   <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>

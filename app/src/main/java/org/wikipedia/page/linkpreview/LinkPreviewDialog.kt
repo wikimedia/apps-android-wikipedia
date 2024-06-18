@@ -138,7 +138,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
         }
         requestGalleryLauncher.launch(GalleryActivity.newIntent(requireContext(), viewModel.pageTitle,
-            imageName, viewModel.pageTitle.wikiSite, revision, GalleryActivity.SOURCE_LINK_PREVIEW), options)
+            imageName, viewModel.pageTitle.wikiSite, revision), options)
     }
 
     private val requestGalleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
