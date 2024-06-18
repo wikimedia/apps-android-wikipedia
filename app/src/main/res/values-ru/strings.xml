@@ -351,6 +351,8 @@
   <string name="edit_summary_tag_links">Добавлены ссылки</string>
   <string name="edit_summary_tag_other">Другое</string>
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
+  <string name="edit_summary_added_short_description">Добавлено краткое описание</string>
+  <string name="edit_summary_updated_short_description">Обновлено краткое описание</string>
   <string name="edit_conflict_title">Конфликт редактирования</string>
   <string name="edit_conflict_message">Возник конфликт редактирования, так как страница уже была изменена другим участником. Скопируйте свои изменения, вернитесь и обновите страницу, а затем повторите попытку редактирования.</string>
   <string name="edit_notices">Уведомления о правках</string>
@@ -711,6 +713,7 @@
   <string name="reading_lists_import_file_picker_title">Выберите файл для импорта</string>
   <string name="reading_lists_import_failure_message">Не удалось импортировать списки чтения</string>
   <string name="reading_lists_export_select_lists_message">Выберите списки для экспорта</string>
+  <string name="reading_lists_export_completed_message">Списк(и) для чтения экспортирован(ы).</string>
   <string name="reading_lists_preview_save_button">Сохранить</string>
   <string name="reading_lists_preview_save_dialog_title">Сохранить список</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Заголовок</string>
@@ -989,6 +992,7 @@
   <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_caption_images">Описание изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
+  <string name="suggested_edits_edit_patrol">Редактировать патруль</string>
   <string name="suggested_edits_edit_patrol_review">Проверить</string>
   <string name="suggested_edits_review_description">Предпросмотр описания</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
@@ -1562,6 +1566,7 @@
   <string name="user_contrib_menu_label">Вклад</string>
   <string name="user_contrib_filter_activity_title">фильтровать вклад</string>
   <string name="action_item_view_on_map">Посмотреть на карте</string>
+  <string name="action_item_view_on_map_unavailable">Географические координаты недоступны для этой страницы.</string>
   <string name="shareable_reading_lists_import_dialog_title">Импортирование расшаренного списка для чтения</string>
   <string name="shareable_reading_lists_import_dialog_content">Как бы вы хотели назвать список, которым с вами поделились?</string>
   <string name="shareable_reading_lists_new_indicator">*новый*</string>
@@ -1597,10 +1602,13 @@
   <string name="talk_templates_message_title_empty">Заголовок не может быть пустым.</string>
   <string name="talk_templates_your_messages_tab_title">Ваши сообщения</string>
   <string name="talk_templates_example_messages_tab_title">Примеры сообщений</string>
+  <string name="patroller_tasks_edits_list_search_hint">Найти и отфильтровать правки</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Теги: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Нет</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Смотреть страницу участника</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Смотреть страницу обсуждения</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Информация об участнике</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Просмотреть вклад участника</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Благодарность</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Информация об участнике</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрыть</string>
@@ -1646,12 +1654,14 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Со средней точностью находит промежуточную часть недобросовестных изменений.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">История редактирования статьи</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
   <string name="patroller_tasks_overflow_report">Проблема с функцией</string>
   <string name="patroller_tasks_overflow_learn">Узнать больше</string>
   <string name="patroller_onboarding_two_thank_title">Благодарность</string>
   <string name="patroller_onboarding_two_thank_content">Видите продуктивную правку? Поблагодарите участника за его вклад.</string>
+  <string name="patroller_onboarding_two_watch_title">Следить</string>
   <string name="patroller_onboarding_two_talk_title">Обсуждение</string>
   <string name="patroller_onboarding_two_talk_content">Общайтесь с другими редакторами. Сохраняйте часто используемые сообщения на странице обсуждения или используйте шаблон.</string>
   <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
@@ -1673,6 +1683,7 @@
   <string name="patroller_saved_message_title_art_imp">Предложение по улучшению статьи</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Используйте примеры сообщения ниже для настройки, отправки и сохранения его в своих сообщениях.</string>
+  <string name="talk_templates_menu_edit_title">Править</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
   <string name="page_issues_title">Проблемы страницы</string>
@@ -1681,7 +1692,14 @@
   <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
+  <string name="donate_gpay_dialog_title">Пожертвовать через Google Pay?</string>
+  <string name="donate_gpay_dialog_pay_button">Пожертвовать через Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Другой способ оплаты</string>
+  <string name="donate_gpay_activity_title">Выберите сумму</string>
+  <string name="donate_gpay_help_problems">Возникла проблема с пожертвованием?</string>
+  <string name="donate_gpay_help_other_ways">Другие способы сделать пожертвование</string>
+  <string name="donate_gpay_help_faq">Часто задаваемые вопросы</string>
+  <string name="donate_gpay_help_tax">Информация об освобождении пожертвований от налогов</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Чтобы увидеть ваше местоположение на карте, требуется разрешение на определение местоположения. Пожалуйста, попробуйте ещё раз.</string>
   <string name="places_search_hint">Поиск мест</string>

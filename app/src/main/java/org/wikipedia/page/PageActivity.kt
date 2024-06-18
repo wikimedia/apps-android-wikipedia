@@ -155,7 +155,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         startActivity(FilePageActivity.newIntent(this, imageTitle))
                     } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                         pageFragment.title?.let { pageTitle ->
-                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite, 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE))
+                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite, 0))
                         }
                     }
                 }
@@ -179,13 +179,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.pageToolbarButtonSearch.setOnClickListener {
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logSearchWikipediaClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logSearchWikipediaClick()
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
             pageFragment.articleInteractionEvent?.logTabsClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logTabsClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logTabsClick()
             TabActivity.captureFirstTabBitmap(pageFragment.containerView, pageFragment.title?.prefixedText.orEmpty())
             requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
@@ -194,14 +194,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logMoreClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logMoreClick()
             Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             pageFragment.articleInteractionEvent?.logNotificationClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logNotificationClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logNotificationClick()
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
             } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && !Prefs.lastAnonNotificationLang.isNullOrEmpty()) {
@@ -357,7 +357,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
             pageFragment.articleInteractionEvent?.logTocSwipe()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logTocSwipe()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logTocSwipe()
             pageFragment.sidePanelHandler.showToC()
         }
     }
@@ -430,18 +430,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestLangLinks(title: PageTitle) {
-        val langIntent = Intent()
-        langIntent.setClass(this, LangLinksActivity::class.java)
-        langIntent.action = LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE
-        langIntent.putExtra(Constants.ARG_TITLE, title)
-        requestHandleIntentLauncher.launch(langIntent)
+        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title))
     }
 
-    override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?) {
-        if (source == GalleryActivity.SOURCE_LEAD_IMAGE) {
-            requestGalleryEditLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
+    override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?) {
+        if (isLeadImage) {
+            requestGalleryEditLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision), options)
         } else {
-            requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
+            requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision), options)
         }
     }
 
@@ -494,7 +490,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     val utmCampaign = uri.getQueryParameter("utm_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
                         // TODO: need to verify if the page can be displayed and logged properly.
-                        DonorExperienceEvent.logImpression("webpay_processed")
+                        DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
                         startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
                             true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
                         finish()

@@ -13,6 +13,7 @@ class PageViewModel {
     var hasWatchlistExpiry = false
     var isWatched = false
     var forceNetwork = false
+    var isReadMoreLoaded = false
     val isInReadingList get() = readingListPage != null
     val cacheControl get() = if (forceNetwork) OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK else OkHttpConnectionFactory.CACHE_CONTROL_NONE
     val shouldLoadAsMobileWeb get() =

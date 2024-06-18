@@ -9,7 +9,6 @@ import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -23,8 +22,7 @@ object SurveyDialog {
         val clickListener = View.OnClickListener {
             val feedbackOption = (it as TextView).text.toString()
             dialog?.dismiss()
-            if ((source == Constants.InvokeSource.PLACES && feedbackOption != activity.getString(R.string.patroller_diff_feedback_dialog_option_unsatisfied) && feedbackOption != activity.getString(R.string.places_survey_very_unsatisfied_option)) ||
-                (source != Constants.InvokeSource.PLACES && feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied))) {
+            if (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
                 showFeedbackSnackbarAndTooltip(activity, source)
             } else {
                 showFeedbackInputDialog(activity, source)
@@ -37,28 +35,11 @@ object SurveyDialog {
         feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
         feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
         feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
-        if (source == Constants.InvokeSource.PLACES) {
-            val verySatisfied = feedbackView.findViewById<TextView>(R.id.optionVerySatisfied)
-            val veryUnsatisfied = feedbackView.findViewById<TextView>(R.id.optionVeryUnsatisfied)
-            verySatisfied.visibility = View.VISIBLE
-            veryUnsatisfied.visibility = View.VISIBLE
-            verySatisfied.setOnClickListener(clickListener)
-            veryUnsatisfied.setOnClickListener(clickListener)
-        }
         sendAnalyticsEvent("impression", "feedback_form", source)
         val dialogBuilder = MaterialAlertDialogBuilder(activity)
-            .setTitle(
-                if (source == Constants.InvokeSource.PLACES) R.string.places_survey_dialog_title else
-                    R.string.patroller_diff_feedback_dialog_title
-            )
+            .setTitle(R.string.patroller_diff_feedback_dialog_title)
             .setCancelable(false)
             .setView(feedbackView)
-        if (source == Constants.InvokeSource.PLACES) {
-            dialogBuilder.setNegativeButton(R.string.logged_out_in_background_cancel) { _, _ ->
-                dialog?.dismiss()
-                sendAnalyticsEvent("feedback_cancel", "feedback_form", source)
-            }
-        }
         dialog = dialogBuilder.show()
     }
 
@@ -66,12 +47,7 @@ object SurveyDialog {
         val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
         sendAnalyticsEvent("impression", "feedback_input_form", source)
         MaterialAlertDialogBuilder(activity)
-            .setTitle(
-                if (source == Constants.InvokeSource.PLACES)
-                    R.string.places_survey_feedback_low_satisfaction_dialog_title
-                else
-                    R.string.patroller_diff_feedback_dialog_feedback_title
-            )
+            .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
@@ -108,9 +84,6 @@ object SurveyDialog {
     private fun sendAnalyticsEvent(action: String, activeInterface: String, source: Constants.InvokeSource, actionData: String = "") {
         if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
-        }
-        if (source == Constants.InvokeSource.PLACES) {
-            PlacesEvent.logAction(action, activeInterface, actionData)
         }
     }
 }

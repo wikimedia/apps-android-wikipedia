@@ -10,9 +10,10 @@ import androidx.annotation.VisibleForTesting
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.wikipedia.databinding.ViewListCardItemBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.feed.model.Card
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageAvailableOfflineHandler.check
+import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DeviceUtil
@@ -102,7 +103,7 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
         setTitle(StringUtil.fromHtml(entry.title.displayText))
         setSubtitle(entry.title.description)
         setImage(entry.title.thumbUrl)
-        check(entry.title) { available -> setViewsGreyedOut(!available) }
+        PageAvailableOfflineHandler.check(this.coroutineScope(), entry.title) { setViewsGreyedOut(!it) }
         return this
     }
 
