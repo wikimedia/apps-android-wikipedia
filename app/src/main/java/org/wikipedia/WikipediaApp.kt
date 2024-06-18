@@ -1,19 +1,18 @@
 package org.wikipedia
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
@@ -33,12 +32,11 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.UUID
 
 class WikipediaApp : Application() {
     init {
@@ -79,13 +77,7 @@ class WikipediaApp : Application() {
         }
 
     val appOrSystemLanguageCode: String
-        get() {
-            val code = languageState.appLanguageCode
-            if (AccountUtil.getUserIdForLanguage(code) == 0) {
-                getUserIdForLanguage(code)
-            }
-            return code
-        }
+        get() = languageState.appLanguageCode
 
     val versionCode: Int
         get() {
@@ -114,10 +106,7 @@ class WikipediaApp : Application() {
             // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
             if (defaultWikiSite == null) {
                 val lang = if (Prefs.mediaWikiBaseUriSupportsLangCode) appOrSystemLanguageCode else ""
-                val newWiki = WikiSite.forLanguageCode(lang)
-                // Kick off a task to retrieve the site info for the current wiki
-                SiteInfoClient.updateFor(newWiki)
-                defaultWikiSite = newWiki
+                defaultWikiSite = WikiSite.forLanguageCode(lang)
             }
             return defaultWikiSite!!
         }
@@ -236,12 +225,11 @@ class WikipediaApp : Application() {
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
-     * @param window The window on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    fun getFontSize(window: Window, editing: Boolean = false): Float {
-        return DimenUtil.getFontSizeFromSp(window,
-                resources.getDimension(R.dimen.textSize)) * (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
+    fun getFontSize(editing: Boolean = false): Float {
+        return DimenUtil.getFontSizeFromSp(resources.getDimension(R.dimen.textSize)) *
+                (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
                 DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
@@ -250,21 +238,22 @@ class WikipediaApp : Application() {
         defaultWikiSite = null
     }
 
-    @SuppressLint("CheckResult")
     fun logOut() {
-        L.d("Logging out")
-        AccountUtil.removeAccount()
-        Prefs.isPushNotificationTokenSubscribed = false
-        Prefs.pushNotificationTokenOld = ""
-        ServiceFactory.get(wikiSite).getTokenObservable()
-                .subscribeOn(Schedulers.io())
-                .flatMap {
-                    val csrfToken = it.query!!.csrfToken()
-                    WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
-                            .flatMap { ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
-                }
-                .doFinally { SharedPreferenceCookieManager.instance.clearAllCookies() }
-                .subscribe({ L.d("Logout complete.") }) { L.e(it) }
+        MainScope().launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            L.d("Logging out")
+            AccountUtil.removeAccount()
+            Prefs.isPushNotificationTokenSubscribed = false
+            Prefs.pushNotificationTokenOld = ""
+
+            val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
+            WikipediaFirebaseMessagingService.unsubscribePushToken(token!!, Prefs.pushNotificationToken)
+            ServiceFactory.get(wikiSite).postLogout(token)
+        }.invokeOnCompletion {
+            SharedPreferenceCookieManager.instance.clearAllCookies()
+            L.d("Logout complete.")
+        }
     }
 
     private fun enableWebViewDebugging() {
@@ -280,25 +269,6 @@ class WikipediaApp : Application() {
             result = Theme.fallback
         }
         return result
-    }
-
-    @SuppressLint("CheckResult")
-    private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
-            return
-        }
-        val wikiSite = WikiSite.forLanguageCode(code)
-        ServiceFactory.get(wikiSite).userInfo
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    if (AccountUtil.isLoggedIn && it.query!!.userInfo != null) {
-                        // noinspection ConstantConditions
-                        val id = it.query!!.userInfo!!.id
-                        AccountUtil.putUserIdForLanguage(code, id)
-                        L.d("Found user ID $id for $code")
-                    }
-                }) { L.e("Failed to get user ID for $code", it) }
     }
 
     private fun initTabs() {

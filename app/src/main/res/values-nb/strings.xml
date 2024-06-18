@@ -137,6 +137,7 @@
   <string name="langlinks_your_wikipedia_languages">Dine Wikipedia-språk</string>
   <string name="menu_save_changes">Publiser endringer</string>
   <string name="edit_saved_successfully">Redigeringen ble publisert!</string>
+  <string name="stub_article_edit_saved_successfully">Redigering publisert! Det kan ta noe tid før endringene dukker opp.</string>
   <string name="dialog_message_edit_failed">Redigering feilet!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igjen</string>
   <string name="dialog_message_edit_failed_cancel">Avbryt</string>
@@ -179,6 +180,9 @@
   <string name="logged_out_in_background_dialog">Du har blitt logget ut av Wikipedia. Vil du logge inn igjen?</string>
   <string name="logged_out_in_background_login">Logg inn</string>
   <string name="logged_out_in_background_cancel">Avbryt</string>
+  <string name="account_vanish_request_title">Få kontoen til å forsvinne</string>
+  <string name="account_vanish_request_confirm_title">Advarsel om å få konto til å forsvinne</string>
+  <string name="account_vanish_request_confirm">Å få en konto til å forsvinne er &lt;b&gt;siste utvei&lt;/b&gt;, og bør &lt;b&gt;kun brukes når du vil slutte å redigere for alltid&lt;/b&gt; og også skjule så mange av tilknytningene dine som mulig.&lt;br/&gt;&lt;br/&gt;Kontosletting på Wikipedia gjøres ved å endre kontonavnet ditt for å gjøre at andre ikke kan kjenne igjen bidragene dine i en prosess som kalles kontoforsvinning. &lt;b&gt;Å få en konto til å forsvinne garanterer ikke fullstendig anonymitet, og fjerner ikke bidragene dine fra prosjektene.&lt;/b&gt;</string>
   <string name="history_empty_title">Ingen nylig besøkte sider</string>
   <string name="history_empty_message">Finn igjen det du har lest her.</string>
   <string name="history_offline_articles_toast">Det kan hende at noen artikler i historikken ikke kan vises når du er uten nett.</string>
@@ -250,15 +254,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.no</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.no</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek brukt</string>
   <string name="about_contributors_heading">Bidragsytere</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamets side&lt;/a&gt;</string>
   <string name="about_translators_heading">Oversettere</string>
   <string name="about_translators_translatewiki">Appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisens</string>
-  <string name="about_app_license">Kildekode tilgjengelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-lisensen&lt;/a&gt;. Om ikke annet er angitt, er innhold tilgjengelig under lisensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-DelPåSammeVilkår&lt;/a&gt;.</string>
+  <string name="about_app_license">Kildekode tilgjengelig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-lisensen&lt;/a&gt;. Om ikke annet er angitt, er innhold tilgjengelig under lisensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-DelPåSammeVilkår&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Denne siden har blitt endret. Er du sikker på at du ønsker å avslutte uten å lagre endringene dine?</string>
@@ -288,6 +292,8 @@
   <string name="edit_summary_tag_links">La til lenker</string>
   <string name="edit_summary_tag_other">Annet</string>
   <string name="edit_summary_tag_other_hint">Andre måter du kan forbedre denne siden</string>
+  <string name="edit_summary_added_short_description">La til kort beskrivelse</string>
+  <string name="edit_summary_updated_short_description">Oppdaterte kort beskrivelse</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Siden har blitt redigert av en annen bruker i mellomtiden. Du kan kopiere endringene dine, gå tilbake og laste siden på nytt og prøve på nytt.</string>
   <string name="edit_notices">Redigeringsnotiser</string>
@@ -411,6 +417,7 @@
   <string name="link_preview_dialog_save_button">Lagre</string>
   <string name="link_preview_dialog_saved_button">Lagret</string>
   <string name="link_preview_dialog_share_button">Del</string>
+  <string name="link_preview_stub_placeholder_text">Denne artikkelen er en spire, hvilket betyr at det ikke er nok innhold i artikkelen til å generere en forhåndsvisning. Du kan endre på det.</string>
   <string name="error_page_does_not_exist">Siden eksisterer ikke</string>
   <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s\"&gt;brukerside&lt;/a&gt; med dette navnet. Denne siden bør kun opprettes og redigeres av &lt;b&gt;%2$s&lt;/b&gt;. Hvis du er i tvil, sjekk om «%3$s» eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke koble til internett</string>
@@ -433,6 +440,25 @@
   <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annen &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tilpass verktøylinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
+  <string name="temp_account_not_logged_in">Du er ikke logget inn</string>
+  <string name="temp_account_anon_dialog_body">Når du gjør en redigering blir en &lt;b&gt;midlertidig konto&lt;/b&gt; opprettet for å beskytte personvernet ditt. &lt;a href=\"%1$s\"&gt;Lær mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logg inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opprett en konto&lt;/a&gt; for å få kreditering for framtidige redigeringer du gjør og få tilgang til andre funksjoner.</string>
+  <string name="temp_account_temp_dialog_body">Redigeringen din blir tilskrevet %1$s. IP-adressen din vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;oppretter en konto&lt;/a&gt; blir redigeringene dine tilskrevet et navn du velger, blant andre fordeler.</string>
+  <string name="temp_account_dialog_ok">Skjønner</string>
+  <string name="temp_account_using_title">Du bruker en midlertidig konto</string>
+  <string name="temp_account_dialog_discard">Forkast endringer og logg inn</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Den midlertidige kontoen %1$s ble opprettet etter at redigeringen din ble publisert. Den vil utløpe om %2$d dag.</item>
+    <item quantity="other">Den midlertidige kontoen %1$s ble opprettet etter at redigeringen din ble publisert. Den vil utløpe om %2$d dager.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Kontoen utløper om %d dag.</item>
+    <item quantity="other">Kontoen utløper om %d dager.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Du er ikke logget inn.&lt;/b&gt; Når du gjør en redigering blir en midlertidig konto opprettet for deg for å beskytte personvernet ditt. &lt;a href=\"%1$s\"&gt;Lær mer&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Du bruker en midlertidig konto.&lt;/b&gt; Redigeringen din blir tilskrevet %1$s. &lt;a href=\"%2$s\"&gt;Lær mer&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Du bruker for tiden en midlertidig konto.&lt;/b&gt; Redigeringer som gjøres med den midlertidige kontoen %1$s overføres ikke til din permanente konto når du logger inn. Logg inn eller opprett en konto for å få kreditering til brukernavnet ditt, blant andre fordeler.</string>
+  <string name="temp_account_end_session">Avslutt økt</string>
+  <string name="temp_account_end_session_confirm">Dette vil logge deg ut fra den midlertidige kontoen. Vil du fortsette?</string>
   <string name="crash_report_activity_title">Applikasjonsfeil</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-appen avsluttet på grunn av en feil.\n\nVil du prøve å starte den på nytt eller avslutte?</string>
   <string name="crash_report_relaunch">Start på nytt</string>
@@ -826,6 +852,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du har nådd bunnen av utforskersiden.</string>
   <string name="feed_accessibility_card_load_more_button">Last inn mer</string>
+  <string name="feed_language_variants_removal_dialog_title">Velg en regional språkvariant for en forbedret leseopplevelse.</string>
+  <string name="feed_language_variants_removal_dialog_message">Du bruker en ustøttet generiske kinesisk språkvariant som ditt primære Wikipedia-språk</string>
+  <string name="feed_language_variants_removal_dialog_save">Lagre</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Oppdater sekundærspråkene dine</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Du bruker en ustøttet generiske kinesisk språkvariant som sekundærspråk. Gå til innstillingene dine for å velge et nytt sekundærspråk eller bekrefte språklista di.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Gå til innstillingene</string>
   <string name="top_read_activity_title">Mest lest %s</string>
   <string name="tabs_activity_title">Faner</string>
   <string name="description_edit_text_hint">Artikkelbeskrivelse</string>
@@ -855,8 +887,8 @@
   <string name="description_edit_voice_input_description">Stemmestyring</string>
   <string name="description_edit_learn_more">Lær mer om artikkelbeskrivelser</string>
   <string name="description_edit_image_caption_learn_more">Lær mer om bildetekster</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_ends_with_punctuation">Teksten kan ikke slutte med punktum.</string>
   <string name="description_starts_with_article">Ikke legg til «a» eller «the» i begynnelsen av artikkeltitler.</string>
@@ -1078,8 +1110,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nei</string>
   <string name="image_recommendation_notsure">Usikker</string>
-  <string name="image_recommendation_reject_title">Hvorfor ikke?</string>
-  <string name="image_recommendation_reject_subtitle">Svarene dine hjelper til å forbedre framtidige forslag.</string>
+  <string name="image_recommendation_reject_title">Arsåk for avvisning</string>
+  <string name="image_recommendation_reject_subtitle">Avvisningsgrunnen er anonym og vil forbedre framtidige bildeforslag.</string>
   <string name="image_recommendation_reject_not_relevant">Bildet er ikke relevant</string>
   <string name="image_recommendation_reject_no_info">Ikke nok informasjon til å avgjøre</string>
   <string name="image_recommendation_reject_offensive">Bildet er støtende</string>
@@ -1229,6 +1261,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Høyde</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Sett inn</string>
+  <string name="templates_search_hint">Søk i maler</string>
+  <string name="templates_insert_button">Sett inn</string>
+  <string name="templates_param_suggested_value">f.eks. %s</string>
+  <string name="templates_param_optional_hint">%s (valgfritt)</string>
+  <string name="templates_param_suggested_hint">%s (anbefalt)</string>
+  <string name="templates_learn_more_link">Lær mer</string>
+  <string name="templates_description_incomplete">Maler er brukergenererte, og kan ha ufullstendige beskrivelser.</string>
+  <string name="templates_description_empty">Malen «%s» har ingen beskivelse ennå.</string>
+  <string name="templates_description_missing_data">Denne malen mangler &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, og parametrene dens har blitt &lt;a href=\"%2$s\"&gt;autogenererte&lt;/a&gt;. Som et resultat av dette mangler malen og parametrene dens beskrivelser.</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
   <string name="main_tooltip_text">Hei %s, visste du at hvem som helst kan redigere Wikipedia?</string>
@@ -1252,10 +1293,10 @@
   <string name="talk_warn_save_dialog_hint">Meldingstittel</string>
   <string name="talk_warn_save_dialog_publish">Publiser</string>
   <string name="talk_warn_save_dialog_cancel">Avbryt</string>
+  <string name="talk_warn_save_dialog_dont_save">Ikke lagre</string>
   <string name="talk_warn_submitted">Melding publisert på bidragsyterens brukerdiskusjonsside</string>
   <string name="talk_warn_submitted_and_saved">Melding lagret og publisert på bidragsyterens brukerdiskusjonsside</string>
-  <string name="talk_warn_saved_message">Velg en eksisterende advarselsmelding eller skriv en ny melding.</string>
-  <string name="talk_warn_saved_message_dropdown">Lagrede meldinger</string>
+  <string name="talk_warn_saved_messages">Lagrede meldinger</string>
   <string name="talk_page_empty">Denne diskusjonssiden er tom.</string>
   <string name="talk_page_empty_title">Samtalen begynner her</string>
   <string name="talk_page_empty_content">Diskusjonssider er stedet for å diskutere hvordan Wikipedias innhold kan bli enda bedre. Du kan begynne ved å legge til et nytt emne for å få kontakt og samarbeide med fellesskapet av wikipedianere.</string>
@@ -1266,6 +1307,7 @@
   <string name="talk_message_hint">Skriv melding</string>
   <string name="talk_message_empty">Meldingen kan ikke være tom.</string>
   <string name="talk_subject_empty">Emnet kan ikke være tomt.</string>
+  <string name="talk_subject_duplicate">Emnenavnet finnes allerede. Prøv et annet.</string>
   <string name="talk_response_submitted">Svar postet.</string>
   <string name="talk_snackbar_undo">Gjør om</string>
   <string name="talk_last_modified">&lt;b&gt;Sist redigert %1$s&lt;/b&gt; av %2$s</string>
@@ -1461,10 +1503,8 @@
   <string name="reading_list_share_message_v2">Hei! Jeg ønsker å dele leselista mi på Wikipedia med deg:</string>
   <string name="reading_list_share_survey_title">Kan du hjelpe oss å forbedre «Del leselister»?</string>
   <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>
-  <string name="talk_templates_manage_title">Administrer maler</string>
-  <string name="talk_templates_empty_message">Du har ingen lagrede advarselsmeldinger.</string>
+  <string name="talk_templates_empty_message">Opprett dine egne meldinger eller bruk &lt;a href=\"#\"&gt;eksempelmeldinger&lt;/a&gt; for å komme i gang.</string>
   <string name="talk_templates_new_message_title">Ny melding</string>
-  <string name="talk_templates_new_message_description">Skriv en advarselsmelding.</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv melding</string>
   <string name="talk_templates_new_message_save">Lagre</string>
@@ -1489,7 +1529,8 @@
     <item quantity="other">Beskjedene har blitt slettet</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Tittelen kan ikke være tom.</string>
-  <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
+  <string name="talk_templates_your_messages_tab_title">Dine meldinger</string>
+  <string name="talk_templates_example_messages_tab_title">Eksempelmeldinger</string>
   <string name="patroller_tasks_edits_list_search_hint">Søk i eller filtrer redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tagger: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
@@ -1549,7 +1590,6 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filtre</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patruljeringsredigering</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelredigeringshistorikk</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Tilbakestilt</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Er du sikker på at du vil tilbakestille?</string>
@@ -1564,8 +1604,8 @@
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Takk en bruker for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåk</string>
   <string name="patroller_onboarding_two_watch_content">Vil du spore artikkelredigeringer? Legg til på overvåkningslisten din. Se den under «Mer».</string>
-  <string name="patroller_onboarding_two_warn_title">Advar</string>
-  <string name="patroller_onboarding_two_warn_content">Opprett, send og lagre advarselsmeldinger på en bidragsyters diskusjonsside.</string>
+  <string name="patroller_onboarding_two_talk_title">Diskusjon</string>
+  <string name="patroller_onboarding_two_talk_content">Kommuniser med andre bidragsytere. Lagre ofte bruke diskusjonssidemeldinger eller bruk en mal.</string>
   <string name="patroller_onboarding_two_undo_title">Omgjør/Tilbakestill</string>
   <string name="patroller_onboarding_two_undo_content">Velg «Gjør om» for å omgjøre eller tilbakestille en potensielt ødeleggende redigering.</string>
   <string name="patroller_diff_tooltip_one">Skade forutsier om en redigering forårsaker skade på en wiki.</string>
@@ -1576,10 +1616,22 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Nøytral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Misfornøyd</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hvordan kan vi forbedre funksjonen?</string>
+  <string name="patroller_diff_menu_edit_history_title">Redigeringshistorikk</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Tilbakemelding</string>
   <string name="patroller_diff_feedback_dialog_submit">Send</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Tilbakemelding sendt.</string>
   <string name="patroller_diff_feedback_tooltip">Trykk på overflytsmenyen for å sende inn tilbakemeldinger når som helst under «Problem med funksjon».</string>
+  <string name="patroller_saved_message_title_vandalism">Advarsel om vandalisme</string>
+  <string name="patroller_saved_message_title_npov">Nøytralt synspunkt</string>
+  <string name="patroller_saved_message_title_auto_trans">Maskinoversettelse</string>
+  <string name="patroller_saved_message_title_coi_rem">Påminnelse om interessekonflikt</string>
+  <string name="patroller_saved_message_title_final_warning">Siste advarsel</string>
+  <string name="patroller_saved_message_title_copy_vio">Advarsel om opphavsrettsbrudd</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Legg igjen en redigeringsforklaring</string>
+  <string name="patroller_saved_message_title_do_not_censor">Ikke sensurer</string>
+  <string name="patroller_saved_message_title_art_imp">Forslag til forbedring av artikkel</string>
+  <string name="patroller_saved_message_body_vandalism">Hei, {{{username}}}. Jeg vil bare si fra om at jeg har tilbakestilt én eller flere av de [{{{diffLink}}}|nyeste bidragene dine]] fordi de ikke virker konstruktive. Hvis du mener at jeg har gjort en feil eller har noen spørsmål kan du legge igjen en melding på [[User talk:{{{senderUserName}}}|diskusjonssiden min]]. Vær oppmerksom på at fortsatt hærverk kan føre til innskrenkinger i tilgangen din.</string>
+  <string name="talk_templates_menu_edit_title">Rediger</string>
   <string name="data_opt_in_accept">Godta</string>
   <string name="data_opt_in_reject">Avvis</string>
   <string name="page_issues_title">Sideproblemer</string>
@@ -1592,6 +1644,21 @@
   <string name="donation_campaign_donated_snackbar">Takk, kjære giver! Din sjenerøsitet hjelper å blomstre Wikipedia og søsterprosjektene.</string>
   <string name="donation_campaign_go_back_button">Tilbake</string>
   <string name="menu_single_webview_open_external">Åpne i systemnettleseren</string>
+  <string name="donate_gpay_dialog_title">Donere med Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Doner med Google Pay eller velg en annen betalingsmåte.</string>
+  <string name="donate_gpay_dialog_pay_button">Doner med Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Annen betalingsmåte</string>
+  <string name="donate_gpay_activity_title">Velg et beløp</string>
+  <string name="donate_gpay_check_transaction_fee">Jeg legger gjerne til %s for å dekke transaksjonsgebyrer, så dere kan beholde 100 %% av gaven min.</string>
+  <string name="donate_gpay_check_recurring">Gjør dette til en gjentatt månedlig gave.</string>
+  <string name="donate_gpay_check_send_email">Ja, Wikimedia Foundation kan sende meg en e-post i ny og ne.</string>
+  <string name="donate_gpay_minimum_amount">Velg et beløp (minimum %s)</string>
+  <string name="donate_gpay_maximum_amount">Vi kan ikke ta imot donasjoner som er større enn %s via appen vår. Kontakt personalet vårt for større gaver på benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Tusen takk!&lt;/b&gt; Din gavmildhet betyr veldig mye for oss.</string>
+  <string name="donate_gpay_help_problems">Problemer med å donere?</string>
+  <string name="donate_gpay_help_other_ways">Andre måter å gi</string>
+  <string name="donate_gpay_help_faq">Ofte stilte spørsmål</string>
+  <string name="donate_gpay_help_tax">Informasjon om skattefradrag</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Posisjonstillatelse kreves for å se din posisjon på kartet. Prøv igjen.</string>
   <string name="places_search_hint">Søk i steder</string>

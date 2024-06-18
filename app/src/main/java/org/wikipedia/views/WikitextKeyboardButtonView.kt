@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikitextKeyboardButtonBinding
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
+import org.wikipedia.util.FeedbackUtil.setButtonTooltip
 import org.wikipedia.util.ResourceUtil
 
 class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
@@ -41,7 +41,7 @@ class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeS
                 }
                 if (!buttonHint.isNullOrEmpty()) {
                     contentDescription = buttonHint
-                    setButtonLongPressToast(this@WikitextKeyboardButtonView)
+                    setButtonTooltip(this@WikitextKeyboardButtonView)
                 }
             }
         }

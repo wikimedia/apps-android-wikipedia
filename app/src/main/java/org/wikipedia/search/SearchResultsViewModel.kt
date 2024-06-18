@@ -72,7 +72,7 @@ class SearchResultsViewModel : ViewModel() {
                 var response: MwQueryResponse? = null
                 val resultList = mutableListOf<SearchResult>()
                 if (prefixSearch) {
-                    if (searchTerm.length > 2 && invokeSource != Constants.InvokeSource.PLACES) {
+                    if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
                         withContext(Dispatchers.IO) {
                             listOf(async {
                                 getSearchResultsFromTabs(searchTerm)
@@ -147,12 +147,10 @@ class SearchResultsViewModel : ViewModel() {
         }
 
         private fun getSearchResultsFromTabs(searchTerm: String): SearchResults {
-            if (searchTerm.length >= 2) {
-                WikipediaApp.instance.tabList.forEach { tab ->
-                    tab.backStackPositionTitle?.let {
-                        if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
-                            return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
-                        }
+            WikipediaApp.instance.tabList.forEach { tab ->
+                tab.backStackPositionTitle?.let {
+                    if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
+                        return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                     }
                 }
             }

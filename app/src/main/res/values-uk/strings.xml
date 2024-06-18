@@ -143,6 +143,7 @@
   <string name="langlinks_your_wikipedia_languages">Ваші мови Вікіпедії</string>
   <string name="menu_save_changes">Опублікувати зміни</string>
   <string name="edit_saved_successfully">Редагування опубліковано!</string>
+  <string name="stub_article_edit_saved_successfully">Редагування опубліковано! Для появи змін може знадобитися деякий час.</string>
   <string name="dialog_message_edit_failed">Невдале редагування!</string>
   <string name="dialog_message_edit_failed_retry">Повторити</string>
   <string name="dialog_message_edit_failed_cancel">Скасувати</string>
@@ -185,6 +186,9 @@
   <string name="logged_out_in_background_dialog">Ви вийшли з обілкового запису у Вікіпедії. Бажаєте увійти знову?</string>
   <string name="logged_out_in_background_login">Увійти до системи</string>
   <string name="logged_out_in_background_cancel">Скасувати</string>
+  <string name="account_vanish_request_title">Знищити обліковий запис</string>
+  <string name="account_vanish_request_confirm_title">Попередження про знищення облікового запису</string>
+  <string name="account_vanish_request_confirm">Зникнення є &lt;b&gt;останнім заходом&lt;/b&gt;, і його слід використовувати &lt;b&gt;лише тоді, коли ви хочете назавжди припинити редагування&lt;/b&gt;, а також щоб приховати якомога більше своїх минулих зв\'язків.&lt;br/&gt;&lt;br/&gt;Вилучення облікового запису у Вікіпедії робиться шляхом зміни імені вашого облікового запису, щоб інші не могли розпізнати ваші внески; це називають зникненням облікового запису. &lt;b&gt;Зникнення не гарантує повної анонімності і не вилучає внесок у проєкти&lt;/b&gt;.</string>
   <string name="history_empty_title">Немає нещодавно відвіданих сторінок</string>
   <string name="history_empty_message">Відстежувати те, що ви вже читали тут.</string>
   <string name="history_offline_articles_toast">Деякі статті в історії можуть бути недоступними в режимі офлайн.</string>
@@ -258,15 +262,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk#Теги_зображень</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Image_tags</string>
   <string name="about_libraries_heading">Використовувані бібліотеки</string>
   <string name="about_contributors_heading">Співавтори</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Сторінка команди&lt;/a&gt;</string>
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток був перекладений перекладачами-волонтерами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
-  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про програму</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
@@ -298,6 +302,8 @@
   <string name="edit_summary_tag_links">Додано посилання</string>
   <string name="edit_summary_tag_other">Інше</string>
   <string name="edit_summary_tag_other_hint">Інші способи, якими ви поліпшили сторінку</string>
+  <string name="edit_summary_added_short_description">Додано короткий опис</string>
+  <string name="edit_summary_updated_short_description">Оновлений короткий опис</string>
   <string name="edit_conflict_title">Конфлікт редагувань</string>
   <string name="edit_conflict_message">Сторінку вже змінив інший користувач, і це конфліктує з Вашим редагуванням. Будь ласка, скопіюйте свої зміни, поверніться назад та оновіть сторінку, після чого спробуйте відредагувати ще раз.</string>
   <string name="edit_notices">Редагувати повідомлення</string>
@@ -334,6 +340,8 @@
   <string name="widget_name_featured_page">Вибрана сторінка Вікіпедії</string>
   <string name="widget_title_featured_page">Сьогоднішня вибрана сторінка:</string>
   <string name="widget_name_search">Пошук у Вікіпедії</string>
+  <string name="widget_description_search">Найшвидший спосіб пошуку у Вікіпедії</string>
+  <string name="widget_description_featured_page">Найкращі статті, які може запропонувати Вікіпедія</string>
   <string name="wiktionary_no_definitions_found">Визначень не знайдено.</string>
   <string name="alpha_update_notification_title">Доступне оновлення альфа-версії</string>
   <string name="alpha_update_notification_text">Натисніть, щоб завантажити</string>
@@ -419,6 +427,11 @@
   <string name="multi_select_items_selected">%d вибрано</string>
   <string name="error_message_generic">Сталася помилка</string>
   <string name="view_link_preview_error_button_dismiss">Відхилити</string>
+  <string name="link_preview_dialog_read_button">Читати</string>
+  <string name="link_preview_dialog_save_button">Зберегти</string>
+  <string name="link_preview_dialog_saved_button">Збережено</string>
+  <string name="link_preview_dialog_share_button">Поділитися</string>
+  <string name="link_preview_stub_placeholder_text">Ця стаття є заготовкою, що означає, що в статті недостатньо вмісту для створення попереднього перегляду. Однак ви можете це змінити.</string>
   <string name="error_page_does_not_exist">Ця сторінка не існує</string>
   <string name="error_user_page_does_not_exist">У Вікіпедії немає &lt;a href=\"%1$s\"&gt;сторінки користувача&lt;/a&gt; з такою точною назвою. Загалом, цю сторінку має створити та відредагувати \'\'\'%2$s\'\'\'. Якщо ви сумніваєтеся, будь ласка, переконайтеся, що «%3$s» існує.</string>
   <string name="view_wiki_error_message_offline">Не вдається підключитися до інтернету.</string>
@@ -441,6 +454,8 @@
   <string name="error_blocked_footer">Ви можете зв\'язатися із &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або іншим &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Налаштувати панель інструментів</string>
   <string name="error_blocked_footer_no_blocker">Ви можете зв\'язатися з &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
+  <string name="temp_account_not_logged_in">Ви не ввійшли в систему</string>
+  <string name="temp_account_anon_dialog_body">Щойно ви внесете зміни, для вас буде створено &lt;b&gt;тимчасовий обліковий запис&lt;/b&gt; для захисту вашої конфіденційності. &lt;a href=\"%1$s\"&gt;Дізнатися більше&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Увійдіть&lt;/a&gt; або &lt;a href=\"https://#login\"&gt;створіть обліковий запис&lt;/a&gt;, щоб робити майбутні редагування під власноруч обраним іменем та отримати доступ до інших функцій.</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
@@ -818,8 +833,8 @@
   <string name="notifications_menu_uncheck_all">Зніміть прапорці з усіх елементів</string>
   <string name="notifications_wiki_filter_header">Фільтр вікі</string>
   <string name="notifications_type_filter_header">Тип фільтра</string>
-  <string name="notifications_all_wikis_text">Усі «вікі»</string>
-  <string name="notifications_all_types_text">Всі «тип»</string>
+  <string name="notifications_all_wikis_text">Усі вікі</string>
+  <string name="notifications_all_types_text">Всі типи</string>
   <string name="notifications_menu_user_talk_page">сторінка обговорення %s</string>
   <string name="notifications_offline_disable_message">Функція недоступна в автономному режимі.</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
@@ -909,8 +924,8 @@
   <string name="description_edit_voice_input_description">Голосове введення</string>
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https\n://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Image_captions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
   <string name="description_starts_with_article">Уникайте артиклів на початку, на зразок «a» чи «the».</string>
@@ -1150,8 +1165,8 @@
   <string name="image_recommendation_accept">Так</string>
   <string name="image_recommendation_reject">Ні</string>
   <string name="image_recommendation_notsure">Не впевнений</string>
-  <string name="image_recommendation_reject_title">Чому ні?</string>
-  <string name="image_recommendation_reject_subtitle">Ваші відповіді допоможуть покращити наступні пропозиції.</string>
+  <string name="image_recommendation_reject_title">Причина відмови</string>
+  <string name="image_recommendation_reject_subtitle">Причина відмови анонімна і допоможе покращити наступні пропозиції зображень.</string>
   <string name="image_recommendation_reject_not_relevant">Зображення не релевантне</string>
   <string name="image_recommendation_reject_no_info">Недостатньо інформації, щоб прийняти рішення</string>
   <string name="image_recommendation_reject_offensive">Зображення образливе</string>
@@ -1328,8 +1343,6 @@
   <string name="talk_warn_save_dialog_cancel">Скасувати</string>
   <string name="talk_warn_submitted">Повідомлення опубліковано на сторінці обговорення користувача</string>
   <string name="talk_warn_submitted_and_saved">Повідомлення збережено та опубліковано на сторінці обговорення користувача</string>
-  <string name="talk_warn_saved_message">Виберіть наявне попередження або створіть нове повідомлення.</string>
-  <string name="talk_warn_saved_message_dropdown">Збережені повідомлення</string>
   <string name="talk_page_empty">Ця сторінка обговорення порожня.</string>
   <string name="talk_page_empty_title">Розмова починається тут</string>
   <string name="talk_page_empty_content">Сторінки обговорення — це місце, де люди обговорюють, як зробити вміст Вікіпедії якнайкращим. Почніть із додавання нової теми для обговорення, щоб зв\'язатися та співпрацювати зі спільнотою вікіпедистів.</string>
@@ -1539,10 +1552,8 @@
   <string name="reading_list_share_message_v2">Привіт! Хочу поділитися з вами своїм списком для читання у Вікіпедії:</string>
   <string name="reading_list_share_survey_title">Чи могли б ви допомогти нам покращити функцію спільних списків для читання?</string>
   <string name="reading_list_share_survey_body">Спільні списки читання є тестовою функцією і нам потрібні ваші відгуки, щоб ми могли її покращити або прибрати.</string>
-  <string name="talk_templates_manage_title">Керування шаблонами</string>
-  <string name="talk_templates_empty_message">У вас немає збережених попереджень.</string>
+  <string name="talk_templates_empty_message">Створіть власні повідомлення або використовуйте &lt;a href=\"#\"&gt;зразки повідомлень&lt;/a&gt;, щоб почати.</string>
   <string name="talk_templates_new_message_title">Нове повідомлення</string>
-  <string name="talk_templates_new_message_description">Створіть попереджувальне повідомлення.</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Написати повідомлення</string>
   <string name="talk_templates_new_message_save">Зберегти</string>
@@ -1557,8 +1568,12 @@
   <string name="talk_templates_edit_message_dialog_save">Зберегти</string>
   <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
   <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">Повідомлення вилучено</string>
-  <string name="patroller_tasks_edits_list_title">Список редагувань</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Повідомлення вилучено</item>
+    <item quantity="few">Повідомлення вилучено</item>
+    <item quantity="many">Повідомлення вилучено</item>
+    <item quantity="other">Повідомлення вилучено</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Немає</string>
@@ -1620,7 +1635,6 @@
     <item quantity="many">%d фільтрів</item>
     <item quantity="other">%d фільтрів</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Відпатрулювати редагування</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Історія редагування статті</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Скасування виконано</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Ви дійсно хочете відкинути?</string>
@@ -1635,8 +1649,6 @@
   <string name="patroller_onboarding_two_thank_content">Бачите продуктивне редагування? Подякуйте користувачу за їхній внесок.</string>
   <string name="patroller_onboarding_two_watch_title">Спостереження</string>
   <string name="patroller_onboarding_two_watch_content">Хочете відстежувати редагування статті? Додайте її до свого списку спостереження. Перегляньте його в розділі «Більше».</string>
-  <string name="patroller_onboarding_two_warn_title">Попередження</string>
-  <string name="patroller_onboarding_two_warn_content">Створюйте, надсилайте та зберігайте попереджувальні повідомлення на сторінці обговорення редактора.</string>
   <string name="patroller_onboarding_two_undo_title">Скасування / відкіт</string>
   <string name="patroller_onboarding_two_undo_content">Виберіть «Скасувати», щоб скасувати або повернути потенційно деструктивні зміни.</string>
   <string name="patroller_diff_tooltip_one">«Шкода» передбачає, що редагування завдає шкоди вікі.</string>
@@ -1651,6 +1663,7 @@
   <string name="patroller_diff_feedback_dialog_submit">Надіслати</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Відгук надіслано.</string>
   <string name="patroller_diff_feedback_tooltip">Торкніться додаткового меню, щоб надіслати відгук будь-коли у розділі «Проблема з функцією».</string>
+  <string name="patroller_saved_message_title_auto_trans">Автоматичний переклад</string>
   <string name="data_opt_in_accept">Прийняти</string>
   <string name="data_opt_in_reject">Відхилити</string>
   <string name="page_issues_title">Проблеми сторінки</string>

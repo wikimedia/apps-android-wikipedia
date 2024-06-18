@@ -4,7 +4,6 @@ import android.content.Context
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedContentType
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 
 class MainPageClient : FeedClient {
@@ -13,7 +12,7 @@ class MainPageClient : FeedClient {
         val cards = WikipediaApp.instance.languageState.appLanguageCodes
             .filterNot { FeedContentType.MAIN_PAGE.langCodesDisabled.contains(it) }
             .map { MainPageCard(WikiSite.forLanguageCode(it)) }
-        FeedCoordinator.postCardsToCallback(cb, cards)
+        cb.success(cards)
     }
 
     override fun cancel() {}

@@ -315,7 +315,7 @@ class UserContribListActivity : BaseActivity() {
                     launchFilterActivity.launch(UserContribFilterActivity.newIntent(this@UserContribListActivity))
                 }
 
-                FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+                FeedbackUtil.setButtonTooltip(binding.filterByButton)
                 binding.root.isVisible = true
             }
         }
@@ -362,13 +362,10 @@ class UserContribListActivity : BaseActivity() {
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@UserContribListActivity, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@UserContribListActivity, getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -384,7 +381,7 @@ class UserContribListActivity : BaseActivity() {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

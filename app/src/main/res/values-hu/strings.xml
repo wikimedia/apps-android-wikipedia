@@ -136,6 +136,7 @@
   <string name="langlinks_your_wikipedia_languages">Wikipédia-nyelveid</string>
   <string name="menu_save_changes">Változtatások közzététele</string>
   <string name="edit_saved_successfully">Szerkesztés közzétéve!</string>
+  <string name="stub_article_edit_saved_successfully">Szerkesztés közzétéve! A változások megjelenése időbe telhet.</string>
   <string name="dialog_message_edit_failed">A szerkesztés nem sikerült!</string>
   <string name="dialog_message_edit_failed_retry">Újra</string>
   <string name="dialog_message_edit_failed_cancel">Mégse</string>
@@ -178,6 +179,9 @@
   <string name="logged_out_in_background_dialog">Kijelentkeztél a Wikipédiából. Szeretnél újra bejelentkezni?</string>
   <string name="logged_out_in_background_login">Bejelentkezés</string>
   <string name="logged_out_in_background_cancel">Mégsem</string>
+  <string name="account_vanish_request_title">Fiók eltüntetése</string>
+  <string name="account_vanish_request_confirm_title">Fiókeltüntetés-figyelmeztetés</string>
+  <string name="account_vanish_request_confirm">Az eltűnés egy &lt;b&gt;utolsó lehetőség&lt;/b&gt;; &lt;b&gt;csak akkor használd, ha örökre abba akarod hagyni a szerkesztést&lt;/b&gt;, és az eddigi szerkesztéseiddel való összekapcsolhatóságot is a lehető legnagyobb mértékben meg akarod szüntetni.&lt;br/&gt;&lt;br/&gt;A fióktörlés a Wikipédián a szerkesztőnév olyanra módosításával történik, amitől mások nem ismerik fel a közreműködéseidet (ez az ún. fiókeltüntetés). &lt;b&gt;Az eltűnés nem jelent se teljes anonimitást, se a közreműködéseid eltávolítását a projektekből.&lt;/b&gt;</string>
   <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="history_offline_articles_toast">Néhány szócikk lehet, hogy nem olvasható offline módban.</string>
@@ -251,15 +255,15 @@
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#K%C3%A9pc%C3%ADmk%C3%A9k</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu#K%C3%A9pc%C3%ADmk%C3%A9k</string>
   <string name="about_libraries_heading">Felhasznált szoftverkönyvtárak</string>
   <string name="about_contributors_heading">Közreműködők</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Csapat oldala&lt;/a&gt;</string>
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
-  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
+  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
@@ -289,6 +293,8 @@
   <string name="edit_summary_tag_links">Hivatkozások hozzáadása</string>
   <string name="edit_summary_tag_other">Egyéb</string>
   <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
+  <string name="edit_summary_added_short_description">Rövid leírás hozzáadása</string>
+  <string name="edit_summary_updated_short_description">Rövid leírás módosítása</string>
   <string name="edit_conflict_title">Szerkesztési ütközés</string>
   <string name="edit_conflict_message">Ezt a lapot egy másik felhasználó már módosította, és ez ütközik a szerkesztéseddel. Másold ki a szerkesztéseidet, menj vissza az előző oldalra és frissítsd az oldalt, majd próbálkozz újra a szerkesztéssel.</string>
   <string name="edit_notices">Szerkesztési megjegyzés</string>
@@ -412,6 +418,7 @@
   <string name="link_preview_dialog_save_button">Mentés</string>
   <string name="link_preview_dialog_saved_button">Elmentve</string>
   <string name="link_preview_dialog_share_button">Megosztás</string>
+  <string name="link_preview_stub_placeholder_text">Ez a szócikk egy csonk, ami azt jelenti, hogy nincs elég tartalom a cikkben az előnézet létrehozásához. Ezen azonban változtathatsz.</string>
   <string name="error_page_does_not_exist">Ez a lap nem létezik</string>
   <string name="error_user_page_does_not_exist">Nincs pontosan ilyen nevű &lt;a href=\"%1$s\"&gt;szerkesztői lap&lt;/a&gt; a Wikipédián. Általánosságban ezt a lapot csak a tulajdonosának (&lt;b&gt;%2$s&lt;/b&gt;) szabad létrehoznia és szerkesztenie. Ha kétséged van, ellenőrizd, hogy létezik-e „%3$s” nevű regisztrált szerkesztő.</string>
   <string name="view_wiki_error_message_offline">Nem sikerült csatlakozni az internethez</string>
@@ -434,6 +441,16 @@
   <string name="error_blocked_footer">Kapcsolatba léphetsz a blokkolás végrehajtójával (&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;) vagy egy másik &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
   <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
+  <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
+  <string name="temp_account_dialog_ok">Értem</string>
+  <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
+  <string name="temp_account_dialog_discard">Változtatások elvetése és bejelentkezés</string>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">A felhasználói fiókod %d nap múlva lejár.</item>
+    <item quantity="other">A felhasználói fiókod %d nap múlva lejár.</item>
+  </plurals>
+  <string name="temp_account_end_session">Munkamenet befejezése</string>
+  <string name="temp_account_end_session_confirm">Ezzel kijelentkezel ideiglenes fiókodból. Akarod folytatni?</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -826,6 +843,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="feed_accessibility_card_text">Elérted a hírfolyamod alját.</string>
   <string name="feed_accessibility_card_load_more_button">Továbbiak betöltése</string>
+  <string name="feed_language_variants_removal_dialog_title">Válassz egy regionális nyelvváltozatot a jobb olvasási élmény érdekében</string>
+  <string name="feed_language_variants_removal_dialog_message">Jelenleg egy nem támogatott általános kínai nyelvváltozatot használod elsődleges Wikipédia-nyelvként</string>
+  <string name="feed_language_variants_removal_dialog_save">Mentés</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Kérjük, válassz másodlagos nyelveket</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Jelenleg egy nem támogatott általános kínai nyelvváltozatot használsz másodlagos nyelvként. Nyisd meg a beállításokat egy új másodlagos nyelv kiválasztásához vagy a nyelvlista megerősítéséhez.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Menj a beállításokhoz</string>
   <string name="top_read_activity_title">Legtöbbet megnézve ekkor %s</string>
   <string name="tabs_activity_title">Fülek</string>
   <string name="description_edit_text_hint">Szócikk leírása</string>
@@ -855,8 +878,8 @@
   <string name="description_edit_voice_input_description">Hangbevitel</string>
   <string name="description_edit_learn_more">További információk a szócikkleírásokról</string>
   <string name="description_edit_image_caption_learn_more">További információk a képaláírásokról</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Cikkleírások</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#Képfeliratok</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu#Cikkle%C3%ADr%C3%A1sok</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu#K%C3%A9pfeliratok</string>
   <string name="description_too_short">A szöveg túl rövid.</string>
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
@@ -1078,8 +1101,8 @@
   <string name="image_recommendation_accept">Igen</string>
   <string name="image_recommendation_reject">Nem</string>
   <string name="image_recommendation_notsure">Nem tudom</string>
-  <string name="image_recommendation_reject_title">Miért nem?</string>
-  <string name="image_recommendation_reject_subtitle">A válaszaid javítják a jövőbeli javaslatokat.</string>
+  <string name="image_recommendation_reject_title">A visszautasítás oka</string>
+  <string name="image_recommendation_reject_subtitle">Az elutasítás oka névtelen, és javítja a jövőbeli képjavaslatokat.</string>
   <string name="image_recommendation_reject_not_relevant">A kép nem releváns</string>
   <string name="image_recommendation_reject_no_info">Nincs elég információ a döntéshez</string>
   <string name="image_recommendation_reject_offensive">A kép sértő</string>
@@ -1229,6 +1252,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Magasság</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">pixel</string>
   <string name="insert_media_insert_button">Beszúrás</string>
+  <string name="templates_search_hint">Sablon keresése</string>
+  <string name="templates_insert_button">Beszúrás</string>
+  <string name="templates_param_suggested_value">pl. %s</string>
+  <string name="templates_param_optional_hint">%s (opcionális)</string>
+  <string name="templates_param_suggested_hint">%s (javasolt)</string>
+  <string name="templates_learn_more_link">További információk</string>
+  <string name="templates_description_incomplete">A sablonok felhasználók által generált tartalmak, és lehet, hogy nincs teljes leírásuk.</string>
+  <string name="templates_description_empty">A(z) „%s” sablonnak még nincs leírása.</string>
+  <string name="templates_description_missing_data">Ennek a sablonnak nincs &lt;a href=\"%1$s\"&gt;TemplateData-leírása&lt;/a&gt;, és a paraméterlistája &lt;a href=\"%2$s\"&gt;automatikusan generált&lt;/a&gt;. Ezért a sablonnak és paramétereinek nincs leírása.</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
   <string name="main_tooltip_text">Helló %s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
@@ -1252,10 +1284,10 @@
   <string name="talk_warn_save_dialog_hint">Üzenet címe</string>
   <string name="talk_warn_save_dialog_publish">Közzététel</string>
   <string name="talk_warn_save_dialog_cancel">Mégse</string>
+  <string name="talk_warn_save_dialog_dont_save">Ne mentsd el</string>
   <string name="talk_warn_submitted">Az üzenet közzétéve a szerkesztő vitalapján</string>
   <string name="talk_warn_submitted_and_saved">Az üzenet elmentve és közzétéve a szerkesztő vitalapján</string>
-  <string name="talk_warn_saved_message">Válassz ki egy meglévő figyelmeztető üzenetet, vagy írj új üzenetet.</string>
-  <string name="talk_warn_saved_message_dropdown">Mentett üzenetek</string>
+  <string name="talk_warn_saved_messages">Mentett üzenetek</string>
   <string name="talk_page_empty">Ez a vitalap üres.</string>
   <string name="talk_page_empty_title">A beszélgetés itt kezdődik</string>
   <string name="talk_page_empty_content">A vitalapok annak megbeszélésére szolgálnak, hogy hogyan lehet a Wikipédia tartalmát a lehető legjobbá tenni. Indíts egy új témát a wikipédisták közösségével való kapcsolódáshoz és együttműködéshez.</string>
@@ -1266,6 +1298,7 @@
   <string name="talk_message_hint">Üzenet megfogalmazása</string>
   <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
   <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
+  <string name="talk_subject_duplicate">A tárgynév már létezik. Próbálj ki egy másikat.</string>
   <string name="talk_response_submitted">Válasz közzétéve.</string>
   <string name="talk_snackbar_undo">Visszavonás</string>
   <string name="talk_last_modified">&lt;b&gt;Utoljára szerkesztette %1$s&lt;/b&gt; ekkor: %2$s</string>
@@ -1461,10 +1494,8 @@
   <string name="reading_list_share_message_v2">Szia! Szeretném megosztani veled a Wikipédia-olvasólistámat:</string>
   <string name="reading_list_share_survey_title">Tudnál segíteni nekünk ennek a funkciónak a fejlesztésében?</string>
   <string name="reading_list_share_survey_body">Az olvasólisták megosztása egy tesztelés alatt álló funkció, és szükségünk van a visszajelzésedre a fejlesztéséhez vagy eltávolításához.</string>
-  <string name="talk_templates_manage_title">Sablonok kezelése</string>
-  <string name="talk_templates_empty_message">Nincsenek mentett figyelmeztető üzeneteid.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Nincsenek mentett figyelmeztető üzeneteid.</string>
   <string name="talk_templates_new_message_title">Új üzenetek</string>
-  <string name="talk_templates_new_message_description">Figyelmeztető üzenet írása.</string>
   <string name="talk_templates_new_message_subject_hint">Tárgy</string>
   <string name="talk_templates_new_message_compose_hint">Üzenet megfogalmazása</string>
   <string name="talk_templates_new_message_save">Mentés</string>
@@ -1489,7 +1520,8 @@
     <item quantity="other">Az üzenetek törölve</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Az cím nem lehet üres.</string>
-  <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
+  <string name="talk_templates_your_messages_tab_title">Üzeneteid</string>
+  <string name="talk_templates_example_messages_tab_title">Példaüzenetek</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Címkék: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
@@ -1549,7 +1581,6 @@
     <item quantity="one">%d szűrő</item>
     <item quantity="other">%d szűrő</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Járőr szerkesztése</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Visszaállítás kész</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Biztosan vissza akarod állítani?</string>
@@ -1561,7 +1592,7 @@
   <string name="patroller_onboarding_two_thank_title">Köszönet</string>
   <string name="patroller_onboarding_two_thank_content">Hatékony szerkesztést láttál? Köszönd meg a felhasználó közreműködését!</string>
   <string name="patroller_onboarding_two_watch_title">Lap figyelése</string>
-  <string name="patroller_onboarding_two_warn_title">Figyelmeztetés</string>
+  <string name="patroller_onboarding_two_talk_title">Vitalap</string>
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>
@@ -1571,10 +1602,22 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Semleges</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Elégedetlen</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hogyan javíthatjuk a funkciót?</string>
+  <string name="patroller_diff_menu_edit_history_title">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
   <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="patroller_diff_feedback_tooltip">Érintse meg a túlcsordulás menüt, hogy bármikor visszajelzést küldhessél a „Probléma a funkcióval” alatt.</string>
+  <string name="patroller_saved_message_title_vandalism">Vandalizmus figyelmeztetés</string>
+  <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
+  <string name="patroller_saved_message_title_npov">Semleges nézőpont</string>
+  <string name="patroller_saved_message_title_auto_trans">Automatikus fordítás</string>
+  <string name="patroller_saved_message_title_coi_rem">Összeférhetetlenségi emlékeztető</string>
+  <string name="patroller_saved_message_title_final_warning">Utolsó figyelmeztetés</string>
+  <string name="patroller_saved_message_title_copy_vio">Szerzői jog megsértésére vonatkozó figyelmeztetés</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Hagyjál szerkesztési összefoglalót</string>
+  <string name="patroller_saved_message_title_do_not_censor">Ne cenzúrázz</string>
+  <string name="patroller_saved_message_title_art_imp">Szócikk javítási javaslat</string>
+  <string name="talk_templates_menu_edit_title">Szerkesztés</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
   <string name="page_issues_title">A lap problémái</string>
@@ -1587,6 +1630,21 @@
   <string name="donation_campaign_donated_snackbar">Köszönjük, kedves adományozó! Nagylelkűségeddel segíted a Wikipédia és testvéroldalainak fejlődését!</string>
   <string name="donation_campaign_go_back_button">Visszalépés</string>
   <string name="menu_single_webview_open_external">Nyisd meg a rendszerböngészőben!</string>
+  <string name="donate_gpay_dialog_title">Adományozás Google Pay-jel?</string>
+  <string name="donate_gpay_dialog_description">Adományozás Google Play-jel vagy más fizetési módokon.</string>
+  <string name="donate_gpay_dialog_pay_button">Adományozás Google Pay-jel</string>
+  <string name="donate_gpay_dialog_other_button">Más fizetési módok</string>
+  <string name="donate_gpay_activity_title">Összeg megadása</string>
+  <string name="donate_gpay_check_transaction_fee">További %s összeget hozzáadok, hogy a tranzakciós díjat átvállalva az adományom 100%%-a kerüljön átutalásra.</string>
+  <string name="donate_gpay_check_recurring">Legyen havonta ismétlődő adomány!</string>
+  <string name="donate_gpay_check_send_email">Igen, a Wikimedia Alapítvány néha küldhet nekem e-mailt.</string>
+  <string name="donate_gpay_minimum_amount">Kérlek válassz a minimum összegnél többet (%s)</string>
+  <string name="donate_gpay_maximum_amount">Az alkalmazáson keresztül sajnos nem tudunk a maximális összegnél (%s) nagyobb adományt fogadni. Kérlek vedd fel velünk a kapcsolatot a benefactors@wikimedia.org e-mail-címen!</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Köszönjük szépen!&lt;/b&gt; A Wikipédia iránti nagylelkűséged sokat jelent számunkra.</string>
+  <string name="donate_gpay_help_problems">Probléma az adományozással?</string>
+  <string name="donate_gpay_help_other_ways">Egyéb adományozási módok</string>
+  <string name="donate_gpay_help_faq">Gyakran ismételt kérdések</string>
+  <string name="donate_gpay_help_tax">Adózással kapcsolatos információk</string>
   <string name="places_title">Helyek</string>
   <string name="places_permissions_denied">Helyadat hozzáférés szükséges a hely térképen történő megjelenítéséhez. Próbáld újra!</string>
   <string name="places_search_hint">Helyek keresése</string>

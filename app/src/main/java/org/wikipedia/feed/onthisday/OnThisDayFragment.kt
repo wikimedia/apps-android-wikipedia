@@ -1,6 +1,5 @@
 package org.wikipedia.feed.onthisday
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -276,7 +275,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): OnThisDayPagesViewHolder {
             val itemView = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_on_this_day_pages, viewGroup, false)
-            return OnThisDayPagesViewHolder((viewGroup.context as Activity), fragmentManager, itemView, wiki)
+            return OnThisDayPagesViewHolder((viewGroup.context as AppCompatActivity), itemView, wiki)
         }
 
         override fun onBindViewHolder(onThisDayPagesViewHolder: OnThisDayPagesViewHolder, i: Int) {

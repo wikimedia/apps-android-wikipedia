@@ -155,7 +155,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
+        if (SearchActionModeCallback.matches(actionMode)) {
             finishActionMode()
         }
     }
@@ -231,7 +231,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun onLoadItemsFinished(items: List<Any>) {
         val list = mutableListOf<Any>()
-        if (!SearchActionModeCallback.`is`(actionMode)) {
+        if (!SearchActionModeCallback.matches(actionMode)) {
             list.add(SearchBar())
         }
         list.addAll(items)
@@ -300,7 +300,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                     deleteSelectedPages()
                 }
             }
-            FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton)
+            FeedbackUtil.setButtonTooltip(historyFilterButton, clearHistoryButton)
             adjustSearchCardView(searchCardView)
         }
     }
@@ -316,7 +316,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             view.setDescription(entry.title.description)
             view.setImageUrl(entry.title.thumbUrl)
             view.isSelected = selectedEntries.contains(entry)
-            PageAvailableOfflineHandler.check(entry.title) { available: Boolean -> view.setViewsGreyedOut(!available) }
+            PageAvailableOfflineHandler.check(lifecycleScope, entry.title) { view.setViewsGreyedOut(!it) }
         }
 
         override fun onSwipe() {

@@ -235,15 +235,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.gl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.gl</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas empregadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina do equipo&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicación foi traducida polos tradutores voluntarios de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">O código fonte está dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.gl\"&gt;licenza Creative Commons recoñecemento compartir igual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">O código fonte está dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.gl\"&gt;licenza Creative Commons recoñecemento compartir igual&lt;/a&gt;.</string>
   <string name="about_wmf">Un produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">A páxina foi modificada. Quere saír sen gardar os cambios?</string>

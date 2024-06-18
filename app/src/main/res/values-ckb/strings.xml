@@ -240,15 +240,15 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتێبخانە بەکارھاتووەکان</string>
   <string name="about_contributors_heading">بەشداربووان</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;پەڕەی تیم&lt;/a&gt;</string>
   <string name="about_translators_heading">وەرگێڕەکان</string>
   <string name="about_translators_translatewiki">ئەم نەرمەواڵەیە وەرگێڕدراوە لەلایەن وەرگێڕە خۆبەخشەکان لە &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">مۆڵەت</string>
-  <string name="about_app_license">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;گێرت&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گیتھەب&lt;/a&gt; لەژێر &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;مۆڵەتنامەی Apache 2.0&lt;/a&gt;. بە پێچەوانەوە، ناوەڕۆک لەژێر &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;مۆڵەتنامەی Creative Commons Attribution-ShareAlike &lt;/a&gt; بەردەستە.</string>
+  <string name="about_app_license" fuzzy="true">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;گێرت&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گیتھەب&lt;/a&gt; لەژێر &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;مۆڵەتنامەی Apache 2.0&lt;/a&gt;. بە پێچەوانەوە، ناوەڕۆک لەژێر &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;مۆڵەتنامەی Creative Commons Attribution-ShareAlike &lt;/a&gt; بەردەستە.</string>
   <string name="about_wmf">بەرھەمی &lt;a href=\"https://wikimediafoundation.org/\"&gt;دامەزراوەی ویکیمیدیا&lt;/a&gt;</string>
   <string name="about_activity_title">دەربارە</string>
   <string name="edit_abandon_confirm">پەڕەکە گۆڕدراوە. دڵنیای کە دەتەوێت بچیە دەرەوە بەبێ پاشەکەوتکردنی گۆڕانکارییەکان؟</string>
@@ -691,8 +691,8 @@
   <string name="notifications_swipe_action_read">خوێندراوە</string>
   <string name="notifications_swipe_action_unread">نەخوێندراوە</string>
   <string name="notifications_wiki_filter_header">پاڵێوەری ویکی</string>
-  <string name="notifications_all_wikis_text">ھەموو ویکییەکان</string>
-  <string name="notifications_all_types_text">ھەموو جۆرەکان</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">ھەموو ویکییەکان</string>
+  <string name="notifications_all_types_text" fuzzy="true">ھەموو جۆرەکان</string>
   <string name="notifications_menu_user_talk_page">پەڕەی وتووێژی %s</string>
   <string name="notifications_offline_disable_message">ئەم ئەرکە لەکاتی دەرھێڵدا بەردەست نییە.</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>

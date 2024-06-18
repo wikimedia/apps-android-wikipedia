@@ -44,10 +44,13 @@ import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Date
 
 class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
@@ -90,9 +93,9 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is WatchlistViewModel.UiState.Loading -> onLoading()
-                        is WatchlistViewModel.UiState.Success -> onSuccess()
-                        is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> onSuccess()
+                        is Resource.Error -> onError(it.throwable)
                     }
                 }
             }
@@ -103,7 +106,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         super.onResume()
         actionMode?.let {
             viewModel.updateList(false)
-            if (SearchActionModeCallback.`is`(it)) {
+            if (SearchActionModeCallback.matches(it)) {
                 searchActionModeCallback.refreshProvider()
             }
         }
@@ -135,7 +138,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -210,7 +213,8 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
-            textView.text = DateUtil.getShortDateString(date)
+            val localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()).toLocalDate()
+            textView.text = DateUtil.getShortDateString(localDateTime)
         }
     }
 
@@ -229,7 +233,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                 resultLauncher.launch(WatchlistFilterActivity.newIntent(it.context))
             }
 
-            FeedbackUtil.setButtonLongPressToast(itemBinding.filterButton)
+            FeedbackUtil.setButtonTooltip(itemBinding.filterButton)
         }
 
         fun updateFilterIconAndCount() {
@@ -291,13 +295,10 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -314,7 +315,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 
@@ -365,8 +366,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         const val VIEW_TYPE_SEARCH_BAR = 0
         const val VIEW_TYPE_DATE = 1
         const val VIEW_TYPE_ITEM = 2
-        const val WATCHLIST_UNDO_COMMENT = "#watchlist-undo"
-        const val WATCHLIST_ROLLBACK_COMMENT = "#watchlist-rollback"
 
         fun newInstance(): WatchlistFragment {
             return WatchlistFragment()

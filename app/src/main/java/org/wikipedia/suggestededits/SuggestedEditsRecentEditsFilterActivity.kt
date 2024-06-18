@@ -121,14 +121,14 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         return filterListWithHeaders
     }
 
-    class RecentEditsFilterItemViewHolder constructor(itemView: SuggestedEditsRecentEditsFilterItemView) :
+    class RecentEditsFilterItemViewHolder(itemView: SuggestedEditsRecentEditsFilterItemView) :
         DefaultViewHolder<SuggestedEditsRecentEditsFilterItemView>(itemView) {
         fun bindItem(filter: Filter) {
             view.setContents(filter)
         }
     }
 
-    class RecentEditsFilterHeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
+    class RecentEditsFilterHeaderViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         private val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
 
         fun bindItem(filterHeader: String) {
@@ -136,7 +136,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
     }
 
-    private inner class RecentEditsFilterItemViewAddLanguageViewHolder constructor(private val filterItemView: SuggestedEditsRecentEditsFilterItemView) :
+    private inner class RecentEditsFilterItemViewAddLanguageViewHolder(private val filterItemView: SuggestedEditsRecentEditsFilterItemView) :
             DefaultViewHolder<SuggestedEditsRecentEditsFilterItemView>(filterItemView), SuggestedEditsRecentEditsFilterItemView.Callback {
 
         fun bindItem(text: String) {
@@ -214,7 +214,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
     }
 
-    inner class Filter constructor(val type: Int, val filterCode: String, val isCheckBox: Boolean = false) {
+    inner class Filter(val type: Int, val filterCode: String, val isCheckBox: Boolean = false) {
         fun isEnabled(): Boolean {
             return if (type == FILTER_TYPE_WIKI) {
                 Prefs.recentEditsWikiCode == filterCode

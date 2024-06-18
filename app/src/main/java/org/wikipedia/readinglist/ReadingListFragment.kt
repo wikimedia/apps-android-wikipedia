@@ -5,7 +5,12 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +34,9 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Runnable
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -45,17 +52,24 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
-import org.wikipedia.page.PageAvailableOfflineHandler.check
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.settings.SiteInfoClient.maxPagesPerReadingList
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
+import org.wikipedia.views.CircularProgressBar
+import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
+import org.wikipedia.views.PageItemView
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -288,8 +302,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             if (!toolbarExpanded) {
                 binding.readingListToolbarContainer.title = it.title
             }
-            if (!articleLimitMessageShown && it.pages.size >= maxPagesPerReadingList) {
-                val message = getString(R.string.reading_list_article_limit_message, readingList.title, maxPagesPerReadingList)
+            if (!articleLimitMessageShown && it.pages.size >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
+                val message = getString(R.string.reading_list_article_limit_message, readingList.title, Constants.MAX_READING_LIST_ARTICLE_LIMIT)
                 FeedbackUtil.makeSnackbar(requireActivity(), message).show()
                 articleLimitMessageShown = true
             }
@@ -306,14 +320,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         FeedbackUtil.showError(requireActivity(), throwable)
                         requireActivity().finish()
                     }) {
-                        withContext(Dispatchers.Main) {
-                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
-                            readingList?.let {
-                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
-                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                            }
-                            update()
+                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
+                        readingList?.let {
+                            ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
+                            binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                         }
+                        update()
                     }
                 }
             } else {
@@ -364,7 +376,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 adapter.notifyDataSetChanged()
                 updateEmptyState(query)
             } else {
-                ReadingListBehaviorsUtil.searchListsAndPages(query) { lists ->
+                ReadingListBehaviorsUtil.searchListsAndPages(lifecycleScope, query) { lists ->
                     displayedLists = lists
                     adapter.notifyDataSetChanged()
                     updateEmptyState(query)
@@ -409,7 +421,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
+        if (SearchActionModeCallback.matches(actionMode)) {
             finishActionMode()
         }
         if (!isTagType(actionMode)) {
@@ -534,7 +546,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onToggleItemOffline(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) {
+        ReadingListBehaviorsUtil.togglePageOffline(requireActivity() as AppCompatActivity, page) {
             adapter.notifyDataSetChanged()
             update()
         }
@@ -569,7 +581,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val page = getPageById(pageId) ?: return
         readingList?.let {
             val listsContainPage = if (currentSearchQuery.isNullOrEmpty()) listOf(it) else ReadingListBehaviorsUtil.getListsContainPage(page)
-            ReadingListBehaviorsUtil.deletePages(requireActivity(), listsContainPage, page, { updateReadingListData() }, {
+            ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listsContainPage, page, { updateReadingListData() }, {
                 update()
             })
         }
@@ -626,7 +638,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
             view.setListItemImageDimensions(imageDimension, imageDimension)
-            check(page, PageAvailableOfflineHandler.Callback { available -> view.setViewsGreyedOut(!available) })
+            PageAvailableOfflineHandler.check(page) { view.setViewsGreyedOut(!it) }
             if (!currentSearchQuery.isNullOrEmpty()) {
                 view.setTitleMaxLines(2)
                 view.setTitleEllipsis()
@@ -644,7 +656,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
             readingList?.let {
                 if (currentSearchQuery.isNullOrEmpty()) {
-                    ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(it), page, { updateReadingListData() }, {
+                    ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listOf(it), page, { updateReadingListData() }, {
                         update()
                     })
                 }

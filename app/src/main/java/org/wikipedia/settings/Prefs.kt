@@ -12,9 +12,9 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.places.PlacesFragment
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
@@ -699,10 +699,6 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
-    var shouldShowOneTimePlacesSurvey
-        get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, PlacesFragment.SURVEY_NOT_INITIALIZED)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_places_show_one_time_survey, value)
-
     var showOneTimePlacesPageOnboardingTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, value)
@@ -731,4 +727,31 @@ object Prefs {
             }
             PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
         }
+
+    var recentUsedTemplates
+        get() = JsonUtil.decodeFromString<Set<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptySet()
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(set))
+
+    fun addRecentUsedTemplates(set: Set<PageTitle>) {
+        val maxStoredIds = 100
+        val currentSet = recentUsedTemplates.toMutableSet()
+        currentSet.addAll(set)
+        recentUsedTemplates = if (currentSet.size < maxStoredIds) currentSet else set
+    }
+
+    var paymentMethodsLastQueryTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_payment_methods_last_query_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_payment_methods_last_query_time, value)
+
+    var paymentMethodsMerchantId
+        get() = PrefsIoUtil.getString(R.string.preference_key_payment_methods_merchant_id, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_payment_methods_merchant_id, value)
+
+    var paymentMethodsGatewayId
+        get() = PrefsIoUtil.getString(R.string.preference_key_payment_methods_gateway_id, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_payment_methods_gateway_id, value)
+
+    var isDonationTestEnvironment
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
 }

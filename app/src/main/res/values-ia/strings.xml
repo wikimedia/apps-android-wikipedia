@@ -120,6 +120,7 @@
   <string name="langlinks_your_wikipedia_languages">Tu linguas de Wikipedia</string>
   <string name="menu_save_changes">Publicar cambiamentos</string>
   <string name="edit_saved_successfully">Modification publicate!</string>
+  <string name="stub_article_edit_saved_successfully">Modification publicate! Le cambiamentos pote prender un tempore pro apparer.</string>
   <string name="dialog_message_edit_failed">Modification fallite!</string>
   <string name="dialog_message_edit_failed_retry">Reprobar</string>
   <string name="dialog_message_edit_failed_cancel">Cancellar</string>
@@ -162,6 +163,9 @@
   <string name="logged_out_in_background_dialog">Tu session de Wikipedia ha essite claudite. Vole tu reaperir session?</string>
   <string name="logged_out_in_background_login">Aperir session</string>
   <string name="logged_out_in_background_cancel">Cancellar</string>
+  <string name="account_vanish_request_title">Facer disparer le conto</string>
+  <string name="account_vanish_request_confirm_title">Advertimento concernente le disparition del conto</string>
+  <string name="account_vanish_request_confirm">Le disparition es un &lt;b&gt;ultime recurso&lt;/b&gt; e debe &lt;b&gt;solmente esser usate quando tu vole cessar de modificar pro sempre&lt;/b&gt; e celar le maximo possibile de tu associationes anterior.&lt;br/&gt;&lt;br/&gt;Le deletion del conto sur Wikipedia se effectua cambiante tu nomine de conto de maniera que alteres non pote recognoscer tu contributiones. Iste processo se appella le disparition del conto. &lt;b&gt;Le disparition non garanti le anonymitate complete ni remove contributiones al projectos.&lt;/b&gt;</string>
   <string name="history_empty_title">Il non ha paginas recentemente visitate</string>
   <string name="history_empty_message">Tracia hic le paginas que tu ha legite.</string>
   <string name="history_offline_articles_toast">Alcun articulos in le historia pote non esser accessibile sin connexion.</string>
@@ -233,15 +237,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
-  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
+  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A proposito</string>
   <string name="edit_abandon_confirm">Le pagina ha essite modificate. Es tu secur de voler exir sin salveguardar tu cambiamentos?</string>
@@ -271,6 +275,8 @@
   <string name="edit_summary_tag_links">Ligamines addite</string>
   <string name="edit_summary_tag_other">Altere</string>
   <string name="edit_summary_tag_other_hint">Altere manieras del quales tu ha meliorate iste pagina</string>
+  <string name="edit_summary_added_short_description">Curte description addite</string>
+  <string name="edit_summary_updated_short_description">Curte description actualisate</string>
   <string name="edit_conflict_title">Conflicto inter modificationes</string>
   <string name="edit_conflict_message">Le pagina ha ja essite modificate per un altere usator e es in conflicto con tu modification. Per favor copia tu modificationes, va retro e refresca le pagina, alora tenta modificar lo de novo.</string>
   <string name="edit_notices">Avisos de modification</string>
@@ -305,6 +311,8 @@
   <string name="widget_name_featured_page">Pagina de Wikipedia in prime plano</string>
   <string name="widget_title_featured_page">Pagina in prime plano de hodie:</string>
   <string name="widget_name_search">Recerca sur Wikipedia</string>
+  <string name="widget_description_search">Le maniera le plus rapide de cercar in Wikipedia</string>
+  <string name="widget_description_featured_page">Le melior articulos que Wikipedia pote offerer</string>
   <string name="wiktionary_no_definitions_found">Necun definition trovate.</string>
   <string name="alpha_update_notification_title">Nove actualisation alpha disponibile</string>
   <string name="alpha_update_notification_text">Tocca pro discargar</string>
@@ -388,6 +396,11 @@
   <string name="multi_select_items_selected">%d seligite</string>
   <string name="error_message_generic">Un error ha occurrite</string>
   <string name="view_link_preview_error_button_dismiss">Clauder</string>
+  <string name="link_preview_dialog_read_button">Leger</string>
+  <string name="link_preview_dialog_save_button">Salveguardar</string>
+  <string name="link_preview_dialog_saved_button">Salveguardate</string>
+  <string name="link_preview_dialog_share_button">Condivider</string>
+  <string name="link_preview_stub_placeholder_text">Iste articulo es un pecietta, lo que vole dicer que il non ha sufficiente contento in le articulo pro generar un previsualisation. Ma tu pote cambiar isto!</string>
   <string name="error_page_does_not_exist">Iste pagina non existe</string>
   <string name="error_user_page_does_not_exist">Wikipedia non ha un &lt;a href=\"%1$s\"&gt;pagina de usator&lt;/a&gt; con iste nomine exacte. In general, iste pagina debe esser create e modificate per &lt;b&gt;%2$s&lt;/b&gt;. In caso de dubita, per favor verifica que \"%3$s\" existe.</string>
   <string name="view_wiki_error_message_offline">Non pote connecter a Internet</string>
@@ -410,6 +423,25 @@
   <string name="error_blocked_footer">Tu pote contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altere &lt;a href=\"https://ia.wikipedia.org/wiki/Wikipedia:Administratores\"&gt;administrator&lt;/a&gt; pro discuter le blocada.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalisar tu barra de utensiles</string>
   <string name="error_blocked_footer_no_blocker">Tu pote contactar un &lt;a href=\"https://ia.wikipedia.org/wiki/Wikipedia:Administratores\"&gt;administrator&lt;/a&gt; pro discuter le blocada.</string>
+  <string name="temp_account_not_logged_in">Tu non ha aperite session</string>
+  <string name="temp_account_anon_dialog_body">Quando tu face un modification, un &lt;b&gt;conto temporari&lt;/b&gt; te essera create pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Lege plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Aperi session&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;crea un conto&lt;/a&gt; pro reciper credito pro futur modificationes e acceder a altere functiones.</string>
+  <string name="temp_account_temp_dialog_body">Tu modification essera attribuite a %1$s. Tu adresse IP essera visibile al administratores.&lt;br /&gt;&lt;br /&gt;Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt; oor &lt;a href=\"https://#login\"&gt;crea un conto&lt;/a&gt;, tu modificationes essera attribuite a un nomine que tu elige, inter altere beneficios.</string>
+  <string name="temp_account_dialog_ok">Comprendite</string>
+  <string name="temp_account_using_title">Tu usa un conto temporari</string>
+  <string name="temp_account_dialog_discard">Abandonar cambiamentos e aperir session</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Le conto temporari %1$s ha essite create post le publication de tu modification. Illo expirara in %2$d die.</item>
+    <item quantity="other">Le conto temporari %1$s ha essite create post le publication de tu modification. Illo expirara in %2$d dies.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Le conto expirara in %d die.</item>
+    <item quantity="other">Le conto expirara in %d dies.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Tu non ha aperite session.&lt;/b&gt; Un vice que tu apporta un modification, un conto temporari essera create pro te pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Tu usa un conto temporari.&lt;/b&gt; Tu modification essera attribuite a %1$s. &lt;a href=\"%2$s\"&gt;Leger plus&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Tu usa in iste momento un conto temporari.&lt;/b&gt; Le modificationes apportate con le conto temporari %1$s non essera transferite a tu conto permanente quando tu aperi session. Aperi session o crea un conto pro reciper attribution a tu nomine de usator, inter altere beneficios.</string>
+  <string name="temp_account_end_session">Clauder session</string>
+  <string name="temp_account_end_session_confirm">Isto te disconnectera de tu conto temporari. Vole tu continuar?</string>
   <string name="crash_report_activity_title">Error del application</string>
   <string name="crash_report_relaunch_or_quit">Regrettabilemente, le application Wikipedia ha incontrate un error e se ha terminate.\n\nVole tu reinitiar o quitar?</string>
   <string name="crash_report_relaunch">Reinitiar</string>
@@ -802,6 +834,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancellar</string>
   <string name="feed_accessibility_card_text">Tu ha attingite le fin del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar plus</string>
+  <string name="feed_language_variants_removal_dialog_title">Selige un variante linguistic regional pro un experientia de lectura melior</string>
+  <string name="feed_language_variants_removal_dialog_message">Tu usa al momento un variante generic del lingua chinese non supportate como lingua principal de Wikipedia</string>
+  <string name="feed_language_variants_removal_dialog_save">Salveguardar</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Per favor actualisa tu linguas secundari</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Tu usa al momento un variante generic del lingua chinese non supportate como lingua secundari. Per favor visita tu parametros pro seliger un nove lingua secundari o pro confirmar tu lista de linguas.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Ir al parametros</string>
   <string name="top_read_activity_title">Le plus legite del %s</string>
   <string name="tabs_activity_title">Schedas</string>
   <string name="description_edit_text_hint">Description del articulo</string>
@@ -830,8 +868,8 @@
   <string name="description_edit_voice_input_description">Entrata vocal</string>
   <string name="description_edit_learn_more">Leger plus sur le descriptiones de articulos</string>
   <string name="description_edit_image_caption_learn_more">Leger plus sur le legendas de imagines</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Le texto es troppo curte.</string>
   <string name="description_ends_with_punctuation">Le texto non debe terminar per un signo de punctuation.</string>
   <string name="description_starts_with_uppercase">Comencia con un littera minuscule, excepte si le prime parola es un nomine proprie.</string>
@@ -1052,8 +1090,8 @@
   <string name="image_recommendation_accept">Si</string>
   <string name="image_recommendation_reject">No</string>
   <string name="image_recommendation_notsure">Non secur</string>
-  <string name="image_recommendation_reject_title">Proque non?</string>
-  <string name="image_recommendation_reject_subtitle">Tu responsas meliora futur suggestiones.</string>
+  <string name="image_recommendation_reject_title">Motivo del rejection</string>
+  <string name="image_recommendation_reject_subtitle">Le motivo del rejection es anonyme e adjuta a meliorar futur suggestiones de imagines.</string>
   <string name="image_recommendation_reject_not_relevant">Imagine non es relevante</string>
   <string name="image_recommendation_reject_no_info">Non bastante information pro decider</string>
   <string name="image_recommendation_reject_offensive">Imagine es offensive</string>
@@ -1100,6 +1138,8 @@
   <string name="onboarding_explore_text">Immerge te in le mundo de Wikipedia con un canal Explorar continuemente actualisate.&lt;br/&gt; &lt;b&gt;Personalisa&lt;/b&gt; le canal secundo tu interesses: apprende eventos historic con &lt;b&gt;Sur iste die&lt;/b&gt; o jecta le datos con &lt;b&gt;Aleatori&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Tu pote facer listas de lectura de articulos que tu vole leger plus tarde, mesmo quando tu es disconnectite. &lt;br/&gt;Aperi session in tu conto de Wikipedia pro synchronisar tu listas de lectura. &lt;a href=\"#login\"&gt;Crear un conto sur Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Datos e vita private</string>
+  <string name="onboarding_data_privacy_text">Nos crede que non debe esser necessari fornir information personal pro participar in le movimento de cognoscentia libere. Le datos de uso colligite pro iste application es anonyme. Lege plus sur nostre &lt;a href=\"#privacy\"&gt;politica de confidentialitate&lt;/a&gt; e &lt;a href=\"#termsOfUse\"&gt;conditiones de uso&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Inviar datos de uso</string>
   <string name="onboarding_got_it">Comprendite</string>
   <string name="onboarding_multilingual_secondary_text">Nos ha trovate lo sequente sur tu apparato:</string>
@@ -1201,6 +1241,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Altitude</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Inserer</string>
+  <string name="templates_search_hint">Cercar patronos</string>
+  <string name="templates_insert_button">Inserer</string>
+  <string name="templates_param_suggested_value">p.ex. %s</string>
+  <string name="templates_param_optional_hint">%s (optional)</string>
+  <string name="templates_param_suggested_hint">%s (suggerite)</string>
+  <string name="templates_learn_more_link">Leger plus</string>
+  <string name="templates_description_incomplete">Le patronos es generate per usatores e pote non haber descriptiones complete.</string>
+  <string name="templates_description_empty">Le patrono “%s” non ha ancora un description.</string>
+  <string name="templates_description_missing_data">Iste patrono non ha &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; e su parametros ha essite &lt;a href=\"%2$s\"&gt;generate automaticamente&lt;/a&gt;. Como resultato, le patrono e su parametros non ha descriptiones.</string>
   <string name="main_drawer_help">Adjuta</string>
   <string name="main_drawer_login">Aperir session / crear conto sur Wikipedia</string>
   <string name="main_tooltip_text">Salute %s, sapeva tu que omnes pote modificar Wikipedia?</string>
@@ -1224,10 +1273,10 @@
   <string name="talk_warn_save_dialog_hint">Titulo del message</string>
   <string name="talk_warn_save_dialog_publish">Publicar</string>
   <string name="talk_warn_save_dialog_cancel">Cancellar</string>
+  <string name="talk_warn_save_dialog_dont_save">Non salveguardar</string>
   <string name="talk_warn_submitted">Message publicate sur le pagina de discussion del contributor</string>
   <string name="talk_warn_submitted_and_saved">Message salveguardate e publicate sur le pagina de discussion de usator del contributor</string>
-  <string name="talk_warn_saved_message">Selige un message de advertimento existente o compone un nove message.</string>
-  <string name="talk_warn_saved_message_dropdown">Messages salveguardate</string>
+  <string name="talk_warn_saved_messages">Messages salveguardate</string>
   <string name="talk_page_empty">Iste pagina de discussion es vacue.</string>
   <string name="talk_page_empty_title">Le conversation comencia hic</string>
   <string name="talk_page_empty_content">Le paginas de discussion es ubi le gente discute como facer le contento de Wikipedia le melior que pote esser. Adde un nove topico de discussion pro connecter te e collaborar con un communitate de wikipedianos.</string>
@@ -1238,6 +1287,7 @@
   <string name="talk_message_hint">Componer message</string>
   <string name="talk_message_empty">Le message non pote esser vacue.</string>
   <string name="talk_subject_empty">Le subjecto non pote esser vacue.</string>
+  <string name="talk_subject_duplicate">Le nomine de subjecto ja existe. Proba un altere.</string>
   <string name="talk_response_submitted">Responsa publicate.</string>
   <string name="talk_snackbar_undo">Disfacer</string>
   <string name="talk_last_modified">&lt;b&gt;Ultime modification %1$s&lt;/b&gt; per %2$s</string>
@@ -1419,6 +1469,8 @@
   <string name="media_playback_error">Error de reproduction multimedial.</string>
   <string name="user_contrib_menu_label">Contributiones</string>
   <string name="user_contrib_filter_activity_title">Filtrar contributiones</string>
+  <string name="action_item_view_on_map">Vider sur carta</string>
+  <string name="action_item_view_on_map_unavailable">Le coordinatas geographic non es disponibile pro iste pagina</string>
   <string name="shareable_reading_lists_import_dialog_title">Importar lista de lectura condividite</string>
   <string name="shareable_reading_lists_import_dialog_content">Como vole tu nominar le lista de lectura que ha essite condividite con te?</string>
   <string name="shareable_reading_lists_new_indicator">*nove*</string>
@@ -1431,10 +1483,8 @@
   <string name="reading_list_share_message_v2">Salute! Io vole condivider mi lista de lectura de Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Poterea tu adjutar nos a meliorar \"Condivider listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Condivider listas de lectura\" es un function in test e nos ha besonio de tu retroaction pro meliorar o remover lo.</string>
-  <string name="talk_templates_manage_title">Gerer patronos</string>
-  <string name="talk_templates_empty_message">Tu non ha messages de advertimento salveguardate.</string>
+  <string name="talk_templates_empty_message">Crea tu proprie messages o usa le &lt;a href=\"#\"&gt;messages de exemplo&lt;/a&gt; pro comenciar.</string>
   <string name="talk_templates_new_message_title">Nove message</string>
-  <string name="talk_templates_new_message_description">Componer message de advertimento.</string>
   <string name="talk_templates_new_message_subject_hint">Subjecto</string>
   <string name="talk_templates_new_message_compose_hint">Componer message</string>
   <string name="talk_templates_new_message_save">Salveguardar</string>
@@ -1459,7 +1509,8 @@
     <item quantity="other">Le messages ha essite delite</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Le titulo non pote esser vacue.</string>
-  <string name="patroller_tasks_edits_list_title">Lista de modificationes</string>
+  <string name="talk_templates_your_messages_tab_title">Tu messages</string>
+  <string name="talk_templates_example_messages_tab_title">Messages de exemplo</string>
   <string name="patroller_tasks_edits_list_search_hint">Cercar o filtrar modificationes</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiquettas: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Necun</string>
@@ -1519,7 +1570,6 @@
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patruliar modification</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historia de modificationes del articulo</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Reversion succedite</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Es tu secur de voler revocar?</string>
@@ -1534,8 +1584,8 @@
   <string name="patroller_onboarding_two_thank_content">Vide tu un modification productive? Regratia le autor de illo pro su contribution.</string>
   <string name="patroller_onboarding_two_watch_title">Observar</string>
   <string name="patroller_onboarding_two_watch_content">Vole traciar le modificationes de un articulo? Adde lo a tu Observatorio. Iste se trova sub ‘Plus’.</string>
-  <string name="patroller_onboarding_two_warn_title">Advertir</string>
-  <string name="patroller_onboarding_two_warn_content">Crear, inviar e immagazinar messages de advertimento sur le pagina de discussion de un redactor.</string>
+  <string name="patroller_onboarding_two_talk_title">Discussion</string>
+  <string name="patroller_onboarding_two_talk_content">Communicar con altere redactores. Salveguardar messages de pagina de discussion frequentemente usate o usar un patrono.</string>
   <string name="patroller_onboarding_two_undo_title">Disfacer/Revocar</string>
   <string name="patroller_onboarding_two_undo_content">Elige ‘Disfacer’ pro disfacer o revocar un modification potentialmente destructive.</string>
   <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>
@@ -1546,10 +1596,34 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non satisfacite</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Como pote nos meliorar le function?</string>
+  <string name="patroller_diff_menu_edit_history_title">Historia de modificationes del articulo</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentario</string>
   <string name="patroller_diff_feedback_dialog_submit">Submitter</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Commentario submittite.</string>
   <string name="patroller_diff_feedback_tooltip">Pro inviar commentarios, tocca sur le menu de disbordamento sub ‘Problema con function’.</string>
+  <string name="patroller_saved_message_title_vandalism">Advertimento de vandalismo</string>
+  <string name="patroller_saved_message_title_editing_tests">Tests de modification</string>
+  <string name="patroller_saved_message_title_npov">Puncto de vista neutral</string>
+  <string name="patroller_saved_message_title_auto_trans">Traduction automatic</string>
+  <string name="patroller_saved_message_title_coi_rem">Rememoration sur conflictos de interesse</string>
+  <string name="patroller_saved_message_title_final_warning">Ultime advertimento</string>
+  <string name="patroller_saved_message_title_copy_vio">Alerta sur le violation del derecto de autor</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Lassar un summario de modification</string>
+  <string name="patroller_saved_message_title_do_not_censor">Non censurar</string>
+  <string name="patroller_saved_message_title_art_imp">Suggestion de melioration de articulo</string>
+  <string name="patroller_saved_message_body_vandalism">Salute {{{username}}}, isto es pro informar te que io ha revertite un o plus de tu [{{{diffLink}}}|contributiones recente] perque illos non pare constructive. Si tu pensa que io ha committite un error o si tu ha questiones, tu pote lassar me un message sur [[User talk:{{{senderUserName}}}|mi pagina de discussion]]. Per favor nota que le vandalismo continue pote resultar in restrictiones.</string>
+  <string name="patroller_saved_message_body_editing_tests">Salute {{{username}}}, me gaude que Wikipedia ha attrahite tu attention e que tu te ha interessate a apprender como modificar lo. Le test de modification que tu ha facite ha functionate; nonobstante, per favor tene in mente que le objectivo de iste projecto es disveloppar un encyclopedia complete e digne de fide que tote le mundo pote consultar. Tu modification ha affectate le contento e dunque illo ha essite removite.\nSi tu vole apprender a modificar Wikipedia, le [[Wikipedia:Sandbox|sabliera]] es a tu disposition. Si tu commentos ha essite specific a un articulo, le loco correcte es le pagina de discussion de ille articulo.</string>
+  <string name="patroller_saved_message_body_npov">Salute {{{username}}}, certe contributiones que tu ha apportate non satisface le criterios de neutralitate exigite per le politica de [[Wikipedia:NPOV|puncto de vista neutral]] de iste Wikipedia. Pro iste ration, alcun contento ha essite modificate o removite. Per favor modifica le paragraphos o sectiones que monstra un puncto de vista partial, reimplaciante los con un texto plus neutral e objective de accordo con lo que se expecta in un encyclopedia.</string>
+  <string name="patroller_saved_message_body_auto_trans">Salute {{{username}}}, certe contributiones que tu ha apportate pote esser traductiones machinal. Pro iste ration, illos ha essite modificate o marcate con un patrono. Si necun melioration se apporta al articulo, illo pote esser delite.\n\nSi, malgrado iste information, tu totevia ha questiones, senti te libere de lassar un message sur [[User talk:{{{senderUserName}}}|mi pagina de discussion]]. Non sia discoragiate per iste micre incidente. Tu contributiones es multo importante pro Wikipedia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Salute {{{username}}}, io apprecia tu collaboration sur Wikipedia; nonobstante, io ha notate que tu es in un [[Wikipedia:Conflict_of_interest|conflicto de interesse]]. Un conflicto de interesse es le incompatibilitate inter le objectivos de neutralitate e confidibilitate de Wikipedia e le particular objectivos de certe redactores, individuos, entitates, o companias de qualcunque typo.\n\nTote contributiones in le spatio principal es subjecte al politicas del criterios de contento de iste Wikipedia ([[Wikipedia:What_Wikipedia_is_not|Lo que Wikipedia non es]]), de qualitate encyclopedic ([[Wikipedia:Verifiability|Verificabilitate]] e [[Wikipedia:No_original_research|Nulle recerca original]]), de methodo redactorial ([[Wikipedia:Neutral_point_of_view|Puncto de vista neutral]]), e de legitimitate del contento ([[Wikipedia:Copyrights|Derecto de autor]]). Es expectate que tote le redactores se conforma a iste politicas durante le creation e evalutation de contento e que illes respecta e presume le bon fide in le actiones de altere redactores pro assecurar que iste politicas es sequite.\n\nSi tu modifica sub un conflicto de interesse, tu debe applicar le politica correspondente con un cura special; alteremente, tu conto de usator pote esser considerate como essente a fines private e dunque blocate. Non hesita a contactar me sur mi pagina de discussion si tu ha questiones.</string>
+  <string name="patroller_saved_message_body_final_warning">Perque tu ha apportate plure modificationes destructive, isto servira como tu ultime advertimento. Si tu vandalisa Wikipedia un altere vice, tu essera bannite de modificar.</string>
+  <string name="patroller_saved_message_body_copy_vio">Tu modification recente pare includer material protegite per le derecto de autor sin permission. Per favor assecura te que omne contento se conforme con le politicas de [[Wikipedia:Copyrights|derecto de autor]] de iste Wikipedia pro evitar su remotion.</string>
+  <string name="patroller_saved_message_body_edit_summary">Salute {{{username}}}, il pare que tu ha removite contento de Wikipedia sin fornir un summario de modification. Per favor, lassa un summario de modification quando tu adde o remove contento a Wikipedia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Salute {{{username}}}, il pare que tu ha removite contento sin discuter lo sur le pagina de discussion del articulo. Per favor, nota que Wikipedia non es censurate, e contento non debe esser removite perque illo es controversial. Si tu crede que le information es inexacte, per favor, arriva a un consenso sur le pagina de discussion del articulo.</string>
+  <string name="talk_warn_learn_more_label">Leger plus sur le messages de substitution</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Usa un message de exemplo hic infra pro personalisar, inviar e salveguardar in tu messages.</string>
+  <string name="patroller_saved_message_body_art_imp">Salute {{{username}}}. Tu articulo es un bon initio! Pro facer lo ancora melior, considera adder plus referentias a fontes digne de fide. Isto adjuta a verificar le information e meliora le qualitate del articulo. Consulta le directivas de iste Wikipedia sur [[Wikipedia:Reliable_sources|fontes digne de fide]] pro plus detalios.</string>
+  <string name="talk_templates_menu_edit_title">Modificar</string>
   <string name="data_opt_in_accept">Acceptar</string>
   <string name="data_opt_in_reject">Rejectar</string>
   <string name="page_issues_title">Problemas con le pagina</string>
@@ -1562,4 +1636,34 @@
   <string name="donation_campaign_donated_snackbar">Gratias, car donator! Tu generositate adjuta Wikipedia e su sitos fratres a prosperar.</string>
   <string name="donation_campaign_go_back_button">Retornar</string>
   <string name="menu_single_webview_open_external">Aperir in le navigator del systema</string>
+  <string name="donate_gpay_dialog_title">Donar con Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Dona con Google Pay o elige un altere methodo de pagamento.</string>
+  <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Altere methodo de pagamento</string>
+  <string name="donate_gpay_activity_title">Selige un amonta</string>
+  <string name="donate_gpay_check_transaction_fee">Io vole generosemente adder %s pro coperir le costo del transaction de maniera que vos pote retener 100%% de mi donation.</string>
+  <string name="donate_gpay_check_recurring">Facer isto un donation mensual recurrente.</string>
+  <string name="donate_gpay_check_send_email">Si, le Fundation Wikimedia pote inviar me un message de e-mail occasional.</string>
+  <string name="donate_gpay_minimum_amount">Per favor selige un amonta (minimo %s)</string>
+  <string name="donate_gpay_maximum_amount">Nos non pote acceptar donationes in excesso de %s per nostre application. Per favor contacta nostre personal de donos major a benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Gratias!&lt;/b&gt; Tu generositate a Wikipedia significa tanto pro nos.</string>
+  <string name="donate_gpay_help_problems">Problemas de donar?</string>
+  <string name="donate_gpay_help_other_ways">Altere modos de donation</string>
+  <string name="donate_gpay_help_faq">Folio a questiones</string>
+  <string name="donate_gpay_help_tax">Information sur le deductibilitate fiscal</string>
+  <string name="places_title">Locos</string>
+  <string name="places_permissions_denied">Le permission de localisation es necessari pro vider tu position sur le carta. Per favor tenta lo de novo.</string>
+  <string name="places_search_hint">Cercar locos</string>
+  <string name="places_filter_title">Filtrar per lingua</string>
+  <string name="places_toggle_buttons_map">Carta</string>
+  <string name="places_toggle_buttons_list">Lista</string>
+  <string name="places_nav_tab_tooltip_message">Discoperi articulos de Wikipedia circa te con Locos</string>
+  <string name="places_article_menu_tooltip_message">Tocca ‘Vider sur carta’ pro explorar le loco de iste articulo</string>
+  <string name="places_survey_very_satisfied_option">Multo satisfacite</string>
+  <string name="places_survey_very_unsatisfied_option">Multo insatisfacite</string>
+  <string name="places_survey_dialog_title">Adjuta a meliorar ‘Locos’</string>
+  <string name="places_survey_feedback_dialog_title">Como pote ‘Locos’ esser meliorate?</string>
+  <string name="places_survey_dialog_cancel">Cancellar</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Que vole tu que nos cambia o meliora?</string>
+  <string name="places_empty_list">Iste area es vacue. Face zoom retro sur &lt;a href=\"#\"&gt;le carta&lt;/a&gt;.</string>
 </resources>

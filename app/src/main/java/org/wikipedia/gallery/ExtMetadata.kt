@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Suppress("unused")
 @Parcelize
 @Serializable
 class ExtMetadata(
@@ -33,18 +34,6 @@ class ExtMetadata(
 
     fun imageDescription(): String {
         return imageDescription?.value.orEmpty()
-    }
-
-    fun imageDescriptionSource(): String {
-        return imageDescription?.source.orEmpty()
-    }
-
-    fun objectName(): String {
-        return objectName?.value.orEmpty()
-    }
-
-    fun usageTerms(): String {
-        return usageTerms?.value.orEmpty()
     }
 
     fun dateTime(): String {

@@ -37,7 +37,7 @@ class ThemeFittingRoomFragment : Fragment() {
 
     private fun updateTextSize() {
         val titleMultiplier = 1.6f
-        val fontSize = WikipediaApp.instance.getFontSize(requireActivity().window)
+        val fontSize = WikipediaApp.instance.getFontSize()
         binding.themeTestText.textSize = fontSize
         binding.themeTestTitle.textSize = fontSize * titleMultiplier
     }

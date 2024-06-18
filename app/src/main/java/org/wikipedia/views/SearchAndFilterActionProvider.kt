@@ -20,7 +20,7 @@ class SearchAndFilterActionProvider(context: Context,
 
     interface Callback {
         fun onQueryTextChange(s: String)
-        fun onQueryTextFocusChange()
+        fun onQueryTextFocusChange() {}
         fun onFilterIconClick()
         fun getExcludedFilterCount(): Int
         fun getFilterIconContentDescription(): Int
@@ -58,7 +58,7 @@ class SearchAndFilterActionProvider(context: Context,
             callback.onFilterIconClick()
         }
         binding.filterIcon.contentDescription = context.getString(callback.getFilterIconContentDescription())
-        FeedbackUtil.setButtonLongPressToast(binding.filterIcon)
+        FeedbackUtil.setButtonTooltip(binding.filterIcon)
 
         // remove focus line from search plate
         binding.searchInput.findViewById<View?>(androidx.appcompat.R.id.search_plate)?.setBackgroundColor(Color.TRANSPARENT)

@@ -24,6 +24,7 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
@@ -224,17 +225,9 @@ class TalkTopicActivity : BaseActivity() {
     private inner class SearchCallback : SearchActionModeCallback() {
         var searchActionProvider: SearchActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchActionProvider = SearchActionProvider(this@TalkTopicActivity, searchHintString,
-                object : SearchActionProvider.Callback {
-                    override fun onQueryTextChange(s: String) {
-                        onQueryChange(s)
-                    }
+            searchActionProvider = SearchActionProvider(this@TalkTopicActivity, getSearchHintString()) { onQueryChange(it) }
 
-                    override fun onQueryTextFocusChange() {
-                    }
-                })
-
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
             searchActionProvider?.setQueryText(viewModel.currentSearchQuery)
@@ -407,7 +400,7 @@ class TalkTopicActivity : BaseActivity() {
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-            // TODO
+            startActivity(ArticleEditDetailsActivity.newIntent(this@TalkTopicActivity, title, revisionId))
         }
 
         override lateinit var wikiSite: WikiSite

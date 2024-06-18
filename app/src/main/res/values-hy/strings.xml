@@ -327,6 +327,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Լավ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="feed_language_variants_removal_dialog_save">Հիշել</string>
   <string name="description_edit_article_description_label">Հոդված</string>
   <string name="description_edit_add_caption_label">Պատկերի նկարագրություն</string>
   <string name="description_edit_add_caption_hint">Պատկերի նկարագրություն</string>
