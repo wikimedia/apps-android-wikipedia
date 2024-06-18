@@ -4,14 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
-import android.graphics.Rect
-import android.graphics.RectF
+import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.location.Location
 import android.os.Bundle
@@ -27,9 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
+import androidx.core.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,12 +43,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import com.mapbox.mapboxsdk.style.expressions.Expression
 import com.mapbox.mapboxsdk.style.expressions.Expression.get
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeColor
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textFont
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.*
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -80,14 +66,7 @@ import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.GeoUtil
-import org.wikipedia.util.Resource
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.TabUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -98,8 +77,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
-    private var statusBarInsets: Insets? = null
-    private var navBarInsets: Insets? = null
+    private var statusAndNavBarInsets = Insets.NONE
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
@@ -184,28 +162,25 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentPlacesBinding.inflate(inflater, container, false)
 
-        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
-            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
-            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
+            val newStatusBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newNavBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val combinedInsets = Insets.add(newStatusBarInsets, newNavBarInsets)
 
-            var params = binding.controlsContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = newStatusBarInsets.top + newNavBarInsets.top
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
-            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+            binding.controlsContainer.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                setMargins(combinedInsets.left, combinedInsets.top, combinedInsets.right, combinedInsets.bottom)
+            }
+            binding.myLocationButton.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                val sixteenDp = DimenUtil.roundedDpToPx(16f)
+                val newInsets = Insets.add(combinedInsets, Insets.of(sixteenDp, 0, sixteenDp, 0))
+                updateMargins(newInsets.left, right = newInsets.right, bottom = newNavBarInsets.bottom + sixteenDp)
+            }
 
-            params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
-            params.bottomMargin = newNavBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
-            binding.myLocationButton.layoutParams = params
+            statusAndNavBarInsets = combinedInsets
 
-            statusBarInsets = newStatusBarInsets
-            navBarInsets = newNavBarInsets
             WindowInsetsCompat.Builder()
-                .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
-                .build().toWindowInsets() ?: windowInsets
+                .setInsets(WindowInsetsCompat.Type.navigationBars(), newNavBarInsets)
+                .build()
         }
 
         binding.tabsButton.setOnClickListener {
@@ -317,29 +292,22 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 map.setMaxZoomPreference(20.0)
 
                 map.uiSettings.isLogoEnabled = false
-                val defMargin = DimenUtil.roundedDpToPx(16f)
-
-                val navBarLeft = navBarInsets?.left ?: 0
-                val navBarRight = navBarInsets?.right ?: 0
-                val navBarTop = navBarInsets?.top ?: 0
-                val navBarBottom = navBarInsets?.bottom ?: 0
-                val statusBarLeft = statusBarInsets?.left ?: 0
-                val statusBarRight = statusBarInsets?.right ?: 0
-                val statusBarTop = statusBarInsets?.top ?: 0
-                val statusBarBottom = statusBarInsets?.bottom ?: 0
-
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
 
-                map.uiSettings.setCompassMargins(defMargin + navBarLeft + statusBarLeft,
-                    defMargin + navBarTop + statusBarTop + binding.searchContainer.height,
-                    DimenUtil.roundedDpToPx(12f) + navBarRight + statusBarRight, defMargin)
+                val defMargin = DimenUtil.roundedDpToPx(16f)
+                val (combinedLeft, combinedTop) = statusAndNavBarInsets.left to statusAndNavBarInsets.top
+                val (combinedRight, combinedBottom) = statusAndNavBarInsets.right to statusAndNavBarInsets.bottom
+                val newLeftMargin = combinedLeft + defMargin
 
-                map.uiSettings.setAttributionMargins(defMargin + navBarLeft + statusBarLeft,
-                    0, defMargin + navBarRight + statusBarRight,
-                    navBarBottom + statusBarBottom + DimenUtil.roundedDpToPx(36f))
+                map.uiSettings.setCompassMargins(newLeftMargin,
+                    defMargin + combinedTop + binding.searchContainer.height,
+                    DimenUtil.roundedDpToPx(12f) + combinedRight, defMargin)
+
+                map.uiSettings.setAttributionMargins(newLeftMargin, 0, defMargin + combinedRight,
+                    combinedBottom + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
                     mapboxMap?.cameraPosition?.target?.let {
