@@ -18,21 +18,21 @@ import java.util.Date
 @Parcelize
 @TypeParceler<Date, DateParceler>()
 data class PageProperties(
-    val pageId: Int = 0,
-    val namespace: Namespace,
-    val revisionId: Long = 0,
-    val lastModified: Date = Date(),
-    val displayTitle: String = "",
+    var pageId: Int = 0,
+    var namespace: Namespace,
+    var revisionId: Long = 0,
+    var lastModified: Date = Date(),
+    var displayTitle: String = "",
     private var editProtectionStatus: String = "",
-    val isMainPage: Boolean = false,
+    var isMainPage: Boolean = false,
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/.  */
-    val leadImageUrl: String? = null,
-    val leadImageName: String? = null,
-    val leadImageWidth: Int = 0,
-    val leadImageHeight: Int = 0,
+    var leadImageUrl: String? = null,
+    var leadImageName: String? = null,
+    var leadImageWidth: Int = 0,
+    var leadImageHeight: Int = 0,
     val geo: Location? = null,
-    val wikiBaseItem: String? = null,
-    val descriptionSource: String? = null,
+    var wikiBaseItem: String? = null,
+    var descriptionSource: String? = null,
     // FIXME: This is not a true page property, since it depends on current user.
     var canEdit: Boolean = false
 ) : Parcelable {

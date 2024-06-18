@@ -1,11 +1,10 @@
 package org.wikipedia.page
 
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import org.wikipedia.R
+import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
@@ -13,23 +12,14 @@ import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
-import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.history.HistoryEntry
+import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.util.DateUtil
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
-import retrofit2.Response
-import java.time.Instant
-import java.time.LocalDate
-import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
                             private var fragment: PageFragment,
@@ -44,6 +34,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
+
+        // point of no return: null out the current page object.
+        model.page = null
+        model.readingListPage = null
         pageLoad()
     }
 
@@ -124,25 +118,18 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 fragment.updateQuickActionsAndMenuOptions()
                 fragment.requireActivity().invalidateOptionsMenu()
                 fragment.callback()?.onPageUpdateProgressBar(true)
-                model.page = null
-                val delayLoadHtml = title.prefixedText.contains(":")
-                if (!delayLoadHtml) {
-                    bridge.resetHtml(title)
-                }
+
+                // Kick off loading mobile-html contents into the WebView.
+                // The onPageFinished callback, which should be called by the WebView, will signal
+                // the next stage of the loading process.
+                bridge.resetHtml(title)
+
+                // The final step is to fetch the watched status of the page (in the background),
+                // but not if it's a Special page, which can't be watched.
                 if (title.namespace() === Namespace.SPECIAL) {
-                    // Short-circuit the entire process of fetching the Summary, since Special: pages
-                    // are not supported in RestBase.
-                    bridge.resetHtml(title)
-                    leadImagesHandler.loadLeadImage()
-                    fragment.requireActivity().invalidateOptionsMenu()
-                    fragment.onPageMetadataLoaded()
                     return@launch
                 }
 
-                val pageSummaryRequest = async {
-                    ServiceFactory.getRest(title.wikiSite).getSummaryResponseSuspend(title.prefixedText, null, model.cacheControl.toString(),
-                        if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null, title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText))
-                }
                 val watchedRequest = async {
                     if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
                         ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
@@ -153,22 +140,12 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     }
                 }
 
-                val pageSummaryResponse = pageSummaryRequest.await()
                 val watchedResponse = watchedRequest.await()
-                val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
-                val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
-                if (pageSummaryResponse.body() == null) {
-                    throw RuntimeException("Summary response was invalid.")
-                }
-                val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
-                createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
-                if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                    showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                }
-                if (delayLoadHtml) {
-                    bridge.resetHtml(title)
-                }
-                fragment.onPageMetadataLoaded(redirectedFrom)
+                model.isWatched = watchedResponse.query?.firstPage()?.watched ?: false
+                model.hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
+
+                fragment.updateQuickActionsAndMenuOptions()
+                fragment.requireActivity().invalidateOptionsMenu()
 
                 if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                     checkAnonNotifications(title)
@@ -187,59 +164,24 @@ class PageFragmentLoadState(private var model: PageViewModel,
         }
     }
 
-    private fun showPageOfflineMessage(dateHeader: Instant?) {
-        if (!fragment.isAdded || dateHeader == null) {
-            return
-        }
-        val localDate = LocalDate.ofInstant(dateHeader, ZoneId.systemDefault())
-        val dateStr = DateUtil.getShortDateString(localDate)
-        Toast.makeText(fragment.requireContext().applicationContext,
-            fragment.getString(R.string.page_offline_notice_last_date, dateStr),
-            Toast.LENGTH_LONG).show()
+    @Serializable
+    class JsPageMetadata {
+        val pageId: Int = 0
+        val ns: Int = 0
+        val revision: Long = 0
+        val title: String = ""
+        val timeStamp: String = ""
+        val description: String = ""
+        val descriptionSource: String = ""
+        val wikibaseItem = ""
+        val protection: Protection? = null
+        val leadImage: JsLeadImage? = null
     }
 
-    private fun createPageModel(response: Response<PageSummary>,
-                                isWatched: Boolean,
-                                hasWatchlistExpiry: Boolean) {
-        if (!fragment.isAdded || response.body() == null) {
-            return
-        }
-        val pageSummary = response.body()
-        val page = pageSummary?.toPage(model.title!!)
-        model.page = page
-        model.isWatched = isWatched
-        model.hasWatchlistExpiry = hasWatchlistExpiry
-        model.title = page?.title
-        model.title?.let { title ->
-            if (!response.raw().request.url.fragment.isNullOrEmpty()) {
-                title.fragment = response.raw().request.url.fragment
-            }
-            if (title.description.isNullOrEmpty()) {
-                WikipediaApp.instance.appSessionEvent.noDescription()
-            }
-            if (!title.isMainPage) {
-                title.displayText = page?.displayTitle.orEmpty()
-            }
-            leadImagesHandler.loadLeadImage()
-            fragment.requireActivity().invalidateOptionsMenu()
-
-            // Update our history entry, in case the Title was changed (i.e. normalized)
-            model.curEntry?.let {
-                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp).apply {
-                    referrer = it.referrer
-                }
-            }
-
-            // Update our tab list to prevent ZH variants issue.
-            WikipediaApp.instance.tabList.getOrNull(WikipediaApp.instance.tabCount - 1)?.setBackStackPositionTitle(title)
-
-            // Save the thumbnail URL to the DB
-            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-
-            fragment.lifecycleScope.launch {
-                AppDatabase.instance.pageImagesDao().insertPageImage(pageImage)
-            }
-            title.thumbUrl = pageImage.imageName
-        }
+    @Serializable
+    class JsLeadImage {
+        val source: String = ""
+        val width: Int = 0
+        val height: Int = 0
     }
 }

@@ -50,12 +50,26 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.getTableOfContents()"
     }
 
-    fun getProtection(): String {
-        return "pcs.c1.Page.getProtection()"
-    }
-
-    fun getRevision(): String {
-        return "pcs.c1.Page.getRevision();"
+    fun requestMetadata(): String {
+        return "var metadata = {};" +
+                "metadata.revision = parseInt(pcs.c1.Page.getRevision());" +
+                "metadata.leadImage = pcs.c1.Page.getLeadImage();" +
+                "metadata.protection = pcs.c1.Page.getProtection();" +
+                "var m = document.head.querySelector('meta[property=\"mw:pageId\"]');" +
+                "if (m) metadata.pageId = parseInt(m.getAttribute('content'));" +
+                "m = document.head.querySelector('meta[property=\"mw:pageNamespace\"]');" +
+                "if (m) metadata.pageNamespace = parseInt(m.getAttribute('content'));" +
+                "m = document.head.querySelector('meta[property=\"dc:modified\"]');" +
+                "if (m) metadata.timeStamp = m.getAttribute('content');" +
+                "m = document.head.querySelector('title');" +
+                "if (m) metadata.title = m.textContent;" +
+                "m = document.body.querySelector('#pcs-edit-section-title-description');" +
+                "if (m) {" +
+                "  metadata.description = m.textContent;" +
+                "  metadata.descriptionSource = m.getAttribute('data-description-source');" +
+                "  metadata.wikibaseItem = m.getAttribute('data-wikdata-entity-id');" +
+                "}" +
+                "metadata;"
     }
 
     fun expandCollapsedTables(expand: Boolean): String {

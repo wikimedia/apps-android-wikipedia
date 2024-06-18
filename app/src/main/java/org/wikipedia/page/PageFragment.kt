@@ -68,6 +68,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentPageBinding
 import org.wikipedia.databinding.GroupFindReferencesInPageBinding
 import org.wikipedia.dataclient.RestService
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.donate.CampaignCollection
@@ -94,6 +95,7 @@ import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -103,8 +105,10 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -118,6 +122,8 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -153,6 +159,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val scrollTriggerListener = WebViewScrollTriggerListener()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
+    private val pageWebViewClient = PageWebViewClient()
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
@@ -197,7 +204,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
-        initWebViewListeners()
+        webView.addOnUpOrCancelMotionEventListener {
+            // update our session, since it's possible for the user to remain on the page for
+            // a long time, and we wouldn't want the session to time out.
+            app.appSessionEvent.touchSession()
+        }
+        webView.addOnContentHeightChangedListener(scrollTriggerListener)
+        webView.webViewClient = pageWebViewClient
         binding.pageRefreshContainer.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
@@ -381,91 +394,159 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 activity.intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)))
     }
 
-    private fun initWebViewListeners() {
-        webView.addOnUpOrCancelMotionEventListener {
-            // update our session, since it's possible for the user to remain on the page for
-            // a long time, and we wouldn't want the session to time out.
-            app.appSessionEvent.touchSession()
+    inner class PageWebViewClient : OkHttpWebViewClient() {
+        override val model get() = this@PageFragment.model
+        override val linkHandler get() = this@PageFragment.linkHandler
+
+        override fun onPageFinished(view: WebView, url: String) {
+            bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
+                if (!isAdded) {
+                    return@evaluateImmediate
+                }
+                // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
+                // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
+                // doesn't support PCS, meaning that we will never receive the `setup` event that
+                // tells us the page is finished loading. In such a case, we must infer that the
+                // page has now loaded and trigger the remaining logic ourselves.
+                if ("true" != pcsExists) {
+                    onPageSetupEvent(false)
+                    bridge.onMetadataReady()
+                    bridge.onPcsReady()
+                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(DimenUtil.roundedPxToDp(((requireActivity() as AppCompatActivity).supportActionBar?.height ?: 0).toFloat()),
+                        DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
+                }
+
+                onPageMetadataLoaded()
+            }
         }
-        webView.addOnContentHeightChangedListener(scrollTriggerListener)
-        webView.webViewClient = object : OkHttpWebViewClient() {
 
-            override val model get() = this@PageFragment.model
-
-            override val linkHandler get() = this@PageFragment.linkHandler
-
-            override fun onPageFinished(view: WebView, url: String) {
-                bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
-                    if (!isAdded) {
-                        return@evaluateImmediate
-                    }
-                    // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
-                    // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
-                    // doesn't support PCS, meaning that we will never receive the `setup` event that
-                    // tells us the page is finished loading. In such a case, we must infer that the
-                    // page has now loaded and trigger the remaining logic ourselves.
-                    if ("true" != pcsExists) {
-                        onPageSetupEvent()
-                        bridge.onMetadataReady()
-                        bridge.onPcsReady()
-                        bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(DimenUtil.roundedPxToDp(((requireActivity() as AppCompatActivity).supportActionBar?.height ?: 0).toFloat()),
-                            DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
-                    }
-                }
+        override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
+            if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
+                // If the request is anything except the main mobile-html content request, then
+                // don't worry about any errors and let the WebView deal with it.
+                return
             }
-
-            override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
-                if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
-                    // If the request is anything except the main mobile-html content request, then
-                    // don't worry about any errors and let the WebView deal with it.
-                    return
-                }
-                onPageLoadError(HttpStatusException(errorResponse.statusCode, request.url.toString(), UriUtil.decodeURL(errorResponse.reasonPhrase)))
-            }
+            onPageLoadError(HttpStatusException(errorResponse.statusCode, request.url.toString(), UriUtil.decodeURL(errorResponse.reasonPhrase)))
         }
     }
 
-    private fun onPageSetupEvent() {
+    private fun onPageSetupEvent(havePcs: Boolean = true) {
         if (!isAdded) {
             return
         }
         updateProgressBar(false)
         webView.visibility = View.VISIBLE
-        bridge.evaluate(JavaScriptActionHandler.getRevision()) { value ->
-            if (!isAdded || value == null || value == "null") {
-                return@evaluate
-            }
-            try {
-                revision = value.replace("\"", "").toLong()
-            } catch (e: Exception) {
-                L.e(e)
-            }
-        }
-        bridge.evaluate(JavaScriptActionHandler.getSections()) { value ->
-            if (!isAdded) {
-                return@evaluate
-            }
-            model.page?.let { page ->
-                sections = JsonUtil.decodeFromString(value)
-                sections?.let { sections ->
-                    sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
-                    page.sections = sections
-                }
 
-                sidePanelHandler.setupForNewPage(page)
-                sidePanelHandler.setEnabled(true)
-                model.isReadMoreLoaded = false
+        if (havePcs) {
+            bridge.evaluateImmediate(JavaScriptActionHandler.requestMetadata()) {
+                if (!isAdded) {
+                    return@evaluateImmediate
+                }
+                JsonUtil.decodeFromString<PageFragmentLoadState.JsPageMetadata>(it)?.let { metadata ->
+                    createPageModel(metadata)
+                }
+            }
+
+            bridge.evaluate(JavaScriptActionHandler.getSections()) { value ->
+                if (!isAdded) {
+                    return@evaluate
+                }
+                model.page?.let { page ->
+                    sections = JsonUtil.decodeFromString(value)
+                    sections?.let { sections ->
+                        sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
+                        page.sections = sections
+                    }
+
+                    sidePanelHandler.setupForNewPage(page)
+                    sidePanelHandler.setEnabled(true)
+                    model.isReadMoreLoaded = false
+                }
+            }
+        } else {
+            createPageModel(null)
+        }
+    }
+
+    private fun createPageModel(metadata: PageFragmentLoadState.JsPageMetadata?) {
+        if (model.title == null) {
+            return
+        }
+
+        if (pageWebViewClient.lastPageHtmlWasRedirect) {
+            FeedbackUtil.showMessage(requireActivity(), getString(R.string.redirected_from_snackbar,
+                model.title?.displayText), Snackbar.LENGTH_SHORT)
+        }
+
+        var newTitle = model.title!!
+
+        if (metadata != null) {
+            if (metadata.title.isNotEmpty()) {
+                newTitle = PageTitle(model.title!!.prefixedText, model.title!!.wikiSite, model.title!!.thumbUrl)
+                newTitle.displayText = metadata.title
+                newTitle.fragment = title!!.fragment
+            }
+            if (metadata.description.isNotEmpty()) {
+                newTitle.description = metadata.description
             }
         }
-        bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->
-            if (!isAdded) {
-                return@evaluate
-            }
-            model.page?.let { page ->
-                page.pageProperties.protection = JsonUtil.decodeFromString(value)
-                updateQuickActionsAndMenuOptions()
+
+        model.title = newTitle
+        model.page = Page(newTitle, pageProperties = PageProperties(namespace = newTitle.namespace(), displayTitle = newTitle.displayText, isMainPage = newTitle.isMainPage))
+        model.page?.pageProperties?.let {
+            it.isMainPage = model.title!!.isMainPage
+            if (metadata != null) {
+                it.pageId = metadata.pageId
+                it.namespace = Namespace.of(metadata.ns)
+                it.revisionId = metadata.revision
+                it.protection = metadata.protection
+                it.descriptionSource = metadata.descriptionSource
+                if (metadata.timeStamp.isNotEmpty()) {
+                    it.lastModified = DateUtil.iso8601DateParse(metadata.timeStamp)
+                }
+                it.displayTitle = metadata.title
+                it.wikiBaseItem = metadata.wikibaseItem
+                if (metadata.leadImage?.source.isNullOrEmpty()) {
+                    it.leadImageUrl = null
+                    it.leadImageName = null
+                    it.leadImageWidth = 0
+                    it.leadImageHeight = 0
+                } else {
+                    it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(UriUtil.decodeURL(metadata.leadImage?.source.orEmpty()), DimenUtil.calculateLeadImageWidth())
+                    it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
+                    it.leadImageWidth = metadata.leadImage?.width ?: 0
+                    it.leadImageHeight = metadata.leadImage?.height ?: 0
+                }
+                // TODO: get geo location from metadata
+                // it.geo = ...
             }
         }
+
+        model.title?.let {
+            if (it.description.isNullOrEmpty()) {
+                app.appSessionEvent.noDescription()
+            }
+
+            // Update our history entry, in case the Title was changed (i.e. normalized)
+            val curEntry = model.curEntry
+            curEntry?.let { entry ->
+                model.curEntry = HistoryEntry(model.title!!, entry.source, timestamp = entry.timestamp)
+                model.curEntry!!.referrer = entry.referrer
+            }
+
+            // Update our tab list to prevent ZH variants issue.
+            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(it)
+
+            // Save the thumbnail URL to the DB
+            val pageImage = PageImage(it, ImageUrlUtil.getUrlForPreferredSize(page?.pageProperties?.leadImageUrl.orEmpty(), Service.PREFERRED_THUMB_SIZE))
+            it.thumbUrl = pageImage.imageName
+            lifecycleScope.launch {
+                AppDatabase.instance.pageImagesDao().insertPageImage(pageImage)
+            }
+        }
+
+        leadImagesHandler.loadLeadImage()
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun handleInternalLink(title: PageTitle) {
@@ -903,8 +984,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
     }
 
-    fun onPageMetadataLoaded(redirectedFrom: String? = null) {
-        updateQuickActionsAndMenuOptions()
+    fun onPageMetadataLoaded() {
+        updateBookmarkAndMenuOptionsFromDao()
+        binding.pageRefreshContainer.isEnabled = true
+        binding.pageRefreshContainer.isRefreshing = false
+
         if (model.page == null) {
             return
         }
@@ -912,25 +996,23 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent = ArticleInteractionEvent(model.title?.wikiSite?.dbName()!!, pageProperties.pageId)
         }
         editHandler.setPage(model.page)
-        binding.pageRefreshContainer.isEnabled = true
-        binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
-        redirectedFrom?.let {
-            FeedbackUtil.showMessage(requireActivity(), getString(R.string.redirected_from_snackbar, it), Snackbar.LENGTH_SHORT)
-        }
+
         model.readingListPage?.let { page ->
             model.title?.let { title ->
-                disposables.add(Completable.fromAction {
-                    page.thumbUrl.equals(title.thumbUrl, true)
-                    if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
+                if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
+                    disposables.add(Completable.fromAction {
                         AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
-                    }
-                }.subscribeOn(Schedulers.io()).subscribe())
+                    }.subscribeOn(Schedulers.io()).subscribe())
+                }
             }
         }
         if (!errorState) {
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
+        }
+        if (pageWebViewClient.lastPageHtmlOfflineDate != null) {
+            showPageOfflineMessage(pageWebViewClient.lastPageHtmlOfflineDate)
         }
         maybeShowAnnouncement()
         bridge.onMetadataReady()
@@ -1275,6 +1357,15 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
             .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         requireActivity().finish()
+    }
+
+    private fun showPageOfflineMessage(dateHeader: Instant?) {
+        if (!isAdded || dateHeader == null) {
+            return
+        }
+        val localDate = LocalDate.ofInstant(dateHeader, ZoneId.systemDefault())
+        val dateStr = DateUtil.getShortDateString(localDate)
+        FeedbackUtil.showMessage(requireActivity(), getString(R.string.page_offline_notice_last_date, dateStr), Snackbar.LENGTH_SHORT)
     }
 
     private inner class AvCallback : AvPlayer.Callback {

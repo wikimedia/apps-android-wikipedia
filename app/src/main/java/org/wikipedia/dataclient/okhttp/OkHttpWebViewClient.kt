@@ -16,6 +16,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.nio.charset.Charset
+import java.time.Instant
 
 abstract class OkHttpWebViewClient : WebViewClient() {
     /*
@@ -25,6 +26,9 @@ abstract class OkHttpWebViewClient : WebViewClient() {
 
     abstract val model: PageViewModel
     abstract val linkHandler: LinkHandler
+
+    var lastPageHtmlOfflineDate: Instant? = null
+    var lastPageHtmlWasRedirect = false
 
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
         if (model.shouldLoadAsMobileWeb) {
@@ -54,12 +58,13 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         }
         var response: WebResourceResponse
         try {
-            val shouldLogLatency = request.url.encodedPath?.contains(RestService.PAGE_HTML_ENDPOINT) == true
-            if (shouldLogLatency) {
+            val isPageHtmlCall = request.url.encodedPath?.contains(RestService.PAGE_HTML_ENDPOINT) == true
+            if (isPageHtmlCall) {
                 WikipediaApp.instance.appSessionEvent.pageFetchStart()
+                lastPageHtmlOfflineDate = null
             }
             val rsp = request(request)
-            if (rsp.networkResponse != null && shouldLogLatency) {
+            if (rsp.networkResponse != null && isPageHtmlCall) {
                 WikipediaApp.instance.appSessionEvent.pageFetchEnd()
             }
             val contentType = rsp.header(HEADER_CONTENT_TYPE).orEmpty()
@@ -68,6 +73,12 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                 rsp.close()
                 return null
             } else {
+                if (isPageHtmlCall) {
+                    lastPageHtmlWasRedirect = rsp.priorResponse?.isRedirect == true
+                    if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == rsp.headers[OfflineCacheInterceptor.SAVE_HEADER]) {
+                        lastPageHtmlOfflineDate = rsp.headers.getInstant("date")
+                    }
+                }
                 // noinspection ConstantConditions
                 WebResourceResponse(rsp.body!!.contentType()!!.type + "/" + rsp.body!!.contentType()!!.subtype,
                     rsp.body!!.contentType()!!.charset(Charset.defaultCharset())!!.name(),
