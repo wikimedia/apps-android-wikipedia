@@ -173,6 +173,4 @@
   <string name="color_theme_dark">श्यामम्</string>
   <string name="user_option_sync_label">इष्टतमानि</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true"> निःशुल्कः ज्ञानकोशः...प्रायः ३०० भाषासु</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषासम्पादनम्</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">मास्तु, धन्यवादः</string>
 </resources>

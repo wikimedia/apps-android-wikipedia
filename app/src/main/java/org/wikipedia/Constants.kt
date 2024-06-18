@@ -68,7 +68,6 @@ object Constants {
         INTENT_PROCESS_TEXT("intentProcessText"),
         INTENT_SHARE("intentShare"),
         INTENT_UNKNOWN("intentUnknown"),
-        LANG_VARIANT_DIALOG("lang_variant_dialog"),
         LEAD_IMAGE("leadImage"),
         LINK_PREVIEW_MENU("linkPreviewMenu"),
         MOST_READ_ACTIVITY("mostRead"),

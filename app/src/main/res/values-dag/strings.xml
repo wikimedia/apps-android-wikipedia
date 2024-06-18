@@ -1131,10 +1131,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Chɛli kamani zuliya yini ani tooi mali shɛli vihiri karindi lahabaya Wikipedia zuɣu</string>
   <string name="more_language_options">Pahima</string>
   <string name="add_wikipedia_languages_text">Pahami Wikipedia zuɣu bala</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Yihimi Chaanasili niŋsim a app maa bala puuni?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Saha ŋɔ a na malila bini dingbaai Chaanasili kali niŋsim ni din ŋmani li a app maa bala puuni. Maalini a app bala malizali kpatuɣa yaɣili niŋ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Malimi bala niŋ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Aayi, mbo</string>
   <string name="remove_language_dialog_cancel_button_text">Nyahima</string>
   <string name="remove_language_dialog_ok_button_text">Tɔ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Tɔ</string>

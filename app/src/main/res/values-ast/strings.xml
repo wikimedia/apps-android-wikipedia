@@ -772,10 +772,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Dexa polo menos una llingua de Wikipedia pa buscar y lleer el conteníu.</string>
   <string name="more_language_options">más</string>
   <string name="add_wikipedia_languages_text">Añadir idiomes de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">¿Quitar una variante del chinu de los idiomes de l\'aplicación?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora tienes definíos tanto\'l chinu tradicional como\'l simplificáu nos idiomes de l\'aplicación. ¿Anovar la configuración llingüística de la app?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar llingües</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non, gracies</string>
   <string name="remove_language_dialog_cancel_button_text">Zarrar</string>
   <string name="remove_language_dialog_ok_button_text">Aceutar</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Aceutar</string>

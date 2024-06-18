@@ -742,10 +742,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Coinnigh teanga Vicipéide amháin ar a laghad a bhféadfar é a úsáid chun ábhar a chuardach agus a léamh.</string>
   <string name="more_language_options">tuilleadh</string>
   <string name="add_wikipedia_languages_text">Cuir teangacha Vicipéide leis</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Bain leagan den tSínis amach ó do chuid teangacha san aip?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Faoi láthair tá an dá cheann den tSínis Traidisiúnta agus an tSínis Shimplithe socraithe agat i do chuid teangacha san aip. Nuashonraigh do chuid socruithe teangacha san aip?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Cuir teangacha in eagar</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ní dhéanfaidh mé é</string>
   <string name="remove_language_dialog_cancel_button_text">Cealaigh</string>
   <string name="remove_language_dialog_ok_button_text">Bain</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Scrios</string>

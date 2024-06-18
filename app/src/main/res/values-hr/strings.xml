@@ -780,10 +780,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Zadržite barem jedan jezik za pretragu i čitanje sadržaja.</string>
   <string name="more_language_options">više</string>
   <string name="add_wikipedia_languages_text">Dodaj jezike Wikipedije</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Želite li ukloniti inačicu kineskog u postavkama jezika?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Trenutačno imate i tradicionalni i pojednostavljeni kineski u jezicima aplikacije. Želite li promijeniti postavke jezika?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Uredi jezike</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, hvala</string>
   <string name="remove_language_dialog_cancel_button_text">Odustani</string>
   <string name="remove_language_dialog_ok_button_text">U redu</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">U redu</string>

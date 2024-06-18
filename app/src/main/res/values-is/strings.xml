@@ -1136,10 +1136,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Haltu að minnsta kosti einu Wikipedia-tungumáli til að leita að og lesa efni.</string>
   <string name="more_language_options">meira</string>
   <string name="add_wikipedia_languages_text">Bæta við Wikipedia-tungumálum</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Fjarlægja tilbrigði kínversku úr tungumálum forritsins?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Þú ert núna með bæði hefðbundna og einfalda kínversku í tungumálum forritsins. Á að uppfæra tungumálastillingar þess?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Breyta tungumálum</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nei, takk</string>
   <string name="remove_language_dialog_cancel_button_text">Hætta við</string>
   <string name="remove_language_dialog_ok_button_text">Í lagi</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Í lagi</string>

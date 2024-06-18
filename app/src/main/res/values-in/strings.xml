@@ -1139,10 +1139,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Buat setidaknya satu bahasa Wikipedia yang dapat digunakan untuk mencari dan membaca konten.</string>
   <string name="more_language_options">lainnya</string>
   <string name="add_wikipedia_languages_text">Tambah bahasa Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Hapus varian Tionghoa dari bahasa aplikasi Anda?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Saat ini Anda memiliki varian bahasa Tionghoa Tradisional dan Sederhana yang disetel dalam bahasa aplikasi Anda. Perbarui pengaturan bahasa aplikasi Anda?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sunting bahasa</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Tidak, terima kasih</string>
   <string name="remove_language_dialog_cancel_button_text">Batal</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

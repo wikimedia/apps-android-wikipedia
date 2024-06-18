@@ -368,7 +368,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">ទុកយ៉ាងហោចណាស់មួយភាសាវិគីភីឌាសម្រាប់ស្វែងរកនិងអាចខ្លឹមសារអត្ថបទ។</string>
   <string name="more_language_options">បន្ថែមទៀត</string>
   <string name="add_wikipedia_languages_text">បន្ថែមភាសាវិគីភីឌា</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ទេ, អរគុណហើយ</string>
   <string name="edit_type_all">វិភាគទានទាំងអស់</string>
   <string name="main_drawer_help">ជំនួយ</string>
   <string name="main_drawer_login">កត់ឈ្មោះចូល / ចូលរួមជាមួយវិគីភីឌា</string>

@@ -1238,10 +1238,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Ohranite vsaj en jezik Wikipedije, v katerem lahko pregledujete in berete vsebino.</string>
   <string name="more_language_options">več</string>
   <string name="add_wikipedia_languages_text">Dodaj jezike Wikipedije</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Želite med jeziki aplikacije odstraniti različico kitajščine?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Trenutno imate med jeziki aplikacije tradicionalno in poenostavljeno različico kitajščine. Želite jezikovne nastavitve posodobiti?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Uredi jezike</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, hvala</string>
   <string name="remove_language_dialog_cancel_button_text">Prekliči</string>
   <string name="remove_language_dialog_ok_button_text">V redu</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">V redu</string>

@@ -1017,10 +1017,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">لایەنی کەم یەک زنامی ویکیپیدیا بھێڵەرەوە تاکوو لەڕێیەوە بتوانیت ناوەڕۆک بخوێنیتەوە و پێیدا بگەڕێیت.</string>
   <string name="more_language_options">زیاتر</string>
   <string name="add_wikipedia_languages_text">زیادکردنی زمانەکانی ویکیپیدیا</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">جۆرێکی چینی لە زمانەکانی بەرنامەکەتدا لادەبەیت؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">لە ئێستادا هەردوو جۆری دێرین و ئاسانکراوی زمانی چینیت بە زمانی بەرنامەکانت داندراوە. ڕێکخستنەکانی زمانەکانی بەرنامەکەت نوێ دەکەیتەوە؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">دەستکاریکردنی زمانەکان</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نا سپاس</string>
   <string name="remove_language_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>
   <string name="remove_language_dialog_ok_button_text">باشە</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">باشە</string>

@@ -613,7 +613,6 @@
   <string name="wikipedia_languages_your_languages_text">Sizin dilləriniz</string>
   <string name="wikipedia_languages_add_language_text">Dil əlavə et</string>
   <string name="wikipedia_languages_remove_text">Dili sil</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Yox, təşəkkür</string>
   <string name="remove_language_dialog_cancel_button_text">İmtina</string>
   <string name="edit_type_all">Bütün töhfələr</string>
   <string name="wikitext_bold">Qalın</string>

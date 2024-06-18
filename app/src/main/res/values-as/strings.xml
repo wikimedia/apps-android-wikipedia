@@ -751,8 +751,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">অন্ততঃ এটা ৱিকিপিডিয়া ভাষা ৰাখক যাৰ পৰা বিষয় সন্ধান কৰিব আৰু পঢ়িব পাৰি।</string>
   <string name="more_language_options">অধিক</string>
   <string name="add_wikipedia_languages_text">ৱিকিপিডিয়াৰ ভাষা যোগ কৰক</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষাৰ সালসলনি কৰক</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নালাগে দিয়ক</string>
   <string name="remove_language_dialog_cancel_button_text">বাতিল কৰক</string>
   <string name="remove_language_dialog_ok_button_text">বাৰু</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">বাৰু</string>

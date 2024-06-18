@@ -241,8 +241,6 @@
   <string name="wikipedia_languages_remove_action_mode_title">لاوردن زوان</string>
   <string name="more_language_options">فێشتر</string>
   <string name="add_wikipedia_languages_text">ئزافەکردن زوانەیل ویکیپیدیا</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">دەسکاریکردن زوانەیل</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نە سپاس</string>
   <string name="remove_language_dialog_cancel_button_text">هەڵوەشاننەوە</string>
   <string name="remove_language_dialog_ok_button_text">باشە</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">باشە</string>

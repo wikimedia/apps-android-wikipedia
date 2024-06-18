@@ -1185,10 +1185,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Pidä vähintään yksi Wikipedian kieli jolla hakea ja lukea sisältöä.</string>
   <string name="more_language_options">lisää</string>
   <string name="add_wikipedia_languages_text">Lisää Wikipedia-kieliä</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Poista kiinan kielen muoto sovelluksen kielistä?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Sinulla on tällä hetkellä valittuna sekä perinteisen että yksinkertaistetun kiinan muotoja. Haluatko päivittää kieliasetuksiasi?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Muokkaa kieliä</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ei kiitos</string>
   <string name="remove_language_dialog_cancel_button_text">Peruuta</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

@@ -1037,10 +1037,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставете поне един език на Уикипедия, на който да търсите и да четете съдържание.</string>
   <string name="more_language_options">още</string>
   <string name="add_wikipedia_languages_text">Добавяне на езици на Уикипедия</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Премахване на китайски вариант от езиците на приложението Ви?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Към момента имате както традиционен, така и опростен китайски вариант в езиците на приложението. Промяна на езиковите Ви настройки на приложението?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактиране на езици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодаря</string>
   <string name="remove_language_dialog_cancel_button_text">Отказ</string>
   <string name="remove_language_dialog_ok_button_text">Добре</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Добре</string>

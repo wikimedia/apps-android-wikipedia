@@ -492,8 +492,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">വായിക്കുവാനും തിരയുവാനും ഒരു വിക്കിപീഡിയ ഭാഷയെങ്കിലും നിലനിർത്തുക.</string>
   <string name="more_language_options">കൂടുതൽ</string>
   <string name="add_wikipedia_languages_text">വിക്കിപീഡിയ ഭാഷകൾ ചേർക്കുക</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ഭാഷകൾ തിരുത്തുക</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">വേണ്ട, നന്ദി</string>
   <string name="remove_language_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="remove_language_dialog_ok_button_text">ശരി</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ശരി</string>
