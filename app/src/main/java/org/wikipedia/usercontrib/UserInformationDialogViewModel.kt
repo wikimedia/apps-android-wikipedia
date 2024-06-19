@@ -15,10 +15,6 @@ import java.util.*
 
 class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
 
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = Resource.Error(throwable)
-    }
-
     var userName: String = bundle.getString(UserInformationDialog.USERNAME_ARG)!!
 
     private val _uiState = MutableStateFlow(Resource<Pair<String, Date>>())
@@ -29,11 +25,11 @@ class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun fetchUserInformation() {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiState.value = Resource.Error(throwable)
+        }) {
             _uiState.value = Resource.Loading()
-            val userInfo = withContext(Dispatchers.IO) {
-                ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
-            }
+            val userInfo = ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
             userInfo.query?.globalUserInfo?.let {
                 val editCount = String.format("%,d", it.editCount)
                 _uiState.value = Resource.Success(Pair(editCount, it.registrationDate))

@@ -292,6 +292,8 @@
   <string name="edit_summary_tag_links">Lade till länkar</string>
   <string name="edit_summary_tag_other">Övrigt</string>
   <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
+  <string name="edit_summary_added_short_description">La till kort beskrivning</string>
+  <string name="edit_summary_updated_short_description">Uppdaterade kort beskrivning</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Sidan har redan modifierats av en annan användare och är i konflikt med din redigering. Var god kopiera dina ändringar, gå tillbaka och uppdatera sidan samt försök sedan att redigera igen.</string>
   <string name="edit_notices">Redigeringsnotiser</string>
@@ -415,6 +417,7 @@
   <string name="link_preview_dialog_save_button">Spara</string>
   <string name="link_preview_dialog_saved_button">Sparades</string>
   <string name="link_preview_dialog_share_button">Dela</string>
+  <string name="link_preview_stub_placeholder_text">Denna artikel är en stubb, vilket innebär att det inte finns tillräckligt med innehåll i artikeln för att kunna generera en förhandsgranskning. Däremot kan du ändra på det.</string>
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
   <string name="error_user_page_does_not_exist">Wikipedia har inte en &lt;a href=\"%1$s\"&gt;användarsida&lt;/a&gt; med exakt detta namn. I allmänhet bör denna sida ha skapats och redigerats av &lt;b&gt;%2$s&lt;/b&gt;. Om du är osäker bör du verifiera att \"%3$s\" finns.</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
@@ -438,9 +441,15 @@
   <string name="theme_chooser_menu_item_short_tooltip">Anpassa ditt verktygsfält</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="temp_account_not_logged_in">Du är inte inloggad</string>
+  <string name="temp_account_anon_dialog_body">När du har gjort en redigering kommer ett &lt;b&gt;temporärt konto&lt;/b&gt; att skapas åt dig för att skydda din integritet. &lt;a href=\"%1$s\"&gt;Läs mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logga in&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;skapa ett konto&lt;/a&gt; för att få erkännande för framtida redigeringar och åtkomst till andra funktioner.</string>
+  <string name="temp_account_temp_dialog_body">Din redigering kommer att tillskrivas %1$s. Din IP-adress kommer att vara synlig för administratörer.&lt;br /&gt;&lt;br /&gt; Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;skapar ett konto&lt;/a&gt; kommer dina redigeringar att tillskrivas ett valfritt namn, tillsammans med andra förmåner.</string>
   <string name="temp_account_dialog_ok">Jag förstår</string>
   <string name="temp_account_using_title">Du använder ett tillfälligt konto</string>
   <string name="temp_account_dialog_discard">Släng ändringar och logga in</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Det temporära kontot %1$s skapades efter att din redigering publicerades. Det upphör att gälla om %2$d dag.</item>
+    <item quantity="other">Det temporära kontot %1$s skapades efter att din redigering publicerades. Den upphör att gälla om %2$d dagar.</item>
+  </plurals>
   <plurals name="temp_account_expiry">
     <item quantity="one">Kontot upphör om %d dag.</item>
     <item quantity="other">Kontot upphör om %d dagar.</item>
@@ -842,6 +851,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
   <string name="feed_accessibility_card_load_more_button">Läs in fler</string>
+  <string name="feed_language_variants_removal_dialog_title">Välj en regional språkvariant för en förbättrad läsupplevelse</string>
+  <string name="feed_language_variants_removal_dialog_message">Du använder för närvarande en generisk språkvariant av kinesiska som inte stöds som ditt primära Wikipedia-språk</string>
+  <string name="feed_language_variants_removal_dialog_save">Spara</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Uppdatera dina sekundära språk</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Du använder för närvarande en generisk språkvariant av kinesiska som inte stöds som ett sekundärt språk. Gå till dina inställningar för att välja ett nytt sekundärt språk eller för att bekräfta din språklista.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Gå till inställningarna</string>
   <string name="top_read_activity_title">Mest lästa den %s</string>
   <string name="tabs_activity_title">Flikar</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
@@ -1094,8 +1109,8 @@
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nej</string>
   <string name="image_recommendation_notsure">Inte säker</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Varför inte?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Dina svar förbättrar kvaliteten på framtida förslag.</string>
+  <string name="image_recommendation_reject_title">Anledning till avslag</string>
+  <string name="image_recommendation_reject_subtitle">Din anledning till avslag är anonym och förbättrar kvaliteten på framtida bildförslag.</string>
   <string name="image_recommendation_reject_not_relevant">Bilden är inte relevant</string>
   <string name="image_recommendation_reject_no_info">Inte tillräckligt med information för att avgöra</string>
   <string name="image_recommendation_reject_offensive">Bilden är kränkande</string>
@@ -1115,7 +1130,7 @@
   <string name="image_recommendation_tooltip_warning">Granska artikeln för att förstå ämnet och inspektera bilden</string>
   <string name="image_recommendation_depleted">Tyvärr finns det inga fler tillgängliga föreslagna bilder just nu. Var god utforska andra &lt;a href=\"#\"&gt;föreslagna redigeringar&lt;/a&gt; eller återvänd senare.</string>
   <string name="suggested_edits_report_feature">Problem med funktion</string>
-  <string name="suggested_edits_report_feature_subject">Problem med Föreslagna redigeringar</string>
+  <string name="suggested_edits_report_feature_subject">Problem med redigeringsförslag</string>
   <string name="edit_summary_added_image">Lade till ny bild</string>
   <string name="edit_summary_added_caption">Lade till bildtext</string>
   <string name="edit_summary_added_image_and_caption">Lade till bild och bildtext</string>
@@ -1588,6 +1603,8 @@
   <string name="patroller_onboarding_two_thank_content">Har du hittat en produktiv redigering? Tacka en användare för deras bidrag.</string>
   <string name="patroller_onboarding_two_watch_title">Bevaka</string>
   <string name="patroller_onboarding_two_watch_content">Vill du spåra artikelredigeringar? Lägg till i din bevakningslista. Se den under \"Mer\".</string>
+  <string name="patroller_onboarding_two_talk_title">Diskussion</string>
+  <string name="patroller_onboarding_two_talk_content">Kommunicera med andra redigerare. Spara vanliga meddelanden på diskussionssidor eller använd en mall.</string>
   <string name="patroller_onboarding_two_undo_title">Gör ogjord/Rulla tillbaka</string>
   <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
   <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
@@ -1613,6 +1630,10 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Lämna en redigeringssammanfattning</string>
   <string name="patroller_saved_message_title_do_not_censor">Censurera inte</string>
   <string name="patroller_saved_message_title_art_imp">Förslag på förbättring av artikel</string>
+  <string name="patroller_saved_message_body_vandalism">Hej {{{username}}}, jag vill meddela att jag har återställt ett eller flera av dina [{{{diffLink}}}|senaste bidrag] eftersom de inte verkar konstruktiva. Om du tror att jag har gjort ett misstag eller har frågor kan du lämna ett meddelande på [[User talk:{{{senderUserName}}}|min diskussionssida]]. Observera att fortsatt vandalism kan leda till restriktioner.</string>
+  <string name="patroller_saved_message_body_editing_tests">Hej {{{username}}}, det gläder mig att Wikipedia har fångat din uppmärksamhet och att du har varit intresserad av att lära dig hur man redigerar där. Ditt redigeringstest fungerade, men du bör dock komma ihåg att målet med detta projekt är att utveckla ett tillförlitligt och komplett uppslagsverk som alla kan konsultera. Din redigering påverkade innehållet, så det har tagits bort.\nOm du vill lära dig hur man redigerar på Wikipedia står [[Wikipedia:Sandbox|sandlådan]] till ditt förfogande. Om dina kommentarer var specifika för en artikel är artikelns diskussionssida den korrekta platsen.</string>
+  <string name="patroller_saved_message_body_npov">Hej {{{username}}}, vissa bidrag du har gjort uppfyller inte den neutralitet som krävs för att följa Wikipedias policy om [[Wikipedia:NPOV|en neutrala synvinkel]]. Av denna anledning har en del innehåll ändrats eller tagits bort. Ändra de stycken eller avsnitt som visar en partiell synvinkel, ersätt dem med en mer neutral och objektiv text i linje med vad som förväntas i ett uppslagsverk.</string>
+  <string name="patroller_saved_message_body_auto_trans">Hej {{{username}}}, några bidrag du har gjort är möjligen maskinöversättningar vilket av denna anledning har ändrats eller markerats med mallen. Om inga förbättringar görs i artikeln kan den komma att raderas.\n\nOm du trots all denna information fortfarande har några frågor får du gärna lämna ett meddelande på [[User talk:{{{senderUserName}}}|min diskussionssida]]. Bli inte avskräckt av denna lilla händelse. Dina bidrag är mycket viktiga för Wikipedia.</string>
   <string name="patroller_saved_message_body_final_warning">Eftersom du har gjort flera destruktiva redigeringar kommer detta att fungera som din sista varning. Skulle du vandalisera Wikipedia igen kommer du att förbjudas att redigera.</string>
   <string name="patroller_saved_message_body_copy_vio">Din senaste redigering verkar innehålla upphovsrättsskyddat material utan tillstånd. Se till att allt innehåll följer Wikipedias policyer om [[Wikipedia:Copyrights|upphovsrätt]] för att undvika borttagning.</string>
   <string name="patroller_saved_message_body_edit_summary">Hej {{{username}}}, det verkar som att du har tagit bort innehåll från Wikipedia utan att lämna en redigeringssammanfattning. Lämna en redigeringssammanfattning när du lägger till eller tar bort innehåll på Wikipedia.</string>
@@ -1633,6 +1654,21 @@
   <string name="donation_campaign_donated_snackbar">Tack, kära donator! Din generositet hjälper till att hålla Wikipedia och dess systerwebbplatser blomstrande.</string>
   <string name="donation_campaign_go_back_button">Gå tillbaka</string>
   <string name="menu_single_webview_open_external">Öppna i systemwebbläsaren</string>
+  <string name="donate_gpay_dialog_title">Donera med Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Donera med Google Pay eller välj en annan betalningsmetod.</string>
+  <string name="donate_gpay_dialog_pay_button">Donera med Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Annan betalningsmetod</string>
+  <string name="donate_gpay_activity_title">Välj ett belopp</string>
+  <string name="donate_gpay_check_transaction_fee">Jag lägger generöst till %s för att täcka transaktionsavgifterna så att ni kan behålla 100 %% av min donation.</string>
+  <string name="donate_gpay_check_recurring">Gör detta till en återkommande månadsdonation.</string>
+  <string name="donate_gpay_check_send_email">Ja, Wikimedia Foundation får skicka e-postmeddelande till mig ibland.</string>
+  <string name="donate_gpay_minimum_amount">Välj ett belopp (minst %s)</string>
+  <string name="donate_gpay_maximum_amount">Vi kan inte acceptera donationer som överstiger %s via vår app. Var god kontakta vår personal för större gåvor på benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Tack!&lt;/b&gt; Din generositet till Wikipedia betyder mycket för oss.</string>
+  <string name="donate_gpay_help_problems">Problem med att donera?</string>
+  <string name="donate_gpay_help_other_ways">Andra sätt att ge</string>
+  <string name="donate_gpay_help_faq">Vanliga frågor och svar</string>
+  <string name="donate_gpay_help_tax">Information om avdragsmöjligheter</string>
   <string name="places_title">Platser</string>
   <string name="places_permissions_denied">Platsbehörighet krävs för att se din plats på kartan. Var god försök igen.</string>
   <string name="places_search_hint">Sök platser</string>
