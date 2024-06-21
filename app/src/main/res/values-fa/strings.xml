@@ -16,6 +16,7 @@
 * Dalba
 * Darafsh
 * Dbrant
+* Ebrahim
 * Ebraminio
 * FarsiNevis
 * Fatemi127
@@ -163,6 +164,7 @@
   <string name="langlinks_your_wikipedia_languages">زبان‌های ویکی‌پدیای شما</string>
   <string name="menu_save_changes">انتشار تغییرات</string>
   <string name="edit_saved_successfully">ویرایش منتشر شد!</string>
+  <string name="stub_article_edit_saved_successfully">ویرایش منتشر شد! اعمال تغییرات ممکن است زمان ببرد.</string>
   <string name="dialog_message_edit_failed">ویرایش اِعمال نشد!</string>
   <string name="dialog_message_edit_failed_retry">تلاش مجدد</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
@@ -205,6 +207,8 @@
   <string name="logged_out_in_background_dialog">شما از حساب کاربری‌تان در ویکی‌پدیا خارج شده‌اید. آیا می‌خواهید دوباره وارد شوید؟</string>
   <string name="logged_out_in_background_login">ورود</string>
   <string name="logged_out_in_background_cancel">انصراف</string>
+  <string name="account_vanish_request_title">حذف حساب</string>
+  <string name="account_vanish_request_confirm_title">هشدار حذف حساب</string>
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="history_offline_articles_toast">برخی از مقالات در تاریخچه ممکن است در حالت آفلاین دیده نشوند.</string>
@@ -1146,6 +1150,7 @@
   <string name="onboarding_explore_text">جستجو در ویکی‌پدیا با به‌روزرسانی مداوم خوراک بازدید.&lt;br/&gt; &lt;b&gt;شخصی‌سازی&lt;/b&gt; خوراک به‌صورت دلخواه- به نحوی که در مورد رویدادهای تاریخی &lt;b&gt;در این روز &lt;/b&gt; یا جستجوی &lt;b&gt;تصادفی&lt;/b&gt;</string>
   <string name="onboarding_reading_list_sync_title">فهرست‌های مطالعه با همگام‌سازی</string>
   <string name="onboarding_reading_list_sync_text_v2">می‌توانید از مقاله‌هایی برای مطالعه در آینده، حتی در زمانی که آفلاین هستید، یک فهرست مطالعه تهیه کنید. برای همگام‌سازی فهرست‌ها، به حساب ویکی‌پدیای خود وارد شوید. &lt;a href=\"#login\"&gt;به ویکی‌پدیا ملحق شوید.&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">داده‌ها و حریم خصوصی</string>
   <string name="onboarding_analytics_switch_title">ارسال دادهٔ مصرف</string>
   <string name="onboarding_got_it">فهمیدم</string>
   <string name="onboarding_multilingual_secondary_text">ما مورد(های) زیر را بر روی دستگاه شما یافتیم:</string>
@@ -1247,6 +1252,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">ارتفاع</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">پیکسل</string>
   <string name="insert_media_insert_button">درج</string>
+  <string name="templates_insert_button">درج</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
   <string name="main_tooltip_text">سلام %s، آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
@@ -1538,6 +1544,7 @@
   <string name="patroller_onboarding_two_thank_title">تشکر</string>
   <string name="patroller_onboarding_two_thank_content">ویرایش سازنده‌ای می‌بینید؟ از  کاربر برای مشارکت‌شان تشکر کنید</string>
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
+  <string name="patroller_onboarding_two_talk_title">بحث</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
   <string name="patroller_diff_feedback_dialog_message">آیا از این ویژگی راضی هستید؟</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">راضی</string>
@@ -1564,5 +1571,9 @@
   <string name="patroller_saved_message_body_edit_summary">سلام {{{username}}}، به‌نظر می‌رسد که بدون ارائهٔ خلاصهٔ ویرایش، مطالبی را از ویکی‌پدیا حذف کرده‌اید. لطفاً هرگاه مطلبی را به ویکی‌پدیا می‌افزایید یا حذف می‌کنید، در خلاصهٔ ویرایش دلیل کار خود را توضیح دهید.</string>
   <string name="patroller_saved_message_body_do_not_censor">سلام {{{username}}، به‌نظر می‌رسد که بدون گفتگو در صفحهٔ بحث مقاله، محتوایی را از آن حذف کرده‌اید. لطفاً دقت داشته باشید که ویکی‌پدیا سانسور نمی‌شود و محتوا را نباید تنها به این دلیل که مناقشه‌برانگیز است، حذف کرد. اگر باور دارید که اطلاعات مورد نظر دقیق نیست، لطفاً در صفحهٔ بحث مقاله به‌دنبال کسب اجماع باشید.</string>
   <string name="talk_templates_menu_edit_title">ویرایش</string>
+  <string name="data_opt_in_accept">تأیید</string>
+  <string name="data_opt_in_reject">رد</string>
+  <string name="places_toggle_buttons_map">نقشه</string>
+  <string name="places_toggle_buttons_list">فهرست</string>
   <string name="places_survey_dialog_cancel">لغو</string>
 </resources>

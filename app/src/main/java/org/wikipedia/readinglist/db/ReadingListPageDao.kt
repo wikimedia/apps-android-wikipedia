@@ -8,7 +8,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.page.Namespace
@@ -104,7 +104,7 @@ interface ReadingListPageDao {
         for (page in pages) {
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }
 
@@ -177,7 +177,7 @@ interface ReadingListPageDao {
         if (queueForSync) {
             ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }
 
@@ -257,7 +257,7 @@ interface ReadingListPageDao {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_SAVE
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, page))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, page))
 
         SavedPageSyncService.enqueue()
         if (queueForSync) {
@@ -275,7 +275,7 @@ interface ReadingListPageDao {
     private fun addPageToList(list: ReadingList, title: PageTitle) {
         val protoPage = ReadingListPage(title)
         insertPageIntoDb(list, protoPage)
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, protoPage))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, protoPage))
     }
 
     private fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {
