@@ -916,7 +916,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             model.title?.let { title ->
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
                     L.e(t)
-                }){
+                }) {
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
                         AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
                     }
