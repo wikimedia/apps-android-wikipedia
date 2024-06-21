@@ -1323,8 +1323,9 @@
   <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Podrías ayudarnos a mejorar la aplicación participando en una encuesta?</string>
   <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="talk_share_talk_page">Wikipedia - discusiones en página de discusión</string>
-  <string name="talk_search_topics_hint">Temas de búsqueda</string>
+  <string name="talk_search_topics_hint">Buscar temas</string>
   <string name="talk_search_find_in_talk_topics_hint">Buscar en el tema de página de discusión</string>
+  <string name="talk_overflow_sort_by">Ordenar por</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Mostrar respuesta</item>
     <item quantity="other">Mostrar respuestas (%d)</item>
@@ -1368,7 +1369,7 @@
   <string name="revision_diff_compare">Compara las revisiones</string>
   <string name="revision_diff_compare_title">Comparar las revisiones: %s</string>
   <string name="revision_diff_from">De:</string>
-  <string name="revision_diff_to">Para:</string>
+  <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Línea %d</string>
   <string name="revision_diff_lines_from_to">Líneas %1$d–%2$d</string>
   <string name="revision_diff_line_added">Línea añadida</string>
