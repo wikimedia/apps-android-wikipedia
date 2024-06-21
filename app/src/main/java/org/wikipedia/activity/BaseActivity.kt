@@ -133,7 +133,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                                 .setMessage(getString(R.string.split_reading_list_message, Constants.MAX_READING_LIST_ARTICLE_LIMIT))
                                 .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                                 .show()
-
                         }
                         is ReadingListsNoLongerSyncedEvent -> {
                             ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(this@BaseActivity)
