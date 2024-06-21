@@ -440,7 +440,7 @@
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Cerrar pestaña</string>
   <string name="unnamed_tab_closed">Pestaña cerrada.</string>
-  <string name="tab_item_closed">%s cerradas.</string>
+  <string name="tab_item_closed">%s cerrada.</string>
   <string name="all_tab_items_closed">Se cerraron todas las pestañas.</string>
   <string name="tool_tip_bookmark_icon_title">Añadir a una lista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Toca el icono de marcadores para guardar el artículo en una lista de lectura.</string>
@@ -1142,7 +1142,7 @@
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Imágenes de artículos</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Agrega las imágenes sugeridas a los artículos de Wikipedia para mejorar la comprensión</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Añade imágenes sugeridas a los artículos para mejorarlos</string>
   <string name="image_recommendation_task_instruction">¿Agregarías esta imagen al artículo?</string>
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sí</string>
@@ -1323,8 +1323,9 @@
   <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Podrías ayudarnos a mejorar la aplicación participando en una encuesta?</string>
   <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="talk_share_talk_page">Wikipedia - discusiones en página de discusión</string>
-  <string name="talk_search_topics_hint">Temas de búsqueda</string>
+  <string name="talk_search_topics_hint">Buscar temas</string>
   <string name="talk_search_find_in_talk_topics_hint">Buscar en el tema de página de discusión</string>
+  <string name="talk_overflow_sort_by">Ordenar por</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Mostrar respuesta</item>
     <item quantity="other">Mostrar respuestas (%d)</item>
@@ -1334,6 +1335,8 @@
     <item quantity="other">Ocultar respuestas (%d)</item>
   </plurals>
   <string name="talk_list_item_overflow_subscribe">Suscribirse</string>
+  <string name="talk_list_item_overflow_mark_as_read">Marcar como leí­do</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Marcar como no leído</string>
   <string name="talk_list_item_overflow_share">Compartir</string>
   <string name="talk_list_item_user_icon_content_description">Icono de usuario</string>
   <string name="talk_list_item_swipe_mark_as_read">Leer</string>
@@ -1343,6 +1346,7 @@
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="menu_option_edit_source">Editar código</string>
+  <string name="menu_option_user_page">Página de usuario %s</string>
   <string name="menu_option_find_in_talk_page_topic">Buscar en el tema de página de discusión</string>
   <string name="menu_option_copy_link_to_clipboard">Copiar enlace en el portapapeles</string>
   <string name="talk_menu_copy_text">Copiar texto</string>
@@ -1361,12 +1365,13 @@
   <string name="thank_success_message">Tu \'Gracias\' ha sido enviado a %s 👍</string>
   <string name="menu_option_view_user_profile">Ver página de usuario</string>
   <string name="menu_option_view_user_talk">Ver página de discusión</string>
-  <string name="menu_option_view_user_contributions">Ver las contribuciones de los usuarios</string>
+  <string name="menu_option_view_user_contributions">Ver contribuciones del usuario</string>
   <string name="revision_diff_compare">Compara las revisiones</string>
   <string name="revision_diff_compare_title">Comparar las revisiones: %s</string>
   <string name="revision_diff_from">De:</string>
-  <string name="revision_diff_to">Para:</string>
+  <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Línea %d</string>
+  <string name="revision_diff_lines_from_to">Líneas %1$d–%2$d</string>
   <string name="revision_diff_line_added">Línea añadida</string>
   <string name="revision_diff_line_removed">Línea eliminada</string>
   <string name="revision_diff_paragraph_added">Párrafo añadido</string>
@@ -1460,6 +1465,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Ver página de usuario</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Ver página de discusión</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Información de usuario</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Información de usuario</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta desde: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Número de ediciones: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Cerrar</string>

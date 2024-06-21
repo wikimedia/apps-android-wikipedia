@@ -14,6 +14,7 @@
 * Envlh
 * Jack Phoenix
 * Joquliina
+* Kyykaarme
 * Laurianttila
 * MITO
 * Maantietäjä
@@ -429,7 +430,7 @@
   <string name="link_preview_dialog_save_button">Tallenna</string>
   <string name="link_preview_dialog_saved_button">Tallennettu</string>
   <string name="link_preview_dialog_share_button">Jaa</string>
-  <string name="link_preview_stub_placeholder_text">Tämä artikkeli on tynkä, mikä tarkoittaa, että siinä ei ole tarpeeksi sisältöä esikatselun luomiseksi. Kuitenkin voit korjata asian.</string>
+  <string name="link_preview_stub_placeholder_text">Tämä artikkeli on tynkä, mikä tarkoittaa, että siinä ei ole tarpeeksi sisältöä esikatselun luomiseksi. Voit kuitenkin korjata asian.</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
   <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
