@@ -9,6 +9,7 @@ import org.mockito.Mockito
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.Page
 import org.wikipedia.page.PageProperties
 import org.wikipedia.page.PageTitle
@@ -103,6 +104,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         Mockito.`when`(props.wikiBaseItem).thenReturn("Q123")
         Mockito.`when`(props.canEdit).thenReturn(true)
         Mockito.`when`(props.descriptionSource).thenReturn("central")
+        Mockito.`when`(props.namespace).thenReturn(Namespace.MAIN)
         val page = Page(PageTitle("Test", wiki), pageProperties = props)
         MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(true))
     }
@@ -112,6 +114,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         val wiki = WikiSite.forLanguageCode("ru")
         val props = Mockito.mock(PageProperties::class.java)
         Mockito.`when`(props.wikiBaseItem).thenReturn(null)
+        Mockito.`when`(props.namespace).thenReturn(Namespace.MAIN)
         val page = Page(PageTitle("Test", wiki), pageProperties = props)
         MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(false))
     }

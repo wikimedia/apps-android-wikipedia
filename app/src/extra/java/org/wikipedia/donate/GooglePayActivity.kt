@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.view.children
@@ -31,6 +32,7 @@ import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
 class GooglePayActivity : BaseActivity() {
@@ -151,6 +153,8 @@ class GooglePayActivity : BaseActivity() {
             DonorExperienceEvent.logAction("taxinfo_click", "gpay")
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.donate_tax_url)))
         }
+        binding.disclaimerText1.movementMethod = LinkMovementMethod.getInstance()
+        binding.disclaimerText2.movementMethod = LinkMovementMethod.getInstance()
     }
 
     private fun validateInput(text: String): Boolean {
@@ -193,6 +197,9 @@ class GooglePayActivity : BaseActivity() {
         binding.checkBoxAllowEmail.isVisible = viewModel.emailOptInRequired
 
         binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee, viewModel.currencyFormat.format(viewModel.transactionFee))
+
+        binding.disclaimerText1.text = StringUtil.fromHtml(viewModel.disclaimerInformationSharing)
+        binding.disclaimerText2.text = StringUtil.fromHtml(viewModel.disclaimerMonthlyCancel)
 
         val methods = JSONArray().put(GooglePayComponent.baseCardPaymentMethod)
         binding.payButton.initialize(ButtonOptions.newBuilder()

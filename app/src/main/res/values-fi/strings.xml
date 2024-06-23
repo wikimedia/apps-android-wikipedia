@@ -14,6 +14,7 @@
 * Envlh
 * Jack Phoenix
 * Joquliina
+* Kyykaarme
 * Laurianttila
 * MITO
 * Maantietäjä
@@ -149,6 +150,7 @@
   <string name="langlinks_your_wikipedia_languages">Omat Wikipedia-kielet</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
   <string name="edit_saved_successfully">Muokkaus julkaistu!</string>
+  <string name="stub_article_edit_saved_successfully">Muokkaus julkaistu! Muutosten näkymiseen voi mennä jonkin aikaa.</string>
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>
   <string name="dialog_message_edit_failed_retry">Yritä uudelleen</string>
   <string name="dialog_message_edit_failed_cancel">Peru</string>
@@ -303,6 +305,8 @@
   <string name="edit_summary_tag_links">Lisätty linkkejä</string>
   <string name="edit_summary_tag_other">Muu</string>
   <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
+  <string name="edit_summary_added_short_description">Lyhyt kuvaus lisätty</string>
+  <string name="edit_summary_updated_short_description">Lyhyttä kuvausta päivitetty</string>
   <string name="edit_conflict_title">Päällekkäinen muokkaus.</string>
   <string name="edit_conflict_message">Toinen käyttäjä on jo muokannut sivua, ja se on ristiriidassa muokkauksesi kanssa. Kopioi muokkauksesi, palaa takaisin ja päivitä sivu, yritä sitten muokata uudelleen.</string>
   <string name="edit_notices">Muokkausilmoitukset</string>
@@ -338,6 +342,7 @@
   <string name="widget_title_featured_page">Päivän suositeltu sivu:</string>
   <string name="widget_name_search">Wikipedia-haku</string>
   <string name="widget_description_search">Nopein tapa etsiä Wikipediasta</string>
+  <string name="widget_description_featured_page">Wikipedian parhaimmat artikkelit</string>
   <string name="wiktionary_no_definitions_found">Määritelmiä ei löytynyt.</string>
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
   <string name="alpha_update_notification_text">Lataa napauttamalla</string>
@@ -425,6 +430,7 @@
   <string name="link_preview_dialog_save_button">Tallenna</string>
   <string name="link_preview_dialog_saved_button">Tallennettu</string>
   <string name="link_preview_dialog_share_button">Jaa</string>
+  <string name="link_preview_stub_placeholder_text">Tämä artikkeli on tynkä, mikä tarkoittaa, että siinä ei ole tarpeeksi sisältöä esikatselun luomiseksi. Voit kuitenkin korjata asian.</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
   <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
@@ -448,8 +454,10 @@
   <string name="theme_chooser_menu_item_short_tooltip">Mukauta työkalupalkkia</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="temp_account_not_logged_in">Et ole kirjautunut sisään</string>
+  <string name="temp_account_dialog_ok">Selvä</string>
   <string name="temp_account_using_title">Käytät väliaikaista käyttäjätunnusta</string>
   <string name="temp_account_dialog_discard">Hylkää muutokset ja kirjaudu sisään</string>
+  <string name="temp_account_end_session">Lopeta istunto</string>
   <string name="temp_account_end_session_confirm">Tämä kirjaa sinut ulos väliaikaiselta tililtäsi. Haluatko jatkaa?</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-sovellus lopetti toimintansa teknisen vian takia.\n\nKäynnistetäänkö sovellus uudelleen vai poistutaanko?</string>
@@ -841,6 +849,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_accessibility_card_text">Olet päässyt syötteen loppuun.</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
+  <string name="feed_language_variants_removal_dialog_save">Tallenna</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Mene asetuksiin</string>
   <string name="top_read_activity_title">Luetuimmat %s</string>
   <string name="tabs_activity_title">Välilehdet</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
@@ -1590,6 +1600,8 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Jätä muokkausyhteenveto</string>
   <string name="patroller_saved_message_title_do_not_censor">Älä sensuroi</string>
   <string name="patroller_saved_message_title_art_imp">Artikkelin parannusehdotus</string>
+  <string name="patroller_saved_message_body_edit_summary">Hei {{{username}}}, vaikuttaa siltä, että poistit sisältöä jättämättä muokkauksen yhteenvetoa. Jätäthän muokkauksen yhteenvedon kun lisäät sisältöä Wikipediaan tai poistat sitä.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Hei {{{username}}}, näyttää siltä, että poistit sisältöä keskustelematta asiasta artikkelin keskustelusivulla. Huomioithan, että Wikipedia ei ole sensuroitu ja sisältöä ei tulisi poistaa vain siksi, että se on kiistanalaista. Jos uskot tiedon olevan väärin, yritä saavuttaa yhteisymmärrys sen poistamisesta artikkelin keskustelusivulla.</string>
   <string name="talk_templates_menu_edit_title">Muokkaa</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>

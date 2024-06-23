@@ -10,7 +10,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import org.wikipedia.BuildConfig
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.donate.DonationConfig
@@ -55,6 +57,9 @@ class GooglePayViewModel : ViewModel() {
 
     val emailOptInRequired get() = donationConfig?.countryCodeEmailOptInRequired.orEmpty().contains(currentCountryCode)
 
+    var disclaimerInformationSharing: String? = null
+    var disclaimerMonthlyCancel: String? = null
+
     var finalAmount = 0f
 
     init {
@@ -69,8 +74,16 @@ class GooglePayViewModel : ViewModel() {
             uiState.value = Resource.Loading()
 
             val donationConfigCall = async { DonationConfigHelper.getConfig() }
+            val donationMessagesCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite,
+                DonationConfigHelper.DONATE_WIKI_URL, Service::class.java).getMessages(
+                listOf(MSG_DISCLAIMER_INFORMATION_SHARING, MSG_DISCLAIMER_MONTHLY_CANCEL).joinToString("|"),
+                null, WikipediaApp.instance.appOrSystemLanguageCode) }
 
             donationConfig = donationConfigCall.await()
+            donationMessagesCall.await().let { response ->
+                disclaimerInformationSharing = response.query?.allmessages?.find { it.name == MSG_DISCLAIMER_INFORMATION_SHARING }?.content?.replace("$1", WikipediaApp.instance.getString(R.string.donor_privacy_policy_url))
+                disclaimerMonthlyCancel = response.query?.allmessages?.find { it.name == MSG_DISCLAIMER_MONTHLY_CANCEL }?.content?.replace("$1", WikipediaApp.instance.getString(R.string.donate_email))
+            }
 
             // The paymentMethods API is rate limited, so we cache it manually.
             val now = Instant.now().epochSecond
@@ -168,4 +181,9 @@ class GooglePayViewModel : ViewModel() {
 
     class NoPaymentMethod : Resource<DonationConfig>()
     class DonateSuccess : Resource<DonationConfig>()
+
+    companion object {
+        private const val MSG_DISCLAIMER_INFORMATION_SHARING = "donate_interface-informationsharing"
+        private const val MSG_DISCLAIMER_MONTHLY_CANCEL = "donate_interface-monthly-cancel"
+    }
 }

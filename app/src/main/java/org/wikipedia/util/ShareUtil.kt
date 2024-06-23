@@ -53,12 +53,10 @@ object ShareUtil {
                 title.getWebApiUrl("diff=$newId&oldid=$oldId&variant=${title.wikiSite.languageCode}"))
     }
 
-    fun shareImage(context: Context, bmp: Bitmap,
+    fun shareImage(coroutineScope: CoroutineScope, context: Context, bmp: Bitmap,
                    imageFileName: String, subject: String, text: String) {
-        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, msg ->
-            run {
-                displayOnCatchMessage(msg, context)
-            }
+        coroutineScope.launch(CoroutineExceptionHandler { _, msg ->
+            displayOnCatchMessage(msg, context)
         }) {
             val uri = withContext(Dispatchers.IO) { getUriFromFile(context, processBitmapForSharing(context, bmp, imageFileName)) }
             if (uri == null) {
