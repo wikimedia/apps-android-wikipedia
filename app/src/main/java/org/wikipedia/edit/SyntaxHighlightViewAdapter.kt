@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.core.view.postDelayed
 import org.wikipedia.Constants
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
@@ -79,9 +80,9 @@ class SyntaxHighlightViewAdapter(
         editText.post {
             dialog.dialog?.setOnDismissListener {
                 if (!activity.isDestroyed) {
-                    editText.postDelayed({
+                    editText.postDelayed(200) {
                         DeviceUtil.showSoftKeyboard(editText)
-                    }, 200)
+                    }
                 }
             }
         }

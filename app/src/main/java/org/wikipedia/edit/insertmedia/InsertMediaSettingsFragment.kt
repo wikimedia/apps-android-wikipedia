@@ -146,7 +146,6 @@ class InsertMediaSettingsFragment : Fragment() {
             binding.mediaTitle.text = it.text
             binding.mediaDescription.text = StringUtil.removeHTMLTags(it.description.orEmpty().ifEmpty { it.displayText }).trim()
         }
-        binding.mediaCaptionLayout.requestFocus()
         DeviceUtil.showSoftKeyboard(binding.mediaCaptionText)
     }
 
