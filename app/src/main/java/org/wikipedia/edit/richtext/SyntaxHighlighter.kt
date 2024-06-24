@@ -128,7 +128,7 @@ class SyntaxHighlighter(
 
         oldSpans.forEach { textBox.text.removeSpan(it) }
         newSpans.forEach {
-            textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+            textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
 
         time = System.currentTimeMillis() - time
