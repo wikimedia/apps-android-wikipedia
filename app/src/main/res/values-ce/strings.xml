@@ -72,7 +72,7 @@
   <string name="langlinks_no_match">Меттанаш цакарий</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
   <string name="langlinks_your_wikipedia_languages">Википедин хьан меттанаш</string>
-  <string name="menu_save_changes">Ӏалашбе хийцамаш</string>
+  <string name="menu_save_changes">Хийцамаш дӀаӀалашбан</string>
   <string name="edit_saved_successfully">Нисдар Ӏалашдина!</string>
   <string name="dialog_message_edit_failed">ГӀалат тадина!</string>
   <string name="dialog_message_edit_failed_retry">ЙухагӀорта</string>
