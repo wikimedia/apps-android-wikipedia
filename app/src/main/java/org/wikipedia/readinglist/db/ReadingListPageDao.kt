@@ -132,7 +132,7 @@ interface ReadingListPageDao {
         }
     }
 
-    fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
+    suspend fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
         updateThumbAndDescriptionByName(pageProto.lang, pageProto.apiTitle, thumbUrl, description)
     }
 

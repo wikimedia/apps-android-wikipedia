@@ -32,9 +32,11 @@ class ThemeFittingRoomFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
-                    if (event is ChangeTextSizeEvent) {
-                        updateTextSize()
-                        binding.themeTestText.post { FlowEventBus.post(WebViewInvalidateEvent()) }
+                    when (event) {
+                        is ChangeTextSizeEvent -> {
+                            updateTextSize()
+                            binding.themeTestText.post { FlowEventBus.post(WebViewInvalidateEvent()) }
+                        }
                     }
                 }
             }

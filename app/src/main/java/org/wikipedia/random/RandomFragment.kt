@@ -74,11 +74,11 @@ class RandomFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
-                    if (event is ArticleSavedOrDeletedEvent) {
-                        if (topTitle != null) {
-                            for (page in event.pages) {
-                                if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode == topTitle?.wikiSite?.languageCode) {
-                                    updateSaveButton(topTitle)
+                    when (event) {
+                        is ArticleSavedOrDeletedEvent -> {
+                            topTitle?.let { title ->
+                                event.pages.firstOrNull { it.apiTitle == title.prefixedText && it.wiki.languageCode == title.wikiSite.languageCode }.let {
+                                    updateSaveButton(title)
                                 }
                             }
                         }

@@ -121,9 +121,11 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
-                    if (event is WebViewInvalidateEvent) {
-                        updatingFont = false
-                        updateComponents()
+                    when (event) {
+                        is WebViewInvalidateEvent -> {
+                            updatingFont = false
+                            updateComponents()
+                        }
                     }
                 }
             }
