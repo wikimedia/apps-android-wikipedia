@@ -291,6 +291,8 @@
   <string name="edit_summary_tag_links">Tilføjet links</string>
   <string name="edit_summary_tag_other">Andet</string>
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
+  <string name="edit_summary_added_short_description">Tilføjede kort beskrivelse</string>
+  <string name="edit_summary_updated_short_description">Opdaterede kort beskrivelse</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Siden er allerede blevet redigeret af en anden bruger, og er i konflikt med din redigering. Kopier venligst dine ændringer, gå tilbage og opdater siden, og forsøg så at redigere igen.</string>
   <string name="edit_notices">Redigeringsbemærkninger</string>
@@ -848,6 +850,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="feed_accessibility_card_text">Du har nået bunden af feedet.</string>
   <string name="feed_accessibility_card_load_more_button">Indlæs mere</string>
+  <string name="feed_language_variants_removal_dialog_title">Vælg en regional sprogvariant for at forbedre læseoplevelsen</string>
+  <string name="feed_language_variants_removal_dialog_message">Du bruger i øjeblikket en ikke-understøttet generisk kinesisk sprogvariant som dit primære Wikipedia-sprog</string>
+  <string name="feed_language_variants_removal_dialog_save">Gem</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Opdater venligst dine sekundære sprog</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Du bruger i øjeblikket en ikke-understøttet generisk kinesisk sprogvariant som et sekundært sprog. Gå til dine indstillinger for at vælge et nyt sekundært sprog eller for at bekræfte din sprogliste.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Gå til Indstillinger</string>
   <string name="top_read_activity_title">Mest læste den %s</string>
   <string name="tabs_activity_title">Faner</string>
   <string name="description_edit_text_hint">Artikelbeskrivelse</string>
@@ -1335,6 +1343,7 @@
   <string name="talk_list_item_swipe_mark_as_read">Læst</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ulæst</string>
   <string name="talk_login_to_subscribe_dialog_title">Log ind for at abonnere på emner</string>
+  <string name="talk_login_to_subscribe_dialog_content">Emneabonnementer giver dig mulighed for at modtage meddelelser om nye kommentarer i dette emne. Opret venligst en konto eller log ind på din Wikipedia-konto for at abonnere på et emne.</string>
   <string name="talk_archived_title">Diskussionsarkiv: %s</string>
   <string name="menu_option_share_talk_discussion">Del diskussion</string>
   <string name="menu_option_share_talk_page">Del diskussionsside</string>
@@ -1544,6 +1553,10 @@
   <string name="patroller_tasks_filters_contribution_quality_bad_desc">Meget nøjagtig til at finde de mest åbenlyst fejlbehæftede eller skadelige redigeringer.</string>
   <string name="patroller_tasks_filters_user_intent_header">Forudsigelser om brugerens hensigter</string>
   <string name="patroller_tasks_filters_user_intent_good">Højst sandsynligt gjort med gode hensigter</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Kan være i ond tro</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Finder de fleste ondsindede redigeringer, men har også en lavere nøjagtighed.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Sandsynligvis ond tro</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Med middel nøjagtighed, finder en del af problemredigeringerne.</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filtre</item>
