@@ -2,9 +2,9 @@ package org.wikipedia.edit.richtext
 
 import android.os.Build
 import android.text.Spanned
+import android.widget.ScrollView
 import androidx.activity.ComponentActivity
 import androidx.core.text.getSpans
-import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
@@ -15,7 +15,7 @@ import java.util.*
 class SyntaxHighlighter(
     private val activity: ComponentActivity,
     private val textBox: SyntaxHighlightableEditText,
-    private val scrollView: NestedScrollView?,
+    private val scrollView: ScrollView?,
     private val highlightDelayMillis: Long = HIGHLIGHT_DELAY_MILLIS,
 ) {
     private val syntaxRules = listOf(
