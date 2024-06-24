@@ -1610,6 +1610,7 @@
   <string name="donation_campaign_maybe_later_snackbar">Muistutamme sinua jälleen huomenna.</string>
   <string name="donation_campaign_go_back_button">Palaa takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
+  <string name="donate_gpay_activity_title">Valitse summa</string>
   <string name="places_title">Paikat</string>
   <string name="places_search_hint">Hae paikkoja</string>
   <string name="places_filter_title">Suodata kielen perusteella</string>

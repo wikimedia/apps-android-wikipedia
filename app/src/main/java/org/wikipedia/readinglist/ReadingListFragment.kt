@@ -23,6 +23,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,18 +32,17 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Runnable
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -79,7 +79,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
     private var previewSaveDialog: AlertDialog? = null
-    private val disposables = CompositeDisposable()
     private var isPreview: Boolean = false
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
@@ -113,7 +112,26 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is ReadingListSyncEvent -> {
+                            updateReadingListData()
+                        }
+                        is PageDownloadEvent -> {
+                            val pagePosition = getPagePositionInList(event.page)
+                            if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
+                                (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
+                                adapter.notifyItemChanged(pagePosition + 1)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return binding.root
     }
 
@@ -125,7 +143,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         previewSaveDialog?.dismiss()
         binding.readingListRecyclerView.adapter = null
         binding.readingListAppBar.removeOnOffsetChangedListener(appBarListener)
@@ -946,20 +963,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             actionMode = null
             setStatusBarActionMode(false)
             super.onDestroyActionMode(mode)
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is ReadingListSyncEvent) {
-                updateReadingListData()
-            } else if (event is PageDownloadEvent) {
-                val pagePosition = getPagePositionInList(event.page)
-                if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
-                    (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
-                    adapter.notifyItemChanged(pagePosition + 1)
-                }
-            }
         }
     }
 
