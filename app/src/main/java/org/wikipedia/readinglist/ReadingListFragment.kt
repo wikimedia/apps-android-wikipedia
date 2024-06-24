@@ -116,13 +116,16 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
-                    if (event is ReadingListSyncEvent) {
-                        updateReadingListData()
-                    } else if (event is PageDownloadEvent) {
-                        val pagePosition = getPagePositionInList(event.page)
-                        if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
-                            (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
-                            adapter.notifyItemChanged(pagePosition + 1)
+                    when (event) {
+                        is ReadingListSyncEvent -> {
+                            updateReadingListData()
+                        }
+                        is PageDownloadEvent -> {
+                            val pagePosition = getPagePositionInList(event.page)
+                            if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
+                                (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
+                                adapter.notifyItemChanged(pagePosition + 1)
+                            }
                         }
                     }
                 }
