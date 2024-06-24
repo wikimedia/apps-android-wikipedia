@@ -75,7 +75,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
@@ -826,6 +826,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         doExitActionWithConfirmationDialog {
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
                 PageActivity.newIntentForCurrentTab(this, entry, title, false))
+        }
+    }
+
+    override fun onLinkPreviewDismiss() {
+        if (!isDestroyed) {
+            binding.editSectionText.postDelayed({
+                DeviceUtil.showSoftKeyboard(binding.editSectionText)
+            }, 200)
         }
     }
 
