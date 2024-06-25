@@ -487,7 +487,11 @@ class DescriptionEditFragment : Fragment() {
             when (action) {
                 DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
                     if (binding.fragmentDescriptionEditView.wasSuggestionChosen) {
-                        // TODO
+                        if (binding.fragmentDescriptionEditView.wasSuggestionModified) {
+                            // TODO
+                        } else {
+                            // TODO
+                        }
                     } else if (pageTitle.description.isNullOrEmpty()) {
                         tags.add(EditTags.APP_DESCRIPTION_ADD)
                     } else {

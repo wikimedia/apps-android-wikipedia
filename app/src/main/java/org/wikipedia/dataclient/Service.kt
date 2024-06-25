@@ -400,6 +400,7 @@ interface Service {
             @Field("token") token: String,
             @Field("undo") undoRevId: Long,
             @Field("undoafter") undoRevAfter: Long? = null,
+            @Field("matags") tags: String? = null
     ): Edit
 
     @FormUrlEncoded
@@ -487,7 +488,8 @@ interface Service {
         @Field("title") title: String,
         @Field("summary") summary: String?,
         @Field("user") user: String,
-        @Field("token") token: String
+        @Field("token") token: String,
+        @Field("matags") tags: String? = null
     ): RollbackPostResponse
 
     // ------- Wikidata -------

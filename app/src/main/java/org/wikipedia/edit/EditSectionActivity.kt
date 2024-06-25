@@ -289,10 +289,24 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) {
             if (pageTitle.wikiSite.languageCode == "en") "/* top */" else ""
         } else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
-         summaryText += editSummaryFragment.summary
+
+        summaryText += editSummaryFragment.summary
+
+        if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && intent.getBooleanExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, false)) {
+            summaryText += SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT_INFOBOX
+        }
+
+        val tags = mutableListOf<String>()
+        if (invokeSource == Constants.InvokeSource.SUGGESTED_EDITS) {
+            tags.add(EditTags.APP_SUGGESTED_EDIT)
+        }
+
         if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-            summaryText += " ${if (intent.getBooleanExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, false))
-                SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT_INFOBOX else SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT_TOP}"
+            if (intent.getBooleanExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, false)) {
+                // TODO
+            } else {
+                tags.add(EditTags.APP_IMAGE_ADD_TOP)
+            }
         }
 
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
@@ -304,7 +318,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null", isMinorEdit, watchThisPage)
+                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null", isMinorEdit, watchThisPage, tags = tags.joinToString(","))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
