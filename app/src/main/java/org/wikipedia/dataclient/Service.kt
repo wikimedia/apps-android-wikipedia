@@ -418,6 +418,7 @@ interface Service {
         @Field("captchaword") captchaWord: String?,
         @Field("minor") minor: Boolean? = null,
         @Field("watchlist") watchlist: String? = null,
+        @Field("matags") tags: String? = null
     ): Observable<Edit>
 
     @FormUrlEncoded
@@ -436,6 +437,7 @@ interface Service {
         @Field("captchaword") captchaWord: String?,
         @Field("minor") minor: Boolean? = null,
         @Field("watchlist") watchlist: String? = null,
+        @Field("matags") tags: String? = null
     ): Edit
 
     @FormUrlEncoded

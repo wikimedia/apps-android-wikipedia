@@ -41,6 +41,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.edit.EditTags
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
@@ -476,13 +477,43 @@ class DescriptionEditFragment : Fragment() {
             }
         }
 
+        private fun getEditTags(): String {
+            val tags = mutableListOf<String>()
+
+            if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
+                tags.add(EditTags.APP_SUGGESTED_EDIT)
+            }
+
+            when (action) {
+                DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
+                    if (binding.fragmentDescriptionEditView.wasSuggestionChosen) {
+                        // TODO
+                    } else if (pageTitle.description.isNullOrEmpty()) {
+                        tags.add(EditTags.APP_DESCRIPTION_ADD)
+                    } else {
+                        tags.add(EditTags.APP_DESCRIPTION_CHANGE)
+                    }
+                }
+                DescriptionEditActivity.Action.ADD_CAPTION -> {
+                    // TODO
+                }
+                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
+                    // TODO
+                }
+                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
+                    // TODO
+                }
+                else -> { }
+            }
+
+            return tags.joinToString(",")
+        }
+
         private fun getEditComment(): String? {
             if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && binding.fragmentDescriptionEditView.wasSuggestionChosen) {
                 return if (binding.fragmentDescriptionEditView.wasSuggestionModified) MACHINE_SUGGESTION_MODIFIED else MACHINE_SUGGESTION
             } else if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
                 return when (action) {
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> if (!pageTitle.description.isNullOrEmpty())
-                        SUGGESTED_EDITS_ADD_DESC_CHANGE_COMMENT else SUGGESTED_EDITS_ADD_DESC_COMMENT
                     DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_CAPTION_COMMENT
                     DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT
                     DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT
@@ -551,10 +582,6 @@ class DescriptionEditFragment : Fragment() {
         private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
         const val MACHINE_SUGGESTION = "#machine-suggestion"
         const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-        const val SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK = "#suggestededit-patrol-rollback $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_PATROLLER_TASKS_UNDO = "#suggestededit-patrol-undo $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_ADD_DESC_COMMENT = "#suggestededit-add-desc $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_ADD_DESC_CHANGE_COMMENT = "#suggestededit-change-desc $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT = "#suggestededit-translate-desc $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
