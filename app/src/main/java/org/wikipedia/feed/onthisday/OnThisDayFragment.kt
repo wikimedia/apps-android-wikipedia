@@ -38,8 +38,6 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayViewModel by viewModels { OnThisDayViewModel.Factory(requireArguments()) }
-    private var positionToScrollTo = 0
-    private val appCompatActivity get() = requireActivity() as AppCompatActivity
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
@@ -95,9 +93,10 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.eventsRecycler.visibility = View.VISIBLE
         binding.errorView.visibility = View.GONE
         binding.eventsRecycler.adapter = RecyclerAdapter(events, viewModel.wikiSite)
-        positionToScrollTo = events.indices.find { viewModel.year == events[it].year } ?: 0
         binding.dayInfo.text = getString(R.string.events_count_text, events.size.toString(),
             DateUtil.yearToStringWithEra(events.last().year), events[0].year)
+
+        val positionToScrollTo = events.indices.find { viewModel.year == events[it].year } ?: 0
         binding.eventsRecycler.postDelayed({
             if (isAdded && positionToScrollTo != -1 && viewModel.year != -1) {
                 binding.eventsRecycler.scrollToPosition(positionToScrollTo)
@@ -108,15 +107,17 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private fun onError(throwable: Throwable) {
         L.e(throwable)
         binding.progressBar.visibility = View.GONE
-        binding.errorView.setError(throwable)
-        binding.errorView.visibility = View.VISIBLE
         binding.eventsRecycler.visibility = View.GONE
+        binding.errorView.visibility = View.VISIBLE
+        binding.errorView.setError(throwable)
     }
 
     private fun setUpToolbar() {
-        appCompatActivity.setSupportActionBar(binding.toolbar)
-        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        appCompatActivity.supportActionBar?.title = ""
+        (requireActivity() as AppCompatActivity).apply {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = ""
+        }
         binding.collapsingToolbarLayout.setCollapsedTitleTextColor(
             ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color)
         )
@@ -272,10 +273,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
         fun newInstance(age: Int, wikiSite: WikiSite, year: Int, invokeSource: InvokeSource): OnThisDayFragment {
             return OnThisDayFragment().apply {
-                arguments = bundleOf(OnThisDayActivity.EXTRA_AGE to age,
+                arguments = bundleOf(
+                    OnThisDayActivity.EXTRA_AGE to age,
                     Constants.ARG_WIKISITE to wikiSite,
                     OnThisDayActivity.EXTRA_YEAR to year,
-                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
+                )
             }
         }
     }
