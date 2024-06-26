@@ -104,7 +104,8 @@ interface RestService {
     ): Observable<Response<MediaList>>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
-    fun getOnThisDay(@Path("mm") month: Int, @Path("dd") day: Int): Observable<OnThisDay>
+    suspend fun getOnThisDay(@Path("mm") month: Int,
+                             @Path("dd") day: Int): OnThisDay
 
     // TODO: Remove this before next fundraising campaign in 2024
     @GET("feed/announcements")
