@@ -148,7 +148,7 @@ class WikiErrorView : LinearLayout {
             }
         },
         GENERIC(R.drawable.ic_error_black_24dp, R.string.error_message_generic,
-                R.string.error_next) {
+                R.string.error_back) {
             override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
                 return errorView.backClickListener
             }
