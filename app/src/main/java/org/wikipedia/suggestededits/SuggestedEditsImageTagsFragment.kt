@@ -59,10 +59,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     var publishing = false
     private var publishSuccess = false
     private var page: MwQueryPage? = null
-    private val pageTitle get() = PageTitle(page!!.title, Constants.commonsWikiSite)
     private val tagList = mutableListOf<ImageTag>()
     private var wasCaptionLongClicked = false
     private var lastSearchTerm = ""
+    private val pageTitle: PageTitle? get() {
+        return page?.let {
+            return PageTitle(it.title, Constants.commonsWikiSite)
+        }
+    }
     var invokeSource = InvokeSource.SUGGESTED_EDITS
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -103,9 +107,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 Prefs.showImageZoomTooltip = false
                 FeedbackUtil.showToastOverView(binding.imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
             } else {
-                val pageTitle = pageTitle
-                pageTitle.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
-                startActivity(FilePageActivity.newIntent(requireContext(), pageTitle))
+                pageTitle?.let {
+                    it.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
+                    startActivity(FilePageActivity.newIntent(requireContext(), it))
+                }
             }
         }
 
@@ -141,7 +146,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         when (it) {
                             is Resource.Success -> {
                                 if (it.data != null) {
-                                    EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+                                    pageTitle?.let {
+                                        EditAttemptStepEvent.logSaveSuccess(it, EditAttemptStepEvent.INTERFACE_OTHER)
+                                    }
                                 }
                                 publishSuccess = true
                                 ImageRecommendationsEvent.logEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
@@ -358,7 +365,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishing = true
         publishSuccess = false
 
-        EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+        pageTitle?.let {
+            EditAttemptStepEvent.logSaveAttempt(it, EditAttemptStepEvent.INTERFACE_OTHER)
+        }
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         binding.publishProgressCheck.visibility = GONE
@@ -407,7 +416,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onError(caught: Throwable) {
-        EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+        pageTitle?.let {
+            EditAttemptStepEvent.logSaveFailure(it, EditAttemptStepEvent.INTERFACE_OTHER)
+        }
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }
