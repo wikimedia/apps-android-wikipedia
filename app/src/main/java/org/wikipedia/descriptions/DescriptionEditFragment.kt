@@ -502,7 +502,7 @@ class DescriptionEditFragment : Fragment() {
                     // TODO
                 }
                 DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                    // TODO
+                    tags.add(EditTags.APP_DESCRIPTION_TRANSLATE)
                 }
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
                     // TODO
@@ -519,7 +519,6 @@ class DescriptionEditFragment : Fragment() {
             } else if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
                 return when (action) {
                     DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_CAPTION_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT
                     DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT
                     else -> null
                 }
@@ -586,7 +585,6 @@ class DescriptionEditFragment : Fragment() {
         private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
         const val MACHINE_SUGGESTION = "#machine-suggestion"
         const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-        const val SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT = "#suggestededit-translate-desc $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_IMAGE_TAGS_COMMENT = "#suggestededit-add-tag $SUGGESTED_EDITS_UI_VERSION"

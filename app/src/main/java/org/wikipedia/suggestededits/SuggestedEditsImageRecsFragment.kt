@@ -462,6 +462,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
+        const val IMAGE_REC_EDIT_COMMENT_TOP = "#suggestededit-add-image-top"
         const val IMAGE_REC_EDIT_COMMENT_INFOBOX = "#suggestededit-add-image-infobox"
 
         fun newInstance(): SuggestedEditsItemFragment {
