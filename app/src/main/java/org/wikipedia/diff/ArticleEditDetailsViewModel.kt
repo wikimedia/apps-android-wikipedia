@@ -226,13 +226,9 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
             val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
             val summary = if (undoMessage != null) "$undoMessage $comment" else comment
-            var tags = ""
-            if (fromRecentEdits) {
-                tags += EditTags.APP_SUGGESTED_EDIT + "," + EditTags.APP_UNDO
-            }
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
-                    null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null, tags = tags)
+                    null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null, tags = getEditTags(EditTags.APP_UNDO))
             undoEditResponse.postValue(Resource.Success(undoResponse))
         }
     }
@@ -246,13 +242,18 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 .query?.allmessages?.firstOrNull { it.name == "revertpage" }?.content
 
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            var tags = ""
-            if (fromRecentEdits) {
-                tags += EditTags.APP_SUGGESTED_EDIT + "," + EditTags.APP_ROLLBACK
-            }
-            val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, rollbackSummaryMsg, user, rollbackToken, tags = tags)
+            val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, rollbackSummaryMsg, user, rollbackToken, tags = getEditTags(EditTags.APP_ROLLBACK))
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
         }
+    }
+
+    private fun getEditTags(tag: String): String {
+        val tags = mutableListOf<String>()
+        if (fromRecentEdits) {
+            tags.add(EditTags.APP_SUGGESTED_EDIT)
+        }
+        tags.add(tag)
+        return tags.joinToString(",")
     }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
