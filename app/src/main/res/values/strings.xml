@@ -423,6 +423,8 @@
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
     <string name="menu_save_all_tabs">Save all tabs</string>
+    <string name="error_message_logged_out">You have been logged out. Please log in to view your private information.</string>
+    <string name="error_login">Log in</string>
 
     <string name="error_blocked_title">Your username or IP address has been blocked.</string>
     <string name="error_blocked_by"><![CDATA[The block was made by <a href="%2$s">%1$s</a>]]></string>

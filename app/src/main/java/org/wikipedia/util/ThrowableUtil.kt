@@ -87,6 +87,10 @@ object ThrowableUtil {
                 throwableContainsException(e, SSLException::class.java)
     }
 
+    fun isNotLoggedIn(t: Throwable?): Boolean {
+        return t is HttpStatusException && t.serviceError?.title?.contains("notloggedin") == true
+    }
+
     @WorkerThread
     fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): String {
         var html = ""

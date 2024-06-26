@@ -15,6 +15,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
+import org.wikipedia.util.ThrowableUtil.isNotLoggedIn
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
 import org.wikipedia.views.WikiErrorView.ErrorType.USER_PAGE_MISSING
@@ -25,6 +26,7 @@ class WikiErrorView : LinearLayout {
     var retryClickListener: OnClickListener? = null
     var backClickListener: OnClickListener? = null
     var nextClickListener: OnClickListener? = null
+    var loginClickListener: OnClickListener? = null
     val contentTopOffset get() = binding.viewWikiErrorArticleContentTopOffset
     val tabLayoutOffset get() = binding.viewWikiErrorArticleTabLayoutOffset
 
@@ -95,6 +97,9 @@ class WikiErrorView : LinearLayout {
                 isEmptyException(it) -> {
                     return ErrorType.EMPTY
                 }
+                isNotLoggedIn(it) -> {
+                    return ErrorType.LOGGED_OUT
+                }
                 else -> { }
             }
         }
@@ -136,8 +141,14 @@ class WikiErrorView : LinearLayout {
                 return errorView.nextClickListener
             }
         },
+        LOGGED_OUT(R.drawable.ic_error_black_24dp, R.string.error_message_logged_out,
+            R.string.login_join_wikipedia) {
+            override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
+                return errorView.loginClickListener
+            }
+        },
         GENERIC(R.drawable.ic_error_black_24dp, R.string.error_message_generic,
-                R.string.error_back) {
+                R.string.error_login) {
             override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
                 return errorView.backClickListener
             }
