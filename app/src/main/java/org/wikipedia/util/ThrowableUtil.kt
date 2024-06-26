@@ -88,7 +88,7 @@ object ThrowableUtil {
     }
 
     fun isNotLoggedIn(t: Throwable?): Boolean {
-        return t is HttpStatusException && t.serviceError?.title?.contains("notloggedin") == true
+        return t is MwException && t.error.code?.contains("notloggedin") == true
     }
 
     @WorkerThread

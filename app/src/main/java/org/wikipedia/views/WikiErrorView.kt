@@ -141,14 +141,14 @@ class WikiErrorView : LinearLayout {
                 return errorView.nextClickListener
             }
         },
-        LOGGED_OUT(R.drawable.ic_error_black_24dp, R.string.error_message_logged_out,
-            R.string.login_join_wikipedia) {
+        LOGGED_OUT(R.drawable.ic_error_black_24dp, R.string.error_message_generic,
+            R.string.reading_lists_login_button) {
             override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
                 return errorView.loginClickListener
             }
         },
         GENERIC(R.drawable.ic_error_black_24dp, R.string.error_message_generic,
-                R.string.error_login) {
+                R.string.error_next) {
             override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
                 return errorView.backClickListener
             }
