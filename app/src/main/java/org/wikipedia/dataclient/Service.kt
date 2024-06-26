@@ -558,7 +558,8 @@ interface Service {
         @Field("value") newDescription: String,
         @Field("summary") summary: String?,
         @Field("token") token: String,
-        @Field("assert") user: String?
+        @Field("assert") user: String?,
+        @Field("matags") tags: String? = null
     ): Observable<EntityPostResponse>
 
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
@@ -571,7 +572,8 @@ interface Service {
         @Field("value") newDescription: String,
         @Field("summary") summary: String?,
         @Field("token") token: String,
-        @Field("assert") user: String?
+        @Field("assert") user: String?,
+        @Field("matags") tags: String? = null
     ): Observable<EntityPostResponse>
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")

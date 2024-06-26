@@ -355,7 +355,7 @@ class DescriptionEditFragment : Fragment() {
                             if (AccountUtil.isLoggedIn) "user"
                             else null, text, null, baseRevId, editToken,
                             if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-                            if (captchaHandler.isActive) captchaHandler.captchaWord() else null
+                            if (captchaHandler.isActive) captchaHandler.captchaWord() else null, tags = getEditTags()
                         )
                             .subscribeOn(Schedulers.io())
                     }
@@ -473,11 +473,11 @@ class DescriptionEditFragment : Fragment() {
             } else {
                 ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
-                        if (AccountUtil.isLoggedIn) "user" else null)
+                        if (AccountUtil.isLoggedIn) "user" else null, tags = getEditTags())
             }
         }
 
-        private fun getEditTags(): String {
+        private fun getEditTags(): String? {
             val tags = mutableListOf<String>()
 
             if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
@@ -510,7 +510,7 @@ class DescriptionEditFragment : Fragment() {
                 else -> { }
             }
 
-            return tags.joinToString(",")
+            return if (tags.isEmpty()) null else tags.joinToString(",")
         }
 
         private fun getEditComment(): String? {
