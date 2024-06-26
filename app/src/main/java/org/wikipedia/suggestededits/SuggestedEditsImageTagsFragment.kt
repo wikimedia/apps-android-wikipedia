@@ -128,6 +128,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         when (it) {
                             is Resource.Loading -> onLoading()
                             is Resource.Success -> {
+                                page = it.data.first
                                 updateContents(it.data.first.imageInfo(), it.data.second)
                                 updateTagChips()
                             }
@@ -364,7 +365,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishOverlayContainer.visibility = VISIBLE
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
-        viewModel.publishImageTags(page!!, acceptedLabels)
+
+        page?.let {
+            viewModel.publishImageTags(it, acceptedLabels)
+        }
     }
 
     private fun onSuccess() {
