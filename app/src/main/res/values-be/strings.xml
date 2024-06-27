@@ -8,6 +8,7 @@
 * Earnur97
 * Envlh
 * Gorgich
+* Kapatych
 * Kareyac
 * Liashko
 * Maksim L.
@@ -247,7 +248,7 @@
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Сачыце за тым, што адбываецца з артыкуламі, якія вас цікавяць. Каб убачыць змены ў артыкуле, націсніце на дадатковае меню і выберыце &lt;b&gt;Дадаць у спіс назірання&lt;/b&gt;.</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
-  <string name="about_description">Пра дадатак Вікіпедыя</string>
+  <string name="about_description">Пра праграму Вікіпедыя</string>
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
   <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
@@ -262,11 +263,11 @@
   <string name="about_contributors_heading">Суаўтары</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
   <string name="about_translators_heading">Перакладчыкі</string>
-  <string name="about_translators_translatewiki">Гэты дадатак быў перакладзены валанцёрамі &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Гэта праграма была перакладзена валанцёрамі &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
   <string name="about_app_license">Зыходны код даступны на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; пад ліцэнзіяй &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Калі не азначана іншае, змесціва даступна ў адпаведнасці з ліцэнзіяй &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ru\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Прадукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедыа&lt;/a&gt;</string>
-  <string name="about_activity_title">Пра дадатак</string>
+  <string name="about_activity_title">Пра праграму</string>
   <string name="edit_abandon_confirm">Старонка была зменена. Вы ўпэўненыя, што жадаеце выйсці без захавання зменаў?</string>
   <string name="edit_abandon_confirm_yes">Так</string>
   <string name="edit_abandon_confirm_no">Не</string>
@@ -613,7 +614,7 @@
   <string name="reading_list_login_reminder_title">Сінхранізацыя спісаў чытання</string>
   <string name="reading_lists_login_reminder_text">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы.</string>
   <string name="reading_lists_login_button">Увайсці / далучыцца да Вікіпедыі</string>
-  <string name="reading_lists_ignore_button">Не цяпер</string>
+  <string name="reading_lists_ignore_button">Не зараз</string>
   <string name="reading_lists_confirm_remote_delete_yes">Так</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Артыкул спампоўваецца, і пасля завяршэння ён будзе дасяжны па-за сеткай.</string>
@@ -768,7 +769,7 @@
   </plurals>
   <string name="notifications_poll_enable_title">Уключыць апавяшчэнні</string>
   <string name="notifications_poll_enable_positive">Уключыць</string>
-  <string name="notifications_poll_enable_negative">Не цяпер</string>
+  <string name="notifications_poll_enable_negative">Не зараз</string>
   <string name="notifications_empty_message">Вы атрымалі ўсе апавяшчэнні!</string>
   <string name="notifications_view_archived_button_text">Прагляд заархіваваных апавяшчэнняў</string>
   <string name="notification_preferences_title">Параметры апавяшчэнняў</string>
@@ -1388,7 +1389,7 @@
   <string name="talk_response_submitted">Адказ апублікаваны.</string>
   <string name="talk_snackbar_undo">Скасаваць</string>
   <string name="talk_last_modified">&lt;b&gt;Апошняя праўка %1$s&lt;/b&gt; за %2$s</string>
-  <string name="talk_snackbar_survey_text">Дзякуй за карыстанне старонкамі размоў. Ці можаце вы дапамагчы нам палепшыць дадатак, прыняўшы ўдзел у апытанні?</string>
+  <string name="talk_snackbar_survey_text">Дзякуй за карыстанне старонкамі размоў. Ці можаце вы дапамагчы нам палепшыць праграму, прыняўшы ўдзел у апытанні?</string>
   <string name="talk_snackbar_survey_action_text">Пачаць</string>
   <string name="talk_share_discussion_subject">Вікіпедыя — размова ў тэме «%s»</string>
   <string name="talk_share_talk_page">Вікіпедыя — старонка размоў</string>
