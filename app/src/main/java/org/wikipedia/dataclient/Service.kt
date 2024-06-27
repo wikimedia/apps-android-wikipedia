@@ -69,10 +69,10 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
-    fun prefixSearchUsers(
+    suspend fun prefixSearchUsers(
             @Query("auprefix") prefix: String,
             @Query("aulimit") maxResults: Int
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(
         MW_API_PREFIX + "action=query&generator=search&prop=imageinfo&iiprop=extmetadata|url" +
