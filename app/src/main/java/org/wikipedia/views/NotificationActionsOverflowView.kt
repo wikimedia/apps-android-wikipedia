@@ -63,6 +63,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
             it.links?.getPrimary()?.let { primary ->
                 val category = NotificationCategory.find(container.notification.category)
                 val iconColor = ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, category.iconColor))
+                linkHandler.category = category
                 setUpViewForLink(binding.overflowViewPrimary, primary, category.iconResId, iconColor, iconColor)
                 binding.overflowViewPrimary.visibility = View.VISIBLE
             }

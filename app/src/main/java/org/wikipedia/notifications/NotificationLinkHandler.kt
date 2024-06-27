@@ -11,7 +11,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.log.L
 
-class NotificationLinkHandler constructor(context: Context) : LinkHandler(context) {
+class NotificationLinkHandler(context: Context) : LinkHandler(context) {
+
+    var category: NotificationCategory? = null
 
     override fun onPageLinkClicked(anchor: String, linkText: String) {
         // ignore
@@ -28,6 +30,11 @@ class NotificationLinkHandler constructor(context: Context) : LinkHandler(contex
     override lateinit var wikiSite: WikiSite
 
     override fun onInternalLinkClicked(title: PageTitle) {
+        // Make sure the login-failed links are opened in the external browser
+        if (category == NotificationCategory.LOGIN_FAIL) {
+            onExternalLinkClicked(Uri.parse(title.uri))
+            return
+        }
         context.startActivity(PageActivity.newIntentForCurrentTab(context,
             HistoryEntry(title, HistoryEntry.SOURCE_NOTIFICATION), title))
     }
