@@ -38,13 +38,6 @@ import org.wikipedia.util.log.L
 object UserTalkPopupHelper {
 
     fun show(activity: AppCompatActivity, title: PageTitle, anon: Boolean, anchorView: View,
-             invokeSource: Constants.InvokeSource, historySource: Int, revisionId: Long? = null, pageId: Int? = null) {
-        val pos = IntArray(2)
-        anchorView.getLocationInWindow(pos)
-        show(activity, title, anon, pos[0], pos[1], invokeSource, historySource, revisionId = revisionId, pageId = pageId)
-    }
-
-    fun show(activity: AppCompatActivity, title: PageTitle, anon: Boolean, anchorView: View,
               invokeSource: Constants.InvokeSource, historySource: Int, revisionId: Long? = null, pageId: Int? = null, showUserInfo: Boolean = false) {
         val pos = IntArray(2)
         anchorView.getLocationInWindow(pos)

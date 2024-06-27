@@ -12,7 +12,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.login.LoginClient.LoginFailedException
+import org.wikipedia.login.LoginFailedException
 import org.wikipedia.util.log.L
 import java.net.SocketException
 import java.net.SocketTimeoutException

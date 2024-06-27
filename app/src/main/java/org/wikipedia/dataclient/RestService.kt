@@ -104,7 +104,8 @@ interface RestService {
     ): Observable<Response<MediaList>>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
-    fun getOnThisDay(@Path("mm") month: Int, @Path("dd") day: Int): Observable<OnThisDay>
+    suspend fun getOnThisDay(@Path("mm") month: Int,
+                             @Path("dd") day: Int): OnThisDay
 
     // TODO: Remove this before next fundraising campaign in 2024
     @GET("feed/announcements")
@@ -222,7 +223,7 @@ interface RestService {
     //  ------- Talk pages -------
     @Headers("Cache-Control: no-cache")
     @GET("page/talk/{title}")
-    fun getTalkPage(@Path("title") title: String?): Observable<TalkPage>
+    suspend fun getTalkPage(@Path("title") title: String?): TalkPage
 
     @Headers("Cache-Control: no-cache")
     @GET("metrics/edits/per-page/{wikiAuthority}/{title}/all-editor-types/monthly/{fromDate}/{toDate}")
