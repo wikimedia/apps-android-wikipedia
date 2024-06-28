@@ -52,7 +52,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:background="?attr/selectableItemBackground"
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:text="@string/places_search_hint"
