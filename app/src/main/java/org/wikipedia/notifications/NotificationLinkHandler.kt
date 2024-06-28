@@ -11,9 +11,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.log.L
 
-class NotificationLinkHandler(context: Context) : LinkHandler(context) {
-
-    var category: NotificationCategory? = null
+class NotificationLinkHandler(context: Context, private val category: NotificationCategory) : LinkHandler(context) {
 
     override fun onPageLinkClicked(anchor: String, linkText: String) {
         // ignore
