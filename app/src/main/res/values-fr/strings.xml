@@ -52,6 +52,7 @@
 * Niridya
 * Noé
 * Obscaeris
+* Oujon
 * Oupsa
 * Papawy
 * Seb35
@@ -76,8 +77,8 @@
   <string name="nav_item_back">Retour</string>
   <string name="page_tabs_back">Retour</string>
   <string name="nav_item_forward">Suivant</string>
-  <string name="search_hint">Rechercher sur Wikipédia</string>
-  <string name="search_hint_voice_search">Rechercher vocalement</string>
+  <string name="search_hint">Rechercher Wikipédia</string>
+  <string name="search_hint_voice_search">Recherche de saisi vocale</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
   <string name="nav_item_suggested_edits">Modifications</string>
