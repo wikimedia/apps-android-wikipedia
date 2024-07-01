@@ -9,6 +9,7 @@
 * Kusavica
 * Lexected
 * Luky001
+* Oujon
 * Patriccck
 * Patrik L.
 * Pmikolas44
@@ -173,6 +174,7 @@
   <string name="logged_out_in_background_dialog">Ste odhlásení z Wikipédie. Chcete sa znova prihlásiť?</string>
   <string name="logged_out_in_background_login">Prihlásiť sa</string>
   <string name="logged_out_in_background_cancel">Zrušiť</string>
+  <string name="account_vanish_request_title">Zmiznúť účet</string>
   <string name="history_empty_title">Žiadne nedávno zobrazené články</string>
   <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="history_offline_articles_toast">Niektoré články v histórii nemusia byť zobrazené, keď je zariadenie offline.</string>
@@ -401,6 +403,11 @@
   <string name="multi_select_items_selected">Vybraných: %d</string>
   <string name="error_message_generic">Nastala chyba</string>
   <string name="view_link_preview_error_button_dismiss">Zrušiť</string>
+  <string name="link_preview_dialog_read_button">Čítať</string>
+  <string name="link_preview_dialog_save_button">Uložiť</string>
+  <string name="link_preview_dialog_saved_button">Uložené</string>
+  <string name="link_preview_dialog_share_button">Zdieľať</string>
+  <string name="link_preview_stub_placeholder_text">Tento článok je stub, čo znamená, že v článku nie je dosť obsahu na vytvorenie predbežného prezerania. Ale to môžete zmeniť.</string>
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
   <string name="error_user_page_does_not_exist">Na Wikipédii nie je &lt;a href=\"%1$s\"&gt;používateľská stránka&lt;/a&gt; s presne takýmto menom. Všeobecne by táto stránka mala byť vytvorená a upravená používateľom &lt;b&gt;%2$s&lt;/b&gt;. Ak sa Vám to nepozdáva overte si či používateľ \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
@@ -423,6 +430,11 @@
   <string name="error_blocked_footer">Môžete kontaktovať &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; alebo iného &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Prispôsobte si panel nástrojov</string>
   <string name="error_blocked_footer_no_blocker">Môžete kontaktovať a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
+  <string name="temp_account_not_logged_in">Nie ste prihlásení</string>
+  <string name="temp_account_using_title">Používate dočasný účet</string>
+  <string name="temp_account_dialog_discard">Zrušte zmeny a prihláste sa</string>
+  <string name="temp_account_end_session">Ukončiť reláciu</string>
+  <string name="temp_account_end_session_confirm">Toto vás vylúči z dočasného účtu. Chcete pokračovať?</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_relaunch">Začať odznova</string>
@@ -449,8 +461,10 @@
   <string name="text_size_percent_default">%s (predvolená hodnota)</string>
   <string name="text_style_title">Písmo</string>
   <string name="theme_category_reading">Čítanie</string>
+  <string name="theme_category_editing">Upraviť</string>
   <string name="reading_focus_mode">Mód sústredeného čítania</string>
   <string name="reading_focus_mode_detail">Skryje funkcie úprav a spodný panel nástrojov pri skrolovaní</string>
+  <string name="editing_syntax_highlight_label">Zvýraznenie syntaxe</string>
   <string name="nav_item_saved">Uložené</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_move_to">Presunúť do zoznamu na prečítanie</string>
