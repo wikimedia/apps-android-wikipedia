@@ -400,6 +400,7 @@ interface Service {
             @Field("token") token: String,
             @Field("undo") undoRevId: Long,
             @Field("undoafter") undoRevAfter: Long? = null,
+            @Field("matags") tags: String? = null
     ): Edit
 
     @FormUrlEncoded
@@ -418,6 +419,7 @@ interface Service {
         @Field("captchaword") captchaWord: String?,
         @Field("minor") minor: Boolean? = null,
         @Field("watchlist") watchlist: String? = null,
+        @Field("matags") tags: String? = null
     ): Observable<Edit>
 
     @FormUrlEncoded
@@ -436,6 +438,7 @@ interface Service {
         @Field("captchaword") captchaWord: String?,
         @Field("minor") minor: Boolean? = null,
         @Field("watchlist") watchlist: String? = null,
+        @Field("matags") tags: String? = null
     ): Edit
 
     @FormUrlEncoded
@@ -485,7 +488,8 @@ interface Service {
         @Field("title") title: String,
         @Field("summary") summary: String?,
         @Field("user") user: String,
-        @Field("token") token: String
+        @Field("token") token: String,
+        @Field("matags") tags: String? = null
     ): RollbackPostResponse
 
     // ------- Wikidata -------
@@ -554,7 +558,8 @@ interface Service {
         @Field("value") newDescription: String,
         @Field("summary") summary: String?,
         @Field("token") token: String,
-        @Field("assert") user: String?
+        @Field("assert") user: String?,
+        @Field("matags") tags: String? = null
     ): Observable<EntityPostResponse>
 
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
@@ -567,7 +572,8 @@ interface Service {
         @Field("value") newDescription: String,
         @Field("summary") summary: String?,
         @Field("token") token: String,
-        @Field("assert") user: String?
+        @Field("assert") user: String?,
+        @Field("matags") tags: String? = null
     ): Observable<EntityPostResponse>
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
