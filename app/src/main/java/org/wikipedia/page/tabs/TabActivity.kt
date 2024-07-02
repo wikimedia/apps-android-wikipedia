@@ -4,7 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
@@ -31,7 +35,11 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class TabActivity : BaseActivity() {
@@ -57,7 +65,7 @@ class TabActivity : BaseActivity() {
                     view.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
                     view.scaleType = ImageView.ScaleType.CENTER_CROP
                     view.setImageBitmap(FIRST_TAB_BITMAP)
-                    view.setPadding(0, if (topTabLeadImageEnabled()) 0 else -DimenUtil.getToolbarHeightPx(this@TabActivity), 0, 0)
+                    view.setPadding(0, -DimenUtil.getToolbarHeightPx(this@TabActivity), 0, 0)
                     return view
                 }
                 return inflater.inflate(R.layout.item_tab_contents, parent, false)
@@ -66,7 +74,7 @@ class TabActivity : BaseActivity() {
             override fun onShowTab(context: Context, tabSwitcher: TabSwitcher, view: View,
                                    tab: de.mrapp.android.tabswitcher.Tab, index: Int, viewType: Int, savedInstanceState: Bundle?) {
                 val tabIndex = app.tabCount - index - 1
-                if (viewType == 1 || tabIndex < 0 || app.tabList[tabIndex] == null) {
+                if (viewType == 1 || tabIndex < 0 || app.tabList.getOrNull(tabIndex) == null) {
                     return
                 }
                 val titleText = view.findViewById<TextView>(R.id.tab_article_title)
@@ -83,7 +91,8 @@ class TabActivity : BaseActivity() {
             }
 
             override fun getViewType(tab: de.mrapp.android.tabswitcher.Tab, index: Int): Int {
-                return if (FIRST_TAB_BITMAP_TITLE == app.tabList[app.tabCount - index - 1]?.backStackPositionTitle?.prefixedText) {
+                val tabIndex = app.tabCount - index - 1
+                return if (FIRST_TAB_BITMAP_TITLE == app.tabList.getOrNull(tabIndex)?.backStackPositionTitle?.prefixedText) {
                     1
                 } else {
                     0

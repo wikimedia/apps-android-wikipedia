@@ -62,7 +62,7 @@
   <string name="menu_page_new_tab">Uđđâ koskâlostâ</string>
   <string name="menu_page_reading_lists">Luuhâmlistoh</string>
   <string name="menu_long_press_open_page">Leehâst</string>
-  <string name="menu_long_press_open_in_new_tab">Leehâst uđđâ koskâloostâst</string>
+  <string name="menu_long_press_open_in_new_tab">Leehâst uđđâ koskâloostân</string>
   <string name="menu_long_press_copy_page">Kopijist liiŋkâ čujottâs</string>
   <string name="menu_text_select_define">Miäruštâllâm</string>
   <string name="on_this_day_page_share">Jyevi</string>
@@ -156,10 +156,13 @@
   <string name="tool_tip_bookmark_icon_title">Lasseet luuhâmliiston</string>
   <string name="button_continue_to_article">Luuvâ artikkâl</string>
   <string name="button_add_to_reading_list">Lasseet luuhâmliiston</string>
+  <string name="link_preview_dialog_read_button">Luuvâ</string>
   <string name="link_preview_dialog_save_button">Vuorkkii</string>
   <string name="link_preview_dialog_saved_button">Vyerkkejum</string>
+  <string name="link_preview_dialog_share_button">Jyevi</string>
   <string name="empty_tab_title">Uđđâ koskâlostâ</string>
   <string name="menu_save_all_tabs">Vuorkkii puoh koskâloostâid</string>
+  <string name="temp_account_not_logged_in">Jieh lah čáládâttâm siisâ</string>
   <string name="article_menu_bar_save_button">Vuorkkii</string>
   <string name="article_menu_bar_language_button">Kielâ</string>
   <string name="article_menu_bar_search_button">Uusâ</string>
@@ -335,6 +338,7 @@
   <string name="talk_warn_save_dialog_message">Vuorkkii uđđâ viestân</string>
   <string name="talk_warn_save_dialog_existing_new_message">Vuorkkii uđđâ viestân liiston</string>
   <string name="talk_warn_save_dialog_publish">Almostit</string>
+  <string name="talk_warn_save_dialog_dont_save">Ele vuorkkii</string>
   <string name="talk_warn_saved_messages">Vyerkkejum viestah</string>
   <string name="talk_add_reply">Västid</string>
   <string name="talk_search_hint">Uusâ viestâid</string>
@@ -361,4 +365,6 @@
   <string name="talk_templates_new_message_dialog_title">Vuorkkii nubástusâid</string>
   <string name="talk_templates_new_message_dialog_save">Vuorkkii</string>
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
+  <string name="talk_templates_menu_edit_title">Mute</string>
 </resources>

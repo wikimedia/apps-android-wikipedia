@@ -11,6 +11,7 @@ import okio.Buffer
 import okio.Sink
 import okio.Timeout
 import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
@@ -36,7 +37,6 @@ import java.io.IOException
 
 class SavedPageSyncService : JobIntentService() {
     private val savedPageSyncNotification = SavedPageSyncNotification.instance
-    val app: WikipediaApp = WikipediaApp.instance
 
     override fun onHandleWork(intent: Intent) {
         if (ReadingListSyncAdapter.inProgress()) {
@@ -165,7 +165,7 @@ class SavedPageSyncService : JobIntentService() {
                             reqMediaList(pageTitle, revision),
                             reqMobileHTML(pageTitle)) { summaryRsp, mediaListRsp, mobileHTMLRsp ->
                         page.downloadProgress = MEDIA_LIST_PROGRESS
-                        app.bus.post(PageDownloadEvent(page))
+                        FlowEventBus.post(PageDownloadEvent(page))
                         val fileUrls = mutableSetOf<String>()
 
                         // download css and javascript assets
@@ -254,7 +254,7 @@ class SavedPageSyncService : JobIntentService() {
                 reqSaveUrl(pageTitle, page.wiki, url)
                 percentage += updateRate
                 page.downloadProgress = percentage.toInt()
-                app.bus.post(PageDownloadEvent(page))
+                FlowEventBus.post(PageDownloadEvent(page))
             } catch (e: Exception) {
                 if (isRetryable(e)) {
                     throw e
@@ -262,7 +262,7 @@ class SavedPageSyncService : JobIntentService() {
             }
         }
         page.downloadProgress = CircularProgressBar.MAX_PROGRESS
-        app.bus.post(PageDownloadEvent(page))
+        FlowEventBus.post(PageDownloadEvent(page))
     }
 
     @Throws(IOException::class)
@@ -285,14 +285,14 @@ class SavedPageSyncService : JobIntentService() {
 
     private fun makeUrlRequest(wiki: WikiSite, url: String, pageTitle: PageTitle): Request.Builder {
         return Request.Builder().cacheControl(CACHE_CONTROL_FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
-                .addHeader("Accept-Language", app.getAcceptLanguage(pageTitle.wikiSite))
+                .addHeader("Accept-Language", WikipediaApp.instance.getAcceptLanguage(pageTitle.wikiSite))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.wikiSite.languageCode)
                 .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.prefixedText))
     }
 
     private fun persistPageThumbnail(title: PageTitle, url: String) {
-        AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(title, url))
+        AppDatabase.instance.pageImagesDao().insertPageImageSync(PageImage(title, url))
     }
 
     private fun isRetryable(t: Throwable): Boolean {
@@ -328,7 +328,7 @@ class SavedPageSyncService : JobIntentService() {
         fun sendSyncEvent(showMessage: Boolean = false) {
             // Note: this method posts from a background thread but subscribers expect events to be
             // received on the main thread.
-            WikipediaApp.instance.bus.post(ReadingListSyncEvent(showMessage))
+            FlowEventBus.post(ReadingListSyncEvent(showMessage))
         }
     }
 }

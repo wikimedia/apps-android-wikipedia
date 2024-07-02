@@ -7,9 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import org.maplibre.android.plugins.annotation.Symbol
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -27,10 +27,6 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
     var lastKnownLocation: Location? = null
     val nearbyPagesLiveData = MutableLiveData<Resource<List<NearbyPage>>>()
-
-    init {
-        Prefs.shouldShowOneTimePlacesSurvey++
-    }
 
     fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->

@@ -2,11 +2,13 @@ package org.wikipedia.dataclient.donate
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwServiceError
 
 @Suppress("unused")
 @Serializable
 class PaymentResponseContainer(
-    val response: PaymentResponse?
+    val response: PaymentResponse? = null
 )
 
 @Suppress("unused")
@@ -16,9 +18,14 @@ class PaymentResponse(
     @SerialName("error_message") val errorMessage: String = "",
     @SerialName("order_id") val orderId: String = "",
     @SerialName("gateway_transaction_id") val gatewayTransactionId: String = "",
-
     val paymentMethods: List<PaymentMethod> = emptyList()
-)
+) {
+    init {
+        if (status == "error") {
+            throw MwException(MwServiceError("donate_error", errorMessage))
+        }
+    }
+}
 
 @Suppress("unused")
 @Serializable

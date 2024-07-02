@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.BackPressedHandler
@@ -50,7 +51,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private val feedScrollListener = FeedScrollListener()
     private val callback get() = getCallback(this, Callback::class.java)
     private var app: WikipediaApp = WikipediaApp.instance
-    private var coordinator: FeedCoordinator = FeedCoordinator(app)
+    private var coordinator: FeedCoordinator = FeedCoordinator(lifecycleScope, app)
     private var shouldElevateToolbar = false
 
     interface Callback {
@@ -118,6 +119,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
                 if (feedAdapter.itemCount < 2) {
                     binding.emptyContainer.visibility = View.VISIBLE
                 } else {
+                    binding.emptyContainer.visibility = View.GONE
                     if (shouldUpdatePreviousCard) {
                         feedAdapter.notifyItemChanged(feedAdapter.itemCount - 1)
                     }
@@ -149,7 +151,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
         showRemoveChineseVariantPrompt()
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
-        // on certain devices. (TODO: investigate further)
+        // on certain devices.
+        // https://issuetracker.google.com/issues/188096921
         feedAdapter.notifyDataSetChanged()
     }
 

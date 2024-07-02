@@ -283,6 +283,7 @@
   <string name="notifications_activity_title">Ծանուցումներ</string>
   <string name="notifications_poll_enable_positive">Միացնել</string>
   <string name="notifications_poll_enable_negative">Հիմա չէ</string>
+  <string name="notifications_mark_all_as_read">Նշել բոլորը որպես ընթերցված</string>
   <string name="notifications_direct_reply_action">Պատասխանել</string>
   <string name="watchlist_title">Հսկացանկ</string>
   <string name="preference_title_notification_system">Հհամակարգչային</string>
@@ -327,6 +328,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Լավ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="feed_language_variants_removal_dialog_save">Հիշել</string>
   <string name="description_edit_article_description_label">Հոդված</string>
   <string name="description_edit_add_caption_label">Պատկերի նկարագրություն</string>
   <string name="description_edit_add_caption_hint">Պատկերի նկարագրություն</string>
