@@ -72,7 +72,7 @@
   <string name="langlinks_no_match">Меттанаш цакарий</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
   <string name="langlinks_your_wikipedia_languages">Википедин хьан меттанаш</string>
-  <string name="menu_save_changes">Ӏалашбе хийцамаш</string>
+  <string name="menu_save_changes">Хийцамаш дӀаӀалашбан</string>
   <string name="edit_saved_successfully">Нисдар Ӏалашдина!</string>
   <string name="dialog_message_edit_failed">ГӀалат тадина!</string>
   <string name="dialog_message_edit_failed_retry">ЙухагӀорта</string>
@@ -148,7 +148,7 @@
   <string name="about_article_section">ХӀокху агӀонах лаьцна</string>
   <string name="menu_gallery_visit_image_page">Файлан агӀонг гӀо</string>
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
-  <string name="license_title" fuzzy="true">Лицензин йоза %s библиотекина</string>
+  <string name="license_title">Лицензин текст %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолайалита цайелира.</string>
   <string name="close_all_tabs_confirm_yes">ХӀаъ</string>
   <string name="close_all_tabs_confirm_no">ХӀан-хӀа</string>

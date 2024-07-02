@@ -509,5 +509,6 @@
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
   <string name="patroller_tasks_overflow_learn">Lassedieđut</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Máhcahat</string>
+  <string name="talk_templates_menu_edit_title">Rievdat</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>

@@ -104,7 +104,8 @@ interface RestService {
     ): Observable<Response<MediaList>>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
-    fun getOnThisDay(@Path("mm") month: Int, @Path("dd") day: Int): Observable<OnThisDay>
+    suspend fun getOnThisDay(@Path("mm") month: Int,
+                             @Path("dd") day: Int): OnThisDay
 
     // TODO: Remove this before next fundraising campaign in 2024
     @GET("feed/announcements")
@@ -199,30 +200,26 @@ interface RestService {
     // ------- Recommendations -------
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/caption/addition/{lang}")
-    fun getImagesWithoutCaptions(@Path("lang") lang: String): Observable<List<SuggestedEditItem>>
+    suspend fun getImagesWithoutCaptions(@Path("lang") lang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/caption/translation/from/{fromLang}/to/{toLang}")
-    fun getImagesWithTranslatableCaptions(
-        @Path("fromLang") fromLang: String,
-        @Path("toLang") toLang: String
-    ): Observable<List<SuggestedEditItem>>
+    suspend fun getImagesWithTranslatableCaptions(@Path("fromLang") fromLang: String,
+                                                  @Path("toLang") toLang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/description/addition/{lang}")
-    fun getArticlesWithoutDescriptions(@Path("lang") lang: String): Observable<List<SuggestedEditItem>>
+    suspend fun getArticlesWithoutDescriptions(@Path("lang") lang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
-    fun getArticlesWithTranslatableDescriptions(
-        @Path("fromLang") fromLang: String,
-        @Path("toLang") toLang: String
-    ): Observable<List<SuggestedEditItem>>
+    suspend fun getArticlesWithTranslatableDescriptions(@Path("fromLang") fromLang: String,
+                                                        @Path("toLang") toLang: String): List<SuggestedEditItem>
 
     //  ------- Talk pages -------
     @Headers("Cache-Control: no-cache")
     @GET("page/talk/{title}")
-    fun getTalkPage(@Path("title") title: String?): Observable<TalkPage>
+    suspend fun getTalkPage(@Path("title") title: String?): TalkPage
 
     @Headers("Cache-Control: no-cache")
     @GET("metrics/edits/per-page/{wikiAuthority}/{title}/all-editor-types/monthly/{fromDate}/{toDate}")

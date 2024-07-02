@@ -52,7 +52,7 @@ interface ReadingListDao {
         val lists = getListsWithoutContents()
         val pages = AppDatabase.instance.readingListPageDao().getAllPagesToBeSynced()
         pages.forEach { page ->
-            lists.first { it.id == page.listId }.apply { this.pages.add(page) }
+            lists.firstOrNull { it.id == page.listId }?.apply { this.pages.add(page) }
         }
         return lists
     }

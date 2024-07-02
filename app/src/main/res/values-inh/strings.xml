@@ -151,9 +151,9 @@
   <string name="menu_login">Чувáла</string>
   <string name="login_activity_title">Чувáла</string>
   <string name="login_in_progress_dialog_message">Системача чувалар...</string>
-  <string name="login_success_toast">Система чу чувалар кхоачашдаьд!</string>
+  <string name="login_success_toast">Системача чувалар кхоачашдаьд!</string>
   <string name="reset_password_title">ДӀаоттае хьай пароль</string>
-  <string name="reset_password_description">Цхьан юкъа мара болх беш хургйоаца пароль чуязъяьй Ӏа. Система чу чувалар кхоачашдергдолаш керда пароль дӀаоттае.</string>
+  <string name="reset_password_description">Цхьан юкъа мара болх беш хургйоаца пароль чуязъяьй Ӏа. Системача чувалар кхоачашдергдолаш керда пароль дӀаоттае.</string>
   <string name="reset_password_hint">Керда пароль</string>
   <string name="reset_password_button">ДӀа а яздаь чувáла</string>
   <string name="preference_title_logout">Аравала</string>

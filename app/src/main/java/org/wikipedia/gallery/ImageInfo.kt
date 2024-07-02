@@ -3,6 +3,7 @@ package org.wikipedia.gallery
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Suppress("unused")
 @Serializable
 class ImageInfo {
 

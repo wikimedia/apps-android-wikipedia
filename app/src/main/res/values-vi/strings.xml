@@ -747,6 +747,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Hủy bỏ</string>
   <string name="feed_accessibility_card_text">Bạn đã đến cuối nguồn cấp dữ liệu.</string>
   <string name="feed_accessibility_card_load_more_button">Tải thêm</string>
+  <string name="feed_language_variants_removal_dialog_save">Lưu</string>
   <string name="top_read_activity_title">Đọc nhiều nhất trên %s</string>
   <string name="tabs_activity_title">Các tab</string>
   <string name="description_edit_text_hint">Miêu tả bài viết</string>
@@ -1151,6 +1152,7 @@
   <string name="watchlist_page_moved">Đã di chuyển</string>
   <string name="watchlist_page_protected">Đã khóa</string>
   <string name="watchlist_page_deleted">Đã xóa</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Tất cả</string>
   <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Con người (không phải bot)</string>
@@ -1170,6 +1172,10 @@
   <string name="talk_templates_edit_message_dialog_delete">Xóa</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Cảm ơn</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Thông tin người dùng</string>
+  <string name="patroller_tasks_filters_all_text">Tất cả</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Con người (không phải bot)</string>
+  <string name="patroller_tasks_filters_significance_minor">Sửa đổi nhỏ</string>
+  <string name="patroller_onboarding_two_thank_title">Cảm ơn</string>
+  <string name="donate_gpay_dialog_title">Quyên góp bằng Google Pay?</string>
 </resources>

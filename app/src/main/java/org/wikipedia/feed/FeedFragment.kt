@@ -135,7 +135,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
         super.onResume()
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
-        // on certain devices. (TODO: investigate further)
+        // on certain devices.
+        // https://issuetracker.google.com/issues/188096921
         feedAdapter.notifyDataSetChanged()
     }
 

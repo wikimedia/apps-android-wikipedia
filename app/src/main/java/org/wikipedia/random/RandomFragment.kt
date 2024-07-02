@@ -14,12 +14,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentRandomBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -29,7 +29,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.AnimationUtil.PagerTransformer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -63,11 +62,26 @@ class RandomFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                val eventBus = WikipediaApp.instance.bus.subscribe(EventBusConsumer())
                 viewModel.uiState.collect {
                     when (it) {
                         is Resource.Success -> setSaveButton()
                         is Resource.Error -> L.w(it.throwable)
+                    }
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is ArticleSavedOrDeletedEvent -> {
+                            topTitle?.let { title ->
+                                event.pages.firstOrNull { it.apiTitle == title.prefixedText && it.wiki.languageCode == title.wikiSite.languageCode }.let {
+                                    updateSaveButton(title)
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -214,21 +228,6 @@ class RandomFragment : Fragment() {
             val storedOffScreenPagesCount = binding.randomItemPager.offscreenPageLimit * 2 + 1
             if (position >= storedOffScreenPagesCount) {
                 (binding.randomItemPager.adapter as RandomItemAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
-            }
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is ArticleSavedOrDeletedEvent) {
-                if (!isAdded || topTitle == null) {
-                    return
-                }
-                for (page in event.pages) {
-                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode == topTitle?.wikiSite?.languageCode) {
-                        updateSaveButton(topTitle)
-                    }
-                }
             }
         }
     }
