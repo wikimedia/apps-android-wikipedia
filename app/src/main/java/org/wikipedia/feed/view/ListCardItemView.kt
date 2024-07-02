@@ -7,13 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import org.wikipedia.databinding.ViewListCardItemBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.feed.model.Card
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageAvailableOfflineHandler
@@ -106,8 +103,7 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
         setTitle(StringUtil.fromHtml(entry.title.displayText))
         setSubtitle(entry.title.description)
         setImage(entry.title.thumbUrl)
-        val lifecycleScope = (context as? AppCompatActivity)?.lifecycleScope ?: CoroutineScope(Dispatchers.IO)
-        PageAvailableOfflineHandler.check(lifecycleScope, entry.title) { setViewsGreyedOut(!it) }
+        PageAvailableOfflineHandler.check(coroutineScope(), entry.title) { setViewsGreyedOut(!it) }
         return this
     }
 

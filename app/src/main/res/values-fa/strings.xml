@@ -16,6 +16,7 @@
 * Dalba
 * Darafsh
 * Dbrant
+* Ebrahim
 * Ebraminio
 * FarsiNevis
 * Fatemi127
@@ -163,6 +164,7 @@
   <string name="langlinks_your_wikipedia_languages">زبان‌های ویکی‌پدیای شما</string>
   <string name="menu_save_changes">انتشار تغییرات</string>
   <string name="edit_saved_successfully">ویرایش منتشر شد!</string>
+  <string name="stub_article_edit_saved_successfully">ویرایش منتشر شد! اعمال تغییرات ممکن است زمان ببرد.</string>
   <string name="dialog_message_edit_failed">ویرایش اِعمال نشد!</string>
   <string name="dialog_message_edit_failed_retry">تلاش مجدد</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
@@ -205,6 +207,8 @@
   <string name="logged_out_in_background_dialog">شما از حساب کاربری‌تان در ویکی‌پدیا خارج شده‌اید. آیا می‌خواهید دوباره وارد شوید؟</string>
   <string name="logged_out_in_background_login">ورود</string>
   <string name="logged_out_in_background_cancel">انصراف</string>
+  <string name="account_vanish_request_title">حذف حساب</string>
+  <string name="account_vanish_request_confirm_title">هشدار حذف حساب</string>
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="history_offline_articles_toast">برخی از مقالات در تاریخچه ممکن است در حالت آفلاین دیده نشوند.</string>
@@ -345,6 +349,8 @@
   <string name="widget_name_featured_page">صفحهٔ برگزیدهٔ ویکی‌پدیا</string>
   <string name="widget_title_featured_page">صفحهٔ برگزیدهٔ امروز:</string>
   <string name="widget_name_search">جستجوی ویکی‌پدیا</string>
+  <string name="widget_description_search">سریع‌ترین راه برای جستجوی ویکی‌پدیا</string>
+  <string name="widget_description_featured_page">بهترین مقاله‌های ارائه‌شده از سوی ویکی‌پدیا</string>
   <string name="wiktionary_no_definitions_found">معنایی یافت نشد.</string>
   <string name="alpha_update_notification_title">به‌روزرسانی نسخهٔ آلفای جدید موجود است</string>
   <string name="alpha_update_notification_text">برای دانلود ضربه بزنید</string>
@@ -425,6 +431,11 @@
   <string name="multi_select_items_selected">%d مورد انتخاب شد</string>
   <string name="error_message_generic">خطایی رخ داد</string>
   <string name="view_link_preview_error_button_dismiss">نپذیرفتن</string>
+  <string name="link_preview_dialog_read_button">خواندن</string>
+  <string name="link_preview_dialog_save_button">ذخیره</string>
+  <string name="link_preview_dialog_saved_button">ذخیره شد</string>
+  <string name="link_preview_dialog_share_button">اشتراک</string>
+  <string name="link_preview_stub_placeholder_text">این یک مقالهٔ خرد است، به این معنی که محتوای کافی برای تولید پیش‌نمایش در مقاله وجود ندارد. با این حال، می‌توانید آن را تغییر دهید.</string>
   <string name="error_page_does_not_exist">این صفحه وجود ندارد</string>
   <string name="error_user_page_does_not_exist">ویکی‌پدیا &lt;a href=\"%1$s\"&gt;صفحهٔ کاربری‌ای&lt;/a&gt; با این عنوان ندارد. به طور کلی، این صفحه باید توسط &lt;b&gt;%2$s&lt;/b&gt; ایجاد و ویرایش شود. اگر شک دارید، لطفاً بررسی کنید که آیا «%3$s» وجود دارد یا خیر.</string>
   <string name="view_wiki_error_message_offline">امکان اتصال به اینترنت وجود ندارد</string>
@@ -447,6 +458,25 @@
   <string name="error_blocked_footer">برای گفتگو پیرامون قطع دسترسی می‌توانید با &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; یا یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; دیگر تماس بگیرید.</string>
   <string name="theme_chooser_menu_item_short_tooltip">نوار ابزار خود را سفارشی‌سازی کنید</string>
   <string name="error_blocked_footer_no_blocker">برای گفتگو پیرامون قطع دسترسی می‌توانید با یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; تماس بگیرید.</string>
+  <string name="temp_account_not_logged_in">شما به سامانه وارد نشده‌اید</string>
+  <string name="temp_account_anon_dialog_body">هرگاه ویرایشی انجام دهید، یک &lt;b&gt;حساب موقت&lt;/b&gt; برای شما ایجاد خواهد شد تا از حریم خصوصی شما حفاظت شود. &lt;a href=\"%1$s\"&gt;بیشتر بدانید&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;برای این که ویرایش‌های آتی به خودتان منتسب شوند و به سایر ویژگی‌ها دسترسی داشته باشید، &lt;a href=\"https://#login\"&gt;وارد سامانه شوید&lt;/a&gt; یا &lt;a href=\"https://#login\"&gt;یک حساب کاربری بسازید&lt;/a&gt;.</string>
+  <string name="temp_account_temp_dialog_body">ویرایش شما به %1$s منتسب خواهد شد. نشانی آی‌پی شما برای مدیران قابل مشاهده خواهد بود.&lt;br /&gt;&lt;br /&gt;اگر &lt;a href=\"https://#login\"&gt;وارد سامانه شوید&lt;/a&gt; یا &lt;a href=\"https://#login\"&gt;حساب بسازید&lt;/a&gt;، ویرایش‌های شما به نامی که خودتان انتخاب می‌کنید منتسب خواهند شد و از مزایای دیگری نیز بهره‌مند خواهید شد.</string>
+  <string name="temp_account_dialog_ok">متوجه شدم</string>
+  <string name="temp_account_using_title">شما در حال استفاده از یک حساب موقت هستید</string>
+  <string name="temp_account_dialog_discard">دور ریختن تغییرات و ورود به حساب</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">حساب موقت %1$s پس از انتشار ویرایش شما ایجاد شده است. این حساب پس از %2$d روز منقضی خواهد شد.</item>
+    <item quantity="other">حساب موقت %1$s پس از انتشار ویرایش شما ایجاد شده است. این حساب پس از %2$d روز منقضی خواهد شد.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">این حساب پس از %d روز منقضی خواهد شد.</item>
+    <item quantity="other">این حساب پس از %d روز منقضی خواهد شد.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;شما به سامانه وارد نشده‌اید.&lt;/b&gt; به محض این که ویرایشی انجام دهید، یک حساب موقت برای شما ایجاد خواهد شد تا از حریم خصوصی شما حفاظت شود. &lt;a href=\"%1$s\"&gt;بیشتر بدانید&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;شما در حال استفاده از یک حساب موقت هستید.&lt;/b&gt; ویرایش شما به %1$s منتسب خواهد شد. &lt;a href=\"%2$s\"&gt;بیشتر بدانید&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;شما در حال حاضر در حال استفاده از یک حساب موقت هستید.&lt;/b&gt; ویرایش‌هایی که با حساب موقت %1$s انجام دهید، پس از ورود به سامانه به حساب دائمی شما منتقل نخواهند شد. برای انتساب ویرایش‌ها به نام کاربری خودتان و بهره‌مندی از مزایای دیگر، یک حساب کاربری بسازید.</string>
+  <string name="temp_account_end_session">پایان نشست</string>
+  <string name="temp_account_end_session_confirm">این کار باعث می‌شود که از حساب موقت خود خارج شوید. آیا می‌خواهید ادامه دهید؟</string>
   <string name="crash_report_activity_title">خطای برنامه</string>
   <string name="crash_report_relaunch_or_quit">با عرض پوزش، نرم‌افزار ویکی‌پدیا با خطا مواجه شد و بسته شد.\n\nآیا قصد شروع دوباره دارید یا می‌خواهید خارج شوید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>
@@ -517,7 +547,10 @@
   <string name="reading_list_sort_by_created">مرتب‌سازی بر اساس تاریخ ایجادشدن (جدیدترین)</string>
   <string name="reading_list_sort_by_created_desc">مرتب‌سازی بر اساس تاریخ ایجادشدن (قدیمی‌ترین)</string>
   <string name="reading_list_menu_delete">حذف فهرست</string>
+  <string name="reading_list_menu_export">برون‌بری فهرست</string>
   <string name="reading_list_menu_select">انتخاب</string>
+  <string name="reading_list_menu_unselect">لغو انتخاب</string>
+  <string name="reading_list_export_write_permission_rationale">برای برون‌بری فهرست مطالعهٔ شما، به اجازه برای نوشتن اطلاعات بر روی حافظهٔ دستگاه شما نیاز است.</string>
   <string name="reading_list_menu_rename">ویرایش نام/توضیحات</string>
   <string name="reading_list_action_menu_remove_from_offline">حذف از مخزن آفلاین</string>
   <string name="reading_list_action_menu_save_for_offline">ذخیره در مخزن آفلاین</string>
@@ -538,6 +571,15 @@
     <item quantity="one">%d مقاله از %s حذف شد</item>
     <item quantity="other">%d مقاله از %s حذف شدند</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d فهرست حذف شد</item>
+    <item quantity="other">%d فهرست حذف شدند</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">فهرست پیش‌فرض (%s) قابل حذف نیست</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s حذف شد. فهرست پیش‌فرض (%2$s) قابل حذف نیست.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">فهرست‌ها حذف شدند. فهرست پیش‌فرض (%s) قابل حذف نیست.</string>
+  <string name="single_list_json_file_name">%s (فهرست مطالعهٔ ویکی‌پدیا).json</string>
+  <string name="multiple_lists_json_file_name">فهرست‌های مطالعهٔ ویکی‌پدیا (%s و بیشتر).json</string>
   <string name="reading_list_items_deleted">%d مقاله از فهرست حذف شد</string>
   <string name="reading_lists_item_deleted">%s از فهرست‌ها حذف شد</string>
   <string name="reading_list_item_delete_undo">واگردانی</string>
@@ -570,6 +612,11 @@
   <string name="reading_list_articles_added_to_named">%1$d مقاله به %2$s اضافه شد</string>
   <string name="reading_list_articles_moved_to_named">%1$d مقاله به %2$s منتقل شد</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید %s را حذف کنید؟</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">حذف فهرست(های) انتخاب‌شده؟</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">از حذف %d فهرست مطمئن هستید؟</item>
+    <item quantity="other">از حذف %d فهرست مطمئن هستید؟</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">برای فعال‌کردن همگام‌سازی وارد شوید</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای ممکن ساختن ذخیرهٔ فهرست‌های مطالعهٔ خود، به حساب خود وارد شوید.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">لغو</string>
@@ -616,6 +663,8 @@
   <string name="reading_list_split_dialog_ok_button_text">تأیید</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">حذف</string>
   <string name="reading_list_activity_title">فهرست مطالعه: %s</string>
+  <string name="reading_list_notification_title">فهرست(های) مطالعه برون‌بری شد</string>
+  <string name="reading_list_notification_text">%d فهرست مطالعه تحت عنوان «reading_lists export.json» در پوشهٔ بارگیری‌های شما برون‌بری شد</string>
   <string name="reading_lists_action_menu_export_lists">برون‌بری</string>
   <string name="reading_lists_import_file_picker_title">فایل مورد نظر را برای درون‌ریزی انتخاب کنید</string>
   <string name="reading_lists_preview_save_button">ذخیره</string>
@@ -806,6 +855,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">لغو</string>
   <string name="feed_accessibility_card_text">شما به انتهای محتوا رسیدید.</string>
   <string name="feed_accessibility_card_load_more_button">بارگیری بیشتر</string>
+  <string name="feed_language_variants_removal_dialog_save">ذخیره‌سازی</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">رفتن به تنظیمات</string>
   <string name="top_read_activity_title">پربازدیدها در %s</string>
   <string name="tabs_activity_title">زبانه‌ها</string>
   <string name="description_edit_text_hint">توضیحات مقاله</string>
@@ -1099,6 +1150,7 @@
   <string name="onboarding_explore_text">جستجو در ویکی‌پدیا با به‌روزرسانی مداوم خوراک بازدید.&lt;br/&gt; &lt;b&gt;شخصی‌سازی&lt;/b&gt; خوراک به‌صورت دلخواه- به نحوی که در مورد رویدادهای تاریخی &lt;b&gt;در این روز &lt;/b&gt; یا جستجوی &lt;b&gt;تصادفی&lt;/b&gt;</string>
   <string name="onboarding_reading_list_sync_title">فهرست‌های مطالعه با همگام‌سازی</string>
   <string name="onboarding_reading_list_sync_text_v2">می‌توانید از مقاله‌هایی برای مطالعه در آینده، حتی در زمانی که آفلاین هستید، یک فهرست مطالعه تهیه کنید. برای همگام‌سازی فهرست‌ها، به حساب ویکی‌پدیای خود وارد شوید. &lt;a href=\"#login\"&gt;به ویکی‌پدیا ملحق شوید.&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">داده‌ها و حریم خصوصی</string>
   <string name="onboarding_analytics_switch_title">ارسال دادهٔ مصرف</string>
   <string name="onboarding_got_it">فهمیدم</string>
   <string name="onboarding_multilingual_secondary_text">ما مورد(های) زیر را بر روی دستگاه شما یافتیم:</string>
@@ -1196,6 +1248,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">ارتفاع</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">پیکسل</string>
   <string name="insert_media_insert_button">درج</string>
+  <string name="templates_insert_button">درج</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
   <string name="main_tooltip_text">سلام %s، آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
@@ -1487,6 +1540,7 @@
   <string name="patroller_onboarding_two_thank_title">تشکر</string>
   <string name="patroller_onboarding_two_thank_content">ویرایش سازنده‌ای می‌بینید؟ از  کاربر برای مشارکت‌شان تشکر کنید</string>
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
+  <string name="patroller_onboarding_two_talk_title">بحث</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
   <string name="patroller_diff_feedback_dialog_message">آیا از این ویژگی راضی هستید؟</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">راضی</string>
@@ -1513,5 +1567,9 @@
   <string name="patroller_saved_message_body_edit_summary">سلام {{{username}}}، به‌نظر می‌رسد که بدون ارائهٔ خلاصهٔ ویرایش، مطالبی را از ویکی‌پدیا حذف کرده‌اید. لطفاً هرگاه مطلبی را به ویکی‌پدیا می‌افزایید یا حذف می‌کنید، در خلاصهٔ ویرایش دلیل کار خود را توضیح دهید.</string>
   <string name="patroller_saved_message_body_do_not_censor">سلام {{{username}}، به‌نظر می‌رسد که بدون گفتگو در صفحهٔ بحث مقاله، محتوایی را از آن حذف کرده‌اید. لطفاً دقت داشته باشید که ویکی‌پدیا سانسور نمی‌شود و محتوا را نباید تنها به این دلیل که مناقشه‌برانگیز است، حذف کرد. اگر باور دارید که اطلاعات مورد نظر دقیق نیست، لطفاً در صفحهٔ بحث مقاله به‌دنبال کسب اجماع باشید.</string>
   <string name="talk_templates_menu_edit_title">ویرایش</string>
+  <string name="data_opt_in_accept">تأیید</string>
+  <string name="data_opt_in_reject">رد</string>
+  <string name="places_toggle_buttons_map">نقشه</string>
+  <string name="places_toggle_buttons_list">فهرست</string>
   <string name="places_survey_dialog_cancel">لغو</string>
 </resources>

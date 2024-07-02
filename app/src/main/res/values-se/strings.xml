@@ -192,7 +192,7 @@
   <string name="preferences_heading_data_usage">Data geavaheapmi</string>
   <string name="preferences_heading_experimental">Sesolaš</string>
   <string name="preference_title_sync_reading_lists_from_account">Lohkanlisttuid synkroniseren</string>
-  <string name="preference_title_download_reading_list_articles">Luđe vulos lohkanlistu ártihkkaliid</string>
+  <string name="preference_title_download_reading_list_articles">Viečča lohkanlisttu artihkkaliid</string>
   <string name="preference_summary_sync_reading_lists">Synkronisere lohkanlisttuid iešguđet ovttadagaid gaskka, go vurket daid iežat Wikipedia dovddaldahkii</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkronisere lohkanlisttuid iešguđet ovttadagaid gaskka, go vurket daid iežat Wikipedia dovddaldahkii \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sihko synkroniserejuvvon lohkanlisttuid \"%s:is\"?</string>
@@ -509,5 +509,6 @@
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
   <string name="patroller_tasks_overflow_learn">Lassedieđut</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Máhcahat</string>
+  <string name="talk_templates_menu_edit_title">Rievdat</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>

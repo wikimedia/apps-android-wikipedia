@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ViewConfiguration
 import android.webkit.WebView
-import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer.Companion.setChildViewScrolled
@@ -189,7 +189,7 @@ class ObservableWebView : WebView {
                 it.onContentHeightChanged(currentContentHeight)
             }
         }
-        WikipediaApp.instance.bus.post(INVALIDATE_EVENT)
+        FlowEventBus.post(INVALIDATE_EVENT)
     }
 
     companion object {

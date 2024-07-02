@@ -5,11 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
@@ -25,10 +23,10 @@ import java.util.Collections
 class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
-    private val handler = CoroutineExceptionHandler { _, throwable ->
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
     }
-    private val actionHandler = CoroutineExceptionHandler { _, throwable ->
+    private val actionExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         _actionState.value = ActionState.Error(throwable)
     }
     val talkTemplatesList = mutableListOf<TalkTemplate>()
@@ -51,13 +49,11 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun loadTalkTemplates() {
-        viewModelScope.launch(handler) {
-            withContext(Dispatchers.IO) {
-                talkTemplatesList.clear()
-                _uiState.value = Resource.Loading()
-                talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
-                _uiState.value = Resource.Success(Unit)
-            }
+        viewModelScope.launch(exceptionHandler) {
+            talkTemplatesList.clear()
+            _uiState.value = Resource.Loading()
+            talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
+            _uiState.value = Resource.Success(Unit)
         }
     }
 
@@ -83,32 +79,26 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun updateItemOrder() {
-        viewModelScope.launch(handler) {
-            withContext(Dispatchers.IO) {
-                talkTemplatesRepository.updateTemplates(talkTemplatesList)
-            }
+        viewModelScope.launch(exceptionHandler) {
+            talkTemplatesRepository.updateTemplates(talkTemplatesList)
         }
     }
 
     fun saveTemplates(talkTemplates: List<TalkTemplate>) {
-        viewModelScope.launch(actionHandler) {
-            withContext(Dispatchers.IO) {
-                talkTemplates.forEach { talkTemplatesRepository.insertTemplate(it) }
-                talkTemplatesList.addAll(talkTemplates)
-                _actionState.value = ActionState.Added()
-            }
+        viewModelScope.launch(actionExceptionHandler) {
+            talkTemplates.forEach { talkTemplatesRepository.insertTemplate(it) }
+            talkTemplatesList.addAll(talkTemplates)
+            _actionState.value = ActionState.Added()
         }
     }
 
     fun deleteTemplates(talkTemplates: List<TalkTemplate>) {
-        viewModelScope.launch(actionHandler) {
-            withContext(Dispatchers.IO) {
-                talkTemplatesRepository.deleteTemplates(talkTemplates)
-                talkTemplatesList.removeAll(talkTemplates)
-                resetOrder()
-                talkTemplatesRepository.updateTemplates(talkTemplatesList)
-                _actionState.value = ActionState.Deleted(talkTemplates.size)
-            }
+        viewModelScope.launch(actionExceptionHandler) {
+            talkTemplatesRepository.deleteTemplates(talkTemplates)
+            talkTemplatesList.removeAll(talkTemplates)
+            resetOrder()
+            talkTemplatesRepository.updateTemplates(talkTemplatesList)
+            _actionState.value = ActionState.Deleted(talkTemplates.size)
         }
     }
 

@@ -1,24 +1,24 @@
 package org.wikipedia
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.concurrency.RxBus
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
@@ -36,7 +36,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.UUID
 
 class WikipediaApp : Application() {
     init {
@@ -64,7 +64,6 @@ class WikipediaApp : Application() {
     private var defaultWikiSite: WikiSite? = null
 
     val connectionStateMonitor = ConnectionStateMonitor()
-    val bus = RxBus()
     val tabList = mutableListOf<Tab>()
 
     var currentTheme = Theme.fallback
@@ -72,7 +71,7 @@ class WikipediaApp : Application() {
             if (value !== field) {
                 field = value
                 Prefs.currentThemeId = currentTheme.marshallingId
-                bus.post(ThemeFontChangeEvent())
+                FlowEventBus.post(ThemeFontChangeEvent())
             }
         }
 
@@ -191,7 +190,7 @@ class WikipediaApp : Application() {
         val multiplier = constrainFontSizeMultiplier(mult)
         if (multiplier != Prefs.textSizeMultiplier) {
             Prefs.textSizeMultiplier = multiplier
-            bus.post(ChangeTextSizeEvent())
+            FlowEventBus.post(ChangeTextSizeEvent())
             return true
         }
         return false
@@ -200,7 +199,7 @@ class WikipediaApp : Application() {
     fun setFontFamily(fontFamily: String) {
         if (fontFamily != Prefs.fontFamily) {
             Prefs.fontFamily = fontFamily
-            bus.post(ThemeFontChangeEvent())
+            FlowEventBus.post(ThemeFontChangeEvent())
         }
     }
 
@@ -225,12 +224,11 @@ class WikipediaApp : Application() {
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
-     * @param window The window on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    fun getFontSize(window: Window, editing: Boolean = false): Float {
-        return DimenUtil.getFontSizeFromSp(window,
-                resources.getDimension(R.dimen.textSize)) * (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
+    fun getFontSize(editing: Boolean = false): Float {
+        return DimenUtil.getFontSizeFromSp(resources.getDimension(R.dimen.textSize)) *
+                (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
                 DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
@@ -239,21 +237,22 @@ class WikipediaApp : Application() {
         defaultWikiSite = null
     }
 
-    @SuppressLint("CheckResult")
     fun logOut() {
-        L.d("Logging out")
-        AccountUtil.removeAccount()
-        Prefs.isPushNotificationTokenSubscribed = false
-        Prefs.pushNotificationTokenOld = ""
-        ServiceFactory.get(wikiSite).getTokenObservable()
-                .subscribeOn(Schedulers.io())
-                .flatMap {
-                    val csrfToken = it.query!!.csrfToken()
-                    WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
-                            .flatMap { ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
-                }
-                .doFinally { SharedPreferenceCookieManager.instance.clearAllCookies() }
-                .subscribe({ L.d("Logout complete.") }) { L.e(it) }
+        MainScope().launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            L.d("Logging out")
+            AccountUtil.removeAccount()
+            Prefs.isPushNotificationTokenSubscribed = false
+            Prefs.pushNotificationTokenOld = ""
+
+            val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
+            WikipediaFirebaseMessagingService.unsubscribePushToken(token!!, Prefs.pushNotificationToken)
+            ServiceFactory.get(wikiSite).postLogout(token)
+        }.invokeOnCompletion {
+            SharedPreferenceCookieManager.instance.clearAllCookies()
+            L.d("Logout complete.")
+        }
     }
 
     private fun enableWebViewDebugging() {

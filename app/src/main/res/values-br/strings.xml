@@ -724,7 +724,7 @@
   <string name="preference_title_notification_milestone">Maen-bonn</string>
   <string name="preference_summary_notification_milestone">Un toullad mat a gemmoù zo bet tizhet</string>
   <string name="preference_title_notification_thanks">Trugarez</string>
-  <string name="preference_summary_notification_thanks">Unan bennak en deus trugarekaet ac\'hanoc\'h evit ur c\'hemenn</string>
+  <string name="preference_summary_notification_thanks">Unan bennak en deus trugarekaet ac\'hanoc\'h eus ur c\'hemenn</string>
   <string name="preference_title_notification_revert">Disteurel</string>
   <string name="preference_title_notification_login_fail">Kevreañ</string>
   <string name="preference_title_notification_mention">Meneg</string>
