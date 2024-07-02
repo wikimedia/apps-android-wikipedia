@@ -43,6 +43,15 @@ class SavedPageSyncService : JobIntentService() {
             // Reading list sync was started in the meantime, so bail.
             return
         }
+
+        if (pageToBeDeletedButNotSavedYet != null) {
+            for (page in pageToBeDeletedButNotSavedYet!!) {
+                page.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE
+                AppDatabase.instance.readingListPageDao().updateReadingListPage(page)
+            }
+            pageToBeDeletedButNotSavedYet = null
+        }
+
         val pagesToSave = AppDatabase.instance.readingListPageDao().getAllPagesToBeForcedSave().toMutableList()
         if ((!Prefs.isDownloadOnlyOverWiFiEnabled || DeviceUtil.isOnWiFi) &&
                 Prefs.isDownloadingReadingListArticlesEnabled) {
@@ -50,11 +59,13 @@ class SavedPageSyncService : JobIntentService() {
         }
         val pagesToUnSave = AppDatabase.instance.readingListPageDao().getAllPagesToBeUnsaved()
         val pagesToDelete = AppDatabase.instance.readingListPageDao().getAllPagesToBeDeleted()
+
         var shouldSendSyncEvent = false
         try {
             for (page in pagesToDelete) {
                 deletePageContents(page)
             }
+
             for (page in pagesToUnSave) {
                 deletePageContents(page)
             }
@@ -70,6 +81,7 @@ class SavedPageSyncService : JobIntentService() {
                 shouldSendSyncEvent = true
             }
         }
+
         val itemsTotal = pagesToSave.size
         if (itemsTotal > 0) {
             shouldSendSyncEvent = true
@@ -313,6 +325,8 @@ class SavedPageSyncService : JobIntentService() {
         private const val TOKEN = "syncSavedPages"
         const val SUMMARY_PROGRESS = 10
         const val MEDIA_LIST_PROGRESS = 30
+
+        var pageToBeDeletedButNotSavedYet: MutableList<ReadingListPage>? = null
 
         fun enqueue() {
             if (ReadingListSyncAdapter.inProgress()) {
