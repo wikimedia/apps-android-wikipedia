@@ -501,11 +501,12 @@ interface Service {
     ): Entities
 
     @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
-    fun searchEntities(
+    suspend fun searchEntities(
         @Query("search") searchTerm: String,
         @Query("language") searchLang: String,
         @Query("uselang") resultLang: String
-    ): Observable<Search>
+    ): Search
+
     @GET(MW_API_PREFIX + "action=query&prop=entityterms")
     suspend fun getWikidataEntityTerms(
         @Query("titles") titles: String,
