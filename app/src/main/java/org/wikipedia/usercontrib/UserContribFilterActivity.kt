@@ -27,7 +27,9 @@ class UserContribFilterActivity : BaseActivity() {
     private lateinit var binding: ActivityUserContribWikiSelectBinding
 
     private val langUpdateLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.userContribFilterLangCode)) {
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.userContribFilterLangCode) &&
+            Prefs.userContribFilterLangCode != Constants.WIKI_CODE_COMMONS &&
+            Prefs.userContribFilterLangCode != Constants.WIKI_CODE_WIKIDATA) {
             Prefs.userContribFilterLangCode = WikipediaApp.instance.appOrSystemLanguageCode
         }
         binding.recyclerView.adapter = ItemAdapter(this)
@@ -44,14 +46,14 @@ class UserContribFilterActivity : BaseActivity() {
         setResult(RESULT_OK)
     }
 
-    inner class ItemViewHolder constructor(itemView: UserContribFilterItemView) :
+    inner class ItemViewHolder(itemView: UserContribFilterItemView) :
         DefaultViewHolder<UserContribFilterItemView>(itemView) {
         fun bindItem(item: Item) {
             view.setContents(item)
         }
     }
 
-    private inner class FilterHeaderViewHolder constructor(itemView: View) :
+    private inner class FilterHeaderViewHolder(itemView: View) :
         DefaultViewHolder<View>(itemView) {
         val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
 
@@ -60,7 +62,7 @@ class UserContribFilterActivity : BaseActivity() {
         }
     }
 
-    private inner class AddLanguageViewHolder constructor(private val filterItemView: UserContribFilterItemView) :
+    private inner class AddLanguageViewHolder(private val filterItemView: UserContribFilterItemView) :
             DefaultViewHolder<UserContribFilterItemView>(filterItemView), UserContribFilterItemView.Callback {
         fun bindItem(text: String) {
             filterItemView.callback = this
