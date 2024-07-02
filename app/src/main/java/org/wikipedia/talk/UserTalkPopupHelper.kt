@@ -10,10 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.fragment.app.commit
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -23,7 +22,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -38,13 +36,6 @@ import org.wikipedia.util.log.L
 
 @SuppressLint("RestrictedApi")
 object UserTalkPopupHelper {
-
-    fun show(activity: AppCompatActivity, title: PageTitle, anon: Boolean, anchorView: View,
-             invokeSource: Constants.InvokeSource, historySource: Int, revisionId: Long? = null, pageId: Int? = null) {
-        val pos = IntArray(2)
-        anchorView.getLocationInWindow(pos)
-        show(activity, title, anon, pos[0], pos[1], invokeSource, historySource, revisionId = revisionId, pageId = pageId)
-    }
 
     fun show(activity: AppCompatActivity, title: PageTitle, anon: Boolean, anchorView: View,
               invokeSource: Constants.InvokeSource, historySource: Int, revisionId: Long? = null, pageId: Int? = null, showUserInfo: Boolean = false) {
@@ -78,7 +69,7 @@ object UserTalkPopupHelper {
         }
     }
 
-    private fun showThankDialog(activity: Activity, title: PageTitle, revisionId: Long, pageId: Int) {
+    private fun showThankDialog(activity: AppCompatActivity, title: PageTitle, revisionId: Long, pageId: Int) {
         val parent = FrameLayout(activity)
         val editHistoryInteractionEvent = EditHistoryInteractionEvent(title.wikiSite.dbName(), pageId)
         val dialog =
@@ -97,9 +88,9 @@ object UserTalkPopupHelper {
         dialog.show()
     }
 
-    private fun sendThanks(activity: Activity, wikiSite: WikiSite, revisionId: Long?, title: PageTitle,
+    private fun sendThanks(activity: AppCompatActivity, wikiSite: WikiSite, revisionId: Long?, title: PageTitle,
                            editHistoryInteractionEvent: EditHistoryInteractionEvent) {
-        CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, throwable ->
+        activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             editHistoryInteractionEvent.logThankFail()
         }) {
@@ -112,7 +103,7 @@ object UserTalkPopupHelper {
         }
     }
 
-    private fun getPopupHelper(activity: Activity, title: PageTitle, anon: Boolean,
+    private fun getPopupHelper(activity: AppCompatActivity, title: PageTitle, anon: Boolean,
                                anchorView: View, invokeSource: Constants.InvokeSource,
                                historySource: Int, showContribs: Boolean = true,
                                showUserInfo: Boolean = false, revisionId: Long? = null, pageId: Int? = null): MenuPopupHelper {
@@ -133,7 +124,7 @@ object UserTalkPopupHelper {
                     }
                     R.id.menu_user_information -> {
                         sendPatrollerExperienceEvent(activity, "menu_user_info_click")
-                        UserInformationDialog.newInstance(title.text).show((activity as AppCompatActivity).supportFragmentManager, null)
+                        UserInformationDialog.newInstance(title.text).show(activity.supportFragmentManager, null)
                     }
                     R.id.menu_user_contributions_page -> {
                         sendPatrollerExperienceEvent(activity, "menu_user_contribs_click")

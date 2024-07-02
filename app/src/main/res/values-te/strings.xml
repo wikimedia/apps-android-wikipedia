@@ -228,8 +228,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
   <string name="android_app_request_an_account_url">https://te.wikipedia.org/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
   <string name="about_contributors_heading">సహాయకులు</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
@@ -648,7 +648,7 @@
   <string name="preference_title_customize_push_notifications">పంపించే గమనింపులను కస్టమైజు చెయ్యండి</string>
   <string name="preference_category_display_settings">ప్రదర్శన అమరికలు</string>
   <string name="preference_title_hide_read_notifications">చదివే గమనింపులను దాచు</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">వికీపీడీయా</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">వికీపీడియా</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">వికీపీడియా నుండి గమనింపులు</string>
   <string name="notifications_channel_group_other_title">ఇతర</string>
   <string name="notifications_channel_group_other_description">యాప్ నుండి ఇతర గమనింపులు</string>
@@ -673,8 +673,8 @@
   <string name="notifications_menu_uncheck_all">అంశాలన్నిటి ఎంపికనూ తీసెయ్యి</string>
   <string name="notifications_wiki_filter_header">వికీ వడపోత</string>
   <string name="notifications_type_filter_header">వడపోతను టైపించండి</string>
-  <string name="notifications_all_wikis_text">అన్ని \"వికీ\"</string>
-  <string name="notifications_all_types_text">అన్ని \"రకం\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">అన్ని \"వికీ\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">అన్ని \"రకం\"</string>
   <string name="notifications_menu_user_talk_page">%s చర్చ పేజీ</string>
   <string name="notifications_offline_disable_message">ఈ ఫంక్షను ఆప్‌లైనులో అందుబాటులో లేదు.</string>
   <string name="view_because_you_read_card_title">మీరివి చదివారు కాబట్టి</string>
@@ -940,7 +940,7 @@
   <string name="suggested_edits_image_recommendations_task_title">వ్యాస చిత్రాలు</string>
   <string name="suggested_edits_image_recommendations_task_detail">వికీపీడియా వ్యాసాలను మరింత మెరుగ్గా అర్థం చేసుకోవడానికి సూచించిన చిత్రాలను చేర్చండి.</string>
   <string name="image_recommendation_accept">సరే</string>
-  <string name="image_recommendation_reject_title">ఎందుకని వద్దు?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">ఎందుకని వద్దు?</string>
   <string name="image_recommendation_reject_dont_know">ఈ విషయం గురించి నాకు తెలియదు</string>
   <string name="image_recommendation_onboarding_2">సూచించబడిన చిత్రాన్ని వికీపీడియా వ్యాసంలో చేర్చాలా వద్దా అనేది నిర్ణయించవలసినది మీరే.</string>
   <string name="image_recommendation_onboarding_3">ఈ సూచనలు యాంత్రికంగా తయారైనవి. వీటిని స్వీకరించాలో తిరస్కరించాలో లేదో మీ విజ్ఞతతో మీరే నిర్ణయించుకోవాలి.</string>

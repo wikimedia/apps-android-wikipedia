@@ -50,6 +50,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
+import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -86,7 +87,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         _binding = FragmentSuggestedEditsRecentEditsBinding.inflate(inflater, container, false)
 
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.patroller_tasks_edits_list_title)
+        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.suggested_edits_edit_patrol)
 
         return binding.root
     }
@@ -156,7 +157,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     override fun onResume() {
         super.onResume()
         actionMode?.let {
-            if (SearchActionModeCallback.`is`(it)) {
+            if (SearchActionModeCallback.matches(it)) {
                 searchActionModeCallback.refreshProvider()
             }
         }
@@ -171,6 +172,12 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             R.id.menu_learn_more -> {
                 sendPatrollerExperienceEvent("top_menu_learn_click", "pt_recent_changes")
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                true
+            }
+            R.id.menu_saved_messages -> {
+                sendPatrollerExperienceEvent("list_saved_init", "pt_warning_messages")
+                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), AccountUtil.userName.orEmpty(), viewModel.wikiSite)
+                requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
             R.id.menu_report_feature -> {
@@ -197,7 +204,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -360,7 +367,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                 launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
 
-            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+            FeedbackUtil.setButtonTooltip(binding.filterByButton)
             binding.root.isVisible = true
         }
 
@@ -420,13 +427,10 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -442,7 +446,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

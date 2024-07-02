@@ -10,10 +10,12 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
-import de.mrapp.android.view.drawable.CircularProgressDrawable
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
@@ -24,11 +26,17 @@ import org.wikipedia.mlkit.MlKitLanguageDetector
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
-import java.util.*
+import java.util.Locale
 
-class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
+class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout(context, attrs), MlKitLanguageDetector.Callback {
     interface Callback {
         fun onSaveClick()
         fun onCancelClick()
@@ -36,10 +44,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         fun onVoiceInputClick()
         fun getAnalyticsHelper(): MachineGeneratedArticleDescriptionsAnalyticsHelper
     }
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
@@ -65,7 +69,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
     init {
-        FeedbackUtil.setButtonLongPressToast(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton)
+        FeedbackUtil.setButtonTooltip(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton)
         orientation = VERTICAL
         mlKitLanguageDetector.callback = this
 
@@ -417,7 +421,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     fun showSuggestedDescriptionsLoadingProgress() {
         binding.suggestedDescButton.isVisible = true
         binding.suggestedDescButton.isEnabled = false
-        binding.suggestedDescButton.chipIcon = CircularProgressDrawable(ResourceUtil.getThemedColor(context, R.attr.primary_color), 1).also { it.start() }
+        val drawable = CircularProgressDrawable(context)
+        drawable.strokeWidth = DimenUtil.dpToPx(1.5f)
+        drawable.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(ResourceUtil.getThemedColor(context, R.attr.primary_color), BlendModeCompat.SRC_IN)
+        binding.suggestedDescButton.chipIcon = drawable
+        drawable.start()
     }
 
      fun updateSuggestedDescriptionsButtonVisibility() {

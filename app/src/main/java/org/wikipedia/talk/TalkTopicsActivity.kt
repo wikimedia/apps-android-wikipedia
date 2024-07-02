@@ -248,7 +248,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                     getString(R.string.notifications_activity_title)
                 notificationMenuItem.actionView = notificationButtonView
                 notificationMenuItem.expandActionView()
-                FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+                FeedbackUtil.setButtonTooltip(notificationButtonView)
 
                 // Watchlist
                 watchMenuItem.isVisible = true
@@ -417,7 +417,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                     goToPage()
                 }
             }
-            FeedbackUtil.setButtonLongPressToast(it)
+            FeedbackUtil.setButtonTooltip(it)
         }
         supportActionBar?.title = title
     }
@@ -494,7 +494,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 }
             }
 
-            FeedbackUtil.setButtonLongPressToast(binding.talkSortButton)
+            FeedbackUtil.setButtonTooltip(binding.talkSortButton)
         }
 
         fun bindItem() {
@@ -528,17 +528,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private inner class SearchCallback : SearchActionModeCallback() {
         var searchActionProvider: SearchActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchActionProvider = SearchActionProvider(this@TalkTopicsActivity, searchHintString,
-                object : SearchActionProvider.Callback {
-                    override fun onQueryTextChange(s: String) {
-                        onQueryChange(s)
-                    }
+            searchActionProvider = SearchActionProvider(this@TalkTopicsActivity, getSearchHintString()) { onQueryChange(it) }
 
-                    override fun onQueryTextFocusChange() {
-                    }
-                })
-
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
 

@@ -123,8 +123,8 @@
   <string name="map_view_link_text">Xem trên bản đồ</string>
   <string name="other_languages_indication_text">Đọc trong ngôn ngữ khác</string>
   <string name="language_count_link_text">Có sẵn trong %d ngôn ngữ khác</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Nếu bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt;, bạn có thể có thêm riêng tư.</string>
+  <string name="edit_save_action_license_logged_in">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Các sửa đổi của bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Nếu bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt;, bạn có thể có thêm riêng tư.</string>
   <string name="preference_title_language">Ngôn ngữ của Wikipedia</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác.</string>
@@ -247,15 +247,15 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.vi</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Thư viện được sử dụng</string>
   <string name="about_contributors_heading">Người đóng góp</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Biên dịch viên</string>
   <string name="about_translators_translatewiki">Ứng dụng này được biên dịch bởi những người tình nguyện tại &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Giấy phép</string>
-  <string name="about_app_license" fuzzy="true">Mã nguồn có sẵn tại &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; và &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; theo &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Creative_Commons_Ghi_công–Chia_sẻ_tương_tự_phiên_bản_3.0_Chưa_chuyển_đổi\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
+  <string name="about_app_license">Mã nguồn có sẵn tại &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
   <string name="about_wmf">Một sản phẩm của &lt;a href=\"https://wikimediafoundation.org\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
   <string name="edit_abandon_confirm">Trang đã được sửa đổi. Bạn có chắc chắn muốn thoát mà không lưu các thay đổi của bạn?</string>
@@ -270,6 +270,8 @@
   <string name="edit_preview">Xem thử</string>
   <string name="edit_undo">Hoàn tác</string>
   <string name="edit_redo">Làm lại</string>
+  <string name="edit_rollback">Lùi tất cả</string>
+  <string name="edit_warn">Cảnh báo</string>
   <string name="edit_zoom_in">Phóng to</string>
   <string name="edit_zoom_out">Thu nhỏ</string>
   <string name="edit_summary_tag_typo">Sửa chính tả</string>
@@ -393,6 +395,10 @@
   <string name="multi_select_items_selected">Đã chọn %d</string>
   <string name="error_message_generic">Đã xảy ra lỗi</string>
   <string name="view_link_preview_error_button_dismiss">Bỏ qua</string>
+  <string name="link_preview_dialog_read_button">Đọc</string>
+  <string name="link_preview_dialog_save_button">Lưu</string>
+  <string name="link_preview_dialog_saved_button">Đã lưu</string>
+  <string name="link_preview_dialog_share_button">Chia sẻ</string>
   <string name="error_page_does_not_exist">Trang này không tồn tại</string>
   <string name="error_user_page_does_not_exist">Wikipedia không có &lt;a href=\"%1$s\"&gt;trang thành viên&lt;/a&gt; đúng tên này. Nói chung, trang này nên được &lt;b&gt;%2$s&lt;/b&gt; tạo và sửa đổi. Nếu không chắc chắn, xin hãy kiểm tra rằng “%3$s” đã tồn tại.</string>
   <string name="view_wiki_error_message_offline">Không thể kết nối với Internet</string>
@@ -440,8 +446,10 @@
   <string name="text_size_percent_default">%s (Mặc định)</string>
   <string name="text_style_title">Phông chữ</string>
   <string name="theme_category_reading">Đọc</string>
+  <string name="theme_category_editing">Sửa đổi</string>
   <string name="reading_focus_mode">Chế độ tập trung đọc</string>
   <string name="reading_focus_mode_detail">Ẩn các tính năng chỉnh sửa và thanh công cụ dưới cùng khi cuộn</string>
+  <string name="editing_syntax_highlight_label">Tô màu Cú pháp</string>
   <string name="nav_item_saved">Đã lưu</string>
   <string name="reading_list_save_to">Lưu vào danh sách đọc</string>
   <string name="reading_list_move_to">Di chuyển tới danh sách đọc.</string>
@@ -471,6 +479,8 @@
   <string name="reading_list_sort_by_created">Sắp xếp theo ngày được tạo (mới nhất)</string>
   <string name="reading_list_sort_by_created_desc">Sắp xếp theo ngày được tạo (cũ nhất)</string>
   <string name="reading_list_menu_delete">Xóa danh sách</string>
+  <string name="reading_list_menu_select">Chọn</string>
+  <string name="reading_list_menu_unselect">Bỏ chọn</string>
   <string name="reading_list_menu_rename">Sửa đổi tên/miêu tả</string>
   <string name="reading_list_action_menu_remove_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_action_menu_save_for_offline">Lưu để đọc ngoại tuyến</string>
@@ -565,6 +575,8 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Xóa bỏ</string>
   <string name="reading_list_activity_title">Danh sách đọc: %s</string>
   <string name="reading_lists_preview_save_button">Lưu</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Tiêu đề</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Hủy bỏ</string>
   <string name="reading_lists_preview_save_dialog_save">Lưu</string>
   <string name="user_option_sync_label">Tùy chọn</string>
   <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
@@ -675,8 +687,8 @@
   <string name="notifications_menu_uncheck_all">Bỏ đánh dấu tất cả các mục</string>
   <string name="notifications_wiki_filter_header">Bộ lọc theo wiki</string>
   <string name="notifications_type_filter_header">Bộ lọc theo kiểu</string>
-  <string name="notifications_all_wikis_text">Tất cả các “wiki”</string>
-  <string name="notifications_all_types_text">Tất cả các “kiểu”</string>
+  <string name="notifications_all_wikis_text">Tất cả các wiki</string>
+  <string name="notifications_all_types_text">Tất cả các kiểu</string>
   <string name="notifications_menu_user_talk_page">Trang thảo luận của %s</string>
   <string name="notifications_offline_disable_message">Chức năng này không có sẵn trong khi ngoại tuyến.</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
@@ -735,6 +747,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Hủy bỏ</string>
   <string name="feed_accessibility_card_text">Bạn đã đến cuối nguồn cấp dữ liệu.</string>
   <string name="feed_accessibility_card_load_more_button">Tải thêm</string>
+  <string name="feed_language_variants_removal_dialog_save">Lưu</string>
   <string name="top_read_activity_title">Đọc nhiều nhất trên %s</string>
   <string name="tabs_activity_title">Các tab</string>
   <string name="description_edit_text_hint">Miêu tả bài viết</string>
@@ -790,9 +803,11 @@
   <string name="description_edit_tutorial_promise">Với việc bắt đầu sửa đổi, tôi hứa không lạm dụng tính năng này.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Đề xuất của máy</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Các đề xuất do máy tạo ra chứ không phải tình nguyện viên hoặc Wikimedia Foundation</string>
+  <string name="customize_toolbar_reset_to_default_button">Đặt lại về mặc định</string>
   <string name="suggested_edits_describe_articles">Mô tả các bài viết</string>
   <string name="suggested_edits_caption_images">Chú thích hình ảnh</string>
   <string name="suggested_edits_tag_images">Thể loại hình ảnh.</string>
+  <string name="suggested_edits_edit_patrol">Tuần tra sửa đổi</string>
   <string name="suggested_edits_review_description">Xem lại lời miêu tả bài viết.</string>
   <string name="suggested_edits_add_description_button">Thêm mô tả.</string>
   <string name="suggested_edits_edit_description_button">Sửa miêu tả.</string>
@@ -964,8 +979,10 @@
     <item quantity="other">Bạn đã thêm %d ký tự</item>
   </plurals>
   <string name="image_recommendation_tutorial">Hướng dẫn</string>
+  <string name="image_recommendation_accept">Có</string>
   <string name="image_recommendation_reject">Không</string>
-  <string name="image_recommendation_reject_title">Tại sao không?</string>
+  <string name="image_recommendation_notsure">Không chắc chắn</string>
+  <string name="image_recommendation_reject_title">Lý do từ chối</string>
   <string name="image_recommendation_tooltip_next">Kế tiếp</string>
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
@@ -989,6 +1006,7 @@
   <string name="onboarding_explore_text">Khám phá Wikipedia với nguồn cấp dữ liệu được cập nhật liên tục. &lt;br/&gt;&lt;b&gt;Tùy chỉnh &lt;/b&gt; nguồn cấp dữ liệu theo sở thích của bạn &lt;b&gt; Ngày này năm xưa &lt;/b&gt; hay &lt;b&gt;ngẫu nhiên&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Danh sách đọc có thể đồng bộ hóa</string>
   <string name="onboarding_reading_list_sync_text_v2">Bạn có thể tạo danh sách đọc có các bài bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến. &lt;br/&gt;Đăng nhập vào tài khoản Wikipedia của bạn để đồng bộ hóa các danh sách đọc của bạn. &lt;a href=\"#login\"&gt;Tham gia Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Dữ liệu &amp; Quyền riêng tư</string>
   <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
   <string name="onboarding_got_it">Đã hiểu</string>
   <string name="onboarding_multilingual_secondary_text">Đã tìm thấy các ngôn ngữ sau trên thiết bị của bạn:</string>
@@ -1049,6 +1067,12 @@
   <string name="wikitext_template">Bản mẫu</string>
   <string name="wikitext_reference">Tham khảo</string>
   <string name="wikitext_preview_link">Xem liên kết</string>
+  <string name="insert_media_advanced_settings_image_size_default">Mặc định</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Chiều ngang</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Chiều cao</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">điểm ảnh</string>
+  <string name="insert_media_insert_button">Chèn</string>
+  <string name="templates_learn_more_link">Tìm hiểu thêm</string>
   <string name="main_drawer_help">Trợ giúp</string>
   <string name="main_drawer_login">Đăng nhập/tham gia Wikipedia</string>
   <string name="main_tooltip_text">Xin chào %s, bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
@@ -1064,6 +1088,7 @@
   <string name="talk_user_title">Thảo luận: %s</string>
   <string name="talk_new_topic">Đề tài mới</string>
   <string name="talk_new_topic_submitted">Đã đăng chủ đề.</string>
+  <string name="talk_warn_save_dialog_cancel">Hủy bỏ</string>
   <string name="talk_page_empty">Trang thảo luận này hiện đang trống.</string>
   <string name="talk_page_empty_title">Cuộc trò chuyện bắt đầu từ đây</string>
   <string name="talk_page_empty_content">Các trang thảo luận là nơi mọi người thảo luận về cách làm cho nội dung Wikipedia trở nên tốt nhất có thể. Bắt đầu bằng cách thêm chủ đề thảo luận mới để kết nối và cộng tác với cộng đồng thành viên Wikipedia.</string>
@@ -1083,6 +1108,11 @@
   <string name="talk_share_talk_page">Wikipedia – thảo luận tại trang thảo luận</string>
   <string name="talk_new_topic_exit_dialog_title">Bạn có chắc bạn muốn thoát?</string>
   <string name="talk_new_topic_exit_dialog_message">Chủ đề và văn bản nội dung sẽ không được lưu.</string>
+  <string name="talk_list_item_overflow_subscribe">Theo dõi</string>
+  <string name="talk_list_item_overflow_subscribed">Đã theo dõi</string>
+  <string name="talk_list_item_overflow_mark_as_read">Đánh dấu là đã đọc</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Đánh dấu là chưa đọc</string>
+  <string name="talk_list_item_overflow_share">Chia sẻ</string>
   <string name="menu_option_share_talk_discussion">Chia sẻ thảo luận</string>
   <string name="menu_option_share_talk_page">Chia sẻ trang thảo luận</string>
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
@@ -1103,7 +1133,7 @@
   <string name="revision_diff_compare">So sánh các phiên bản</string>
   <string name="revision_diff_from">Từ:</string>
   <string name="revision_diff_to">Đến:</string>
-  <string name="revision_undo_title" fuzzy="true">Hoàn tác sửa đổi</string>
+  <string name="revision_undo_title">Bạn có chắc chắc muốn hoàn tác sửa đổi?</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s cùng trang thảo luận đã được thêm vào danh sách theo dõi của bạn %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Thay đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vô hạn</string>
@@ -1126,9 +1156,30 @@
   <string name="watchlist_page_moved">Đã di chuyển</string>
   <string name="watchlist_page_protected">Đã khóa</string>
   <string name="watchlist_page_deleted">Đã xóa</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tất cả</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Con người (không phải bot)</string>
+  <string name="action_item_categories">Thể loại</string>
   <string name="category_tab_articles">Bài viết</string>
+  <string name="category_tab_subcategories">Thể loại con</string>
+  <string name="search_namespaces">Không gian tên</string>
   <string name="shareable_reading_lists_import_dialog_title">Nhập danh sách đọc được chia sẻ</string>
   <string name="shareable_reading_lists_import_dialog_content">Bạn muốn đặt tên cho danh sách đã được chia sẻ với bạn như thế nào?</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Một danh sách đọc đã được chia sẻ với bạn</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Chúng tôi nhận thấy rằng một danh sách đọc đã được chia sẻ với bạn. Để xem danh sách này trong ứng dụng, hãy quay lại tin nhắn gốc và nhấn lại vào liên kết.</string>
+  <string name="talk_templates_new_message_save">Lưu</string>
+  <string name="talk_templates_new_message_dialog_title">Lưu thay đổi</string>
+  <string name="talk_templates_new_message_dialog_save">Lưu</string>
+  <string name="talk_templates_new_message_dialog_cancel">Hủy bỏ</string>
+  <string name="talk_templates_edit_message_dialog_save">Lưu</string>
+  <string name="talk_templates_edit_message_dialog_delete">Xóa</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Cảm ơn</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Thông tin người dùng</string>
+  <string name="patroller_tasks_filters_all_text">Tất cả</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Con người (không phải bot)</string>
+  <string name="patroller_tasks_filters_significance_minor">Sửa đổi nhỏ</string>
+  <string name="patroller_onboarding_two_thank_title">Cảm ơn</string>
+  <string name="donate_gpay_dialog_title">Quyên góp bằng Google Pay?</string>
 </resources>

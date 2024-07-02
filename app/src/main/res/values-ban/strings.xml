@@ -228,8 +228,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ban.wikipedia.org/wiki/Wikipedia:Pinunas_satunggal_akun</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kapustakaan kaanggén</string>
   <string name="about_contributors_heading">Papituut</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Kaca seka&lt;/a&gt;</string>
@@ -547,8 +547,8 @@
   <string name="notifications_swipe_action_unread">Durung kawacén</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Soroh saringan</string>
-  <string name="notifications_all_wikis_text">Samian \"wiki\"</string>
-  <string name="notifications_all_types_text">Samian \"soroh\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Samian \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Samian \"soroh\"</string>
   <string name="view_random_article_card_title">Kaca ulah-aluh</string>
   <string name="view_random_article_card_action">Suratan ulah-aluh malih</string>
   <string name="view_top_read_card_title">Wacénan pinih duur</string>
@@ -606,8 +606,8 @@
   <string name="description_edit_translate_image_caption">Alih basa sesirah gambar</string>
   <string name="description_edit_cancel_hint">Wangdé</string>
   <string name="description_edit_help_about_wikidata">Indik Wikidata</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_edit_success_saved">Déskripsi suratan sampun kawedar!</string>
   <string name="description_edit_success_saved_snackbar">Déskripsi suratan sampun kawedar!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Déskripsi suratan sampun kawedar! (%s)</string>
@@ -754,7 +754,7 @@
   <string name="wikitext_headings">Sesirah</string>
   <string name="wikitext_insert_media">Sisipang média</string>
   <string name="wikitext_bulleted_list">Lis titik</string>
-  <string name="wikitext_numbered_list">Lis angka</string>
+  <string name="wikitext_numbered_list">Lis nomer</string>
   <string name="wikitext_template">Mal</string>
   <string name="wikitext_reference">Pustaka</string>
   <string name="wikitext_preview_link">Pracingak pranala</string>

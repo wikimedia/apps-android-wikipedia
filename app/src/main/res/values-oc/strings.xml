@@ -313,6 +313,10 @@
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
   <string name="suggested_edits_task_multilingual_positive">Ajustar de lengas</string>
   <string name="suggested_edits_article_cta_snackbar_action">Monstrar</string>
+  <string name="suggested_edits_label">Edicions suggeridas</string>
   <string name="suggested_edits_reactivation_notification_title">Edicions suggeridas</string>
   <string name="talk_list_item_last_comment_date">Darrièr comentari: %s</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">per 1 mes</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mes</string>
+  <string name="page_issues_title">Problèmas de la pagina</string>
 </resources>

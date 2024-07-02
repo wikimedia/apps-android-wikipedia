@@ -264,7 +264,7 @@ class UserContribListActivity : BaseActivity() {
         }
     }
 
-    private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private inner class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(loadState: LoadState, retry: () -> Unit) {
             val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
             val progressBar = itemView.findViewById<View>(R.id.progressBar)
@@ -277,7 +277,7 @@ class UserContribListActivity : BaseActivity() {
         }
     }
 
-    private inner class StatsViewHolder constructor(private val view: UserContribStatsView) : RecyclerView.ViewHolder(view) {
+    private inner class StatsViewHolder(private val view: UserContribStatsView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
@@ -286,14 +286,14 @@ class UserContribListActivity : BaseActivity() {
         }
     }
 
-    private inner class SeparatorViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private inner class SeparatorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(listItem: String) {
             val dateText = itemView.findViewById<TextView>(R.id.date_text)
             dateText.text = listItem
         }
     }
 
-    private inner class SearchBarViewHolder constructor(val binding: ViewEditHistorySearchBarBinding) : RecyclerView.ViewHolder(binding.root) {
+    private inner class SearchBarViewHolder(val binding: ViewEditHistorySearchBarBinding) : RecyclerView.ViewHolder(binding.root) {
 
         init {
             binding.root.isVisible = false
@@ -315,7 +315,7 @@ class UserContribListActivity : BaseActivity() {
                     launchFilterActivity.launch(UserContribFilterActivity.newIntent(this@UserContribListActivity))
                 }
 
-                FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+                FeedbackUtil.setButtonTooltip(binding.filterByButton)
                 binding.root.isVisible = true
             }
         }
@@ -362,13 +362,10 @@ class UserContribListActivity : BaseActivity() {
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@UserContribListActivity, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@UserContribListActivity, getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -384,7 +381,7 @@ class UserContribListActivity : BaseActivity() {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

@@ -2,6 +2,7 @@
 <!-- Authors:
 * MuratTheTurkish
 * Абдуллах Саад
+* Исмаил Садуев
 * Саид Мисарбиев
 * Умар
 -->
@@ -58,7 +59,7 @@
   <string name="menu_text_select_define">Къастам</string>
   <string name="on_this_day_page_share">Йекъа</string>
   <string name="reading_list_page_share">Йекъа</string>
-  <string name="menu_text_select_edit_here">Нисйе кхузахь</string>
+  <string name="menu_text_select_edit_here">Кхузахь нисйан</string>
   <string name="menu_edit_article">Нисбе йаззам</string>
   <string name="last_updated_text">ТӀаьххьара карлайаккхар: %s</string>
   <string name="talk_page_link_text">Дийцарийн агӀоне хьажа</string>
@@ -71,7 +72,7 @@
   <string name="langlinks_no_match">Меттанаш цакарий</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
   <string name="langlinks_your_wikipedia_languages">Википедин хьан меттанаш</string>
-  <string name="menu_save_changes">Ӏалашбе хийцамаш</string>
+  <string name="menu_save_changes">Хийцамаш дӀаӀалашбан</string>
   <string name="edit_saved_successfully">Нисдар Ӏалашдина!</string>
   <string name="dialog_message_edit_failed">ГӀалат тадина!</string>
   <string name="dialog_message_edit_failed_retry">ЙухагӀорта</string>
@@ -147,7 +148,7 @@
   <string name="about_article_section">ХӀокху агӀонах лаьцна</string>
   <string name="menu_gallery_visit_image_page">Файлан агӀонг гӀо</string>
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
-  <string name="license_title" fuzzy="true">Лицензин йоза %s библиотекина</string>
+  <string name="license_title">Лицензин текст %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолайалита цайелира.</string>
   <string name="close_all_tabs_confirm_yes">ХӀаъ</string>
   <string name="close_all_tabs_confirm_no">ХӀан-хӀа</string>
@@ -172,7 +173,7 @@
   <string name="view_featured_image_card_download">Чуйаккха</string>
   <string name="menu_feed_card_dismiss">ХӀара карточка къайлайаккха</string>
   <string name="menu_feed_card_dismissed">Карточка къайлайаьккхина.</string>
-  <string name="menu_feed_overflow_label">Дукха таронаш</string>
+  <string name="menu_feed_overflow_label">Кхин сов таронаш</string>
   <string name="feed_featured_image_share_subject">Викиларман дика суьрташ</string>
   <string name="feed">Талла</string>
   <string name="view_static_card_icon_content_description">Карточкан хьаьрк</string>
@@ -201,6 +202,7 @@
   <string name="add_wikipedia_languages_text">ТӀетоха меттанаш Википедехь</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ДӀабаккха цийн мотт могӀаман йукъара?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Хийца меттанаш</string>
+  <string name="templates_description_incomplete">Кепаш кхуллуш йу декъашхоша, цундела уьш хила мега чулацам кхачаме боцуш</string>
   <string name="main_tooltip_watchlist_title">Тергаме могӀам</string>
   <string name="talk_title">Дийцар</string>
   <string name="talk_user_title">Дийцар: %s</string>

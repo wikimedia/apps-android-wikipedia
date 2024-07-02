@@ -10,17 +10,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.util.Resource
 import java.util.*
 
 class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
 
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
-    }
-
     var userName: String = bundle.getString(UserInformationDialog.USERNAME_ARG)!!
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Pair<String, Date>>())
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -28,24 +25,18 @@ class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun fetchUserInformation() {
-        viewModelScope.launch(handler) {
-            _uiState.value = UiState.Loading()
-            val userInfo = withContext(Dispatchers.IO) {
-                ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
-            }
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiState.value = Resource.Error(throwable)
+        }) {
+            _uiState.value = Resource.Loading()
+            val userInfo = ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
             userInfo.query?.globalUserInfo?.let {
                 val editCount = String.format("%,d", it.editCount)
-                _uiState.value = UiState.Success(editCount, it.registrationDate)
+                _uiState.value = Resource.Success(Pair(editCount, it.registrationDate))
             } ?: run {
-                _uiState.value = UiState.Error(Throwable("Cannot fetch user information."))
+                _uiState.value = Resource.Error(Throwable("Cannot fetch user information."))
             }
         }
-    }
-
-    open class UiState {
-        class Loading : UiState()
-        class Success(val editCount: String, val registrationDate: Date) : UiState()
-        class Error(val throwable: Throwable) : UiState()
     }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {

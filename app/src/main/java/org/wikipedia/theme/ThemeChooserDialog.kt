@@ -12,16 +12,20 @@ import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -48,7 +52,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private var app = WikipediaApp.instance
     private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
     private lateinit var invokeSource: InvokeSource
-    private val disposables = CompositeDisposable()
     private var updatingFont = false
     private var isEditing = false
 
@@ -60,7 +63,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.textSettingsCategory.text = getString(if (isEditing) R.string.theme_category_editing else R.string.theme_category_reading)
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
         binding.buttonIncreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.INCREASE))
-        FeedbackUtil.setButtonLongPressToast(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
+        FeedbackUtil.setButtonTooltip(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
         binding.buttonThemeLight.setOnClickListener(ThemeButtonListener(Theme.LIGHT))
         binding.buttonThemeDark.setOnClickListener(ThemeButtonListener(Theme.DARK))
         binding.buttonThemeBlack.setOnClickListener(ThemeButtonListener(Theme.BLACK))
@@ -115,7 +118,18 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.onEditingPrefsChanged()
         }
 
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is WebViewInvalidateEvent -> {
+                            updatingFont = false
+                            updateComponents()
+                        }
+                    }
+                }
+            }
+        }
 
         return binding.root
     }
@@ -133,7 +147,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        disposables.clear()
         _binding = null
     }
 
@@ -321,15 +334,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 }
             }
             appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is WebViewInvalidateEvent) {
-                updatingFont = false
-                updateComponents()
-            }
         }
     }
 

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -16,7 +17,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -33,10 +35,13 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.liftwing.DescriptionSuggestion
+import org.wikipedia.dataclient.liftwing.LiftWingModelService
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.edit.EditTags
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
@@ -46,11 +51,13 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
-import java.lang.Runnable
-import java.util.*
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class DescriptionEditFragment : Fragment() {
@@ -140,7 +147,7 @@ class DescriptionEditFragment : Fragment() {
             val loginIntent = LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_EDIT)
             loginLauncher.launch(loginIntent)
         }
-        captchaHandler = CaptchaHandler(requireActivity(), pageTitle.wikiSite, binding.fragmentDescriptionEditView.getCaptchaContainer().root,
+        captchaHandler = CaptchaHandler(requireActivity() as AppCompatActivity, pageTitle.wikiSite, binding.fragmentDescriptionEditView.getCaptchaContainer().root,
             binding.fragmentDescriptionEditView.getDescriptionEditTextView(), "", null)
         return binding.root
     }
@@ -239,8 +246,9 @@ class DescriptionEditFragment : Fragment() {
             L.e(throwable)
             analyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
         }) {
-            val response = ServiceFactory[pageTitle.wikiSite, DescriptionSuggestionService.API_URL, DescriptionSuggestionService::class.java]
-                .getSuggestion(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)
+
+            val response = ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
+                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2))
 
             // Perform some post-processing on the predictions.
             // 1) Capitalize them, if we're dealing with enwiki.
@@ -336,12 +344,18 @@ class DescriptionEditFragment : Fragment() {
                         val baseRevId = mwQueryResponse.query?.firstPage()!!.revisions[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
+                        val automaticallyAddedEditSummary = getString(if (pageTitle.description.isNullOrEmpty()) R.string.edit_summary_added_short_description
+                        else R.string.edit_summary_updated_short_description)
+                        var editSummary = automaticallyAddedEditSummary
+                        getEditComment()?.let {
+                            editSummary += ", $it"
+                        }
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
-                            getEditComment().orEmpty(),
+                            editSummary,
                             if (AccountUtil.isLoggedIn) "user"
                             else null, text, null, baseRevId, editToken,
                             if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-                            if (captchaHandler.isActive) captchaHandler.captchaWord() else null
+                            if (captchaHandler.isActive) captchaHandler.captchaWord() else null, tags = getEditTags()
                         )
                             .subscribeOn(Schedulers.io())
                     }
@@ -459,8 +473,44 @@ class DescriptionEditFragment : Fragment() {
             } else {
                 ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
-                        if (AccountUtil.isLoggedIn) "user" else null)
+                        if (AccountUtil.isLoggedIn) "user" else null, tags = getEditTags())
             }
+        }
+
+        private fun getEditTags(): String? {
+            val tags = mutableListOf<String>()
+
+            if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
+                tags.add(EditTags.APP_SUGGESTED_EDIT)
+            }
+
+            when (action) {
+                DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
+                    if (binding.fragmentDescriptionEditView.wasSuggestionChosen) {
+                        if (binding.fragmentDescriptionEditView.wasSuggestionModified) {
+                            // TODO
+                        } else {
+                            // TODO
+                        }
+                    } else if (pageTitle.description.isNullOrEmpty()) {
+                        tags.add(EditTags.APP_DESCRIPTION_ADD)
+                    } else {
+                        tags.add(EditTags.APP_DESCRIPTION_CHANGE)
+                    }
+                }
+                DescriptionEditActivity.Action.ADD_CAPTION -> {
+                    // TODO
+                }
+                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
+                    tags.add(EditTags.APP_DESCRIPTION_TRANSLATE)
+                }
+                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
+                    // TODO
+                }
+                else -> { }
+            }
+
+            return if (tags.isEmpty()) null else tags.joinToString(",")
         }
 
         private fun getEditComment(): String? {
@@ -468,10 +518,7 @@ class DescriptionEditFragment : Fragment() {
                 return if (binding.fragmentDescriptionEditView.wasSuggestionModified) MACHINE_SUGGESTION_MODIFIED else MACHINE_SUGGESTION
             } else if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
                 return when (action) {
-                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> if (!pageTitle.description.isNullOrEmpty())
-                        SUGGESTED_EDITS_ADD_DESC_CHANGE_COMMENT else SUGGESTED_EDITS_ADD_DESC_COMMENT
                     DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_CAPTION_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT
                     DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT
                     else -> null
                 }
@@ -538,11 +585,6 @@ class DescriptionEditFragment : Fragment() {
         private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
         const val MACHINE_SUGGESTION = "#machine-suggestion"
         const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-        const val SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK = "#suggestededit-patrol-rollback $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_PATROLLER_TASKS_UNDO = "#suggestededit-patrol-undo $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_ADD_DESC_COMMENT = "#suggestededit-add-desc $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_ADD_DESC_CHANGE_COMMENT = "#suggestededit-change-desc $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT = "#suggestededit-translate-desc $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_IMAGE_TAGS_COMMENT = "#suggestededit-add-tag $SUGGESTED_EDITS_UI_VERSION"

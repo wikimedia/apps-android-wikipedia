@@ -1,6 +1,7 @@
 package org.wikipedia.settings
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -32,8 +33,12 @@ class AboutActivity : BaseActivity() {
             it.movementMethod = LinkMovementMethodCompat.getInstance()
         }
         binding.sendFeedbackText.setOnClickListener {
-            FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
+            FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback", deviceInformation())
         }
+    }
+
+    private fun deviceInformation(): String {
+        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
     }
 
     private class AboutLogoClickListener : View.OnClickListener {

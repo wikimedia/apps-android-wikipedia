@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -13,10 +14,9 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class LangLinksViewModel(bundle: Bundle) : ViewModel() {
@@ -84,7 +84,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 // remove the language code and replace it with its variants
                 it.remove()
                 for (variant in languageVariants) {
-                    it.add(PageTitle(if (pageTitle.isMainPage) SiteInfoClient.getMainPageForLang(variant) else link.prefixedText,
+                    it.add(PageTitle(if (pageTitle.isMainPage) MainPageNameData.valueFor(variant) else link.prefixedText,
                             WikiSite.forLanguageCode(variant)))
                 }
             }
@@ -122,7 +122,6 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        @JvmStatic
         fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
             val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
             if (parentLanguageCode != null) {
@@ -130,8 +129,8 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
                         if (!title.wikiSite.languageCode.contains(languageCode)) {
-                            val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
-                            pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
+                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.prefixedText, WikiSite.forLanguageCode(languageCode))
+                            pageTitle.displayText = title.displayText
                             languageEntries.add(pageTitle)
                         }
                     }

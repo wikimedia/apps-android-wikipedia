@@ -246,15 +246,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ro</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteci utilizate</string>
   <string name="about_contributors_heading">Contribuitori</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina echipă&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licență</string>
-  <string name="about_app_license">Codul sursă disponibil pe &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codul sursă disponibil pe &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
   <string name="edit_abandon_confirm">Pagina a fost modificată. Sigur doriți să ieșiți fără a vă salva modificările?</string>
@@ -726,8 +726,8 @@
   <string name="notifications_menu_uncheck_all">Debifează toate elementele</string>
   <string name="notifications_wiki_filter_header">Filtru wiki</string>
   <string name="notifications_type_filter_header">Tipul filtrului</string>
-  <string name="notifications_all_wikis_text">Toate „wiki”</string>
-  <string name="notifications_all_types_text">Toate „tipurile”</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Toate „wiki”</string>
+  <string name="notifications_all_types_text" fuzzy="true">Toate „tipurile”</string>
   <string name="notifications_menu_user_talk_page">Pagina de discuție a lui %s</string>
   <string name="notifications_offline_disable_message">Funcția nu este disponibilă când sunteți off-line.</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
@@ -1185,7 +1185,11 @@
   <string name="talk_new_topic_submitted">Subiect postat.</string>
   <string name="talk_warn_save_dialog_title">Salvați modificările?</string>
   <string name="talk_warn_save_dialog_message">Salvați ca mesaj nou</string>
+  <string name="talk_warn_submitted">Mesajul a fost publicat pe pagina de discuții a editorului</string>
+  <string name="talk_warn_submitted_and_saved">Mesajul a fost salvat și apoi publicat pe pagina de discuții a editorului</string>
   <string name="talk_page_empty">Această pagină de discuție este goală.</string>
+  <string name="talk_page_empty_title">Conversația începe aici</string>
+  <string name="talk_page_empty_content">Paginile de discuții sunt locurile în care oamenii discută despre cum să facă conținutul Wikipedia să fie cât mai bun posibil. Începeți prin a adăuga un subiect nou de discuție pentru a vă conecta și colabora cu o comunitate de Wikipediști.</string>
   <string name="talk_add_reply">Răspunde</string>
   <string name="talk_no_subject">(Niciun subiect)</string>
   <string name="talk_reply_subject">Subiect</string>
@@ -1332,6 +1336,7 @@
   <string name="talk_templates_new_message_dialog_save">Salvează</string>
   <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
   <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Vezi pagina de discuții</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cont de la:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Număr de editări:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_filters_reset">Resetează</string>
@@ -1348,7 +1353,6 @@
   <string name="patroller_tasks_filters_user_intent_may_problems_desc">Găsește cele mai multe editări de rea-credință, dar cu o precizie mai mică.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil cu rea-credință</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Foarte precis în găsirea celor mai evidente editări de rea-credință.</string>
-  <string name="patroller_tasks_patrol_edit_title">Patrulează editările</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Revenire finalizată</string>
   <string name="patroller_diff_feedback_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Mulțumit</string>
@@ -1365,6 +1369,8 @@
   <string name="places_search_hint">Căutați locuri</string>
   <string name="places_filter_title">Filtrare după limbă</string>
   <string name="places_toggle_buttons_map">Hartă</string>
+  <string name="places_toggle_buttons_list">Listă</string>
+  <string name="places_nav_tab_tooltip_message">Descoperiți articole Wikipedia din jurul vostru cu Locuri</string>
   <string name="places_survey_very_satisfied_option">Foarte mulțumit</string>
   <string name="places_survey_very_unsatisfied_option">Foarte nemulțumit</string>
   <string name="places_survey_dialog_title">Ajută să îmbunătățim „Locuri”</string>
