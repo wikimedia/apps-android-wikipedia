@@ -46,7 +46,7 @@ object NotificationPresenter {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
             !Prefs.isInitialOnboardingEnabled &&
             AccountUtil.isLoggedIn &&
-            (millisSinceLastRequest > TimeUnit.HOURS.toMillis(1)) &&
+            (millisSinceLastRequest > TimeUnit.HOURS.toMillis(1) || millisSinceLastRequest < 0) &&
             ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
             lastPermissionRequestTime = System.currentTimeMillis()
