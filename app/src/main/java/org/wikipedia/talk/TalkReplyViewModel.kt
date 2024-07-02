@@ -5,9 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -38,10 +36,23 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
 
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
+    var doesPageExist = false
 
     init {
         if (isFromDiff) {
             loadTemplates()
+        }
+        checkPageExists()
+    }
+
+    @Suppress("KotlinConstantConditions")
+    private fun checkPageExists() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
+                doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
+            }
         }
     }
 
@@ -83,20 +94,18 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             saveTemplateData.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                talkTemplate.apply {
-                    this.title = title
-                    this.subject = subject
-                    this.message = body
-                }
-                talkTemplatesRepository.updateTemplate(talkTemplate)
-                talkTemplatesList.find { it == talkTemplate }?.apply {
-                    this.title = title
-                    this.subject = subject
-                    this.message = body
-                }
-                saveTemplateData.postValue(Resource.Success(talkTemplate))
+            talkTemplate.apply {
+                this.title = title
+                this.subject = subject
+                this.message = body
             }
+            talkTemplatesRepository.updateTemplate(talkTemplate)
+            talkTemplatesList.find { it == talkTemplate }?.apply {
+                this.title = title
+                this.subject = subject
+                this.message = body
+            }
+            saveTemplateData.postValue(Resource.Success(talkTemplate))
         }
     }
 

@@ -117,6 +117,7 @@
   <string name="langlinks_your_wikipedia_languages">Тыйын Википедийысе йылме-влак</string>
   <string name="menu_save_changes">Вашталтышым савыкташ</string>
   <string name="edit_saved_successfully">Вашталтышым аралыме!</string>
+  <string name="stub_article_edit_saved_successfully">Тӧрлымаш савыктыме! Вашталтыш лекташлан жап кӱлеш лийын кертеш.</string>
   <string name="dialog_message_edit_failed">Тӧрлатыме годым йоҥылыш!</string>
   <string name="dialog_message_edit_failed_retry">Уэштараш</string>
   <string name="dialog_message_edit_failed_cancel">Чараш</string>
@@ -159,6 +160,9 @@
   <string name="logged_out_in_background_dialog">Тый Википедий шке аккаунт гыч лектынат. Угыч пурынет?</string>
   <string name="logged_out_in_background_login">Пураш</string>
   <string name="logged_out_in_background_cancel">Чараш</string>
+  <string name="account_vanish_request_title">Аккаунт йоммаш</string>
+  <string name="account_vanish_request_confirm_title">Аккаунт йоммо нерген палдарымаш</string>
+  <string name="account_vanish_request_confirm">Йоммаш — тиде &lt;b&gt;пытартыш йӧн&lt;/b&gt; , да тудым кӱлеш &lt;b&gt; кучылташ тунам гына, кунам тый тӧрлатымым чарнынет &lt;/b&gt; , тыгак шукырак тошто ассоциаций-влакым шылтынет.&lt;br/&gt;&lt;br/&gt; Википедийыште аккаунтетым кораҥдашлан аккаунтын лӱмжым вашталташ кӱлеш, тыге моло-влак тиде пашаште, кудыжо аккаунт йоммаш маналтеш, тыйын надырет огыт уж. &lt;b&gt;Йоммаш тичмаш лӱмдымылыкым ок пу, тыгак проектысе надырым ок кораҥде&lt;/b&gt; .</string>
   <string name="history_empty_title">Шукерте огыл ончен лекме статья уке</string>
   <string name="history_empty_message">Тыште тыйын лудмо статья-влакым эскере.</string>
   <string name="history_offline_articles_toast">Эртылыкысе южо велыж-влак офлайн шот дене логалдыме лийын кертыт.</string>
@@ -183,12 +187,14 @@
   <string name="create_account_generic_error">Аккаунтым ыштен кертме огыл</string>
   <string name="create_account_next">Умбакыже</string>
   <string name="email_recommendation_dialog_title">Аккаунтым электрон почто деч посна ышташ?</string>
+  <string name="email_recommendation_dialog_message">Электрон почто тыманмеш ок кӱл гынат, тудо&lt;b&gt;пеш чот темлалтеш&lt;/b&gt;, вет тудо парольым йомдаренат гын, аккаунтым пӧртылташ кӱлеш.</string>
   <string name="email_recommendation_message">Электрон почто аккаунтым пӧртылташ кучылталтеш, сандене темлалтеш.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Электрон почто деч посна шуяш</string>
   <string name="email_recommendation_dialog_create_with_email_action">Электрон почто адресым ешараш</string>
   <string name="create_account_button">Аккаунтым ышташ</string>
   <string name="create_account_name_unavailable">«%s» ушнышо лӱм лийын кертдыме. Порылий, вес лӱмым ончыкто.</string>
   <string name="create_account_ip_block_message">Вуеш ит нал, у ушнышо лӱмым ышташлан тыйын IP-адресетым петырыме.</string>
+  <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Полыш: Мый_чарыме_лийынам</string>
   <string name="create_account_ip_block_details">Кумданрак</string>
   <string name="preferences_general_heading">Чумыр</string>
   <string name="preferences_account_heading">Аккаунт</string>
@@ -198,13 +204,24 @@
   <string name="preferences_heading_syncing">Синхронизаций</string>
   <string name="preferences_heading_data_usage">Трафикым кучылтмаш</string>
   <string name="preferences_heading_experimental">Экспериментлык</string>
+  <string name="preference_title_sync_reading_lists_from_account">Лудмо спискым ик шотыш кондымаш</string>
   <string name="preference_title_download_reading_list_articles">Лудашлан спсике гыч статья-влакым тулен налаш</string>
+  <string name="preference_summary_sync_reading_lists">Шке Википедий аккаунтыштет арален тӱрлӧ арверлаште лудшаш списке-влакым ик шотыш кондо</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Шке аккаунтыштет арален, тӱрлӧ арверлаште лудшаш списке-влакым ик шотыш кондо\"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s гыч ик шотыш кондымо лудмо списке влакым кораҥгдаш?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Тиде кораҥдыме аралтыш вер гыч ик шотыш кондымо лудшаш списке-влак кораҥдыме дек конгда. Чыла ик шотыш кондымо списке-влакым тыйын \"%s\" аккаунт гыч кораҥдаш?</string>
   <string name="preference_title_auto_upload_crash_reports">Тӧрсыр лекме нерген отчётым колтедылаш</string>
+  <string name="editing_error_spamblacklist">Чарыме домен-влаклан (%s) кылверлам мумо. Поро лий, нуным кораҥде да угыч тӧчен ончо.</string>
   <string name="history_filter_list_hint">Фильтрын историйже</string>
   <string name="error_can_not_process_link">Тиде кылверым ончыктен кертме огыл</string>
+  <string name="page_protected_autoconfirmed">Тиде велыж тичмашын огыл аралыме.</string>
+  <string name="page_protected_sysop">Тиде велыжым тичмашын аралыме.</string>
+  <string name="page_protected_other">Тиде велыж тыгай кӱкшытлаште аралыме:%s</string>
   <string name="page_protected_can_not_edit">Чаманыман, кызытсе жаплан тиде велыжым тӧрлаташлан тыйын аккаунтын ситыше праваже уке.</string>
   <string name="page_protected_can_not_edit_anon">Чаманыман, кызытсе жаплан тиде велыжым лӱмдымын тӧрлатылаш огеш лий.</string>
+  <string name="page_protected_can_not_edit_title">Тиде велыж аралыме</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Эскерыме спискыш ешараш</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Тыланет кӱлшӧ статья-влакын мо лиймыштым эскере. Статьяште вашталтышым ужашлан утыж ден темме менюм темдал да ойыро &lt;b&gt;Эскерыме спискыш ешаре&lt;/b&gt;.</string>
   <string name="settings_item_preferences">Келыштарымаш</string>
   <string name="settings_activity_title">Келыштарымаш</string>
   <string name="about_description">«Википедий» приложений нерген</string>
@@ -253,14 +270,21 @@
   <string name="edit_summary_tag_other">Моло</string>
   <string name="edit_summary_tag_other_hint">Тыйын велыжым саемдыме вес йӧн-влак</string>
   <string name="edit_conflict_title">Тӧрлатымаште ваштӱкныш</string>
+  <string name="edit_conflict_message">Велыж вес ушнышо дене вашталтыме лийын да тыйын тӧрлымаш денет келшен ок тол. Поро лий, шке тӧрлымаш-влакетым копироватле, пӧртыл да велыжым уэмде, вара тудым угыч тӧрлаташ тӧчен ончо.</string>
   <string name="edit_notices">Шижтарымашым тӧрлаташ</string>
   <string name="edit_notices_please_read">Порылий, тӧрлатымаш деч ончыч лудын лек</string>
   <string name="edit_notices_show_auto">Тӧрлымаш нерген шижтарымашым вигак ончыктылаш</string>
+  <string name="edit_notices_tooltip">Статья тӧрлымӧ нерген палдарымашым ончалашлан тиде кнопкым темдал.</string>
   <string name="find_next">Умбакыже муаш</string>
   <string name="find_previous">Ондыкше муаш</string>
   <string name="find_first_occurence">Тиде икымше икгайлык</string>
   <string name="find_last_occurence">Тиде пытартыш икгайлык</string>
+  <string name="article_opened_in_background_tab">Статьям фон вкладкыште почмо.</string>
+  <string name="abusefilter_title_warn">Тиде йӧрдымӧ тӧрлымаш лийын кертеш. Тый тудым савыктынетак?</string>
+  <string name="abusefilter_title_disallow">Тый тиде тӧрлымашым савыктен от керт. Поро лий, пӧртыл да тудым вашталте.</string>
+  <string name="abusefilter_text_disallow">Автоматический фильтр тиде тӧрлымашым йӧндымӧ але вандализм лийын кертше семын палемден.&lt;br /&gt;&lt;br /&gt;Википедий энциклопедий улеш, садлан тыште лач   уто шонымашым таратыдыше да шотыш налаш йӧрышо контент вераҥдыме лийын кертеш.</string>
   <string name="page_similar_titles">Икгайрак велыж-влак</string>
+  <string name="search_did_you_mean">Тый тидын нерген ойлет \"%s\"?</string>
   <string name="search_recent_header">Пытартыш кычалмаш:</string>
   <string name="search_results_count_zero">Лектыш уке</string>
   <plurals name="search_results_count">
@@ -268,6 +292,7 @@
     <item quantity="other">%d лектыш</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Пытартыш кычалме йодмаш спискым эрыкташ</string>
+  <string name="clear_recent_searches_confirm">Тый кычалмаш эртылыкым эрыктынетак?</string>
   <string name="clear_recent_searches_confirm_yes">Туге</string>
   <string name="clear_recent_searches_confirm_no">Уке</string>
   <string name="error_browser_not_found">Веб-велыжым почын кертме огыл (браузерын приложенийжым мумо огыл).</string>
@@ -277,12 +302,16 @@
   <string name="widget_name_featured_page">Википедийын ойырен налме велыжше</string>
   <string name="widget_title_featured_page">Кечылан ойырен налме велыж:</string>
   <string name="widget_name_search">Википедий мучко кычалаш</string>
+  <string name="widget_description_search">Википедийыште эн писе кычалмаш йӧн</string>
+  <string name="widget_description_featured_page">Википедийын темлыме эн сай статья-влак</string>
   <string name="wiktionary_no_definitions_found">Нимогай рашлыкым мумо огыл.</string>
   <string name="alpha_update_notification_title">Альфа-версийлан у уэмдалтмаш уло</string>
   <string name="alpha_update_notification_text">Тулен налаш манын, темдал</string>
   <string name="dialog_close_description">Петыраш</string>
   <string name="preference_title_show_images">Сӱретым ончыкташ</string>
+  <string name="preference_summary_show_images">Велыжлаште сӱрет пуртымым чӱктыза але чарыза.\nИнтернет ден кылет эркын але тарифный планет иземдыме гын тиде флажокым кораҥде.</string>
   <string name="preference_title_download_only_over_wifi">Wi-Fi дене гына тулен наледылаш</string>
+  <string name="dialog_title_download_only_over_wifi">Мобильный данный гоч вераҥдымаш дене келшаш?</string>
   <string name="read_more_section">Кылдалтше статья-влак</string>
   <string name="about_article_section">Тиде статья нерген</string>
   <string name="menu_gallery_visit_image_page">Файл велыж деке куснаш</string>
@@ -540,8 +569,8 @@
   <string name="description_edit_voice_input_description">Йӱкан пуртымаш</string>
   <string name="description_edit_learn_more">Статьян возен ончыктымашыже нерген кумданрак</string>
   <string name="description_edit_image_caption_learn_more">Сӱрет деке возыш нерген кумданрак</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Статьян_возен_ончыктымашыже</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Сӱрет_деке_возыш</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Статьян_возен_ончыктымашыже</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Сӱрет_деке_возыш</string>
   <string name="description_too_short">Тиде текст утыжден кӱчык.</string>
   <string name="description_ends_with_punctuation">Текст препинаний пале-влак дене пытышаш огыл.</string>
   <string name="description_starts_with_uppercase">Икымше мут шкенле вуйлӱм огыл гын, изи буква дене тӱҥал.</string>
@@ -649,7 +678,7 @@
   <string name="suggested_edits_image_recommendations_task_title">Статьян сӱретше</string>
   <string name="image_recommendation_accept">Туге</string>
   <string name="image_recommendation_reject">Уке</string>
-  <string name="image_recommendation_reject_title">Молан уке?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Молан уке?</string>
   <string name="image_recommendation_reject_offensive">Сӱрет шӱктарыше улеш</string>
   <string name="image_recommendation_reject_low_quality">Уда сайлыкан сӱрет</string>
   <string name="image_recommendation_reject_other">Моло</string>
@@ -763,6 +792,5 @@
   <string name="patroller_tasks_filters_automated_contributions_human">Айдеме (бот огыл)</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Ончалаш</string>
   <string name="patroller_onboarding_two_watch_title">Эскераш</string>
-  <string name="patroller_onboarding_two_warn_title">Шижтарымаш</string>
   <string name="data_opt_in_reject">Ӧрдыжтараш</string>
 </resources>

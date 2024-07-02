@@ -95,7 +95,6 @@
     <declare-styleable name="WikiCardView">
         <attr name="hasBorder" format="boolean" />
         <attr name="elevation" format="dimension" />
-        <attr name="radius" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="LangCodeView">

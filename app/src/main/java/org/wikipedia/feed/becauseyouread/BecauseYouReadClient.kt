@@ -1,10 +1,10 @@
 package org.wikipedia.feed.becauseyouread
 
 import android.content.Context
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -12,70 +12,62 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
-class BecauseYouReadClient : FeedClient {
-
-    private val disposables = CompositeDisposable()
-
+class BecauseYouReadClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
+    private var clientJob: Job? = null
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        disposables.add(
-            Observable.fromCallable {
-                AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age,
-                    context.resources.getInteger(R.integer.article_engagement_threshold_sec))
+        clientJob = coroutineScope.launch(
+            CoroutineExceptionHandler { _, caught ->
+                L.v(caught)
+                cb.success(emptyList())
             }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ entries ->
-                    if (entries.size <= age) cb.success(emptyList()) else getCardForHistoryEntry(entries[age], cb)
-                }) { cb.success(emptyList()) })
+        ) {
+            val entries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
+            if (entries.size <= age) {
+                cb.success(emptyList())
+            } else {
+                val entry = entries[age]
+                val langCode = entry.title.wikiSite.languageCode
+                // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
+                // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
+                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
+                val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
+                val relatedPages = mutableListOf<PageSummary>()
+
+                val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
+                    Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
+
+                val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
+                    entry.title.extract, entry.title.thumbUrl, langCode)
+
+                moreLikeResponse.query?.pages?.forEach {
+                    if (it.title != searchTerm) {
+                        if (hasParentLanguageCode) {
+                            val pageSummary = ServiceFactory.getRest(entry.title.wikiSite).getPageSummary(entry.referrer, it.title)
+                            relatedPages.add(pageSummary)
+                        } else {
+                            relatedPages.add(PageSummary(it.displayTitle(langCode), it.title, it.description,
+                                it.extract, it.thumbUrl(), langCode))
+                        }
+                    }
+                }
+
+                cb.success(
+                    if (relatedPages.isEmpty()) emptyList()
+                    else listOf(toBecauseYouReadCard(relatedPages, headerPage, entry.title.wikiSite))
+                )
+            }
+        }
     }
 
     override fun cancel() {
-        disposables.clear()
-    }
-
-    private fun getCardForHistoryEntry(entry: HistoryEntry, cb: FeedClient.Callback) {
-
-        // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
-        // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
-        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(entry.title.wikiSite.languageCode).isNullOrEmpty()
-        val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
-        disposables.add(ServiceFactory.get(entry.title.wikiSite)
-            .searchMoreLike("morelike:$searchTerm",
-                Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .flatMap { response ->
-                val relatedPages = mutableListOf<PageSummary>()
-                val langCode = entry.title.wikiSite.languageCode
-                relatedPages.add(PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
-                    entry.title.extract, entry.title.thumbUrl, langCode))
-                response.query?.pages?.forEach {
-                    if (it.title != searchTerm) {
-                        relatedPages.add(PageSummary(it.displayTitle(langCode), it.title, it.description,
-                            it.extract, it.thumbUrl(), langCode))
-                    }
-                }
-                Observable.fromIterable(relatedPages)
-            }
-            .concatMap { pageSummary ->
-                if (hasParentLanguageCode) ServiceFactory.getRest(entry.title.wikiSite).getSummary(entry.referrer, pageSummary.apiTitle)
-                else Observable.just(pageSummary)
-            }
-            .observeOn(AndroidSchedulers.mainThread())
-            .toList()
-            .subscribe({ list ->
-                val headerPage = list.removeAt(0)
-                FeedCoordinator.postCardsToCallback(cb,
-                    if (list.isEmpty()) emptyList()
-                    else listOf(toBecauseYouReadCard(list, headerPage, entry.title.wikiSite))
-                )
-            }) { caught -> cb.error(caught) })
+        clientJob?.cancel()
     }
 
     private fun toBecauseYouReadCard(results: List<PageSummary>, pageSummary: PageSummary, wikiSite: WikiSite): BecauseYouReadCard {

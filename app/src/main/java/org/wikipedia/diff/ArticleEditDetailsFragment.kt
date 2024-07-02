@@ -55,6 +55,7 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
@@ -102,7 +103,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                         PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
                         startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
                     }
-                }.show()
+                }
+                .setAnchorView(binding.navTabContainer)
+                .show()
         }
     }
 
@@ -278,6 +281,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
             } else if (viewModel.pageTitle.namespace() == Namespace.FILE) {
                 startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
+            } else if (viewModel.pageTitle.wikiSite.dbName() == Constants.WIKIDATA_DB_NAME ||
+                viewModel.pageTitle.wikiSite.dbName() == Constants.COMMONS_DB_NAME) {
+                CustomTabsUtil.openInCustomTab(requireContext(), viewModel.pageTitle.mobileUri)
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)))
@@ -553,52 +559,54 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         updateWatchButton(false)
         if (!viewModel.isWatched) {
             sendPatrollerExperienceEvent("unwatch_success_toast", "pt_watchlist")
-            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
-            snackbar.addCallback(object : Snackbar.Callback() {
-                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                    if (!isAdded) {
-                        return
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
+                .addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                        if (!isAdded) {
+                            return
+                        }
+                        showFeedbackOptionsDialog()
                     }
-                    showFeedbackOptionsDialog()
-                }
-            })
-            snackbar.show()
+                })
+                .setAnchorView(binding.navTabContainer)
+                .show()
         } else if (viewModel.isWatched) {
             sendPatrollerExperienceEvent("watch_success_toast", "pt_watchlist")
-            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+            FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             viewModel.pageTitle.displayText,
                             getString(WatchlistExpiry.NEVER.stringId)))
-            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
-            }
-            snackbar.addCallback(object : Snackbar.Callback() {
-                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                    if (!isAdded) {
-                        return
-                    }
-                    showFeedbackOptionsDialog()
+                .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
                 }
-            })
-            snackbar.show()
+                        .addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                        if (!isAdded) {
+                            return
+                        }
+                        showFeedbackOptionsDialog()
+                    }
+                })
+                .setAnchorView(binding.navTabContainer)
+                .show()
         }
     }
 
     private fun showThankSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.thank_success_message,
-            viewModel.revisionTo?.user))
         binding.thankIcon.setImageResource(R.drawable.ic_heart_24)
         binding.thankButton.isEnabled = false
-        snackbar.addCallback(object : Snackbar.Callback() {
-            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                if (!isAdded) {
-                    return
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.thank_success_message, viewModel.revisionTo?.user))
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
                 }
-                showFeedbackOptionsDialog()
-            }
-        })
+            })
+            .setAnchorView(binding.navTabContainer)
+            .show()
         sendPatrollerExperienceEvent("thank_success", "pt_thank")
-        snackbar.show()
     }
 
     private fun showThankDialog() {
@@ -631,16 +639,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     private fun showUndoSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_undo_success))
-        snackbar.addCallback(object : Snackbar.Callback() {
-            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                if (!isAdded) {
-                    return
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_undo_success))
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
                 }
-                showFeedbackOptionsDialog()
-            }
-        })
-        snackbar.show()
+            })
+            .setAnchorView(binding.navTabContainer)
+            .show()
     }
 
     private fun showRollbackDialog() {
@@ -661,16 +670,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     private fun showRollbackSnackbar() {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_rollback_success))
-        snackbar.addCallback(object : Snackbar.Callback() {
-            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                if (!isAdded) {
-                    return
+        FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_tasks_patrol_edit_rollback_success))
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
                 }
-                showFeedbackOptionsDialog()
-            }
-        })
-        snackbar.show()
+            })
+            .setAnchorView(binding.navTabContainer)
+            .show()
     }
 
     private fun showFeedbackOptionsDialog(skipPreference: Boolean = false) {

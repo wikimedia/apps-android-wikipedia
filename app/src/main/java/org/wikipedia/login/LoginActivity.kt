@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -17,7 +18,6 @@ import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
 import org.wikipedia.extensions.parcelableExtra
-import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
@@ -98,7 +98,6 @@ class LoginActivity : BaseActivity() {
 
     override fun onStop() {
         binding.viewProgressBar.visibility = View.GONE
-        loginClient.cancel()
         super.onStop()
     }
 
@@ -169,10 +168,11 @@ class LoginActivity : BaseActivity() {
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
         if (twoFactorCode.isNotEmpty() && !firstStepToken.isNullOrEmpty()) {
-            loginClient.login(WikipediaApp.instance.wikiSite, username, password,
+            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password,
                     null, twoFactorCode, firstStepToken!!, loginCallback)
         } else {
-            loginClient.request(WikipediaApp.instance.wikiSite, username, password, loginCallback)
+            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password,
+                null, null, null, loginCallback)
         }
     }
 
@@ -229,7 +229,6 @@ class LoginActivity : BaseActivity() {
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
         const val SOURCE_NAV = "navigation"
         const val SOURCE_EDIT = "edit"
-        const val SOURCE_BLOCKED = "blocked"
         const val SOURCE_SYSTEM = "system"
         const val SOURCE_ONBOARDING = "onboarding"
         const val SOURCE_SETTINGS = "settings"
@@ -238,7 +237,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
 
-        fun newIntent(context: Context, source: String, token: String? = null): Intent {
+        fun newIntent(context: Context, source: String): Intent {
             return Intent(context, LoginActivity::class.java)
                     .putExtra(LOGIN_REQUEST_SOURCE, source)
         }

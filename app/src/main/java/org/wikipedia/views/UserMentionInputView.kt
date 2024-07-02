@@ -7,31 +7,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.ComponentActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.edit.richtext.SyntaxHighlighter
+import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
-import java.util.concurrent.TimeUnit
 
-class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
+class UserMentionInputView(context: Context, attrs: AttributeSet? = null) :
+    LinearLayout(context, attrs), UserMentionEditText.Listener {
+
     interface Listener {
         fun onUserMentionListUpdate()
         fun onUserMentionComplete()
     }
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     val editText get() = binding.inputEditText
     val textInputLayout get() = binding.inputTextLayout
@@ -40,21 +39,22 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     var userNameHints: Set<String> = emptySet()
 
     private val binding = ViewUserMentionInputBinding.inflate(LayoutInflater.from(context), this)
-    private val disposables = CompositeDisposable()
     private val userNameList = mutableListOf<String>()
     private val syntaxHighlighter: SyntaxHighlighter
+    private var clientJob: Job? = null
 
     init {
         orientation = VERTICAL
         binding.inputEditText.listener = this
         binding.userListRecycler.layoutManager = LinearLayoutManager(context)
         binding.userListRecycler.adapter = UserNameAdapter()
-        syntaxHighlighter = SyntaxHighlighter(context, binding.inputEditText, null, 200)
+        syntaxHighlighter = SyntaxHighlighter(context as ComponentActivity, binding.inputEditText,
+            null, 200)
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        disposables.clear()
+        clientJob?.cancel()
     }
 
     override fun onStartUserNameEntry() {
@@ -63,7 +63,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     }
 
     override fun onCancelUserNameEntry() {
-        disposables.clear()
+        clientJob?.cancel()
         binding.userListRecycler.isVisible = false
         listener?.onUserMentionComplete()
     }
@@ -93,25 +93,21 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     }
 
     private fun searchForUserName(prefix: String) {
-        disposables.clear()
-        disposables.add(Observable.timer(200, TimeUnit.MILLISECONDS)
-                .flatMap { ServiceFactory.get(wikiSite).prefixSearchUsers(prefix, 10) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    userNameList.clear()
-                    userNameList.addAll(userNameHints.filter { it.startsWith(prefix, ignoreCase = true) })
-
-                    response.query?.allUsers?.forEach {
-                        if (!userNameList.contains(it.name)) {
-                            userNameList.add(it.name)
-                        }
-                    }
-                    onSearchResults()
-                }, {
-                    onSearchError(it)
-                })
-        )
+        clientJob?.cancel()
+        clientJob = coroutineScope().launch(CoroutineExceptionHandler { _, exception ->
+            onSearchError(exception)
+        }) {
+            delay(200)
+            val response = ServiceFactory.get(wikiSite).prefixSearchUsers(prefix, 10)
+            userNameList.clear()
+            userNameList.addAll(userNameHints.filter { it.startsWith(prefix, ignoreCase = true) })
+            response.query?.allUsers?.forEach {
+                if (!userNameList.contains(it.name)) {
+                    userNameList.add(it.name)
+                }
+            }
+            onSearchResults()
+        }
     }
 
     private fun onSearchResults() {
@@ -125,7 +121,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         binding.userListRecycler.isVisible = false
     }
 
-    private inner class UserNameViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), OnClickListener {
+    private inner class UserNameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), OnClickListener {
         private lateinit var userName: String
 
         fun bindItem(position: Int) {

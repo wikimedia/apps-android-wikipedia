@@ -35,6 +35,11 @@ enum class NavTab constructor(
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
         }
+    },
+    MORE(R.string.nav_item_more, R.id.nav_tab_more, R.drawable.ic_menu_white_24dp) {
+        override fun newInstance(): Fragment {
+            return Fragment()
+        }
     };
 
     abstract fun newInstance(): Fragment

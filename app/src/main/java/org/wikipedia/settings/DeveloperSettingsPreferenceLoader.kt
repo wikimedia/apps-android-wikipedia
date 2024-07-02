@@ -1,11 +1,11 @@
 package org.wikipedia.settings
 
 import android.content.DialogInterface
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +14,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageActivity
@@ -75,50 +74,44 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite, 10)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ summary: PageSummary ->
-                        MaterialAlertDialogBuilder(activity)
-                                .setTitle(fromHtml(summary.displayTitle))
-                                .setMessage(fromHtml(summary.extract))
-                                .setPositiveButton("Go") { _: DialogInterface, _: Int ->
-                                    val title = summary.getPageTitle(WikipediaApp.instance.wikiSite)
-                                    activity.startActivity(PageActivity.newIntentForNewTab(activity, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
-                                }
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .show()
-                    }
-                    ) { throwable: Throwable ->
-                        MaterialAlertDialogBuilder(activity)
-                                .setMessage(throwable.message)
-                                .setPositiveButton(android.R.string.ok, null)
-                                .show()
-                    }
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+                MaterialAlertDialogBuilder(activity)
+                    .setMessage(caught.message)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
+            }) {
+                val summary = EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite)
+                MaterialAlertDialogBuilder(fragment.requireActivity())
+                        .setTitle(fromHtml(summary.displayTitle))
+                        .setMessage(fromHtml(summary.extract))
+                        .setPositiveButton("Go") { _: DialogInterface, _: Int ->
+                            val title = summary.getPageTitle(WikipediaApp.instance.wikiSite)
+                            fragment.requireActivity().startActivity(PageActivity.newIntentForNewTab(fragment.requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
+                        }
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show()
+            }
             true
         }
         findPreference(R.string.preference_key_missing_description_test2).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite,
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+                MaterialAlertDialogBuilder(activity)
+                    .setMessage(caught.message)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
+            }) {
+                val summary = EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite,
                     WikipediaApp.instance.languageState.appLanguageCodes[1], true, 10)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ (_, second) ->
-                        MaterialAlertDialogBuilder(activity)
-                                .setTitle(fromHtml(second.displayTitle))
-                                .setMessage(fromHtml(second.description))
-                                .setPositiveButton("Go") { _: DialogInterface, _: Int ->
-                                    val title = second.getPageTitle(WikiSite.forLanguageCode(WikipediaApp.instance.languageState.appLanguageCodes[1]))
-                                    activity.startActivity(PageActivity.newIntentForNewTab(activity, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
-                                }
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .show()
-                    }
-                    ) { throwable: Throwable ->
-                        MaterialAlertDialogBuilder(activity)
-                                .setMessage(throwable.message)
-                                .setPositiveButton(android.R.string.ok, null)
-                                .show()
-                    }
+                MaterialAlertDialogBuilder(fragment.requireActivity())
+                        .setTitle(fromHtml(summary.second.displayTitle))
+                        .setMessage(fromHtml(summary.second.extract))
+                        .setPositiveButton("Go") { _: DialogInterface, _: Int ->
+                            val title = summary.second.getPageTitle(WikipediaApp.instance.wikiSite)
+                            fragment.requireActivity().startActivity(PageActivity.newIntentForNewTab(fragment.requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
+                        }
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show()
+            }
             true
         }
         findPreference(R.string.preference_key_announcement_shown_dialogs).summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
@@ -198,7 +191,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         return toString().trim().toIntOrNull() ?: defaultValue
     }
 
-    private class TestException constructor(message: String?) : RuntimeException(message)
+    private class TestException(message: String?) : RuntimeException(message)
 
     companion object {
         private const val TEXT_OF_TEST_READING_LIST = "Test reading list"

@@ -9,13 +9,12 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -45,13 +44,10 @@ class LongPressMenu(
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
-            CoroutineScope(Dispatchers.Main).launch {
+            anchorView.coroutineScope().launch {
                 listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
                         AppDatabase.instance.readingListPageDao().getAllPageOccurrences(it.title)
                     )
-                if (!anchorView.isAttachedToWindow) {
-                    return@launch
-                }
                 this@LongPressMenu.entry = it
                 if (!existsInAnyList) {
                     this@LongPressMenu.menuRes = R.menu.menu_reading_list_page_toggle
