@@ -16,13 +16,13 @@ private const val GROUP_WIKIPEDIA_NOTIFICATIONS: String = "WIKIPEDIA_NOTIFICATIO
 private const val GROUP_OTHER: String = "WIKIPEDIA_NOTIFICATIONS_OTHER"
 
 @Suppress("unused")
-enum class NotificationCategory constructor(val id: String,
-                                            @StringRes val title: Int,
-                                            @StringRes val description: Int,
-                                            @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
-                                            @AttrRes val iconColor: Int = R.attr.progressive_color,
-                                            val importance: Int = NotificationManagerCompat.IMPORTANCE_DEFAULT,
-                                            val group: String? = GROUP_WIKIPEDIA_NOTIFICATIONS) : EnumCode {
+enum class NotificationCategory(val id: String,
+                                @StringRes val title: Int,
+                                @StringRes val description: Int,
+                                @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
+                                @AttrRes val iconColor: Int = R.attr.progressive_color,
+                                val importance: Int = NotificationManagerCompat.IMPORTANCE_DEFAULT,
+                                val group: String? = GROUP_WIKIPEDIA_NOTIFICATIONS) : EnumCode {
     SYSTEM("system", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_settings_black_24dp),
     MILESTONE_EDIT("thank-you-edit", R.string.preference_title_notification_milestone, R.string.preference_summary_notification_milestone, R.drawable.ic_notification_milestone), // milestone
     EDIT_USER_TALK("edit-user-talk", R.string.preference_title_notification_user_talk, R.string.preference_summary_notification_user_talk, R.drawable.ic_notification_user_talk, importance = NotificationManagerCompat.IMPORTANCE_HIGH),

@@ -50,7 +50,6 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
     fun show(anchorView: View, container: NotificationListItemContainer, callback: Callback) {
         this.callback = callback
         this.container = container
-        this.linkHandler = NotificationLinkHandler(anchorView.context)
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
         popupWindowHost?.let {
@@ -60,9 +59,10 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         }
 
         container.notification?.contents?.let {
+            val category = NotificationCategory.find(container.notification.category)
+            val iconColor = ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, category.iconColor))
+            this.linkHandler = NotificationLinkHandler(anchorView.context, category)
             it.links?.getPrimary()?.let { primary ->
-                val category = NotificationCategory.find(container.notification.category)
-                val iconColor = ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, category.iconColor))
                 setUpViewForLink(binding.overflowViewPrimary, primary, category.iconResId, iconColor, iconColor)
                 binding.overflowViewPrimary.visibility = View.VISIBLE
             }

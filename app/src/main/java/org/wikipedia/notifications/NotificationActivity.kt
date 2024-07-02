@@ -76,7 +76,6 @@ class NotificationActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
-    private var linkHandler = NotificationLinkHandler(this)
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
 
@@ -346,10 +345,11 @@ class NotificationActivity : BaseActivity() {
 
     private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
 
-    private inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
+    private inner class NotificationItemHolder(val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
 
         lateinit var container: NotificationListItemContainer
+        lateinit var linkHandler: NotificationLinkHandler
         var itemPosition = -1
 
         init {
@@ -368,6 +368,7 @@ class NotificationActivity : BaseActivity() {
             val primaryColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_color)
             val inactiveColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.inactive_color)
 
+            this.linkHandler = NotificationLinkHandler(this@NotificationActivity, notificationCategory)
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
                 ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.placeholder_color))
