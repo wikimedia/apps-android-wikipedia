@@ -281,7 +281,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
             } else if (viewModel.pageTitle.namespace() == Namespace.FILE) {
                 startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
-            } else if (viewModel.pageTitle.wikiSite.dbName() == Constants.WIKIDATA_DB_NAME) {
+            } else if (viewModel.pageTitle.wikiSite.dbName() == Constants.WIKIDATA_DB_NAME ||
+                viewModel.pageTitle.wikiSite.dbName() == Constants.COMMONS_DB_NAME) {
                 CustomTabsUtil.openInCustomTab(requireContext(), viewModel.pageTitle.mobileUri)
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
