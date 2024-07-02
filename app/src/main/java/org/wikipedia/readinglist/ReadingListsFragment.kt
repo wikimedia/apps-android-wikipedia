@@ -120,17 +120,20 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
-                    if (event is ReadingListSyncEvent) {
-                        binding.recyclerView.post {
-                            if (isAdded) {
-                                updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentPreviewSavedReadingList != null)
+                    when (event) {
+                        is ReadingListSyncEvent -> {
+                            binding.recyclerView.post {
+                                if (isAdded) {
+                                    updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentPreviewSavedReadingList != null)
+                                }
                             }
                         }
-                    } else if (event is ArticleSavedOrDeletedEvent) {
-                        if (event.isAdded) {
-                            if (Prefs.readingListsPageSaveCount < SAVE_COUNT_LIMIT) {
-                                showReadingListsSyncDialog()
-                                Prefs.readingListsPageSaveCount = Prefs.readingListsPageSaveCount + 1
+                        is ArticleSavedOrDeletedEvent -> {
+                            if (event.isAdded) {
+                                if (Prefs.readingListsPageSaveCount < SAVE_COUNT_LIMIT) {
+                                    showReadingListsSyncDialog()
+                                    Prefs.readingListsPageSaveCount += 1
+                                }
                             }
                         }
                     }

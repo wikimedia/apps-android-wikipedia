@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
@@ -136,7 +137,7 @@ class RecentSearchesFragment : Fragment() {
         binding.recentSearches.isInvisible = searchesEmpty
     }
 
-    private inner class RecentSearchItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
+    private inner class RecentSearchItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
         private lateinit var recentSearch: RecentSearch
 
         fun bindItem(position: Int) {
@@ -173,13 +174,15 @@ class RecentSearchesFragment : Fragment() {
         }
     }
 
-    private inner class NamespaceItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    private inner class NamespaceItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(ns: Namespace?) {
             val isHeader = ns == null
-            itemView.setOnClickListener(this)
-            (itemView as TextView).text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
-            itemView.isEnabled = !isHeader
-            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.primary_color else R.attr.progressive_color))
+            (itemView as TextView).apply {
+                setOnClickListener(this@NamespaceItemViewHolder)
+                text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
+                isEnabled = !isHeader
+                setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.primary_color else R.attr.progressive_color))
+            }
         }
 
         override fun onClick(v: View) {

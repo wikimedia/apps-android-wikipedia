@@ -31,9 +31,15 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.donate.DonateDialog
-import org.wikipedia.events.*
+import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.events.ReadingListsEnableDialogEvent
+import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
+import org.wikipedia.events.SplitLargeListsEvent
+import org.wikipedia.events.ThemeFontChangeEvent
+import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.ReadingListsReceiveSurveyHelper
@@ -66,6 +72,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
             FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
         }
+    }
+
+    private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        // TODO: Show message(s) to the user if they deny the permission
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,25 +132,32 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 FlowEventBus.events.collectLatest { event ->
-                    if (event is SplitLargeListsEvent) {
-                        MaterialAlertDialogBuilder(this@BaseActivity)
-                            .setMessage(getString(R.string.split_reading_list_message, Constants.MAX_READING_LIST_ARTICLE_LIMIT))
-                            .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
-                            .show()
-                    } else if (event is ReadingListsNoLongerSyncedEvent) {
-                        ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(this@BaseActivity)
-                    } else if (event is ReadingListsEnableDialogEvent && this@BaseActivity is MainActivity) {
-                        ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(this@BaseActivity)
-                    } else if (event is LoggedOutInBackgroundEvent) {
-                        maybeShowLoggedOutInBackgroundDialog()
-                    } else if (event is ReadingListSyncEvent) {
-                        if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled) {
-                            FeedbackUtil.makeSnackbar(this@BaseActivity, getString(R.string.reading_list_toast_last_sync)).show()
+                    when (event) {
+                        is SplitLargeListsEvent -> {
+                            MaterialAlertDialogBuilder(this@BaseActivity)
+                                .setMessage(getString(R.string.split_reading_list_message, Constants.MAX_READING_LIST_ARTICLE_LIMIT))
+                                .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
+                                .show()
                         }
-                    } else if (event is UnreadNotificationsEvent) {
-                        runOnUiThread {
-                            if (!isDestroyed) {
-                                onUnreadNotification()
+                        is ReadingListsNoLongerSyncedEvent -> {
+                            ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(this@BaseActivity)
+                        }
+                        is ReadingListsEnableDialogEvent, (this@BaseActivity is MainActivity) -> {
+                            ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(this@BaseActivity)
+                        }
+                        is LoggedOutInBackgroundEvent -> {
+                            maybeShowLoggedOutInBackgroundDialog()
+                        }
+                        is ReadingListSyncEvent -> {
+                            if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled) {
+                                FeedbackUtil.makeSnackbar(this@BaseActivity, getString(R.string.reading_list_toast_last_sync)).show()
+                            }
+                        }
+                        is UnreadNotificationsEvent -> {
+                            runOnUiThread {
+                                if (!isDestroyed) {
+                                    onUnreadNotification()
+                                }
                             }
                         }
                     }
@@ -167,6 +184,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         WikipediaApp.instance.appSessionEvent.touchSession()
         MetricsPlatform.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        NotificationPresenter.maybeRequestPermission(this, notificationPermissionLauncher)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -129,10 +129,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
-                    if (event is LoggedOutInBackgroundEvent) {
-                        refreshContents()
-                    } else if (event is ImportReadingListsEvent) {
-                        maybeShowImportReadingListsNewInstallDialog()
+                    when (event) {
+                        is LoggedOutInBackgroundEvent -> {
+                            refreshContents()
+                        }
+                        is ImportReadingListsEvent -> {
+                            maybeShowImportReadingListsNewInstallDialog()
+                        }
                     }
                 }
             }

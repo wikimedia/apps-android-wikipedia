@@ -131,6 +131,7 @@
   <string name="langlinks_your_wikipedia_languages">Һеҙҙең Википедия телдәре</string>
   <string name="menu_save_changes">Үҙгәртеүҙәрҙе баҫтырыу</string>
   <string name="edit_saved_successfully">Төҙәтеү һаҡланды!</string>
+  <string name="stub_article_edit_saved_successfully">Үҙгәртеүҙәр баҫылды! Үҙгәрештәрҙе күрһәтеү өсөн ваҡыт талап ителә.</string>
   <string name="dialog_message_edit_failed">Мөхәррирләү хатаһы!</string>
   <string name="dialog_message_edit_failed_retry">Ҡабатларға</string>
   <string name="dialog_message_edit_failed_cancel">Кире алырға</string>
@@ -173,6 +174,8 @@
   <string name="logged_out_in_background_dialog">Һеҙ Википедиянан сыҡтығыҙ. Ҡабат инергә теләйһегеҙме?</string>
   <string name="logged_out_in_background_login">Танылыу</string>
   <string name="logged_out_in_background_cancel">Кире алырға</string>
+  <string name="account_vanish_request_title">Иҫәп яҙмаһын юйыу</string>
+  <string name="account_vanish_request_confirm_title">Иҫәп яҙмаһын юйыу тураһында иҫкәртеү</string>
   <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ</string>
   <string name="history_empty_message">Уҡылған мәҡәләләрҙе бында күҙәтеп барығыҙ.</string>
   <string name="history_offline_articles_toast">Тарихтағы ҡайһы бер биттәр оффлайнда булмаҫҡа мөмкин.</string>
@@ -282,6 +285,8 @@
   <string name="edit_summary_tag_links">Һылтанмалар өҫтәлгән</string>
   <string name="edit_summary_tag_other">Башҡа</string>
   <string name="edit_summary_tag_other_hint">Битте яҡшыртҡан башҡа ысулдар</string>
+  <string name="edit_summary_added_short_description">Ҡыҫҡаса тасуирлама өҫтәлгән</string>
+  <string name="edit_summary_updated_short_description">Ҡыҫҡаса тасуирламаһы яңыртылған</string>
   <string name="edit_conflict_title">Мөхәррирләү конфликты</string>
   <string name="edit_conflict_message">Мөхәррирләү конфликты килеп сыҡты, сөнки битте бер үк ваҡытта башҡа ҡулланыусы ла мөхәррирләй. Үҙгәрештәрегеҙҙе күсереп алығыҙ ҙа, кире ҡайтып, битте яңыртығыҙ, ә һуңынан күсереп алынған үҙгәртеүҙәрегеҙҙҙе ҡабат ҡуйып  ҡарағыҙ.</string>
   <string name="edit_notices">Төҙәтеүҙәр тураһында хәбәр итеү</string>
@@ -316,6 +321,8 @@
   <string name="widget_name_featured_page">Википедияның һайланған бите</string>
   <string name="widget_title_featured_page">Бөгөнгө һайланған бит:</string>
   <string name="widget_name_search">Википедия буйынса эҙләү</string>
+  <string name="widget_description_search">Википедияла эҙләүҙең иң тиҙ ысулы</string>
+  <string name="widget_description_featured_page">Википедия тәҡдим итә алған иң яҡшы мәҡәләләр</string>
   <string name="wiktionary_no_definitions_found">Бер ниндәй аңлатма табылманы.</string>
   <string name="alpha_update_notification_title">Альфа-версияның яңы яңыртылыуы асыҡ</string>
   <string name="alpha_update_notification_text">Йөкләү өсөн баҫығыҙ</string>
@@ -401,6 +408,11 @@
   <string name="multi_select_items_selected">%d һайланды</string>
   <string name="error_message_generic">Хата килеп сыҡты</string>
   <string name="view_link_preview_error_button_dismiss">Ябырға</string>
+  <string name="link_preview_dialog_read_button">Уҡыу</string>
+  <string name="link_preview_dialog_save_button">Һаҡлау</string>
+  <string name="link_preview_dialog_saved_button">Һаҡланған</string>
+  <string name="link_preview_dialog_share_button">Уртаҡлашыу</string>
+  <string name="link_preview_stub_placeholder_text">Был мәҡәлә тамамланмаған, тимәк, унда алдан ҡарау өсөн етерлек йөкмәтке юҡ. Әммә һеҙ быны үҙгәртә алаһығыҙ.</string>
   <string name="error_page_does_not_exist">Был бит юҡ</string>
   <string name="error_user_page_does_not_exist">Википедияла&lt;a href=\"%1$s\"&gt;исемле ҡатнашыусы бите&lt;/a&gt; юҡ. Был бит &lt;b&gt;%2$s&lt;/b&gt; тарафынан булдырылған булырға тейеш. Шикләнһәгеҙ, \"%3$s\" бармы икәнен тикшереп ҡарағыҙ.</string>
   <string name="view_wiki_error_message_offline">Интернет бәйләнеше юҡ.</string>
@@ -423,6 +435,12 @@
   <string name="error_blocked_footer">Һеҙ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; йәки башҡа &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;хаким&lt;/a&gt; менән бикләү тураһында һөйләшә алаһығыҙ.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Ҡоралдар панелын көйләгеҙ</string>
   <string name="error_blocked_footer_no_blocker">Һеҙ &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;хаким&lt;/a&gt; менән бикләү сәбәптәре тураһында һөйләшә алаһығыҙ</string>
+  <string name="temp_account_not_logged_in">Һеҙ системаға инмәнегеҙ</string>
+  <string name="temp_account_dialog_ok">Аңланым</string>
+  <string name="temp_account_using_title">Һеҙ ваҡытлыса иҫәп яҙмаһын ҡулланаһығыҙ</string>
+  <string name="temp_account_dialog_discard">Үҙгәрештәрҙе кире алырға һәм системаға инергә</string>
+  <string name="temp_account_end_session">Сеансты тамамлау</string>
+  <string name="temp_account_end_session_confirm">Был һеҙҙең ваҡытлыса иҫәп яҙмаһынан сығыуға килтерә. Артабан дауам итергә теләйһегеҙме?</string>
   <string name="crash_report_activity_title">Ҡушымта хатаһы</string>
   <string name="crash_report_relaunch_or_quit">Үкенескә күрә, Википедия ҡушымтаһы килеп сыҡҡан хата һөҙөмтәһендә ябылды. \nҺеҙ яңынан башларға йәки сығырға теләйһегеҙме?</string>
   <string name="crash_report_relaunch">Яңынан башларға</string>
@@ -750,8 +768,8 @@
   <string name="notifications_menu_uncheck_all">Барлыҡ элементтарҙан билдәне алырға</string>
   <string name="notifications_wiki_filter_header">Вики-фильтр</string>
   <string name="notifications_type_filter_header">Фильтр төрө</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Барлыҡ \"вики\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Барлыҡ \"төрҙәр\"</string>
+  <string name="notifications_all_wikis_text">Бөтә викилар</string>
+  <string name="notifications_all_types_text">Бөтә төрҙәр</string>
   <string name="notifications_menu_user_talk_page">%s фекер алышыу бите</string>
   <string name="notifications_offline_disable_message">Был функцияны офлайн режимда ҡулланып булмай.</string>
   <string name="view_because_you_read_card_title">Уҡылғандар нигеҙендә</string>
@@ -810,6 +828,9 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алырға</string>
   <string name="feed_accessibility_card_text">Һеҙ теҙмәнең аҫҡы өлөшөнә барып еттегеҙ.</string>
   <string name="feed_accessibility_card_load_more_button">Күберәк йөкләргә</string>
+  <string name="feed_language_variants_removal_dialog_title">Уҡыу сифатын яҡшыртыу өсөн төбәк тел вариантын һайлағыҙ</string>
+  <string name="feed_language_variants_removal_dialog_save">Һаҡлау</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Зинһар, өҫтәмә телдәрегеҙҙе яңыртығыҙ</string>
   <string name="top_read_activity_title">%s иң күп уҡылғандар</string>
   <string name="tabs_activity_title">Ҡушымта</string>
   <string name="description_edit_text_hint">Мәҡәлә тасуирламаһы</string>
@@ -1057,7 +1078,7 @@
   <string name="image_recommendation_accept">Эйе</string>
   <string name="image_recommendation_reject">Юҡ</string>
   <string name="image_recommendation_notsure">Яуап бирергә ҡыйынһынам</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Ни өсөн юҡ?</string>
+  <string name="image_recommendation_reject_title">Кире ҡағыу сәбәбе</string>
   <string name="image_recommendation_reject_subtitle" fuzzy="true">Һеҙҙең яуаптарығыҙ кәңәштәрҙең сифатын яҡшыртасаҡ.</string>
   <string name="image_recommendation_reject_not_relevant">Рәсем көнүҙәк түгел</string>
   <string name="image_recommendation_reject_no_info">Ҡарар сығарыу өсөн мәғлүмәт етешмәй</string>
@@ -1105,6 +1126,7 @@
   <string name="onboarding_explore_text">Википедия лабиринтында даими яңыртылып торған теҙмә ярҙамында сәйәхәт итегеҙ. &lt;br/&gt; Теҙмәне үҙегеҙҙе ҡыҙыҡһындырған темаға тура килерлек итеп &lt;b&gt;көйләгеҙ&lt;/b&gt; — ул &lt;b&gt;был көндә булған тарихи ваҡиғалар&lt;/b&gt; йәки &lt;/b&gt;осраҡлы һайланған&lt;/b&gt; тема булыуы мөмкин.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылған уҡыу исемлектәре</string>
   <string name="onboarding_reading_list_sync_text_v2">Һеҙ һуңыраҡ, хатта офлайн режимда булғанда ла, уҡырға теләгән мәҡәләләр исемлеген төҙөй алаһығыҙ. Уҡыу исемлектәрен синхронлаштырыу өсөн Википедиялағы иҫәп яҙмағыҙға инегеҙ. &lt;a href=\"#login\"&gt;Википедияға ҡушылығыҙ&lt;/a&gt;&lt;br&gt;</string>
+  <string name="onboarding_data_privacy_title">Мәғлүмәттәр һәм конфиденциаллек</string>
   <string name="onboarding_analytics_switch_title">Ҡулланыу мәғлүмәттәрен ебәрергә</string>
   <string name="onboarding_got_it">Аңлашылды</string>
   <string name="onboarding_multilingual_secondary_text">Һеҙҙең ҡоролмала түбәндәге телдәрҙе таптыҡ:</string>
@@ -1206,6 +1228,13 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Бейеклеге</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">пкс</string>
   <string name="insert_media_insert_button">Ҡуйырға</string>
+  <string name="templates_search_hint">Эҙләү ҡалыптары</string>
+  <string name="templates_insert_button">Ҡуйыу</string>
+  <string name="templates_param_suggested_value">мәҫәлән, %s</string>
+  <string name="templates_param_optional_hint">%s (мотлаҡ түгел)</string>
+  <string name="templates_param_suggested_hint">%s (тәҡдим ителә)</string>
+  <string name="templates_learn_more_link">Ентеклерәк</string>
+  <string name="templates_description_incomplete">Ҡалыптарҙы ҡулланыусылар төҙөй һәм тулы тасуирламалар булмауы мөмкин.</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Танылығыҙ / Википедияға ҡушылығыҙ</string>
   <string name="main_tooltip_text">Сәләм %s, Википедияны һәр кем мөхәррирләй алғанын беләһегеҙме?</string>
@@ -1229,8 +1258,10 @@
   <string name="talk_warn_save_dialog_hint">Хәбәрҙең атамаһы</string>
   <string name="talk_warn_save_dialog_publish">Яҙҙырырға</string>
   <string name="talk_warn_save_dialog_cancel">Кире алырға</string>
+  <string name="talk_warn_save_dialog_dont_save">Һаҡламаҫҡа</string>
   <string name="talk_warn_submitted">Хәбәр мөхәррирҙең фекер алышыу битенә яҙылды</string>
   <string name="talk_warn_submitted_and_saved">Хәбәр мөхәррирҙең фекер алышыу битендә яҙҙырылды һәм һаҡланды</string>
+  <string name="talk_warn_saved_messages">Һаҡланған хәбәрҙәр</string>
   <string name="talk_page_empty">Был фекер алышыу бите буш.</string>
   <string name="talk_page_empty_title">Фекер алышыу ошонда башлана</string>
   <string name="talk_page_empty_content">Фекер алышыу биттәрендә кешеләр Википедия йөкмәткеһен мөмкин тиклем сифатлы итеү тураһында фекер алыша. Википедиясылар берләшмәһе менән аралашыу һәм хеҙмәттәшлек итеү өсөн фекер алышыу битендә яңы тема өҫтәүҙән башлағыҙ.</string>
@@ -1241,6 +1272,7 @@
   <string name="talk_message_hint">Хәбәр яҙырға</string>
   <string name="talk_message_empty">Хәбәр буш була алмай.</string>
   <string name="talk_subject_empty">Тема буш була алмай.</string>
+  <string name="talk_subject_duplicate">Теманың исеме инде бар. Икенсеһен һайларға тырышығыҙ.</string>
   <string name="talk_response_submitted">Яуап ебәрелгән.</string>
   <string name="talk_snackbar_undo">Кире алырға</string>
   <string name="talk_last_modified">&lt;b&gt;%1$s һуңғы мөхәррирләүҙе&lt;/b&gt; %2$s эшләгән</string>
@@ -1422,6 +1454,8 @@
   <string name="media_playback_error">Медиафайлды уйнатыу хатаһы</string>
   <string name="user_contrib_menu_label">Ҡатнашыусы өлөшө</string>
   <string name="user_contrib_filter_activity_title">Индергән өлөштө фильтрларға</string>
+  <string name="action_item_view_on_map">Картала ҡарау</string>
+  <string name="action_item_view_on_map_unavailable">Географик координаталар был бит өсөн асыҡ түгел.</string>
   <string name="shareable_reading_lists_import_dialog_title">Дөйөм уҡыу исемлеген импортлау</string>
   <string name="shareable_reading_lists_import_dialog_content">Һеҙҙең менән уртаҡлашҡан исемлекте нисек атарға теләр инегеҙ?</string>
   <string name="shareable_reading_lists_new_indicator">*яңы*</string>
@@ -1456,6 +1490,8 @@
     <item quantity="other">Хәбәрҙәр юйылған</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Атама буш була алмай.</string>
+  <string name="talk_templates_your_messages_tab_title">Һеҙҙең хәбәрҙәрегеҙ</string>
+  <string name="talk_templates_example_messages_tab_title">Хәбәрҙәр миҫалы</string>
   <string name="patroller_tasks_edits_list_search_hint">Төҙәтеүҙәрҙе табырға йәки фильтрларға</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Тамғалар: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Бер кем дә</string>
@@ -1526,6 +1562,8 @@
   <string name="patroller_onboarding_two_thank_content">Һөҙөмтәле үҙгәртеү күрәһегеҙме? Индергән өлөшө өсөн ҡатнашыусыға рәхмәт әйтегеҙ.</string>
   <string name="patroller_onboarding_two_watch_title">Күҙәтергә</string>
   <string name="patroller_onboarding_two_watch_content">Мәҡәләләрҙәге үҙгәртеүҙәрҙе күҙәтеп барырға теләйһегеҙме? Күҙәтеү исемлегегеҙгә өҫтәгеҙ. Уны \"Ентеклерәк\" тип аталған бүлектә ҡарағыҙ.</string>
+  <string name="patroller_onboarding_two_talk_title">Фекер алышыу</string>
+  <string name="patroller_onboarding_two_talk_content">Башҡа мөхәррирҙәр менән аралашығыҙ. Йыш ҡулланылған хәбәрҙәрҙе фекер алышыу битендә һаҡлағыҙ йәки ҡалыпты ҡулланығыҙ.</string>
   <string name="patroller_onboarding_two_undo_title">Кире алырға</string>
   <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
   <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>
@@ -1536,10 +1574,20 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Нейтраль</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Был функцияны нисек яҡшырта алабыҙ?</string>
+  <string name="patroller_diff_menu_edit_history_title">Мәҡәләне мөхәррирләү тарихы</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Бәйләнеш</string>
   <string name="patroller_diff_feedback_dialog_submit">Тәҡдим итергә</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Фекер ебәрелде.</string>
   <string name="patroller_diff_feedback_tooltip">«Функция проблемалары» бүлегендә теләгән ваҡытта баһалама яҙыу өсөн өҫтәмә менюға баҫығыҙ.</string>
+  <string name="patroller_saved_message_title_vandalism">Вандализм тураһында иҫкәртеү</string>
+  <string name="patroller_saved_message_title_npov">Нейтраль ҡараш</string>
+  <string name="patroller_saved_message_title_auto_trans">Автоматик тәржемә</string>
+  <string name="patroller_saved_message_title_coi_rem">Мәнфәғәттәр конфликты тураһында иҫкәртеү</string>
+  <string name="patroller_saved_message_title_final_warning">Һуңғы иҫкәртеү</string>
+  <string name="patroller_saved_message_title_copy_vio">Авторлыҡ хоҡуғын боҙоу тураһында иҫкәртеү</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Төҙәтмәнең тасуирламаһын ҡалдырыу</string>
+  <string name="patroller_saved_message_title_do_not_censor">Цензураға дусар итмәгеҙ</string>
+  <string name="patroller_saved_message_title_art_imp">Мәҡәләне яҡшыртыу буйынса тәҡдим</string>
   <string name="data_opt_in_accept">Ҡабул итергә</string>
   <string name="data_opt_in_reject">Кире ҡағырға</string>
   <string name="page_issues_title">Бит проблемалары</string>

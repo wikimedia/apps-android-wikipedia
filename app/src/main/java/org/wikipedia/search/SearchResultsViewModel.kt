@@ -7,14 +7,12 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.cachedIn
-import androidx.paging.filter
-import androidx.paging.map
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -28,7 +26,6 @@ class SearchResultsViewModel : ViewModel() {
 
     private val batchSize = 20
     private val delayMillis = 200L
-    private val totalResults = mutableListOf<SearchResult>()
     var resultsCount = mutableListOf<Int>()
     var searchTerm: String? = null
     var languageCode: String? = null
@@ -36,26 +33,13 @@ class SearchResultsViewModel : ViewModel() {
 
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, totalResults, invokeSource)
-    }.flow.debounce(delayMillis).map { pagingData ->
-        pagingData.filter { searchResult ->
-            totalResults.find { it.pageTitle.prefixedText == searchResult.pageTitle.prefixedText } == null
-        }.map {
-            totalResults.add(it)
-            it
-        }
-    }.cachedIn(viewModelScope)
-
-    fun clearResults() {
-        resultsCount.clear()
-        totalResults.clear()
-    }
+        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, invokeSource)
+    }.flow.debounce(delayMillis).cachedIn(viewModelScope)
 
     class SearchResultsPagingSource(
         private val searchTerm: String?,
         private val languageCode: String?,
         private var resultsCount: MutableList<Int>?,
-        private var totalResults: MutableList<SearchResult>?,
         private var invokeSource: Constants.InvokeSource
     ) : PagingSource<Int, SearchResult>() {
 
@@ -135,6 +119,8 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, continuation)
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
@@ -142,7 +128,6 @@ class SearchResultsViewModel : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<Int, SearchResult>): Int? {
             prefixSearch = true
-            totalResults?.clear()
             return null
         }
 

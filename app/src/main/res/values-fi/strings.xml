@@ -294,6 +294,7 @@
   <string name="edit_rollback">Palauta</string>
   <string name="edit_warn">Varoita</string>
   <string name="edit_damage">Vahinko %s</string>
+  <string name="edit_intent">Aikomus %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s tavu</item>
     <item quantity="other">%s tavua</item>
@@ -1536,6 +1537,7 @@
   <string name="patroller_tasks_filters_user_status_newcomers">Tulokkaat</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Rekisteröityneet muokkaajat, joilla on vähemmän kuin 10 muokkausta 4 aktiivisuuspäivän aikana.</string>
   <string name="patroller_tasks_filters_user_status_learners">Oppijat</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Rekisteröityneet muokkaajat, joiden kokemus on välillä ”tulokas” ja ”kokenut käyttäjä”.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Kokeneet käyttäjät</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Rekisteröityneet muokkaajat, joilla enemmän kuin 500 muokkausta ja 30 päivää aktiivisuutta.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Uusimmat versiot</string>
@@ -1576,12 +1578,19 @@
   <string name="patroller_tasks_patrol_edit_rollback_success">Palautus valmis</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
   <string name="patroller_tasks_overflow_learn">Lisätietoja</string>
+  <string name="patroller_onboarding_one_title">Osallistu Wikipedian muokkausten tarkkailuun ja hyväksymiseen.</string>
+  <string name="patroller_onboarding_one_content">Paranna Wikipedia-sisällön laatua tarkastamalla tuoreiden muutosten syötettä sekä tarjoamalla opastusta, laadunvalvontaa ja rohkaisua muille muokkaajille.</string>
+  <string name="patroller_onboarding_two_title">Tarjoa palautetta, tarkkaile muokkauksia ja ryhdy toimiin erosivulla</string>
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
   <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelien muokkauksia? Lisää artikkeli tarkkailuluetteloosi. Löydät sen \"Lisää\"-valikosta.</string>
+  <string name="patroller_onboarding_two_talk_title">Keskustele</string>
+  <string name="patroller_onboarding_two_talk_content">Keskustele muiden muokkaajien kanssa. Tallenna usein käytettyjä keskustelusivuviestejä tai käytä mallineita.</string>
   <string name="patroller_onboarding_two_undo_title">Kumoa</string>
   <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
+  <string name="patroller_diff_tooltip_one">Vahinko ennustaa mikäli muokkaus aiheuttaa vahinkoa wikille.</string>
+  <string name="patroller_diff_tooltip_two">Aikomus ennustaa todennäköisyyttä sille, että muokkaus on tehty hyvässä aikomuksessa.</string>
   <string name="patroller_diff_feedback_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
   <string name="patroller_diff_feedback_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tyytyväinen</string>
@@ -1610,6 +1619,7 @@
   <string name="donation_campaign_maybe_later_snackbar">Muistutamme sinua jälleen huomenna.</string>
   <string name="donation_campaign_go_back_button">Palaa takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
+  <string name="donate_gpay_activity_title">Valitse summa</string>
   <string name="places_title">Paikat</string>
   <string name="places_search_hint">Hae paikkoja</string>
   <string name="places_filter_title">Suodata kielen perusteella</string>
