@@ -1,7 +1,6 @@
 package org.wikipedia.notifications
 
 import android.Manifest
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -14,10 +13,10 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
@@ -114,6 +113,9 @@ object NotificationPresenter {
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
                          title: String, text: String, longText: CharSequence, lang: String?,
                          @DrawableRes icon: Int, @ColorRes color: Int, bodyIntent: Intent) {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
         builder.setContentIntent(PendingIntentCompat.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT, false))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())))
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
@@ -121,7 +123,7 @@ object NotificationPresenter {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
-        context.getSystemService<NotificationManager>()?.notify(id, builder.build())
+        NotificationManagerCompat.from(context).notify(id, builder.build())
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
