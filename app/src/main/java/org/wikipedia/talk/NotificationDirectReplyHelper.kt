@@ -39,7 +39,7 @@ object NotificationDirectReplyHelper {
             L.e(throwable)
             fallBackToTalkPage(context, title)
         }) {
-            val token = async { CsrfTokenClient.getToken(wiki).blockingFirst() }
+            val token = async { CsrfTokenClient.getTokenBlocking(wiki) }
             val talkPageResponse = async { ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText) }
             val topic = talkPageResponse.await().topics?.find {
                 it.id > 0 && it.html?.trim().orEmpty() == StringUtil.removeUnderscores(title.fragment)

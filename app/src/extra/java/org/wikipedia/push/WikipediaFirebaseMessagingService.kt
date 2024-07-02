@@ -76,7 +76,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 L.e(t)
             }) {
                 for (lang in WikipediaApp.instance.languageState.appLanguageCodes) {
-                    val csrfToken = withContext(Dispatchers.IO) { CsrfTokenClient.getToken(WikiSite.forLanguageCode(lang)).blockingSingle() }
+                    val csrfToken = withContext(Dispatchers.IO) { CsrfTokenClient.getTokenBlocking(WikiSite.forLanguageCode(lang)) }
                     if (lang == WikipediaApp.instance.appOrSystemLanguageCode) {
                         subscribeWithCsrf(csrfToken)
                     }
