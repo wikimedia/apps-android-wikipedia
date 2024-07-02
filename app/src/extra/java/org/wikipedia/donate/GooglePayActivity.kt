@@ -34,6 +34,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import kotlin.math.max
 
 class GooglePayActivity : BaseActivity() {
     private lateinit var binding: ActivityDonateBinding
@@ -43,6 +44,8 @@ class GooglePayActivity : BaseActivity() {
 
     private var shouldWatchText = true
     private var typedManually = false
+
+    private val transactionFee get() = max(getAmountFloat(binding.donateAmountText.text.toString()) * GooglePayComponent.TRANSACTION_FEE_PERCENTAGE, viewModel.transactionFee)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,21 +95,18 @@ class GooglePayActivity : BaseActivity() {
             onBackPressed()
         }
 
-        binding.checkBoxTransactionFee.setOnCheckedChangeListener { _, isChecked ->
-            val amountText = binding.donateAmountText.text.toString()
-            if (!validateInput(amountText)) {
-                return@setOnCheckedChangeListener
-            }
-            val amount = getAmountFloat(amountText)
-            setAmountText(if (isChecked) amount + viewModel.transactionFee else amount - viewModel.transactionFee)
-        }
-
         binding.payButton.setOnClickListener {
             val amountText = binding.donateAmountText.text.toString()
             if (!validateInput(amountText)) {
                 return@setOnClickListener
             }
-            viewModel.finalAmount = getAmountFloat(amountText)
+
+            var totalAmount = getAmountFloat(amountText)
+            if (binding.checkBoxTransactionFee.isChecked) {
+                totalAmount += transactionFee
+            }
+
+            viewModel.finalAmount = totalAmount
 
             if (typedManually) {
                 DonorExperienceEvent.logAction("amount_entered", "gpay")
@@ -162,6 +162,8 @@ class GooglePayActivity : BaseActivity() {
         val min = viewModel.minimumAmount
         val max = viewModel.maximumAmount
 
+        updateTransactionFee()
+
         if (amount <= 0f || amount < min) {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_minimum_amount, viewModel.currencyFormat.format(min))
             DonorExperienceEvent.submit("submission_error", "gpay", "error_reason: min_amount")
@@ -196,7 +198,7 @@ class GooglePayActivity : BaseActivity() {
 
         binding.checkBoxAllowEmail.isVisible = viewModel.emailOptInRequired
 
-        binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee, viewModel.currencyFormat.format(viewModel.transactionFee))
+        updateTransactionFee()
 
         binding.disclaimerText1.text = StringUtil.fromHtml(viewModel.disclaimerInformationSharing)
         binding.disclaimerText2.text = StringUtil.fromHtml(viewModel.disclaimerMonthlyCancel)
@@ -220,11 +222,7 @@ class GooglePayActivity : BaseActivity() {
             binding.amountPresetsContainer.addView(button)
             button.setOnClickListener {
                 setButtonHighlighted(it)
-                var selectedAmount = it.tag as Float
-                if (binding.checkBoxTransactionFee.isChecked) {
-                    selectedAmount += viewModel.transactionFee
-                }
-                setAmountText(selectedAmount)
+                setAmountText(it.tag as Float)
                 DonorExperienceEvent.logAction("amount_selected", "gpay")
             }
         }
@@ -246,8 +244,13 @@ class GooglePayActivity : BaseActivity() {
         }
     }
 
+    private fun updateTransactionFee() {
+        binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee,
+            viewModel.currencyFormat.format(transactionFee))
+    }
+
     private fun getAmountFloat(text: String): Float {
-        var result: Float? = null
+        var result: Float?
         result = text.toFloatOrNull()
         if (result == null) {
             val text2 = if (text.contains(".")) text.replace(".", ",") else text.replace(",", ".")
