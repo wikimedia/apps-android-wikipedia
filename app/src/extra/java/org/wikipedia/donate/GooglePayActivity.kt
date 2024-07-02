@@ -34,6 +34,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import kotlin.math.max
 
 class GooglePayActivity : BaseActivity() {
     private lateinit var binding: ActivityDonateBinding
@@ -162,6 +163,8 @@ class GooglePayActivity : BaseActivity() {
         val min = viewModel.minimumAmount
         val max = viewModel.maximumAmount
 
+        setTransactionFeeText(max(amount * 0.04f, viewModel.transactionFee))
+
         if (amount <= 0f || amount < min) {
             binding.donateAmountInput.error = getString(R.string.donate_gpay_minimum_amount, viewModel.currencyFormat.format(min))
             DonorExperienceEvent.submit("submission_error", "gpay", "error_reason: min_amount")
@@ -196,7 +199,7 @@ class GooglePayActivity : BaseActivity() {
 
         binding.checkBoxAllowEmail.isVisible = viewModel.emailOptInRequired
 
-        binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee, viewModel.currencyFormat.format(viewModel.transactionFee))
+        setTransactionFeeText(viewModel.transactionFee)
 
         binding.disclaimerText1.text = StringUtil.fromHtml(viewModel.disclaimerInformationSharing)
         binding.disclaimerText2.text = StringUtil.fromHtml(viewModel.disclaimerMonthlyCancel)
@@ -260,6 +263,10 @@ class GooglePayActivity : BaseActivity() {
         shouldWatchText = false
         binding.donateAmountText.setText(viewModel.decimalFormat.format(amount))
         shouldWatchText = true
+    }
+
+    private fun setTransactionFeeText(amount: Float) {
+        binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee, viewModel.currencyFormat.format(amount))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
