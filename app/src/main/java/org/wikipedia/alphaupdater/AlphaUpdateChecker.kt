@@ -1,11 +1,14 @@
 package org.wikipedia.alphaupdater
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.PendingIntentCompat
+import androidx.core.content.ContextCompat
 import okhttp3.Request
 import okhttp3.Response
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
@@ -44,6 +47,9 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
     }
 
     private fun showNotification() {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL))
         val pendingIntent = PendingIntentCompat.getActivity(context, 0, intent, 0, false)
 
