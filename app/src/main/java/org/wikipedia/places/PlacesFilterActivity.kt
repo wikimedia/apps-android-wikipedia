@@ -61,10 +61,10 @@ class PlacesFilterActivity : BaseActivity() {
         filtersList.addAll(WikipediaApp.instance.languageState.appLanguageCodes)
         filtersList.add(FOOTER)
         binding.placesFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.placesFiltersRecyclerView.adapter = PlacesLangListFilterAdapter()
+        binding.placesFiltersRecyclerView.adapter = PlacesLangListFilterAdapter(this)
     }
 
-    private inner class PlacesLangListFilterAdapter :
+    private inner class PlacesLangListFilterAdapter(val context: Context) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), PlacesFilterItemViewHolder.Callback {
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
