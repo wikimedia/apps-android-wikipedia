@@ -200,25 +200,21 @@ interface RestService {
     // ------- Recommendations -------
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/caption/addition/{lang}")
-    fun getImagesWithoutCaptions(@Path("lang") lang: String): Observable<List<SuggestedEditItem>>
+    suspend fun getImagesWithoutCaptions(@Path("lang") lang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/caption/translation/from/{fromLang}/to/{toLang}")
-    fun getImagesWithTranslatableCaptions(
-        @Path("fromLang") fromLang: String,
-        @Path("toLang") toLang: String
-    ): Observable<List<SuggestedEditItem>>
+    suspend fun getImagesWithTranslatableCaptions(@Path("fromLang") fromLang: String,
+                                                  @Path("toLang") toLang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/description/addition/{lang}")
-    fun getArticlesWithoutDescriptions(@Path("lang") lang: String): Observable<List<SuggestedEditItem>>
+    suspend fun getArticlesWithoutDescriptions(@Path("lang") lang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
-    fun getArticlesWithTranslatableDescriptions(
-        @Path("fromLang") fromLang: String,
-        @Path("toLang") toLang: String
-    ): Observable<List<SuggestedEditItem>>
+    suspend fun getArticlesWithTranslatableDescriptions(@Path("fromLang") fromLang: String,
+                                                        @Path("toLang") toLang: String): List<SuggestedEditItem>
 
     //  ------- Talk pages -------
     @Headers("Cache-Control: no-cache")

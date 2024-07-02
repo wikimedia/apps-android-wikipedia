@@ -74,7 +74,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
-        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 15
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 2
+        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 5
     }
 }
