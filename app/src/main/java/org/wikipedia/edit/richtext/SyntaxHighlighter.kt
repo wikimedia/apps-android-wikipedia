@@ -210,7 +210,7 @@ class SyntaxHighlighter(
     private fun getSyntaxMatches(startOffset: Int, textLength: Int): List<SpanExtents> {
         val syntaxItem = SyntaxRule("", "", SyntaxRuleStyle.SEARCH_MATCHES)
 
-        return searchQueryPositions.orEmpty().asSequence()
+        return searchQueryPositions.orEmpty().toMutableList()
             .filter { it >= startOffset && it < startOffset + textLength }
             .mapIndexed { index, i ->
                 val newSpanInfoCreator = if (index == searchQueryPositionIndex) {
@@ -223,7 +223,6 @@ class SyntaxHighlighter(
                     end = i + searchQueryLength
                 }
             }
-            .toList()
     }
 
     fun setSearchQueryInfo(searchQueryPositions: List<Int>?, searchQueryLength: Int, searchQueryPositionIndex: Int) {
