@@ -2,7 +2,7 @@ package org.wikipedia.recurring
 
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Date
 import kotlin.math.max
 import kotlin.math.min
 
