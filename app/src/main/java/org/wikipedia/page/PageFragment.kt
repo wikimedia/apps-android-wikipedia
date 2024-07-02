@@ -315,6 +315,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override fun onBackPressed(): Boolean {
         articleInteractionEvent?.logBackClick()
         metricsPlatformArticleEventToolbarInteraction.logBackClick()
+
+        if (LinkPreviewDialog.isShowing(childFragmentManager)) {
+            LinkPreviewDialog.hide(childFragmentManager)
+            return true
+        }
+
         if (sidePanelHandler.isVisible) {
             sidePanelHandler.hide()
             return true
@@ -386,9 +392,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
 
 
-        webView.addOnScrollChangeListener({ oldScrollY, scrollY, isHumanScroll ->
+        webView.addOnScrollChangeListener { oldScrollY, scrollY, isHumanScroll ->
             LinkPreviewDialog.hide(childFragmentManager)
-        })
+        }
 
 
 

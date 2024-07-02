@@ -151,10 +151,8 @@ class LinkPreviewDialog : Fragment(), LinkPreviewErrorView.Callback {
 
     private val requestStubArticleEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            overlayView?.let { overlay ->
-                FeedbackUtil.makeSnackbar(overlay.rootView, getString(R.string.stub_article_edit_saved_successfully))
-                    .setAnchorView(overlay.secondaryButtonView).show()
-            }
+            FeedbackUtil.makeSnackbar(binding.overlayView.rootView, getString(R.string.stub_article_edit_saved_successfully))
+                .setAnchorView(binding.overlayView.secondaryButtonView).show()
         }
     }
 
@@ -430,8 +428,8 @@ class LinkPreviewDialog : Fragment(), LinkPreviewErrorView.Callback {
             "UTF-8",
             null
         )
+        binding.linkPreviewThumbnail.isVisible = contents.title.thumbUrl != null
         contents.title.thumbUrl?.let {
-            binding.linkPreviewThumbnail.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.linkPreviewThumbnail, contents.title.thumbUrl)
         }
         if (!viewModel.fromPlaces) {
@@ -532,6 +530,12 @@ class LinkPreviewDialog : Fragment(), LinkPreviewErrorView.Callback {
         fun hide(fragmentManager: FragmentManager) {
             val existing = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as? LinkPreviewDialog
             existing?.hide()
+        }
+
+        fun isShowing(fragmentManager: FragmentManager): Boolean {
+            val existing = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as? LinkPreviewDialog
+                ?: return false
+            return existing.isVisible
         }
     }
 }
