@@ -421,11 +421,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     companion object {
-        fun newInstance(action: DescriptionEditActivity.Action, invokeSource: Constants.InvokeSource): SuggestedEditsCardsFragment {
+        fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
             return SuggestedEditsCardsFragment().apply {
                 arguments = bundleOf(
                     Constants.INTENT_EXTRA_ACTION to action,
-                    Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
                 )
             }
         }

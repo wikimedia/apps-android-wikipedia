@@ -20,7 +20,6 @@ class SuggestedEditsCardsViewModel(bundle: Bundle) : ViewModel() {
     var langFromCode = WikipediaApp.instance.languageState.appLanguageCode
     var langToCode = WikipediaApp.instance.languageState.appLanguageCodes.getOrElse(1) { "" }
     var action = bundle.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
-    var invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
     private val _uiState = MutableStateFlow(Resource<List<String>>())
     val uiState = _uiState.asStateFlow()
