@@ -1,5 +1,7 @@
 package org.wikipedia.settings
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.internal.closeQuietly
@@ -17,17 +19,19 @@ class RemoteConfigRefreshTask : RecurringTask() {
     }
 
     override suspend fun run(lastRun: Date) {
-        var response: Response? = null
-        try {
-            val request = Request.Builder().url(REMOTE_CONFIG_URL).build()
-            response = client.newCall(request).execute()
-            val configStr = response.body!!.string()
-            RemoteConfig.updateConfig(configStr)
-            L.d(configStr)
-        } catch (e: Exception) {
-            L.e(e)
-        } finally {
-            response?.closeQuietly()
+        withContext(Dispatchers.IO) {
+            var response: Response? = null
+            try {
+                val request = Request.Builder().url(REMOTE_CONFIG_URL).build()
+                response = client.newCall(request).execute()
+                val configStr = response.body!!.string()
+                RemoteConfig.updateConfig(configStr)
+                L.d(configStr)
+            } catch (e: Exception) {
+                L.e(e)
+            } finally {
+                response?.closeQuietly()
+            }
         }
     }
 
