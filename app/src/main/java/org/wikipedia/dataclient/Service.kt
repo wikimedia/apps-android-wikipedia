@@ -215,8 +215,8 @@ interface Service {
         @Field("token") token: String
     ): MwPostResponse
 
-    @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
-    val streamConfigs: Observable<MwStreamConfigsResponse>
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
+    suspend fun getStreamConfigs(): MwStreamConfigsResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
@@ -231,7 +231,7 @@ interface Service {
             @Field("url") url: String,
     ): ShortenUrlResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle")
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle&pilicense=any")
     suspend fun getGeoSearch(
         @Query("ggscoord", encoded = true) coordinates: String,
         @Query("ggsradius") radius: Int,
@@ -501,11 +501,12 @@ interface Service {
     ): Entities
 
     @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
-    fun searchEntities(
+    suspend fun searchEntities(
         @Query("search") searchTerm: String,
         @Query("language") searchLang: String,
         @Query("uselang") resultLang: String
-    ): Observable<Search>
+    ): Search
+
     @GET(MW_API_PREFIX + "action=query&prop=entityterms")
     suspend fun getWikidataEntityTerms(
         @Query("titles") titles: String,
