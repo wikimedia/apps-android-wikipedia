@@ -8,18 +8,24 @@ import android.graphics.drawable.InsetDrawable
 import android.os.Build
 import android.os.Bundle
 import android.text.TextWatcher
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -41,13 +47,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     private val binding get() = _binding!!
     private var currentSearchTerm: String = ""
     private val adapter = ResultListAdapter(emptyList())
-    private val disposables = CompositeDisposable()
-
-    private val searchRunnable = Runnable {
-        if (isAdded) {
-            requestResults(currentSearchTerm)
-        }
-    }
+    private var searchJob: Job? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImageTagSelectBinding.inflate(inflater, container, false)
@@ -59,8 +59,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         binding.imageTagsRecycler.adapter = adapter
         textWatcher = binding.imageTagsSearchText.doOnTextChanged { text, _, _, _ ->
             currentSearchTerm = text?.toString() ?: ""
-            binding.imageTagsSearchText.removeCallbacks(searchRunnable)
-            binding.imageTagsSearchText.postDelayed(searchRunnable, 500)
+            requestResults(currentSearchTerm)
         }
         applyResults(emptyList())
     }
@@ -111,9 +110,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        searchJob?.cancel()
         binding.imageTagsSearchText.removeTextChangedListener(textWatcher)
-        binding.imageTagsSearchText.removeCallbacks(searchRunnable)
-        disposables.clear()
         _binding = null
     }
 
@@ -122,13 +120,16 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             applyResults(emptyList())
             return
         }
-        disposables.add(ServiceFactory.get(Constants.wikidataWikiSite).searchEntities(searchTerm, WikipediaApp.instance.appOrSystemLanguageCode, WikipediaApp.instance.appOrSystemLanguageCode)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ search ->
-                    val labelList = search.results.map { ImageTag(it.id, it.label, it.description) }
-                    applyResults(labelList)
-                }) { L.d(it) })
+
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.d(throwable)
+        }) {
+            delay(500)
+            val search = ServiceFactory.get(Constants.wikidataWikiSite).searchEntities(searchTerm, WikipediaApp.instance.appOrSystemLanguageCode, WikipediaApp.instance.appOrSystemLanguageCode)
+            val labelList = search.results.map { ImageTag(it.id, it.label, it.description) }
+            applyResults(labelList)
+        }
     }
 
     private fun applyResults(results: List<ImageTag>) {
@@ -155,7 +156,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         callback()?.onSearchDismiss(currentSearchTerm)
     }
 
-    private inner class ResultItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    private inner class ResultItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(item: ImageTag) {
             itemView.findViewById<TextView>(R.id.labelName).text = item.label
             itemView.findViewById<TextView>(R.id.labelDescription).text = item.description
