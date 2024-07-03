@@ -252,11 +252,12 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             logSuccess()
             topChild()?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
+            val targetLangCode = topChild()?.targetSummaryForEdit?.lang
             FeedbackUtil.showMessage(this,
                     when (action) {
                         ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.languageState.getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
-                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.languageState.getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.languageState.getAppLanguageLocalizedName(targetLangCode))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.languageState.getAppLanguageLocalizedName(targetLangCode))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -289,7 +290,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         } else if (action == IMAGE_RECOMMENDATIONS) {
             topBaseChild()?.publish()
         } else if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()?.sourceSummaryForEdit, topChild()?.targetSummaryForEdit,
                 action, Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
