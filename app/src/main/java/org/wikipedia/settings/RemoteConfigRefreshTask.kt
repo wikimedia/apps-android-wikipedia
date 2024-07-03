@@ -6,7 +6,7 @@ import okhttp3.internal.closeQuietly
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
 import org.wikipedia.recurring.RecurringTask
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class RemoteConfigRefreshTask : RecurringTask() {
@@ -16,7 +16,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
         return millisSinceLastRun(lastRun) >= TimeUnit.DAYS.toMillis(RUN_INTERVAL_DAYS)
     }
 
-    override fun run(lastRun: Date) {
+    override suspend fun run(lastRun: Date) {
         var response: Response? = null
         try {
             val request = Request.Builder().url(REMOTE_CONFIG_URL).build()

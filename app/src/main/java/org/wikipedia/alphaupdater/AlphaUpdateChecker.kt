@@ -16,7 +16,7 @@ import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.recurring.RecurringTask
 import org.wikipedia.settings.PrefsIoUtil
 import java.io.IOException
-import java.util.*
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
@@ -26,7 +26,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
         return System.currentTimeMillis() - lastRun.time >= RUN_INTERVAL_MILLI
     }
 
-    override fun run(lastRun: Date) {
+    override suspend fun run(lastRun: Date) {
         // Check for updates!
         val hashString: String
         var response: Response? = null

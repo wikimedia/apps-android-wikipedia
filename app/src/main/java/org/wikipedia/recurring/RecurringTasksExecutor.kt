@@ -1,26 +1,31 @@
 package org.wikipedia.recurring
 
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.alphaupdater.AlphaUpdateChecker
 import org.wikipedia.settings.RemoteConfigRefreshTask
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.log.L
 
-class RecurringTasksExecutor(private val app: WikipediaApp) {
+class RecurringTasksExecutor() {
     fun run() {
-        Completable.fromAction {
-            val allTasks = arrayOf( // Has list of all rotating tasks that need to be run
-                    RemoteConfigRefreshTask(),
-                    DailyEventTask(app),
-                    TalkOfflineCleanupTask(app)
-            )
-            for (task in allTasks) {
-                task.runIfNecessary()
+        val app = WikipediaApp.instance
+        MainScope().launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            withContext(Dispatchers.IO) {
+                RemoteConfigRefreshTask().runIfNecessary()
+                DailyEventTask(app).runIfNecessary()
+                TalkOfflineCleanupTask(app).runIfNecessary()
+                TalkOfflineCleanupTask(app)
+                if (ReleaseUtil.isAlphaRelease) {
+                    AlphaUpdateChecker(app).runIfNecessary()
+                }
             }
-            if (ReleaseUtil.isAlphaRelease) {
-                AlphaUpdateChecker(app).runIfNecessary()
-            }
-        }.subscribeOn(Schedulers.io()).subscribe()
+        }
     }
 }
