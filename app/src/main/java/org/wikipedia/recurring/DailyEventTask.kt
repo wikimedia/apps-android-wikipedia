@@ -14,7 +14,7 @@ class DailyEventTask(private val app: WikipediaApp) : RecurringTask() {
         return millisSinceLastRun(lastRun) > TimeUnit.DAYS.toMillis(1)
     }
 
-    override fun run(lastRun: Date) {
+    override suspend fun run(lastRun: Date) {
         DailyStatsEvent.log(app)
         EventPlatformClient.refreshStreamConfigs()
     }
