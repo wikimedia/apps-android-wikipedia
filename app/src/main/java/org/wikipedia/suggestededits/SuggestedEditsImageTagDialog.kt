@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -45,12 +47,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     private val binding get() = _binding!!
     private var currentSearchTerm: String = ""
     private val adapter = ResultListAdapter(emptyList())
-
-    private val searchRunnable = Runnable {
-        if (isAdded) {
-            requestResults(currentSearchTerm)
-        }
-    }
+    private var searchJob: Job? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImageTagSelectBinding.inflate(inflater, container, false)
@@ -62,8 +59,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         binding.imageTagsRecycler.adapter = adapter
         textWatcher = binding.imageTagsSearchText.doOnTextChanged { text, _, _, _ ->
             currentSearchTerm = text?.toString() ?: ""
-            binding.imageTagsSearchText.removeCallbacks(searchRunnable)
-            binding.imageTagsSearchText.postDelayed(searchRunnable, 500)
+            requestResults(currentSearchTerm)
         }
         applyResults(emptyList())
     }
@@ -114,8 +110,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        searchJob?.cancel()
         binding.imageTagsSearchText.removeTextChangedListener(textWatcher)
-        binding.imageTagsSearchText.removeCallbacks(searchRunnable)
         _binding = null
     }
 
@@ -125,9 +121,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             return
         }
 
-        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.d(throwable)
         }) {
+            delay(500)
             val search = ServiceFactory.get(Constants.wikidataWikiSite).searchEntities(searchTerm, WikipediaApp.instance.appOrSystemLanguageCode, WikipediaApp.instance.appOrSystemLanguageCode)
             val labelList = search.results.map { ImageTag(it.id, it.label, it.description) }
             applyResults(labelList)
