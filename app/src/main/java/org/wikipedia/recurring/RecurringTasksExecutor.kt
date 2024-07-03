@@ -21,7 +21,6 @@ class RecurringTasksExecutor() {
                 RemoteConfigRefreshTask().runIfNecessary()
                 DailyEventTask(app).runIfNecessary()
                 TalkOfflineCleanupTask(app).runIfNecessary()
-                TalkOfflineCleanupTask(app)
                 if (ReleaseUtil.isAlphaRelease) {
                     AlphaUpdateChecker(app).runIfNecessary()
                 }
