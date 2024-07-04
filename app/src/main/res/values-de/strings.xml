@@ -858,6 +858,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="feed_accessibility_card_text">Sie haben das Ende des Feeds erreicht.</string>
   <string name="feed_accessibility_card_load_more_button">Mehr laden</string>
+  <string name="feed_language_variants_removal_dialog_save">Speichern</string>
   <string name="top_read_activity_title">Meistgelesen am %s</string>
   <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Artikelbeschreibung</string>
@@ -1257,6 +1258,8 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Höhe</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Einfügen</string>
+  <string name="templates_insert_button">Einfügen</string>
+  <string name="templates_param_suggested_value">zum Beispiel %s</string>
   <string name="templates_param_optional_hint">%s (Optional)</string>
   <string name="templates_param_suggested_hint">%s (Vorgeschlagen)</string>
   <string name="templates_learn_more_link">Mehr erfahren</string>
@@ -1557,6 +1560,7 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unzufrieden</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Wie können wir die Funktion verbessern?</string>
+  <string name="patroller_saved_message_title_vandalism">Warnung vor Vandalismus</string>
   <string name="patroller_saved_message_title_auto_trans">Automatische Übersetzung</string>
   <string name="patroller_saved_message_title_final_warning">Letzte Warnung</string>
   <string name="talk_templates_menu_edit_title">Bearbeiten</string>
@@ -1570,6 +1574,7 @@
   <string name="donate_gpay_dialog_title">Mit Google Pay spenden?</string>
   <string name="donate_gpay_dialog_pay_button">Mit Google Pay spenden</string>
   <string name="donate_gpay_dialog_other_button">Andere Zahlungsmethode</string>
+  <string name="donate_gpay_activity_title">Spendenbetrag auswählen</string>
   <string name="donate_gpay_maximum_amount">Wir können über unsere App keine Spenden annehmen, die höher als %s sind. Bitte wende dich an unser Teammitglied für Großspenden unter benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Danke!&lt;/b&gt; Deine Großzügigkeit gegenüber Wikipedia bedeutet uns so viel.</string>
   <string name="donate_gpay_help_problems">Probleme beim Spenden?</string>

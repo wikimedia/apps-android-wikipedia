@@ -923,6 +923,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
   <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
+  <string name="feed_language_variants_removal_dialog_save">Сохранить</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Перейти в настройки</string>
   <string name="top_read_activity_title">Самое читаемое %s</string>
   <string name="tabs_activity_title">Вкладки</string>
   <string name="description_edit_text_hint">Описание статьи</string>
@@ -1664,6 +1666,7 @@
   <string name="patroller_onboarding_two_watch_title">Следить</string>
   <string name="patroller_onboarding_two_talk_title">Обсуждение</string>
   <string name="patroller_onboarding_two_talk_content">Общайтесь с другими редакторами. Сохраняйте часто используемые сообщения на странице обсуждения или используйте шаблон.</string>
+  <string name="patroller_onboarding_two_undo_title">Отменить/Откатить</string>
   <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Доволен</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Воздержусь</string>
