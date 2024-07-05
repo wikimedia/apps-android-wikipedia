@@ -1,12 +1,11 @@
 package org.wikipedia.analytics.eventplatform
 
-import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.core.os.postDelayed
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
@@ -78,11 +77,9 @@ object EventPlatformClient {
         OutputBuffer.sendAllScheduled()
     }
 
-    @SuppressLint("CheckResult")
-    fun refreshStreamConfigs() {
-        ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).streamConfigs
-                .subscribeOn(Schedulers.io())
-                .subscribe({ updateStreamConfigs(it.streamConfigs) }) { L.e(it) }
+    suspend fun refreshStreamConfigs() {
+        val response = ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs()
+        updateStreamConfigs(response.streamConfigs)
     }
 
     private fun updateStreamConfigs(streamConfigs: Map<String, StreamConfig>) {
@@ -94,7 +91,11 @@ object EventPlatformClient {
     fun setUpStreamConfigs() {
         STREAM_CONFIGS.clear()
         STREAM_CONFIGS.putAll(Prefs.streamConfigs)
-        refreshStreamConfigs()
+        MainScope().launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            refreshStreamConfigs()
+        }
     }
 
     /**
