@@ -79,7 +79,7 @@
   <string name="menu_page_add_to_watchlist">Kuzatuv roʻyxatiga qoʻshmoq</string>
   <string name="menu_page_watch">Kuzatmoq</string>
   <string name="menu_page_unwatch">Kuzatmaslik</string>
-  <string name="menu_page_view_talk">Munozara sahifani koʻrish</string>
+  <string name="menu_page_view_talk">Munozara sahifasini koʻrish</string>
   <string name="menu_page_talk_page">Munozara sahifasi</string>
   <string name="menu_page_view_edit_history">Tahrirlar tarixini koʻrish</string>
   <string name="menu_page_edit_history">Oʻzgarishlar tarixi</string>
@@ -1475,7 +1475,7 @@
   <string name="patroller_tasks_edits_list_card_tags_text">Teglar: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hech qaysi</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Foydalanuvchi sahifasini koʻrish</string>
-  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Munozara sahifani koʻrish</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Munozara sahifasini koʻrish</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Foydalanuvchi maʼlumotlari</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Foydalanuvchi hissasini koʻrmoq</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Tashakkur</string>
