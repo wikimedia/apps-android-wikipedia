@@ -1585,6 +1585,7 @@
   <string name="talk_templates_new_message_compose_hint">Написать сообщение</string>
   <string name="talk_templates_new_message_save">Сохранить</string>
   <string name="talk_templates_new_message_dialog_title">Сохранить изменения</string>
+  <string name="talk_templates_new_message_dialog_description">Добавьте заголовок и сохраните сообщение.</string>
   <string name="talk_templates_new_message_dialog_hint">Заголовок сообщения</string>
   <string name="talk_templates_new_message_dialog_save">Сохранить</string>
   <string name="talk_templates_new_message_dialog_cancel">Отмена</string>
@@ -1613,6 +1614,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Просмотреть вклад участника</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Благодарность</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Информация об участнике</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Количество правок: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрыть</string>
   <string name="patroller_tasks_filters_title">Фильтры</string>
   <string name="patroller_tasks_filters_reset">Сбросить</string>
@@ -1657,6 +1659,7 @@
   <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">История редактирования статьи</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Вы уверены, что хотите выполнить откат?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
   <string name="patroller_tasks_overflow_report">Проблема с функцией</string>
