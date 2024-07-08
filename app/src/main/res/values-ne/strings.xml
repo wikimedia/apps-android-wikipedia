@@ -752,10 +752,12 @@
   <string name="category_tab_articles">लेखहरू</string>
   <string name="category_tab_subcategories">उपश्रेणीहरू</string>
   <string name="category_empty">यस श्रेणीमा कुनै लेख फेला परेन।</string>
+  <string name="user_contrib_current">हालको</string>
   <string name="user_contrib_menu_label">योगदानहरू</string>
   <string name="talk_templates_new_message_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="patroller_tasks_filters_user_status_registered">दर्ता भएको</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">दर्ता भएका सम्पादकहरू जसको अनुभव \"नयाँ आगन्तुक\" र \"अनुभवी प्रयोगकर्ताहरू\" बीच पर्दछ।</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">५०० भन्दा बढी सम्पादन र ३० दिनको गतिविधिस सहितका दर्ता भएका सम्पादकहरू।</string>
   <string name="patroller_onboarding_two_talk_title">वार्तालाप</string>
+  <string name="patroller_saved_message_title_auto_trans">स्वचालित अनुवाद</string>
 </resources>
