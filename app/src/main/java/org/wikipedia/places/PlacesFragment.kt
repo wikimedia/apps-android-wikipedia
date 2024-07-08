@@ -111,6 +111,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var lastLocationQueried: Location? = null
     private var lastZoom = 15.0
     private var lastZoomQueried = 0.0
+    private var autoZoomed = false
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
@@ -619,6 +620,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
         binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
+
+        if (pages.isEmpty() && !autoZoomed && Prefs.placesLastLocationAndZoomLevel == null) {
+            // Keep searching for the available markers until we find some after first launch of Places
+            goToLocation(lastLocation, lastZoom - 2)
+        } else {
+            autoZoomed = true
+            lastLocation?.let {
+                Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
+            }
+        }
     }
 
     private fun haveLocationPermissions(): Boolean {
