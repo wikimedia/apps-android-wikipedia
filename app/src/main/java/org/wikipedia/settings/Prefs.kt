@@ -728,6 +728,13 @@ object Prefs {
             PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
         }
 
+    var placesDefaultLocationLatLng
+        get(): String? {
+            val lanLng = PrefsIoUtil.getString(R.string.preference_key_default_places_location_latlng, null)
+            return if (lanLng.isNullOrEmpty()) null else lanLng
+        }
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_default_places_location_latlng, set)
+
     var recentUsedTemplates
         get() = JsonUtil.decodeFromString<Set<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptySet()
         set(set) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(set))

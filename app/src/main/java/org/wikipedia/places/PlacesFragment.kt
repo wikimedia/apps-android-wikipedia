@@ -130,7 +130,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 PlacesEvent.logAction("location_permission_granted", "map_view")
                 startLocationTracking()
-                goToLocation(viewModel.location)
+                goToLocation(viewModel.location ?: getDefaultLocation())
             }
             else -> {
                 PlacesEvent.logAction("location_permission_denied", "map_view")
@@ -378,7 +378,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     goToLocation(it)
                 } ?: run {
                     val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                    goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                    if (Prefs.placesDefaultLocationLatLng != null) {
+                        goToLocation(getDefaultLocation(), lastZoom)
+                    } else {
+                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                    }
 
                     if (!haveLocationPermissions()) {
                         locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -393,6 +397,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun getDefaultLocation(): Location? {
+        return Prefs.placesDefaultLocationLatLng?.let {
+            val defaultLocationStrings = it.split(",").map { it.toDouble() }
+            val defaultLocation = Location("").apply {
+                latitude = defaultLocationStrings[0]
+                longitude = defaultLocationStrings[1]
+            }
+            return defaultLocation
         }
     }
 
