@@ -47,7 +47,7 @@
   <string name="image_content_description">Şəkil: %s</string>
   <string name="page_content_description">Səhifə: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
-  <string name="wikidata">Vikiverilənlər</string>
+  <string name="wikidata">Vikidata</string>
   <string name="dialog_title_clear_history">Baxış tarixini təmizləyin</string>
   <string name="dialog_message_clear_history">Bu, bütün axtarış tarixinizi siləcək və açıq pəncərələrinizi bağlayacaq. Siz əminsiniz?</string>
   <string name="dialog_message_clear_history_yes">Bəli</string>
