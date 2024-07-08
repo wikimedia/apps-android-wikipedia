@@ -225,7 +225,7 @@
   <string name="about_description">विकिपिडिया अनुप्रयोगको बारेमा</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">प्रयोगका सर्तहरू</string>
-  <string name="about_wikipedia_url">https://ne.wikipedia.org/wiki/विकिपीडिया:विकिपीडियाको_बारेमा</string>
+  <string name="about_wikipedia_url">https://ne.wikipedia.org/wiki/विकिपिडिया:विकिपिडियाको_बारेमा</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ne.wikipedia.org/wiki/विकिपिडिया:खाता_बनाउनको_लागि_अनुरोध</string>
@@ -448,6 +448,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
+  <string name="reading_lists_preview_save_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="user_option_sync_label">अभिरुचीहरू</string>
   <string name="notification_reverted_title">उल्ट्याइएको सम्पादन</string>
   <string name="notification_channel_description">डाउनलोड प्रगति</string>
@@ -744,10 +745,17 @@
   <string name="watchlist_filter_other">अन्य</string>
   <string name="watchlist_page_moved">सारियो</string>
   <string name="watchlist_page_protected">सुरक्षित</string>
+  <string name="watchlist_filter_contribution_authorship_header">योगदान लेखकत्व</string>
   <string name="action_item_categories">श्रेणीहरू</string>
   <string name="category_tab_articles">लेखहरू</string>
   <string name="category_tab_subcategories">उपश्रेणीहरू</string>
   <string name="category_empty">यस श्रेणीमा कुनै लेख फेला परेन।</string>
+  <string name="user_contrib_current">हालको</string>
   <string name="user_contrib_menu_label">योगदानहरू</string>
+  <string name="talk_templates_new_message_dialog_cancel">रद्द गर्नुहोस्</string>
+  <string name="patroller_tasks_filters_user_status_registered">दर्ता भएको</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">दर्ता भएका सम्पादकहरू जसको अनुभव \"नयाँ आगन्तुक\" र \"अनुभवी प्रयोगकर्ताहरू\" बीच पर्दछ।</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">५०० भन्दा बढी सम्पादन र ३० दिनको गतिविधिस सहितका दर्ता भएका सम्पादकहरू।</string>
   <string name="patroller_onboarding_two_talk_title">वार्तालाप</string>
+  <string name="patroller_saved_message_title_auto_trans">स्वचालित अनुवाद</string>
 </resources>

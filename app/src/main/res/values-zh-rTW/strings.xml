@@ -14,6 +14,7 @@
 * Kly
 * LEEJACK
 * LNDDYL
+* Lakejason0
 * Liuxinyu970226
 * Madeleinemcc
 * Mikepanhu
@@ -34,6 +35,7 @@
 * 沈澄心
 * 漢黑玉
 * 烈羽
+* 阿南之人
 -->
 <resources>
   <string name="app_name_prod">維基百科</string>
@@ -309,10 +311,10 @@
   <string name="edit_summary_updated_short_description">已更新簡短描述</string>
   <string name="edit_conflict_title">編輯衝突</string>
   <string name="edit_conflict_message">頁面已被不同的使用者給變動，並且有與您的編輯產生衝突。請複製您的編輯並返回來重整頁面，然後再重試編輯。</string>
-  <string name="edit_notices">編輯說明</string>
+  <string name="edit_notices">編輯提示</string>
   <string name="edit_notices_please_read">編輯前請閱讀</string>
-  <string name="edit_notices_show_auto">自動顯示編輯通知</string>
-  <string name="edit_notices_tooltip">點按此按鈕可查看此條目的編輯通知。</string>
+  <string name="edit_notices_show_auto">自動顯示編輯提示</string>
+  <string name="edit_notices_tooltip">點按此按鈕可查看此條目的編輯提示。</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
   <string name="find_first_occurence">這是首次出現</string>
