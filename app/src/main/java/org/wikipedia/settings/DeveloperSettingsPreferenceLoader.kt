@@ -138,7 +138,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             CoroutineScope(Dispatchers.Main).launch {
                 AppDatabase.instance.talkPageSeenDao().deleteAll()
                 Toast.makeText(activity, "Reset complete.", Toast.LENGTH_SHORT).show()
-
             }
             true
         }
