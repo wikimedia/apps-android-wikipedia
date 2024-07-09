@@ -1657,8 +1657,6 @@
   <string name="places_filter_title">Filtrar per lingua</string>
   <string name="places_toggle_buttons_map">Carta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Discoperi articulos de Wikipedia circa te con Locos</string>
-  <string name="places_article_menu_tooltip_message">Tocca ‘Vider sur carta’ pro explorar le loco de iste articulo</string>
   <string name="places_survey_very_satisfied_option">Multo satisfacite</string>
   <string name="places_survey_very_unsatisfied_option">Multo insatisfacite</string>
   <string name="places_survey_dialog_title">Adjuta a meliorar ‘Locos’</string>

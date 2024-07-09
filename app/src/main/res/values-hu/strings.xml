@@ -1651,8 +1651,6 @@
   <string name="places_filter_title">Nyelvi szűrés</string>
   <string name="places_toggle_buttons_map">Térkép</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Fedezd fel a körülötted lévő Wikipédia-cikkeket a Helyek segítségével</string>
-  <string name="places_article_menu_tooltip_message">Érintsd meg a „Megtekintés a térképen” elemet a cikk helyének felfedezéséhez</string>
   <string name="places_survey_very_satisfied_option">Nagyon elégedett</string>
   <string name="places_survey_very_unsatisfied_option">Nagyon elégedetlen</string>
   <string name="places_survey_dialog_title">Segítsen a „Helyek” fejlesztésében</string>

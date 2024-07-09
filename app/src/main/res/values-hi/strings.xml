@@ -1463,8 +1463,6 @@
   <string name="places_filter_title">भाषा फ़िल्टर करें</string>
   <string name="places_toggle_buttons_map">नक्शा</string>
   <string name="places_toggle_buttons_list">लिस्ट</string>
-  <string name="places_nav_tab_tooltip_message">स्थानों के साथ अपने आस-पास विकिपीडिया लेख खोजें</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">इस आर्टिकल की लोकेशन जानने के लिए \'मैप पर देखें\' पर टैप करें&gt;</string>
   <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
   <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>

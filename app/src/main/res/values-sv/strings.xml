@@ -1675,8 +1675,6 @@
   <string name="places_filter_title">Filtrera språk</string>
   <string name="places_toggle_buttons_map">Karta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Upptäck Wikipedia-artiklar omkring dig med Platser</string>
-  <string name="places_article_menu_tooltip_message">Tryck på \"Visa på kartan\" för att utforska den här artikelns plats</string>
   <string name="places_survey_very_satisfied_option">Mycket nöjd</string>
   <string name="places_survey_very_unsatisfied_option">Mycket missnöjd</string>
   <string name="places_survey_dialog_title">Hjälp till att förbättra \"Platser\"</string>

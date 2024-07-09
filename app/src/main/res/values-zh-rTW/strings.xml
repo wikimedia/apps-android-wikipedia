@@ -1691,8 +1691,6 @@
   <string name="places_filter_title">篩選語言</string>
   <string name="places_toggle_buttons_map">地圖</string>
   <string name="places_toggle_buttons_list">清單</string>
-  <string name="places_nav_tab_tooltip_message">透過地點來探索位於您周遭的維基百科條目</string>
-  <string name="places_article_menu_tooltip_message">輕觸「在地圖上查看」即可探索該條目的所在位置</string>
   <string name="places_survey_very_satisfied_option">非常滿意</string>
   <string name="places_survey_very_unsatisfied_option">非常不滿意</string>
   <string name="places_survey_dialog_title">協助改善「地點」</string>

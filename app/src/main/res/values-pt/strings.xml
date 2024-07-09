@@ -1600,8 +1600,6 @@
   <string name="places_filter_title">Filtrar por língua</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
-  <string name="places_article_menu_tooltip_message">Toque em «Ver no mapa» para explorar a localização deste artigo</string>
   <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
   <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
   <string name="places_survey_dialog_title">Ajudar a melhorar «Lugares»</string>

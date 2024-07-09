@@ -1698,8 +1698,6 @@
   <string name="places_filter_title">Filteren op taal</string>
   <string name="places_toggle_buttons_map">Kaart</string>
   <string name="places_toggle_buttons_list">Lijst</string>
-  <string name="places_nav_tab_tooltip_message">Ontdek Wikipedia-artikelen om je heen met Places</string>
-  <string name="places_article_menu_tooltip_message">Tik op \'Bekijk op kaart\' om de locatie van dit artikel te verkennen</string>
   <string name="places_survey_very_satisfied_option">Erg tevreden</string>
   <string name="places_survey_very_unsatisfied_option">Zeer ontevreden</string>
   <string name="places_survey_dialog_title">Help \'Plaatsen\' te verbeteren</string>

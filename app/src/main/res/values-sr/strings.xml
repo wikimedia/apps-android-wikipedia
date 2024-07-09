@@ -1618,7 +1618,6 @@
   <string name="places_filter_title">Филтрирај по језику</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>
-  <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>
   <string name="places_survey_very_satisfied_option">Веома задовољан</string>
   <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
   <string name="places_survey_dialog_cancel">Откажи</string>

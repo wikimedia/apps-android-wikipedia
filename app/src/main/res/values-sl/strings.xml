@@ -1701,8 +1701,6 @@
   <string name="places_filter_title">Filtriranje po jeziku</string>
   <string name="places_toggle_buttons_map">Zemljevid</string>
   <string name="places_toggle_buttons_list">Seznam</string>
-  <string name="places_nav_tab_tooltip_message">Odkrivajte članke Wikipedije okoli sebe s Kraji</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Tapnite &lt;b&gt;»Ogled na zemljevidu«&lt;/b&gt;, da raziščete lokacijo tega članka</string>
   <string name="places_survey_very_satisfied_option">Odlična izkušnja</string>
   <string name="places_survey_very_unsatisfied_option">Zelo slaba izkušnja</string>
   <string name="places_survey_dialog_title" fuzzy="true">Pomagajte izboljšati »Kraje«</string>

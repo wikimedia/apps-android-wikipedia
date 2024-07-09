@@ -1624,8 +1624,6 @@
   <string name="places_filter_title">Filtrér efter sprog</string>
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Opdag Wikipedia-artikler omkring dig med Steder</string>
-  <string name="places_article_menu_tooltip_message">Tryk på \'Se på kort\' for at udforske denne artikels placering</string>
   <string name="places_survey_very_satisfied_option">Meget tilfreds</string>
   <string name="places_survey_very_unsatisfied_option">Meget utilfreds</string>
   <string name="places_survey_dialog_title">Hjælp med at forbedre \'Steder\'</string>

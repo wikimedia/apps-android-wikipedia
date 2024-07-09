@@ -1634,8 +1634,6 @@
   <string name="places_filter_title">Фильтр тил</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Тизме</string>
-  <string name="places_nav_tab_tooltip_message">Джерле бла тёгеригигиздеги Википедия статьяланы табыгъыз</string>
-  <string name="places_article_menu_tooltip_message">Бу статьяны темасын ортагъа чыгъарыр ючюн \'Картада кёр\'ге басыгъыз</string>
   <string name="places_survey_very_satisfied_option">Бек разыма</string>
   <string name="places_survey_very_unsatisfied_option">Бек разы тюлме</string>
   <string name="places_survey_dialog_title">\'Джерле\'ни маджаллашдырыргъа болушлукъчу бол</string>

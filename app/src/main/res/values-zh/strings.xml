@@ -1659,8 +1659,6 @@
   <string name="places_filter_title">筛选语言</string>
   <string name="places_toggle_buttons_map">地图</string>
   <string name="places_toggle_buttons_list">列表</string>
-  <string name="places_nav_tab_tooltip_message">借助地点功能来探索周围的维基百科条目</string>
-  <string name="places_article_menu_tooltip_message">轻触“在地图上查看”来探索该条目的所在位置</string>
   <string name="places_survey_very_satisfied_option">非常满意</string>
   <string name="places_survey_very_unsatisfied_option">非常不满意</string>
   <string name="places_survey_dialog_title">帮助我们改进“地点”功能</string>

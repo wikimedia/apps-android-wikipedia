@@ -1576,8 +1576,6 @@
   <string name="places_filter_title">Til filtri</string>
   <string name="places_toggle_buttons_map">Xarita</string>
   <string name="places_toggle_buttons_list">Roʻyxat</string>
-  <string name="places_nav_tab_tooltip_message">Joylashgan yeringizga mos Vikipediya maqolalarini oʻzingiz uchun kashf eting</string>
-  <string name="places_article_menu_tooltip_message">Ushbu maqola joylashuvini koʻrish uchun “Xaritada koʻrish” tugmasini bosing</string>
   <string name="places_survey_very_satisfied_option">Qoniqarli</string>
   <string name="places_survey_very_unsatisfied_option">Qoniqarsiz</string>
   <string name="places_survey_dialog_title">“Joylashuvlar”ni yaxshilashga yordam bering</string>

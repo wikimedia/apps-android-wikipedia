@@ -385,7 +385,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
-        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -676,35 +675,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             .setView(DescriptionEditRevertHelpView(this, qNumber))
             .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
             .show()
-    }
-
-    private fun maybeShowPlacesTooltip() {
-        if (!Prefs.showOneTimePlacesPageOnboardingTooltip ||
-            pageFragment.page?.pageProperties?.geo == null || isTooltipShowing) {
-            return
-        }
-        enqueueTooltip {
-            FeedbackUtil.getTooltip(
-                this,
-                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
-                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
-                topOrBottomMargin = -8,
-                aboveOrBelow = false,
-                autoDismiss = false,
-                showDismissButton = true
-            ).apply {
-                PlacesEvent.logImpression("article_more_tooltip")
-                setOnBalloonDismissListener {
-                    PlacesEvent.logAction("dismiss_click", "article_more_tooltip")
-                    isTooltipShowing = false
-                    Prefs.showOneTimePlacesPageOnboardingTooltip = false
-                }
-                isTooltipShowing = true
-                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
-                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-                setCurrentTooltip(this)
-            }
-        }
     }
 
     private fun maybeShowThemeTooltip() {

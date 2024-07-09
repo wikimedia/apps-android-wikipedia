@@ -1631,8 +1631,6 @@
   <string name="places_filter_title">言語を絞り込む</string>
   <string name="places_toggle_buttons_map">地図</string>
   <string name="places_toggle_buttons_list">一覧</string>
-  <string name="places_nav_tab_tooltip_message">自分の周辺の場所でウィキペディアの記事を発見します</string>
-  <string name="places_article_menu_tooltip_message">この記事の位置を探すには「地図上で表示」をタップしてください</string>
   <string name="places_survey_very_satisfied_option">非常に満足</string>
   <string name="places_survey_very_unsatisfied_option">非常に不満</string>
   <string name="places_survey_dialog_title">「場所」の改善にご協力ください</string>

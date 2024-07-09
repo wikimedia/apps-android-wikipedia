@@ -1775,8 +1775,6 @@
   <string name="places_filter_title">סינון לפי שפה</string>
   <string name="places_toggle_buttons_map">מפה</string>
   <string name="places_toggle_buttons_list">רשימה</string>
-  <string name="places_nav_tab_tooltip_message">ב\"מקומות\" אפשר לגלות ערכי ויקיפדיה סביבך</string>
-  <string name="places_article_menu_tooltip_message">יש ללחוץ על \"הצגה על מפה\" כדי לחקור את המיקום של הערך הזה</string>
   <string name="places_survey_very_satisfied_option">מרוצה מאוד</string>
   <string name="places_survey_very_unsatisfied_option">מאוד לא מרוצה</string>
   <string name="places_survey_dialog_title">עזרו לנו לשפר את \"מקומות\"</string>
