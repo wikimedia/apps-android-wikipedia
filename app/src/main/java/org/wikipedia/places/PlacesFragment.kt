@@ -401,8 +401,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun getDefaultLocation(): Location? {
-        return Prefs.placesDefaultLocationLatLng?.let {
-            val defaultLocationStrings = it.split(",").map { it.toDouble() }
+        return Prefs.placesDefaultLocationLatLng?.let { defaultLocation ->
+            val defaultLocationStrings = defaultLocation.split(",").map { it.toDouble() }
             val defaultLocation = Location("").apply {
                 latitude = defaultLocationStrings[0]
                 longitude = defaultLocationStrings[1]
