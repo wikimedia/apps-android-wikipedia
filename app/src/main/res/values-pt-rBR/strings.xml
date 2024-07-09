@@ -401,8 +401,7 @@
   <string name="page_view_in_browser">Ver página no navegador</string>
   <string name="tool_tip_toc_title">Acesso rápido ao índice</string>
   <string name="tool_tip_toc_text">Agora você pode deslizar para a esquerda para abrir o índice e também tocar e arrastar neste botão de rolagem para saltar rapidamente para diferentes seções de um artigo.</string>
-  <string name="tool_tip_lang_button">Agora você pode pesquisar e ler em vários idiomas da Wikipédia no aplicativo.\n\n\nToque no ícone para adicionar mais idiomas.</string>
-  <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
+    <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>
   <string name="format_error_server_message">Mensagem: “%s”</string>
   <string name="address_copied">Endereço copiado para a área de transferência.</string>

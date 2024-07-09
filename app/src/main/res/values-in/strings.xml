@@ -385,7 +385,6 @@
   <string name="page_view_in_browser">Lihat halaman di peramban</string>
   <string name="tool_tip_toc_title">Akses cepat daftar isi</string>
   <string name="tool_tip_toc_text">Sekarang Anda dapat menggesek ke kiri untuk membuka daftar isi, dan juga mengetuk dan menyeret pada tombol penggulung ini untuk dengan cepat melompat ke bagian artikel yang berbeda.</string>
-  <string name="tool_tip_lang_button">Anda sekarang dapat mencari dan membaca dalam beberapa bahasa Wikipedia di aplikasi.\n\n\nKetuk ikon untuk menambahkan lebih banyak bahasa.</string>
   <string name="error_response_malformed">Respon dari peladen tidak diformat dengan benar.</string>
   <string name="error_unknown">Terjadi sebuah kesalahan yang tidak diketahui.</string>
   <string name="format_error_server_message">Pesan: \"%s\"</string>

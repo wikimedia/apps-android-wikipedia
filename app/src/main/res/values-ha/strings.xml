@@ -353,7 +353,6 @@
   <string name="page_view_in_browser">Dubi shafin a cikin burauzar</string>
   <string name="tool_tip_toc_title">Tebur na abubuwan da ke ciki da sauri</string>
   <string name="tool_tip_toc_text">Yanzu zaka iya cire hagu don buɗe teburin abun ciki, da kuma dannawa da ja a kan wannan maɓallin scroller don saurin tsalle zuwa sassa daban-daban na labarin.</string>
-  <string name="tool_tip_lang_button">Yanzu zaku iya bincika da karantawa cikin yarukan Wikipedia da yawa a cikin app.\n\nN!Taɓa alamar don ƙara ƙarin harsuna.</string>
   <string name="error_response_malformed">Amsa daga uwar garken ba a tsara shi daidai ba.</string>
   <string name="error_unknown">Wani kuskuren da ba a sani ba ya faru.</string>
   <string name="format_error_server_message">Saƙo: \"%s\"</string>

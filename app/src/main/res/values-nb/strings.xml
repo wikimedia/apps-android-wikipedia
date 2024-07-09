@@ -376,7 +376,6 @@
   <string name="page_view_in_browser">Vis side i nettleser</string>
   <string name="tool_tip_toc_title">Hurtigtilgang til innholdsfortegnelsen</string>
   <string name="tool_tip_toc_text">Du kan nå dra fra høyre for å åpne innholdsfortegnelsen, og også trykke og dra rulleknappen for å raskt hoppe til ulike deler av en artikkel.</string>
-  <string name="tool_tip_lang_button">Det er nå mulig å søke og lese på flere Wikipedia-språk i appen.</string>
   <string name="error_response_malformed">Responsen fra serveren var ikke riktig formatert.</string>
   <string name="error_unknown">Det oppsto en ukjent feil.</string>
   <string name="format_error_server_message">Melding: «%s»</string>

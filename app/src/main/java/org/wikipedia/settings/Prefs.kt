@@ -368,10 +368,6 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_extra, 0)
         set(extra) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_extra, extra)
 
-    var isMultilingualSearchTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_multilingual_search_tooltip_shown, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_multilingual_search_tooltip_shown, enabled)
-
     var shouldShowRemoveChineseVariantPrompt
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)

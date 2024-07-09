@@ -358,8 +358,7 @@
   <string name="page_view_in_browser">Укх оагIонга браузера чу хьажар</string>
   <string name="tool_tip_toc_title">Чулоацамá сиха тIакхачар</string>
   <string name="tool_tip_toc_text">ХIанз Хьа йиш я чулоацам хьабеларгболаш экран аьрдехьа дIахьакха, цул совгIа йиш я ползунок хьа а лаьца лохегIа Iокхостае оагIон разделашта сиха тIакхоачаргволаш.</string>
-  <string name="tool_tip_lang_button">ХӀанз приложене чу хьа аьттув ба Википеден массехк меттала статьяш лаха а еша.\n\nТоӀабе хьарака тӀа, кхадола метташ тӀатохаргдолаш.</string>
-  <string name="error_response_malformed">Сервера жоп харцахьа формат яь да.</string>
+    <string name="error_response_malformed">Сервера жоп харцахьа формат яь да.</string>
   <string name="error_unknown">Довзаш доаца гӀалат даьннад.</string>
   <string name="format_error_server_message">Хоам: %s</string>
   <string name="address_copied">ЦӀай шолхадаьккхад «буфер обмена» чу.</string>

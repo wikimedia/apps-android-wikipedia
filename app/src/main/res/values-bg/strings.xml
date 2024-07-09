@@ -353,8 +353,7 @@
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
   <string name="tool_tip_toc_title">Бърз достъп до съдържанието</string>
   <string name="tool_tip_toc_text">Вече можете да плъзнете наляво, за да отворите съдържанието, а също така да докоснете и плъзнете този бутон за превъртане, за да преминете бързо към различни секции на статия.</string>
-  <string name="tool_tip_lang_button">Сега можете да търсите и четете Уикипедия на различни езици в приложението.\n\n\nДокоснете иконката, за да добавите още езици.</string>
-  <string name="error_response_malformed">Отговорът от сървъра не е правилно форматиран.</string>
+    <string name="error_response_malformed">Отговорът от сървъра не е правилно форматиран.</string>
   <string name="error_unknown">Възникна неизвестна грешка.</string>
   <string name="format_error_server_message">Съобщение: „%s“</string>
   <string name="address_copied">Адресът е копиран в клипборда</string>
