@@ -304,7 +304,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null", isMinorEdit, watchThisPage)
+                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null",
+                isMinorEdit,
+                watchThisPage,
+                tags = getEditTags().joinToString(","))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
@@ -323,6 +326,20 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         )
 
         BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
+    }
+
+    private fun getEditTags(): List<String> {
+        return buildList {
+            if (invokeSource == Constants.InvokeSource.TALK_TOPIC_ACTIVITY) {
+                add(EditTags.APP_TALK_SOURCE)
+            } else if (!textToHighlight.isNullOrEmpty()) {
+                add(EditTags.APP_SELECT_SOURCE)
+            } else if (sectionID >= 0) {
+                add(EditTags.APP_SECTION_SOURCE)
+            } else {
+                add(EditTags.APP_FULL_SOURCE)
+            }
+        }
     }
 
     private fun waitForUpdatedRevision(newRevision: Long) {
