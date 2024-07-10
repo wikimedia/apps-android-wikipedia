@@ -42,7 +42,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(binding.viewArticleContainer, parent().langFromCode)
+        setConditionalLayoutDirection(binding.viewArticleContainer, parent().langFromCode())
 
         binding.viewArticleImage.setOnClickListener {
             if (Prefs.showImageZoomTooltip) {
@@ -53,11 +53,11 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
         binding.cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.cardItemErrorView.retryClickListener = View.OnClickListener {
-            viewModel.findNextSuggestedEditsItem(parent().action, parent().langFromCode, parent().langToCode)
+            viewModel.findNextSuggestedEditsItem(parent().action(), parent().langFromCode(), parent().langToCode())
         }
 
         if (sourceSummaryForEdit == null) {
-            viewModel.findNextSuggestedEditsItem(parent().action, parent().langFromCode, parent().langToCode)
+            viewModel.findNextSuggestedEditsItem(parent().action(), parent().langFromCode(), parent().langToCode())
         }
 
         binding.viewArticleContainer.setOnClickListener {
@@ -119,7 +119,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
         ImageZoomHelper.setViewZoomable(binding.viewArticleImage)
 
-        if (parent().action == ADD_DESCRIPTION || parent().action == TRANSLATE_DESCRIPTION) {
+        if (parent().action() == ADD_DESCRIPTION || parent().action() == TRANSLATE_DESCRIPTION) {
             updateDescriptionContents()
         } else {
             updateCaptionContents()
@@ -130,7 +130,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit?.displayTitle)
         binding.viewArticleTitle.visibility = VISIBLE
 
-        if (parent().action == TRANSLATE_DESCRIPTION) {
+        if (parent().action() == TRANSLATE_DESCRIPTION) {
             binding.viewArticleSubtitleContainer.visibility = VISIBLE
             binding.viewArticleSubtitle.text = addedContribution.ifEmpty { sourceSummaryForEdit?.description }
         }
