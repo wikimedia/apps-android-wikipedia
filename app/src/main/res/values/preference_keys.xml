@@ -65,7 +65,6 @@
     <string name="preference_key_last_anon_notification_time">lastAnonNotificationTime</string>
     <string name="preference_key_empty_placeholder">emptyPlaceholder</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
-    <string name="preference_key_editing_text_size_extra">editingTextSizeExtra</string>
     <string name="preference_key_feed_cards_order">feedCardsOrder</string>
     <string name="preference_key_feed_cards_enabled">feedCardsEnabled</string>
     <string name="preference_key_feed_cards_lang_supported">feedCardsLangSupported</string>
