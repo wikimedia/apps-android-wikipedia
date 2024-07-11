@@ -364,10 +364,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_first_time_sync, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_first_time_sync, value)
 
-    var editingTextSizeExtra
-        get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_extra, 0)
-        set(extra) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_extra, extra)
-
     var isMultilingualSearchTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_multilingual_search_tooltip_shown, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_multilingual_search_tooltip_shown, enabled)
