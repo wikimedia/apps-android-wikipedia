@@ -160,23 +160,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             binding.searchLanguageScrollView.setUpLanguageScrollTabData(app.languageState.appLanguageCodes, pos, this)
             binding.searchLangButton.visibility = View.GONE
         } else {
-            maybeShowMultilingualSearchTooltip()
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
             binding.searchLangButton.visibility = View.VISIBLE
             initLangButton()
             recentSearchesFragment.onLangCodeChanged()
-        }
-    }
-
-    private fun maybeShowMultilingualSearchTooltip() {
-        if (Prefs.isMultilingualSearchTooltipShown) {
-            binding.searchLangButton.postDelayed({
-                if (isAdded) {
-                    FeedbackUtil.showTooltip(requireActivity(), binding.searchLangButton, getString(R.string.tool_tip_lang_button),
-                            aboveOrBelow = false, autoDismiss = false)
-                }
-            }, 500)
-            Prefs.isMultilingualSearchTooltipShown = false
         }
     }
 

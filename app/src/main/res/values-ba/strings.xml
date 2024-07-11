@@ -369,8 +369,7 @@
   <string name="page_view_in_browser">Браузерҙа битте ҡарау</string>
   <string name="tool_tip_toc_title">Йөкмәткегә тиҙ инеү</string>
   <string name="tool_tip_toc_text">Һеҙ, йөкмәткене асыу өсөн, бармаҡ менән экранды һулға күсерә һәм мәҡәләнең төрлө бүлектәренә тиҙ күсеү өсөн слайдерҙы тотоп әйләндерә алаһығыҙ.</string>
-  <string name="tool_tip_lang_button">Ҡушымтала Википедияның бер нисә телендә эҙләй һәм уҡый алаһығыҙ.\n\n\nКүберәк тел өҫтәү өсөн билдәгә баҫығыҙ.</string>
-  <string name="error_response_malformed">Серверҙың яуабы яңылыш форматланған</string>
+    <string name="error_response_malformed">Серверҙың яуабы яңылыш форматланған</string>
   <string name="error_unknown">Билдәһеҙ хата барлыҡҡа килде.</string>
   <string name="format_error_server_message">Хәбәр: «%s»</string>
   <string name="address_copied">Адрес алмашыу буферына күсерелгән</string>

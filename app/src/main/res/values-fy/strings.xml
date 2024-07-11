@@ -299,8 +299,7 @@
   <string name="page_view_in_browser">Side yn webblêder besjen</string>
   <string name="tool_tip_toc_title">Fluch nei de ynhâldsopjefte</string>
   <string name="tool_tip_toc_text">Jo kinne no mei in feech nei lofts de ynhâldsopjefte iepenje, en ek de skoknop oantikje en ferslepe om fluch nei oare sideparten te springen.</string>
-  <string name="tool_tip_lang_button">Jo kinne yn \'e app no sykje en lêze yn ferskate Wikipedy-talen.\n\n\nIkoan oantikje om mear talen ta te foegjen.</string>
-  <string name="error_response_malformed">It antwurd fan \'e server is ferkeard opmakke.</string>
+    <string name="error_response_malformed">It antwurd fan \'e server is ferkeard opmakke.</string>
   <string name="error_unknown">In ûnbekende flater die him foar.</string>
   <string name="format_error_server_message">Berjocht: \"%s\"</string>
   <string name="address_copied">Adres nei klamboerd kopiearre.</string>
