@@ -349,8 +349,7 @@
   <string name="page_view_in_browser">Rûpelê di gerokê de bibîne</string>
   <string name="tool_tip_toc_title">Zûgihîna tabloya naverokan</string>
   <string name="tool_tip_toc_text">Tu vêga dikarî bi aliyê çepê ve kaş bikî ji bo tabloya naverokan vekî, û ji xeynî vî li ser vê bişkoka gerokê jî bitikînî û kaş bikî da ku zûtir biçe ser qismên cuda ên gotarekê.</string>
-  <string name="tool_tip_lang_button">Tu vêga dikarî di applîkasyonê de, bi çendîn zimanên Wîkîpediyayê bixwînî û lê bigerî.\n\n\nJi bo zêdetir zimanan tevlî bikî, pêl li îkonê bike.</string>
-  <string name="error_response_malformed">Cewaba ji serverê bi şikleke rast nehatiye formatkirin.</string>
+    <string name="error_response_malformed">Cewaba ji serverê bi şikleke rast nehatiye formatkirin.</string>
   <string name="error_unknown">Çewtiyeke nenas rû da.</string>
   <string name="format_error_server_message">Peyam:\"%s\"</string>
   <string name="address_copied">Adres li panoyê hate kopîkirin.</string>

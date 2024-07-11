@@ -42,10 +42,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         setImageZoomHelper()
         if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(
                 Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
-            // Updating preference so the search multilingual tooltip
-            // is not shown again for first time users
-            Prefs.isMultilingualSearchTooltipShown = false
-
             // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
             onboardingLauncher.launch(InitialOnboardingActivity.newIntent(this))
         }

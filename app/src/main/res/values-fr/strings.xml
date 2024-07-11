@@ -423,7 +423,6 @@
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_title">Tableau d’accès rapide aux contenus</string>
   <string name="tool_tip_toc_text">Vous pouvez maintenant glisser à gauche pour ouvrir le tableau des contenus et cliquer-glisser ce bouton de défilement pour sauter rapidement aux différentes sections d’un article.</string>
-  <string name="tool_tip_lang_button">Vous pouvez maintenant chercher et lire Wikipédia en différentes langues dans l’application.\n\n\nCliquez sur l’icône pour ajouter plus de langues.</string>
   <string name="error_response_malformed">La réponse du serveur n’a pas été mise en forme correctement.</string>
   <string name="error_unknown">Une erreur inconnue s’est produite.</string>
   <string name="format_error_server_message">Message : « %s »</string>
@@ -1724,8 +1723,6 @@
   <string name="places_filter_title">Filtrer par langue</string>
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Découvrez les articles Wikipédia autour de vous avec Lieux</string>
-  <string name="places_article_menu_tooltip_message">Appuyez sur « Afficher sur la carte » pour explorer l’emplacement de cet article.</string>
   <string name="places_survey_very_satisfied_option">Très satisfait</string>
   <string name="places_survey_very_unsatisfied_option">Très insatisfait</string>
   <string name="places_survey_dialog_title">Aider à améliorer les \'Lieux\'</string>

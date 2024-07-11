@@ -351,8 +351,7 @@
   <string name="page_view_in_browser">Браузердагы битне карарга</string>
   <string name="tool_tip_toc_title">Мәкалә исеменә тиз керү</string>
   <string name="tool_tip_toc_text">Сез мәкаләнең исемен ачар, шулай ук төрле бүлекләренә тиз арада күчү өчен, әлеге әйләндерү төймәсенә басып һәм күчереп, сул кулыгыз белән сулга таба йөртә аласыз.</string>
-  <string name="tool_tip_lang_button">Хәзер сез кушымтада Википедиянең берничә телендә эзли һәм укый аласыз.\n\nӨстәмә телләр өстәр өчен тамгага басыгыз.</string>
-  <string name="error_response_malformed">Сервер җавабы дөрес форматланмаган.</string>
+    <string name="error_response_malformed">Сервер җавабы дөрес форматланмаган.</string>
   <string name="error_unknown">Билгесез хата килеп чыкты.</string>
   <string name="format_error_server_message">Хәбәр: «%s»</string>
   <string name="address_copied">Адрес алмашу буферына күчерелгән.</string>

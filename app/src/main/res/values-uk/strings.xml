@@ -389,8 +389,7 @@
   <string name="page_view_in_browser">Переглянути сторінку в браузері</string>
   <string name="tool_tip_toc_title">Швидкий доступ до змісту</string>
   <string name="tool_tip_toc_text">Тепер ви можете прогорнути екран ліворуч, аби відкрити зміст, а також схопити та прокрутити повзунок, щоб швидко переміститися до різних розділів статті.</string>
-  <string name="tool_tip_lang_button">Тепер у додатку ви можете шукати та читати в різних мовних розділах Вікіпедії.\n\n\nНатисніть на значок, щоб додати інші мови.</string>
-  <string name="error_response_malformed">Відповідь сервера була відформатована неправильно.</string>
+    <string name="error_response_malformed">Відповідь сервера була відформатована неправильно.</string>
   <string name="error_unknown">Сталася невідома помилка.</string>
   <string name="format_error_server_message">Повідомлення: «%s»</string>
   <string name="address_copied">Адресу скопійовано до буферу обміну.</string>

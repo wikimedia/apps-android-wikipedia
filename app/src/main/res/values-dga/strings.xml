@@ -348,8 +348,7 @@
   <string name="page_view_in_browser">Kaa a pegi a browza poɔŋ</string>
   <string name="tool_tip_toc_title">Nyɛ wieoŋ yelbulo tabul</string>
   <string name="tool_tip_toc_text">Pampana fo na baŋ laali la gɔɔ yuo a yelbulo tabul, ane meŋ tɔ a vu a bonvuuraa neɛzie ŋa na Ɛge wieoŋ lɛ gaa a atekele lombo yuo.</string>
-  <string name="tool_tip_lang_button">Fo na baŋ weɛre bɔ la pampana ane kanne wikipiideɛ kɔkɔ yaga poɔ a app poɔ.\nTɔ a bonwulaa na paale kɔkɔ yaga.</string>
-  <string name="error_response_malformed">Sagebo yi a sɛva ba wa tõɔ kɔre-bare soŋ.</string>
+    <string name="error_response_malformed">Sagebo yi a sɛva ba wa tõɔ kɔre-bare soŋ.</string>
   <string name="error_unknown">Gbɛ-ŋmɛ kaŋa eɛɛ la</string>
   <string name="format_error_server_message">Duori: \"%s\"</string>
   <string name="address_copied">Adrɛɛsi kopieŋ gaaneŋ a klibɔɔde.</string>

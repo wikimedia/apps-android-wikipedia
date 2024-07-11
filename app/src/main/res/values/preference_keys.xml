@@ -12,7 +12,6 @@
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
     <string name="preference_key_language_app">languageApp</string>
-    <string name="preference_key_multilingual_search_tooltip_shown">multilingualSearchTutorialEnabled</string>
     <string name="preference_key_show_images">showImages</string>
     <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
     <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
@@ -164,8 +163,6 @@
     <string name="preference_key_show_sequential_recent_edits_diff_tooltip">showSequentialRecentEditsDiffTooltip</string>
     <string name="preference_key_show_recent_edits_feedback_form">showRecentEditsFeedbackForm</string>
     <string name="preference_key_places_wiki_code">filterPlacesWikiCode</string>
-    <string name="preference_key_show_places_page_onboarding_tooltip">showPlacesPageOnboardingTooltip</string>
-    <string name="preference_key_show_places_main_nav_onboarding_tooltip_shown">showPlacesMainNavOnboardingTooltip</string>
     <string name="preference_key_places_last_location_and_zoom_level">placesLastLocationAndZoomLevel</string>
     <string name="preference_key_recent_used_templates">recentUsedTemplates</string>
     <string name="preference_key_donation_test_env">donationTestEnv</string>

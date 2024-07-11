@@ -447,8 +447,7 @@
   <string name="page_view_in_browser">Ver página en el navegador</string>
   <string name="tool_tip_toc_title">Acceso rápido a la tabla de contenidos</string>
   <string name="tool_tip_toc_text">Ahora puede deslizar hacia la izquierda para abrir la tabla de contenido, y también tocar y arrastrar el botón de desplazamiento para saltar rápidamente a diferentes secciones de un artículo.</string>
-  <string name="tool_tip_lang_button">Ahora puedes explorar y consultar Wikipedia en sus distintos idiomas dentro de la aplicación.\n\n\nToca el icono para añadir más idiomas.</string>
-  <string name="error_response_malformed">La respuesta del servidor no se ha formateado correctamente.</string>
+    <string name="error_response_malformed">La respuesta del servidor no se ha formateado correctamente.</string>
   <string name="error_unknown">Ocurrió un error desconocido.</string>
   <string name="format_error_server_message">Mensaje: «%s»</string>
   <string name="address_copied">Dirección copiada en el portapapeles.</string>

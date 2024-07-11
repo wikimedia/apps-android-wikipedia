@@ -437,8 +437,7 @@
   <string name="page_view_in_browser">Просмотр страницы в браузере</string>
   <string name="tool_tip_toc_title">Быстрый доступ к содержанию</string>
   <string name="tool_tip_toc_text">Теперь вы можете свайпнуть влево, чтобы открыть содержание, а также схватить и прокрутить ползунок для быстрой навигации к различным разделам статьи.</string>
-  <string name="tool_tip_lang_button">Теперь вы можете искать и читать в приложении на нескольких языках Википедии.\n\n\nНажмите на значок, чтобы добавить другие языки.</string>
-  <string name="error_response_malformed">Ответ сервера был некорректно отформатирован.</string>
+    <string name="error_response_malformed">Ответ сервера был некорректно отформатирован.</string>
   <string name="error_unknown">Произошла неизвестная ошибка.</string>
   <string name="format_error_server_message">Сообщение: «%s»</string>
   <string name="address_copied">Адрес скопирован в буфер обмена.</string>

@@ -426,7 +426,6 @@
   <string name="page_view_in_browser">在浏览器中查看页面</string>
   <string name="tool_tip_toc_title">快速访问目录</string>
   <string name="tool_tip_toc_text">现在您可以向左滑动打开目录，还可以点击并拖动这个滚动按钮快速跳到条目的不同部分。</string>
-  <string name="tool_tip_lang_button">您现在可以在应用中搜索并阅读维基百科的多个语言版本。\n\n点按图标可添加更多语言。</string>
   <string name="error_response_malformed">来自服务器的响应格式不正确。</string>
   <string name="error_unknown">出现未知错误。</string>
   <string name="format_error_server_message">消息：“%s”</string>
@@ -1659,8 +1658,6 @@
   <string name="places_filter_title">筛选语言</string>
   <string name="places_toggle_buttons_map">地图</string>
   <string name="places_toggle_buttons_list">列表</string>
-  <string name="places_nav_tab_tooltip_message">借助地点功能来探索周围的维基百科条目</string>
-  <string name="places_article_menu_tooltip_message">轻触“在地图上查看”来探索该条目的所在位置</string>
   <string name="places_survey_very_satisfied_option">非常满意</string>
   <string name="places_survey_very_unsatisfied_option">非常不满意</string>
   <string name="places_survey_dialog_title">帮助我们改进“地点”功能</string>
