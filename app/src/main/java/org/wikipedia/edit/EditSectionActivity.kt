@@ -307,7 +307,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 if (captchaHandler.isActive) captchaHandler.captchaWord() else "null",
                 isMinorEdit,
                 watchThisPage,
-                tags = getEditTags().joinToString(","))
+                tags = getEditTag())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
@@ -328,17 +328,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
     }
 
-    private fun getEditTags(): List<String> {
-        return buildList {
-            if (invokeSource == Constants.InvokeSource.TALK_TOPIC_ACTIVITY) {
-                add(EditTags.APP_TALK_SOURCE)
-            } else if (!textToHighlight.isNullOrEmpty()) {
-                add(EditTags.APP_SELECT_SOURCE)
-            } else if (sectionID >= 0) {
-                add(EditTags.APP_SECTION_SOURCE)
-            } else {
-                add(EditTags.APP_FULL_SOURCE)
-            }
+    private fun getEditTag(): String {
+        return when {
+            invokeSource == Constants.InvokeSource.TALK_TOPIC_ACTIVITY -> EditTags.APP_TALK_SOURCE
+            !textToHighlight.isNullOrEmpty() -> EditTags.APP_SELECT_SOURCE
+            sectionID >= 0 -> EditTags.APP_SECTION_SOURCE
+            else -> EditTags.APP_FULL_SOURCE
         }
     }
 
