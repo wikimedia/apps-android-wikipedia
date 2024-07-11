@@ -359,8 +359,7 @@
   <string name="page_view_in_browser">Xem trang trong trình duyệt</string>
   <string name="tool_tip_toc_title">Truy cập nhanh mục lục</string>
   <string name="tool_tip_toc_text">Bây giờ bạn có thể vuốt sang trái để mở mục lục, đồng thời chạm và kéo vào nút cuộn này để nhanh chóng chuyển đến các phần khác nhau của bài viết.</string>
-  <string name="tool_tip_lang_button">Từ bây giờ, bạn đã có thể tìm và đọc Wikipedia bằng nhiều ngôn ngữ trong ứng dụng.\n\n\nChạm vào biểu tượng để thêm ngôn ngữ.</string>
-  <string name="error_response_malformed">Phản hồi từ máy chủ không được định dạng đúng.</string>
+    <string name="error_response_malformed">Phản hồi từ máy chủ không được định dạng đúng.</string>
   <string name="error_unknown">Gặp lỗi lạ.</string>
   <string name="format_error_server_message">Thông báo: \"%s\"</string>
   <string name="address_copied">Đã chép địa chỉ vào bảng tạm.</string>

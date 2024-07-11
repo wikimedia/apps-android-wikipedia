@@ -355,7 +355,6 @@
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
   <string name="tool_tip_toc_title">عنوان جي فھرست تڪڙي رسائي</string>
   <string name="tool_tip_toc_text">توھان ھاڻي کاٻي پاسي سوائپ ڪري مواد جي فھرست کي کولي سگهو ٿا، ۽ پڻ ٽيپ ڪريو ۽ ڇڪيو ھن اسڪرولر بٽڻ کي جلدي ٽپو ڏيڻ لاءِ مضمون جي مختلف حصن ڏانھن.</string>
-  <string name="tool_tip_lang_button">ھاڻي توھان ايپ ۾ وڪيپيڊيا جي گهڻين ئي ٻولين ۾ ڳولي ۽ پڙھي سگهو ٿا.\n\n\nوڌيڪ ٻوليون وجهن لاءِ آئڪن کي ڇُھو.</string>
   <string name="error_response_malformed">سرور جي جواب کي درست نموني منھن نہ ڏنو ويو.</string>
   <string name="error_unknown">اڻجاتل چُڪَ واقع ٿي.</string>
   <string name="format_error_server_message">نياپو: %s</string>
@@ -1502,8 +1501,6 @@
   <string name="places_filter_title">ٻولي ڇاڻيو</string>
   <string name="places_toggle_buttons_map">نقشو</string>
   <string name="places_toggle_buttons_list">فھرست</string>
-  <string name="places_nav_tab_tooltip_message">ماگ خصوصيت سان پنھنجي چوڌاري وڪيپيڊيا مضمونن کي ڳوليو</string>
-  <string name="places_article_menu_tooltip_message">ھن مضمون جي مڪانيت ڏسڻ لاءِ \'نقشي تي ڏسو\' تي ٽيپ ڪريو</string>
   <string name="places_survey_very_satisfied_option">ڏاڍو مطمئن</string>
   <string name="places_survey_very_unsatisfied_option">ڏاڍو غير مطمئن</string>
   <string name="places_survey_dialog_title">\'ماڳ\' کي بھتر ڪرڻ ۾ مدد ڪريو</string>

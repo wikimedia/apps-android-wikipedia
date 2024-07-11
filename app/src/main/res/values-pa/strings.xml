@@ -455,8 +455,6 @@
   <string name="places_filter_title">ਭਾਸ਼ਾ ਫਿਲਟਰ ਕਰੋ</string>
   <string name="places_toggle_buttons_map">ਨਕਸ਼ਾ</string>
   <string name="places_toggle_buttons_list">ਸੂਚੀ</string>
-  <string name="places_nav_tab_tooltip_message">ਥਾਵਾਂ ਦੇ ਨਾਲ ਆਪਣੇ ਆਲੇ-ਦੁਆਲੇ ਵਿਕੀਪੀਡੀਆ ਲੇਖਾਂ ਦੀ ਖੋਜ ਕਰੋ</string>
-  <string name="places_article_menu_tooltip_message">ਇਸ ਲੇਖ ਦੀ ਥਾਂ ਦਾ ਪਤਾ ਲਗਾਉਣ ਲਈ \'ਨਕਸ਼ੇ ਉੱਤੇ ਦੇਖੋ\' \'ਤੇ ਟੈਪ ਕਰੋ</string>
   <string name="places_survey_very_satisfied_option">ਬਹੁਤ ਸੰਤੁਸ਼ਟ</string>
   <string name="places_survey_very_unsatisfied_option">ਬਹੁਤ ਅਸੰਤੁਸ਼ਟ</string>
   <string name="places_survey_dialog_title">\'ਥਾਵਾਂ\' ਨੂੰ ਸੁਧਾਰਨ ਵਿੱਚ ਮਦਦ ਕਰੋ</string>

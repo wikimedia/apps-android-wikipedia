@@ -397,8 +397,7 @@
   <string name="page_view_in_browser">مشاهدهٔ صفحه در مرورگر</string>
   <string name="tool_tip_toc_title">دسترسی سریع به فهرست مطالب</string>
   <string name="tool_tip_toc_text">می‌توانید صفحه را به راست بکشید تا جعبه محتویات را ببینید. همچنین می‌توانید این اسکرولر را انتخاب کرده و بکشید تا سریعاً به بخش‌های مختلف یک مقاله بروید.</string>
-  <string name="tool_tip_lang_button">اکنون می‌توانید در نرم‌افزار ویکی‌پدیا به زبان‌های مختلف، جستجو و مطالعه کنید.\n\nبرای افزودن زبان‌های بیشتر، روی شمایل بزنید.</string>
-  <string name="error_response_malformed">پاسخ سرور به درستی تنظیم نشده است.</string>
+    <string name="error_response_malformed">پاسخ سرور به درستی تنظیم نشده است.</string>
   <string name="error_unknown">خطای ناشناخته رخ داده است.</string>
   <string name="format_error_server_message">پیام: «%s»</string>
   <string name="address_copied">نشانی در حافظهٔ موقت ذخیره شد</string>

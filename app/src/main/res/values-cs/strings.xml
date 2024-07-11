@@ -384,7 +384,6 @@
   <string name="page_view_in_browser">Zobrazit v prohlížeči</string>
   <string name="tool_tip_toc_title">Obsah rychlého přístupu</string>
   <string name="tool_tip_toc_text">Nyní můžete přejet prstem doleva a zobrazit obsah článku. Klepnutím a potáhnutím tímto tlačítkem můžete rychle přejít na různé části článku.</string>
-  <string name="tool_tip_lang_button">Nyní můžete vyhledávat a číst Wikipedii ve více jazycích.\n\n\nKlepnutím na ikonu přidáte další jazyky.</string>
   <string name="error_response_malformed">Odpověď serveru nebyla správně zformátována.</string>
   <string name="error_unknown">Došlo k neznámé chybě.</string>
   <string name="format_error_server_message">Zpráva: „%s“</string>
@@ -1339,8 +1338,6 @@
   <string name="places_filter_title">Filtrovat jazyk</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Seznam</string>
-  <string name="places_nav_tab_tooltip_message">Objevujte články na Wikipedii kolem sebe pomocí záložky Místa</string>
-  <string name="places_article_menu_tooltip_message">Klepnutím na „Zobrazit na mapě“ prozkoumáte polohu tohoto článku</string>
   <string name="places_survey_very_satisfied_option">Velmi spokojen(a)</string>
   <string name="places_survey_very_unsatisfied_option">Velmi nespokojen(a)</string>
   <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>
