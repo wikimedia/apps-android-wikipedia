@@ -383,7 +383,6 @@
   <string name="page_view_in_browser">Прагляд старонкі ў браўзеры</string>
   <string name="tool_tip_toc_title">Хуткі доступ да зместу</string>
   <string name="tool_tip_toc_text">Цяпер вы можаце правесці пальцам улева, каб адкрыць змест, а таксама націснуць і перацягнуць гэтую кнопку скролера, каб хутка пераходзіць да розных раздзелаў артыкула.</string>
-  <string name="tool_tip_lang_button">Цяпер вы можаце шукаць і чытаць на некалькіх мовах Вікіпедыі ў дадатку.\n\n\n\nНацісніце на значок, каб дадаць больш моў.</string>
   <string name="error_response_malformed">Адказ сервера быў некарэктна адфарматаваны.</string>
   <string name="error_unknown">Адбылася невядомая памылка.</string>
   <string name="format_error_server_message">Паведамленне: \"%s\"</string>

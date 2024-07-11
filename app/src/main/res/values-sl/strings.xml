@@ -367,7 +367,6 @@
   <string name="page_view_in_browser">Ogled strani v brskalniku</string>
   <string name="tool_tip_toc_title">Hitri dostop do vsebinskega kazala</string>
   <string name="tool_tip_toc_text">Zdaj lahko podrsate levo, da odprete vsebinsko kazalo, ali tapnete drsnik in ga povlečete, da hitro preidete na drug razdelek članka.</string>
-  <string name="tool_tip_lang_button">Zdaj lahko Wikipedijo v aplikaciji berete in raziskujete v več jezikih</string>
   <string name="error_response_malformed">Odgovor strežnika ni bil ustrezno oblikovan.</string>
   <string name="error_unknown">Prišlo je do neznane napake.</string>
   <string name="format_error_server_message">Sporočilo: »%s«</string>

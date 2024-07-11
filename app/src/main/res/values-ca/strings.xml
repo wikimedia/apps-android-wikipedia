@@ -378,8 +378,7 @@
   <string name="page_view_in_browser">Visualitza la pàgina en el navegador</string>
   <string name="tool_tip_toc_title">Accés ràpid a la taula de continguts</string>
   <string name="tool_tip_toc_text">Ara podeu lliscar a l\'esquerra per obrir la taula de continguts, i també tocar i arrossegar al botó de desplaçament per saltar ràpidament a les diferents seccions d\'un article.</string>
-  <string name="tool_tip_lang_button">Ara podeu cercar i llegir en diferents versions lingüístiques de la Viquipèdia des de l\'aplicació.\n\nFeu un toc a la icona per a afegir més llengües.</string>
-  <string name="error_response_malformed">La resposta del servidor no s\'ha formatat correctament.</string>
+    <string name="error_response_malformed">La resposta del servidor no s\'ha formatat correctament.</string>
   <string name="error_unknown">S\'ha produït un error desconegut.</string>
   <string name="format_error_server_message">Missatge: \"%s\"</string>
   <string name="address_copied">Adreça copiada al porta-retalls.</string>

@@ -338,8 +338,7 @@
   <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
   <string name="tool_tip_toc_title">విషయ సూచిక సత్వర అందుబాటు</string>
   <string name="tool_tip_toc_text">విషయ సూచికను తెరిచేందుకు ఎడమ వైపుకు స్వైపు చెయ్యండి. అలాగే వ్యాసం లోని వివిధ విభాగాలకు దూకేందుకు ఈ స్క్రాలరు బొత్తాన్ని తట్టి లాగండి.</string>
-  <string name="tool_tip_lang_button">మీరిప్పుడు యాప్‌లో అనేక వికీపీడియా భాషల్లో వెతకడం, చదవడం చెయ్యవచ్చు.\n\n\nమరిన్ని భాషలను చేర్చేందుకు ఐకనుపై తట్టండి.</string>
-  <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
+    <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
   <string name="address_copied">అడ్రసును క్లిప్‌బోర్డుకు కాపీ చేసాం.</string>

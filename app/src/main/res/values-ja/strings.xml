@@ -412,7 +412,6 @@
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_title">目次クイックアクセス</string>
   <string name="tool_tip_toc_text">画面を左へスワイプすると目次を表示、また、このスクロールボタンをタップすると、記事の異なる節へ移動します。</string>
-  <string name="tool_tip_lang_button">アプリ内で、複数の言語でウィキペディアを検索して読めるようになりました。\n\n\nアイコンをタップして言語を追加しましょう。</string>
   <string name="error_response_malformed">サーバーからの応答が正しいフォーマットではありませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>
   <string name="format_error_server_message">メッセージ: 「%s」</string>

@@ -399,7 +399,6 @@
   <string name="page_view_in_browser">Pagina in de browser weergeven</string>
   <string name="tool_tip_toc_title">Snel toegang tot de inhoudsopgave</string>
   <string name="tool_tip_toc_text">U kunt nu naar links vegen om de inhoudsopgave te openen, en klikken en slepen op deze schuifknop om snel naar verschillende secties van een artikel te gaan.</string>
-  <string name="tool_tip_lang_button">U kunt nu in de app zoeken en lezen in meerdere taalversies van Wikipedia.\n\n\nKlik op het icoontje om meer talen toe te voegen.</string>
   <string name="error_response_malformed">Het antwoord van de server had geen correcte opmaak.</string>
   <string name="error_unknown">Er is een onbekende fout opgetreden.</string>
   <string name="format_error_server_message">Bericht: \"%s\"</string>

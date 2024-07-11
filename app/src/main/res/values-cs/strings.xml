@@ -384,7 +384,6 @@
   <string name="page_view_in_browser">Zobrazit v prohlížeči</string>
   <string name="tool_tip_toc_title">Obsah rychlého přístupu</string>
   <string name="tool_tip_toc_text">Nyní můžete přejet prstem doleva a zobrazit obsah článku. Klepnutím a potáhnutím tímto tlačítkem můžete rychle přejít na různé části článku.</string>
-  <string name="tool_tip_lang_button">Nyní můžete vyhledávat a číst Wikipedii ve více jazycích.\n\n\nKlepnutím na ikonu přidáte další jazyky.</string>
   <string name="error_response_malformed">Odpověď serveru nebyla správně zformátována.</string>
   <string name="error_unknown">Došlo k neznámé chybě.</string>
   <string name="format_error_server_message">Zpráva: „%s“</string>

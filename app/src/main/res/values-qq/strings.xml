@@ -395,7 +395,6 @@
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
   <string name="tool_tip_toc_title">Title for tool-tip that introduces the user to Table of Contents slider.</string>
   <string name="tool_tip_toc_text">Very short advice on how to use Table of Contents slider.\n\n\'\'\'In right to left languages, replace \"left\" with \"right\".\'\'\'</string>
-  <string name="tool_tip_lang_button">Tool tip text encouraging existing multilingual users to start reading in more languages.</string>
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API onThisDay from the server.\n{{Identical|Message}}</string>
