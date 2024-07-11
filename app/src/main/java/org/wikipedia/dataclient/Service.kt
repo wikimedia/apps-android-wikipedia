@@ -688,7 +688,8 @@ interface Service {
             @Field("token") token: String,
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
-            @Field("captchaword") captchaWord: String? = null
+            @Field("captchaword") captchaWord: String? = null,
+            @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addcomment")
@@ -700,7 +701,8 @@ interface Service {
             @Field("token") token: String,
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
-            @Field("captchaword") captchaWord: String? = null
+            @Field("captchaword") captchaWord: String? = null,
+            @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
     @GET(MW_API_PREFIX + "action=query&generator=growthtasks")
