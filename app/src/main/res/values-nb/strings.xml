@@ -1664,8 +1664,6 @@
   <string name="places_filter_title">Filtrer etter språk</string>
   <string name="places_toggle_buttons_map">Kart</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Oppdag Wikipedia-artikler rundt deg med Steder</string>
-  <string name="places_article_menu_tooltip_message">Trykk på «Vis på kart» for å utforske nærområdet til denne artikkelen</string>
   <string name="places_survey_very_satisfied_option">Veldig fornøyd</string>
   <string name="places_survey_very_unsatisfied_option">Veldig misfornøyd</string>
   <string name="places_survey_dialog_title">Hjelp til med å forbedre «Steder»</string>

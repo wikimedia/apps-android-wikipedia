@@ -1549,8 +1549,6 @@
   <string name="places_filter_title">Filter balli</string>
   <string name="places_toggle_buttons_map">nahingbaŋ</string>
   <string name="places_toggle_buttons_list">Yuya</string>
-  <string name="places_nav_tab_tooltip_message">Lihimi m-bo \"Wikipedia\" lahabali shɛŋa din be a yaɣa li</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Dihimi &lt;b&gt;\'View on map\'&lt;/b&gt; ka di zaŋ a m-bo lahabali shɛŋa din be a yaɣa li</string>
   <string name="places_survey_very_satisfied_option">Tiɣi viɛnyɛla</string>
   <string name="places_survey_very_unsatisfied_option">Bi\'tiɣi viɛnyɛla</string>
   <string name="places_survey_dialog_title" fuzzy="true">Sɔŋmi lɛbigi tiŋsi</string>

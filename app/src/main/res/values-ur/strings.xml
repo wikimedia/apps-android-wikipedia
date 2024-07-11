@@ -707,8 +707,6 @@
   <string name="places_filter_title">زبان کو فلٹر کریں</string>
   <string name="places_toggle_buttons_map">نقشہ</string>
   <string name="places_toggle_buttons_list">فہرست</string>
-  <string name="places_nav_tab_tooltip_message">مقامات کے ساتھ اپنے ارد گرد ویکیپیڈیا کے مضامین دریافت کریں</string>
-  <string name="places_article_menu_tooltip_message">اس مضمون کا مقام دریافت کرنے کے لیے \'نقشے پر دیکھیں\' پر ٹیپ کریں۔</string>
   <string name="places_survey_very_satisfied_option">بہت مطمئن</string>
   <string name="places_survey_very_unsatisfied_option">بہت غیر مطمئن</string>
   <string name="places_survey_dialog_title">مقامات\' کو بہتر بنانے میں مدد کریں</string>

@@ -1723,8 +1723,6 @@
   <string name="places_filter_title">Filtrer par langue</string>
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Découvrez les articles Wikipédia autour de vous avec Lieux</string>
-  <string name="places_article_menu_tooltip_message">Appuyez sur « Afficher sur la carte » pour explorer l’emplacement de cet article.</string>
   <string name="places_survey_very_satisfied_option">Très satisfait</string>
   <string name="places_survey_very_unsatisfied_option">Très insatisfait</string>
   <string name="places_survey_dialog_title">Aider à améliorer les \'Lieux\'</string>

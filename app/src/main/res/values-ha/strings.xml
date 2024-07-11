@@ -1567,6 +1567,4 @@
   <string name="places_filter_title">Harshen tacewa</string>
   <string name="places_toggle_buttons_map">Taswira</string>
   <string name="places_toggle_buttons_list">jeri</string>
-  <string name="places_nav_tab_tooltip_message">Gano labaran Wikipedia da ke kewaye da ku tare da Wuraren</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Taɓa wannnan madannin don bincika wurin wannan labarin</string>
 </resources>

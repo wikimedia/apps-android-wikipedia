@@ -1592,8 +1592,6 @@
   <string name="donate_gpay_help_tax">Informazioni di deducibilità fiscale</string>
   <string name="places_title">Luoghi</string>
   <string name="places_toggle_buttons_map">Mappa</string>
-  <string name="places_nav_tab_tooltip_message">Scopri le voci di Wikipedia intorno a te con Luoghi</string>
-  <string name="places_article_menu_tooltip_message">Tocca \"Visualizza sulla mappa\" per esplorare la posizione di questa voce</string>
   <string name="places_survey_very_satisfied_option">Molto soddisfatto</string>
   <string name="places_survey_very_unsatisfied_option">Molto insoddisfatto</string>
   <string name="places_survey_dialog_title">Aiuta a migliorare \'Luoghi\'</string>

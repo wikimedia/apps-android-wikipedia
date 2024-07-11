@@ -1338,8 +1338,6 @@
   <string name="places_filter_title">Filtrovat jazyk</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Seznam</string>
-  <string name="places_nav_tab_tooltip_message">Objevujte články na Wikipedii kolem sebe pomocí záložky Místa</string>
-  <string name="places_article_menu_tooltip_message">Klepnutím na „Zobrazit na mapě“ prozkoumáte polohu tohoto článku</string>
   <string name="places_survey_very_satisfied_option">Velmi spokojen(a)</string>
   <string name="places_survey_very_unsatisfied_option">Velmi nespokojen(a)</string>
   <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>

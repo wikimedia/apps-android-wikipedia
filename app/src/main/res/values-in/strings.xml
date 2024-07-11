@@ -1576,8 +1576,6 @@
   <string name="places_filter_title">Saring bahasa</string>
   <string name="places_toggle_buttons_map">Peta</string>
   <string name="places_toggle_buttons_list">Daftar</string>
-  <string name="places_nav_tab_tooltip_message">Temukan artikel Wikipedia di sekitar Anda dengan Tempat</string>
-  <string name="places_article_menu_tooltip_message">Ketuk \'Lihat di peta\' untuk menjelajahi lokasi artikel ini</string>
   <string name="places_survey_very_satisfied_option">Sangat puas</string>
   <string name="places_survey_very_unsatisfied_option">Sangat tidak puas</string>
   <string name="places_survey_dialog_title">Bantu memperbaiki \'Tempat\'</string>

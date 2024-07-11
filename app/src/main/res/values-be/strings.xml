@@ -1766,8 +1766,6 @@
   <string name="places_filter_title">Фільтраваць па мовам</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Спіс</string>
-  <string name="places_nav_tab_tooltip_message">Даследуйце артыкулы Вікіпедыі вакол вас з дапамогаю Месцаў</string>
-  <string name="places_article_menu_tooltip_message">Націсніце «Паглядзець на мапе», каб даведацца пра месцазнаходжанне гэтага артыкула</string>
   <string name="places_survey_very_satisfied_option">Вельмі задаволены</string>
   <string name="places_survey_very_unsatisfied_option">Вельмі незадаволены</string>
   <string name="places_survey_dialog_title">Дапамажыце палепшыць \"Месцы\"</string>

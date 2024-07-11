@@ -1205,8 +1205,6 @@
   <string name="places_filter_title">ভাষা ফিল্টার করুন</string>
   <string name="places_toggle_buttons_map">মানচিত্র</string>
   <string name="places_toggle_buttons_list">তালিকা</string>
-  <string name="places_nav_tab_tooltip_message">আপনার চারপাশের স্থানগুলি সম্পর্কেউইকিপিডিয়া নিবন্ধগুলি বের করুন</string>
-  <string name="places_article_menu_tooltip_message">এই নিবন্ধটির অবস্থান অন্বেষণ করতে\'মানচিত্রে দেখুন\' আলতো চাপুন।</string>
   <string name="places_survey_very_satisfied_option">খুবই সন্তুষ্ট</string>
   <string name="places_survey_very_unsatisfied_option">খুবই অসন্তুষ্ট</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'স্থানগুলি\' উন্নত করতে সাহায্য করুন</string>
