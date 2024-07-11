@@ -49,7 +49,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         this.item = item
         var isSummaryEmpty = false
         binding.langCodeText.setLangCode(item.wiki!!.languageCode)
-        val summary = StringUtil.fromHtml(item.parsedComment).ifEmpty {
+        var summary = StringUtil.fromHtml(item.parsedComment).ifEmpty {
             isSummaryEmpty = true
             context.getString(R.string.page_edit_history_comment_placeholder)
         }
@@ -74,7 +74,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
                 }
                 else -> {
                     binding.diffText.isVisible = false
-                    binding.summaryText.text = StringUtil.fromHtml(item.logdisplay)
+                    summary = StringUtil.fromHtml(item.logdisplay)
                 }
             }
             binding.containerView.alpha = 0.5f
