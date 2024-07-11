@@ -361,7 +361,6 @@
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_title">Брз пристап до прегледот на содржините</string>
   <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните оддели на статијата.</string>
-  <string name="tool_tip_lang_button">Сега можете да пребарувате и читате на повеќе јазици во прилогот.\n\n\nДопрете на иконката за да додадете уште јазици.</string>
   <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>
   <string name="error_unknown">Се појави непозната грешка.</string>
   <string name="format_error_server_message">Порака: „%s“</string>

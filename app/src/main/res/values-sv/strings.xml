@@ -376,7 +376,6 @@
   <string name="page_view_in_browser">Visa sidan i webbläsaren</string>
   <string name="tool_tip_toc_title">Snabbåtkomst till innehållsförteckningen</string>
   <string name="tool_tip_toc_text">Du kan nu svepa åt vänster för att öppna innehållsförteckningen samt även trycka på och dra i denna rullknapp för att snabbt hoppa till olika avsnitt i en artikeln.</string>
-  <string name="tool_tip_lang_button">Du kan nu söka och läsa på flera språkversioner av Wikipedia i appen.\n\nTryck på ikonen för att lägga till fler språk.</string>
   <string name="error_response_malformed">Serverns svar var inte korrekt formaterat.</string>
   <string name="error_unknown">Ett okänt fel uppstod.</string>
   <string name="format_error_server_message">Meddelande: \"%s\"</string>

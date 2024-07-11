@@ -377,7 +377,6 @@
   <string name="page_view_in_browser">Lap megtekintése böngészőben</string>
   <string name="tool_tip_toc_title">Tartalomjegyzék gyors elérése</string>
   <string name="tool_tip_toc_text">A tartalomjegyzéket balra lapozva tudod előhozni és a görgőt megragadva gyorsan navigálhatsz a szócikk különböző részei között.</string>
-  <string name="tool_tip_lang_button">Mostantól több Wikipédia-nyelven is kereshetsz és olvashatsz az alkalmazásban.\n\nEzzel az ikonnal vehetsz fel újabb nyelveket.</string>
   <string name="error_response_malformed">A kiszolgáló válasza nincs megfelelően formázva.</string>
   <string name="error_unknown">Ismeretlen hiba történt.</string>
   <string name="format_error_server_message">Üzenet: „%s”</string>
