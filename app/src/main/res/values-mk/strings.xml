@@ -297,7 +297,7 @@
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
-  <string name="search_results_count_zero">Нема исход</string>
+  <string name="search_results_count_zero">Не најдов ништо</string>
   <plurals name="search_results_count">
     <item quantity="one">1 ставка</item>
     <item quantity="other">%d ставки</item>

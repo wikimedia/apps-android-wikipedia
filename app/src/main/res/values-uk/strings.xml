@@ -458,6 +458,25 @@
   <string name="temp_account_anon_dialog_body">Щойно ви внесете зміни, для вас буде створено &lt;b&gt;тимчасовий обліковий запис&lt;/b&gt; для захисту вашої конфіденційності. &lt;a href=\"%1$s\"&gt;Дізнатися більше&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Увійдіть&lt;/a&gt; або &lt;a href=\"https://#login\"&gt;створіть обліковий запис&lt;/a&gt;, щоб робити майбутні редагування під власноруч обраним іменем та отримати доступ до інших функцій.</string>
   <string name="temp_account_temp_dialog_body">Ваша редагування буде віднесена до %1$s. Ваш IP-адрес буде видимим для адміністраторів. Якщо ви входите або створюєте аккаунт, ваші редагування будуть приписані імені, яке ви виберете, серед інших переваг.&lt;br/&gt;&lt;br/&gt;</string>
   <string name="temp_account_dialog_ok">Зрозуміло</string>
+  <string name="temp_account_using_title">Ви використовуєте тимчасовий обліковий запис</string>
+  <string name="temp_account_dialog_discard">Скасувати зміни та увійти</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Тимчасовий обліковий запис %1$s було створено після публікації ваших змін. Термін його дії закінчиться через %2$d день.</item>
+    <item quantity="few">Тимчасовий обліковий запис %1$s було створено після публікації ваших змін. Термін його дії закінчиться через %2$d дні.</item>
+    <item quantity="many">Тимчасовий обліковий запис %1$s було створено після публікації ваших змін. Термін його дії закінчиться через %2$d днів.</item>
+    <item quantity="other">Тимчасовий обліковий запис %1$s було створено після публікації ваших змін. Термін його дії закінчиться через %2$d днів.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Термін дії облікового запису закінчиться через %d день.</item>
+    <item quantity="few">Термін дії облікового запису закінчиться через %d дні.</item>
+    <item quantity="many">Термін дії облікового запису закінчиться через %d днів.</item>
+    <item quantity="other">Термін дії облікового запису закінчиться через %d днів.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Ви не ввійшли в систему.&lt;/b&gt; Коли ви збережете якусь зміну, для вас буде створено тимчасовий обліковий запис для захисту вашої конфіденційності. &lt;a href=\"%1$s\"&gt;Дізнатися більше&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Ви використовуєте тимчасовий обліковий запис.&lt;/b&gt; Ваше редагування буде збережено під іменем користувача %1$s. &lt;a href=\"%2$s\"&gt;Дізнатися більше&lt;/a&gt;</string>
+  <string name="temp_account_login_status">&lt;b&gt;Зараз ви використовуєте тимчасовий обліковий запис.&lt;/b&gt; Зміни, внесені за допомогою тимчасового облікового запису %1$s, не будуть перенесені у ваш постійний обліковий запис, коли ви ввійдете в систему. Увійдіть або створіть обліковий запис, щоб ваші редагування зберігалися під обраним вами іменем користувача, серед інших переваг.</string>
+  <string name="temp_account_end_session">Завершити сесію</string>
+  <string name="temp_account_end_session_confirm">Це призведе до виходу з вашого тимчасового облікового запису. Ви хочете продовжити?</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
@@ -897,6 +916,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
   <string name="feed_accessibility_card_load_more_button">Завантажити ще</string>
+  <string name="feed_language_variants_removal_dialog_title">Виберіть варіант регіональної мови для кращого читання</string>
+  <string name="feed_language_variants_removal_dialog_message">Зараз ви використовуєте непідтримуваний загальний варіант китайської мови як основну мову Вікіпедії</string>
+  <string name="feed_language_variants_removal_dialog_save">Зберегти</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Оновіть додаткові мови</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Зараз ви використовуєте непідтримуваний загальний варіант китайської мови як додаткову мову. Перейдіть у налаштування, щоб вибрати нову додаткову мову або підтвердити список мов.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Перейти до налаштувань</string>
   <string name="top_read_activity_title">Найчитаніше за %s</string>
   <string name="tabs_activity_title">Вкладки</string>
   <string name="description_edit_text_hint">Опис статті</string>
@@ -1215,6 +1240,7 @@
   <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
   <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Дані та конфіденційність</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
