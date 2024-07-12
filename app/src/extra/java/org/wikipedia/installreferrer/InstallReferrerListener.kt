@@ -1,4 +1,4 @@
-package org.wikipedia.analytics
+package org.wikipedia.installreferrer
 
 import android.content.Context
 import android.content.Intent

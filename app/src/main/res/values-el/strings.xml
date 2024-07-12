@@ -342,8 +342,7 @@
   <string name="page_view_in_browser">Προβολή σελίδας στον περιηγητή</string>
   <string name="tool_tip_toc_title">Γρήγορη πρόσβαση στον πίνακα περιεχομένων</string>
   <string name="tool_tip_toc_text">Τώρα μπορείτε να σύρετε προς τα αριστερά για να ανοίξετε τον πίνακα περιεχομένων και επίσης να πατήσετε και να σύρετε σε αυτό το κουμπί κύλισης για γρήγορη μετάβαση σε διαφορετικές ενότητες ενός άρθρου.</string>
-  <string name="tool_tip_lang_button">Τώρα μπορείτε να αναζητήσετε και να διαβάσετε σε πολλές γλώσσες της Βικιπαίδεια στην εφαρμογή.\n\n\nΠατήστε στο εικονίδιο για να προσθέσετε περισσότερες γλώσσες.</string>
-  <string name="error_response_malformed">Η απάντηση από το διακομιστή δεν ήταν κατάλληλα διαμορφωμένη.</string>
+    <string name="error_response_malformed">Η απάντηση από το διακομιστή δεν ήταν κατάλληλα διαμορφωμένη.</string>
   <string name="error_unknown">Προέκυψε ένα άγνωστο σφάλμα.</string>
   <string name="format_error_server_message">Μήνυμα: «%s»</string>
   <string name="address_copied">Η διεύθυνση αντιγράφτηκε στο πρόχειρο.</string>

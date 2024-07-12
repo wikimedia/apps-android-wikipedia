@@ -1,0 +1,120 @@
+[versions]
+androidPluginAnnotationV9 = "3.0.0"
+androidSdk = "11.0.1"
+appcompat = "1.7.0"
+balloon = "1.6.5"
+browser = "1.8.0"
+chromeLikeTabSwitcher = "0.4.6"
+commonsLang3 = "3.14.0"
+constraintlayout = "2.1.4"
+coreKtx = "1.13.1"
+desugar_jdk_libs = "2.0.4"
+drawerlayout = "1.2.0"
+espressoVersion = "3.6.1"
+firebaseMessagingVersion = "24.0.0"
+flexbox = "3.0.0"
+fragmentKtx = "1.8.1"
+glideVersion = "4.16.0"
+googlePayVersion = "19.4.0"
+googleServices = "4.4.2"
+gradle = "8.5.1"
+hamcrest = "2.2"
+installreferrer = "2.2"
+jsoup = "1.18.1"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+kotlinCoroutinesVersion = "1.8.1"
+kotlinStdlibJdk8 = "2.0.0"
+kotlinxSerializationJson = "1.7.1"
+kspPlugin = "2.0.0-1.0.23"
+leakCanaryVersion = "2.14"
+material = "1.12.0"
+metricsVersion = "2.7"
+mlKitVersion = "17.0.5"
+mockitoVersion = "5.2.0"
+okHttpVersion = "4.12.0"
+orchestrator = "1.5.0"
+pagingRuntimeKtx = "3.3.0"
+paletteKtx = "1.0.0"
+photoview = "2.3.0"
+preferenceKtx = "1.2.1"
+recyclerview = "1.3.2"
+retrofit2KotlinxSerializationConverter = "1.0.0"
+retrofitVersion = "2.11.0"
+robolectric = "4.13"
+roomVersion = "2.6.1"
+rxandroid = "3.0.2"
+rxjava = "3.1.8"
+uiautomator = "2.3.0"
+viewpager2 = "1.1.0"
+workRuntimeKtx = "2.9.0"
+
+[libraries]
+android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
+android-plugin-annotation-v9 = { module = "org.maplibre.gl:android-plugin-annotation-v9", version.ref = "androidPluginAnnotationV9" }
+androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
+androidx-orchestrator = { module = "androidx.test:orchestrator", version.ref = "orchestrator" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+androidx-room-rxjava3 = { module = "androidx.room:room-rxjava3", version.ref = "roomVersion" }
+androidx-uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
+balloon = { module = "com.github.skydoves:balloon", version.ref = "balloon" }
+browser = { module = "androidx.browser:browser", version.ref = "browser" }
+chrome-like-tab-switcher = { module = "com.github.michael-rapp:chrome-like-tab-switcher", version.ref = "chromeLikeTabSwitcher" }
+com-google-android-gms-play-services-wallet2 = { module = "com.google.android.gms:play-services-wallet", version.ref = "googlePayVersion" }
+com-google-firebase-firebase-messaging-ktx3 = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebaseMessagingVersion" }
+com-google-mlkit-language-id = { module = "com.google.mlkit:language-id", version.ref = "mlKitVersion" }
+commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commonsLang3" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+drawerlayout = { module = "androidx.drawerlayout:drawerlayout", version.ref = "drawerlayout" }
+espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espressoVersion" }
+espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoVersion" }
+espresso-web = { module = "androidx.test.espresso:espresso-web", version.ref = "espressoVersion" }
+flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
+fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
+glide-ksp = { module = "com.github.bumptech.glide:ksp", version.ref = "glideVersion" }
+google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
+jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
+junit = { module = "junit:junit", version.ref = "junit" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinStdlibJdk8" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlinStdlibJdk8" }
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinStdlibJdk8" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutinesVersion" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutinesVersion" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakCanaryVersion" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+metrics-platform = { module = "org.wikimedia.metrics:metrics-platform", version.ref = "metricsVersion" }
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoVersion" }
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okHttpVersion" }
+okhttp-tls = { module = "com.squareup.okhttp3:okhttp-tls", version.ref = "okHttpVersion" }
+okhttp3-integration = { module = "com.github.bumptech.glide:okhttp3-integration", version.ref = "glideVersion" }
+okhttp3-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpVersion" }
+okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okHttpVersion" }
+palette-ktx = { module = "androidx.palette:palette-ktx", version.ref = "paletteKtx" }
+paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "pagingRuntimeKtx" }
+photoview = { module = "com.github.chrisbanes:PhotoView", version.ref = "photoview" }
+plumber-android = { module = "com.squareup.leakcanary:plumber-android", version.ref = "leakCanaryVersion" }
+preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preferenceKtx" }
+recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
+retrofit2-adapter-rxjava3 = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "retrofitVersion" }
+retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersion" }
+rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
+work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+
+[plugins]
+ksp-plugin = { id = 'com.google.devtools.ksp', version.ref = "kspPlugin" }

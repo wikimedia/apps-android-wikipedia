@@ -10,6 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.edit.EditTags
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkTemplate
@@ -71,9 +72,9 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
             val response = if (topic != null) {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token)
+                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token, tags = EditTags.APP_TALK_REPLY)
             } else {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token)
+                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token, tags = EditTags.APP_TALK_TOPIC)
             }
             postReplyData.postValue(Resource.Success(response.result!!.newRevId))
         }

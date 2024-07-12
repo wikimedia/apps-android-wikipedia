@@ -358,7 +358,6 @@
   <string name="page_view_in_browser">Sahifani brauzer orqali ochish</string>
   <string name="tool_tip_toc_title">Tezkor murojaat mundarijasi</string>
   <string name="tool_tip_toc_text">Endi tarkibni ochish uchun chapga suring va maqolaning turli bo‘limlariga tez o‘tish uchun ushbu skrlerler tugmachasini bosing.</string>
-  <string name="tool_tip_lang_button">Endi ilovada bir nechta Vikipediya tillarida qidirishingiz va o‘qishingiz mumkin.\n\n\nBoshqa tillarni qo‘shish uchun belgini bosing.</string>
   <string name="error_response_malformed">Serverdan javob to‘g‘ri shakllantirilmagan.</string>
   <string name="error_unknown">Noma’lum xatolik ro‘y berdi.</string>
   <string name="format_error_server_message">Xabar: \"%s\"</string>
@@ -1576,8 +1575,6 @@
   <string name="places_filter_title">Til filtri</string>
   <string name="places_toggle_buttons_map">Xarita</string>
   <string name="places_toggle_buttons_list">Roʻyxat</string>
-  <string name="places_nav_tab_tooltip_message">Joylashgan yeringizga mos Vikipediya maqolalarini oʻzingiz uchun kashf eting</string>
-  <string name="places_article_menu_tooltip_message">Ushbu maqola joylashuvini koʻrish uchun “Xaritada koʻrish” tugmasini bosing</string>
   <string name="places_survey_very_satisfied_option">Qoniqarli</string>
   <string name="places_survey_very_unsatisfied_option">Qoniqarsiz</string>
   <string name="places_survey_dialog_title">“Joylashuvlar”ni yaxshilashga yordam bering</string>

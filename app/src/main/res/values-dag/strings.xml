@@ -349,7 +349,6 @@
   <string name="page_view_in_browser">yulimi paagi ŋɔ a browza maa ni</string>
   <string name="tool_tip_toc_title">sɔɣu daa adaka din nyɛ kaliŋ</string>
   <string name="tool_tip_toc_text">a pa ni too vooi labisi a nuzaa polo n yooi a sɔɣu daadaka ka ni tooi lan dihi vuubu bi\' maa zuɣu n tooi yaɣi chaŋ lahabali maa yaɣaa dabam dabam ni.</string>
-  <string name="tool_tip_lang_button">a pa tooi vihi n karim zuliya gbaliŋ din be Wikipedia zuɣu app ŋɔ ni</string>
   <string name="error_response_malformed">labisi shɛli din yi kpatuɣa sɔɣibu duu maa bi chaŋ viɛnyɛlinga</string>
   <string name="error_unknown">ti ni ʒi chiriŋ shɛli yɛla niŋya</string>
   <string name="format_error_server_message">Satarili: \"%s\"</string>
@@ -1550,8 +1549,6 @@
   <string name="places_filter_title">Filter balli</string>
   <string name="places_toggle_buttons_map">nahingbaŋ</string>
   <string name="places_toggle_buttons_list">Yuya</string>
-  <string name="places_nav_tab_tooltip_message">Lihimi m-bo \"Wikipedia\" lahabali shɛŋa din be a yaɣa li</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Dihimi &lt;b&gt;\'View on map\'&lt;/b&gt; ka di zaŋ a m-bo lahabali shɛŋa din be a yaɣa li</string>
   <string name="places_survey_very_satisfied_option">Tiɣi viɛnyɛla</string>
   <string name="places_survey_very_unsatisfied_option">Bi\'tiɣi viɛnyɛla</string>
   <string name="places_survey_dialog_title" fuzzy="true">Sɔŋmi lɛbigi tiŋsi</string>
