@@ -8,9 +8,12 @@ updates:
   - package-ecosystem: "gradle"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     registries: "*"
     labels: [ "dependencies" ]
+    ignore:
+      # Ignore automatic MapLibre updates, since it uses nonstandard version suffixes, e.g. "-pre0"
+      - dependency-name: "org.maplibre.gl"
     groups:
       kotlin-ksp:
         patterns:
