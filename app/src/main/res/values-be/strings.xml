@@ -383,7 +383,6 @@
   <string name="page_view_in_browser">Прагляд старонкі ў браўзеры</string>
   <string name="tool_tip_toc_title">Хуткі доступ да зместу</string>
   <string name="tool_tip_toc_text">Цяпер вы можаце правесці пальцам улева, каб адкрыць змест, а таксама націснуць і перацягнуць гэтую кнопку скролера, каб хутка пераходзіць да розных раздзелаў артыкула.</string>
-  <string name="tool_tip_lang_button">Цяпер вы можаце шукаць і чытаць на некалькіх мовах Вікіпедыі ў дадатку.\n\n\n\nНацісніце на значок, каб дадаць больш моў.</string>
   <string name="error_response_malformed">Адказ сервера быў некарэктна адфарматаваны.</string>
   <string name="error_unknown">Адбылася невядомая памылка.</string>
   <string name="format_error_server_message">Паведамленне: \"%s\"</string>
@@ -1767,8 +1766,6 @@
   <string name="places_filter_title">Фільтраваць па мовам</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Спіс</string>
-  <string name="places_nav_tab_tooltip_message">Даследуйце артыкулы Вікіпедыі вакол вас з дапамогаю Месцаў</string>
-  <string name="places_article_menu_tooltip_message">Націсніце «Паглядзець на мапе», каб даведацца пра месцазнаходжанне гэтага артыкула</string>
   <string name="places_survey_very_satisfied_option">Вельмі задаволены</string>
   <string name="places_survey_very_unsatisfied_option">Вельмі незадаволены</string>
   <string name="places_survey_dialog_title">Дапамажыце палепшыць \"Месцы\"</string>

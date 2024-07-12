@@ -1350,7 +1350,6 @@
   <string name="places_title">Plazen</string>
   <string name="places_toggle_buttons_map">Kaart</string>
   <string name="places_toggle_buttons_list">Lëscht</string>
-  <string name="places_nav_tab_tooltip_message">Entdeckt Wikipedia-Artikelen an Ärer Ëmgéigend mat „Plazen“</string>
   <string name="places_survey_very_satisfied_option">Ganz zefridden</string>
   <string name="places_survey_very_unsatisfied_option">Ganz onzefridden</string>
   <string name="places_survey_dialog_title">Hëlleft fir „Plazen“ ze verbesseren</string>

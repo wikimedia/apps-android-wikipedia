@@ -245,6 +245,13 @@ dependencies {
     devImplementation libs.com.google.android.gms.play.services.wallet2
     customImplementation libs.com.google.android.gms.play.services.wallet2
 
+    // For InstallReferrer Library
+    prodImplementation libs.installreferrer
+    betaImplementation libs.installreferrer
+    alphaImplementation libs.installreferrer
+    devImplementation libs.installreferrer
+    customImplementation libs.installreferrer
+
     debugImplementation libs.leakcanary.android
     implementation libs.plumber.android
 

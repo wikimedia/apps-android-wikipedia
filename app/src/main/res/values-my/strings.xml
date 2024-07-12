@@ -332,8 +332,7 @@
   <string name="page_view_in_browser">စာမျက်နှာအား ဘရောက်ဇာတွင် ကြည့်ရန်</string>
   <string name="tool_tip_toc_title">မြန်မြန်ရရှိနိုင်သော မာတိကာစာမျက်နှာ</string>
   <string name="tool_tip_toc_text">မာတိကာကိုဖွင့်ရန်ဘယ်ဘက်သို့ယခုပွတ်ဆွဲပြီးဆောင်းပါး၏ကွဲပြားခြားနားသော ကဏ္ဍများကိုလျင်မြန်စွာခုန်ရန်ဤ scroller ခလုတ်ကိုနှိပ်ပြီးဆွဲယူပါ။</string>
-  <string name="tool_tip_lang_button">အခုဆိုလျင် သင်သည် ဤဆော့ဝဲလ်ရှိ များစွာသော ဝီကီပီးဒီးယား ဘာသာစကားများထဲတွင် ရှာဖွေ၊ ဖတ်ရှုနိုင်ပါသည်။</string>
-  <string name="error_response_malformed">ဆာဗာမှ တုံ့ပြန်မှုအား မှန်ကန်စွာ ပုံစံချထားခြင်း မရှိ။</string>
+    <string name="error_response_malformed">ဆာဗာမှ တုံ့ပြန်မှုအား မှန်ကန်စွာ ပုံစံချထားခြင်း မရှိ။</string>
   <string name="error_unknown">အကြောင်းရင်းမသိရှိရသော အမှားတစ်ခု ဖြစ်ပေါ်နေသည်။</string>
   <string name="format_error_server_message">စာလွှာ: \"%s\"</string>
   <string name="address_copied">လိပ်စာအား ကူးယူပြီး။</string>

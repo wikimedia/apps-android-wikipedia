@@ -153,9 +153,6 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
-    val siteMatrix: Observable<SiteMatrix>
-
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     suspend fun getSiteMatrix(): SiteMatrix
 
@@ -691,7 +688,8 @@ interface Service {
             @Field("token") token: String,
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
-            @Field("captchaword") captchaWord: String? = null
+            @Field("captchaword") captchaWord: String? = null,
+            @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addcomment")
@@ -703,7 +701,8 @@ interface Service {
             @Field("token") token: String,
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
-            @Field("captchaword") captchaWord: String? = null
+            @Field("captchaword") captchaWord: String? = null,
+            @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
     @GET(MW_API_PREFIX + "action=query&generator=growthtasks")
