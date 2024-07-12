@@ -1,20 +1,19 @@
 buildscript {
-    ext.kotlin_version = '2.0.0'
     repositories {
         google()
         mavenCentral()
         mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.5.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.4.2'
+        classpath libs.gradle
+        classpath libs.kotlin.gradle.plugin
+        classpath libs.kotlin.serialization
+        classpath libs.google.services
     }
 }
 
 plugins {
-    id 'com.google.devtools.ksp' version '2.0.0-1.0.22' apply false
+    alias libs.plugins.ksp.plugin apply false
 }
 
 allprojects {
