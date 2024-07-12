@@ -10,14 +10,14 @@ updates:
     schedule:
       interval: "weekly"
     registries: "*"
-    labels: [ "version update" ]
+    labels: [ "dependencies" ]
     groups:
       kotlin-ksp:
         patterns:
           - "org.jetbrains.kotlin:*"
           - "org.jetbrains.kotlin.jvm"
           - "com.google.devtools.ksp"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 20
 registries:
   maven-google:
     type: "maven-repository"
