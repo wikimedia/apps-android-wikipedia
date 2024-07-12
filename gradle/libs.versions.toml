@@ -16,6 +16,8 @@ flexbox = "3.0.0"
 fragmentKtx = "1.8.0"
 glideVersion = "4.16.0"
 googlePayVersion = "19.4.0"
+googleServices = "4.4.2"
+gradle = "8.5.0"
 hamcrest = "2.2"
 installreferrer = "2.2"
 jsoup = "1.17.2"
@@ -24,7 +26,7 @@ junitVersion = "1.1.5"
 kotlinCoroutinesVersion = "1.8.1"
 kotlinStdlibJdk8 = "2.0.0"
 kotlinxSerializationJson = "1.7.0"
-ksp = "4.16.0"
+kspPlugin = "2.0.0-1.0.22"
 leakCanaryVersion = "2.14"
 material = "1.12.0"
 metricsVersion = "2.7"
@@ -76,11 +78,15 @@ espresso-web = { module = "androidx.test.espresso:espresso-web", version.ref = "
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
-glide-ksp = { module = "com.github.bumptech.glide:ksp", version.ref = "ksp" }
+glide-ksp = { module = "com.github.bumptech.glide:ksp", version.ref = "glideVersion" }
+google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
 installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 junit = { module = "junit:junit", version.ref = "junit" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinStdlibJdk8" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlinStdlibJdk8" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinStdlibJdk8" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutinesVersion" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutinesVersion" }
@@ -109,3 +115,6 @@ rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroi
 rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+
+[plugins]
+ksp-plugin = { id = 'com.google.devtools.ksp', version.ref = "kspPlugin" }
