@@ -47,7 +47,7 @@
   <string name="image_content_description">Şəkil: %s</string>
   <string name="page_content_description">Səhifə: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
-  <string name="wikidata">Vikiverilənlər</string>
+  <string name="wikidata">Vikidata</string>
   <string name="dialog_title_clear_history">Baxış tarixini təmizləyin</string>
   <string name="dialog_message_clear_history">Bu, bütün axtarış tarixinizi siləcək və açıq pəncərələrinizi bağlayacaq. Siz əminsiniz?</string>
   <string name="dialog_message_clear_history_yes">Bəli</string>
@@ -351,8 +351,7 @@
   <string name="page_view_in_browser">Brauzerdə göstər</string>
   <string name="tool_tip_toc_title">Mündəricat</string>
   <string name="tool_tip_toc_text">İndi məzmunu açmaq üçün sola sürüşdürə və eyni zamanda bir məqalənin fərqli hissələrinə sürətlə keçmək üçün bu sürüşdürücü düyməsini vurub sürükləyə bilərsiniz.</string>
-  <string name="tool_tip_lang_button">Artıq bir çox Vikipediya dillərində axtarış edib oxuya bilərsiniz.\n\nDaha çox dil əlavə etmək üçün ikonaya toxunun.</string>
-  <string name="error_response_malformed">Serverdən gələn cavab düzgün formatda deyil.</string>
+    <string name="error_response_malformed">Serverdən gələn cavab düzgün formatda deyil.</string>
   <string name="error_unknown">Bilinməyən bir xəta yarandı.</string>
   <string name="format_error_server_message">Mesaj: \"%s\"</string>
   <string name="address_copied">Ünvan kopyalandı.</string>

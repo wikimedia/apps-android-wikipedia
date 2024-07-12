@@ -297,7 +297,7 @@
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
-  <string name="search_results_count_zero">Нема исход</string>
+  <string name="search_results_count_zero">Не најдов ништо</string>
   <plurals name="search_results_count">
     <item quantity="one">1 ставка</item>
     <item quantity="other">%d ставки</item>
@@ -361,7 +361,6 @@
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_title">Брз пристап до прегледот на содржините</string>
   <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните оддели на статијата.</string>
-  <string name="tool_tip_lang_button">Сега можете да пребарувате и читате на повеќе јазици во прилогот.\n\n\nДопрете на иконката за да додадете уште јазици.</string>
   <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>
   <string name="error_unknown">Се појави непозната грешка.</string>
   <string name="format_error_server_message">Порака: „%s“</string>
@@ -1662,8 +1661,6 @@
   <string name="places_filter_title">Филтрирај јазик</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
-  <string name="places_nav_tab_tooltip_message">Откривајте Википедиини статии околу вас со Места</string>
-  <string name="places_article_menu_tooltip_message">Допрете на „Погл. на карта“ за да го истражите наоѓалиштето на оваа статија</string>
   <string name="places_survey_very_satisfied_option">Многу задоволен</string>
   <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
   <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>

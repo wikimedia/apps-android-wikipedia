@@ -291,8 +291,7 @@
   <string name="tool_tip_bookmark_icon_title">ოკითხირე ერკებულშა გეძინა</string>
   <string name="page_view_in_browser">ხასჷლაშ ძირაფა ბრაუზერს</string>
   <string name="tool_tip_toc_title">დინორეშ ბიწორი ხემიოლი</string>
-  <string name="tool_tip_lang_button">ანწი თქვა შეილებჷნა აპლიკაციას დოგორათ დო წეკითხათ ვიკიპედია შხვადოშხვა ნინაშა.\n\n\nშხვა ნინეფიშ გიოძინალო ქეგუწკანტეთ ხარხუნტას.</string>
-  <string name="error_response_malformed">სერვერშე გამაქ ჩილათირო დეფორმატირჷ.</string>
+    <string name="error_response_malformed">სერვერშე გამაქ ჩილათირო დეფორმატირჷ.</string>
   <string name="error_unknown">მეგორაფილი რე უჩინებუ ჩილათაშა.</string>
   <string name="format_error_server_message">გინაფა: „%s“</string>
   <string name="address_copied">მიოწურაფუ კოპირაფილი რე.</string>
