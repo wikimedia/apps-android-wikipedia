@@ -3,7 +3,6 @@ package org.wikipedia.page
 import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
@@ -1260,7 +1259,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun goToMainTab() {
         startActivity(MainActivity.newIntent(requireContext())
-            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
             .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         requireActivity().finish()
