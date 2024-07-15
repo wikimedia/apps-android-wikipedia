@@ -1,10 +1,12 @@
 package org.wikipedia.gallery
 
+import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -593,6 +595,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         // if we couldn't find a attribution string, then default to unknown
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
         binding.infoContainer.visibility = View.VISIBLE
+    }
+
+    override fun onProvideAssistContent(outContent: AssistContent) {
+        super.onProvideAssistContent(outContent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            currentItem?.mediaInfo?.commonsUrl?.let {
+                outContent.setWebUri(Uri.parse(it))
+            }
+        }
     }
 
     private inner class GalleryItemAdapter(activity: AppCompatActivity) : PositionAwareFragmentStateAdapter(activity) {
