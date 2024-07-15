@@ -342,7 +342,6 @@
   <string name="page_view_in_browser">ဗဵု မုက်လိက် ပ္ဍဲ browser</string>
   <string name="tool_tip_toc_title">မုက်လိက် မာတိကာ မကလိဂွံ ဗွဲမပြဟ်ဂမၠိုင်</string>
   <string name="tool_tip_toc_text">လၟုဟ် မၞးပဆေတ်ပတိတ် ဂၠံင်ပါဲ သွက်ဂွံပံက် မာတိကာ၊ တုဲပၠန် မၞးဖျေဟ်ထောအ် ကောန်ဍေင်ဏအ် သွက်ဂွံ ဒံင်လုပ်အာ လိက်ပရေင် ကဏ္ဍနာနာ။</string>
-  <string name="tool_tip_lang_button">လၟုဟ်မ္ဂး မၞး ဂၠာဲ ဗှ်ကေတ် နကဵု ဘာသာ ဝဳကဳပဳဒဳယာ စုင်လေင် ပ္ဍဲ app ဏအ်ရ၊၊\n\n\nစွံကောန်လဴ လတူ အာင်ကန် သွက်ဂွံ စုတ် ဘာသာတၞဟ်တအ်၊၊</string>
   <string name="error_response_malformed">ပရေင်မကလေင်ထ္ၜး နူကဵုသာပါဂှ် ကၠောန်ကဵု ဟွံဒး၊၊</string>
   <string name="error_unknown">အရာမဗၠေတ် မဟွံတီမွဲ ကတဵုဒှ်ကၠုင်၊၊</string>
   <string name="format_error_server_message">ဂလာန်မေတ်သုက် %s</string>

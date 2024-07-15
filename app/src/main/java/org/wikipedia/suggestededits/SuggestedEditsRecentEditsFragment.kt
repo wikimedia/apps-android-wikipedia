@@ -409,8 +409,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         override fun onItemClick(item: MwQueryResult.RecentChange) {
             sendPatrollerExperienceEvent("edit_item_click", "pt_recent_changes")
             viewModel.populateEditingSuggestionsProvider(item)
-            startActivity(SuggestionsActivity.newIntent(requireActivity(),
-                DescriptionEditActivity.Action.VANDALISM_PATROL, Constants.InvokeSource.SUGGESTED_EDITS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), DescriptionEditActivity.Action.VANDALISM_PATROL))
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {

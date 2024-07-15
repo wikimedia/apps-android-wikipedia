@@ -375,7 +375,6 @@
   <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="tool_tip_toc_title">Hurtig adgang til indholdsfortegnelse</string>
   <string name="tool_tip_toc_text">Du kan nu swipe til venstre for at åbne indholdsfortegnelsen, og også trykke og trække på denne rulleknap for at hurtigt hoppe til forskellige afsnit i artiklen.</string>
-  <string name="tool_tip_lang_button">Du kan nu søge og læse i flere Wikipedia-sprog i appen.</string>
   <string name="error_response_malformed">Svaret fra serveren er ikke formateret korrekt.</string>
   <string name="error_unknown">Der opstod en ukendt fejl.</string>
   <string name="format_error_server_message">Besked: »%s«</string>
@@ -1624,8 +1623,6 @@
   <string name="places_filter_title">Filtrér efter sprog</string>
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Opdag Wikipedia-artikler omkring dig med Steder</string>
-  <string name="places_article_menu_tooltip_message">Tryk på \'Se på kort\' for at udforske denne artikels placering</string>
   <string name="places_survey_very_satisfied_option">Meget tilfreds</string>
   <string name="places_survey_very_unsatisfied_option">Meget utilfreds</string>
   <string name="places_survey_dialog_title">Hjælp med at forbedre \'Steder\'</string>
