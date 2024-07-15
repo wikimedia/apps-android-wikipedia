@@ -19,6 +19,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
@@ -35,6 +36,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.camera.CameraUpdateFactory
@@ -637,13 +640,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
 
         if (pages.isEmpty() && !goToDefaultLocation && Prefs.placesLastLocationAndZoomLevel == null) {
-            // Keep searching for the available markers until we find some after first launch of Places
             lastLocation = Location("").apply {
                 val latLng = DEFAULT_LAT_LNG.split(",")
                 latitude = latLng.first().toDouble()
                 longitude = latLng.last().toDouble()
             }
-            goToLocation(lastLocation, animateCamera = true)
+            Toast.makeText(requireContext(), R.string.places_empty_navigating_to_default, Toast.LENGTH_LONG).show()
+            runBlocking {
+                delay(500)
+                goToLocation(lastLocation, animateCamera = true)
+            }
         } else {
             goToDefaultLocation = true
             lastLocation?.let {
@@ -865,7 +871,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     companion object {
-        private val DEFAULT_LAT_LNG = "37.77937672977168,-122.41891983729893"
+        private const val DEFAULT_LAT_LNG = "37.77937672977168,-122.41891983729893"
         const val MARKER_DRAWABLE = "markerDrawable"
         const val POINT_COUNT = "point_count"
         const val MAX_ANNOTATIONS = 250

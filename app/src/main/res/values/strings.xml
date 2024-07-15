@@ -1774,5 +1774,6 @@
     <string name="places_survey_dialog_cancel">Cancel</string>
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
+    <string name="places_empty_navigating_to_default">This area is empty. Navigating to the default location…</string>
     <!-- /Places -->
 </resources>
