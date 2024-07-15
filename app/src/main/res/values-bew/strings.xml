@@ -345,7 +345,7 @@
   <string name="page_view_in_browser">Deleng halaman di pengubek</string>
   <string name="tool_tip_toc_title">Aksès lekas daptar isi</string>
   <string name="tool_tip_toc_text">Lu sekarang bisa mingsèrin ke kèbot bakal ngebuka daptar isi, èn juga\' teken-tarik di ni tombol pengglincir biar lekas loncat ke bagèan laèn deri makalah.</string>
-    <string name="error_response_malformed">Waroan deri pengladèn kaga\' bener kepormatnya.</string>
+  <string name="error_response_malformed">Waroan deri pengladèn kaga\' bener kepormatnya.</string>
   <string name="error_unknown">Ada kengabluan nyang kaga\' ditauin kejadian.</string>
   <string name="format_error_server_message">Pesen: \"%s\"</string>
   <string name="address_copied">Aderès dijiplak ke papan jalan.</string>

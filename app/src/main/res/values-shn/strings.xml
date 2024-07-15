@@ -270,7 +270,7 @@
   <string name="page_view_in_browser">ၼႄပၼ် ၼႃႈလိၵ်ႈ တီႈၼႂ်း တူဝ်ပိုတ်ႇႁႃ</string>
   <string name="tool_tip_toc_title">လွၵ်းသဵၼ်ႈလမ်းၼႂ်း ဢၼ်ၸႂ်ႉလႆႈၽႂ်း</string>
   <string name="tool_tip_toc_text">ယၢမ်းလဵဝ် ၸဝ်ႈၵဝ်ႇၸၢင်ႈတိလၢႆႉၽၢႆႇသၢႆႉ တွၼ်ႈတႃႇပိုတ်ႇ လွၵ်းသဵၼ်ႈလမ်းၼႂ်း သေ ၸၢင်ႈ ၸမ်ႈသေလၢၵ်ႈသႂ်ႇ တီႈၼိူဝ်ၼဵၼ်ပႅၵ်ႈၸၼ် တွၼ်ႈတႃႇၵျွၵ်းၶၢမ်ႈၸူး တွၼ်ႈၵၼ်တၢင်ႇၸိူဝ်း တီႈပွင်ႈၵႂၢမ်းၼၼ်ႉ။</string>
-    <string name="error_response_malformed">ၶေႃႈတွပ်ႇၶိုၼ်းပၼ် ၵႃႈတီႈ သႃႇပိူဝ်ႇၼၼ်ႉ ဢမ်ႇမႅၼ်ႈလၢႆႈမၼ်းလီ။</string>
+  <string name="error_response_malformed">ၶေႃႈတွပ်ႇၶိုၼ်းပၼ် ၵႃႈတီႈ သႃႇပိူဝ်ႇၼၼ်ႉ ဢမ်ႇမႅၼ်ႈလၢႆႈမၼ်းလီ။</string>
   <string name="error_unknown">လွင်ႈၽိတ်းပိူင်ႈ ဢၼ်ဢမ်ႇလၢမ်းလႆႈၼၼ်ႉ ဢွၵ်ႇပဵၼ်ဝႆႉ။</string>
   <string name="format_error_server_message">ၶၢဝ်ႇသၢၼ်: \"%s\"</string>
   <string name="address_copied">ႁဵင်းလိၵ်ႈ ထုတ်ႇသႂ်ႇၸူး ဢွၵ်းမၢႆယဝ်ႉယဝ်ႈ။</string>

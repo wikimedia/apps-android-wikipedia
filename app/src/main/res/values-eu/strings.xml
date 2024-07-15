@@ -324,7 +324,7 @@
   <string name="all_tab_items_closed">Fitxa guztiak itxi dira.</string>
   <string name="tool_tip_bookmark_icon_title">Gehitu irakurketa zerrendara</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
-    <string name="error_response_malformed">Zerbitzariaren erantzuna ez da formateatu behar bezala.</string>
+  <string name="error_response_malformed">Zerbitzariaren erantzuna ez da formateatu behar bezala.</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
   <string name="address_copied">Helbidea klip-erretilura kopiatua.</string>
