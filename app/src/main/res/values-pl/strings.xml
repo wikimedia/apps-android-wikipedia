@@ -372,7 +372,7 @@
   <string name="page_view_in_browser">Otwórz stronę w przeglądarce</string>
   <string name="tool_tip_toc_title">Spis treści szybkiego dostępu</string>
   <string name="tool_tip_toc_text">Możesz teraz przesunąć palcem w lewo, aby otworzyć spis treści, a także dotknąć i przeciągnąć ten przycisk przewijania, aby szybko przejść do różnych sekcji artykułu.</string>
-    <string name="error_response_malformed">Odpowiedzi z serwera nie została prawidłowo sformatowana.</string>
+  <string name="error_response_malformed">Odpowiedzi z serwera nie została prawidłowo sformatowana.</string>
   <string name="error_unknown">Wystąpił nieznany błąd.</string>
   <string name="format_error_server_message">Komunikat: „%s”</string>
   <string name="address_copied">Adres skopiowany do schowka.</string>
