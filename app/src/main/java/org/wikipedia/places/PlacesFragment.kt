@@ -111,7 +111,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var lastLocationQueried: Location? = null
     private var lastZoom = 15.0
     private var lastZoomQueried = 0.0
-    private var autoZoomed = false
+    private var goToDefaultLocation = false
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
@@ -636,11 +636,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
         binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
 
-        if (pages.isEmpty() && !autoZoomed && Prefs.placesLastLocationAndZoomLevel == null) {
+        if (pages.isEmpty() && !goToDefaultLocation && Prefs.placesLastLocationAndZoomLevel == null) {
             // Keep searching for the available markers until we find some after first launch of Places
-            goToLocation(lastLocation, lastZoom - 2)
+            lastLocation = Location("").apply {
+                val latLng = DEFAULT_LAT_LNG.split(",")
+                latitude = latLng.first().toDouble()
+                longitude = latLng.last().toDouble()
+            }
+            goToLocation(lastLocation, animateCamera = true)
         } else {
-            autoZoomed = true
+            goToDefaultLocation = true
             lastLocation?.let {
                 Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
             }
@@ -667,7 +672,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
     }
 
-    private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
+    private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0, animateCamera: Boolean = false) {
         binding.viewButtonsGroup.check(R.id.mapViewButton)
         mapboxMap?.let {
             viewModel.lastKnownLocation = getLastKnownUserLocation()
@@ -676,15 +681,33 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
             val targetLocation = location ?: currentLatLngLoc
             targetLocation?.let { target ->
-                it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
-                    override fun onCancel() { }
+                if (animateCamera) {
+                    it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), 3000, object : CancelableCallback {
+                            override fun onCancel() {}
 
-                    override fun onFinish() {
-                        if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
-                            showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
-                        }
-                    }
-                })
+                            override fun onFinish() {
+                                if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                                    showLinkPreview(
+                                        viewModel.highlightedPageTitle!!,
+                                        preferredLocation
+                                    )
+                                }
+                            }
+                        })
+                } else {
+                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                            override fun onCancel() {}
+
+                            override fun onFinish() {
+                                if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                                    showLinkPreview(
+                                        viewModel.highlightedPageTitle!!,
+                                        preferredLocation
+                                    )
+                                }
+                            }
+                        })
+                }
             }
         }
     }
@@ -842,6 +865,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     companion object {
+        private val DEFAULT_LAT_LNG = "37.77937672977168,-122.41891983729893"
         const val MARKER_DRAWABLE = "markerDrawable"
         const val POINT_COUNT = "point_count"
         const val MAX_ANNOTATIONS = 250
