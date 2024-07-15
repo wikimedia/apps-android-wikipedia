@@ -353,7 +353,7 @@
   <string name="page_view_in_browser">Tingnan ang pahina sa browser</string>
   <string name="tool_tip_toc_title">Mabilisang nilalaman</string>
   <string name="tool_tip_toc_text">Pwede ka na\'ng mag-swipe sa kaliwa para mabuksan ang talaan ng nilalaman, at pindutin at mag-drag sa scroller na ito para mabilis na makapunta sa iba\'t-ibang mga bahagi ng isang artikulo.</string>
-    <string name="error_response_malformed">Hindi maayos ang format ng tugon ng server.</string>
+  <string name="error_response_malformed">Hindi maayos ang format ng tugon ng server.</string>
   <string name="error_unknown">May nangyaring di alam na error.</string>
   <string name="format_error_server_message">Mensahe: \"%s\"</string>
   <string name="address_copied">Kinopya na sa clipboard ang address.</string>

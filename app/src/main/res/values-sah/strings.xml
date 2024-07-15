@@ -280,7 +280,7 @@
   <string name="page_view_in_browser">Сирэйи браузерга көрүү</string>
   <string name="tool_tip_toc_title">Ис хоһоонун түргэнник көрүү</string>
   <string name="tool_tip_toc_text">Хаҥас диэки тарыйдаххына, иһинээҕитэ көстүө, эбэтэр эргитэр тэрили туттан, ыстатыйа салааларыгар түргэнник тиийиэххин сөп.</string>
-    <string name="error_response_malformed">Сиэрбэр хоруйа алҕастаахтык таҥастаммыт.</string>
+  <string name="error_response_malformed">Сиэрбэр хоруйа алҕастаахтык таҥастаммыт.</string>
   <string name="error_unknown">Биллибэт алҕас таҕыста.</string>
   <string name="format_error_server_message">Этии: «%s»</string>
   <string name="address_copied">Аадырыс долоҕойго хатанна.</string>
