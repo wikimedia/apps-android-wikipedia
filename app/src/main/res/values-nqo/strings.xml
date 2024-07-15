@@ -326,7 +326,7 @@
   <string name="page_view_in_browser">ߞߐߜߍ ߦߋ߫ ߛߏ߲߯ߓߊߟߊ߲ ߘߐ߫</string>
   <string name="tool_tip_toc_title">ߞߣߐߘߐ ߟߎ߬ ߥߟߊ߬ߟߋ߲ ߠߊߛߐ߬ߘߐ߲߬ ߖߏߣߊ</string>
   <string name="tool_tip_toc_text">ߌ ߘߌ߫ ߛߋ߫ ߌ ߡߍ߲ߛߍ߲ ߕߣߍ߬ߣߍ߬ ߟߊ߫ ߡߊ߬ߙߊ߲ ߝߍ߬ ߞߊ߬ ߥߟߊ߬ߟߋ߲ ߘߊߦߟߍ߬ ߥߟߊ߫ ߞߣߐߘߐ߸ ߌ ߘߌ߫ ߛߋ߫ ߥߟߊ߬ ߕߍߟߍ߲ ߣߌ߲߬ ߓߍ߬ߙߍ߲߬ߓߍ߲߬ߕߊ ߣߌ߲߬ ߡߊߝߟߍ߫ ߟߊ߫ ߞߊ߬ ߕߍߕߍ߮ ߘߏ߫ ߕߐߘߐ߲߫ ߞߵߌ ߜߊ߲߫ ߘߏ߫ ߞߎ߲߬ߠߊ߫ ߕߋߙߌߦߊ߫ ߘߐ߫ ߞߊ߬ ߘߏ߫ ߟߊߡߌ߬ߣߊ߫ ߞߎߡߘߊ ߘߏ߫ ߘߐ߫.</string>
-    <string name="error_response_malformed">ߖߋ߬ߓߌ߬ߟߌ ߡߍ߲ ߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߡߊ߬ߛߐ߬ߟߊ ߟߊ߫߸ ߏ߬ ߡߊ߫ ߖߙߎߡߎ߲ߦߊ߫ ߞߏߢߊ߬.</string>
+  <string name="error_response_malformed">ߖߋ߬ߓߌ߬ߟߌ ߡߍ߲ ߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߡߊ߬ߛߐ߬ߟߊ ߟߊ߫߸ ߏ߬ ߡߊ߫ ߖߙߎߡߎ߲ߦߊ߫ ߞߏߢߊ߬.</string>
   <string name="error_unknown">ߝߎ߬ߕߎ߲߬ߕߌ߬ ߡߊߟߐ߲ߓߊߟߌ ߘߏ߫ ߓߘߊ߫ ߓߌ߬ߟߵߊ߬ ߘߐ߫.</string>
   <string name="format_error_server_message">ߗߋߛߓߍ: \"%s\"</string>
   <string name="address_copied">ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߘߊ߫ ߓߊߓߌ߬ߟߊ߬ ߛߓߍߝߌߘߊ߫-ߜߍ߬ߙߍ߲߬ߘߍ߬ߣߍ߲ ߞߊ߲߬.</string>

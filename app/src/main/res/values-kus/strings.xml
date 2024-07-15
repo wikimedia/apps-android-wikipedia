@@ -342,7 +342,7 @@
   <string name="tool_tip_bookmark_icon_text">Diim buukmak biel la ni ka atikil karʋŋ la\'ad la kpɛn\'.</string>
   <string name="page_view_in_browser">Gɔsim lakir burauza</string>
   <string name="tool_tip_toc_title">Sɔb bʋʋlʋm paamʋg tɔ\'ɔtɔ</string>
-    <string name="error_response_malformed">Lɛbisa banɛ yi onɛ tisid labaya la san\'an tʋn\'e pʋ bɛ din nar si\'em.</string>
+  <string name="error_response_malformed">Lɛbisa banɛ yi onɛ tisid labaya la san\'an tʋn\'e pʋ bɛ din nar si\'em.</string>
   <string name="error_unknown">Gbɛlʋŋ kanɛ ka ti zi\' naamya.</string>
   <string name="format_error_server_message">Labaar: \"%s\"</string>
   <string name="address_copied">Kopi sɔbʋg la keŋ su\'ak zin\'igin</string>
