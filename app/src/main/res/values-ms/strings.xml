@@ -353,7 +353,7 @@
   <string name="page_view_in_browser">Paparkan laman dalam pelayar</string>
   <string name="tool_tip_toc_title">Capaian cepat jadual kandungan</string>
   <string name="tool_tip_toc_text">Anda kini boleh leret ke kiri untuk membuka jadual kandungan, dan juga ketik dan seret pada butang scroller ini untuk melompat dengan cepat ke bahagian rencana yang berlainan.</string>
-    <string name="error_response_malformed">Respons dari pelayan tidak diformatkan dengan betul.</string>
+  <string name="error_response_malformed">Respons dari pelayan tidak diformatkan dengan betul.</string>
   <string name="error_unknown">Berlakunya ralat yang tidak diketahui.</string>
   <string name="format_error_server_message">Mesej: \"%s\"</string>
   <string name="address_copied">Alamat disalin ke papan klip.</string>

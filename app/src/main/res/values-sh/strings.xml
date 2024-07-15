@@ -341,7 +341,7 @@
   <string name="tool_tip_bookmark_icon_title">Dodaj na spisak za čitanje</string>
   <string name="tool_tip_bookmark_icon_text">Dodirnite sličicu dočitnice da biste sačuvali članak na listu za čitanje.</string>
   <string name="tool_tip_toc_text">Sada možete prevlačiti ulijevo da biste otvorili sadržaj, a zatim dodirnuti i prevući dugme ovog pomerača da biste brzo prešli na druge odjeljke članka.</string>
-    <string name="error_response_malformed">Odgovor servera nije ispravno formatiran.</string>
+  <string name="error_response_malformed">Odgovor servera nije ispravno formatiran.</string>
   <string name="error_unknown">Došlo je do nepoznate greške.</string>
   <string name="format_error_server_message">Poruka: \"%s\"</string>
   <string name="address_copied">Adresa stavljena u međuspremnik</string>
