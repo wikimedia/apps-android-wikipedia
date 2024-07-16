@@ -351,7 +351,7 @@
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="tool_tip_toc_title">Flýtiaðgangur í efnisyfirlit</string>
   <string name="tool_tip_toc_text">Þú getur núna strokið til vinstri til að opna efnisyfirlitið, eins geturðu ýtt og dregið á þessum skrunhnappi til að hoppa fljótt á milli einstakra efnishluta greinar.</string>
-    <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
+  <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
   <string name="error_unknown">Óþekkt villa kom upp.</string>
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
   <string name="address_copied">Vistfang afritað á klippispjaldið.</string>

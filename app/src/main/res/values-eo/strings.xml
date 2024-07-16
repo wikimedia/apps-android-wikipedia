@@ -319,7 +319,7 @@
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="tool_tip_toc_title">Enhavtabelo rapida aliro</string>
   <string name="tool_tip_toc_text">Nun vi povas ŝovumi maldekstren por malfermi la enhavotabelon, kaj frapeti-treni la ruluma butonon por rapide salti al paragrafoj de artikolo.</string>
-    <string name="error_response_malformed">Respondo de la servilo ne estas ĝuste aranĝita.</string>
+  <string name="error_response_malformed">Respondo de la servilo ne estas ĝuste aranĝita.</string>
   <string name="error_unknown">Okazis nekonata eraro.</string>
   <string name="format_error_server_message">Mesaĝo: \"%s\"</string>
   <string name="address_copied">Adreso kopiita al la tondujo.</string>
