@@ -115,7 +115,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
     private lateinit var markerPaintSrcIn: Paint
+    private lateinit var markerPaintSrcOver: Paint
     private lateinit var markerBorderPaint: Paint
+    private lateinit var wLogoBitmap: Bitmap
+    private lateinit var wLogoRect: Rect
+    private val wLogoMarkerRect = Rect(21, 21, DimenUtil.roundedDpToPx(33f), DimenUtil.roundedDpToPx(33f))
     private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
     private val searchRadius
         get() = mapboxMap?.let {
@@ -167,6 +171,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         super.onCreate(savedInstanceState)
         setupMarkerPaints()
         markerBitmapBase = Bitmap.createBitmap(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888).applyCanvas {
+            wLogoBitmap = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.ic_w_transparent,
+                ResourceUtil.getThemedAttributeId(requireContext(), R.attr.paper_color))
+            wLogoRect = Rect(0, 0, wLogoBitmap.width, wLogoBitmap.height)
             drawMarker(this)
         }
 
@@ -445,6 +452,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             isAntiAlias = true
             xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
         }
+        markerPaintSrcOver = Paint().apply {
+            isAntiAlias = true
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_OVER)
+        }
         markerBorderPaint = Paint().apply {
             style = Paint.Style.STROKE
             strokeWidth = MARKER_BORDER_SIZE
@@ -706,6 +717,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         thumbnailBitmap?.let {
             val thumbnailRect = Rect(0, 0, it.width, it.height)
             canvas.drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
+        } ?: run {
+            canvas.drawBitmap(wLogoBitmap, wLogoRect, wLogoMarkerRect, markerPaintSrcOver)
         }
         canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
     }
