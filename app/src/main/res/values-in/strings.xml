@@ -385,7 +385,6 @@
   <string name="page_view_in_browser">Lihat halaman di peramban</string>
   <string name="tool_tip_toc_title">Akses cepat daftar isi</string>
   <string name="tool_tip_toc_text">Sekarang Anda dapat menggesek ke kiri untuk membuka daftar isi, dan juga mengetuk dan menyeret pada tombol penggulung ini untuk dengan cepat melompat ke bagian artikel yang berbeda.</string>
-  <string name="tool_tip_lang_button">Anda sekarang dapat mencari dan membaca dalam beberapa bahasa Wikipedia di aplikasi.\n\n\nKetuk ikon untuk menambahkan lebih banyak bahasa.</string>
   <string name="error_response_malformed">Respon dari peladen tidak diformat dengan benar.</string>
   <string name="error_unknown">Terjadi sebuah kesalahan yang tidak diketahui.</string>
   <string name="format_error_server_message">Pesan: \"%s\"</string>
@@ -1573,8 +1572,6 @@
   <string name="places_filter_title">Saring bahasa</string>
   <string name="places_toggle_buttons_map">Peta</string>
   <string name="places_toggle_buttons_list">Daftar</string>
-  <string name="places_nav_tab_tooltip_message">Temukan artikel Wikipedia di sekitar Anda dengan Tempat</string>
-  <string name="places_article_menu_tooltip_message">Ketuk \'Lihat di peta\' untuk menjelajahi lokasi artikel ini</string>
   <string name="places_survey_very_satisfied_option">Sangat puas</string>
   <string name="places_survey_very_unsatisfied_option">Sangat tidak puas</string>
   <string name="places_survey_dialog_title">Bantu memperbaiki \'Tempat\'</string>

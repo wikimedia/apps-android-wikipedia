@@ -230,10 +230,6 @@
             android:title="@string/preference_key_description_edit_tutorial_enabled" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_multilingual_search_tooltip_shown"
-            android:title="@string/preference_key_multilingual_search_tooltip_shown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_list_sync_reminder_enabled"
             android:title="@string/preference_key_reading_list_sync_reminder_enabled" />
 
@@ -298,14 +294,6 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_sequential_recent_edits_diff_tooltip"
             android:title="@string/preference_key_show_sequential_recent_edits_diff_tooltip" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_places_page_onboarding_tooltip"
-            android:title="@string/preference_key_show_places_page_onboarding_tooltip" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_places_main_nav_onboarding_tooltip_shown"
-            android:title="@string/preference_key_show_places_main_nav_onboarding_tooltip_shown" />
 
     </PreferenceCategory>
 

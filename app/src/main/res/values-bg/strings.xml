@@ -353,7 +353,6 @@
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
   <string name="tool_tip_toc_title">Бърз достъп до съдържанието</string>
   <string name="tool_tip_toc_text">Вече можете да плъзнете наляво, за да отворите съдържанието, а също така да докоснете и плъзнете този бутон за превъртане, за да преминете бързо към различни секции на статия.</string>
-  <string name="tool_tip_lang_button">Сега можете да търсите и четете Уикипедия на различни езици в приложението.\n\n\nДокоснете иконката, за да добавите още езици.</string>
   <string name="error_response_malformed">Отговорът от сървъра не е правилно форматиран.</string>
   <string name="error_unknown">Възникна неизвестна грешка.</string>
   <string name="format_error_server_message">Съобщение: „%s“</string>
@@ -1131,7 +1130,7 @@
   <string name="talk_warn_save_dialog_publish">Публикуване</string>
   <string name="talk_warn_save_dialog_cancel">Отказ</string>
   <string name="talk_warn_save_dialog_dont_save">Да не се съхранява</string>
-  <string name="talk_warn_submitted_and_saved">Съобщението е съхранено и публикувано на потребителската страница за разговори на редактора</string>
+  <string name="talk_warn_submitted_and_saved">Съобщението е съхранено и публикувано на потребителската беседа на редактора</string>
   <string name="talk_warn_saved_messages">Съхранени съобщения</string>
   <string name="talk_page_empty">Беседата е празна.</string>
   <string name="talk_page_empty_title">Разговорът започва тук</string>
@@ -1333,9 +1332,9 @@
   <string name="patroller_tasks_filters_wiki_filter_header">Уики</string>
   <string name="patroller_tasks_filters_all_text">Всички</string>
   <string name="patroller_tasks_filters_user_status_header">Регистрация на потребителя и опит</string>
-  <string name="patroller_tasks_filters_user_status_unregistered">Нерегистриран</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Нерегистрирани</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Редактори, които не са влезли в системата.</string>
-  <string name="patroller_tasks_filters_user_status_registered">Регистриран</string>
+  <string name="patroller_tasks_filters_user_status_registered">Регистрирани</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Влезли в системата редактори.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Новодошли</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Регистрирани редактори с по-малко от 10 редакции и 4 дена активност.</string>
@@ -1370,15 +1369,15 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Със средна точност намира междинната част от проблемните редакции.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Много вероятно недобросъвестна</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Много висока точност при намиране на най-очевидно погрешните или вредни редакции.</string>
-  <string name="patroller_tasks_filters_empty_search_message">Опитайте да премахнете %s за да видите повече редакции</string>
+  <string name="patroller_tasks_filters_empty_search_message">Опитайте да премахнете %s, за да видите повече редакции</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d филтър</item>
     <item quantity="other">%d филтъра</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">История на редакциите на статията</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Връщането е завършено</string>
-  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Сигурен ли сте, че искате да върнете редакцията?</string>
-  <string name="patroller_tasks_patrol_edit_rollback_success">Връщането е завършено</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Сигурен ли сте, че искате да отмените редакцията?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Отмяната е завършена</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Преглед</string>
   <string name="patroller_tasks_overflow_report">Проблем с възможността</string>
   <string name="patroller_tasks_overflow_learn">Научете повече</string>

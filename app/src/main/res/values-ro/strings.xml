@@ -365,7 +365,6 @@
   <string name="page_view_in_browser">Vezi pagina cu navigatorul</string>
   <string name="tool_tip_toc_title">Cuprins acces rapid</string>
   <string name="tool_tip_toc_text">Acum puteți glisa spre stânga pentru a deschide cuprinsul și, de asemenea, atingeți și trageți pe acest buton pentru a trece rapid la diferite secțiuni ale unui articol.</string>
-  <string name="tool_tip_lang_button">Acum puteți căuta și citi în mai multe limbi Wikipedia din aplicație.\n\n\nAtingeți pictograma pentru a adăuga mai multe limbi.</string>
   <string name="error_response_malformed">Răspunsul de la server nu a fost formatat corect.</string>
   <string name="error_unknown">A apărut o eroare necunoscută.</string>
   <string name="format_error_server_message">Mesaj: „%s”</string>
@@ -1366,7 +1365,6 @@
   <string name="places_filter_title">Filtrare după limbă</string>
   <string name="places_toggle_buttons_map">Hartă</string>
   <string name="places_toggle_buttons_list">Listă</string>
-  <string name="places_nav_tab_tooltip_message">Descoperiți articole Wikipedia din jurul vostru cu Locuri</string>
   <string name="places_survey_very_satisfied_option">Foarte mulțumit</string>
   <string name="places_survey_very_unsatisfied_option">Foarte nemulțumit</string>
   <string name="places_survey_dialog_title">Ajută să îmbunătățim „Locuri”</string>

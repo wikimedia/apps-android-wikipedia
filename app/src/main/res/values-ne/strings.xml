@@ -234,7 +234,7 @@
   <string name="about_translators_heading">अनुवादकहरू</string>
   <string name="about_translators_translatewiki">यो अनुप्रयोग &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; का अनुवाद स्वयंसेवकहरूद्वारा अनुवाद गरिएको हो।</string>
   <string name="about_app_license_heading">इजाजतपत्र</string>
-  <string name="about_app_license" fuzzy="true">स्रोत कोड &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; तथा &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; मा &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; अन्तर्गत् उपलब्ध छ। अन्यथा निर्दिष्ट नभएसम्म, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; अन्तर्गत् उपलब्ध छ।</string>
+  <string name="about_app_license">स्रोत कोड &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\" &gt;गिटहब&lt;/a&gt; &lt;a href=\" \"https://www.apache.org/licenses/LICENSE-2.0\" &gt;अपाचे २.० अनुमति पत्र अन्तर्गत उपलब्ध&lt;/a&gt; छ। अन्यथा निर्दिष्ट नगरेसम्म, सामग्री &lt;a href==\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;क्रिएटिभ कमन्स एट्रिब्युसन-सेयरएलाइक अनुमति पत्र अन्तर्गत उपलब्ध&lt;/a&gt; छ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमिडिया फाउन्डेसनको&lt;/a&gt;एक उत्पादन</string>
   <string name="about_activity_title">बारेमा</string>
   <string name="edit_abandon_confirm">यो पृष्ठ परिवर्तन भइसक्यो। आफ्ना परिवर्तनहरू सङ्ग्रह नगरी बाहिर निक्लन चाहनुहुन्छ?</string>
@@ -313,7 +313,7 @@
   <string name="gallery_add_image_caption_in_language_button">तस्वीर वर्णन (%s) थप्नुहोस्</string>
   <string name="err_cannot_save_file">फाइल सुरक्षित गर्न सकिएन</string>
   <string name="expand_refs">विस्तृत गर्न ट्याप गर्नुहोस्</string>
-  <string name="cc_logo">Creative Commons इजाजतपत्र</string>
+  <string name="cc_logo">क्रिएटिभ कमन्स अनुमतिपत्र</string>
   <string name="captcha_image">Captcha छवि</string>
   <string name="gallery_fair_use_license">उचित उपयोग</string>
   <string name="gallery_uploader_unknown">अज्ञात अपलोडकर्ता</string>
@@ -709,6 +709,7 @@
   <string name="talk_title">वार्तालाप</string>
   <string name="talk_user_title">वार्तालाप: %s</string>
   <string name="talk_new_topic">नयाँ विषय</string>
+  <string name="talk_warn_save_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="talk_add_reply">जवाफ दिनुहोस्</string>
   <string name="talk_no_subject">(विषय रहित)</string>
   <string name="talk_reply_subject">विषय</string>

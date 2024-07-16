@@ -382,7 +382,6 @@
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
   <string name="tool_tip_toc_title">목차 빠른 접근</string>
   <string name="tool_tip_toc_text">지금 왼쪽으로 스와이프하면 목차를 열 수 있으며 스크롤러 버튼에 탭하여 드래그하면 글의 다른 문단으로 빠르게 이동할 수도 있습니다.</string>
-  <string name="tool_tip_lang_button">지금 앱에서 여러 위키백과 언어로 검색하고 읽을 수 있습니다.\n\n\n언어를 더 추가하려면 아이콘을 탭하세요.</string>
   <string name="error_response_malformed">서버에서의 응답 형식이 잘못되었습니다.</string>
   <string name="error_unknown">알 수 없는 오류가 발생했습니다.</string>
   <string name="format_error_server_message">메시지: \"%s\"</string>

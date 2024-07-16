@@ -377,7 +377,6 @@
   <string name="page_view_in_browser">Lap megtekintése böngészőben</string>
   <string name="tool_tip_toc_title">Tartalomjegyzék gyors elérése</string>
   <string name="tool_tip_toc_text">A tartalomjegyzéket balra lapozva tudod előhozni és a görgőt megragadva gyorsan navigálhatsz a szócikk különböző részei között.</string>
-  <string name="tool_tip_lang_button">Mostantól több Wikipédia-nyelven is kereshetsz és olvashatsz az alkalmazásban.\n\nEzzel az ikonnal vehetsz fel újabb nyelveket.</string>
   <string name="error_response_malformed">A kiszolgáló válasza nincs megfelelően formázva.</string>
   <string name="error_unknown">Ismeretlen hiba történt.</string>
   <string name="format_error_server_message">Üzenet: „%s”</string>
@@ -1647,8 +1646,6 @@
   <string name="places_filter_title">Nyelvi szűrés</string>
   <string name="places_toggle_buttons_map">Térkép</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Fedezd fel a körülötted lévő Wikipédia-cikkeket a Helyek segítségével</string>
-  <string name="places_article_menu_tooltip_message">Érintsd meg a „Megtekintés a térképen” elemet a cikk helyének felfedezéséhez</string>
   <string name="places_survey_very_satisfied_option">Nagyon elégedett</string>
   <string name="places_survey_very_unsatisfied_option">Nagyon elégedetlen</string>
   <string name="places_survey_dialog_title">Segítsen a „Helyek” fejlesztésében</string>

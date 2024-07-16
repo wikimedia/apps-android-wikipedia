@@ -357,7 +357,6 @@
   <string name="page_view_in_browser">Браузерде бетни кёргюз</string>
   <string name="tool_tip_toc_title">Ичиндегилеге дженгил джетишиу</string>
   <string name="tool_tip_toc_text">Энди контентни суратын ачар ючюн солгъа буруб, эмда сайланнган статьяны айры бёлюмлерине дженгил джетишир ючюн, бу буруу тиекге тийиб тарт.</string>
-  <string name="tool_tip_lang_button">Энди къошакъда бирден аслам Википедия тилде излеу этерге эмда окъургъа боллукъсуз.\n\n\n\nАндан аслам тил къошар ючюн белгилег басыгъыз.</string>
   <string name="error_response_malformed">Серверден келген джууаб тюз форматландырылмады.</string>
   <string name="error_unknown">Белгили болмагъан халат.</string>
   <string name="format_error_server_message">Билдириу: «%s»</string>
@@ -1630,8 +1629,6 @@
   <string name="places_filter_title">Фильтр тил</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Тизме</string>
-  <string name="places_nav_tab_tooltip_message">Джерле бла тёгеригигиздеги Википедия статьяланы табыгъыз</string>
-  <string name="places_article_menu_tooltip_message">Бу статьяны темасын ортагъа чыгъарыр ючюн \'Картада кёр\'ге басыгъыз</string>
   <string name="places_survey_very_satisfied_option">Бек разыма</string>
   <string name="places_survey_very_unsatisfied_option">Бек разы тюлме</string>
   <string name="places_survey_dialog_title">\'Джерле\'ни маджаллашдырыргъа болушлукъчу бол</string>

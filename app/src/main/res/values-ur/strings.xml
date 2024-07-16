@@ -303,7 +303,6 @@
   <string name="page_view_in_browser">صفحہ کو براؤزر میں دیکھیں</string>
   <string name="tool_tip_toc_title">فہرست عنوانات تک فوری رسائی</string>
   <string name="tool_tip_toc_text">اب آپ نیچے دائیں جانب کونے میں موجود بٹن سے مضمون کی کسی بھی سرخی تک ایک کلک سے پہنچ سکتے ہیں۔ اس بٹن پر کلک کریں اور سرخیوں کی فہرست کو باآسانی دیکھیں۔</string>
-  <string name="tool_tip_lang_button">مزید زبانیں شامل کرنے کے لیے آئیکن پر کلک کریں۔</string>
   <string name="error_response_malformed">سرور کے جواب کی سکلبندی ٹھیک سے نہیں کی گئی ہے۔</string>
   <string name="error_unknown">ایک نامعلوم نقص واقع ہوا ہے ۔</string>
   <string name="format_error_server_message">پیغام:\"%s\"</string>
@@ -705,8 +704,6 @@
   <string name="places_filter_title">زبان کو فلٹر کریں</string>
   <string name="places_toggle_buttons_map">نقشہ</string>
   <string name="places_toggle_buttons_list">فہرست</string>
-  <string name="places_nav_tab_tooltip_message">مقامات کے ساتھ اپنے ارد گرد ویکیپیڈیا کے مضامین دریافت کریں</string>
-  <string name="places_article_menu_tooltip_message">اس مضمون کا مقام دریافت کرنے کے لیے \'نقشے پر دیکھیں\' پر ٹیپ کریں۔</string>
   <string name="places_survey_very_satisfied_option">بہت مطمئن</string>
   <string name="places_survey_very_unsatisfied_option">بہت غیر مطمئن</string>
   <string name="places_survey_dialog_title">مقامات\' کو بہتر بنانے میں مدد کریں</string>

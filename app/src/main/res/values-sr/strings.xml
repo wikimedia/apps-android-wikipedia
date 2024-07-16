@@ -370,7 +370,6 @@
   <string name="page_view_in_browser">Прикажи страницу у прегледачу</string>
   <string name="tool_tip_toc_title">Садржај брзог приступа</string>
   <string name="tool_tip_toc_text">Сада можете превлачити улево да бисте отворили садржај, а затим додирнути и превући дугме овог померача да бисте брзо прешли на друге одељке чланка.</string>
-  <string name="tool_tip_lang_button">Сада можете да претражујете и читате Википедију на више језика у апликацији.\n\n\nДодирните икону да бисте додали још језика.</string>
   <string name="error_response_malformed">Одговор сервера није исправно форматиран.</string>
   <string name="error_unknown">Дошло је до непознате грешке.</string>
   <string name="format_error_server_message">Порука: „%s”</string>
@@ -1614,7 +1613,6 @@
   <string name="places_filter_title">Филтрирај по језику</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>
-  <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>
   <string name="places_survey_very_satisfied_option">Веома задовољан</string>
   <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
   <string name="places_survey_dialog_cancel">Откажи</string>

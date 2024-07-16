@@ -335,7 +335,6 @@
   <string name="page_view_in_browser">Peržiūra naršyklėje</string>
   <string name="tool_tip_toc_title">Greita prieiga prie turinio</string>
   <string name="tool_tip_toc_text">Dabar galite braukti kairėn, kad atidarytumėte turinį, taip pat bakstelėkite ir vilkite šį slinkties mygtuką, kad greitai pereitumėte į skirtingas straipsnio dalis.</string>
-  <string name="tool_tip_lang_button">Dabar programėlėje galite ieškoti ir skaityti keliomis Vikipedijos kalbomis.\n\n\nBakstelėkite piktogramą, kad pridėtumėte daugiau kalbų.</string>
   <string name="error_response_malformed">Atsakas iš serverio nebuvo suformatuotas teisingai.</string>
   <string name="error_unknown">Įvyko nežinoma klaida.</string>
   <string name="format_error_server_message">Pranešimas: \"%s\"</string>

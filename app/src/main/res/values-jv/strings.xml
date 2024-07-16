@@ -269,7 +269,6 @@
   <string name="all_tab_items_closed">Kabèh tab ditutup.</string>
   <string name="tool_tip_bookmark_icon_title">Wuwuhaké ing pratélan wacan</string>
   <string name="page_view_in_browser">Deleng kaca ing pangluru</string>
-  <string name="tool_tip_lang_button">Panjenengan saiki bisa nggolèk lan maca ing manéka basa Wikipédia ing aplikasiné.\n\n\nDemok ing ikoné saperlu nambah basa liyané.</string>
   <string name="error_response_malformed">Wangsulan saka paladèné formaté ora pener.</string>
   <string name="error_unknown">Ana cacad sing ora dingertèni.</string>
   <string name="format_error_server_message">Layang: \"%s\"</string>

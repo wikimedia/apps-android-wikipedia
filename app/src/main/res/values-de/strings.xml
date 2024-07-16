@@ -398,7 +398,6 @@
   <string name="page_view_in_browser">Seite im Browser ansehen</string>
   <string name="tool_tip_toc_title">Inhaltsverzeichnis-Schnellzugriff</string>
   <string name="tool_tip_toc_text">Du kannst jetzt nach links wischen, um das Inhaltsverzeichnis zu öffnen und auch auf diese Blätter-Schaltfläche tippen und ziehen, um schnell zwischen den unterschiedlichen Abschnitten eines Artikels zu springen.</string>
-  <string name="tool_tip_lang_button">Du kannst jetzt nach mehreren Wikipedia-Sprachen in der App suchen und in diesen lesen.\n\nTippe auf das Symbol, um weitere Sprachen hinzuzufügen.</string>
   <string name="error_response_malformed">Die Antwort vom Server ist nicht korrekt formatiert.</string>
   <string name="error_unknown">Es ist ein unbekannter Fehler aufgetreten.</string>
   <string name="format_error_server_message">Nachricht: „%s“</string>
@@ -1582,8 +1581,6 @@
   <string name="places_filter_title">Sprache filtern</string>
   <string name="places_toggle_buttons_map">Karte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Entdecke Wikipedia-Artikel in deiner Nähe mit Orte</string>
-  <string name="places_article_menu_tooltip_message">Tippe auf „Auf Karte anzeigen“, um den Standort dieses Artikels zu erkunden</string>
   <string name="places_survey_very_satisfied_option">Sehr zufrieden</string>
   <string name="places_survey_very_unsatisfied_option">Sehr unzufrieden</string>
   <string name="places_survey_dialog_title">Hilf mit, „Orte“ zu verbessern</string>

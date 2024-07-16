@@ -399,7 +399,6 @@
   <string name="page_view_in_browser">Sayfayı tarayıcıda görüntüle</string>
   <string name="tool_tip_toc_title">İçindekilere hızlı erişim</string>
   <string name="tool_tip_toc_text">Artık içindekiler tablosunu açmak için sola doğru kaydırabilir ve ayrıca bir maddenin farklı bölümlerine hızlıca gitmek için bu kaydırma düğmesine dokunup sürükleyebilirsiniz.</string>
-  <string name="tool_tip_lang_button">Artık uygulamada birden fazla Vikipedi dilinde arama yapabilir ve okuyabilirsiniz.\n\n\nDaha fazla dil eklemek için simgeye dokunun.</string>
   <string name="error_response_malformed">Sunucudan gelen yanıt doğru biçimlendirilmedi.</string>
   <string name="error_unknown">Bilinmeyen bir hata oluştu.</string>
   <string name="format_error_server_message">Mesaj: \"%s\"</string>
@@ -1646,8 +1645,6 @@
   <string name="places_filter_title">Dile göre filtrele</string>
   <string name="places_toggle_buttons_map">Harita</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Yerler ile çevrenizdeki Vikipedi maddelerini keşfedin</string>
-  <string name="places_article_menu_tooltip_message">Bu maddenin konumunu ortaya çıkarmak için \'Haritada gör\'e dokunun</string>
   <string name="places_survey_very_satisfied_option">Çok mutlu</string>
   <string name="places_survey_very_unsatisfied_option">Çok mutsuz</string>
   <string name="places_survey_dialog_title">\'Yerler\'i iyileştirmeye yardımcı olun</string>

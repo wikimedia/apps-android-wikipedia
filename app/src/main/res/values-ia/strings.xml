@@ -359,7 +359,6 @@
   <string name="page_view_in_browser">Visitar iste pagina in le navigator</string>
   <string name="tool_tip_toc_title">Accesso rapide al tabula de contento</string>
   <string name="tool_tip_toc_text">Ora es possibile glissar al sinistra pro aperir le tabula de contento, e traher iste button de rolamento pro saltar rapidemente al varie sectiones de un articulo.</string>
-  <string name="tool_tip_lang_button">Ora es possibile cercar e leger in plure linguas de Wikipedia in le application.\n\n\nTocca le icone pro adder plus linguas.</string>
   <string name="error_response_malformed">Le responsa del servitor non ha essite formatate correctemente.</string>
   <string name="error_unknown">Un error incognite ha occurrite.</string>
   <string name="format_error_server_message">Message: \"%s\"</string>
@@ -1653,8 +1652,6 @@
   <string name="places_filter_title">Filtrar per lingua</string>
   <string name="places_toggle_buttons_map">Carta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Discoperi articulos de Wikipedia circa te con Locos</string>
-  <string name="places_article_menu_tooltip_message">Tocca ‘Vider sur carta’ pro explorar le loco de iste articulo</string>
   <string name="places_survey_very_satisfied_option">Multo satisfacite</string>
   <string name="places_survey_very_unsatisfied_option">Multo insatisfacite</string>
   <string name="places_survey_dialog_title">Adjuta a meliorar ‘Locos’</string>

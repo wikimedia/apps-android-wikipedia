@@ -402,7 +402,6 @@
   <string name="page_view_in_browser">Vedi la pagina nel browser</string>
   <string name="tool_tip_toc_title">Accesso rapido all\'indice</string>
   <string name="tool_tip_toc_text">Ora puoi scorrere verso sinistra per aprire l\'indice e anche toccare e trascinare questo pulsante di scorrimento per passare rapidamente alle varie sezioni di una voce.</string>
-  <string name="tool_tip_lang_button">Ora puoi cercare e leggere in più lingue di Wikipedia nell\'applicazione.\n\n\nTocca l\'icona per aggiungere più lingue.</string>
   <string name="error_response_malformed">La risposta dal server non è stata formattata correttamente.</string>
   <string name="error_unknown">Si è verificato un errore sconosciuto.</string>
   <string name="format_error_server_message">Messaggio: \"%s\"</string>
@@ -1589,8 +1588,6 @@
   <string name="donate_gpay_help_tax">Informazioni di deducibilità fiscale</string>
   <string name="places_title">Luoghi</string>
   <string name="places_toggle_buttons_map">Mappa</string>
-  <string name="places_nav_tab_tooltip_message">Scopri le voci di Wikipedia intorno a te con Luoghi</string>
-  <string name="places_article_menu_tooltip_message">Tocca \"Visualizza sulla mappa\" per esplorare la posizione di questa voce</string>
   <string name="places_survey_very_satisfied_option">Molto soddisfatto</string>
   <string name="places_survey_very_unsatisfied_option">Molto insoddisfatto</string>
   <string name="places_survey_dialog_title">Aiuta a migliorare \'Luoghi\'</string>

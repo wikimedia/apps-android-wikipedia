@@ -317,7 +317,6 @@
   <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
   <string name="tool_tip_toc_title">Brzi pristup tablici sadržaja</string>
   <string name="tool_tip_toc_text">Sadržaju od sada možete pristupiti povlačenjem ulijevo te možete kliknuti i povlačiti ovaj pokazivač kako biste brzo prešli na drugi dio članka.</string>
-  <string name="tool_tip_lang_button">U Wikipedijinoj aplikaciji sad možete pretraživati i čitati članke na više jezika.\n\nDodirnite ikonu da biste dodali još jezika.</string>
   <string name="error_response_malformed">Odgovor poslužitelja nije bio ispravno formatiran.</string>
   <string name="error_unknown">Dogodila se nepoznata pogreška.</string>
   <string name="format_error_server_message">Poruka: \"%s\"</string>

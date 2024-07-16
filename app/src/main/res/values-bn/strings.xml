@@ -374,7 +374,6 @@
   <string name="tool_tip_bookmark_icon_title">পড়ার তালিকায় যোগ করুন</string>
   <string name="tool_tip_bookmark_icon_text">নিবন্ধটিকে পড়ার তালিকায় সংরক্ষণ করতে বুকমার্ক আইকনে আলতো চাপুন৷</string>
   <string name="page_view_in_browser">ব্রাউজারে পাতা দেখুন</string>
-  <string name="tool_tip_lang_button">আপনি অ্যাপের মধ্যে এখন একাধিক উইকিপিডিয়ার ভাষায় অনুসন্ধান করতে এবং পড়তে পারবেন।\n\n\nআরো ভাষা যোগ করতে আইকনে আলতো চাপুন।</string>
   <string name="error_response_malformed">সার্ভার থেকে প্রতিক্রিয়া সঠিকভাবে বিন্যস্ত হয় নি।</string>
   <string name="error_unknown">একটি অজানা ত্রুটি দেখা দিয়েছে।</string>
   <string name="format_error_server_message">বার্তা: \"%s\"</string>
@@ -1204,8 +1203,6 @@
   <string name="places_filter_title">ভাষা ফিল্টার করুন</string>
   <string name="places_toggle_buttons_map">মানচিত্র</string>
   <string name="places_toggle_buttons_list">তালিকা</string>
-  <string name="places_nav_tab_tooltip_message">আপনার চারপাশের স্থানগুলি সম্পর্কেউইকিপিডিয়া নিবন্ধগুলি বের করুন</string>
-  <string name="places_article_menu_tooltip_message">এই নিবন্ধটির অবস্থান অন্বেষণ করতে\'মানচিত্রে দেখুন\' আলতো চাপুন।</string>
   <string name="places_survey_very_satisfied_option">খুবই সন্তুষ্ট</string>
   <string name="places_survey_very_unsatisfied_option">খুবই অসন্তুষ্ট</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'স্থানগুলি\' উন্নত করতে সাহায্য করুন</string>
