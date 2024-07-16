@@ -1,5 +1,6 @@
 package org.wikipedia.csrf
 
+import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.runBlocking
@@ -36,14 +37,15 @@ object CsrfTokenClient {
                     if (retry > 0) {
                         // Log in explicitly
                         // TODO: convert this with coroutines
-                        runBlocking {
-                            try {
+                        Completable.fromAction {
+                            runBlocking {
                                 LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
-                            } catch (e: Exception) {
-                                L.e(e)
-                                lastError = e
                             }
-                        }
+                        }.subscribeOn(Schedulers.io())
+                            .blockingSubscribe({ }) {
+                                L.e(it)
+                                lastError = it
+                            }
                     }
                     if (emitter.isDisposed) {
                         return@create
