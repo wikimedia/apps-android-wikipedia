@@ -282,7 +282,7 @@
   <string name="page_view_in_browser">Ver la páxina nel navegador</string>
   <string name="tool_tip_toc_title">Accesu rápidu a la tabla de conteníu</string>
   <string name="tool_tip_toc_text">Agora pués esmucir a la izquierda p\'abrir la tabla de conteníu, y tamién tocar y abasnar esti botón de desplazamientu para saltar rápido a distintes secciones d\'un artículu.</string>
-    <string name="error_response_malformed">La respuesta del sirvidor nun tenía un formatu correutu.</string>
+  <string name="error_response_malformed">La respuesta del sirvidor nun tenía un formatu correutu.</string>
   <string name="error_unknown">Hebo un error desconocíu.</string>
   <string name="format_error_server_message">Mensaxe: «%s»</string>
   <string name="address_copied">Direición copiada al cartafueyu.</string>

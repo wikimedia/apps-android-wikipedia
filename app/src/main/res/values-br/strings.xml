@@ -359,7 +359,7 @@
   <string name="page_view_in_browser">Gwelet ar bajenn er merdeer</string>
   <string name="tool_tip_toc_title">Taolenn evit tizhout buan an endalc\'hadoù</string>
   <string name="tool_tip_toc_text">Gallout a reot bremañ lakaat riklañ a-gleiz evit digeriñ taolenn an endalc\'hadoù, ha ivez klikañ ha sachañ ar bouton dibunañ evit lammat buan da rannoù disheñvel ur pennad.</string>
-    <string name="error_response_malformed">N\'eo ket furmadet mat ar respont d\'ar servijer.</string>
+  <string name="error_response_malformed">N\'eo ket furmadet mat ar respont d\'ar servijer.</string>
   <string name="error_unknown">Ur fazi dianav zo c\'hoarvezet</string>
   <string name="format_error_server_message">Kemennadenn : %s</string>
   <string name="address_copied">Chomlec\'h eilet er golver</string>
