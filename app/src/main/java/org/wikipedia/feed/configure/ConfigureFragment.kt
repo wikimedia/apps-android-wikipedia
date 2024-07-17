@@ -66,7 +66,7 @@ class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
                         when (it) {
                             is Resource.Loading -> onLoading()
                             is Resource.Success -> prepareContentTypeList()
-                            is Resource.Error -> L.e(it.throwable)
+                            is Resource.Error -> onError(it.throwable)
                         }
                     }
                 }
@@ -146,6 +146,11 @@ class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
     private fun onLoading() {
         binding.progressBar.isVisible = true
         binding.contentTypesRecycler.isVisible = false
+    }
+
+    private fun onError(throwable: Throwable) {
+        L.e(throwable)
+        prepareContentTypeList()
     }
 
     override fun onCheckedChanged(contentType: FeedContentType, checked: Boolean) {
