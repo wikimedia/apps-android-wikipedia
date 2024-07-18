@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <org.wikipedia.feed.view.CardHeaderView
+        android:id="@+id/card_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/placesEnableLocationContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/P"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/places_card_enable_location_card_message"
+                android:textColor="?attr/primary_color"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/illustration_places_enable_location"
+                android:layout_marginVertical="24dp"
+                android:contentDescription="@null"/>
+
+            <Button
+                android:id="@+id/placesEnableLocationButton"
+                style="@style/App.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/places_card_enable_location_card_button"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <org.wikipedia.feed.view.CardFooterView
+        android:id="@+id/card_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-12dp"/>
+
+</LinearLayout>
