@@ -4,10 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.csrf.CsrfTokenClient
@@ -126,9 +124,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
         viewModelScope.launch(actionHandler) {
-            val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
-            }
+            val token = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
             actionState.value = ActionState.UndoEdit(undoResponse, undoneSubject, undoneBody)
         }
@@ -156,9 +152,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
         viewModelScope.launch(actionHandler) {
-            val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
-            }
+            val token = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
             ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
         }
     }

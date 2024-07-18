@@ -42,7 +42,7 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
 
     fun publishImageTags(page: MwQueryPage, acceptedLabels: List<ImageTag>) {
         viewModelScope.launch(handler) {
-            val csrfToken = CsrfTokenClient.getToken(Constants.commonsWikiSite).blockingSingle()
+            val csrfToken = CsrfTokenClient.getTokenBlocking(Constants.commonsWikiSite)
             val mId = "M" + page.pageId
             var claimStr = "{\"claims\":["
             var commentStr = "/* add-depicts: "
