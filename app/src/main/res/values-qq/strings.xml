@@ -861,6 +861,7 @@
   <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
+  <string name="feed_item_type_places">Short description for Explore feed card that shows the nearby articles.</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
   <string name="feed_configure_onboarding_action">Button label for onboarding card that introduces the customization of the Explore feed.</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for card language selection in customization screen.\n{{Identical|OK}}</string>
@@ -1697,4 +1698,9 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="places_card_title">Title for the Places card on the explore feed.</string>
+  <string name="places_card_action">Text for the Places card action on the explore feed</string>
+  <string name="places_card_enable_location_card_message">Message for the Places card on the explore feed that requires enable location permission.</string>
+  <string name="places_card_enable_location_card_button">Text for the Places card on the explore feed that requires enable location permission button.</string>
+  <string name="places_card_distance_suffix">Suffix for the distance between the current location and the article location. %s will be replaced by the actual distance.</string>
 </resources>
