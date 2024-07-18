@@ -3,8 +3,15 @@ package org.wikipedia.feed.places
 import android.content.Context
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.dataclient.FeedClient
+import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesFragment
+import org.wikipedia.places.PlacesFragmentViewModel.NearbyPage
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ImageUrlUtil
 
 class PlacesFeedClient(
     private val coroutineScope: CoroutineScope
@@ -18,9 +25,23 @@ class PlacesFeedClient(
         this.age = age
         this.cb = cb
 
-        // TODO
-
-        cb.success(listOf(PlacesCard(wiki, age)))
+        Prefs.placesLastLocationAndZoomLevel?.let {
+            coroutineScope.launch {
+                val location = it.first
+                val response = ServiceFactory.get(wiki).getGeoSearch("${location.latitude}|${location.longitude}", 50, 10, 10)
+                val firstPage = response.query?.pages.orEmpty()
+                    .filter { it.coordinates != null }
+                    .map {
+                        NearbyPage(it.pageId, PageTitle(it.title, wiki,
+                            if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
+                            it.description, it.displayTitle(wiki.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
+                    }
+                    .first()
+            }
+            cb.success(listOf(PlacesCard(wiki, age)))
+        } ?: run {
+            cb.success(listOf(PlacesCard(wiki, age)))
+        }
     }
 
     override fun cancel() {

@@ -47,14 +47,14 @@
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/placesListContainer"
+            android:id="@+id/placesCardContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="12dp"
             android:paddingHorizontal="@dimen/list_item_horizontal_padding">
 
             <ImageView
-                android:id="@+id/listItemThumbnail"
+                android:id="@+id/placcesCardThumbnail"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:contentDescription="@null"

@@ -2,20 +2,24 @@ package org.wikipedia.feed.places
 
 import android.content.Context
 import android.view.LayoutInflater
-import org.wikipedia.databinding.ViewSuggestedEditsCardBinding
+import androidx.core.view.isVisible
+import org.wikipedia.databinding.ViewPlacesCardBinding
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.places.PlacesActivity
+import org.wikipedia.settings.Prefs
 
-class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context), CardFooterView.Callback {
+class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context) {
 
-    private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = ViewPlacesCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     override var card: PlacesCard? = null
         set(value) {
             field = value
             value?.let {
                 header(it)
+                footer(it)
                 updateContents(it)
             }
         }
@@ -23,21 +27,30 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
     override var callback: FeedAdapter.Callback? = null
         set(value) {
             field = value
-            binding.headerView.setCallback(value)
+            binding.cardHeader.setCallback(value)
         }
 
-    override fun onFooterClicked() {
-        callback?.onSeCardFooterClicked()
-    }
-
     private fun updateContents(card: PlacesCard) {
-        // TODO
+        if (Prefs.placesLastLocationAndZoomLevel == null) {
+            binding.placesEnableLocationContainer.isVisible = true
+            binding.placesCardContainer.isVisible = false
+        } else {
+            binding.placesEnableLocationContainer.isVisible = false
+            binding.placesCardContainer.isVisible = true
+        }
     }
 
     private fun header(card: PlacesCard) {
-        binding.headerView.setTitle(card.title())
+        binding.cardHeader.setTitle(card.title())
             .setCard(card)
             .setLangCode(null)
             .setCallback(callback)
+    }
+
+    private fun footer(card: PlacesCard) {
+        binding.cardFooter.callback = CardFooterView.Callback {
+            context.startActivity(PlacesActivity.newIntent(context))
+        }
+        binding.cardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
     }
 }
