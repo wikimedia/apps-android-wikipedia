@@ -45,6 +45,14 @@
 
         </LinearLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/placesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </FrameLayout>
 
     <org.wikipedia.feed.view.CardFooterView
