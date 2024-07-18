@@ -64,6 +64,7 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.dataclient.page.NearbyPage
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.ImagePipelineBitmapGetter
@@ -105,7 +106,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var mapboxMap: MapLibreMap? = null
     private var symbolManager: SymbolManager? = null
 
-    private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
+    private val annotationCache = ArrayDeque<NearbyPage>()
     private var lastCheckedId = R.id.mapViewButton
     private var lastLocation: Location? = null
     private var lastLocationQueried: Location? = null
@@ -586,7 +587,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
     }
 
-    private fun updateMapMarkers(pages: List<PlacesFragmentViewModel.NearbyPage>) {
+    private fun updateMapMarkers(pages: List<NearbyPage>) {
         symbolManager?.let { manager ->
 
             pages.filter {
@@ -663,7 +664,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
     }
 
-    private fun queueImageForAnnotation(page: PlacesFragmentViewModel.NearbyPage) {
+    private fun queueImageForAnnotation(page: NearbyPage) {
         val url = page.pageTitle.thumbUrl
         if (!Prefs.isImageDownloadEnabled || url.isNullOrEmpty()) {
             return
@@ -746,7 +747,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         return false
     }
 
-    private inner class RecyclerViewAdapter(val nearbyPages: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+    private inner class RecyclerViewAdapter(val nearbyPages: List<NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {
             return nearbyPages.size
         }
@@ -763,7 +764,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private inner class RecyclerViewItemHolder(val binding: ItemPlacesListBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
-        private lateinit var page: PlacesFragmentViewModel.NearbyPage
+        private lateinit var page: NearbyPage
 
         init {
             itemView.setOnClickListener(this)
@@ -771,7 +772,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
-        fun bindItem(page: PlacesFragmentViewModel.NearbyPage, locationForDistance: Location?) {
+        fun bindItem(page: NearbyPage, locationForDistance: Location?) {
             this.page = page
             binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
