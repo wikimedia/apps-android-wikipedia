@@ -18,14 +18,11 @@ import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.launch
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -79,23 +76,18 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                launch {
-                    viewModel.uiState.collect {
-                        when (it) {
-                            is Resource.Success -> onLoadItemsFinished(it.data)
-                            is Resource.Error -> onError(it.throwable)
-                        }
-                    }
-                }
-                launch {
-                    viewModel.actionUiState.collect {
-                        when (it) {
-                            is Resource.Success -> onPagesDeleted()
-                        }
-                    }
-                }
+
+        viewModel.historyItems.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                onLoadItemsFinished(it.data)
+            } else if (it is Resource.Error) {
+                onError(it.throwable)
+            }
+        }
+
+        viewModel.deleteHistoryItemsAction.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                onPagesDeleted()
             }
         }
     }
@@ -284,7 +276,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                     MaterialAlertDialogBuilder(requireContext())
                             .setTitle(R.string.dialog_title_clear_history)
                             .setMessage(R.string.dialog_message_clear_history)
-                            .setPositiveButton(R.string.dialog_message_clear_history_yes) { _, _ -> viewModel.deleteHistoryItems() }
+                            .setPositiveButton(R.string.dialog_message_clear_history_yes) { _, _ -> viewModel.deleteAllHistoryItems() }
                             .setNegativeButton(R.string.dialog_message_clear_history_no, null).show()
                 } else {
                     deleteSelectedPages()
