@@ -191,6 +191,7 @@ dependencies {
     implementation libs.viewpager2
     implementation libs.flexbox
     implementation libs.drawerlayout
+    implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
     implementation libs.metrics.platform
 

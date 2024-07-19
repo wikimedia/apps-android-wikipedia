@@ -45,6 +45,7 @@ robolectric = "4.13"
 roomVersion = "2.6.1"
 rxandroid = "3.0.2"
 rxjava = "3.1.8"
+swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.9.0"
@@ -62,7 +63,6 @@ androidx-room-rxjava3 = { module = "androidx.room:room-rxjava3", version.ref = "
 androidx-uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
 balloon = { module = "com.github.skydoves:balloon", version.ref = "balloon" }
 browser = { module = "androidx.browser:browser", version.ref = "browser" }
-chrome-like-tab-switcher = { module = "com.github.michael-rapp:chrome-like-tab-switcher", version.ref = "chromeLikeTabSwitcher" }
 com-google-android-gms-play-services-wallet2 = { module = "com.google.android.gms:play-services-wallet", version.ref = "googlePayVersion" }
 com-google-firebase-firebase-messaging-ktx3 = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebaseMessagingVersion" }
 com-google-mlkit-language-id = { module = "com.google.mlkit:language-id", version.ref = "mlKitVersion" }
@@ -113,6 +113,7 @@ robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectr
 room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersion" }
 rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
 rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 
