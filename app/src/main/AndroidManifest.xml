@@ -32,6 +32,9 @@
     <!-- For being able to receive notifications upon boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <!-- For being able to post notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <!--
     List of hardware features that are implicitly used, but not required. These need to be
     declared as optional, so that the app can be installed on devices that don't have them.

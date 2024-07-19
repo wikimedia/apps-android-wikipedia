@@ -375,7 +375,6 @@
   <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="tool_tip_toc_title">Hurtig adgang til indholdsfortegnelse</string>
   <string name="tool_tip_toc_text">Du kan nu swipe til venstre for at åbne indholdsfortegnelsen, og også trykke og trække på denne rulleknap for at hurtigt hoppe til forskellige afsnit i artiklen.</string>
-  <string name="tool_tip_lang_button">Du kan nu søge og læse i flere Wikipedia-sprog i appen.</string>
   <string name="error_response_malformed">Svaret fra serveren er ikke formateret korrekt.</string>
   <string name="error_unknown">Der opstod en ukendt fejl.</string>
   <string name="format_error_server_message">Besked: »%s«</string>
@@ -1511,6 +1510,7 @@
   <string name="talk_templates_message_title_empty">Titlen må ikke være tom.</string>
   <string name="talk_templates_your_messages_tab_title">Dine beskeder</string>
   <string name="talk_templates_example_messages_tab_title">Beskedeksempler</string>
+  <string name="patroller_tasks_edits_list_search_hint">Søg eller filtrér redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vis brugerside</string>
@@ -1528,11 +1528,15 @@
   <string name="patroller_tasks_filters_all_text">Alle</string>
   <string name="patroller_tasks_filters_user_status_header">Brugerregistrering og erfaring</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Uregistreret</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Brugere, der ikke er logget ind.</string>
   <string name="patroller_tasks_filters_user_status_registered">Registreret</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Indloggede bidragsydere.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Nybegyndere</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerede brugere som har færre end 10 redigeringer eller 4 dages aktivitet.</string>
   <string name="patroller_tasks_filters_user_status_learners">Let øvede</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Registrerede brugere med mere erfaring end \"nybegyndere\" men mindre end \"erfarne brugere\".</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Erfarne brugere</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrerede brugere med mere end 500 redigeringer og 30 dages aktivitet.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Seneste revisioner</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Seneste revision</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste revision</string>
@@ -1624,8 +1628,6 @@
   <string name="places_filter_title">Filtrér efter sprog</string>
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Opdag Wikipedia-artikler omkring dig med Steder</string>
-  <string name="places_article_menu_tooltip_message">Tryk på \'Se på kort\' for at udforske denne artikels placering</string>
   <string name="places_survey_very_satisfied_option">Meget tilfreds</string>
   <string name="places_survey_very_unsatisfied_option">Meget utilfreds</string>
   <string name="places_survey_dialog_title">Hjælp med at forbedre \'Steder\'</string>

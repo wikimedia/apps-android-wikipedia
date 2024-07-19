@@ -390,7 +390,6 @@
   <string name="page_view_in_browser">Näytä sivu selaimessa</string>
   <string name="tool_tip_toc_title">Pikalinkki sisällysluetteloon</string>
   <string name="tool_tip_toc_text">Voit pyyhkäistä vasemmalle avataksesi sisällysluettelon sekä raahata tätä selausnappulaa siirtyäksesi eri osioon artikkelissa.</string>
-  <string name="tool_tip_lang_button">Voit nyt lukea monenkielisiä Wikipedioita tällä sovelluksella.\n\n\nNapauta kuvaketta nähdäksesi lisää kieliä.</string>
   <string name="error_response_malformed">Palvelimen vastaus ei ollut oikein muotoiltu.</string>
   <string name="error_unknown">Tapahtui tuntematon virhe.</string>
   <string name="format_error_server_message">Viesti: ”%s”</string>

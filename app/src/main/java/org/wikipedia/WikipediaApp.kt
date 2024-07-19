@@ -13,7 +13,6 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -25,6 +24,7 @@ import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.events.ThemeFontChangeEvent
+import org.wikipedia.installreferrer.InstallReferrerListener
 import org.wikipedia.language.AcceptLanguageUtil
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.notifications.NotificationCategory

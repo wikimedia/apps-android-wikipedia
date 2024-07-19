@@ -342,7 +342,6 @@
   <string name="page_view_in_browser">ดูหน้าในเบราว์เซอร์</string>
   <string name="tool_tip_toc_title">การเข้าถึงสารบัญด่วน</string>
   <string name="tool_tip_toc_text">คุณสามารถปัดไปทางซ้ายเพื่อเปิดสารบัญ และยังสามารถแตะแล้วลากบนปุ่มตัวเลื่อนนี้เพื่อข้ามไปยังส่วนอื่นของบทความอย่างรวดเร็วได้แล้วตอนนี้</string>
-  <string name="tool_tip_lang_button">คุณสามารถค้นหาและอ่านในวิกิพีเดียหลายภาษาในแอปได้แล้ว\n\n\nแตะบนไอคอนเพื่อเพิ่มภาษาเพิ่มเติม</string>
   <string name="error_response_malformed">การตอบสนองจากเซิร์ฟเวอร์ไม่ได้ถูกจัดรูปแบบอย่างถูกต้อง</string>
   <string name="error_unknown">เกิดข้อผิดพลาดไม่ทราบสาเหตุ</string>
   <string name="format_error_server_message">สาร: \"%s\"</string>
