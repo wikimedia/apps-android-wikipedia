@@ -8,6 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/content_types_recycler"
         android:layout_width="match_parent"
