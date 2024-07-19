@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.NearbyPage
+import org.wikipedia.feed.FeedContentType
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesFragment
@@ -30,17 +31,22 @@ class PlacesFeedClient(
             coroutineScope.launch(CoroutineExceptionHandler { _, throwable ->
                 cb.error(throwable)
             }) {
-                val location = it.first
-                val response = ServiceFactory.get(wiki).getGeoSearch("${location.latitude}|${location.longitude}", 50, 10, 10)
-                val firstPage = response.query?.pages.orEmpty()
-                    .filter { it.coordinates != null }
-                    .map {
-                        NearbyPage(it.pageId, PageTitle(it.title, wiki,
-                            if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
-                            it.description, it.displayTitle(wiki.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
-                    }
-                    .first()
-                cb.success(listOf(PlacesCard(wiki, age, firstPage)))
+                val list = mutableListOf<PlacesCard>()
+                FeedContentType.aggregatedLanguages.forEach { lang ->
+                    val wikiSite = WikiSite.forLanguageCode(lang)
+                    val location = it.first
+                    val response = ServiceFactory.get(wikiSite).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
+                    val firstPage = response.query?.pages.orEmpty()
+                        .filter { it.coordinates != null }
+                        .map {
+                            NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
+                                if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
+                                it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
+                        }
+                        .first()
+                    list.add(PlacesCard(wikiSite, age, firstPage))
+                }
+                cb.success(list)
             }
         } ?: run {
             cb.success(listOf(PlacesCard(wiki, age)))

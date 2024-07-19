@@ -101,6 +101,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 FeedContentType.MAIN_PAGE.isEnabled = false
                 FeedContentType.saveState()
             }
+            card.type() == CardType.PLACES -> {
+                FeedContentType.PLACES.isEnabled = false
+                FeedContentType.saveState()
+            }
             else -> {
                 addHiddenCard(card)
             }
@@ -118,6 +122,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
             }
             card.type() === CardType.MAIN_PAGE -> {
                 FeedContentType.MAIN_PAGE.isEnabled = true
+                FeedContentType.saveState()
+            }
+            card.type() == CardType.PLACES -> {
+                FeedContentType.PLACES.isEnabled = true
                 FeedContentType.saveState()
             }
             else -> unHideCard(card)
