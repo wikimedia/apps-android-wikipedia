@@ -11,7 +11,7 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.wikidata.Entities
-import org.wikipedia.descriptions.DescriptionEditFragment
+import org.wikipedia.edit.EditTags
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
@@ -66,8 +66,8 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
                 commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
             }
             claimStr += "]}"
-            commentStr += " */" + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
-            val postResult = ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr, null)
+            commentStr += " */"
+            val postResult = ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr, tags = EditTags.APP_IMAGE_TAG_ADD)
             _actionState.value = Resource.Success(postResult.entity)
         }
     }
