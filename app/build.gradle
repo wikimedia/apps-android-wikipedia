@@ -190,7 +190,6 @@ dependencies {
     implementation libs.recyclerview
     implementation libs.viewpager2
     implementation libs.flexbox
-    implementation libs.installreferrer
     implementation libs.drawerlayout
     implementation libs.work.runtime.ktx
     implementation libs.metrics.platform

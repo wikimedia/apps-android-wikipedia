@@ -120,8 +120,8 @@ interface RestService {
         @Path("day") day: String?
     ): AggregatedFeedContent
 
-    @get:GET("feed/availability")
-    val feedAvailability: Observable<FeedAvailability>
+    @GET("feed/availability")
+    suspend fun feedAvailability(): FeedAvailability
 
     // ------- Reading lists -------
     @POST("data/lists/setup")
