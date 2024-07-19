@@ -13,11 +13,8 @@ class NearbyPage(
     var annotation: Symbol? = null,
     var bitmap: Bitmap? = null
 ) {
-
-    private val lat = latitude
-    private val lng = longitude
     val location get() = Location("").apply {
-        latitude = lat
-        longitude = lng
+        latitude = this@NearbyPage.latitude
+        longitude = this@NearbyPage.longitude
     }
 }
