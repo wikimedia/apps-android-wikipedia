@@ -37,7 +37,7 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
     private fun updateContents(card: PlacesCard) {
         card.nearbyPage?.let {
             binding.placesEnableLocationContainer.isVisible = false
-            binding.placesCardContainer.isVisible = true
+            binding.placesArticleContainer.isVisible = true
             binding.placesCardTitle.text = StringUtil.fromHtml(it.pageTitle.displayText)
             binding.placesCardDescription.text = StringUtil.fromHtml(it.pageTitle.description)
             binding.placesCardDescription.isVisible = !it.pageTitle.description.isNullOrEmpty()
@@ -45,11 +45,11 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
                 binding.placesCardDistance.text = GeoUtil.getDistanceWithUnit(location, it.location, Locale.getDefault())
             }
             binding.placesCardContainer.setOnClickListener { _ ->
-                callback?.onSelectPage(card, HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_FEED_FEATURED), true)
+                callback?.onSelectPage(card, HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_FEED_FEATURED), false)
             }
         } ?: run {
             binding.placesEnableLocationContainer.isVisible = true
-            binding.placesCardContainer.isVisible = false
+            binding.placesArticleContainer.isVisible = false
             binding.placesEnableLocationButton.setOnClickListener {
                 goToPlaces()
             }
@@ -59,7 +59,7 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
     private fun header(card: PlacesCard) {
         binding.cardHeader.setTitle(card.title())
             .setCard(card)
-            .setLangCode(null)
+            .setLangCode(card.wikiSite().languageCode)
             .setCallback(callback)
     }
 

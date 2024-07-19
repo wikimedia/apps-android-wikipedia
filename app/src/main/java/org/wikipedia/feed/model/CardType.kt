@@ -13,6 +13,7 @@ import org.wikipedia.feed.mainpage.MainPageCardView
 import org.wikipedia.feed.news.NewsCardView
 import org.wikipedia.feed.offline.OfflineCardView
 import org.wikipedia.feed.onthisday.OnThisDayCardView
+import org.wikipedia.feed.places.PlacesCardView
 import org.wikipedia.feed.progress.ProgressCardView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.searchbar.SearchCardView
@@ -105,7 +106,7 @@ enum class CardType constructor(private val code: Int,
     },
     PLACES(23, FeedContentType.PLACES) {
         override fun newView(ctx: Context): FeedCardView<*> {
-            return AccessibilityCardView(ctx)
+            return PlacesCardView(ctx)
         }
     },
     // TODO: refactor this item when the new Modern Event Platform is finished.

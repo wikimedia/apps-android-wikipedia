@@ -14,6 +14,7 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.offline.OfflineCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.places.PlacesFeedClient
 import org.wikipedia.feed.progress.ProgressCard
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
 import org.wikipedia.feed.topread.TopReadListCard
@@ -274,6 +275,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         return pendingClient is SuggestedEditsFeedClient ||
                 pendingClient is AnnouncementClient ||
                 pendingClient is BecauseYouReadClient ||
+                pendingClient is PlacesFeedClient ||
                 pendingClient == null
     }
 
