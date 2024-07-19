@@ -16,6 +16,14 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
     private var dialog: AlertDialog? = null
     private var binding = DialogRegionalLanguageVariantSelectionBinding.inflate(LayoutInflater.from(context))
     private var selectedLanguageCode = AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE
+    private var regionalLanguageVariants = listOf(
+        AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE,
+        AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE,
+        AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE,
+        AppLanguageLookUpTable.CHINESE_MY_LANGUAGE_CODE,
+        AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE,
+        AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE
+    )
 
     init {
         setView(binding.root)
@@ -65,24 +73,12 @@ class RegionalLanguageVariantSelectionDialog(context: Context) : MaterialAlertDi
     }
 
     companion object {
-
-        private val nonRegionalLanguageVariants = listOf(
-            AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
-            AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE
-        )
-
-        private val regionalLanguageVariants = listOf(
-            AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE,
-            AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE,
-            AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE,
-            AppLanguageLookUpTable.CHINESE_MY_LANGUAGE_CODE,
-            AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE,
-            AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE
-        )
-
         fun removeNonRegionalLanguageVariants(): MutableList<String> {
             val list = WikipediaApp.instance.languageState.appLanguageCodes.toMutableList()
-            list.removeAll(nonRegionalLanguageVariants)
+            list.removeAll(listOf(
+                AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
+                AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE
+            ))
             return list
         }
     }
