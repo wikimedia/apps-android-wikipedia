@@ -389,7 +389,6 @@
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_title">גישה מהירה לתוכן העניינים</string>
   <string name="tool_tip_toc_text">עכשיו אפשר להחליק ימינה כדי לפתוח את תוכן העניינים, וגם ללחוץ ולגרור על כפתור הגלילה כדי לדלג מהר לחלקים השונים של הערך.</string>
-  <string name="tool_tip_lang_button">עכשיו אפשר לחפש ולקרוא ערכים בוויקיפדיה בשפות מרובות באמצעות היישום.\n\n\nיש ללחוץ על הצלמית כדי להוסיף שפות נוספות.</string>
   <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>
   <string name="error_unknown">אירעה שגיאה בלתי־ידועה.</string>
   <string name="format_error_server_message">הודעה: \"%s\"</string>
@@ -1775,8 +1774,6 @@
   <string name="places_filter_title">סינון לפי שפה</string>
   <string name="places_toggle_buttons_map">מפה</string>
   <string name="places_toggle_buttons_list">רשימה</string>
-  <string name="places_nav_tab_tooltip_message">ב\"מקומות\" אפשר לגלות ערכי ויקיפדיה סביבך</string>
-  <string name="places_article_menu_tooltip_message">יש ללחוץ על \"הצגה על מפה\" כדי לחקור את המיקום של הערך הזה</string>
   <string name="places_survey_very_satisfied_option">מרוצה מאוד</string>
   <string name="places_survey_very_unsatisfied_option">מאוד לא מרוצה</string>
   <string name="places_survey_dialog_title">עזרו לנו לשפר את \"מקומות\"</string>

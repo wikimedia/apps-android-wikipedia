@@ -355,7 +355,6 @@
   <string name="page_view_in_browser">پەڕە لە وێبگەڕدا ببینە</string>
   <string name="tool_tip_toc_title">مێزی ناوەڕۆکەکان ڕێگای خێرا</string>
   <string name="tool_tip_toc_text">ئێستا دەتوانیت پەنجە دابنێیت و ڕایبکێشیت بۆ لای چەپ بۆ کردنەوەی خشتەی ناوەڕۆک، دەشتوانیت پەنجە بنێیت بەم تووڵەکێشانەدا و ڕایبکێشیت بۆ ئەوەی بە خێرایی باز بدەیت بۆ بەشە جیاوازەکانی وتارێک.</string>
-  <string name="tool_tip_lang_button">ئێستا تۆ دەتوانیت بگەڕێی و بخوێنیتەوە بە چەندین زمانی ویکیپیدیا لە نەرمەواڵەکە.\n\nدەستت لەسەر وێنەکە بدە بۆ زیادکردنی زمانی زیاتر.</string>
   <string name="error_response_malformed">وەڵام لە سێرڤرەکەوە بە دروستی قاڵببەندی نەکراوە.</string>
   <string name="error_unknown">ھەڵەیەکی نەناسراو ڕووی داوە.</string>
   <string name="format_error_server_message">پەیام: \"%s\"</string>

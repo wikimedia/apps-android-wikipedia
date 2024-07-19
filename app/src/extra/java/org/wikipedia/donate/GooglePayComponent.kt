@@ -19,6 +19,7 @@ internal object GooglePayComponent {
     const val PAYMENTS_API_URL = "https://payments.wikimedia.org/"
     const val PAYMENT_METHOD_NAME = "paywithgoogle"
     const val CURRENCY_FALLBACK = "USD"
+    const val TRANSACTION_FEE_PERCENTAGE = 0.04f
 
     private val CURRENCIES_THREE_DECIMAL = arrayOf("BHD", "CLF", "IQD", "KWD", "LYD", "MGA", "MRO", "OMR", "TND")
     private val CURRENCIES_NO_DECIMAL = arrayOf("CLP", "DJF", "IDR", "JPY", "KMF", "KRW", "MGA", "PYG", "VND", "XAF", "XOF", "XPF")

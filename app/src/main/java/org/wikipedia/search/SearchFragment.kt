@@ -119,6 +119,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchLangButton.setOnClickListener { onLangButtonClick() }
         initSearchView()
         if (invokeSource == InvokeSource.PLACES) {
+            Prefs.selectedLanguagePositionInSearch = app.languageState.appLanguageCodes.indexOf(Prefs.placesWikiCode)
             PlacesEvent.logImpression("search_view")
         }
         return binding.root
@@ -159,23 +160,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             binding.searchLanguageScrollView.setUpLanguageScrollTabData(app.languageState.appLanguageCodes, pos, this)
             binding.searchLangButton.visibility = View.GONE
         } else {
-            maybeShowMultilingualSearchTooltip()
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
             binding.searchLangButton.visibility = View.VISIBLE
             initLangButton()
             recentSearchesFragment.onLangCodeChanged()
-        }
-    }
-
-    private fun maybeShowMultilingualSearchTooltip() {
-        if (Prefs.isMultilingualSearchTooltipShown) {
-            binding.searchLangButton.postDelayed({
-                if (isAdded) {
-                    FeedbackUtil.showTooltip(requireActivity(), binding.searchLangButton, getString(R.string.tool_tip_lang_button),
-                            aboveOrBelow = false, autoDismiss = false)
-                }
-            }, 500)
-            Prefs.isMultilingualSearchTooltipShown = false
         }
     }
 
@@ -361,9 +349,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val PANEL_SEARCH_RESULTS = 1
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 1
-        const val LANG_BUTTON_TEXT_SIZE_LARGER = 12
-        const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10
-        const val LANG_BUTTON_TEXT_SIZE_SMALLER = 8
 
         fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false): SearchFragment =
                 SearchFragment().apply {

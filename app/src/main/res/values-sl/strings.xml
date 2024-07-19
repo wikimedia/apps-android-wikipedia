@@ -367,7 +367,6 @@
   <string name="page_view_in_browser">Ogled strani v brskalniku</string>
   <string name="tool_tip_toc_title">Hitri dostop do vsebinskega kazala</string>
   <string name="tool_tip_toc_text">Zdaj lahko podrsate levo, da odprete vsebinsko kazalo, ali tapnete drsnik in ga povlečete, da hitro preidete na drug razdelek članka.</string>
-  <string name="tool_tip_lang_button">Zdaj lahko Wikipedijo v aplikaciji berete in raziskujete v več jezikih</string>
   <string name="error_response_malformed">Odgovor strežnika ni bil ustrezno oblikovan.</string>
   <string name="error_unknown">Prišlo je do neznane napake.</string>
   <string name="format_error_server_message">Sporočilo: »%s«</string>
@@ -1701,8 +1700,6 @@
   <string name="places_filter_title">Filtriranje po jeziku</string>
   <string name="places_toggle_buttons_map">Zemljevid</string>
   <string name="places_toggle_buttons_list">Seznam</string>
-  <string name="places_nav_tab_tooltip_message">Odkrivajte članke Wikipedije okoli sebe s Kraji</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Tapnite &lt;b&gt;»Ogled na zemljevidu«&lt;/b&gt;, da raziščete lokacijo tega članka</string>
   <string name="places_survey_very_satisfied_option">Odlična izkušnja</string>
   <string name="places_survey_very_unsatisfied_option">Zelo slaba izkušnja</string>
   <string name="places_survey_dialog_title" fuzzy="true">Pomagajte izboljšati »Kraje«</string>
