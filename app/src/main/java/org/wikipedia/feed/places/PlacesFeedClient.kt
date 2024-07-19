@@ -1,15 +1,16 @@
 package org.wikipedia.feed.places
 
 import android.content.Context
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.NearbyPage
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesFragment
-import org.wikipedia.places.PlacesFragmentViewModel.NearbyPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ImageUrlUtil
 
@@ -26,7 +27,9 @@ class PlacesFeedClient(
         this.cb = cb
 
         Prefs.placesLastLocationAndZoomLevel?.let {
-            coroutineScope.launch {
+            coroutineScope.launch(CoroutineExceptionHandler { _, throwable ->
+                cb.error(throwable)
+            }) {
                 val location = it.first
                 val response = ServiceFactory.get(wiki).getGeoSearch("${location.latitude}|${location.longitude}", 50, 10, 10)
                 val firstPage = response.query?.pages.orEmpty()
@@ -37,8 +40,8 @@ class PlacesFeedClient(
                             it.description, it.displayTitle(wiki.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
                     }
                     .first()
+                cb.success(listOf(PlacesCard(wiki, age, firstPage)))
             }
-            cb.success(listOf(PlacesCard(wiki, age)))
         } ?: run {
             cb.success(listOf(PlacesCard(wiki, age)))
         }
