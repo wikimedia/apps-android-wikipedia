@@ -163,9 +163,9 @@
   <string name="logged_out_in_background_dialog">Одјавени сте од Википедија. Дали сакате пак да се најавите?</string>
   <string name="logged_out_in_background_login">Најава</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
-  <string name="account_vanish_request_title">Гаснење на сметка</string>
-  <string name="account_vanish_request_confirm_title">Предупредување за гаснење на сметка</string>
-  <string name="account_vanish_request_confirm">Гаснењето е &lt;b&gt;последно средство&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши така со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена гаснење на сметка.&lt;b&gt;Гаснењето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
+  <string name="account_vanish_request_title">Исчезнување на сметка</string>
+  <string name="account_vanish_request_confirm_title">Предупредување за исчезнување на сметка</string>
+  <string name="account_vanish_request_confirm">Исчезнувањето е &lt;b&gt;крајна мерка&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши така со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена „исчезнување“ на сметка.&lt;b&gt;Исчезнувањето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="history_offline_articles_toast">Некои статии во историјата може да се недостапни вонмрежно.</string>

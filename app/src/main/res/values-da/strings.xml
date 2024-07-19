@@ -1506,6 +1506,7 @@
   <string name="talk_templates_message_title_empty">Titlen må ikke være tom.</string>
   <string name="talk_templates_your_messages_tab_title">Dine beskeder</string>
   <string name="talk_templates_example_messages_tab_title">Beskedeksempler</string>
+  <string name="patroller_tasks_edits_list_search_hint">Søg eller filtrér redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vis brugerside</string>
@@ -1523,11 +1524,15 @@
   <string name="patroller_tasks_filters_all_text">Alle</string>
   <string name="patroller_tasks_filters_user_status_header">Brugerregistrering og erfaring</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Uregistreret</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Brugere, der ikke er logget ind.</string>
   <string name="patroller_tasks_filters_user_status_registered">Registreret</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Indloggede bidragsydere.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Nybegyndere</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerede brugere som har færre end 10 redigeringer eller 4 dages aktivitet.</string>
   <string name="patroller_tasks_filters_user_status_learners">Let øvede</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Registrerede brugere med mere erfaring end \"nybegyndere\" men mindre end \"erfarne brugere\".</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Erfarne brugere</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrerede brugere med mere end 500 redigeringer og 30 dages aktivitet.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Seneste revisioner</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Seneste revision</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste revision</string>
