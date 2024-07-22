@@ -502,7 +502,7 @@
     <item quantity="other">账号将会在%d天后过期。</item>
   </plurals>
   <string name="temp_account_anon_edit_status">&lt;b&gt;你尚未登录。&lt;/b&gt;一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;</string>
-  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;您的编辑将会以%1$s署名。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;。</string>
+  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;您的编辑将会以%1$s署名。&lt;a href=\"%2$s\"&gt;了解更多信息&lt;/a&gt;。</string>
   <string name="temp_account_login_status">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;登录后，在该临时账号“%1$s”下作出的编辑不会转移至您的永久账号。请登录或创建账号，以便以您的用户名署名贡献，并可享有其他好处。</string>
   <string name="temp_account_end_session">放弃临时账号</string>
   <string name="temp_account_end_session_confirm">此操作会使您从临时账号退出登录。您要继续吗？</string>

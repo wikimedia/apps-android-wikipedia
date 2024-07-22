@@ -128,7 +128,7 @@
   <string name="create_account_username_hint">ⵉⵙⵎ ⵏ ⵓⵙⵎⵔⴰⵙ</string>
   <string name="login_dont_have_account">ⵓⵔ ⵖⵓⵔⴽ ⵉⵍⵍⵉ ⵓⵎⵉⴹⴰⵏ?</string>
   <string name="login_join_wikipedia">ⵍⴽⵎ ⵉ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
-  <string name="login_forgot_password">ⵜⴻⵜⵜⵓⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ {{GENDER:|ⵏⵏⴽ|ⵏⵏⵎ|ⵏⵏⴽ/ⵎ}}?</string>
+  <string name="login_forgot_password">ⵜⴻⵜⵜⵓⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⴽ/ⵎ?</string>
   <string name="create_account_already_have">ⵉⵙ ⵉⵍⵍⴰ ⵖⵓⵔⴽ ⵓⵎⵉⴹⴰⵏ?</string>
   <string name="create_account_activity_title">ⵙⵏⵓⵍⴼⵓ ⴽⵔⴰ ⵏ ⵓⵎⵉⴹⴰⵏ</string>
   <string name="dialog_create_account_checking_progress">ⴰⵙⵖⵥⵏ</string>
@@ -296,7 +296,7 @@
   <string name="this_year">ⴰⵙⵙⴳⴳⵯⴰⵙ ⴰⴷ</string>
   <string name="languages_list_activity_title">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="languages_list_all_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵎⴰⵕⵕⴰ</string>
-  <string name="wikipedia_languages_your_languages_text">ⵜⵓⵜⵍⴰⵢⵉⵏ {{GENDER:|ⵏⵏⴽ|ⵏⵏⵎ|ⵏⵏⴽ/ⵎ}}</string>
+  <string name="wikipedia_languages_your_languages_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏⵏⴽ/ⵎ</string>
   <string name="wikipedia_languages_add_language_text">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="wikipedia_languages_remove_text">ⴽⴽⵙ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="wikipedia_languages_remove_action_mode_title">ⴽⴽⵙ ⵜⵓⵜⵍⴰⵢⵜ</string>
