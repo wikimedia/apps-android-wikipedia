@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.ColorInt
+import androidx.fragment.app.commit
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
@@ -78,11 +79,12 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                     ImagePreviewDialog.newInstance(summary, action))
         } else {
-            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle,
-                            if (intent.hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) && intent.getSerializableExtra
-                                    (Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
-                                HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS)))
+            supportFragmentManager.commit {
+                add(LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle,
+                    if (intent.hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) && intent.getSerializableExtra
+                            (Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
+                        HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS)), "foo")
+            }
         }
     }
 

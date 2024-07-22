@@ -1,6 +1,5 @@
 package org.wikipedia.page.linkpreview
 
-import android.content.DialogInterface
 import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
@@ -10,13 +9,18 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -35,7 +39,6 @@ import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -56,7 +59,7 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.util.Locale
 
-class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
+class LinkPreviewDialog : Fragment(), LinkPreviewErrorView.Callback {
     interface LoadPageCallback {
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
     }
@@ -73,7 +76,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
-    private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private var revision: Long = 0
     private val viewModel: LinkPreviewViewModel by viewModels { LinkPreviewViewModel.Factory(requireArguments()) }
@@ -102,7 +104,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 sendPlacesEvent("copy_link_click", "detail_overflow_menu")
                 ClipboardUtil.setPlainText(requireActivity(), text = viewModel.pageTitle.uri)
                 FeedbackUtil.showMessage(requireActivity(), R.string.address_copied)
-                dismiss()
+                hide()
                 true
             }
             R.id.menu_link_preview_view_on_map -> {
@@ -110,7 +112,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 viewModel.location?.let {
                     startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
                 }
-                dismiss()
+                hide()
                 true
             }
             R.id.menu_link_preview_get_directions -> {
@@ -150,10 +152,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private val requestStubArticleEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            overlayView?.let { overlay ->
-                FeedbackUtil.makeSnackbar(overlay.rootView, getString(R.string.stub_article_edit_saved_successfully))
-                    .setAnchorView(overlay.secondaryButtonView).show()
-            }
+            FeedbackUtil.makeSnackbar(binding.overlayView.rootView, getString(R.string.stub_article_edit_saved_successfully))
+                .setAnchorView(binding.overlayView.secondaryButtonView).show()
         }
     }
 
@@ -170,20 +170,23 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
                         is LinkPreviewViewState.Loading -> {
-                            binding.linkPreviewProgress.visibility = View.VISIBLE
+                            binding.linkPreviewProgress.isVisible = true
                         }
                         is LinkPreviewViewState.Error -> {
+                            binding.linkPreviewProgress.isVisible = false
                             renderErrorState(it.throwable)
                         }
                         is LinkPreviewViewState.Content -> {
+                            binding.linkPreviewProgress.isVisible = false
                             renderContentState(it.data)
                         }
                         is LinkPreviewViewState.Gallery -> {
+                            binding.linkPreviewProgress.isVisible = false
                             renderGalleryState(it)
                         }
                         is LinkPreviewViewState.Watch -> {
@@ -191,13 +194,49 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                             dismiss()
                         }
                         is LinkPreviewViewState.Completed -> {
-                            binding.linkPreviewProgress.visibility = View.GONE
                         }
                     }
                 }
             }
         }
+
+        ((binding.bottomSheetCoordinatorLayout.layoutParams as? CoordinatorLayout.LayoutParams)?.behavior as? BottomSheetBehavior)?.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    dismiss()
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+            }
+        })
+
         return binding.root
+    }
+
+    private fun reloadContent(historyEntry: HistoryEntry) {
+        viewModel.reloadContent(historyEntry)
+    }
+
+    private fun hide() {
+        L.d(">>>> setting state")
+        ((binding.bottomSheetCoordinatorLayout.layoutParams as? CoordinatorLayout.LayoutParams)?.behavior as? BottomSheetBehavior)?.let {
+            if (it.state != BottomSheetBehavior.STATE_HIDDEN && it.state != BottomSheetBehavior.STATE_SETTLING) {
+                L.d(">>>> for real")
+                it.state = BottomSheetBehavior.STATE_HIDDEN
+            }
+        }
+    }
+
+    private fun dismiss() {
+        parentFragmentManager.commit {
+            remove(this@LinkPreviewDialog)
+        }
+        dismissCallback?.onLinkPreviewDismiss()
+        if (!navigateSuccess) {
+            articleLinkPreviewInteractionEvent?.logCancel()
+            linkPreviewInteraction?.logCancel()
+        }
     }
 
     private fun setupOverflowMenu() {
@@ -252,40 +291,34 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun renderErrorState(throwable: Throwable) {
         L.e(throwable)
         binding.linkPreviewTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
+        binding.linkPreviewThumbnail.isVisible = false
         showError(throwable)
     }
 
     override fun onResume() {
         super.onResume()
-        val containerView = requireDialog().findViewById<ViewGroup>(R.id.container)
-        if (overlayView == null && containerView != null) {
-            LinkPreviewOverlayView(requireContext()).let {
-                overlayView = it
-                if (viewModel.fromPlaces) {
-                    it.callback = OverlayViewPlacesCallback()
-                    it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_share_button)
-                    )
-                    it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_save_button)
-                    )
-                    it.setTertiaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_read_button)
-                    )
-                } else {
-                    it.callback = OverlayViewCallback()
-                    it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
-                            if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
-                        )
-                    )
-                    it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.menu_long_press_open_in_new_tab)
-                    )
-                    it.showTertiaryButton(false)
-                }
-                containerView.addView(it)
-            }
+        if (viewModel.fromPlaces) {
+            binding.overlayView.callback = OverlayViewPlacesCallback()
+            binding.overlayView.setPrimaryButtonText(
+                L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_share_button)
+            )
+            binding.overlayView.setSecondaryButtonText(
+                L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_save_button)
+            )
+            binding.overlayView.setTertiaryButtonText(
+                L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_read_button)
+            )
+        } else {
+            binding.overlayView.callback = OverlayViewCallback()
+            binding.overlayView.setPrimaryButtonText(
+                L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
+                    if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
+                )
+            )
+            binding.overlayView.setSecondaryButtonText(
+                L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.menu_long_press_open_in_new_tab)
+            )
+            binding.overlayView.showTertiaryButton(false)
         }
     }
 
@@ -293,21 +326,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         binding.linkPreviewThumbnailGallery.listener = null
         binding.linkPreviewToolbar.setOnClickListener(null)
         binding.linkPreviewOverflowButton.setOnClickListener(null)
-        overlayView?.let {
-            it.callback = null
-            overlayView = null
-        }
+        binding.overlayView.callback = null
         _binding = null
         super.onDestroyView()
-    }
-
-    override fun onDismiss(dialogInterface: DialogInterface) {
-        super.onDismiss(dialogInterface)
-        dismissCallback?.onLinkPreviewDismiss()
-        if (!navigateSuccess) {
-            articleLinkPreviewInteractionEvent?.logCancel()
-            linkPreviewInteraction?.logCancel()
-        }
     }
 
     override fun onAddToList() {
@@ -335,7 +356,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun doAddToList() {
         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
-        dialog?.dismiss()
+        dismiss()
     }
 
     private fun showReadingListPopupMenu(anchorView: View) {
@@ -377,15 +398,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         binding.dialogLinkPreviewErrorContainer.callback = this
         binding.dialogLinkPreviewErrorContainer.setError(caught, viewModel.pageTitle)
         LinkPreviewErrorType[caught, viewModel.pageTitle].run {
-            overlayView?.let {
-                it.showSecondaryButton(false)
-                it.showTertiaryButton(false)
-                it.setPrimaryButtonText(resources.getString(buttonText))
-                it.callback = buttonAction(binding.dialogLinkPreviewErrorContainer)
-                if (this !== LinkPreviewErrorType.OFFLINE) {
-                    binding.linkPreviewToolbar.setOnClickListener(null)
-                    binding.linkPreviewOverflowButton.visibility = View.GONE
-                }
+            binding.overlayView.showSecondaryButton(false)
+            binding.overlayView.showTertiaryButton(false)
+            binding.overlayView.setPrimaryButtonText(resources.getString(buttonText))
+            binding.overlayView.callback = buttonAction(binding.dialogLinkPreviewErrorContainer)
+            if (this !== LinkPreviewErrorType.OFFLINE) {
+                binding.linkPreviewToolbar.setOnClickListener(null)
+                binding.linkPreviewOverflowButton.visibility = View.GONE
             }
         }
     }
@@ -410,24 +429,22 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             "UTF-8",
             null
         )
+        binding.linkPreviewThumbnail.isVisible = contents.title.thumbUrl != null
         contents.title.thumbUrl?.let {
-            binding.linkPreviewThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.linkPreviewThumbnail, it)
+            ViewUtil.loadImage(binding.linkPreviewThumbnail, contents.title.thumbUrl)
         }
-        overlayView?.run {
-            if (!viewModel.fromPlaces) {
-                setPrimaryButtonText(
-                    L10nUtil.getStringForArticleLanguage(
-                        viewModel.pageTitle,
-                        if (contents.isDisambiguation) R.string.button_continue_to_disambiguation
-                        else if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page
-                        else R.string.button_continue_to_article
-                    )
+        if (!viewModel.fromPlaces) {
+            binding.overlayView.setPrimaryButtonText(
+                L10nUtil.getStringForArticleLanguage(
+                    viewModel.pageTitle,
+                    if (contents.isDisambiguation) R.string.button_continue_to_disambiguation
+                    else if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page
+                    else R.string.button_continue_to_article
                 )
-            } else if (viewModel.fromPlaces) {
-                setSecondaryButtonText(L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
-                    if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
-            }
+            )
+        } else if (viewModel.fromPlaces) {
+            binding.overlayView.setSecondaryButtonText(L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
+                if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
         }
     }
 
@@ -435,7 +452,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         navigateSuccess = true
         articleLinkPreviewInteractionEvent?.logNavigate()
         linkPreviewInteraction?.logNavigate()
-        dialog?.dismiss()
+        dismiss()
         loadPage(viewModel.pageTitle, viewModel.historyEntry, inNewTab)
     }
 
@@ -473,10 +490,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
 
         override fun onSecondaryClick() {
-            overlayView?.let {
-                sendPlacesEvent("save_click", "detail_toolbar")
-                showReadingListPopupMenu(it.secondaryButtonView)
-            }
+            sendPlacesEvent("save_click", "detail_toolbar")
+            showReadingListPopupMenu(binding.overlayView.secondaryButtonView)
         }
 
         override fun onTertiaryClick() {
@@ -486,6 +501,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     companion object {
+        const val FRAGMENT_TAG = "linkPreviewDialog"
         const val ARG_ENTRY = "entry"
         const val ARG_LOCATION = "location"
         const val ARG_LAST_KNOWN_LOCATION = "lastKnownLocation"
@@ -498,6 +514,29 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     ARG_LAST_KNOWN_LOCATION to lastKnownLocation
                 )
             }
+        }
+
+        fun show(fragmentManager: FragmentManager, resId: Int, entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null) {
+            val existing = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as? LinkPreviewDialog
+            if (existing != null) {
+                existing.reloadContent(entry)
+                return
+            }
+
+            fragmentManager.commit {
+                add(resId, newInstance(entry, location, lastKnownLocation), FRAGMENT_TAG)
+            }
+        }
+
+        fun hide(fragmentManager: FragmentManager) {
+            val existing = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as? LinkPreviewDialog
+            existing?.hide()
+        }
+
+        fun isShowing(fragmentManager: FragmentManager): Boolean {
+            val existing = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as? LinkPreviewDialog
+                ?: return false
+            return existing.isVisible
         }
     }
 }
