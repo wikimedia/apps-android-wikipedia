@@ -19,6 +19,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 
 class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback {
@@ -31,7 +32,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val pageTitle = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
 
-        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (AccountUtil.isLoggedIn &&
+        MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (ReleaseUtil.isPreBetaRelease && AccountUtil.isLoggedIn &&
                 action == Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
                 SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode))
 

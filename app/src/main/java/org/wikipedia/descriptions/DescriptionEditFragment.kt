@@ -53,6 +53,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
@@ -230,7 +231,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.updateInfoText()
 
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
+                ReleaseUtil.isPreBetaRelease && MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
                 MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
@@ -486,7 +487,6 @@ class DescriptionEditFragment : Fragment() {
             when (action) {
                 DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
                     if (binding.fragmentDescriptionEditView.wasSuggestionChosen) {
-                        tags.add(EditTags.APP_DESCRIPTION_ADD)
                         if (binding.fragmentDescriptionEditView.wasSuggestionModified) {
                             // TODO
                         } else {
