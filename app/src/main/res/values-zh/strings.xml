@@ -490,10 +490,22 @@
   <string name="theme_chooser_menu_item_short_tooltip">自定义您的工具栏</string>
   <string name="error_blocked_footer_no_blocker">您可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理员&lt;/a&gt;来讨论此封禁。</string>
   <string name="temp_account_not_logged_in">您尚未登录</string>
+  <string name="temp_account_anon_dialog_body">一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
+  <string name="temp_account_temp_dialog_body">您的编辑将会以%1$s署名。您的IP地址将对管理员可见。&lt;br /&gt;&lt;br /&gt;如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;，您的编辑将以您选择的名称署名，且还可享有其他好处。</string>
   <string name="temp_account_dialog_ok">明白了</string>
   <string name="temp_account_using_title">您正在使用临时账号</string>
   <string name="temp_account_dialog_discard">放弃更改并登录</string>
+  <plurals name="temp_account_created">
+    <item quantity="other">临时账号“%1$s”已在您发布编辑之后创建，将会在%2$d后过期。</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="other">账号将会在%d天后过期。</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;你尚未登录。&lt;/b&gt;一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;</string>
+  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;您的编辑将会以%1$s署名。&lt;a href=\"%2$s\"&gt;了解更多信息&lt;/a&gt;。</string>
+  <string name="temp_account_login_status">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;登录后，在该临时账号“%1$s”下作出的编辑不会转移至您的永久账号。请登录或创建账号，以便以您的用户名署名贡献，并可享有其他好处。</string>
   <string name="temp_account_end_session">放弃临时账号</string>
+  <string name="temp_account_end_session_confirm">此操作会使您从临时账号退出登录。您要继续吗？</string>
   <string name="crash_report_activity_title">应用程序错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重启</string>
@@ -856,7 +868,7 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_continue_reading_card_subtitle_read_date">阅读%s</string>
   <string name="view_announcement_card_negative_action">不，谢谢</string>
-  <string name="view_offline_card_text">内容不能在离线时加载。</string>
+  <string name="view_offline_card_text">离线时无法加载内容。</string>
   <string name="view_featured_article_card_title">典范条目</string>
   <string name="view_static_card_save_button_label">保存</string>
   <string name="feed_configure_activity_title">自定义订阅源</string>
@@ -1296,6 +1308,7 @@
   <string name="templates_learn_more_link">了解更多</string>
   <string name="templates_description_incomplete">模板由用户生成，可能缺少完整描述。</string>
   <string name="templates_description_empty">“%s”模板还没有描述。</string>
+  <string name="templates_description_missing_data">该模板缺少&lt;a href=\"%1$s\"&gt;模板数据&lt;/a&gt;，其参数已&lt;a href=\"%2$s\"&gt;自动生成&lt;/a&gt;。因此模板及其参数都缺少描述。</string>
   <string name="main_drawer_help">帮助</string>
   <string name="main_drawer_login">登录/加入维基百科</string>
   <string name="main_tooltip_text">您好，%s，您知道维基百科是人人都可编辑吗？</string>
@@ -1333,6 +1346,7 @@
   <string name="talk_message_hint">撰写消息</string>
   <string name="talk_message_empty">消息不能为空。</string>
   <string name="talk_subject_empty">主题不能为空。</string>
+  <string name="talk_subject_duplicate">该主题名称已存在。请尝试其他名称。</string>
   <string name="talk_response_submitted">回复已发布。</string>
   <string name="talk_snackbar_undo">撤销</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt;%1$s&lt;/b&gt;做出的最后一次编辑</string>
@@ -1445,6 +1459,9 @@
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">全部</string>
   <string name="watchlist_filter_watchlist_activity_header">监视列表活动</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">未查看更改</string>
+  <string name="watchlist_filter_watchlist_activity_seen">已查看更改</string>
+  <string name="watchlist_filter_contribution_quality_header">贡献质量预测</string>
   <string name="watchlist_filter_contribution_quality_good">非常好</string>
   <string name="watchlist_filter_contribution_quality_may_problems">或有问题</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">可能有问题</string>
@@ -1452,6 +1469,7 @@
   <string name="watchlist_filter_user_intent_header">用户目的预测</string>
   <string name="watchlist_filter_user_intent_good">极可能善意</string>
   <string name="watchlist_filter_user_intent_may_problems">或为恶意</string>
+  <string name="watchlist_filter_user_intent_likely_problems">可能有恶意</string>
   <string name="watchlist_filter_user_intent_bad">高概率恶意</string>
   <string name="watchlist_filter_user_status_header">用户注册及体验</string>
   <string name="watchlist_filter_user_status_unregistered">未注册</string>
@@ -1510,6 +1528,7 @@
   <string name="user_contrib_menu_label">贡献</string>
   <string name="user_contrib_filter_activity_title">筛选贡献</string>
   <string name="action_item_view_on_map">在地图上查看</string>
+  <string name="action_item_view_on_map_unavailable">此页面的地理坐标不可用</string>
   <string name="shareable_reading_lists_import_dialog_title">导入共享阅读列表</string>
   <string name="shareable_reading_lists_import_dialog_content">您想如何命名与您共享的列表？</string>
   <string name="shareable_reading_lists_new_indicator">*新*</string>
@@ -1538,6 +1557,11 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">删除</string>
   <string name="talk_templates_edit_message_updated">消息已更新</string>
+  <string name="talk_templates_menu_remove_message">移除消息</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">您确定要从列表中删除该消息吗？</item>
+    <item quantity="other">您确定要从列表中删除这些消息吗？</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="other">消息已删除</item>
   </plurals>
@@ -1598,6 +1622,9 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">以中等精度查找到中等概率的存在恶意的编辑。</string>
   <string name="patroller_tasks_filters_user_intent_bad">高概率恶意</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">以极高精度查找出大多数明显存在恶意的编辑。</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="other">%d项过滤器</item>
+  </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">条目编辑历史</string>
   <string name="patroller_tasks_patrol_edit_undo_success">回退完成</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">您确定要回退么？</string>
@@ -1605,9 +1632,18 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">查看</string>
   <string name="patroller_tasks_overflow_report">功能问题</string>
   <string name="patroller_tasks_overflow_learn">了解更多</string>
+  <string name="patroller_onboarding_one_title">为维基百科编辑巡查作出贡献。</string>
+  <string name="patroller_onboarding_one_content">通过积极审核最近的编辑，并且提供引导、控制质量、鼓励其他编者，来提升维基百科的的内容品质。</string>
+  <string name="patroller_onboarding_two_title">在差异页面上提供反馈、监视编辑，并且采取行动</string>
   <string name="patroller_onboarding_two_thank_title">感谢</string>
+  <string name="patroller_onboarding_two_thank_content">看到了优质的编辑？试着感谢用户作出贡献。</string>
   <string name="patroller_onboarding_two_watch_title">监视</string>
+  <string name="patroller_onboarding_two_watch_content">想要追踪条目编辑？将其添加至您的监视列表。在“更多”下方查看。</string>
   <string name="patroller_onboarding_two_talk_title">讨论</string>
+  <string name="patroller_onboarding_two_undo_title">撤销/回退</string>
+  <string name="patroller_onboarding_two_undo_content">选择“撤销”来撤销或回退可能的破坏性编辑。</string>
+  <string name="patroller_diff_tooltip_one">“破坏”指标预估了一笔编辑是否对wiki造成了破坏。</string>
+  <string name="patroller_diff_tooltip_two">“意图”指标预估了一笔编辑是出于善意的几率。</string>
   <string name="patroller_diff_feedback_dialog_title">帮助我们改进此功能</string>
   <string name="patroller_diff_feedback_dialog_message">您对该功能满意吗？</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">满意</string>
@@ -1637,19 +1673,33 @@
   <string name="patroller_saved_message_body_copy_vio">您最近的部分编辑似乎包含了未经许可的受版权保护的材料。请确保所有内容符合本维基百科的[[Wikipedia:Copyrights|著作权]]方针，否则将被移除。</string>
   <string name="patroller_saved_message_body_edit_summary">您好，{{{username}}}，您似乎在没有提供编辑摘要的情况下删除了维基百科的内容。每当您向维基百科增减内容时，请记得留下编辑摘要。</string>
   <string name="patroller_saved_message_body_do_not_censor">您好，{{{username}}}，您似乎在未经过讨论页讨论的情况下直接移除了维基百科的内容。请注意，维基百科的内容不受审查，不能仅因其有争议而移除。如果您认为信息不准确，请先于条目讨论页达成共识。</string>
+  <string name="talk_warn_learn_more_label">了解有关消息占位符的更多信息</string>
+  <string name="talk_warn_saved_messages_usage_instruction">使用下面的示例消息来自定义、发送和保存您的消息。</string>
   <string name="patroller_saved_message_body_art_imp">您好，{{{username}}}。您的条目是很好的开端！为了进一步改善它，请考虑添加更多可靠的来源作为参考资料。如需了解更多细节，请参考维基百科的[[Wikipedia:Reliable_sources|可靠来源]]方针。</string>
   <string name="talk_templates_menu_edit_title">编辑</string>
   <string name="data_opt_in_accept">接受</string>
   <string name="data_opt_in_reject">拒绝</string>
   <string name="page_issues_title">页面问题</string>
+  <string name="generic_release_notes">修复小错误，优化体验</string>
+  <string name="email_report_image_recommendations_subject">问题报告 - 图片推荐功能</string>
+  <string name="email_report_patroller_tasks_subject">问题报告 - 编辑巡查功能</string>
   <string name="donation_campaign_maybe_later_snackbar">明天我们会再次提醒您。</string>
   <string name="donation_campaign_donated_snackbar">谢谢您，亲爱的捐赠者！您的慷慨解囊会帮助维基百科和姊妹网站蓬勃发展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系统浏览器中打开</string>
   <string name="donate_gpay_dialog_title">使用Google Pay捐款？</string>
+  <string name="donate_gpay_dialog_description">使用Google Pay捐款，或者选择其他捐款方式。</string>
   <string name="donate_gpay_dialog_pay_button">使用Google Pay捐款</string>
   <string name="donate_gpay_dialog_other_button">其他付款方式</string>
+  <string name="donate_gpay_activity_title">选择金额</string>
+  <string name="donate_gpay_check_transaction_fee">我愿意慷慨地增加%s来包含手续费，这样我的捐款就能100%%保留。</string>
+  <string name="donate_gpay_check_recurring">将此设为每月定期捐款。</string>
+  <string name="donate_gpay_check_send_email">是的，维基媒体基金会可以偶尔向我发送电子邮件。</string>
+  <string name="donate_gpay_minimum_amount">请选择金额（最少%s）</string>
+  <string name="donate_gpay_maximum_amount">我们的应用程序无法接收超过%s的捐款。请通过benefactors@wikimedia.org联系我们的大件礼品专员。</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;非常感谢！&lt;/b&gt;您向维基百科的慷慨解囊对我们至关重要。</string>
   <string name="donate_gpay_help_problems">捐赠时遇到问题？</string>
+  <string name="donate_gpay_help_other_ways">其他捐赠方式</string>
   <string name="donate_gpay_help_faq">常见问题</string>
   <string name="donate_gpay_help_tax">减税信息</string>
   <string name="places_title">地点</string>
@@ -1663,4 +1713,6 @@
   <string name="places_survey_dialog_title">帮助我们改进“地点”功能</string>
   <string name="places_survey_feedback_dialog_title">如何改善“地点”功能？</string>
   <string name="places_survey_dialog_cancel">取消</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我们改变或优化什么？</string>
+  <string name="places_empty_list">此区域无内容。请缩小&lt;a href=\"#\"&gt;地图&lt;/a&gt;。</string>
 </resources>
