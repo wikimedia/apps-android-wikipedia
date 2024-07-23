@@ -440,7 +440,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private fun setupMarkerPaints() {
         markerPaintSrc = Paint().apply {
             isAntiAlias = true
-            color = ResourceUtil.getThemedColor(requireContext(), R.attr.success_color)
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_color)
             xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
         }
         markerPaintSrcIn = Paint().apply {
@@ -489,7 +489,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
             style.getLayer(CLUSTER_CIRCLE_LAYER_ID)?.apply {
                 this.setProperties(
-                    circleColor(ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))),
+                    circleColor(ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color))),
                     circleStrokeColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)),
                     circleStrokeWidth(2.0f),
                 )
