@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aursani
 * Charan
+* Charoo
 * Dbrant
 * Indus Asia
 * KaleemBhatti
@@ -1041,7 +1042,7 @@
   <string name="onboarding_got_it">سمجھي ويئو</string>
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
   <string name="onboarding_multilingual_add_language_text">ٻوليون شامل يا مرتب ڪريو</string>
-  <string name="onboarding_welcome_title_v2">کليل ڄاڻ-چيڪلو\n...300 کان مٿي ٻولين ۾</string>
+  <string name="onboarding_welcome_title_v2">کليل انسائيڪلوپيڊيا\n...300 کان مٿي ٻولين ۾</string>
   <string name="app_shortcuts_random">بلاترتيب</string>
   <string name="app_shortcuts_continue_reading">پڙھڻ جاري رکو</string>
   <string name="app_shortcuts_search">ڳوليو</string>
