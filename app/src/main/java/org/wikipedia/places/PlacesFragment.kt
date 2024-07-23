@@ -783,9 +783,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
             page.pageTitle.thumbUrl?.let {
                 ViewUtil.loadImage(binding.listItemThumbnail, it, circleShape = true)
-                binding.listItemThumbnail.isVisible = true
-            } ?: run {
-                binding.listItemThumbnail.isVisible = false
             }
         }
 
