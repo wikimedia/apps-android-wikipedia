@@ -2,6 +2,11 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_temp_account"
+        android:icon="@drawable/ic_temp_account"
+        android:title="@string/temp_account_using_title"
+        app:iconTint="?attr/placeholder_color"
+        app:showAsAction="always" />
     <item android:id="@+id/menu_edit_notices"
         android:icon="@drawable/ic_warning_24"
         android:title="@string/edit_notices"

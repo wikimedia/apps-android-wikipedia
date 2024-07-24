@@ -48,7 +48,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
         _uiState.value = Resource.Loading()
         wikiSupportsImageRecommendations = false
 
-        if (!AccountUtil.isLoggedIn) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
             _uiState.value = RequireLogin()
             return
         }
@@ -61,10 +61,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             latestEditStreak = 0
             revertSeverity = 0
 
-            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null, null) }
+            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 10, null, null) }
             // val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
-            val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null, null) }
-            val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, 0, null) }
+            val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName, 10, null, null) }
+            val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, 0, null) }
             val editCountsCall = async { UserContribStats.verifyEditCountsAndPauseState() }
 
             val homeSiteResponse = homeSiteCall.await()

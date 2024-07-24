@@ -32,7 +32,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
-import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
@@ -102,6 +102,15 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private var currentRevision: Long = 0
     private var actionMode: ActionMode? = null
     private val disposables = CompositeDisposable()
+
+    private val movementMethodWithLogin = LinkMovementMethodExt { url: String ->
+        if (url == "https://#login") {
+            val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
+            requestLogin.launch(loginIntent)
+        } else {
+            UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
+        }
+    }
 
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -265,17 +274,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
     private fun updateEditLicenseText() {
         val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
-        editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+        editLicenseText.text = StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_4_url)))
-        editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
-            if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
-                requestLogin.launch(loginIntent)
-            } else {
-                UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
-            }
-        }
+        editLicenseText.movementMethod = movementMethodWithLogin
     }
 
     private fun cancelCalls() {
@@ -300,8 +302,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         if (!isFinishing) {
             showProgressBar(true)
         }
+
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
-                if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
+                if (sectionID >= 0) sectionID.toString() else null, null, summaryText, AccountUtil.assertUser,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
                 if (captchaHandler.isActive) captchaHandler.captchaWord() else "null",
@@ -511,14 +514,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 showEditNotices()
                 true
             }
+            R.id.menu_temp_account -> {
+                maybeShowTempAccountDialog(true)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
-        val item = menu.findItem(R.id.menu_save_section)
 
+        menu.findItem(R.id.menu_temp_account).apply {
+            isVisible = !AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount
+            setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+        }
+
+        val item = menu.findItem(R.id.menu_save_section)
         supportActionBar?.elevation = if (editPreviewFragment.isActive) 0f else DimenUtil.dpToPx(4f)
         menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_theme).isVisible = !editPreviewFragment.isActive
@@ -654,10 +666,13 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                             .filterKeys { key -> (key.startsWith("editnotice") && !key.endsWith("-notext")) }
                             .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
                         invalidateOptionsMenu()
-                        if (Prefs.autoShowEditNotices) {
-                            showEditNotices()
-                        } else {
-                            maybeShowEditNoticesTooltip()
+
+                        if (!maybeShowTempAccountDialog()) {
+                            if (Prefs.autoShowEditNotices) {
+                                showEditNotices()
+                            } else {
+                                maybeShowEditNoticesTooltip()
+                            }
                         }
                     }) {
                         showError(it)
@@ -797,6 +812,28 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         } else {
             action()
         }
+    }
+
+    private fun maybeShowTempAccountDialog(force: Boolean = false): Boolean {
+        if (force || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
+            MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
+                .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+                .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
+                .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
+                else getString(R.string.temp_account_anon_dialog_body)))
+                .setPositiveButton(getString(R.string.temp_account_dialog_ok)) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setNegativeButton(getString(R.string.create_account_login)) { dialog, _ ->
+                    dialog.dismiss()
+                    val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
+                    requestLogin.launch(loginIntent)
+                }
+                .show()
+            Prefs.tempAccountDialogShown = true
+            return true
+        }
+        return false
     }
 
     private fun startInsertImageFlow() {

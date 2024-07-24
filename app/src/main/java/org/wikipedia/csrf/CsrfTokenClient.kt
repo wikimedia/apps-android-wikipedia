@@ -39,7 +39,7 @@ object CsrfTokenClient {
                         // TODO: convert this with coroutines
                         Completable.fromAction {
                             runBlocking {
-                                LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
+                                LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
                             }
                         }.subscribeOn(Schedulers.io())
                             .blockingSubscribe({ }) {
@@ -70,12 +70,12 @@ object CsrfTokenClient {
                         return@create
                     }
 
-                    if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
+                    if (token.isEmpty() || (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)) {
                         continue
                     }
                     break
                 }
-                if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
+                if (token.isEmpty() || (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)) {
                     if (token == ANON_TOKEN) {
                         bailWithLogout()
                     }

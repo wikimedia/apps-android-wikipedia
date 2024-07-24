@@ -352,8 +352,7 @@ class DescriptionEditFragment : Fragment() {
                         }
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
                             editSummary,
-                            if (AccountUtil.isLoggedIn) "user"
-                            else null, text, null, baseRevId, editToken,
+                            AccountUtil.assertUser, text, null, baseRevId, editToken,
                             if (captchaHandler.isActive) captchaHandler.captchaId() else null,
                             if (captchaHandler.isActive) captchaHandler.captchaWord() else null, tags = getEditTags()
                         )
@@ -469,11 +468,11 @@ class DescriptionEditFragment : Fragment() {
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(languageCode, languageCode, Constants.COMMONS_DB_NAME,
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
-                        getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
+                        getEditComment(), editToken, AccountUtil.assertUser)
             } else {
                 ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
-                        if (AccountUtil.isLoggedIn) "user" else null, tags = getEditTags())
+                        AccountUtil.assertUser, tags = getEditTags())
             }
         }
 

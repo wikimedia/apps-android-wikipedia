@@ -3,17 +3,24 @@ package org.wikipedia.auth
 import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
+import android.app.Activity
 import android.os.Build
 import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 object AccountUtil {
+    private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
 
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
@@ -29,13 +36,13 @@ object AccountUtil {
     }
 
     val isLoggedIn: Boolean
-        get() = account() != null
+        get() = account() != null || isTemporaryAccount
 
-    val userName: String?
-        get() {
-            val account = account()
-            return account?.name
-        }
+    val isTemporaryAccount: Boolean
+        get() = account() == null && getTempAccountName().isNotEmpty()
+
+    val userName: String
+        get() = account()?.name ?: getTempAccountName()
 
     val password: String?
         get() {
@@ -55,6 +62,9 @@ object AccountUtil {
                     WikipediaApp.instance.getString(R.string.preference_key_login_groups),
                     JsonUtil.encodeToString(groups))
         }
+
+    val assertUser: String?
+        get() = if (isLoggedIn && !isTemporaryAccount) "user" else null
 
     fun isMemberOf(groups: Set<String?>): Boolean {
         return groups.isNotEmpty() && !Collections.disjoint(groups, AccountUtil.groups)
@@ -86,6 +96,27 @@ object AccountUtil {
 
     fun accountType(): String {
         return WikipediaApp.instance.getString(R.string.account_type)
+    }
+
+    fun getTempAccountName(): String {
+        return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
+    }
+
+    fun getTempAccountExpiry(): Long {
+        return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
+    }
+
+    fun maybeShowTempAccountWelcome(activity: Activity): Boolean {
+        if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
+            Prefs.tempAccountWelcomeShown = true
+            Prefs.tempAccountDialogShown = false
+
+            val expiryDays = TimeUnit.MILLISECONDS.toDays(getTempAccountExpiry() - System.currentTimeMillis()).toInt()
+            FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
+                expiryDays, userName, expiryDays))
+            return true
+        }
+        return false
     }
 
     private fun createAccount(userName: String, password: String): Boolean {
