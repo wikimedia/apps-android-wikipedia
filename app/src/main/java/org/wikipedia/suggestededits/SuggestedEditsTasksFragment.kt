@@ -88,7 +88,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val requestAddImageTags = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == Activity.RESULT_OK) {
             Prefs.showImageTagsOnboarding = false
-            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
         }
     }
 
@@ -123,6 +123,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         binding.errorView.retryClickListener = View.OnClickListener { refreshContents() }
+        binding.errorView.loginClickListener = View.OnClickListener { requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS)) }
 
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
@@ -387,20 +388,20 @@ class SuggestedEditsTasksFragment : Fragment() {
                 requestAddLanguage.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS))
             } else if (task == addDescriptionsTask) {
                 ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION, Constants.InvokeSource.SUGGESTED_EDITS))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
                 ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION, Constants.InvokeSource.SUGGESTED_EDITS))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
                 ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
                 if (Prefs.showImageTagsOnboarding) {
                     requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
                 } else {
-                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
             } else if (task == imageRecommendationsTask) {
                 ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS, Constants.InvokeSource.SUGGESTED_EDITS))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
             } else if (task == vandalismPatrolTask) {
                 PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
                 startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))

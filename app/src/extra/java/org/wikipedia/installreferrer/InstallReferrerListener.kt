@@ -1,4 +1,4 @@
-package org.wikipedia.analytics
+package org.wikipedia.installreferrer
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import com.android.installreferrer.api.InstallReferrerClient
 import com.android.installreferrer.api.InstallReferrerStateListener
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.InstallReferrerEvent
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
@@ -130,7 +131,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
 
         if (refUtmSource.orEmpty() == "readingLists") {
             Prefs.importReadingListsNewInstallDialogShown = false
-            WikipediaApp.instance.bus.post(ImportReadingListsEvent())
+            FlowEventBus.post(ImportReadingListsEvent())
         }
     }
 

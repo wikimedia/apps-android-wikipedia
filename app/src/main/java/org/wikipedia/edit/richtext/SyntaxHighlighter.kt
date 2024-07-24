@@ -2,9 +2,9 @@ package org.wikipedia.edit.richtext
 
 import android.os.Build
 import android.text.Spanned
+import android.widget.ScrollView
 import androidx.activity.ComponentActivity
 import androidx.core.text.getSpans
-import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
@@ -15,7 +15,7 @@ import java.util.*
 class SyntaxHighlighter(
     private val activity: ComponentActivity,
     private val textBox: SyntaxHighlightableEditText,
-    private val scrollView: NestedScrollView?,
+    private val scrollView: ScrollView?,
     private val highlightDelayMillis: Long = HIGHLIGHT_DELAY_MILLIS,
 ) {
     private val syntaxRules = listOf(
@@ -128,7 +128,7 @@ class SyntaxHighlighter(
 
         oldSpans.forEach { textBox.text.removeSpan(it) }
         newSpans.forEach {
-            textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+            textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
 
         time = System.currentTimeMillis() - time
@@ -210,7 +210,7 @@ class SyntaxHighlighter(
     private fun getSyntaxMatches(startOffset: Int, textLength: Int): List<SpanExtents> {
         val syntaxItem = SyntaxRule("", "", SyntaxRuleStyle.SEARCH_MATCHES)
 
-        return searchQueryPositions.orEmpty().asSequence()
+        return searchQueryPositions.orEmpty().toMutableList()
             .filter { it >= startOffset && it < startOffset + textLength }
             .mapIndexed { index, i ->
                 val newSpanInfoCreator = if (index == searchQueryPositionIndex) {
@@ -223,7 +223,6 @@ class SyntaxHighlighter(
                     end = i + searchQueryLength
                 }
             }
-            .toList()
     }
 
     fun setSearchQueryInfo(searchQueryPositions: List<Int>?, searchQueryLength: Int, searchQueryPositionIndex: Int) {

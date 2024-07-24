@@ -340,7 +340,6 @@
   <string name="page_view_in_browser">Ver a páxina no navegador</string>
   <string name="tool_tip_toc_title">Acceso rápido ó índice</string>
   <string name="tool_tip_toc_text">Agora pode deslizar cara á esquerda para abrir o índice, e tamén premer e arrastrar o botón de desprazamento para saltar rapidamente a diferentes seccións dun artigo.</string>
-  <string name="tool_tip_lang_button">Agora pode explorar e consultar Wikipedia nas súas distintas linguas dentro da aplicación.\n\n\nPrema a icona para engadir máis linguas.</string>
   <string name="error_response_malformed">A resposta do servidor non estaba formatada correctamente.</string>
   <string name="error_unknown">Houbo un erro descoñecido.</string>
   <string name="format_error_server_message">Mensaxe: \"%s\"</string>

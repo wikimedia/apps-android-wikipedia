@@ -353,7 +353,6 @@
   <string name="page_view_in_browser">Paparkan laman dalam pelayar</string>
   <string name="tool_tip_toc_title">Capaian cepat jadual kandungan</string>
   <string name="tool_tip_toc_text">Anda kini boleh leret ke kiri untuk membuka jadual kandungan, dan juga ketik dan seret pada butang scroller ini untuk melompat dengan cepat ke bahagian rencana yang berlainan.</string>
-  <string name="tool_tip_lang_button">Anda kini boleh mencari dan membaca dalam pelbagai bahasa Wikipedia dalam aplikasinya.\n\n\nKetuk pada ikon untuk menambah lebih banyak bahasa.</string>
   <string name="error_response_malformed">Respons dari pelayan tidak diformatkan dengan betul.</string>
   <string name="error_unknown">Berlakunya ralat yang tidak diketahui.</string>
   <string name="format_error_server_message">Mesej: \"%s\"</string>
@@ -973,6 +972,7 @@
   <string name="watchlist_details_watch_label">Pantau</string>
   <string name="thank_label">Terima kasih</string>
   <string name="view_user_page">Lihat laman pengguna</string>
+  <string name="thank_dialog_title_text">Hantar \'Terima kasih\' secara terbuka</string>
   <string name="thank_dialog_positive_button_text">Ucap terima kasih</string>
   <string name="thank_dialog_negative_button_text">Batalkan</string>
   <string name="revision_diff_compare">Banding semakan</string>

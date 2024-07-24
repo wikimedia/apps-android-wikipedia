@@ -35,29 +35,28 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.mapbox.mapboxsdk.Mapbox
-import com.mapbox.mapboxsdk.camera.CameraPosition
-import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
-import com.mapbox.mapboxsdk.geometry.LatLng
-import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
-import com.mapbox.mapboxsdk.location.modes.CameraMode
-import com.mapbox.mapboxsdk.location.modes.RenderMode
-import com.mapbox.mapboxsdk.maps.MapboxMap
-import com.mapbox.mapboxsdk.maps.MapboxMap.CancelableCallback
-import com.mapbox.mapboxsdk.maps.Style
-import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
-import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
-import com.mapbox.mapboxsdk.plugins.annotation.Symbol
-import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
-import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
-import com.mapbox.mapboxsdk.style.expressions.Expression
-import com.mapbox.mapboxsdk.style.expressions.Expression.get
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeColor
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textFont
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
+import org.maplibre.android.MapLibre
+import org.maplibre.android.camera.CameraPosition
+import org.maplibre.android.camera.CameraUpdateFactory
+import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.location.LocationComponentActivationOptions
+import org.maplibre.android.location.modes.CameraMode
+import org.maplibre.android.location.modes.RenderMode
+import org.maplibre.android.maps.MapLibreMap
+import org.maplibre.android.maps.MapLibreMap.CancelableCallback
+import org.maplibre.android.maps.Style
+import org.maplibre.android.module.http.HttpRequestImpl
+import org.maplibre.android.plugins.annotation.ClusterOptions
+import org.maplibre.android.plugins.annotation.Symbol
+import org.maplibre.android.plugins.annotation.SymbolManager
+import org.maplibre.android.plugins.annotation.SymbolOptions
+import org.maplibre.android.style.expressions.Expression
+import org.maplibre.android.style.layers.PropertyFactory.circleColor
+import org.maplibre.android.style.layers.PropertyFactory.circleStrokeColor
+import org.maplibre.android.style.layers.PropertyFactory.circleStrokeWidth
+import org.maplibre.android.style.layers.PropertyFactory.textAllowOverlap
+import org.maplibre.android.style.layers.PropertyFactory.textFont
+import org.maplibre.android.style.layers.PropertyFactory.textIgnorePlacement
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -65,6 +64,7 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.dataclient.page.NearbyPage
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.ImagePipelineBitmapGetter
@@ -94,7 +94,7 @@ import org.wikipedia.views.ViewUtil
 import java.util.Locale
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapLibreMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -103,10 +103,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
-    private var mapboxMap: MapboxMap? = null
+    private var mapboxMap: MapLibreMap? = null
     private var symbolManager: SymbolManager? = null
 
-    private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
+    private val annotationCache = ArrayDeque<NearbyPage>()
     private var lastCheckedId = R.id.mapViewButton
     private var lastLocation: Location? = null
     private var lastLocationQueried: Location? = null
@@ -171,7 +171,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             drawMarker(this)
         }
 
-        Mapbox.getInstance(requireActivity().applicationContext)
+        MapLibre.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
 
@@ -467,11 +467,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         FeedbackUtil.setButtonTooltip(binding.tabsButton, binding.langCodeButton)
     }
 
-    private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
+    private fun setUpSymbolManagerWithClustering(mapboxMap: MapLibreMap, style: Style) {
         val clusterOptions = ClusterOptions()
             .withClusterRadius(60)
             .withTextSize(Expression.literal(16f))
-            .withTextField(Expression.toString(get(POINT_COUNT)))
+            .withTextField(Expression.toString(Expression.get(POINT_COUNT)))
             .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
 
         symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
@@ -587,7 +587,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
     }
 
-    private fun updateMapMarkers(pages: List<PlacesFragmentViewModel.NearbyPage>) {
+    private fun updateMapMarkers(pages: List<NearbyPage>) {
         symbolManager?.let { manager ->
 
             pages.filter {
@@ -664,7 +664,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
     }
 
-    private fun queueImageForAnnotation(page: PlacesFragmentViewModel.NearbyPage) {
+    private fun queueImageForAnnotation(page: NearbyPage) {
         val url = page.pageTitle.thumbUrl
         if (!Prefs.isImageDownloadEnabled || url.isNullOrEmpty()) {
             return
@@ -747,7 +747,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         return false
     }
 
-    private inner class RecyclerViewAdapter(val nearbyPages: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+    private inner class RecyclerViewAdapter(val nearbyPages: List<NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {
             return nearbyPages.size
         }
@@ -764,7 +764,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private inner class RecyclerViewItemHolder(val binding: ItemPlacesListBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
-        private lateinit var page: PlacesFragmentViewModel.NearbyPage
+        private lateinit var page: NearbyPage
 
         init {
             itemView.setOnClickListener(this)
@@ -772,7 +772,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
-        fun bindItem(page: PlacesFragmentViewModel.NearbyPage, locationForDistance: Location?) {
+        fun bindItem(page: NearbyPage, locationForDistance: Location?) {
             this.page = page
             binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)

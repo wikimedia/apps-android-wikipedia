@@ -364,14 +364,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_first_time_sync, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_first_time_sync, value)
 
-    var editingTextSizeExtra
-        get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_extra, 0)
-        set(extra) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_extra, extra)
-
-    var isMultilingualSearchTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_multilingual_search_tooltip_shown, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_multilingual_search_tooltip_shown, enabled)
-
     var shouldShowRemoveChineseVariantPrompt
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)
@@ -706,14 +698,6 @@ object Prefs {
     var placesWikiCode
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
-
-    var showOneTimePlacesPageOnboardingTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, value)
-
-    var showOneTimePlacesMainNavOnboardingTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, value)
 
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?
         get() {

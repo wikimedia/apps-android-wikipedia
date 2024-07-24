@@ -488,11 +488,6 @@
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
-    <style name="TextInputLayoutStyle.EditSection">
-        <item name="android:textColorHighlight">?attr/focus_color</item>
-        <item name="strokeColor">@android:color/transparent</item>
-    </style>
-
     <style name="SpinnerTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
         <item name="android:textColor">?attr/primary_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>

@@ -407,4 +407,5 @@
   <string name="talk_templates_new_message_dialog_save">Ruõkk</string>
   <string name="talk_templates_edit_message_dialog_save">Ruõkk</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
+  <string name="talk_templates_menu_edit_title">Muuʹtt</string>
 </resources>

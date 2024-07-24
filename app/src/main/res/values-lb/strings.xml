@@ -215,11 +215,12 @@
   <string name="privacy_policy_description">Dateschutzrichtlinnen</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Säit&lt;/a&gt;</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_app_license_heading">Lizenz</string>
@@ -253,6 +254,8 @@
   <string name="edit_summary_tag_links">Linken derbäigesat</string>
   <string name="edit_summary_tag_other">Anerer</string>
   <string name="edit_summary_tag_other_hint">Aner Manéier wéi Dir d\'Säit verbessert hutt</string>
+  <string name="edit_summary_added_short_description">Kuerzbeschreiwung derbäigesat</string>
+  <string name="edit_summary_updated_short_description">Kuerzbeschreiwung aktualiséiert</string>
   <string name="edit_conflict_title">Ännerungskonflikt</string>
   <string name="edit_notices_please_read">Liest wgl. virum Änneren</string>
   <string name="find_next">Den nächste fannen</string>
@@ -407,6 +410,7 @@
   <string name="text_style_title">Schrëftaart</string>
   <string name="theme_category_reading">Liesen</string>
   <string name="theme_category_editing">Änneren</string>
+  <string name="reading_focus_mode">Liesfokus-Modus</string>
   <string name="editing_syntax_highlight_label">Ervirhiewe vun der Syntax</string>
   <string name="editing_line_numbers_label">Zeilennummere weisen</string>
   <string name="editing_monospace_font_label">Monospace-Schrëftaart benotzen</string>
@@ -477,6 +481,8 @@
   <string name="reading_lists_default_list_delete_message">D\'Standardlëscht (%s) kann net geläscht ginn</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s geläscht. D\'Standardlëscht (%2$s) kann net geläscht ginn.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Lëschte geläscht. D\'Standardlëscht (%s) kann net geläscht ginn.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-Lieslëscht).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-Lieslëschten (%s a méi).json</string>
   <string name="reading_list_items_deleted">%d Artikele vun der Lëscht erofgeholl</string>
   <string name="reading_lists_item_deleted">%s vun de Lëschten erofgeholl</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
@@ -1344,7 +1350,6 @@
   <string name="places_title">Plazen</string>
   <string name="places_toggle_buttons_map">Kaart</string>
   <string name="places_toggle_buttons_list">Lëscht</string>
-  <string name="places_nav_tab_tooltip_message">Entdeckt Wikipedia-Artikelen an Ärer Ëmgéigend mat „Plazen“</string>
   <string name="places_survey_very_satisfied_option">Ganz zefridden</string>
   <string name="places_survey_very_unsatisfied_option">Ganz onzefridden</string>
   <string name="places_survey_dialog_title">Hëlleft fir „Plazen“ ze verbesseren</string>

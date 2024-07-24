@@ -37,6 +37,7 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
@@ -50,7 +51,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
-class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback {
+class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback, LinkPreviewDialog.DismissCallback {
     private lateinit var binding: ActivityTalkReplyBinding
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
@@ -597,6 +598,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     override fun isNewPage(): Boolean {
         return !viewModel.doesPageExist
+    }
+
+    override fun onLinkPreviewDismiss() {
+        if (!isDestroyed) {
+            binding.replyInputView.editText.postDelayed({
+                DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
+            }, 200)
+        }
     }
 
     companion object {

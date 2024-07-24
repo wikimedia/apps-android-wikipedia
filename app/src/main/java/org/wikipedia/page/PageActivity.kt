@@ -1,9 +1,12 @@
 package org.wikipedia.page
 
 import android.app.SearchManager
+import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.ActionMode
 import android.view.Gravity
@@ -20,10 +23,13 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -33,10 +39,10 @@ import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.ActivityPageBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -92,7 +98,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private var hasTransitionAnimation = false
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
-    private val disposables = CompositeDisposable()
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
@@ -171,7 +176,25 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        disposables.add(app.bus.subscribe(EventBusConsumer()))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is ChangeTextSizeEvent -> {
+                            pageFragment.updateFontSize()
+                        }
+                        is ArticleSavedOrDeletedEvent -> {
+                            pageFragment.title?.run {
+                                if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
+                                    pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         updateProgressBar(false)
         pageFragment = supportFragmentManager.findFragmentById(R.id.page_fragment) as PageFragment
 
@@ -316,7 +339,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onDestroy() {
-        disposables.clear()
         Prefs.hasVisitedArticlePage = true
         super.onDestroy()
     }
@@ -367,7 +389,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
-        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -660,35 +681,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             .show()
     }
 
-    private fun maybeShowPlacesTooltip() {
-        if (!Prefs.showOneTimePlacesPageOnboardingTooltip ||
-            pageFragment.page?.pageProperties?.geo == null || isTooltipShowing) {
-            return
-        }
-        enqueueTooltip {
-            FeedbackUtil.getTooltip(
-                this,
-                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
-                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
-                topOrBottomMargin = -8,
-                aboveOrBelow = false,
-                autoDismiss = false,
-                showDismissButton = true
-            ).apply {
-                PlacesEvent.logImpression("article_more_tooltip")
-                setOnBalloonDismissListener {
-                    PlacesEvent.logAction("dismiss_click", "article_more_tooltip")
-                    isTooltipShowing = false
-                    Prefs.showOneTimePlacesPageOnboardingTooltip = false
-                }
-                isTooltipShowing = true
-                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
-                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-                setCurrentTooltip(this)
-            }
-        }
-    }
-
     private fun maybeShowThemeTooltip() {
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
@@ -782,22 +774,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         updateNotificationsButton(true)
     }
 
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            when (event) {
-                is ChangeTextSizeEvent -> {
-                    pageFragment.updateFontSize()
-                }
-                is ArticleSavedOrDeletedEvent -> {
-                    if (!pageFragment.isAdded) {
-                        return
-                    }
-                    pageFragment.title?.run {
-                        if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
-                            pageFragment.updateBookmarkAndMenuOptionsFromDao()
-                        }
-                    }
-                }
+    override fun onProvideAssistContent(outContent: AssistContent) {
+        super.onProvideAssistContent(outContent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pageFragment.model.title?.let {
+                outContent.setWebUri(Uri.parse(it.uri))
             }
         }
     }

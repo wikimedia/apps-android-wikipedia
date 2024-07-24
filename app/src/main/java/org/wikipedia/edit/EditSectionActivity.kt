@@ -76,7 +76,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
@@ -307,7 +307,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null", isMinorEdit, watchThisPage)
+                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null",
+                isMinorEdit,
+                watchThisPage,
+                tags = getEditTag())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
@@ -326,6 +329,15 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         )
 
         BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
+    }
+
+    private fun getEditTag(): String {
+        return when {
+            invokeSource == Constants.InvokeSource.TALK_TOPIC_ACTIVITY -> EditTags.APP_TALK_SOURCE
+            !textToHighlight.isNullOrEmpty() -> EditTags.APP_SELECT_SOURCE
+            sectionID >= 0 -> EditTags.APP_SECTION_SOURCE
+            else -> EditTags.APP_FULL_SOURCE
+        }
     }
 
     private fun waitForUpdatedRevision(newRevision: Long) {
@@ -863,6 +875,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         doExitActionWithConfirmationDialog {
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
                 PageActivity.newIntentForCurrentTab(this, entry, title, false))
+        }
+    }
+
+    override fun onLinkPreviewDismiss() {
+        if (!isDestroyed) {
+            binding.editSectionText.postDelayed({
+                DeviceUtil.showSoftKeyboard(binding.editSectionText)
+            }, 200)
         }
     }
 
