@@ -33,7 +33,6 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
@@ -275,7 +274,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
     private fun updateEditLicenseText() {
         val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
-        editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+        editLicenseText.text = StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_4_url)))
         editLicenseText.movementMethod = movementMethodWithLogin
@@ -303,8 +302,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         if (!isFinishing) {
             showProgressBar(true)
         }
+
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
-                if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
+                if (sectionID >= 0) sectionID.toString() else null, null, summaryText, AccountUtil.assertUser,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
                 if (captchaHandler.isActive) captchaHandler.captchaWord() else "null",

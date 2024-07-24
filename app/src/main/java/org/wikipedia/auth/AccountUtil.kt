@@ -63,6 +63,9 @@ object AccountUtil {
                     JsonUtil.encodeToString(groups))
         }
 
+    val assertUser: String?
+        get() = if (isLoggedIn && !isTemporaryAccount) "user" else null
+
     fun isMemberOf(groups: Set<String?>): Boolean {
         return groups.isNotEmpty() && !Collections.disjoint(groups, AccountUtil.groups)
     }
