@@ -2,10 +2,12 @@ package org.wikipedia.settings
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.wikipedia.BuildConfig
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -15,6 +17,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
+import org.wikipedia.util.FeedbackUtil
 
 /** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -48,11 +51,24 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true
         }
+        findPreference(R.string.preference_key_send_feedback).onPreferenceClickListener =
+            Preference.OnPreferenceClickListener {
+                FeedbackUtil.composeFeedbackEmail(
+                    activity,
+                    "Android App ${BuildConfig.VERSION_NAME} Feedback",
+                    deviceInformation()
+                )
+                true
+        }
 
         if (AccountUtil.isLoggedIn) {
             loadPreferences(R.xml.preferences_account)
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
+    }
+
+    private fun deviceInformation(): String {
+        return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
     }
 
     fun updateLanguagePrefSummary() {
