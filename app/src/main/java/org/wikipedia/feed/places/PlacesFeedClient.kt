@@ -35,15 +35,14 @@ class PlacesFeedClient(
                 FeedContentType.aggregatedLanguages.forEach { lang ->
                     val wikiSite = WikiSite.forLanguageCode(lang)
                     val location = it.first
-                    // TODO: tune the radius and decide which markers to pick
-                    val response = ServiceFactory.get(wikiSite).getGeoSearch("${location.latitude}|${location.longitude}", 10000, age, age)
+                    val response = ServiceFactory.get(wikiSite).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
                     val lastPage = response.query?.pages.orEmpty()
                         .filter { it.coordinates != null }
                         .map {
                             NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
                                 if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
                                 it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
-                        }.first()
+                        }[age % 10]
                     list.add(PlacesCard(wikiSite, age, lastPage))
                 }
                 cb.success(list)
