@@ -392,6 +392,7 @@
   <string name="talk_page_empty">هاد صفحة لهضرة خاوية</string>
   <string name="talk_no_subject">(بلا موضوع)</string>
   <string name="watchlist_details_next_edit">تبدال جاي</string>
+  <string name="thank_dialog_positive_button_text">مصيفطة د شكر</string>
   <string name="thank_dialog_negative_button_text">لغي</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ل شهر واحد</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ل 6 شهور</string>
