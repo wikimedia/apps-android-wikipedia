@@ -712,7 +712,7 @@ interface Service {
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
+    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&pilicense=any&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
     suspend fun getPagesWithImageRecommendations(
         @Query("gsrlimit") count: Int
     ): MwQueryResponse
