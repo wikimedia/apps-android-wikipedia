@@ -2,6 +2,7 @@
 <!-- Authors:
 * Amara-Amaziɣ
 * Brahim-essaidi
+* Dbrant
 * Hakim1bal
 * Mohamed Belarhzali
 * ⵕⴰⵊⵉ
@@ -128,9 +129,9 @@
   <string name="create_account_username_hint">ⵉⵙⵎ ⵏ ⵓⵙⵎⵔⴰⵙ</string>
   <string name="login_dont_have_account">ⵓⵔ ⵖⵓⵔⴽ ⵉⵍⵍⵉ ⵓⵎⵉⴹⴰⵏ?</string>
   <string name="login_join_wikipedia">ⵍⴽⵎ ⵉ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
-  <string name="login_forgot_password">ⵜⴻⵜⵜⵓⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⵎ/ⴽ?</string>
+  <string name="login_forgot_password">ⵜⴻⵜⵜⵓⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⴽ/ⵎ?</string>
   <string name="create_account_already_have">ⵉⵙ ⵉⵍⵍⴰ ⵖⵓⵔⴽ ⵓⵎⵉⴹⴰⵏ?</string>
-  <string name="create_account_activity_title">ⵙⵏⴼⵍⵓⵍ ⴰⵎⵉⴹⴰⵏ</string>
+  <string name="create_account_activity_title">ⵙⵏⵓⵍⴼⵓ ⴽⵔⴰ ⵏ ⵓⵎⵉⴹⴰⵏ</string>
   <string name="dialog_create_account_checking_progress">ⴰⵙⵖⵥⵏ</string>
   <string name="create_account_email_hint">ⵉⵎⴰⵢⵍ (ⵓⴷⵖⵉⵔ)</string>
   <string name="create_account_password_repeat_hint">ⵔⴰⵔ ⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ</string>
@@ -138,7 +139,7 @@
   <string name="create_account_email_error">ⴰⵏⵙⴰ ⵏ ⵉⵎⴰⵢⵍ ⵓⵔ ⵉⵏⵉⵎ</string>
   <string name="create_account_next">ⵓⴹⴼⵉⵕ</string>
   <string name="email_recommendation_dialog_create_with_email_action">ⵔⵏⵓ ⴰⵏⵙⴰ ⵏ ⵉⵎⴰⵢⵍ</string>
-  <string name="create_account_button">ⵙⵏⴼⵍⵓⵍ ⴰⵎⵉⴹⴰⵏ</string>
+  <string name="create_account_button">ⵙⵏⵓⵍⴼⵓ ⴰⵎⵉⴹⴰⵏ</string>
   <string name="create_account_ip_block_details">ⵉⴼⵔⵓⵔⵉⵜⵏ</string>
   <string name="preferences_general_heading">ⴰⵎⴰⵜⴰⵢ</string>
   <string name="preferences_account_heading">ⴰⵎⵉⴹⴰⵏ</string>
@@ -221,7 +222,7 @@
   <string name="color_theme_test_title">ⴰⴹⵕⵉⵚ ⴰⵎⴷⵢⴰ</string>
   <string name="preference_title_app_theme">ⴰⵙⴳⵓⵎ ⵏ ⵜⵙⵏⵙⵉ</string>
   <string name="reading_list_save_to">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
-  <string name="reading_list_create_new">ⵙⵏⴼⵍⵓⵍ ⴰⵎⴰⵢⵎⵓ</string>
+  <string name="reading_list_create_new">ⵙⵏⵓⵍⴼⵓ ⴰⵎⴰⵢⵎⵓ</string>
   <string name="reading_list_menu_delete">ⴽⴽⵙ ⵜⴰⵍⴳⴰⵎⵜ</string>
   <string name="reading_list_menu_rename">ⵙⵏⴼⵍ ⵉⵙⵎ/ⴰⴳⵍⴰⵎ</string>
   <string name="reading_list_select_item">ⵙⵜⵢ</string>
@@ -296,7 +297,7 @@
   <string name="this_year">ⴰⵙⵙⴳⴳⵯⴰⵙ ⴰⴷ</string>
   <string name="languages_list_activity_title">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="languages_list_all_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵎⴰⵕⵕⴰ</string>
-  <string name="wikipedia_languages_your_languages_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏⵏⴽ</string>
+  <string name="wikipedia_languages_your_languages_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏⵏⴽ/ⵎ</string>
   <string name="wikipedia_languages_add_language_text">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="wikipedia_languages_remove_text">ⴽⴽⵙ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="wikipedia_languages_remove_action_mode_title">ⴽⴽⵙ ⵜⵓⵜⵍⴰⵢⵜ</string>
