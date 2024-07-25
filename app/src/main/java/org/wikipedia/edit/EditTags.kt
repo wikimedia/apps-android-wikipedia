@@ -13,4 +13,5 @@ object EditTags {
     const val APP_TALK_SOURCE = "app-talk-source"
     const val APP_TALK_REPLY = "app-talk-reply"
     const val APP_TALK_TOPIC = "app-talk-topic"
+    const val APP_AI_ASSIST = "app-ai-assist"
 }
