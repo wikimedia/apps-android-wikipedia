@@ -195,12 +195,6 @@
             android:title="@string/preference_developer_clear_all_talk_topics"
             android:summary="Reset all talk page topics to unread." />
 
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/DataStringPreference"
-            android:key="@string/preference_key_default_places_location_latlng"
-            android:title="@string/preference_key_default_places_location_latlng"
-            android:dialogMessage="Set 38.656391,-121.168534 as the default location that does not have available markers nearby." />
-
         <Preference
             android:key="@string/preference_developer_clear_last_location_and_zoom_level"
             android:title="@string/preference_developer_clear_last_location_and_zoom_level"

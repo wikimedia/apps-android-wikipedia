@@ -19,7 +19,6 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
@@ -36,8 +35,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.camera.CameraUpdateFactory
@@ -115,7 +112,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var lastLocationQueried: Location? = null
     private var lastZoom = 15.0
     private var lastZoomQueried = 0.0
-    private var goToDefaultLocation = false
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
@@ -134,7 +130,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 PlacesEvent.logAction("location_permission_granted", "map_view")
                 startLocationTracking()
-                goToLocation(viewModel.location ?: getDefaultLocation())
+                goToLocation(viewModel.location)
             }
             else -> {
                 PlacesEvent.logAction("location_permission_denied", "map_view")
@@ -382,11 +378,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     goToLocation(it)
                 } ?: run {
                     val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                    if (Prefs.placesDefaultLocationLatLng != null) {
-                        goToLocation(getDefaultLocation(), lastZoom)
-                    } else {
-                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
-                    }
+                    goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
 
                     if (!haveLocationPermissions()) {
                         locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -401,17 +393,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
-        }
-    }
-
-    private fun getDefaultLocation(): Location? {
-        return Prefs.placesDefaultLocationLatLng?.let { defaultLocation ->
-            val defaultLocationStrings = defaultLocation.split(",").map { it.toDouble() }
-            val defaultLocation = Location("").apply {
-                latitude = defaultLocationStrings[0]
-                longitude = defaultLocationStrings[1]
-            }
-            return defaultLocation
         }
     }
 
@@ -640,22 +621,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
         binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
 
-        if (pages.isEmpty() && !goToDefaultLocation && Prefs.placesLastLocationAndZoomLevel == null) {
-            lastLocation = Location("").apply {
-                val latLng = DEFAULT_LAT_LNG.split(",")
-                latitude = latLng.first().toDouble()
-                longitude = latLng.last().toDouble()
-            }
-            Toast.makeText(requireContext(), R.string.places_empty_navigating_to_default, Toast.LENGTH_LONG).show()
-            runBlocking {
-                delay(500)
-                goToLocation(lastLocation, animateCamera = true)
-            }
-        } else {
-            goToDefaultLocation = true
-            lastLocation?.let {
-                Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
-            }
+        if (pages.isEmpty() && Prefs.placesLastLocationAndZoomLevel == null) {
+            FeedbackUtil.showMessage(requireActivity(), R.string.places_empty_message_snackbar)
         }
     }
 
@@ -679,7 +646,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
     }
 
-    private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0, animateCamera: Boolean = false) {
+    private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
         binding.viewButtonsGroup.check(R.id.mapViewButton)
         mapboxMap?.let {
             viewModel.lastKnownLocation = getLastKnownUserLocation()
@@ -688,33 +655,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
             val targetLocation = location ?: currentLatLngLoc
             targetLocation?.let { target ->
-                if (animateCamera) {
-                    it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), 3000, object : CancelableCallback {
-                            override fun onCancel() {}
+                it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                    override fun onCancel() { }
 
-                            override fun onFinish() {
-                                if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
-                                    showLinkPreview(
-                                        viewModel.highlightedPageTitle!!,
-                                        preferredLocation
-                                    )
-                                }
-                            }
-                        })
-                } else {
-                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
-                            override fun onCancel() {}
-
-                            override fun onFinish() {
-                                if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
-                                    showLinkPreview(
-                                        viewModel.highlightedPageTitle!!,
-                                        preferredLocation
-                                    )
-                                }
-                            }
-                        })
-                }
+                    override fun onFinish() {
+                        if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                            showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
+                        }
+                    }
+                })
             }
         }
     }
@@ -872,7 +821,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     companion object {
-        private const val DEFAULT_LAT_LNG = "37.77937672977168,-122.41891983729893"
         const val MARKER_DRAWABLE = "markerDrawable"
         const val POINT_COUNT = "point_count"
         const val MAX_ANNOTATIONS = 250
