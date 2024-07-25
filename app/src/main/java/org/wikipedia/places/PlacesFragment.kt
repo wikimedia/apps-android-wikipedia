@@ -494,7 +494,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 this.setProperties(
                     circleRadius(24f),
                     circleColor(ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color))),
-                    circleOpacity(0.7f),
+                    circleOpacity(0.8f),
                     circleStrokeColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)),
                     circleStrokeWidth(2.0f),
                 )
