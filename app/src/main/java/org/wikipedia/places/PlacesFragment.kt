@@ -52,11 +52,16 @@ import org.maplibre.android.plugins.annotation.SymbolManager
 import org.maplibre.android.plugins.annotation.SymbolOptions
 import org.maplibre.android.style.expressions.Expression
 import org.maplibre.android.style.layers.PropertyFactory.circleColor
+import org.maplibre.android.style.layers.PropertyFactory.circleOpacity
+import org.maplibre.android.style.layers.PropertyFactory.circleRadius
 import org.maplibre.android.style.layers.PropertyFactory.circleStrokeColor
 import org.maplibre.android.style.layers.PropertyFactory.circleStrokeWidth
 import org.maplibre.android.style.layers.PropertyFactory.textAllowOverlap
+import org.maplibre.android.style.layers.PropertyFactory.textColor
+import org.maplibre.android.style.layers.PropertyFactory.textField
 import org.maplibre.android.style.layers.PropertyFactory.textFont
 import org.maplibre.android.style.layers.PropertyFactory.textIgnorePlacement
+import org.maplibre.android.style.layers.PropertyFactory.textSize
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -469,27 +474,27 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapLibreMap, style: Style) {
-        val clusterOptions = ClusterOptions()
-            .withClusterRadius(60)
-            .withTextSize(Expression.literal(16f))
-            .withTextField(Expression.toString(Expression.get(POINT_COUNT)))
-            .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
 
-        symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
+        symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, ClusterOptions())
 
         // Clustering with SymbolManager doesn't expose a few style specifications we need.
         // Accessing the styles in a fail-safe manner
         try {
             style.getLayer(CLUSTER_TEXT_LAYER_ID)?.apply {
                 this.setProperties(
+                    textField(Expression.toString(Expression.get(POINT_COUNT))),
+                    textSize(Expression.literal(22f)),
+                    textColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)),
                     textFont(CLUSTER_FONT_STACK),
                     textIgnorePlacement(true),
-                    textAllowOverlap(true)
+                    textAllowOverlap(true),
                 )
             }
             style.getLayer(CLUSTER_CIRCLE_LAYER_ID)?.apply {
                 this.setProperties(
+                    circleRadius(24f),
                     circleColor(ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color))),
+                    circleOpacity(0.7f),
                     circleStrokeColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)),
                     circleStrokeWidth(2.0f),
                 )
