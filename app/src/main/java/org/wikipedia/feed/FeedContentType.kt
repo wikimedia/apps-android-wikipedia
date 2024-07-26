@@ -91,18 +91,6 @@ enum class FeedContentType(private val code: Int,
     }
 
     companion object {
-        val aggregatedLanguages: List<String>
-            get() {
-                val appLangCodes = WikipediaApp.instance.languageState.appLanguageCodes
-                val list = mutableListOf<String>()
-                entries.filter { it.isEnabled }.forEach { type ->
-                    list.addAll(appLangCodes.filter {
-                        (type.langCodesSupported.isEmpty() || type.langCodesSupported.contains(it)) &&
-                                !type.langCodesDisabled.contains(it) && !list.contains(it)
-                    })
-                }
-                return list
-            }
 
         fun saveState() {
             val enabledList = mutableListOf<Boolean>()
