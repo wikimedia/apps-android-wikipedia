@@ -5,6 +5,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -28,7 +29,7 @@ class RandomClient(
             }
         ) {
             val list = mutableListOf<RandomCard>()
-            FeedContentType.aggregatedLanguages.forEach { lang ->
+            WikipediaApp.instance.languageState.appLanguageCodes.filter { !FeedContentType.RANDOM.langCodesDisabled.contains(it) }.forEach { lang ->
                 val wikiSite = WikiSite.forLanguageCode(lang)
                 val randomSummary = try {
                     ServiceFactory.getRest(wikiSite).getRandomSummary()

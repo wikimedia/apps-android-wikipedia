@@ -150,7 +150,7 @@ class AggregatedFeedContentClient {
                 }
             ) {
                 val cards = mutableListOf<Card>()
-                FeedContentType.aggregatedLanguages.forEach { langCode ->
+                WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                     val wikiSite = WikiSite.forLanguageCode(langCode)
                     val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                     var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
