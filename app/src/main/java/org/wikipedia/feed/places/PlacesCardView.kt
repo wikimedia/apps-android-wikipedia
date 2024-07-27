@@ -59,7 +59,7 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
     private fun header(card: PlacesCard) {
         binding.cardHeader.setTitle(card.title())
             .setCard(card)
-            .setLangCode(card.wikiSite().languageCode)
+            .setLangCode(null)
             .setCallback(callback)
     }
 

@@ -33,7 +33,7 @@ enum class FeedContentType(private val code: Int,
             return if (isEnabled) AggregatedFeedContentClient.TopReadArticles(coroutineScope, aggregatedClient) else null
         }
     },
-    PLACES(11, R.string.places_title, R.string.feed_item_type_places, true) {
+    PLACES(11, R.string.places_title, R.string.feed_item_type_places, false) {
         override fun newClient(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
             return if (isEnabled) PlacesFeedClient(coroutineScope) else null
         }
