@@ -574,7 +574,7 @@ interface Service {
         @Field("token") token: String,
         @Field("data") data: String?,
         @Field("summary") summary: String?,
-        @Field("tags") tags: String?
+        @Field("matags") tags: String?
     ): EntityPostResponse
 
     // ------- Watchlist -------
