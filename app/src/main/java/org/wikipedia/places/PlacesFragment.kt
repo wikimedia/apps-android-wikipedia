@@ -93,6 +93,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TabUtil
+import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -123,6 +124,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private lateinit var markerPaintSrcIn: Paint
     private lateinit var markerBorderPaint: Paint
     private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
+    private val whiteBackgroundTransformation = WhiteBackgroundTransformation()
+
     private val searchRadius
         get() = mapboxMap?.let {
             latitudeDiffToMeters(it.projection.visibleRegion.latLngBounds.latitudeSpan / 2)
@@ -676,7 +679,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             return
         }
 
-        ImagePipelineBitmapGetter(requireContext(), url) { bitmap ->
+        ImagePipelineBitmapGetter(requireContext(), url, whiteBackgroundTransformation) { bitmap ->
             if (!isAdded) {
                 return@ImagePipelineBitmapGetter
             }
