@@ -257,12 +257,17 @@
   <string name="edit_notices_please_read">ಸಂಪಾದಿಸಾವರ ದುಂಬು ಇಂದೆನ್ ಓದುಲೆ</string>
   <string name="find_next"> ನಾನತೆನ್ ತೂಲೆ</string>
   <string name="find_previous">ದುಂಬುತೇನ್ ತೂಲೆ</string>
+  <string name="find_first_occurence">ಉಂದು ಸುರುತ ಘಟನೆ</string>
+  <string name="article_opened_in_background_tab">ನನೊಂಜಿ ಪುಟೊಟ್ಟು ಬರವು ಬತ್ಂಡ್</string>
+  <string name="abusefilter_title_disallow">ಈ ಸಂಪಾದಿನ್ ಪ್ರಕಟ ಮಲ್ಪರ ಆಪುಜಿ. ದಯಮಲ್ತ್ ಪಿರ ಪೋದು ನನೊರ ಸಂಪೊಲಿಪುಲೆ.</string>
   <string name="page_similar_titles">ಇಂಚಿನವೇ ಪುಟಕುಲು</string>
+  <string name="search_did_you_mean">ಉಂದುವಾ \"%s\"?</string>
   <string name="search_recent_header">ಇನ್ಚಿಪ ನಾಡ್ನವು:</string>
   <string name="button_clear_all_recent_searches">ಇನ್ಚಿಪ ನಾಡ್ನೆನ್ ಮಾಜಾಲೇ</string>
   <string name="clear_recent_searches_confirm">ಇರ್ ನಾಡ್ನಾ ಇತಿಹಾಸೋನ್ ಮಾಜಾಯಾರಾ ಉಪ್ಪುವರತಾ?</string>
   <string name="clear_recent_searches_confirm_yes">ಅಂದ್</string>
   <string name="clear_recent_searches_confirm_no">ಅತ್ತ್</string>
+  <string name="error_browser_not_found">ಪುಟೊನು ತೋಜಾವರ ಆಪುಜಿ (ಇರೆನ ಮೊಬೈಲ್‌ಡ್ ಬ್ರೌಸರ್ ಆಪ್ ಇಜ್ಜಿ ತೋಜುಂಡು)</string>
   <string name="table_other">ಜಾಸ್ತಿ ಮಾಹಿತಿ</string>
   <string name="table_close">ಮುಚ್ಚಿಲೆ</string>
   <string name="widget_name_search">ವಿಕಿಪೀಡಿಯಡ್ ನಾಡ್ಲೆ</string>
