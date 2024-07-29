@@ -19,10 +19,6 @@ import java.util.UUID
 
 class SuggestedEditsImageTagsViewModel : ViewModel() {
 
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = Resource.Error(throwable)
-    }
-
     private val _uiState = MutableStateFlow(Resource<Pair<MwQueryPage, String?>>())
     val uiState = _uiState.asStateFlow()
 
@@ -31,7 +27,9 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
 
     fun findNextSuggestedEditsItem(languageCode: String, page: MwQueryPage?) {
         _uiState.value = Resource.Loading()
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiState.value = Resource.Error(throwable)
+        }) {
             val mwQueryPage = page ?: EditingSuggestionsProvider.getNextImageWithMissingTags()
             val caption = ServiceFactory.get(Constants.commonsWikiSite)
                 .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode))
@@ -41,7 +39,9 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
     }
 
     fun publishImageTags(page: MwQueryPage, acceptedLabels: List<ImageTag>) {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _actionState.value = Resource.Error(throwable)
+        }) {
             val csrfToken = CsrfTokenClient.getToken(Constants.commonsWikiSite).blockingSingle()
             val mId = "M" + page.pageId
             var claimStr = "{\"claims\":["
