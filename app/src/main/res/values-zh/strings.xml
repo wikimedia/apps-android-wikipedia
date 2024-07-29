@@ -502,7 +502,7 @@
   <plurals name="temp_account_expiry">
     <item quantity="other">账号将会在%d天后过期。</item>
   </plurals>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;你尚未登录。&lt;/b&gt;一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;您尚未登录。&lt;/b&gt;一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;您的编辑将会以%1$s署名。&lt;a href=\"%2$s\"&gt;了解更多信息&lt;/a&gt;。</string>
   <string name="temp_account_login_status">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;登录后，在该临时账号“%1$s”下作出的编辑不会转移至您的永久账号。请登录或创建账号，以便以您的用户名署名贡献，并可享有其他好处。</string>
   <string name="temp_account_end_session">放弃临时账号</string>
@@ -1624,6 +1624,7 @@
   <string name="patroller_tasks_filters_user_intent_bad">高概率恶意</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">以极高精度查找出大多数明显存在恶意的编辑。</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d项过滤器</item>
     <item quantity="other">%d项过滤器</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">条目编辑历史</string>
