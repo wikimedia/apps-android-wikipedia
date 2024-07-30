@@ -691,6 +691,13 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
+    var placesDefaultLocationLatLng
+        get(): String? {
+            val lanLng = PrefsIoUtil.getString(R.string.preference_key_default_places_location_latlng, null)
+            return if (lanLng.isNullOrEmpty()) null else lanLng
+        }
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_default_places_location_latlng, set)
+
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?
         get() {
             // latitude|longitude|zoomLevel
