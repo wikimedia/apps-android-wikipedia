@@ -60,8 +60,7 @@
                 android:id="@+id/placesArticleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="@dimen/list_item_horizontal_padding">
+                android:padding="@dimen/list_item_horizontal_padding">
 
                 <ImageView
                     android:id="@+id/placesCardThumbnail"

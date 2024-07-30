@@ -3,6 +3,7 @@ package org.wikipedia.feed.places
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.core.view.isVisible
+import org.wikipedia.R
 import org.wikipedia.databinding.ViewPlacesCardBinding
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
@@ -42,7 +43,8 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
             binding.placesCardDescription.text = StringUtil.fromHtml(it.pageTitle.description)
             binding.placesCardDescription.isVisible = !it.pageTitle.description.isNullOrEmpty()
             Prefs.placesLastLocationAndZoomLevel?.first?.let { location ->
-                binding.placesCardDistance.text = GeoUtil.getDistanceWithUnit(location, it.location, Locale.getDefault())
+                val distanceText = GeoUtil.getDistanceWithUnit(location, it.location, Locale.getDefault())
+                binding.placesCardDistance.text = context.getString(R.string.places_card_distance_suffix, distanceText)
             }
             binding.placesCardContainer.setOnClickListener { _ ->
                 callback?.onSelectPage(card, HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_FEED_FEATURED), false)
@@ -50,6 +52,9 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
         } ?: run {
             binding.placesEnableLocationContainer.isVisible = true
             binding.placesArticleContainer.isVisible = false
+            binding.placesCardContainer.setOnClickListener {
+                goToPlaces()
+            }
             binding.placesEnableLocationButton.setOnClickListener {
                 goToPlaces()
             }
