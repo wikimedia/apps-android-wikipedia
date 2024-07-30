@@ -13,5 +13,10 @@ object EditTags {
     const val APP_TALK_SOURCE = "app-talk-source"
     const val APP_TALK_REPLY = "app-talk-reply"
     const val APP_TALK_TOPIC = "app-talk-topic"
+    const val APP_IMAGE_CAPTION_ADD = "app-image-caption-add"
+    const val APP_IMAGE_CAPTION_TRANSLATE = "app-image-caption-translate"
+    const val APP_IMAGE_TAG_ADD = "app-image-tag-add"
+    const val APP_IMAGE_ADD_TOP = "app-image-add-top"
+    const val APP_IMAGE_ADD_INFOBOX = "app-image-add-infobox"
     const val APP_AI_ASSIST = "app-ai-assist"
 }

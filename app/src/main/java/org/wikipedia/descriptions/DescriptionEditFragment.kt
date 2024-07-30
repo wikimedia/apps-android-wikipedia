@@ -440,7 +440,7 @@ class DescriptionEditFragment : Fragment() {
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(languageCode, languageCode, Constants.COMMONS_DB_NAME,
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
-                        getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
+                        getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null, tags = getEditTags())
             } else {
                 ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
@@ -467,13 +467,13 @@ class DescriptionEditFragment : Fragment() {
                     }
                 }
                 DescriptionEditActivity.Action.ADD_CAPTION -> {
-                    // TODO
+                    tags.add(EditTags.APP_IMAGE_CAPTION_ADD)
                 }
                 DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
                     tags.add(EditTags.APP_DESCRIPTION_TRANSLATE)
                 }
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
-                    // TODO
+                    tags.add(EditTags.APP_IMAGE_CAPTION_TRANSLATE)
                 }
                 else -> { }
             }
@@ -484,12 +484,6 @@ class DescriptionEditFragment : Fragment() {
         private fun getEditComment(): String? {
             if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && binding.fragmentDescriptionEditView.wasSuggestionChosen) {
                 return if (binding.fragmentDescriptionEditView.wasSuggestionModified) MACHINE_SUGGESTION_MODIFIED else MACHINE_SUGGESTION
-            } else if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
-                return when (action) {
-                    DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_CAPTION_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT
-                    else -> null
-                }
             }
             return null
         }
@@ -549,12 +543,8 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_ACTION = "action"
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
-        private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
         const val MACHINE_SUGGESTION = "#machine-suggestion"
         const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-        const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_IMAGE_TAGS_COMMENT = "#suggestededit-add-tag $SUGGESTED_EDITS_UI_VERSION"
 
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`
