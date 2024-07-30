@@ -37,6 +37,7 @@
                     style="@style/P"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAlignment="center"
                     android:text="@string/places_card_enable_location_card_message"
                     android:textColor="?attr/primary_color"/>
 
@@ -60,7 +61,7 @@
                 android:id="@+id/placesArticleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/list_item_horizontal_padding">
+                android:padding="20dp">
 
                 <ImageView
                     android:id="@+id/placesCardThumbnail"
