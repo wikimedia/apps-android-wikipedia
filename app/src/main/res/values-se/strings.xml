@@ -513,4 +513,5 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Máhcahat</string>
   <string name="talk_templates_menu_edit_title">Rievdat</string>
   <string name="data_opt_in_accept">Dohkket</string>
+  <string name="places_toggle_buttons_map">Kárta</string>
 </resources>
