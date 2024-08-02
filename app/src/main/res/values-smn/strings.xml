@@ -368,4 +368,5 @@
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
   <string name="talk_templates_menu_edit_title">Mute</string>
+  <string name="places_toggle_buttons_map">Kárttá</string>
 </resources>
