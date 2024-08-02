@@ -439,7 +439,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
             SuggestedArticleDescriptionsDialog(context as Activity, firstSuggestion, secondSuggestion, pageTitle, callback!!.getAnalyticsHelper()) { suggestion ->
                 binding.viewDescriptionEditText.setText(suggestion)
                 binding.viewDescriptionEditText.setSelection(binding.viewDescriptionEditText.text?.length ?: 0)
-                callback?.getAnalyticsHelper()?.logSuggestionChosen(context, suggestion, pageTitle)
+                callback?.getAnalyticsHelper()?.logSuggestionChosen(context, pageTitle)
                 wasSuggestionChosen = true
                 wasSuggestionModified = false
             }.show()

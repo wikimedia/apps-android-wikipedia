@@ -18,4 +18,5 @@ object EditTags {
     const val APP_IMAGE_TAG_ADD = "app-image-tag-add"
     const val APP_IMAGE_ADD_TOP = "app-image-add-top"
     const val APP_IMAGE_ADD_INFOBOX = "app-image-add-infobox"
+    const val APP_AI_ASSIST = "app-ai-assist"
 }
