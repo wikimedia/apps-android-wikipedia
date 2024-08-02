@@ -88,7 +88,7 @@
 
                     <TextView
                         android:id="@+id/placesCardTitle"
-                        style="@style/H3"
+                        style="@style/H1.Article"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="2dp"

@@ -1,6 +1,7 @@
 package org.wikipedia.feed.places
 
 import android.content.Context
+import android.location.Location
 import android.view.LayoutInflater
 import androidx.core.view.isVisible
 import org.wikipedia.R
@@ -8,11 +9,12 @@ import org.wikipedia.databinding.ViewPlacesCardBinding
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ViewUtil
 import java.util.Locale
 
 class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context) {
@@ -42,12 +44,15 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
             binding.placesCardTitle.text = StringUtil.fromHtml(it.pageTitle.displayText)
             binding.placesCardDescription.text = StringUtil.fromHtml(it.pageTitle.description)
             binding.placesCardDescription.isVisible = !it.pageTitle.description.isNullOrEmpty()
+            it.pageTitle.thumbUrl?.let { url ->
+                ViewUtil.loadImage(binding.placesCardThumbnail, url, circleShape = true)
+            }
             Prefs.placesLastLocationAndZoomLevel?.first?.let { location ->
                 val distanceText = GeoUtil.getDistanceWithUnit(location, it.location, Locale.getDefault())
                 binding.placesCardDistance.text = context.getString(R.string.places_card_distance_suffix, distanceText)
             }
             binding.placesCardContainer.setOnClickListener { _ ->
-                callback?.onSelectPage(card, HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_FEED_FEATURED), false)
+                goToPlaces(it.pageTitle, it.location)
             }
         } ?: run {
             binding.placesEnableLocationContainer.isVisible = true
@@ -75,7 +80,7 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
         binding.cardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
     }
 
-    private fun goToPlaces() {
-        context.startActivity(PlacesActivity.newIntent(context))
+    private fun goToPlaces(pageTitle: PageTitle? = null, location: Location? = null) {
+        context.startActivity(PlacesActivity.newIntent(context, pageTitle, location))
     }
 }
