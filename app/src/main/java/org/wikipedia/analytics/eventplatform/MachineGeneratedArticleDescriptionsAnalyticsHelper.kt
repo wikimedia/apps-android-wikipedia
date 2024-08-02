@@ -28,7 +28,7 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
         log(context, composeLogString(title) + ".blp:$isBlp")
     }
 
-    fun logSuggestionChosen(context: Context, suggestion: String, title: PageTitle) {
+    fun logSuggestionChosen(context: Context, title: PageTitle) {
         log(context, composeLogString(title) + ".selected")
     }
 

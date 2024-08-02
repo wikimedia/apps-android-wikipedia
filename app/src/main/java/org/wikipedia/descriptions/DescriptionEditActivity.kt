@@ -25,7 +25,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val pageTitle = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
 
         if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
