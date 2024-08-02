@@ -129,6 +129,7 @@
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
   <string name="menu_page_archive">Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
+  <string name="menu_long_press_open_in_places">Menu item for opening a link in Places.\n{{Identical|Open in Places}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab. Appears next to {{msg-wm|Wikipedia-android-strings-button continue to article}}</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.\n{{Identical|Define}}</string>

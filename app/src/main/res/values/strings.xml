@@ -98,6 +98,7 @@
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>
+    <string name="menu_long_press_open_in_places">Open in Places</string>
     <string name="menu_long_press_open_in_new_tab">Open in new tab</string>
     <string name="menu_long_press_copy_page">Copy link address</string>
 

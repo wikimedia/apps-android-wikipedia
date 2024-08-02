@@ -9,8 +9,11 @@ import org.wikipedia.databinding.ViewPlacesCardBinding
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
+import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
@@ -53,6 +56,28 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
             }
             binding.placesCardContainer.setOnClickListener { _ ->
                 goToPlaces(it.pageTitle, it.location)
+            }
+            binding.placesCardContainer.setOnLongClickListener { view ->
+                LongPressMenu(view, openPageInPlaces = true, location = it.location, callback = object : LongPressMenu.Callback {
+                    override fun onOpenInPlaces(entry: HistoryEntry, location: Location) {
+                        goToPlaces(entry.title, location)
+                    }
+
+                    override fun onOpenInNewTab(entry: HistoryEntry) {
+                        callback?.onSelectPage(card, entry, true)
+                    }
+
+                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                        callback?.onAddPageToList(entry, addToDefault)
+                    }
+
+                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                        callback?.onMovePageToList(page!!.listId, entry)
+                    }
+                }).show(HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_FEED_PLACES))
+                // TODO: sync with Shay about the HistoryEntry number.
+
+                false
             }
         } ?: run {
             binding.placesEnableLocationContainer.isVisible = true
