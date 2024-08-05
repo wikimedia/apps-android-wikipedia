@@ -1700,4 +1700,5 @@
   <string name="places_card_enable_location_card_message">Message for the Places card on the explore feed that requires enable location permission.</string>
   <string name="places_card_enable_location_card_button">Text for the Places card on the explore feed that requires enable location permission button.</string>
   <string name="places_card_distance_suffix">Suffix for the distance between the current location and the article location. %s will be replaced by the actual distance.</string>
+  <string name="places_card_distance_unknown">Text for the Places card that indicates the distance for the location is unknown.</string>
 </resources>

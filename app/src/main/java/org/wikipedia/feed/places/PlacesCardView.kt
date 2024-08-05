@@ -51,8 +51,12 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
                 ViewUtil.loadImage(binding.placesCardThumbnail, url, circleShape = true)
             }
             Prefs.placesLastLocationAndZoomLevel?.first?.let { location ->
-                val distanceText = GeoUtil.getDistanceWithUnit(location, it.location, Locale.getDefault())
-                binding.placesCardDistance.text = context.getString(R.string.places_card_distance_suffix, distanceText)
+                if (GeoUtil.isSamePlace(location.latitude, it.location.latitude, location.longitude, it.location.longitude)) {
+                    binding.placesCardDistance.text = context.getString(R.string.places_card_distance_unknown)
+                } else {
+                    val distanceText = GeoUtil.getDistanceWithUnit(location, it.location, Locale.getDefault())
+                    binding.placesCardDistance.text = context.getString(R.string.places_card_distance_suffix, distanceText)
+                }
             }
             binding.placesCardContainer.setOnClickListener { _ ->
                 goToPlaces(it.pageTitle, it.location)

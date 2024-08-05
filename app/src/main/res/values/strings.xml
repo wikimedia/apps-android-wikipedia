@@ -1777,5 +1777,6 @@
     <string name="places_card_enable_location_card_message">Places is a map-based way to explore Wikipedia</string>
     <string name="places_card_enable_location_card_button">Enable location</string>
     <string name="places_card_distance_suffix">%s away</string>
+    <string name="places_card_distance_unknown">Unknown distance</string>
     <!-- /Places -->
 </resources>

@@ -45,6 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/illustration_places_enable_location"
+                    android:adjustViewBounds="true"
                     android:layout_marginVertical="24dp"
                     android:contentDescription="@null"/>
 

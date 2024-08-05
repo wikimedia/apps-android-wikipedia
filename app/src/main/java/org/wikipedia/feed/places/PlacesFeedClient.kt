@@ -12,6 +12,7 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesFragment
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ImageUrlUtil
 
 class PlacesFeedClient(
@@ -33,7 +34,7 @@ class PlacesFeedClient(
                 val location = it.first
                 val response = ServiceFactory.get(wiki).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
                 val lastPage = response.query?.pages.orEmpty()
-                    .filter { it.coordinates != null }
+                    .filter { it.coordinates != null && !GeoUtil.isSamePlace(location.latitude, it.coordinates[0].lat, location.longitude, it.coordinates[0].lon) }
                     .map {
                         NearbyPage(it.pageId, PageTitle(it.title, wiki,
                             if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
