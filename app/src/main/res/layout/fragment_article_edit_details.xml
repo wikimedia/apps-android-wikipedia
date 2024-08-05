@@ -540,7 +540,7 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/warnButton"
+            android:id="@+id/talkButton"
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="@dimen/nav_bar_height"
@@ -550,7 +550,7 @@
             android:background="?attr/selectableItemBackground">
 
             <ImageView
-                android:id="@+id/warnIcon"
+                android:id="@+id/talkIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"

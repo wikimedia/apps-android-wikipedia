@@ -321,7 +321,7 @@
   <string name="edit_conflict_message">Deze pagina is al door een andere gebruiker aangepast en conflicteert met uw bewerking. Kopieer uw wijzigingen, ga terug, ververs de pagina en probeer opnieuw te bewerken.</string>
   <string name="edit_notices">Bewerkingsmeldingen</string>
   <string name="edit_notices_please_read">Gelieve te lezen alvorens te bewerken</string>
-  <string name="edit_notices_show_auto">Automatisch bewerkingsmeldingen tonen</string>
+  <string name="edit_notices_show_auto">Automatisch bewerkingsmeldingen weergeven</string>
   <string name="edit_notices_tooltip">Druk op deze knop om bewerkingsmeldingen te zien voor dit artikel.</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
@@ -406,7 +406,7 @@
   <string name="text_copied">De tekst is gekopieerd naar het klembord.</string>
   <string name="button_continue_to_article">Artikel lezen</string>
   <string name="button_continue_to_talk_page">Overlegpagina openen</string>
-  <string name="button_continue_to_disambiguation">Vergelijkbare pagina\'s tonen</string>
+  <string name="button_continue_to_disambiguation">Vergelijkbare pagina\'s weergeven</string>
   <string name="link_preview_disambiguation_description">Deze titel heeft betrekking op meer dan één pagina:</string>
   <string name="button_add_to_reading_list">Aan leeslijst toevoegen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Het artikel kan niet worden geladen zolang u offline bent.</string>
@@ -511,9 +511,9 @@
   <string name="reading_focus_mode">Lezen in de focusmodus</string>
   <string name="reading_focus_mode_detail">Verbergt bewerkingsfuncties en onderste werkbalk bij het scrollen</string>
   <string name="editing_syntax_highlight_label">Syntaxis accentueren</string>
-  <string name="editing_line_numbers_label">Regelnummers tonen</string>
+  <string name="editing_line_numbers_label">Regelnummers weergeven</string>
   <string name="editing_monospace_font_label">Monospace-lettertype gebruiken</string>
-  <string name="editing_typing_suggestions">Suggesties tonen tijdens het typen</string>
+  <string name="editing_typing_suggestions">Suggesties weergeven tijdens het typen</string>
   <string name="nav_item_saved">Opgeslagen</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
@@ -916,7 +916,7 @@
   <string name="description_starts_with_lowercase">Begin niet met een kleine letter.</string>
   <string name="description_is_in_different_language">De tekst lijkt in een onverwachte taal te zijn. De taal moet %s zijn.</string>
   <string name="description_verification_notice">Controleer of uw beschrijving in %1$s staat. Voelt u zich vrij om deze melding te negeren als de beschrijving die u heeft geschreven in %2$s staat.</string>
-  <string name="description_edit_suggested_description_button_text">Suggesties tonen</string>
+  <string name="description_edit_suggested_description_button_text">Suggesties weergeven</string>
   <string name="description_edit_suggested_description_button_tooltip">Probeer automatische suggesties uit</string>
   <string name="description_edit_success_saved">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschrijving gepubliceerd!</string>
@@ -1342,8 +1342,8 @@
   <string name="talk_new_topic_exit_dialog_title">Weet u zeker dat u wilt sluiten?</string>
   <string name="talk_new_topic_exit_dialog_message">Het onderwerp en de inhoudstekst worden niet opgeslagen.</string>
   <plurals name="talk_show_replies_count">
-    <item quantity="one">Antwoord tonen</item>
-    <item quantity="other">Antwoorden tonen (%d)</item>
+    <item quantity="one">Antwoord weergeven</item>
+    <item quantity="other">Antwoorden weergeven (%d)</item>
   </plurals>
   <plurals name="talk_hide_replies_count">
     <item quantity="one">Antwoord verbergen</item>

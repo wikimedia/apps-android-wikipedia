@@ -177,6 +177,8 @@
   <string name="logged_out_in_background_login">Пријави ме</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
   <string name="account_vanish_request_title">Гашење налога</string>
+  <string name="account_vanish_request_confirm_title">Упозорење у вези нестајања</string>
+  <string name="account_vanish_request_confirm">Нестајање је &lt;b&gt;последња опција&lt;/b&gt; и треба је користити &lt;b&gt;само када желите да заувек престанете са уређивањем&lt;/b&gt;, као и да сакријете што више својих прошлих асоцијација.&lt;br/&gt;&lt;br/&gt;Брисање налога на Википедији се врши променом назива налога тако да други не могу да препознају Ваше доприносе у процесу који се зове учтиви нестанак. &lt;b&gt;Нестајање не гарантује потпуну анонимност и не уклања доприносе на пројектима&lt;/b&gt;.</string>
   <string name="history_empty_title">Нема недавно прегледаних чланака</string>
   <string name="history_empty_message">Овде пратите шта сте читали.</string>
   <string name="history_offline_articles_toast">Неки чланци у историји можда неће бити видљиви док сте офлајн.</string>
@@ -1580,6 +1582,7 @@
   <string name="patroller_saved_message_title_copy_vio">Кршење ауторских права</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Наведите опис измене</string>
   <string name="patroller_saved_message_title_do_not_censor">Не цензуришите</string>
+  <string name="patroller_saved_message_title_art_imp">Сугестије за унапређење чланка</string>
   <string name="talk_warn_saved_messages_usage_instruction">Користите примере порука испод да прилагодите, шаљете и сачувате у својим порукама.</string>
   <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прихватам</string>
@@ -1616,4 +1619,5 @@
   <string name="places_survey_very_satisfied_option">Веома задовољан</string>
   <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
   <string name="places_survey_dialog_cancel">Откажи</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Шта бисте желели да променимо или унапредимо?</string>
 </resources>

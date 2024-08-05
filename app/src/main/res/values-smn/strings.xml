@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Muotâ
 * Seipinne
 * Yupik
 -->
@@ -258,7 +259,7 @@
   <string name="description_edit_help_about_wikidata">Tiäđuh Wikidatast</string>
   <string name="description_edit_image_caption_learn_more">Luuvâ lase koveteevstâin</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kovetekstâ almostittum!</string>
-  <string name="description_edit_tutorial_button_label_start_editing">Hammiiškuát</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Hammiiškyeđe</string>
   <string name="suggested_edits_describe_articles">Valdâl artikkâlijd</string>
   <string name="suggested_edits_caption_images">Lasseet koveteevstâid</string>
   <string name="suggested_edits_add_description_button">Lasseet kuvvim</string>
@@ -367,4 +368,5 @@
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
   <string name="talk_templates_menu_edit_title">Mute</string>
+  <string name="places_toggle_buttons_map">Kárttá</string>
 </resources>
