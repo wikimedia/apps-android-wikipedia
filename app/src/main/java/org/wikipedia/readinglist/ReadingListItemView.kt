@@ -69,7 +69,6 @@ class ReadingListItemView : ConstraintLayout {
                     }
                     menu.menu.findItem(R.id.menu_reading_list_select).title =
                         context.getString(if (it.selected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select)
-                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = ReadingListsShareHelper.shareEnabled()
                     menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
                     menu.show()
                 }
