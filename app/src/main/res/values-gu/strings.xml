@@ -59,7 +59,7 @@
   <string name="login_success_toast" fuzzy="true">પ્રવેશ સફળ!</string>
   <string name="preference_title_logout">પ્રસ્થાન</string>
   <string name="toast_logout_complete">બહાર નીકળી ગયા</string>
-  <string name="history_empty_title" fuzzy="true">અહીં તાજેતરનાં પાનાઓ નથી!</string>
+  <string name="history_empty_title">અહીં તાજેતરનાં પાનાં નથી!</string>
   <string name="wp_stylized">&lt;big&gt;વિ&lt;/big&gt;કિપીડિ&lt;big&gt;યા&lt;/big&gt;</string>
   <string name="create_account_username_hint">સભ્યનામ</string>
   <string name="create_account_activity_title">ખાતું ખોલો</string>
