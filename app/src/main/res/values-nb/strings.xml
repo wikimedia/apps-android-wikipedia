@@ -1197,10 +1197,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Behold minst ett Wikipedia-språk som du kan søke og lese innhold på</string>
   <string name="more_language_options">mer</string>
   <string name="add_wikipedia_languages_text">Legg til Wikipedia-språk</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Fjerne en kinesisk variant fra språkene dine?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du har både tradisjonell og forenklet kinesisk i språkene dine. Vil du oppdatere språkinnstillingene?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger språk</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nei takk</string>
   <string name="remove_language_dialog_cancel_button_text">Avbryt</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

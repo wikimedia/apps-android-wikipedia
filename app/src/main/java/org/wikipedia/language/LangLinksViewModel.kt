@@ -128,6 +128,11 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 val languageVariants = language.getLanguageVariants(parentLanguageCode)
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
+                        // Do not add zh-hant and zh-hans to the list
+                        if (listOf(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
+                                AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE).contains(languageCode)) {
+                            continue
+                        }
                         if (!title.wikiSite.languageCode.contains(languageCode)) {
                             val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.prefixedText, WikiSite.forLanguageCode(languageCode))
                             pageTitle.displayText = title.displayText

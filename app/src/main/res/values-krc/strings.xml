@@ -1169,10 +1169,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Ичиндегини окъур эмда ичиндегиде излеу этер ючюн эм азы бла бир Википедия тилни къоюгъуз.</string>
   <string name="more_language_options">энтда</string>
   <string name="add_wikipedia_languages_text">Википедия тилле къош</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Къошагъыгъызны тиллеринден къытай тил къоратылсынмы?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Къошагъыгъызны тиллеринде эртдеден келген эмда къысхартылгъан Къытай тил вариантлары барды. Къошагъыгъызны тиллерини джарашдырыуу джангыртылсынмы?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Тиллени тюзет</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Огъай, сау болугъуз</string>
   <string name="remove_language_dialog_cancel_button_text">Ызына ал</string>
   <string name="remove_language_dialog_ok_button_text">ОК</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ОК</string>
