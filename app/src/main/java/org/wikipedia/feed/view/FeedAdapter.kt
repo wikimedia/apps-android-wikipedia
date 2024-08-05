@@ -17,6 +17,7 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.news.NewsCardView
 import org.wikipedia.feed.offline.OfflineCard
 import org.wikipedia.feed.offline.OfflineCardView
+import org.wikipedia.feed.places.PlacesCardView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.searchbar.SearchCardView
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
@@ -31,7 +32,7 @@ class FeedAdapter<T : View>(private val coordinator: FeedCoordinatorBase, privat
     interface Callback : ListCardItemView.Callback, CardHeaderView.Callback,
         FeaturedImageCardView.Callback, SearchCardView.Callback, NewsCardView.Callback,
         AnnouncementCardView.Callback, RandomCardView.Callback, ListCardView.Callback,
-        SuggestedEditsCardView.Callback {
+        SuggestedEditsCardView.Callback, PlacesCardView.Callback {
         fun onRequestMore()
         fun onRetryFromOffline()
         fun onError(t: Throwable)

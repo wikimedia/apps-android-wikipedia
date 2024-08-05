@@ -11,7 +11,6 @@ import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
@@ -21,6 +20,10 @@ import org.wikipedia.views.ViewUtil
 import java.util.Locale
 
 class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context) {
+
+    interface Callback {
+        fun onGoToPlace(pageTitle: PageTitle? = null, location: Location? = null)
+    }
 
     private val binding = ViewPlacesCardBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -59,12 +62,12 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
                 }
             }
             binding.placesCardContainer.setOnClickListener { _ ->
-                goToPlaces(it.pageTitle, it.location)
+                callback?.onGoToPlace(it.pageTitle, it.location)
             }
             binding.placesCardContainer.setOnLongClickListener { view ->
                 LongPressMenu(view, openPageInPlaces = true, location = it.location, callback = object : LongPressMenu.Callback {
                     override fun onOpenInPlaces(entry: HistoryEntry, location: Location) {
-                        goToPlaces(entry.title, location)
+                        callback?.onGoToPlace(entry.title, location)
                     }
 
                     override fun onOpenInNewTab(entry: HistoryEntry) {
@@ -87,10 +90,10 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
             binding.placesEnableLocationContainer.isVisible = true
             binding.placesArticleContainer.isVisible = false
             binding.placesCardContainer.setOnClickListener {
-                goToPlaces()
+                callback?.onGoToPlace()
             }
             binding.placesEnableLocationButton.setOnClickListener {
-                goToPlaces()
+                callback?.onGoToPlace()
             }
         }
     }
@@ -104,12 +107,8 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
 
     private fun footer(card: PlacesCard) {
         binding.cardFooter.callback = CardFooterView.Callback {
-            goToPlaces()
+            callback?.onGoToPlace()
         }
         binding.cardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
-    }
-
-    private fun goToPlaces(pageTitle: PageTitle? = null, location: Location? = null) {
-        context.startActivity(PlacesActivity.newIntent(context, pageTitle, location))
     }
 }

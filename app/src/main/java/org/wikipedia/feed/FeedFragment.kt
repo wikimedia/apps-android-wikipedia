@@ -1,5 +1,6 @@
 package org.wikipedia.feed
 
+import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.util.Pair
@@ -34,6 +35,8 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
@@ -82,6 +85,12 @@ class FeedFragment : Fragment(), BackPressedHandler {
         if (it.resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED) {
             refresh()
         }
+    }
+
+    private val requestPlacesLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        binding.feedView.postDelayed({
+            refresh()
+        }, 500L)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -299,6 +308,10 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
         override fun onSeCardFooterClicked() {
             callback?.onFeedSeCardFooterClicked()
+        }
+
+        override fun onGoToPlace(pageTitle: PageTitle?, location: Location?) {
+            requestPlacesLauncher.launch(PlacesActivity.newIntent(requireActivity(), pageTitle, location))
         }
     }
 
