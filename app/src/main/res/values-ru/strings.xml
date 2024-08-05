@@ -1277,10 +1277,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставьте, по меньшей мере, один язык для поиска и чтения.</string>
   <string name="more_language_options">ещё языки</string>
   <string name="add_wikipedia_languages_text">Добавить языки Википедии</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Удалить китайский из списка языков?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">У вас в наличии и традиционный, и упрощённый китайские языки. Обновить языковые настройки, с возможностью удалить один из вариантов?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактировать языки</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Использовать текущие настройки</string>
   <string name="remove_language_dialog_cancel_button_text">Отмена</string>
   <string name="remove_language_dialog_ok_button_text">ОК</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ОК</string>

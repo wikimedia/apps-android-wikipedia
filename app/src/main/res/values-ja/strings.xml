@@ -1199,10 +1199,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">検索して内容を読むためにはウィキペディアの言語が少なくとも1つは必要です。</string>
   <string name="more_language_options">もっと見る</string>
   <string name="add_wikipedia_languages_text">ウィキペディアの言語を追加</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">中国語の文字違い版をアプリの言語から削除しますか?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">現在、繁体字と簡体字の両方の中国語版をアプリの言語として指定しています。アプリの言語設定を更新しますか?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">言語の設定を編集</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">いいえ、結構です。</string>
   <string name="remove_language_dialog_cancel_button_text">キャンセル</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

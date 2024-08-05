@@ -976,8 +976,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">সমস্ত ভাষা সরানো যাবে না</string>
   <string name="more_language_options">আরো</string>
   <string name="add_wikipedia_languages_text">উইকিপিডিয়ার ভাষা যোগ করুন</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষা সম্পাদনা করুন</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">না ধন্যবাদ</string>
   <string name="remove_language_dialog_cancel_button_text">বাতিল</string>
   <string name="remove_language_dialog_ok_button_text">ঠিক আছে</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ঠিক আছে</string>

@@ -1160,10 +1160,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">कम से कम एक विकिपीडिया भाषा रखें जिससे सामग्री को खोजा और पढ़ा जा सके।</string>
   <string name="more_language_options">अधिक</string>
   <string name="add_wikipedia_languages_text">विकिपीडिया भाषाएँ जोड़ें</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">अपने ऐप्लिकेशन की भाषाओं से एक चीनी संस्करण निकालें?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">वर्तमान में आपके पास पारंपरिक और सरलीकृत दोनों प्रकार के चीनी प्रकार हैं जो आपकी ऐप भाषाओं में सेट हैं। अपनी ऐप भाषा सेटिंग अपडेट करें?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषाएं संपादित करें</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
   <string name="remove_language_dialog_cancel_button_text">रद्द करें</string>
   <string name="remove_language_dialog_ok_button_text">ठीक है</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ठीक है</string>

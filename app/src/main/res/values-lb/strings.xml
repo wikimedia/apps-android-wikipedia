@@ -993,10 +993,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">D\'Sprooche kënnen net all ewechgeholl ginn</string>
   <string name="more_language_options">méi</string>
   <string name="add_wikipedia_languages_text">Wikipedia-Sproochen derbäisetzen</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eng chineesesch Variant vun Ären App Sproochen ewechhuelen?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo souwuel déi traditionell wéi déi vereinfacht chineesesch Variant an Ären App sproochen agestallt. Wëllt Dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
   <string name="remove_language_dialog_cancel_button_text">Ofbriechen</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
