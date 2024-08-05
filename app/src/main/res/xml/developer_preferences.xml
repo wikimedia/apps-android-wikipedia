@@ -265,10 +265,6 @@
             android:title="@string/preference_key_reading_lists_first_time_sync" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_remove_chinese_variant_prompt"
-            android:title="@string/preference_key_show_remove_chinese_variant_prompt" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_description_edit_success_prompt"
             android:title="@string/preference_key_show_description_edit_success_prompt" />
 

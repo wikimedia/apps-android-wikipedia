@@ -1212,10 +1212,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Content of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="more_language_options">Button text indicating there are more languages available to be selected.\n{{Identical|More}}</string>
   <string name="add_wikipedia_languages_text">Button text suggesting user to add more languages to the app to read in.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Title of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Description of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
   <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Cancel}}</string>
   <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.\n{{Identical|OK}}</string>
