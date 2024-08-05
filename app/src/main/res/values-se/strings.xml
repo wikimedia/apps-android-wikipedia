@@ -440,8 +440,6 @@
   <string name="wikipedia_languages_remove_text">Sihko giela</string>
   <string name="wikipedia_languages_remove_action_mode_title">Sihko giela</string>
   <string name="add_wikipedia_languages_text">Lasit Wikipedia-gielaid</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rievdat gielaid</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ii giitu</string>
   <string name="remove_language_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="wikitext_bold">Buoiddesčála</string>

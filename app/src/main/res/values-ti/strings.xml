@@ -504,8 +504,6 @@
   <string name="wikipedia_languages_remove_action_mode_title">ቋንቋ ኣልግስ</string>
   <string name="more_language_options">ተወሳኺ</string>
   <string name="add_wikipedia_languages_text">ናይ ዊኪፐድያ ቋንቋታት ወስኽ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ቋንቋታት ኣመዓራርይ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ኣይፋል፣ የቐንየለይ</string>
   <string name="remove_language_dialog_cancel_button_text">ኣትርፍ</string>
   <string name="remove_language_dialog_ok_button_text">ሕራይ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ሕራይ</string>
