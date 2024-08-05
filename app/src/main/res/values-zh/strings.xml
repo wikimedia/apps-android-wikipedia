@@ -1623,6 +1623,7 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">以中等精度查找到中等概率的存在恶意的编辑。</string>
   <string name="patroller_tasks_filters_user_intent_bad">高概率恶意</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">以极高精度查找出大多数明显存在恶意的编辑。</string>
+  <string name="patroller_tasks_filters_empty_search_message">尝试移除%s来查看更多编辑</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d项过滤器</item>
     <item quantity="other">%d项过滤器</item>
@@ -1642,6 +1643,7 @@
   <string name="patroller_onboarding_two_watch_title">监视</string>
   <string name="patroller_onboarding_two_watch_content">想要追踪条目编辑？将其添加至您的监视列表。在“更多”下方查看。</string>
   <string name="patroller_onboarding_two_talk_title">讨论</string>
+  <string name="patroller_onboarding_two_talk_content">与其他编辑者交流。保存常用的讨论页消息或使用模板。</string>
   <string name="patroller_onboarding_two_undo_title">撤销/回退</string>
   <string name="patroller_onboarding_two_undo_content">选择“撤销”来撤销或回退可能的破坏性编辑。</string>
   <string name="patroller_diff_tooltip_one">“破坏”指标预估了一笔编辑是否对wiki造成了破坏。</string>
@@ -1656,6 +1658,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">反馈</string>
   <string name="patroller_diff_feedback_dialog_submit">提交</string>
   <string name="patroller_diff_feedback_submitted_snackbar">已提交反馈。</string>
+  <string name="patroller_diff_feedback_tooltip">点击溢出菜单中的“功能问题”以随时提交反馈</string>
   <string name="patroller_saved_message_title_vandalism">破坏警告</string>
   <string name="patroller_saved_message_title_editing_tests">测试编辑</string>
   <string name="patroller_saved_message_title_npov">中立的观点</string>
@@ -1684,7 +1687,9 @@
   <string name="page_issues_title">页面问题</string>
   <string name="generic_release_notes">修复小错误，优化体验</string>
   <string name="email_report_image_recommendations_subject">问题报告 - 图片推荐功能</string>
+  <string name="email_report_image_recommendations_body">我遇到了图片推荐功能的问题：\n- [描述具体问题]\n\n我希望实现的效果是：\n- [描述建议的解决方案]</string>
   <string name="email_report_patroller_tasks_subject">问题报告 - 编辑巡查功能</string>
+  <string name="email_report_patroller_tasks_body">我遇到了编辑巡查功能的问题：\n- [描述具体问题]\n\n我希望实现的效果是：\n- [描述建议的解决方案]\n\n[屏幕截图或链接]</string>
   <string name="donation_campaign_maybe_later_snackbar">明天我们会再次提醒您。</string>
   <string name="donation_campaign_donated_snackbar">谢谢您，亲爱的捐赠者！您的慷慨解囊会帮助维基百科和姊妹网站蓬勃发展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
