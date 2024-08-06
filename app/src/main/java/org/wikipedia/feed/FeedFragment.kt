@@ -310,8 +310,12 @@ class FeedFragment : Fragment(), BackPressedHandler {
             callback?.onFeedSeCardFooterClicked()
         }
 
-        override fun onGoToPlace(pageTitle: PageTitle?, location: Location?) {
-            requestPlacesLauncher.launch(PlacesActivity.newIntent(requireActivity(), pageTitle, location))
+        override fun onGoToPlace(pageTitle: PageTitle?, location: Location?, enablePermission: Boolean) {
+            if (enablePermission) {
+                requestPlacesLauncher.launch(PlacesActivity.newIntent(requireActivity()))
+            } else {
+                startActivity(PlacesActivity.newIntent(requireActivity(), pageTitle, location))
+            }
         }
     }
 

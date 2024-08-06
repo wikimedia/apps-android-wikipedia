@@ -22,7 +22,7 @@ import java.util.Locale
 class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context) {
 
     interface Callback {
-        fun onGoToPlace(pageTitle: PageTitle? = null, location: Location? = null)
+        fun onGoToPlace(pageTitle: PageTitle? = null, location: Location? = null, enablePermission: Boolean = false)
     }
 
     private val binding = ViewPlacesCardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -90,10 +90,10 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
             binding.placesEnableLocationContainer.isVisible = true
             binding.placesArticleContainer.isVisible = false
             binding.placesCardContainer.setOnClickListener {
-                callback?.onGoToPlace()
+                callback?.onGoToPlace(enablePermission = true)
             }
             binding.placesEnableLocationButton.setOnClickListener {
-                callback?.onGoToPlace()
+                callback?.onGoToPlace(enablePermission = true)
             }
         }
     }
