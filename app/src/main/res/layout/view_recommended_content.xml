@@ -21,6 +21,17 @@
         android:textColor="?attr/progressive_color"
         android:layout_marginVertical="16dp"/>
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/recommendedContentTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabTextAppearance="@style/H3.Button"
+        app:tabTextColor="?attr/placeholder_color"
+        app:tabIndicatorFullWidth="true"
+        app:tabSelectedTextColor="?attr/progressive_color"
+        app:tabIndicatorColor="?attr/progressive_color"
+        app:tabRippleColor="?attr/progressive_color" />
+
     <LinearLayout
         android:id="@+id/recommendedContentContainer"
         android:layout_width="match_parent"

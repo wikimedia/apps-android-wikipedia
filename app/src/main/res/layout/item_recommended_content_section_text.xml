@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/OverflowMenuItem"
+    android:id="@+id/listItem"
+    android:layout_width="wrap_content"
+    android:drawablePadding="16dp"
+    app:drawableEndCompat="@drawable/ic_trending_up_black_24dp"
+    app:drawableTint="?attr/success_color"
+    tools:text="Article title" />
