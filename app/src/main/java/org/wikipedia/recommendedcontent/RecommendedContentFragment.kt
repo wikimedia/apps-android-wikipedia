@@ -13,7 +13,7 @@ import org.wikipedia.Constants
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.dataclient.WikiSite
 
-class RecommendedContentFragment: Fragment() {
+class RecommendedContentFragment : Fragment() {
     private var _binding: FragmentRecommendedContentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: RecommendedContentViewModel by viewModels { RecommendedContentViewModel.Factory(requireArguments()) }
@@ -22,14 +22,12 @@ class RecommendedContentFragment: Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         _binding = FragmentRecommendedContentBinding.inflate(inflater, container, false)
-        val view = binding.root
-
 
         lifecycleScope.launch {
             // TODO
         }
 
-        return view
+        return binding.root
     }
 
     override fun onDestroyView() {
