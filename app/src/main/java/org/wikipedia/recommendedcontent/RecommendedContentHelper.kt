@@ -84,7 +84,6 @@ object RecommendedContentHelper {
                 list
             }
         }
-
     }
 
     suspend fun loadBecauseYouRead(age: Int): List<PageSummary> {
@@ -108,7 +107,7 @@ object RecommendedContentHelper {
                 val location = pair.first
                 val response = ServiceFactory.get(wikiSite).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
                 val nearbyPages = response.query?.pages.orEmpty()
-                    .filter { it.coordinates != null}
+                    .filter { it.coordinates != null }
                     .map {
                         NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
                             if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
@@ -116,6 +115,20 @@ object RecommendedContentHelper {
                     }
                 nearbyPages
             } ?: emptyList()
+        }
+    }
+
+    suspend fun loadRandomArticles(): List<PageSummary> {
+        // TODO: define how many random articles to load.
+        return withContext(Dispatchers.IO) {
+            val wikiSite = WikipediaApp.instance.wikiSite
+            val list = mutableListOf<PageSummary>()
+            repeat(5) {
+                val response = ServiceFactory.getRest(wikiSite).getRandomSummary()
+                list.add(response)
+            }
+            // make sure the list is distinct
+            list.distinct()
         }
     }
 
