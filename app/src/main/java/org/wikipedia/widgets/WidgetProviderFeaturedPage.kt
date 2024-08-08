@@ -28,6 +28,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
 
@@ -74,7 +75,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     .load(pageTitle.thumbUrl)
                     .override(256)
                     .downsample(DownsampleStrategy.CENTER_INSIDE)
-                    .transform(CenterCrop(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
+                    .transform(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
                     .into(AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId))
 
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
