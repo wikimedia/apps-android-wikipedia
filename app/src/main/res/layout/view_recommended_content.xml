@@ -25,6 +25,7 @@
         android:id="@+id/recommendedContentTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:tabTextAppearance="@style/H3.Button"
         app:tabTextColor="?attr/placeholder_color"
         app:tabIndicatorFullWidth="true"
