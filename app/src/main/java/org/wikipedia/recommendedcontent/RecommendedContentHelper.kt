@@ -17,6 +17,9 @@ import org.wikipedia.util.StringUtil
 
 object RecommendedContentHelper {
 
+    // TODO: introduce cache for these methods
+    // TODO: think about all PageSummary vs PageTitle.
+
     suspend fun loadHistoryItems(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("").map {
@@ -33,7 +36,7 @@ object RecommendedContentHelper {
         }
     }
 
-    suspend fun loadTopRead(): List<PageTitle> {
+    suspend fun loadFeed(): AggregatedFeedContent {
         return withContext(Dispatchers.IO) {
             val wikiSite = WikipediaApp.instance.wikiSite
             val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
@@ -51,8 +54,32 @@ object RecommendedContentHelper {
                     )
                 }
             }
-            feedContentResponse.topRead?.articles?.map { it.getPageTitle(wikiSite) } ?: emptyList()
+            feedContentResponse
         }
+    }
+
+    suspend fun loadTopRead(): List<PageSummary> {
+        return loadFeed().topRead?.articles ?: emptyList()
+    }
+
+    suspend fun loadMoreLike(searchTerm: String): List<PageSummary> {
+        // TODO: single search term vs multiple search terms.
+        return withContext(Dispatchers.IO) {
+            val wikiSite = WikipediaApp.instance.wikiSite
+            val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike("morelike:$searchTerm", Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
+            val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
+
+            val list = moreLikeResponse.query?.pages?.map {
+                PageSummary(it.displayTitle(wikiSite.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.languageCode)
+            } ?: emptyList()
+
+            if (hasParentLanguageCode) {
+                getPagesForLanguageVariant(list, wikiSite)
+            } else {
+                list
+            }
+        }
+
     }
 
     // TODO: borrowed from FeedClient. Refactor this method to be more generic.
