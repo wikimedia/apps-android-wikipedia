@@ -76,7 +76,7 @@
   <string name="edit_saved_successfully">Нисдар Ӏалашдина!</string>
   <string name="dialog_message_edit_failed">ГӀалат тадина!</string>
   <string name="dialog_message_edit_failed_retry">ЙухагӀорта</string>
-  <string name="dialog_message_edit_failed_cancel">Цаоьшу</string>
+  <string name="dialog_message_edit_failed_cancel">ДӀадаккхар</string>
   <string name="dialog_message_leaving_edit_leave">ДӀадаха</string>
   <string name="dialog_message_leaving_edit_stay">Диса</string>
   <string name="menu_show_toc">Чулацам</string>
