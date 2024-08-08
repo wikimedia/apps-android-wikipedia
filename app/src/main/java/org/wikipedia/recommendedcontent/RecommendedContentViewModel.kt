@@ -3,11 +3,13 @@ package org.wikipedia.recommendedcontent
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -30,17 +32,38 @@ import org.wikipedia.util.StringUtil
 
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = Resource.Error(throwable)
-    }
     val wikiSite: WikiSite = bundle.parcelable(Constants.ARG_WIKISITE)!!
-    val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
+    private val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
     val showTabs = bundle.getBoolean(RecommendedContentFragment.ARG_SHOW_TABS)
 
-    private val _uiState = MutableStateFlow(Resource<Boolean>())
-    val uiState = _uiState.asStateFlow()
+    private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
+    val historyState = _historyState.asStateFlow()
 
-    suspend fun loadHistoryItems(): List<PageTitle> {
+    private val _recommendedContentState = MutableStateFlow(Resource<List<PageSummary>>())
+    val recommendedContentState = _recommendedContentState.asStateFlow()
+
+    fun loadSearchHistory() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _historyState.value = Resource.Error(throwable)
+        }) {
+            if (inHistory) {
+                _historyState.value = Resource.Success(loadHistoryItems())
+            } else {
+                _historyState.value = Resource.Success(loadRecentSearches())
+            }
+        }
+    }
+
+    // TODO: think about modulating this method.
+    fun loadRecommendedContent(searchTerm: String) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _recommendedContentState.value = Resource.Error(throwable)
+        }) {
+//            _recommendedContentState.value = Resource.Success(loadRecommendedContent(searchTerm))
+        }
+    }
+
+    private suspend fun loadHistoryItems(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("").map {
                 it.title
@@ -48,7 +71,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    suspend fun loadRecentSearches(): List<PageTitle> {
+    private suspend fun loadRecentSearches(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.recentSearchDao().getRecentSearches().map {
                 PageTitle(it.text, WikipediaApp.instance.wikiSite)
@@ -56,7 +79,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    suspend fun loadFeed(): AggregatedFeedContent {
+    private suspend fun loadFeed(): AggregatedFeedContent {
         return withContext(Dispatchers.IO) {
             val wikiSite = WikipediaApp.instance.wikiSite
             val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
@@ -78,11 +101,11 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    suspend fun loadTopRead(): List<PageSummary> {
+    private suspend fun loadTopRead(): List<PageSummary> {
         return loadFeed().topRead?.articles ?: emptyList()
     }
 
-    suspend fun loadExplore(searchTerm: String): List<PageSummary> {
+    private suspend fun loadExplore(searchTerm: String): List<PageSummary> {
         // TODO: single search term vs multiple search terms.
         return withContext(Dispatchers.IO) {
             val wikiSite = WikipediaApp.instance.wikiSite
@@ -101,7 +124,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    suspend fun loadBecauseYouRead(age: Int): List<PageSummary> {
+    private suspend fun loadBecauseYouRead(age: Int): List<PageSummary> {
         return withContext(Dispatchers.IO) {
             val entry = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, WikipediaApp.instance.resources.getInteger(
                 R.integer.article_engagement_threshold_sec)).last()
@@ -109,13 +132,13 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    suspend fun loadContinueReading(): List<PageTitle> {
+    private suspend fun loadContinueReading(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
             WikipediaApp.instance.tabList.mapNotNull { it.backStackPositionTitle }
         }
     }
 
-    suspend fun loadPlaces(): List<NearbyPage> {
+    private suspend fun loadPlaces(): List<NearbyPage> {
         val wikiSite = WikipediaApp.instance.wikiSite
         return withContext(Dispatchers.IO) {
             Prefs.placesLastLocationAndZoomLevel?.let { pair ->
@@ -133,7 +156,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    suspend fun loadRandomArticles(): List<PageSummary> {
+    private suspend fun loadRandomArticles(): List<PageSummary> {
         // TODO: define how many random articles to load.
         return withContext(Dispatchers.IO) {
             val wikiSite = WikipediaApp.instance.wikiSite
