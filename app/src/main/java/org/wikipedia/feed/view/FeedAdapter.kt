@@ -17,7 +17,6 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.news.NewsCardView
 import org.wikipedia.feed.offline.OfflineCard
 import org.wikipedia.feed.offline.OfflineCardView
-import org.wikipedia.feed.places.PlacesCardView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.searchbar.SearchCardView
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
