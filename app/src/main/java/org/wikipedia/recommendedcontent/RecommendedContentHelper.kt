@@ -4,15 +4,20 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.NearbyPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
 
 object RecommendedContentHelper {
@@ -62,7 +67,7 @@ object RecommendedContentHelper {
         return loadFeed().topRead?.articles ?: emptyList()
     }
 
-    suspend fun loadMoreLike(searchTerm: String): List<PageSummary> {
+    suspend fun loadExplore(searchTerm: String): List<PageSummary> {
         // TODO: single search term vs multiple search terms.
         return withContext(Dispatchers.IO) {
             val wikiSite = WikipediaApp.instance.wikiSite
@@ -80,6 +85,38 @@ object RecommendedContentHelper {
             }
         }
 
+    }
+
+    suspend fun loadBecauseYouRead(age: Int): List<PageSummary> {
+        return withContext(Dispatchers.IO) {
+            val entry = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, WikipediaApp.instance.resources.getInteger(
+                R.integer.article_engagement_threshold_sec)).last()
+            loadExplore(entry.title.prefixedText)
+        }
+    }
+
+    suspend fun loadContinueReading(): List<PageTitle> {
+        return withContext(Dispatchers.IO) {
+            WikipediaApp.instance.tabList.mapNotNull { it.backStackPositionTitle }
+        }
+    }
+
+    suspend fun loadPlaces(): List<NearbyPage> {
+        val wikiSite = WikipediaApp.instance.wikiSite
+        return withContext(Dispatchers.IO) {
+            Prefs.placesLastLocationAndZoomLevel?.let { pair ->
+                val location = pair.first
+                val response = ServiceFactory.get(wikiSite).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
+                val nearbyPages = response.query?.pages.orEmpty()
+                    .filter { it.coordinates != null}
+                    .map {
+                        NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
+                            if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
+                            it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
+                    }
+                nearbyPages
+            } ?: emptyList()
+        }
     }
 
     // TODO: borrowed from FeedClient. Refactor this method to be more generic.
