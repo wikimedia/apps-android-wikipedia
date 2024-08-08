@@ -11,6 +11,7 @@ import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
@@ -20,10 +21,6 @@ import org.wikipedia.views.ViewUtil
 import java.util.Locale
 
 class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context) {
-
-    interface Callback {
-        fun onGoToPlace(pageTitle: PageTitle? = null, location: Location? = null, enablePermission: Boolean = false)
-    }
 
     private val binding = ViewPlacesCardBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -62,12 +59,12 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
                 }
             }
             binding.placesCardContainer.setOnClickListener { _ ->
-                callback?.onGoToPlace(it.pageTitle, it.location)
+                goToPlaces(it.pageTitle, it.location)
             }
             binding.placesCardContainer.setOnLongClickListener { view ->
                 LongPressMenu(view, openPageInPlaces = true, location = it.location, callback = object : LongPressMenu.Callback {
                     override fun onOpenInPlaces(entry: HistoryEntry, location: Location) {
-                        callback?.onGoToPlace(entry.title, location)
+                        goToPlaces(entry.title, location)
                     }
 
                     override fun onOpenInNewTab(entry: HistoryEntry) {
@@ -82,7 +79,6 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
                         callback?.onMovePageToList(page!!.listId, entry)
                     }
                 }).show(HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_FEED_PLACES))
-                // TODO: sync with Shay about the HistoryEntry number.
 
                 false
             }
@@ -90,10 +86,10 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
             binding.placesEnableLocationContainer.isVisible = true
             binding.placesArticleContainer.isVisible = false
             binding.placesCardContainer.setOnClickListener {
-                callback?.onGoToPlace(enablePermission = true)
+                goToPlaces()
             }
             binding.placesEnableLocationButton.setOnClickListener {
-                callback?.onGoToPlace(enablePermission = true)
+                goToPlaces()
             }
         }
     }
@@ -107,8 +103,12 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
 
     private fun footer(card: PlacesCard) {
         binding.cardFooter.callback = CardFooterView.Callback {
-            callback?.onGoToPlace()
+            goToPlaces()
         }
         binding.cardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
+    }
+
+    private fun goToPlaces(pageTitle: PageTitle? = null, location: Location? = null) {
+        context.startActivity(PlacesActivity.newIntent(context, pageTitle, location))
     }
 }

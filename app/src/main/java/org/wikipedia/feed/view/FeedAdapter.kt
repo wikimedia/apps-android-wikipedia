@@ -32,7 +32,7 @@ class FeedAdapter<T : View>(private val coordinator: FeedCoordinatorBase, privat
     interface Callback : ListCardItemView.Callback, CardHeaderView.Callback,
         FeaturedImageCardView.Callback, SearchCardView.Callback, NewsCardView.Callback,
         AnnouncementCardView.Callback, RandomCardView.Callback, ListCardView.Callback,
-        SuggestedEditsCardView.Callback, PlacesCardView.Callback {
+        SuggestedEditsCardView.Callback {
         fun onRequestMore()
         fun onRetryFromOffline()
         fun onError(t: Throwable)
