@@ -41,14 +41,13 @@ interface HistoryEntryWithImageDao {
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
     }
 
+    fun filterHistoryItemsWithoutTime(searchQuery: String): List<HistoryEntry> {
+        return findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%").map { toHistoryEntry(it) }
+    }
+
     fun filterHistoryItems(searchQuery: String): List<Any> {
         val list = mutableListOf<Any>()
-        val normalizedQuery = StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
-            .replace("\\", "\\\\")
-            .replace("%", "\\%")
-            .replace("_", "\\_")
-
-        val entries = findEntriesBySearchTerm("%$normalizedQuery%")
+        val entries = findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%")
 
         for (i in entries.indices) {
             // Check the previous item, see if the times differ enough
@@ -76,6 +75,13 @@ interface HistoryEntryWithImageDao {
         val entries = findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
             HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, age + 1)
         return entries.map { toHistoryEntry(it) }
+    }
+
+    private fun normalizedQuery(searchQuery: String): String {
+        return StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
+            .replace("\\", "\\\\")
+            .replace("%", "\\%")
+            .replace("_", "\\_")
     }
 
     private fun toHistoryEntry(entryWithImage: HistoryEntryWithImage): HistoryEntry {
