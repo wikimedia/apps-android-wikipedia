@@ -51,4 +51,10 @@ object GeoUtil {
             "${formatter.format(distance)} km"
         }
     }
+
+    fun isSamePlace(startLat: Double, endLat: Double, startLon: Double, endLon: Double): Boolean {
+        val df = DecimalFormat("#.#######")
+        return df.format(startLat) == df.format(endLat) &&
+                df.format(startLon) == df.format(endLon)
+    }
 }
