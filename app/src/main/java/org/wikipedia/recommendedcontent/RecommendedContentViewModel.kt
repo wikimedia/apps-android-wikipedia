@@ -1,7 +1,13 @@
 package org.wikipedia.recommendedcontent
 
+import android.os.Bundle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -11,6 +17,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.NearbyPage
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.page.PageTitle
@@ -18,12 +25,20 @@ import org.wikipedia.places.PlacesFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-object RecommendedContentHelper {
+class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
-    // TODO: introduce cache for these methods
-    // TODO: think about all PageSummary vs PageTitle.
+    private val handler = CoroutineExceptionHandler { _, throwable ->
+        _uiState.value = Resource.Error(throwable)
+    }
+    val wikiSite: WikiSite = bundle.parcelable(Constants.ARG_WIKISITE)!!
+    val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
+    val showTabs = bundle.getBoolean(RecommendedContentFragment.ARG_SHOW_TABS)
+
+    private val _uiState = MutableStateFlow(Resource<Boolean>())
+    val uiState = _uiState.asStateFlow()
 
     suspend fun loadHistoryItems(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
@@ -164,5 +179,12 @@ object RecommendedContentHelper {
             }
         }
         return newList
+    }
+
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+        @Suppress("unchecked_cast")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return RecommendedContentViewModel(bundle) as T
+        }
     }
 }
