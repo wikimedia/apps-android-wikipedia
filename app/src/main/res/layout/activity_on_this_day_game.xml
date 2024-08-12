@@ -27,9 +27,20 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
         android:paddingVertical="16dp"
+        android:animateLayoutChanges="true"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:layout_marginTop="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/questionThumbnail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="-16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop" />
 
         <View
             android:id="@+id/questionDotLine"
@@ -71,7 +82,7 @@
             app:layout_constraintTop_toBottomOf="@id/questionDotsFlow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:textColor="?attr/primary_color"
             android:fontFamily="serif"
             android:textSize="24sp"

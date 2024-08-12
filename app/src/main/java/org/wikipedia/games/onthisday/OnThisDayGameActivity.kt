@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -72,7 +73,6 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -107,7 +107,23 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.errorView.isVisible = false
 
         val event = gameState.currentQuestionState.event
+
+        // hide and re-show the text to force automatic animation to occur.
+        binding.questionText.isVisible = false
         binding.questionText.text = event.text
+        binding.questionText.isVisible = true
+
+        val thumbnailUrl = event.pages()?.firstOrNull()?.thumbnailUrl
+        if (thumbnailUrl.isNullOrEmpty()) {
+            binding.questionThumbnail.isVisible = false
+        } else {
+            binding.questionThumbnail.isVisible = true
+            Glide.with(this)
+                .load(thumbnailUrl)
+                .centerCrop()
+                .into(binding.questionThumbnail)
+        }
+
 
         // update year buttons with the year selections from the state
         yearButtonViews.forEachIndexed { index, view ->
@@ -136,7 +152,6 @@ class OnThisDayGameActivity : BaseActivity() {
         // animate the dot for the current question
         animateDot(gameState.currentQuestionIndex)
 
-
         binding.currentQuestionContainer.isVisible = true
     }
 
@@ -146,12 +161,20 @@ class OnThisDayGameActivity : BaseActivity() {
                 if (child == button) {
                     child.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
                     child.setTextColor(Color.WHITE)
+                    child.isSelected = true
                 } else {
                     child.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.background_color)
                     child.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
+                    child.isSelected = false
                 }
             }
         }
+        updateSubmitButtonState()
+    }
+
+    private fun updateSubmitButtonState() {
+        binding.submitButton.isEnabled = yearButtonViews.any { it.isSelected }
+        binding.submitButton.alpha = if (binding.submitButton.isEnabled) 1f else 0.5f
     }
 
     private fun initDynamicViews(gameState: OnThisDayGameViewModel.GameState) {
