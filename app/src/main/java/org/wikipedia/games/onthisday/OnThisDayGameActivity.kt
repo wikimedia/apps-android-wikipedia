@@ -114,7 +114,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         val event = gameState.currentQuestionState.event
 
-        binding.questionText.text = event.text + event.text + event.text + event.text + event.text
+        binding.questionText.text = event.text
 
         val thumbnailUrl = event.pages()?.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl.isNullOrEmpty()) {
@@ -157,7 +157,7 @@ class OnThisDayGameActivity : BaseActivity() {
         }
 
         // animate the dot for the current question
-        animateDot(gameState.currentQuestionIndex)
+        animateDot(if (gameState.currentQuestionState.goToNext) -1 else gameState.currentQuestionIndex)
 
         binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         binding.currentQuestionContainer.isVisible = true
@@ -300,10 +300,10 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     private fun animateDot(dotIndex: Int) {
-        if (dotIndex >= dotPulseViews.size) {
+        dotPulseViews.forEach { it.visibility = View.INVISIBLE }
+        if (dotIndex < 0 || dotIndex >= dotPulseViews.size) {
             return
         }
-        dotPulseViews.forEach { it.visibility = View.INVISIBLE }
         val dotPulseView = dotPulseViews[dotIndex]
         dotPulseView.visibility = View.VISIBLE
 
