@@ -33,10 +33,14 @@ class OnThisDayGameActivity : BaseActivity() {
             finish()
         }
 
+        binding.submitButton.setOnClickListener {
+            viewModel.submitCurrentResponse()
+        }
+
         viewModel.gameState.observe(this) {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
-                is Resource.Success -> updateOnSuccess(it.data)
+                is Resource.Success -> updateGameState(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
             }
         }
@@ -76,13 +80,16 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.errorView.setError(t)
     }
 
-    private fun updateOnSuccess(gameState: OnThisDayGameViewModel.GameState) {
+    private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
 
-        binding.currentQuestionContainer.isVisible = true
+        val event = viewModel.events[gameState.currentEventIndex % viewModel.events.size]
+        binding.questionText.text = event.text
+        binding.yearChoice1.text = event.year.toString()
 
+        binding.currentQuestionContainer.isVisible = true
     }
 
     companion object {
