@@ -178,7 +178,7 @@
   <string name="login_join_wikipedia">Придружете ни се на Википедија</string>
   <string name="login_forgot_password">Ја заборавивте лозинката?</string>
   <string name="create_account_already_have">Веќе имате сметка?</string>
-  <string name="create_account_activity_title">Направи кориничка сметка</string>
+  <string name="create_account_activity_title">Направи сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>

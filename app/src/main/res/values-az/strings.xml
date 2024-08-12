@@ -125,6 +125,7 @@
   <string name="langlinks_your_wikipedia_languages">Sizin Vikipediya dilləriniz</string>
   <string name="menu_save_changes">Dəyişiklikləri yayımla</string>
   <string name="edit_saved_successfully">Dəyişiklik yayımlandı!</string>
+  <string name="stub_article_edit_saved_successfully">Redaktə yayımlandı! Dəyişikliklərin görünməsi vaxt ala bilər.</string>
   <string name="dialog_message_edit_failed">Dəyişiklik uğursuz oldu!</string>
   <string name="dialog_message_edit_failed_retry">Yenidən cəhd edin</string>
   <string name="dialog_message_edit_failed_cancel">Ləğv et</string>
@@ -167,6 +168,8 @@
   <string name="logged_out_in_background_dialog">Vikipediyadan çıxıldı. Yenidən daxil olmaq istəyirsiniz?</string>
   <string name="logged_out_in_background_login">Daxil ol</string>
   <string name="logged_out_in_background_cancel">İmtina</string>
+  <string name="account_vanish_request_title">Hesabı sil</string>
+  <string name="account_vanish_request_confirm_title">Hesabın silinməsi xəbərdarlığı</string>
   <string name="history_empty_title">Son zamanlarda baxılan məqalə yoxdur</string>
   <string name="history_empty_message">Burada oxuduğunuz şeyi izləyin.</string>
   <string name="history_offline_articles_toast">Tarixçədə bəzi məqalələr oflayn rejimdə görünə bilməz.</string>
@@ -236,7 +239,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
   <string name="about_contributors_heading">Tərtibatçılar</string>
@@ -244,7 +247,7 @@
   <string name="about_translators_heading">Tərcüməçilər</string>
   <string name="about_translators_translatewiki">Bu proqramlar, könüllü tərcüməçilər tərəfindən &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net saytında&lt;/a&gt; tərcümə edildi</string>
   <string name="about_app_license_heading">Lisenziya</string>
-  <string name="about_app_license" fuzzy="true">Mənbə kodu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; və &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisenziyası&lt;/a&gt; altında mövcuddur. Başqa cür göstərilmədiyi halda, məzmun &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike Lisenziyası&lt;/a&gt; altında yayımlanır.</string>
+  <string name="about_app_license">Mənbə kodu &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisenziyası&lt;/a&gt; altında mövcuddur. Başqa cür göstərilmədiyi halda, məzmun &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike Lisenziyası&lt;/a&gt; altında yayımlanır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya fondunun&lt;/a&gt; məhsulu</string>
   <string name="about_activity_title">Haqqında</string>
   <string name="edit_abandon_confirm">Səhifə redaktə edildi. Dəyişikliklərinizi saxlamadan çıxmaq istədiyinizə əminsiniz?</string>
@@ -260,6 +263,9 @@
   <string name="edit_undo">Geri</string>
   <string name="edit_redo">İrəli</string>
   <string name="edit_rollback">Geri qaytar</string>
+  <string name="edit_warn">Xəbərdarlıq</string>
+  <string name="edit_damage">%s zərər</string>
+  <string name="edit_intent">%s niyyət</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bayt</item>
     <item quantity="other">%s bayt</item>
@@ -271,6 +277,8 @@
   <string name="edit_summary_tag_links">Keçidlər əlavə edildi</string>
   <string name="edit_summary_tag_other">Digər</string>
   <string name="edit_summary_tag_other_hint">Səhifəni düzəldən digər yollar</string>
+  <string name="edit_summary_added_short_description">Qısa təsvir əlavə edildi</string>
+  <string name="edit_summary_updated_short_description">Qısa təsvir yeniləndi</string>
   <string name="edit_conflict_title">Eyni vaxtda redaktə</string>
   <string name="edit_conflict_message">Bu səhifə artıq fərqli bir istifadəçi tərəfindən dəyişdirilib və düzəlişinizlə ziddiyyət təşkil edir. Xahiş edirik redaktələrinizi kopyalayın, geri qayıdın və səhifəni yeniləyin, sonra yenidən düzəliş edin.</string>
   <string name="edit_notices">Redaktə bildirişləri</string>
@@ -305,6 +313,8 @@
   <string name="widget_name_featured_page">Vikipediya seçilmiş məqalə</string>
   <string name="widget_title_featured_page">Günün seçilmiş məqaləsi</string>
   <string name="widget_name_search">Vikipediya axtarış</string>
+  <string name="widget_description_search">Vikipediyada axtarış etməyin ən sürətli yolu</string>
+  <string name="widget_description_featured_page">Vikipediyanın təklif etdiyi ən yaxşı məqalələr</string>
   <string name="wiktionary_no_definitions_found">Tərif tapılmadı.</string>
   <string name="alpha_update_notification_title">Yeni alfa yeniləmə mövcuddur</string>
   <string name="alpha_update_notification_text">Yükləmək üçün vurun</string>
@@ -387,6 +397,11 @@
   <string name="multi_select_items_selected">%d seçildi</string>
   <string name="error_message_generic">Xəta baş verdi</string>
   <string name="view_link_preview_error_button_dismiss">Bağla</string>
+  <string name="link_preview_dialog_read_button">Oxu</string>
+  <string name="link_preview_dialog_save_button">Yadda saxla</string>
+  <string name="link_preview_dialog_saved_button">Yadda saxlandı</string>
+  <string name="link_preview_dialog_share_button">Paylaş</string>
+  <string name="link_preview_stub_placeholder_text">Bu məqalə qaralamadır, yəni məqalədə önizləmə yaratmaq üçün kifayət qədər məzmun yoxdur. Bununla belə, siz bunu dəyişə bilərsiniz.</string>
   <string name="error_page_does_not_exist">Bu səhifə mövcud deyil</string>
   <string name="error_user_page_does_not_exist">Vikipediyada bu adda &lt;a href=\"%1$s\"&gt;istifadəçi səhifəsi&lt;/a&gt; yoxdur. Ümumiyyətlə, bu səhifə &lt;b&gt;%2$s&lt;/b&gt; tərəfindən yaradılmalı və redaktə edilməlidir. Əgər şübhəniz varsa, \"%3$s\" adlı istifadəçinin mövcud olub-olmadığını yoxlayın</string>
   <string name="view_wiki_error_message_offline">İnternetə qoşulmaq mümkün olmadı.</string>
@@ -409,6 +424,10 @@
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ilə əlaqə saxlaya bilə və digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Alətlər panelinizi fərdiləşdirin</string>
   <string name="error_blocked_footer_no_blocker">Digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
+  <string name="temp_account_not_logged_in">Siz daxil olmamısınız</string>
+  <string name="temp_account_dialog_ok">Başa düşdüm</string>
+  <string name="temp_account_using_title">Siz müvəqqəti hesabdan istifadə edirsiniz</string>
+  <string name="temp_account_dialog_discard">Dəyişiklikləri ləğv edin və daxil olun</string>
   <string name="crash_report_activity_title">Tətbiq xətası</string>
   <string name="crash_report_relaunch_or_quit">Üzr istəyirik, Vikipediya applikasiyası bir xəta ilə üzləşib və dayandırılıb.\n\nYenidən başlamaq və ya çıxmaq istəyirsiniz?</string>
   <string name="crash_report_relaunch">Yenidən başla</string>
@@ -532,11 +551,16 @@
   <string name="notifications_activity_title">Bildirişlər</string>
   <string name="notifications_poll_enable_negative">İndi yox</string>
   <string name="notifications_mark_unread">Oxunulmamış kimi işarələ</string>
+  <string name="notifications_direct_reply_action">Cavabla</string>
+  <string name="notifications_direct_reply_progress">%s istifadəçisinə cavab verilir…</string>
+  <string name="notifications_direct_reply_success">Cavab göndərildi.</string>
+  <string name="notifications_direct_reply_error">Cavabı avtomatik göndərmək mümkün olmadı.</string>
   <string name="preference_title_notification_system">Sistem</string>
   <string name="preference_title_notification_thanks">Təşəkkür</string>
   <string name="preference_title_notification_login_fail">Daxil ol</string>
   <string name="preference_title_notification_user_talk">Müzakirə səhifəsi</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Müzakirə səhifələrindən ismarıclar</string>
+  <string name="preference_summary_notification_user_talk">Müzakirə səhifələrindən mesajlar və cavablar</string>
+  <string name="notifications_menu_user_talk_page">%s müzakirə səhifəsi</string>
   <string name="view_featured_image_card_title">Günün şəkli</string>
   <string name="view_featured_image_card_download">Endir</string>
   <string name="view_continue_reading_card_subtitle_today">bu gün</string>
@@ -617,13 +641,118 @@
   <string name="wikitext_bold">Qalın</string>
   <string name="wikitext_template">Şablon</string>
   <string name="main_drawer_help">Kömək</string>
+  <string name="talk_title">Müzakirə</string>
+  <string name="talk_user_title">Müzakirə: %s</string>
+  <string name="talk_new_topic">Yeni mövzü</string>
+  <string name="talk_new_topic_submitted">Mövzu yaradıldı.</string>
+  <string name="talk_warn">Xəbərdarlıq</string>
+  <string name="talk_warn_save_dialog_title">Dəyişikliklər yadda saxlansın?</string>
+  <string name="talk_warn_save_dialog_message">Yeni mesaj kimi yadda saxla</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Siyahıya yeni mesaj kimi yadda saxla</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Mövcud mesajı yenilə</string>
+  <string name="talk_warn_save_dialog_hint">Mesajın başlığı</string>
+  <string name="talk_warn_save_dialog_publish">Yayımla</string>
+  <string name="talk_warn_save_dialog_cancel">İmtina</string>
   <string name="talk_warn_save_dialog_dont_save">Yadda saxlama</string>
+  <string name="talk_warn_submitted">Mesaj redaktorun istifadəçi müzakirə səhifəsində dərc edilib</string>
+  <string name="talk_warn_submitted_and_saved">Mesaj yadda saxlanıldı və redaktorun istifadəçi müzakirə səhifəsində yayımlandı</string>
+  <string name="talk_warn_saved_messages">Saxlanan mesajlar</string>
+  <string name="talk_page_empty">Bu müzakirə səhifəsi boşdur.</string>
+  <string name="talk_page_empty_title">Söhbət buradan başlayır</string>
+  <string name="talk_page_empty_content">Müzakirə səhifələri insanların Vikipediya məzmununu ən yaxşı hala gətirmək yollarını müzakirə etdikləri yerdir. Vikipediyaçılar icması ilə əlaqə saxlamaq və əməkdaşlıq etmək üçün yeni müzakirə mövzusu əlavə etməklə başlayın.</string>
+  <string name="talk_add_reply">Cavabla</string>
+  <string name="talk_no_subject">(Mövzu yoxdur)</string>
+  <string name="talk_reply_subject">Mövzu</string>
+  <string name="talk_reply_hint">Cavab yaz</string>
+  <string name="talk_message_hint">Mesaj yaz</string>
+  <string name="talk_message_empty">Mesaj boş ola bilməz.</string>
+  <string name="talk_subject_empty">Mövzu boş ola bilməz.</string>
   <string name="talk_subject_duplicate">Mövzu adı artıq mövcuddur. Başqasını sınayın.</string>
+  <string name="talk_response_submitted">Cavab göndərildi.</string>
+  <string name="talk_snackbar_undo">Geri qaytar</string>
+  <string name="talk_last_modified">Sonuncu dəfə %2$s tərəfindən &lt;b&gt;%1$s&lt;/b&gt; tarixində redaktə edilib</string>
+  <string name="talk_snackbar_survey_text">Müzakirə səhifələrindən istifadə etdiyiniz üçün təşəkkür edirik. Sorğuda iştirak etməklə proqramı təkmilləşdirməyə kömək edə bilərsinizmi?</string>
+  <string name="talk_snackbar_survey_action_text">Başla</string>
+  <string name="talk_share_discussion_subject">Vikipediya - \"%s\" mövzusunda müzakirə</string>
+  <string name="talk_share_talk_page">Vikipediya - müzakirə səhifəsində müzakirələr</string>
+  <string name="talk_edit_disclaimer">Bu müzakirə səhifəsidir. Müzakirə səhifəsi qaydalarına hörmət edin və dörd tilda işarəsi (~~~~) yazaraq yazılarınızı imzalamağı unutmayın.&lt;br&gt;</string>
+  <string name="talk_search_hint">Mesajlarda axtar</string>
+  <string name="talk_search_topics_hint">Mövzularda axtar</string>
+  <string name="talk_search_find_in_talk_topics_hint">Müzakirə səhifəsi mövzusu axtar</string>
+  <string name="talk_overflow_sort_by">Sırala</string>
+  <string name="talk_overflow_sort_date_published">Yayımlanma tarixi</string>
+  <string name="talk_overflow_sort_date_updated">Yenilənmə tarixi</string>
+  <string name="talk_overflow_sort_topic_name">Mövzu adı</string>
+  <string name="talk_new_topic_exit_dialog_title">Çıxmaq istədiyinizə əminsiniz?</string>
+  <string name="talk_new_topic_exit_dialog_message">Mövzu və məzmun mətni yadda saxlanmayacaq.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Cavabı göstər</item>
+    <item quantity="other">Cavabları göstər (%d)</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Cavabı gizlə</item>
+    <item quantity="other">Cavabları gizlə (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">\"%s\" mövzusuna abunə olundu</string>
+  <string name="talk_thread_unsubscribed_from">\"%s\" mövzusunun abunəliyindən çıxıldı</string>
+  <string name="talk_list_item_overflow_subscribe">Abunə ol</string>
+  <string name="talk_list_item_overflow_subscribed">Abunə olundu</string>
+  <string name="talk_list_item_overflow_mark_as_read">Oxunmuş kimi işarələ</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Oxunmamış kimi işarələ</string>
+  <string name="talk_list_item_overflow_share">Paylaş</string>
+  <string name="talk_list_item_last_comment_date">Son şərh: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Cavabların sayı</string>
+  <string name="talk_list_item_user_icon_content_description">İstifadəçi ikonu</string>
+  <string name="talk_list_item_swipe_mark_as_read">Oxudum</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Oxunmamış</string>
+  <string name="talk_login_to_subscribe_dialog_title">Mövzulara abunə olmaq üçün daxil olun</string>
+  <string name="talk_login_to_subscribe_dialog_content">Mövzu abunəlikləri bu mövzuda yeni şərhlər haqqında bildirişlər almağa imkan verəcək. Mövzuya abunə olmaq üçün hesab yaradın və ya Vikipediya hesabınıza daxil olun.</string>
+  <string name="talk_archived_title">Müzakirə arxivi: %s</string>
+  <string name="menu_option_share_talk_page">Müzakirə səhifəsini paylaş</string>
+  <string name="menu_option_find_in_talk_page_topic">Müzakirə səhifəsi mövzusu axtar</string>
+  <string name="talk_menu_copy_text">Mətni kopyala</string>
+  <string name="talk_menu_expand_threads">Mövzuları tam aç</string>
+  <string name="talk_menu_collapse_threads">Mövzuları bağla</string>
+  <string name="menu_option_view_user_talk">Müzakirə səhifəsinə bax</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s və onun müzakirə səhifəsi %2$s izləmə siyahınıza əlavə edildi.</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s və onun müzakirə səhifəsi izləmə siyahınızdan silindi.</string>
   <string name="watchlist_expiry_dialog_title">İzləmədə saxlama müddətini seçin</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Başlamaq üçün öz xəbərdarlıq mesajlarınızı yaradın və ya &lt;a href=\"#\"&gt;nümunə mesajlarından&lt;/a&gt; istifadə edin.</string>
+  <string name="watchlist_filter_talk">Müzakirə</string>
+  <string name="talk_templates_empty_message">Başlamaq üçün öz mesajlarınızı yaradın və ya &lt;a href=\"#\"&gt;nümunə mesajlardan&lt;/a&gt; istifadə edin.</string>
+  <string name="talk_templates_new_message_title">Yeni mesaj</string>
+  <string name="talk_templates_new_message_subject_hint">Mövzu</string>
+  <string name="talk_templates_new_message_compose_hint">Mesaj yarat</string>
+  <string name="talk_templates_new_message_save">Yadda saxla</string>
+  <string name="talk_templates_new_message_dialog_title">Dəyişiklikləri yadda saxla</string>
+  <string name="talk_templates_new_message_dialog_description">Başlıq əlavə et və mesajı yadda saxla.</string>
+  <string name="talk_templates_new_message_dialog_hint">Mesaj başlığı</string>
+  <string name="talk_templates_new_message_dialog_save">Yadda saxla</string>
+  <string name="talk_templates_new_message_dialog_cancel">İmtina</string>
+  <string name="talk_templates_new_message_dialog_exists">\"%s\" şablonu artıq mövcuddur.</string>
+  <string name="talk_templates_new_message_saved">Mesaj yadda saxlandı</string>
+  <string name="talk_templates_edit_message_dialog_title">Mesajı redaktə et</string>
+  <string name="talk_templates_edit_message_dialog_save">Yadda saxla</string>
+  <string name="talk_templates_edit_message_dialog_delete">Sil</string>
+  <string name="talk_templates_edit_message_updated">Mesaj yeniləndi</string>
+  <string name="talk_templates_menu_remove_message">Mesajı sil</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Mesajı siyahıdan silmək istədiyinizə əminsiniz?</item>
+    <item quantity="other">Mesajları siyahıdan silmək istədiyinizə əminsiniz?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Mesaj silindi</item>
+    <item quantity="other">Mesajlar silindi</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Başlıq boş ola bilməz.</string>
   <string name="talk_templates_your_messages_tab_title">Mesajlarınız</string>
   <string name="talk_templates_example_messages_tab_title">Nümunə mesajlar</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Müzakirə səhifəsini göstər</string>
   <string name="patroller_onboarding_two_talk_title">Müzakirə</string>
   <string name="patroller_onboarding_two_talk_content">Digər redaktorlarla əlaqə saxlayın. Tez-tez istifadə olunan müzakirə səhifəsi mesajlarını yadda saxlayın və ya şablondan istifadə edin.</string>
+  <string name="patroller_saved_message_body_vandalism">Salam {{{username}}}, konstruktiv görünmədiyi üçün [{{{diffLink}}}|son töhfələrinizdən] birini və ya bir neçəsini geri qaytardığımı sizə bildirmək istəyirəm. Əgər səhv etdiyimi düşünürsünüzsə və ya sualınız varsa, [[User talk:{{{senderUserName}}}|müzakirə səhifəmdə]] mesaj yaza bilərsiniz. Nəzərə alın ki, vandalizmin davam etməsi məhdudiyyətlərə səbəb ola bilər.</string>
+  <string name="patroller_saved_message_body_editing_tests">Salam {{{username}}}, Vikipediyanın diqqətinizi çəkməsinə və onu redaktə etməyi öyrənməkdə maraqlı olduğunuza görə çox şadam. Etdiyiniz redaktə testi işləyib; Bununla belə, nəzərə almalısınız ki, bu layihənin məqsədi hər kəsin məlumat ala biləcəyi etibarlı və tam ensiklopediya yaratmaqdır. Redaktəniz məzmuna təsir etdi, ona görə də silindi.\nVikipediyanı necə redaktə etməyi öyrənmək istəyirsinizsə, [[User:{{{username}}}/Qaralama|qaralama dəftəri]] sizin ixtiyarınızdadır. Şərhləriniz məqaləyə aid idisə, düzgün yer həmin məqalənin müzakirə səhifəsidir.</string>
+  <string name="patroller_saved_message_body_auto_trans">Salam {{{username}}}, etdiyiniz bəzi redaktələr böyük ehtimalla maşın tərcüməsidir, ona görə də onlar dəyişdirilib və ya şablonla işarələnib. Məqalədə heç bir təkmilləşdirmə aparılmasa, o, silinə bilər.\n\nBütün bu məlumatlara baxmayaraq, hələ də hər hansı bir sualınız varsa, [[User talk:{{{senderUserName}}}}}|müzakirə səhifəmdə]] mesaj yazın.  Buna görə ruhdan düşməyin. Sizin töhfələriniz Vikipediya üçün çox vacibdir.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Salam {{{username}}}, deyəsən siz məzmunu məqalənin müzakirə səhifəsində müzakirə etmədən silmisiniz. Nəzərə alın ki, Vikipediya senzuraya məruz qalmır və məzmun mübahisəli olduğu üçün silinməməlidir. Məlumatın qeyri-dəqiq olduğuna inanırsınızsa, məqalənin müzakirə səhifəsində konsensus əldə edin.</string>
+  <string name="talk_warn_learn_more_label">Mesaj yer tutucuları haqqında məlumat əldə edin</string>
   <string name="talk_warn_saved_messages_usage_instruction">Mesajlarınızı fərdiləşdirmək, göndərmək və saxlamaq üçün aşağıdakı nümunə mesajından istifadə edin.</string>
 </resources>
