@@ -114,10 +114,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         val event = gameState.currentQuestionState.event
 
-        // hide and re-show the text to force automatic animation to occur.
-        binding.questionText.isVisible = false
-        binding.questionText.text = event.text
-        binding.questionText.isVisible = true
+        binding.questionText.text = event.text + event.text + event.text + event.text + event.text
 
         val thumbnailUrl = event.pages()?.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl.isNullOrEmpty()) {
@@ -140,7 +137,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         // set color tint of the dots based on the current question index
         dotViews.forEachIndexed { index, view ->
-            view.backgroundTintList = if (index == gameState.currentQuestionIndex) {
+            view.backgroundTintList = if (index == gameState.currentQuestionIndex && !gameState.currentQuestionState.goToNext) {
                 view.setImageResource(0)
                 ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
             } else {
@@ -162,7 +159,6 @@ class OnThisDayGameActivity : BaseActivity() {
         // animate the dot for the current question
         animateDot(gameState.currentQuestionIndex)
 
-        binding.correctStateText.isVisible = false
         binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         binding.currentQuestionContainer.isVisible = true
     }
@@ -181,9 +177,6 @@ class OnThisDayGameActivity : BaseActivity() {
             }
         }
 
-        binding.correctStateText.setText(R.string.on_this_day_game_correct)
-        binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.success_color))
-        binding.correctStateText.isVisible = true
         binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         setSubmitEnabled(true)
     }
@@ -216,9 +209,6 @@ class OnThisDayGameActivity : BaseActivity() {
             it.setTextColor(Color.WHITE)
         }
 
-        binding.correctStateText.setText(R.string.on_this_day_game_incorrect)
-        binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.destructive_color))
-        binding.correctStateText.isVisible = true
         binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         setSubmitEnabled(true)
     }

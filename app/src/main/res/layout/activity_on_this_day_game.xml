@@ -27,8 +27,6 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
         android:paddingVertical="16dp"
-        android:animateLayoutChanges="true"
-        android:clipChildren="false"
         android:clipToPadding="false"
         android:layout_marginTop="?attr/actionBarSize">
 
@@ -75,24 +73,33 @@
             app:flow_verticalAlign="center"
             app:flow_wrapMode="chain" />
 
-        <TextView
-            android:id="@+id/questionText"
+        <ScrollView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintTop_toBottomOf="@id/questionDotsFlow"
+            app:layout_constraintBottom_toTopOf="@id/yearButtonsFlow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="32dp"
-            android:textColor="?attr/primary_color"
-            android:fontFamily="serif"
-            android:textSize="24sp"
-            tools:text="Lorem ipsum"/>
+            android:clipChildren="true"
+            android:clipToPadding="true">
+
+            <TextView
+                android:id="@+id/questionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/primary_color"
+                android:fontFamily="serif"
+                android:textSize="24sp"
+                tools:text="Lorem ipsum"/>
+        </ScrollView>
 
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/yearButtonsFlow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
             app:flow_horizontalBias="0"
             app:flow_horizontalGap="12dp"
             app:flow_verticalAlign="center"
@@ -102,33 +109,17 @@
             app:flow_wrapMode="chain"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/questionText" />
-
-        <TextView
-            android:id="@+id/correctStateText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/yearButtonsFlow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"
-            android:textColor="?attr/primary_color"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            tools:text="Lorem ipsum"/>
+            app:layout_constraintBottom_toTopOf="@id/submitButton" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/submitButton"
             style="@style/App.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/correctStateText"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/on_this_day_game_submit"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
