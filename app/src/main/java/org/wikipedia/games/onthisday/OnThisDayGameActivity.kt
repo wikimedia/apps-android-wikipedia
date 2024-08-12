@@ -5,45 +5,45 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.RecyclerView
+import androidx.core.view.isVisible
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.databinding.ActivityTalkTopicBinding
+import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.util.Resource
 
 class OnThisDayGameActivity : BaseActivity() {
-    private lateinit var binding: ActivityTalkTopicBinding
+    private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTalkTopicBinding.inflate(layoutInflater)
+        binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        title = ""
+        title = getString(R.string.on_this_day_game_title)
 
-
-        binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                supportActionBar?.setDisplayShowTitleEnabled(binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2))
-            }
-        })
+        binding.errorView.retryClickListener = View.OnClickListener {
+            viewModel.loadGameState()
+        }
+        binding.errorView.backClickListener = View.OnClickListener {
+            finish()
+        }
 
         viewModel.gameState.observe(this) {
             when (it) {
+                is Resource.Loading -> updateOnLoading()
                 is Resource.Success -> updateOnSuccess(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
             }
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        //menuInflater.inflate(R.menu..., menu)
+        menuInflater.inflate(R.menu.menu_on_this_day_game, menu)
         return true
     }
 
@@ -55,7 +55,7 @@ class OnThisDayGameActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
-            R.id.about_wmf -> {
+            R.id.menu_help -> {
                 // TODO
                 true
             }
@@ -63,11 +63,25 @@ class OnThisDayGameActivity : BaseActivity() {
         }
     }
 
-    private fun updateOnSuccess(gameState: OnThisDayGameViewModel.GameState) {
-
+    private fun updateOnLoading() {
+        binding.errorView.isVisible = false
+        binding.currentQuestionContainer.isVisible = false
+        binding.progressBar.isVisible = true
     }
 
     private fun updateOnError(t: Throwable) {
+        binding.progressBar.isVisible = false
+        binding.currentQuestionContainer.isVisible = false
+        binding.errorView.isVisible = true
+        binding.errorView.setError(t)
+    }
+
+    private fun updateOnSuccess(gameState: OnThisDayGameViewModel.GameState) {
+        binding.progressBar.isVisible = false
+        binding.errorView.isVisible = false
+
+
+        binding.currentQuestionContainer.isVisible = true
 
     }
 

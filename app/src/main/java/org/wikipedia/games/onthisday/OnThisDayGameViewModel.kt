@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.wikipedia.util.Resource
 
@@ -16,13 +17,17 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
     init {
-        loadTopic()
+        loadGameState()
     }
 
-    fun loadTopic() {
+    fun loadGameState() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _gameState.postValue(Resource.Error(throwable))
         }) {
+            _gameState.postValue(Resource.Loading())
+
+            delay(3000)
+
             val state = GameState()
 
             _gameState.postValue(Resource.Success(state))
