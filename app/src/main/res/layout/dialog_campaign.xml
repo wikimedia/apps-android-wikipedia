@@ -103,7 +103,6 @@
         android:layout_gravity="end"
         android:contentDescription="@string/dialog_close_description"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:layout_margin="8dp"
         app:tint="?attr/primary_color"/>
 
 </org.wikipedia.views.WikiCardView>
