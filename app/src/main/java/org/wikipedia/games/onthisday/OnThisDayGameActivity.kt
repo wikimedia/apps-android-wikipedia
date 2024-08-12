@@ -4,6 +4,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,18 +12,24 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
+import androidx.core.view.children
 import androidx.core.view.isVisible
+import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
 
 
 class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
 
+    private val yearButtonViews = mutableListOf<View>()
+    private val dotViews = mutableListOf<View>()
+    private val dotPulseViews = mutableListOf<View>()
     private val dotPulseAnimatorSet = AnimatorSet()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +48,8 @@ class OnThisDayGameActivity : BaseActivity() {
         }
 
         binding.submitButton.setOnClickListener {
-            viewModel.submitCurrentResponse()
+            // TODO
+            viewModel.submitCurrentResponse(0)
 
             dotPulseAnimatorSet.cancel()
         }
@@ -90,18 +98,53 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
+
+        // set up dynamic views, if they haven't been added yet
+        if (yearButtonViews.isEmpty()) {
+            val viewIds = mutableListOf<Int>()
+            gameState.currentQuestionState.yearChoices.forEach { year ->
+                val viewId = View.generateViewId()
+                viewIds.add(viewId)
+                val button = MaterialButton(this)
+                yearButtonViews.add(button)
+                button.text = year.toString()
+                button.id = viewId
+                button.tag = year
+                binding.currentQuestionContainer.addView(button)
+                button.setOnClickListener {
+                    setButtonHighlighted(it)
+                }
+            }
+            binding.yearButtonsFlow.referencedIds = viewIds.toIntArray()
+        }
+        setButtonHighlighted()
+
+
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
 
-        val event = viewModel.events[gameState.currentEventIndex % viewModel.events.size]
+        val event = gameState.currentQuestionState.event
         binding.questionText.text = event.text
-        binding.yearChoice1.text = event.year.toString()
 
         animateDot(1)
 
 
         binding.currentQuestionContainer.isVisible = true
+    }
+
+    private fun setButtonHighlighted(button: View? = null) {
+        binding.currentQuestionContainer.children.forEach { child ->
+            if (child is MaterialButton && child.tag is Int) {
+                if (child == button) {
+                    child.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
+                    child.setTextColor(Color.WHITE)
+                } else {
+                    child.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.background_color)
+                    child.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
+                }
+            }
+        }
     }
 
     private fun animateDot(dotIndex: Int) {

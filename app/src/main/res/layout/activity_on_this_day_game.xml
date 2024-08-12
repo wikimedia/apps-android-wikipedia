@@ -37,10 +37,34 @@
             android:layout_height="1dp"
             android:background="?attr/inactive_color"
             android:layout_marginHorizontal="4dp"
-            app:layout_constraintStart_toStartOf="@id/questionDot1"
-            app:layout_constraintEnd_toEndOf="@id/questionDot3"
-            app:layout_constraintTop_toTopOf="@id/questionDot1"
-            app:layout_constraintBottom_toBottomOf="@id/questionDot1" />
+            app:layout_constraintStart_toStartOf="@id/questionDotsFlow"
+            app:layout_constraintEnd_toEndOf="@id/questionDotsFlow"
+            app:layout_constraintTop_toTopOf="@id/questionDotsFlow"
+            app:layout_constraintBottom_toBottomOf="@id/questionDotsFlow" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/questionDotsFlowPulse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:constraint_referenced_ids="questionDot1,questionDot2,questionDot3"
+            app:flow_horizontalBias="0"
+            app:flow_horizontalGap="16dp"
+            app:flow_verticalAlign="center"
+            app:flow_wrapMode="chain" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/questionDotsFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:constraint_referenced_ids="questionDot1,questionDot2,questionDot3"
+            app:flow_horizontalBias="0"
+            app:flow_horizontalGap="16dp"
+            app:flow_verticalAlign="center"
+            app:flow_wrapMode="chain" />
 
         <View
             android:id="@+id/questionDot1pulse"
@@ -56,9 +80,7 @@
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/success_color"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:backgroundTint="?attr/success_color" />
 
         <View
             android:id="@+id/questionDot2pulse"
@@ -75,10 +97,7 @@
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/progressive_color"
-            android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="@id/questionDot1"
-            app:layout_constraintStart_toEndOf="@id/questionDot1" />
+            android:backgroundTint="?attr/progressive_color" />
 
         <View
             android:id="@+id/questionDot3pulse"
@@ -95,10 +114,7 @@
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/inactive_color"
-            android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="@id/questionDot2"
-            app:layout_constraintStart_toEndOf="@id/questionDot2" />
+            android:backgroundTint="?attr/inactive_color" />
 
         <TextView
             android:id="@+id/questionText"
@@ -118,51 +134,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            app:constraint_referenced_ids="yearChoice1,yearChoice2,yearChoice3,yearChoice4"
             app:flow_horizontalBias="0"
-            app:flow_horizontalGap="8dp"
-            app:flow_horizontalStyle="packed"
+            app:flow_horizontalGap="12dp"
             app:flow_verticalAlign="center"
             app:flow_wrapMode="chain"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/questionText" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/yearChoice1"
-            style="@style/App.Button.Secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/primary_color"
-            android:layout_marginStart="16dp"
-            tools:text="1234"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/yearChoice2"
-            style="@style/App.Button.Secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/primary_color"
-            android:layout_marginStart="16dp"
-            tools:text="1234"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/yearChoice3"
-            style="@style/App.Button.Secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/primary_color"
-            android:layout_marginStart="16dp"
-            tools:text="1234"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/yearChoice4"
-            style="@style/App.Button.Secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/primary_color"
-            android:layout_marginStart="16dp"
-            tools:text="1234"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/submitButton"
