@@ -19,4 +19,12 @@
     <item name="page_categories" type="id" />
     <item name="page_edit_article" type="id" />
     <item name="page_view_on_map" type="id" />
+    <item name="recommended_content_section_top_read" type="id" />
+    <item name="recommended_content_section_on_this_day" type="id" />
+    <item name="recommended_content_section_in_the_news" type="id" />
+    <item name="recommended_content_section_continue_reading" type="id" />
+    <item name="recommended_content_section_explore" type="id" />
+    <item name="recommended_content_section_because_you_read" type="id" />
+    <item name="recommended_content_section_places_near_you" type="id" />
+    <item name="recommended_content_section_random" type="id" />
 </resources>

@@ -99,5 +99,6 @@ class HistoryEntry(
         const val SOURCE_FILE_PAGE = 39
         const val SOURCE_SINGLE_WEBVIEW = 40
         const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
+        const val SOURCE_RECOMMENDED_CONTENT = 43
     }
 }

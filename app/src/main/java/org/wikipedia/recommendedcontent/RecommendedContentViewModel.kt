@@ -33,7 +33,7 @@ import org.wikipedia.util.StringUtil
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     val wikiSite: WikiSite = bundle.parcelable(Constants.ARG_WIKISITE)!!
-    private val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
+    val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
     val showTabs = bundle.getBoolean(RecommendedContentFragment.ARG_SHOW_TABS)
 
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
@@ -42,7 +42,11 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val _recommendedContentState = MutableStateFlow(Resource<List<PageSummary>>())
     val recommendedContentState = _recommendedContentState.asStateFlow()
 
-    fun loadSearchHistory() {
+    init {
+        loadSearchHistory()
+    }
+
+    private fun loadSearchHistory() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _historyState.value = Resource.Error(throwable)
         }) {
@@ -59,6 +63,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
+
 //            _recommendedContentState.value = Resource.Success(loadRecommendedContent(searchTerm))
         }
     }
