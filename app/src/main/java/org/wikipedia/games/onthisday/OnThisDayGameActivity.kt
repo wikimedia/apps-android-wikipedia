@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
@@ -23,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 
@@ -31,7 +33,7 @@ class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
 
-    private val yearButtonViews = mutableListOf<View>()
+    private val yearButtonViews = mutableListOf<Button>()
     private val dotViews = mutableListOf<View>()
     private val dotPulseViews = mutableListOf<View>()
     private val dotPulseAnimatorSet = AnimatorSet()
@@ -52,9 +54,9 @@ class OnThisDayGameActivity : BaseActivity() {
         }
 
         binding.submitButton.setOnClickListener {
-            // TODO
-            viewModel.submitCurrentResponse(0)
-
+            (yearButtonViews.firstOrNull { it.isSelected }?.tag as? Int)?.let {
+                viewModel.submitCurrentResponse(it)
+            }
             dotPulseAnimatorSet.cancel()
         }
 
@@ -62,6 +64,8 @@ class OnThisDayGameActivity : BaseActivity() {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
                 is Resource.Success -> updateGameState(it.data)
+                is OnThisDayGameViewModel.CurrentQuestionCorrect -> onCurrentQuestionCorrect(it.data)
+                is OnThisDayGameViewModel.CurrentQuestionIncorrect -> onCurrentQuestionIncorrect(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
             }
         }
@@ -102,7 +106,6 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
         initDynamicViews(gameState)
-
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
@@ -127,6 +130,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         // update year buttons with the year selections from the state
         yearButtonViews.forEachIndexed { index, view ->
+            view.isEnabled = true
             val year = gameState.currentQuestionState.yearChoices[index]
             (view as MaterialButton).text = year.toString()
             view.tag = year
@@ -152,16 +156,70 @@ class OnThisDayGameActivity : BaseActivity() {
         // animate the dot for the current question
         animateDot(gameState.currentQuestionIndex)
 
+        binding.submitButton.setText(R.string.on_this_day_game_submit)
         binding.currentQuestionContainer.isVisible = true
     }
 
+    private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+
+        yearButtonViews.forEach {
+            it.isEnabled = false
+            if ((it.tag as Int) == gameState.currentQuestionState.event.year ) {
+                it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
+                it.setTextColor(Color.WHITE)
+                it.isSelected = true
+            } else {
+                it.isSelected = false
+            }
+        }
+
+        binding.submitButton.setText(R.string.on_this_day_game_next)
+
+        FeedbackUtil.showMessage(this, "Correct!")
+    }
+
+    private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+
+        yearButtonViews.forEach {
+            if ((it.tag as Int) == gameState.currentQuestionState.event.year ) {
+                it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
+                it.setTextColor(Color.WHITE)
+                it.isSelected = true
+            } else if ((it.tag as Int) == gameState.currentQuestionState.yearSelected ) {
+                it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
+                it.setTextColor(Color.WHITE)
+                it.isSelected = true
+            } else {
+                it.isSelected = false
+            }
+        }
+
+        yearButtonViews.firstOrNull { (it.tag as Int) == gameState.currentQuestionState.event.year }?.let {
+            it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
+            it.setTextColor(Color.WHITE)
+        }
+
+        yearButtonViews.firstOrNull { (it.tag as Int) == gameState.currentQuestionState.yearSelected }?.let {
+            it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
+            it.setTextColor(Color.WHITE)
+        }
+
+        binding.submitButton.setText(R.string.on_this_day_game_next)
+
+        FeedbackUtil.showMessage(this, "Incorrect!")
+    }
+
     private fun setButtonHighlighted(button: View? = null) {
+        var atLeastOneHighlighted = false
         binding.currentQuestionContainer.children.forEach { child ->
             if (child is MaterialButton && child.tag is Int) {
+                child.isSelected = child == button
                 if (child == button) {
                     child.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
                     child.setTextColor(Color.WHITE)
-                    child.isSelected = true
+                    atLeastOneHighlighted = true
                 } else {
                     child.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.background_color)
                     child.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
@@ -169,16 +227,10 @@ class OnThisDayGameActivity : BaseActivity() {
                 }
             }
         }
-        updateSubmitButtonState()
-    }
-
-    private fun updateSubmitButtonState() {
-        binding.submitButton.isEnabled = yearButtonViews.any { it.isSelected }
-        binding.submitButton.alpha = if (binding.submitButton.isEnabled) 1f else 0.5f
+        setSubmitEnabled(atLeastOneHighlighted)
     }
 
     private fun initDynamicViews(gameState: OnThisDayGameViewModel.GameState) {
-        // set up dynamic views, if they haven't been added yet
         if (yearButtonViews.isEmpty()) {
             gameState.currentQuestionState.yearChoices.forEach { year ->
                 val viewId = View.generateViewId()
@@ -196,7 +248,7 @@ class OnThisDayGameActivity : BaseActivity() {
         setButtonHighlighted()
 
         if (dotViews.isEmpty()) {
-            val dotSize = DimenUtil.roundedDpToPx(12f)
+            val dotSize = DimenUtil.roundedDpToPx(16f)
             for (i in 0 until gameState.totalQuestions) {
                 val pulseViewId = View.generateViewId()
                 val pulseView = View(this)
@@ -220,6 +272,11 @@ class OnThisDayGameActivity : BaseActivity() {
             binding.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
             binding.questionDotsFlowPulse.referencedIds = dotPulseViews.map { it.id }.toIntArray()
         }
+    }
+
+    private fun setSubmitEnabled(enabled: Boolean) {
+        binding.submitButton.isEnabled = enabled
+        binding.submitButton.alpha = if (enabled) 1f else 0.5f
     }
 
     private fun animateDot(dotIndex: Int) {

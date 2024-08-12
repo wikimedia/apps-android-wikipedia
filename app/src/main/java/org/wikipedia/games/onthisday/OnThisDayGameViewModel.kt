@@ -19,6 +19,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     private val _gameState = MutableLiveData<Resource<GameState>>()
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
+    private lateinit var currentState: GameState
     private val currentDate = LocalDate.now()
     private val currentMonth = currentDate.monthValue
     private val currentDay = currentDate.dayOfMonth
@@ -40,20 +41,31 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
             // TODO: load saved state from storage
             // otherwise, create a new state
-            val state = GameState(composeQuestionState(currentMonth, currentDay, 0))
+            currentState = GameState(composeQuestionState(currentMonth, currentDay, 0))
 
-            _gameState.postValue(Resource.Success(state))
+            _gameState.postValue(Resource.Success(currentState))
         }
     }
 
-    fun submitCurrentResponse(choiceIndex: Int) {
-        // TODO: do something if it's right or wrong
-        val state = (_gameState.value as? Resource.Success<GameState>)?.data ?: return
+    fun submitCurrentResponse(selectedYear: Int) {
+        currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(yearSelected = selectedYear))
 
-        val nextQuestionIndex = state.currentQuestionIndex + 1
+        if (currentState.currentQuestionState.goToNext) {
+            val nextQuestionIndex = currentState.currentQuestionIndex + 1
 
-        val newState = state.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
-        _gameState.postValue(Resource.Success(newState))
+            currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
+            _gameState.postValue(Resource.Success(currentState))
+
+        } else {
+            currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(goToNext = true))
+
+            val isCorrect = currentState.currentQuestionState.event.year == selectedYear
+            if (isCorrect) {
+                _gameState.postValue(CurrentQuestionCorrect(currentState))
+            } else {
+                _gameState.postValue(CurrentQuestionIncorrect(currentState))
+            }
+        }
     }
 
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
@@ -82,10 +94,15 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap()
     )
 
-    class QuestionState(
+    data class QuestionState(
         val event: OnThisDay.Event,
-        val yearChoices: List<Int>
+        val yearChoices: List<Int>,
+        val yearSelected: Int? = null,
+        val goToNext: Boolean = false
     )
+
+    class CurrentQuestionCorrect(val data: GameState) : Resource<GameState>()
+    class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
 
     class Factory(val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
