@@ -1223,6 +1223,7 @@
   <string name="talk_last_modified">&lt;b&gt;Maŋemusat rievdaduvvon %1$s&lt;/b&gt; %2$s:s</string>
   <string name="talk_snackbar_survey_text">Giitu go geavahat ságastallansiidduid. Sáhtát go veahkkin midjiide buoridit áppa, jearahaniskosa searvama bokte?</string>
   <string name="talk_share_discussion_subject">Wikipedia – ságastallan «%s» ságastallansiiddus</string>
+  <string name="talk_share_talk_page" fuzzy="true">Wikipedia – ságastallan ságastallansiiddus</string>
   <string name="talk_edit_disclaimer">Dát lea ságastallansiidu. Čuovo digaštallannjuolggadusaid, ja muitte vuolláičállit iežat sáhkavuoru dainna lágiin ahte čálát njeallje tilde: ~~~~ go postet wikiteavsttain.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Njuolggadusat ságastallansiidduin&lt;/a&gt;</string>
   <string name="talk_search_hint">Oza dieđáhusain</string>
   <string name="talk_search_topics_hint">Oza fáttáin</string>

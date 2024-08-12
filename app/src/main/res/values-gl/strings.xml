@@ -646,7 +646,7 @@
   <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir as descricións</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Grazas polo seu contínuo interés en editar descricións de artigosǃ Para facer edicións adicionais, por favor, comece sesión na súa conta de Wikipedia.</string>
+  <string name="description_edit_anon_limit">Grazas polo seu continuo interese en editar descricións de artigosǃ Para facer edicións adicionais, por favor, inicie sesión na súa conta da Wikipedia.</string>
   <string name="description_edit_license_notice">Ao cambiar a descrición do artigo, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalmente comeza cunha letra minúscula</string>
   <string name="description_edit_voice_input_description">Entrada de voz</string>
