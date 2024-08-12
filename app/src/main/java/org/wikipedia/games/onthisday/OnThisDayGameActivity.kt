@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import androidx.activity.viewModels
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.view.children
 import androidx.core.view.isVisible
@@ -24,10 +23,8 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-
 
 class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
@@ -165,7 +162,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         yearButtonViews.forEach {
             it.isEnabled = false
-            if ((it.tag as Int) == gameState.currentQuestionState.event.year ) {
+            if ((it.tag as Int) == gameState.currentQuestionState.event.year) {
                 it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
                 it.setTextColor(Color.WHITE)
                 it.isSelected = true
@@ -186,11 +183,11 @@ class OnThisDayGameActivity : BaseActivity() {
 
         yearButtonViews.forEach {
             it.isEnabled = false
-            if ((it.tag as Int) == gameState.currentQuestionState.event.year ) {
+            if ((it.tag as Int) == gameState.currentQuestionState.event.year) {
                 it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
                 it.setTextColor(Color.WHITE)
                 it.isSelected = true
-            } else if ((it.tag as Int) == gameState.currentQuestionState.yearSelected ) {
+            } else if ((it.tag as Int) == gameState.currentQuestionState.yearSelected) {
                 it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
                 it.setTextColor(Color.WHITE)
                 it.isSelected = true

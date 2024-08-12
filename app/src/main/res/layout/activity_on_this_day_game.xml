@@ -30,7 +30,6 @@
         android:animateLayoutChanges="true"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:animateLayoutChanges="true"
         android:layout_marginTop="?attr/actionBarSize">
 
         <ImageView

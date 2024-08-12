@@ -55,7 +55,6 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
             currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
             _gameState.postValue(Resource.Success(currentState))
-
         } else {
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(goToNext = true))
 
