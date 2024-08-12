@@ -168,4 +168,5 @@
     <string name="preference_key_payment_methods_last_query_time">paymentMethodsLastQueryTime</string>
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
+    <string name="preference_key_trivia_game_dialog_enable">triviaGameDialogEnabled</string>
 </resources>

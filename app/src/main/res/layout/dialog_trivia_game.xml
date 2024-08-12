@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/illustration_trivia_game"
+            android:contentDescription="@string/trivia_game_dialog_title"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            style="@style/H1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/secondary_color"
+            android:textAlignment="center"
+            android:text="@string/trivia_game_dialog_title"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            style="@style/List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/placeholder_color"
+            android:text="@string/trivia_game_dialog_description" />
+
+        <!-- TODO: Additional Layout here -->
+
+        <Button
+            android:id="@+id/playGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/trivia_game_dialog_button"
+            android:layout_marginVertical="24dp"/>
+
+        <TextView
+            style="@style/H3.Button"
+            android:id="@+id/dismissButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/placeholder_color"
+            android:text="@string/trivia_game_dialog_dismiss" />
+
+    </LinearLayout>
+</ScrollView>

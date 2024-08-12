@@ -448,4 +448,10 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Trivia Game">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_trivia_game_dialog_enable"
+            android:title="@string/preference_key_trivia_game_dialog_enable" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

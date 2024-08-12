@@ -18,7 +18,9 @@ import android.view.ViewGroup
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
+import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -685,6 +687,25 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    private fun maybeShowTriviaGameDialog() {
+        // TODO: add a logic to prevent showing two dialogs at the same time
+        // TODO: add a logic to show re-show the dialog based on the date and time (once per day)
+        if (Prefs.isTriviaGameDialogEnabled) {
+            val dialogView = layoutInflater.inflate(R.layout.dialog_trivia_game, null)
+            val dialog = MaterialAlertDialogBuilder(requireActivity())
+                .setView(dialogView)
+                .show()
+            dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
+                // TODO: start the trivia game
+                dialog.dismiss()
+            }
+            dialogView.findViewById<TextView>(R.id.dismissButton).setOnClickListener {
+                Prefs.isTriviaGameDialogEnabled = false
+                dialog.dismiss()
+            }
+        }
+    }
+
     private fun showFindReferenceInPage(referenceAnchor: String,
                                         backLinksList: List<String?>,
                                         referenceText: String) {
@@ -928,6 +949,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
+        maybeShowTriviaGameDialog()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.

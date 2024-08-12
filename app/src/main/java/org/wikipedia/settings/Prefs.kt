@@ -730,4 +730,8 @@ object Prefs {
     var isDonationTestEnvironment
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
+
+    var isTriviaGameDialogEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_trivia_game_dialog_enable, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_trivia_game_dialog_enable, value)
 }
