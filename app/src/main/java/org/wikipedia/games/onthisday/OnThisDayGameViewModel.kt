@@ -45,7 +45,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             JsonUtil.decodeFromString<GameState>(Prefs.otdGameState)?.let {
                 currentState = it
             } ?: run {
-                currentState = GameState(composeQuestionState(currentMonth, currentDay, 0))
+                currentState = GameState(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0))
             }
 
             if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
@@ -109,19 +109,16 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     @Serializable
     data class GameState(
-        val currentQuestionState: QuestionState,
-
-        // TODO: everything below this line should be persisted
-
         val totalQuestions: Int = NUM_QUESTIONS,
-
         val currentQuestionIndex: Int = 0,
 
         // history of today's answers (correct vs incorrect)
         val answerState: List<Boolean> = List(NUM_QUESTIONS) { false },
 
         // map of:   year: month: day: list of answers
-        val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap()
+        val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap(),
+
+        val currentQuestionState: QuestionState
     )
 
     @Serializable

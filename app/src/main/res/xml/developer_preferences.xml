@@ -446,6 +446,10 @@
             android:key="@string/preference_key_donation_test_env"
             android:title="Donation test environment" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            android:key="@string/preference_key_otd_game_state"
+            android:title="OTD Game State" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

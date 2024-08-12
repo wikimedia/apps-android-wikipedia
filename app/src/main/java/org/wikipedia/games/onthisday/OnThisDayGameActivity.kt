@@ -4,6 +4,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
@@ -12,10 +13,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.core.view.setPadding
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -32,7 +35,7 @@ class OnThisDayGameActivity : BaseActivity() {
     private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
 
     private val yearButtonViews = mutableListOf<Button>()
-    private val dotViews = mutableListOf<View>()
+    private val dotViews = mutableListOf<ImageView>()
     private val dotPulseViews = mutableListOf<View>()
     private val dotPulseAnimatorSet = AnimatorSet()
 
@@ -137,14 +140,18 @@ class OnThisDayGameActivity : BaseActivity() {
         // set color tint of the dots based on the current question index
         dotViews.forEachIndexed { index, view ->
             view.backgroundTintList = if (index == gameState.currentQuestionIndex) {
+                view.setImageResource(0)
                 ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
             } else {
                 if (index > gameState.currentQuestionIndex) {
+                    view.setImageResource(0)
                     ResourceUtil.getThemedColorStateList(this, R.attr.inactive_color)
                 } else {
                     if (gameState.answerState.getOrNull(index) == true) {
+                        view.setImageResource(R.drawable.ic_check_black_24dp)
                         ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
                     } else {
+                        view.setImageResource(R.drawable.ic_close_black_24dp)
                         ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
                     }
                 }
@@ -176,7 +183,7 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.correctStateText.setText(R.string.on_this_day_game_correct)
         binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.success_color))
         binding.correctStateText.isVisible = true
-        binding.submitButton.setText(R.string.on_this_day_game_next)
+        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         setSubmitEnabled(true)
     }
 
@@ -211,7 +218,7 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.correctStateText.setText(R.string.on_this_day_game_incorrect)
         binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.destructive_color))
         binding.correctStateText.isVisible = true
-        binding.submitButton.setText(R.string.on_this_day_game_next)
+        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         setSubmitEnabled(true)
     }
 
@@ -267,7 +274,7 @@ class OnThisDayGameActivity : BaseActivity() {
         setButtonHighlighted()
 
         if (dotViews.isEmpty()) {
-            val dotSize = DimenUtil.roundedDpToPx(16f)
+            val dotSize = DimenUtil.roundedDpToPx(24f)
             for (i in 0 until gameState.totalQuestions) {
                 val pulseViewId = View.generateViewId()
                 val pulseView = View(this)
@@ -279,11 +286,13 @@ class OnThisDayGameActivity : BaseActivity() {
                 binding.currentQuestionContainer.addView(pulseView)
 
                 val viewId = View.generateViewId()
-                val dotView = View(this)
+                val dotView = ImageView(this)
                 dotViews.add(dotView)
                 dotView.layoutParams = ViewGroup.LayoutParams(dotSize, dotSize)
+                dotView.setPadding(DimenUtil.roundedDpToPx(2f))
                 dotView.setBackgroundResource(R.drawable.shape_circle)
                 dotView.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.inactive_color)
+                dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
                 dotView.id = viewId
                 dotView.isVisible = true
                 binding.currentQuestionContainer.addView(dotView)
