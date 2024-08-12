@@ -730,4 +730,9 @@ object Prefs {
     var isDonationTestEnvironment
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
+
+    var otdGameState
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
+
 }

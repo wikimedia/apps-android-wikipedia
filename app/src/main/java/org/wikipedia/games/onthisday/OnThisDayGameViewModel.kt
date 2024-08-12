@@ -8,9 +8,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import java.time.LocalDate
 
@@ -39,11 +42,21 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             events.clear()
             events.addAll(ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getOnThisDay(currentMonth, currentDay).events)
 
-            // TODO: load saved state from storage
-            // otherwise, create a new state
-            currentState = GameState(composeQuestionState(currentMonth, currentDay, 0))
+            JsonUtil.decodeFromString<GameState>(Prefs.otdGameState)?.let {
+                currentState = it
+            } ?: run {
+                currentState = GameState(composeQuestionState(currentMonth, currentDay, 0))
+            }
 
-            _gameState.postValue(Resource.Success(currentState))
+            if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
+                currentState.currentQuestionIndex >= currentState.totalQuestions) {
+                // we're already done for today.
+                _gameState.postValue(GameEnded(currentState))
+            } else {
+                _gameState.postValue(Resource.Success(currentState))
+            }
+
+            persistState()
         }
     }
 
@@ -52,13 +65,18 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
         if (currentState.currentQuestionState.goToNext) {
             val nextQuestionIndex = currentState.currentQuestionIndex + 1
+            currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
 
             if (nextQuestionIndex >= currentState.totalQuestions) {
-                // TODO: show final state for the day.
-            }
 
-            currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
-            _gameState.postValue(Resource.Success(currentState))
+                // push today's answers to the history map
+                currentState = currentState.copy(answerStateHistory = currentState.answerStateHistory + mapOf(currentDate.year to mapOf(currentMonth to mapOf(currentDay to currentState.answerState))))
+
+                _gameState.postValue(GameEnded(currentState))
+
+            } else {
+                _gameState.postValue(Resource.Success(currentState))
+            }
         } else {
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(goToNext = true))
 
@@ -71,6 +89,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 _gameState.postValue(CurrentQuestionIncorrect(currentState))
             }
         }
+        persistState()
     }
 
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
@@ -81,15 +100,21 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 add((event.year - 10..event.year + 10).random())
             }
         }
-        return QuestionState(event, yearChoices.shuffled())
+        return QuestionState(event, yearChoices.shuffled(), month, day)
     }
 
+    private fun persistState() {
+        Prefs.otdGameState = JsonUtil.encodeToString(currentState).orEmpty()
+    }
+
+    @Serializable
     data class GameState(
         val currentQuestionState: QuestionState,
 
         // TODO: everything below this line should be persisted
 
         val totalQuestions: Int = NUM_QUESTIONS,
+
         val currentQuestionIndex: Int = 0,
 
         // history of today's answers (correct vs incorrect)
@@ -99,15 +124,19 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap()
     )
 
+    @Serializable
     data class QuestionState(
         val event: OnThisDay.Event,
         val yearChoices: List<Int>,
+        val month: Int = 0,
+        val day: Int = 0,
         val yearSelected: Int? = null,
         val goToNext: Boolean = false
     )
 
     class CurrentQuestionCorrect(val data: GameState) : Resource<GameState>()
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
+    class GameEnded(val data: GameState) : Resource<GameState>()
 
     class Factory(val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

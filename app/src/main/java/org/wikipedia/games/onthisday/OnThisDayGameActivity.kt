@@ -18,6 +18,7 @@ import androidx.core.view.children
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -63,6 +64,7 @@ class OnThisDayGameActivity : BaseActivity() {
                 is Resource.Success -> updateGameState(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionCorrect -> onCurrentQuestionCorrect(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionIncorrect -> onCurrentQuestionIncorrect(it.data)
+                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
             }
         }
@@ -153,7 +155,7 @@ class OnThisDayGameActivity : BaseActivity() {
         animateDot(gameState.currentQuestionIndex)
 
         binding.correctStateText.isVisible = false
-        binding.submitButton.setText(R.string.on_this_day_game_submit)
+        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         binding.currentQuestionContainer.isVisible = true
     }
 
@@ -211,6 +213,21 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.correctStateText.isVisible = true
         binding.submitButton.setText(R.string.on_this_day_game_next)
         setSubmitEnabled(true)
+    }
+
+    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+        yearButtonViews.forEach {
+            it.isEnabled = false
+        }
+        setSubmitEnabled(false)
+
+        MaterialAlertDialogBuilder(this)
+            .setCancelable(false)
+            .setMessage(getString(R.string.on_this_day_game_result1, gameState.answerState.count { it }, gameState.totalQuestions))
+            .setPositiveButton(R.string.error_back) { _, _ ->
+                finish()
+            }.show()
     }
 
     private fun setButtonHighlighted(button: View? = null) {
