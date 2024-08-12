@@ -698,11 +698,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 .show()
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 // TODO: start the trivia game
-                Prefs.isTriviaGameDialogEnabled = dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
+                Prefs.isTriviaGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
             dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                Prefs.isTriviaGameDialogEnabled = dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
+                Prefs.isTriviaGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
         }
