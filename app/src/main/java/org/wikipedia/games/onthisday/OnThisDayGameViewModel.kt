@@ -52,7 +52,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
         val nextQuestionIndex = state.currentQuestionIndex + 1
 
-        val newState = state.copy(currentQuestionState = composeQuestionState(nextQuestionIndex, currentMonth, currentDay), currentQuestionIndex = nextQuestionIndex)
+        val newState = state.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
         _gameState.postValue(Resource.Success(newState))
     }
 
@@ -76,7 +76,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         val currentQuestionIndex: Int = 0,
 
         // history of today's answers (correct vs incorrect)
-        val answerState: List<Boolean> = emptyList(),
+        val answerState: List<Boolean> = List(NUM_QUESTIONS) { false },
 
         // map of:   year: month: day: list of answers
         val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap()
@@ -95,6 +95,6 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        const val NUM_QUESTIONS = 3
+        const val NUM_QUESTIONS = 5
     }
 }

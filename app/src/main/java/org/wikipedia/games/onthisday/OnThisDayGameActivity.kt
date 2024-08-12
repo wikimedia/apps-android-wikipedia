@@ -9,8 +9,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.activity.viewModels
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.view.children
 import androidx.core.view.isVisible
@@ -19,6 +21,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 
@@ -98,36 +101,40 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
-
-        // set up dynamic views, if they haven't been added yet
-        if (yearButtonViews.isEmpty()) {
-            val viewIds = mutableListOf<Int>()
-            gameState.currentQuestionState.yearChoices.forEach { year ->
-                val viewId = View.generateViewId()
-                viewIds.add(viewId)
-                val button = MaterialButton(this)
-                yearButtonViews.add(button)
-                button.text = year.toString()
-                button.id = viewId
-                button.tag = year
-                binding.currentQuestionContainer.addView(button)
-                button.setOnClickListener {
-                    setButtonHighlighted(it)
-                }
-            }
-            binding.yearButtonsFlow.referencedIds = viewIds.toIntArray()
-        }
-        setButtonHighlighted()
-
+        initDynamicViews(gameState)
 
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
-
         val event = gameState.currentQuestionState.event
         binding.questionText.text = event.text
 
-        animateDot(1)
+        // update year buttons with the year selections from the state
+        yearButtonViews.forEachIndexed { index, view ->
+            val year = gameState.currentQuestionState.yearChoices[index]
+            (view as MaterialButton).text = year.toString()
+            view.tag = year
+        }
+
+        // set color tint of the dots based on the current question index
+        dotViews.forEachIndexed { index, view ->
+            view.backgroundTintList = if (index == gameState.currentQuestionIndex) {
+                ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
+            } else {
+                if (index > gameState.currentQuestionIndex) {
+                    ResourceUtil.getThemedColorStateList(this, R.attr.inactive_color)
+                } else {
+                    if (gameState.answerState.getOrNull(index) == true) {
+                        ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
+                    } else {
+                        ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
+                    }
+                }
+            }
+        }
+
+        // animate the dot for the current question
+        animateDot(gameState.currentQuestionIndex)
 
 
         binding.currentQuestionContainer.isVisible = true
@@ -147,34 +154,72 @@ class OnThisDayGameActivity : BaseActivity() {
         }
     }
 
-    private fun animateDot(dotIndex: Int) {
-        val dotView = when (dotIndex) {
-            0 -> binding.questionDot1pulse
-            1 -> binding.questionDot2pulse
-            else -> binding.questionDot3pulse
+    private fun initDynamicViews(gameState: OnThisDayGameViewModel.GameState) {
+        // set up dynamic views, if they haven't been added yet
+        if (yearButtonViews.isEmpty()) {
+            gameState.currentQuestionState.yearChoices.forEach { year ->
+                val viewId = View.generateViewId()
+                val button = MaterialButton(this)
+                yearButtonViews.add(button)
+                button.id = viewId
+                button.tag = 0
+                binding.currentQuestionContainer.addView(button)
+                button.setOnClickListener {
+                    setButtonHighlighted(it)
+                }
+            }
+            binding.yearButtonsFlow.referencedIds = yearButtonViews.map { it.id }.toIntArray()
         }
-        binding.questionDot1pulse.isVisible = false
-        binding.questionDot2pulse.isVisible = false
-        binding.questionDot3pulse.isVisible = false
-        dotView.isVisible = true
+        setButtonHighlighted()
 
-        // Create ObjectAnimators for scaleX, scaleY, and alpha
-        val scaleX = ObjectAnimator.ofFloat(dotView, "scaleX", 1f, 2.5f, 1f)
-        val scaleY = ObjectAnimator.ofFloat(dotView, "scaleY", 1f, 2.5f, 1f)
-        val alpha = ObjectAnimator.ofFloat(dotView, "alpha", 0.8f, 0.2f, 1f)
+        if (dotViews.isEmpty()) {
+            val dotSize = DimenUtil.roundedDpToPx(12f)
+            for (i in 0 until gameState.totalQuestions) {
+                val pulseViewId = View.generateViewId()
+                val pulseView = View(this)
+                dotPulseViews.add(pulseView)
+                pulseView.layoutParams = ViewGroup.LayoutParams(dotSize, dotSize)
+                pulseView.setBackgroundResource(R.drawable.shape_circle)
+                pulseView.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
+                pulseView.id = pulseViewId
+                binding.currentQuestionContainer.addView(pulseView)
 
-        // Set duration and interpolator for smooth easing
-        val duration = 1500
-        scaleX.setDuration(duration.toLong())
-        scaleY.setDuration(duration.toLong())
-        alpha.setDuration(duration.toLong())
+                val viewId = View.generateViewId()
+                val dotView = View(this)
+                dotViews.add(dotView)
+                dotView.layoutParams = ViewGroup.LayoutParams(dotSize, dotSize)
+                dotView.setBackgroundResource(R.drawable.shape_circle)
+                dotView.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.inactive_color)
+                dotView.id = viewId
+                dotView.isVisible = true
+                binding.currentQuestionContainer.addView(dotView)
+            }
+            binding.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
+            binding.questionDotsFlowPulse.referencedIds = dotPulseViews.map { it.id }.toIntArray()
+        }
+    }
+
+    private fun animateDot(dotIndex: Int) {
+        if (dotIndex >= dotPulseViews.size) {
+            return
+        }
+        dotPulseViews.forEach { it.visibility = View.INVISIBLE }
+        val dotPulseView = dotPulseViews[dotIndex]
+        dotPulseView.visibility = View.VISIBLE
+
+        val scaleX = ObjectAnimator.ofFloat(dotPulseView, "scaleX", 1f, 2.5f, 1f)
+        val scaleY = ObjectAnimator.ofFloat(dotPulseView, "scaleY", 1f, 2.5f, 1f)
+        val alpha = ObjectAnimator.ofFloat(dotPulseView, "alpha", 0.8f, 0.2f, 1f)
+
+        val duration = 1500L
+        scaleX.setDuration(duration)
+        scaleY.setDuration(duration)
+        alpha.setDuration(duration)
 
         scaleX.interpolator = AccelerateDecelerateInterpolator()
         scaleY.interpolator = AccelerateDecelerateInterpolator()
         alpha.interpolator = AccelerateDecelerateInterpolator()
 
-
-        // Create an AnimatorSet to play animations together
         dotPulseAnimatorSet.cancel()
         dotPulseAnimatorSet.playTogether(scaleX, scaleY, alpha)
         dotPulseAnimatorSet.doOnEnd { dotPulseAnimatorSet.start() }

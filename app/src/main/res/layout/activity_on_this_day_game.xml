@@ -48,7 +48,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:constraint_referenced_ids="questionDot1,questionDot2,questionDot3"
             app:flow_horizontalBias="0"
             app:flow_horizontalGap="16dp"
             app:flow_verticalAlign="center"
@@ -60,67 +59,16 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:constraint_referenced_ids="questionDot1,questionDot2,questionDot3"
             app:flow_horizontalBias="0"
             app:flow_horizontalGap="16dp"
             app:flow_verticalAlign="center"
             app:flow_wrapMode="chain" />
 
-        <View
-            android:id="@+id/questionDot1pulse"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/success_color"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-        <View
-            android:id="@+id/questionDot1"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/success_color" />
-
-        <View
-            android:id="@+id/questionDot2pulse"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/progressive_color"
-            android:layout_marginStart="16dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="@id/questionDot1"
-            app:layout_constraintStart_toEndOf="@id/questionDot1" />
-        <View
-            android:id="@+id/questionDot2"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/progressive_color" />
-
-        <View
-            android:id="@+id/questionDot3pulse"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/inactive_color"
-            android:layout_marginStart="16dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="@id/questionDot2"
-            app:layout_constraintStart_toEndOf="@id/questionDot2" />
-        <View
-            android:id="@+id/questionDot3"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:background="@drawable/shape_circle"
-            android:backgroundTint="?attr/inactive_color" />
-
         <TextView
             android:id="@+id/questionText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/questionDot1"
+            app:layout_constraintTop_toBottomOf="@id/questionDotsFlow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="24dp"
