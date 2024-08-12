@@ -1,59 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/illustration_trivia_game"
-            android:contentDescription="@string/trivia_game_dialog_title"
-            android:layout_margin="16dp"/>
-
-        <TextView
-            style="@style/H1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/secondary_color"
-            android:textAlignment="center"
-            android:text="@string/trivia_game_dialog_title"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            style="@style/List"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/placeholder_color"
-            android:text="@string/trivia_game_dialog_description" />
-
-        <!-- TODO: Additional Layout here -->
-
-        <Button
-            android:id="@+id/playGameButton"
+        <LinearLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/trivia_game_dialog_button"
-            android:layout_marginVertical="24dp"/>
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
 
-        <TextView
-            style="@style/H3.Button"
-            android:id="@+id/dismissButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/placeholder_color"
-            android:text="@string/trivia_game_dialog_dismiss" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/illustration_trivia_game"
+                android:contentDescription="@string/trivia_game_dialog_title"
+                android:layout_margin="16dp"/>
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                style="@style/H1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/secondary_color"
+                android:textAlignment="center"
+                android:text="@string/trivia_game_dialog_title"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                style="@style/List"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/placeholder_color"
+                android:text="@string/trivia_game_dialog_description" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="12dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layerType="software"
+                    android:background="@drawable/dotted_line"
+                    android:backgroundTint="?attr/primary_color"
+                    android:layout_marginStart="-24dp"
+                    android:layout_marginEnd="-24dp"
+                    android:layout_marginTop="6dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1706"
+                        android:drawablePadding="6dp"
+                        app:drawableTopCompat="@drawable/shape_circle_border"
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1822"
+                        android:drawablePadding="6dp"
+                        app:drawableTopCompat="@drawable/shape_circle_border"
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2014"
+                        android:drawablePadding="6dp"
+                        app:drawableTopCompat="@drawable/shape_circle_border"
+                        />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/playGameButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/trivia_game_dialog_button"
+                android:layout_marginVertical="24dp"/>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                style="@style/H3.Button"
+                android:id="@+id/disableCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/placeholder_color"
+                android:text="@string/trivia_game_dialog_dismiss"
+                app:buttonTint="?attr/placeholder_color"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_close_black_24dp"
+        android:padding="12dp"
+        android:layout_gravity="end"
+        android:contentDescription="@string/dialog_close_description"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:tint="?attr/primary_color"/>
+
+</org.wikipedia.views.WikiCardView>

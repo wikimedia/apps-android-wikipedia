@@ -19,8 +19,9 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -697,10 +698,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 .show()
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 // TODO: start the trivia game
+                Prefs.isTriviaGameDialogEnabled = dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
-            dialogView.findViewById<TextView>(R.id.dismissButton).setOnClickListener {
-                Prefs.isTriviaGameDialogEnabled = false
+            dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
+                Prefs.isTriviaGameDialogEnabled = dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
         }
