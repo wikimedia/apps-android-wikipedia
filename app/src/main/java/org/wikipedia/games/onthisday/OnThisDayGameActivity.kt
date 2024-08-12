@@ -141,7 +141,7 @@ class OnThisDayGameActivity : BaseActivity() {
                     ResourceUtil.getThemedColorStateList(this, R.attr.inactive_color)
                 } else {
                     if (gameState.answerState.getOrNull(index) == true) {
-                        ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
+                        ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
                     } else {
                         ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
                     }

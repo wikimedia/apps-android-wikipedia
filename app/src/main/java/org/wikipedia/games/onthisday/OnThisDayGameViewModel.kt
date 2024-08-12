@@ -53,12 +53,18 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         if (currentState.currentQuestionState.goToNext) {
             val nextQuestionIndex = currentState.currentQuestionIndex + 1
 
+            if (nextQuestionIndex >= currentState.totalQuestions) {
+                // TODO: show final state for the day.
+            }
+
             currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
             _gameState.postValue(Resource.Success(currentState))
         } else {
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(goToNext = true))
 
             val isCorrect = currentState.currentQuestionState.event.year == selectedYear
+            currentState = currentState.copy(answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) })
+
             if (isCorrect) {
                 _gameState.postValue(CurrentQuestionCorrect(currentState))
             } else {
