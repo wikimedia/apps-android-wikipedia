@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.ImageView
@@ -183,7 +184,7 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.correctStateText.setText(R.string.on_this_day_game_correct)
         binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.success_color))
         binding.correctStateText.isVisible = true
-        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
+        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         setSubmitEnabled(true)
     }
 
@@ -218,7 +219,7 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.correctStateText.setText(R.string.on_this_day_game_incorrect)
         binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.destructive_color))
         binding.correctStateText.isVisible = true
-        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
+        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         setSubmitEnabled(true)
     }
 
@@ -262,6 +263,7 @@ class OnThisDayGameActivity : BaseActivity() {
                 val viewId = View.generateViewId()
                 val button = MaterialButton(this)
                 yearButtonViews.add(button)
+                button.layoutParams = LayoutParams(0, LayoutParams.WRAP_CONTENT)
                 button.id = viewId
                 button.tag = 0
                 binding.currentQuestionContainer.addView(button)
@@ -274,7 +276,7 @@ class OnThisDayGameActivity : BaseActivity() {
         setButtonHighlighted()
 
         if (dotViews.isEmpty()) {
-            val dotSize = DimenUtil.roundedDpToPx(24f)
+            val dotSize = DimenUtil.roundedDpToPx(20f)
             for (i in 0 until gameState.totalQuestions) {
                 val pulseViewId = View.generateViewId()
                 val pulseView = View(this)
@@ -289,7 +291,7 @@ class OnThisDayGameActivity : BaseActivity() {
                 val dotView = ImageView(this)
                 dotViews.add(dotView)
                 dotView.layoutParams = ViewGroup.LayoutParams(dotSize, dotSize)
-                dotView.setPadding(DimenUtil.roundedDpToPx(2f))
+                dotView.setPadding(DimenUtil.roundedDpToPx(1f))
                 dotView.setBackgroundResource(R.drawable.shape_circle)
                 dotView.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.inactive_color)
                 dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
