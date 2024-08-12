@@ -30,6 +30,7 @@
         android:animateLayoutChanges="true"
         android:clipChildren="false"
         android:clipToPadding="false"
+        android:animateLayoutChanges="true"
         android:layout_marginTop="?attr/actionBarSize">
 
         <ImageView
@@ -112,7 +113,7 @@
             android:textColor="?attr/primary_color"
             android:textSize="16sp"
             android:textAlignment="center"
-            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
             tools:text="Lorem ipsum"/>
 
         <com.google.android.material.button.MaterialButton

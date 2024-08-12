@@ -1775,6 +1775,8 @@
     <string name="on_this_day_game_title">What\'s the year?</string>
     <string name="on_this_day_game_title2">The Game</string>
     <string name="on_this_day_game_submit">Submit</string>
-    <string name="on_this_day_game_next">Next</string>
+    <string name="on_this_day_game_next">Next question</string>
+    <string name="on_this_day_game_correct">Correct!</string>
+    <string name="on_this_day_game_incorrect">Incorrect!</string>
 
 </resources>

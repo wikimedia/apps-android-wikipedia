@@ -127,7 +127,6 @@ class OnThisDayGameActivity : BaseActivity() {
                 .into(binding.questionThumbnail)
         }
 
-
         // update year buttons with the year selections from the state
         yearButtonViews.forEachIndexed { index, view ->
             view.isEnabled = true
@@ -156,6 +155,7 @@ class OnThisDayGameActivity : BaseActivity() {
         // animate the dot for the current question
         animateDot(gameState.currentQuestionIndex)
 
+        binding.correctStateText.isVisible = false
         binding.submitButton.setText(R.string.on_this_day_game_submit)
         binding.currentQuestionContainer.isVisible = true
     }
@@ -174,15 +174,18 @@ class OnThisDayGameActivity : BaseActivity() {
             }
         }
 
+        binding.correctStateText.setText(R.string.on_this_day_game_correct)
+        binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.success_color))
+        binding.correctStateText.isVisible = true
         binding.submitButton.setText(R.string.on_this_day_game_next)
-
-        FeedbackUtil.showMessage(this, "Correct!")
+        setSubmitEnabled(true)
     }
 
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
         yearButtonViews.forEach {
+            it.isEnabled = false
             if ((it.tag as Int) == gameState.currentQuestionState.event.year ) {
                 it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
                 it.setTextColor(Color.WHITE)
@@ -206,9 +209,11 @@ class OnThisDayGameActivity : BaseActivity() {
             it.setTextColor(Color.WHITE)
         }
 
+        binding.correctStateText.setText(R.string.on_this_day_game_incorrect)
+        binding.correctStateText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.destructive_color))
+        binding.correctStateText.isVisible = true
         binding.submitButton.setText(R.string.on_this_day_game_next)
-
-        FeedbackUtil.showMessage(this, "Incorrect!")
+        setSubmitEnabled(true)
     }
 
     private fun setButtonHighlighted(button: View? = null) {
