@@ -178,6 +178,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             return daysLeft
         }
 
+        // TODO: needs to verify the date logic is accurate
         fun showDialogOrIndicator(): Boolean {
             if (Prefs.lastOtdGameVisitDate.isEmpty()) {
                 return true
