@@ -734,4 +734,8 @@ object Prefs {
     var isTriviaGameDialogEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_trivia_game_dialog_enable, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_trivia_game_dialog_enable, value)
+
+    var otdGameState
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
 }

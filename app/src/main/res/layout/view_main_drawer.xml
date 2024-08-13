@@ -139,6 +139,27 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/main_drawer_game_container"
+                style="@style/SideDrawerMenuItem">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_puzzle"
+                    app:tint="?attr/secondary_color" />
+
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/on_this_day_game_title2" />
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:id="@+id/main_drawer_settings_container"
                 style="@style/SideDrawerMenuItem">
 

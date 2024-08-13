@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -13,6 +14,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
@@ -79,6 +81,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             callback()?.donateClick()
+            dismiss()
+        }
+
+        binding.mainDrawerGameContainer.setOnClickListener {
+            // TODO: move this to the correct place
+            startActivity(OnThisDayGameActivity.newIntent(requireContext(), Constants.InvokeSource.NAV_MENU))
             dismiss()
         }
 
