@@ -1694,7 +1694,7 @@
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
   <string name="on_this_day_game_dialog_title">Title for the trivia game dialog.</string>
-  <string name="on_this_day_game_dialog_description">Message for the trivia game dialog.</string>
+  <string name="on_this_day_game_dialog_description">Message for the trivia game dialog. The %s symbol will be replaced by the number of remaining days.</string>
   <string name="on_this_day_game_dialog_button">Button label for the trivia game dialog to enter the trivia game.</string>
   <string name="on_this_day_game_dialog_dismiss">Button label for the trivia game dialog to dismiss the dialog.</string>
 </resources>

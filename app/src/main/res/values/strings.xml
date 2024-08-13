@@ -1773,10 +1773,10 @@
     <!-- /Places -->
 
     <!-- On this day Game -->
-    <string name="on_this_day_game_dialog_title">Wikipedia Timeline Trivia</string>
-    <string name="on_this_day_game_dialog_description">A limited-time experiment</string>
+    <string name="on_this_day_game_dialog_title">WikiDate Detective</string>
+    <string name="on_this_day_game_dialog_description">Limited time only: WikiDate Detective is a beta experiment that will be available for %s more days</string>
     <string name="on_this_day_game_dialog_button">Play today\'s game</string>
-    <string name="on_this_day_game_dialog_dismiss">Don\'t show again</string>
+    <string name="on_this_day_game_dialog_dismiss">Don\'t show alert again</string>
     <string name="on_this_day_game_title">What\'s the year?</string>
     <string name="on_this_day_game_title2">The Game</string>
     <string name="on_this_day_game_submit">Submit</string>

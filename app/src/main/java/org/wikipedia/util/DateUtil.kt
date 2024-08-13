@@ -181,4 +181,9 @@ object DateUtil {
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
     }
+
+    fun getDayDifferenceString(startDate: Date, endDate: Date): String {
+        val diffInDays = ((endDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt()
+        return diffInDays.toString()
+    }
 }

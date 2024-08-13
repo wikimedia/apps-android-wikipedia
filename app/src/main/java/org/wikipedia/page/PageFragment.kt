@@ -22,6 +22,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -77,6 +78,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -102,6 +104,7 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -117,6 +120,7 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
+import java.util.Date
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -692,10 +696,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // TODO: add a logic to prevent showing two dialogs at the same time
         // TODO: add a logic to show re-show the dialog based on the date and time (once per day)
         if (Prefs.isOtdGameDialogEnabled) {
-            val dialogView = layoutInflater.inflate(R.layout.dialog_trivia_game, null)
+            val dialogView = layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
             val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(dialogView)
                 .show()
+            dialogView.findViewById<TextView>(R.id.dialogDescription).text = getString(R.string.on_this_day_game_dialog_description, OnThisDayGameViewModel.daysLeft())
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 // TODO: start the trivia game
                 Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked

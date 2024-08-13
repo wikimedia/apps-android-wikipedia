@@ -14,8 +14,10 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import java.time.LocalDate
+import java.util.Date
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -167,6 +169,12 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
+        private const val GAME_END_DATE = "2024-09-01T00:00:00Z"
         const val NUM_QUESTIONS = 5
+
+        fun daysLeft(): String {
+            val daysLeft = DateUtil.getDayDifferenceString(Date(), DateUtil.iso8601DateParse(GAME_END_DATE))
+            return daysLeft
+        }
     }
 }

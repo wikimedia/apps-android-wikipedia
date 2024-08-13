@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/illustration_trivia_game"
+                android:contentDescription="@string/on_this_day_game_dialog_title"
+                android:layout_margin="16dp"/>
+
+            <TextView
+                style="@style/H1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/secondary_color"
+                android:textAlignment="center"
+                android:text="@string/on_this_day_game_dialog_title"/>
+
+            <Button
+                android:id="@+id/playGameButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/on_this_day_game_dialog_button"
+                android:layout_marginVertical="24dp"/>
+
+            <TextView
+                android:id="@+id/dialogDescription"
+                style="@style/List"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/placeholder_color"
+                android:text="@string/on_this_day_game_dialog_description"
+                android:layout_marginVertical="16dp"
+                android:layout_marginHorizontal="12dp"
+                android:textAlignment="center"/>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                style="@style/H3.Button"
+                android:id="@+id/disableCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/placeholder_color"
+                android:text="@string/on_this_day_game_dialog_dismiss"
+                app:buttonTint="?attr/progressive_color"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_close_black_24dp"
+        android:padding="12dp"
+        android:layout_gravity="end"
+        android:contentDescription="@string/dialog_close_description"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:tint="?attr/primary_color"/>
+
+</org.wikipedia.views.WikiCardView>
