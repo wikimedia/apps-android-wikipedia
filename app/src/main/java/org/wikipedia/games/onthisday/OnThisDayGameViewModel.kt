@@ -25,9 +25,9 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
     private lateinit var currentState: GameState
-    private val currentDate = LocalDate.now()
-    private val currentMonth = currentDate.monthValue
-    private val currentDay = currentDate.dayOfMonth
+    val currentDate = LocalDate.now()
+    val currentMonth = currentDate.monthValue
+    val currentDay = currentDate.dayOfMonth
 
     private val events = mutableListOf<OnThisDay.Event>()
 

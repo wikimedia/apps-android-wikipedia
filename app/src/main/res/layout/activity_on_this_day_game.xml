@@ -73,12 +73,24 @@
             app:flow_verticalAlign="center"
             app:flow_wrapMode="chain" />
 
+        <TextView
+            android:id="@+id/onDayText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/questionDotsFlow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="?attr/primary_color"
+            android:textSize="16sp"
+            tools:text="Lorem ipsum"/>
+
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@id/questionDotsFlow"
+            app:layout_constraintTop_toBottomOf="@id/onDayText"
             app:layout_constraintBottom_toTopOf="@id/yearButtonsFlow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

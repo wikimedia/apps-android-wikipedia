@@ -1775,10 +1775,12 @@
     <string name="on_this_day_game_title">What\'s the year?</string>
     <string name="on_this_day_game_title2">The Game</string>
     <string name="on_this_day_game_submit">Submit</string>
+    <string name="on_this_day_game_on_date">On %s, ____</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Finish</string>
     <string name="on_this_day_game_correct">Correct!</string>
     <string name="on_this_day_game_incorrect">Incorrect!</string>
-    <string name="on_this_day_game_result1">You got %1$d out of %2$d questions correct! Please come back tomorrow for the next game.</string>
+    <string name="on_this_day_game_share">Share with friends</string>
+    <string name="on_this_day_game_result1">You got %1$d out of %2$d questions right today. Great job!</string>
 
 </resources>
