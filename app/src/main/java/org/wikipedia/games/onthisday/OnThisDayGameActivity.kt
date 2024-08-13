@@ -115,6 +115,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         val event = gameState.currentQuestionState.event
 
+        binding.questionText.isVisible = true
         binding.questionText.text = event.text
 
         val thumbnailUrl = event.pages()?.firstOrNull()?.thumbnailUrl
@@ -217,9 +218,13 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
+
         yearButtonViews.forEach {
             it.isEnabled = false
+            it.isVisible = false
         }
+        binding.questionText.isVisible = false
+
         setSubmitEnabled(false, isNext = true)
         binding.submitButton.setText(R.string.on_this_day_game_finish)
 

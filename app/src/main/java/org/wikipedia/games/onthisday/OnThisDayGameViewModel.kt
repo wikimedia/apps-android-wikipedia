@@ -75,7 +75,6 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 currentState = currentState.copy(answerStateHistory = currentState.answerStateHistory + mapOf(currentDate.year to mapOf(currentMonth to mapOf(currentDay to currentState.answerState))))
 
                 _gameState.postValue(GameEnded(currentState))
-
             } else {
                 _gameState.postValue(Resource.Success(currentState))
             }
@@ -95,15 +94,17 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
-        val event = events[index]
+        val random = Random(month * 100 + day)
+
+        val eventList = events.toMutableList()
+        eventList.shuffle(random)
+        val event = eventList[index]
 
         val yearChoices = mutableListOf<Int>()
         var curYear = event.year
         var minYear = event.year
         var maxYear = event.year
         yearChoices.add(event.year)
-
-        val random = Random(System.currentTimeMillis())
 
         repeat(3) {
             var diff = abs(random.nextInt() % 20)
