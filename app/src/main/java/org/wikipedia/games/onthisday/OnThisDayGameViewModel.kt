@@ -98,7 +98,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
         val eventList = events.toMutableList()
         eventList.shuffle(random)
-        val event = eventList[index]
+        val event = eventList[index % eventList.size]
 
         val yearChoices = mutableListOf<Int>()
         var curYear = event.year
