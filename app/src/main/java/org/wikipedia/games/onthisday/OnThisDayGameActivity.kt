@@ -17,6 +17,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
+import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
@@ -159,6 +160,7 @@ class OnThisDayGameActivity : BaseActivity() {
         // animate the dot for the current question
         animateDot(if (gameState.currentQuestionState.goToNext) -1 else gameState.currentQuestionIndex)
 
+        binding.submitButton.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
         binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
         binding.currentQuestionContainer.isVisible = true
     }
@@ -177,8 +179,8 @@ class OnThisDayGameActivity : BaseActivity() {
             }
         }
 
-        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
-        setSubmitEnabled(true)
+        setSubmitEnabled(true, isNext = true)
+        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
     }
 
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
@@ -209,8 +211,8 @@ class OnThisDayGameActivity : BaseActivity() {
             it.setTextColor(Color.WHITE)
         }
 
-        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
-        setSubmitEnabled(true)
+        setSubmitEnabled(true, isNext = true)
+        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
@@ -218,7 +220,8 @@ class OnThisDayGameActivity : BaseActivity() {
         yearButtonViews.forEach {
             it.isEnabled = false
         }
-        setSubmitEnabled(false)
+        setSubmitEnabled(false, isNext = true)
+        binding.submitButton.setText(R.string.on_this_day_game_finish)
 
         MaterialAlertDialogBuilder(this)
             .setCancelable(false)
@@ -294,7 +297,9 @@ class OnThisDayGameActivity : BaseActivity() {
         }
     }
 
-    private fun setSubmitEnabled(enabled: Boolean) {
+    private fun setSubmitEnabled(enabled: Boolean, isNext: Boolean = false) {
+        binding.submitButton.backgroundTintList = if (isNext) ColorStateList.valueOf(ContextCompat.getColor(this, R.color.gray600)) else ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
+        binding.submitButton.setText(if (isNext) R.string.on_this_day_game_next else R.string.on_this_day_game_submit)
         binding.submitButton.isEnabled = enabled
         binding.submitButton.alpha = if (enabled) 1f else 0.5f
     }

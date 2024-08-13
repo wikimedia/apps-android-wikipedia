@@ -16,6 +16,8 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import java.time.LocalDate
+import kotlin.math.abs
+import kotlin.random.Random
 
 class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
@@ -94,12 +96,33 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
         val event = events[index]
-        val yearChoices = mutableListOf<Int>().apply {
-            add(event.year)
-            repeat(3) {
-                add((event.year - 10..event.year + 10).random())
+
+        val yearChoices = mutableListOf<Int>()
+        var curYear = event.year
+        var minYear = event.year
+        var maxYear = event.year
+        yearChoices.add(event.year)
+
+        val random = Random(System.currentTimeMillis())
+
+        repeat(3) {
+            var diff = abs(random.nextInt() % 20)
+            if (diff == 0) diff = 1
+            if (diff > 0) {
+                if (maxYear + diff > currentDate.year) {
+                    minYear -= diff
+                    curYear = minYear
+                } else {
+                    maxYear += diff
+                    curYear = maxYear
+                }
+            } else {
+                minYear -= diff
+                curYear = minYear
             }
+            yearChoices.add(curYear)
         }
+
         return QuestionState(event, yearChoices.shuffled(), month, day)
     }
 
