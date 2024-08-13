@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/illustration_trivia_game"
-                android:contentDescription="@string/trivia_game_dialog_title"
+                android:contentDescription="@string/on_this_day_game_dialog_title"
                 android:layout_margin="16dp"/>
 
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="?attr/secondary_color"
                 android:textAlignment="center"
-                android:text="@string/trivia_game_dialog_title"
+                android:text="@string/on_this_day_game_dialog_title"
                 android:layout_marginBottom="16dp"/>
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/placeholder_color"
-                android:text="@string/trivia_game_dialog_description" />
+                android:text="@string/on_this_day_game_dialog_description" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                 android:id="@+id/playGameButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/trivia_game_dialog_button"
+                android:text="@string/on_this_day_game_dialog_button"
                 android:layout_marginVertical="24dp"/>
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/placeholder_color"
-                android:text="@string/trivia_game_dialog_dismiss"
+                android:text="@string/on_this_day_game_dialog_dismiss"
                 app:buttonTint="?attr/placeholder_color"/>
 
         </LinearLayout>

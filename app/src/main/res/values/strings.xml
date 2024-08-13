@@ -1772,12 +1772,11 @@
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <!-- /Places -->
 
-    <!-- Trivia Game -->
-    <string name="trivia_game_dialog_title">Wikipedia Timeline Trivia</string>
-    <string name="trivia_game_dialog_description">A limited-time experiment</string>
-    <string name="trivia_game_dialog_button">Play today\'s game</string>
-    <string name="trivia_game_dialog_dismiss">Don\'t show again</string>
-    <!-- /Trivia Game -->
+    <!-- On this day Game -->
+    <string name="on_this_day_game_dialog_title">Wikipedia Timeline Trivia</string>
+    <string name="on_this_day_game_dialog_description">A limited-time experiment</string>
+    <string name="on_this_day_game_dialog_button">Play today\'s game</string>
+    <string name="on_this_day_game_dialog_dismiss">Don\'t show again</string>
     <string name="on_this_day_game_title">What\'s the year?</string>
     <string name="on_this_day_game_title2">The Game</string>
     <string name="on_this_day_game_submit">Submit</string>
@@ -1786,5 +1785,6 @@
     <string name="on_this_day_game_correct">Correct!</string>
     <string name="on_this_day_game_incorrect">Incorrect!</string>
     <string name="on_this_day_game_result1">You got %1$d out of %2$d questions correct! Please come back tomorrow for the next game.</string>
+    <!-- /On this day Game -->
 
 </resources>

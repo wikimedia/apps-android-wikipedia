@@ -688,21 +688,21 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun maybeShowTriviaGameDialog() {
+    private fun maybeShowOoThisDayGameDialog() {
         // TODO: add a logic to prevent showing two dialogs at the same time
         // TODO: add a logic to show re-show the dialog based on the date and time (once per day)
-        if (Prefs.isTriviaGameDialogEnabled) {
+        if (Prefs.isOtdGameDialogEnabled) {
             val dialogView = layoutInflater.inflate(R.layout.dialog_trivia_game, null)
             val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(dialogView)
                 .show()
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 // TODO: start the trivia game
-                Prefs.isTriviaGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
+                Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
             dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                Prefs.isTriviaGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
+                Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
         }
@@ -951,7 +951,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
-        maybeShowTriviaGameDialog()
+        maybeShowOoThisDayGameDialog()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.
