@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
@@ -17,7 +17,7 @@ class OnThisDayGameFinalFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
-    private val viewModel: OnThisDayGameFinalViewModel by viewModels { OnThisDayGameFinalViewModel.Factory(requireArguments()) }
+    private val viewModel: OnThisDayGameViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -30,8 +30,11 @@ class OnThisDayGameFinalFragment : Fragment() {
         viewModel.gameState.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
-                is Resource.Success -> updateState(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
+                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data)
+                else -> {
+                    requireActivity().supportFragmentManager.popBackStack()
+                }
             }
         }
 
@@ -57,7 +60,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.errorView.setError(t)
     }
 
-    private fun updateState(gameState: OnThisDayGameViewModel.GameState) {
+    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
