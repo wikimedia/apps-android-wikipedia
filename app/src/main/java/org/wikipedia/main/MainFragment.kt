@@ -169,7 +169,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         notificationButtonView = NotificationButtonView(requireActivity())
 
         maybeShowEditsTooltip()
-        maybeShowIndicatorForMore()
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
@@ -184,6 +183,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onResume() {
         super.onResume()
+        maybeShowIndicatorForMore()
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
