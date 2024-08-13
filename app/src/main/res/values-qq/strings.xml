@@ -1697,4 +1697,5 @@
   <string name="on_this_day_game_dialog_description">Message for the trivia game dialog. The %s symbol will be replaced by the number of remaining days.</string>
   <string name="on_this_day_game_dialog_button">Button label for the trivia game dialog to enter the trivia game.</string>
   <string name="on_this_day_game_dialog_dismiss">Button label for the trivia game dialog to dismiss the dialog.</string>
+  <string name="on_this_day_game_experiment_chip_text">Chip label for the game menu item in the more menu.</string>
 </resources>
