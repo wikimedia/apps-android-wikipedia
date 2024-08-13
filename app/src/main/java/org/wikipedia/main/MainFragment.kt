@@ -88,6 +88,7 @@ import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
 
+
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
@@ -168,6 +169,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         notificationButtonView = NotificationButtonView(requireActivity())
 
         maybeShowEditsTooltip()
+        maybeShowIndicatorForMore()
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
@@ -564,6 +566,17 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
                             Prefs.showSuggestedEditsTooltip = false
                     }
+            }
+        }
+    }
+
+    private fun maybeShowIndicatorForMore() {
+        if (Prefs.lastOtdGameVisitDate.isEmpty()) {
+            binding.mainNavTabLayout.post {
+                val moreItemView: View = binding.mainNavTabLayout.findViewById(NavTab.MORE.id)
+                binding.indicator.x = (moreItemView.x + moreItemView.width / 1.7).toFloat()
+                binding.indicator.y = DimenUtil.roundedDpToPx(14f).toFloat()
+                binding.indicator.isVisible = true
             }
         }
     }

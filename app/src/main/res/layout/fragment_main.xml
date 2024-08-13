@@ -28,23 +28,39 @@
         android:background="?attr/border_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_layout"/>
+        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_layout_container"/>
 
-    <org.wikipedia.navtab.NavTabLayout
-        android:id="@+id/main_nav_tab_layout"
-        android:background="?attr/paper_color"
+    <FrameLayout
+        android:id="@+id/main_nav_tab_layout_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/nav_bar_height"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:itemIconTint="@color/color_state_nav_tab"
-        app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
-        app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
-        app:itemTextColor="@color/color_state_nav_tab"
-        app:labelVisibilityMode="labeled"
-        app:tabGravity="fill"
-        app:itemPaddingTop="8dp"
-        app:elevation="0dp"/>
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <org.wikipedia.navtab.NavTabLayout
+            android:id="@+id/main_nav_tab_layout"
+            android:background="?attr/paper_color"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:itemIconTint="@color/color_state_nav_tab"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
+            app:itemTextColor="@color/color_state_nav_tab"
+            app:labelVisibilityMode="labeled"
+            app:tabGravity="fill"
+            app:itemPaddingTop="8dp"
+            app:elevation="0dp"/>
+
+        <ImageView
+            android:id="@+id/indicator"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:src="@drawable/shape_circle"
+            android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
+            android:visibility="gone"/>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
