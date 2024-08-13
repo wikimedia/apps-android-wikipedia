@@ -23,6 +23,7 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.util.Date
+import java.util.Locale
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {
@@ -734,6 +735,10 @@ object Prefs {
     var isOtdGameDialogEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_dialog_enable, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_dialog_enable, value)
+
+    var lastOtdGameVisitDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_last_visit_date, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_last_visit_date, value)
 
     var otdGameState
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()

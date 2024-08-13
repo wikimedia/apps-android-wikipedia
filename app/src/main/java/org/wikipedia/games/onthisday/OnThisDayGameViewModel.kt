@@ -17,6 +17,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Date
 import kotlin.math.abs
 import kotlin.random.Random
@@ -169,12 +170,21 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        private const val GAME_END_DATE = "2024-09-01T00:00:00Z"
+        private const val GAME_END_DATE = "20240901000000"
         const val NUM_QUESTIONS = 5
 
         fun daysLeft(): String {
-            val daysLeft = DateUtil.getDayDifferenceString(Date(), DateUtil.iso8601DateParse(GAME_END_DATE))
+            val daysLeft = DateUtil.getDayDifferenceString(Date(), DateUtil.dbDateParse(GAME_END_DATE))
             return daysLeft
+        }
+
+        fun showDialogOrIndicator(): Boolean {
+            if (Prefs.lastOtdGameVisitDate.isEmpty()) {
+                return true
+            }
+            val newUTCDate = Date.from(LocalDate.now().atStartOfDay(ZoneId.of("UTC")).toInstant())
+            val dayDifference = DateUtil.getDayDifferenceString(newUTCDate, DateUtil.dbDateParse(Prefs.lastOtdGameVisitDate)).toInt()
+            return dayDifference > 0
         }
     }
 }

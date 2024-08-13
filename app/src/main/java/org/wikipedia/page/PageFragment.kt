@@ -694,8 +694,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun maybeShowOoThisDayGameDialog() {
         // TODO: add a logic to prevent showing two dialogs at the same time
-        // TODO: add a logic to show re-show the dialog based on the date and time (once per day)
-        if (Prefs.isOtdGameDialogEnabled) {
+        if (Prefs.isOtdGameDialogEnabled && OnThisDayGameViewModel.showDialogOrIndicator()) {
             val dialogView = layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
             val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(dialogView)
@@ -704,6 +703,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 // TODO: start the trivia game
                 Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
+                Prefs.lastOtdGameVisitDate = DateUtil.dbDateFormat(Date())
                 dialog.dismiss()
             }
             dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
