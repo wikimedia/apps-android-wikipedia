@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.feed.onthisday.OnThisDay
@@ -24,8 +25,10 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     private val _gameState = MutableLiveData<Resource<GameState>>()
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
+    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+
     private lateinit var currentState: GameState
-    val currentDate = LocalDate.now()
+    private val currentDate = LocalDate.now()
     val currentMonth = currentDate.monthValue
     val currentDay = currentDate.dayOfMonth
 
@@ -51,6 +54,10 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             }
 
             if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
+                currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
+                // we're just starting today's game.
+                _gameState.postValue(GameStarted(currentState))
+            } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're already done for today.
                 _gameState.postValue(GameEnded(currentState))
@@ -157,6 +164,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     class CurrentQuestionCorrect(val data: GameState) : Resource<GameState>()
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
+    class GameStarted(val data: GameState) : Resource<GameState>()
     class GameEnded(val data: GameState) : Resource<GameState>()
 
     class Factory(val bundle: Bundle) : ViewModelProvider.Factory {

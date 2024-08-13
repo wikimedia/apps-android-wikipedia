@@ -71,12 +71,15 @@ class OnThisDayGameActivity : BaseActivity() {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
                 is Resource.Success -> updateGameState(it.data)
+                is OnThisDayGameViewModel.GameStarted -> onGameStarted(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionCorrect -> onCurrentQuestionCorrect(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionIncorrect -> onCurrentQuestionIncorrect(it.data)
                 is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
             }
         }
+
+        updateOnLoading()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -242,12 +245,16 @@ class OnThisDayGameActivity : BaseActivity() {
         setSubmitEnabled(false, isNext = true)
         binding.submitButton.setText(R.string.on_this_day_game_finish)
 
-        MaterialAlertDialogBuilder(this)
-            .setCancelable(false)
-            .setMessage(getString(R.string.on_this_day_game_result1, gameState.answerState.count { it }, gameState.totalQuestions))
-            .setPositiveButton(R.string.error_back) { _, _ ->
-                finish()
-            }.show()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .commit()
+    }
+
+    private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+
+        // TODO: show splash screen
+
     }
 
     private fun setButtonHighlighted(button: View? = null) {

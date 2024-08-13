@@ -1781,6 +1781,11 @@
     <string name="on_this_day_game_correct">Correct!</string>
     <string name="on_this_day_game_incorrect">Incorrect!</string>
     <string name="on_this_day_game_share">Share with friends</string>
-    <string name="on_this_day_game_result1">You got %1$d out of %2$d questions right today. Great job!</string>
+    <string name="on_this_day_game_result">You got %1$d out of %2$d questions right today. %3$s</string>
+    <string name="on_this_day_game_encourage0">Better luck tomorrow!</string>
+    <string name="on_this_day_game_encourage1">Congratulations!</string>
+    <string name="on_this_day_game_encourage2">Great job!</string>
+    <string name="on_this_day_game_encourage3">Excellent!</string>
+
 
 </resources>

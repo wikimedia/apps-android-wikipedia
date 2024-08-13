@@ -34,7 +34,7 @@
         android:clipToPadding="false">
 
         <TextView
-            android:id="@+id/questionText"
+            android:id="@+id/resultText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/H2.AppBar"
@@ -51,27 +51,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/questionText"
+            app:layout_constraintTop_toBottomOf="@id/resultText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/on_this_day_game_submit"/>
+            android:text="@string/on_this_day_game_share"/>
 
-        <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/yearButtonsFlow"
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/resetButton"
+            style="@style/App.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:flow_horizontalBias="0"
-            app:flow_horizontalGap="12dp"
-            app:flow_verticalAlign="center"
-            app:flow_horizontalStyle="spread"
-            app:flow_verticalGap="8dp"
-            app:flow_maxElementsWrap="2"
-            app:flow_wrapMode="chain"
+            android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@id/shareButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/submitButton" />
-
+            android:text="Reset"
+            tools:ignore="HardcodedText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
