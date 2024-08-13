@@ -1698,4 +1698,10 @@
   <string name="on_this_day_game_dialog_button">Button label for the trivia game dialog to enter the trivia game.</string>
   <string name="on_this_day_game_dialog_dismiss">Button label for the trivia game dialog to dismiss the dialog.</string>
   <string name="on_this_day_game_experiment_chip_text">Chip label for the game menu item in the more menu.</string>
+  <string name="on_this_day_game_splash_title">Ttile for the splash screen for the trivia game.</string>
+  <string name="on_this_day_game_splash_subtitle">Subtitle for the splash screen. %1$s will be replaced by the date, and %2$s will be replaced by the number of the game.</string>
+  <string name="on_this_day_game_splash_message">Message for the splash screen to explain the game rules.</string>
+  <string name="on_this_day_game_splash_button">Button label for the trivia game dialog to enter the trivia game.</string>
+  <string name="on_this_day_game_splash_message_2">Message for the splash screen to explain the game details.</string>
+  <string name="on_this_day_game_splash_footer_message">Message for the splash screen on the footer to explain the game details. %s will be replaced by the number of the remaining days.</string>
 </resources>

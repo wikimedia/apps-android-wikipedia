@@ -1777,6 +1777,12 @@
     <string name="on_this_day_game_dialog_description">Limited time only: WikiDate Detective is a beta experiment that will be available for %s more days</string>
     <string name="on_this_day_game_dialog_button">Play today\'s game</string>
     <string name="on_this_day_game_dialog_dismiss">Don\'t show alert again</string>
+    <string name="on_this_day_game_splash_title">WikiDate Detective</string>
+    <string name="on_this_day_game_splash_subtitle">%1$s • %2$s</string>
+    <string name="on_this_day_game_splash_message">Guess the year of significant events that happened on this day in history</string>
+    <string name="on_this_day_game_splash_button">Play today\'s game</string>
+    <string name="on_this_day_game_splash_message_2">3 questions per game\n\nNew game daily for 30 days</string>
+    <string name="on_this_day_game_splash_footer_message">Limited time only: WikiDate Detective is a beta experiment that will be available for %s more days</string>
     <string name="on_this_day_game_experiment_chip_text">Experiment</string>
     <string name="on_this_day_game_title">What\'s the year?</string>
     <string name="on_this_day_game_title2">The Game</string>
