@@ -446,6 +446,19 @@
             android:key="@string/preference_key_donation_test_env"
             android:title="Donation test environment" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="On this day game">
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_otd_game_dialog_enable"
+            android:title="@string/preference_key_otd_game_dialog_enable" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_otd_game_last_visit_date"
+            android:title="@string/preference_key_otd_game_last_visit_date" />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             android:key="@string/preference_key_otd_game_start_date"
             android:title="OTD Game start date" />
@@ -462,18 +475,6 @@
             android:key="@string/preference_key_otd_game_state"
             android:title="OTD Game State" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="On this day game">
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_otd_game_dialog_enable"
-            android:title="@string/preference_key_otd_game_dialog_enable" />
-
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/EditTextAutoSummarizePreference"
-            android:key="@string/preference_key_otd_game_last_visit_date"
-            android:title="@string/preference_key_otd_game_last_visit_date" />
 
     </PreferenceCategory>
 
