@@ -1,10 +1,11 @@
 package org.wikipedia.games.onthisday
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -27,6 +28,7 @@ class OnThisDayGameFinalFragment : Fragment() {
     val binding get() = _binding!!
 
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
+    private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -52,16 +54,16 @@ class OnThisDayGameFinalFragment : Fragment() {
         timeUpdateRunnable = Runnable {
             val timeLeft = timeUntilNextDay()
             binding.nextGameText.text = getString(R.string.on_this_day_game_next_in, String.format(Locale.getDefault(), "%02d:%02d:%02d", timeLeft.toHoursPart(), timeLeft.toMinutesPart(), timeLeft.toSecondsPart()))
-            binding.root.postDelayed(timeUpdateRunnable, 1000)
+            handler.postDelayed(timeUpdateRunnable, 1000)
         }
 
-        binding.root.post(timeUpdateRunnable)
+        handler.post(timeUpdateRunnable)
         updateOnLoading()
         return binding.root
     }
 
     override fun onDestroyView() {
-        binding.root.removeCallbacks(timeUpdateRunnable)
+        handler.removeCallbacks(timeUpdateRunnable)
         _binding = null
         super.onDestroyView()
     }
