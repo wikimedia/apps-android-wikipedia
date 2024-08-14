@@ -102,6 +102,11 @@ class OnThisDayGameActivity : BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
     private fun updateOnLoading() {
         binding.errorView.isVisible = false
         binding.currentQuestionContainer.isVisible = false
