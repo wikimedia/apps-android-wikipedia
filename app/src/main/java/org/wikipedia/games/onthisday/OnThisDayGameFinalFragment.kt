@@ -40,6 +40,13 @@ class OnThisDayGameFinalFragment : Fragment() {
             viewModel.resetCurrentDay()
         }
 
+        binding.shareButton.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .add(R.id.fragmentOverlayContainer, OnThisDayGameShareFragment.newInstance(viewModel.invokeSource))
+                .addToBackStack(null)
+                .commit()
+        }
+
         viewModel.gameState.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Loading -> updateOnLoading()

@@ -128,10 +128,6 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionText.isVisible = true
         binding.questionText.text = event.text
 
-        event.pages()?.first()?.let {
-            viewModel.topicsList.add(it)
-        }
-
         val thumbnailUrl = event.pages()?.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl.isNullOrEmpty()) {
             binding.questionThumbnail.isVisible = false

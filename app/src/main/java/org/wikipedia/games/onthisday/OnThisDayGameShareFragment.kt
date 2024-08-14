@@ -23,7 +23,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
@@ -43,13 +42,8 @@ class OnThisDayGameShareFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.gameState.observe(requireActivity()) {
-            when (it) {
-                is Resource.Success -> onSuccess(it.data)
-            }
-        }
 
-        // TODO: initialize the PNG image and start the share intent?
+        buildSharableContent(viewModel.getCurrentGameState())
     }
 
     override fun onDestroyView() {
@@ -57,11 +51,11 @@ class OnThisDayGameShareFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private fun onSuccess(gameState: OnThisDayGameViewModel.GameState) {
+    private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState) {
         binding.shareContainer.visibility = View.VISIBLE
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
-        binding.shareArticlesList.adapter = RecyclerViewAdapter(viewModel.topicsList)
+        binding.shareArticlesList.adapter = RecyclerViewAdapter(gameState.articles)
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
