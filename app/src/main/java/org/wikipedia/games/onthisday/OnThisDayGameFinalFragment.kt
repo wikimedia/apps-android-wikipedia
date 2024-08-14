@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 
 class OnThisDayGameFinalFragment : Fragment() {
@@ -23,8 +24,9 @@ class OnThisDayGameFinalFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
+        binding.resetButton.isVisible = ReleaseUtil.isPreBetaRelease
         binding.resetButton.setOnClickListener {
-
+            viewModel.resetCurrentDay()
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {

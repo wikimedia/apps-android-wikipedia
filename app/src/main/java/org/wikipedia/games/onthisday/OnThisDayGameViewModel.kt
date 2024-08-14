@@ -100,6 +100,12 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         persistState()
     }
 
+    fun resetCurrentDay() {
+        currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
+        _gameState.postValue(Resource.Success(currentState))
+        persistState()
+    }
+
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
         val random = Random(month * 100 + day)
 
@@ -140,11 +146,11 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     @Serializable
     data class GameState(
-        val totalQuestions: Int = NUM_QUESTIONS,
+        val totalQuestions: Int = Prefs.otdGameQuestionsPerDay,
         val currentQuestionIndex: Int = 0,
 
         // history of today's answers (correct vs incorrect)
-        val answerState: List<Boolean> = List(NUM_QUESTIONS) { false },
+        val answerState: List<Boolean> = List(MAX_QUESTIONS) { false },
 
         // map of:   year: month: day: list of answers
         val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap(),
@@ -175,6 +181,6 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        const val NUM_QUESTIONS = 5
+        const val MAX_QUESTIONS = 10
     }
 }

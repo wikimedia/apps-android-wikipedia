@@ -134,7 +134,7 @@ class OnThisDayGameActivity : BaseActivity() {
         if (thumbnailUrl.isNullOrEmpty()) {
             binding.questionThumbnail.isVisible = false
         } else {
-            binding.questionThumbnail.isVisible = true
+            binding.questionThumbnail.isVisible = false //true
             Glide.with(this)
                 .load(thumbnailUrl)
                 .centerCrop()
@@ -143,6 +143,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         // update year buttons with the year selections from the state
         yearButtonViews.forEachIndexed { index, view ->
+            view.isVisible = true
             view.isEnabled = true
             val year = gameState.currentQuestionState.yearChoices[index]
             view.text = year.toString()
@@ -247,6 +248,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .addToBackStack(null)
             .commit()
     }
 
@@ -254,7 +256,10 @@ class OnThisDayGameActivity : BaseActivity() {
         updateGameState(gameState)
 
         // TODO: show splash screen
-
+        //supportFragmentManager.beginTransaction()
+        //    .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+        //    .addToBackStack(null)
+        //    .commit()
     }
 
     private fun setButtonHighlighted(button: View? = null) {
