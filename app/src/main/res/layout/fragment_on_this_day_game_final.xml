@@ -56,13 +56,52 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/on_this_day_game_share"/>
 
+        <TextView
+            android:id="@+id/nextGameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="?attr/secondary_color"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/shareButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:drawableStartCompat="@drawable/ic_time_24"
+            app:drawableTint="?attr/secondary_color"
+            android:drawablePadding="6dp"
+            tools:text="Lorem ipsum"/>
+
+        <!-- TODO: "Articles mentioned" -->
+
+        <TextView
+            android:id="@+id/yourActivityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?attr/primary_color"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/nextGameText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/on_this_day_game_your_activity"/>
+
+        <TextView
+            android:id="@+id/streakText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="?attr/primary_color"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/yourActivityText"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Lorem ipsum"/>
+
         <LinearLayout
             android:id="@+id/weeksContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/shareButton"
+            app:layout_constraintTop_toBottomOf="@id/streakText"
             android:layout_marginTop="16dp"
             android:orientation="vertical"/>
 
