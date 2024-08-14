@@ -1779,7 +1779,7 @@
     <string name="on_this_day_game_splash_subtitle">%1$s • Game %2$d</string>
     <string name="on_this_day_game_splash_message">Guess the year of significant events that happened on this day in history</string>
     <string name="on_this_day_game_splash_button">Play today\'s game</string>
-    <string name="on_this_day_game_splash_message_2">%d questions per game\n\nNew game daily for 30 days</string>
+    <string name="on_this_day_game_splash_message_2">%1$d questions per game\n\nNew game daily for %2$d days</string>
     <string name="on_this_day_game_splash_footer_message">Limited time only: WikiDate Detective is a beta experiment that will be available for %d more days</string>
     <string name="on_this_day_game_experiment_chip_text">Experiment</string>
     <string name="on_this_day_game_nav_title">Games</string>

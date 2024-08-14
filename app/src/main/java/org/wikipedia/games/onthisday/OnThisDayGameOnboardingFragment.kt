@@ -38,7 +38,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
         val today = DateUtil.getShortDateString(LocalDate.now())
         binding.messageText.text = getString(R.string.on_this_day_game_splash_subtitle, today, OnThisDayGameViewModel.gameForToday)
-        binding.messageText2.text = getString(R.string.on_this_day_game_splash_message_2, Prefs.otdGameQuestionsPerDay)
+        binding.messageText2.text = getString(R.string.on_this_day_game_splash_message_2, Prefs.otdGameQuestionsPerDay, (OnThisDayGameViewModel.gameEndDate.toEpochDay() - OnThisDayGameViewModel.gameStartDate.toEpochDay()))
         binding.footerMessage.text = getString(R.string.on_this_day_game_splash_footer_message, OnThisDayGameViewModel.daysLeft)
     }
 

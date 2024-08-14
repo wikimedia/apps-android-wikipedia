@@ -248,7 +248,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
-            //.addToBackStack(null)
+            .addToBackStack(null)
             .commit()
     }
 
