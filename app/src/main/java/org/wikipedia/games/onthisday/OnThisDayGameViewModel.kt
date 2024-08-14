@@ -182,5 +182,21 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     companion object {
         const val MAX_QUESTIONS = 10
+
+        val gameStartDate: LocalDate get() {
+            return try {
+                LocalDate.parse(Prefs.otdGameStartDate)
+            } catch (e: Exception) {
+                LocalDate.ofEpochDay(0)
+            }
+        }
+
+        val gameEndDate: LocalDate get() {
+            return try {
+                LocalDate.parse(Prefs.otdGameEndDate)
+            } catch (e: Exception) {
+                LocalDate.ofEpochDay(0)
+            }
+        }
     }
 }
