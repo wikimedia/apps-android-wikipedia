@@ -105,7 +105,6 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -121,9 +120,6 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.Date
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -702,7 +698,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(dialogView)
                 .show()
-            dialogView.findViewById<TextView>(R.id.dialogDescription).text = getString(R.string.on_this_day_game_dialog_description, OnThisDayGameViewModel.daysLeft.toString())
+            dialogView.findViewById<TextView>(R.id.dialogDescription).text = getString(R.string.on_this_day_game_dialog_description, OnThisDayGameViewModel.daysLeft)
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 startActivity(OnThisDayGameActivity.newIntent(requireContext(), InvokeSource.PAGE_ACTIVITY))
                 Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked

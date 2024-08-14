@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
+import org.wikipedia.util.DateUtil
+import java.time.LocalDate
 
 class OnThisDayGameOnboardingFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
@@ -19,6 +22,14 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.playGameButton.setOnClickListener {
+            requireActivity().finish()
+        }
+
+        val today = DateUtil.getShortDateString(LocalDate.now())
+        binding.messageText.text = getString(R.string.on_this_day_game_splash_subtitle, today, OnThisDayGameViewModel.daysLeft)
+        binding.footerMessage.text = getString(R.string.on_this_day_game_splash_footer_message, OnThisDayGameViewModel.daysLeft)
     }
 
 
