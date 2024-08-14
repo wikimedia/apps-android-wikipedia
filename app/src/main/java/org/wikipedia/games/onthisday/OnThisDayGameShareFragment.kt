@@ -53,9 +53,11 @@ class OnThisDayGameShareFragment : Fragment() {
 
     private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState) {
         binding.shareContainer.visibility = View.VISIBLE
+        val totalCorrect = gameState.answerState.count { it }
+        binding.resultText.text = getString(R.string.on_this_day_game_share_title, totalCorrect, gameState.totalQuestions)
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
-        binding.shareArticlesList.adapter = RecyclerViewAdapter(gameState.articles)
+        binding.shareArticlesList.adapter = RecyclerViewAdapter(gameState.articles.filterIndexed { index, _ -> index % 2 != 0 })
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
@@ -68,10 +70,17 @@ class OnThisDayGameShareFragment : Fragment() {
             dotView.setPadding(DimenUtil.roundedDpToPx(1f))
             dotView.setBackgroundResource(R.drawable.shape_circle)
             dotView.backgroundTintList =
-                ResourceUtil.getThemedColorStateList(requireContext(), R.attr.inactive_color)
+                if (gameState.answerState.getOrNull(i) == true) {
+                    dotView.setImageResource(R.drawable.ic_check_black_24dp)
+                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.success_color)
+                } else {
+                    dotView.setImageResource(R.drawable.ic_close_black_24dp)
+                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.destructive_color)
+                }
             dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
             dotView.id = viewId
             dotView.isVisible = true
+
             binding.shareContainer.addView(dotView)
         }
         binding.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
