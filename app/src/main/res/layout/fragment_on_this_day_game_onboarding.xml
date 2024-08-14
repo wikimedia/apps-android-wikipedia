@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/progressive_color"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/illustration_trivia_game_splash"
+        android:contentDescription="@string/on_this_day_game_splash_title"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        style="@style/H1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/paper_color"
+        android:textAlignment="center"
+        android:text="@string/on_this_day_game_splash_title"/>
+
+    <TextView
+        android:id="@+id/messageText"
+        style="@style/P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/paper_color"
+        android:textAlignment="center"
+        android:text="@string/on_this_day_game_splash_subtitle"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="32dp">
+
+        <TextView
+            style="@style/P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/paper_color"
+            android:textAlignment="center"
+            android:text="@string/on_this_day_game_splash_message"
+            android:layout_marginTop="12dp"/>
+        <Button
+            android:id="@+id/playGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/on_this_day_game_dialog_button"
+            android:textColor="?attr/progressive_color"
+            android:layout_marginVertical="24dp"
+            android:backgroundTint="?attr/paper_color"/>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/paper_color"
+        android:textAlignment="center"
+        android:text="@string/on_this_day_game_splash_message_2"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/footerMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/border_color"
+        android:textAlignment="center"
+        android:text="@string/on_this_day_game_splash_footer_message"
+        android:layout_marginTop="36dp"/>
+
+</LinearLayout>
