@@ -8,25 +8,23 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import org.wikipedia.Constants
-import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
+import org.wikipedia.databinding.FragmentOnThisDayGameShareBinding
 
 class OnThisDayGameShareFragment : Fragment() {
-    private var _binding: FragmentOnThisDayGameFinalBinding? = null
+    private var _binding: FragmentOnThisDayGameShareBinding? = null
     val binding get() = _binding!!
 
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
-    private lateinit var timeUpdateRunnable: Runnable
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
+        _binding = FragmentOnThisDayGameShareBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 
     override fun onDestroyView() {
         _binding = null
-        binding.root.removeCallbacks(timeUpdateRunnable)
         super.onDestroyView()
     }
 
