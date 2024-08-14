@@ -15,11 +15,9 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import java.time.LocalDate
-import java.time.ZoneId
-import java.util.Date
+import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -38,6 +36,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     private val events = mutableListOf<OnThisDay.Event>()
 
     init {
+        Prefs.lastOtdGameVisitDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+
         loadGameState()
     }
 
@@ -186,19 +186,16 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     companion object {
         const val MAX_QUESTIONS = 10
 
-        fun daysLeft(): String {
-            val daysLeft = DateUtil.getDayDifferenceString(Date(), DateUtil.dbDateParse("20240901000000"))
-            return daysLeft
-        }
-
-        // TODO: needs to verify the date logic is accurate
-        fun showDialogOrIndicator(): Boolean {
+        fun shouldShowEntryDialog(): Boolean {
             if (Prefs.lastOtdGameVisitDate.isEmpty()) {
                 return true
             }
-            val newUTCDate = Date.from(LocalDate.now().atStartOfDay(ZoneId.of("UTC")).toInstant())
-            val dayDifference = DateUtil.getDayDifferenceString(newUTCDate, DateUtil.dbDateParse(Prefs.lastOtdGameVisitDate)).toInt()
-            return dayDifference > 0
+            try {
+                val prevDate = LocalDate.parse(Prefs.lastOtdGameVisitDate, DateTimeFormatter.ISO_LOCAL_DATE)
+                return prevDate.dayOfMonth != LocalDate.now().dayOfMonth
+            } catch (e: Exception) {
+                return true
+            }
         }
 
         val gameStartDate: LocalDate get() {
@@ -216,5 +213,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 LocalDate.ofEpochDay(0)
             }
         }
+
+        val daysLeft get() = gameEndDate.toEpochDay() - LocalDate.now().toEpochDay()
     }
 }
