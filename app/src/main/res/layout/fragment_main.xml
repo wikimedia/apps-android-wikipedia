@@ -53,7 +53,7 @@
             app:elevation="0dp"/>
 
         <ImageView
-            android:id="@+id/indicator"
+            android:id="@+id/moreDotIndicator"
             android:layout_width="6dp"
             android:layout_height="6dp"
             android:src="@drawable/shape_circle"
