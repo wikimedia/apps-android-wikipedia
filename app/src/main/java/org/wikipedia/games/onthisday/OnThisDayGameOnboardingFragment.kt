@@ -29,7 +29,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        // If we really want it full-screen:
+        // requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         binding.playGameButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()

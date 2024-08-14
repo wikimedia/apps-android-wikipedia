@@ -154,7 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="@string/on_this_day_game_title2" />
+                    android:text="@string/on_this_day_game_nav_title" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"

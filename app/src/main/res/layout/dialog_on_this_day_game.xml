@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/illustration_trivia_game"
-                android:contentDescription="@string/on_this_day_game_dialog_title"
+                android:contentDescription="@string/on_this_day_game_title"
                 android:layout_margin="16dp"/>
 
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="?attr/secondary_color"
                 android:textAlignment="center"
-                android:text="@string/on_this_day_game_dialog_title"/>
+                android:text="@string/on_this_day_game_title"/>
 
             <Button
                 android:id="@+id/playGameButton"
