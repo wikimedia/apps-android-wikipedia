@@ -163,6 +163,8 @@
                     android:text="@string/on_this_day_game_experiment_chip_text"
                     android:textColor="?attr/secondary_color"
                     android:layout_marginHorizontal="16dp"
+                    android:clickable="false"
+                    android:focusable="false"
                     app:chipStrokeWidth="0dp"
                     app:chipCornerRadius="16dp"
                     />
