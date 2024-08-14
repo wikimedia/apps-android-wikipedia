@@ -242,7 +242,7 @@
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">اجازتنامو</string>
-  <string name="about_app_license">ذريعي جو ڪوڊ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جِٽ-ھب&lt;/a&gt; تي &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;اپاچي 2.0 اجازتنامي&lt;/a&gt; ھيٺ موجود آهي. جڏھن تہ مواد &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;ڪريئيٽو ڪامنز ھڪجھڙي-ونڊ-انتساب اجازتنامي&lt;/a&gt;&gt; ھيٺ موجود آھي، جيسيتائين ٻي صورت واضع نہ ڪئي وڃي.</string>
+  <string name="about_app_license">ذريعي جو ڪوڊ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جِٽ-ھب&lt;/a&gt; تي &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;اپاچي 2.0 اجازتنامي&lt;/a&gt; ھيٺ موجود آهي. جڏھن تہ مواد &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;ڪريئيٽو ڪامنز ھڪجھڙي-ونڊ-انتساب اجازتنامي&lt;/a&gt;&gt; تحت موجود آھي، جيسيتائين ٻي صورت واضع نہ ڪئي وڃي.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن&lt;/a&gt; جي مصنوع</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو بدلائجي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -405,7 +405,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(گھري نظاري ۾) عڪسن کي ڊم ڪندي</string>
   <string name="preference_title_prefer_offline_content">آفلائين مواد کي ترجيح ڏيو</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">سرشتي جي نظاري سان ملايو</string>
-  <string name="page_footer_license_text">مواد $1 ھيٺ موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي</string>
+  <string name="page_footer_license_text">مواد $1 تحت موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي</string>
   <string name="empty_tab_title">نئين ٽيب</string>
   <string name="menu_save_all_tabs">سڀ ٽيبس سانڍيو</string>
   <string name="error_blocked_title">توھان جس واپرائيندڙنانءَ يا آئپي پتي بندش پيل آھي.</string>
@@ -1076,9 +1076,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">گهٽ ۾ گهٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگهجي.</string>
   <string name="more_language_options">وڌيڪ</string>
   <string name="add_wikipedia_languages_text">وڪيپيڊيا ٻوليون شامل ڪريو</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">پنھنجي ايپ جي ٻولين مان ڪو چيني ويرينٽ هٽايو؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ٻوليون سنواريو</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نہ مھرباني</string>
   <string name="remove_language_dialog_cancel_button_text">رد</string>
   <string name="remove_language_dialog_ok_button_text">ٺيڪ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ٺيڪ</string>

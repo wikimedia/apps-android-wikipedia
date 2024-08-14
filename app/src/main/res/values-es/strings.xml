@@ -972,11 +972,14 @@
   <string name="customize_toolbar_shortcut_description_text">Personaliza la barra de herramientas inferior con las 5 funciones que te resulten más útiles.</string>
   <string name="customize_toolbar_category_toolbar">Barra de herramientas</string>
   <string name="customize_toolbar_category_menu">Menú</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Arrastra y suelta tus artículos favoritos aquí 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Reiniciar por defecto</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
   <string name="suggested_edits_caption_images">Subtitular imágenes</string>
   <string name="suggested_edits_tag_images">Etiquetar imágenes</string>
+  <string name="suggested_edits_edit_patrol_review">Revisar</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>
   <string name="suggested_edits_edit_description_button">Editar descripción</string>
@@ -1154,6 +1157,7 @@
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
+  <string name="image_recommendation_notsure">No estoy seguro</string>
   <string name="image_recommendation_reject_title">Motivo del rechazo</string>
   <string name="image_recommendation_reject_subtitle">El motivo del rechazo es anónimo y mejorará futuras sugerencias de imágenes.</string>
   <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
@@ -1236,10 +1240,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Conserva al menos un idioma Wikipedia por el cual buscar y leer contenido.</string>
   <string name="more_language_options">más</string>
   <string name="add_wikipedia_languages_text">Añadir idiomas de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">¿Quieres quitar una variante del chino de los idiomas de la aplicación?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ahora tienes definidos tanto el chino tradicional como el simplificado en los idiomas de la aplicación. ¿Quieres actualizar la configuración lingüística?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar idiomas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gracias</string>
   <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
   <string name="remove_language_dialog_ok_button_text">Aceptar</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Aceptar</string>
@@ -1321,6 +1321,9 @@
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
   <string name="talk_new_topic_submitted">Tema posted.</string>
+  <string name="talk_warn_save_dialog_title">¿Guardar cambios?</string>
+  <string name="talk_warn_save_dialog_publish">Publicar</string>
+  <string name="talk_warn_save_dialog_cancel">Cancelar</string>
   <string name="talk_warn_save_dialog_dont_save">No guardar</string>
   <string name="talk_warn_saved_messages">Mensajes guardados</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
@@ -1465,12 +1468,15 @@
   <string name="user_contrib_menu_label">Contribuciones</string>
   <string name="action_item_view_on_map">Ver en mapa</string>
   <string name="action_item_view_on_map_unavailable">No hay coordenadas geográficas disponibles para esta página</string>
+  <string name="shareable_reading_lists_new_indicator">*nuevo*</string>
   <string name="reading_list_share_menu_label">Compartir…</string>
   <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
   <string name="talk_templates_empty_message">Cree sus propios mensajes de o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
+  <string name="talk_templates_new_message_save">Guardar</string>
+  <string name="talk_templates_new_message_dialog_title">Guardar cambios</string>
   <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Se ha eliminado el mensaje</item>

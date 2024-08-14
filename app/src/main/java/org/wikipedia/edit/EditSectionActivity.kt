@@ -327,13 +327,13 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                     }
                 }) { onEditFailure(it) }
         )
-
         BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
     }
 
     private fun getEditTag(): String {
         return when {
             invokeSource == Constants.InvokeSource.TALK_TOPIC_ACTIVITY -> EditTags.APP_TALK_SOURCE
+            invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE -> if (intent.getBooleanExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, false)) EditTags.APP_IMAGE_ADD_INFOBOX else EditTags.APP_IMAGE_ADD_TOP
             !textToHighlight.isNullOrEmpty() -> EditTags.APP_SELECT_SOURCE
             sectionID >= 0 -> EditTags.APP_SECTION_SOURCE
             else -> EditTags.APP_FULL_SOURCE

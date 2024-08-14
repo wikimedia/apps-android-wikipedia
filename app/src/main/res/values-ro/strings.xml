@@ -1107,10 +1107,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Păstrați cel puțin o limbă Wikipedia din care să căutați și să citiți conținut.</string>
   <string name="more_language_options">mai mult</string>
   <string name="add_wikipedia_languages_text">Adaugă limbi Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eliminați o variantă chineză din limbile aplicației dvs.?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">În prezent, aveți variante de chineză tradiționale și simplificate setate în limbile aplicației dvs. Actualizați setările limbilor din aplicație?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifică limbile</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nu, mulțumesc</string>
   <string name="remove_language_dialog_cancel_button_text">Anulează</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

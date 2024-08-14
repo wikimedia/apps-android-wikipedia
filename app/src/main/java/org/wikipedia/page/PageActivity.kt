@@ -660,17 +660,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private fun modifyMenu(mode: ActionMode) {
         val menu = mode.menu
-        val menuItemsList = menu.children.filter {
-            val title = it.title.toString()
-            !title.contains(getString(R.string.search_hint)) &&
-                    !(title.contains(getString(R.string.menu_text_select_define)) &&
-                            pageFragment.shareHandler.shouldEnableWiktionaryDialog())
-        }.toList()
-        menu.clear()
-        mode.menuInflater.inflate(R.menu.menu_text_select, menu)
-        menuItemsList.forEach {
-            menu.add(it.groupId, it.itemId, Menu.NONE, it.title).setIntent(it.intent).icon = it.icon
+
+        // Hide context items that are intended for showing in external apps.
+        menu.children.forEach {
+            if (it.title.toString().contains(getString(R.string.search_hint)) ||
+                (it.title.toString().contains(getString(R.string.menu_text_select_define)) && pageFragment.shareHandler.shouldEnableWiktionaryDialog())) {
+                it.isVisible = false
+            }
         }
+        // Append our custom items to the context menu.
+        mode.menuInflater.inflate(R.menu.menu_text_select, menu)
     }
 
     private fun showDescriptionEditRevertDialog(qNumber: String) {
