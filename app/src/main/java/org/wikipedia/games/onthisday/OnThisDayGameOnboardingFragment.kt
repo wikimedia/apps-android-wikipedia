@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.settings.Prefs
@@ -18,6 +20,9 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
+
+        // TODO: add analytics for InvokeSource
+
         return binding.root
     }
 
@@ -36,8 +41,10 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
 
     companion object {
-        fun newInstance(): OnThisDayGameOnboardingFragment {
-            return OnThisDayGameOnboardingFragment()
+        fun newInstance(invokeSource: Constants.InvokeSource): OnThisDayGameOnboardingFragment {
+            return OnThisDayGameOnboardingFragment().apply {
+                arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
+            }
         }
     }
 }

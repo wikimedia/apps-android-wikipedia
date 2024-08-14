@@ -254,12 +254,10 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
-
-        // TODO: show splash screen
-        //supportFragmentManager.beginTransaction()
-        //    .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
-        //    .addToBackStack(null)
-        //    .commit()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun setButtonHighlighted(button: View? = null) {
