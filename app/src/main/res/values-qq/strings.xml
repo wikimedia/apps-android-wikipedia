@@ -1703,6 +1703,24 @@
   <string name="on_this_day_game_splash_button">Button label for the trivia game dialog to enter the trivia game.</string>
   <string name="on_this_day_game_splash_message_2">Message for the splash screen to explain the game details. %1$d will be replaced by the number of questions per day, and %2$d is the total days for which the game will be available.</string>
   <string name="on_this_day_game_splash_footer_message">Message for the splash screen on the footer to explain the game details. %d will be replaced by the number of the remaining days.</string>
+  <string name="on_this_day_game_nav_title">Menu label for accessing the Games feature.</string>
+  <string name="on_this_day_game_submit">Button label for submitting the current answer.</string>
+  <string name="on_this_day_game_on_date">Label for showing an event that occurred on the current day in a previous year in history. %s is replaced with the month and day.</string>
+  <string name="on_this_day_game_next">Button label for navigating to the next question.</string>
+  <string name="on_this_day_game_finish">Button label for finishing the game.</string>
+  <string name="on_this_day_game_share">Button label for sharing game results.</string>
+  <string name="on_this_day_game_result">Message shown at the end of a game. The %1$d symbol is replaced with the number of correct answers, %2$d is the total number of questions, and %3$s is a message of encouragement to try again.</string>
+  <string name="on_this_day_game_encourage0">Message of encouragement for a low game score.</string>
+  <string name="on_this_day_game_encourage1">Message of encouragement for a medium game score.</string>
+  <string name="on_this_day_game_encourage2">Message of encouragement for a high game score.</string>
+  <string name="on_this_day_game_encourage3">Message of encouragement for a perfect game score.</string>
+  <string name="on_this_day_game_next_in">Message indicating the time left until the next game. %s is replaced by the time.</string>
+  <string name="on_this_day_game_your_activity">Title on top of your statistics from previous days of gameplay.</string>
+  <string name="on_this_day_game_week_from_to">Label for weekly statistics. %1$s represents the starting day of the week, and %2$s is the ending day of the week.</string>
+  <plurals name="on_this_day_game_streak">
+    <item quantity="one">Current streak of daily gameplay. %d is the number of consecutive days.</item>
+    <item quantity="other">Current streak of daily gameplay. %d is the number of consecutive days.</item>
+  </plurals>
   <string name="on_this_day_game_share_title">Title of the share screen of the game. The %1$d will be replaced by the corrected number, and the %2$d will be replaced by the total number of questions.</string>
   <string name="on_this_day_game_share_subtitle">Subtitle of the share screen of the game.</string>
   <string name="on_this_day_game_share_footer">Footer text of the share screen of the game.</string>
