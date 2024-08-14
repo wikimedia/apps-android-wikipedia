@@ -63,6 +63,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/messageText2"
         style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

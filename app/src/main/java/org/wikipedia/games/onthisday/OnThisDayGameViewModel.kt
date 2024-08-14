@@ -214,6 +214,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             }
         }
 
+        val gameForToday get() = LocalDate.now().toEpochDay() - gameStartDate.toEpochDay()
+
         val daysLeft get() = gameEndDate.toEpochDay() - LocalDate.now().toEpochDay()
     }
 }
