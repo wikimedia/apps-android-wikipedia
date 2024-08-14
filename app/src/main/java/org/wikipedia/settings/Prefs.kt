@@ -743,4 +743,16 @@ object Prefs {
     var otdGameState
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
+
+    var otdGameStartDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_start_date, "2024-09-01").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_start_date, value)
+
+    var otdGameEndDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_end_date, "2024-10-01").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_end_date, value)
+
+    var otdGameQuestionsPerDay
+        get() = PrefsIoUtil.getInt(R.string.preference_key_otd_game_num_questions, 3)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_otd_game_num_questions, value)
 }

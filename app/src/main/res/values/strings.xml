@@ -1772,7 +1772,6 @@
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <!-- /Places -->
 
-    <!-- On this day Game -->
     <string name="on_this_day_game_dialog_title">WikiDate Detective</string>
     <string name="on_this_day_game_dialog_description">Limited time only: WikiDate Detective is a beta experiment that will be available for %s more days</string>
     <string name="on_this_day_game_dialog_button">Play today\'s game</string>
@@ -1787,11 +1786,23 @@
     <string name="on_this_day_game_title">What\'s the year?</string>
     <string name="on_this_day_game_title2">The Game</string>
     <string name="on_this_day_game_submit">Submit</string>
+    <string name="on_this_day_game_on_date">On %s, ____</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Finish</string>
     <string name="on_this_day_game_correct">Correct!</string>
     <string name="on_this_day_game_incorrect">Incorrect!</string>
-    <string name="on_this_day_game_result1">You got %1$d out of %2$d questions correct! Please come back tomorrow for the next game.</string>
-    <!-- /On this day Game -->
+    <string name="on_this_day_game_share">Share with friends</string>
+    <string name="on_this_day_game_result">You got %1$d out of %2$d questions right today. %3$s</string>
+    <string name="on_this_day_game_encourage0">Better luck tomorrow!</string>
+    <string name="on_this_day_game_encourage1">Congratulations!</string>
+    <string name="on_this_day_game_encourage2">Great job!</string>
+    <string name="on_this_day_game_encourage3">Excellent!</string>
+    <string name="on_this_day_game_next_in">Next game in %s</string>
+    <string name="on_this_day_game_your_activity">Your activity</string>
+    <string name="on_this_day_game_week_from_to">%1$s–%2$s</string>
+    <plurals name="on_this_day_game_streak">
+        <item quantity="one"><![CDATA[Playing streak: <b>%d day</b>]]></item>
+        <item quantity="other"><![CDATA[Playing streak: <b>%d days</b>]]></item>
+    </plurals>
 
 </resources>

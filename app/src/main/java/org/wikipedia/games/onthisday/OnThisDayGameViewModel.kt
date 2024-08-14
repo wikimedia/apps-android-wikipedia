@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.feed.onthisday.OnThisDay
@@ -27,10 +28,12 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     private val _gameState = MutableLiveData<Resource<GameState>>()
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
+    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+
     private lateinit var currentState: GameState
     private val currentDate = LocalDate.now()
-    private val currentMonth = currentDate.monthValue
-    private val currentDay = currentDate.dayOfMonth
+    val currentMonth = currentDate.monthValue
+    val currentDay = currentDate.dayOfMonth
 
     private val events = mutableListOf<OnThisDay.Event>()
 
@@ -54,6 +57,10 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             }
 
             if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
+                currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
+                // we're just starting today's game.
+                _gameState.postValue(GameStarted(currentState))
+            } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're already done for today.
                 _gameState.postValue(GameEnded(currentState))
@@ -96,12 +103,18 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         persistState()
     }
 
+    fun resetCurrentDay() {
+        currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
+        _gameState.postValue(Resource.Success(currentState))
+        persistState()
+    }
+
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
         val random = Random(month * 100 + day)
 
         val eventList = events.toMutableList()
         eventList.shuffle(random)
-        val event = eventList[index]
+        val event = eventList[index % eventList.size]
 
         val yearChoices = mutableListOf<Int>()
         var curYear = event.year
@@ -136,11 +149,11 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     @Serializable
     data class GameState(
-        val totalQuestions: Int = NUM_QUESTIONS,
+        val totalQuestions: Int = Prefs.otdGameQuestionsPerDay,
         val currentQuestionIndex: Int = 0,
 
         // history of today's answers (correct vs incorrect)
-        val answerState: List<Boolean> = List(NUM_QUESTIONS) { false },
+        val answerState: List<Boolean> = List(MAX_QUESTIONS) { false },
 
         // map of:   year: month: day: list of answers
         val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap(),
@@ -160,6 +173,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     class CurrentQuestionCorrect(val data: GameState) : Resource<GameState>()
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
+    class GameStarted(val data: GameState) : Resource<GameState>()
     class GameEnded(val data: GameState) : Resource<GameState>()
 
     class Factory(val bundle: Bundle) : ViewModelProvider.Factory {
@@ -170,11 +184,10 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        private const val GAME_END_DATE = "20240901000000"
-        const val NUM_QUESTIONS = 5
+        const val MAX_QUESTIONS = 10
 
         fun daysLeft(): String {
-            val daysLeft = DateUtil.getDayDifferenceString(Date(), DateUtil.dbDateParse(GAME_END_DATE))
+            val daysLeft = DateUtil.getDayDifferenceString(Date(), DateUtil.dbDateParse("20240901000000"))
             return daysLeft
         }
 
@@ -186,6 +199,22 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             val newUTCDate = Date.from(LocalDate.now().atStartOfDay(ZoneId.of("UTC")).toInstant())
             val dayDifference = DateUtil.getDayDifferenceString(newUTCDate, DateUtil.dbDateParse(Prefs.lastOtdGameVisitDate)).toInt()
             return dayDifference > 0
+        }
+
+        val gameStartDate: LocalDate get() {
+            return try {
+                LocalDate.parse(Prefs.otdGameStartDate)
+            } catch (e: Exception) {
+                LocalDate.ofEpochDay(0)
+            }
+        }
+
+        val gameEndDate: LocalDate get() {
+            return try {
+                LocalDate.parse(Prefs.otdGameEndDate)
+            } catch (e: Exception) {
+                LocalDate.ofEpochDay(0)
+            }
         }
     }
 }

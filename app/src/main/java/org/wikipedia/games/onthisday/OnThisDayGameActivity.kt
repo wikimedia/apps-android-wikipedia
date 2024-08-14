@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
+import androidx.core.widget.TextViewCompat
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -28,9 +29,12 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import java.time.MonthDay
+import java.time.format.DateTimeFormatter
 
 class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
@@ -67,12 +71,15 @@ class OnThisDayGameActivity : BaseActivity() {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
                 is Resource.Success -> updateGameState(it.data)
+                is OnThisDayGameViewModel.GameStarted -> onGameStarted(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionCorrect -> onCurrentQuestionCorrect(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionIncorrect -> onCurrentQuestionIncorrect(it.data)
                 is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
             }
         }
+
+        updateOnLoading()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -115,6 +122,11 @@ class OnThisDayGameActivity : BaseActivity() {
 
         val event = gameState.currentQuestionState.event
 
+        MonthDay.of(viewModel.currentMonth, viewModel.currentDay).let {
+            it.format(DateTimeFormatter.ofPattern("MMMM d"))
+            binding.onDayText.text = getString(R.string.on_this_day_game_on_date, it.format(DateTimeFormatter.ofPattern("MMMM d")))
+        }
+
         binding.questionText.isVisible = true
         binding.questionText.text = event.text
 
@@ -122,7 +134,7 @@ class OnThisDayGameActivity : BaseActivity() {
         if (thumbnailUrl.isNullOrEmpty()) {
             binding.questionThumbnail.isVisible = false
         } else {
-            binding.questionThumbnail.isVisible = true
+            binding.questionThumbnail.isVisible = false //true
             Glide.with(this)
                 .load(thumbnailUrl)
                 .centerCrop()
@@ -131,9 +143,11 @@ class OnThisDayGameActivity : BaseActivity() {
 
         // update year buttons with the year selections from the state
         yearButtonViews.forEachIndexed { index, view ->
+            view.isVisible = true
             view.isEnabled = true
             val year = gameState.currentQuestionState.yearChoices[index]
-            (view as MaterialButton).text = year.toString()
+            view.text = year.toString()
+            view.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
             view.tag = year
         }
 
@@ -174,6 +188,7 @@ class OnThisDayGameActivity : BaseActivity() {
             if ((it.tag as Int) == gameState.currentQuestionState.event.year) {
                 it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
                 it.setTextColor(Color.WHITE)
+                it.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_check_black_24dp, 0)
                 it.isSelected = true
             } else {
                 it.isSelected = false
@@ -192,10 +207,12 @@ class OnThisDayGameActivity : BaseActivity() {
             if ((it.tag as Int) == gameState.currentQuestionState.event.year) {
                 it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
                 it.setTextColor(Color.WHITE)
+                it.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_check_black_24dp, 0)
                 it.isSelected = true
             } else if ((it.tag as Int) == gameState.currentQuestionState.yearSelected) {
                 it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
                 it.setTextColor(Color.WHITE)
+                it.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_close_black_24dp, 0)
                 it.isSelected = true
             } else {
                 it.isSelected = false
@@ -224,16 +241,25 @@ class OnThisDayGameActivity : BaseActivity() {
             it.isVisible = false
         }
         binding.questionText.isVisible = false
+        binding.questionThumbnail.isVisible = false
 
         setSubmitEnabled(false, isNext = true)
         binding.submitButton.setText(R.string.on_this_day_game_finish)
 
-        MaterialAlertDialogBuilder(this)
-            .setCancelable(false)
-            .setMessage(getString(R.string.on_this_day_game_result1, gameState.answerState.count { it }, gameState.totalQuestions))
-            .setPositiveButton(R.string.error_back) { _, _ ->
-                finish()
-            }.show()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+
+        // TODO: show splash screen
+        //supportFragmentManager.beginTransaction()
+        //    .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+        //    .addToBackStack(null)
+        //    .commit()
     }
 
     private fun setButtonHighlighted(button: View? = null) {
@@ -262,6 +288,7 @@ class OnThisDayGameActivity : BaseActivity() {
                 val button = MaterialButton(this)
                 yearButtonViews.add(button)
                 button.layoutParams = LayoutParams(0, LayoutParams.WRAP_CONTENT)
+                TextViewCompat.setCompoundDrawableTintList(button, ColorStateList.valueOf(Color.WHITE))
                 button.id = viewId
                 button.tag = 0
                 binding.currentQuestionContainer.addView(button)
