@@ -114,7 +114,18 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
         val eventList = events.toMutableList()
         eventList.shuffle(random)
-        val event = eventList[index % eventList.size]
+        var event = eventList[index % eventList.size]
+        while (true) {
+            eventList.remove(event)
+            if (eventList.isEmpty())
+                break
+
+            val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
+            if (event.year > 0 && event.year <= currentDate.year && !event.text.matches(yearRegex)) {
+                break
+            }
+            event = eventList[index % eventList.size]
+        }
 
         val yearChoices = mutableListOf<Int>()
         var curYear = event.year
@@ -123,8 +134,20 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         yearChoices.add(event.year)
 
         repeat(3) {
-            var diff = abs(random.nextInt() % 20)
+            var diff = random.nextInt() % 10
             if (diff == 0) diff = 1
+
+            val diffAdd = when (event.year) {
+                in 0..1000 -> 100
+                in 1001..1500 -> 50
+                in 1501..1800 -> 20
+                in 1801..1900 -> 10
+                in 1901..2000 -> 5
+                in 2001..currentDate.year -> 0
+                else -> 0
+            }
+            diff += (if (diff > 0) diffAdd else -diffAdd)
+
             if (diff > 0) {
                 if (maxYear + diff > currentDate.year) {
                     minYear -= diff
@@ -134,7 +157,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                     curYear = maxYear
                 }
             } else {
-                minYear -= diff
+                minYear += diff
                 curYear = minYear
             }
             yearChoices.add(curYear)
