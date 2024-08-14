@@ -170,6 +170,8 @@
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
 
     <string name="preference_key_otd_game_state">otdGameState</string>
+    <string name="preference_key_otd_game_dialog_enable">otdGameDialogEnabled</string>
+    <string name="preference_key_otd_game_last_visit_date">otdGameLastVisitDate</string>
     <string name="preference_key_otd_game_start_date">otdGameStartDate</string>
     <string name="preference_key_otd_game_end_date">otdGameEndDate</string>
     <string name="preference_key_otd_game_num_questions">otdGameNumQuestions</string>

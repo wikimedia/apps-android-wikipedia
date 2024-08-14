@@ -18,7 +18,11 @@ import android.view.ViewGroup
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -74,6 +78,8 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -685,6 +691,26 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    private fun maybeShowOnThisDayGameDialog() {
+        // TODO: add a logic to prevent showing two dialogs at the same time
+        if (Prefs.isOtdGameDialogEnabled && OnThisDayGameViewModel.shouldShowEntryDialog()) {
+            val dialogView = layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
+            val dialog = MaterialAlertDialogBuilder(requireActivity())
+                .setView(dialogView)
+                .show()
+            dialogView.findViewById<TextView>(R.id.dialogDescription).text = getString(R.string.on_this_day_game_dialog_description, OnThisDayGameViewModel.daysLeft)
+            dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
+                startActivity(OnThisDayGameActivity.newIntent(requireContext(), InvokeSource.PAGE_ACTIVITY))
+                Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
+                dialog.dismiss()
+            }
+            dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
+                Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
+                dialog.dismiss()
+            }
+        }
+    }
+
     private fun showFindReferenceInPage(referenceAnchor: String,
                                         backLinksList: List<String?>,
                                         referenceText: String) {
@@ -928,6 +954,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
+        maybeShowOnThisDayGameDialog()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.

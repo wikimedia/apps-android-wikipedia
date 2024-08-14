@@ -151,11 +151,23 @@
 
                 <TextView
                     style="@android:style/TextAppearance"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_weight="1"
                     android:text="@string/on_this_day_game_title2" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/addition_color"
+                    android:text="@string/on_this_day_game_experiment_chip_text"
+                    android:textColor="?attr/secondary_color"
+                    android:layout_marginHorizontal="16dp"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:chipStrokeWidth="0dp"
+                    app:chipCornerRadius="16dp"
+                    />
             </LinearLayout>
 
 

@@ -17,6 +17,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -35,6 +36,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     private val events = mutableListOf<OnThisDay.Event>()
 
     init {
+        Prefs.lastOtdGameVisitDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+
         loadGameState()
     }
 
@@ -183,6 +186,18 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     companion object {
         const val MAX_QUESTIONS = 10
 
+        fun shouldShowEntryDialog(): Boolean {
+            if (Prefs.lastOtdGameVisitDate.isEmpty()) {
+                return true
+            }
+            try {
+                val prevDate = LocalDate.parse(Prefs.lastOtdGameVisitDate, DateTimeFormatter.ISO_LOCAL_DATE)
+                return prevDate.dayOfMonth != LocalDate.now().dayOfMonth
+            } catch (e: Exception) {
+                return true
+            }
+        }
+
         val gameStartDate: LocalDate get() {
             return try {
                 LocalDate.parse(Prefs.otdGameStartDate)
@@ -198,5 +213,9 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 LocalDate.ofEpochDay(0)
             }
         }
+
+        val gameForToday get() = LocalDate.now().toEpochDay() - gameStartDate.toEpochDay()
+
+        val daysLeft get() = gameEndDate.toEpochDay() - LocalDate.now().toEpochDay()
     }
 }
