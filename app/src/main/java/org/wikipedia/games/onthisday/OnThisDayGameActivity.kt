@@ -33,7 +33,9 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import java.time.LocalDate
 import java.time.MonthDay
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 class OnThisDayGameActivity : BaseActivity() {
@@ -362,10 +364,10 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     companion object {
-
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource): Intent {
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, date: LocalDate = LocalDate.now()): Intent {
             return Intent(context, OnThisDayGameActivity::class.java)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
         }
     }
 }

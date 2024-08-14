@@ -16,9 +16,10 @@ import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
-import kotlin.math.abs
 import kotlin.random.Random
 
 class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
@@ -29,9 +30,9 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
     private lateinit var currentState: GameState
-    private val currentDate = LocalDate.now()
-    val currentMonth = currentDate.monthValue
-    val currentDay = currentDate.dayOfMonth
+    val currentDate = if (bundle.containsKey(EXTRA_DATE)) LocalDate.ofInstant(Instant.ofEpochSecond(bundle.getLong(EXTRA_DATE)), ZoneOffset.UTC) else LocalDate.now()
+    val currentMonth get() = currentDate.monthValue
+    val currentDay get() = currentDate.dayOfMonth
 
     private val events = mutableListOf<OnThisDay.Event>()
 
@@ -51,7 +52,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             events.addAll(ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getOnThisDay(currentMonth, currentDay).events)
 
             JsonUtil.decodeFromString<GameState>(Prefs.otdGameState)?.let {
-                currentState = it
+                currentState = it.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, it.currentQuestionIndex))
             } ?: run {
                 currentState = GameState(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0))
             }
@@ -80,9 +81,18 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
 
             if (nextQuestionIndex >= currentState.totalQuestions) {
-
                 // push today's answers to the history map
-                currentState = currentState.copy(answerStateHistory = currentState.answerStateHistory + mapOf(currentDate.year to mapOf(currentMonth to mapOf(currentDay to currentState.answerState))))
+                val map = currentState.answerStateHistory.toMutableMap()
+                if (!map.containsKey(currentDate.year))
+                    map[currentDate.year] = emptyMap()
+                val monthMap = map[currentDate.year]!!.toMutableMap()
+                map[currentDate.year] = monthMap
+                if (!monthMap.containsKey(currentMonth))
+                    monthMap[currentMonth] = emptyMap()
+                val dayMap = monthMap[currentMonth]!!.toMutableMap()
+                monthMap[currentMonth] = dayMap
+                dayMap[currentDay] = currentState.answerState
+                currentState = currentState.copy(answerStateHistory = map)
 
                 _gameState.postValue(GameEnded(currentState))
             } else {
@@ -103,9 +113,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         persistState()
     }
 
-    fun resetCurrentDay() {
+    fun resetCurrentDayState() {
         currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
-        _gameState.postValue(Resource.Success(currentState))
         persistState()
     }
 
@@ -208,6 +217,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     companion object {
         const val MAX_QUESTIONS = 10
+        const val EXTRA_DATE = "date"
 
         fun shouldShowEntryDialog(): Boolean {
             if (Prefs.lastOtdGameVisitDate.isEmpty()) {

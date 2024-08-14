@@ -13,7 +13,6 @@ import androidx.fragment.app.activityViewModels
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.time.Duration
@@ -23,7 +22,7 @@ import java.time.LocalTime
 import java.time.temporal.WeekFields
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment() {
+class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -34,11 +33,6 @@ class OnThisDayGameFinalFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
-
-        binding.resetButton.isVisible = ReleaseUtil.isPreBetaRelease
-        binding.resetButton.setOnClickListener {
-            viewModel.resetCurrentDay()
-        }
 
         viewModel.gameState.observe(viewLifecycleOwner) {
             when (it) {
@@ -66,6 +60,12 @@ class OnThisDayGameFinalFragment : Fragment() {
         handler.removeCallbacks(timeUpdateRunnable)
         _binding = null
         super.onDestroyView()
+    }
+
+    override fun onDayClick(date: LocalDate) {
+        viewModel.resetCurrentDayState()
+        requireActivity().finish()
+        startActivity(OnThisDayGameActivity.newIntent(requireContext(), viewModel.invokeSource, date))
     }
 
     private fun updateOnLoading() {
@@ -102,6 +102,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         var displayStartDate = getStartOfWeekDate(OnThisDayGameViewModel.gameStartDate)
         while (displayStartDate.isBefore(OnThisDayGameViewModel.gameEndDate)) {
             val weekView = WeeklyActivityView(requireContext())
+            weekView.callback = this
             binding.weeksContainer.addView(weekView)
             weekView.setWeekStats(displayStartDate, gameState)
             displayStartDate = displayStartDate.plusDays(7)

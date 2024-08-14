@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
@@ -17,6 +18,7 @@ import java.time.LocalDate
 class OnThisDayGameOnboardingFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: OnThisDayGameViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -36,7 +38,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             requireActivity().supportFragmentManager.popBackStack()
         }
 
-        val today = DateUtil.getShortDateString(LocalDate.now())
+        val today = DateUtil.getShortDateString(viewModel.currentDate)
         binding.messageText.text = getString(R.string.on_this_day_game_splash_subtitle, today, OnThisDayGameViewModel.gameForToday)
         binding.messageText2.text = getString(R.string.on_this_day_game_splash_message_2, Prefs.otdGameQuestionsPerDay, (OnThisDayGameViewModel.gameEndDate.toEpochDay() - OnThisDayGameViewModel.gameStartDate.toEpochDay()))
         binding.footerMessage.text = getString(R.string.on_this_day_game_splash_footer_message, OnThisDayGameViewModel.daysLeft)
