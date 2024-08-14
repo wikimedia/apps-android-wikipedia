@@ -13,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
-import java.time.LocalDate
 
 class OnThisDayGameOnboardingFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
@@ -48,7 +47,6 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         super.onDetach()
         requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
-
 
     companion object {
         fun newInstance(invokeSource: Constants.InvokeSource): OnThisDayGameOnboardingFragment {

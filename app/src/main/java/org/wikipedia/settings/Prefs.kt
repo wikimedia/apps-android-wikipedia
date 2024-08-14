@@ -23,7 +23,6 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.util.Date
-import java.util.Locale
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {

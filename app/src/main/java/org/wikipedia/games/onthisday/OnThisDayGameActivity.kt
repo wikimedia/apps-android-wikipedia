@@ -24,12 +24,10 @@ import androidx.core.view.setPadding
 import androidx.core.widget.TextViewCompat
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -136,7 +134,7 @@ class OnThisDayGameActivity : BaseActivity() {
         if (thumbnailUrl.isNullOrEmpty()) {
             binding.questionThumbnail.isVisible = false
         } else {
-            binding.questionThumbnail.isVisible = false //true
+            binding.questionThumbnail.isVisible = false // true
             Glide.with(this)
                 .load(thumbnailUrl)
                 .centerCrop()

@@ -89,7 +89,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         binding.resultText.text = getString(R.string.on_this_day_game_result,
             totalCorrect,
             gameState.totalQuestions,
-            getString(when(totalCorrect) {
+            getString(when (totalCorrect) {
                 0 -> R.string.on_this_day_game_encourage0
                 1 -> R.string.on_this_day_game_encourage1
                 2 -> R.string.on_this_day_game_encourage2
