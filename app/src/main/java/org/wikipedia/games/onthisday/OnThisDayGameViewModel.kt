@@ -12,6 +12,7 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
@@ -102,7 +103,12 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(goToNext = true))
 
             val isCorrect = currentState.currentQuestionState.event.year == selectedYear
-            currentState = currentState.copy(answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) })
+            currentState = currentState.copy(
+                answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) },
+                articles = currentState.articles.toMutableList().apply {
+                    addAll(currentState.currentQuestionState.event.pages()?.take(2) ?: emptyList())
+                }
+            )
 
             if (isCorrect) {
                 _gameState.postValue(CurrentQuestionCorrect(currentState))
@@ -116,6 +122,10 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     fun resetCurrentDayState() {
         currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
         persistState()
+    }
+
+    fun getCurrentGameState(): GameState {
+        return currentState
     }
 
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
@@ -186,6 +196,9 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
         // history of today's answers (correct vs incorrect)
         val answerState: List<Boolean> = List(MAX_QUESTIONS) { false },
+
+        // list of today's mentioned articles
+        val articles: List<PageSummary> = emptyList(),
 
         // map of:   year: month: day: list of answers
         val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap(),

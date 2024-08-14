@@ -34,6 +34,13 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
+        binding.shareButton.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .add(R.id.fragmentOverlayContainer, OnThisDayGameShareFragment.newInstance(viewModel.invokeSource))
+                .addToBackStack(null)
+                .commit()
+        }
+
         viewModel.gameState.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
