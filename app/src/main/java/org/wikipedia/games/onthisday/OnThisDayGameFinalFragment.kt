@@ -61,8 +61,8 @@ class OnThisDayGameFinalFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        _binding = null
         binding.root.removeCallbacks(timeUpdateRunnable)
+        _binding = null
         super.onDestroyView()
     }
 
