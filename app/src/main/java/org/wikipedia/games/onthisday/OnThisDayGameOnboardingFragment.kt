@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
@@ -28,15 +29,21 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         binding.playGameButton.setOnClickListener {
-            requireActivity().finish()
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         val today = DateUtil.getShortDateString(LocalDate.now())
         binding.messageText.text = getString(R.string.on_this_day_game_splash_subtitle, today, OnThisDayGameViewModel.gameForToday)
         binding.messageText2.text = getString(R.string.on_this_day_game_splash_message_2, Prefs.otdGameQuestionsPerDay)
         binding.footerMessage.text = getString(R.string.on_this_day_game_splash_footer_message, OnThisDayGameViewModel.daysLeft)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
 
 
