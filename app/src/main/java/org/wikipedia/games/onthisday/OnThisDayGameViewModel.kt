@@ -12,6 +12,7 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
@@ -32,6 +33,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     private val currentDate = LocalDate.now()
     val currentMonth = currentDate.monthValue
     val currentDay = currentDate.dayOfMonth
+
+    val topicsList = mutableListOf<PageSummary>()
 
     private val events = mutableListOf<OnThisDay.Event>()
 
