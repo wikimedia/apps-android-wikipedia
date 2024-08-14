@@ -70,6 +70,7 @@ class OnThisDayGameShareFragment : Fragment() {
         binding.resultText.text = getString(R.string.on_this_day_game_share_title, totalCorrect, gameState.totalQuestions)
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
+        binding.shareArticlesList.isNestedScrollingEnabled = false
         binding.shareArticlesList.adapter = RecyclerViewAdapter(gameState.articles.filterIndexed { index, _ -> index % 2 != 0 })
     }
 
@@ -124,6 +125,7 @@ class OnThisDayGameShareFragment : Fragment() {
                 ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
             }
         }
+
     }
 
     companion object {

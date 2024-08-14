@@ -10,12 +10,20 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
+import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
+import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageActivity
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ViewUtil
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -106,6 +114,10 @@ class OnThisDayGameFinalFragment : Fragment() {
         val streak = calculateStreak(gameState.answerStateHistory)
         binding.streakText.text = StringUtil.fromHtml(resources.getQuantityString(R.plurals.on_this_day_game_streak, streak, streak))
 
+        binding.resultArticlesList.layoutManager = LinearLayoutManager(requireContext())
+        binding.resultArticlesList.isNestedScrollingEnabled = false
+        binding.resultArticlesList.adapter = RecyclerViewAdapter(gameState.articles)
+
         var displayStartDate = getStartOfWeekDate(OnThisDayGameViewModel.gameStartDate)
         while (displayStartDate.isBefore(OnThisDayGameViewModel.gameEndDate)) {
             val weekView = WeeklyActivityView(requireContext())
@@ -114,6 +126,47 @@ class OnThisDayGameFinalFragment : Fragment() {
             displayStartDate = displayStartDate.plusDays(7)
         }
     }
+
+    private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+        override fun getItemCount(): Int {
+            return pages.size
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
+            return RecyclerViewItemHolder(ItemOnThisDayGameTopicBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
+            holder.bindItem(pages[position])
+        }
+    }
+
+    private inner class RecyclerViewItemHolder(val binding: ItemOnThisDayGameTopicBinding) :
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+
+        private lateinit var page: PageSummary
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        fun bindItem(page: PageSummary) {
+            this.page = page
+            binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
+            binding.listItemDescription.text = StringUtil.fromHtml(page.description)
+            binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
+            binding.listItemBookmark.isVisible = true
+            page.thumbnailUrl?.let {
+                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
+            }
+        }
+
+        override fun onClick(v: View) {
+            val entry = HistoryEntry(page.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_PLACES)
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+        }
+    }
+
 
     companion object {
         fun newInstance(invokeSource: Constants.InvokeSource): OnThisDayGameFinalFragment {

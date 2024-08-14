@@ -1791,6 +1791,7 @@
     <string name="on_this_day_game_incorrect">Incorrect!</string>
     <string name="on_this_day_game_share">Share with friends</string>
     <string name="on_this_day_game_result">You got %1$d out of %2$d questions right today. %3$s</string>
+    <string name="on_this_day_game_result_subtitle">Articles mentioned in today\'s game</string>
     <string name="on_this_day_game_encourage0">Better luck tomorrow!</string>
     <string name="on_this_day_game_encourage1">Congratulations!</string>
     <string name="on_this_day_game_encourage2">Great job!</string>
