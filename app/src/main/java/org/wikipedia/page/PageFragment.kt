@@ -702,7 +702,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(dialogView)
                 .show()
-            dialogView.findViewById<TextView>(R.id.dialogDescription).text = getString(R.string.on_this_day_game_dialog_description, OnThisDayGameViewModel.daysLeft())
+            dialogView.findViewById<TextView>(R.id.dialogDescription).text = getString(R.string.on_this_day_game_dialog_description, OnThisDayGameViewModel.daysLeft.toString())
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 startActivity(OnThisDayGameActivity.newIntent(requireContext(), InvokeSource.PAGE_ACTIVITY))
                 Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
