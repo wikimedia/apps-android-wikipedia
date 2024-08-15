@@ -20,7 +20,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.parcelable
-import org.wikipedia.extensions.parcelableArrayList
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.page.PageTitle
@@ -36,7 +35,8 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     val wikiSite: WikiSite = bundle.parcelable(Constants.ARG_WIKISITE)!!
     val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
     val showTabs = bundle.getBoolean(RecommendedContentFragment.ARG_SHOW_TABS)
-    val sections: List<RecommendedContentSection> = bundle.parcelableArrayList(RecommendedContentFragment.ARG_SECTIONS)!!
+    private val sectionIds: List<Int> = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
+    val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
@@ -46,6 +46,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     init {
         loadSearchHistory()
+        loadRecommendedContent(sections)
     }
 
     private fun loadSearchHistory() {

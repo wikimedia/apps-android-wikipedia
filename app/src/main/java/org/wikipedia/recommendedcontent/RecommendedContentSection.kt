@@ -69,5 +69,8 @@ enum class RecommendedContentSection(val id: Int,
     }
 
     companion object {
+        fun find(id: Int): RecommendedContentSection {
+            return RecommendedContentSection.entries.find { id == it.id || id == it.viewId } ?: RecommendedContentSection.entries[0]
+        }
     }
 }

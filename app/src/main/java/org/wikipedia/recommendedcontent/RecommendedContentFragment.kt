@@ -18,6 +18,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -41,7 +42,7 @@ class RecommendedContentFragment : Fragment() {
                 viewModel.historyState.collect {
                     when (it) {
                         is Resource.Success -> {
-                            binding.historyList.adapter = RecyclerViewAdapter(it.data)
+                            buildHistoryList(it.data)
                         }
                         is Resource.Error -> {
                             // TODO: implement error
@@ -54,8 +55,10 @@ class RecommendedContentFragment : Fragment() {
                 viewModel.recommendedContentState.collect {
                     when (it) {
                         is Resource.Success -> {
+                            buildRecommendedContent(it.data)
                         }
                         is Resource.Error -> {
+                            // TODO: implement error
                         }
                     }
                 }
@@ -68,6 +71,26 @@ class RecommendedContentFragment : Fragment() {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    private fun buildHistoryList(list: List<PageTitle>) {
+        binding.historyList.adapter = RecyclerViewAdapter(list)
+        binding.historyMoreButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+        if (viewModel.inHistory) {
+            binding.historyMoreButton.text = getString(R.string.recommended_content_view_more_history)
+        } else {
+            binding.historyMoreButton.text = getString(R.string.recommended_content_more_recent_searches)
+        }
+    }
+
+    private fun buildRecommendedContent(list: List<Pair<RecommendedContentSection, List<PageSummary>>>) {
+        list.forEach { (section, pageSummaries) ->
+            val sectionView = RecommendedContentSectionView(requireContext())
+            sectionView.buildContent(section, pageSummaries)
+            binding.recommendedContentContainer.addView(sectionView)
+        }
     }
 
     private inner class RecyclerViewAdapter(val list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
@@ -115,14 +138,14 @@ class RecommendedContentFragment : Fragment() {
     companion object {
         const val ARG_IN_HISTORY = "inHistory"
         const val ARG_SHOW_TABS = "showTabs"
-        const val ARG_SECTIONS = "sections"
+        const val ARG_SECTION_IDS = "sectionIds"
 
-        fun newInstance(wikiSite: WikiSite, inHistory: Boolean, showTabs: Boolean, sections: List<RecommendedContentSection>) = RecommendedContentFragment().apply {
+        fun newInstance(wikiSite: WikiSite, inHistory: Boolean, showTabs: Boolean, sectionIds: List<Int>) = RecommendedContentFragment().apply {
             arguments = bundleOf(
                 Constants.ARG_WIKISITE to wikiSite,
                 ARG_IN_HISTORY to inHistory,
                 ARG_SHOW_TABS to showTabs,
-                ARG_SECTIONS to sections
+                ARG_SECTION_IDS to sectionIds
             )
         }
     }
