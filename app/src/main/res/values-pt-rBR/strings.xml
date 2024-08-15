@@ -1072,7 +1072,6 @@
     <item quantity="one">Você adicionou %d marcação</item>
     <item quantity="other">Você adicionou %d marcações</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ontem</string>
   <string name="suggested_edits_encourage_account_creation_title">Você sabia que todos podem editar a Wikipédia?</string>
   <string name="suggested_edits_encourage_account_creation_message">As edições sugeridas são uma nova maneira de editar a Wikipédia no Android. Ajuda você a fazer contribuições pequenas, mas vitais, para a Wikipédia.\nNosso objetivo é tornar a edição mais fácil e mais acessível para todos! Entre ou participe da Wikipédia para começar.</string>

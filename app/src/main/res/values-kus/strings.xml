@@ -806,7 +806,6 @@
   <string name="suggested_edits_contribution_image_label">Footo</string>
   <string name="suggested_edits_contribution_article_label">Atikil</string>
   <string name="suggested_edits_contribution_views">%s gɔs</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Su\'os</string>
   <string name="suggested_edits_encourage_account_creation_title">Fʋ mi\'i ye sɔ\' wʋsa tʋn\'e dɛmisim Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kpɛn\'ɛm/ paasim Wikipedia ni</string>

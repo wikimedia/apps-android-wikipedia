@@ -1055,7 +1055,6 @@
     <item quantity="one">Додадовте %d ознака</item>
     <item quantity="other">Додадовте %d ознаки</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>

@@ -1117,7 +1117,6 @@
     <item quantity="one">Vous avez ajouté une balise</item>
     <item quantity="other">Vous avez ajouté %d balises</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hier</string>
   <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
