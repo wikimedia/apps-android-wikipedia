@@ -39,7 +39,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
 
-    private val _recommendedContentState = MutableStateFlow(Resource<Pair<RecommendedContentSection, List<PageSummary>>>())
+    private val _recommendedContentState = MutableStateFlow(Resource<List<Pair<RecommendedContentSection, List<PageSummary>>>>())
     val recommendedContentState = _recommendedContentState.asStateFlow()
 
     init {
@@ -58,13 +58,25 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    // TODO: think about modularizing this method.
     fun loadRecommendedContent(sections: List<RecommendedContentSection>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
-
-//            _recommendedContentState.value = Resource.Success(loadRecommendedContent(searchTerm))
+            val recommendedContent = mutableListOf<Pair<RecommendedContentSection, List<PageSummary>>>()
+            sections.forEach { section ->
+                val content = when (section) {
+                    RecommendedContentSection.TOP_READ -> loadTopRead()
+                    RecommendedContentSection.EXPLORE -> loadExplore("")
+                    RecommendedContentSection.ON_THIS_DAY -> loadOnThisDay()
+                    RecommendedContentSection.IN_THE_NEWS -> loadInTheNews()
+                    RecommendedContentSection.PLACES_NEAR_YOU -> loadPlaces()
+                    RecommendedContentSection.BECAUSE_YOU_READ -> loadBecauseYouRead(0)
+                    RecommendedContentSection.CONTINUE_READING -> loadContinueReading()
+                    RecommendedContentSection.RANDOM -> loadRandomArticles()
+                }
+                recommendedContent.add(section to content)
+            }
+            _recommendedContentState.value = Resource.Success(recommendedContent)
         }
     }
 
@@ -108,6 +120,16 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadTopRead(): List<PageSummary> {
         return loadFeed().topRead?.articles ?: emptyList()
+    }
+
+    private suspend fun loadOnThisDay(): List<PageSummary> {
+        // TODO: determine which event to load.
+        return loadFeed().onthisday?.first()?.pages() ?: emptyList()
+    }
+
+    private suspend fun loadInTheNews(): List<PageSummary> {
+        // TODO: determine which news to load.
+        return loadFeed().news?.first()?.links?.filterNotNull() ?: emptyList()
     }
 
     private suspend fun loadExplore(searchTerm: String): List<PageSummary> {
