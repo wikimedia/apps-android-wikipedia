@@ -672,7 +672,6 @@
   <string name="suggested_edits_contribution_image_label">Сӱрет</string>
   <string name="suggested_edits_contribution_article_label">Статья</string>
   <string name="suggested_edits_contribution_views">%s ончымаш</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Теҥгече</string>
   <string name="suggested_edits_contribution_type_image_tag">Сӱрет тег</string>
   <string name="suggested_edits_image_recommendations_task_title">Статьян сӱретше</string>

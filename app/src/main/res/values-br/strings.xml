@@ -981,7 +981,6 @@
     <item quantity="many">Ouzhpennet ho peus %d tikedenn</item>
     <item quantity="other">Ouzhpennet ho peus %d tikedenn</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dec\'h</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kevreañ ouzh / mont gant Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Tikedenn ar skeudenn</string>

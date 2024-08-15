@@ -1012,7 +1012,6 @@
     <item quantity="one">Þú bættir við %d merki</item>
     <item quantity="other">Þú bættir við %d merkjum</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Í gær</string>
   <string name="suggested_edits_encourage_account_creation_title">Vissir þú að allir geta breytt efni á Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Tillögur að breytingum er ný leið til að vinna við Wikipedia á Android. Þær hjálpa til við að gera smáar en mikilvægar breytingar á Wikipedia.\nMarkmið okkar er að einfalda vinnuna og gera hana aðgengilegri fyrir alla. Skráðu þig inn eða gakktu til liðs við Wikipedia til að komast í gang.</string>

@@ -1034,7 +1034,6 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">지난 30일 동안 %s건 조회되었습니다.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d개의 태그를 추가했습니다</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
   <string name="suggested_edits_encourage_account_creation_title">당신은 누구나 위키백과를 편집할 수 있다는 것을 알고 계셨나요?</string>
   <string name="suggested_edits_encourage_account_creation_message">편집 제안은 안드로이드에서 위키백과를 편집하는 새로운 방법입니다. 이 기능은 위키백과에 작지만 매우 중요한 기여를 하는 데 도움이 됩니다.\n우리의 목표는 모두를 위하여 편집의 난이도를 낮추고 접근성을 높이는 것입니다! 시작하려면 로그인하거나 회원가입하세요.</string>

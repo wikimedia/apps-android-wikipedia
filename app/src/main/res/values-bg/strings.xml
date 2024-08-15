@@ -932,7 +932,6 @@
     <item quantity="one">Добавихте %d етикет</item>
     <item quantity="other">Добавихте %d етикета</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените редакции са нов начин за редактиране на Уикипедия на Андроид. Помагат Ви да направите дребни, но полезни приноси към Уикипедия.\nНашата цел е да направим редактирането по-лесно и по-достъпно за всички! Влезте или се присъединете към Уикипедия, за да започнете.</string>

@@ -1066,7 +1066,6 @@
     <item quantity="one">Hai aggiunto %d etichetta</item>
     <item quantity="other">Hai aggiunto %d etichette</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Le modifiche suggerite sono un nuovo modo per modificare Wikipedia su Android. Ti aiuta a dare piccoli ma vitali contributi a Wikipedia. Il nostro obiettivo è rendere la modifica più semplice ed accessibile a tutti! Accedi o unisciti a Wikipedia per iniziare.</string>
