@@ -209,7 +209,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
     }
 
     companion object {
-        fun newInstance(invokeSource: Constants.InvokeSource): OnThisDayGameFinalFragment {
+        fun newInstance(invokeSource: InvokeSource): OnThisDayGameFinalFragment {
             return OnThisDayGameFinalFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
