@@ -1015,7 +1015,6 @@
     <item quantity="many">Pridali ste %d štítkov.</item>
     <item quantity="other">Pridali ste %d štítkov.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
   <string name="suggested_edits_encourage_account_creation_title">Vedeli ste, že Wikipédiu môže upravovať každý?</string>
   <string name="suggested_edits_encourage_account_creation_message">Navrhované úpravy sú nový spôsob ako upravovať Wikipédiu na Androide. Pomáha Vám robiť síce male, ale dôležité úpravy na Wikipédii.\nNaším cieľom je spraviť upravovanie jednoduchším a viac dostupným pre každého! Prihláste sa alebo zaregistrujte do Wikipédie a začnite.</string>

@@ -730,7 +730,6 @@
   <string name="suggested_edits_contribution_type_label">Tohfə tispir</string>
   <string name="suggested_edits_contribution_image_label">Šikil</string>
   <string name="suggested_edits_contribution_article_label">Məǧolon</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Zinə</string>
   <string name="suggested_edits_contribution_type_image_tag">Šikili teg</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Məlumot kame</string>
