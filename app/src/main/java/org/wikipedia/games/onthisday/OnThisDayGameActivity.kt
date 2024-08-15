@@ -367,10 +367,13 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, date: LocalDate = LocalDate.now()): Intent {
-            return Intent(context, OnThisDayGameActivity::class.java)
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, date: LocalDate? = null): Intent {
+            val intent = Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-                .putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
+            if (date != null) {
+                intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
+            }
+            return intent
         }
     }
 }

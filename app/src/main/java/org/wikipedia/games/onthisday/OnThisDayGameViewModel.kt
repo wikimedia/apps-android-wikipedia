@@ -32,7 +32,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
     private lateinit var currentState: GameState
-    val currentDate = if (bundle.containsKey(EXTRA_DATE)) LocalDate.ofInstant(Instant.ofEpochSecond(bundle.getLong(EXTRA_DATE)), ZoneOffset.UTC) else LocalDate.now()
+    private val overrideDate = bundle.containsKey(EXTRA_DATE)
+    val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(bundle.getLong(EXTRA_DATE)), ZoneOffset.UTC) else LocalDate.now()
     val currentMonth get() = currentDate.monthValue
     val currentDay get() = currentDate.dayOfMonth
 
@@ -55,7 +56,10 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             events.addAll(ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getOnThisDay(currentMonth, currentDay).events)
 
             JsonUtil.decodeFromString<GameState>(Prefs.otdGameState)?.let {
-                currentState = it.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, it.currentQuestionIndex))
+                currentState = it
+                if (overrideDate) {
+                    currentState = it.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0))
+                }
             } ?: run {
                 currentState = GameState(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0))
             }
@@ -76,6 +80,11 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're already done for today.
                 _gameState.postValue(GameEnded(currentState))
+            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay &&
+                currentState.currentQuestionIndex >= currentState.totalQuestions) {
+                // we're coming back from a previous day's completed game, so start a new day's game.
+                currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
+                _gameState.postValue(GameStarted(currentState))
             } else {
                 _gameState.postValue(Resource.Success(currentState))
             }
