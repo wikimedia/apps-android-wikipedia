@@ -54,13 +54,13 @@
 
     <ImageView
         android:id="@+id/listItemBookmark"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:contentDescription="@string/button_add_to_reading_list"
         android:focusable="true"
-        android:padding="4dp"
+        android:padding="12dp"
         app:tint="?attr/secondary_color"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp"
         app:layout_constraintEnd_toEndOf="parent"

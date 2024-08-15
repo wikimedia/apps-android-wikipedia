@@ -71,7 +71,7 @@ class OnThisDayGameShareFragment : Fragment() {
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.shareArticlesList.isNestedScrollingEnabled = false
-        binding.shareArticlesList.adapter = RecyclerViewAdapter(gameState.articles.filterIndexed { index, _ -> index % 2 != 0 })
+        binding.shareArticlesList.adapter = RecyclerViewAdapter(gameState.articles.filterIndexed { index, _ -> index % 2 != 0 }.take(3))
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
@@ -125,7 +125,6 @@ class OnThisDayGameShareFragment : Fragment() {
                 ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
             }
         }
-
     }
 
     companion object {
