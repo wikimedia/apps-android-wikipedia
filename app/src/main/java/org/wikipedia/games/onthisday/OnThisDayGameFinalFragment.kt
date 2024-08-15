@@ -167,7 +167,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
     }
-    
+
     companion object {
         fun newInstance(invokeSource: Constants.InvokeSource): OnThisDayGameFinalFragment {
             return OnThisDayGameFinalFragment().apply {
