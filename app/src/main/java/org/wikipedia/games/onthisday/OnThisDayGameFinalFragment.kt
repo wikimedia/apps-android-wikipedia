@@ -11,7 +11,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +22,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.concurrency.FlowEventBus
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -125,14 +123,14 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
         // TODO: moved to viewModel
-        lifecycle.coroutineScope.launch {
-            gameState.articles.forEach { pageSummary ->
-                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)) != null
-                if (inAnyList) {
-                    viewModel.savedPages.add(pageSummary)
-                }
-            }
-        }
+//        lifecycle.coroutineScope.launch {
+//            gameState.articles.forEach { pageSummary ->
+//                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)) != null
+//                if (inAnyList) {
+//                    viewModel.savedPages.add(pageSummary)
+//                }
+//            }
+//        }
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
