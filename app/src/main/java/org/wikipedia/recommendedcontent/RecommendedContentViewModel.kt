@@ -32,7 +32,7 @@ import org.wikipedia.util.StringUtil
 
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
-    val wikiSite: WikiSite = bundle.parcelable(Constants.ARG_WIKISITE)!!
+    val wikiSite = WikipediaApp.instance.wikiSite
     val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
     val showTabs = bundle.getBoolean(RecommendedContentFragment.ARG_SHOW_TABS)
     private val sectionIds: List<Int> = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!

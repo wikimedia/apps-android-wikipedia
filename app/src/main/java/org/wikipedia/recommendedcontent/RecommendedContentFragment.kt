@@ -140,9 +140,8 @@ class RecommendedContentFragment : Fragment() {
         const val ARG_SHOW_TABS = "showTabs"
         const val ARG_SECTION_IDS = "sectionIds"
 
-        fun newInstance(wikiSite: WikiSite, inHistory: Boolean, showTabs: Boolean, sectionIds: List<Int>) = RecommendedContentFragment().apply {
+        fun newInstance(inHistory: Boolean, showTabs: Boolean, sectionIds: List<Int>) = RecommendedContentFragment().apply {
             arguments = bundleOf(
-                Constants.ARG_WIKISITE to wikiSite,
                 ARG_IN_HISTORY to inHistory,
                 ARG_SHOW_TABS to showTabs,
                 ARG_SECTION_IDS to sectionIds

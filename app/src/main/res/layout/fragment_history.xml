@@ -61,4 +61,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentOverlayContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

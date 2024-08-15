@@ -33,6 +33,8 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.recommendedcontent.RecommendedContentFragment
+import org.wikipedia.recommendedcontent.RecommendedContentSection
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -90,6 +92,21 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 onPagesDeleted()
             }
         }
+
+        loadRecommendedContent()
+    }
+
+    private fun loadRecommendedContent() {
+        val sectionIds = listOf(
+            RecommendedContentSection.TOP_READ,
+            RecommendedContentSection.ON_THIS_DAY,
+            RecommendedContentSection.IN_THE_NEWS
+        ).map { it.id }
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = true, showTabs = false, sectionIds), null)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun setUpScrollListener() {
