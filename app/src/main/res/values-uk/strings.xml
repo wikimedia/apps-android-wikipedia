@@ -1145,7 +1145,6 @@
     <item quantity="many">Ви додали %d тегів</item>
     <item quantity="other">Ви додали %d тегів</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчора</string>
   <string name="suggested_edits_encourage_account_creation_title">Чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
   <string name="suggested_edits_encourage_account_creation_message">Пропоновані редагування — це новий спосіб редагувати Вікіпедію з Android. Він допомагає робити невеликі, але життєво важливі внески у Вікіпедію.\nНаша мета — зробити редагування простішим і доступнішим на всіх! Увійдіть або зареєструйтеся у Вікіпедії, щоб розпочати.</string>

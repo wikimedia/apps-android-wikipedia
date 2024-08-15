@@ -243,7 +243,6 @@
   <string name="suggested_edits_contribution_date_time_label">Data / Ora</string>
   <string name="suggested_edits_contribution_image_label">Immàgina</string>
   <string name="suggested_edits_contribution_article_label">Bozi</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="description_edit_login_cancel_button_text">Annullà</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>

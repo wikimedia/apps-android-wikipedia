@@ -1024,7 +1024,6 @@
     <item quantity="one">%d ta teg qoʻshgansiz</item>
     <item quantity="other">%d ta teg qoʻshgansiz</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kecha</string>
   <string name="suggested_edits_encourage_account_creation_title">Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
   <string name="suggested_edits_encourage_account_creation_message">Tavsiya etilgan tahrirlar - bu Android tizimida Vikipediyani tahrirlashning yangi usuli hisoblanadi. Bu sizga Vikipediyaga kichik, ammo hayotiy hissa qo\'shishda yordam beradi.\nBizning maqsadimiz tahrir qilishni hamma uchun osonroq va qulayroq qilishdir! Ishni boshlash uchun Vikipediyaga kiring yoki unga qo\'shiling.</string>

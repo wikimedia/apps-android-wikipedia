@@ -871,7 +871,6 @@
   <string name="suggested_edits_contribution_article_label">Straipsnis</string>
   <string name="suggested_edits_contribution_views">%s peržiūros</string>
   <string name="suggested_edits_contribution_seen_text">Peržiūrėta %s kartu per pastarąsias 30 dienų.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Vakar</string>
   <string name="suggested_edits_encourage_account_creation_title">Ar žinojote, kad visi gali redaguoti Vikipediją?</string>
   <string name="suggested_edits_encourage_account_creation_message">Siūlomi pakeitimai yra naujas būdas Android redaguoti Vikipediją. Tai padeda atlikti mažus, bet svarbius, Vikipedijos pakeitimus.\nMes siekiame padaryti redagavimą lengvesniu ir labiau prieinamu visiems! Prisijunkite ar užsiregistruokite prie Vikipedijos, kad pradėtumėte.</string>

@@ -1061,7 +1061,6 @@
     <item quantity="one">Hozzáadtál %d címkét</item>
     <item quantity="other">Hozzáadtál %d címkét</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Tegnap</string>
   <string name="suggested_edits_encourage_account_creation_title">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
   <string name="suggested_edits_encourage_account_creation_message">A javasolt szerkesztések egy új módja a Wikipédia tartalmának fejlesztéséhez való hozzájárulásnak. Ez egy aprónak tűnő, de fontos rész. Célunk az, hogy a szerkesztés könnyebb legyen, és elérhetőbb mindenki számára! Jelentkezz be vagy regisztrálj a Wikipédián a kezdéshez.</string>

@@ -994,7 +994,6 @@
     <item quantity="few">Ai adăugat etichetele %d</item>
     <item quantity="other">Ai adăugat etichetele %d</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_encourage_account_creation_title">Știați că toată lumea poate edita Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Editările sugerate sunt un nou mod de a edita Wikipedia pe Android. Vă ajută să faceți contribuții mici, dar vitale la Wikipedia.\nȚelul nostru este să facem procesul de editare și mai accesibil pentru toată lumea! Autentificați-vă sau alăturați-vă Wikipediei pentru a începe.</string>

@@ -1010,7 +1010,6 @@
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="other">yini=a pahila %d anfooni lobu lahabaya</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Sohila</string>
   <string name="suggested_edits_encourage_account_creation_title">Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu?</string>
   <string name="suggested_edits_encourage_account_creation_message">Maliniŋ sɔŋsim lahabaya yibuna nyɛla Wikipedia maliniŋ so\'palli Android nuchɛ\'baŋ puuni. Di sɔŋdi ka a tooi tohira n-niŋdi maliniŋnima dim bi galisi ka lee mali anfaani zaŋti Wikipedia.\n\nTi niya nyɛla ti chɛ ka maliniŋ niŋ asama ka sokam ni tooi paaili niŋ! Kpɛma n-pahi Wikipedia nim\' zuɣu n-piligi.</string>

@@ -939,7 +939,6 @@
     <item quantity="one">Vu adjuntis %d etiketo</item>
     <item quantity="other">Vu adjuntis %d etiketi</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hiere</string>
   <string name="suggested_edits_encourage_account_creation_title">Ka tu savis ke omni povas redaktar Wikipedio?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Enirar / partoprenar Wikipedio</string>

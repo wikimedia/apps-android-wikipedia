@@ -850,6 +850,7 @@
   <string name="feed_accessibility_card_text">Olet päässyt syötteen loppuun.</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
   <string name="feed_language_variants_removal_dialog_save">Tallenna</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Päivitä toissijaiset kielesi</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Mene asetuksiin</string>
   <string name="top_read_activity_title">Luetuimmat %s</string>
   <string name="tabs_activity_title">Välilehdet</string>
@@ -1063,7 +1064,6 @@
     <item quantity="one">Lisäsit %d kuvamerkinnän</item>
     <item quantity="other">Lisäsit %d kuvamerkintää</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
   <string name="suggested_edits_encourage_account_creation_title">Tiesitkö, että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="suggested_edits_encourage_account_creation_message">Uusi ehdotetut muokkaukset -toiminto helpottaa pienten mutta tärkeiden muokkausten tekemistä Android-laitteilla. Tavoitteenamme on tehdä artikkelien kehittämisestä yksinkertaisempaa ja  helpommin lähestyttävää. Aloita kirjautumalla sisään tai liittymällä Wikipediaan.</string>

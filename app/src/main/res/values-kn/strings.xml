@@ -433,7 +433,6 @@
     <item quantity="other">ಕೊನೆಯ ೩೦ ದಿನಗಳಲ್ಲಿ %s ಸಲ ನೋಡಲಾಗಿದೆ.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">ಕೊನೆಯ ೩೦ ದಿನಗಳಲ್ಲಿ %s ಸಲ ನೋಡಲಾಗಿದೆ.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ನಿನ್ನೆ</string>
   <string name="suggested_card_more_edits">ಇನ್ನಷ್ಟು ಸೂಚಿಸಲ್ಪಟ್ಟ ಸಂಪಾದನೆಗಳು</string>
   <string name="description_edit_revert_subtitle">ವಿಕಿಪೀಡಿಯ ಸಂಪಾದಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು!</string>

@@ -1091,7 +1091,6 @@
     <item quantity="one">U heeft %d label toegevoegd</item>
     <item quantity="other">U heeft %d labels toegevoegd</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
   <string name="suggested_edits_encourage_account_creation_title">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="suggested_edits_encourage_account_creation_message">“Voorgestelde bewerkingen” is een nieuwe manier om Wikipedia vanuit Android te bewerken. Hiermee kun je een kleine maar belangrijke bijdrage leveren aan Wikipedia. Ons doel is het bewerken voor iedereen makkelijker en toegankelijker te maken! Meld je aan en log in bij Wikipedia om te mee te doen.</string>

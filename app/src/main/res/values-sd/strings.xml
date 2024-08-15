@@ -954,7 +954,6 @@
     <item quantity="one">توھان %d ٽيگ وڌو</item>
     <item quantity="other">توھان %d ٽيگ وڌا</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ڪلھ</string>
   <string name="suggested_edits_encourage_account_creation_title">ڇا توھان ڄاڻو ٿا تہ ھرڪوئي وڪيپيڊيا کي سنواري سگهي ٿا؟</string>
   <string name="suggested_edits_encourage_account_creation_login_button">وڪيپيڊيا ۾ داخل ٿيو / شامل ٿيو</string>

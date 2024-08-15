@@ -800,7 +800,6 @@
     <item quantity="one">Jo hawwe %d lebel taheakke</item>
     <item quantity="other">Jo hawwe %d lebels taheakke</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Juster</string>
   <string name="suggested_edits_encourage_account_creation_title">Wisten jo dat elkenien de Wikipedy bewurkje kin?</string>
   <string name="suggested_edits_encourage_account_creation_message">Bewurksuggestjes binne in nije manier om \'e Wikipedy op Android te bewurkjen. Se helpe jo lytse mar wichtige bydragen oan \'e Wikipedy te leverjen.\nUs doel is it bewurkjen foar elkenien nofliker en tagonkliker te meitsjen! Meld jo oan, kom by de Wikipedy, en set útein.</string>
