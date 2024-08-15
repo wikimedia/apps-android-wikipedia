@@ -13,17 +13,17 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 class RecommendedContentFragment : Fragment() {
     private var _binding: FragmentRecommendedContentBinding? = null
@@ -33,19 +33,18 @@ class RecommendedContentFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        _binding = FragmentRecommendedContentBinding.inflate(inflater, container, false)
-
-        binding.historyList.layoutManager = LinearLayoutManager(requireContext())
+        _binding = FragmentRecommendedContentBinding.inflate(layoutInflater, container, false)
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.historyState.collect {
                     when (it) {
                         is Resource.Success -> {
-                            buildHistoryList(it.data)
+                             buildHistoryList(it.data)
                         }
                         is Resource.Error -> {
                             // TODO: implement error
+                            L.d(it.throwable)
                         }
                     }
                 }
@@ -55,10 +54,12 @@ class RecommendedContentFragment : Fragment() {
                 viewModel.recommendedContentState.collect {
                     when (it) {
                         is Resource.Success -> {
+                            L.d("Recommended content: ${it.data}")
                             buildRecommendedContent(it.data)
                         }
                         is Resource.Error -> {
                             // TODO: implement error
+                            L.d(it.throwable)
                         }
                     }
                 }
@@ -74,7 +75,9 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private fun buildHistoryList(list: List<PageTitle>) {
+        binding.historyList.layoutManager = LinearLayoutManager(requireContext())
         binding.historyList.adapter = RecyclerViewAdapter(list)
+        binding.searchCard.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
         binding.historyMoreButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
@@ -99,7 +102,7 @@ class RecommendedContentFragment : Fragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
-            return RecyclerViewItemHolder(ItemRecommendedContentSearchHistoryBinding.inflate(layoutInflater, parent))
+            return RecyclerViewItemHolder(ItemRecommendedContentSearchHistoryBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
@@ -120,7 +123,7 @@ class RecommendedContentFragment : Fragment() {
             this.pageTitle = pageTitle
             val listIcon = if (viewModel.inHistory) R.drawable.ic_history_24 else R.drawable.ic_search_white_24dp
             binding.listItem.text = StringUtil.fromHtml(pageTitle.displayText)
-            binding.listItem.setCompoundDrawablesWithIntrinsicBounds(0, listIcon, 0, 0)
+            binding.listItem.setCompoundDrawablesWithIntrinsicBounds(listIcon, 0, 0, 0)
             binding.deleteIcon.setOnClickListener {
                 // TODO: implement this method.
                 if (viewModel.inHistory) {

@@ -18,7 +18,7 @@ import org.wikipedia.util.StringUtil
 
 class RecommendedContentSectionView(context: Context, attributeSet: AttributeSet? = null) : LinearLayout(context, attributeSet) {
 
-    private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context))
+    private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun buildContent(section: RecommendedContentSection, pageSummaries: List<PageSummary>) {
         binding.sectionHeader.text = context.getString(section.titleResId)

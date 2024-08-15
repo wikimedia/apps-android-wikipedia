@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_height="@dimen/list_item_default_height"
-    tools:layout_width="match_parent"
-    tools:parentTag="android.widget.LinearLayout">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/listItem"
         style="@style/OverflowMenuItem"
+        android:layout_width="0dp"
         android:layout_weight="1"
+        android:padding="8dp"
+        android:paddingHorizontal="0dp"
         android:drawablePadding="16dp"
+        android:layout_marginStart="-16dp"
         app:drawableStartCompat="@drawable/ic_history_24"
         app:drawableTint="?attr/primary_color" />
 
@@ -20,7 +23,8 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/reading_list_delete_lists_dialog_delete_button_text"
         android:scaleType="center"
+        android:background="?android:attr/selectableItemBackground"
         app:srcCompat="@drawable/ic_close_black_24dp"
         app:tint="?android:attr/textColorTertiary" />
 
-</merge>
+</LinearLayout>
