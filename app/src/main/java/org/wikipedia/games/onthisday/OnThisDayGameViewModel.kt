@@ -133,17 +133,19 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
         val eventList = events.toMutableList()
         eventList.shuffle(random)
-        var event = eventList[index % eventList.size]
-        while (true) {
-            eventList.remove(event)
-            if (eventList.isEmpty())
-                break
-
-            val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
-            if (event.year > 0 && event.year <= currentDate.year && !event.text.matches(yearRegex)) {
-                break
-            }
+        var event = eventList[0]
+        repeat(index + 1) {
             event = eventList[index % eventList.size]
+            while (true) {
+                eventList.remove(event)
+                if (eventList.isEmpty())
+                    break
+                val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
+                if (event.year > 0 && event.year <= currentDate.year && !event.text.matches(yearRegex)) {
+                    break
+                }
+                event = eventList[index % eventList.size]
+            }
         }
 
         val yearChoices = mutableListOf<Int>()
