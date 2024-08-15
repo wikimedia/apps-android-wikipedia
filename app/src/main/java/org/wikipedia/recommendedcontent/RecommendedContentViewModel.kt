@@ -1,5 +1,6 @@
 package org.wikipedia.recommendedcontent
 
+import android.location.Location
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +18,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.NearbyPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
@@ -58,8 +58,8 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    // TODO: think about modulating this method.
-    fun loadRecommendedContent(searchTerm: String) {
+    // TODO: think about modularizing this method.
+    fun loadRecommendedContent(sections: List<RecommendedContentSection>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
@@ -137,26 +137,34 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private suspend fun loadContinueReading(): List<PageTitle> {
+    private suspend fun loadContinueReading(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            WikipediaApp.instance.tabList.mapNotNull { it.backStackPositionTitle }
+            WikipediaApp.instance.tabList.mapNotNull { tab ->
+                tab.backStackPositionTitle?.let {
+                    PageSummary(it.displayText, it.prefixedText, it.description, null, it.thumbUrl, it.wikiSite.languageCode)
+                }
+            }
         }
     }
 
-    private suspend fun loadPlaces(): List<NearbyPage> {
+    private suspend fun loadPlaces(): List<PageSummary> {
         val wikiSite = WikipediaApp.instance.wikiSite
         return withContext(Dispatchers.IO) {
             Prefs.placesLastLocationAndZoomLevel?.let { pair ->
                 val location = pair.first
                 val response = ServiceFactory.get(wikiSite).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
-                val nearbyPages = response.query?.pages.orEmpty()
+                val pages = response.query?.pages.orEmpty()
                     .filter { it.coordinates != null }
                     .map {
-                        NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
-                            if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
-                            it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
+                        val thumbUrl = if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE)
+                        PageSummary(it.displayTitle(wikiSite.languageCode), it.title, it.description, it.extract, thumbUrl, wikiSite.languageCode).apply {
+                            this.coordinates = Location("").apply {
+                                latitude = it.coordinates!![0].lat
+                                longitude = it.coordinates[0].lon
+                            }
+                        }
                     }
-                nearbyPages
+                pages
             } ?: emptyList()
         }
     }
