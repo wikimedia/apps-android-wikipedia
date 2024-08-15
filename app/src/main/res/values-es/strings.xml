@@ -148,8 +148,8 @@
   <string name="page_edit_history_filter_by_bot">Ediciones de bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métrica de %1$s a %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">%1$d editar desde %2$s</item>
-    <item quantity="other">%1$d editar desde %2$s</item>
+    <item quantity="one">%1$d edición desde %2$s</item>
+    <item quantity="other">%1$d ediciones desde %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d edición desde %2$s (%3$s)</item>
@@ -782,7 +782,7 @@
   <string name="notifications_empty_message">¡Tienes las notificaciones al día!</string>
   <string name="notifications_view_archived_button_text">Ver notificaciones archivadas</string>
   <string name="notification_preferences_title">Ajustes de notificaciones</string>
-  <string name="notifications_mark_unread">Marcar como no leído</string>
+  <string name="notifications_mark_unread">Marcar como no leída</string>
   <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
   <string name="notifications_direct_reply_action">Responder</string>
   <string name="notifications_direct_reply_progress">Publicando respuesta a %s...</string>
@@ -791,12 +791,12 @@
   <string name="notifications_mark_all_as_read_message">%d marcado como leído</string>
   <string name="notifications_mark_all_as_unread_message">%d marcado como no leído</string>
   <plurals name="notifications_mark_as_read_plural">
-    <item quantity="one">1 marcado como no leído </item>
-    <item quantity="other">%d marcado como no leído</item>
+    <item quantity="one">1 marcada como leída </item>
+    <item quantity="other">%d marcadas como leídas</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
-    <item quantity="one">1 marcado como no leído </item>
-    <item quantity="other">%d marcado como no leído</item>
+    <item quantity="one">1 marcada como no leída </item>
+    <item quantity="other">%d marcadas como no leídas</item>
   </plurals>
   <string name="watchlist_title">Lista de seguimiento</string>
   <string name="preference_title_notification_poll">Verificar notificaciones</string>
@@ -805,17 +805,17 @@
   <string name="preference_title_notification_system">Sistema</string>
   <string name="preference_summary_notification_system">Mensajes del sistema</string>
   <string name="preference_title_notification_milestone">Hito</string>
-  <string name="preference_summary_notification_milestone">Has alcanzado el máximo de ediciones</string>
+  <string name="preference_summary_notification_milestone">Ciertos números de ediciones han sido alcanzados</string>
   <string name="preference_title_notification_thanks">Gracias</string>
   <string name="preference_summary_notification_thanks">Alguien agradeció tu edición</string>
-  <string name="preference_title_notification_revert">Revertir</string>
+  <string name="preference_title_notification_revert">Reversión</string>
   <string name="preference_summary_notification_revert">Una de tus contribuciones fue revertida</string>
   <string name="preference_title_notification_login_fail">Acceso a la cuenta</string>
   <string name="preference_summary_notification_login_fail">Tu registro en actividades</string>
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Alguien te mencionó en una página</string>
   <string name="preference_title_notification_user_talk">Página de discusión</string>
-  <string name="preference_summary_notification_user_talk">Mensajes y respuestas de páginas de conversación</string>
+  <string name="preference_summary_notification_user_talk">Mensajes y respuestas de páginas de discusión</string>
   <string name="preference_title_notification_email_user">Email recibido</string>
   <string name="preference_summary_notification_email_user">Alguien te ha enviado un email a través de la wiki</string>
   <string name="preference_title_notification_user_rights">Cambios de derechos de usuario</string>
@@ -1119,7 +1119,6 @@
     <item quantity="one">Añadiste %d etiqueta</item>
     <item quantity="other">Añadiste %d etiquetas</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ayer</string>
   <string name="suggested_edits_encourage_account_creation_title">¿Sabías que todos pueden editar Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Las ediciones sugeridas son una nueva forma de editar Wikipedia en Android. Te ayudan a hacer pequeñas pero vitales contribuciones a Wikipedia. ¡Nuestro objetivo es hacer que la edición sea más fácil y accesible para todos! Accede o únete a Wikipedia para comenzar.</string>

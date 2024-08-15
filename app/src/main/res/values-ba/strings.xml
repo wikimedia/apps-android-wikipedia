@@ -1041,7 +1041,6 @@
     <item quantity="one">%d тамға өҫтәнегеҙ</item>
     <item quantity="other">%d тамға өҫтәнегеҙ</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Кисә</string>
   <string name="suggested_edits_encourage_account_creation_title">Википедияны һәр кем мөхәррирләй алғанын беләһегеҙме?</string>
   <string name="suggested_edits_encourage_account_creation_message">Тәҡдим ителгән үҙгәрештәр - Википедияны Android-та мөхәррирләү - яңы ысул. Был Һеҙгә Википедияға ҙур булмаған, әммә әһәмиәтле өлөш индерергә ярҙам итә.\nБеҙҙең маҡсат - мөхәррирләүҙе ябайлаштырыу һәм бөтәһе өсөн дә асыҡ итеү! Башлау өсөн тәүҙә системаға танылығыҙ йәки Википедияға ҡушылығыҙ.</string>

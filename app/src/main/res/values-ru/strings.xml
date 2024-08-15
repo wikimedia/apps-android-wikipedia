@@ -922,6 +922,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
   <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
+  <string name="feed_language_variants_removal_dialog_title">Выберите вариант регионального языка для более удобного чтения</string>
   <string name="feed_language_variants_removal_dialog_save">Сохранить</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Перейти в настройки</string>
   <string name="top_read_activity_title">Самое читаемое %s</string>
@@ -1144,7 +1145,6 @@
     <item quantity="many">Добавлено тегов: %d</item>
     <item quantity="other">Добавлено тегов: %d</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Знаете ли вы, что каждый может редактировать Википедию?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предлагаемые правки - это новый способ редактирования Википедии на Android. Это поможет вам внести небольшой, но жизненно важный вклад в Википедию. Наша цель - сделать редактирование проще и доступнее для всех! Войдите или присоединитесь к Википедии, чтобы начать.</string>
@@ -1683,6 +1683,7 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Оставить описания правки</string>
   <string name="patroller_saved_message_title_art_imp">Предложение по улучшению статьи</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
+  <string name="talk_warn_learn_more_label">Узнать о заполнителях сообщений</string>
   <string name="talk_warn_saved_messages_usage_instruction">Используйте примеры сообщения ниже для настройки, отправки и сохранения его в своих сообщениях.</string>
   <string name="talk_templates_menu_edit_title">Править</string>
   <string name="data_opt_in_accept">Принять</string>

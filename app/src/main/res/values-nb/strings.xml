@@ -1070,7 +1070,6 @@
     <item quantity="one">Du la til %d tagg</item>
     <item quantity="other">Du la til %d tagger</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
   <string name="suggested_edits_encourage_account_creation_title">Visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Redigeringsforslag er en ny måte å redigere Wikipedia på fra Android. Den hjelper deg å å gjøre små, men viktige bidrag til Wikipedia.\nMålet vårt er å gjøre redigering enklere og mer tilgjengelig for alle! Logg inn eller registrer deg på Wikipedia for å komme i gang.</string>

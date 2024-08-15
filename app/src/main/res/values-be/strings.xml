@@ -1136,7 +1136,6 @@
     <item quantity="many">Вы дадалі %d тэгаў.</item>
     <item quantity="other">Вы дадалі %d тэгаў.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Учора</string>
   <string name="suggested_edits_encourage_account_creation_title">Ці ведаеце вы, што кожны можа правіць Вікіпедыю?</string>
   <string name="suggested_edits_encourage_account_creation_message">Прапанаваныя рэдагаванні — гэта новы спосаб рэдагавання Вікіпедыі на Андроід. Гэта дапаможа вам зрабіць невялікі, але важны ўнёсак у Вікіпедыю.\nНаша мэта — зрабіць рэдагаванне прасцейшым і больш даступным для ўсіх! Увайдзіце або далучыцеся да Вікіпедыі, каб пачаць.</string>

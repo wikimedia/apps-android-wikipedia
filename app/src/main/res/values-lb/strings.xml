@@ -905,7 +905,6 @@
     <item quantity="other">%s Mol an de leschten 30 Deeg gekuckt.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">%s Mol an de leschten 30 Deeg gekuckt.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir, datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Aloggen / bei Wikipedia matmaachen</string>

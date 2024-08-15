@@ -469,7 +469,6 @@
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
   <string name="suggested_edits_contribution_image_label">تصویر</string>
   <string name="suggested_edits_contribution_article_label">مضمون</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">کل</string>
   <string name="suggested_edits_report_suggestion">رپورٹ</string>
   <string name="suggested_edits_suggestion_report_submitted">رپورٹ جمع تھئی</string>
