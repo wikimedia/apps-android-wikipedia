@@ -36,6 +36,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     val currentDay get() = currentDate.dayOfMonth
 
     private val events = mutableListOf<OnThisDay.Event>()
+    val savedPages = mutableListOf<PageSummary>()
 
     init {
         Prefs.lastOtdGameVisitDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)

@@ -10,17 +10,35 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.coroutineScope
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
+<<<<<<< HEAD
+=======
+import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.ReleaseUtil
+>>>>>>> d39988b99c (Handle bookmark icon actions)
 import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 import java.time.Duration
@@ -56,6 +74,19 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
                 is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data)
                 else -> {
                     requireActivity().supportFragmentManager.popBackStack()
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is ArticleSavedOrDeletedEvent -> {
+                            // TODO: work on this
+                            binding.resultArticlesList.adapter?.notifyDataSetChanged()
+                        }
+                    }
                 }
             }
         }
@@ -97,6 +128,15 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
+        // TODO: moved to viewModel
+        lifecycle.coroutineScope.launch {
+            gameState.articles.forEach { pageSummary ->
+                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)) != null
+                if (inAnyList) {
+                    viewModel.savedPages.add(pageSummary)
+                }
+            }
+        }
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
@@ -138,7 +178,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(pages[position])
+            holder.bindItem(pages[position], position)
         }
     }
 
@@ -151,12 +191,21 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             itemView.setOnClickListener(this)
         }
 
-        fun bindItem(page: PageSummary) {
+        fun bindItem(page: PageSummary, position: Int) {
             this.page = page
             binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemBookmark.isVisible = true
+            val isSaved = viewModel.savedPages.contains(page)
+            binding.listItemBookmark.setOnClickListener {
+                // TODO: handle saved state
+                onBookmarkIconClick(it, page, position, isSaved)
+            }
+            val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
+            val bookmarkTint = ResourceUtil.getThemedColorStateList(requireContext(), if (isSaved) R.attr.progressive_color else R.attr.secondary_color)
+            binding.listItemBookmark.setImageResource(bookmarkResource)
+            binding.listItemBookmark.imageTintList = bookmarkTint
             page.thumbnailUrl?.let {
                 ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
             }
@@ -167,7 +216,32 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
     }
-    
+
+    private fun onBookmarkIconClick(view: View, pageSummary: PageSummary, position: Int, isSaved: Boolean) {
+        val pageTitle = pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)
+        if (isSaved) {
+            LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
+                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.RANDOM_ACTIVITY) {
+                        binding.resultArticlesList.adapter?.notifyItemChanged(position)
+                    }
+                }
+
+                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                    page?.let {
+                        ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.RANDOM_ACTIVITY) {
+                            binding.resultArticlesList.adapter?.notifyItemChanged(position)
+                        }
+                    }
+                }
+            }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_GAME))
+        } else {
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, true, InvokeSource.RANDOM_ACTIVITY) {
+                binding.resultArticlesList.adapter?.notifyItemChanged(position)
+            }
+        }
+    }
+
     companion object {
         fun newInstance(invokeSource: Constants.InvokeSource): OnThisDayGameFinalFragment {
             return OnThisDayGameFinalFragment().apply {
