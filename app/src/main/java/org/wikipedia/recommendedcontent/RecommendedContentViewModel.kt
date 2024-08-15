@@ -66,7 +66,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             sections.forEach { section ->
                 val content = when (section) {
                     RecommendedContentSection.TOP_READ -> loadTopRead()
-                    RecommendedContentSection.EXPLORE -> loadExplore("")
+                    RecommendedContentSection.EXPLORE -> loadExplore("United States") // TODO: discuss this
                     RecommendedContentSection.ON_THIS_DAY -> loadOnThisDay()
                     RecommendedContentSection.IN_THE_NEWS -> loadInTheNews()
                     RecommendedContentSection.PLACES_NEAR_YOU -> loadPlaces()
