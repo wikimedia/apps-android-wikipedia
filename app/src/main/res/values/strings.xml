@@ -1789,6 +1789,7 @@
     <string name="on_this_day_game_finish">Finish</string>
     <string name="on_this_day_game_share">Share with friends</string>
     <string name="on_this_day_game_result">You got %1$d out of %2$d questions right today. %3$s</string>
+    <string name="on_this_day_game_result_subtitle">Articles mentioned in today\'s game</string>
     <string name="on_this_day_game_encourage0">Better luck tomorrow!</string>
     <string name="on_this_day_game_encourage1">Congratulations!</string>
     <string name="on_this_day_game_encourage2">Great job!</string>
@@ -1803,5 +1804,6 @@
     <string name="on_this_day_game_share_title">I scored %1$d out of %2$d on WikiDate Detective today</string>
     <string name="on_this_day_game_share_subtitle">Topics included:</string>
     <string name="on_this_day_game_share_footer">Play for a limited time only in the Wikipedia Android app</string>
+    <string name="on_this_day_game_share_back_button">Go back</string>
 
 </resources>

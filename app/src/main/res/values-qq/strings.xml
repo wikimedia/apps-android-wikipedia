@@ -1724,4 +1724,5 @@
   <string name="on_this_day_game_share_title">Title of the share screen of the game. The %1$d will be replaced by the corrected number, and the %2$d will be replaced by the total number of questions.</string>
   <string name="on_this_day_game_share_subtitle">Subtitle of the share screen of the game.</string>
   <string name="on_this_day_game_share_footer">Footer text of the share screen of the game.</string>
+  <string name="on_this_day_game_share_back_button">Buttle label for going back to the final game page.</string>
 </resources>

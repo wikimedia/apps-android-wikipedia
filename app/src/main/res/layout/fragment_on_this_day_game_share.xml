@@ -12,82 +12,98 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/shareContainer"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="16dp"
-            android:clipToPadding="false">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/resultText"
-                android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/shareContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/H2.AppBar"
-                android:textColor="?attr/primary_color"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="Lorem ipsum"/>
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:clipToPadding="false"
+                android:background="?attr/paper_color">
 
-            <View
-                android:id="@+id/questionDotLine"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="?attr/inactive_color"
-                android:layout_marginHorizontal="4dp"
-                app:layout_constraintStart_toStartOf="@id/questionDotsFlow"
-                app:layout_constraintEnd_toEndOf="@id/questionDotsFlow"
-                app:layout_constraintTop_toTopOf="@id/questionDotsFlow"
-                app:layout_constraintBottom_toBottomOf="@id/questionDotsFlow" />
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/H2.AppBar"
+                    android:textColor="?attr/primary_color"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Lorem ipsum"/>
 
-            <androidx.constraintlayout.helper.widget.Flow
-                android:id="@+id/questionDotsFlow"
-                android:layout_width="0dp"
+                <View
+                    android:id="@+id/questionDotLine"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="?attr/inactive_color"
+                    android:layout_marginHorizontal="4dp"
+                    app:layout_constraintStart_toStartOf="@id/questionDotsFlow"
+                    app:layout_constraintEnd_toEndOf="@id/questionDotsFlow"
+                    app:layout_constraintTop_toTopOf="@id/questionDotsFlow"
+                    app:layout_constraintBottom_toBottomOf="@id/questionDotsFlow" />
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/questionDotsFlow"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/resultText"
+                    app:layout_constraintStart_toStartOf="@id/resultText"
+                    app:flow_horizontalBias="0"
+                    app:flow_horizontalGap="16dp"
+                    app:flow_verticalAlign="center"
+                    app:flow_wrapMode="chain" />
+
+                <TextView
+                    android:id="@+id/shareSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/H2.AppBar"
+                    android:textColor="?attr/primary_color"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/on_this_day_game_share_subtitle"
+                    app:layout_constraintTop_toBottomOf="@id/questionDotsFlow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/shareArticlesList"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/shareSubtitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/primary_color"
+                    android:textSize="18sp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/on_this_day_game_share_footer"
+                    app:layout_constraintTop_toBottomOf="@id/shareArticlesList"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/resultText"
-                app:layout_constraintStart_toStartOf="@id/resultText"
-                app:flow_horizontalBias="0"
-                app:flow_horizontalGap="16dp"
-                app:flow_verticalAlign="center"
-                app:flow_wrapMode="chain" />
+                android:text="@string/on_this_day_game_share_back_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"/>
 
-            <TextView
-                android:id="@+id/shareSubtitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                style="@style/H2.AppBar"
-                android:textColor="?attr/primary_color"
-                android:layout_marginTop="32dp"
-                android:text="@string/on_this_day_game_share_subtitle"
-                app:layout_constraintTop_toBottomOf="@id/questionDotsFlow"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/shareArticlesList"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@id/shareSubtitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/primary_color"
-                android:textSize="18sp"
-                android:layout_marginTop="32dp"
-                android:text="@string/on_this_day_game_share_footer"
-                app:layout_constraintTop_toBottomOf="@id/shareArticlesList"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
 
