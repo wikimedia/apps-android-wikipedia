@@ -39,7 +39,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
 
-    private val _recommendedContentState = MutableStateFlow(Resource<List<PageSummary>>())
+    private val _recommendedContentState = MutableStateFlow(Resource<Pair<RecommendedContentSection, List<PageSummary>>>())
     val recommendedContentState = _recommendedContentState.asStateFlow()
 
     init {
