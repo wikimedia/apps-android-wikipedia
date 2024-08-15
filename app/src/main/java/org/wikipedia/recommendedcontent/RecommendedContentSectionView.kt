@@ -1,11 +1,10 @@
 package org.wikipedia.recommendedcontent
 
 import android.content.Context
-import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.WikipediaApp
@@ -16,9 +15,9 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.util.StringUtil
 
-class RecommendedContentSectionView(context: Context, attributeSet: AttributeSet? = null) : LinearLayout(context, attributeSet) {
+class RecommendedContentSectionView(context: Context) : FrameLayout(context) {
 
-    private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context))
 
     fun buildContent(section: RecommendedContentSection, pageSummaries: List<PageSummary>) {
         binding.sectionHeader.text = context.getString(section.titleResId)

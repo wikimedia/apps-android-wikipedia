@@ -19,7 +19,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.page.PageTitle
@@ -29,6 +28,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
@@ -77,8 +77,10 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     RecommendedContentSection.CONTINUE_READING -> loadContinueReading()
                     RecommendedContentSection.RANDOM -> loadRandomArticles()
                 }
+                L.d("Recommended content for $section: $content")
                 recommendedContent.add(section to content)
             }
+            L.d("Recommended content: $recommendedContent")
             _recommendedContentState.value = Resource.Success(recommendedContent)
         }
     }
@@ -122,17 +124,23 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun loadTopRead(): List<PageSummary> {
-        return loadFeed().topRead?.articles ?: emptyList()
+        return withContext(Dispatchers.IO) {
+            loadFeed().topRead?.articles ?: emptyList()
+        }
     }
 
     private suspend fun loadOnThisDay(): List<PageSummary> {
         // TODO: determine which event to load.
-        return loadFeed().onthisday?.first()?.pages() ?: emptyList()
+        return withContext(Dispatchers.IO) {
+            loadFeed().onthisday?.first()?.pages() ?: emptyList()
+        }
     }
 
     private suspend fun loadInTheNews(): List<PageSummary> {
         // TODO: determine which news to load.
-        return loadFeed().news?.first()?.links?.filterNotNull() ?: emptyList()
+        return withContext(Dispatchers.IO) {
+            loadFeed().news?.first()?.links?.filterNotNull() ?: emptyList()
+        }
     }
 
     private suspend fun loadExplore(searchTerm: String): List<PageSummary> {

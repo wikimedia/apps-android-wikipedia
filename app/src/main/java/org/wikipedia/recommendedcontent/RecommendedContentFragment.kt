@@ -37,29 +37,29 @@ class RecommendedContentFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.historyState.collect {
-                    when (it) {
-                        is Resource.Success -> {
-                             buildHistoryList(it.data)
-                        }
-                        is Resource.Error -> {
-                            // TODO: implement error
-                            L.d(it.throwable)
+                launch {
+                    viewModel.historyState.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                buildHistoryList(it.data)
+                            }
+                            is Resource.Error -> {
+                                // TODO: implement error
+                                L.d(it.throwable)
+                            }
                         }
                     }
                 }
-            }
-
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.recommendedContentState.collect {
-                    when (it) {
-                        is Resource.Success -> {
-                            L.d("Recommended content: ${it.data}")
-                            buildRecommendedContent(it.data)
-                        }
-                        is Resource.Error -> {
-                            // TODO: implement error
-                            L.d(it.throwable)
+                launch {
+                    viewModel.recommendedContentState.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                buildRecommendedContent(it.data)
+                            }
+                            is Resource.Error -> {
+                                // TODO: implement error
+                                L.d(it.throwable)
+                            }
                         }
                     }
                 }
@@ -89,6 +89,7 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private fun buildRecommendedContent(list: List<Pair<RecommendedContentSection, List<PageSummary>>>) {
+        L.d("buildRecommendedContent list: $list")
         list.forEach { (section, pageSummaries) ->
             val sectionView = RecommendedContentSectionView(requireContext())
             sectionView.buildContent(section, pageSummaries)
