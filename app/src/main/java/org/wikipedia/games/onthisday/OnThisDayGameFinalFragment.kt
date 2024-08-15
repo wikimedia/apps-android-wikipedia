@@ -10,22 +10,15 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
@@ -72,19 +65,6 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             }
         }
 
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                FlowEventBus.events.collectLatest { event ->
-                    when (event) {
-                        is ArticleSavedOrDeletedEvent -> {
-                            // TODO: work on this
-                            binding.resultArticlesList.adapter?.notifyDataSetChanged()
-                        }
-                    }
-                }
-            }
-        }
-
         timeUpdateRunnable = Runnable {
             val timeLeft = timeUntilNextDay()
             binding.nextGameText.text = getString(R.string.on_this_day_game_next_in, String.format(Locale.getDefault(), "%02d:%02d:%02d", timeLeft.toHoursPart(), timeLeft.toMinutesPart(), timeLeft.toSecondsPart()))
@@ -122,15 +102,6 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
-        // TODO: moved to viewModel
-//        lifecycle.coroutineScope.launch {
-//            gameState.articles.forEach { pageSummary ->
-//                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)) != null
-//                if (inAnyList) {
-//                    viewModel.savedPages.add(pageSummary)
-//                }
-//            }
-//        }
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
@@ -193,7 +164,6 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             binding.listItemBookmark.isVisible = true
             val isSaved = viewModel.savedPages.contains(page)
             binding.listItemBookmark.setOnClickListener {
-                // TODO: handle saved state
                 onBookmarkIconClick(it, page, position, isSaved)
             }
             val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
@@ -216,23 +186,25 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         if (isSaved) {
             LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.RANDOM_ACTIVITY) {
-                        binding.resultArticlesList.adapter?.notifyItemChanged(position)
-                    }
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
                 }
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                     page?.let {
-                        ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.RANDOM_ACTIVITY) {
-                            binding.resultArticlesList.adapter?.notifyItemChanged(position)
-                        }
+                        ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
                     }
+                }
+
+                override fun onRemoveRequest() {
+                    super.onRemoveRequest()
+                    viewModel.savedPages.remove(pageSummary)
+                    binding.resultArticlesList.adapter?.notifyItemChanged(position)
                 }
             }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_GAME))
         } else {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, true, InvokeSource.RANDOM_ACTIVITY) {
-                binding.resultArticlesList.adapter?.notifyItemChanged(position)
-            }
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, true, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
+            viewModel.savedPages.add(pageSummary)
+            binding.resultArticlesList.adapter?.notifyItemChanged(position)
         }
     }
 

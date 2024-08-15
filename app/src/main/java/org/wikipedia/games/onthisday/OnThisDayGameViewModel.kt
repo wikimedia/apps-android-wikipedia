@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
@@ -57,6 +58,14 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 currentState = it.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, it.currentQuestionIndex))
             } ?: run {
                 currentState = GameState(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0))
+            }
+
+            savedPages.clear()
+            currentState.articles.forEach { pageSummary ->
+                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)) != null
+                if (inAnyList) {
+                    savedPages.add(pageSummary)
+                }
             }
 
             if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
