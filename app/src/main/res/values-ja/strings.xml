@@ -1073,7 +1073,6 @@
     <item quantity="one">%dつのタグを追加しました</item>
     <item quantity="other">%dつのタグを追加しました</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨日</string>
   <string name="suggested_edits_encourage_account_creation_title">誰でもウィキペディアを編集できることはご存知でしたか?</string>
   <string name="suggested_edits_encourage_account_creation_message">提案された編集は Android 上でウィキペディアを編集する新しい方法です。これは小さなことですがウィキペディアに不可欠なものです。私たちの目標は誰でも簡単に編集できるようにすることです。ログインをするかウィキペディアに参加して始めましょう。</string>

@@ -850,7 +850,6 @@
   <string name="suggested_edits_contribution_image_label">Εικόνα</string>
   <string name="suggested_edits_contribution_article_label">Άρθρο</string>
   <string name="suggested_edits_contribution_views">%s εμφανίσεις</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Χθες</string>
   <string name="suggested_edits_encourage_account_creation_title">Γνωρίζετε ότι όλοι μπορούν να επεξεργαστούν την Βικιπαίδεια;</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Σύνδεση / εγγραφή στη Βικιπαίδεια</string>

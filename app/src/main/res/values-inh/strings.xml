@@ -1022,7 +1022,6 @@
     <item quantity="one">Ӏа %d фост тӀатехад</item>
     <item quantity="other">Ӏа %d фост тӀатехад</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Селхан</string>
   <string name="suggested_edits_encourage_account_creation_title">Хой хьона моллагӀа саг Википеди тоае йиш йолаш волга?</string>
   <string name="suggested_edits_encourage_account_creation_message">Оаха хьога де мегаргда аьнна дӀагойташ дола тоадар — Википеди Androida тӀа тоаяра керда наькъаш да. Цу тайпара тоадарца Википедена чӀоагӀа эшаш бола болх бу Ӏа. Тхо кхача гӀертар да — Википеди тоаяр массанена атта хилар. Чувала е регистраци е Википеде чу, болх дӀаболабергболаш.</string>
