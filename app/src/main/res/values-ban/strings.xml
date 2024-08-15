@@ -685,7 +685,6 @@
   <string name="suggested_edits_contribution_image_label">Gambar</string>
   <string name="suggested_edits_contribution_article_label">Suratan</string>
   <string name="suggested_edits_contribution_views">%s cingakan</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dibi</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Manjing log / sarengin Wikipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Cihna gambar</string>

@@ -967,7 +967,6 @@
   <string name="suggested_edits_contribution_article_label">Artykuł</string>
   <string name="suggested_edits_contribution_views">%s wyświetleń</string>
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
   <string name="suggested_edits_encourage_account_creation_title">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="suggested_edits_encourage_account_creation_message">Sugerowane zmiany to nowy sposób edytowania Wikipedii na Androidzie. Pomaga w niewielkim, ale istotnym wkładzie do Wikipedii.\nNaszym celem jest uczynienie edycji łatwiejszą i bardziej dostępną dla wszystkich! Zaloguj się lub dołącz do Wikipedii, aby rozpocząć.</string>

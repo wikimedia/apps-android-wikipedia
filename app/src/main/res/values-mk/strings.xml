@@ -178,7 +178,7 @@
   <string name="login_join_wikipedia">Придружете ни се на Википедија</string>
   <string name="login_forgot_password">Ја заборавивте лозинката?</string>
   <string name="create_account_already_have">Веќе имате сметка?</string>
-  <string name="create_account_activity_title">Направи кориничка сметка</string>
+  <string name="create_account_activity_title">Направи сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
@@ -1055,7 +1055,6 @@
     <item quantity="one">Додадовте %d ознака</item>
     <item quantity="other">Додадовте %d ознаки</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>

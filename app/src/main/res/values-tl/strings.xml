@@ -989,7 +989,6 @@
     <item quantity="one">Nagdagdag ka ng %d tag</item>
     <item quantity="other">Nagdagdag ka ng %d (na) tag</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kahapon</string>
   <string name="suggested_edits_encourage_account_creation_title">Alam mo ba, kahit sino pwedeng mag-edit sa Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Bagong paraan ang mga mungkahing edit para makapag-edit ka sa Wikipedia sa Android. Tinutulungan ka nitong gumawa ng mga maliliit pero mahahalagang ambag sa Wikipedia. Layunin namin na padaliin pa ang pag-edit at gawing mas accessible pa ito sa mas nakakarami! Mag-login o sumali sa Wikipedia para makapagsimula ka na.</string>

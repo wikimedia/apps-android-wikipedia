@@ -3,6 +3,7 @@
 * AVSmalnad77
 * Ananth subray
 * Ashay vb
+* Kavitha G. Kana
 * MSG17
 * Mahaveer Indra
 * MuratTheTurkish
@@ -61,7 +62,7 @@
   <string name="page_edit_history_activity_title">ಬದಲಾವಣೆಗಳ ಇತಿಹಾಸ: %s</string>
   <string name="page_edit_history_comment_placeholder">ಸಂಪಾದನಾ ಇತಿಹಾಸ ಖಾಲಿ ಇದೆ</string>
   <string name="page_edit_history_search_or_filter_edits_hint">ಸಂಪಾದನಾ ಇತಿಹಾಸವನ್ನು ಹುಡುಕಿ ಅಥವಾ ಆರಿಸಿ</string>
-  <string name="page_edit_history_filter_by">ಇದರಂತೆ ಆರಿಸಿ</string>
+  <string name="page_edit_history_filter_by">ಆರಿಸಿ</string>
   <string name="page_edit_history_filter_by_all">ಎಲ್ಲಾ ಸಂಪಾದನೆಗಳು (%s)</string>
   <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರರ ಸಂಪಾದನೆಗಳು (%s)</string>
   <string name="page_edit_history_filter_by_anon">ಅನಾಮಧೇಯ ಸಂಪಾದನೆಗಳು (%s)</string>
@@ -87,8 +88,8 @@
   <string name="feed_card_add_to_list">ಓದುವ ಪಟ್ಟಿಗೆ ಸೇರಿಸಿ</string>
   <string name="feed_card_add_to_default_list">ಉಳಿಸಿ</string>
   <string name="menu_page_share">ಕೊಂಡಿಯನ್ನು ಹಂಚು</string>
-  <string name="menu_article_share">ಬರಹವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ</string>
-  <string name="menu_page_article_share">ಹಂಚಿ</string>
+  <string name="menu_article_share">ಲೇಖನ ಹುಡುಕಿ</string>
+  <string name="menu_page_article_share">ಹಂಚು</string>
   <string name="menu_page_open_a_new_tab">ಹೊಸ ಟ್ಯಾಬ್ ತೆರೆ</string>
   <string name="menu_page_new_tab">ಹೊಸ ಟ್ಯಾಬ್</string>
   <string name="menu_page_reading_lists">ಓದುವ ಪಟ್ಟಿಗಳು</string>
@@ -97,7 +98,7 @@
   <string name="menu_long_press_open_page">ತೆರೆ</string>
   <string name="menu_long_press_open_in_new_tab">ಹೊಸ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ತೆರೆ</string>
   <string name="menu_long_press_copy_page">ಕೊಂಡಿ ವಿಳಾಸವನ್ನು ನಕಲು ಮಾಡು</string>
-  <string name="menu_text_select_define">ವ್ಯಾಖ್ಯಾನ</string>
+  <string name="menu_text_select_define">ವ್ಯಾಖ್ಯಾನಿಸು</string>
   <string name="on_this_day_page_share">ಹಂಚು</string>
   <string name="reading_list_page_share">ಹಂಚು</string>
   <string name="menu_text_select_edit_here">ಇಲ್ಲಿ ಸಂಪಾದಿಸಿ</string>
@@ -148,7 +149,7 @@
   <string name="login_activity_title">ಲಾಗ್ ಇನ್</string>
   <string name="login_in_progress_dialog_message">ನೀವು ಲಾಗ್-ಇನ್ ಆಗುತ್ತಿದ್ದೀರಿ…</string>
   <string name="login_success_toast">ಲಾಗಿನ್ ಆಯಿತು!</string>
-  <string name="reset_password_title">ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಹೊಂದಿಸಿ</string>
+  <string name="reset_password_title">ನಿಮ್ಮ ಪ್ರವೇಶಪದ ನಮೂದಿಸಿ</string>
   <string name="reset_password_description">ನೀವು ತಾತ್ಕಾಲಿಕ ಗುಪ್ತಪದವನ್ನು ಬಳಸಿ ಲಾಗಿನ್ ಆಗಿದ್ದೀರಿ. ಲಾಗಿನ್ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ನಿಮ್ಮದೇ ಆದ ಹೊಸ ಗುಪ್ತಪದವನ್ನು ನಮೂದಿಸಿ.</string>
   <string name="reset_password_hint">ಹೊಸ ಪ್ರವೇಶಪದ</string>
   <string name="reset_password_button">ಉಳಿಸಿ ಮತ್ತು ಲಾಗ್ ಇನ್ ಆಗಿ</string>
@@ -432,7 +433,6 @@
     <item quantity="other">ಕೊನೆಯ ೩೦ ದಿನಗಳಲ್ಲಿ %s ಸಲ ನೋಡಲಾಗಿದೆ.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">ಕೊನೆಯ ೩೦ ದಿನಗಳಲ್ಲಿ %s ಸಲ ನೋಡಲಾಗಿದೆ.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ನಿನ್ನೆ</string>
   <string name="suggested_card_more_edits">ಇನ್ನಷ್ಟು ಸೂಚಿಸಲ್ಪಟ್ಟ ಸಂಪಾದನೆಗಳು</string>
   <string name="description_edit_revert_subtitle">ವಿಕಿಪೀಡಿಯ ಸಂಪಾದಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು!</string>
