@@ -30,13 +30,9 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
-<<<<<<< HEAD
-=======
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.ReleaseUtil
->>>>>>> d39988b99c (Handle bookmark icon actions)
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil

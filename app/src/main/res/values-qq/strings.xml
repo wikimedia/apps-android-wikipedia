@@ -1710,6 +1710,7 @@
   <string name="on_this_day_game_finish">Button label for finishing the game.</string>
   <string name="on_this_day_game_share">Button label for sharing game results.</string>
   <string name="on_this_day_game_result">Message shown at the end of a game. The %1$d symbol is replaced with the number of correct answers, %2$d is the total number of questions, and %3$s is a message of encouragement to try again.</string>
+  <string name="on_this_day_game_result_subtitle">Label shown over the list of articles mentioned in the game.</string>
   <string name="on_this_day_game_encourage0">Message of encouragement for a low game score.</string>
   <string name="on_this_day_game_encourage1">Message of encouragement for a medium game score.</string>
   <string name="on_this_day_game_encourage2">Message of encouragement for a high game score.</string>
