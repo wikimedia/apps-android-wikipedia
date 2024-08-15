@@ -34,7 +34,6 @@ class RecommendedContentFragment : Fragment() {
 
         _binding = FragmentRecommendedContentBinding.inflate(inflater, container, false)
 
-
         binding.historyList.layoutManager = LinearLayoutManager(requireContext())
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -50,7 +49,6 @@ class RecommendedContentFragment : Fragment() {
                     }
                 }
             }
-
 
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.recommendedContentState.collect {
@@ -103,9 +101,7 @@ class RecommendedContentFragment : Fragment() {
             binding.deleteIcon.setOnClickListener {
                 // TODO: implement this method.
                 if (viewModel.inHistory) {
-
                 } else {
-
                 }
             }
         }

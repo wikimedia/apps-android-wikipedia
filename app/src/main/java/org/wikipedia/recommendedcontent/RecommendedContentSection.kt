@@ -1,14 +1,13 @@
 package org.wikipedia.recommendedcontent
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
 
 @Suppress("unused")
-enum class RecommendedContentSection constructor(val id: Int,
-                                                 val viewId: Int,
-                                                 @StringRes val titleResId: Int) : EnumCode {
+enum class RecommendedContentSection(val id: Int,
+                                     val viewId: Int,
+                                     @StringRes val titleResId: Int) : EnumCode {
     TOP_READ(0, R.id.recommended_content_section_top_read, R.string.recommended_content_section_top_read) {
         override fun select(cb: Callback) {
         }
@@ -51,10 +50,16 @@ enum class RecommendedContentSection constructor(val id: Int,
     }
 
     interface Callback {
-        // TODO: implement
+        fun onTopReadSelect()
+        fun onExploreSelect()
+        fun onOnThisDaySelect()
+        fun onInTheNewsSelect()
+        fun onPlacesSelect()
+        fun onBecauseYouReadSelect()
+        fun onContinueReadingSelect()
+        fun onRandomSelect()
     }
 
     companion object {
-
     }
 }
