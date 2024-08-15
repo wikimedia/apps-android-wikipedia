@@ -595,7 +595,7 @@
   <string name="default_reading_list_description">Vurkejuvvon artihkkaliid standárdalistu</string>
   <string name="no_user_lists_title">Organisere artihkkaliid listtuide</string>
   <string name="reading_list_saved_list_rename">%1$s (geavaheaddji ásahuvvon)</string>
-  <string name="split_reading_list_message" fuzzy="true">Lea rádji %s artihkkala juohke lohkanlisttus. Dálá listtut main leat máŋga artihkkala juhkkojuvvojit máŋgga listui.</string>
+  <string name="split_reading_list_message" fuzzy="true">Lea rádji %d artihkkala juohke lohkanlisttus. Dálá listtut main leat máŋga artihkkala juhkkojuvvojit máŋgga listui.</string>
   <string name="reading_list_move_article_limit_message">Ii sáhttán sirdit listtu. Don leat olahan ráji mii lea %2$d artihkkala juoge listtu nammii «%1$s»:s.</string>
   <string name="reading_list_article_limit_message">Ii sáhte lasihit dán listtu. Don leat olahan ráji mii lea %2$d artihkkala juohke listtus «%1$s» namas.</string>
   <string name="reading_lists_limit_message">Ii sáhte ásahit ođđa listtu. Don leat olahan ráji mii lea 100 lohkanlisttu juohke geavaheaddjidovddaldaga namas.</string>
