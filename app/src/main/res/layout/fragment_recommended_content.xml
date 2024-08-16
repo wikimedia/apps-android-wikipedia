@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginHorizontal="16dp"
+        android:paddingBottom="8dp"
         android:background="?attr/paper_color">
 
         <include
@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="16dp"
             android:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -34,7 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="?attr/progressive_color"
-            android:paddingVertical="16dp"
+            android:paddingVertical="8dp"
+            android:layout_marginHorizontal="16dp"
             android:background="?android:attr/selectableItemBackground"/>
 
         <com.google.android.material.tabs.TabLayout
@@ -42,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            android:layout_marginHorizontal="16dp"
             app:tabTextAppearance="@style/H3.Button"
             app:tabTextColor="?attr/placeholder_color"
             app:tabIndicatorFullWidth="true"
@@ -53,7 +56,8 @@
             android:id="@+id/recommendedContentContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"/>
 
     </LinearLayout>
 

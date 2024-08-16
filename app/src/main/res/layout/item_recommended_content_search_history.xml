@@ -7,13 +7,11 @@
 
     <TextView
         android:id="@+id/listItem"
-        style="@style/OverflowMenuItem"
+        style="@style/SmallListItem"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:padding="8dp"
-        android:paddingHorizontal="0dp"
+        android:layout_marginStart="16dp"
         android:drawablePadding="16dp"
-        android:layout_marginStart="-16dp"
         app:drawableStartCompat="@drawable/ic_history_24"
         app:drawableTint="?attr/primary_color" />
 
@@ -24,7 +22,6 @@
         android:contentDescription="@string/reading_list_delete_lists_dialog_delete_button_text"
         android:scaleType="center"
         android:background="?android:attr/selectableItemBackground"
-        android:layout_marginEnd="-16dp"
         app:srcCompat="@drawable/ic_close_black_24dp"
         app:tint="?android:attr/textColorTertiary" />
 

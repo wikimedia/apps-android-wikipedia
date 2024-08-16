@@ -363,6 +363,16 @@
         <item name="android:clickable">true</item>
     </style>
 
+    <style name="SmallListItem" parent="@android:style/TextAppearance">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+
     <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
