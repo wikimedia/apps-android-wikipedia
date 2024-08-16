@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -62,25 +63,25 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun loadRecommendedContent(sections: List<RecommendedContentSection>) {
+    private fun loadRecommendedContent(sections: List<RecommendedContentSection>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
-            val recommendedContent = mutableListOf<Pair<RecommendedContentSection, List<PageSummary>>>()
+            val recommendedContent = mutableListOf<Pair<RecommendedContentSection, Deferred<List<PageSummary>>>>()
             sections.forEach { section ->
                 val content = when (section) {
-                    RecommendedContentSection.TOP_READ -> loadTopRead()
-                    RecommendedContentSection.EXPLORE -> loadExplore("United States") // TODO: discuss this
-                    RecommendedContentSection.ON_THIS_DAY -> loadOnThisDay()
-                    RecommendedContentSection.IN_THE_NEWS -> loadInTheNews()
-                    RecommendedContentSection.PLACES_NEAR_YOU -> loadPlaces()
-                    RecommendedContentSection.BECAUSE_YOU_READ -> loadBecauseYouRead(0)
-                    RecommendedContentSection.CONTINUE_READING -> loadContinueReading()
-                    RecommendedContentSection.RANDOM -> loadRandomArticles()
+                    RecommendedContentSection.TOP_READ -> async { loadTopRead() }
+                    RecommendedContentSection.EXPLORE -> async { loadExplore("United States") } // TODO: discuss this
+                    RecommendedContentSection.ON_THIS_DAY -> async { loadOnThisDay() }
+                    RecommendedContentSection.IN_THE_NEWS -> async { loadInTheNews() }
+                    RecommendedContentSection.PLACES_NEAR_YOU -> async { loadPlaces() }
+                    RecommendedContentSection.BECAUSE_YOU_READ -> async { loadBecauseYouRead(0) }
+                    RecommendedContentSection.CONTINUE_READING -> async { loadContinueReading() }
+                    RecommendedContentSection.RANDOM -> async { loadRandomArticles() }
                 }
                 recommendedContent.add(section to content)
             }
-            _recommendedContentState.value = Resource.Success(recommendedContent)
+            _recommendedContentState.value = Resource.Success(recommendedContent.map { it.first to it.second.await() })
         }
     }
 
