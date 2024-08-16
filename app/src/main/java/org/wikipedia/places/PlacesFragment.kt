@@ -652,6 +652,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 }
                 show()
             }
+            lastLocation?.let {
+                Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
+            }
         }
     }
 
