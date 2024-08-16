@@ -171,8 +171,12 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun loadBecauseYouRead(age: Int): List<PageSummary> {
         return withContext(Dispatchers.IO) {
             val entry = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, WikipediaApp.instance.resources.getInteger(
-                R.integer.article_engagement_threshold_sec)).last()
-            loadExplore(entry.title.prefixedText)
+                R.integer.article_engagement_threshold_sec)).lastOrNull()
+            if (entry == null) {
+                emptyList()
+            } else {
+                loadExplore(entry.title.prefixedText)
+            }
         }
     }
 

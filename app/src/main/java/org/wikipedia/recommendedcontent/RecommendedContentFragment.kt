@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -31,6 +32,7 @@ class RecommendedContentFragment : Fragment() {
     private var _binding: FragmentRecommendedContentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: RecommendedContentViewModel by viewModels { RecommendedContentViewModel.Factory(requireArguments()) }
+    private val demoStartTime = System.currentTimeMillis()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -123,6 +125,34 @@ class RecommendedContentFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        binding.section5.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.TOP_READ,
+                    RecommendedContentSection.RANDOM
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.section6.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.TOP_READ,
+                    RecommendedContentSection.PLACES_NEAR_YOU
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.section7.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.TOP_READ,
+                    RecommendedContentSection.BECAUSE_YOU_READ,
+                    RecommendedContentSection.CONTINUE_READING
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun buildHistoryList(list: List<PageTitle>) {
@@ -145,6 +175,7 @@ class RecommendedContentFragment : Fragment() {
             sectionView.buildContent(section, pageSummaries)
             binding.recommendedContentContainer.addView(sectionView)
         }
+        Toast.makeText(requireContext(), "Demo load time: ${System.currentTimeMillis() - demoStartTime}ms", Toast.LENGTH_SHORT).show()
     }
 
     private inner class RecyclerViewAdapter(val list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
