@@ -239,6 +239,10 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         onLoadItemsFinished(emptyList())
     }
 
+    fun openSearchActivity(source: Constants.InvokeSource, query: String?, view: View) {
+        (requireParentFragment() as MainFragment).openSearchActivity(source, query, view)
+    }
+
     private class HeaderViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         var headerText = itemView.findViewById<TextView>(R.id.section_header_text)!!
 
@@ -279,7 +283,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
-            searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
+            searchCardView.setOnClickListener {
+                openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it)
+            }
             voiceSearchButton.isVisible = WikipediaApp.instance.voiceRecognitionAvailable
             voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
             historyFilterButton.setOnClickListener {

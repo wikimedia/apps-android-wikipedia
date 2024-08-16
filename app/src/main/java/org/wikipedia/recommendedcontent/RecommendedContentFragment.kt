@@ -20,7 +20,7 @@ import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.main.MainFragment
+import org.wikipedia.history.HistoryFragment
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
@@ -42,7 +42,7 @@ class RecommendedContentFragment : Fragment() {
         buildDemoButtons()
 
         binding.searchCard.root.setOnClickListener {
-            (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.RECOMMENDED_CONTENT, null, it)
+            (requireParentFragment() as HistoryFragment).openSearchActivity(Constants.InvokeSource.RECOMMENDED_CONTENT, null, it)
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
