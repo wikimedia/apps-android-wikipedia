@@ -1566,7 +1566,7 @@
 
     <!-- Shareable reading lists -->
     <string name="shareable_reading_lists_import_dialog_title">Import shared reading list</string>
-    <string name="shareable_reading_lists_import_dialog_content">How would you like to name the list that\'s been shared with you?</string>
+    <string name="shareable_reading_lists_import_dialog_content">How do you want to name the list that\'s been shared with you?</string>
     <string name="shareable_reading_lists_new_indicator">*new*</string>
     <string name="shareable_reading_lists_new_install_dialog_title">A reading list has been shared with you</string>
     <string name="shareable_reading_lists_new_install_dialog_content">We noticed that a reading list has been shared with you. To view this list in the app, go back to the original message and tap the link again.</string>
