@@ -37,6 +37,8 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val sectionIds: List<Int> = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
+    private var feedContent: AggregatedFeedContent? = null
+
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
 
@@ -100,6 +102,11 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadFeed(): AggregatedFeedContent {
         return withContext(Dispatchers.IO) {
+
+            feedContent?.let {
+                return@withContext it
+            }
+
             val wikiSite = WikipediaApp.instance.wikiSite
             val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
             val date = DateUtil.getUtcRequestDateFor(0)
@@ -116,6 +123,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     )
                 }
             }
+            feedContent = feedContentResponse
             feedContentResponse
         }
     }
