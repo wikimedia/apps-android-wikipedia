@@ -42,6 +42,7 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         android:layout_margin="16dp"
+        android:nestedScrollingEnabled="false"
         app:layout_constraintTop_toBottomOf="@id/sectionHeader"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
