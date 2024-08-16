@@ -98,7 +98,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun loadRecommendedContent() {
         val sectionIds = listOf(
-            RecommendedContentSection.EXPLORE
+            RecommendedContentSection.EXPLORE,
+            RecommendedContentSection.TOP_READ,
+            RecommendedContentSection.IN_THE_NEWS
         ).map { it.id }
 
         requireActivity().supportFragmentManager.beginTransaction()
