@@ -153,6 +153,30 @@ class RecommendedContentFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        binding.section8.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.PLACES_NEAR_YOU
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.section9.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.CONTINUE_READING
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.section10.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.RANDOM
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun buildHistoryList(list: List<PageTitle>) {

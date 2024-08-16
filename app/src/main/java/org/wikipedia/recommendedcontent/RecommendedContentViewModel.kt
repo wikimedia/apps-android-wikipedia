@@ -130,8 +130,9 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun loadTopRead(): List<PageSummary> {
+        // TODO: determine how many articles to load.
         return withContext(Dispatchers.IO) {
-            loadFeed().topRead?.articles ?: emptyList()
+            loadFeed().topRead?.articles?.take(5) ?: emptyList()
         }
     }
 

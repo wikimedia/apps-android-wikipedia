@@ -26,7 +26,6 @@ class RecommendedContentSectionView(context: Context) : FrameLayout(context) {
         }
         binding.sectionList.layoutManager = LinearLayoutManager(context)
         binding.sectionList.adapter = RecyclerViewAdapter(pageSummaries)
-        binding.root.requestLayout()
     }
 
     private inner class RecyclerViewAdapter(val list: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
