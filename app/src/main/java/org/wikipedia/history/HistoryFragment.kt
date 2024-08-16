@@ -103,7 +103,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             RecommendedContentSection.IN_THE_NEWS
         ).map { it.id }
 
-        requireActivity().supportFragmentManager.beginTransaction()
+        parentFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = true, showTabs = false, sectionIds), null)
             .addToBackStack(null)
             .commit()

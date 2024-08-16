@@ -13,11 +13,13 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
@@ -34,6 +36,10 @@ class RecommendedContentFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         _binding = FragmentRecommendedContentBinding.inflate(layoutInflater, container, false)
+
+        binding.searchCard.root.setOnClickListener {
+            (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.RECOMMENDED_CONTENT, null, it)
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -79,7 +85,7 @@ class RecommendedContentFragment : Fragment() {
         binding.historyList.adapter = RecyclerViewAdapter(list)
         binding.searchCard.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
         binding.historyMoreButton.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
+            parentFragmentManager.popBackStack()
         }
         if (viewModel.inHistory) {
             binding.historyMoreButton.text = getString(R.string.recommended_content_view_more_history)
@@ -89,7 +95,6 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private fun buildRecommendedContent(list: List<Pair<RecommendedContentSection, List<PageSummary>>>) {
-        L.d("buildRecommendedContent list: $list")
         list.forEach { (section, pageSummaries) ->
             val sectionView = RecommendedContentSectionView(requireContext())
             sectionView.buildContent(section, pageSummaries)
