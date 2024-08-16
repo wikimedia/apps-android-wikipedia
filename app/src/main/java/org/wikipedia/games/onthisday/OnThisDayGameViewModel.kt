@@ -179,10 +179,10 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
             val diffAdd = when (event.year) {
                 in 0..1000 -> 100
-                in 1001..1500 -> 50
-                in 1501..1800 -> 20
-                in 1801..1900 -> 10
-                in 1901..2000 -> 5
+                in 1001..1500 -> 75
+                in 1501..1800 -> 50
+                in 1801..1900 -> 20
+                in 1901..2000 -> 10
                 in 2001..currentDate.year -> 0
                 else -> 0
             }
