@@ -81,7 +81,6 @@ class HistoryEntry(
         const val SOURCE_APP_SHORTCUT_RANDOM = 20
         const val SOURCE_APP_SHORTCUT_CONTINUE_READING = 21
         const val SOURCE_FEED_MOST_READ_ACTIVITY = 22
-        const val SOURCE_FEED_PLACES = 42
         const val SOURCE_ON_THIS_DAY_CARD = 23
         const val SOURCE_ON_THIS_DAY_ACTIVITY = 24
         const val SOURCE_NOTIFICATION = 25
@@ -100,5 +99,6 @@ class HistoryEntry(
         const val SOURCE_FILE_PAGE = 39
         const val SOURCE_SINGLE_WEBVIEW = 40
         const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
+        const val SOURCE_FEED_PLACES = 42
     }
 }

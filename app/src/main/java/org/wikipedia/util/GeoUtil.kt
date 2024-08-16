@@ -10,6 +10,7 @@ import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
 import org.wikipedia.settings.Prefs
 import java.text.DecimalFormat
 import java.util.Locale
+import kotlin.math.abs
 
 object GeoUtil {
     @Suppress("UnsafeImplicitIntentLaunch")
@@ -53,8 +54,7 @@ object GeoUtil {
     }
 
     fun isSamePlace(startLat: Double, endLat: Double, startLon: Double, endLon: Double): Boolean {
-        val df = DecimalFormat("#.#######")
-        return df.format(startLat) == df.format(endLat) &&
-                df.format(startLon) == df.format(endLon)
+        val tolerance = 0.0000001
+        return abs(startLat - endLat) < tolerance && abs(startLon - endLon) < tolerance
     }
 }
