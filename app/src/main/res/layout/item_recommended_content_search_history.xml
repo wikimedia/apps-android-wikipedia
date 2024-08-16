@@ -24,6 +24,7 @@
         android:contentDescription="@string/reading_list_delete_lists_dialog_delete_button_text"
         android:scaleType="center"
         android:background="?android:attr/selectableItemBackground"
+        android:layout_marginEnd="-16dp"
         app:srcCompat="@drawable/ic_close_black_24dp"
         app:tint="?android:attr/textColorTertiary" />
 

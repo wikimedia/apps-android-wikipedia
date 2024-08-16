@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/OverflowMenuItem"
     android:id="@+id/listItem"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
+    android:padding="8dp"
     android:drawablePadding="16dp"
-    app:drawableEndCompat="@drawable/ic_trending_up_black_24dp"
+    android:paddingHorizontal="0dp"
+    android:layout_marginHorizontal="-16dp"
     app:drawableTint="?attr/success_color"
     tools:text="Article title" />
