@@ -43,7 +43,7 @@ enum class RecommendedContentSection(val id: Int,
             cb.onContinueReadingSelect()
         }
     },
-    RANDOM(0, R.id.recommended_content_section_random, R.string.recommended_content_section_random) {
+    RANDOM(7, R.id.recommended_content_section_random, R.string.recommended_content_section_random) {
         override fun select(cb: Callback) {
             cb.onRandomSelect()
         }

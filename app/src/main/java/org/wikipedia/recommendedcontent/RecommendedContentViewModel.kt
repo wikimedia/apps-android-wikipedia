@@ -28,7 +28,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
@@ -77,10 +76,8 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     RecommendedContentSection.CONTINUE_READING -> loadContinueReading()
                     RecommendedContentSection.RANDOM -> loadRandomArticles()
                 }
-                L.d("Recommended content for $section: $content")
                 recommendedContent.add(section to content)
             }
-            L.d("Recommended content: $recommendedContent")
             _recommendedContentState.value = Resource.Success(recommendedContent)
         }
     }

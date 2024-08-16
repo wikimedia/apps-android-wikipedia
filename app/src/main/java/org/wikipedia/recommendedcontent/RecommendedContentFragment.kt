@@ -37,6 +37,8 @@ class RecommendedContentFragment : Fragment() {
 
         _binding = FragmentRecommendedContentBinding.inflate(layoutInflater, container, false)
 
+        buildDemoButtons()
+
         binding.searchCard.root.setOnClickListener {
             (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.RECOMMENDED_CONTENT, null, it)
         }
@@ -78,6 +80,49 @@ class RecommendedContentFragment : Fragment() {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    private fun buildDemoButtons() {
+        binding.section1.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.TOP_READ,
+                    RecommendedContentSection.IN_THE_NEWS,
+                    RecommendedContentSection.ON_THIS_DAY
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.section2.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.TOP_READ,
+                    RecommendedContentSection.EXPLORE
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.section3.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.TOP_READ,
+                    RecommendedContentSection.EXPLORE,
+                    RecommendedContentSection.PLACES_NEAR_YOU
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.section4.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                    RecommendedContentSection.TOP_READ,
+                    RecommendedContentSection.EXPLORE,
+                    RecommendedContentSection.PLACES_NEAR_YOU,
+                    RecommendedContentSection.RANDOM
+                ).map { it.id }), null)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun buildHistoryList(list: List<PageTitle>) {
