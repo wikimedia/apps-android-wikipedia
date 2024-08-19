@@ -120,7 +120,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     override fun onResume() {
         super.onResume()
-        viewModel.reloadHistoryItems()
+        reloadHistory()
     }
 
     override fun onPause() {
@@ -189,6 +189,10 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
         val position = adapter.getPosition(entry)
         adapter.notifyItemChanged(position)
+    }
+
+    fun reloadHistory() {
+        viewModel.reloadHistoryItems()
     }
 
     fun refresh() {

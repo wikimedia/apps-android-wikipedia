@@ -24,6 +24,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.search.RecentSearchesFragment
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -69,6 +70,20 @@ class RecommendedContentFragment : Fragment() {
                             is Resource.Success -> {
                                 buildRecommendedContent(it.data)
                             }
+                            is Resource.Error -> {
+                                // TODO: implement error
+                                L.d(it.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.actionState.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                binding.historyList.adapter = RecyclerViewAdapter(it.data)
+                            }
+
                             is Resource.Error -> {
                                 // TODO: implement error
                                 L.d(it.throwable)
@@ -187,6 +202,11 @@ class RecommendedContentFragment : Fragment() {
         binding.historyList.adapter = RecyclerViewAdapter(list)
         binding.searchCard.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
         binding.historyMoreButton.setOnClickListener {
+            if (viewModel.inHistory) {
+                (requireParentFragment() as HistoryFragment).reloadHistory()
+            } else {
+                (requireParentFragment() as RecentSearchesFragment).reloadRecentSearches()
+            }
             parentFragmentManager.popBackStack()
         }
         if (viewModel.inHistory) {
@@ -227,9 +247,10 @@ class RecommendedContentFragment : Fragment() {
             binding.listItem.text = StringUtil.fromHtml(pageTitle.displayText)
             binding.listItem.setCompoundDrawablesWithIntrinsicBounds(listIcon, 0, 0, 0)
             binding.deleteIcon.setOnClickListener {
-                // TODO: implement this method.
                 if (viewModel.inHistory) {
+                    viewModel.removeHistoryItem(pageTitle)
                 } else {
+                    viewModel.removeRecentSearchItem(pageTitle)
                 }
             }
 

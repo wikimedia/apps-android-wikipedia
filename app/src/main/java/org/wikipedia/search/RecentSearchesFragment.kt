@@ -123,7 +123,7 @@ class RecentSearchesFragment : Fragment() {
         callback?.onAddLanguageClicked()
     }
 
-    fun onLangCodeChanged() {
+    fun reloadRecentSearches() {
         lifecycleScope.launch(coroutineExceptionHandler) {
             updateList()
         }

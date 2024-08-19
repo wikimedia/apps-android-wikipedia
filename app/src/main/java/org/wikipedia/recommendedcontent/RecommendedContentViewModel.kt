@@ -22,13 +22,16 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesFragment
+import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
+import java.util.Date
 
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
@@ -43,12 +46,35 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
 
+    private val _actionState = MutableStateFlow(Resource<List<PageTitle>>())
+    val actionState = _actionState.asStateFlow()
+
     private val _recommendedContentState = MutableStateFlow(Resource<List<Pair<RecommendedContentSection, List<PageSummary>>>>())
     val recommendedContentState = _recommendedContentState.asStateFlow()
 
     init {
         loadSearchHistory()
         loadRecommendedContent(sections)
+    }
+
+    fun removeHistoryItem(title: PageTitle) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _actionState.value = Resource.Error(throwable)
+        }) {
+            val entry = HistoryEntry(title, HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
+            AppDatabase.instance.historyEntryDao().delete(entry)
+            _actionState.value = Resource.Success(loadHistoryItems())
+        }
+    }
+
+    fun removeRecentSearchItem(title: PageTitle) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _actionState.value = Resource.Error(throwable)
+        }) {
+            val recentSearch = RecentSearch(title.displayText, Date(title.description.orEmpty().toLong()))
+            AppDatabase.instance.recentSearchDao().delete(recentSearch)
+            _actionState.value = Resource.Success(loadRecentSearches())
+        }
     }
 
     private fun loadSearchHistory() {
@@ -96,7 +122,10 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun loadRecentSearches(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.recentSearchDao().getRecentSearches().map {
-                PageTitle(it.text, WikipediaApp.instance.wikiSite)
+                PageTitle(it.text, WikipediaApp.instance.wikiSite).apply {
+                    // Put timestamp in description for the delete action.
+                    description = it.timestamp.time.toString()
+                }
             }.take(5)
         }
     }
