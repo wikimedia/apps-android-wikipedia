@@ -1,6 +1,7 @@
 package org.wikipedia.settings
 
 import android.content.DialogInterface
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -136,7 +137,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_developer_clear_all_talk_topics).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             CoroutineScope(Dispatchers.Main).launch {
                 AppDatabase.instance.talkPageSeenDao().deleteAll()
+                Toast.makeText(activity, "Reset complete.", Toast.LENGTH_SHORT).show()
             }
+            true
+        }
+        findPreference(R.string.preference_developer_clear_last_location_and_zoom_level).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.placesLastLocationAndZoomLevel = null
+            Toast.makeText(activity, "Reset complete.", Toast.LENGTH_SHORT).show()
             true
         }
         findPreference(R.string.preference_key_memory_leak_test).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, _: Any? ->
