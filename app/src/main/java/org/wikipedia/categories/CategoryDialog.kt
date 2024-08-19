@@ -28,7 +28,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     private val binding get() = _binding!!
 
     private val itemCallback = ItemCallback()
-    private val viewModel: CategoryDialogViewModel by viewModels { CategoryDialogViewModel.Factory(requireArguments()) }
+    private val viewModel: CategoryDialogViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogCategoriesBinding.inflate(inflater, container, false)

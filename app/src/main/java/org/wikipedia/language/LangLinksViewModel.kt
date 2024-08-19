@@ -1,9 +1,8 @@
 package org.wikipedia.language
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -12,15 +11,14 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.log.L
 
-class LangLinksViewModel(bundle: Bundle) : ViewModel() {
-    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    var pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
     val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()
@@ -112,13 +110,6 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         }
         return value.data.find { it.code == code }?.localname.orEmpty()
                 .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code) }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return LangLinksViewModel(bundle) as T
-        }
     }
 
     companion object {

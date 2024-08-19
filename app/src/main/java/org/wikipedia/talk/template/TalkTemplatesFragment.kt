@@ -51,7 +51,7 @@ import org.wikipedia.views.ViewUtil
 class TalkTemplatesFragment : Fragment() {
     private var _binding: FragmentTalkTemplatesBinding? = null
 
-    private val viewModel: TalkTemplatesViewModel by viewModels { TalkTemplatesViewModel.Factory(requireArguments()) }
+    private val viewModel: TalkTemplatesViewModel by viewModels()
     private val binding get() = _binding!!
 
     private lateinit var itemTouchHelper: ItemTouchHelper

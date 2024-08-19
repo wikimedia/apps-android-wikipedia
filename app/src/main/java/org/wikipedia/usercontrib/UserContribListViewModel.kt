@@ -1,18 +1,10 @@
 package org.wikipedia.usercontrib
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
-import androidx.paging.cachedIn
-import androidx.paging.filter
-import androidx.paging.insertSeparators
-import androidx.paging.map
+import androidx.paging.*
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -29,12 +21,11 @@ import retrofit2.HttpException
 import java.io.IOException
 import java.util.Date
 
-class UserContribListViewModel(bundle: Bundle) : ViewModel() {
-
+class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val userContribStatsData = MutableLiveData<Resource<UserContribStats>>()
 
-    var userName: String = bundle.getString(UserContribListActivity.INTENT_EXTRA_USER_NAME)!!
-    var langCode: String = Prefs.userContribFilterLangCode
+    var userName = savedStateHandle.get<String>(UserContribListActivity.INTENT_EXTRA_USER_NAME)!!
+    var langCode = Prefs.userContribFilterLangCode
 
     val wikiSite get(): WikiSite {
         return when (langCode) {
@@ -135,11 +126,4 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     class UserContribItem(val item: UserContribution) : UserContribItemModel()
     class UserContribSeparator(val date: String) : UserContribItemModel()
     class UserContribStats(val totalEdits: Int, val registrationDate: Date, val projectName: String) : UserContribItemModel()
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return UserContribListViewModel(bundle) as T
-        }
-    }
 }

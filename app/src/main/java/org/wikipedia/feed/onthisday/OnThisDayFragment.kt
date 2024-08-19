@@ -37,7 +37,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: OnThisDayViewModel by viewModels { OnThisDayViewModel.Factory(requireArguments()) }
+    private val viewModel: OnThisDayViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)

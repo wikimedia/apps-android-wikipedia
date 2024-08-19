@@ -50,7 +50,7 @@ class TalkTopicActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var linkHandler: TalkLinkHandler
 
-    private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
+    private val viewModel: TalkTopicViewModel by viewModels()
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private var actionMode: ActionMode? = null

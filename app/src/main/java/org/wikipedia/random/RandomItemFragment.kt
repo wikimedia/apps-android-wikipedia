@@ -27,7 +27,7 @@ class RandomItemFragment : Fragment() {
 
     private var _binding: FragmentRandomItemBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: RandomItemViewModel by viewModels { RandomItemViewModel.Factory(requireArguments()) }
+    private val viewModel: RandomItemViewModel by viewModels()
 
     val isLoadComplete: Boolean get() = viewModel.summary != null
     val title: PageTitle? get() = viewModel.summary?.getPageTitle(viewModel.wikiSite)

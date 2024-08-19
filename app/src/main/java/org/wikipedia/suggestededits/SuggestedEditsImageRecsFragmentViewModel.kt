@@ -1,8 +1,7 @@
 package org.wikipedia.suggestededits
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -33,8 +32,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
 
-class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
-
+class SuggestedEditsImageRecsFragmentViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
     }
@@ -45,7 +43,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     lateinit var recommendedImageTitle: PageTitle
     var attemptInsertInfobox = false
 
-    val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
+    val langCode = savedStateHandle.get<String>(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
 
@@ -152,13 +150,6 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                 ServiceFactory.get(pageTitle.wikiSite).invalidateImageRecommendation("image-recommendation",
                     pageTitle.prefixedText, recommendation.images[0].image, csrfToken)
             }
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return SuggestedEditsImageRecsFragmentViewModel(bundle) as T
         }
     }
 

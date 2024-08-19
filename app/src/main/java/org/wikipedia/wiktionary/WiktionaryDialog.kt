@@ -32,7 +32,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
     private var _binding: DialogWiktionaryBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: WiktionaryViewModel by viewModels { WiktionaryViewModel.Factory(requireArguments()) }
+    private val viewModel: WiktionaryViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

@@ -77,7 +77,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
     private var _binding: FragmentArticleEditDetailsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
+    private val viewModel: ArticleEditDetailsViewModel by viewModels()
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
     private val actionBarOffsetChangedListener =

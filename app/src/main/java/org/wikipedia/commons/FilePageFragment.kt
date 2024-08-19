@@ -30,7 +30,7 @@ import org.wikipedia.util.Resource
 class FilePageFragment : Fragment(), FilePageView.Callback {
     private var _binding: FragmentFilePageBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: FilePageViewModel by viewModels { FilePageViewModel.Factory(requireArguments()) }
+    private val viewModel: FilePageViewModel by viewModels()
 
     private val addImageCaptionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {

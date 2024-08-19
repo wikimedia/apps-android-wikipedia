@@ -1,10 +1,9 @@
 package org.wikipedia.diff
 
 import android.net.Uri
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
@@ -23,16 +22,14 @@ import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.edit.EditTags
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
 
-class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
-
-    private val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    private val invokeSource = savedStateHandle.get<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
 
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
     val rollbackRights = MutableLiveData<Resource<Boolean>>()
@@ -46,13 +43,13 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
     val fromRecentEdits = invokeSource == InvokeSource.SUGGESTED_EDITS_RECENT_EDITS
 
-    var pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+    var pageTitle = savedStateHandle.get<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
         private set
-    var pageId = bundle.getInt(ArticleEditDetailsActivity.EXTRA_PAGE_ID, -1)
+    var pageId = savedStateHandle[ArticleEditDetailsActivity.EXTRA_PAGE_ID] ?: -1
         private set
-    var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
+    var revisionToId = savedStateHandle[ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO] ?: -1L
     var revisionTo: MwQueryPage.Revision? = null
-    var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, -1)
+    var revisionFromId = savedStateHandle[ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM] ?: -1L
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
     var hasRollbackRights = false
@@ -254,12 +251,5 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }
         tags.add(tag)
         return tags.joinToString(",")
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ArticleEditDetailsViewModel(bundle) as T
-        }
     }
 }

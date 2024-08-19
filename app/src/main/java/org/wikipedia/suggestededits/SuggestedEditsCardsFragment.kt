@@ -50,7 +50,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     private var _binding: FragmentSuggestedEditsCardsBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SuggestedEditsCardsViewModel by viewModels { SuggestedEditsCardsViewModel.Factory(requireArguments()) }
+    private val viewModel: SuggestedEditsCardsViewModel by viewModels()
     private val viewPagerListener = ViewPagerListener()
     private val app = WikipediaApp.instance
     private var swappingLanguageSpinners: Boolean = false

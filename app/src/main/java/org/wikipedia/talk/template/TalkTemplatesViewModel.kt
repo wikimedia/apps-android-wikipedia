@@ -1,8 +1,7 @@
 package org.wikipedia.talk.template
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +10,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
@@ -20,8 +18,7 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import java.util.Collections
 
-class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
-
+class TalkTemplatesViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
@@ -38,10 +35,10 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     private val _actionState = MutableStateFlow(ActionState())
     val actionState = _actionState.asStateFlow()
 
-    val templateManagementMode = bundle.getBoolean(EXTRA_TEMPLATE_MANAGEMENT, false)
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
-    val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID)
-    val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID)
+    val templateManagementMode = savedStateHandle[EXTRA_TEMPLATE_MANAGEMENT] ?: false
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
+    val fromRevisionId = savedStateHandle[TalkReplyActivity.FROM_REVISION_ID] ?: 0L
+    val toRevisionId = savedStateHandle[TalkReplyActivity.TO_REVISION_ID] ?: 0L
 
     init {
         loadTalkTemplates()
@@ -106,13 +103,6 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         class Added : ActionState()
         class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return TalkTemplatesViewModel(bundle) as T
-        }
     }
 
     companion object {

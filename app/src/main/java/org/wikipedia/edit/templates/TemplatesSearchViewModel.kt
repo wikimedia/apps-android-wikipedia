@@ -1,14 +1,9 @@
 package org.wikipedia.edit.templates
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
-import androidx.paging.cachedIn
+import androidx.paging.*
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -16,16 +11,14 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.TemplateDataResponse
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 
-class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
-
-    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-    val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
-    val isFromDiff = bundle.getBoolean(TemplatesSearchActivity.EXTRA_FROM_DIFF, false)
+class TemplatesSearchViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+    val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
+    val isFromDiff = savedStateHandle[TemplatesSearchActivity.EXTRA_FROM_DIFF] ?: false
     var searchQuery: String? = null
     var selectedPageTitle: PageTitle? = null
     val searchTemplatesFlow = Pager(PagingConfig(pageSize = 10)) {
@@ -74,13 +67,6 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<Int, PageTitle>): Int? {
             return null
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return TemplatesSearchViewModel(bundle) as T
         }
     }
 
