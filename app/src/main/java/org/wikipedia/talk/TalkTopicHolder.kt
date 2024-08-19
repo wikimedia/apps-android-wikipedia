@@ -140,7 +140,7 @@ class TalkTopicHolder internal constructor(
 
             val readText = menu.menu.findItem(R.id.menu_mark_as_read)
             readText.setIcon(if (threadItem.seen) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24)
-            readText.setTitle(if (threadItem.seen) R.string.talk_list_item_overflow_mark_as_unread else R.string.notifications_menu_mark_as_read)
+            readText.setTitle(if (threadItem.seen) R.string.talk_list_item_overflow_mark_as_unread else R.string.talk_list_item_overflow_mark_as_read)
 
             menu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
                 override fun onMenuItemClick(item: MenuItem?): Boolean {
