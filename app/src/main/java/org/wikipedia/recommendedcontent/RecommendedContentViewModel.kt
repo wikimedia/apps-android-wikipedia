@@ -89,7 +89,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("").map {
                 it.title
-            }
+            }.take(5)
         }
     }
 
@@ -97,7 +97,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.recentSearchDao().getRecentSearches().map {
                 PageTitle(it.text, WikipediaApp.instance.wikiSite)
-            }
+            }.take(5)
         }
     }
 

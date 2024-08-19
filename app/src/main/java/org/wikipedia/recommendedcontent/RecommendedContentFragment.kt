@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -41,6 +42,7 @@ class RecommendedContentFragment : Fragment() {
 
         buildDemoButtons()
 
+        binding.searchCard.root.isVisible = viewModel.inHistory
         binding.searchCard.root.setOnClickListener {
             (requireParentFragment() as HistoryFragment).openSearchActivity(Constants.InvokeSource.RECOMMENDED_CONTENT, null, it)
         }
@@ -87,7 +89,7 @@ class RecommendedContentFragment : Fragment() {
     private fun buildDemoButtons() {
         binding.section1.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.TOP_READ,
                     RecommendedContentSection.IN_THE_NEWS,
                     RecommendedContentSection.ON_THIS_DAY
@@ -97,7 +99,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section2.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.TOP_READ,
                     RecommendedContentSection.EXPLORE
                 ).map { it.id }), null)
@@ -106,7 +108,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section3.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.TOP_READ,
                     RecommendedContentSection.EXPLORE,
                     RecommendedContentSection.PLACES_NEAR_YOU
@@ -116,7 +118,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section4.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.TOP_READ,
                     RecommendedContentSection.EXPLORE,
                     RecommendedContentSection.PLACES_NEAR_YOU,
@@ -127,7 +129,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section5.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.TOP_READ,
                     RecommendedContentSection.RANDOM
                 ).map { it.id }), null)
@@ -136,7 +138,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section6.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.TOP_READ,
                     RecommendedContentSection.PLACES_NEAR_YOU
                 ).map { it.id }), null)
@@ -145,7 +147,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section7.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.TOP_READ,
                     RecommendedContentSection.BECAUSE_YOU_READ,
                     RecommendedContentSection.CONTINUE_READING
@@ -155,7 +157,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section8.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.PLACES_NEAR_YOU
                 ).map { it.id }), null)
                 .addToBackStack(null)
@@ -163,7 +165,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section9.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.CONTINUE_READING
                 ).map { it.id }), null)
                 .addToBackStack(null)
@@ -171,7 +173,7 @@ class RecommendedContentFragment : Fragment() {
         }
         binding.section10.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = true, showTabs = false, listOf(
+                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory, showTabs = viewModel.showTabs, listOf(
                     RecommendedContentSection.RANDOM
                 ).map { it.id }), null)
                 .addToBackStack(null)

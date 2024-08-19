@@ -22,6 +22,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.page.Namespace
+import org.wikipedia.recommendedcontent.RecommendedContentFragment
+import org.wikipedia.recommendedcontent.RecommendedContentSection
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.util.FeedbackUtil.setButtonTooltip
 import org.wikipedia.util.ResourceUtil
@@ -71,6 +73,11 @@ class RecentSearchesFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadRecommendedContent()
+    }
+
     fun show() {
         binding.recentSearchesContainer.visibility = View.VISIBLE
     }
@@ -82,6 +89,19 @@ class RecentSearchesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadRecommendedContent() {
+        val sectionIds = listOf(
+            RecommendedContentSection.EXPLORE,
+            RecommendedContentSection.TOP_READ,
+            RecommendedContentSection.IN_THE_NEWS
+        ).map { it.id }
+
+        childFragmentManager.beginTransaction()
+            .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = false, showTabs = false, sectionIds), null)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {
