@@ -19,10 +19,10 @@ class RecommendedContentSectionView(context: Context) : FrameLayout(context) {
 
     private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
 
-    fun buildContent(section: RecommendedContentSection, pageSummaries: List<PageSummary>) {
+    fun buildContent(section: RecommendedContentSection, pageSummaries: List<PageSummary>, callback: RecommendedContentSection.Callback) {
         binding.sectionHeader.text = context.getString(section.titleResId)
         binding.sectionMoreButton.setOnClickListener {
-            // TODO: implement
+            section.select(callback)
         }
         binding.sectionList.layoutManager = LinearLayoutManager(context)
         binding.sectionList.adapter = RecyclerViewAdapter(pageSummaries)

@@ -20,10 +20,15 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.news.NewsActivity
+import org.wikipedia.feed.onthisday.OnThisDayActivity
+import org.wikipedia.feed.topread.TopReadArticlesActivity
+import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.search.RecentSearchesFragment
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.Resource
@@ -31,7 +36,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class RecommendedContentFragment : Fragment() {
+class RecommendedContentFragment : Fragment(), RecommendedContentSection.Callback {
     private var _binding: FragmentRecommendedContentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: RecommendedContentViewModel by viewModels { RecommendedContentViewModel.Factory(requireArguments()) }
@@ -219,7 +224,7 @@ class RecommendedContentFragment : Fragment() {
     private fun buildRecommendedContent(list: List<Pair<RecommendedContentSection, List<PageSummary>>>) {
         list.forEach { (section, pageSummaries) ->
             val sectionView = RecommendedContentSectionView(requireContext())
-            sectionView.buildContent(section, pageSummaries)
+            sectionView.buildContent(section, pageSummaries, this)
             binding.recommendedContentContainer.addView(sectionView)
         }
         Toast.makeText(requireContext(), "Demo load time: ${System.currentTimeMillis() - demoStartTime}ms", Toast.LENGTH_SHORT).show()
@@ -293,5 +298,44 @@ class RecommendedContentFragment : Fragment() {
                 ARG_SECTION_IDS to sectionIds
             )
         }
+    }
+
+    override fun onTopReadSelect() {
+        viewModel.feedContent?.topRead?.let {
+            val topReadCard = TopReadListCard(it, viewModel.wikiSite)
+            startActivity(TopReadArticlesActivity.newIntent(requireContext(), topReadCard))
+        }
+    }
+
+    override fun onExploreSelect() {
+        // TODO: discuss this
+    }
+
+    override fun onOnThisDaySelect() {
+        viewModel.feedContent?.onthisday?.let {
+            startActivity(OnThisDayActivity.newIntent(requireContext(), 0, -1, viewModel.wikiSite, Constants.InvokeSource.RECOMMENDED_CONTENT))
+        }
+    }
+
+    override fun onInTheNewsSelect() {
+        viewModel.feedContent?.news?.let {
+            startActivity(NewsActivity.newIntent(requireContext(), it.first(), viewModel.wikiSite))
+        }
+    }
+
+    override fun onPlacesSelect() {
+        startActivity(PlacesActivity.newIntent(requireContext()))
+    }
+
+    override fun onBecauseYouReadSelect() {
+        // TODO: discuss this
+    }
+
+    override fun onContinueReadingSelect() {
+        // TODO: discuss this
+    }
+
+    override fun onRandomSelect() {
+        // TODO: discuss this
     }
 }

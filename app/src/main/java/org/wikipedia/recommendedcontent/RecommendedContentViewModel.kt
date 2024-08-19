@@ -41,7 +41,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val sectionIds: List<Int> = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
-    private var feedContent: AggregatedFeedContent? = null
+    var feedContent: AggregatedFeedContent? = null
 
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
