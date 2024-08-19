@@ -18,7 +18,7 @@ import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.log.L
 
 class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-    var pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
+    private val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
     val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()
