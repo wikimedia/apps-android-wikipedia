@@ -555,7 +555,7 @@
   <string name="text_size_decrease">Disminuir tamaño del texto</string>
   <string name="text_size_percent_default">%s (predeterminado)</string>
   <string name="text_style_title">Tipo de letra</string>
-  <string name="theme_category_reading">Leyendo</string>
+  <string name="theme_category_reading">Lectura</string>
   <string name="theme_category_editing">Edición</string>
   <string name="reading_focus_mode">Modo de lectura con concentración</string>
   <string name="reading_focus_mode_detail">Oculta las funciones de edición y la barra de herramientas inferior al desplazarse</string>
@@ -973,7 +973,7 @@
   <string name="customize_toolbar_category_toolbar">Barra de herramientas</string>
   <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arrastra y suelta tus artículos favoritos aquí 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Reiniciar por defecto</string>
+  <string name="customize_toolbar_reset_to_default_button">Restablecer configuración predeterminada</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
@@ -1426,7 +1426,7 @@
   <string name="watchlist_page_moved">Trasladado</string>
   <string name="watchlist_page_protected">Protegido</string>
   <string name="watchlist_page_deleted">Borrado</string>
-  <string name="watchlist_filter_title">Filtro de la lista de seguimiento</string>
+  <string name="watchlist_filter_title">Filtro de lista de seguimiento</string>
   <string name="watchlist_filter_all_text">Todo</string>
   <string name="watchlist_filter_watchlist_activity_header">Actividad de la lista de seguimiento</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Puede haber problemas</string>
@@ -1447,6 +1447,8 @@
   <string name="watchlist_filter_type_of_change_wikidata_edits">Ediciones de Wikidata</string>
   <string name="watchlist_filter_type_of_change_new_users">Cuentas de usuario nuevas</string>
   <string name="watchlist_filter_reset_button">Restablecer</string>
+  <string name="watchlist_search_bar_hint">Buscar en la lista de seguimiento o filtrarla</string>
+  <string name="watchlist_search_bar_filter_hint">Filtro de lista de seguimiento</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
@@ -1460,11 +1462,13 @@
   <string name="user_contrib_activity_title">Contribuciones de %s</string>
   <string name="archive_empty">No se han encontrado páginas archivadas.</string>
   <string name="user_contrib_filter_ns">Filtrar por espacio de nombres</string>
-  <string name="user_contrib_filter_all">Todos los namespaces</string>
+  <string name="user_contrib_filter_all">Todos los espacios de nombres</string>
+  <string name="user_contrib_filter_ns_header">Filtro de espacio de nombres</string>
   <string name="namespace_article">Artículo</string>
   <string name="user_contrib_current">Actual</string>
   <string name="media_playback_error">Error al reproducir medios.</string>
   <string name="user_contrib_menu_label">Contribuciones</string>
+  <string name="user_contrib_filter_activity_title">Filtrar contribuciones</string>
   <string name="action_item_view_on_map">Ver en mapa</string>
   <string name="action_item_view_on_map_unavailable">No hay coordenadas geográficas disponibles para esta página</string>
   <string name="shareable_reading_lists_new_indicator">*nuevo*</string>
