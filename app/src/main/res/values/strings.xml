@@ -98,6 +98,7 @@
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>
+    <string name="menu_long_press_open_in_places">Open in Places</string>
     <string name="menu_long_press_open_in_new_tab">Open in new tab</string>
     <string name="menu_long_press_copy_page">Copy link address</string>
 
@@ -857,6 +858,7 @@
     <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
+    <string name="feed_item_type_places">Nearby articles based on the current location</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
     <string name="feed_configure_onboarding_action">Customize</string>
     <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1770,5 +1772,12 @@
     <string name="places_survey_dialog_cancel">Cancel</string>
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
+    <string name="places_card_title">Places nearby</string>
+    <string name="places_card_action">More places nearby</string>
+    <string name="places_card_enable_location_card_message">Places is a map-based way to explore Wikipedia</string>
+    <string name="places_card_enable_location_card_button">Enable location</string>
+    <string name="places_card_distance_suffix">%s away</string>
+    <string name="places_card_distance_unknown">Unknown distance</string>
+    <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
 </resources>
