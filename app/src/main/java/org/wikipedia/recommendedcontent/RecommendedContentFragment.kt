@@ -235,8 +235,9 @@ class RecommendedContentFragment : Fragment(), RecommendedContentSection.Callbac
         (binding.historyList.adapter as RecyclerViewAdapter).setList(list)
     }
 
-    private inner class RecyclerViewAdapter(list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
-        private var list : List<PageTitle>
+    private inner class RecyclerViewAdapter(list: List<PageTitle>): RecyclerView.Adapter<RecyclerViewItemHolder>() {
+
+         var list : List<PageTitle>
 
         init {
             this.list = list
