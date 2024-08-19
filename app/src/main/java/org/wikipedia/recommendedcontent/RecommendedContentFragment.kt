@@ -24,6 +24,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -219,16 +220,9 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private inner class RecyclerViewItemHolder(val binding: ItemRecommendedContentSearchHistoryBinding) :
-        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-
-        private lateinit var pageTitle: PageTitle
-
-        init {
-            itemView.setOnClickListener(this)
-        }
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bindItem(pageTitle: PageTitle) {
-            this.pageTitle = pageTitle
             val listIcon = if (viewModel.inHistory) R.drawable.ic_history_24 else R.drawable.ic_search_white_24dp
             binding.listItem.text = StringUtil.fromHtml(pageTitle.displayText)
             binding.listItem.setCompoundDrawablesWithIntrinsicBounds(listIcon, 0, 0, 0)
@@ -238,11 +232,16 @@ class RecommendedContentFragment : Fragment() {
                 } else {
                 }
             }
-        }
 
-        override fun onClick(v: View) {
-            val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+            binding.listItem.setOnClickListener {
+                if (viewModel.inHistory) {
+                    val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
+                    startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+                } else {
+                    (requireParentFragment().requireParentFragment() as SearchFragment).setSearchText(pageTitle.displayText)
+                    parentFragmentManager.popBackStack()
+                }
+            }
         }
     }
 
