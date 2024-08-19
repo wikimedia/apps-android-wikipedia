@@ -20,9 +20,9 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-class SuggestedEditsCardItemViewModel(bundle: SavedStateHandle) : ViewModel() {
-    val age = bundle[SuggestedEditsCardItemFragment.EXTRA_AGE] ?: 0
-    var cardActionType = bundle.get<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)!!
+class SuggestedEditsCardItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val age = savedStateHandle[SuggestedEditsCardItemFragment.EXTRA_AGE] ?: 0
+    var cardActionType = savedStateHandle.get<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)!!
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var imageTagPage: MwQueryPage? = null

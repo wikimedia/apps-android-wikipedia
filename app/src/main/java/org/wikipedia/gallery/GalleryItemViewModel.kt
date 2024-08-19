@@ -16,9 +16,9 @@ import org.wikipedia.util.FileUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-class GalleryItemViewModel(bundle: SavedStateHandle) : ViewModel() {
-    private var mediaListItem = bundle.get<MediaListItem>(GalleryItemFragment.ARG_GALLERY_ITEM)!!
-    private val pageTitle = bundle[Constants.ARG_TITLE] ?: PageTitle(mediaListItem.title, Constants.commonsWikiSite)
+class GalleryItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    private var mediaListItem = savedStateHandle.get<MediaListItem>(GalleryItemFragment.ARG_GALLERY_ITEM)!!
+    private val pageTitle = savedStateHandle[Constants.ARG_TITLE] ?: PageTitle(mediaListItem.title, Constants.commonsWikiSite)
     var imageTitle = PageTitle("File:${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle.wikiSite)
     var mediaPage: MwQueryPage? = null
 
