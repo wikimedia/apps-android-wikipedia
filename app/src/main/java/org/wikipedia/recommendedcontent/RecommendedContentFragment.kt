@@ -81,7 +81,7 @@ class RecommendedContentFragment : Fragment() {
                     viewModel.actionState.collect {
                         when (it) {
                             is Resource.Success -> {
-                                binding.historyList.adapter = RecyclerViewAdapter(it.data)
+                                reloadHistoryList(it.data.first, it.data.second)
                             }
 
                             is Resource.Error -> {
@@ -225,7 +225,22 @@ class RecommendedContentFragment : Fragment() {
         Toast.makeText(requireContext(), "Demo load time: ${System.currentTimeMillis() - demoStartTime}ms", Toast.LENGTH_SHORT).show()
     }
 
-    private inner class RecyclerViewAdapter(val list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+    private fun reloadHistoryList(position: Int, list: List<PageTitle>) {
+        binding.historyList.adapter?.notifyItemRemoved(position)
+        (binding.historyList.adapter as RecyclerViewAdapter).setList(list)
+    }
+
+    private inner class RecyclerViewAdapter(list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+        private var list : List<PageTitle>
+
+        init {
+            this.list = list
+        }
+
+        fun setList(list: List<PageTitle>) {
+            this.list = list
+        }
+
         override fun getItemCount(): Int {
             return list.size
         }
@@ -235,22 +250,22 @@ class RecommendedContentFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(list[position])
+            holder.bindItem(list[position], position)
         }
     }
 
     private inner class RecyclerViewItemHolder(val binding: ItemRecommendedContentSearchHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bindItem(pageTitle: PageTitle) {
+        fun bindItem(pageTitle: PageTitle, position: Int) {
             val listIcon = if (viewModel.inHistory) R.drawable.ic_history_24 else R.drawable.ic_search_white_24dp
             binding.listItem.text = StringUtil.fromHtml(pageTitle.displayText)
             binding.listItem.setCompoundDrawablesWithIntrinsicBounds(listIcon, 0, 0, 0)
             binding.deleteIcon.setOnClickListener {
                 if (viewModel.inHistory) {
-                    viewModel.removeHistoryItem(pageTitle)
+                    viewModel.removeHistoryItem(pageTitle, position)
                 } else {
-                    viewModel.removeRecentSearchItem(pageTitle)
+                    viewModel.removeRecentSearchItem(pageTitle, position)
                 }
             }
 

@@ -46,7 +46,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
 
-    private val _actionState = MutableStateFlow(Resource<List<PageTitle>>())
+    private val _actionState = MutableStateFlow(Resource<Pair<Int, List<PageTitle>>>())
     val actionState = _actionState.asStateFlow()
 
     private val _recommendedContentState = MutableStateFlow(Resource<List<Pair<RecommendedContentSection, List<PageSummary>>>>())
@@ -57,23 +57,23 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         loadRecommendedContent(sections)
     }
 
-    fun removeHistoryItem(title: PageTitle) {
+    fun removeHistoryItem(title: PageTitle, position: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _actionState.value = Resource.Error(throwable)
         }) {
             val entry = HistoryEntry(title, HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
             AppDatabase.instance.historyEntryDao().delete(entry)
-            _actionState.value = Resource.Success(loadHistoryItems())
+            _actionState.value = Resource.Success(position to loadHistoryItems())
         }
     }
 
-    fun removeRecentSearchItem(title: PageTitle) {
+    fun removeRecentSearchItem(title: PageTitle, position: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _actionState.value = Resource.Error(throwable)
         }) {
             val recentSearch = RecentSearch(title.displayText, Date(title.description.orEmpty().toLong()))
             AppDatabase.instance.recentSearchDao().delete(recentSearch)
-            _actionState.value = Resource.Success(loadRecentSearches())
+            _actionState.value = Resource.Success(position to loadRecentSearches())
         }
     }
 
