@@ -266,7 +266,7 @@
   <string name="edit_how_page_improved">Bagaimanakah anda menambah baik laman ini?</string>
   <string name="edit_next">Seterusnya</string>
   <string name="edit_done">Terbitkan</string>
-  <string name="edit_preview">Pratayang</string>
+  <string name="edit_preview">Pralihat</string>
   <string name="edit_undo">Nyahbuat</string>
   <string name="edit_redo">Buat semula</string>
   <string name="edit_rollback">Undur</string>
@@ -966,7 +966,7 @@
   <string name="talk_warn_save_dialog_publish">Terbitkan</string>
   <string name="talk_warn_save_dialog_cancel">Batalkan</string>
   <string name="talk_warn_save_dialog_dont_save">Jangan simpan</string>
-  <string name="talk_page_empty">Halaman perbincangan ini kosong.</string>
+  <string name="talk_page_empty">Laman perbincangan ini kosong.</string>
   <string name="talk_add_reply">Balas</string>
   <string name="talk_no_subject">(Tiada subjek)</string>
   <string name="talk_reply_subject">Subjek</string>
