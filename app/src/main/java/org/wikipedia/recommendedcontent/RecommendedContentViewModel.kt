@@ -97,12 +97,12 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
             // Get term from last history entry if no article is opened
             if (term.isEmpty()) {
-                term = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("").lastOrNull()?.apiTitle ?: ""
+                term = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("").firstOrNull()?.apiTitle ?: ""
             }
 
             // Get term from last recent search if no history entry is found
             if (term.isEmpty()) {
-                term = AppDatabase.instance.recentSearchDao().getRecentSearches().lastOrNull()?.text ?: ""
+                term = AppDatabase.instance.recentSearchDao().getRecentSearches().firstOrNull()?.text ?: ""
             }
             StringUtil.removeHTMLTags(term)
         }
