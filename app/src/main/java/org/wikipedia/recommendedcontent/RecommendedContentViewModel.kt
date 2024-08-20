@@ -41,6 +41,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val sectionIds: List<Int> = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
+    var exploreTerm: String? = null
     var feedContent: AggregatedFeedContent? = null
 
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
@@ -115,8 +116,15 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             val recommendedContent = mutableListOf<Pair<RecommendedContentSection, Deferred<List<PageSummary>>>>()
             sections.forEach { section ->
                 val content = when (section) {
-                    RecommendedContentSection.TOP_READ -> async { loadTopRead() }
-                    RecommendedContentSection.EXPLORE -> async { loadExplore(getExploreSearchTerm()) }
+                    RecommendedContentSection.TOP_READ -> async {
+                        loadTopRead()
+                    }
+                    RecommendedContentSection.EXPLORE -> async {
+                        exploreTerm = getExploreSearchTerm()
+                        exploreTerm?.let {
+                            loadExplore(it)
+                        } ?: emptyList()
+                    }
                     RecommendedContentSection.ON_THIS_DAY -> async { loadOnThisDay() }
                     RecommendedContentSection.IN_THE_NEWS -> async { loadInTheNews() }
                     RecommendedContentSection.PLACES_NEAR_YOU -> async { loadPlaces() }
@@ -207,7 +215,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
             val list = moreLikeResponse.query?.pages?.map {
                 PageSummary(it.displayTitle(wikiSite.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.languageCode)
-            } ?: emptyList()
+            }?.take(5) ?: emptyList()
 
             if (hasParentLanguageCode) {
                 getPagesForLanguageVariant(list, wikiSite)
@@ -235,7 +243,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                 tab.backStackPositionTitle?.let {
                     PageSummary(it.displayText, it.prefixedText, it.description, null, it.thumbUrl, it.wikiSite.languageCode)
                 }
-            }
+            }.take(5)
         }
     }
 
@@ -257,7 +265,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                         }
                     }
                 pages
-            } ?: emptyList()
+            }?.take(5) ?: emptyList()
         }
     }
 

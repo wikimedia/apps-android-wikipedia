@@ -19,8 +19,14 @@ class RecommendedContentSectionView(context: Context) : FrameLayout(context) {
 
     private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
 
-    fun buildContent(section: RecommendedContentSection, pageSummaries: List<PageSummary>, callback: RecommendedContentSection.Callback) {
-        binding.sectionHeader.text = context.getString(section.titleResId)
+    fun buildContent(section: RecommendedContentSection, exploreTerm: String?, pageSummaries: List<PageSummary>, callback: RecommendedContentSection.Callback) {
+        val exploreString = if (section == RecommendedContentSection.EXPLORE && !exploreTerm.isNullOrEmpty()) exploreTerm else ""
+        binding.sectionHeader.text = buildString {
+            append(context.getString(section.titleResId))
+            if (exploreString.isNotEmpty()) {
+                append(" ($exploreString)")
+            }
+        }
         binding.sectionMoreButton.setOnClickListener {
             section.select(callback)
         }

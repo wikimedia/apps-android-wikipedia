@@ -224,7 +224,7 @@ class RecommendedContentFragment : Fragment(), RecommendedContentSection.Callbac
     private fun buildRecommendedContent(list: List<Pair<RecommendedContentSection, List<PageSummary>>>) {
         list.forEach { (section, pageSummaries) ->
             val sectionView = RecommendedContentSectionView(requireContext())
-            sectionView.buildContent(section, pageSummaries, this)
+            sectionView.buildContent(section, viewModel.exploreTerm, pageSummaries, this)
             binding.recommendedContentContainer.addView(sectionView)
         }
         Toast.makeText(requireContext(), "Demo load time: ${System.currentTimeMillis() - demoStartTime}ms", Toast.LENGTH_SHORT).show()

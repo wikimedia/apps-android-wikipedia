@@ -35,13 +35,14 @@
         android:layout_marginTop="16dp"
         android:text="@string/recommended_content_section_more"
         android:textColor="?attr/progressive_color"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toBottomOf="@id/sectionDivider"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sectionList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:nestedScrollingEnabled="false"
         android:layout_marginTop="8dp"
