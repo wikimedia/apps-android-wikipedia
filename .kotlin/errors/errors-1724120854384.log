@@ -1,0 +1,103 @@
+kotlin version: 2.0.10
+error message: org.jetbrains.kotlin.backend.common.BackendException: Backend Internal error: Exception during IR lowering
+File being compiled: /Users/cooltey/Documents/Android/apps-android-wikipedia/app/src/main/java/org/wikipedia/analytics/eventplatform/MobileAppsEvent.kt
+The root cause java.lang.RuntimeException was thrown at: org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:50)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException(CodegenUtil.kt:253)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException$default(CodegenUtil.kt:236)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:65)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:52)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:38)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:29)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:16)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:62)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:371)
+	at org.jetbrains.kotlin.codegen.CodegenFactory.generateModule(CodegenFactory.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateModuleInFrontendIRMode(JvmIrCodegenFactory.kt:433)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.generateCodeFromIr(jvmCompilerPipeline.kt:240)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.compileModulesUsingFrontendIrAndLightTree(jvmCompilerPipeline.kt:139)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:155)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:50)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:104)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:48)
+	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:101)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:453)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:62)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:506)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:423)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally$lambda$9$compile(IncrementalCompilerRunner.kt:249)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally(IncrementalCompilerRunner.kt:267)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:120)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:676)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:92)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1661)
+	at jdk.internal.reflect.GeneratedMethodAccessor92.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+CONSTRUCTOR KOTLINX_SERIALIZATION visibility:public <> (seen0:kotlin.Int, anon:kotlin.Boolean, sessionId:kotlin.String?, appInstallId:kotlin.String?, serializationConstructorMarker:kotlinx.serialization.internal.SerializationConstructorMarker?) returnType:org.wikipedia.analytics.eventplatform.MobileAppsEvent
+  VALUE_PARAMETER KOTLINX_SERIALIZATION name:seen0 index:0 type:kotlin.Int
+  VALUE_PARAMETER KOTLINX_SERIALIZATION name:anon index:1 type:kotlin.Boolean
+  VALUE_PARAMETER KOTLINX_SERIALIZATION name:sessionId index:2 type:kotlin.String?
+  VALUE_PARAMETER KOTLINX_SERIALIZATION name:appInstallId index:3 type:kotlin.String?
+  VALUE_PARAMETER KOTLINX_SERIALIZATION name:serializationConstructorMarker index:4 type:kotlinx.serialization.internal.SerializationConstructorMarker?
+  BLOCK_BODY
+    DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> (seen0: kotlin.Int, meta: org.wikipedia.analytics.eventplatform.Event.Meta?, dt: kotlin.String?, serializationConstructorMarker: kotlinx.serialization.internal.SerializationConstructorMarker?) declared in org.wikipedia.analytics.eventplatform.Event'
+      seen0: GET_VAR 'seen0: kotlin.Int declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent.<init>' type=kotlin.Int origin=null
+      meta: GET_VAR 'serializationConstructorMarker: kotlinx.serialization.internal.SerializationConstructorMarker? declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent.<init>' type=kotlinx.serialization.internal.SerializationConstructorMarker? origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:_streamName type:kotlin.String visibility:private [final]' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: org.wikipedia.analytics.eventplatform.MobileAppsEvent declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent' type=org.wikipedia.analytics.eventplatform.MobileAppsEvent origin=null
+      value: CONST String type=kotlin.String value=""
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:anon type:kotlin.Boolean visibility:private [final]' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: org.wikipedia.analytics.eventplatform.MobileAppsEvent declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent' type=org.wikipedia.analytics.eventplatform.MobileAppsEvent origin=null
+      value: GET_VAR 'anon: kotlin.Boolean declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent.<init>' type=kotlin.Boolean origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:sessionId type:kotlin.String visibility:private [final]' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: org.wikipedia.analytics.eventplatform.MobileAppsEvent declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent' type=org.wikipedia.analytics.eventplatform.MobileAppsEvent origin=null
+      value: GET_VAR 'sessionId: kotlin.String? declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent.<init>' type=kotlin.String? origin=null
+    SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:appInstallId type:kotlin.String visibility:private [final]' type=kotlin.Unit origin=null
+      receiver: GET_VAR '<this>: org.wikipedia.analytics.eventplatform.MobileAppsEvent declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent' type=org.wikipedia.analytics.eventplatform.MobileAppsEvent origin=null
+      value: GET_VAR 'appInstallId: kotlin.String? declared in org.wikipedia.analytics.eventplatform.MobileAppsEvent.<init>' type=kotlin.String? origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:50)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:42)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:385)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:402)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:169)
+	at org.jetbrains.kotlin.backend.jvm.FileCodegen.lower(JvmPhases.kt:41)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseBuildersKt.makeIrFilePhase$lambda$5(PhaseBuilders.kt:114)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseBuildersKt$createSimpleNamedCompilerPhase$1.phaseBody(PhaseBuilders.kt:71)
+	at org.jetbrains.kotlin.backend.common.phaser.SimpleNamedCompilerPhase.phaseBody(CompilerPhase.kt:226)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:62)
+	... 45 more
+Caused by: java.lang.IllegalStateException: Null argument in ExpressionCodegen for parameter VALUE_PARAMETER name:dt index:2 type:kotlin.String?
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generateConstructorArguments(ExpressionCodegen.kt:764)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitDelegatingConstructorCall(ExpressionCodegen.kt:730)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitDelegatingConstructorCall(ExpressionCodegen.kt:137)
+	at org.jetbrains.kotlin.ir.expressions.IrDelegatingConstructorCall.accept(IrDelegatingConstructorCall.kt:21)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:573)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:578)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:137)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:239)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:121)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:46)
+	... 55 more
+
+

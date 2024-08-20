@@ -89,6 +89,25 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
+    private suspend fun getExploreSearchTerm(): String {
+        return withContext(Dispatchers.IO) {
+            // Get term from last opened article
+            var term = WikipediaApp.instance.tabList.lastOrNull()?.backStackPositionTitle?.displayText ?: ""
+
+            // Get term from last history entry if no article is opened
+            if (term.isEmpty()) {
+                term = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("").lastOrNull()?.apiTitle ?: ""
+            }
+
+            // Get term from last recent search if no history entry is found
+            if (term.isEmpty()) {
+                term = AppDatabase.instance.recentSearchDao().getRecentSearches().lastOrNull()?.text ?: ""
+            }
+
+            term
+        }
+    }
+
     private fun loadRecommendedContent(sections: List<RecommendedContentSection>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
@@ -97,7 +116,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             sections.forEach { section ->
                 val content = when (section) {
                     RecommendedContentSection.TOP_READ -> async { loadTopRead() }
-                    RecommendedContentSection.EXPLORE -> async { loadExplore("United States") } // TODO: discuss this
+                    RecommendedContentSection.EXPLORE -> async { loadExplore(getExploreSearchTerm()) }
                     RecommendedContentSection.ON_THIS_DAY -> async { loadOnThisDay() }
                     RecommendedContentSection.IN_THE_NEWS -> async { loadInTheNews() }
                     RecommendedContentSection.PLACES_NEAR_YOU -> async { loadPlaces() }

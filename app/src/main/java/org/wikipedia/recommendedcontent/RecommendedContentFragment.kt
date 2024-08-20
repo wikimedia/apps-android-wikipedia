@@ -237,18 +237,18 @@ class RecommendedContentFragment : Fragment(), RecommendedContentSection.Callbac
 
     private inner class RecyclerViewAdapter(list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
 
-         var list: List<PageTitle>
+         var pages: List<PageTitle>
 
         init {
-            this.list = list
+            this.pages = list
         }
 
         fun setList(list: List<PageTitle>) {
-            this.list = list
+            this.pages = list
         }
 
         override fun getItemCount(): Int {
-            return list.size
+            return pages.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
@@ -256,7 +256,7 @@ class RecommendedContentFragment : Fragment(), RecommendedContentSection.Callbac
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(list[position], position)
+            holder.bindItem(pages[position], position)
         }
     }
 
