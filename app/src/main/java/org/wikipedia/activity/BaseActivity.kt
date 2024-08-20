@@ -95,7 +95,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
 
         // Conditionally execute all recurring tasks
-        RecurringTasksExecutor().run()
+        RecurringTasksExecutor.run()
         if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
             Prefs.isReadingListsFirstTimeSync = false
             Prefs.isReadingListSyncEnabled = true

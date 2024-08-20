@@ -53,7 +53,7 @@ interface ReadingListPageDao {
         apiTitle: String, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
-    fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
+    suspend fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
@@ -265,7 +265,7 @@ interface ReadingListPageDao {
         }
     }
 
-    fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
+    suspend fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
         return getPagesByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE

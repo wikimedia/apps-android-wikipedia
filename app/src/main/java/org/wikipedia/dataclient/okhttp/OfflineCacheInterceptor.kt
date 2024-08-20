@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.okhttp
 
+import kotlinx.coroutines.runBlocking
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okio.*
@@ -49,7 +50,9 @@ class OfflineCacheInterceptor : Interceptor {
                 throw networkException
             }
         }
-        val obj = AppDatabase.instance.offlineObjectDao().findObject(url, lang)
+        val obj = runBlocking {
+            AppDatabase.instance.offlineObjectDao().findObject(url, lang)
+        }
         if (obj == null) {
             L.w("Offline object not present in database.")
             throw networkException
@@ -164,7 +167,9 @@ class OfflineCacheInterceptor : Interceptor {
                     cacheSink.close()
                     if (!failed) {
                         // update the record in the database!
-                        AppDatabase.instance.offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
+                        runBlocking {
+                            AppDatabase.instance.offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
+                        }
                     }
                 }
                 return -1

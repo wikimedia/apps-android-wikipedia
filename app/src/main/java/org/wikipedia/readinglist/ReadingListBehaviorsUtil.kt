@@ -118,10 +118,8 @@ object ReadingListBehaviorsUtil {
     fun deletePages(activity: AppCompatActivity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
         if (listsContainPage.size > 1) {
             activity.lifecycleScope.launch(exceptionHandler) {
-                val lists = withContext(Dispatchers.IO) {
-                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage))
-                    AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
-                }
+                val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage))
+                val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
                 RemoveFromReadingListsDialog(lists).deleteOrShowDialog(activity) { list, page ->
                     showDeletePageFromListsUndoSnackbar(activity, list, page, snackbarCallback)
                     callback.onCompleted()
