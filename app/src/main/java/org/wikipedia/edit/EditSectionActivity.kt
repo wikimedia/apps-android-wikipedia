@@ -421,7 +421,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private fun handleEditingException(caught: MwException) {
         val code = caught.title
         lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
-            showError(caught)
+            showError(t)
         }) {
             // In the case of certain AbuseFilter responses, they are sent as a code, instead of a
             // fully parsed response. We need to make one more API call to get the parsed message:
