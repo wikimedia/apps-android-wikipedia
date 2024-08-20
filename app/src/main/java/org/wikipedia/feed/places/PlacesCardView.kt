@@ -5,6 +5,7 @@ import android.location.Location
 import android.view.LayoutInflater
 import androidx.core.view.isVisible
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.ViewPlacesCardBinding
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
@@ -62,6 +63,7 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
                 goToPlaces(it.pageTitle, it.location)
             }
             binding.placesCardContainer.setOnLongClickListener { view ->
+                PlacesEvent.logAction("places_click", "explore_feed_more_menu")
                 LongPressMenu(view, openPageInPlaces = true, location = it.location, callback = object : LongPressMenu.Callback {
                     override fun onOpenInPlaces(entry: HistoryEntry, location: Location) {
                         goToPlaces(entry.title, location)
@@ -103,6 +105,7 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
 
     private fun footer(card: PlacesCard) {
         binding.cardFooter.callback = CardFooterView.Callback {
+            PlacesEvent.logAction("places_click", "explore_feed")
             goToPlaces()
         }
         binding.cardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
