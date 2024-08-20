@@ -97,6 +97,11 @@ class RecommendedContentFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadSearchHistory()
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
@@ -119,11 +124,13 @@ class RecommendedContentFragment : Fragment() {
         }
     }
 
+    // TODO: need to refresh the list after searching
     private fun buildHistoryList(list: List<PageTitle>) {
         binding.historyList.layoutManager = LinearLayoutManager(requireContext())
         binding.historyList.adapter = RecyclerViewAdapter(list)
         binding.searchCard.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
         binding.historyMoreButton.setOnClickListener {
+            // TODO: think about expanding the history list
             if (viewModel.inHistory) {
                 (requireParentFragment() as HistoryFragment).reloadHistory()
             } else {
@@ -148,8 +155,8 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private fun reloadHistoryList(position: Int, list: List<PageTitle>) {
-        binding.historyList.adapter?.notifyItemRemoved(position)
         (binding.historyList.adapter as RecyclerViewAdapter).setList(list)
+        binding.historyList.adapter?.notifyItemRemoved(position)
     }
 
     private inner class RecyclerViewAdapter(list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {

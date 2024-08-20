@@ -77,7 +77,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private fun loadSearchHistory() {
+    fun loadSearchHistory() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _historyState.value = Resource.Error(throwable)
         }) {
