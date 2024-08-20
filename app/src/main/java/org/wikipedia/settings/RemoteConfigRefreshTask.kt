@@ -2,9 +2,12 @@ package org.wikipedia.settings
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.json.jsonPrimitive
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.internal.closeQuietly
+import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
 import org.wikipedia.recurring.RecurringTask
 import org.wikipedia.util.log.L
@@ -15,7 +18,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
     override val name = "remote-config-refresher"
 
     override fun shouldRun(lastRun: Date): Boolean {
-        return millisSinceLastRun(lastRun) >= TimeUnit.DAYS.toMillis(RUN_INTERVAL_DAYS)
+        return true //millisSinceLastRun(lastRun) >= TimeUnit.DAYS.toMillis(RUN_INTERVAL_DAYS)
     }
 
     override suspend fun run(lastRun: Date) {
@@ -32,6 +35,9 @@ class RemoteConfigRefreshTask : RecurringTask() {
             } finally {
                 response?.closeQuietly()
             }
+
+            val userInfo = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()
+            Prefs.donationBannerOptIn = userInfo.query?.userInfo?.options?.fundraisingOptIn?.jsonPrimitive.toString() == "1"
         }
     }
 
