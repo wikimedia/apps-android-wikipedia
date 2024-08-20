@@ -42,11 +42,6 @@ enum class RecommendedContentSection(val id: Int,
         override fun select(cb: Callback) {
             cb.onContinueReadingSelect()
         }
-    },
-    RANDOM(7, R.id.recommended_content_section_random, R.string.recommended_content_section_random) {
-        override fun select(cb: Callback) {
-            cb.onRandomSelect()
-        }
     };
 
     abstract fun select(cb: Callback)
@@ -57,6 +52,7 @@ enum class RecommendedContentSection(val id: Int,
         return ordinal
     }
 
+    // TODO: remove
     interface Callback {
         fun onTopReadSelect()
         fun onExploreSelect()
@@ -69,6 +65,11 @@ enum class RecommendedContentSection(val id: Int,
     }
 
     companion object {
+
+        fun personalizeList() = listOf(EXPLORE, PLACES_NEAR_YOU)
+
+        fun generalizedList() = listOf(TOP_READ, IN_THE_NEWS)
+
         fun find(id: Int): RecommendedContentSection {
             return RecommendedContentSection.entries.find { id == it.id || id == it.viewId } ?: RecommendedContentSection.entries[0]
         }

@@ -92,14 +92,11 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private fun loadRecommendedContent() {
-        val sectionIds = listOf(
-            RecommendedContentSection.EXPLORE,
-            RecommendedContentSection.TOP_READ,
-            RecommendedContentSection.IN_THE_NEWS
-        ).map { it.id }
+        // TODO: add ABC test logic here
+        val sectionIds = RecommendedContentSection.generalizedList().map { it.id }
 
         childFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = false, showTabs = false, sectionIds), null)
+            .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = false, sectionIds), null)
             .addToBackStack(null)
             .commit()
     }

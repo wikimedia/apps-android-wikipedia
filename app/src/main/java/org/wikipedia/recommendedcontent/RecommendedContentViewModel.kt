@@ -37,12 +37,11 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     val wikiSite = WikipediaApp.instance.wikiSite
     val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
-    val showTabs = bundle.getBoolean(RecommendedContentFragment.ARG_SHOW_TABS)
     private val sectionIds: List<Int> = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
-    var exploreTerm: String? = null
-    var feedContent: AggregatedFeedContent? = null
+    private var exploreTerm: String? = null
+    private var feedContent: AggregatedFeedContent? = null
 
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
@@ -50,7 +49,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private val _actionState = MutableStateFlow(Resource<Pair<Int, List<PageTitle>>>())
     val actionState = _actionState.asStateFlow()
 
-    private val _recommendedContentState = MutableStateFlow(Resource<List<Pair<RecommendedContentSection, List<PageSummary>>>>())
+    private val _recommendedContentState = MutableStateFlow(Resource<List<PageSummary>>())
     val recommendedContentState = _recommendedContentState.asStateFlow()
 
     init {
@@ -112,7 +111,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
-            val recommendedContent = mutableListOf<Pair<RecommendedContentSection, Deferred<List<PageSummary>>>>()
+            val recommendedContent = mutableListOf<Deferred<List<PageSummary>>>()
             sections.forEach { section ->
                 val content = when (section) {
                     RecommendedContentSection.TOP_READ -> async { loadTopRead() }
@@ -127,11 +126,14 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     RecommendedContentSection.PLACES_NEAR_YOU -> async { loadPlaces() }
                     RecommendedContentSection.BECAUSE_YOU_READ -> async { loadBecauseYouRead(0) }
                     RecommendedContentSection.CONTINUE_READING -> async { loadContinueReading() }
-                    RecommendedContentSection.RANDOM -> async { loadRandomArticles() }
                 }
-                recommendedContent.add(section to content)
+                recommendedContent.add(content)
             }
-            _recommendedContentState.value = Resource.Success(recommendedContent.map { it.first to it.second.await() })
+
+            // merge into one list and shuffle
+            val contentList = recommendedContent.map { it.await() }.flatten().shuffled()
+
+            _recommendedContentState.value = Resource.Success(contentList)
         }
     }
 
@@ -139,7 +141,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("").map {
                 it.title
-            }.take(5)
+            }.take(3)
         }
     }
 
@@ -150,7 +152,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     // Put timestamp in description for the delete action.
                     description = it.timestamp.time.toString()
                 }
-            }.take(5)
+            }.take(3)
         }
     }
 
@@ -183,7 +185,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun loadTopRead(): List<PageSummary> {
-        // TODO: determine how many articles to load.
         return withContext(Dispatchers.IO) {
             loadFeed().topRead?.articles?.take(5) ?: emptyList()
         }
@@ -204,7 +205,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun loadExplore(searchTerm: String): List<PageSummary> {
-        // TODO: single search term vs multiple search terms.
         return withContext(Dispatchers.IO) {
             val wikiSite = WikipediaApp.instance.wikiSite
             val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike("morelike:$searchTerm", Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
@@ -263,20 +263,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     }
                 pages
             }?.take(5) ?: emptyList()
-        }
-    }
-
-    private suspend fun loadRandomArticles(): List<PageSummary> {
-        // TODO: define how many random articles to load.
-        return withContext(Dispatchers.IO) {
-            val wikiSite = WikipediaApp.instance.wikiSite
-            val list = mutableListOf<PageSummary>()
-            repeat(5) {
-                val response = ServiceFactory.getRest(wikiSite).getRandomSummary()
-                list.add(response)
-            }
-            // make sure the list is distinct
-            list.distinct()
         }
     }
 

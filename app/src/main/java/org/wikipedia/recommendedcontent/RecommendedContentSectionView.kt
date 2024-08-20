@@ -1,12 +1,14 @@
 package org.wikipedia.recommendedcontent
 
 import android.content.Context
+import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemRecommendedContentSectionTextBinding
 import org.wikipedia.databinding.ViewRecommendedContentSectionBinding
@@ -15,21 +17,12 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.util.StringUtil
 
-class RecommendedContentSectionView(context: Context) : FrameLayout(context) {
+class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
 
-    fun buildContent(section: RecommendedContentSection, exploreTerm: String?, pageSummaries: List<PageSummary>, callback: RecommendedContentSection.Callback) {
-        val exploreString = if (section == RecommendedContentSection.EXPLORE && !exploreTerm.isNullOrEmpty()) exploreTerm else ""
-        binding.sectionHeader.text = buildString {
-            append(context.getString(section.titleResId))
-            if (exploreString.isNotEmpty()) {
-                append(" ($exploreString)")
-            }
-        }
-        binding.sectionMoreButton.setOnClickListener {
-            section.select(callback)
-        }
+    fun buildContent(pageSummaries: List<PageSummary>) {
+        binding.sectionHeader.text = context.getString(R.string.recommended_content_section_you_may_like)
         binding.sectionList.layoutManager = LinearLayoutManager(context)
         binding.sectionList.adapter = RecyclerViewAdapter(pageSummaries)
     }
