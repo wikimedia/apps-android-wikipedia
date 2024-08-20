@@ -56,7 +56,7 @@ class RecommendedContentFragment : Fragment() {
                                 buildHistoryList(it.data)
                             }
                             is Resource.Error -> {
-                                // TODO: implement error
+                                parentFragmentManager.popBackStack()
                                 L.d(it.throwable)
                             }
                         }
@@ -72,7 +72,7 @@ class RecommendedContentFragment : Fragment() {
                                 buildRecommendedContent(it.data)
                             }
                             is Resource.Error -> {
-                                // TODO: implement error
+                                parentFragmentManager.popBackStack()
                                 L.d(it.throwable)
                             }
                         }
@@ -86,7 +86,6 @@ class RecommendedContentFragment : Fragment() {
                             }
 
                             is Resource.Error -> {
-                                // TODO: implement error
                                 L.d(it.throwable)
                             }
                         }
