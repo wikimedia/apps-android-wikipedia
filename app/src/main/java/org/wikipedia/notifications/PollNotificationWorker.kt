@@ -63,11 +63,8 @@ class PollNotificationWorker(
 
     companion object {
         fun schedulePollNotificationJob(context: Context) {
-            val constraints = Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.CONNECTED)
-                .build()
             val workRequest = OneTimeWorkRequestBuilder<PollNotificationWorker>()
-                .setConstraints(constraints)
+                .setConstraints(Constraints(NetworkType.CONNECTED))
                 .build()
             WorkManager.getInstance(context).enqueue(workRequest)
         }
