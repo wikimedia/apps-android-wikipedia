@@ -103,6 +103,13 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             if (term.isEmpty()) {
                 term = AppDatabase.instance.recentSearchDao().getRecentSearches().firstOrNull()?.text ?: ""
             }
+
+            // Ger term from Because you read if no recent search is found
+            if (term.isEmpty()) {
+                term = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(0, WikipediaApp.instance.resources.getInteger(
+                    R.integer.article_engagement_threshold_sec)).lastOrNull()?.title?.displayText ?: ""
+            }
+
             StringUtil.removeHTMLTags(term)
         }
     }
@@ -111,6 +118,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
+            _recommendedContentState.value = Resource.Loading()
             val recommendedContent = mutableListOf<Deferred<List<PageSummary>>>()
             sections.forEach { section ->
                 val content = when (section) {

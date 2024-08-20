@@ -65,6 +65,9 @@ class RecommendedContentFragment : Fragment() {
                 launch {
                     viewModel.recommendedContentState.collect {
                         when (it) {
+                            is Resource.Loading -> {
+                                (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(true)
+                            }
                             is Resource.Success -> {
                                 buildRecommendedContent(it.data)
                             }
@@ -137,6 +140,11 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private fun buildRecommendedContent(list: List<PageSummary>) {
+        (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(false)
+        if (list.isEmpty()) {
+            parentFragmentManager.popBackStack()
+            return
+        }
         binding.recommendedContent.buildContent(list)
     }
 
