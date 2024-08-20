@@ -104,8 +104,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             if (term.isEmpty()) {
                 term = AppDatabase.instance.recentSearchDao().getRecentSearches().lastOrNull()?.text ?: ""
             }
-
-            term
+            StringUtil.removeHTMLTags(term)
         }
     }
 
