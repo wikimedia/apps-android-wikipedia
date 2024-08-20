@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ThrowableUtil
+import java.time.Instant
 import java.time.temporal.ChronoUnit
 import java.util.Date
 
@@ -84,7 +85,14 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             wikiSupportsImageRecommendations = true
 
             homeSiteResponse.query?.userInfo?.let {
-                allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
+                // T371442: In the case of Igbo Wikipedia, allow patrolling if the user has 500 or more edits, and 30 days of tenure.
+                // For all other wikis, allow patrolling if the user has rollback rights or is an admin.
+                if (WikipediaApp.instance.wikiSite.languageCode == "ig") {
+                    allowToPatrolEdits = it.editCount >= 500 && it.registrationDate.toInstant().plus(30, ChronoUnit.DAYS).isBefore(Instant.now())
+                } else {
+                    allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
+                }
+
                 if (it.isBlocked) {
                     blockMessageWikipedia = ThrowableUtil.getBlockMessageHtml(it, WikipediaApp.instance.wikiSite)
                 }
