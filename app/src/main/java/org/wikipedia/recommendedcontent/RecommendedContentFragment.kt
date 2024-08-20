@@ -222,11 +222,8 @@ class RecommendedContentFragment : Fragment(), RecommendedContentSection.Callbac
     }
 
     private fun buildRecommendedContent(list: List<Pair<RecommendedContentSection, List<PageSummary>>>) {
-        list.forEach { (section, pageSummaries) ->
-            val sectionView = RecommendedContentSectionView(requireContext())
-            sectionView.buildContent(section, viewModel.exploreTerm, pageSummaries, this)
-            binding.recommendedContentContainer.addView(sectionView)
-        }
+        binding.recommendedContentContainer.layoutManager = LinearLayoutManager(requireContext())
+        binding.recommendedContentContainer.adapter = RecommendedContentAdapter(list)
         Toast.makeText(requireContext(), "Demo load time: ${System.currentTimeMillis() - demoStartTime}ms", Toast.LENGTH_SHORT).show()
     }
 
@@ -284,6 +281,30 @@ class RecommendedContentFragment : Fragment(), RecommendedContentSection.Callbac
                     parentFragmentManager.popBackStack()
                 }
             }
+        }
+    }
+
+    private inner class RecommendedContentAdapter(private val list: List<Pair<RecommendedContentSection, List<PageSummary>>>) :
+        RecyclerView.Adapter<RecommendedContentItemHolder>() {
+
+        override fun getItemCount(): Int {
+            return list.size
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecommendedContentItemHolder {
+            return RecommendedContentItemHolder(RecommendedContentSectionView(requireContext()))
+        }
+
+        override fun onBindViewHolder(holder: RecommendedContentItemHolder, position: Int) {
+            holder.bindItem(list[position])
+        }
+    }
+
+    private inner class RecommendedContentItemHolder(private val view: RecommendedContentSectionView) :
+        RecyclerView.ViewHolder(view) {
+
+        fun bindItem(pair: Pair<RecommendedContentSection, List<PageSummary>>) {
+            view.buildContent(pair.first, viewModel.exploreTerm, pair.second, this@RecommendedContentFragment)
         }
     }
 

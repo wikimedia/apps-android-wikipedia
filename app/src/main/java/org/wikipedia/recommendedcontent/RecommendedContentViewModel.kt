@@ -116,9 +116,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             val recommendedContent = mutableListOf<Pair<RecommendedContentSection, Deferred<List<PageSummary>>>>()
             sections.forEach { section ->
                 val content = when (section) {
-                    RecommendedContentSection.TOP_READ -> async {
-                        loadTopRead()
-                    }
+                    RecommendedContentSection.TOP_READ -> async { loadTopRead() }
                     RecommendedContentSection.EXPLORE -> async {
                         exploreTerm = getExploreSearchTerm()
                         exploreTerm?.let {
