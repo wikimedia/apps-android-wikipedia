@@ -2,7 +2,6 @@ package org.wikipedia.settings
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import kotlinx.serialization.json.jsonPrimitive
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.internal.closeQuietly
@@ -38,7 +37,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
 
             val userInfo = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()
             // This clumsy comparison is necessary because the field is an integer value when enabled, but a string when disabled.
-            Prefs.donationBannerOptIn = userInfo.query?.userInfo?.options?.fundraisingOptIn?.jsonPrimitive.toString() == "1"
+            Prefs.donationBannerOptIn = userInfo.query?.userInfo?.options?.fundraisingOptIn?.toString().orEmpty().replace("\"", "").isNotEmpty()
         }
     }
 
