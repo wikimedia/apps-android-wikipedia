@@ -929,7 +929,6 @@
     <item quantity="one">%d تاگت زیاد کرد</item>
     <item quantity="other">%d تاگت زیاد کرد</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دوێنێ</string>
   <string name="suggested_edits_encourage_account_creation_title">دەزانیت کە ھەموو کەسێک دەتوانێت دەستکاریی ویکیپیدیا بکات؟</string>
   <string name="suggested_edits_encourage_account_creation_message">دەستکارییە پێشنیارکراوەکان ڕێگەیەکی نوێیە بۆ دەستکاریکردن لە ویکیپیدیا لەسەر ئەندرۆید. یارمەتیت دەدات لە ئەنجامدانی دەستکاریی بچووک و گرینگ. ئامانجمان ئەوەیە کە دەستکاریکردن ئاسانتر بکەین و زیاتر بەردەستی بخەین بۆ ھەموو کەس! بچۆرە ژوورەوە یان بەشداری بکە لە ویکیپیدیا بۆ دەستپێکردن.</string>

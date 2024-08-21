@@ -53,8 +53,10 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
 import java.util.Date
 import java.util.concurrent.TimeUnit
@@ -219,7 +221,9 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = true
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
+                SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
+                binding.fragmentDescriptionEditView.description.isNullOrEmpty()
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()

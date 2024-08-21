@@ -1066,7 +1066,6 @@
     <item quantity="one">شما %d برچسب افزوده‌اید</item>
     <item quantity="other">شما %d برچسب افزوده‌اید</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دیروز</string>
   <string name="suggested_edits_encourage_account_creation_title">آیا می‌دانستید همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="suggested_edits_encourage_account_creation_message">ویرایش‌های پیشنهادی راه جدیدی برای ویرایش ویکی‌پدیا در اندروید هستند. این راه به شما کمک می‌کند تا مشارکت‌های کوچک اما حیاتی در ویکی‌پدیا داشته باشید.\nهدف ما این است که ویرایش برای همه ساده‌تر در دسترس‌تر باشد! برای شروع، به حساب خود وارد شوید یا حساب جدید بسازید.</string>

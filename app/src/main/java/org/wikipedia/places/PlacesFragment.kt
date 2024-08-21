@@ -138,7 +138,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 PlacesEvent.logAction("location_permission_granted", "map_view")
                 startLocationTracking()
-                goToLocation(viewModel.location)
+                goToLocation(viewModel.location ?: getDefaultLocation())
             }
             else -> {
                 PlacesEvent.logAction("location_permission_denied", "map_view")
@@ -386,8 +386,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 viewModel.location?.let {
                     goToLocation(it)
                 } ?: run {
-                    val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                    goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                    if (Prefs.placesDefaultLocationLatLng != null) {
+                        goToLocation(getDefaultLocation())
+                    } else {
+                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                    }
 
                     if (!haveLocationPermissions()) {
                         locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -402,6 +406,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun getDefaultLocation(): Location? {
+        return Prefs.placesDefaultLocationLatLng?.let { defaultLocationString ->
+            val defaultLocationStrings = defaultLocationString.split(",").map { it.toDouble() }
+            val defaultLocation = Location("").apply {
+                latitude = defaultLocationStrings[0]
+                longitude = defaultLocationStrings[1]
+            }
+            return defaultLocation
         }
     }
 
@@ -629,6 +644,18 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
         binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
+
+        if (pages.isEmpty() && Prefs.placesLastLocationAndZoomLevel == null) {
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.places_empty_message_snackbar)).run {
+                setAction(R.string.dialog_close_description) {
+                    dismiss()
+                }
+                show()
+            }
+            lastLocation?.let {
+                Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
+            }
+        }
     }
 
     private fun haveLocationPermissions(): Boolean {

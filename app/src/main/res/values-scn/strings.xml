@@ -360,7 +360,6 @@
   <string name="suggested_edits_contribution_type_label">Tipu di cuntribbutu</string>
   <string name="suggested_edits_contribution_image_label">Mmàggini</string>
   <string name="suggested_edits_contribution_article_label">Vuci</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Aieri</string>
   <string name="file_page_edit_button_content_description">Cancia %s</string>
   <string name="description_edit_revert_subtitle">Grazzi pi aviri canciatu Wikipedia!</string>

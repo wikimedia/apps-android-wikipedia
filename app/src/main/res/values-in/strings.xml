@@ -1023,7 +1023,6 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Dilihat %s kali dalam 30 hari terakhir.</string>
   <string name="suggested_edits_image_tag_contribution_label">Anda telah menambahkan %d tanda</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kemarin</string>
   <string name="suggested_edits_encourage_account_creation_title">Tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Penyuntingan yang disarankan adalah cara baru untuk mengedit Wikipedia di Android. Ini membantu Anda memberikan kontribusi kecil yang sangat berharga untuk Wikipedia.\nTujuan kami adalah membuat pengeditan lebih mudah dan lebih bisa diakses untuk semua orang! Masuk atau bergabung dengan Wikipedia untuk memulai.</string>

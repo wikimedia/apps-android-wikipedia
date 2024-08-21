@@ -249,6 +249,7 @@
   <string name="description_edit_translate_caption_label_per_language">Kovetekstâ (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Kovetekstâ (%s)</string>
   <string name="description_edit_save">Almostit</string>
+  <string name="description_edit_read">Luuvâ</string>
   <string name="description_edit_add_description">Lasseet artikkâl kuvvim</string>
   <string name="description_edit_translate_description">Jurgâl artikkâl kuvvim</string>
   <string name="description_edit_edit_description">Mute artikkâl kuvvim</string>

@@ -581,7 +581,6 @@
     <item quantity="other">Á̱ li guu a̱ka̱%s mi̱ mmam 30 na̱ swak a̱ni.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Á̱ li guu a̱ka̱%s mi̱ mmam 30 na̱ swak a̱ni.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Lyuo</string>
   <string name="suggested_edits_encourage_account_creation_title">A wa lyen nyia̱ konyan wa maai jhyuk Wikipidya a?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Nwuo/Shyia̱ nwuai Wikipidya</string>

@@ -1084,7 +1084,6 @@
     <item quantity="one">您已新增 %d 個標籤</item>
     <item quantity="other">您已新增 %d 個標籤</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_encourage_account_creation_title">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="suggested_edits_encourage_account_creation_message">建議編輯是在 Android 上編輯維基百科的新方式。這能讓您做出微小；但對於維基百科是至關重要的貢獻。\n我們的目標是讓所有人能夠更輕鬆地編輯！請登入或加入維基百科來開始。</string>

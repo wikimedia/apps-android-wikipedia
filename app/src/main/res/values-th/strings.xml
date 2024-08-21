@@ -863,7 +863,6 @@
   <string name="suggested_edits_contribution_type_label">ชนิดการมีส่วนร่วม</string>
   <string name="suggested_edits_contribution_image_label">ภาพ</string>
   <string name="suggested_edits_contribution_article_label">บทความ</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">เมื่อวานนี้</string>
   <string name="suggested_edits_encourage_account_creation_title">คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
