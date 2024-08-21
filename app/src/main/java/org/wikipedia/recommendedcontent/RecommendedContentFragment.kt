@@ -23,7 +23,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.search.RecentSearchesFragment
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -129,20 +128,6 @@ class RecommendedContentFragment : Fragment() {
         binding.historyList.layoutManager = LinearLayoutManager(requireContext())
         binding.historyList.adapter = RecyclerViewAdapter(list)
         binding.searchCard.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
-        binding.historyMoreButton.setOnClickListener {
-            // TODO: think about expanding the history list
-            if (viewModel.inHistory) {
-                (requireParentFragment() as HistoryFragment).reloadHistory()
-            } else {
-                (requireParentFragment() as RecentSearchesFragment).reloadRecentSearches()
-            }
-            parentFragmentManager.popBackStack()
-        }
-        if (viewModel.inHistory) {
-            binding.historyMoreButton.text = getString(R.string.recommended_content_view_more_history)
-        } else {
-            binding.historyMoreButton.text = getString(R.string.recommended_content_more_recent_searches)
-        }
     }
 
     private fun buildRecommendedContent(list: List<PageSummary>) {
