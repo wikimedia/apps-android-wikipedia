@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
@@ -52,5 +53,6 @@ class UserInfo : BlockInfo() {
     @Serializable
     class Options {
         @SerialName("watchdefault") val watchDefault: Int = 0
+        @SerialName("centralnotice-display-campaign-type-fundraising") val fundraisingOptIn: JsonElement? = null
     }
 }
