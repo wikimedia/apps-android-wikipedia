@@ -36,7 +36,7 @@ object ViewUtil {
     private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
     val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), ROUNDED_CORNERS)
-    private val CENTER_CROP_CIRCLE = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(36f)))
+    private val CENTER_CROP_CIRCLE = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(48f)))
 
     fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
         loadImage(view, url, roundedCorners = true, largeRoundedSize = largeRoundedSize)

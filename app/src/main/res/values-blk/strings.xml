@@ -841,7 +841,6 @@
   <string name="suggested_edits_contribution_image_label">ရုက်ပုင်ႏ</string>
   <string name="suggested_edits_contribution_article_label">ရောမ်ဖြုဲင်ꩻ</string>
   <string name="suggested_edits_contribution_views">%s ထွား</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">မဟာနီꩻ</string>
   <string name="suggested_edits_encourage_account_creation_title">လိုꩻတွိုင်ꩻစွုမ်ႏဖြာꩻ မွဉ်းဖျင်နွောင်ꩻဒျာႏ ဝီခီပီးဒီးယားနဝ်ꩻ သေနေဟောင်း?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">နွို့အကောက်/ဆွိုက် ဝီခီပီးဒီးယား</string>

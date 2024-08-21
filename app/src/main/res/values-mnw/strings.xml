@@ -883,7 +883,6 @@
     <item quantity="one">မၞးစုတ် %d ဒစင်</item>
     <item quantity="other">မၞးစုတ် %d ဒစင်</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">နူကဏေအ်</string>
   <string name="suggested_edits_encourage_account_creation_title">မၞးတီဟာ ဒဒှ်ရ ဇၟာပ်မၞိဟ် လုပ်ပလေဝ်ဒါန် ဝဳကဳပဳဒဳယာဂွံဒၟံင်ဂှ်။</string>
   <string name="suggested_edits_encourage_account_creation_message">တင်ပလေဝ်ဒါန် မအာတ်မိက်ဂှ် ဒှ်နဲကဲတၟိ သွက်ဂွံပလေဝ်ဒါန် ပ္ဍဲဝဳကဳပဳဒဳယာ နကဵု အေန်ဒရောန်။ အရာဏအ်ဂှ် မၞးမကၠောန်ကဵုညိည ဒှ်ဂုန်ဗွဲမဇၞော် သွက်ဝဳကဳပဳဒဳယာရ။ တင်ရန်တၟအ်ပိုယ်ဂှ် ဇၟာပ်မၞိဟ် ဗွဲမလောဲသွာ ညံင်ဂွံလုပ် ပလေဝ်ဒါန်ဂွံရ။ လုပ်လံက်အေန် ဟွံသေင်မ္ဂး လုပ်ပံင်တောဲ သွက်ဂွံ လုပ်စကၠောန်။</string>

@@ -1006,7 +1006,6 @@
     <item quantity="one">Lu udah nambahin %d tenger</item>
     <item quantity="other">Lu udah nambahin %d tenger</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kemarèn</string>
   <string name="suggested_edits_encourage_account_creation_title">Nyaho kaga\' lu kalo sapa aja bisa mermak Wikipédi?</string>
   <string name="suggested_edits_encourage_account_creation_message">Permakan nyang disaranin entu cara baru bakal mermak Wikipédi di Android. Ni ngebantu lu ngebikin sumbangan kecil tapi penting bakal Wikipédi.\nKita punya tujuan mah bakal ngeja pemermakan gampil èn lebi kena diaksès ama sapa aja! Masup atawa nimbrung di Wikipédi bakal mulain.</string>

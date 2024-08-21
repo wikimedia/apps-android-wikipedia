@@ -1144,7 +1144,6 @@
     <item quantity="many">הוספת %d תגים</item>
     <item quantity="other">הוספת %d תגים</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="suggested_edits_encourage_account_creation_message">עריכות מוצעות היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה כדי להתחיל.</string>

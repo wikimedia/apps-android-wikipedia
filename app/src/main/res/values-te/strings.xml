@@ -913,7 +913,6 @@
     <item quantity="one">మీరు %d ట్యాగును చేర్చారు</item>
     <item quantity="other">మీరు %d ట్యాగులను చేర్చారు</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
   <string name="suggested_edits_encourage_account_creation_title">వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>

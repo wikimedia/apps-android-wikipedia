@@ -1018,7 +1018,6 @@
     <item quantity="one">An ƙara %d tag</item>
     <item quantity="other">Ka ƙara %d tags</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Jiya</string>
   <string name="suggested_edits_encourage_account_creation_title">Shin kun san cewa kowa zai iya gyara Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Gyaran da aka ba da shawarar sabuwar hanya ce don gyara Wikipedia akan Android. Yana taimaka maka ka ba da gudummawa kaɗan amma mai mahimmanci ga Wikipedia. Manufarmu ita ce ta sauƙaƙa gyare-gyare kuma ta fi sauƙi ga kowa! Shigar ko shiga Wikipedia don farawa.</string>

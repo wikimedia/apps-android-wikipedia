@@ -1069,7 +1069,6 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Son 30 gün içinde %s kez görüldü.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d etiket eklediniz</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dün</string>
   <string name="suggested_edits_encourage_account_creation_title">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="suggested_edits_encourage_account_creation_message">Önerilen düzenlemeler, Android\'de Vikipedi\'yi düzenlemenin yeni bir yoludur. Vikipedi\'ye küçük ancak hayati katkılar yapmanıza yardımcı olur.\nAmacımız, düzenlemeyi herkes için daha kolay ve daha erişilebilir hale getirmektir! Başlamak için oturum açın veya Vikipedi\'ye katılın.</string>

@@ -10,7 +10,7 @@
   <string name="app_name_prod">Википеди</string>
   <string name="app_name_beta">Википеди Бета</string>
   <string name="app_name_alpha">Википеди Альфа</string>
-  <string name="wikimedia">Викикимеди</string>
+  <string name="wikimedia">Викимедиа</string>
   <string name="nav_item_back">ЙухагӀо</string>
   <string name="page_tabs_back">ЙухагӀо</string>
   <string name="nav_item_forward">Хьалха</string>
@@ -76,7 +76,7 @@
   <string name="edit_saved_successfully">Нисдар Ӏалашдина!</string>
   <string name="dialog_message_edit_failed">ГӀалат тадина!</string>
   <string name="dialog_message_edit_failed_retry">ЙухагӀорта</string>
-  <string name="dialog_message_edit_failed_cancel">Цаоьшу</string>
+  <string name="dialog_message_edit_failed_cancel">ДӀадаккхар</string>
   <string name="dialog_message_leaving_edit_leave">ДӀадаха</string>
   <string name="dialog_message_leaving_edit_stay">Диса</string>
   <string name="menu_show_toc">Чулацам</string>

@@ -1042,7 +1042,6 @@
     <item quantity="one">Сиз %d тег къошдугъуз</item>
     <item quantity="other">Сиз added %d тег къошдугъуз</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Тюнене</string>
   <string name="suggested_edits_encourage_account_creation_title">Хар ким да Википедияны тюзетирге болгъанын билемисиз?</string>
   <string name="suggested_edits_encourage_account_creation_message">Теджелген тюзетиуле, Андроидде Википедия тюзетиуюню джангы джолуду. Википедиягъа гитче, алай а джашау магъаналы къошумла этерге болушур. Нюзюрюбюз, тюзетиуню хар ким ючюн да тынч эмда джетиширча халгъа келтириудю! Башлар ючюн, сессия ачыгъыз неда Википедиягъа къошулугъуз.</string>

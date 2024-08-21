@@ -10,6 +10,7 @@ import org.wikipedia.feed.aggregated.AggregatedFeedContentClient
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.mainpage.MainPageClient
+import org.wikipedia.feed.places.PlacesFeedClient
 import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
 import org.wikipedia.model.EnumCode
@@ -30,6 +31,11 @@ enum class FeedContentType(private val code: Int,
     TOP_READ_ARTICLES(3, R.string.view_top_read_card_title, R.string.feed_item_type_trending, true) {
         override fun newClient(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
             return if (isEnabled) AggregatedFeedContentClient.TopReadArticles(coroutineScope, aggregatedClient) else null
+        }
+    },
+    PLACES(11, R.string.places_title, R.string.feed_item_type_places, false) {
+        override fun newClient(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
+            return if (isEnabled) PlacesFeedClient(coroutineScope) else null
         }
     },
     FEATURED_IMAGE(7, R.string.view_featured_image_card_title, R.string.feed_item_type_featured_image, false) {

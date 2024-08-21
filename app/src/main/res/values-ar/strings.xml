@@ -1060,7 +1060,6 @@
   <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_views">%s مشاهدة</string>
   <string name="suggested_edits_contribution_seen_text">شوهدت %s مرة في آخر 30 يوماً</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
   <string name="suggested_edits_encourage_account_creation_title">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="suggested_edits_encourage_account_creation_message">التعديلات المقترحة هي طريقة جديدة لتحرير ويكيبيديا على الأندرويد. تُساعدك على إجراء مساهمات صغيرة ولكنها حيوية في ويكيبيديا.\nهدفنا هو جعل التحرير أسهل وأكثر مرونة للجميع! سجّل الدخول أو انضم لويكيبيديا للبدء.</string>
