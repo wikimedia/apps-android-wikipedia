@@ -39,3 +39,6 @@ scripts/backup.ab
 # miscellaneous
 all-apks.sh
 device*.png
+
+# Log Files
+*.log
