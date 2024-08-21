@@ -18,7 +18,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
     override val name = "remote-config-refresher"
 
     override fun shouldRun(lastRun: Date): Boolean {
-        return true //millisSinceLastRun(lastRun) >= TimeUnit.DAYS.toMillis(RUN_INTERVAL_DAYS)
+        return millisSinceLastRun(lastRun) >= TimeUnit.DAYS.toMillis(RUN_INTERVAL_DAYS)
     }
 
     override suspend fun run(lastRun: Date) {
@@ -37,6 +37,7 @@ class RemoteConfigRefreshTask : RecurringTask() {
             }
 
             val userInfo = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()
+            // This clumsy comparison is necessary because the field is an integer value when enabled, but a string when disabled.
             Prefs.donationBannerOptIn = userInfo.query?.userInfo?.options?.fundraisingOptIn?.jsonPrimitive.toString() == "1"
         }
     }

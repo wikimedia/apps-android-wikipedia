@@ -10,12 +10,13 @@ class DonorExperienceEvent {
             action: String,
             activeInterface: String,
             wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode,
-            campaignId: String? = null
+            campaignId: String? = null,
+            bannerOptIn: Boolean? = null
         ) {
             submit(
                 action,
                 activeInterface,
-                campaignId?.let { "campaign_id: $it, " }.orEmpty(),
+                campaignId?.let { "campaign_id: $it, " }.orEmpty() + bannerOptIn?.let { "banner_opt_in: $it" }.orEmpty(),
                 wikiId
             )
         }
