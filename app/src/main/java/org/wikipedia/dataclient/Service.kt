@@ -171,10 +171,10 @@ interface Service {
     suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
+    suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parseText(@Query("text") text: String): Observable<MwParseResponse>
+    suspend fun parseText(@Query("text") text: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     suspend fun parseTextForMainPage(@Query("page") mainPageTitle: String): MwParseResponse
@@ -317,10 +317,7 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     val authManagerInfo: Observable<MwQueryResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
-    val userInfo: Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
     suspend fun getUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
@@ -456,7 +453,7 @@ interface Service {
         @Field("data-ge-task-image-recommendation") imageRecommendationJson: String? = null,
     ): Edit
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights|registrationdate")
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
