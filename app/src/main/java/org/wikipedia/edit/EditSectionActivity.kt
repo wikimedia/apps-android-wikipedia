@@ -52,6 +52,7 @@ import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -182,7 +183,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
-        invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+        invokeSource = intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""

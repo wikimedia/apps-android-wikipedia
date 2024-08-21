@@ -13,6 +13,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivitySuggestedEditsFeedCardImageTagsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -35,7 +36,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         setImageZoomHelper()
 
         suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment
-        suggestedEditsImageTagsFragment.invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+        suggestedEditsImageTagsFragment.invokeSource = intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
 
         binding.addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment.publish() }
         binding.addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment.publish() }

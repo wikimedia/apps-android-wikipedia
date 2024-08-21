@@ -9,6 +9,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityArticleEditDetailsBinding
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.page.PageTitle
 
 class ArticleEditDetailsActivity : BaseActivity() {
@@ -25,7 +26,7 @@ class ArticleEditDetailsActivity : BaseActivity() {
             intent.getIntExtra(EXTRA_PAGE_ID, -1),
             intent.getLongExtra(EXTRA_EDIT_REVISION_FROM, -1),
             intent.getLongExtra(EXTRA_EDIT_REVISION_TO, -1),
-            intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
+            intent.serializableExtra(INTENT_EXTRA_INVOKE_SOURCE)!!)
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit { add(binding.fragmentContainer.id, fragment) }

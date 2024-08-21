@@ -12,6 +12,7 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import java.util.Calendar
@@ -25,7 +26,7 @@ class OnThisDayViewModel(bundle: Bundle) : ViewModel() {
     val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     val age = bundle.getInt(OnThisDayActivity.EXTRA_AGE, 0)
     val year = bundle.getInt(OnThisDayActivity.EXTRA_YEAR, 0)
-    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+    val invokeSource = bundle.serializable<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
     val date = DateUtil.getDefaultDateFor(age)
 
     private val _uiState = MutableStateFlow(Resource<List<OnThisDay.Event>>())

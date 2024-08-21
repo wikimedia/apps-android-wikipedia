@@ -11,6 +11,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.log.L
 
@@ -56,7 +57,8 @@ class BreadCrumbLogEvent(
         }
 
         fun logScreenShown(context: Context, fragment: Fragment? = null) {
-            val invokeSource = (fragment?.activity?.intent ?: (context as? Activity)?.intent)?.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
+            val intent = (fragment?.activity?.intent ?: (context as? Activity)?.intent)
+            val invokeSource = intent?.serializableExtra<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context, fragment),
                 "show" + invokeSource?.let { ".from." + it.value }.orEmpty()))
         }

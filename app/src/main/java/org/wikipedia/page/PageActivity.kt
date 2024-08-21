@@ -54,6 +54,7 @@ import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
@@ -145,11 +146,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private val requestSuggestedEditsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK || it.resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS) {
             pageFragment.refreshPage()
-            val data = it.data
             val editLanguage = pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.languageState.appLanguageCode }
-            val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION))
-                data.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
-            else null
+            val action = it.data?.serializableExtra<DescriptionEditActivity.Action>(Constants.INTENT_EXTRA_ACTION)
 
             SuggestedEditsSnackbars.show(this, action, it.resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
                 editLanguage, action !== DescriptionEditActivity.Action.ADD_DESCRIPTION && action !== DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {

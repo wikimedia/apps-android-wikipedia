@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 
@@ -20,7 +21,7 @@ class WatchlistExpiryDialogViewModel(bundle: Bundle) : ViewModel() {
     }
 
     var pageTitle = bundle.parcelable<PageTitle>(WatchlistExpiryDialog.ARG_PAGE_TITLE)!!
-    var expiry = bundle.getSerializable(WatchlistExpiryDialog.ARG_EXPIRY) as WatchlistExpiry
+    var expiry = bundle.serializable<WatchlistExpiry>(WatchlistExpiryDialog.ARG_EXPIRY)!!
 
     private val _uiState = MutableStateFlow(Resource<WatchlistExpiry>())
     val uiState = _uiState.asStateFlow()

@@ -9,6 +9,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.commons.ImagePreviewDialog
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
@@ -24,7 +25,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
+        val action = intent.serializableExtra<Action>(Constants.INTENT_EXTRA_ACTION)
 
         if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
@@ -33,15 +34,14 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     public override fun createFragment(): DescriptionEditFragment {
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
-        return DescriptionEditFragment.newInstance(title,
-                intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                intent.parcelableExtra(EXTRA_SOURCE_SUMMARY),
-                intent.parcelableExtra(EXTRA_TARGET_SUMMARY),
-                action,
-                invokeSource)
+        return DescriptionEditFragment.newInstance(
+            intent.parcelableExtra(Constants.ARG_TITLE)!!,
+            intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
+            intent.parcelableExtra(EXTRA_SOURCE_SUMMARY),
+            intent.parcelableExtra(EXTRA_TARGET_SUMMARY),
+            intent.serializableExtra(Constants.INTENT_EXTRA_ACTION)!!,
+            intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+        )
     }
 
     override fun onBackPressed() {
@@ -67,8 +67,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         } else {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle,
-                            if (intent.hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) && intent.getSerializableExtra
-                                    (Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
+                            if (intent.serializableExtra<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
                                 HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS)))
         }
     }

@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.util.L10nUtil
@@ -23,8 +24,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
-
-    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+    val invokeSource = bundle.serializable<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
     val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery

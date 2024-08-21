@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -22,9 +23,8 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
 class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
-
     val age = bundle.getInt(SuggestedEditsCardItemFragment.EXTRA_AGE)
-    var cardActionType = bundle.getSerializable(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE) as DescriptionEditActivity.Action
+    var cardActionType = bundle.serializable<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var imageTagPage: MwQueryPage? = null
