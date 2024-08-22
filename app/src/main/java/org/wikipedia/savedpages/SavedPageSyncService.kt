@@ -3,9 +3,9 @@ package org.wikipedia.savedpages
 import android.content.Intent
 import androidx.core.app.JobIntentService
 import androidx.core.os.postDelayed
+import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
 import okhttp3.Request
 import okio.Buffer
 import okio.Sink
@@ -91,11 +91,8 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     private fun deletePageContents(page: ReadingListPage) {
-        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-        }) {
-            AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(page.id)
-        }
+        Completable.fromAction { AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(page.id) }.subscribeOn(Schedulers.io())
+                .subscribe({}) { obj -> L.e(obj) }
     }
 
     private fun savePages(queue: MutableList<ReadingListPage>): Int {
@@ -196,9 +193,7 @@ class SavedPageSyncService : JobIntentService() {
                         page.displayTitle = summaryRsp.body()!!.displayTitle
                         page.description = summaryRsp.body()!!.description
                         reqSaveFiles(page, pageTitle, fileUrls)
-                        val totalSize = runBlocking {
-                            AppDatabase.instance.offlineObjectDao().getTotalBytesForPageId(page.id)
-                        }
+                        val totalSize = AppDatabase.instance.offlineObjectDao().getTotalBytesForPageId(page.id)
                         L.i("Saved page " + pageTitle.prefixedText + " (" + totalSize + ")")
                         totalSize
                     }
