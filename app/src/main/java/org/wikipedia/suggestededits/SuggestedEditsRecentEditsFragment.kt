@@ -176,7 +176,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             }
             R.id.menu_saved_messages -> {
                 sendPatrollerExperienceEvent("list_saved_init", "pt_warning_messages")
-                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), AccountUtil.userName.orEmpty(), viewModel.wikiSite)
+                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), AccountUtil.userName, viewModel.wikiSite)
                 requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
