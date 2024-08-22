@@ -581,6 +581,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_lang_code, value)
 
+    var donationBannerOptIn
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_banner_opt_in, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_banner_opt_in, value)
+
     var importReadingListsNewInstallDialogShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, value)

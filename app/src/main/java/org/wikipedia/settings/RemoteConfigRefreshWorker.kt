@@ -7,6 +7,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Request
 import okio.IOException
+import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
 import org.wikipedia.util.log.L
 
@@ -29,6 +31,13 @@ class RemoteConfigRefreshWorker(
         }
         RemoteConfig.updateConfig(configStr)
         L.d(configStr)
+
+        val userInfo = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()
+        // This clumsy comparison is necessary because the field is an integer value when enabled, but an empty string when disabled.
+        // Since we want the default to lean towards opt-in, we check very specifically for an empty string, to make sure the user has opted out.
+        val fundraisingOptOut = userInfo.query?.userInfo?.options?.fundraisingOptIn?.toString()?.replace("\"", "")?.isEmpty()
+        Prefs.donationBannerOptIn = fundraisingOptOut != true
+
         return Result.success()
     }
 
