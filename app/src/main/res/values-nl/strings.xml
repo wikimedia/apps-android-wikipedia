@@ -56,7 +56,7 @@
   <string name="search_hint">Zoeken in Wikipedia</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Mijn lijst filteren</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filter mijn lijsten</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
   <string name="nav_item_search">Zoeken</string>
@@ -134,6 +134,7 @@
   <string name="menu_page_recently_viewed">Onlangs bekeken</string>
   <string name="menu_page_archive">Archief</string>
   <string name="menu_long_press_open_page">Openen</string>
+  <string name="menu_long_press_open_in_places">Openen in Plaatsen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_long_press_copy_page">Internetadres kopiëren</string>
   <string name="menu_text_select_define">Definiëren</string>
@@ -864,6 +865,7 @@
   <string name="feed_item_type_main_page">Hoofdpagina van Wikipedia met dagelijkse uitgelichte inhoud</string>
   <string name="feed_item_type_randomizer">Genereert willekeurige artikelen om te lezen</string>
   <string name="feed_item_type_suggested_edits">Voorstellen om content aan Wikipedia toe te voegen</string>
+  <string name="feed_item_type_places">Nabijgelegen artikelen op basis van de huidige locatie</string>
   <string name="feed_empty_message">Er staat niets in uw overzicht Verkennen</string>
   <string name="feed_configure_onboarding_action">Aanpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1699,4 +1701,11 @@
   <string name="places_survey_dialog_cancel">Annuleren</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Wat wil je dat we veranderen of verbeteren?</string>
   <string name="places_empty_list">Dit gebied is leeg. Zoom uit &lt;a href=\"#\"&gt;op de kaart&lt;/a&gt;.</string>
+  <string name="places_card_title">Plaatsen in de buurt</string>
+  <string name="places_card_action">Meer plaatsen in de buurt</string>
+  <string name="places_card_enable_location_card_message">Plaatsen is een kaartgebaseerde manier om Wikipedia te verkennen</string>
+  <string name="places_card_enable_location_card_button">Locatie inschakelen</string>
+  <string name="places_card_distance_suffix">%s vanaf huidige locatie</string>
+  <string name="places_card_distance_unknown">Onbekende afstand</string>
+  <string name="places_empty_message_snackbar">Er zijn geen artikelen in de buurt. Probeer uit te zoomen en de kaart te verplaatsen.</string>
 </resources>
