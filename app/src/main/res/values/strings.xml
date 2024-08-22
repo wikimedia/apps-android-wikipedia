@@ -1792,7 +1792,7 @@
     <string name="recommended_content_section_continue_reading">Continue reading</string>
     <string name="recommended_content_section_because_you_read">Because you read</string>
     <string name="recommended_content_section_places_near_you">Places near you</string>
-    <string name="recommended_content_section_you_may_like">You may like</string>
+    <string name="recommended_content_section_you_might_like">You might like</string>
     <!-- /Recommended Content -->
 
 </resources>

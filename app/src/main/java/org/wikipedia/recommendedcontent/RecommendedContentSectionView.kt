@@ -22,7 +22,7 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
     private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun buildContent(pageSummaries: List<PageSummary>) {
-        binding.sectionHeader.text = context.getString(R.string.recommended_content_section_you_may_like)
+        binding.sectionHeader.text = context.getString(R.string.recommended_content_section_you_might_like)
         binding.sectionList.layoutManager = LinearLayoutManager(context)
         binding.sectionList.adapter = RecyclerViewAdapter(pageSummaries)
     }

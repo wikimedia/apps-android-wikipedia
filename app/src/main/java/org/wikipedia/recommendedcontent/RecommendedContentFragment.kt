@@ -173,7 +173,7 @@ class RecommendedContentFragment : Fragment() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindItem(pageTitle: PageTitle, position: Int) {
-            val listIcon = if (viewModel.inHistory) R.drawable.ic_history_24 else R.drawable.ic_search_white_24dp
+            val listIcon = if (!viewModel.inHistory) R.drawable.ic_history_24 else R.drawable.ic_search_white_24dp
             binding.listItem.text = StringUtil.fromHtml(pageTitle.displayText)
             binding.listItem.setCompoundDrawablesWithIntrinsicBounds(listIcon, 0, 0, 0)
             binding.deleteIcon.setOnClickListener {

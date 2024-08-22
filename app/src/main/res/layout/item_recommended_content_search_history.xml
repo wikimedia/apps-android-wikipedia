@@ -7,13 +7,13 @@
 
     <TextView
         android:id="@+id/listItem"
-        style="@style/SmallListItem"
+        style="@style/ListItem"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_marginStart="16dp"
         android:drawablePadding="16dp"
         app:drawableStartCompat="@drawable/ic_history_24"
-        app:drawableTint="?attr/primary_color" />
+        app:drawableTint="?attr/secondary_color" />
 
     <ImageView
         android:id="@+id/deleteIcon"
