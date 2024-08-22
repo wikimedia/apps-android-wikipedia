@@ -250,6 +250,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_accessibility_card_load_more_button">Laadd lââʹzz</string>
+  <string name="feed_language_variants_removal_dialog_save">Ruõkk</string>
   <string name="tabs_activity_title">Kõskklõõst</string>
   <string name="description_edit_text_hint">Artikeeʹl deskriipt</string>
   <string name="description_edit_article_description_label">Artikkel</string>
