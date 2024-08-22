@@ -24,7 +24,6 @@
         android:scrollbars="vertical"
         android:nestedScrollingEnabled="false"
         android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="16dp"
         app:layout_constraintTop_toBottomOf="@id/sectionHeader"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

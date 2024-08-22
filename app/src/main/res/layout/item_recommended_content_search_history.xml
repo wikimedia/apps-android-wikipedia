@@ -10,7 +10,8 @@
         style="@style/ListItem"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_marginStart="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp"
         android:drawablePadding="16dp"
         app:drawableStartCompat="@drawable/ic_history_24"
         app:drawableTint="?attr/secondary_color" />

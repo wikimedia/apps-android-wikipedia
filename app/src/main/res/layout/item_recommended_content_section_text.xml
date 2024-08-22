@@ -5,6 +5,7 @@
     style="@style/ListItem"
     android:id="@+id/listItem"
     android:layout_width="match_parent"
+    android:paddingHorizontal="16dp"
     android:drawablePadding="16dp"
     app:drawableTint="?attr/success_color"
     tools:text="Article title" />

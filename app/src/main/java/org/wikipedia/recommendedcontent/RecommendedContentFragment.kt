@@ -126,6 +126,7 @@ class RecommendedContentFragment : Fragment() {
     }
 
     // TODO: need to refresh the list after searching
+    // TODO: need to work on search bar vs fragment stack behavior
     private fun buildHistoryList(list: List<PageTitle>) {
         binding.historyList.layoutManager = LinearLayoutManager(requireContext())
         binding.historyList.adapter = RecyclerViewAdapter(list)
