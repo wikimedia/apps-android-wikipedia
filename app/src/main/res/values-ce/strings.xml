@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Йуханехьа</string>
   <string name="error_back">Йуханехьа</string>
   <string name="error_next">Кхидӏа</string>
-  <string name="menu_clear_all_history">ДӀацӀане истори?</string>
+  <string name="menu_clear_all_history">ДӀацӀанйе истори?</string>
   <string name="history_list_title">Истори</string>
   <string name="wikidata">Викидата</string>
   <string name="dialog_title_clear_history">ДӀацӀанйе хьажарийн истори</string>
@@ -46,7 +46,7 @@
   <string name="menu_page_edit_history">Нисдаран истори</string>
   <string name="menu_page_remove_from_watchlist">ДӀайаккха тергаме могӀанна йуккъера</string>
   <string name="menu_page_watched">Тергам беш йу</string>
-  <string name="edit_section_find_in_page">АгӀонна тӏехь лаха</string>
+  <string name="edit_section_find_in_page">АгӀонна тӀехь лаха</string>
   <string name="menu_page_font_and_theme">Кечйаран шрифт а, тема а</string>
   <string name="menu_page_add_to_default_list">Йитаа</string>
   <string name="feed_card_add_to_default_list">Ӏалашйе</string>
