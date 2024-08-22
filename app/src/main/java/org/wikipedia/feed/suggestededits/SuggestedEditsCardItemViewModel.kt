@@ -24,7 +24,7 @@ import org.wikipedia.util.StringUtil
 
 class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
     val age = bundle.getInt(SuggestedEditsCardItemFragment.EXTRA_AGE)
-    var cardActionType = bundle.serializable<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)
+    var cardActionType = bundle.serializable<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)!!
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var imageTagPage: MwQueryPage? = null
