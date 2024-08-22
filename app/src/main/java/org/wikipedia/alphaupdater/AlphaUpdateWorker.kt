@@ -29,6 +29,7 @@ class AlphaUpdateWorker(
             try {
                 client.newCall(request).execute().body!!.use { it.string() }
             } catch (e: IOException) {
+                // It's ok, we can do nothing.
                 null
             }
         }
