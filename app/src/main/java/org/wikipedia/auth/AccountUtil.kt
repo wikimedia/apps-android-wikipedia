@@ -31,17 +31,17 @@ object AccountUtil {
     val isLoggedIn: Boolean
         get() = account() != null
 
-    val userName: String?
-        get() {
-            val account = account()
-            return account?.name
-        }
+    val userName: String
+        get() = account()?.name.orEmpty()
 
     val password: String?
         get() {
             val account = account()
             return if (account == null) null else accountManager().getPassword(account)
         }
+
+    val assertUser: String?
+        get() = if (isLoggedIn) "user" else null
 
     var groups: Set<String>
         get() {
