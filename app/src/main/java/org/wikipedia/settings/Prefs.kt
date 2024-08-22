@@ -581,6 +581,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_lang_code, value)
 
+    var donationBannerOptIn
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_banner_opt_in, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_banner_opt_in, value)
+
     var importReadingListsNewInstallDialogShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, value)
@@ -612,25 +616,9 @@ object Prefs {
     val useUrlShortenerForSharing
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)
 
-    var readingListShareSurveyDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, value)
-
-    var readingListShareSurveyMode
-        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_mode, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_mode, value)
-
     var readingListShareTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
-
-    var readingListReceiveSurveyDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, value)
-
-    var readingListReceiveSurveyMode
-        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_mode, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_mode, value)
 
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
