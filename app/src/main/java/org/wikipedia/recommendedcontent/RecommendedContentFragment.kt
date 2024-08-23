@@ -40,8 +40,6 @@ class RecommendedContentFragment : Fragment() {
 
         _binding = FragmentRecommendedContentBinding.inflate(layoutInflater, container, false)
 
-        buildDemoButtons()
-
         binding.searchCard.root.isVisible = viewModel.inHistory
         binding.searchCard.root.setOnClickListener {
             (requireParentFragment() as HistoryFragment).openSearchActivity(Constants.InvokeSource.RECOMMENDED_CONTENT, null, it)
@@ -106,23 +104,6 @@ class RecommendedContentFragment : Fragment() {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
-    }
-
-    private fun buildDemoButtons() {
-        binding.personalizedSection.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory,
-                    RecommendedContentSection.personalizeList().map { it.id }), null)
-                .addToBackStack(null)
-                .commit()
-        }
-        binding.generalizedSection.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentOverlayContainer, newInstance(inHistory = viewModel.inHistory,
-                    RecommendedContentSection.generalizedList().map { it.id }), null)
-                .addToBackStack(null)
-                .commit()
-        }
     }
 
     // TODO: need to refresh the list after searching

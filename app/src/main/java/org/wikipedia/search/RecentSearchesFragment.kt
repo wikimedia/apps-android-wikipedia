@@ -16,6 +16,8 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -92,9 +94,11 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private fun loadRecommendedContent() {
-        // TODO: add ABC test logic here
-        val sectionIds = RecommendedContentSection.generalizedList().map { it.id }
-
+        var sectionIds = RecommendedContentSection.generalizedList().map { it.id } // Group 2
+        when (RecommendedContentAnalyticsHelper.abcTest.group) {
+            ABTest.GROUP_1 -> return
+            ABTest.GROUP_3 -> sectionIds = RecommendedContentSection.personalizeList().map { it.id }
+        }
         childFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = false, sectionIds), null)
             .addToBackStack(null)
