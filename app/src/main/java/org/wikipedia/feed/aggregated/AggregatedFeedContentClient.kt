@@ -118,21 +118,13 @@ class AggregatedFeedContentClient {
         private lateinit var wiki: WikiSite
         private var age = 0
 
-        abstract fun getCardFromResponse(
-            responses: Map<String, AggregatedFeedContent>,
-            wiki: WikiSite,
-            age: Int,
-            outCards: MutableList<Card>
-        )
+        abstract fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>, wiki: WikiSite, age: Int, outCards: MutableList<Card>)
 
         override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
             this.cb = cb
             this.age = age
             this.wiki = wiki
-            if (aggregatedClient.aggregatedResponseAge == age && aggregatedClient.aggregatedResponses.containsKey(
-                    wiki.languageCode
-                )
-            ) {
+            if (aggregatedClient.aggregatedResponseAge == age && aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
                 val cards = mutableListOf<Card>()
                 getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
                 cb.success(cards)
@@ -155,11 +147,8 @@ class AggregatedFeedContentClient {
                 val cards = mutableListOf<Card>()
                 WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                     val wikiSite = WikiSite.forLanguageCode(langCode)
-                    val hasParentLanguageCode =
-                        !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode)
-                            .isNullOrEmpty()
-                    var feedContentResponse = ServiceFactory.getRest(wikiSite)
-                        .getFeedFeatured(date.year, date.month, date.day)
+                    val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
+                    var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
 
                     // TODO: This is a temporary fix for T355192
                     if (hasParentLanguageCode) {
