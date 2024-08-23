@@ -193,7 +193,6 @@ class RecommendedContentFragment : Fragment() {
                     startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
                 } else {
                     (requireParentFragment().requireParentFragment() as SearchFragment).setSearchText(pageTitle.displayText)
-                    parentFragmentManager.popBackStack()
                 }
             }
         }
