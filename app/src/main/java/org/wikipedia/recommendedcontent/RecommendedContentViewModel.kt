@@ -110,7 +110,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     R.integer.article_engagement_threshold_sec)).lastOrNull()?.title?.displayText ?: ""
             }
 
-            StringUtil.removeHTMLTags(term)
+            StringUtil.addUnderscores(StringUtil.removeHTMLTags(term))
         }
     }
 
