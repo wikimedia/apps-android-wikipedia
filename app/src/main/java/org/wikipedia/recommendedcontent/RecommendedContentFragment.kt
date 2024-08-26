@@ -107,7 +107,6 @@ class RecommendedContentFragment : Fragment() {
     }
 
     // TODO: need to refresh the list after searching
-    // TODO: need to work on search bar vs fragment stack behavior
     private fun buildHistoryList(list: List<PageTitle>) {
         binding.historyList.layoutManager = LinearLayoutManager(requireContext())
         binding.historyList.adapter = RecyclerViewAdapter(list)
@@ -124,8 +123,10 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private fun reloadHistoryList(position: Int, list: List<PageTitle>) {
-        (binding.historyList.adapter as RecyclerViewAdapter).setList(list)
-        binding.historyList.adapter?.notifyItemRemoved(position)
+        val adapter = binding.historyList.adapter as RecyclerViewAdapter
+        adapter.notifyItemRemoved(position)
+        adapter.setList(list)
+        adapter.notifyItemRangeChanged(0, list.size)
     }
 
     private inner class RecyclerViewAdapter(list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
