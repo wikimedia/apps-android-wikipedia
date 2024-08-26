@@ -139,7 +139,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             }
 
             // merge into one list and shuffle
-            val contentList = recommendedContent.map { it.await() }.flatten().shuffled()
+            val contentList = recommendedContent.map { it.await() }.flatten().distinct().shuffled()
 
             _recommendedContentState.value = Resource.Success(contentList)
         }
