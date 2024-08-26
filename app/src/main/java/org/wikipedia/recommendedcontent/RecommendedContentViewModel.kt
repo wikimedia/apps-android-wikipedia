@@ -18,7 +18,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
@@ -28,6 +27,7 @@ import org.wikipedia.places.PlacesFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.util.Date
@@ -179,7 +179,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
             if (hasParentLanguageCode) {
                 feedContentResponse.topRead?.let {
-                    val topReadResponse = getPagesForLanguageVariant(it.articles, wikiSite)
+                    val topReadResponse = L10nUtil.getPagesForLanguageVariant(it.articles, wikiSite)
                     feedContentResponse = AggregatedFeedContent(
                         tfa = feedContentResponse.tfa,
                         news = feedContentResponse.news,
@@ -201,14 +201,12 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun loadOnThisDay(): List<PageSummary> {
-        // TODO: determine which event to load.
         return withContext(Dispatchers.IO) {
             loadFeed().onthisday?.first()?.pages() ?: emptyList()
         }
     }
 
     private suspend fun loadInTheNews(): List<PageSummary> {
-        // TODO: determine which news to load.
         return withContext(Dispatchers.IO) {
             loadFeed().news?.first()?.links?.filterNotNull() ?: emptyList()
         }
@@ -225,7 +223,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             }?.take(5) ?: emptyList()
 
             if (hasParentLanguageCode) {
-                getPagesForLanguageVariant(list, wikiSite)
+                L10nUtil.getPagesForLanguageVariant(list, wikiSite)
             } else {
                 list
             }
@@ -274,40 +272,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                 pages
             }?.take(5) ?: emptyList()
         }
-    }
-
-    // TODO: borrowed from FeedClient. Refactor this method to be more generic.
-    private suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite): List<PageSummary> {
-        val newList = mutableListOf<PageSummary>()
-        withContext(Dispatchers.IO) {
-            val titles = list.joinToString(separator = "|") { it.apiTitle }
-            // First, get the correct description from Wikidata directly.
-            val wikiDataResponse = async {
-                ServiceFactory.get(Constants.wikidataWikiSite)
-                    .getWikidataDescription(titles = titles, sites = wikiSite.dbName(), langCode = wikiSite.languageCode)
-            }
-            // Second, fetch varianttitles from prop=info endpoint.
-            val mwQueryResponse = async {
-                ServiceFactory.get(wikiSite).getVariantTitlesByTitles(titles)
-            }
-
-            list.forEach { pageSummary ->
-                // Find the correct display title from the varianttitles map, and insert the new page summary to the list.
-                val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
-                val newPageSummary = pageSummary.apply {
-                    val newDisplayTitle = displayTitle ?: pageSummary.displayTitle
-                    this.titles = PageSummary.Titles(
-                        canonical = pageSummary.apiTitle,
-                        display = newDisplayTitle
-                    )
-                    this.description = wikiDataResponse.await().entities.values.firstOrNull {
-                        it.labels[wikiSite.languageCode]?.value == newDisplayTitle
-                    }?.descriptions?.get(wikiSite.languageCode)?.value ?: pageSummary.description
-                }
-                newList.add(newPageSummary)
-            }
-        }
-        return newList
     }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
