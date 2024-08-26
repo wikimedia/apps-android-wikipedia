@@ -96,18 +96,18 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
             // Get term from last history entry if no article is opened
             if (term.isEmpty()) {
-                term = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("").firstOrNull()?.apiTitle ?: ""
+                term = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("%%").firstOrNull()?.apiTitle ?: ""
             }
 
-            // Get term from last recent search if no history entry is found
-            if (term.isEmpty()) {
-                term = AppDatabase.instance.recentSearchDao().getRecentSearches().firstOrNull()?.text ?: ""
-            }
-
-            // Ger term from Because you read if no recent search is found
+            // Ger term from Because you read if no history entry is found
             if (term.isEmpty()) {
                 term = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(0, WikipediaApp.instance.resources.getInteger(
                     R.integer.article_engagement_threshold_sec)).lastOrNull()?.title?.displayText ?: ""
+            }
+
+            // Get term from last recent search if no because you read is found
+            if (term.isEmpty()) {
+                term = AppDatabase.instance.recentSearchDao().getRecentSearches().firstOrNull()?.text ?: ""
             }
 
             StringUtil.addUnderscores(StringUtil.removeHTMLTags(term))
