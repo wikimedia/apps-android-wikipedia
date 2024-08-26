@@ -25,7 +25,6 @@ import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesFragment
-import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
@@ -62,7 +61,9 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
             _actionState.value = Resource.Error(throwable)
         }) {
             val entry = HistoryEntry(title, HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
-            AppDatabase.instance.historyEntryDao().delete(entry)
+            withContext(Dispatchers.IO) {
+                AppDatabase.instance.historyEntryDao().delete(entry)
+            }
             _actionState.value = Resource.Success(position to loadHistoryItems())
         }
     }
@@ -71,8 +72,9 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _actionState.value = Resource.Error(throwable)
         }) {
-            val recentSearch = RecentSearch(title.displayText, Date(title.description.orEmpty().toLong()))
-            AppDatabase.instance.recentSearchDao().delete(recentSearch)
+            withContext(Dispatchers.IO) {
+                AppDatabase.instance.recentSearchDao().deleteBy(title.displayText, Date(title.description.orEmpty().toLong()))
+            }
             _actionState.value = Resource.Success(position to loadRecentSearches())
         }
     }

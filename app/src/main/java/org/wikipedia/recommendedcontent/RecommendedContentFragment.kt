@@ -145,6 +145,7 @@ class RecommendedContentFragment : Fragment() {
         val adapter = binding.historyList.adapter as RecyclerViewAdapter
         adapter.notifyItemRemoved(position)
         adapter.setList(list)
+        adapter.notifyItemRangeChanged(0, list.size)
     }
 
     private inner class RecyclerViewAdapter(list: List<PageTitle>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
