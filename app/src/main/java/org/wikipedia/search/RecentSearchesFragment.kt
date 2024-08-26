@@ -94,6 +94,9 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private fun loadRecommendedContent() {
+        if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled()) {
+            return
+        }
         var sectionIds = RecommendedContentSection.generalizedList().map { it.id } // Group 2
         when (RecommendedContentAnalyticsHelper.abcTest.group) {
             ABTest.GROUP_1 -> return
