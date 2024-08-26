@@ -25,6 +25,7 @@
   <string name="offline_load_error_retry">Bu kwan</string>
   <string name="page_error_back_to_main">Bwuok bai</string>
   <string name="error_back">Bwuok bai</string>
+  <string name="error_next">Nat á̱zanson</string>
   <string name="menu_clear_all_history">Kak nkhang gbangbang</string>
   <string name="history_item_deleted">Á̱ turung %s neet nkhang gbangbang na</string>
   <string name="history_items_deleted">Á̱ turung a̱yaati̱kut %d neet nkhang gbangbang na</string>
@@ -33,6 +34,10 @@
   <string name="app_settings">A̱yaaseti ap</string>
   <string name="search_tab_tooltip">Bu byiam sangak ji a ntsa tsot swang a̱lyiat zop ji ma̱ di̱di̱ri̱k</string>
   <string name="history_list_title">Nkhang gbangbang</string>
+  <string name="image_content_description">Ghwughwu: %s</string>
+  <string name="page_content_description">Wat: %s</string>
+  <string name="wikimedia_commons">Wukimedia Komon</string>
+  <string name="wikidata">Wukideita</string>
   <string name="dialog_title_clear_history">Kak nkhang gbangbang brauza</string>
   <string name="dialog_message_clear_history">Si̱ huni na ti̱n a̱mgba̱m nkhang gbangbang brauza ang na, a̱wot ku nyim kuzang mbyiam na̱ shyia̱ ma̱ khwuk di̱ yong huni. A nwuak a̱cucuk a?</string>
   <string name="dialog_message_clear_history_yes">Ii</string>
@@ -40,13 +45,25 @@
   <string name="share_via">Ka̱u di̱n vak</string>
   <string name="image_share_via">Ka̱u di̱n vak</string>
   <string name="search_redirect_from">Á̱ shaivak neet %s</string>
+  <string name="page_edit_history_activity_title">Nkhang nwuan-a̱ka̱feang: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Nam-a̱lyiat jhyuk hu sang kyang</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Zop ku a cyam njhyuk</string>
+  <string name="page_edit_history_filter_by">Cyam di̱n vak</string>
+  <string name="page_edit_history_filter_by_all">A̱mgba̱m njhyuk (%s)</string>
+  <string name="page_edit_history_filter_by_user">Njhyuk a̱tyunta̱m (%s)</string>
   <string name="menu_page_show_tabs">Tyaat mbyiam</string>
   <string name="menu_page_other_languages">Shai a̱lyem</string>
   <string name="menu_page_find_in_page">Cat mami a̱ti̱kut</string>
   <string name="menu_page_add_to_watchlist">Mbeang mi̱ lis saai-a̱ghyi</string>
+  <string name="menu_page_watch">Tyia̱-a̱ghyi tazwa</string>
+  <string name="menu_page_unwatch">Ti̱n a̱ghyi tazwa</string>
   <string name="menu_page_view_talk">Di peji a̱lyiat</string>
+  <string name="menu_page_talk_page">Wat a̱lyiat</string>
   <string name="menu_page_view_edit_history">Di nkhang gbangbang jhyuk</string>
+  <string name="menu_page_edit_history">Nkhang jhyuk</string>
   <string name="menu_page_remove_from_watchlist">Turung neet di̱ Lis saai-a̱ghyi</string>
+  <string name="menu_page_watched">Á̱ sak-a̱ghyi tazwa</string>
   <string name="edit_section_find_in_page">Cat mi̱ peji</string>
   <string name="menu_page_font_and_theme">Ga̱lyuut ma̱ng nyia̱</string>
   <string name="menu_page_add_to_list">Mbeang mi̱ lis fang</string>
@@ -54,6 +71,8 @@
   <string name="feed_card_add_to_list">Mbeang mi̱ lis fang</string>
   <string name="feed_card_add_to_default_list">Sak</string>
   <string name="menu_page_share">Ka̱u a̱fwop</string>
+  <string name="menu_article_share">Sa̱u ati̱kut</string>
+  <string name="menu_page_article_share">Sa̱u</string>
   <string name="menu_page_open_a_new_tab">Khwuk mi̱ byiam fai</string>
   <string name="menu_page_new_tab">Byiam fai</string>
   <string name="menu_page_reading_lists">Lís fang</string>
@@ -65,13 +84,14 @@
   <string name="on_this_day_page_share">Ka̱u</string>
   <string name="reading_list_page_share">Ka̱u</string>
   <string name="menu_text_select_edit_here">Jhyuk a̱ji</string>
+  <string name="menu_edit_article">Jhyuk ati̱kut</string>
   <string name="last_updated_text">Á̱ tyia̱ fai gbangbang %s</string>
   <string name="talk_page_link_text">Di peji a̱lyiat</string>
   <string name="edit_history_link_text">Di nkhang gbangbang jhyuk</string>
   <string name="map_view_link_text">Di tazwa ta̱si̱la</string>
   <string name="other_languages_indication_text">Fam da̱ a̱lyem a̱ghyang</string>
   <string name="language_count_link_text">A̱ shyia̱ di̱ lilyem %d</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Ka̱nang a shei, a shim ma̱ng &lt;a href=\"%1$s\"&gt;A̱yaaka̱nda̱n Nyian Ta̱m&lt;/a&gt;, a si̱ shim byii̱k nwuat mi̱ nwuat ang hu a̱tafa kwambwat yak&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; hu a̱ni.</string>
+  <string name="edit_save_action_license_logged_in">Ka̱nang a shei, a shim ma̱ng &lt;a href=\"%1$s\"&gt;Nka̱nda̱n Nyian Ta̱m&lt;/a&gt; na, a si̱ shim byii̱k jhyet ang ji tafa lasi̱n&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Lilyem Wikipidya</string>
   <string name="langlinks_filter_hint">Zop</string>
   <string name="langlinks_empty">Peji huni shyia̱ di̱ lilyem ghyáng bah.</string>
@@ -146,6 +166,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">A̱cyuang nkhang</string>
   <string name="preferences_general_heading">Konyan</string>
+  <string name="preferences_account_heading">A̱la̱n</string>
   <string name="wikipedia_app_faq">Lilyip A̱nci̱ri̱ng Ap Wikipidya</string>
   <string name="send_feedback">Ta̱m ma̱ng a̱di̱dam ap</string>
   <string name="create_account_account_created_toast">Á̱ khwuk a̱la̱n!</string>
@@ -274,6 +295,10 @@
   <string name="multi_select_items_selected">Á̱ khai %d</string>
   <string name="error_message_generic">Ghyuap nyia̱</string>
   <string name="view_link_preview_error_button_dismiss">Kam</string>
+  <string name="link_preview_dialog_read_button">Fang</string>
+  <string name="link_preview_dialog_save_button">Sak</string>
+  <string name="link_preview_dialog_saved_button">Á̱ sak ndyo</string>
+  <string name="link_preview_dialog_share_button">Sa̱u</string>
   <string name="error_page_does_not_exist">Peji huni nwai shyia̱</string>
   <string name="view_wiki_error_message_offline">Á̱ si̱ mi̱n fwop ma̱ng a̱cyetaneang</string>
   <string name="reference_title">Ta̱fang %s</string>
@@ -286,10 +311,12 @@
   <string name="article_menu_bar_save_button">Sak</string>
   <string name="article_menu_bar_language_button">A̱lyem</string>
   <string name="article_menu_bar_search_button">Zop</string>
+  <string name="article_menu_bar_theme_button">A̱pyia̱ a̱lyiat</string>
   <string name="article_menu_bar_contents_button">Nkyangmami</string>
   <string name="article_header_edit_hint">Jhyuk...</string>
   <string name="article_header_edit_description">Jhyuk wa̱i a̱ti̱kut</string>
   <string name="article_header_edit_lead_section">Jhyuk á̱son a̱lyiat</string>
+  <string name="color_theme_select">A̱pyia̱ a̱lyiat</string>
   <string name="color_theme_light">A̱shong</string>
   <string name="color_theme_dark">A̱duduu</string>
   <string name="color_theme_black">A̱dyundyung</string>
@@ -299,6 +326,8 @@
   <string name="text_size_decrease">Shi lyuut corop</string>
   <string name="text_size_percent_default">%s (Gbangbang)</string>
   <string name="text_style_title">Ga̱lyuut</string>
+  <string name="theme_category_reading">Shyia̱ di̱ fang</string>
+  <string name="theme_category_editing">Shyia̱ di̱ jhyuk</string>
   <string name="nav_item_saved">Á̱ sak</string>
   <string name="reading_list_save_to">Sak mi̱ lis fang</string>
   <string name="reading_list_move_to">Shyei naat lis fang</string>
@@ -388,6 +417,10 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Lyang</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Lyang</string>
   <string name="reading_list_split_dialog_ok_button_text">Ndei</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Ti̱n</string>
+  <string name="reading_list_activity_title">Lyulyoot nkyang fang: %s</string>
+  <string name="reading_lists_preview_save_button">Sak</string>
+  <string name="reading_lists_preview_save_dialog_title">Sak lyulyoot</string>
   <string name="user_option_sync_label">A̱yaalan-cat</string>
   <string name="notification_reverted_title">Bwuok ma̱ng jhyuk</string>
   <string name="notification_channel_description">Á̱ shyia̱ di̱ cyok</string>

@@ -697,4 +697,5 @@
   <string name="places_survey_very_satisfied_option">ݙاڈھا تسلی بخش</string>
   <string name="places_card_title">نیڑے جاہیں</string>
   <string name="places_card_action">نیڑے دیاں ٻیاں جاہیں</string>
+  <string name="places_card_distance_unknown">نامعلوم فاصلہ</string>
 </resources>
