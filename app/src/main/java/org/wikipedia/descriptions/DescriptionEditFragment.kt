@@ -241,7 +241,7 @@ class DescriptionEditFragment : Fragment() {
             val responseCall = async { ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
                 .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)) }
             val userInfoCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                .globalUserInfo(AccountUtil.userName!!) }
+                .globalUserInfo(AccountUtil.userName) }
 
             val response = responseCall.await()
             val userInfo = userInfoCall.await()
@@ -441,12 +441,12 @@ class DescriptionEditFragment : Fragment() {
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(languageCode, languageCode, Constants.COMMONS_DB_NAME,
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
-                        getEditComment(), editToken, AccountUtil.assertUser, tags = getEditTags())
+                    pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
+                    getEditComment(), editToken, AccountUtil.assertUser, tags = getEditTags())
             } else {
                 ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
-                        AccountUtil.assertUser, tags = getEditTags())
+                    pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
+                    AccountUtil.assertUser, tags = getEditTags())
             }
         }
 

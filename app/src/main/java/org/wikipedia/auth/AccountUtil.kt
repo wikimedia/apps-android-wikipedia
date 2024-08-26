@@ -50,6 +50,9 @@ object AccountUtil {
             return if (account == null) null else accountManager().getPassword(account)
         }
 
+    val assertUser: String?
+        get() = if (isLoggedIn && !isTemporaryAccount) "user" else null
+
     var groups: Set<String>
         get() {
             val account = account() ?: return emptySet()
@@ -62,9 +65,6 @@ object AccountUtil {
                     WikipediaApp.instance.getString(R.string.preference_key_login_groups),
                     JsonUtil.encodeToString(groups))
         }
-
-    val assertUser: String?
-        get() = if (isLoggedIn && !isTemporaryAccount) "user" else null
 
     fun isMemberOf(groups: Set<String?>): Boolean {
         return groups.isNotEmpty() && !Collections.disjoint(groups, AccountUtil.groups)

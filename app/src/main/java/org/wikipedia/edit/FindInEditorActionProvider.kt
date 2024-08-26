@@ -7,7 +7,6 @@ import android.view.View
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
 
@@ -62,10 +61,16 @@ class FindInEditorActionProvider(private val scrollView: View,
         searchQuery = text?.ifEmpty { null }
         currentResultIndex = 0
         resultPositions.clear()
-
         searchQuery?.let { query ->
-            resultPositions += query.toRegex(StringUtil.SEARCH_REGEX_OPTIONS).findAll(textView.text)
-                .map { it.range.first }
+            val textToSearch = textView.text
+            var index = 0
+            while (index >= 0 && index < textToSearch.length) {
+                index = textToSearch.indexOf(query, index, ignoreCase = true)
+                if (index >= 0) {
+                    resultPositions.add(index)
+                    index += query.length
+                }
+            }
         }
         scrollToCurrentResult()
     }
