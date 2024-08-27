@@ -36,7 +36,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     val wikiSite = WikipediaApp.instance.wikiSite
     val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
-    private val sectionIds: List<Int> = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
+    private val sectionIds = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
     private var exploreTerm: String? = null
@@ -98,7 +98,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
             // Get term from last history entry if no article is opened
             if (term.isEmpty()) {
-                term = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("%%").firstOrNull()?.apiTitle ?: ""
+                term = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime().firstOrNull()?.apiTitle ?: ""
             }
 
             // Ger term from Because you read if no history entry is found
@@ -149,9 +149,9 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadHistoryItems(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
-            AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("").map {
+            AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime().map {
                 it.title
-            }.take(3)
+            }.take(HISTORY_ITEMS)
         }
     }
 
@@ -162,7 +162,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     // Put timestamp in description for the delete action.
                     description = it.timestamp.time.toString()
                 }
-            }.take(3)
+            }.take(HISTORY_ITEMS)
         }
     }
 
@@ -220,7 +220,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
             val list = moreLikeResponse.query?.pages?.map {
                 PageSummary(it.displayTitle(wikiSite.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.languageCode)
-            }?.take(5) ?: emptyList()
+            }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
 
             if (hasParentLanguageCode) {
                 L10nUtil.getPagesForLanguageVariant(list, wikiSite)
@@ -248,7 +248,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                 tab.backStackPositionTitle?.let {
                     PageSummary(it.displayText, it.prefixedText, it.description, null, it.thumbUrl, it.wikiSite.languageCode)
                 }
-            }.take(5)
+            }.take(RECOMMENDED_CONTENT_ITEMS)
         }
     }
 
@@ -270,7 +270,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                         }
                     }
                 pages
-            }?.take(5) ?: emptyList()
+            }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
         }
     }
 
@@ -279,5 +279,10 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return RecommendedContentViewModel(bundle) as T
         }
+    }
+
+    companion object {
+        const val RECOMMENDED_CONTENT_ITEMS = 5
+        const val HISTORY_ITEMS = 5
     }
 }
