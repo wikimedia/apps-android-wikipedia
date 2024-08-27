@@ -94,13 +94,14 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private fun loadRecommendedContent() {
-        if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled()) {
+        if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled() ||
+            RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_1) {
             return
         }
-        var sectionIds = RecommendedContentSection.generalizedList().map { it.id } // Group 2
-        when (RecommendedContentAnalyticsHelper.abcTest.group) {
-            ABTest.GROUP_1 -> return
-            ABTest.GROUP_3 -> sectionIds = RecommendedContentSection.personalizeList().map { it.id }
+        val sectionIds = if (RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2) {
+            RecommendedContentSection.generalizedList().map { it.id } // Group 2
+        } else {
+            RecommendedContentSection.personalizeList().map { it.id } // Group 3
         }
         childFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = false, sectionIds), null)
