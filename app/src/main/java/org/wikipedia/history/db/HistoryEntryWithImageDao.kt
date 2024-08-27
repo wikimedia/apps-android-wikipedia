@@ -41,7 +41,7 @@ interface HistoryEntryWithImageDao {
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
     }
 
-    fun filterHistoryItemsWithoutTime(searchQuery: String): List<HistoryEntry> {
+    fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
         return findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%").map { toHistoryEntry(it) }
     }
 

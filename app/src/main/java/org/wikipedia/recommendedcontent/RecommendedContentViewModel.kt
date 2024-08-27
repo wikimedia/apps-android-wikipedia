@@ -98,7 +98,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
             // Get term from last history entry if no article is opened
             if (term.isEmpty()) {
-                term = AppDatabase.instance.historyEntryWithImageDao().findEntriesBySearchTerm("%%").firstOrNull()?.apiTitle ?: ""
+                term = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime().firstOrNull()?.apiTitle ?: ""
             }
 
             // Ger term from Because you read if no history entry is found
@@ -149,7 +149,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadHistoryItems(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
-            AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("").map {
+            AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime().map {
                 it.title
             }.take(3)
         }
