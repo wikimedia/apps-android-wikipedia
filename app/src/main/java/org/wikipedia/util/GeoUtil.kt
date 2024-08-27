@@ -9,6 +9,7 @@ import org.wikipedia.R
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
 import org.wikipedia.settings.Prefs
 import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.util.Locale
 import kotlin.math.abs
 
@@ -56,5 +57,9 @@ object GeoUtil {
     fun isSamePlace(startLat: Double, endLat: Double, startLon: Double, endLon: Double): Boolean {
         val tolerance = 0.0000001
         return abs(startLat - endLat) < tolerance && abs(startLon - endLon) < tolerance
+    }
+
+    fun currencyFormat(locale: Locale): NumberFormat {
+        return NumberFormat.getCurrencyInstance(Locale.Builder().setLocale(locale).setRegion(geoIPCountry.orEmpty()).build())
     }
 }
