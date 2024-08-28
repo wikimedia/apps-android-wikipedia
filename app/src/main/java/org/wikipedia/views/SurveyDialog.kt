@@ -15,31 +15,45 @@ import org.wikipedia.util.FeedbackUtil
 
 object SurveyDialog {
 
-    fun showFeedbackOptionsDialog(activity: Activity, source: Constants.InvokeSource) {
+    fun showFeedbackOptionsDialog(activity: Activity,
+                                  titleId: Int = R.string.patroller_diff_feedback_dialog_title,
+                                  messageId: Int = R.string.patroller_diff_feedback_dialog_message,
+                                  source: Constants.InvokeSource) {
         var dialog: AlertDialog? = null
         val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_feedback_options, null)
+        feedbackView.findViewById<TextView>(R.id.messageText).text = activity.getString(messageId)
 
-        val clickListener = View.OnClickListener {
-            val feedbackOption = (it as TextView).text.toString()
-            dialog?.dismiss()
-            if (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
-                showFeedbackSnackbarAndTooltip(activity, source)
-            } else {
-                showFeedbackInputDialog(activity, source)
+        // TODO: talk to Jaz to see if the logic needs to be aligned with RC
+        if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
+            val clickListener = View.OnClickListener {
+                val feedbackOption = (it as TextView).text.toString()
+                dialog?.dismiss()
+                if (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
+                    showFeedbackSnackbarAndTooltip(activity, source)
+                } else {
+                    showFeedbackInputDialog(activity, source)
+                }
+
+                sendAnalyticsEvent("feedback_selection", "feedback_form", source,
+                    PatrollerExperienceEvent.getActionDataString(feedbackOption = feedbackOption))
             }
-
-            sendAnalyticsEvent("feedback_selection", "feedback_form", source,
-                PatrollerExperienceEvent.getActionDataString(feedbackOption = feedbackOption))
+            feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
+            feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
+            feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
         }
-
-        feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
         sendAnalyticsEvent("impression", "feedback_form", source)
         val dialogBuilder = MaterialAlertDialogBuilder(activity)
-            .setTitle(R.string.patroller_diff_feedback_dialog_title)
+            .setTitle(titleId)
             .setCancelable(false)
             .setView(feedbackView)
+        if (source == Constants.InvokeSource.RECOMMENDED_CONTENT) {
+            dialogBuilder.setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
+                val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
+                // TODO: send event
+                showFeedbackSnackbarAndTooltip(activity, source)
+            }
+            dialogBuilder.setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ -> }
+        }
         dialog = dialogBuilder.show()
     }
 
@@ -75,15 +89,32 @@ object SurveyDialog {
                     showDismissButton = true
                 ).apply {
                     showAlignBottom(anchorView)
-                    Prefs.showOneTimeRecentEditsFeedbackForm = false
+                    when (source) {
+                        Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS -> {
+                            Prefs.showOneTimeRecentEditsFeedbackForm = false
+                        }
+                        Constants.InvokeSource.RECOMMENDED_CONTENT -> {
+                            // TODO: add preference
+                        }
+                        else -> {
+                            // do nothing
+                        }
+                    }
                 }
             }
         }, 100)
     }
 
     private fun sendAnalyticsEvent(action: String, activeInterface: String, source: Constants.InvokeSource, actionData: String = "") {
-        if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
-            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+        when (source) {
+            Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS ->
+                PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+            Constants.InvokeSource.RECOMMENDED_CONTENT -> {
+                // TODO: add event
+            }
+            else -> {
+                // do nothing
+            }
         }
     }
 }

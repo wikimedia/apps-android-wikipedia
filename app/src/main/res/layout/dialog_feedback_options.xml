@@ -15,89 +15,81 @@
         android:paddingBottom="12dp">
 
         <TextView
-            style="@style/P.MaterialListTitle"
+            android:id="@+id/messageText"
+            style="@style/P.DialogBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
             android:text="@string/patroller_diff_feedback_dialog_message" />
 
-        <TextView
-            android:id="@+id/optionVerySatisfied"
-            style="@style/Chip.Accessible"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:background="@drawable/background_8dp_radius"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="8dp"
-            android:visibility="gone"
-            android:text="@string/places_survey_very_satisfied_option" />
+            android:paddingVertical="8dp">
 
-        <TextView
-            android:id="@+id/optionSatisfied"
-            style="@style/Chip.Accessible"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:background="@drawable/background_8dp_radius"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="8dp"
-            android:text="@string/patroller_diff_feedback_dialog_option_satisfied" />
+            <RadioButton
+                android:id="@+id/optionVerySatisfied"
+                style="@style/H3.Radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/places_survey_very_satisfied_option"
+                android:visibility="gone"
+                android:buttonTint="?attr/progressive_color"
+                app:buttonTint="?attr/progressive_color"/>
 
+            <RadioButton
+                android:id="@+id/optionSatisfied"
+                style="@style/H3.Radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/patroller_diff_feedback_dialog_option_satisfied"
+                app:buttonTint="?attr/progressive_color"/>
 
-        <TextView
-            android:id="@+id/optionNeutral"
-            style="@style/Chip.Accessible"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:background="@drawable/background_8dp_radius"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="8dp"
-            android:text="@string/patroller_diff_feedback_dialog_option_neutral" />
+            <RadioButton
+                android:id="@+id/optionNeutral"
+                style="@style/H3.Radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/patroller_diff_feedback_dialog_option_neutral"
+                app:buttonTint="?attr/progressive_color"/>
 
+            <RadioButton
+                android:id="@+id/optionUnsatisfied"
+                style="@style/H3.Radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied"
+                app:buttonTint="?attr/progressive_color"/>
 
-        <TextView
-            android:id="@+id/optionUnsatisfied"
-            style="@style/Chip.Accessible"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:background="@drawable/background_8dp_radius"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="8dp"
-            android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied" />
-
-        <TextView
-            android:id="@+id/optionVeryUnsatisfied"
-            style="@style/Chip.Accessible"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:visibility="gone"
-            android:background="@drawable/background_8dp_radius"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="8dp"
-            android:text="@string/places_survey_very_unsatisfied_option" />
-
+            <RadioButton
+                android:id="@+id/optionVeryUnsatisfied"
+                style="@style/H3.Radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/places_survey_very_unsatisfied_option"
+                android:visibility="gone"
+                app:buttonTint="?attr/progressive_color"/>
+        </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/feedbackInputContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="12dp"
-            android:paddingHorizontal="24dp"
-            android:hint="@string/patroller_diff_feedback_dialog_input_hint"
-            android:visibility="gone">
+            android:hint="@string/recommended_content_survey_dialog_input_hint"
+            app:hintTextColor="?attr/secondary_color">
 
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/feedbackInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
-                android:textSize="16sp">
-                <requestFocus />
-            </org.wikipedia.views.PlainPasteEditText>
+                android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

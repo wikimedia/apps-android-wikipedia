@@ -695,7 +695,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
                 if (it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED ||
                     it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED) {
-                    SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.RECOMMENDED_CONTENT)
+                    SurveyDialog.showFeedbackOptionsDialog(
+                        requireActivity(),
+                        titleId = R.string.recommended_content_survey_dialog_title,
+                        messageId = R.string.recommended_content_survey_dialog_message,
+                        source = InvokeSource.RECOMMENDED_CONTENT
+                    )
                 }
             }, TimeUnit.SECONDS.toMillis(0))
         }
