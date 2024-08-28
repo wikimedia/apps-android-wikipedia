@@ -115,6 +115,7 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
+import java.util.concurrent.TimeUnit
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -688,9 +689,15 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun maybeShowRecommendedContentSurvey() {
         historyEntry?.let {
-            if (it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED || it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED) {
-                SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.RECOMMENDED_CONTENT)
-            }
+            binding.pageContentsContainer.postDelayed({
+                if (!isAdded) {
+                    return@postDelayed
+                }
+                if (it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED ||
+                    it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED) {
+                    SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.RECOMMENDED_CONTENT)
+                }
+            }, TimeUnit.SECONDS.toMillis(0))
         }
     }
 
@@ -937,6 +944,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
+        maybeShowRecommendedContentSurvey()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.

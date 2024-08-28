@@ -1711,5 +1711,8 @@
   <string name="recommended_content_section_continue_reading">Section label for the Continue reading in the Recommended Content.</string>
   <string name="recommended_content_section_because_you_read">Section label for the Because you read in the Recommended Content.</string>
   <string name="recommended_content_section_places_near_you">Section label for the Places near you in the Recommended Content.</string>
-  <string name="recommended_content_section_you_might_like">Section label for the Recommended Content</string>
+  <string name="recommended_content_section_you_might_like">Section label for the Recommended Content.</string>
+  <string name="recommended_content_survey_dialog_title">Title for the Recommended Content survey dialog.</string>
+  <string name="recommended_content_survey_dialog_message">Message text for the Recommended Content survey dialog.</string>
+  <string name="recommended_content_survey_dialog_input_hint">Hint label for the Recommended Content survey dialog input field.</string>
 </resources>

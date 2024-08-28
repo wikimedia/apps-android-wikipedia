@@ -17,7 +17,7 @@ object SurveyDialog {
 
     fun showFeedbackOptionsDialog(activity: Activity, source: Constants.InvokeSource) {
         var dialog: AlertDialog? = null
-        val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
+        val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_feedback_options, null)
 
         val clickListener = View.OnClickListener {
             val feedbackOption = (it as TextView).text.toString()
@@ -44,7 +44,7 @@ object SurveyDialog {
     }
 
     private fun showFeedbackInputDialog(activity: Activity, source: Constants.InvokeSource) {
-        val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
+        val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_feedback_input, null)
         sendAnalyticsEvent("impression", "feedback_input_form", source)
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)

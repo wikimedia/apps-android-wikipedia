@@ -18,7 +18,7 @@
             style="@style/P.MaterialListTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginVertical="12dp"
             android:text="@string/patroller_diff_feedback_dialog_message" />
 
         <TextView
@@ -79,5 +79,26 @@
             android:foreground="?attr/selectableItemBackground"
             android:padding="8dp"
             android:text="@string/places_survey_very_unsatisfied_option" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/feedbackInputContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp"
+            android:paddingHorizontal="24dp"
+            android:hint="@string/patroller_diff_feedback_dialog_input_hint"
+            android:visibility="gone">
+
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/feedbackInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
+                android:textSize="16sp">
+                <requestFocus />
+            </org.wikipedia.views.PlainPasteEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 </ScrollView>
