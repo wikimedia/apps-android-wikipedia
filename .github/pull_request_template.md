@@ -1,12 +1,8 @@
+### What does this do?
+
+
+### Why is this needed?
+
+
 **Phabricator:**
-[TBD](https://phabricator.wikimedia.org/TBD)
-
-### Notes
-* 
-
-### Test Steps
-1. 
-
-### Screenshots/Videos
-
-### Android Version/Device Information
+https://phabricator.wikimedia.org/T...
