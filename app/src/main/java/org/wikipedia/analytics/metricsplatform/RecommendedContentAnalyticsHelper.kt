@@ -7,7 +7,6 @@ import org.wikipedia.util.ReleaseUtil
 class RecommendedContentAnalyticsHelper {
 
     companion object {
-        private const val RECOMMENDED_CONTENT = "recommendedContent"
         val abcTest = RecommendedContentABCTest()
 
         private val enableCountries = listOf(

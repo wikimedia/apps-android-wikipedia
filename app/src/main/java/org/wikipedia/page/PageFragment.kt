@@ -108,6 +108,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.PageActionOverflowView
+import org.wikipedia.views.SurveyDialog
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -681,6 +682,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                     }
                 }
+            }
+        }
+    }
+
+    private fun maybeShowRecommendedContentSurvey() {
+        historyEntry?.let {
+            if (it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED || it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED) {
+                SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.RECOMMENDED_CONTENT)
             }
         }
     }

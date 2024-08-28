@@ -60,7 +60,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _actionState.value = Resource.Error(throwable)
         }) {
-            val entry = HistoryEntry(title, HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
+            val entry = HistoryEntry(title, HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED)
             withContext(Dispatchers.IO) {
                 AppDatabase.instance.historyEntryDao().delete(entry)
             }

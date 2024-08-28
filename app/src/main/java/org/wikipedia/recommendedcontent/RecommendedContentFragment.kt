@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -171,7 +173,12 @@ class RecommendedContentFragment : Fragment() {
 
             binding.listItem.setOnClickListener {
                 if (viewModel.inHistory) {
-                    val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
+                    val source = if (RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2) {
+                        HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED
+                    } else {
+                        HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED
+                    }
+                    val entry = HistoryEntry(pageTitle, source)
                     startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
                 } else {
                     (requireParentFragment().requireParentFragment() as SearchFragment).setSearchText(pageTitle.displayText)

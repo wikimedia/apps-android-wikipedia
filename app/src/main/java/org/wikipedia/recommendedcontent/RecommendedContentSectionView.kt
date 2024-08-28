@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.ItemRecommendedContentSectionTextBinding
 import org.wikipedia.databinding.ViewRecommendedContentSectionBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -56,7 +58,12 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
         }
 
         override fun onClick(v: View) {
-            val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_RECOMMENDED_CONTENT)
+            val source = if (RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2) {
+                HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED
+            } else {
+                HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED
+            }
+            val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), source)
             context.startActivity(PageActivity.newIntentForNewTab(context, entry, entry.title))
         }
     }
