@@ -1,4 +1,4 @@
-package org.wikipedia.analytics.eventplatform
+package org.wikipedia.analytics
 
 import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
@@ -24,6 +24,7 @@ open class ABTest(private val abTestName: String, private val abTestGroupCount: 
     companion object {
         private const val AB_TEST_KEY_PREFIX = "ab_test_"
         const val GROUP_SIZE_2 = 2
+        const val GROUP_SIZE_3 = 3
         const val GROUP_1 = 0
         const val GROUP_2 = 1
         const val GROUP_3 = 2

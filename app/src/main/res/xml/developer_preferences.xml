@@ -429,6 +429,11 @@
             android:key="@string/preference_key_donation_test_env"
             android:title="Donation test environment" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_recommendedContent"
+            android:title="Test group for Recommended Content \n(0=only recent searches, 1=generalized, 2=personalized)" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
