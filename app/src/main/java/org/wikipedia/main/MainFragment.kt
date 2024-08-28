@@ -28,9 +28,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.BackPressedHandler
@@ -46,10 +43,6 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.donate.DonationConfigHelper
-import org.wikipedia.donate.DonateDialog
-import org.wikipedia.donate.GooglePayComponent
-import org.wikipedia.donate.GooglePayViewModel.Companion.updatePaymentMethodsPreferences
 import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.feed.FeedFragment
@@ -87,14 +80,12 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
-import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
@@ -113,7 +104,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
     private val pageChangeCallback = PageChangeCallback()
     private var exclusiveTooltipRunnable: Runnable? = null
-    private var showDonationBottomSheet = false
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -177,7 +167,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
-        checkDonateConfig()
         maybeShowEditsTooltip()
 
         if (savedInstanceState == null) {
@@ -476,26 +465,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun donateClick() {
-        if (showDonationBottomSheet) {
-            (requireActivity() as? BaseActivity)?.launchDonateDialog()
-        } else {
-            DonateDialog.launchDonateLink(requireContext())
-        }
-    }
-
-    private fun checkDonateConfig() {
-        CoroutineScope(Dispatchers.IO).launch {
-            async { updatePaymentMethodsPreferences() }.await()
-            val donationConfig = async { DonationConfigHelper.getConfig() }
-            donationConfig.await()?.let { config ->
-                val currentCountryCode = GeoUtil.geoIPCountry.orEmpty()
-                val currencyCode = GeoUtil.currencyFormat(Locale.getDefault()).currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
-                showDonationBottomSheet = !(Prefs.paymentMethodsMerchantId.isEmpty() ||
-                    Prefs.paymentMethodsGatewayId.isEmpty() ||
-                    !config.countryCodeGooglePayEnabled.contains(currentCountryCode) ||
-                    !config.currencyAmountPresets.containsKey(currencyCode))
-            }
-        }
+        (requireActivity() as? BaseActivity)?.launchDonateDialog()
     }
 
     fun setBottomNavVisible(visible: Boolean) {
