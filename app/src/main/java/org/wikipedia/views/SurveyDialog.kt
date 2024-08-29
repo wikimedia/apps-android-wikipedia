@@ -4,6 +4,7 @@ import android.app.Activity
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
@@ -23,7 +24,6 @@ object SurveyDialog {
         val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_feedback_options, null)
         feedbackView.findViewById<TextView>(R.id.messageText).text = activity.getString(messageId)
 
-        // TODO: talk to Jaz to see if the logic needs to be aligned with RC
         if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             val clickListener = View.OnClickListener {
                 val feedbackOption = (it as TextView).text.toString()
@@ -40,7 +40,10 @@ object SurveyDialog {
             feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
             feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
             feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
+        } else if (source == Constants.InvokeSource.RECOMMENDED_CONTENT) {
+            feedbackView.findViewById<View>(R.id.feedbackInputContainer).isVisible = true
         }
+
         sendAnalyticsEvent("impression", "feedback_form", source)
         val dialogBuilder = MaterialAlertDialogBuilder(activity)
             .setTitle(titleId)
