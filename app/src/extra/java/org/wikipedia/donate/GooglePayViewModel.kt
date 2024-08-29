@@ -5,11 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.wallet.PaymentData
 import com.google.android.gms.wallet.PaymentDataRequest
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -187,27 +185,5 @@ class GooglePayViewModel : ViewModel() {
     companion object {
         private const val MSG_DISCLAIMER_INFORMATION_SHARING = "donate_interface-informationsharing"
         private const val MSG_DISCLAIMER_MONTHLY_CANCEL = "donate_interface-monthly-cancel"
-
-        suspend fun updatePaymentMethodsPreferences() {
-            withContext(Dispatchers.IO) {
-                // The paymentMethods API is rate limited, so we cache it manually.
-                val now = Instant.now().epochSecond
-                if (abs(now - Prefs.paymentMethodsLastQueryTime) > TimeUnit.DAYS.toSeconds(7)) {
-                    Prefs.paymentMethodsMerchantId = ""
-                    Prefs.paymentMethodsGatewayId = ""
-
-                    val paymentMethodsCall = ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
-                        .getPaymentMethods(GeoUtil.geoIPCountry.orEmpty())
-
-                    paymentMethodsCall.response?.let { response ->
-                        Prefs.paymentMethodsLastQueryTime = now
-                        response.paymentMethods.find { it.type == GooglePayComponent.PAYMENT_METHOD_NAME }?.let {
-                            Prefs.paymentMethodsMerchantId = it.configuration?.merchantId.orEmpty()
-                            Prefs.paymentMethodsGatewayId = it.configuration?.gatewayMerchantId.orEmpty()
-                        }
-                    }
-                }
-            }
-        }
     }
 }
