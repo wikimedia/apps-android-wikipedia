@@ -111,6 +111,7 @@
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Öppna</string>
+  <string name="menu_long_press_open_in_places">Öppen i Platser</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
   <string name="menu_text_select_define">Definera</string>
@@ -841,6 +842,7 @@
   <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
   <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
+  <string name="feed_item_type_places">Närliggande artiklar bygger på din aktuella plats</string>
   <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
   <string name="feed_configure_onboarding_action">Anpassa</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1677,4 +1679,11 @@
   <string name="places_survey_dialog_cancel">Avbryt</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Vad vill du att vi ska förändra eller förbättra?</string>
   <string name="places_empty_list">Det här området är tomt. Zooma ut &lt;a href=\"#\"&gt;på kartan&lt;/a&gt;.</string>
+  <string name="places_card_title">Närliggande platser</string>
+  <string name="places_card_action">Fler närliggande platser</string>
+  <string name="places_card_enable_location_card_message">Platser är ett kart-baserat sätt att utforska Wikipedia</string>
+  <string name="places_card_enable_location_card_button">Aktivera plats</string>
+  <string name="places_card_distance_suffix">%s bort</string>
+  <string name="places_card_distance_unknown">Okänt avstånd</string>
+  <string name="places_empty_message_snackbar">Det finns inga närliggande artiklar. Testa att zooma ut och flytta kartan.</string>
 </resources>
