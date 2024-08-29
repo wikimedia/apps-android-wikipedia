@@ -1139,6 +1139,8 @@
   <string name="description_edit_login_cancel_button_text">Gaskkalduhte</string>
   <string name="offline_read_permission_rationale">Jus áiggut vurket artihkkaliid offline lohkama váras, de fertet áppii addit sisabeassanlobi ovttadaga govaide, mediaide ja fiillaide.</string>
   <string name="offline_read_final_rationale">Dárbbašuvvo beassanlohpi ovttadatvurkemii vai báikkálaš girjerádju sáhttá geavahuvvot.</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">Njuike badjel</string>
   <string name="onboarding_continue">Joatkke</string>
   <string name="onboarding_get_started">Boađe johtui</string>
