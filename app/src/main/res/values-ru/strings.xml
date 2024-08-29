@@ -168,6 +168,7 @@
   <string name="menu_page_recently_viewed">Недавно просмотрено</string>
   <string name="menu_page_archive">Архив</string>
   <string name="menu_long_press_open_page">Открыть</string>
+  <string name="menu_long_press_open_in_places">Открыть в Местах</string>
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
   <string name="menu_text_select_define">Определение</string>
@@ -924,6 +925,7 @@
   <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="feed_language_variants_removal_dialog_title">Выберите вариант регионального языка для более удобного чтения</string>
   <string name="feed_language_variants_removal_dialog_save">Сохранить</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Пожалуйста, обновите ваши дополнительные языки</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Перейти в настройки</string>
   <string name="top_read_activity_title">Самое читаемое %s</string>
   <string name="tabs_activity_title">Вкладки</string>
