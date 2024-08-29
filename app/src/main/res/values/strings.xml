@@ -1796,6 +1796,7 @@
     <string name="recommended_content_survey_dialog_title">Help improve recommended content.</string>
     <string name="recommended_content_survey_dialog_message">Are you satisfied with this recommended search result?</string>
     <string name="recommended_content_survey_dialog_input_hint">Additional Feedback</string>
+    <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
     <!-- /Recommended Content -->
 
 </resources>

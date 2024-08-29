@@ -699,6 +699,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         requireActivity(),
                         titleId = R.string.recommended_content_survey_dialog_title,
                         messageId = R.string.recommended_content_survey_dialog_message,
+                        snackbarMessageId = R.string.recommended_content_survey_dialog_submitted_message,
                         source = InvokeSource.RECOMMENDED_CONTENT
                     )
                 }
