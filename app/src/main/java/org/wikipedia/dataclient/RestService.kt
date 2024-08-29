@@ -208,10 +208,6 @@ interface RestService {
                                                   @Path("toLang") toLang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/description/addition/{lang}")
-    suspend fun getArticlesWithoutDescriptions(@Path("lang") lang: String): List<SuggestedEditItem>
-
-    @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
     suspend fun getArticlesWithTranslatableDescriptions(@Path("fromLang") fromLang: String,
                                                         @Path("toLang") toLang: String): List<SuggestedEditItem>

@@ -60,7 +60,7 @@ object EditingSuggestionsProvider {
                 }
 
                 var tries = 0
-                do {
+                while (tries++ <= retryLimit && title.isEmpty()) {
                     // Fetch a batch of random articles, and check if any of them have missing descriptions.
                     val resultsWithNoDescription = ServiceFactory.get(wiki).getRandomPages().query?.pages?.filter {
                         it.description.isNullOrEmpty()
@@ -68,32 +68,27 @@ object EditingSuggestionsProvider {
 
                     articlesWithMissingDescriptionCacheLang = wiki.languageCode
 
-
-
-                    if (DescriptionEditUtil.wikiUsesLocalDescriptions(wiki.languageCode)) {
+                    if (resultsWithNoDescription.isEmpty() || DescriptionEditUtil.wikiUsesLocalDescriptions(wiki.languageCode)) {
                         resultsWithNoDescription.forEach {
                             articlesWithMissingDescriptionCache.addFirst(it.title)
                         }
                     } else {
                         // If the wiki uses Wikidata descriptions, check protection status of the Wikidata items.
                         val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem }
+                        val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getProtection(qNums.joinToString("|"))
+                        val unprotectedQNums = wdResponse.query?.pages?.filter { it.protection.isEmpty() }?.map { it.title }
 
-                        val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getProtection(qNums.joinToString("|") ?: "")
-
-
-                            .getEntitiesByPageTitles(resultsWithNoDescription?.joinToString("|") { it.title })
-
-
-                        val randomItems = ServiceFactory.getRest(Constants.wikidataWikiSite)
-                            .getEntitiesByPageTitles(resultsWithNoDescription?.joinToString("|") { it.title })
+                        resultsWithNoDescription.forEach {
+                            if (unprotectedQNums?.contains(it.pageProps?.wikiBaseItem) == true) {
+                                articlesWithMissingDescriptionCache.addFirst(it.title)
+                            }
+                        }
                     }
-
-
 
                     if (!articlesWithMissingDescriptionCache.isEmpty()) {
                         title = articlesWithMissingDescriptionCache.removeFirst()
                     }
-                } while (tries++ < retryLimit && title.isEmpty())
+                }
 
                 pageSummary = ServiceFactory.getRest(wiki).getPageSummary(null, title)
             } finally {
