@@ -80,7 +80,6 @@
             android:id="@+id/feedbackInputContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
             android:hint="@string/recommended_content_survey_dialog_input_hint"
             app:hintTextColor="?attr/secondary_color">
 
