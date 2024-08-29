@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
 import java.time.Instant
@@ -60,16 +61,35 @@ object EditingSuggestionsProvider {
 
                 var tries = 0
                 do {
-                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
-                        .getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode))
-                    val mwQueryResponse = ServiceFactory.get(wiki)
-                        .getDescription(listOfSuggestedEditItem.joinToString("|") { it.title() })
+                    // Fetch a batch of random articles, and check if any of them have missing descriptions.
+                    val resultsWithNoDescription = ServiceFactory.get(wiki).getRandomPages().query?.pages?.filter {
+                        it.description.isNullOrEmpty()
+                    }.orEmpty()
+
                     articlesWithMissingDescriptionCacheLang = wiki.languageCode
-                    mwQueryResponse.query?.pages?.forEach {
-                        if (it.description.isNullOrEmpty()) {
+
+
+
+                    if (DescriptionEditUtil.wikiUsesLocalDescriptions(wiki.languageCode)) {
+                        resultsWithNoDescription.forEach {
                             articlesWithMissingDescriptionCache.addFirst(it.title)
                         }
+                    } else {
+                        // If the wiki uses Wikidata descriptions, check protection status of the Wikidata items.
+                        val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem }
+
+                        val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getProtection(qNums.joinToString("|") ?: "")
+
+
+                            .getEntitiesByPageTitles(resultsWithNoDescription?.joinToString("|") { it.title })
+
+
+                        val randomItems = ServiceFactory.getRest(Constants.wikidataWikiSite)
+                            .getEntitiesByPageTitles(resultsWithNoDescription?.joinToString("|") { it.title })
                     }
+
+
+
                     if (!articlesWithMissingDescriptionCache.isEmpty()) {
                         title = articlesWithMissingDescriptionCache.removeFirst()
                     }
@@ -236,7 +256,7 @@ object EditingSuggestionsProvider {
                 }
                 var tries = 0
                 do {
-                    val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomWithImageInfo()
+                    val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages()
                     response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }?.forEach { page ->
                         if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
                             imagesWithMissingTagsCache.addFirst(page)

@@ -150,8 +150,11 @@ interface Service {
             @Query("wbetlanguage") entityLang: String
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&prop=info&inprop=protection")
+    suspend fun getProtection(@Query("titles") titles: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
-    suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
+    suspend fun getProtectionWithUserInfo(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     suspend fun getSiteMatrix(): SiteMatrix
@@ -190,9 +193,14 @@ interface Service {
         @Query("gcmcontinue") continueStr: String?
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&prop=pageprops|description|info&inprop=protection")
+    suspend fun getRandomPages(
+        @Query("grnlimit") count: Int = 50,
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @Headers("Cache-Control: no-cache")
-    suspend fun getRandomWithImageInfo(): MwQueryResponse
+    suspend fun getRandomImages(): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctype=edit|new")

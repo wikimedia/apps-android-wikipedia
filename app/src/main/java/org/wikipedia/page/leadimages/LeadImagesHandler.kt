@@ -111,7 +111,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             }) {
                 lastImageTitleForCallToAction = imageTitle
                 val isProtected = ServiceFactory.get(Constants.commonsWikiSite)
-                    .getProtectionInfoSuspend(imageTitle).query?.isEditProtected ?: false
+                    .getProtectionWithUserInfo(imageTitle).query?.isEditProtected ?: false
                 if (!isProtected) {
                     val firstEntity = async {
                         ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first

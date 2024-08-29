@@ -85,8 +85,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun addDescription(langFromCode: String): PageSummaryForEdit {
         val pageSummary = EditingSuggestionsProvider.getNextArticleWithMissingDescription(
-            WikiSite.forLanguageCode(langFromCode),
-            SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
+            WikiSite.forLanguageCode(langFromCode))
 
         return PageSummaryForEdit(
             pageSummary.apiTitle,
