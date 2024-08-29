@@ -23,6 +23,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
+import java.text.NumberFormat
 import java.time.Instant
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -32,7 +33,9 @@ class GooglePayViewModel : ViewModel() {
     val uiState = MutableStateFlow(Resource<DonationConfig>())
     private var donationConfig: DonationConfig? = null
     private val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
-    val currencyFormat get() = GeoUtil.currencyFormat(Locale.getDefault())
+
+    val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
+        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
     val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
     val decimalFormat = GooglePayComponent.getDecimalFormat(currencyCode)
@@ -84,7 +87,24 @@ class GooglePayViewModel : ViewModel() {
                 disclaimerMonthlyCancel = response.query?.allmessages?.find { it.name == MSG_DISCLAIMER_MONTHLY_CANCEL }?.content?.replace("$1", WikipediaApp.instance.getString(R.string.donate_email))
             }
 
-            async { updatePaymentMethodsPreferences() }.await()
+            // The paymentMethods API is rate limited, so we cache it manually.
+            val now = Instant.now().epochSecond
+            if (abs(now - Prefs.paymentMethodsLastQueryTime) > TimeUnit.DAYS.toSeconds(7)) {
+                Prefs.paymentMethodsMerchantId = ""
+                Prefs.paymentMethodsGatewayId = ""
+
+                val paymentMethodsCall = async {
+                    ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
+                        .getPaymentMethods(currentCountryCode)
+                }
+                paymentMethodsCall.await().response?.let { response ->
+                    Prefs.paymentMethodsLastQueryTime = now
+                    response.paymentMethods.find { it.type == GooglePayComponent.PAYMENT_METHOD_NAME }?.let {
+                        Prefs.paymentMethodsMerchantId = it.configuration?.merchantId.orEmpty()
+                        Prefs.paymentMethodsGatewayId = it.configuration?.gatewayMerchantId.orEmpty()
+                    }
+                }
+            }
 
             if (Prefs.paymentMethodsMerchantId.isEmpty() ||
                 Prefs.paymentMethodsGatewayId.isEmpty() ||
