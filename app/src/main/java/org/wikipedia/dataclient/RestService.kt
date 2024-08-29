@@ -207,11 +207,6 @@ interface RestService {
     suspend fun getImagesWithTranslatableCaptions(@Path("fromLang") fromLang: String,
                                                   @Path("toLang") toLang: String): List<SuggestedEditItem>
 
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
-    suspend fun getArticlesWithTranslatableDescriptions(@Path("fromLang") fromLang: String,
-                                                        @Path("toLang") toLang: String): List<SuggestedEditItem>
-
     //  ------- Talk pages -------
     @Headers("Cache-Control: no-cache")
     @GET("page/talk/{title}")

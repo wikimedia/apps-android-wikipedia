@@ -61,7 +61,7 @@ object EditingSuggestionsProvider {
 
                 var tries = 0
                 while (tries++ <= retryLimit && title.isEmpty()) {
-                    // Fetch a batch of random articles, and check if any of them have missing descriptions.
+                    // Fetch a batch of random articles, and get the ones that have no description.
                     val resultsWithNoDescription = ServiceFactory.get(wiki).getRandomPages().query?.pages?.filter {
                         it.description.isNullOrEmpty()
                     }.orEmpty()
@@ -98,8 +98,7 @@ object EditingSuggestionsProvider {
         return pageSummary
     }
 
-    suspend fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean,
-                                                     retryLimit: Long = MAX_RETRY_LIMIT): Pair<PageSummary, PageSummary> {
+    suspend fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, retryLimit: Long = MAX_RETRY_LIMIT): Pair<PageSummary, PageSummary> {
         var pair = Pair(PageSummary(), PageSummary())
         withContext(Dispatchers.IO) {
             mutex.acquire()
@@ -115,29 +114,28 @@ object EditingSuggestionsProvider {
                     titles = articlesWithTranslatableDescriptionCache.removeFirst()
                 }
                 var tries = 0
-                do {
-                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
-                        .getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode),
-                            WikiSite.normalizeLanguageCode(targetLang))
-                    val mwQueryPages = ServiceFactory.get(targetWiki)
-                        .getDescription(listOfSuggestedEditItem.joinToString("|") { it.title() }).query?.pages
+                while (tries++ <= retryLimit && titles == null) {
+                    // Fetch a batch of random articles from the target language wiki, and get ones that have no description.
+                    val resultsWithNoDescription = ServiceFactory.get(targetWiki).getRandomPages().query?.pages?.filter {
+                        it.description.isNullOrEmpty()
+                    }.orEmpty()
 
                     articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode
                     articlesWithTranslatableDescriptionCacheToLang = targetLang
 
-                    listOfSuggestedEditItem.forEach { item ->
-                        val page = mwQueryPages?.find { it.title == item.title() }
-                        if (page != null && !page.description.isNullOrEmpty()) {
-                            return@forEach
-                        }
-                        val entity = item.entity
-                        if (entity == null || entity.descriptions.containsKey(targetLang) ||
-                            sourceLangMustExist && !entity.descriptions.containsKey(sourceWiki.languageCode) ||
-                            !entity.sitelinks.containsKey(sourceWiki.dbName()) ||
-                            !entity.sitelinks.containsKey(targetWiki.dbName())
-                        ) {
-                            return@forEach
-                        }
+                    // Get the Wikidata entities for the articles, to see if they have descriptions in the source language.
+                    val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem }
+                    val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(
+                        qNums.joinToString("|"),
+                        WikiSite.normalizeLanguageCode(sourceWiki.languageCode) + "|" + WikiSite.normalizeLanguageCode(targetLang),
+                        sourceWiki.dbName() + "|" + targetWiki.dbName())
+
+                    // Get the Q numbers for which the source language description exists
+                    val sourceLangEntities = wdResponse.entities.filter {
+                        it.value.descriptions[sourceWiki.languageCode]?.value.orEmpty().isNotEmpty() &&
+                                it.value.sitelinks[sourceWiki.dbName()]?.title.orEmpty().isNotEmpty() }
+
+                    sourceLangEntities.values.forEach { entity ->
                         val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki).apply {
                             description = entity.descriptions[sourceWiki.languageCode]?.value
                         }
@@ -148,7 +146,7 @@ object EditingSuggestionsProvider {
                     if (!articlesWithTranslatableDescriptionCache.isEmpty()) {
                         titles = articlesWithTranslatableDescriptionCache.removeFirst()
                     }
-                } while (tries++ < retryLimit && titles == null)
+                }
 
                 titles?.let {
                     val sourcePageSummary = async {

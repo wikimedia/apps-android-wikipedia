@@ -528,7 +528,11 @@ interface Service {
     ): Claims
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
-    suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
+    suspend fun getWikidataLabelsAndDescriptions(
+        @Query("ids") idList: String,
+        @Query("languages") languages: String? = null,
+        @Query("sitefilter") siteFilter: String? = null
+    ): Entities
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels")
     suspend fun getWikidataDescription(@Query("titles") titles: String,

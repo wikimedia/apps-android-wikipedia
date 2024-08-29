@@ -102,7 +102,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                     .show()
             }) {
                 val summary = EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.instance.wikiSite,
-                    WikipediaApp.instance.languageState.appLanguageCodes[1], true, 10)
+                    WikipediaApp.instance.languageState.appLanguageCodes[1])
                 MaterialAlertDialogBuilder(fragment.requireActivity())
                         .setTitle(fromHtml(summary.second.displayTitle))
                         .setMessage(fromHtml(summary.second.extract))

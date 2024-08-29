@@ -101,8 +101,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun translateDescription(langFromCode: String, targetLanguage: String): Pair<PageSummaryForEdit, PageSummaryForEdit> {
         val pair = EditingSuggestionsProvider.getNextArticleWithMissingDescription(
-            WikiSite.forLanguageCode(langFromCode),
-            targetLanguage, true, SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
+            WikiSite.forLanguageCode(langFromCode), targetLanguage)
         val source = pair.first
         val target = pair.second
 
