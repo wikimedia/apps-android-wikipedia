@@ -7,6 +7,7 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
@@ -15,6 +16,7 @@ import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
+import org.wikipedia.util.log.L
 import java.time.Instant
 import java.util.concurrent.Semaphore
 import kotlin.math.abs
@@ -45,7 +47,7 @@ object EditingSuggestionsProvider {
     private var revertCandidateLastRevId = 0L
     private var revertCandidateLastTimeStamp = Instant.now()
 
-    private const val MAX_RETRY_LIMIT: Long = 50
+    private const val MAX_RETRY_LIMIT: Long = 20
 
     suspend fun getNextArticleWithMissingDescription(wiki: WikiSite, retryLimit: Long = MAX_RETRY_LIMIT): PageSummary {
         var pageSummary: PageSummary
@@ -185,27 +187,30 @@ object EditingSuggestionsProvider {
                 imagesWithMissingCaptionsCacheLang = lang
                 var tries = 0
                 while (tries++ <= retryLimit && title.isEmpty()) {
+                    try {
+                        val candidates = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages()
+                            .query?.pages?.filter {
+                                it.imageInfo()?.mime.orEmpty().startsWith("image") &&
+                                        it.protection.isEmpty()
+                            }.orEmpty()
 
-                    val candidates = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages(50)
-                        .query?.pages?.filter {
-                            it.imageInfo()?.mime.orEmpty().startsWith("image") &&
-                                    it.protection.isEmpty()
-                        }.orEmpty()
-
-                    candidates.forEach { candidate ->
-                        val entityJson = candidate.revisions.firstOrNull()?.getContentFromSlot("mediainfo")
-                        if (entityJson.isNullOrEmpty()) {
-                            return@forEach
-                        }
-                        JsonUtil.decodeFromString<Entities.Entity>(entityJson)?.let { entity ->
-                            if (entity.getLabels()[WikiSite.normalizeLanguageCode(lang)]?.value.isNullOrEmpty()) {
-                                imagesWithMissingCaptionsCache.addFirst(candidate.title)
+                        candidates.forEach { candidate ->
+                            val entityJson = candidate.revisions.firstOrNull()?.getContentFromSlot("mediainfo")
+                            if (entityJson.isNullOrEmpty()) {
+                                return@forEach
+                            }
+                            JsonUtil.decodeFromString<Entities.Entity>(entityJson)?.let { entity ->
+                                if (entity.getLabels()[WikiSite.normalizeLanguageCode(lang)]?.value.isNullOrEmpty()) {
+                                    imagesWithMissingCaptionsCache.addFirst(candidate.title)
+                                }
                             }
                         }
-                    }
 
-                    if (!imagesWithMissingCaptionsCache.isEmpty()) {
-                        title = imagesWithMissingCaptionsCache.removeFirst()
+                        if (!imagesWithMissingCaptionsCache.isEmpty()) {
+                            title = imagesWithMissingCaptionsCache.removeFirst()
+                        }
+                    } catch (e: MwException) {
+                        L.w(e)
                     }
                 }
             } finally {
@@ -234,25 +239,28 @@ object EditingSuggestionsProvider {
                 imagesWithTranslatableCaptionCacheToLang = targetLang
                 var tries = 0
                 while (tries++ <= retryLimit && (pair.first.isEmpty() || pair.second.isEmpty())) {
+                    try {
+                        val candidates = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages(50)
+                            .query?.pages?.filter {
+                                it.imageInfo()?.mime.orEmpty().startsWith("image") &&
+                                        it.protection.isEmpty()
+                            }.orEmpty()
 
-                    val candidates = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages(50)
-                        .query?.pages?.filter {
-                            it.imageInfo()?.mime.orEmpty().startsWith("image") &&
-                                    it.protection.isEmpty()
-                        }.orEmpty()
-
-                    candidates.forEach { candidate ->
-                        val entityJson = candidate.revisions.firstOrNull()?.getContentFromSlot("mediainfo")
-                        if (entityJson.isNullOrEmpty()) {
-                            return@forEach
-                        }
-                        JsonUtil.decodeFromString<Entities.Entity>(entityJson)?.let { entity ->
-                            val labels = entity.getLabels()
-                            if (labels[WikiSite.normalizeLanguageCode(sourceLang)]?.value.orEmpty().isNotEmpty() &&
-                                labels[WikiSite.normalizeLanguageCode(targetLang)]?.value.isNullOrEmpty()) {
-                                imagesWithTranslatableCaptionCache.addFirst(labels[sourceLang]?.value.orEmpty() to candidate.title)
+                        candidates.forEach { candidate ->
+                            val entityJson = candidate.revisions.firstOrNull()?.getContentFromSlot("mediainfo")
+                            if (entityJson.isNullOrEmpty()) {
+                                return@forEach
+                            }
+                            JsonUtil.decodeFromString<Entities.Entity>(entityJson)?.let { entity ->
+                                val labels = entity.getLabels()
+                                if (labels[WikiSite.normalizeLanguageCode(sourceLang)]?.value.orEmpty().isNotEmpty() &&
+                                    labels[WikiSite.normalizeLanguageCode(targetLang)]?.value.isNullOrEmpty()) {
+                                    imagesWithTranslatableCaptionCache.addFirst(labels[sourceLang]?.value.orEmpty() to candidate.title)
+                                }
                             }
                         }
+                    } catch (e: MwException) {
+                        L.w(e)
                     }
 
                     if (!imagesWithTranslatableCaptionCache.isEmpty()) {
