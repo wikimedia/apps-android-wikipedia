@@ -78,7 +78,7 @@ object EditingSuggestionsProvider {
                         }
                     } else {
                         // If the wiki uses Wikidata descriptions, check protection status of the Wikidata items.
-                        val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem }
+                        val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem.orEmpty().ifEmpty { null } }
                         val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getProtection(qNums.joinToString("|"))
                         val unprotectedQNums = wdResponse.query?.pages?.filter { it.protection.isEmpty() }?.map { it.title }
 
@@ -128,7 +128,7 @@ object EditingSuggestionsProvider {
                     articlesWithTranslatableDescriptionCacheToLang = targetLang
 
                     // Get the Wikidata entities for the articles, to see if they have descriptions in the source language.
-                    val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem }
+                    val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem.orEmpty().ifEmpty { null } }
                     val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(
                         qNums.joinToString("|"),
                         WikiSite.normalizeLanguageCode(sourceWiki.languageCode) + "|" + WikiSite.normalizeLanguageCode(targetLang),
