@@ -198,9 +198,6 @@ interface RestService {
     ): Call<Unit>
 
     // ------- Recommendations -------
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/caption/addition/{lang}")
-    suspend fun getImagesWithoutCaptions(@Path("lang") lang: String): List<SuggestedEditItem>
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/caption/translation/from/{fromLang}/to/{toLang}")

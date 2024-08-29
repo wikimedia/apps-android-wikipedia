@@ -56,7 +56,7 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun getCaptions(entity: Entities.Entity?): Map<String, String> {
-        return entity?.labels?.values?.associate { it.language to it.value }.orEmpty()
+        return entity?.getLabels()?.values?.associate { it.language to it.value }.orEmpty()
     }
 
     fun getDepicts(entity: Entities.Entity?): List<String> {

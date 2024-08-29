@@ -10,7 +10,9 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.dataclient.wikidata.Entities
 import org.wikipedia.descriptions.DescriptionEditUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
 import java.time.Instant
@@ -132,14 +134,14 @@ object EditingSuggestionsProvider {
 
                     // Get the Q numbers for which the source language description exists
                     val sourceLangEntities = wdResponse.entities.filter {
-                        it.value.descriptions[sourceWiki.languageCode]?.value.orEmpty().isNotEmpty() &&
-                                it.value.sitelinks[sourceWiki.dbName()]?.title.orEmpty().isNotEmpty() }
+                        it.value.getDescriptions()[sourceWiki.languageCode]?.value.orEmpty().isNotEmpty() &&
+                                it.value.getSiteLinks()[sourceWiki.dbName()]?.title.orEmpty().isNotEmpty() }
 
                     sourceLangEntities.values.forEach { entity ->
-                        val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki).apply {
-                            description = entity.descriptions[sourceWiki.languageCode]?.value
+                        val sourceTitle = PageTitle(entity.getSiteLinks()[sourceWiki.dbName()]!!.title, sourceWiki).apply {
+                            description = entity.getDescriptions()[sourceWiki.languageCode]?.value
                         }
-                        val targetTitle = PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki)
+                        val targetTitle = PageTitle(entity.getSiteLinks()[targetWiki.dbName()]!!.title, targetWiki)
                         articlesWithTranslatableDescriptionCache.addFirst(sourceTitle to targetTitle)
                     }
 
@@ -182,16 +184,30 @@ object EditingSuggestionsProvider {
                 }
                 imagesWithMissingCaptionsCacheLang = lang
                 var tries = 0
-                do {
-                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.commonsWikiSite)
-                        .getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
-                    listOfSuggestedEditItem.forEach {
-                        imagesWithMissingCaptionsCache.addFirst(it.title())
+                while (tries++ <= retryLimit && title.isEmpty()) {
+
+                    val candidates = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages()
+                        .query?.pages?.filter {
+                            it.imageInfo()?.mime.orEmpty().startsWith("image") &&
+                                    it.protection.isEmpty()
+                        }.orEmpty()
+
+                    candidates.forEach { candidate ->
+                        val entityJson = candidate.revisions.firstOrNull()?.getContentFromSlot("mediainfo")
+                        if (entityJson.isNullOrEmpty()) {
+                            return@forEach
+                        }
+                        JsonUtil.decodeFromString<Entities.Entity>(entityJson)?.let { entity ->
+                            if (entity.getLabels()[WikiSite.normalizeLanguageCode(lang)]?.value.isNullOrEmpty()) {
+                                imagesWithMissingCaptionsCache.addFirst(candidate.title)
+                            }
+                        }
                     }
+
                     if (!imagesWithMissingCaptionsCache.isEmpty()) {
                         title = imagesWithMissingCaptionsCache.removeFirst()
                     }
-                } while (tries++ < retryLimit && title.isEmpty())
+                }
             } finally {
                 mutex.release()
             }
