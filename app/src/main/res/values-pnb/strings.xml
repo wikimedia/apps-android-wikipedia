@@ -256,7 +256,7 @@
   <string name="reading_list_menu_delete">سوچی مٹاؤ</string>
   <string name="reading_list_name_hint">سوچی دا ناں</string>
   <string name="reading_list_description_hint">ورتا (چوݨواں)</string>
-  <string name="reading_list_item_deleted">%s نوں سوچی \'چوں ہٹائیا گیا</string>
+  <string name="reading_list_item_deleted">%s نوں لسٹ چوں ہٹایا گیا</string>
   <string name="reading_list_item_delete_undo">اݨکیتا کرو</string>
   <string name="reading_list_deleted">%s مٹائیا گیا</string>
   <string name="saved_list_empty_title">کوئی پڑھت سوچی نہیں ہے</string>
