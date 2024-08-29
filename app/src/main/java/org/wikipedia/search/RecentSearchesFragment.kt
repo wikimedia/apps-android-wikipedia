@@ -45,6 +45,7 @@ class RecentSearchesFragment : Fragment() {
     private val namespaceHints = listOf(Namespace.USER, Namespace.PORTAL, Namespace.HELP)
     private val namespaceMap = ConcurrentHashMap<String, Map<Namespace, String>>()
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable -> L.e(throwable) }
+    private var recommendedContentFragment: RecommendedContentFragment? = null
     var callback: Callback? = null
     val recentSearchList = mutableListOf<RecentSearch>()
 
@@ -103,8 +104,10 @@ class RecentSearchesFragment : Fragment() {
         } else {
             RecommendedContentSection.personalizeList().map { it.id } // Group 3
         }
+        val langeCode = callback?.getLangCode() ?: WikipediaApp.instance.appOrSystemLanguageCode
+        recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), inHistory = false, sectionIds)
         childFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, RecommendedContentFragment.newInstance(inHistory = false, sectionIds), null)
+            .add(R.id.fragmentOverlayContainer, recommendedContentFragment!!, null)
             .addToBackStack(null)
             .commit()
     }
@@ -132,6 +135,10 @@ class RecentSearchesFragment : Fragment() {
         lifecycleScope.launch(coroutineExceptionHandler) {
             updateList()
         }
+    }
+
+    fun reloadRecommendedContent(wikiSite: WikiSite) {
+        recommendedContentFragment?.reload(wikiSite)
     }
 
     suspend fun updateList() {

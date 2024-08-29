@@ -25,6 +25,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageActivity
@@ -336,6 +337,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         searchLanguageCode = selectedLanguageCode
         searchResultsFragment.setLayoutDirection(searchLanguageCode)
         recentSearchesFragment.reloadRecentSearches()
+        recentSearchesFragment.reloadRecommendedContent(WikiSite.forLanguageCode(searchLanguageCode))
         startSearch(query, false)
     }
 

@@ -18,7 +18,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.history.HistoryEntry
@@ -34,7 +36,7 @@ import java.util.Date
 
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
-    val wikiSite = WikipediaApp.instance.wikiSite
+    var wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
     private val sectionIds = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
@@ -52,6 +54,11 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     val recommendedContentState = _recommendedContentState.asStateFlow()
 
     init {
+        reload(wikiSite)
+    }
+
+    fun reload(wikiSite: WikiSite) {
+        this.wikiSite = wikiSite
         loadSearchHistory()
         loadRecommendedContent(sections)
     }
@@ -158,7 +165,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun loadRecentSearches(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.recentSearchDao().getRecentSearches().map {
-                PageTitle(it.text, WikipediaApp.instance.wikiSite).apply {
+                PageTitle(it.text, wikiSite).apply {
                     // Put timestamp in description for the delete action.
                     description = it.timestamp.time.toString()
                 }
@@ -173,7 +180,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                 return@withContext it
             }
 
-            val wikiSite = WikipediaApp.instance.wikiSite
             val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
             val date = DateUtil.getUtcRequestDateFor(0)
             var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
@@ -214,7 +220,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadExplore(searchTerm: String): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            val wikiSite = WikipediaApp.instance.wikiSite
             val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike("morelike:$searchTerm", Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
             val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
 
@@ -253,7 +258,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun loadPlaces(): List<PageSummary> {
-        val wikiSite = WikipediaApp.instance.wikiSite
         return withContext(Dispatchers.IO) {
             Prefs.placesLastLocationAndZoomLevel?.let { pair ->
                 val location = pair.first

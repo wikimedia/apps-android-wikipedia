@@ -20,6 +20,7 @@ import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
@@ -187,12 +188,17 @@ class RecommendedContentFragment : Fragment() {
         }
     }
 
+    fun reload(wikiSite: WikiSite) {
+        viewModel.reload(wikiSite)
+    }
+
     companion object {
         const val ARG_IN_HISTORY = "inHistory"
         const val ARG_SECTION_IDS = "sectionIds"
 
-        fun newInstance(inHistory: Boolean, sectionIds: List<Int>) = RecommendedContentFragment().apply {
+        fun newInstance(wikiSite: WikiSite, inHistory: Boolean, sectionIds: List<Int>) = RecommendedContentFragment().apply {
             arguments = bundleOf(
+                Constants.ARG_WIKISITE to wikiSite,
                 ARG_IN_HISTORY to inHistory,
                 ARG_SECTION_IDS to sectionIds
             )
