@@ -1782,16 +1782,6 @@
     <!-- /Places -->
 
     <!-- Recommended Content -->
-    <string name="recommended_content_view_more_history">View more history</string>
-    <string name="recommended_content_more_recent_searches">More recent searches</string>
-    <string name="recommended_content_section_more">More</string>
-    <string name="recommended_content_section_top_read">Top read</string>
-    <string name="recommended_content_section_explore">Explore</string>
-    <string name="recommended_content_section_on_this_day">On this day</string>
-    <string name="recommended_content_section_in_the_news">In the news</string>
-    <string name="recommended_content_section_continue_reading">Continue reading</string>
-    <string name="recommended_content_section_because_you_read">Because you read</string>
-    <string name="recommended_content_section_places_near_you">Places near you</string>
     <string name="recommended_content_section_you_might_like">You might like</string>
     <string name="recommended_content_survey_dialog_title">Help improve recommended content.</string>
     <string name="recommended_content_survey_dialog_message">Are you satisfied with this recommended search result?</string>

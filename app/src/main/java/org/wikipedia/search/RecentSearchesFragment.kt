@@ -107,10 +107,10 @@ class RecentSearchesFragment : Fragment() {
         val sectionIds = if (RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2) {
             RecommendedContentSection.generalizedList().map { it.id } // Group 2
         } else {
-            RecommendedContentSection.personalizeList().map { it.id } // Group 3
+            RecommendedContentSection.personalizedList().map { it.id } // Group 3
         }
         val langeCode = callback?.getLangCode() ?: WikipediaApp.instance.appOrSystemLanguageCode
-        recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), inHistory = false, sectionIds)
+        recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), sectionIds)
         childFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, recommendedContentFragment!!, null)
             .addToBackStack(null)

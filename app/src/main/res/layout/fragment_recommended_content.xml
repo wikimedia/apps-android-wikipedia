@@ -13,17 +13,8 @@
         android:paddingBottom="8dp"
         android:background="?attr/paper_color">
 
-        <include
-            android:id="@+id/searchCard"
-            layout="@layout/view_search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="3dp"
-            android:visibility="visible" />
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/historyList"
+            android:id="@+id/recentSearchesList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

@@ -25,7 +25,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesFragment
 import org.wikipedia.settings.Prefs
@@ -39,15 +38,14 @@ import java.util.Date
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     var wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
-    val inHistory = bundle.getBoolean(RecommendedContentFragment.ARG_IN_HISTORY)
     private val sectionIds = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
     private var exploreTerm: String? = null
     private var feedContent = mutableMapOf<String, AggregatedFeedContent>()
 
-    private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
-    val historyState = _historyState.asStateFlow()
+    private val _recentSearchesState = MutableStateFlow(Resource<List<PageTitle>>())
+    val recentSearchesState = _recentSearchesState.asStateFlow()
 
     private val _actionState = MutableStateFlow(Resource<Pair<Int, List<PageTitle>>>())
     val actionState = _actionState.asStateFlow()
@@ -67,18 +65,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         loadRecommendedContent(sections)
     }
 
-    fun removeHistoryItem(title: PageTitle, position: Int) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _actionState.value = Resource.Error(throwable)
-        }) {
-            val entry = HistoryEntry(title, HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED)
-            withContext(Dispatchers.IO) {
-                AppDatabase.instance.historyEntryDao().delete(entry)
-            }
-            _actionState.value = Resource.Success(position to loadHistoryItems())
-        }
-    }
-
     fun removeRecentSearchItem(title: PageTitle, position: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _actionState.value = Resource.Error(throwable)
@@ -92,13 +78,9 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     fun loadSearchHistory() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _historyState.value = Resource.Error(throwable)
+            _recentSearchesState.value = Resource.Error(throwable)
         }) {
-            if (inHistory) {
-                _historyState.value = Resource.Success(loadHistoryItems())
-            } else {
-                _historyState.value = Resource.Success(loadRecentSearches())
-            }
+            _recentSearchesState.value = Resource.Success(loadRecentSearches())
         }
     }
 
@@ -160,14 +142,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private suspend fun loadHistoryItems(): List<PageTitle> {
-        return withContext(Dispatchers.IO) {
-            AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime().map {
-                it.title
-            }.take(HISTORY_ITEMS)
-        }
-    }
-
     private suspend fun loadRecentSearches(): List<PageTitle> {
         return withContext(Dispatchers.IO) {
             AppDatabase.instance.recentSearchDao().getRecentSearches().map {
@@ -175,7 +149,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     // Put timestamp in description for the delete action.
                     description = it.timestamp.time.toString()
                 }
-            }.take(HISTORY_ITEMS)
+            }.take(RECENT_SEARCHES_ITEMS)
         }
     }
 
@@ -294,6 +268,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     companion object {
         const val RECOMMENDED_CONTENT_ITEMS = 5
-        const val HISTORY_ITEMS = 5
+        const val RECENT_SEARCHES_ITEMS = 5
     }
 }
