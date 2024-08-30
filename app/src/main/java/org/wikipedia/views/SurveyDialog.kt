@@ -74,9 +74,12 @@ object SurveyDialog {
                     }, feedbackText = feedbackInput)
 
                 showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
+                dialog?.dismiss()
+                Prefs.recommendedContentSurveyShown = true
             }
             binding.cancelButton.setOnClickListener {
                 dialog?.dismiss()
+                Prefs.recommendedContentSurveyShown = true
             }
         }
         dialog = dialogBuilder.show()
@@ -129,8 +132,7 @@ object SurveyDialog {
                     }
                 }, 100)
             }
-            else -> {
-            }
+            else -> {}
         }
     }
 }

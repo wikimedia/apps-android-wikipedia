@@ -101,6 +101,7 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -688,7 +689,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun maybeShowRecommendedContentSurvey() {
+        if (Prefs.recommendedContentSurveyShown) {
+            return
+        }
         historyEntry?.let {
+            val duration = if (ReleaseUtil.isPreBetaRelease) 1L else 10L
             binding.pageContentsContainer.postDelayed({
                 if (!isAdded) {
                     return@postDelayed
@@ -704,7 +709,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         historyEntry = it
                     )
                 }
-            }, TimeUnit.SECONDS.toMillis(0))
+            }, TimeUnit.SECONDS.toMillis(duration))
         }
     }
 
