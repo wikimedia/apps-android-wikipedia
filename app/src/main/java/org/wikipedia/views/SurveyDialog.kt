@@ -2,6 +2,7 @@ package org.wikipedia.views
 
 import android.app.Activity
 import android.view.View
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
@@ -61,6 +62,8 @@ object SurveyDialog {
             dialogBuilder.setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ -> }
         }
         dialog = dialogBuilder.show()
+        dialog?.window?.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     private fun showFeedbackInputDialog(activity: Activity, messageId: Int, source: Constants.InvokeSource) {
