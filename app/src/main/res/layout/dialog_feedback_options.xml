@@ -14,14 +14,6 @@
         android:paddingHorizontal="24dp"
         android:paddingBottom="12dp">
 
-        <TextView
-            android:id="@+id/messageText"
-            style="@style/P.DialogBody"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
-            android:text="@string/patroller_diff_feedback_dialog_message" />
-
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

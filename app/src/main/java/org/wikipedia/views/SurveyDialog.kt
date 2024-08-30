@@ -24,7 +24,6 @@ object SurveyDialog {
                                   source: Constants.InvokeSource) {
         var dialog: AlertDialog? = null
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
-        binding.messageText.text = activity.getString(messageId)
 
         if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             val clickListener = View.OnClickListener {
@@ -50,6 +49,7 @@ object SurveyDialog {
         sendAnalyticsEvent("impression", "feedback_form", source)
         val dialogBuilder = MaterialAlertDialogBuilder(activity)
             .setTitle(titleId)
+            .setMessage(messageId)
             .setCancelable(false)
             .setView(binding.root)
         if (source == Constants.InvokeSource.RECOMMENDED_CONTENT) {
@@ -68,6 +68,7 @@ object SurveyDialog {
         sendAnalyticsEvent("impression", "feedback_input_form", source)
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
+            .setMessage(messageId)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
@@ -101,9 +102,7 @@ object SurveyDialog {
                                 Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS -> {
                                     Prefs.showOneTimeRecentEditsFeedbackForm = false
                                 }
-                                else -> {
-                                    // do nothing
-                                }
+                                else -> { }
                             }
                         }
                     }
