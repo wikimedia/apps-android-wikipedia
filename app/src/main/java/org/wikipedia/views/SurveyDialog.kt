@@ -25,6 +25,8 @@ object SurveyDialog {
                                   source: Constants.InvokeSource) {
         var dialog: AlertDialog? = null
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
+        binding.titleText.text = activity.getString(titleId)
+        binding.messageText.text = activity.getString(messageId)
 
         if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             val clickListener = View.OnClickListener {
@@ -49,21 +51,21 @@ object SurveyDialog {
 
         sendAnalyticsEvent("impression", "feedback_form", source)
         val dialogBuilder = MaterialAlertDialogBuilder(activity)
-            .setTitle(titleId)
-            .setMessage(messageId)
             .setCancelable(false)
             .setView(binding.root)
         if (source == Constants.InvokeSource.RECOMMENDED_CONTENT) {
-            dialogBuilder.setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
+            binding.submitButton.setOnClickListener {
                 val feedbackInput = binding.feedbackInput.text.toString()
                 // TODO: send event
                 showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, source)
             }
-            dialogBuilder.setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ -> }
+            binding.cancelButton.setOnClickListener {
+                dialog?.dismiss()
+            }
         }
         dialog = dialogBuilder.show()
-        dialog?.window?.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        // TODO: not to use the deprecated method
+        dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     private fun showFeedbackInputDialog(activity: Activity, messageId: Int, source: Constants.InvokeSource) {
