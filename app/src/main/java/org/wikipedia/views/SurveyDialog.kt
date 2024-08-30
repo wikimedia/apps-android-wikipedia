@@ -3,6 +3,7 @@ package org.wikipedia.views
 import android.app.Activity
 import android.view.View
 import android.view.WindowManager
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
@@ -31,6 +32,13 @@ object SurveyDialog {
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(titleId)
         binding.messageText.text = activity.getString(messageId)
+        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.dialogContainer.postDelayed({
+                    binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                }, 200)
+            }
+        }
 
         if (invokeSource == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             val clickListener = View.OnClickListener {
@@ -61,6 +69,7 @@ object SurveyDialog {
         val dialogBuilder = MaterialAlertDialogBuilder(activity)
             .setCancelable(false)
             .setView(binding.root)
+
         if (invokeSource == Constants.InvokeSource.RECOMMENDED_CONTENT) {
             binding.submitButton.setOnClickListener {
                 val feedbackInput = binding.feedbackInput.text.toString()
@@ -82,7 +91,9 @@ object SurveyDialog {
                 Prefs.recommendedContentSurveyShown = true
             }
         }
+
         dialog = dialogBuilder.show()
+
         // TODO: not to use the deprecated method
         dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
