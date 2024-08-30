@@ -57,6 +57,7 @@ class RecommendedContentFragment : Fragment() {
                                 buildHistoryList(it.data)
                             }
                             is Resource.Error -> {
+                                (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(false)
                                 parentFragmentManager.popBackStack()
                                 L.d(it.throwable)
                             }
@@ -73,6 +74,7 @@ class RecommendedContentFragment : Fragment() {
                                 buildRecommendedContent(it.data)
                             }
                             is Resource.Error -> {
+                                (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(false)
                                 parentFragmentManager.popBackStack()
                                 L.d(it.throwable)
                             }

@@ -42,7 +42,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
     private var exploreTerm: String? = null
-    private var feedContent: AggregatedFeedContent? = null
+    private var feedContent = mutableMapOf<String, AggregatedFeedContent>()
 
     private val _historyState = MutableStateFlow(Resource<List<PageTitle>>())
     val historyState = _historyState.asStateFlow()
@@ -176,7 +176,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun loadFeed(): AggregatedFeedContent {
         return withContext(Dispatchers.IO) {
 
-            feedContent?.let {
+            feedContent[wikiSite.languageCode]?.let {
                 return@withContext it
             }
 
@@ -195,7 +195,8 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     )
                 }
             }
-            feedContent = feedContentResponse
+            // set map to feedContent
+            feedContent[wikiSite.languageCode] = feedContentResponse
             feedContentResponse
         }
     }
