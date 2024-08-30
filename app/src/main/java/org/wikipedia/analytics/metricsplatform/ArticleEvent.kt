@@ -283,6 +283,10 @@ class ExperimentalLinkPreviewInteraction(
         ))
     }
 
+    override fun logNavigate() {
+        logNavigate(null, null, null)
+    }
+
     fun logNavigate(feedbackShown: Boolean? = null, feedbackSelect: String? = null,
                              feedbackText: String? = null) {
         submitEvent("navigate", ContextData(
