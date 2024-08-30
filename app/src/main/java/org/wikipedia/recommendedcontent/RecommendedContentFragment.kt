@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
 import org.wikipedia.databinding.ItemRecommendedContentSearchHistoryBinding
@@ -38,6 +39,8 @@ class RecommendedContentFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: RecommendedContentViewModel by viewModels { RecommendedContentViewModel.Factory(requireArguments()) }
 
+    private val parentSearchFragment get() = requireParentFragment().requireParentFragment() as SearchFragment
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
@@ -57,7 +60,7 @@ class RecommendedContentFragment : Fragment() {
                                 buildHistoryList(it.data)
                             }
                             is Resource.Error -> {
-                                (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(false)
+                                parentSearchFragment.onSearchProgressBar(false)
                                 parentFragmentManager.popBackStack()
                                 L.d(it.throwable)
                             }
@@ -68,13 +71,13 @@ class RecommendedContentFragment : Fragment() {
                     viewModel.recommendedContentState.collect {
                         when (it) {
                             is Resource.Loading -> {
-                                (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(true)
+                                parentSearchFragment.onSearchProgressBar(true)
                             }
                             is Resource.Success -> {
                                 buildRecommendedContent(it.data)
                             }
                             is Resource.Error -> {
-                                (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(false)
+                                parentSearchFragment.onSearchProgressBar(false)
                                 parentFragmentManager.popBackStack()
                                 L.d(it.throwable)
                             }
@@ -103,7 +106,7 @@ class RecommendedContentFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.loadSearchHistory()
-        (requireParentFragment().requireParentFragment() as SearchFragment).setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
+        parentSearchFragment.setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
     }
 
     override fun onDestroyView() {
@@ -119,12 +122,16 @@ class RecommendedContentFragment : Fragment() {
     }
 
     private fun buildRecommendedContent(list: List<PageSummary>) {
-        (requireParentFragment().requireParentFragment() as SearchFragment).onSearchProgressBar(false)
+        parentSearchFragment.onSearchProgressBar(false)
         if (list.isEmpty()) {
+            parentSearchFragment.analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), false)
+                .also { it.logImpression() }
             parentFragmentManager.popBackStack()
             return
         }
-        binding.recommendedContent.buildContent(list)
+        parentSearchFragment.analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), true)
+            .also { it.logImpression() }
+        binding.recommendedContent.buildContent(list, parentSearchFragment.analyticsEvent)
     }
 
     private fun reloadHistoryList(position: Int, list: List<PageTitle>) {
@@ -184,7 +191,7 @@ class RecommendedContentFragment : Fragment() {
                     val entry = HistoryEntry(pageTitle, source)
                     startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
                 } else {
-                    (requireParentFragment().requireParentFragment() as SearchFragment).setSearchText(pageTitle.displayText)
+                    parentSearchFragment.setSearchText(pageTitle.displayText)
                 }
             }
         }
