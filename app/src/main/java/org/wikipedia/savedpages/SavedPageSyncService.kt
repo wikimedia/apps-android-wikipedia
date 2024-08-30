@@ -268,19 +268,18 @@ class SavedPageSyncService : JobIntentService() {
     @Throws(IOException::class)
     private fun reqSaveUrl(pageTitle: PageTitle, wiki: WikiSite, url: String) {
         val request = makeUrlRequest(wiki, url, pageTitle).build()
-        val rsp = client.newCall(request).execute()
+        client.newCall(request).execute().use { response ->
+            // Read the entirety of the response, so that it's written to cache by the interceptor.
+            response.body!!.source().readAll(object : Sink {
+                override fun write(source: Buffer, byteCount: Long) {}
+                override fun flush() {}
+                override fun timeout(): Timeout {
+                    return Timeout()
+                }
 
-        // Read the entirety of the response, so that it's written to cache by the interceptor.
-        rsp.body!!.source().readAll(object : Sink {
-            override fun write(source: Buffer, byteCount: Long) {}
-            override fun flush() {}
-            override fun timeout(): Timeout {
-                return Timeout()
-            }
-
-            override fun close() {}
-        })
-        rsp.body!!.close()
+                override fun close() {}
+            })
+        }
     }
 
     private fun makeUrlRequest(wiki: WikiSite, url: String, pageTitle: PageTitle): Request.Builder {
