@@ -69,7 +69,7 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
             val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), source)
             context.startActivity(PageActivity.newIntentForNewTab(context, entry, entry.title))
             analyticsEvent?.let {
-                it.source
+                it.source = source
                 it.logNavigate()
             }
         }

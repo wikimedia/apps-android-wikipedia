@@ -24,18 +24,19 @@ object SurveyDialog {
                                   titleId: Int = R.string.patroller_diff_feedback_dialog_title,
                                   messageId: Int = R.string.patroller_diff_feedback_dialog_message,
                                   snackbarMessageId: Int = R.string.patroller_diff_feedback_submitted_snackbar,
-                                  source: Constants.InvokeSource) {
+                                  invokeSource: Constants.InvokeSource,
+                                  historyEntry: HistoryEntry? = null) {
         var dialog: AlertDialog? = null
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
 
-        if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
+        if (invokeSource == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             val clickListener = View.OnClickListener {
                 val feedbackOption = (it as TextView).text.toString()
                 dialog?.dismiss()
                 if (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
-                    showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, source)
+                    showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
                 } else {
-                    showFeedbackInputDialog(activity, snackbarMessageId, source)
+                    showFeedbackInputDialog(activity, snackbarMessageId, invokeSource)
                 }
 
                 PatrollerExperienceEvent.logAction("feedback_selection", "feedback_form",
@@ -45,12 +46,12 @@ object SurveyDialog {
             binding.optionNeutral.setOnClickListener(clickListener)
             binding.optionUnsatisfied.setOnClickListener(clickListener)
 
-            PatrollerExperienceEvent.logAction("impression", "feedback_form", "")
-        } else if (source == Constants.InvokeSource.RECOMMENDED_CONTENT) {
+            PatrollerExperienceEvent.logAction("impression", "feedback_form")
+        } else if (invokeSource == Constants.InvokeSource.RECOMMENDED_CONTENT) {
             binding.optionNeutral.isChecked = true
             binding.feedbackInputContainer.isVisible = true
 
-            ExperimentalLinkPreviewInteraction(source = HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName())
+            ExperimentalLinkPreviewInteraction(source = historyEntry?.source ?: HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName())
                 .logImpression(feedbackShown = true)
         }
 
@@ -59,11 +60,11 @@ object SurveyDialog {
             .setMessage(messageId)
             .setCancelable(false)
             .setView(binding.root)
-        if (source == Constants.InvokeSource.RECOMMENDED_CONTENT) {
+        if (invokeSource == Constants.InvokeSource.RECOMMENDED_CONTENT) {
             dialogBuilder.setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                 val feedbackInput = binding.feedbackInput.text.toString()
 
-                ExperimentalLinkPreviewInteraction(source = HistoryEntry.SOURCE_SEARCH,
+                ExperimentalLinkPreviewInteraction(source = historyEntry?.source ?: HistoryEntry.SOURCE_SEARCH,
                     RecommendedContentAnalyticsHelper.abcTest.getGroupName())
                     .logNavigate(feedbackShown = true, feedbackSelect = when {
                         binding.optionSatisfied.isChecked -> "satisfied"
@@ -71,7 +72,7 @@ object SurveyDialog {
                         else -> "neutral"
                     }, feedbackText = feedbackInput)
 
-                showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, source)
+                showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
             }
             dialogBuilder.setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ -> }
         }
@@ -80,7 +81,7 @@ object SurveyDialog {
 
     private fun showFeedbackInputDialog(activity: Activity, messageId: Int, source: Constants.InvokeSource) {
         val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_feedback_input, null)
-        PatrollerExperienceEvent.logAction("impression", "feedback_input_form", "")
+        PatrollerExperienceEvent.logAction("impression", "feedback_input_form")
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
             .setMessage(messageId)
@@ -98,11 +99,11 @@ object SurveyDialog {
         FeedbackUtil.showMessage(activity, messageId)
         when (source) {
             Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS -> {
-                PatrollerExperienceEvent.logAction("feedback_submit_toast", "feedback_form", "")
+                PatrollerExperienceEvent.logAction("feedback_submit_toast", "feedback_form")
                 activity.window.decorView.postDelayed({
                     val anchorView = activity.findViewById<View>(R.id.more_options)
                     if (!activity.isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                        PatrollerExperienceEvent.logAction("tooltip_impression", "feedback_form", "")
+                        PatrollerExperienceEvent.logAction("tooltip_impression", "feedback_form")
                         FeedbackUtil.getTooltip(
                             activity,
                             activity.getString(R.string.patroller_diff_feedback_tooltip),
