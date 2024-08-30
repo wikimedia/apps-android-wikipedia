@@ -2,6 +2,7 @@ package org.wikipedia.views
 
 import android.app.Activity
 import android.view.View
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
@@ -28,6 +29,8 @@ object SurveyDialog {
                                   historyEntry: HistoryEntry? = null) {
         var dialog: AlertDialog? = null
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
+        binding.titleText.text = activity.getString(titleId)
+        binding.messageText.text = activity.getString(messageId)
 
         if (invokeSource == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             val clickListener = View.OnClickListener {
@@ -56,12 +59,10 @@ object SurveyDialog {
         }
 
         val dialogBuilder = MaterialAlertDialogBuilder(activity)
-            .setTitle(titleId)
-            .setMessage(messageId)
             .setCancelable(false)
             .setView(binding.root)
         if (invokeSource == Constants.InvokeSource.RECOMMENDED_CONTENT) {
-            dialogBuilder.setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
+            binding.submitButton.setOnClickListener {
                 val feedbackInput = binding.feedbackInput.text.toString()
 
                 ExperimentalLinkPreviewInteraction(source = historyEntry?.source ?: HistoryEntry.SOURCE_SEARCH,
@@ -74,9 +75,13 @@ object SurveyDialog {
 
                 showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
             }
-            dialogBuilder.setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ -> }
+            binding.cancelButton.setOnClickListener {
+                dialog?.dismiss()
+            }
         }
         dialog = dialogBuilder.show()
+        // TODO: not to use the deprecated method
+        dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     private fun showFeedbackInputDialog(activity: Activity, messageId: Int, source: Constants.InvokeSource) {

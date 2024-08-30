@@ -11,78 +11,128 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:paddingHorizontal="24dp"
         android:paddingBottom="12dp">
 
-        <RadioGroup
+        <TextView
+            android:id="@+id/titleText"
+            style="@style/P.DialogTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="8dp">
+            android:layout_marginVertical="12dp"
+            android:paddingHorizontal="24dp"
+            android:text="@string/patroller_diff_feedback_dialog_title" />
 
-            <RadioButton
-                android:id="@+id/optionVerySatisfied"
-                style="@style/H3.Radio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/places_survey_very_satisfied_option"
-                android:visibility="gone"
-                android:buttonTint="?attr/progressive_color"
-                app:buttonTint="?attr/progressive_color"/>
-
-            <RadioButton
-                android:id="@+id/optionSatisfied"
-                style="@style/H3.Radio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/patroller_diff_feedback_dialog_option_satisfied"
-                app:buttonTint="?attr/progressive_color"/>
-
-            <RadioButton
-                android:id="@+id/optionNeutral"
-                style="@style/H3.Radio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/patroller_diff_feedback_dialog_option_neutral"
-                app:buttonTint="?attr/progressive_color"/>
-
-            <RadioButton
-                android:id="@+id/optionUnsatisfied"
-                style="@style/H3.Radio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied"
-                app:buttonTint="?attr/progressive_color"/>
-
-            <RadioButton
-                android:id="@+id/optionVeryUnsatisfied"
-                style="@style/H3.Radio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/places_survey_very_unsatisfied_option"
-                android:visibility="gone"
-                app:buttonTint="?attr/progressive_color"/>
-        </RadioGroup>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/feedbackInputContainer"
+        <TextView
+            android:id="@+id/messageText"
+            style="@style/P.DialogBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:hint="@string/recommended_content_survey_dialog_input_hint"
-            app:hintTextColor="?attr/secondary_color">
+            android:layout_marginVertical="6dp"
+            android:paddingHorizontal="24dp"
+            android:text="@string/patroller_diff_feedback_dialog_message" />
 
-            <org.wikipedia.views.PlainPasteEditText
-                android:id="@+id/feedbackInput"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp">
+
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapSentences"
-                android:textSize="16sp" />
+                android:paddingVertical="8dp">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <RadioButton
+                    android:id="@+id/optionVerySatisfied"
+                    style="@style/H3.Radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/places_survey_very_satisfied_option"
+                    android:visibility="gone"
+                    android:buttonTint="?attr/progressive_color"
+                    app:buttonTint="?attr/progressive_color"/>
+
+                <RadioButton
+                    android:id="@+id/optionSatisfied"
+                    style="@style/H3.Radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/patroller_diff_feedback_dialog_option_satisfied"
+                    app:buttonTint="?attr/progressive_color"/>
+
+                <RadioButton
+                    android:id="@+id/optionNeutral"
+                    style="@style/H3.Radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/patroller_diff_feedback_dialog_option_neutral"
+                    app:buttonTint="?attr/progressive_color"/>
+
+                <RadioButton
+                    android:id="@+id/optionUnsatisfied"
+                    style="@style/H3.Radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied"
+                    app:buttonTint="?attr/progressive_color"/>
+
+                <RadioButton
+                    android:id="@+id/optionVeryUnsatisfied"
+                    style="@style/H3.Radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/places_survey_very_unsatisfied_option"
+                    android:visibility="gone"
+                    app:buttonTint="?attr/progressive_color"/>
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/feedbackInputContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:hint="@string/recommended_content_survey_dialog_input_hint"
+                app:hintTextColor="?attr/secondary_color">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/feedbackInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp">
+
+            <Button
+                android:id="@+id/cancelButton"
+                style="@style/App.Button.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/places_survey_dialog_cancel" />
+
+            <Button
+                android:id="@+id/submitButton"
+                style="@style/App.Button.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patroller_diff_feedback_dialog_submit" />
+
+        </LinearLayout>
+
     </LinearLayout>
+
 </ScrollView>

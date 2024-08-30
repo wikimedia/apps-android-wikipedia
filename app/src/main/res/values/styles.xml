@@ -210,6 +210,14 @@
         <item name="lineHeight">28sp</item>
     </style>
 
+    <style name="P.DialogTitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">28sp</item>
+        <item name="android:textColor">?attr/primary_color</item>
+    </style>
+
     <style name="P.DialogBody" parent="MaterialAlertDialog.Material3.Body.Text">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">16sp</item>
