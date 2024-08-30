@@ -8,7 +8,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -52,6 +54,8 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private val _recommendedContentState = MutableStateFlow(Resource<List<PageSummary>>())
     val recommendedContentState = _recommendedContentState.asStateFlow()
+
+    private var recommendedContentFetchJob: Job? = null
 
     init {
         reload(wikiSite)
@@ -124,10 +128,12 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun loadRecommendedContent(sections: List<RecommendedContentSection>) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+        recommendedContentFetchJob?.cancel()
+        recommendedContentFetchJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
             _recommendedContentState.value = Resource.Loading()
+            delay(200)
             val recommendedContent = mutableListOf<Deferred<List<PageSummary>>>()
             sections.forEach { section ->
                 val content = when (section) {

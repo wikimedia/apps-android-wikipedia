@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.ItemRecommendedContentSectionTextBinding
 import org.wikipedia.databinding.ViewRecommendedContentSectionBinding
@@ -22,8 +23,10 @@ import org.wikipedia.util.StringUtil
 class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
+    private var analyticsEvent: ExperimentalLinkPreviewInteraction? = null
 
-    fun buildContent(pageSummaries: List<PageSummary>) {
+    fun buildContent(pageSummaries: List<PageSummary>, analyticsEvent: ExperimentalLinkPreviewInteraction?) {
+        this.analyticsEvent = analyticsEvent
         binding.sectionHeader.text = context.getString(R.string.recommended_content_section_you_might_like)
         binding.sectionList.layoutManager = LinearLayoutManager(context)
         binding.sectionList.adapter = RecyclerViewAdapter(pageSummaries)
@@ -65,6 +68,10 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
             }
             val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), source)
             context.startActivity(PageActivity.newIntentForNewTab(context, entry, entry.title))
+            analyticsEvent?.let {
+                it.source = source
+                it.logNavigate()
+            }
         }
     }
 }

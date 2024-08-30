@@ -17,12 +17,14 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
 import org.wikipedia.recommendedcontent.RecommendedContentFragment
 import org.wikipedia.recommendedcontent.RecommendedContentSection
@@ -97,6 +99,9 @@ class RecentSearchesFragment : Fragment() {
     private fun loadRecommendedContent() {
         if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled() ||
             RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_1) {
+            // Construct and send an impression event now, since there will be no loading of recommended content.
+            (requireParentFragment() as SearchFragment).analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), false)
+                .also { it.logImpression() }
             return
         }
         val sectionIds = if (RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2) {
