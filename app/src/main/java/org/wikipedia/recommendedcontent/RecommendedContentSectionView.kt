@@ -9,12 +9,12 @@ import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.ItemRecommendedContentSectionTextBinding
 import org.wikipedia.databinding.ViewRecommendedContentSectionBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
@@ -25,14 +25,14 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
     private val binding = ViewRecommendedContentSectionBinding.inflate(LayoutInflater.from(context), this, true)
     private var analyticsEvent: ExperimentalLinkPreviewInteraction? = null
 
-    fun buildContent(pageSummaries: List<PageSummary>, analyticsEvent: ExperimentalLinkPreviewInteraction?) {
+    fun buildContent(wikiSite: WikiSite, pageSummaries: List<PageSummary>, analyticsEvent: ExperimentalLinkPreviewInteraction?) {
         this.analyticsEvent = analyticsEvent
         binding.sectionHeader.text = context.getString(R.string.recommended_content_section_you_might_like)
         binding.sectionList.layoutManager = LinearLayoutManager(context)
-        binding.sectionList.adapter = RecyclerViewAdapter(pageSummaries)
+        binding.sectionList.adapter = RecyclerViewAdapter(pageSummaries, wikiSite)
     }
 
-    private inner class RecyclerViewAdapter(val list: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+    private inner class RecyclerViewAdapter(val list: List<PageSummary>, val wikiSite: WikiSite) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {
             return list.size
         }
@@ -42,7 +42,7 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(list[position])
+            holder.bindItem(list[position], wikiSite)
         }
     }
 
@@ -50,13 +50,15 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
         RecyclerView.ViewHolder(binding.root), OnClickListener {
 
         private lateinit var pageSummary: PageSummary
+        private lateinit var wikiSite: WikiSite
 
         init {
             itemView.setOnClickListener(this)
         }
 
-        fun bindItem(pageSummary: PageSummary) {
+        fun bindItem(pageSummary: PageSummary, wikiSite: WikiSite) {
             this.pageSummary = pageSummary
+            this.wikiSite = wikiSite
             binding.listItem.text = StringUtil.fromHtml(pageSummary.displayTitle)
         }
 
@@ -66,7 +68,7 @@ class RecommendedContentSectionView(context: Context, attrs: AttributeSet? = nul
             } else {
                 HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED
             }
-            val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), source)
+            val entry = HistoryEntry(pageSummary.getPageTitle(wikiSite), source)
             context.startActivity(PageActivity.newIntentForNewTab(context, entry, entry.title))
             analyticsEvent?.let {
                 it.source = source

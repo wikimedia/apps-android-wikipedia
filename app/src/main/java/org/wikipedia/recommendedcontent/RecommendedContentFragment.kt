@@ -40,7 +40,6 @@ class RecommendedContentFragment : Fragment() {
 
         _binding = FragmentRecommendedContentBinding.inflate(layoutInflater, container, false)
 
-
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
@@ -120,7 +119,7 @@ class RecommendedContentFragment : Fragment() {
         }
         parentSearchFragment.analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), true)
             .also { it.logImpression() }
-        binding.recommendedContent.buildContent(list, parentSearchFragment.analyticsEvent)
+        binding.recommendedContent.buildContent(viewModel.wikiSite, list, parentSearchFragment.analyticsEvent)
     }
 
     private fun reloadRecentSearchesList(position: Int, list: List<PageTitle>) {

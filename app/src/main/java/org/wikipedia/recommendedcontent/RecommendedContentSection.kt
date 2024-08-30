@@ -12,7 +12,6 @@ enum class RecommendedContentSection(val id: Int) : EnumCode {
     BECAUSE_YOU_READ(5),
     CONTINUE_READING(6);
 
-
     override fun code(): Int {
         // This enumeration is not marshalled so tying declaration order to presentation order is
         // convenient and consistent.

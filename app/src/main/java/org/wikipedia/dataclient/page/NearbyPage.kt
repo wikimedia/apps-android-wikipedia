@@ -17,11 +17,4 @@ class NearbyPage(
         latitude = this@NearbyPage.latitude
         longitude = this@NearbyPage.longitude
     }
-
-    val toPageSummary get() = PageSummary().apply {
-        titles = PageSummary.Titles(pageTitle.prefixedText, pageTitle.displayText)
-        lang = pageTitle.wikiSite.languageCode
-        description = pageTitle.description
-        coordinates = location
-    }
 }

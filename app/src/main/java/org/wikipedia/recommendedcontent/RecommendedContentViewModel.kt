@@ -268,6 +268,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     companion object {
         const val RECOMMENDED_CONTENT_ITEMS = 5
-        const val RECENT_SEARCHES_ITEMS = 5
+        const val RECENT_SEARCHES_ITEMS = 3
     }
 }
