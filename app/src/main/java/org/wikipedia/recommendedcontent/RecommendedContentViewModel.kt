@@ -87,17 +87,23 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun getExploreSearchTerm(): String {
         return withContext(Dispatchers.IO) {
             // Get term from last opened article
-            var term = WikipediaApp.instance.tabList.lastOrNull()?.backStackPositionTitle?.displayText ?: ""
+            var term = WikipediaApp.instance.tabList.lastOrNull {
+                it.backStackPositionTitle?.wikiSite == wikiSite
+            }?.backStackPositionTitle?.displayText ?: ""
 
             // Get term from last history entry if no article is opened
             if (term.isEmpty()) {
-                term = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime().firstOrNull()?.apiTitle ?: ""
+                term = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime().firstOrNull {
+                    it.title.wikiSite == wikiSite
+                }?.apiTitle ?: ""
             }
 
             // Ger term from Because you read if no history entry is found
             if (term.isEmpty()) {
                 term = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(0, WikipediaApp.instance.resources.getInteger(
-                    R.integer.article_engagement_threshold_sec)).lastOrNull()?.title?.displayText ?: ""
+                    R.integer.article_engagement_threshold_sec)).lastOrNull {
+                    it.title.wikiSite == wikiSite
+                }?.title?.displayText ?: ""
             }
 
             // Get term from last recent search if no because you read is found
