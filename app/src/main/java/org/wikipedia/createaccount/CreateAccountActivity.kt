@@ -10,11 +10,12 @@ import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -42,7 +43,6 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var createAccountEvent: CreateAccountEvent
-    private val disposables = CompositeDisposable()
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
@@ -126,23 +126,25 @@ class CreateAccountActivity : BaseActivity() {
 
     private val createAccountInfo: Unit
         get() {
-            disposables.add(ServiceFactory.get(wiki).authManagerInfo
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        val token = response.query?.createAccountToken()
-                        val captchaId = response.query?.captchaId()
-                        if (token.isNullOrEmpty()) {
-                            handleAccountCreationError(getString(R.string.create_account_generic_error))
-                        } else if (!captchaId.isNullOrEmpty()) {
-                            captchaHandler.handleCaptcha(token, CaptchaResult(captchaId))
-                        } else {
-                            doCreateAccount(token)
-                        }
-                    }) { caught ->
-                        showError(caught)
-                        L.e(caught)
-                    })
+            lifecycleScope.launch {
+                try {
+                    val response = withContext(Dispatchers.IO) {
+                        ServiceFactory.get(wiki).getAuthManagerInfo()
+                    }
+                    val token = response.query?.createAccountToken()
+                    val captchaId = response.query?.captchaId()
+                    if (token.isNullOrEmpty()) {
+                        handleAccountCreationError(getString(R.string.create_account_generic_error))
+                    } else if (!captchaId.isNullOrEmpty()) {
+                        captchaHandler.handleCaptcha(token, CaptchaResult(captchaId))
+                    } else {
+                        doCreateAccount(token)
+                    }
+                } catch (caught: Exception) {
+                    showError(caught)
+                    L.e(caught)
+                }
+            }
         }
 
     private fun doCreateAccount(token: String) {
@@ -150,25 +152,27 @@ class CreateAccountActivity : BaseActivity() {
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
-        disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,
-                email,
-                if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    if ("PASS" == response.status) {
-                        finishWithUserResult(response.user)
-                    } else {
-                        createAccountEvent.logError(StringUtil.removeStyleTags(response.message))
-                        throw CreateAccountException(StringUtil.removeStyleTags(response.message))
-                    }
-                }) { caught ->
-                    L.e(caught.toString())
-                    createAccountEvent.logError(caught.toString())
-                    showProgressBar(false)
-                    showError(caught)
-                })
+        lifecycleScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,
+                        email,
+                        if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
+                        if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
+                }
+                if ("PASS" == response.status) {
+                    finishWithUserResult(response.user)
+                } else {
+                    createAccountEvent.logError(StringUtil.removeStyleTags(response.message))
+                    throw CreateAccountException(StringUtil.removeStyleTags(response.message))
+                }
+            } catch (caught: Exception) {
+                L.e(caught.toString())
+                createAccountEvent.logError(caught.toString())
+                showProgressBar(false)
+                showError(caught)
+            }
+        }
     }
 
     override fun onBackPressed() {
@@ -187,7 +191,6 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     public override fun onDestroy() {
-        disposables.clear()
         captchaHandler.dispose()
         userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
@@ -289,19 +292,23 @@ class CreateAccountActivity : BaseActivity() {
         }
 
         override fun run() {
-            disposables.add(ServiceFactory.get(wiki).getUserList(userName)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        response.query?.getUserResponse(userName)?.let {
-                            binding.createAccountUsername.isErrorEnabled = false
-                            if (it.hasBlockError) {
-                                handleAccountCreationError(it.error)
-                            } else if (!it.canCreate) {
-                                binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
-                            }
+            lifecycleScope.launch {
+                try {
+                    val response = withContext(Dispatchers.IO) {
+                        ServiceFactory.get(wiki).getUserList(userName)
+                    }
+                    response.query?.getUserResponse(userName)?.let {
+                        binding.createAccountUsername.isErrorEnabled = false
+                        if (it.hasBlockError) {
+                            handleAccountCreationError(it.error)
+                        } else if (!it.canCreate) {
+                            binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
                         }
-                    }) { L.e(it) })
+                    }
+                } catch (e: Exception) {
+                    L.e(e)
+                }
+            }
         }
     }
 

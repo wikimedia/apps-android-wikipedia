@@ -275,7 +275,7 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
-    fun postCreateAccount(
+    suspend fun postCreateAccount(
         @Field("username") user: String,
         @Field("password") pass: String,
         @Field("retype") retype: String,
@@ -284,7 +284,7 @@ interface Service {
         @Field("email") email: String?,
         @Field("captchaId") captchaId: String?,
         @Field("captchaWord") captchaWord: String?
-    ): Observable<CreateAccountResponse>
+    ): CreateAccountResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
     @Headers("Cache-Control: no-cache")
@@ -314,8 +314,8 @@ interface Service {
     @POST(MW_API_PREFIX + "action=logout")
     suspend fun postLogout(@Field("token") token: String): MwPostResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
-    val authManagerInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
+    suspend fun getAuthManagerInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
     suspend fun getUserInfo(): MwQueryResponse
@@ -330,7 +330,7 @@ interface Service {
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
-    fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
+    suspend fun getUserList(@Query("ususers") userNames: String): MwQueryResponse
 
     // ------- Notifications -------
 
