@@ -2,7 +2,7 @@
 androidPluginAnnotationV9 = "3.0.0"
 androidSdk = "11.1.0"
 appcompat = "1.7.0"
-balloon = "1.6.6"
+balloon = "1.6.7"
 browser = "1.8.0"
 chromeLikeTabSwitcher = "0.4.6"
 commonsLang3 = "3.17.0"
