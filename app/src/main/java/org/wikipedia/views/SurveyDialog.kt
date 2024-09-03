@@ -103,7 +103,6 @@ object SurveyDialog {
         PatrollerExperienceEvent.logAction("impression", "feedback_input_form")
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
-            .setMessage(messageId)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
