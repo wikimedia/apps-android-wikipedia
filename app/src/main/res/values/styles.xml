@@ -537,6 +537,7 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
     <style name="DialogIconWithTint" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
