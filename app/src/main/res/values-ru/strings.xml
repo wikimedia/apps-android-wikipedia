@@ -26,6 +26,7 @@
 * Kaganer
 * Kareyac
 * Katunchik
+* Lutece398
 * Mailman
 * MaxBioHazard
 * Megakott
@@ -1237,6 +1238,7 @@
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можете создавать списки для чтения из статей, которые вы хотите прочитать позже, даже если вы находитесь в офлайне. &lt;br/&gt;Авторизуйтесь с помощью учётной записи Википедии для синхронизации ваших списков для чтения. &lt;a href=\"#login\"&gt;Происоединяйтесь к Википедии&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Данные и конфиденциальность</string>
+  <string name="onboarding_data_privacy_text">Мы считаем, что вам не нужно предоставлять личную информацию для участия в движении за свободные знания. Данные об использовании, собранные для этого приложения, анонимны. Узнайте больше о нашей &lt;a href=\"#privacy\"&gt;политике конфиденциальности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условиях\nиспользования&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Отправлять отчёты об использовании</string>
   <string name="onboarding_got_it">Понятно</string>
   <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
@@ -1572,6 +1574,7 @@
   <string name="shareable_reading_lists_new_install_dialog_title">Вам предоставлен доступ к списку для чтения</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Мы заметили, что с вами поделились списком для чтения. Чтобы просмотреть этот список в приложении, вернитесь к исходному сообщению и снова нажмите на ссылку.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Понятно!</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Список чтения импортирован</string>
   <string name="reading_list_share_menu_label">Поделиться…</string>
   <string name="reading_list_share_message_v2">Привет! Я хотел бы поделиться с тобой своим списком для чтения из Википедии:</string>
   <string name="reading_list_share_survey_title">Могли бы вы помочь нам улучшить «Поделиться списком для чтения»?</string>

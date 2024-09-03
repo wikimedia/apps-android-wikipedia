@@ -3,6 +3,7 @@
 * Amire80
 * Dbrant
 * Kareyac
+* MTongov
 * ShockD
 * Spas.Z.Spasov
 * StanProg
@@ -262,6 +263,8 @@
   <string name="edit_undo">Отмяна</string>
   <string name="edit_redo">Повторение</string>
   <string name="edit_rollback">Отмяна</string>
+  <string name="edit_warn">Предупреждение</string>
+  <string name="edit_damage">Щети %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="other">%s байта</item>
