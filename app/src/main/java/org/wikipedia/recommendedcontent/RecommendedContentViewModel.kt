@@ -39,7 +39,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     var wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     private val sectionIds = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
-    val sections = sectionIds.map { RecommendedContentSection.find(it) }
 
     private var exploreTerm: String? = null
     private var feedContent = mutableMapOf<String, AggregatedFeedContent>()
@@ -62,7 +61,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     fun reload(wikiSite: WikiSite) {
         this.wikiSite = wikiSite
         loadSearchHistory()
-        loadRecommendedContent(sections)
+        loadRecommendedContent(sectionIds.map { RecommendedContentSection.find(it) })
     }
 
     fun removeRecentSearchItem(title: PageTitle, position: Int) {
