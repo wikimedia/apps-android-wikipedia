@@ -18,8 +18,8 @@ class RecommendedContentAnalyticsHelper {
             "IN", "PK", "BD", "LK", "MU", "MV", "NP", "BT", "AF"
         )
 
-        val recommendedContentEnabled get() = ReleaseUtil.isPreProdRelease &&
-                enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                LocalDate.now() <= LocalDate.of(2024, 10, 1)
+        val recommendedContentEnabled get() = ReleaseUtil.isPreBetaRelease ||
+                (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
+                LocalDate.now() <= LocalDate.of(2024, 10, 1))
     }
 }
