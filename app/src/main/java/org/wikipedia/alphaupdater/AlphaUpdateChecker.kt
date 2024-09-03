@@ -12,8 +12,7 @@ import androidx.core.content.ContextCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Request
-import okhttp3.Response
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.recurring.RecurringTask
 import org.wikipedia.settings.PrefsIoUtil
@@ -32,15 +31,13 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
         // Check for updates!
         var hashString: String? = null
         withContext(Dispatchers.IO) {
-            var response: Response? = null
             try {
                 val request: Request = Request.Builder().url(ALPHA_BUILD_DATA_URL).build()
-                response = client.newCall(request).execute()
-                hashString = response.body?.string()
+                OkHttpConnectionFactory.client.newCall(request).execute().use {
+                    hashString = it.body?.string()
+                }
             } catch (e: IOException) {
                 // It's ok, we can do nothing.
-            } finally {
-                response?.close()
             }
         }
         hashString?.let {

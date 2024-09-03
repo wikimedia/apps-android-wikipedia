@@ -824,12 +824,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun onListsImportResult(uri: Uri) {
         binding.swipeRefreshLayout.isRefreshing = true
-        val inputStr = activity?.contentResolver?.openInputStream(uri)
-        inputStr?.let { inputStream ->
+        activity?.contentResolver?.openInputStream(uri)?.use { inputStream ->
             val inputString = inputStream.bufferedReader().use { it.readText() }
             ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
             importMode = true
-            inputStream.close()
         }
     }
 

@@ -57,18 +57,6 @@ class SharedPreferenceCookieManager(
     }
 
     @Synchronized
-    fun getCookieExpiryByName(name: String): Long {
-        for (domainSpec in cookieJar.keys) {
-            for (cookie in cookieJar[domainSpec]!!) {
-                if (cookie.name == name) {
-                    return cookie.expiresAt
-                }
-            }
-        }
-        return 0
-    }
-
-    @Synchronized
     override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
         if (cookies.isEmpty()) {
             return
