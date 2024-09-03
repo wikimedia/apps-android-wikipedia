@@ -65,7 +65,7 @@ object SurveyDialog {
                 .logImpression(feedbackShown = true)
         }
 
-        val dialogBuilder = MaterialAlertDialogBuilder(activity)
+        val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
             .setCancelable(false)
             .setView(binding.root)
 

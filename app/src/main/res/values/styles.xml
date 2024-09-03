@@ -537,6 +537,9 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="AlertDialogTheme.AdjustResize" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
