@@ -97,7 +97,7 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private fun loadRecommendedContent() {
-        if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled() ||
+        if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled ||
             RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_1) {
             // Construct and send an impression event now, since there will be no loading of recommended content.
             (requireParentFragment() as SearchFragment).analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), false)
