@@ -280,6 +280,7 @@
   <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
   <string name="reading_list_menu_export">تندیر برآمد کرو</string>
   <string name="reading_list_menu_select">چݨو</string>
+  <string name="reading_list_menu_unselect">اݨ چݨیا کرو</string>
   <string name="reading_list_menu_rename">ناں یا وضاحت وچ تبدیلی لکھو</string>
   <string name="reading_list_action_menu_remove_from_offline">آف لائن کنوں ہٹاؤ</string>
   <string name="reading_list_action_menu_save_for_offline">آف لائن کیتے محفوظ کرو</string>
@@ -310,6 +311,7 @@
   <string name="reading_lists_menu_import_list">تندیر درآمد کرو</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">لاگ ان/ کھاتہ بݨاو</string>
+  <string name="reading_list_menu_last_sync">چھیکڑی ہم وقت: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reading_list_delete_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">منسوخ</string>
@@ -318,6 +320,7 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">منسوخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">مٹاؤ</string>
+  <string name="reading_list_activity_title">مطالعہ تندیر: %s</string>
   <string name="reading_lists_action_menu_export_lists">ٻاہر بھیڄو</string>
   <string name="reading_lists_import_file_picker_title">درآمد کرݨ کیتے فائل چݨو</string>
   <string name="reading_lists_preview_header_title">شیئر تھئی تندیر</string>
@@ -333,6 +336,9 @@
   <string name="notification_syncing_resume_button">ولدا شروع کرو</string>
   <string name="notification_syncing_cancel_button">منسوخ</string>
   <string name="notifications_activity_title">اطلاع نامے</string>
+  <string name="notifications_view_unread">بغیر پڑھے ہوئے ݙیکھو</string>
+  <string name="notifications_view_archived">آکائیو تھئے ݙیکھو</string>
+  <string name="notifications_prefs">نوٹیفکیشن ترجیحاں</string>
   <string name="notifications_poll_enable_positive">فعال کرو</string>
   <string name="notifications_poll_enable_negative">ہُݨ نہ</string>
   <string name="notifications_mark_unread">نشان لاؤ جو کائنی پڑھا</string>
@@ -350,6 +356,7 @@
   <string name="preference_title_notification_mention">ذکر کرݨ</string>
   <string name="preference_title_notification_user_talk">ڳالھ مہاڑ ورقہ</string>
   <string name="preference_title_notification_email_user">ای میل وصول تھئی</string>
+  <string name="preference_category_display_settings">ڈسپلے ترتیباں</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">وکیپیڈیا</string>
   <string name="notifications_channel_group_other_title">ٻیا</string>
   <string name="notifications_select_all_filters">سارے چھاݨے چݨو</string>
@@ -360,8 +367,9 @@
   <string name="notifications_swipe_action_read">پڑھو</string>
   <string name="notifications_swipe_action_unread">کائنی پڑھا</string>
   <string name="notifications_wiki_filter_header">وکی چھاݨاں</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">ساریاں \"وکیاں\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">ساریاں \"قسماں\"</string>
+  <string name="notifications_all_wikis_text">ساریاں وکیاں</string>
+  <string name="notifications_all_types_text">ساریاں قسماں</string>
+  <string name="notifications_menu_user_talk_page">%s دا ڳالھ مہاڑ ورقہ</string>
   <string name="view_random_article_card_title">پوکھواں مضمون</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d کے</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ایم</string>
@@ -405,6 +413,7 @@
   <string name="description_edit_help_about_wikidata">وکیڈیٹا بارے</string>
   <string name="description_edit_success_done">مکمل</string>
   <string name="description_edit_success_did_you_know">بھلا تساں ڄاݨدے ہو؟</string>
+  <string name="description_edit_tutorial_keep_it_short">ایں کوں مختصر رکھو</string>
   <string name="description_edit_tutorial_button_label_start_editing">لکھݨ شروع کرو</string>
   <string name="customize_toolbar_category_toolbar">ٹول بار</string>
   <string name="customize_toolbar_category_menu">مینیو</string>
@@ -437,12 +446,14 @@
   <string name="suggested_edits_image_preview_dialog_more_info">ٻیاں معلومات</string>
   <string name="suggested_edits_article_cta_snackbar_action">ݙکھالا</string>
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>
+  <string name="suggested_edits_snackbar_survey_action_text">سروے کرو</string>
   <string name="suggested_edits_task_action_text_add">شامل کرو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمہ کرو</string>
   <string name="suggested_edits_image_captions">تصویر کیپشن</string>
   <string name="suggested_edits_image_tags">تصویر ٹیگ</string>
   <string name="suggested_edits_image_tags_publishing">شائع تھیندا پئے</string>
   <string name="suggested_edits_image_tags_published">شائع تھی ڳئے</string>
+  <string name="suggested_edits_image_tags_published_list">شائع تھئے ٹیگ</string>
   <string name="suggested_edits_image_tags_search">ٹیگ ڳولو</string>
   <string name="suggested_edits_image_tags_add_tag">ٹیگ شامل کرو</string>
   <string name="suggested_edits_edit_streak_label_text">ایڈیٹ سٹریک</string>
@@ -465,6 +476,7 @@
   <string name="suggested_edits_last_edited_never">کݙاہیں وی کائناں</string>
   <string name="suggested_edits_task_new">نواں</string>
   <string name="suggested_edits_reactivation_notification_title">مجوزہ تبدیلیاں</string>
+  <string name="suggested_edits_contributions_screen_title">%s دیاں ونگاراں</string>
   <string name="suggested_edits_contribution_language_label">زبان</string>
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
   <string name="suggested_edits_contribution_image_label">تصویر</string>
@@ -695,4 +707,7 @@
   <string name="places_toggle_buttons_map">نقشہ</string>
   <string name="places_toggle_buttons_list">تندیر</string>
   <string name="places_survey_very_satisfied_option">ݙاڈھا تسلی بخش</string>
+  <string name="places_card_title">نیڑے جاہیں</string>
+  <string name="places_card_action">نیڑے دیاں ٻیاں جاہیں</string>
+  <string name="places_card_distance_unknown">نامعلوم فاصلہ</string>
 </resources>

@@ -48,7 +48,7 @@ object NotificationDirectReplyHelper {
             topic?.let {
                 val submitResponse = ServiceFactory.get(wiki).postEditSubmitSuspend(
                     title.prefixedText, topic.id.toString(), null,
-                    DIRECT_REPLY_EDIT_COMMENT, if (AccountUtil.isLoggedIn) "user" else null, null, replyText,
+                    DIRECT_REPLY_EDIT_COMMENT, AccountUtil.assertUser, null, replyText,
                     talkPageResponse.await().revision, token.await(), null, null
                 )
                 if (submitResponse.edit?.editSucceeded == true) {

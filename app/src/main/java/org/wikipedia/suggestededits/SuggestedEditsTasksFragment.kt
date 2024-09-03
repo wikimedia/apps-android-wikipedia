@@ -109,7 +109,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         binding.userStatsViewsGroup.addOnClickListener {
-            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -208,6 +208,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         setUpTasks()
+
+        if (displayedTasks.isEmpty() && !viewModel.blockMessageWikipedia.isNullOrEmpty()) {
+            clearContents()
+            setIPBlockedStatus()
+            return
+        }
 
         binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
         setUserStatsViewsAndTooltips()
@@ -375,10 +381,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (viewModel.blockMessageCommons.isNullOrEmpty()) {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
-        }
-
-        if (displayedTasks.isEmpty() && !viewModel.blockMessageWikipedia.isNullOrEmpty()) {
-            setIPBlockedStatus()
         }
     }
 

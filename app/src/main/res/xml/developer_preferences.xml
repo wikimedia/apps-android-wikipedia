@@ -195,6 +195,17 @@
             android:title="@string/preference_developer_clear_all_talk_topics"
             android:summary="Reset all talk page topics to unread." />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_default_places_location_latlng"
+            android:title="@string/preference_key_default_places_location_latlng"
+            android:dialogMessage="Set 38.656391,-121.168534 as the default location that does not have available markers nearby." />
+
+        <Preference
+            android:key="@string/preference_developer_clear_last_location_and_zoom_level"
+            android:title="@string/preference_developer_clear_last_location_and_zoom_level"
+            android:summary="Reset the stored Places location." />
+
         <!-- TODO: expose in wildcard preference. -->
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"
@@ -413,34 +424,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Tests and surveys">
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_notificationIcons"
-            android:title="Test group for in-app Notification icons (0, 1, or 2)" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_reading_lists_share_survey_mode"
-            android:title="Reading list sharing survey mode (0=inactive, 1=active, 2=override)" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_reading_lists_receive_survey_mode"
-            android:title="Reading list receiving survey mode (0=inactive, 1=active, 2=override)" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_reading_lists_share_survey_dialog_shown"
-            android:title="readingListShareSurveyDialogShown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_reading_lists_receive_survey_dialog_shown"
-            android:title="readingListReceiveSurveyDialogShown" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_mBART25"
-            android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_donation_test_env"

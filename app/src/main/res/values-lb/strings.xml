@@ -736,6 +736,7 @@
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="feed_item_type_suggested_edits">Virschléi fir Inhalter op Wikipedia derbäizesetzen</string>
+  <string name="feed_item_type_places">Artikelen an der Géigend baséiert op dem aktuelle Standuert</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
@@ -1062,7 +1063,7 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
   <string name="talk_title">Diskussioun</string>
   <string name="talk_user_title">Diskussioun: %s</string>
-  <string name="talk_new_topic">Neit Thema</string>
+  <string name="talk_new_topic">Neit Theema</string>
   <string name="talk_warn">Warnen</string>
   <string name="talk_warn_save_dialog_title">Ännerunge späicheren?</string>
   <string name="talk_warn_save_dialog_message">Als neie Message späicheren</string>
@@ -1087,7 +1088,7 @@
   <string name="talk_overflow_sort_by">Zortéieren no</string>
   <string name="talk_overflow_sort_date_published">Datum vun der Publikatioun</string>
   <string name="talk_overflow_sort_date_updated">Datum vun der Aktualiséierung</string>
-  <string name="talk_overflow_sort_topic_name">Numm vum Thema</string>
+  <string name="talk_overflow_sort_topic_name">Numm vum Theema</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Äntwert weisen</item>
     <item quantity="other">Äntwerte weisen (%d)</item>
@@ -1351,4 +1352,8 @@
   <string name="places_survey_feedback_dialog_title">Wéi ka „Plazen“ verbessert ginn?</string>
   <string name="places_survey_dialog_cancel">Ofbriechen</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Wat solle mir änneren oder verbesseren?</string>
+  <string name="places_card_title">Plazen an der Géigend</string>
+  <string name="places_card_action">Méi Plazen an der Géigend</string>
+  <string name="places_card_distance_suffix">%s ewech</string>
+  <string name="places_card_distance_unknown">onbekannt Distanz</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Ante75
+* Dbrant
 * Jon Harald Søby (WMNO)
 * Kimberli Mäkäräinen (WMNO)
 * Lemetsara
@@ -412,9 +413,9 @@
   <string name="error_blocked_start">Hehtten álggii: %s</string>
   <string name="error_blocked_expiry">Hehttema doaibmanáigi nohká: %s</string>
   <string name="error_blocked_id">Hehtten-ID: %s</string>
-  <string name="error_blocked_footer">Sáhtát váldit oktavuođa &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; dahje eará &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema.</string>
+  <string name="error_blocked_footer">Sáhtát váldit oktavuođa geavaheaddjái &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; dahje eará &lt;a href=\"https://se.wikipedia.org/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Heivet reaidoholgga</string>
-  <string name="error_blocked_footer_no_blocker">Sáhtát váldit oktavuođa ovttain &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema.</string>
+  <string name="error_blocked_footer_no_blocker">Sáhtát váldit oktavuođa ovttain &lt;a href=\"https://se.wikipedia.org/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
   <string name="temp_account_not_logged_in">It leat čálihuvvon sisa</string>
   <string name="temp_account_anon_dialog_body">Go dagat rievdademiid, de ásahuvvo &lt;b&gt;gaskaboddosaš geavaheaddjidovddaldat&lt;/b&gt; dutnje, iežat persovdnasuodjalusa dihte. &lt;a href=\"%1$s\"&gt;Oahpa eambbo&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Čálit sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásat geavaheaddjidovddaldaga&lt;/a&gt; oažžun dihte boahttevaš rievdademiid ektui krediteremiid, ja beassanlobi eará doaimmaide.</string>
   <string name="temp_account_temp_dialog_body">Du rievdadeapmi šaddá %1$s nammii. Du IP-čujuhus boahtá lea oidnosis hálddašeddjiide.&lt;br /&gt;&lt;br /&gt;Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásahat geavaheaddjidovddaldaga&lt;/a&gt;, de du rievdadeamit biddjojuvvojit ovtta nammii man don válljet, oktan eará ovdamuniin.</string>
@@ -1138,6 +1139,8 @@
   <string name="description_edit_login_cancel_button_text">Gaskkalduhte</string>
   <string name="offline_read_permission_rationale">Jus áiggut vurket artihkkaliid offline lohkama váras, de fertet áppii addit sisabeassanlobi ovttadaga govaide, mediaide ja fiillaide.</string>
   <string name="offline_read_final_rationale">Dárbbašuvvo beassanlohpi ovttadatvurkemii vai báikkálaš girjerádju sáhttá geavahuvvot.</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">Njuike badjel</string>
   <string name="onboarding_continue">Joatkke</string>
   <string name="onboarding_get_started">Boađe johtui</string>
@@ -1330,7 +1333,7 @@
   <string name="talk_list_item_last_comment_date">Maŋemus kommentára: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Galle vástádusa</string>
   <string name="talk_list_item_user_icon_content_description">Geavaheaddjiikona</string>
-  <string name="talk_list_item_swipe_mark_as_read">Loga</string>
+  <string name="talk_list_item_swipe_mark_as_read">Lohkkojuvvon</string>
   <string name="talk_list_item_swipe_mark_as_unread">Logakeahtes</string>
   <string name="talk_login_to_subscribe_dialog_title">Čálit sisa, jus háliidat doallat fáttaid</string>
   <string name="talk_login_to_subscribe_dialog_content">Fáttáid doallan dagaha ahte dutnje bohtet almmuhusat go bohtet ođđa kommentárat dán fáttás. Ásat geavaheaddjidovddaldaga dahje čálit sisa iežat Wikipediai-dovddaldahkii doallat fáttá.</string>

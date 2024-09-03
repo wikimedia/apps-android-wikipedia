@@ -53,8 +53,10 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
 import java.util.Date
 import java.util.concurrent.TimeUnit
@@ -219,7 +221,9 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = true
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
+                SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
+                binding.fragmentDescriptionEditView.description.isNullOrEmpty()
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
@@ -237,7 +241,7 @@ class DescriptionEditFragment : Fragment() {
             val responseCall = async { ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
                 .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)) }
             val userInfoCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                .globalUserInfo(AccountUtil.userName!!) }
+                .globalUserInfo(AccountUtil.userName) }
 
             val response = responseCall.await()
             val userInfo = userInfoCall.await()
@@ -332,8 +336,7 @@ class DescriptionEditFragment : Fragment() {
                         }
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
                             editSummary,
-                            if (AccountUtil.isLoggedIn) "user"
-                            else null, text, null, baseRevId, editToken,
+                            AccountUtil.assertUser, text, null, baseRevId, editToken,
                             if (captchaHandler.isActive) captchaHandler.captchaId() else null,
                             if (captchaHandler.isActive) captchaHandler.captchaWord() else null, tags = getEditTags()
                         )
@@ -438,12 +441,12 @@ class DescriptionEditFragment : Fragment() {
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(languageCode, languageCode, Constants.COMMONS_DB_NAME,
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
-                        getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null, tags = getEditTags())
+                    pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
+                    getEditComment(), editToken, AccountUtil.assertUser, tags = getEditTags())
             } else {
                 ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
-                        if (AccountUtil.isLoggedIn) "user" else null, tags = getEditTags())
+                    pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
+                    AccountUtil.assertUser, tags = getEditTags())
             }
         }
 
