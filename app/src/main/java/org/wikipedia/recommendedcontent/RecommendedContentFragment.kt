@@ -103,7 +103,6 @@ class RecommendedContentFragment : Fragment() {
         super.onDestroyView()
     }
 
-    // TODO: need to refresh the list after searching
     private fun buildHistoryList(list: List<PageTitle>) {
         binding.recentSearchesList.layoutManager = LinearLayoutManager(requireContext())
         binding.recentSearchesList.adapter = RecyclerViewAdapter(list)

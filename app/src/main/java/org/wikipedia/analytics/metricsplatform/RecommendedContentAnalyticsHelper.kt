@@ -3,7 +3,6 @@ package org.wikipedia.analytics.metricsplatform
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 
-// TODO: integrate this with ArticleLinkPreviewInteraction
 class RecommendedContentAnalyticsHelper {
 
     companion object {
@@ -19,7 +18,7 @@ class RecommendedContentAnalyticsHelper {
         )
 
         fun recommendedContentEnabled(): Boolean {
-            return ReleaseUtil.isPreBetaRelease || enableCountries.contains(GeoUtil.geoIPCountry.orEmpty())
+            return ReleaseUtil.isPreProdRelease || enableCountries.contains(GeoUtil.geoIPCountry.orEmpty())
         }
     }
 }
