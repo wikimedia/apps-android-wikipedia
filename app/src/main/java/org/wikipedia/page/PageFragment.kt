@@ -690,7 +690,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun maybeShowRecommendedContentSurvey() {
         if (Prefs.recommendedContentSurveyShown) {
-             return
+             //return
         }
         historyEntry?.let {
             val duration = if (ReleaseUtil.isPreBetaRelease) 1L else 10L

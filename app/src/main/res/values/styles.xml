@@ -539,7 +539,7 @@
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
     </style>
 
-    <style name="AlertDialogTheme.AdjustResize" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+    <style name="AlertDialogTheme.AdjustResize">
         <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
