@@ -194,13 +194,13 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadOnThisDay(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            loadFeed().onthisday?.first()?.pages() ?: emptyList()
+            loadFeed().onthisday?.mapNotNull { it.pages()?.firstOrNull() } ?: emptyList()
         }
     }
 
     private suspend fun loadInTheNews(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            loadFeed().news?.first()?.links?.filterNotNull() ?: emptyList()
+            loadFeed().news?.mapNotNull { it.links.firstOrNull() } ?: emptyList()
         }
     }
 
