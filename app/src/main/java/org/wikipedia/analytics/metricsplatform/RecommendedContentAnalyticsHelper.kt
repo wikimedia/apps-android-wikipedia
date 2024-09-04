@@ -20,6 +20,6 @@ class RecommendedContentAnalyticsHelper {
 
         val recommendedContentEnabled get() = ReleaseUtil.isPreBetaRelease ||
                 (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                LocalDate.now() <= LocalDate.of(2024, 10, 1))
+                LocalDate.now() <= LocalDate.of(2024, 10, 2))
     }
 }
