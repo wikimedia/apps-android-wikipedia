@@ -693,7 +693,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
              return
         }
         historyEntry?.let {
-            val duration = if (ReleaseUtil.isPreBetaRelease) 1L else 10L
+            val duration = if (ReleaseUtil.isDevRelease) 1L else 10L
             binding.pageContentsContainer.postDelayed({
                 if (!isAdded) {
                     return@postDelayed

@@ -19,7 +19,7 @@
             style="@style/H2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
+            android:layout_marginTop="24dp"
             android:paddingHorizontal="24dp"
             android:textColor="?attr/primary_color"
             android:text="@string/patroller_diff_feedback_dialog_title" />

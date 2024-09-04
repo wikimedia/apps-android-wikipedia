@@ -170,6 +170,7 @@ class RecommendedContentFragment : Fragment() {
 
     fun reload(wikiSite: WikiSite) {
         viewModel.reload(wikiSite)
+        binding.nestedScrollView.smoothScrollTo(0, 0)
     }
 
     companion object {
