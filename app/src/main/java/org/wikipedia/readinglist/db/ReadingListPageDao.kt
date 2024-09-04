@@ -65,8 +65,8 @@ interface ReadingListPageDao {
     @Query("UPDATE ReadingListPage SET status = :newStatus WHERE status = :oldStatus AND offline = :offline")
     fun updateStatus(oldStatus: Long, newStatus: Long, offline: Boolean)
 
-    @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() LIMIT 1")
-    fun getRandomPage(): ReadingListPage?
+    @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
+    fun getRandomPage(lang: String): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     fun findPageBySearchTerm(term: String): List<ReadingListPage>

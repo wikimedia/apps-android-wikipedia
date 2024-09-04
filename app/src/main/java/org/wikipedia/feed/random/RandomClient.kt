@@ -34,13 +34,13 @@ class RandomClient(
                 val randomSummary = try {
                     ServiceFactory.getRest(wikiSite).getRandomSummary()
                 } catch (e: Exception) {
-                    AppDatabase.instance.readingListPageDao().getRandomPage()?.let {
+                    AppDatabase.instance.readingListPageDao().getRandomPage(lang)?.let {
                         ReadingListPage.toPageSummary(it)
-                    } ?: run {
-                        throw e
                     }
                 }
-                list.add(RandomCard(randomSummary, age, wikiSite))
+                randomSummary?.let {
+                    list.add(RandomCard(it, age, wikiSite))
+                }
             }
             cb.success(list)
         }
