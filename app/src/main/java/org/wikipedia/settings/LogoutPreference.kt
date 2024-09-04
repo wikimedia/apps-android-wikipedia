@@ -40,7 +40,7 @@ class LogoutPreference : Preference {
 
         holder.itemView.findViewById<TextView>(R.id.accountExpiry).apply {
             isVisible = AccountUtil.isTemporaryAccount
-            val expiryDays = TimeUnit.MILLISECONDS.toDays(AccountUtil.getTempAccountExpiry() - System.currentTimeMillis()).toInt()
+            val expiryDays = TimeUnit.MILLISECONDS.toDays(AccountUtil.getUserNameExpiryFromCookie() - System.currentTimeMillis()).toInt()
             text = context.resources.getQuantityString(R.plurals.temp_account_expiry, expiryDays, expiryDays)
         }
 

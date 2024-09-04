@@ -39,10 +39,10 @@ object AccountUtil {
         get() = account() != null || isTemporaryAccount
 
     val isTemporaryAccount: Boolean
-        get() = account() == null && getTempAccountName().isNotEmpty()
+        get() = account() == null && getUserNameFromCookie().isNotEmpty()
 
     val userName: String
-        get() = account()?.name ?: getTempAccountName()
+        get() = account()?.name ?: getUserNameFromCookie()
 
     val password: String?
         get() {
@@ -98,11 +98,11 @@ object AccountUtil {
         return WikipediaApp.instance.getString(R.string.account_type)
     }
 
-    fun getTempAccountName(): String {
+    fun getUserNameFromCookie(): String {
         return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
     }
 
-    fun getTempAccountExpiry(): Long {
+    fun getUserNameExpiryFromCookie(): Long {
         return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
     }
 
@@ -111,7 +111,7 @@ object AccountUtil {
             Prefs.tempAccountWelcomeShown = true
             Prefs.tempAccountDialogShown = false
 
-            val expiryDays = TimeUnit.MILLISECONDS.toDays(getTempAccountExpiry() - System.currentTimeMillis()).toInt()
+            val expiryDays = TimeUnit.MILLISECONDS.toDays(getUserNameExpiryFromCookie() - System.currentTimeMillis()).toInt()
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
                 expiryDays, userName, expiryDays))
             return true
