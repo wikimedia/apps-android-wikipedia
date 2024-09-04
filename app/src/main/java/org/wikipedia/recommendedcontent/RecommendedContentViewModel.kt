@@ -200,7 +200,21 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadInTheNews(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            loadFeed().news?.flatMap { it.links.take(2) }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
+            val newsItems = mutableListOf<PageSummary>()
+            loadFeed().news?.let { news ->
+                var index = 0
+                while (newsItems.size < RECOMMENDED_CONTENT_ITEMS) {
+                    news.forEach {
+                        val link = it.links[index]
+                        newsItems.add(link)
+                        if (newsItems.size >= RECOMMENDED_CONTENT_ITEMS) {
+                            return@withContext newsItems
+                        }
+                    }
+                    index++
+                }
+            }
+            newsItems
         }
     }
 
