@@ -117,7 +117,7 @@ open class MetricsEvent {
             AccountUtil.hashCode(),
             AccountUtil.userName,
             AccountUtil.isLoggedIn,
-            null,
+            AccountUtil.isTemporaryAccount,
             EventPlatformClient.AssociationController.sessionId,
             EventPlatformClient.AssociationController.pageViewId,
             AccountUtil.groups,
