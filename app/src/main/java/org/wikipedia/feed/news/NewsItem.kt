@@ -13,11 +13,11 @@ import org.wikipedia.util.ImageUrlUtil
 @Serializable
 class NewsItem(
     val story: String = "",
-    val links: List<PageSummary?> = emptyList()
+    val links: List<PageSummary> = emptyList()
 ) : Parcelable {
 
     fun linkCards(wiki: WikiSite): List<NewsLinkCard> {
-        return links.filterNotNull().map { NewsLinkCard(it, wiki) }
+        return links.map { NewsLinkCard(it, wiki) }
     }
 
     fun thumb(): Uri? {

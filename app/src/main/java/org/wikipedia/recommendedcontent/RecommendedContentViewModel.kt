@@ -188,19 +188,19 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadTopRead(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            loadFeed().topRead?.articles?.take(5) ?: emptyList()
+            loadFeed().topRead?.articles?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
         }
     }
 
     private suspend fun loadOnThisDay(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            loadFeed().onthisday?.mapNotNull { it.pages()?.firstOrNull() } ?: emptyList()
+            loadFeed().onthisday?.mapNotNull { it.pages()?.firstOrNull() }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
         }
     }
 
     private suspend fun loadInTheNews(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            loadFeed().news?.mapNotNull { it.links.firstOrNull() } ?: emptyList()
+            loadFeed().news?.flatMap { it.links.take(2) }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
         }
     }
 
