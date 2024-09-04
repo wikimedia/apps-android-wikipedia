@@ -539,6 +539,10 @@
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
     </style>
 
+    <style name="AlertDialogTheme.AdjustResize">
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
     <style name="DialogIconWithTint" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
         <item name="tint">?attr/primary_color</item>
     </style>

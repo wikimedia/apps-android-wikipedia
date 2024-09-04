@@ -2,7 +2,6 @@ package org.wikipedia.views
 
 import android.app.Activity
 import android.view.View
-import android.view.WindowManager
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -66,7 +65,7 @@ object SurveyDialog {
                 .logImpression(feedbackShown = true)
         }
 
-        val dialogBuilder = MaterialAlertDialogBuilder(activity)
+        val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
             .setCancelable(false)
             .setView(binding.root)
 
@@ -93,9 +92,6 @@ object SurveyDialog {
         }
 
         dialog = dialogBuilder.show()
-
-        // TODO: not to use the deprecated method
-        dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     private fun showFeedbackInputDialog(activity: Activity, messageId: Int, source: Constants.InvokeSource) {
