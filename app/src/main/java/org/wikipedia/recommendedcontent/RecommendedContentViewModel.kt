@@ -39,7 +39,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     var wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     private val isGeneralized = bundle.getBoolean(Constants.ARG_BOOLEAN)
 
-    private var exploreTerm: String? = null
+    private var moreLikeTerm: String? = null
     private var feedContent = mutableMapOf<String, AggregatedFeedContent>()
 
     private val _recentSearchesState = MutableStateFlow(Resource<List<PageTitle>>())
@@ -82,7 +82,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private suspend fun getExploreSearchTerm(): String {
+    private suspend fun getMoreLikeSearchTerm(): String {
         return withContext(Dispatchers.IO) {
             // Get term from last opened article
             var term = WikipediaApp.instance.tabList.lastOrNull {
@@ -168,42 +168,31 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private suspend fun loadTopRead(): List<PageSummary> {
-        return withContext(Dispatchers.IO) {
-            loadFeed().topRead?.articles ?: emptyList()
-        }
-    }
-
-    private suspend fun loadInTheNews(): List<PageSummary> {
-        return withContext(Dispatchers.IO) {
-            loadFeed().news?.mapNotNull { it.links.firstOrNull() } ?: emptyList()
-        }
-    }
-
     private suspend fun loadGeneralizedContent(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            val news = async { loadInTheNews() }
-            val topRead = async { loadTopRead() }
+            val content = loadFeed()
+            val news = content.news?.mapNotNull { it.links.firstOrNull() } ?: emptyList()
+            val topRead = content.topRead?.articles ?: emptyList()
             // Take most news items and fill the rest with top read items
-            (news.await() + topRead.await()).distinct().take(RECOMMENDED_CONTENT_ITEMS).shuffled()
+            (news + topRead).distinct().take(RECOMMENDED_CONTENT_ITEMS).shuffled()
         }
     }
 
     private suspend fun loadPersonalizedContent(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
             val places = async { loadPlaces() }
-            val explore = async {
-                exploreTerm = getExploreSearchTerm()
-                exploreTerm?.let {
-                    loadExplore(it)
+            val moreLike = async {
+                moreLikeTerm = getMoreLikeSearchTerm()
+                moreLikeTerm?.let {
+                    loadMoreLike(it)
                 } ?: emptyList()
             }
-            // Take at most 5 places and fill the rest with explore items
-            (places.await().take(5) + explore.await()).distinct().take(RECOMMENDED_CONTENT_ITEMS).shuffled()
+            // Take at most 5 places and fill the rest with moreLike items
+            (places.await().take(5) + moreLike.await()).distinct().take(RECOMMENDED_CONTENT_ITEMS).shuffled()
         }
     }
 
-    private suspend fun loadExplore(searchTerm: String): List<PageSummary> {
+    private suspend fun loadMoreLike(searchTerm: String): List<PageSummary> {
         return withContext(Dispatchers.IO) {
             val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike("morelike:$searchTerm", Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
             val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
