@@ -4,6 +4,8 @@ import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -14,6 +16,7 @@ import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
+import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.feed.topread.TopReadListCard
@@ -152,27 +155,36 @@ class AggregatedFeedContentClient {
 
                     // TODO: This is a temporary fix for T355192
                     if (hasParentLanguageCode) {
-                        // TODO: Needs to update tfa and most read
-                        feedContentResponse.tfa?.let {
-                            val tfaResponse = L10nUtil.getPagesForLanguageVariant(listOf(it), wikiSite).first()
-                            feedContentResponse = AggregatedFeedContent(
-                                tfa = tfaResponse,
-                                news = feedContentResponse.news,
-                                topRead = feedContentResponse.topRead,
-                                potd = feedContentResponse.potd,
-                                onthisday = feedContentResponse.onthisday
-                            )
+                        val tfaDeferred = feedContentResponse.tfa?.let {
+                            async { L10nUtil.getPagesForLanguageVariant(listOf(it), wikiSite).first() }
                         }
-                        feedContentResponse.topRead?.let {
-                            val topReadResponse = L10nUtil.getPagesForLanguageVariant(it.articles, wikiSite)
-                            feedContentResponse = AggregatedFeedContent(
-                                tfa = feedContentResponse.tfa,
-                                news = feedContentResponse.news,
-                                topRead = TopRead(it.date, topReadResponse),
-                                potd = feedContentResponse.potd,
-                                onthisday = feedContentResponse.onthisday
-                            )
+
+                        val topReadDeferred = feedContentResponse.topRead?.let {
+                            async { L10nUtil.getPagesForLanguageVariant(it.articles, wikiSite) }
                         }
+
+                        val onThisDayDeferred = feedContentResponse.onthisday?.filter { it.pages.isNotEmpty() }?.map {
+                            async {
+                                val eventPages = L10nUtil.getPagesForLanguageVariant(it.pages, wikiSite)
+                                OnThisDay.Event().apply {
+                                    text = it.text
+                                    year = it.year
+                                    pages = eventPages
+                                }
+                            }
+                        }
+
+                        val tfaResponse = tfaDeferred?.await()
+                        val topReadResponse = topReadDeferred?.await()
+                        val onThisDayResponse = onThisDayDeferred?.awaitAll()
+
+                        feedContentResponse = AggregatedFeedContent(
+                            tfa = tfaResponse ?: feedContentResponse.tfa,
+                            news = feedContentResponse.news,
+                            topRead = topReadResponse?.let { TopRead(feedContentResponse.topRead!!.date, it) } ?: feedContentResponse.topRead,
+                            potd = feedContentResponse.potd,
+                            onthisday = onThisDayResponse ?: feedContentResponse.onthisday
+                        )
                     }
 
                     aggregatedClient.aggregatedResponses[langCode] = feedContentResponse

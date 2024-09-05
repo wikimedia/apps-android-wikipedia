@@ -4,6 +4,8 @@ import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -39,7 +41,6 @@ class BecauseYouReadClient(
                 // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
                 val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                 val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
-                val relatedPages = mutableListOf<PageSummary>()
 
                 val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
                     Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
@@ -47,20 +48,21 @@ class BecauseYouReadClient(
                 val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
                     entry.title.extract, entry.title.thumbUrl, langCode)
 
-                moreLikeResponse.query?.pages?.forEach {
-                    val pageSummary = PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
-                    if (it.title != searchTerm) {
+                val deferredPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm }?.map {
+                    async {
+                        val pageSummary = PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
                         if (hasParentLanguageCode) {
-                            relatedPages.add(L10nUtil.getPagesForLanguageVariant(listOf(pageSummary), entry.title.wikiSite).first())
+                            L10nUtil.getPagesForLanguageVariant(listOf(pageSummary), entry.title.wikiSite).first()
                         } else {
-                            relatedPages.add(pageSummary)
+                            pageSummary
                         }
                     }
                 }
 
                 cb.success(
-                    if (relatedPages.isEmpty()) emptyList()
-                    else listOf(toBecauseYouReadCard(relatedPages, headerPage, entry.title.wikiSite))
+                    deferredPages?.awaitAll()?.let {
+                        listOf(toBecauseYouReadCard(it, headerPage, entry.title.wikiSite))
+                    } ?: emptyList()
                 )
             }
         }
