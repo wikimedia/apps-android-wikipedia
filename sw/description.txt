@@ -8,7 +8,7 @@ Uwezo wa kutafuta kwa sauti - Pata kwa urahisi unachokitafuta kwa upau maarufu w
 
 Karibu -Pata maelezo zaidi kuhusu kile kilicho karibu nawe kwa kuchagua pointi kwenye ramani shirikishi ili kuona makala zinazohusiana na eneo lako la sasa na la karibu.
 
-Msaada wa lugha- Ubadilishaji uwezeshao kusoma katika lugha yoyote inayoungwa mkono na Wikipedia bila kikwazo.
+Msaada wa lugha- Ubadilishaji unaowezesha kusoma katika lugha yoyote inayoungwa mkono na Wikipedia bila kikwazo.
 
 Mwonekano awali wa viungo- Gusa kwenye makala ili kuyahakiki bila kupoteza mahali ulipo katika kile unachosoma kwa wakati huo. Bonyeza na ushikilie kiungo ili kifunguke kwenye kichupo kipya na kukuwezesha uendelee kusoma makala unayosoma bila kupoteza mahali pako na kwenda kwenye kichupo hicho kipya utakapokuwa tayari.
 
@@ -34,6 +34,6 @@ Sera ya faragha ya watoa huduma wengine wa ripoti ya kuacha kufanya kazi:https:/
 
 Masharti za kutumika: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
-Kuhusu Msingi wa Wikimedia
+Kuhusu taasisi ya Wikimedia
 
-Msingi wa Wikimedia ni shirika lisilo la faida linalo fadhili Wikipedia na miradi mingine ya Wikimedia. Msingi huu ni wa hisani na hufadhiliwa hasa kwa michango. Kwa maelezo zaidi, zuru tovuti yetu:https://wikimediafoundation.org/wiki/Home.
+Taasisi ya Wikimedia ni shirika lisilo la faida linalo saidia Wikipedia na miradi mingine ya Wikimedia. Taasisi ya Wikimedia ni ya hisani na hufadhiliwa hasa kwa michango. Kwa maelezo zaidi, tafadhali zuru tovuti yetu:https://wikimediafoundation.org/wiki/Home.

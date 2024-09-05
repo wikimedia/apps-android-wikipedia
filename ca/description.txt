@@ -1,7 +1,39 @@
+L'aplicació oficial per a l'Android de Viquipèdia està dissenyada per ajudar-vos a trobar, descobrir i explorar el coneixement de la Viquipèdia. Aposta amb un amic fent una cerca ràpida a través de l'aplicació, o submergeix-te en articles destacats, imatges, articles recomanats i més utilitzant el canal d'exploració. Amb més de 39 milions d'articles en gairebé 300 idiomes, la teva enciclopèdia gratuïta en línia preferida està ara al teu abast.
+
 Característiques:
 
+Explora el canal - El nou «explora el canal» ofereix continguts recomanats i actualitzats constantment a la pantalla d'inici de la Viquipèdia, inclosos articles de tendència, esdeveniments d'actualitat, lectures suggerides i molt més.
+
+Cerca integrada per veu - Troba fàcilment el que estàs buscant amb una barra de cerca prominent a la part superior de l'app, inclosa la cerca habilitada per veu al teu dispositiu.
+
+A prop - Obteniu més informació sobre el que us envolta seleccionant punts en un mapa interactiu per veure articles relacionats amb la vostra ubicació actual i propera.
+
+Suport per a l'idioma - Canvieu sense problemes a llegir qualsevol Viquipèdia suportada per l'idioma, ja sigui canviant l'idioma de l'article actual, o canviant l'idioma de cerca preferit mentre feu la cerca.
+
+Previsualització de l'enllaç - Toqueu un article per previsualitzar-lo, sense perdre el lloc en el que estàs llegint actualment. Manteniu premut un enllaç per obrir-lo en una pestanya nova, permetent-vos continuar llegint l'article actual sense perdre el lloc, i canviar a la pestanya nova quan estigueu a punt.
+
+Taula de continguts - llisca cap a l'esquerra sobre qualsevol article per a obrir la taula de continguts, el que permet saltar a les seccions d'articles fàcilment.
+
+Llistes de lectura - Organitzeu els articles que navegueu a les llistes de lectura, a les quals podeu accedir fins i tot quan esteu fora de línia. Creeu tantes llistes com vulgueu, doneu-lis noms i descripcions personalitzades i empleneu-les amb articles de qualsevol wiki de llengua.
+
+Galeria d'imatges - Toqueu sobre una imatge per a veure la imatge a pantalla completa en alta resolució, amb opcions per a lliscar per a navegar per les imatges addicionals.
+
+Definicions de Wiktionary - Toca i mantén premut per ressaltar una paraula i, a continuació, prem el botó "Define" per veure una definició de la paraula de Wiktionary.
+
+Viquipèdia Zero - Accedeix a la Viquipèdia per Android sense càrrecs de dades per als operadors mòbils participants. (enllaç als operadors participants).
+
+Envia'ns els teus comentaris sobre l'aplicació! Al menú, prem "Configuració", després "Sobre l'aplicació de Viquipèdia", i després "Envia comentaris de l'aplicació".
+
+El codi és 100% de codi obert. Si tens experiència amb Java i l'SDK d'Android, esperem les teves contribucions! https://github.com/wikimedia/apps-android-wikipedia
+
+En utilitzar aquesta aplicació, acceptes la transmissió automàtica d'informes de fallada a un proveïdor de serveis de tercers. Si voleu desactivar aquesta característica, premeu «Configuració» i desactiveu «Enviar informes de fallada» a la secció Privadesa. Explicació dels permisos necessaris per a l'aplicació: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
 Política de privacitat: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Informe de fallada política de privacitat del proveïdor de serveis de tercers: https://www.microsoft.com/ca-us/privacystatement/OnlineServices/Default.aspx
 
 Condicions d'ús: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
 Quant a la Fundació Wikimedia
+
+La Wikimedia Foundation és l'organització sense ànim de lucre que dona suport a la Viquipèdia i els altres projectes de Wikimedia. La Fundació Wikimedia és una organització benèfica finançada principalment a través de donacions. Per a més informació, visiteu la nostra pàgina web: https://wikimediafoundation.org/wiki/Home.
