@@ -27,7 +27,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
 import org.wikipedia.recommendedcontent.RecommendedContentFragment
-import org.wikipedia.recommendedcontent.RecommendedContentSection
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.util.FeedbackUtil.setButtonTooltip
 import org.wikipedia.util.ResourceUtil
@@ -104,13 +103,9 @@ class RecentSearchesFragment : Fragment() {
                 .also { it.logImpression() }
             return
         }
-        val sectionIds = if (RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2) {
-            RecommendedContentSection.generalizedList().map { it.id } // Group 2
-        } else {
-            RecommendedContentSection.personalizedList().map { it.id } // Group 3
-        }
+        val isGeneralized = RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2
         val langeCode = callback?.getLangCode() ?: WikipediaApp.instance.appOrSystemLanguageCode
-        recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), sectionIds)
+        recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), isGeneralized)
         childFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, recommendedContentFragment!!, null)
             .addToBackStack(null)

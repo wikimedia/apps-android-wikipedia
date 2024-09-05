@@ -174,12 +174,11 @@ class RecommendedContentFragment : Fragment() {
     }
 
     companion object {
-        const val ARG_SECTION_IDS = "sectionIds"
 
-        fun newInstance(wikiSite: WikiSite, sectionIds: List<Int>) = RecommendedContentFragment().apply {
+        fun newInstance(wikiSite: WikiSite, isGeneralized: Boolean) = RecommendedContentFragment().apply {
             arguments = bundleOf(
                 Constants.ARG_WIKISITE to wikiSite,
-                ARG_SECTION_IDS to sectionIds
+                Constants.ARG_BOOLEAN to isGeneralized
             )
         }
     }

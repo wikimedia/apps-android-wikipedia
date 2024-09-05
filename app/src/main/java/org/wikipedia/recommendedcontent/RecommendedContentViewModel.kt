@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
@@ -38,7 +37,7 @@ import java.util.Date
 class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     var wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
-    private val sectionIds = bundle.getIntegerArrayList(RecommendedContentFragment.ARG_SECTION_IDS)!!
+    private val isGeneralized = bundle.getBoolean(Constants.ARG_BOOLEAN)
 
     private var exploreTerm: String? = null
     private var feedContent = mutableMapOf<String, AggregatedFeedContent>()
@@ -61,7 +60,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     fun reload(wikiSite: WikiSite) {
         this.wikiSite = wikiSite
         loadSearchHistory()
-        loadRecommendedContent(sectionIds.map { RecommendedContentSection.find(it) })
+        loadRecommendedContent(isGeneralized)
     }
 
     fun removeRecentSearchItem(title: PageTitle, position: Int) {
@@ -114,36 +113,19 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private fun loadRecommendedContent(sections: List<RecommendedContentSection>) {
+    private fun loadRecommendedContent(isGeneralized: Boolean) {
         recommendedContentFetchJob?.cancel()
         recommendedContentFetchJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _recommendedContentState.value = Resource.Error(throwable)
         }) {
             _recommendedContentState.value = Resource.Loading()
             delay(200)
-            val recommendedContent = mutableListOf<Deferred<List<PageSummary>>>()
-            sections.forEach { section ->
-                val content = when (section) {
-                    RecommendedContentSection.TOP_READ -> async { loadTopRead() }
-                    RecommendedContentSection.EXPLORE -> async {
-                        exploreTerm = getExploreSearchTerm()
-                        exploreTerm?.let {
-                            loadExplore(it)
-                        } ?: emptyList()
-                    }
-                    RecommendedContentSection.ON_THIS_DAY -> async { loadOnThisDay() }
-                    RecommendedContentSection.IN_THE_NEWS -> async { loadInTheNews() }
-                    RecommendedContentSection.PLACES_NEAR_YOU -> async { loadPlaces() }
-                    RecommendedContentSection.BECAUSE_YOU_READ -> async { loadBecauseYouRead(0) }
-                    RecommendedContentSection.CONTINUE_READING -> async { loadContinueReading() }
-                }
-                recommendedContent.add(content)
+            val recommendedContent = if (isGeneralized) {
+                loadGeneralizedContent()
+            } else {
+                loadPersonalizedContent()
             }
-
-            // merge into one list and shuffle
-            val contentList = recommendedContent.map { it.await() }.flatten().distinct().shuffled()
-
-            _recommendedContentState.value = Resource.Success(contentList)
+            _recommendedContentState.value = Resource.Success(recommendedContent)
         }
     }
 
@@ -188,33 +170,36 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun loadTopRead(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            loadFeed().topRead?.articles?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
-        }
-    }
-
-    private suspend fun loadOnThisDay(): List<PageSummary> {
-        return withContext(Dispatchers.IO) {
-            loadFeed().onthisday?.mapNotNull { it.pages()?.firstOrNull() }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
+            loadFeed().topRead?.articles ?: emptyList()
         }
     }
 
     private suspend fun loadInTheNews(): List<PageSummary> {
         return withContext(Dispatchers.IO) {
-            val newsItems = mutableListOf<PageSummary>()
-            loadFeed().news?.let { news ->
-                var index = 0
-                while (newsItems.size < RECOMMENDED_CONTENT_ITEMS) {
-                    news.forEach {
-                        val link = it.links[index]
-                        newsItems.add(link)
-                        if (newsItems.size >= RECOMMENDED_CONTENT_ITEMS) {
-                            return@withContext newsItems
-                        }
-                    }
-                    index++
-                }
+            loadFeed().news?.mapNotNull { it.links.firstOrNull() } ?: emptyList()
+        }
+    }
+
+    private suspend fun loadGeneralizedContent(): List<PageSummary> {
+        return withContext(Dispatchers.IO) {
+            val news = async { loadInTheNews() }
+            val topRead = async { loadTopRead() }
+            // Take most news items and fill the rest with top read items
+            (news.await() + topRead.await()).distinct().take(RECOMMENDED_CONTENT_ITEMS).shuffled()
+        }
+    }
+
+    private suspend fun loadPersonalizedContent(): List<PageSummary> {
+        return withContext(Dispatchers.IO) {
+            val places = async { loadPlaces() }
+            val explore = async {
+                exploreTerm = getExploreSearchTerm()
+                exploreTerm?.let {
+                    loadExplore(it)
+                } ?: emptyList()
             }
-            newsItems
+            // Take at most 5 places and fill the rest with explore items
+            (places.await().take(5) + explore.await()).distinct().take(RECOMMENDED_CONTENT_ITEMS).shuffled()
         }
     }
 
@@ -225,35 +210,13 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
 
             val list = moreLikeResponse.query?.pages?.map {
                 PageSummary(it.displayTitle(wikiSite.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.languageCode)
-            }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
+            } ?: emptyList()
 
             if (hasParentLanguageCode) {
                 L10nUtil.getPagesForLanguageVariant(list, wikiSite)
             } else {
                 list
             }
-        }
-    }
-
-    private suspend fun loadBecauseYouRead(age: Int): List<PageSummary> {
-        return withContext(Dispatchers.IO) {
-            val entry = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, WikipediaApp.instance.resources.getInteger(
-                R.integer.article_engagement_threshold_sec)).lastOrNull()
-            if (entry == null) {
-                emptyList()
-            } else {
-                loadExplore(entry.title.prefixedText)
-            }
-        }
-    }
-
-    private suspend fun loadContinueReading(): List<PageSummary> {
-        return withContext(Dispatchers.IO) {
-            WikipediaApp.instance.tabList.mapNotNull { tab ->
-                tab.backStackPositionTitle?.let {
-                    PageSummary(it.displayText, it.prefixedText, it.description, null, it.thumbUrl, it.wikiSite.languageCode)
-                }
-            }.take(RECOMMENDED_CONTENT_ITEMS)
         }
     }
 
@@ -274,7 +237,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                         }
                     }
                 pages
-            }?.take(RECOMMENDED_CONTENT_ITEMS) ?: emptyList()
+            } ?: emptyList()
         }
     }
 
@@ -286,7 +249,7 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        const val RECOMMENDED_CONTENT_ITEMS = 5
+        const val RECOMMENDED_CONTENT_ITEMS = 10
         const val RECENT_SEARCHES_ITEMS = 3
     }
 }
