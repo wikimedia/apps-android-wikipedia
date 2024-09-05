@@ -1,7 +1,10 @@
 package org.wikipedia.analytics.metricsplatform
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikimedia.metrics_platform.context.PageData
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -201,9 +204,14 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
     }
 }
 
-class ArticleLinkPreviewInteraction : TimedMetricsEvent {
+open class ArticleLinkPreviewInteraction : TimedMetricsEvent {
     private val pageData: PageData?
-    private val source: Int
+    var source: Int
+
+    constructor(source: Int) {
+        this.source = source
+        this.pageData = null
+    }
 
     constructor(fragment: PageFragment, source: Int) {
         this.source = source
@@ -221,18 +229,18 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
     }
 
     fun logLinkClick() {
-        submitEvent("linkclick")
+        submitEvent("linkclick", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
-    fun logNavigate() {
-        submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
+    open fun logNavigate() {
+        submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
     fun logCancel() {
-        submitEvent("cancel")
+        submitEvent("cancel", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
-    private fun submitEvent(action: String) {
+    protected fun submitEvent(action: String, contextData: ContextData) {
         submitEvent(
             "android.product_metrics.article_link_preview_interaction",
             "article_link_preview_interaction",
@@ -240,9 +248,54 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
                 action,
                 null,
                 source.toString(),
-                "time_spent_ms.${timer.elapsedMillis}",
+                JsonUtil.encodeToString(contextData)
             ),
             pageData
         )
+    }
+
+    @Serializable
+    class ContextData(
+        @SerialName("group_assigned") val groupAssigned: String? = null,
+        @SerialName("time_spent_ms") val timeSpentMillis: Long? = null,
+        @SerialName("rec_shown") val recShown: Boolean? = null,
+        @SerialName("feedback_shown") val feedbackShown: Boolean? = null,
+        @SerialName("feedback_select") val feedbackSelect: String? = null,
+        @SerialName("feedback_text") val feedbackText: String? = null,
+    )
+}
+
+class ExperimentalLinkPreviewInteraction(
+    source: Int,
+    private val groupAssigned: String,
+    private val recommendationsShown: Boolean? = null
+) : ArticleLinkPreviewInteraction(source) {
+
+    fun logImpression(feedbackShown: Boolean? = null, feedbackSelect: String? = null,
+                      feedbackText: String? = null) {
+        submitEvent("impression", ContextData(
+            timeSpentMillis = timer.elapsedMillis,
+            groupAssigned = groupAssigned,
+            recShown = recommendationsShown,
+            feedbackShown = feedbackShown,
+            feedbackSelect = feedbackSelect,
+            feedbackText = feedbackText
+        ))
+    }
+
+    override fun logNavigate() {
+        logNavigate(null, null, null)
+    }
+
+    fun logNavigate(feedbackShown: Boolean? = null, feedbackSelect: String? = null,
+                             feedbackText: String? = null) {
+        submitEvent("navigate", ContextData(
+            timeSpentMillis = timer.elapsedMillis,
+            groupAssigned = groupAssigned,
+            recShown = recommendationsShown,
+            feedbackShown = feedbackShown,
+            feedbackSelect = feedbackSelect,
+            feedbackText = feedbackText
+        ))
     }
 }
