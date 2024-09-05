@@ -27,7 +27,7 @@ class NewsItem(
         }
     }
 
-    private fun getFirstImageUri(links: List<PageSummary?>): Uri? {
-        return links.firstOrNull { !it?.thumbnailUrl.isNullOrEmpty() }?.run { Uri.parse(thumbnailUrl) }
+    private fun getFirstImageUri(links: List<PageSummary>): Uri? {
+        return links.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.run { Uri.parse(thumbnailUrl) }
     }
 }
