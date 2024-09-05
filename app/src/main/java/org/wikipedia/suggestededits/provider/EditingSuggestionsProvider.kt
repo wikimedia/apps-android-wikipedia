@@ -83,7 +83,7 @@ object EditingSuggestionsProvider {
         return pageSummary
     }
 
-    suspend fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean,
+    suspend fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String,
                                                      retryLimit: Long = MAX_RETRY_LIMIT): Pair<PageSummary, PageSummary> {
         var pair = Pair(PageSummary(), PageSummary())
         withContext(Dispatchers.IO) {
@@ -115,18 +115,19 @@ object EditingSuggestionsProvider {
                         if (page != null && !page.description.isNullOrEmpty()) {
                             return@forEach
                         }
-                        val entity = item.entity
-                        if (entity == null || entity.descriptions.containsKey(targetLang) ||
-                            sourceLangMustExist && !entity.descriptions.containsKey(sourceWiki.languageCode) ||
-                            !entity.sitelinks.containsKey(sourceWiki.dbName()) ||
-                            !entity.sitelinks.containsKey(targetWiki.dbName())
+                        val descriptions = item.entity?.getDescriptions().orEmpty()
+                        val siteLinks = item.entity?.getSiteLinks().orEmpty()
+                        if (descriptions.containsKey(targetLang) ||
+                            !descriptions.containsKey(sourceWiki.languageCode) ||
+                            !siteLinks.containsKey(sourceWiki.dbName()) ||
+                            !siteLinks.containsKey(targetWiki.dbName())
                         ) {
                             return@forEach
                         }
-                        val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki).apply {
-                            description = entity.descriptions[sourceWiki.languageCode]?.value
+                        val sourceTitle = PageTitle(siteLinks[sourceWiki.dbName()]!!.title, sourceWiki).apply {
+                            description = descriptions[sourceWiki.languageCode]?.value
                         }
-                        val targetTitle = PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki)
+                        val targetTitle = PageTitle(siteLinks[targetWiki.dbName()]!!.title, targetWiki)
                         articlesWithTranslatableDescriptionCache.addFirst(sourceTitle to targetTitle)
                     }
 
@@ -236,7 +237,7 @@ object EditingSuggestionsProvider {
                 }
                 var tries = 0
                 do {
-                    val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomWithImageInfo()
+                    val response = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages()
                     response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }?.forEach { page ->
                         if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
                             imagesWithMissingTagsCache.addFirst(page)
