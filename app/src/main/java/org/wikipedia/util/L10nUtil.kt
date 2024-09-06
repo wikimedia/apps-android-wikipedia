@@ -7,8 +7,10 @@ import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -137,7 +139,7 @@ object L10nUtil {
         }
     }
 
-    suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite): List<PageSummary> {
+    suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite, shouldUpdateExtracts: Boolean = false): List<PageSummary> {
         return withContext(Dispatchers.IO) {
             val newList = mutableListOf<PageSummary>()
             val titles = list.joinToString(separator = "|") { it.apiTitle }
@@ -149,6 +151,20 @@ object L10nUtil {
             // Second, fetch varianttitles from prop=info endpoint.
             val mwQueryResponse = async {
                 ServiceFactory.get(wikiSite).getVariantTitlesByTitles(titles)
+            }
+
+            // Third, update the extracts from the page/summary endpoint if needed.
+            val summaryForExtractsDeferred = mutableListOf<Deferred<PageSummary>>()
+            if (shouldUpdateExtracts) {
+                summaryForExtractsDeferred.addAll(list.map { pageSummary ->
+                    async {
+                        ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
+                    }
+                })
+                summaryForExtractsDeferred.awaitAll().forEachIndexed { index, pageSummary ->
+                    list[index].extract = pageSummary.extract
+                    list[index].extractHtml = pageSummary.extractHtml
+                }
             }
 
             list.forEach { pageSummary ->
