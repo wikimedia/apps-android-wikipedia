@@ -23,7 +23,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchFragment
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -95,7 +94,6 @@ class RecommendedContentFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.loadSearchHistory()
-        parentSearchFragment.setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
     }
 
     override fun onDestroyView() {
