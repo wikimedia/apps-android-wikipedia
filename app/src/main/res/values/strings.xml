@@ -1781,6 +1781,14 @@
     <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
 
+    <!-- Recommended Content -->
+    <string name="recommended_content_section_you_might_like">You might like</string>
+    <string name="recommended_content_survey_dialog_title">Help improve recommended content.</string>
+    <string name="recommended_content_survey_dialog_message">Are you satisfied with this recommended search result?</string>
+    <string name="recommended_content_survey_dialog_input_hint">Additional feedback</string>
+    <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
+    <!-- /Recommended Content -->
+
     <string name="on_this_day_game_title">WikiDate Detective</string>
     <string name="on_this_day_game_dialog_description">Limited time only: WikiDate Detective is a beta experiment that will be available for %d more days</string>
     <string name="on_this_day_game_dialog_button">Play today\'s game</string>

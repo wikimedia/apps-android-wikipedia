@@ -100,6 +100,8 @@ class HistoryEntry(
         const val SOURCE_SINGLE_WEBVIEW = 40
         const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
         const val SOURCE_FEED_PLACES = 42
-        const val SOURCE_ON_THIS_DAY_GAME = 43
+        const val SOURCE_RECOMMENDED_CONTENT_PERSONALIZED = 43
+        const val SOURCE_RECOMMENDED_CONTENT_GENERALIZED = 44
+        const val SOURCE_ON_THIS_DAY_GAME = 45
     }
 }

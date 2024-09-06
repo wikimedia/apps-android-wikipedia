@@ -18,6 +18,7 @@ object Constants {
     const val ARG_TITLE = "title"
     const val ARG_WIKISITE = "wikiSite"
     const val ARG_TEXT = "text"
+    const val ARG_BOOLEAN = "boolean"
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"
@@ -105,7 +106,8 @@ object Constants {
         USER_CONTRIB_ACTIVITY("userContribActivity"),
         EDIT_ADD_IMAGE("editAddImage"),
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
-        ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame"),
+        RECOMMENDED_CONTENT("recommendedContent"),
+        ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame")
     }
 
     enum class ImageEditType(name: String) {

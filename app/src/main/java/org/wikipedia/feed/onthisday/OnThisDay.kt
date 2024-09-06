@@ -17,13 +17,8 @@ class OnThisDay {
 
     @Serializable
     class Event {
-
-        private val pages: List<PageSummary?>? = null
+        val pages: List<PageSummary> = emptyList()
         val text = ""
         val year = 0
-
-        fun pages(): List<PageSummary>? {
-            return pages?.filterNotNull()
-        }
     }
 }
