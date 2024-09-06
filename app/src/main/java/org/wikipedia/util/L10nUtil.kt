@@ -161,8 +161,8 @@ object L10nUtil {
                         display = newDisplayTitle
                     )
                     this.description = wikiDataResponse.await().entities.values.firstOrNull {
-                        it.labels[wikiSite.languageCode]?.value == newDisplayTitle
-                    }?.descriptions?.get(wikiSite.languageCode)?.value ?: pageSummary.description
+                        it.getLabels()[wikiSite.languageCode]?.value == newDisplayTitle
+                    }?.getDescriptions()?.get(wikiSite.languageCode)?.value ?: pageSummary.description
                 }
                 newList.add(newPageSummary)
             }
