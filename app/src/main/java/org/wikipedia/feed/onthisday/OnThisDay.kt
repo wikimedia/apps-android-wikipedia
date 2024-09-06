@@ -16,9 +16,9 @@ class OnThisDay {
     }
 
     @Serializable
-    class Event {
-        var pages: List<PageSummary> = emptyList()
-        var text = ""
-        var year = 0
-    }
+    class Event(
+        val pages: List<PageSummary> = emptyList(),
+        val text: String = "",
+        val year: Int = 0
+    )
 }

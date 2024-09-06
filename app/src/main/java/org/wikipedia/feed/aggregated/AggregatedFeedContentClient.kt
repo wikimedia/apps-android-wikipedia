@@ -190,13 +190,8 @@ class AggregatedFeedContentClient {
                     val onThisDayDeferred =
                         feedContentResponse.onthisday?.filter { it.pages.isNotEmpty() }?.map {
                             async {
-                                val eventPages =
-                                    L10nUtil.getPagesForLanguageVariant(it.pages, wikiSite)
-                                OnThisDay.Event().apply {
-                                    text = it.text
-                                    year = it.year
-                                    pages = eventPages
-                                }
+                                val eventPages = L10nUtil.getPagesForLanguageVariant(it.pages, wikiSite)
+                                OnThisDay.Event(eventPages, it.text, it.year)
                             }
                         }
 

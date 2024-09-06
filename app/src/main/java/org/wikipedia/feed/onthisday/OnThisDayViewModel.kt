@@ -5,18 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import java.util.Calendar
 
@@ -39,16 +35,6 @@ class OnThisDayViewModel(bundle: Bundle) : ViewModel() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
             val response = ServiceFactory.getRest(wikiSite).getOnThisDay(calendar[Calendar.MONTH] + 1, calendar[Calendar.DATE])
-            val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
-            if (hasParentLanguageCode) {
-                val events = response.allEvents().filter { it.pages.isNotEmpty() }
-                val eventPages = events.map { event ->
-                    async { L10nUtil.getPagesForLanguageVariant(event.pages, wikiSite) }
-                }
-                eventPages.awaitAll().forEachIndexed { index, pages ->
-                    events[index].pages = pages
-                }
-            }
             _uiState.value = Resource.Success(response.allEvents())
         }
     }
