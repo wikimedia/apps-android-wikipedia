@@ -21,7 +21,10 @@ object RecurringTasksExecutor {
         PrefsIoUtil.remove(R.string.preference_key_talk_offline_cleanup_task_name)
         PrefsIoUtil.remove(R.string.preference_key_daily_event_time_task_name)
 
-        val networkConstraints = Constraints(NetworkType.CONNECTED)
+        val networkConstraints = Constraints(
+            requiredNetworkType = NetworkType.CONNECTED,
+            requiresBatteryNotLow = true
+        )
 
         val remoteConfigRefreshRequest = PeriodicWorkRequestBuilder<RemoteConfigRefreshWorker>(1, TimeUnit.DAYS)
             .setConstraints(networkConstraints)
@@ -32,6 +35,7 @@ object RecurringTasksExecutor {
             .build()
 
         val offlineCleanupRequest = PeriodicWorkRequestBuilder<TalkOfflineCleanupWorker>(7, TimeUnit.DAYS)
+            .setConstraints(Constraints(requiresBatteryNotLow = true))
             .build()
 
         val tasks = mutableMapOf(
