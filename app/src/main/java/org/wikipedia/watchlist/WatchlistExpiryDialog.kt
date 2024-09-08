@@ -29,7 +29,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
         fun onExpiryChanged(expiry: WatchlistExpiry)
     }
 
-    private val viewModel: WatchlistExpiryDialogViewModel by viewModels { WatchlistExpiryDialogViewModel.Factory(requireArguments()) }
+    private val viewModel: WatchlistExpiryDialogViewModel by viewModels()
     private var _binding: DialogWatchlistExpiryBinding? = null
     private val binding get() = _binding!!
     private lateinit var expiryOptions: Array<View>

@@ -30,7 +30,7 @@ import org.wikipedia.util.log.L
 class RecommendedContentFragment : Fragment() {
     private var _binding: FragmentRecommendedContentBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: RecommendedContentViewModel by viewModels { RecommendedContentViewModel.Factory(requireArguments()) }
+    private val viewModel: RecommendedContentViewModel by viewModels()
 
     private val parentSearchFragment get() = requireParentFragment().requireParentFragment() as SearchFragment
 
