@@ -96,6 +96,7 @@
   <string name="menu_page_recently_viewed">Неодамна посетени</string>
   <string name="menu_page_archive">Архива</string>
   <string name="menu_long_press_open_page">Отвори</string>
+  <string name="menu_long_press_open_in_places">Отвори во Места</string>
   <string name="menu_long_press_open_in_new_tab">Отвори ново јазиче</string>
   <string name="menu_long_press_copy_page">Копирај ја адресата на врската</string>
   <string name="menu_text_select_define">Во речник</string>
@@ -827,6 +828,7 @@
   <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
+  <string name="feed_item_type_places">Статии во близина врз основа на тековната местоположба</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
@@ -1219,7 +1221,7 @@
   <string name="insert_media_settings_caption">Опис на сликата</string>
   <string name="insert_media_settings_caption_description">Видлив натпис на сликата во статијата</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
-  <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
+  <string name="insert_media_settings_alternative_text_description">Опис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
   <string name="insert_media_advanced_settings_wrap_image">Сложи го текстот околу сликата</string>
   <string name="insert_media_advanced_settings_image_position">Положба на сликата</string>
@@ -1663,4 +1665,11 @@
   <string name="places_survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
+  <string name="places_card_title">Околни места</string>
+  <string name="places_card_action">Повеќе места во близина</string>
+  <string name="places_card_enable_location_card_message">Места е картографски начин за истражување на Википедија</string>
+  <string name="places_card_enable_location_card_button">Овозможи местоположба</string>
+  <string name="places_card_distance_suffix">на %s од вас</string>
+  <string name="places_card_distance_unknown">Непозната оддалеченост</string>
+  <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
 </resources>

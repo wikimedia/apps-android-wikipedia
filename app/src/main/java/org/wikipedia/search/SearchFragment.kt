@@ -23,8 +23,10 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
+import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.serializable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
@@ -57,6 +59,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private lateinit var initialLanguageList: String
     var searchLanguageCode = app.languageState.appLanguageCode
         private set
+
+    // TODO: remove after completion of experiment
+    var analyticsEvent: ExperimentalLinkPreviewInteraction? = null
 
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
@@ -164,7 +169,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
             binding.searchLangButton.visibility = View.VISIBLE
             initLangButton()
-            recentSearchesFragment.onLangCodeChanged()
+            recentSearchesFragment.reloadRecentSearches()
         }
     }
 
@@ -208,6 +213,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
+
+            analyticsEvent?.logNavigate()
         }
         closeSearch()
     }
@@ -336,7 +343,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         }
         searchLanguageCode = selectedLanguageCode
         searchResultsFragment.setLayoutDirection(searchLanguageCode)
-        recentSearchesFragment.onLangCodeChanged()
+        recentSearchesFragment.reloadRecentSearches()
+        recentSearchesFragment.reloadRecommendedContent(WikiSite.forLanguageCode(searchLanguageCode))
         startSearch(query, false)
     }
 

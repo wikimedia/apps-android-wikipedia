@@ -126,6 +126,7 @@
   <string name="menu_page_recently_viewed">近期檢視</string>
   <string name="menu_page_archive">存檔</string>
   <string name="menu_long_press_open_page">開啟</string>
+  <string name="menu_long_press_open_in_places">在地點開啟</string>
   <string name="menu_long_press_open_in_new_tab">在新分頁中開啟</string>
   <string name="menu_long_press_copy_page">複製連結位址</string>
   <string name="menu_text_select_define">定義</string>
@@ -856,6 +857,7 @@
   <string name="feed_item_type_main_page">帶有每日特色內容的維基百科首頁</string>
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
   <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
+  <string name="feed_item_type_places">基於目前位置附近的相關條目</string>
   <string name="feed_empty_message">您的探索摘要內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
   <string name="customize_lang_selection_dialog_ok_button_text">確認</string>
@@ -1692,4 +1694,11 @@
   <string name="places_survey_dialog_cancel">取消</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我們改變或改善什麼？</string>
   <string name="places_empty_list">該區域是空的。請在&lt;a href=\"#\"&gt;在地圖上&lt;/a&gt;縮小。</string>
+  <string name="places_card_title">附近地點</string>
+  <string name="places_card_action">更多的附近地點</string>
+  <string name="places_card_enable_location_card_message">地點是一種基於地圖來探索維基百科的方式</string>
+  <string name="places_card_enable_location_card_button">啟用位置</string>
+  <string name="places_card_distance_suffix">距離 %s</string>
+  <string name="places_card_distance_unknown">未知距離</string>
+  <string name="places_empty_message_snackbar">附近沒有條目。請嘗試縮小並移動地圖。</string>
 </resources>

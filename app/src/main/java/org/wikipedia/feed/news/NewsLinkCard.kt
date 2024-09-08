@@ -8,7 +8,6 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
 
 class NewsLinkCard(private val page: PageSummary, private val wiki: WikiSite) : Card() {
 
