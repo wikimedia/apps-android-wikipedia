@@ -250,7 +250,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             binding.replySubjectLayout.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName.orEmpty(), viewModel.pageTitle)
+            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName, viewModel.pageTitle)
             binding.talkScrollContainer.post {
                 if (!isDestroyed) {
                     binding.replyInputView.editText.requestFocus()
@@ -459,7 +459,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private fun getWikitextBody(): String {
         return binding.replyInputView.editText.text.toString().trim()
             .replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
-            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
+            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName)
             .replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
     }
 

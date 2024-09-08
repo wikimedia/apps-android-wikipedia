@@ -101,6 +101,7 @@
   <string name="menu_page_recently_viewed">Son vaxtlarda baxıldı</string>
   <string name="menu_page_archive">Arxiv</string>
   <string name="menu_long_press_open_page">Aç</string>
+  <string name="menu_long_press_open_in_places">Yerlərdə açın</string>
   <string name="menu_long_press_open_in_new_tab">Səhifəni yeni pəncərədə aç</string>
   <string name="menu_long_press_copy_page">Səhifənin ünvanını kopyala</string>
   <string name="menu_text_select_define">Dəqiqləşdirmək</string>
@@ -425,9 +426,24 @@
   <string name="theme_chooser_menu_item_short_tooltip">Alətlər panelinizi fərdiləşdirin</string>
   <string name="error_blocked_footer_no_blocker">Digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
   <string name="temp_account_not_logged_in">Siz daxil olmamısınız</string>
+  <string name="temp_account_anon_dialog_body">Redaktə etdikdən sonra məxfiliyinizi qorumaq üçün sizin üçün &lt;b&gt;müvəqqəti hesab&lt;/b&gt; yaradılacaq. &lt;a href=\"%1$s\"&gt;Ətraflı öyrənin&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Gələcəkdə adınıza istinad verilməsi üçün və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaradın.&lt;/a&gt;</string>
+  <string name="temp_account_temp_dialog_body">Redaktəniz %1$s ilə əlaqələndiriləcək. IP ünvanınız administratorlara görünəcək.&lt;br /&gt;&lt;br /&gt; &lt; href=\"https://#login\"&gt;Daxil olsanız&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaratsanız&lt;/a&gt;, redaktələriniz digər üstünlüklərlə birlikdə seçdiyiniz ada aid ediləcək.</string>
   <string name="temp_account_dialog_ok">Başa düşdüm</string>
   <string name="temp_account_using_title">Siz müvəqqəti hesabdan istifadə edirsiniz</string>
   <string name="temp_account_dialog_discard">Dəyişiklikləri ləğv edin və daxil olun</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">%1$s müvəqqəti hesabı redaktəniz dərc edildikdən sonra yaradılıb. Onun müddəti %2$d günə bitəcək.</item>
+    <item quantity="other">%1$s müvəqqəti hesabı redaktəniz dərc edildikdən sonra yaradılıb. Onun müddəti %2$d günə bitəcək</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Hesabın müddəti %d günə bitəcək.</item>
+    <item quantity="other">Hesabın müddəti %d günə bitəcək.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Siz daxil olmamısınız.&lt;/b&gt; Redaktə etdikdən sonra məxfiliyinizi qorumaq üçün sizin üçün müvəqqəti hesab yaradılacaq. &lt;a href=\"%1$s\"&gt;Daha ətraflı&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Siz müvəqqəti hesabdan istifadə edirsiniz.&lt;/b&gt; Redaktəniz %1$s ilə əlaqələndiriləcək. &lt;a href=\"%2$s\"&gt;Daha ətraflı&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Hazırda müvəqqəti hesabdan istifadə edirsiniz.&lt;/b&gt; Siz daxil olduğunuz zaman %1$s müvəqqəti hesabı ilə edilən redaktələr daimi hesabınıza köçürülməyəcək. Digər üstünlüklər ilə birlikdə istifadəçi adınıza istinad edilməsi üçün daxil olun və ya hesab yaradın.</string>
+  <string name="temp_account_end_session">Sessiyanı bitir</string>
+  <string name="temp_account_end_session_confirm">Bu sizi müvəqqəti hesabınızdan çıxaracaq. Davam etmək istəyirsiniz?</string>
   <string name="crash_report_activity_title">Tətbiq xətası</string>
   <string name="crash_report_relaunch_or_quit">Üzr istəyirik, Vikipediya applikasiyası bir xəta ilə üzləşib və dayandırılıb.\n\nYenidən başlamaq və ya çıxmaq istəyirsiniz?</string>
   <string name="crash_report_relaunch">Yenidən başla</string>
@@ -527,19 +543,84 @@
     <item quantity="other">%d siyahı silindi</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">Defolt siyahı (%s) silinə bilməz</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s silindi. Defolt siyahı (%2$s) silinə bilməz.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Siyahılar silindi. Defolt siyahı (%s) silinə bilməz.</string>
+  <string name="single_list_json_file_name">%s (Vikipediya oxuma siyahısı).json</string>
+  <string name="multiple_lists_json_file_name">Vikipediya oxuma siyahıları (%s və daha çox).json</string>
+  <string name="reading_list_items_deleted">%d məqalə siyahıdan silindi</string>
+  <string name="reading_lists_item_deleted">%s siyahılardan silindi</string>
   <string name="reading_list_item_delete_undo">Geri qaytar</string>
+  <string name="reading_list_deleted">%s silindi</string>
+  <string name="saved_list_empty_title">Hələ yadda saxlanmış səhifə yoxdur</string>
+  <string name="reading_lists_empty_message">Hətta oflayn olsanız belə, daha sonra oxumaq üçün məqalələri siyahıya əlavə edin.</string>
+  <string name="reading_list_empty">Bu siyahıya əlavə edilmiş məqaləniz yoxdur.</string>
+  <string name="reading_list_article_offline">Oflayn mövcuddur</string>
+  <string name="reading_list_article_make_offline">Bu məqaləni oflayn rejimdə əlçatan edin</string>
+  <string name="reading_list_add_to_other_list">Digər oxuma siyahısına əlavə edin</string>
+  <string name="reading_list_move_to_other_list">Digər oxuma siyahısına köçürün</string>
+  <string name="reading_list_move_from_to_other_list">%s siyahısından digər oxuma siyahısına köçürün</string>
+  <string name="reading_list_remove_from_list">%s siyahısından silin</string>
+  <string name="reading_list_remove_from_lists">Oxuma siyahılarından silin</string>
   <string name="reading_list_select_item">Seç</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Oflayndan sil</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Məqalə bir neçə siyahıda görünür</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s artıq bütün oxuma siyahıları üçün oflayn olaraq əlçatan olmayacaq:</string>
+  <string name="reading_lists_sync_reminder_title">Oxuma siyahısı sinxronizasiyası aktiv edilsin?</string>
+  <string name="reading_lists_sync_reminder_text">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Sinxronizasiyanı aktivləşdir</string>
+  <string name="reading_list_login_reminder_title">Oxuma siyahılarını sinxronlaşdır</string>
+  <string name="reading_lists_login_reminder_text">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin.</string>
+  <string name="reading_lists_login_button">Daxil ol / Vikipediyaya qoşul</string>
   <string name="reading_lists_ignore_button">İndi yox</string>
   <string name="reading_lists_confirm_remote_delete_yes">Bəli</string>
   <string name="reading_lists_confirm_remote_delete_no">Xeyr</string>
+  <string name="reading_list_article_save_in_progress">Məqalə endirilir və tamamlandıqdan sonra oflayn rejimdə əlçatan olacaq.</string>
+  <string name="reading_list_articles_added_to_named">%1$d məqalə %2$s siyahısına əlavə edildi</string>
+  <string name="reading_list_articles_moved_to_named">%1$d məqalə %2$s siyahısına köçürüldü</string>
+  <string name="reading_list_delete_confirm">%s siyahısını silmək istədiyinizə əminsiniz?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Seçilmiş siyahı(lar) silinsin?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">%d siyahını silmək istədiyinizə əminsiniz?</item>
+    <item quantity="other">%d siyahını silmək istədiyinizə əminsiniz?</item>
+  </plurals>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Sinxronizasiyanı aktivləşdirmək üçün daxil olun</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Oxuma siyahılarınızın hesabınızda saxlanmasına icazə vermək üçün daxil olun.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">İmtina</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Daxil ol</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Oxuma siyahısı sinxronizasiyası söndürülüb</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Oxuma siyahısının sinxronizasiyası hesabınız üçün deaktivdir və daxil olduğunuz cihazlarda saxlanmış məqalələr artıq yedəklənmir. Parametrlərdə oxuma siyahısının sinxronizasiyasını aktiv edin.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Nizamlamalar</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Oxuma siyahısı sinxronizasiyası aktiv edilsin?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"#faq\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Bunu mənə bir daha göstərmə</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinxronizasiyanı aktivləşdir</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Yox, təşəkkür</string>
   <string name="default_reading_list_name">Saxlanıldı</string>
   <string name="default_reading_list_description">Saxlanan məqalələriniz üçün standart siyahı</string>
+  <string name="no_user_lists_title">Məqalələri siyahılar şəklində təşkil edin</string>
+  <string name="no_user_lists_msg">Səyahət etmək üçün yerlər, sevimli mövzular və sair üçün siyahılar yaradın</string>
+  <string name="reading_list_saved_list_rename">%1$s (istifadəçi yaratdı)</string>
+  <string name="split_reading_list_message">Hər oxuma siyahısında %d məqalə limiti var. Bu limitdən çox olan mövcud siyahılar bir neçə siyahıya bölünüb.</string>
+  <string name="reading_list_move_article_limit_message">Bu siyahıya köçürmək mümkün deyil. Siz \"%1$s\" üçün %2$d olan məqalə limitinə çatdınız.</string>
+  <string name="reading_list_article_limit_message">Bu siyahıya əlavə etmək mümkün deyil. Siz \"%1$s\" üçün %2$d olan məqalə limitinə çatdınız.</string>
+  <string name="reading_lists_limit_message">Başqa siyahı yaratmaq mümkün deyil. Hər hesab üçün 100 olan oxuma siyahısı limitinə çatmısınız.</string>
   <string name="reading_lists_menu_create_list">Yeni siyahı yarat</string>
+  <string name="reading_lists_menu_import_list">Siyahını idxal et</string>
+  <string name="reading_lists_menu_sort_by">Çeşidlə</string>
+  <string name="reading_lists_refresh_sync_option">Sinxronizasiyanı yenilə</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Daxil olun / qeydiyyatdan keç</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Bu məqalə indi oflayn olaraq əlçatan olacaq.</item>
+    <item quantity="other">Bu məqalələr indi oflayn rejimdə mövcud olacaq.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Bu məqalə artıq oflayn mövcud olmayacaq.</item>
+    <item quantity="other">Bu məqalələr artıq oflayn mövcud olmayacaq.</item>
+  </plurals>
+  <string name="reading_list_toast_last_sync">Oxuma siyahıları sinxronlaşdırıldı</string>
+  <string name="reading_list_menu_last_sync">Son sinxronizasiya: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">İmtina</string>
@@ -547,6 +628,16 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">İmtina</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">İmtina</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Sil</string>
+  <string name="reading_list_activity_title">Oxuma siyahısı: %s</string>
+  <string name="reading_list_notification_title">Oxu siyahı(lar)ı ixrac edildi</string>
+  <string name="reading_list_notification_text">%d oxu siyahısı endirmələr qovluğuna \'reading_lists export.json\' olaraq ixrac edilib</string>
+  <string name="reading_list_notification_detailed_text">Oxuma siyahıları \'reading_lists_export.json\' faylı olaraq ixrac edilib</string>
+  <string name="reading_lists_action_menu_export_lists">İxrac</string>
+  <string name="reading_lists_import_file_picker_title">İdxal etmək üçün faylı seçin</string>
+  <string name="reading_lists_import_failure_message">Oxuma siyahılarının idxalı alınmadı</string>
+  <string name="reading_lists_export_select_lists_message">İxrac ediləcək siyahı(lar)ı seçin</string>
+  <string name="reading_lists_export_completed_message">Oxuma siyahı(lar)ı ixrac edildi</string>
   <string name="notification_syncing_cancel_button">İmtina</string>
   <string name="notifications_activity_title">Bildirişlər</string>
   <string name="notifications_poll_enable_negative">İndi yox</string>
@@ -643,7 +734,7 @@
   <string name="main_drawer_help">Kömək</string>
   <string name="talk_title">Müzakirə</string>
   <string name="talk_user_title">Müzakirə: %s</string>
-  <string name="talk_new_topic">Yeni mövzü</string>
+  <string name="talk_new_topic">Yeni mövzu</string>
   <string name="talk_new_topic_submitted">Mövzu yaradıldı.</string>
   <string name="talk_warn">Xəbərdarlıq</string>
   <string name="talk_warn_save_dialog_title">Dəyişikliklər yadda saxlansın?</string>

@@ -46,14 +46,14 @@ class GalleryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _descriptionState.value = Resource.Error(throwable)
         }) {
             val firstEntity = async { ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(pageTitle.prefixedText, Constants.COMMONS_DB_NAME).first }
-            val protectionInfoResponse = async { ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfoSuspend(pageTitle.prefixedText) }
+            val protectionInfoResponse = async { ServiceFactory.get(Constants.commonsWikiSite).getProtectionWithUserInfo(pageTitle.prefixedText) }
             val isProtected = protectionInfoResponse.await().query?.isEditProtected == true
             _descriptionState.value = Resource.Success(isProtected to firstEntity.await())
         }
     }
 
     fun getCaptions(entity: Entities.Entity?): Map<String, String> {
-        return entity?.labels?.values?.associate { it.language to it.value }.orEmpty()
+        return entity?.getLabels()?.values?.associate { it.language to it.value }.orEmpty()
     }
 
     fun getDepicts(entity: Entities.Entity?): List<String> {

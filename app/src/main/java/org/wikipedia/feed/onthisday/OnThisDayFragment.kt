@@ -224,16 +224,16 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
 
         private fun setPagesViewPager(event: OnThisDay.Event) {
-            event.pages()?.let {
-                otdEventLayout.pagesPager.adapter = ViewPagerAdapter(it, wiki)
-                otdEventLayout.pagesPager.offscreenPageLimit = 2
-                TabLayoutMediator(otdEventLayout.pagesIndicator, otdEventLayout.pagesPager) { _, _ -> }.attach()
-                otdEventLayout.pagesPager.visibility = View.VISIBLE
-                otdEventLayout.pagesIndicator.visibility = if (it.size == 1) View.GONE else View.VISIBLE
-            } ?: run {
+            if (event.pages.isEmpty()) {
                 otdEventLayout.pagesPager.visibility = View.GONE
                 otdEventLayout.pagesIndicator.visibility = View.GONE
+                return
             }
+            otdEventLayout.pagesPager.adapter = ViewPagerAdapter(event.pages, wiki)
+            otdEventLayout.pagesPager.offscreenPageLimit = 2
+            TabLayoutMediator(otdEventLayout.pagesIndicator, otdEventLayout.pagesPager) { _, _ -> }.attach()
+            otdEventLayout.pagesPager.visibility = View.VISIBLE
+            otdEventLayout.pagesIndicator.visibility = if (event.pages.size == 1) View.GONE else View.VISIBLE
         }
 
         fun animateRadioButton() {

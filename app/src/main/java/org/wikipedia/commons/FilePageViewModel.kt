@@ -79,7 +79,7 @@ class FilePageViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
                 val isEditProtected = async {
                     ServiceFactory.get(Constants.commonsWikiSite)
-                        .getProtectionInfoSuspend(pageTitle.prefixedText).query?.isEditProtected
+                        .getProtectionWithUserInfo(pageTitle.prefixedText).query?.isEditProtected
                         ?: false
                 }
 
