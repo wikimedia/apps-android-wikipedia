@@ -146,11 +146,7 @@
     <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
     <string name="preference_key_donation_banner_opt_in">donationBannerOptIn</string>
     <string name="preference_key_reading_lists_share_url_shorten">useUrlShortenerForSharing</string>
-    <string name="preference_key_reading_lists_share_survey_dialog_shown">readingListShareSurveyDialogShown</string>
-    <string name="preference_key_reading_lists_share_survey_mode">readingListShareSurveyMode</string>
     <string name="preference_key_reading_lists_share_tooltip_shown">readingListShareTooltipShown</string>
-    <string name="preference_key_reading_lists_receive_survey_dialog_shown">readingListReceiveSurveyDialogShown</string>
-    <string name="preference_key_reading_lists_receive_survey_mode">readingListReceiveSurveyMode</string>
     <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
     <string name="preference_key_se_machine_generated_descriptions_tooltip_shown">seMachineGeneratedDescriptionsTooltipShown</string>
     <string name="preference_key_se_image_recs_onboarding_shown">seImageRecsOnboardingShown</string>
@@ -170,4 +166,5 @@
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
+    <string name="preference_key_recommended_content_survey_shown">recommendedContentSurveyShown</string>
 </resources>

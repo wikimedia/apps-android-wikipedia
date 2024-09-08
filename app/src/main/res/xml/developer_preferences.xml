@@ -425,37 +425,18 @@
 
     <PreferenceCategory android:title="Tests and surveys">
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_notificationIcons"
-            android:title="Test group for in-app Notification icons (0, 1, or 2)" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_reading_lists_share_survey_mode"
-            android:title="Reading list sharing survey mode (0=inactive, 1=active, 2=override)" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_reading_lists_receive_survey_mode"
-            android:title="Reading list receiving survey mode (0=inactive, 1=active, 2=override)" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_reading_lists_share_survey_dialog_shown"
-            android:title="readingListShareSurveyDialogShown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_reading_lists_receive_survey_dialog_shown"
-            android:title="readingListReceiveSurveyDialogShown" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_mBART25"
-            android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
-
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_donation_test_env"
             android:title="Donation test environment" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_recommendedContent"
+            android:title="Test group for Recommended Content \n(0=only recent searches, 1=generalized, 2=personalized)" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recommended_content_survey_shown"
+            android:title="@string/preference_key_recommended_content_survey_shown" />
 
     </PreferenceCategory>
 

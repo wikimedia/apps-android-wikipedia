@@ -111,6 +111,7 @@
   <string name="menu_page_recently_viewed">Senest vist</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Åbn</string>
+  <string name="menu_long_press_open_in_places">Åben på Steder</string>
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier link-adresse</string>
   <string name="menu_text_select_define">Definer</string>
@@ -840,6 +841,7 @@
   <string name="feed_item_type_main_page">Hovedside på Wikipedia med dagens anbefalet indhold</string>
   <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
   <string name="feed_item_type_suggested_edits">Forslag om at tilføje indhold til Wikipedia</string>
+  <string name="feed_item_type_places">Nærliggende artikler baseret på den aktuelle placering</string>
   <string name="feed_empty_message">Der er intet i dit Udforsk-feed</string>
   <string name="feed_configure_onboarding_action">Tilpas</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>

@@ -8,7 +8,8 @@ import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
-import java.util.*
+import java.util.Calendar
+import java.util.Random
 import java.util.concurrent.TimeUnit
 
 class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int) : WikiSiteCard(wiki) {
@@ -58,7 +59,7 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
         return date
     }
 
-    fun pages(): List<PageSummary>? {
-        return eventShownOnCard.pages()
+    fun pages(): List<PageSummary> {
+        return eventShownOnCard.pages
     }
 }
