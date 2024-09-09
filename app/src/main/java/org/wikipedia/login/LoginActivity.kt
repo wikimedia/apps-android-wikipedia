@@ -247,6 +247,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_READING_MANUAL_SYNC = "reading_lists_manual_sync"
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
+        const val SOURCE_TALK = "talk"
 
         fun newIntent(context: Context, source: String): Intent {
             return Intent(context, LoginActivity::class.java)

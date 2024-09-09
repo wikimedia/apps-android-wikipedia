@@ -521,7 +521,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun maybeShowTempAccountDialog(force: Boolean = false): Boolean {
         if (force || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
-            MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
+            val dialog = MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
                 .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
                 .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
                 .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName) else getString(R.string.temp_account_anon_dialog_body)))
@@ -530,10 +530,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 }
                 .setNegativeButton(getString(R.string.create_account_login)) { dialog, _ ->
                     dialog.dismiss()
-                    val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
-                    requestLogin.launch(loginIntent)
+                    requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_TALK))
                 }
                 .show()
+            dialog.window?.let {
+                it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { _ ->
+                    requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_TALK))
+                    dialog.dismiss()
+                }
+            }
             Prefs.tempAccountDialogShown = true
             return true
         }

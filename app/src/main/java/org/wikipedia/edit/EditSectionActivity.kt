@@ -117,6 +117,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
+            invalidateOptionsMenu()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         }
     }
@@ -817,26 +818,40 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         }
     }
 
-    private fun maybeShowTempAccountDialog(force: Boolean = false): Boolean {
-        if (force || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
-            MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
+    private fun maybeShowTempAccountDialog(fromToolbar: Boolean = false): Boolean {
+        if (fromToolbar || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
+            val dialog = MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
                 .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
                 .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
                 .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
                 else getString(R.string.temp_account_anon_dialog_body)))
-                .setPositiveButton(getString(R.string.temp_account_dialog_ok)) { dialog, _ ->
+                .setPositiveButton(getString(if (fromToolbar) R.string.temp_account_dialog_ok else R.string.create_account_button)) { dialog, _ ->
                     dialog.dismiss()
+                    if (!fromToolbar) {
+                        launchLogin()
+                    }
                 }
-                .setNegativeButton(getString(R.string.create_account_login)) { dialog, _ ->
+                .setNegativeButton(getString(if (fromToolbar) R.string.create_account_login else R.string.temp_account_dialog_ok)) { dialog, _ ->
                     dialog.dismiss()
-                    val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
-                    requestLogin.launch(loginIntent)
+                    if (fromToolbar) {
+                        launchLogin()
+                    }
                 }
                 .show()
+            dialog.window?.let {
+                it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { _ ->
+                    launchLogin()
+                    dialog.dismiss()
+                }
+            }
             Prefs.tempAccountDialogShown = true
             return true
         }
         return false
+    }
+
+    private fun launchLogin() {
+        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT))
     }
 
     private fun startInsertImageFlow() {
