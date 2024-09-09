@@ -4,6 +4,8 @@ import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
@@ -29,19 +31,26 @@ class RandomClient(
             }
         ) {
             val list = mutableListOf<RandomCard>()
-            WikipediaApp.instance.languageState.appLanguageCodes.filter { !FeedContentType.RANDOM.langCodesDisabled.contains(it) }.forEach { lang ->
-                val wikiSite = WikiSite.forLanguageCode(lang)
-                val randomSummary = try {
-                    ServiceFactory.getRest(wikiSite).getRandomSummary()
-                } catch (e: Exception) {
-                    AppDatabase.instance.readingListPageDao().getRandomPage(lang)?.let {
-                        ReadingListPage.toPageSummary(it)
+            val deferredSummaries = WikipediaApp.instance.languageState.appLanguageCodes
+                .filter { !FeedContentType.RANDOM.langCodesDisabled.contains(it) }
+                .map { lang ->
+                    async {
+                        val wikiSite = WikiSite.forLanguageCode(lang)
+                        val randomSummary = try {
+                            ServiceFactory.getRest(wikiSite).getRandomSummary()
+                        } catch (e: Exception) {
+                            AppDatabase.instance.readingListPageDao().getRandomPage(lang)?.let {
+                                ReadingListPage.toPageSummary(it)
+                            }
+                        }
+                        randomSummary?.let {
+                            RandomCard(it, age, wikiSite)
+                        }
                     }
                 }
-                randomSummary?.let {
-                    list.add(RandomCard(it, age, wikiSite))
-                }
-            }
+
+            val randomCards = deferredSummaries.awaitAll().filterNotNull()
+            list.addAll(randomCards)
             cb.success(list)
         }
     }
