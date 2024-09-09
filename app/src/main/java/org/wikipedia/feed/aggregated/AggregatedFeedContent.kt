@@ -15,4 +15,6 @@ class AggregatedFeedContent(
     @SerialName("mostread") val topRead: TopRead? = null,
     @SerialName("image") val potd: FeaturedImage? = null,
     val onthisday: List<OnThisDay.Event>? = null
-)
+) {
+    var randomOnThisDay: OnThisDay.Event? = null
+}

@@ -9,23 +9,12 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 import java.util.Calendar
-import java.util.Random
 import java.util.concurrent.TimeUnit
 
-class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int) : WikiSiteCard(wiki) {
-    private val nextYear: Int
+class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : WikiSiteCard(wiki) {
     private val date: Calendar = DateUtil.getDefaultDateFor(age)
-    private val eventShownOnCard: OnThisDay.Event
     var callback: FeedAdapter.Callback? = null
 
-    init {
-        var randomIndex = 0
-        if (events.size > 1) {
-            randomIndex = Random().nextInt(events.size - 1)
-        }
-        eventShownOnCard = events[randomIndex]
-        nextYear = events.getOrElse(randomIndex + 1) { eventShownOnCard }.year
-    }
 
     override fun type(): CardType {
         return CardType.ON_THIS_DAY
@@ -48,11 +37,11 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
     }
 
     fun text(): CharSequence {
-        return eventShownOnCard.text
+        return event.text
     }
 
     fun year(): Int {
-        return eventShownOnCard.year
+        return event.year
     }
 
     fun date(): Calendar {
@@ -60,6 +49,6 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
     }
 
     fun pages(): List<PageSummary> {
-        return eventShownOnCard.pages
+        return event.pages
     }
 }
