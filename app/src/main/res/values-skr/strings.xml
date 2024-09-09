@@ -710,4 +710,5 @@
   <string name="places_card_title">نیڑے جاہیں</string>
   <string name="places_card_action">نیڑے دیاں ٻیاں جاہیں</string>
   <string name="places_card_distance_unknown">نامعلوم فاصلہ</string>
+  <string name="recommended_content_survey_dialog_input_hint">وادھوں فیڈبیک</string>
 </resources>
