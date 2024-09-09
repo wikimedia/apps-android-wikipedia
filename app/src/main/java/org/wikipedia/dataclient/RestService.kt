@@ -61,13 +61,6 @@ interface RestService {
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
-    fun getSummary(
-        @Header("Referer") referrerUrl: String?,
-        @Path("title") title: String
-    ): Observable<PageSummary>
-
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
     suspend fun getPageSummary(
         @Header("Referer") referrerUrl: String?,
         @Path("title") title: String
