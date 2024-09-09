@@ -1701,4 +1701,9 @@
   <string name="places_card_distance_suffix">距離 %s</string>
   <string name="places_card_distance_unknown">未知距離</string>
   <string name="places_empty_message_snackbar">附近沒有條目。請嘗試縮小並移動地圖。</string>
+  <string name="recommended_content_section_you_might_like">您可能會喜歡</string>
+  <string name="recommended_content_survey_dialog_title">協助改善推薦內容。</string>
+  <string name="recommended_content_survey_dialog_message">您對這個推薦搜尋結果滿意嗎？</string>
+  <string name="recommended_content_survey_dialog_input_hint">額外回饋</string>
+  <string name="recommended_content_survey_dialog_submitted_message">已提交回饋。感謝您！</string>
 </resources>

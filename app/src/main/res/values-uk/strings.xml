@@ -1786,4 +1786,9 @@
   <string name="places_card_distance_suffix">%s звідси</string>
   <string name="places_card_distance_unknown">Невідома відстань</string>
   <string name="places_empty_message_snackbar">Немає статей поблизу. Спробуйте зменшити масштаб і перемістити карту.</string>
+  <string name="recommended_content_section_you_might_like">Вам може сподобатися</string>
+  <string name="recommended_content_survey_dialog_title">Допоможіть покращити рекомендований вміст.</string>
+  <string name="recommended_content_survey_dialog_message">Ви задоволені цим рекомендованим результатом пошуку?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Додатковий відгук</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Відгук надіслано. Дякуємо!</string>
 </resources>
