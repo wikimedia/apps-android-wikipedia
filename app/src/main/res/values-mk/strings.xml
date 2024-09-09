@@ -1672,4 +1672,9 @@
   <string name="places_card_distance_suffix">на %s од вас</string>
   <string name="places_card_distance_unknown">Непозната оддалеченост</string>
   <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
+  <string name="recommended_content_section_you_might_like">Можеби ќе ви се допадне</string>
+  <string name="recommended_content_survey_dialog_title">Помогнете ни да ја подобриме препорачаната содржина.</string>
+  <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Дополнително мислење</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
 </resources>
