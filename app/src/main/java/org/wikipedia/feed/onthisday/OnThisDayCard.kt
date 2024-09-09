@@ -15,7 +15,6 @@ class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : 
     private val date: Calendar = DateUtil.getDefaultDateFor(age)
     var callback: FeedAdapter.Callback? = null
 
-
     override fun type(): CardType {
         return CardType.ON_THIS_DAY
     }
