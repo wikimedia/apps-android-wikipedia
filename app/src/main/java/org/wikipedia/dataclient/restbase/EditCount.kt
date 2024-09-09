@@ -11,6 +11,7 @@ class EditCount {
 
     companion object {
         const val EDIT_TYPE_ANONYMOUS = "anonymous"
+        const val EDIT_TYPE_TEMPORARY = "temporary"
         const val EDIT_TYPE_BOT = "bot"
         const val EDIT_TYPE_EDITORS = "editors"
         const val EDIT_TYPE_EDITS = "edits"
