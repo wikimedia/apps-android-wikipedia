@@ -129,7 +129,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_anonymous_ooui"
+                    android:src="@drawable/ic_temp_account"
                     android:contentDescription="@null"
                     app:tint="?android:attr/textColorTertiary"/>
 

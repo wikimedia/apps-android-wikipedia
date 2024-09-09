@@ -55,7 +55,7 @@
     <string name="page_edit_history_filter_by">Filter by</string>
     <string name="page_edit_history_filter_by_all">All edits (%s)</string>
     <string name="page_edit_history_filter_by_user">User edits (%s)</string>
-    <string name="page_edit_history_filter_by_anon">Anon edits (%s)</string>
+    <string name="page_edit_history_filter_by_anon">Unregistered edits (%s)</string>
     <string name="page_edit_history_filter_by_bot">Bot edits (%s)</string>
     <string name="page_edit_history_metrics_content_description">Metrics from %1$s to %2$s</string>
     <plurals name="page_edit_history_article_edits_since_year">

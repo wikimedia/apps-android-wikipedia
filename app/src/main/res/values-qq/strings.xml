@@ -90,7 +90,7 @@
   <string name="page_edit_history_filter_by">Menu header for the overflow menu when clicking on the filter icon in the search bar in edit history.</string>
   <string name="page_edit_history_filter_by_all">Menu item text for the filter overflow menu to show all edits in edit history. %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_filter_by_user">Menu item text for the filter overflow menu to show user edits in edit history. %s will be replaced by the number of edits.</string>
-  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show anonymous in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show unregistered edits in edit history (anonymous or temporary accounts). %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_filter_by_bot">Menu item text for the filter overflow menu to show bot edits in edit history. %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
   <plurals name="page_edit_history_article_edits_since_year">
