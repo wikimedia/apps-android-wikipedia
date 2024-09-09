@@ -14,6 +14,7 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.offline.OfflineCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.places.PlacesFeedClient
 import org.wikipedia.feed.progress.ProgressCard
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
 import org.wikipedia.feed.topread.TopReadListCard
@@ -101,6 +102,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 FeedContentType.MAIN_PAGE.isEnabled = false
                 FeedContentType.saveState()
             }
+            card.type() == CardType.PLACES -> {
+                FeedContentType.PLACES.isEnabled = false
+                FeedContentType.saveState()
+            }
             else -> {
                 addHiddenCard(card)
             }
@@ -118,6 +123,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
             }
             card.type() === CardType.MAIN_PAGE -> {
                 FeedContentType.MAIN_PAGE.isEnabled = true
+                FeedContentType.saveState()
+            }
+            card.type() == CardType.PLACES -> {
+                FeedContentType.PLACES.isEnabled = true
                 FeedContentType.saveState()
             }
             else -> unHideCard(card)
@@ -266,6 +275,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         return pendingClient is SuggestedEditsFeedClient ||
                 pendingClient is AnnouncementClient ||
                 pendingClient is BecauseYouReadClient ||
+                pendingClient is PlacesFeedClient ||
                 pendingClient == null
     }
 

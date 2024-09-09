@@ -91,7 +91,7 @@ object CsrfTokenClient {
                         // TODO: convert this with coroutines
                         Completable.fromAction {
                             runBlocking {
-                                LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
+                                LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
                             }
                         }.subscribeOn(Schedulers.io())
                             .blockingSubscribe({ }) {

@@ -81,8 +81,8 @@
     <string name="preference_key_show_reading_lists_sync_prompt">showReadingListsSyncPrompt</string>
     <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSyncV2</string>
     <string name="preference_key_about_wikipedia_app">aboutWikipediaApp</string>
+    <string name="preference_key_send_feedback">sendFeedback</string>
     <string name="preference_key_logout">logOut</string>
-    <string name="preference_key_show_remove_chinese_variant_prompt">showRemoveChineseVariantPrompt</string>
     <string name="preference_key_download_only_over_wifi">downloadOnlyOverWiFi</string>
     <string name="preference_key_download_reading_list_articles">downloadReadingListArticles</string>
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
@@ -144,15 +144,11 @@
     <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
     <string name="preference_key_edit_line_numbers">editLineNumbers</string>
     <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
+    <string name="preference_key_donation_banner_opt_in">donationBannerOptIn</string>
     <string name="preference_key_reading_lists_share_url_shorten">useUrlShortenerForSharing</string>
-    <string name="preference_key_reading_lists_share_survey_dialog_shown">readingListShareSurveyDialogShown</string>
-    <string name="preference_key_reading_lists_share_survey_mode">readingListShareSurveyMode</string>
     <string name="preference_key_reading_lists_share_tooltip_shown">readingListShareTooltipShown</string>
-    <string name="preference_key_reading_lists_receive_survey_dialog_shown">readingListReceiveSurveyDialogShown</string>
-    <string name="preference_key_reading_lists_receive_survey_mode">readingListReceiveSurveyMode</string>
     <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
     <string name="preference_key_se_machine_generated_descriptions_tooltip_shown">seMachineGeneratedDescriptionsTooltipShown</string>
-    <string name="preference_key_se_machine_generated_descriptions_is_experienced">seMachineGeneratedDescriptionsIsExperienced</string>
     <string name="preference_key_se_image_recs_onboarding_shown">seImageRecsOnboardingShown</string>
     <string name="preference_key_excluded_wiki_codes_watchlist">filterWatchlistExcludedWikiCodes</string>
     <string name="preference_key_included_type_codes_watchlist">filterWatchlistIncludedTypeCodesV2</string>
@@ -169,4 +165,6 @@
     <string name="preference_key_payment_methods_last_query_time">paymentMethodsLastQueryTime</string>
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
+    <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
+    <string name="preference_key_recommended_content_survey_shown">recommendedContentSurveyShown</string>
 </resources>

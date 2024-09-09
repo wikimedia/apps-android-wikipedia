@@ -646,7 +646,7 @@
   <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir as descricións</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Grazas polo seu contínuo interés en editar descricións de artigosǃ Para facer edicións adicionais, por favor, comece sesión na súa conta de Wikipedia.</string>
+  <string name="description_edit_anon_limit">Grazas polo seu continuo interese en editar descricións de artigosǃ Para facer edicións adicionais, por favor, inicie sesión na súa conta da Wikipedia.</string>
   <string name="description_edit_license_notice">Ao cambiar a descrición do artigo, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalmente comeza cunha letra minúscula</string>
   <string name="description_edit_voice_input_description">Entrada de voz</string>
@@ -803,10 +803,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Manteña polo menos unha lingua de Wikipedia na que procurar e ler contido.</string>
   <string name="more_language_options">máis</string>
   <string name="add_wikipedia_languages_text">Engadir linguas de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Quere quitar unha variante do chinés das linguas da aplicación?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora ten definidos tanto o chinés tradicional como o simplificado nas linguas da aplicación. Quere actualizar a configuración das linguas?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar linguas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazas</string>
   <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

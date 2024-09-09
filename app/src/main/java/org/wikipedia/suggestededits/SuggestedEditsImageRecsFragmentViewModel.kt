@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.FormBody
 import okhttp3.Request
-import okhttp3.Response
 import org.wikipedia.Constants
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.csrf.CsrfTokenClient
@@ -86,7 +85,6 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
 
             if (insertResult.second) {
                 withContext(Dispatchers.IO) {
-                    var response: Response? = null
                     try {
                         val body = FormBody.Builder()
                             .add("wikitext", insertResult.first)
@@ -97,19 +95,17 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                                 RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText))
                             .post(body)
                             .build()
-                        response = OkHttpConnectionFactory.client.newCall(request).execute()
+                        OkHttpConnectionFactory.client.newCall(request).execute().use { response ->
+                            val previewHtml = response.body?.string().orEmpty()
+                            attemptInsertInfobox = true
 
-                        val previewHtml = response.body?.string().orEmpty()
-                        attemptInsertInfobox = true
-
-                        if (previewHtml.contains("with unknown parameter", true)) {
-                            L.d("Preview contains error, so no longer inserting into infobox.")
-                            attemptInsertInfobox = false
+                            if (previewHtml.contains("with unknown parameter", true)) {
+                                L.d("Preview contains error, so no longer inserting into infobox.")
+                                attemptInsertInfobox = false
+                            }
                         }
                     } catch (e: IOException) {
                         L.e(e)
-                    } finally {
-                        response?.close()
                     }
                 }
             }

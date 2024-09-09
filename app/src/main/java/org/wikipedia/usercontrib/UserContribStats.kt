@@ -60,9 +60,8 @@ object UserContribStats {
             for ((qKey, langs) in qLangMap) {
                 if (qKey == entityKey) {
                     for (lang in langs) {
-                        val dbName = WikiSite.forLanguageCode(lang).dbName()
-                        if (entity.sitelinks.containsKey(dbName)) {
-                            langArticleMap.getOrPut(lang) { mutableListOf() }.add(entity.sitelinks[dbName]?.title!!)
+                        entity.getSiteLinks()[WikiSite.forLanguageCode(lang).dbName()]?.let {
+                            langArticleMap.getOrPut(lang) { mutableListOf() }.add(it.title)
                         }
                     }
                     break

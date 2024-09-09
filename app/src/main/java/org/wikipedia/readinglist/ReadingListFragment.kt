@@ -139,7 +139,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         super.onResume()
         updateReadingListData()
         ReadingListsAnalyticsHelper.logListShown(requireContext(), readingList?.pages?.size ?: 0)
-        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
     override fun onDestroyView() {
@@ -173,7 +172,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
         val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
         else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color)
-        menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         MenuItemCompat.setIconTintList(searchItem, iconColor)
         MenuItemCompat.setIconTintList(sortOptionsItem, iconColor)
         readingList?.let {
@@ -272,23 +270,19 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             return
         }
 
-        if (ReadingListsShareHelper.shareEnabled()) {
-            headerView.shareButton.isVisible = true
-            if (!Prefs.readingListShareTooltipShown) {
-                enqueueTooltip {
-                    FeedbackUtil.showTooltip(
-                        requireActivity(),
-                        headerView.shareButton,
-                        getString(R.string.reading_list_share_menu_tooltip),
-                        aboveOrBelow = false,
-                        autoDismiss = true,
-                        showDismissButton = true
-                    )
-                    Prefs.readingListShareTooltipShown = true
-                }
+        headerView.shareButton.isVisible = true
+        if (!Prefs.readingListShareTooltipShown) {
+            enqueueTooltip {
+                FeedbackUtil.showTooltip(
+                    requireActivity(),
+                    headerView.shareButton,
+                    getString(R.string.reading_list_share_menu_tooltip),
+                    aboveOrBelow = false,
+                    autoDismiss = true,
+                    showDismissButton = true
+                )
+                Prefs.readingListShareTooltipShown = true
             }
-        } else {
-            headerView.shareButton.isVisible = false
         }
     }
 

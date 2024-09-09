@@ -111,7 +111,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             }) {
                 lastImageTitleForCallToAction = imageTitle
                 val isProtected = ServiceFactory.get(Constants.commonsWikiSite)
-                    .getProtectionInfoSuspend(imageTitle).query?.isEditProtected ?: false
+                    .getProtectionWithUserInfo(imageTitle).query?.isEditProtected ?: false
                 if (!isProtected) {
                     val firstEntity = async {
                         ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first
@@ -119,7 +119,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     val firstImageInfo = async {
                         ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
                     }
-                    val labelMap = firstEntity.await()?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
+                    val labelMap = firstEntity.await()?.getLabels()?.values?.associate { v -> v.language to v.value }.orEmpty()
                     val depicts = ImageTagsProvider.getDepictsClaims(firstEntity.await()?.getStatements().orEmpty())
                     imagePage = firstImageInfo.await()
                     captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))

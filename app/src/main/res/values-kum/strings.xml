@@ -217,8 +217,6 @@
   <string name="wikipedia_languages_remove_text">Тилни тайдырмакъ</string>
   <string name="wikipedia_languages_remove_action_mode_title">Тилни тайдырмакъ</string>
   <string name="more_language_options">дагъы</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Тиллени тюзлемек</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ёкъ савбол</string>
   <string name="wikitext_bold">Къалын</string>
   <string name="wikitext_italic">Авункъу</string>
   <string name="wikitext_link">Байланыв</string>

@@ -151,7 +151,7 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
-    suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
+    suspend fun getProtectionWithUserInfo(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     suspend fun getSiteMatrix(): SiteMatrix
@@ -171,10 +171,10 @@ interface Service {
     suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
+    suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parseText(@Query("text") text: String): Observable<MwParseResponse>
+    suspend fun parseText(@Query("text") text: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     suspend fun parseTextForMainPage(@Query("page") mainPageTitle: String): MwParseResponse
@@ -190,9 +190,11 @@ interface Service {
         @Query("gcmcontinue") continueStr: String?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @Headers("Cache-Control: no-cache")
-    suspend fun getRandomWithImageInfo(): MwQueryResponse
+    suspend fun getRandomImages(
+        @Query("grnlimit") count: Int = 10,
+    ): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctype=edit|new")
@@ -317,10 +319,7 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     val authManagerInfo: Observable<MwQueryResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
-    val userInfo: Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
     suspend fun getUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
@@ -456,7 +455,7 @@ interface Service {
         @Field("data-ge-task-image-recommendation") imageRecommendationJson: String? = null,
     ): Edit
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights|registrationdate")
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
@@ -523,7 +522,11 @@ interface Service {
     ): Claims
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
-    suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
+    suspend fun getWikidataLabelsAndDescriptions(
+        @Query("ids") idList: String,
+        @Query("languages") languages: String? = null,
+        @Query("sitefilter") siteFilter: String? = null
+    ): Entities
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels")
     suspend fun getWikidataDescription(@Query("titles") titles: String,
@@ -574,7 +577,7 @@ interface Service {
         @Field("token") token: String,
         @Field("data") data: String?,
         @Field("summary") summary: String?,
-        @Field("tags") tags: String?
+        @Field("matags") tags: String?
     ): EntityPostResponse
 
     // ------- Watchlist -------
@@ -712,7 +715,7 @@ interface Service {
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
+    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&pilicense=any&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
     suspend fun getPagesWithImageRecommendations(
         @Query("gsrlimit") count: Int
     ): MwQueryResponse

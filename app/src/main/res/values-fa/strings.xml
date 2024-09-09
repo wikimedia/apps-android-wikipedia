@@ -140,6 +140,7 @@
   <string name="menu_page_recently_viewed">بازدیدهای اخیر</string>
   <string name="menu_page_archive">بایگانی</string>
   <string name="menu_long_press_open_page">باز کردن</string>
+  <string name="menu_long_press_open_in_places">گشودن در مکان‌ها</string>
   <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
   <string name="menu_long_press_copy_page">کپی نشانی پیوند</string>
   <string name="menu_text_select_define">معنی</string>
@@ -845,6 +846,7 @@
   <string name="feed_item_type_main_page">صفحهٔ اصلی ویکی‌پدیا با محتوای برگزیدهٔ روزانه</string>
   <string name="feed_item_type_randomizer">مقالهٔ تصادفی برای مطالعه</string>
   <string name="feed_item_type_suggested_edits">پیشنهادهایی برای افزودن محتوا به ویکی‌پدیا</string>
+  <string name="feed_item_type_places">مقاله‌های مکان‌های نزدیک بر پایهٔ موقعیت مکانی کنونی شما</string>
   <string name="feed_empty_message">در خوراک بازدیدتان چیزی وجود ندارد</string>
   <string name="feed_configure_onboarding_action">سفارشی‌سازی</string>
   <string name="customize_lang_selection_dialog_ok_button_text">تأیید</string>
@@ -1066,7 +1068,6 @@
     <item quantity="one">شما %d برچسب افزوده‌اید</item>
     <item quantity="other">شما %d برچسب افزوده‌اید</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دیروز</string>
   <string name="suggested_edits_encourage_account_creation_title">آیا می‌دانستید همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="suggested_edits_encourage_account_creation_message">ویرایش‌های پیشنهادی راه جدیدی برای ویرایش ویکی‌پدیا در اندروید هستند. این راه به شما کمک می‌کند تا مشارکت‌های کوچک اما حیاتی در ویکی‌پدیا داشته باشید.\nهدف ما این است که ویرایش برای همه ساده‌تر در دسترس‌تر باشد! برای شروع، به حساب خود وارد شوید یا حساب جدید بسازید.</string>
@@ -1188,10 +1189,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">دست‌کم یک زبان را برای جستجو و مطالعهٔ محتوای ویکی‌پدیا نگه دارید.</string>
   <string name="more_language_options">بیشتر</string>
   <string name="add_wikipedia_languages_text">افزودن زبان‌های ویکی‌پدیا</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">آیا می‌خواهید چینی از بخش زبان‌های نرم‌افزار حذف شود؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">اکنون هر دو زبان ساده و سنتی چینی در نرم‌افزار شما فعال شده است. تنظیمات زبان نرم‌افزار روزآمد شود؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ویرایش زبان‌ها</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نه ممنون</string>
   <string name="remove_language_dialog_cancel_button_text">لغو</string>
   <string name="remove_language_dialog_ok_button_text">تأیید</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">تأیید</string>
@@ -1575,4 +1572,11 @@
   <string name="places_toggle_buttons_map">نقشه</string>
   <string name="places_toggle_buttons_list">فهرست</string>
   <string name="places_survey_dialog_cancel">لغو</string>
+  <string name="places_card_title">مکان‌های نزدیک</string>
+  <string name="places_card_action">مکان‌های نزدیک بیشتر</string>
+  <string name="places_card_enable_location_card_message">مکان‌ها یک روش مبتنی بر نقشه برای گشت و گذار در ویکی‌پدیا است</string>
+  <string name="places_card_enable_location_card_button">فعال‌سازی موقعیت مکانی</string>
+  <string name="places_card_distance_suffix">فاصله %s</string>
+  <string name="places_card_distance_unknown">فاصلهٔ نامعلوم</string>
+  <string name="places_empty_message_snackbar">مقاله‌ای در این نزدیکی‌ها موجود نیست. کوچک‌نمایی و حرکت دادن نقشه را بیازمایید.</string>
 </resources>

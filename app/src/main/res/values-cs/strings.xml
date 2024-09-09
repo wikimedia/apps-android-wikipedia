@@ -195,6 +195,8 @@
   <string name="logged_out_in_background_dialog">Byli jste odhlášeni z Wikipedie. Chcete se znovu přihlásit?</string>
   <string name="logged_out_in_background_login">Přihlásit se</string>
   <string name="logged_out_in_background_cancel">Storno</string>
+  <string name="account_vanish_request_title">Nechat zmizet účet</string>
+  <string name="account_vanish_request_confirm_title">Varování zmizení účtu</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -268,7 +270,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/cs</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
@@ -1038,7 +1040,6 @@
   <string name="suggested_edits_contribution_article_label">Článek</string>
   <string name="suggested_edits_contribution_views">%s zobrazení</string>
   <string name="suggested_edits_contribution_seen_text">Zobrazené %skrát za posledních 30 dní.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
   <string name="suggested_edits_encourage_account_creation_title">Věděli jste, že Wikipedii může editovat každý?</string>
   <string name="suggested_edits_encourage_account_creation_message">Navrhování editací je nový způsob editace Wikipedie na Androidu. Pomáhá vám přispívat na Wikipedii malými, ale pro chod Wikipedie důležitými příspěvky.\nNaším cílem je zjednodušit a zpřístupnit editování všem! Přihlaste se nebo se zaregistrujte na Wikipedii, abyste mohli začít.</string>
@@ -1139,10 +1140,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Udržujte si alespoň jeden jazyk Wikipedie, ze kterého můžete vyhledávat a číst obsah.</string>
   <string name="more_language_options">více</string>
   <string name="add_wikipedia_languages_text">Přidat jazyky Wikipedie</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Chcete odebrat čínskou variantu z jazyků aplikace?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">V současné době máte ve svých jazycích aplikaci nastavenou jak Tradiční, tak Zjednodušenou čínštinu. Chcete aktualizovat nastavení jazyků aplikace?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Upravit jazyky</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, děkuji</string>
   <string name="remove_language_dialog_cancel_button_text">Zrušit</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1333,7 +1330,12 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Spokojen(a)</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutrální</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nespokojen(a)</string>
+  <string name="donate_gpay_dialog_title">Darovat přes Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Darujte přes Google Pay nebo zvolte jiný způsob platby.</string>
+  <string name="donate_gpay_dialog_pay_button">Darovat přes Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Jiný způsob platby</string>
   <string name="places_title">Místa</string>
+  <string name="places_permissions_denied">Vyžaduje se oprávnění polohy, abyste viděli vaši polohu na mapě. Zkuste to prosím znovu.</string>
   <string name="places_search_hint">Hledat místa</string>
   <string name="places_filter_title">Filtrovat jazyk</string>
   <string name="places_toggle_buttons_map">Mapa</string>

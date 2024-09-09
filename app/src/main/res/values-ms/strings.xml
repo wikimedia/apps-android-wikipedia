@@ -91,7 +91,7 @@
   <string name="menu_page_remove_from_watchlist">Buang daripada Senarai Pantau</string>
   <string name="menu_page_watched">Dipantau</string>
   <string name="edit_section_find_in_page">Cari dalam laman</string>
-  <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
+  <string name="menu_page_font_and_theme">Fon dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke senarai bacaan</string>
   <string name="menu_page_add_to_default_list">Simpan</string>
   <string name="feed_card_add_to_list">Tambahkan ke senarai bacaan</string>
@@ -266,9 +266,10 @@
   <string name="edit_how_page_improved">Bagaimanakah anda menambah baik laman ini?</string>
   <string name="edit_next">Seterusnya</string>
   <string name="edit_done">Terbitkan</string>
-  <string name="edit_preview">Pratayang</string>
+  <string name="edit_preview">Pralihat</string>
   <string name="edit_undo">Nyahbuat</string>
   <string name="edit_redo">Buat semula</string>
+  <string name="edit_rollback">Undur</string>
   <string name="edit_zoom_in">Zum dekat</string>
   <string name="edit_zoom_out">Zum jauh</string>
   <string name="edit_summary_tag_typo">Memperbaiki ejaan</string>
@@ -388,6 +389,10 @@
   <string name="multi_select_items_selected">%d dipilih</string>
   <string name="error_message_generic">Ada ralat</string>
   <string name="view_link_preview_error_button_dismiss">Singkir</string>
+  <string name="link_preview_dialog_read_button">Baca</string>
+  <string name="link_preview_dialog_save_button">Simpan</string>
+  <string name="link_preview_dialog_saved_button">Disimpan</string>
+  <string name="link_preview_dialog_share_button">Kongsi</string>
   <string name="error_page_does_not_exist">Laman ini tidak wujud</string>
   <string name="view_wiki_error_message_offline">Tidak dapat menyambung ke internet</string>
   <string name="view_wiki_error_message_timeout">Tidak dapat menyambung ke Wikipedia. Semak sambungan rangkaian anda, atau cuba lagi kemudian</string>
@@ -409,6 +414,10 @@
   <string name="error_blocked_footer">Anda boleh menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau mana-mana &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Penyelia\n\"&gt;penyelia&lt;/a&gt; lain untuk membincangkan sekatan anda.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Sesuaikan bar alat anda</string>
   <string name="error_blocked_footer_no_blocker">Anda boleh menghubungi &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Penyelia\"&gt;penyelia&lt;/a&gt; untuk membincangkan sekatan anda.</string>
+  <string name="temp_account_not_logged_in">Anda belum log masuk</string>
+  <string name="temp_account_dialog_ok">Faham</string>
+  <string name="temp_account_using_title">Anda menggunakan akaun sementara</string>
+  <string name="temp_account_dialog_discard">Buang perubahan dan log masuk</string>
   <string name="crash_report_activity_title">Ralat aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
@@ -651,7 +660,7 @@
   <string name="notifications_search_bar_filter_hint">Penapis pemberitahuan</string>
   <string name="notifications_swipe_action_read">Baca</string>
   <string name="notifications_wiki_filter_header">Penapis Wiki</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Semua \"wiki\"</string>
+  <string name="notifications_all_wikis_text">Semua wiki</string>
   <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
   <string name="notifications_menu_user_talk_page">Laman perbincangan %s</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
@@ -733,6 +742,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih kerana minat anda yang berterusan dalam menyunting huraian rencana! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
   <string name="description_edit_license_notice" fuzzy="true">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">biasanya bermula dengan huruf kecil</string>
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Ketahui lebih lanjut tentang huraian artikel</string>
   <string name="description_edit_image_caption_learn_more">Ketahui lebih lanjut tentang kapsyen imej</string>
@@ -743,6 +753,7 @@
   <string name="description_edit_suggested_description_button_tooltip">Cuba penerangan rencana yang disarankan mesin</string>
   <string name="description_edit_success_saved">Huraian rencana diterbitkan!</string>
   <string name="description_edit_success_saved_snackbar">Keterangan rencana diterbitkan!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Huraian rencana diterbitkan! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kapsyen imej diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru sahaja menciptakan Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Siap</string>
@@ -803,7 +814,9 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Maklumat lanjut</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Laman fail di Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Laman fail di Wikipedia</string>
+  <string name="suggested_edits_article_cta_image_tags">Tambah tag imej</string>
   <string name="suggested_edits_article_cta_snackbar_action">Papar</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Tambah tag imej</string>
   <string name="suggested_edits_task_action_text_add">Tambah</string>
   <string name="suggested_edits_task_action_text_translate">Terjemah</string>
   <string name="suggested_edits_image_tags">Tag imej</string>
@@ -816,6 +829,8 @@
   <string name="suggested_edits_quality_excellent_text">Cemerlang</string>
   <string name="suggested_edits_quality_very_good_text">Sangat baik</string>
   <string name="suggested_edits_quality_good_text">Baik</string>
+  <string name="suggested_edits_quality_okay_text">Baik</string>
+  <string name="suggested_edits_quality_sufficient_text">Cukup</string>
   <string name="suggested_edits_quality_poor_text">Lemah</string>
   <string name="suggested_edits_quality_bad_text">Teruk</string>
   <string name="suggested_edits_ip_blocked_title">IP disekat</string>
@@ -839,6 +854,9 @@
   <string name="suggested_edits_do_not_understand_suggestion">Tidak memahami tugasnya</string>
   <string name="suggested_edits_report_suggestion">Laporkan</string>
   <string name="suggested_edits_suggestion_report_submitted">Laporan dikirim</string>
+  <string name="image_recommendation_accept">Ya</string>
+  <string name="image_recommendation_reject">Tidak</string>
+  <string name="image_recommendation_notsure">Tidak pasti</string>
   <string name="file_page_activity_title">Laman fail</string>
   <string name="file_page_edit_button_content_description">Sunting %s</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
@@ -896,10 +914,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Pastikan sekurang-kurangnya satu bahasa Wikipedia yang boleh digunakan untuk mencari dan membaca kandungan.</string>
   <string name="more_language_options">lagi</string>
   <string name="add_wikipedia_languages_text">Tambah bahasa Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Buang variasi Cina dari bahasa apl anda?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Anda kini mempunyai kedua-dua varian Cina Tradisional dan Sederhana yang ditetapkan dalam bahasa apl anda. Kemas kini tetapan apl aplikasi anda?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sunting bahasa</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Tak apalah</string>
   <string name="remove_language_dialog_cancel_button_text">Batalkan</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -947,8 +961,12 @@
   <string name="talk_title">Bincang</string>
   <string name="talk_user_title">Perbincangan: %s</string>
   <string name="talk_new_topic">Topik baru</string>
+  <string name="talk_warn_save_dialog_title">Simpan perubahan?</string>
+  <string name="talk_warn_save_dialog_message">Simpan sebagai pesanan baru</string>
   <string name="talk_warn_save_dialog_publish">Terbitkan</string>
-  <string name="talk_page_empty">Halaman perbincangan ini kosong.</string>
+  <string name="talk_warn_save_dialog_cancel">Batalkan</string>
+  <string name="talk_warn_save_dialog_dont_save">Jangan simpan</string>
+  <string name="talk_page_empty">Laman perbincangan ini kosong.</string>
   <string name="talk_add_reply">Balas</string>
   <string name="talk_no_subject">(Tiada subjek)</string>
   <string name="talk_reply_subject">Subjek</string>
@@ -962,6 +980,7 @@
   <string name="talk_overflow_sort_topic_name">Nama topik</string>
   <string name="talk_list_item_overflow_subscribe">Langgan</string>
   <string name="talk_list_item_overflow_subscribed">Dilanggan</string>
+  <string name="talk_list_item_overflow_share">Kongsi</string>
   <string name="talk_list_item_swipe_mark_as_read">Baca</string>
   <string name="talk_login_to_subscribe_dialog_title">Log masuk untuk berlanggan ke topik</string>
   <string name="menu_option_share_edit">Kongsi suntingan</string>
@@ -1017,6 +1036,7 @@
   <string name="category_tab_subcategories">Subkategori</string>
   <string name="category_empty">Tiada rencana dijumpai dalam kategori ini.</string>
   <string name="subcategory_empty">Tiada subkategori dijumoai dalam kategori ini.</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
 </resources>

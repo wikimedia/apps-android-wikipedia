@@ -1015,7 +1015,6 @@
     <item quantity="many">Pridali ste %d štítkov.</item>
     <item quantity="other">Pridali ste %d štítkov.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
   <string name="suggested_edits_encourage_account_creation_title">Vedeli ste, že Wikipédiu môže upravovať každý?</string>
   <string name="suggested_edits_encourage_account_creation_message">Navrhované úpravy sú nový spôsob ako upravovať Wikipédiu na Androide. Pomáha Vám robiť síce male, ale dôležité úpravy na Wikipédii.\nNaším cieľom je spraviť upravovanie jednoduchším a viac dostupným pre každého! Prihláste sa alebo zaregistrujte do Wikipédie a začnite.</string>
@@ -1113,10 +1112,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Udržujte si aspoň jeden jazyk Wikipédie, z ktorého môžete vyhľadávať a čítať obsah.</string>
   <string name="more_language_options">viac</string>
   <string name="add_wikipedia_languages_text">Pridať jazyky</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Chcete odstrániť variant čínštiny z vašich jazykov?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vo vašich jazykoch máte tradičnú a zjednodušené čínštinu. Chcete aktualizovať svoje nastavenia jazyka?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Upraviť jazyky</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, vďaka</string>
   <string name="remove_language_dialog_cancel_button_text">Zrušiť</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
