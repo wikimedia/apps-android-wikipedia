@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -137,7 +138,7 @@ object L10nUtil {
         }
     }
 
-    suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite): List<PageSummary> {
+    suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite, shouldUpdateExtracts: Boolean = false): List<PageSummary> {
         return withContext(Dispatchers.IO) {
             val newList = mutableListOf<PageSummary>()
             val titles = list.joinToString(separator = "|") { it.apiTitle }
@@ -151,6 +152,18 @@ object L10nUtil {
                 ServiceFactory.get(wikiSite).getVariantTitlesByTitles(titles)
             }
 
+            // Third, update the extracts from the page/summary endpoint if needed.
+            if (shouldUpdateExtracts) {
+                list.map { pageSummary ->
+                    async {
+                        ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
+                    }
+                }.awaitAll().forEachIndexed { index, pageSummary ->
+                    list[index].extract = pageSummary.extract
+                    list[index].extractHtml = pageSummary.extractHtml
+                }
+            }
+
             list.forEach { pageSummary ->
                 // Find the correct display title from the varianttitles map, and insert the new page summary to the list.
                 val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
@@ -161,8 +174,8 @@ object L10nUtil {
                         display = newDisplayTitle
                     )
                     this.description = wikiDataResponse.await().entities.values.firstOrNull {
-                        it.labels[wikiSite.languageCode]?.value == newDisplayTitle
-                    }?.descriptions?.get(wikiSite.languageCode)?.value ?: pageSummary.description
+                        it.getLabels()[wikiSite.languageCode]?.value == newDisplayTitle
+                    }?.getDescriptions()?.get(wikiSite.languageCode)?.value ?: pageSummary.description
                 }
                 newList.add(newPageSummary)
             }

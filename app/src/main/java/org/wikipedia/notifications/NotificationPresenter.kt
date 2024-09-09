@@ -130,6 +130,7 @@ object NotificationPresenter {
         if (UriUtil.isDiffUrl(link.url)) {
             try {
                 addActionForDiffLink(context, builder, link, n)
+                return
             } catch (e: Exception) {
                 L.e(e)
             }

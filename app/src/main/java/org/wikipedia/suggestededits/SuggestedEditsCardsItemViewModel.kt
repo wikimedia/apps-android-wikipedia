@@ -33,7 +33,7 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             when (action) {
                 DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                    val pair = EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(fromLangCode), toLangCode, true)
+                    val pair = EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(fromLangCode), toLangCode)
                     val source = pair.first
                     val target = pair.second
 
