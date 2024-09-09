@@ -16,5 +16,5 @@ class AggregatedFeedContent(
     @SerialName("image") val potd: FeaturedImage? = null,
     val onthisday: List<OnThisDay.Event>? = null
 ) {
-    var randomOnThisDay: OnThisDay.Event? = null
+    var randomOnThisDayEvent: OnThisDay.Event? = null
 }
