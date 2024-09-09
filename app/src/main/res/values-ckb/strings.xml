@@ -355,7 +355,6 @@
   <string name="page_view_in_browser">پەڕە لە وێبگەڕدا ببینە</string>
   <string name="tool_tip_toc_title">مێزی ناوەڕۆکەکان ڕێگای خێرا</string>
   <string name="tool_tip_toc_text">ئێستا دەتوانیت پەنجە دابنێیت و ڕایبکێشیت بۆ لای چەپ بۆ کردنەوەی خشتەی ناوەڕۆک، دەشتوانیت پەنجە بنێیت بەم تووڵەکێشانەدا و ڕایبکێشیت بۆ ئەوەی بە خێرایی باز بدەیت بۆ بەشە جیاوازەکانی وتارێک.</string>
-  <string name="tool_tip_lang_button">ئێستا تۆ دەتوانیت بگەڕێی و بخوێنیتەوە بە چەندین زمانی ویکیپیدیا لە نەرمەواڵەکە.\n\nدەستت لەسەر وێنەکە بدە بۆ زیادکردنی زمانی زیاتر.</string>
   <string name="error_response_malformed">وەڵام لە سێرڤرەکەوە بە دروستی قاڵببەندی نەکراوە.</string>
   <string name="error_unknown">ھەڵەیەکی نەناسراو ڕووی داوە.</string>
   <string name="format_error_server_message">پەیام: \"%s\"</string>
@@ -930,7 +929,6 @@
     <item quantity="one">%d تاگت زیاد کرد</item>
     <item quantity="other">%d تاگت زیاد کرد</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دوێنێ</string>
   <string name="suggested_edits_encourage_account_creation_title">دەزانیت کە ھەموو کەسێک دەتوانێت دەستکاریی ویکیپیدیا بکات؟</string>
   <string name="suggested_edits_encourage_account_creation_message">دەستکارییە پێشنیارکراوەکان ڕێگەیەکی نوێیە بۆ دەستکاریکردن لە ویکیپیدیا لەسەر ئەندرۆید. یارمەتیت دەدات لە ئەنجامدانی دەستکاریی بچووک و گرینگ. ئامانجمان ئەوەیە کە دەستکاریکردن ئاسانتر بکەین و زیاتر بەردەستی بخەین بۆ ھەموو کەس! بچۆرە ژوورەوە یان بەشداری بکە لە ویکیپیدیا بۆ دەستپێکردن.</string>
@@ -1017,10 +1015,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">لایەنی کەم یەک زنامی ویکیپیدیا بھێڵەرەوە تاکوو لەڕێیەوە بتوانیت ناوەڕۆک بخوێنیتەوە و پێیدا بگەڕێیت.</string>
   <string name="more_language_options">زیاتر</string>
   <string name="add_wikipedia_languages_text">زیادکردنی زمانەکانی ویکیپیدیا</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">جۆرێکی چینی لە زمانەکانی بەرنامەکەتدا لادەبەیت؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">لە ئێستادا هەردوو جۆری دێرین و ئاسانکراوی زمانی چینیت بە زمانی بەرنامەکانت داندراوە. ڕێکخستنەکانی زمانەکانی بەرنامەکەت نوێ دەکەیتەوە؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">دەستکاریکردنی زمانەکان</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نا سپاس</string>
   <string name="remove_language_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>
   <string name="remove_language_dialog_ok_button_text">باشە</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">باشە</string>

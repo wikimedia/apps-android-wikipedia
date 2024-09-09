@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.dataclient.FeedClient
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
@@ -47,13 +48,12 @@ class BecauseYouReadClient(
                     entry.title.extract, entry.title.thumbUrl, langCode)
 
                 moreLikeResponse.query?.pages?.forEach {
+                    val pageSummary = PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
                     if (it.title != searchTerm) {
                         if (hasParentLanguageCode) {
-                            val pageSummary = ServiceFactory.getRest(entry.title.wikiSite).getPageSummary(entry.referrer, it.title)
-                            relatedPages.add(pageSummary)
+                            relatedPages.add(L10nUtil.getPagesForLanguageVariant(listOf(pageSummary), entry.title.wikiSite).first())
                         } else {
-                            relatedPages.add(PageSummary(it.displayTitle(langCode), it.title, it.description,
-                                it.extract, it.thumbUrl(), langCode))
+                            relatedPages.add(pageSummary)
                         }
                     }
                 }

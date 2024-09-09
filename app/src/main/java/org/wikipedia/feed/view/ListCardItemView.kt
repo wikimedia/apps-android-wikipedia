@@ -103,7 +103,7 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
         setTitle(StringUtil.fromHtml(entry.title.displayText))
         setSubtitle(entry.title.description)
         setImage(entry.title.thumbUrl)
-        PageAvailableOfflineHandler.check(this.coroutineScope(), entry.title) { setViewsGreyedOut(!it) }
+        PageAvailableOfflineHandler.check(coroutineScope(), entry.title) { setViewsGreyedOut(!it) }
         return this
     }
 

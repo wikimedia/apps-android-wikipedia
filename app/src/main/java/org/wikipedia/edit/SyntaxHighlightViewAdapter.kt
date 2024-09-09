@@ -74,17 +74,8 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onPreviewLink(title: String) {
-        val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK))
-        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, dialog)
-        editText.post {
-            dialog.dialog?.setOnDismissListener {
-                if (!activity.isDestroyed) {
-                    editText.postDelayed({
-                        DeviceUtil.showSoftKeyboard(editText)
-                    }, 200)
-                }
-            }
-        }
+        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
+            LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK)))
     }
 
     override fun onRequestInsertMedia() {

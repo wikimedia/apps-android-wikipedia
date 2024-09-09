@@ -381,7 +381,6 @@
   <string name="page_view_in_browser">Abrir página no navegador</string>
   <string name="tool_tip_toc_title">Acesso rápido ao índice</string>
   <string name="tool_tip_toc_text">Agora pode passar o dedo para a esquerda para abrir o índice e também premir e arrastar este botão de deslizamento para saltar rapidamente para diferentes secções de um artigo.</string>
-  <string name="tool_tip_lang_button">Já pode procurar e ler em várias línguas da Wikipédia na aplicação.\n\n\nToque no ícone para acrescentar mais línguas.</string>
   <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>
   <string name="format_error_server_message">Mensagem: \"%s\"</string>
@@ -1051,7 +1050,6 @@
     <item quantity="one">Você adicionou %d etiqueta</item>
     <item quantity="other">Você adicionou %d etiquetas</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ontem</string>
   <string name="suggested_edits_encourage_account_creation_title">Sabia que qualquer pessoa pode editar a Wikipédia?</string>
   <string name="suggested_edits_encourage_account_creation_message">As \"Edições sugeridas\" são uma forma nova de editar a Wikipédia em Android. Ajudam a dar contribuições pequenas mas vitais para a Wikipédia.\nO nosso objetivo é tornar a edição mais fácil e mais acessível a todos! Inicie uma sessão ou registe-se na Wikipédia para começar.</string>
@@ -1176,10 +1174,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos uma língua da Wikipédia para pesquisar e ler o conteúdo.</string>
   <string name="more_language_options">mais</string>
   <string name="add_wikipedia_languages_text">Adicione as línguas da Wikipédia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Remover uma variante do chinês das suas línguas da aplicação?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Neste momento tem as variantes tradicional e simplificado do chinês definidas nas suas línguas da aplicação. Atualizar as definições das suas línguas da aplicação?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar línguas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Não, obrigado</string>
   <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1600,8 +1594,6 @@
   <string name="places_filter_title">Filtrar por língua</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
-  <string name="places_article_menu_tooltip_message">Toque em «Ver no mapa» para explorar a localização deste artigo</string>
   <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
   <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
   <string name="places_survey_dialog_title">Ajudar a melhorar «Lugares»</string>

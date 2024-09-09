@@ -377,7 +377,6 @@
   <string name="page_view_in_browser">पेज को ब्राउज़र में देखें</string>
   <string name="tool_tip_toc_title">सामग्री की तालिका हेतु त्वरित पहुँच</string>
   <string name="tool_tip_toc_text">अब आप सामग्री तालिका को खोलने के लिए बाईं ओर स्वाइप कर सकते हैं, और किसी लेख के विभिन्न अनुभागों पर त्वरित रूप से कूदने के लिए इस स्क्रॉलर बटन पर टैप और ड्रैग भी कर सकते हैं।</string>
-  <string name="tool_tip_lang_button">आप अब एप में एक से अधिक विकिपीडिया भाषाओं में खोज और पढ़ सकते हैं।</string>
   <string name="error_response_malformed">सर्वर से सही रूप से प्रारूप प्राप्त नहीं हुआ।</string>
   <string name="error_unknown">एक अज्ञात त्रुटि हो गयी है।</string>
   <string name="format_error_server_message">सन्देश:\"%s\"</string>
@@ -1042,7 +1041,6 @@
     <item quantity="one">आपने %d टैग जोड़ा</item>
     <item quantity="other">आपने %d टैग जोड़े</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">कल</string>
   <string name="suggested_edits_encourage_account_creation_title">क्या आप जानते हैं कि हर कोई विकिपीडिया संपादित कर सकता है?</string>
   <string name="suggested_edits_encourage_account_creation_message">सुझाए गए संपादन एंड्रॉइड पर विकिपीडिया को संपादित करने का एक नया तरीका है। यह आपको विकिपीडिया में छोटे लेकिन महत्वपूर्ण योगदान देने में मदद करता है। हमारा लक्ष्य संपादन को सभी के लिए आसान और अधिक सुलभ बनाना है! आरंभ करने के लिए लॉग इन करें या विकिपीडिया से जुड़ें।</string>
@@ -1161,10 +1159,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">कम से कम एक विकिपीडिया भाषा रखें जिससे सामग्री को खोजा और पढ़ा जा सके।</string>
   <string name="more_language_options">अधिक</string>
   <string name="add_wikipedia_languages_text">विकिपीडिया भाषाएँ जोड़ें</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">अपने ऐप्लिकेशन की भाषाओं से एक चीनी संस्करण निकालें?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">वर्तमान में आपके पास पारंपरिक और सरलीकृत दोनों प्रकार के चीनी प्रकार हैं जो आपकी ऐप भाषाओं में सेट हैं। अपनी ऐप भाषा सेटिंग अपडेट करें?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषाएं संपादित करें</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
   <string name="remove_language_dialog_cancel_button_text">रद्द करें</string>
   <string name="remove_language_dialog_ok_button_text">ठीक है</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ठीक है</string>
@@ -1463,8 +1457,6 @@
   <string name="places_filter_title">भाषा फ़िल्टर करें</string>
   <string name="places_toggle_buttons_map">नक्शा</string>
   <string name="places_toggle_buttons_list">लिस्ट</string>
-  <string name="places_nav_tab_tooltip_message">स्थानों के साथ अपने आस-पास विकिपीडिया लेख खोजें</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">इस आर्टिकल की लोकेशन जानने के लिए \'मैप पर देखें\' पर टैप करें&gt;</string>
   <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
   <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>

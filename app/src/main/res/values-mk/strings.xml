@@ -96,6 +96,7 @@
   <string name="menu_page_recently_viewed">Неодамна посетени</string>
   <string name="menu_page_archive">Архива</string>
   <string name="menu_long_press_open_page">Отвори</string>
+  <string name="menu_long_press_open_in_places">Отвори во Места</string>
   <string name="menu_long_press_open_in_new_tab">Отвори ново јазиче</string>
   <string name="menu_long_press_copy_page">Копирај ја адресата на врската</string>
   <string name="menu_text_select_define">Во речник</string>
@@ -163,9 +164,9 @@
   <string name="logged_out_in_background_dialog">Одјавени сте од Википедија. Дали сакате пак да се најавите?</string>
   <string name="logged_out_in_background_login">Најава</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
-  <string name="account_vanish_request_title">Гаснење на сметка</string>
-  <string name="account_vanish_request_confirm_title">Предупредување за гаснење на сметка</string>
-  <string name="account_vanish_request_confirm">Гаснењето е &lt;b&gt;последно средство&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши така со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена гаснење на сметка.&lt;b&gt;Гаснењето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
+  <string name="account_vanish_request_title">Исчезнување на сметка</string>
+  <string name="account_vanish_request_confirm_title">Предупредување за исчезнување на сметка</string>
+  <string name="account_vanish_request_confirm">Исчезнувањето е &lt;b&gt;крајна мерка&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши така со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена „исчезнување“ на сметка.&lt;b&gt;Исчезнувањето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="history_offline_articles_toast">Некои статии во историјата може да се недостапни вонмрежно.</string>
@@ -178,7 +179,7 @@
   <string name="login_join_wikipedia">Придружете ни се на Википедија</string>
   <string name="login_forgot_password">Ја заборавивте лозинката?</string>
   <string name="create_account_already_have">Веќе имате сметка?</string>
-  <string name="create_account_activity_title">Направи кориничка сметка</string>
+  <string name="create_account_activity_title">Направи сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
@@ -297,7 +298,7 @@
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
-  <string name="search_results_count_zero">Нема исход</string>
+  <string name="search_results_count_zero">Не најдов ништо</string>
   <plurals name="search_results_count">
     <item quantity="one">1 ставка</item>
     <item quantity="other">%d ставки</item>
@@ -361,7 +362,6 @@
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_title">Брз пристап до прегледот на содржините</string>
   <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните оддели на статијата.</string>
-  <string name="tool_tip_lang_button">Сега можете да пребарувате и читате на повеќе јазици во прилогот.\n\n\nДопрете на иконката за да додадете уште јазици.</string>
   <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>
   <string name="error_unknown">Се појави непозната грешка.</string>
   <string name="format_error_server_message">Порака: „%s“</string>
@@ -828,6 +828,7 @@
   <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
+  <string name="feed_item_type_places">Статии во близина врз основа на тековната местоположба</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
@@ -1056,7 +1057,6 @@
     <item quantity="one">Додадовте %d ознака</item>
     <item quantity="other">Додадовте %d ознаки</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>
@@ -1183,10 +1183,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржете барем еден јазик на Википедија од кој ќе пребарувате и читате содржини.</string>
   <string name="more_language_options">повеќе</string>
   <string name="add_wikipedia_languages_text">Додај јазици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Да отстранам кинеска варијанта од јазиците на прилогот?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Тековно имате и традиционален и упростен кинески во јазиците на прилогот. Да ги изменам јазичните поставки?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Измени јазици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодарам</string>
   <string name="remove_language_dialog_cancel_button_text">Откажи</string>
   <string name="remove_language_dialog_ok_button_text">ОК</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ОК</string>
@@ -1225,7 +1221,7 @@
   <string name="insert_media_settings_caption">Опис на сликата</string>
   <string name="insert_media_settings_caption_description">Видлив натпис на сликата во статијата</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
-  <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
+  <string name="insert_media_settings_alternative_text_description">Опис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
   <string name="insert_media_advanced_settings_wrap_image">Сложи го текстот околу сликата</string>
   <string name="insert_media_advanced_settings_image_position">Положба на сликата</string>
@@ -1662,8 +1658,6 @@
   <string name="places_filter_title">Филтрирај јазик</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
-  <string name="places_nav_tab_tooltip_message">Откривајте Википедиини статии околу вас со Места</string>
-  <string name="places_article_menu_tooltip_message">Допрете на „Погл. на карта“ за да го истражите наоѓалиштето на оваа статија</string>
   <string name="places_survey_very_satisfied_option">Многу задоволен</string>
   <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
   <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
@@ -1671,4 +1665,16 @@
   <string name="places_survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
+  <string name="places_card_title">Околни места</string>
+  <string name="places_card_action">Повеќе места во близина</string>
+  <string name="places_card_enable_location_card_message">Места е картографски начин за истражување на Википедија</string>
+  <string name="places_card_enable_location_card_button">Овозможи местоположба</string>
+  <string name="places_card_distance_suffix">на %s од вас</string>
+  <string name="places_card_distance_unknown">Непозната оддалеченост</string>
+  <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
+  <string name="recommended_content_section_you_might_like">Можеби ќе ви се допадне</string>
+  <string name="recommended_content_survey_dialog_title">Помогнете ни да ја подобриме препорачаната содржина.</string>
+  <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Дополнително мислење</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
 </resources>

@@ -55,6 +55,7 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
@@ -279,6 +280,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
             } else if (viewModel.pageTitle.namespace() == Namespace.FILE) {
                 startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
+            } else if (viewModel.pageTitle.wikiSite.dbName() == Constants.WIKIDATA_DB_NAME ||
+                viewModel.pageTitle.wikiSite.dbName() == Constants.COMMONS_DB_NAME) {
+                CustomTabsUtil.openInCustomTab(requireContext(), viewModel.pageTitle.mobileUri)
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)))
@@ -351,7 +355,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         }
         updateWatchButton(false)
 
-        binding.warnButton.setOnClickListener {
+        binding.talkButton.setOnClickListener {
             sendPatrollerExperienceEvent("warn_init", "pt_toolbar")
             viewModel.revisionTo?.let { revision ->
                 val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
@@ -460,7 +464,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         binding.undoButton.isVisible = false
         binding.olderIdButton.isVisible = false
         binding.newerIdButton.isVisible = false
-        binding.warnButton.isVisible = viewModel.fromRecentEdits
     }
 
     private fun updateAfterRevisionFetchSuccess() {
@@ -678,14 +681,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         if (Prefs.showOneTimeRecentEditsFeedbackForm) {
             sendPatrollerExperienceEvent("toolbar_first_feedback", "pt_feedback")
         }
-        SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.SUGGESTED_EDITS_RECENT_EDITS)
+        SurveyDialog.showFeedbackOptionsDialog(requireActivity(), invokeSource = InvokeSource.SUGGESTED_EDITS_RECENT_EDITS)
     }
 
     private fun updateActionButtons() {
         binding.undoButton.isVisible = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
-                !AccountUtil.userName.equals(viewModel.revisionTo?.user) &&
+                AccountUtil.userName != viewModel.revisionTo?.user &&
                 viewModel.revisionTo?.isAnon == false
     }
 

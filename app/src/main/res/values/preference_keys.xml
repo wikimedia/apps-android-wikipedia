@@ -12,7 +12,6 @@
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
     <string name="preference_key_language_app">languageApp</string>
-    <string name="preference_key_multilingual_search_tooltip_shown">multilingualSearchTutorialEnabled</string>
     <string name="preference_key_show_images">showImages</string>
     <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
     <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
@@ -66,7 +65,6 @@
     <string name="preference_key_last_anon_notification_time">lastAnonNotificationTime</string>
     <string name="preference_key_empty_placeholder">emptyPlaceholder</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
-    <string name="preference_key_editing_text_size_extra">editingTextSizeExtra</string>
     <string name="preference_key_feed_cards_order">feedCardsOrder</string>
     <string name="preference_key_feed_cards_enabled">feedCardsEnabled</string>
     <string name="preference_key_feed_cards_lang_supported">feedCardsLangSupported</string>
@@ -83,8 +81,8 @@
     <string name="preference_key_show_reading_lists_sync_prompt">showReadingListsSyncPrompt</string>
     <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSyncV2</string>
     <string name="preference_key_about_wikipedia_app">aboutWikipediaApp</string>
+    <string name="preference_key_send_feedback">sendFeedback</string>
     <string name="preference_key_logout">logOut</string>
-    <string name="preference_key_show_remove_chinese_variant_prompt">showRemoveChineseVariantPrompt</string>
     <string name="preference_key_download_only_over_wifi">downloadOnlyOverWiFi</string>
     <string name="preference_key_download_reading_list_articles">downloadReadingListArticles</string>
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
@@ -146,15 +144,11 @@
     <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
     <string name="preference_key_edit_line_numbers">editLineNumbers</string>
     <string name="preference_key_edit_typing_suggestions">editTypingSuggestions</string>
+    <string name="preference_key_donation_banner_opt_in">donationBannerOptIn</string>
     <string name="preference_key_reading_lists_share_url_shorten">useUrlShortenerForSharing</string>
-    <string name="preference_key_reading_lists_share_survey_dialog_shown">readingListShareSurveyDialogShown</string>
-    <string name="preference_key_reading_lists_share_survey_mode">readingListShareSurveyMode</string>
     <string name="preference_key_reading_lists_share_tooltip_shown">readingListShareTooltipShown</string>
-    <string name="preference_key_reading_lists_receive_survey_dialog_shown">readingListReceiveSurveyDialogShown</string>
-    <string name="preference_key_reading_lists_receive_survey_mode">readingListReceiveSurveyMode</string>
     <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
     <string name="preference_key_se_machine_generated_descriptions_tooltip_shown">seMachineGeneratedDescriptionsTooltipShown</string>
-    <string name="preference_key_se_machine_generated_descriptions_is_experienced">seMachineGeneratedDescriptionsIsExperienced</string>
     <string name="preference_key_se_image_recs_onboarding_shown">seImageRecsOnboardingShown</string>
     <string name="preference_key_excluded_wiki_codes_watchlist">filterWatchlistExcludedWikiCodes</string>
     <string name="preference_key_included_type_codes_watchlist">filterWatchlistIncludedTypeCodesV2</string>
@@ -165,12 +159,12 @@
     <string name="preference_key_show_sequential_recent_edits_diff_tooltip">showSequentialRecentEditsDiffTooltip</string>
     <string name="preference_key_show_recent_edits_feedback_form">showRecentEditsFeedbackForm</string>
     <string name="preference_key_places_wiki_code">filterPlacesWikiCode</string>
-    <string name="preference_key_show_places_page_onboarding_tooltip">showPlacesPageOnboardingTooltip</string>
-    <string name="preference_key_show_places_main_nav_onboarding_tooltip_shown">showPlacesMainNavOnboardingTooltip</string>
     <string name="preference_key_places_last_location_and_zoom_level">placesLastLocationAndZoomLevel</string>
     <string name="preference_key_recent_used_templates">recentUsedTemplates</string>
     <string name="preference_key_donation_test_env">donationTestEnv</string>
     <string name="preference_key_payment_methods_last_query_time">paymentMethodsLastQueryTime</string>
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
+    <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
+    <string name="preference_key_recommended_content_survey_shown">recommendedContentSurveyShown</string>
 </resources>

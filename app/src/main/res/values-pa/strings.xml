@@ -378,7 +378,7 @@
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
   <string name="notification_syncing_cancel_button">ਰੱਦ ਕਰੋ</string>
   <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
-  <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
+  <string name="view_random_card_title">ਬੇਤਰਤੀਬੀ</string>
   <string name="view_random_article_card_title">ਬੇਤਰਤੀਬ ਲੇਖ</string>
   <string name="view_random_article_card_action">ਹੋਰ ਬੇਤਰਤੀਬੇ ਲੇਖ</string>
   <string name="view_top_read_card_title">ਸਭ ਤੋਂ ਵੱਧ ਪੜ੍ਹਿਆ</string>
@@ -432,7 +432,7 @@
   <string name="onboarding_skip">ਛੱਡੋ</string>
   <string name="onboarding_continue">ਜਾਰੀ ਰੱਖੋ</string>
   <string name="onboarding_get_started">ਸ਼ੁਰੂ ਕਰੋ</string>
-  <string name="app_shortcuts_random">ਰਲ਼ਵਾਂ</string>
+  <string name="app_shortcuts_random">ਬੇਤਰਤੀਬ</string>
   <string name="app_shortcuts_continue_reading">ਰੀਡਿੰਗ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="app_shortcuts_search">ਖੋਜ</string>
   <string name="on_this_day_card_title">ਅੱਜ ਦੇ ਦਿਨ</string>
@@ -455,8 +455,6 @@
   <string name="places_filter_title">ਭਾਸ਼ਾ ਫਿਲਟਰ ਕਰੋ</string>
   <string name="places_toggle_buttons_map">ਨਕਸ਼ਾ</string>
   <string name="places_toggle_buttons_list">ਸੂਚੀ</string>
-  <string name="places_nav_tab_tooltip_message">ਥਾਵਾਂ ਦੇ ਨਾਲ ਆਪਣੇ ਆਲੇ-ਦੁਆਲੇ ਵਿਕੀਪੀਡੀਆ ਲੇਖਾਂ ਦੀ ਖੋਜ ਕਰੋ</string>
-  <string name="places_article_menu_tooltip_message">ਇਸ ਲੇਖ ਦੀ ਥਾਂ ਦਾ ਪਤਾ ਲਗਾਉਣ ਲਈ \'ਨਕਸ਼ੇ ਉੱਤੇ ਦੇਖੋ\' \'ਤੇ ਟੈਪ ਕਰੋ</string>
   <string name="places_survey_very_satisfied_option">ਬਹੁਤ ਸੰਤੁਸ਼ਟ</string>
   <string name="places_survey_very_unsatisfied_option">ਬਹੁਤ ਅਸੰਤੁਸ਼ਟ</string>
   <string name="places_survey_dialog_title">\'ਥਾਵਾਂ\' ਨੂੰ ਸੁਧਾਰਨ ਵਿੱਚ ਮਦਦ ਕਰੋ</string>

@@ -10,10 +10,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.webkit.CookieManager
+import android.webkit.JsResult
+import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -70,7 +73,7 @@ class SingleWebViewActivity : BaseActivity() {
             override val linkHandler get() = blankLinkHandler
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                if (isWebForm) {
+                if (isWebForm && !request?.url.toString().startsWith(targetUrl)) {
                     finish()
                     request?.let {
                         // Special case: If the URL is the main page, then just allow the activity to close,
@@ -110,6 +113,18 @@ class SingleWebViewActivity : BaseActivity() {
                 // Explicitly apply any other cookies that we received during this call to the WebView,
                 // so that subsequent POST(s) can inherit them.
                 setCookies(url.orEmpty())
+            }
+        }
+
+        binding.webView.webChromeClient = object : WebChromeClient() {
+            override fun onJsConfirm(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
+                MaterialAlertDialogBuilder(this@SingleWebViewActivity)
+                    .setMessage(message)
+                    .setPositiveButton(android.R.string.ok) { _, _ -> result?.confirm() }
+                    .setNegativeButton(android.R.string.cancel) { _, _ -> result?.cancel() }
+                    .setOnDismissListener { result?.cancel() }
+                    .show()
+                return true
             }
         }
 

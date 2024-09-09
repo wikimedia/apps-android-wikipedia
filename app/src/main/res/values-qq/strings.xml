@@ -129,6 +129,7 @@
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
   <string name="menu_page_archive">Menu item text for opening the archive page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
+  <string name="menu_long_press_open_in_places">Menu item for opening a link in Places. The translation of \"Places\" should be consistent with {{msg-wm|Wikipedia-android-strings-places title}}.\n{{Identical|Open in Places}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab. Appears next to {{msg-wm|Wikipedia-android-strings-button continue to article}}</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.\n{{Identical|Define}}</string>
@@ -396,7 +397,6 @@
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
   <string name="tool_tip_toc_title">Title for tool-tip that introduces the user to Table of Contents slider.</string>
   <string name="tool_tip_toc_text">Very short advice on how to use Table of Contents slider.\n\n\'\'\'In right to left languages, replace \"left\" with \"right\".\'\'\'</string>
-  <string name="tool_tip_lang_button">Tool tip text encouraging existing multilingual users to start reading in more languages.</string>
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API onThisDay from the server.\n{{Identical|Message}}</string>
@@ -863,6 +863,7 @@
   <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
+  <string name="feed_item_type_places">Short description for Explore feed card that shows the nearby articles.</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
   <string name="feed_configure_onboarding_action">Button label for onboarding card that introduces the customization of the Explore feed.</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for card language selection in customization screen.\n{{Identical|OK}}</string>
@@ -1212,10 +1213,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Content of the dialog that pop-ups after users wanted to delete all wikipedia languages in the action mode.</string>
   <string name="more_language_options">Button text indicating there are more languages available to be selected.\n{{Identical|More}}</string>
   <string name="add_wikipedia_languages_text">Button text suggesting user to add more languages to the app to read in.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Title of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Description of the dialog that prompts to the users about removing a Chinese variant from the app languages.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
   <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Cancel}}</string>
   <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.\n{{Identical|OK}}</string>
@@ -1692,8 +1689,6 @@
   <string name="places_filter_title">Title string for places language filter screen.</string>
   <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
   <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
-  <string name="places_nav_tab_tooltip_message">Tooltip message to help users discover places feature from explore screen more menu navigation tab. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
-  <string name="places_article_menu_tooltip_message">Tooltip message to help users discover the article\'s location on the map and its nearby articles through places feature, from article screen More menu. \"View on map\" is {{msg-wm|Wikipedia-android-strings-action item view on map}}</string>
   <string name="places_survey_very_satisfied_option">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
   <string name="places_survey_very_unsatisfied_option">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
   <string name="places_survey_dialog_title">Title text for the main feedback dialog for places feature. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
@@ -1701,4 +1696,16 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="places_card_title">Title for the Places card on the explore feed.</string>
+  <string name="places_card_action">Text for the Places card action on the explore feed</string>
+  <string name="places_card_enable_location_card_message">Message for the Places card on the explore feed that requires enable location permission.</string>
+  <string name="places_card_enable_location_card_button">Text for the Places card on the explore feed that requires enable location permission button.</string>
+  <string name="places_card_distance_suffix">Suffix for the distance between the current location and the article location. %s will be replaced by the actual distance.</string>
+  <string name="places_card_distance_unknown">Text for the Places card that indicates the distance for the location is unknown.</string>
+  <string name="places_empty_message_snackbar">Empty snackbar message for the current area that does not have articles available.</string>
+  <string name="recommended_content_section_you_might_like">Section label for the Recommended Content.</string>
+  <string name="recommended_content_survey_dialog_title">Title for the Recommended Content survey dialog.</string>
+  <string name="recommended_content_survey_dialog_message">Message text for the Recommended Content survey dialog.</string>
+  <string name="recommended_content_survey_dialog_input_hint">Hint label for the Recommended Content survey dialog input field.</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Snackbar message for the Recommended Content survey after submitting it.</string>
 </resources>

@@ -12,6 +12,7 @@
 * Fumi37s
 * GAMEZONE628
 * Great ones
+* Hideki Yoshida
 * Hzy980512
 * Jaw Salvager
 * Kanon und wikipedia
@@ -412,7 +413,6 @@
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_title">目次クイックアクセス</string>
   <string name="tool_tip_toc_text">画面を左へスワイプすると目次を表示、また、このスクロールボタンをタップすると、記事の異なる節へ移動します。</string>
-  <string name="tool_tip_lang_button">アプリ内で、複数の言語でウィキペディアを検索して読めるようになりました。\n\n\nアイコンをタップして言語を追加しましょう。</string>
   <string name="error_response_malformed">サーバーからの応答が正しいフォーマットではありませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>
   <string name="format_error_server_message">メッセージ: 「%s」</string>
@@ -475,6 +475,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">ツールバーをカスタマイズする</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
   <string name="temp_account_not_logged_in">ログインしていません</string>
+  <string name="temp_account_dialog_ok">わかりました</string>
   <string name="temp_account_using_title">あなたは臨時アカウントを使用しています</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
@@ -1072,7 +1073,6 @@
     <item quantity="one">%dつのタグを追加しました</item>
     <item quantity="other">%dつのタグを追加しました</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨日</string>
   <string name="suggested_edits_encourage_account_creation_title">誰でもウィキペディアを編集できることはご存知でしたか?</string>
   <string name="suggested_edits_encourage_account_creation_message">提案された編集は Android 上でウィキペディアを編集する新しい方法です。これは小さなことですがウィキペディアに不可欠なものです。私たちの目標は誰でも簡単に編集できるようにすることです。ログインをするかウィキペディアに参加して始めましょう。</string>
@@ -1198,10 +1198,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">検索して内容を読むためにはウィキペディアの言語が少なくとも1つは必要です。</string>
   <string name="more_language_options">もっと見る</string>
   <string name="add_wikipedia_languages_text">ウィキペディアの言語を追加</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">中国語の文字違い版をアプリの言語から削除しますか?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">現在、繁体字と簡体字の両方の中国語版をアプリの言語として指定しています。アプリの言語設定を更新しますか?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">言語の設定を編集</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">いいえ、結構です。</string>
   <string name="remove_language_dialog_cancel_button_text">キャンセル</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1604,6 +1600,7 @@
   <string name="patroller_diff_feedback_dialog_submit">送信</string>
   <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
   <string name="patroller_saved_message_title_auto_trans">自動翻訳</string>
+  <string name="patroller_saved_message_title_final_warning">最終警告</string>
   <string name="talk_templates_menu_edit_title">編集</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
@@ -1625,14 +1622,15 @@
   <string name="donate_gpay_check_transaction_fee">寄付の100%%が確実に届くよう、手数料として%sを追加してお支払いします。</string>
   <string name="donate_gpay_check_recurring">毎月、この金額を定期的に寄付します。</string>
   <string name="donate_gpay_check_send_email">はい、ウィキメディア財団はごく稀に私にメールを送ることができます。</string>
+  <string name="donate_gpay_help_other_ways">その他の寄付方法</string>
+  <string name="donate_gpay_help_faq">よくある質問</string>
+  <string name="donate_gpay_help_tax">税金の控除について</string>
   <string name="places_title">場所</string>
   <string name="places_permissions_denied">地図上に自分の位置を表示するには、位置情報の許可が必要です。もう一度試してください。</string>
   <string name="places_search_hint">場所を検索</string>
   <string name="places_filter_title">言語を絞り込む</string>
   <string name="places_toggle_buttons_map">地図</string>
   <string name="places_toggle_buttons_list">一覧</string>
-  <string name="places_nav_tab_tooltip_message">自分の周辺の場所でウィキペディアの記事を発見します</string>
-  <string name="places_article_menu_tooltip_message">この記事の位置を探すには「地図上で表示」をタップしてください</string>
   <string name="places_survey_very_satisfied_option">非常に満足</string>
   <string name="places_survey_very_unsatisfied_option">非常に不満</string>
   <string name="places_survey_dialog_title">「場所」の改善にご協力ください</string>

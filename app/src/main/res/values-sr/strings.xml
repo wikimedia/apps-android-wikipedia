@@ -177,6 +177,8 @@
   <string name="logged_out_in_background_login">Пријави ме</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
   <string name="account_vanish_request_title">Гашење налога</string>
+  <string name="account_vanish_request_confirm_title">Упозорење у вези нестајања</string>
+  <string name="account_vanish_request_confirm">Нестајање је &lt;b&gt;последња опција&lt;/b&gt; и треба је користити &lt;b&gt;само када желите да заувек престанете са уређивањем&lt;/b&gt;, као и да сакријете што више својих прошлих асоцијација.&lt;br/&gt;&lt;br/&gt;Брисање налога на Википедији се врши променом назива налога тако да други не могу да препознају Ваше доприносе у процесу који се зове учтиви нестанак. &lt;b&gt;Нестајање не гарантује потпуну анонимност и не уклања доприносе на пројектима&lt;/b&gt;.</string>
   <string name="history_empty_title">Нема недавно прегледаних чланака</string>
   <string name="history_empty_message">Овде пратите шта сте читали.</string>
   <string name="history_offline_articles_toast">Неки чланци у историји можда неће бити видљиви док сте офлајн.</string>
@@ -370,7 +372,6 @@
   <string name="page_view_in_browser">Прикажи страницу у прегледачу</string>
   <string name="tool_tip_toc_title">Садржај брзог приступа</string>
   <string name="tool_tip_toc_text">Сада можете превлачити улево да бисте отворили садржај, а затим додирнути и превући дугме овог померача да бисте брзо прешли на друге одељке чланка.</string>
-  <string name="tool_tip_lang_button">Сада можете да претражујете и читате Википедију на више језика у апликацији.\n\n\nДодирните икону да бисте додали још језика.</string>
   <string name="error_response_malformed">Одговор сервера није исправно форматиран.</string>
   <string name="error_unknown">Дошло је до непознате грешке.</string>
   <string name="format_error_server_message">Порука: „%s”</string>
@@ -1159,10 +1160,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржите бар један језик за претрагу и читање.</string>
   <string name="more_language_options">још</string>
   <string name="add_wikipedia_languages_text">Додај језике Википедије</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Уклонити варијанту кинеског са листе језика?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Тренутно имате и традиционални и поједностављени кинески у језицима апликације. Променити подешавања језика?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Уреди језике</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, хвала</string>
   <string name="remove_language_dialog_cancel_button_text">Откажи</string>
   <string name="remove_language_dialog_ok_button_text">У реду</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">У реду</string>
@@ -1585,6 +1582,7 @@
   <string name="patroller_saved_message_title_copy_vio">Кршење ауторских права</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Наведите опис измене</string>
   <string name="patroller_saved_message_title_do_not_censor">Не цензуришите</string>
+  <string name="patroller_saved_message_title_art_imp">Сугестије за унапређење чланка</string>
   <string name="talk_warn_saved_messages_usage_instruction">Користите примере порука испод да прилагодите, шаљете и сачувате у својим порукама.</string>
   <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прихватам</string>
@@ -1618,8 +1616,8 @@
   <string name="places_filter_title">Филтрирај по језику</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>
-  <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>
   <string name="places_survey_very_satisfied_option">Веома задовољан</string>
   <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
   <string name="places_survey_dialog_cancel">Откажи</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Шта бисте желели да променимо или унапредимо?</string>
 </resources>

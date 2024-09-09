@@ -98,6 +98,7 @@
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>
+    <string name="menu_long_press_open_in_places">Open in Places</string>
     <string name="menu_long_press_open_in_new_tab">Open in new tab</string>
     <string name="menu_long_press_copy_page">Copy link address</string>
 
@@ -369,7 +370,6 @@
     <string name="page_view_in_browser">View page in browser</string>
     <string name="tool_tip_toc_title">Table of contents quick access</string>
     <string name="tool_tip_toc_text">You can now swipe left to open the table of contents, and also tap and drag on this scroller button to quickly jump to different sections of an article.</string>
-    <string name="tool_tip_lang_button">You can now search and read in multiple Wikipedia languages in the app.\n\n\nTap on the icon to add more languages.</string>
     <string name="error_response_malformed">Response from the server was not formatted correctly.</string>
     <string name="error_unknown">An unknown error occurred.</string>
     <string name="format_error_server_message">Message: \"%s\"</string>
@@ -859,6 +859,7 @@
     <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
+    <string name="feed_item_type_places">Nearby articles based on the current location</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
     <string name="feed_configure_onboarding_action">Customize</string>
     <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1253,10 +1254,6 @@
     <string name="wikipedia_languages_remove_warning_dialog_content">Keep at least one Wikipedia language from which to search and read content.</string>
     <string name="more_language_options">more</string>
     <string name="add_wikipedia_languages_text">Add Wikipedia languages</string>
-    <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Remove a Chinese variant from your app languages?</string>
-    <string name="dialog_of_remove_chinese_variants_from_app_lang_text">You currently have both Traditional and Simplified Chinese variants set in your app languages. Update your app languages settings?</string>
-    <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Edit languages</string>
-    <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No thanks</string>
     <string name="remove_language_dialog_cancel_button_text">Cancel</string>
     <string name="remove_language_dialog_ok_button_text">OK</string>
     <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1718,7 +1715,7 @@
     <string name="patroller_saved_message_body_editing_tests">Hi {{{username}}}, I am delighted that Wikipedia has caught your attention and that you have been interested in learning how to edit on it. The editing test you did worked; However, you should keep in mind that the goal of this project is to develop a reliable and complete encyclopedia that everyone can consult. Your edit affected the content, so it has been removed.\nIf you want to learn how to edit Wikipedia, the [[Wikipedia:Sandbox|sandbox]] is at your disposal. If your comments were specific to an article, the correct place is that article\'s talk page.</string>
     <string name="patroller_saved_message_body_npov">Hello {{{username}}}, some contributions you have made do not meet the neutrality required to comply with this Wikipedia\'s [[Wikipedia:NPOV|neutral point of view]] policy. For this reason, some content has been modified or removed. Please modify the paragraphs or sections that show a partial point of view, replacing them with a more neutral and objective text in line with what is expected in an encyclopedia.</string>
     <string name="patroller_saved_message_body_auto_trans">Hello {{{username}}}, some contributions you have made are possibly machine translations, which is why they have been modified or marked with the template. If no improvements are made to the article, it may be deleted.\n\nIf, despite all this information, you still have any questions, feel free to leave a message on [[User talk:{{{senderUserName}}}|my talk page]]. Don\'t be discouraged by this little incident. Your contributions are very important to Wikipedia.</string>
-    <string name="patroller_saved_message_body_coi_rem">Hello {{{username}}}, I appreciate your collaboration on Wikipedia; However, I noticed you are in a [[Wikipedia:Conflict_of_interest|conflict of interest]].A conflict of interest is the incompatibility between Wikipedia\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\n\nAll contributions in the main space are subject to the policies of content criteria of this Wikipedia ([[Wikipedia:What_Wikipedia_is_not|what Wikipedia is not]]), encyclopedic quality ([[Wikipedia:Verifiability|verifiability]] and [[Wikipedia:No_original_research|no original research]]), editorial method ([[Wikipedia:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Wikipedia:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\n\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.</string>
+    <string name="patroller_saved_message_body_coi_rem">Hello {{{username}}}, I appreciate your collaboration on Wikipedia; However, I noticed you are in a [[Wikipedia:Conflict_of_interest|conflict of interest]]. A conflict of interest is the incompatibility between Wikipedia\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\n\nAll contributions in the main space are subject to the policies of content criteria of this Wikipedia ([[Wikipedia:What_Wikipedia_is_not|what Wikipedia is not]]), encyclopedic quality ([[Wikipedia:Verifiability|verifiability]] and [[Wikipedia:No_original_research|no original research]]), editorial method ([[Wikipedia:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Wikipedia:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\n\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.</string>
     <string name="patroller_saved_message_body_final_warning">Because you made multiple destructive edits, this will serve as your final warning. Should you vandalize Wikipedia again, you will be banned from editing.</string>
     <string name="patroller_saved_message_body_copy_vio">Your recent edit appears to include copyrighted material without permission. Please ensure all content complies with this Wikipedia\'s [[Wikipedia:Copyrights|copyright]] policies to avoid removal.</string>
     <string name="patroller_saved_message_body_edit_summary">Hi {{{username}}}, it appears you removed content from Wikipedia without leaving an edit summary. Please leave an edit summary whenever you add or remove content to Wikipedia.</string>
@@ -1769,8 +1766,6 @@
     <string name="places_filter_title">Filter language</string>
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
-    <string name="places_nav_tab_tooltip_message">Discover Wikipedia articles around you with Places</string>
-    <string name="places_article_menu_tooltip_message">Tap \'View on map\' to explore this article\'s location</string>
     <string name="places_survey_very_satisfied_option">Very satisfied</string>
     <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
     <string name="places_survey_dialog_title">Help improve \'Places\'</string>
@@ -1778,5 +1773,21 @@
     <string name="places_survey_dialog_cancel">Cancel</string>
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
+    <string name="places_card_title">Places nearby</string>
+    <string name="places_card_action">More places nearby</string>
+    <string name="places_card_enable_location_card_message">Places is a map-based way to explore Wikipedia</string>
+    <string name="places_card_enable_location_card_button">Enable location</string>
+    <string name="places_card_distance_suffix">%s away</string>
+    <string name="places_card_distance_unknown">Unknown distance</string>
+    <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
+
+    <!-- Recommended Content -->
+    <string name="recommended_content_section_you_might_like">You might like</string>
+    <string name="recommended_content_survey_dialog_title">Help improve recommended content.</string>
+    <string name="recommended_content_survey_dialog_message">Are you satisfied with this recommended search result?</string>
+    <string name="recommended_content_survey_dialog_input_hint">Additional feedback</string>
+    <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
+    <!-- /Recommended Content -->
+
 </resources>

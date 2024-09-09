@@ -8,7 +8,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.page.Namespace
@@ -65,8 +65,8 @@ interface ReadingListPageDao {
     @Query("UPDATE ReadingListPage SET status = :newStatus WHERE status = :oldStatus AND offline = :offline")
     fun updateStatus(oldStatus: Long, newStatus: Long, offline: Boolean)
 
-    @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() LIMIT 1")
-    fun getRandomPage(): ReadingListPage?
+    @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
+    fun getRandomPage(lang: String): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     fun findPageBySearchTerm(term: String): List<ReadingListPage>
@@ -104,7 +104,7 @@ interface ReadingListPageDao {
         for (page in pages) {
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }
 
@@ -132,7 +132,7 @@ interface ReadingListPageDao {
         }
     }
 
-    fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
+    suspend fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
         updateThumbAndDescriptionByName(pageProto.lang, pageProto.apiTitle, thumbUrl, description)
     }
 
@@ -177,7 +177,7 @@ interface ReadingListPageDao {
         if (queueForSync) {
             ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }
 
@@ -257,7 +257,7 @@ interface ReadingListPageDao {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_SAVE
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, page))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, page))
 
         SavedPageSyncService.enqueue()
         if (queueForSync) {
@@ -275,7 +275,7 @@ interface ReadingListPageDao {
     private fun addPageToList(list: ReadingList, title: PageTitle) {
         val protoPage = ReadingListPage(title)
         insertPageIntoDb(list, protoPage)
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, protoPage))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, protoPage))
     }
 
     private fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {

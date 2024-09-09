@@ -10,7 +10,6 @@ class OnThisDay {
     private val births: List<Event> = emptyList()
     private val deaths: List<Event> = emptyList()
     private val holidays: List<Event> = emptyList()
-    var selected: List<Event> = emptyList()
 
     fun allEvents(): List<Event> {
         return (events + births + deaths + holidays).sortedByDescending { it.year }
@@ -18,13 +17,8 @@ class OnThisDay {
 
     @Serializable
     class Event {
-
-        private val pages: List<PageSummary?>? = null
+        val pages: List<PageSummary> = emptyList()
         val text = ""
         val year = 0
-
-        fun pages(): List<PageSummary>? {
-            return pages?.filterNotNull()
-        }
     }
 }

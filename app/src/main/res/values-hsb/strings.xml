@@ -278,7 +278,6 @@
   <string name="tool_tip_bookmark_icon_text">Tłóč na čitanske znamješko, zo by so zapisk składował w čitanskej lisćinje.</string>
   <string name="page_view_in_browser">Stronu we wobhladowaku pokazać</string>
   <string name="tool_tip_toc_title">Spěšny přistup na wobsahowy zapis</string>
-  <string name="tool_tip_lang_button">Nětko móžeš z pomocu app po wjacorych rěčach pytać a w nich čitać.\n\nTłóč na symbol, zo by dalše rěče přidał(a).</string>
   <string name="error_response_malformed">Wotmołwa serwera njeje prawje formatěrowana.</string>
   <string name="error_unknown">Njeznaty zmylk je wustupił.</string>
   <string name="format_error_server_message">Zdźělenka: \"%s\"</string>

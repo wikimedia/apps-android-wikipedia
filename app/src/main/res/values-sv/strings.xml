@@ -111,6 +111,7 @@
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Öppna</string>
+  <string name="menu_long_press_open_in_places">Öppen i Platser</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
   <string name="menu_text_select_define">Definera</string>
@@ -376,7 +377,6 @@
   <string name="page_view_in_browser">Visa sidan i webbläsaren</string>
   <string name="tool_tip_toc_title">Snabbåtkomst till innehållsförteckningen</string>
   <string name="tool_tip_toc_text">Du kan nu svepa åt vänster för att öppna innehållsförteckningen samt även trycka på och dra i denna rullknapp för att snabbt hoppa till olika avsnitt i en artikeln.</string>
-  <string name="tool_tip_lang_button">Du kan nu söka och läsa på flera språkversioner av Wikipedia i appen.\n\nTryck på ikonen för att lägga till fler språk.</string>
   <string name="error_response_malformed">Serverns svar var inte korrekt formaterat.</string>
   <string name="error_unknown">Ett okänt fel uppstod.</string>
   <string name="format_error_server_message">Meddelande: \"%s\"</string>
@@ -842,6 +842,7 @@
   <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
   <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
+  <string name="feed_item_type_places">Närliggande artiklar bygger på din aktuella plats</string>
   <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
   <string name="feed_configure_onboarding_action">Anpassa</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1070,7 +1071,6 @@
     <item quantity="one">Du lade till %d tagg</item>
     <item quantity="other">Du lade till %d taggar</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Igår</string>
   <string name="suggested_edits_encourage_account_creation_title">Visste du att alla kan redigera på Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Redigeringsförslag är ett nytt sätt att redigera på Wikipedia på Android. Det hjälper dig att göra små men viktiga bidrag på Wikipedia.\nVårt mål är att göra det enklare och åtkomligare att redigera för alla! Logga in eller registrera dig på Wikipedia för att komma igång.</string>
@@ -1197,10 +1197,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Behåll minst ett Wikipedia-språk att söka och läsa innehåll på.</string>
   <string name="more_language_options">fler</string>
   <string name="add_wikipedia_languages_text">Lägg till Wikipedia-språk</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Ta bort en kinesisk variant från dina appspråk?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du har för tillfället både den traditionella och förenklade varianterna av kinesiska i dina appspråk. Uppdatera inställningar för dina appspråk?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Redigera språk</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nej tack</string>
   <string name="remove_language_dialog_cancel_button_text">Avbryt</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1634,6 +1630,7 @@
   <string name="patroller_saved_message_body_editing_tests">Hej {{{username}}}, det gläder mig att Wikipedia har fångat din uppmärksamhet och att du har varit intresserad av att lära dig hur man redigerar där. Ditt redigeringstest fungerade, men du bör dock komma ihåg att målet med detta projekt är att utveckla ett tillförlitligt och komplett uppslagsverk som alla kan konsultera. Din redigering påverkade innehållet, så det har tagits bort.\nOm du vill lära dig hur man redigerar på Wikipedia står [[Wikipedia:Sandbox|sandlådan]] till ditt förfogande. Om dina kommentarer var specifika för en artikel är artikelns diskussionssida den korrekta platsen.</string>
   <string name="patroller_saved_message_body_npov">Hej {{{username}}}, vissa bidrag du har gjort uppfyller inte den neutralitet som krävs för att följa Wikipedias policy om [[Wikipedia:NPOV|en neutrala synvinkel]]. Av denna anledning har en del innehåll ändrats eller tagits bort. Ändra de stycken eller avsnitt som visar en partiell synvinkel, ersätt dem med en mer neutral och objektiv text i linje med vad som förväntas i ett uppslagsverk.</string>
   <string name="patroller_saved_message_body_auto_trans">Hej {{{username}}}, några bidrag du har gjort är möjligen maskinöversättningar vilket av denna anledning har ändrats eller markerats med mallen. Om inga förbättringar görs i artikeln kan den komma att raderas.\n\nOm du trots all denna information fortfarande har några frågor får du gärna lämna ett meddelande på [[User talk:{{{senderUserName}}}|min diskussionssida]]. Bli inte avskräckt av denna lilla händelse. Dina bidrag är mycket viktiga för Wikipedia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Hej {{{username}}}, jag uppskattar ditt samarbete på Wikipedia; men, jag ser att du har en [[Wikipedia:Intressekonflikter|intressekonflikt]]. En intressekonflikt innebär en oförenlighet med Wikipedias målsättning om neutralitet och trovärdighet och målen hos vissa redigerare, individer eller företag av alla sorter.\n\nAlla bidragsgivare i huvudnamnrymden är föremål för policyerna för innehållskriterier på Wikipedia ([[Wikipedia:Vad Wikipedia inte är|vad Wikipedia inte är]]), encyklopedisk kvalitet ([[Wikipedia:Verifierbarhet|verifierbarhet]] och [[Wikipedia:Ingen originalforsking|ingen originalforskning]]), redaktionell metod ([[Wikipedia:Neutral synvinkel|neutral synvinkel]]), och innehållets legitimitet ([[Wikipedia:Upphovsrätt|upphovsrätt]]). Alla som publicerar förväntas följa dessa policyer när man skapar och granskar innehåll och att respektera och utgå ifrån att andra som publicerar har goda avsikter för att säkerställa att dessa policyer upprätthålls.\n\nOm du redigerar under en intressekonflikt måste du tillämpa motsvarande policy med särskild hänsyn; Annars kan ditt användarkonto anses ha privata syften och blockeras. Kontakta mig gärna på min diskussionssida om du har några frågor.</string>
   <string name="patroller_saved_message_body_final_warning">Eftersom du har gjort flera destruktiva redigeringar kommer detta att fungera som din sista varning. Skulle du vandalisera Wikipedia igen kommer du att förbjudas att redigera.</string>
   <string name="patroller_saved_message_body_copy_vio">Din senaste redigering verkar innehålla upphovsrättsskyddat material utan tillstånd. Se till att allt innehåll följer Wikipedias policyer om [[Wikipedia:Copyrights|upphovsrätt]] för att undvika borttagning.</string>
   <string name="patroller_saved_message_body_edit_summary">Hej {{{username}}}, det verkar som att du har tagit bort innehåll från Wikipedia utan att lämna en redigeringssammanfattning. Lämna en redigeringssammanfattning när du lägger till eller tar bort innehåll på Wikipedia.</string>
@@ -1675,8 +1672,6 @@
   <string name="places_filter_title">Filtrera språk</string>
   <string name="places_toggle_buttons_map">Karta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Upptäck Wikipedia-artiklar omkring dig med Platser</string>
-  <string name="places_article_menu_tooltip_message">Tryck på \"Visa på kartan\" för att utforska den här artikelns plats</string>
   <string name="places_survey_very_satisfied_option">Mycket nöjd</string>
   <string name="places_survey_very_unsatisfied_option">Mycket missnöjd</string>
   <string name="places_survey_dialog_title">Hjälp till att förbättra \"Platser\"</string>
@@ -1684,4 +1679,11 @@
   <string name="places_survey_dialog_cancel">Avbryt</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Vad vill du att vi ska förändra eller förbättra?</string>
   <string name="places_empty_list">Det här området är tomt. Zooma ut &lt;a href=\"#\"&gt;på kartan&lt;/a&gt;.</string>
+  <string name="places_card_title">Närliggande platser</string>
+  <string name="places_card_action">Fler närliggande platser</string>
+  <string name="places_card_enable_location_card_message">Platser är ett kart-baserat sätt att utforska Wikipedia</string>
+  <string name="places_card_enable_location_card_button">Aktivera plats</string>
+  <string name="places_card_distance_suffix">%s bort</string>
+  <string name="places_card_distance_unknown">Okänt avstånd</string>
+  <string name="places_empty_message_snackbar">Det finns inga närliggande artiklar. Testa att zooma ut och flytta kartan.</string>
 </resources>

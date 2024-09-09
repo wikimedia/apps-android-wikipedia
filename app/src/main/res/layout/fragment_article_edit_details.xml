@@ -312,6 +312,7 @@
         android:id="@+id/diffRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="72dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:scrollbars="vertical"/>
 
@@ -531,7 +532,7 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/warnButton"
+            android:id="@+id/talkButton"
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="@dimen/nav_bar_height"
@@ -541,7 +542,7 @@
             android:background="?attr/selectableItemBackground">
 
             <ImageView
-                android:id="@+id/warnIcon"
+                android:id="@+id/talkIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"

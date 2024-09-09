@@ -299,7 +299,6 @@
   <string name="page_view_in_browser">Side yn webblêder besjen</string>
   <string name="tool_tip_toc_title">Fluch nei de ynhâldsopjefte</string>
   <string name="tool_tip_toc_text">Jo kinne no mei in feech nei lofts de ynhâldsopjefte iepenje, en ek de skoknop oantikje en ferslepe om fluch nei oare sideparten te springen.</string>
-  <string name="tool_tip_lang_button">Jo kinne yn \'e app no sykje en lêze yn ferskate Wikipedy-talen.\n\n\nIkoan oantikje om mear talen ta te foegjen.</string>
   <string name="error_response_malformed">It antwurd fan \'e server is ferkeard opmakke.</string>
   <string name="error_unknown">In ûnbekende flater die him foar.</string>
   <string name="format_error_server_message">Berjocht: \"%s\"</string>
@@ -801,7 +800,6 @@
     <item quantity="one">Jo hawwe %d lebel taheakke</item>
     <item quantity="other">Jo hawwe %d lebels taheakke</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Juster</string>
   <string name="suggested_edits_encourage_account_creation_title">Wisten jo dat elkenien de Wikipedy bewurkje kin?</string>
   <string name="suggested_edits_encourage_account_creation_message">Bewurksuggestjes binne in nije manier om \'e Wikipedy op Android te bewurkjen. Se helpe jo lytse mar wichtige bydragen oan \'e Wikipedy te leverjen.\nUs doel is it bewurkjen foar elkenien nofliker en tagonkliker te meitsjen! Meld jo oan, kom by de Wikipedy, en set útein.</string>
@@ -884,10 +882,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Hâld teminsten ien Wikipedy-taal om ynhâld yn te sykjen en te lêzen.</string>
   <string name="more_language_options">mear</string>
   <string name="add_wikipedia_languages_text">Wikipedy-talen tafoegje</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">In Sineesk-fariant út jo app-talen fuorthelje?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Jo hawwe no sawol de farianten Tradisjoneel as Ferienfâldige Sineesk ynsteld yn jo app-talen. De taalynstellings fan jo app oanpasse?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Talen oanpasse</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee tanke</string>
   <string name="remove_language_dialog_cancel_button_text">Annulearje</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

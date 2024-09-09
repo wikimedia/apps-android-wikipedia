@@ -342,7 +342,6 @@
   <string name="tool_tip_bookmark_icon_text">Diim buukmak biel la ni ka atikil karʋŋ la\'ad la kpɛn\'.</string>
   <string name="page_view_in_browser">Gɔsim lakir burauza</string>
   <string name="tool_tip_toc_title">Sɔb bʋʋlʋm paamʋg tɔ\'ɔtɔ</string>
-  <string name="tool_tip_lang_button">Fʋ na nyaŋi ia ka karim wikipedia buudi bɛdegʋ app la ni.\n\nDiim ikoon la ka paas buudi pian\'ad bɛdegʋ.</string>
   <string name="error_response_malformed">Lɛbisa banɛ yi onɛ tisid labaya la san\'an tʋn\'e pʋ bɛ din nar si\'em.</string>
   <string name="error_unknown">Gbɛlʋŋ kanɛ ka ti zi\' naamya.</string>
   <string name="format_error_server_message">Labaar: \"%s\"</string>
@@ -807,7 +806,6 @@
   <string name="suggested_edits_contribution_image_label">Footo</string>
   <string name="suggested_edits_contribution_article_label">Atikil</string>
   <string name="suggested_edits_contribution_views">%s gɔs</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Su\'os</string>
   <string name="suggested_edits_encourage_account_creation_title">Fʋ mi\'i ye sɔ\' wʋsa tʋn\'e dɛmisim Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kpɛn\'ɛm/ paasim Wikipedia ni</string>
@@ -865,9 +863,6 @@
   <string name="on_this_day_dialog_previous_month">Nwadig kanɛ gaad la</string>
   <string name="more_language_options">Bɛdigʋ</string>
   <string name="add_wikipedia_languages_text">Paasim Wikipiidia pian\'ad buudinam</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Yis Chinese pian\'adi fʋ app buudi pian\'adnaminɛɛ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Dɛmisim buudi pian\'adnam</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ayei m pʋ\'ʋsya</string>
   <string name="remove_language_dialog_cancel_button_text">Basim</string>
   <string name="remove_language_dialog_ok_button_text">Awɔɔ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Awɔɔ</string>

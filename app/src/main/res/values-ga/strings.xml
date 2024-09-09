@@ -296,7 +296,6 @@
   <string name="page_view_in_browser">Féach ar leathanach i mbrabhsálaí</string>
   <string name="tool_tip_toc_title">Mear-rochtain ar clár ábhair</string>
   <string name="tool_tip_toc_text">Anois is féidir svaipeáil ar chlé le clár ábhair a oscailt, agus is féidir an cnaipe scrollsaighde seo a thapáil agus a tharraingt le léim go tapa chuig na rannáin éagsúla san alt.</string>
-  <string name="tool_tip_lang_button">Anois is féidir cuardach agus léamh in iliomad teangacha Vicipéide san aip.\n\n\nTapáil ar an deilbhín chun tuilleadh teangacha a chur leis.</string>
   <string name="error_response_malformed">Níor formáidíodh i gceart an fhreagairt on bhfreastalaí.</string>
   <string name="error_unknown">Tharla earráid anaithnid.</string>
   <string name="format_error_server_message">Teachtaireacht: \"%s\"</string>
@@ -742,10 +741,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Coinnigh teanga Vicipéide amháin ar a laghad a bhféadfar é a úsáid chun ábhar a chuardach agus a léamh.</string>
   <string name="more_language_options">tuilleadh</string>
   <string name="add_wikipedia_languages_text">Cuir teangacha Vicipéide leis</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Bain leagan den tSínis amach ó do chuid teangacha san aip?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Faoi láthair tá an dá cheann den tSínis Traidisiúnta agus an tSínis Shimplithe socraithe agat i do chuid teangacha san aip. Nuashonraigh do chuid socruithe teangacha san aip?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Cuir teangacha in eagar</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ní dhéanfaidh mé é</string>
   <string name="remove_language_dialog_cancel_button_text">Cealaigh</string>
   <string name="remove_language_dialog_ok_button_text">Bain</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Scrios</string>

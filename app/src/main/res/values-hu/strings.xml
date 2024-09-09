@@ -377,7 +377,6 @@
   <string name="page_view_in_browser">Lap megtekintése böngészőben</string>
   <string name="tool_tip_toc_title">Tartalomjegyzék gyors elérése</string>
   <string name="tool_tip_toc_text">A tartalomjegyzéket balra lapozva tudod előhozni és a görgőt megragadva gyorsan navigálhatsz a szócikk különböző részei között.</string>
-  <string name="tool_tip_lang_button">Mostantól több Wikipédia-nyelven is kereshetsz és olvashatsz az alkalmazásban.\n\nEzzel az ikonnal vehetsz fel újabb nyelveket.</string>
   <string name="error_response_malformed">A kiszolgáló válasza nincs megfelelően formázva.</string>
   <string name="error_unknown">Ismeretlen hiba történt.</string>
   <string name="format_error_server_message">Üzenet: „%s”</string>
@@ -442,6 +441,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
   <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
+  <string name="temp_account_anon_dialog_body">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#login\"&gt;regisztrálsz&lt;/a&gt;&lt;strong&gt;[$1 bejelentkezel]&lt;/strong&gt; vagy &lt;strong&gt;[$2 felhasználói fiókot hozol létre]&lt;/strong&gt; akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
   <string name="temp_account_dialog_ok">Értem</string>
   <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
   <string name="temp_account_dialog_discard">Változtatások elvetése és bejelentkezés</string>
@@ -449,6 +449,7 @@
     <item quantity="one">A felhasználói fiókod %d nap múlva lejár.</item>
     <item quantity="other">A felhasználói fiókod %d nap múlva lejár.</item>
   </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Nem vagy bejelentkezve.&lt;/b&gt; Amikor először szerkesztesz, a személyes adataid védelme érdekében egy ideiglenes fiók jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).</string>
   <string name="temp_account_end_session">Munkamenet befejezése</string>
   <string name="temp_account_end_session_confirm">Ezzel kijelentkezel ideiglenes fiókodból. Akarod folytatni?</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
@@ -834,6 +835,7 @@
   <string name="feed_item_type_main_page">A Wikipédia kezdőlapja napi kiemelt tartalommal</string>
   <string name="feed_item_type_randomizer">Véletlenszerűen kiválasztott szócikkek</string>
   <string name="feed_item_type_suggested_edits">Javaslatok a Wikipédia tartalmának fejlesztésére</string>
+  <string name="feed_item_type_places">Közeli cikkek az aktuális hely alapján</string>
   <string name="feed_empty_message">Nincs semmi a Felfedezés hírfolyamodban</string>
   <string name="feed_configure_onboarding_action">Testreszabás</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1062,7 +1064,6 @@
     <item quantity="one">Hozzáadtál %d címkét</item>
     <item quantity="other">Hozzáadtál %d címkét</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Tegnap</string>
   <string name="suggested_edits_encourage_account_creation_title">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
   <string name="suggested_edits_encourage_account_creation_message">A javasolt szerkesztések egy új módja a Wikipédia tartalmának fejlesztéséhez való hozzájárulásnak. Ez egy aprónak tűnő, de fontos rész. Célunk az, hogy a szerkesztés könnyebb legyen, és elérhetőbb mindenki számára! Jelentkezz be vagy regisztrálj a Wikipédián a kezdéshez.</string>
@@ -1189,10 +1190,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Tarts meg legalább egy Wikipédia nyelvet, amin keresni és olvasni szeretnél.</string>
   <string name="more_language_options">több</string>
   <string name="add_wikipedia_languages_text">Wikipédia-nyelvek hozzáadása</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eltávolítod valamelyik kínai változatot az alkalmazás nyelvei közül?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Jelenleg mind a hagyományos, mind az egyszerűsített kínai nyelvi változat is be van állítva az alkalmazásban. Módosítod az alkalmazás nyelvi beállításait?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Nyelvek szerkesztése</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Köszönöm, nem</string>
   <string name="remove_language_dialog_cancel_button_text">Mégse</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1651,8 +1648,6 @@
   <string name="places_filter_title">Nyelvi szűrés</string>
   <string name="places_toggle_buttons_map">Térkép</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Fedezd fel a körülötted lévő Wikipédia-cikkeket a Helyek segítségével</string>
-  <string name="places_article_menu_tooltip_message">Érintsd meg a „Megtekintés a térképen” elemet a cikk helyének felfedezéséhez</string>
   <string name="places_survey_very_satisfied_option">Nagyon elégedett</string>
   <string name="places_survey_very_unsatisfied_option">Nagyon elégedetlen</string>
   <string name="places_survey_dialog_title">Segítsen a „Helyek” fejlesztésében</string>
@@ -1660,4 +1655,7 @@
   <string name="places_survey_dialog_cancel">Mégse</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Mit lenne az, amin változtatnánk vagy javítanánk?</string>
   <string name="places_empty_list">Ez a terület üres. Kicsinyítés &lt;a href=\"#\"&gt;a térképen&lt;/a&gt;.</string>
+  <string name="places_card_title">Helyek a közelben</string>
+  <string name="places_card_action">További helyek a közelben</string>
+  <string name="places_card_enable_location_card_button">Helymeghatározás engedélyezése</string>
 </resources>

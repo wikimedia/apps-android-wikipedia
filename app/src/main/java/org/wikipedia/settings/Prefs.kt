@@ -364,18 +364,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_first_time_sync, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_first_time_sync, value)
 
-    var editingTextSizeExtra
-        get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_extra, 0)
-        set(extra) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_extra, extra)
-
-    var isMultilingualSearchTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_multilingual_search_tooltip_shown, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_multilingual_search_tooltip_shown, enabled)
-
-    var shouldShowRemoveChineseVariantPrompt
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)
-
     var remoteNotificationsSeenTime
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
         set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime)
@@ -593,6 +581,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_user_contrib_filter_lang_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
         set(value) = PrefsIoUtil.setString(R.string.preference_key_user_contrib_filter_lang_code, value)
 
+    var donationBannerOptIn
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_banner_opt_in, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_banner_opt_in, value)
+
     var importReadingListsNewInstallDialogShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_import_reading_lists_new_install_dialog_shown, value)
@@ -624,25 +616,9 @@ object Prefs {
     val useUrlShortenerForSharing
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)
 
-    var readingListShareSurveyDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, value)
-
-    var readingListShareSurveyMode
-        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_share_survey_mode, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_share_survey_mode, value)
-
     var readingListShareTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
-
-    var readingListReceiveSurveyDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_receive_survey_dialog_shown, value)
-
-    var readingListReceiveSurveyMode
-        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_lists_receive_survey_mode, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_lists_receive_survey_mode, value)
 
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
@@ -655,10 +631,6 @@ object Prefs {
     var suggestedEditsMachineGeneratedDescriptionTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, value)
-
-    var suggestedEditsMachineGeneratedDescriptionsIsExperienced
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_machine_generated_descriptions_is_experienced, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_machine_generated_descriptions_is_experienced, value)
 
     var watchlistExcludedWikiCodes
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_watchlist, null))
@@ -699,13 +671,12 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
-    var showOneTimePlacesPageOnboardingTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, value)
-
-    var showOneTimePlacesMainNavOnboardingTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, value)
+    var placesDefaultLocationLatLng
+        get(): String? {
+            val lanLng = PrefsIoUtil.getString(R.string.preference_key_default_places_location_latlng, null)
+            return if (lanLng.isNullOrEmpty()) null else lanLng
+        }
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_default_places_location_latlng, set)
 
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?
         get() {
@@ -754,4 +725,8 @@ object Prefs {
     var isDonationTestEnvironment
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
+
+    var recommendedContentSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_content_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_content_survey_shown, value)
 }

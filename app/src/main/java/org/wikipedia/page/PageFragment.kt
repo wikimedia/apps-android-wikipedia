@@ -34,10 +34,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.float
@@ -105,6 +101,7 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -112,12 +109,14 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.PageActionOverflowView
+import org.wikipedia.views.SurveyDialog
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
+import java.util.concurrent.TimeUnit
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -149,7 +148,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val binding get() = _binding!!
 
     private val activeTimer = ActiveTimer()
-    private val disposables = CompositeDisposable()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
@@ -271,7 +269,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.cleanup()
         sidePanelHandler.log()
         leadImagesHandler.dispose()
-        disposables.clear()
         webView.clearAllListeners()
         (webView.parent as ViewGroup).removeView(webView)
         Prefs.isSuggestedEditsHighestPriorityEnabled = false
@@ -691,6 +688,31 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    private fun maybeShowRecommendedContentSurvey() {
+        if (Prefs.recommendedContentSurveyShown) {
+             return
+        }
+        historyEntry?.let {
+            val duration = if (ReleaseUtil.isDevRelease) 1L else 10L
+            binding.pageContentsContainer.postDelayed({
+                if (!isAdded) {
+                    return@postDelayed
+                }
+                if (it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED ||
+                    it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED) {
+                    SurveyDialog.showFeedbackOptionsDialog(
+                        requireActivity(),
+                        titleId = R.string.recommended_content_survey_dialog_title,
+                        messageId = R.string.recommended_content_survey_dialog_message,
+                        snackbarMessageId = R.string.recommended_content_survey_dialog_submitted_message,
+                        invokeSource = InvokeSource.RECOMMENDED_CONTENT,
+                        historyEntry = it
+                    )
+                }
+            }, TimeUnit.SECONDS.toMillis(duration))
+        }
+    }
+
     private fun showFindReferenceInPage(referenceAnchor: String,
                                         backLinksList: List<String?>,
                                         referenceText: String) {
@@ -920,12 +942,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         model.readingListPage?.let { page ->
             model.title?.let { title ->
-                disposables.add(Completable.fromAction {
-                    page.thumbUrl.equals(title.thumbUrl, true)
+                lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+                    L.e(t)
+                }) {
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
                         AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
                     }
-                }.subscribeOn(Schedulers.io()).subscribe())
+                }
             }
         }
         if (!errorState) {
@@ -933,6 +956,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
+        maybeShowRecommendedContentSurvey()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.
@@ -1235,29 +1259,23 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun updateWatchlist() {
         title?.let {
-            disposables.add(ServiceFactory.get(it.wikiSite).watchToken
-                .subscribeOn(Schedulers.io())
-                .flatMap { response ->
-                    val watchToken = response.query?.watchToken()
-                    if (watchToken.isNullOrEmpty()) {
-                        throw RuntimeException("Received empty watch token.")
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.d(throwable)
+            }) {
+                val token = ServiceFactory.get(it.wikiSite).getWatchToken().query?.watchToken() ?: throw RuntimeException("Received empty watch token.")
+                val watch = ServiceFactory.get(it.wikiSite).watch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, token)
+                watch.getFirst()?.let { firstWatch ->
+                    if (model.isWatched) {
+                        WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
+                    } else {
+                        WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
                     }
-                    ServiceFactory.get(it.wikiSite).postWatch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, watchToken)
+                    model.isWatched = firstWatch.watched
+                    updateWatchlistExpiry(WatchlistExpiry.NEVER)
+                    showWatchlistSnackbar()
                 }
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate { updateQuickActionsAndMenuOptions() }
-                .subscribe({ watchPostResponse ->
-                    watchPostResponse.getFirst()?.let { watch ->
-                        if (model.isWatched) {
-                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
-                        } else {
-                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
-                        }
-                        model.isWatched = watch.watched
-                        updateWatchlistExpiry(WatchlistExpiry.NEVER)
-                        showWatchlistSnackbar()
-                    }
-                }) { caught -> L.d(caught) })
+                updateQuickActionsAndMenuOptions()
+            }
         }
     }
 

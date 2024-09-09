@@ -52,6 +52,7 @@
 * Niridya
 * Noé
 * Obscaeris
+* Oujon
 * Oupsa
 * Papawy
 * Seb35
@@ -76,8 +77,8 @@
   <string name="nav_item_back">Retour</string>
   <string name="page_tabs_back">Retour</string>
   <string name="nav_item_forward">Suivant</string>
-  <string name="search_hint">Rechercher sur Wikipédia</string>
-  <string name="search_hint_voice_search">Rechercher vocalement</string>
+  <string name="search_hint">Rechercher Wikipédia</string>
+  <string name="search_hint_voice_search">Recherche de saisi vocale</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
   <string name="nav_item_suggested_edits">Modifications</string>
@@ -422,7 +423,6 @@
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_title">Tableau d’accès rapide aux contenus</string>
   <string name="tool_tip_toc_text">Vous pouvez maintenant glisser à gauche pour ouvrir le tableau des contenus et cliquer-glisser ce bouton de défilement pour sauter rapidement aux différentes sections d’un article.</string>
-  <string name="tool_tip_lang_button">Vous pouvez maintenant chercher et lire Wikipédia en différentes langues dans l’application.\n\n\nCliquez sur l’icône pour ajouter plus de langues.</string>
   <string name="error_response_malformed">La réponse du serveur n’a pas été mise en forme correctement.</string>
   <string name="error_unknown">Une erreur inconnue s’est produite.</string>
   <string name="format_error_server_message">Message : « %s »</string>
@@ -1117,7 +1117,6 @@
     <item quantity="one">Vous avez ajouté une balise</item>
     <item quantity="other">Vous avez ajouté %d balises</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hier</string>
   <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
@@ -1244,10 +1243,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue de Wikipédia avec laquelle vous pourrez chercher et lire du contenu.</string>
   <string name="more_language_options">plus</string>
   <string name="add_wikipedia_languages_text">Ajouter des langues de Wikipédia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Supprimer une variante chinoise des langues de votre application ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vous avez actuellement les deux variantes chinoises (traditionnelle et simplifiée) définies dans vos langues de l’application. Mettre à jour vos paramètres de langue de l’application ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifier les langues</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non merci</string>
   <string name="remove_language_dialog_cancel_button_text">Annuler</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1723,8 +1718,6 @@
   <string name="places_filter_title">Filtrer par langue</string>
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Découvrez les articles Wikipédia autour de vous avec Lieux</string>
-  <string name="places_article_menu_tooltip_message">Appuyez sur « Afficher sur la carte » pour explorer l’emplacement de cet article.</string>
   <string name="places_survey_very_satisfied_option">Très satisfait</string>
   <string name="places_survey_very_unsatisfied_option">Très insatisfait</string>
   <string name="places_survey_dialog_title">Aider à améliorer les \'Lieux\'</string>

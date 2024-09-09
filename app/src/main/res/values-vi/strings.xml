@@ -359,7 +359,6 @@
   <string name="page_view_in_browser">Xem trang trong trình duyệt</string>
   <string name="tool_tip_toc_title">Truy cập nhanh mục lục</string>
   <string name="tool_tip_toc_text">Bây giờ bạn có thể vuốt sang trái để mở mục lục, đồng thời chạm và kéo vào nút cuộn này để nhanh chóng chuyển đến các phần khác nhau của bài viết.</string>
-  <string name="tool_tip_lang_button">Từ bây giờ, bạn đã có thể tìm và đọc Wikipedia bằng nhiều ngôn ngữ trong ứng dụng.\n\n\nChạm vào biểu tượng để thêm ngôn ngữ.</string>
   <string name="error_response_malformed">Phản hồi từ máy chủ không được định dạng đúng.</string>
   <string name="error_unknown">Gặp lỗi lạ.</string>
   <string name="format_error_server_message">Thông báo: \"%s\"</string>
@@ -747,6 +746,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Hủy bỏ</string>
   <string name="feed_accessibility_card_text">Bạn đã đến cuối nguồn cấp dữ liệu.</string>
   <string name="feed_accessibility_card_load_more_button">Tải thêm</string>
+  <string name="feed_language_variants_removal_dialog_save">Lưu</string>
   <string name="top_read_activity_title">Đọc nhiều nhất trên %s</string>
   <string name="tabs_activity_title">Các tab</string>
   <string name="description_edit_text_hint">Miêu tả bài viết</string>
@@ -945,7 +945,6 @@
     <item quantity="one">Bạn đã thêm thẻ %d</item>
     <item quantity="other">Bạn đã thêm thẻ %d</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hôm qua</string>
   <string name="suggested_edits_encourage_account_creation_title">Bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Các sửa đổi gợi ý là một cách mới để đóng góp cho Wikipedia trên Android. Nó giúp bạn có những đóng góp nhỏ nhưng quan trọng cho Wikipedia.\nMục tiêu của chúng tôi là làm cho việc sửa đổi dễ dàng hơn và dễ tiếp cận hơn cho mọi người! Đăng nhập hoặc tham gia Wikipedia để bắt đầu.</string>
@@ -1044,10 +1043,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Hãy giữ lại ít nhất một ngôn ngữ Wikipedia để tìm và đọc nội dung.</string>
   <string name="more_language_options">thêm</string>
   <string name="add_wikipedia_languages_text">Thêm ngôn ngữ Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Xóa biến thể tiếng Trung khỏi các ngôn ngữ ứng dụng của bạn?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Tiếng Trung phồn thể và giản thể đều được kích hoạt trong ngôn ngữ ứng dụng của bạn. Bạn có muốn cập nhật tùy chọn ngôn ngữ ứng dụng?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sửa ngôn ngữ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Thôi</string>
   <string name="remove_language_dialog_cancel_button_text">Hủy bỏ</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1155,6 +1150,7 @@
   <string name="watchlist_page_moved">Đã di chuyển</string>
   <string name="watchlist_page_protected">Đã khóa</string>
   <string name="watchlist_page_deleted">Đã xóa</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Tất cả</string>
   <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Con người (không phải bot)</string>
@@ -1174,6 +1170,10 @@
   <string name="talk_templates_edit_message_dialog_delete">Xóa</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Cảm ơn</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Thông tin người dùng</string>
+  <string name="patroller_tasks_filters_all_text">Tất cả</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Con người (không phải bot)</string>
+  <string name="patroller_tasks_filters_significance_minor">Sửa đổi nhỏ</string>
+  <string name="patroller_onboarding_two_thank_title">Cảm ơn</string>
+  <string name="donate_gpay_dialog_title">Quyên góp bằng Google Pay?</string>
 </resources>

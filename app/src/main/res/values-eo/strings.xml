@@ -319,7 +319,6 @@
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="tool_tip_toc_title">Enhavtabelo rapida aliro</string>
   <string name="tool_tip_toc_text">Nun vi povas ŝovumi maldekstren por malfermi la enhavotabelon, kaj frapeti-treni la ruluma butonon por rapide salti al paragrafoj de artikolo.</string>
-  <string name="tool_tip_lang_button">Vi povas nun serĉi kaj legi je pluraj Vikipediaj lingvoj en la aplikaĵo.\n\n\nFrapetu la ikonon por aldoni pliajn lingvojn.</string>
   <string name="error_response_malformed">Respondo de la servilo ne estas ĝuste aranĝita.</string>
   <string name="error_unknown">Okazis nekonata eraro.</string>
   <string name="format_error_server_message">Mesaĝo: \"%s\"</string>
@@ -701,7 +700,6 @@
   <string name="suggested_edits_contribution_language_label">Lingvo</string>
   <string name="suggested_edits_contribution_image_label">Bildo</string>
   <string name="suggested_edits_contribution_article_label">Artikolo</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hieraŭ</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etikedo</item>
@@ -759,10 +757,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Lasu almenaŭ unu Vikipedian lingvon por serĉado kaj legado de enhavo.</string>
   <string name="more_language_options">pli</string>
   <string name="add_wikipedia_languages_text">Aldoni vikipediajn lingvojn</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Forigi ĉinan varianton el viaj aplikaĵaj lingvoj?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vi aktuale havas kaj tradician kaj simpligitan formojn de ĉina lingvo en viaj aplikaĵaj lingvoj. Ĉu ĝisdatigi la lingvo-agordojn de la aplikaĵo?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Redakti lingvojn</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, dankon</string>
   <string name="remove_language_dialog_cancel_button_text">Nuligi</string>
   <string name="remove_language_dialog_ok_button_text">Bone</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Bone</string>

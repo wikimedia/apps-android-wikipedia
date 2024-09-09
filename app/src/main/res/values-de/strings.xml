@@ -26,6 +26,7 @@
 * McDutchie
 * Metalhead64
 * Mirzali
+* MrBenjo
 * MuratTheTurkish
 * Pittigrilli
 * Rummskartoffel
@@ -207,6 +208,7 @@
   <string name="logged_out_in_background_cancel">Abbrechen</string>
   <string name="account_vanish_request_title">Konto auflösen</string>
   <string name="account_vanish_request_confirm_title">Kontoauflösungs-Warnung</string>
+  <string name="account_vanish_request_confirm">Das Ausblenden ist ein &lt;b&gt;letzter Ausweg&lt;/b&gt; und sollte &lt;b&gt;nur verwendet werden, wenn du für immer mit dem Bearbeiten aufhören willst&lt;/b&gt; und auch, um so viele deiner früheren Verknüpfungen wie möglich zu verbergen.&lt;br/&gt;&lt;br/&gt;Die Löschung eines Kontos bei Wikipedia erfolgt, indem dein Kontoname so geändert wird, dass andere deine Beiträge nicht mehr erkennen können, ein Prozess, der Kontolöschen genannt wird. &lt;b&gt;Das Ausblenden garantiert keine vollständige Anonymität und entfernt keine Beiträge zu den Projekten&lt;/b&gt;.</string>
   <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>
   <string name="history_empty_message">Verfolge hier, was du gelesen hast.</string>
   <string name="history_offline_articles_toast">Einige Artikel im Verlauf könnten nicht anschaubar sein, während du offline bist.</string>
@@ -224,10 +226,10 @@
   <string name="create_account_email_hint">E-Mail (optional)</string>
   <string name="create_account_password_repeat_hint">Passwort wiederholen</string>
   <string name="create_account_password_is_username">Ein Passwort kann nicht mit dem Benutzernamen identisch sein</string>
-  <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein.</string>
+  <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein</string>
   <string name="create_account_email_error">Ungültige E-Mail-Adresse</string>
   <string name="create_account_username_error">Ungültige Zeichen im Benutzernamen</string>
-  <string name="create_account_password_error">Das Passwort muss mindestens 8 Zeichen lang sein.</string>
+  <string name="create_account_password_error">Das Passwort muss mindestens 8 Zeichen lang sein</string>
   <string name="create_account_generic_error">Benutzerkonto konnte nicht erstellt werden</string>
   <string name="create_account_next">Nächste</string>
   <string name="email_recommendation_dialog_title">Benutzerkonto ohne E-Mail-Adresse erstellen?</string>
@@ -259,8 +261,8 @@
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
   <string name="history_filter_list_hint">Verlauf filtern</string>
   <string name="error_can_not_process_link">Dieser Link konnte nicht angezeigt werden</string>
-  <string name="page_protected_autoconfirmed">Diese Seite wurde halbgesperrt.</string>
-  <string name="page_protected_sysop">Diese Seite wurde vollgesperrt.</string>
+  <string name="page_protected_autoconfirmed">Diese Seite wurde halbgeschützt.</string>
+  <string name="page_protected_sysop">Diese Seite wurde vollgeschützt.</string>
   <string name="page_protected_other">Diese Seite wurde auf die folgenden Ebenen geschützt: %s</string>
   <string name="page_protected_can_not_edit">Leider hat dein Benutzerkonto nicht die erforderliche Berechtigung, um derzeit diese Seite zu bearbeiten.</string>
   <string name="page_protected_can_not_edit_anon">Leider kann diese Seite derzeit nicht anonym bearbeitet werden.</string>
@@ -305,6 +307,8 @@
   <string name="edit_redo">Wiederherstellen</string>
   <string name="edit_rollback">Zurücksetzen</string>
   <string name="edit_warn">Warnen</string>
+  <string name="edit_damage">Schaden %s</string>
+  <string name="edit_intent">Vorsatz %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s Byte</item>
     <item quantity="other">%s Bytes</item>
@@ -316,6 +320,8 @@
   <string name="edit_summary_tag_links">Links hinzugefügt</string>
   <string name="edit_summary_tag_other">Andere</string>
   <string name="edit_summary_tag_other_hint">Andere Wege, wie du die Seite verbessert hast</string>
+  <string name="edit_summary_added_short_description">Kurzbeschreibung hinzugefügt</string>
+  <string name="edit_summary_updated_short_description">Kurzbeschreibung aktualisiert</string>
   <string name="edit_conflict_title">Bearbeitungskonflikt</string>
   <string name="edit_conflict_message">Die Seite wurde bereits von einem anderen Benutzer verändert und kollidiert mit deiner Bearbeitung. Bitte kopiere deine Bearbeitungen, gehe zurück, aktualisiere die Seite und versuche die Bearbeitung erneut.</string>
   <string name="edit_notices">Bearbeitungshinweise</string>
@@ -398,7 +404,6 @@
   <string name="page_view_in_browser">Seite im Browser ansehen</string>
   <string name="tool_tip_toc_title">Inhaltsverzeichnis-Schnellzugriff</string>
   <string name="tool_tip_toc_text">Du kannst jetzt nach links wischen, um das Inhaltsverzeichnis zu öffnen und auch auf diese Blätter-Schaltfläche tippen und ziehen, um schnell zwischen den unterschiedlichen Abschnitten eines Artikels zu springen.</string>
-  <string name="tool_tip_lang_button">Du kannst jetzt nach mehreren Wikipedia-Sprachen in der App suchen und in diesen lesen.\n\nTippe auf das Symbol, um weitere Sprachen hinzuzufügen.</string>
   <string name="error_response_malformed">Die Antwort vom Server ist nicht korrekt formatiert.</string>
   <string name="error_unknown">Es ist ein unbekannter Fehler aufgetreten.</string>
   <string name="format_error_server_message">Nachricht: „%s“</string>
@@ -439,6 +444,7 @@
   <string name="link_preview_dialog_save_button">Speichern</string>
   <string name="link_preview_dialog_saved_button">Gespeichert</string>
   <string name="link_preview_dialog_share_button">Teilen</string>
+  <string name="link_preview_stub_placeholder_text">Dieser Artikel ist ein Stub, d.h. er enthält nicht genug Inhalt, um eine Vorschau zu erstellen. Du kannst dies jedoch ändern.</string>
   <string name="error_page_does_not_exist">Diese Seite ist nicht vorhanden</string>
   <string name="error_user_page_does_not_exist">Wikipedia hat keine &lt;a href=\"%1$s\"&gt;Benutzerseite&lt;/a&gt; mit genau diesem Namen. Im Allgemeinen sollte diese Seite von &lt;b&gt;%2$s&lt;/b&gt; erstellt und bearbeitet werden. Im Zweifelsfall überprüfe bitte, ob „%3$s“ existiert.</string>
   <string name="view_wiki_error_message_offline">Es konnte keine Verbindung mit dem Internet hergestellt werden</string>
@@ -462,9 +468,24 @@
   <string name="theme_chooser_menu_item_short_tooltip">Werkzeugleiste anpassen</string>
   <string name="error_blocked_footer_no_blocker">Du kannst einen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
   <string name="temp_account_not_logged_in">Du bist nicht angemeldet</string>
+  <string name="temp_account_anon_dialog_body">Sobald du eine Bearbeitung tätigst, wird ein &lt;b&gt;Temporäres Konto&lt;/b&gt; erstellt, um deinen Datenschutz zu gewährleisten. &lt;a href=\"%1$s\"&gt;Mehr erfahren&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Melde dich an&lt;/a&gt; oder &lt;a href=\"https://#login\"&gt;erstelle ein Konto&lt;/a&gt;, damit zukünftige Bearbeitungen dir zugeschrieben werden können und du auf andere Funktionen zugreifen kannst.</string>
+  <string name="temp_account_temp_dialog_body">Deine Bearbeitung wird %1$s zugeschrieben. Deine IP-Adresse ist für Administratoren sichtbar.&lt;br /&gt;&lt;br /&gt;Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt; oder &lt;a href=\"https://#login\"&gt;ein Konto erstellst&lt;/a&gt;, erhältst du einen von dir gewählten Namen sowie weitere Vorteile.</string>
   <string name="temp_account_dialog_ok">Verstanden</string>
   <string name="temp_account_using_title">Du verwendest ein vorläufiges Konto</string>
   <string name="temp_account_dialog_discard">Änderungen verwerfen und anmelden</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Das temporäre Konto %1$s wurde erstellt, nachdem deine Bearbeitung veröffentlicht wurde. Es wird in %2$d Tag ablaufen.</item>
+    <item quantity="other">Das temporäre Konto %1$s wurde erstellt, nachdem deine Bearbeitung veröffentlicht wurde. Es wird in %2$d Tagen ablaufen.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Konto läuft in %d Tag ab.</item>
+    <item quantity="other">Konto läuft in %d Tagen ab.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Du bist nicht angemeldet.&lt;/b&gt; Wenn du eine Bearbeitung vornimmst, wird ein temporäres Konto erstellt, um deine Privatsphäre zu schützen.&lt;a href=\"%1$s\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Du benutzt ein temporäres Konto.&lt;/b&gt; Deine Bearbeitung wird %1$s zugeschrieben. &lt;a href=\"%2$s\"&gt;Mehr erfahren&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Du verwendest derzeit ein temporäres Konto.&lt;/b&gt; Bearbeitungen, die du mit dem temporären Konto %1$s vorgenommen hast, werden nicht auf dein permanentes Konto übertragen, wenn du dich anmeldest. Melde dich an oder erstelle ein Konto, um einen Benutzernamen und andere Vorteile zu erhalten.</string>
+  <string name="temp_account_end_session">Session beenden</string>
+  <string name="temp_account_end_session_confirm">Dadurch wirst du von deinem temporären Konto abgemeldet. Möchtest du fortfahren?</string>
   <string name="crash_report_activity_title">Anwendungsfehler</string>
   <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.\n\nMöchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_relaunch">Neu starten</string>
@@ -858,6 +879,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="feed_accessibility_card_text">Sie haben das Ende des Feeds erreicht.</string>
   <string name="feed_accessibility_card_load_more_button">Mehr laden</string>
+  <string name="feed_language_variants_removal_dialog_title">Wähle eine regionale Sprachvariante für ein besseres Leseerlebnis</string>
+  <string name="feed_language_variants_removal_dialog_message">Du verwendest derzeit eine nicht unterstützte generische chinesische Sprachvariante als primäre Wikipedia-Sprache</string>
+  <string name="feed_language_variants_removal_dialog_save">Speichern</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Bitte aktualisiere deine Zweitsprachen</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Du verwendest derzeit eine nicht unterstützte generische chinesische Sprachvariante als Zweitsprache. Bitte öffne die Einstellungen, um eine neue sekundäre Sprache auszuwählen oder um deine Sprachliste zu bestätigen.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Einstellungen öffnen</string>
   <string name="top_read_activity_title">Meistgelesen am %s</string>
   <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Artikelbeschreibung</string>
@@ -928,6 +955,7 @@
   <string name="suggested_edits_describe_articles">Beschreibe Artikel</string>
   <string name="suggested_edits_caption_images">Bilder betiteln</string>
   <string name="suggested_edits_tag_images">Bilder taggen</string>
+  <string name="suggested_edits_edit_patrol">Änderungen prüfen</string>
   <string name="suggested_edits_edit_patrol_hint">Überprüfe die letzten Änderungen und entscheide, ob sie konstruktiv sind oder nicht.</string>
   <string name="suggested_edits_edit_patrol_review">Überprüfen</string>
   <string name="suggested_edits_review_description">Artikelbeschreibung überprüfen</string>
@@ -1021,7 +1049,7 @@
   <string name="suggested_edits_gate_message">Tut mir leid, %s, du musst mindestens drei Bearbeitungen direkt in einem Artikel vornehmen, um diese Funktion nutzen zu können.</string>
   <string name="suggested_edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="suggested_edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>
-  <string name="suggested_edits_edit_streak_label_text">Aufeinanderfolgende Edits</string>
+  <string name="suggested_edits_edit_streak_label_text">Aufeinanderfolgende Tage mit Bearbeitungen</string>
   <string name="suggested_edits_views_label_text">Aufrufe</string>
   <string name="suggested_edits_quality_label_text">Bearbeitungsqualität</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
@@ -1070,7 +1098,6 @@
     <item quantity="one">Du hast %d Tag hinzugefügt</item>
     <item quantity="other">Du hast %d Tags hinzugefügt</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gestern</string>
   <string name="suggested_edits_encourage_account_creation_title">Wusstest du, dass jeder Wikipedia bearbeiten kann?</string>
   <string name="suggested_edits_encourage_account_creation_message">Vorgeschlagene Bearbeitungen ist eine neue Art, Wikipedia auf Android zu bearbeiten. Es hilft dir, kleine aber wichtige Beiträge zu Wikipedia zu leisten.\nUnser Ziel ist es, das Editieren einfacher und zugänglicher für alle zu machen! Logge dich ein oder schließe dich Wikipedia an, um anzufangen.</string>
@@ -1128,7 +1155,9 @@
   <string name="image_recommendation_tooltip_3">Entscheide, ob das Bild den Lesern hilft, dieses Thema besser zu verstehen</string>
   <string name="image_recommendation_tooltip_next">Nächste</string>
   <string name="image_recommendation_tooltip_warning">Bitte lies den Artikel, um sein Thema zu verstehen, und sieh dir das Bild an</string>
+  <string name="image_recommendation_depleted">Leider sind keine weiteren vorgeschlagenen Bilder verfügbar. Schaue dir andere &lt;a href=\"#\"&gt;vorgeschlagenen Bearbeitungen&lt;/a&gt; an oder komm später wieder.</string>
   <string name="suggested_edits_report_feature">Problem mit der Funktion</string>
+  <string name="suggested_edits_report_feature_subject">Problem mit vorgeschlagenen Änderungen</string>
   <string name="edit_summary_added_image">Bild hinzugefügt</string>
   <string name="edit_summary_added_caption">Bildunterschrift hinzugefügt</string>
   <string name="edit_summary_added_image_and_caption">Bild und Bildunterschrift hinzugefügt</string>
@@ -1156,6 +1185,7 @@
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kannst Leselisten von Artikeln erstellen, die du später lesen möchtest, auch wenn du offline bist. &lt;br/&gt;Melde dich bei deinem Wikipedia-Benutzerkonto an, um deine Leselisten zu synchronisieren. &lt;a href=\"#login\"&gt;Wikipedia beitreten&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Daten &amp; Privatsphäre</string>
+  <string name="onboarding_data_privacy_text">Wir sind der Meinung, dass du keine persönlichen Daten angeben musst, um am Movement für freies Wissen teilzunehmen. Die für diese App gesammelten Nutzungsdaten sind anonym. Erfahre mehr über unsere &lt;a href=\"#privacy\"&gt;Datenschutzrichtlinie&lt;/a&gt; und &lt;a href=\"#termsOfUse\"&gt;Nutzungsbedingungen&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
   <string name="onboarding_got_it">Verstanden</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben die folgenden Sprachen auf deinem Gerät gefunden:</string>
@@ -1194,10 +1224,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mindestens eine Wikipedia-Sprache für die Suche und das Lesen von Inhalten behalten.</string>
   <string name="more_language_options">mehr</string>
   <string name="add_wikipedia_languages_text">Wikipedia-Sprachen hinzufügen</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eine chinesische Variante von deinen App-Sprachen entfernen?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du hast derzeit sowohl die Variantensätze für das traditionelle als auch für das vereinfachte Chinesisch in deinen App-Sprachen. Einstellungen für deine App-Sprachen aktualisieren?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sprachen bearbeiten</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nein danke</string>
   <string name="remove_language_dialog_cancel_button_text">Abbrechen</string>
   <string name="remove_language_dialog_ok_button_text">Okay</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Okay</string>
@@ -1257,9 +1283,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Höhe</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Einfügen</string>
+  <string name="templates_search_hint">Vorlagen suchen</string>
+  <string name="templates_insert_button">Einfügen</string>
+  <string name="templates_param_suggested_value">zum Beispiel %s</string>
   <string name="templates_param_optional_hint">%s (Optional)</string>
   <string name="templates_param_suggested_hint">%s (Vorgeschlagen)</string>
   <string name="templates_learn_more_link">Mehr erfahren</string>
+  <string name="templates_description_incomplete">Vorlagen werden von Benutzern erstellt und enthalten möglicherweise keine vollständigen Beschreibungen.</string>
+  <string name="templates_description_empty">Die Vorlage \"%s\" hat noch keine Beschreibung.</string>
+  <string name="templates_description_missing_data">Dieser Vorlage fehlen &lt;a href=\"%1$s\"&gt;Vorlagendaten&lt;/a&gt;, und ihre Parameter wurden &lt;a href=\"%2$s\"&gt;automatisch generiert&lt;/a&gt;. Infolgedessen fehlen der Vorlage und ihren Parametern Beschreibungen.</string>
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
   <string name="main_tooltip_text">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
@@ -1284,6 +1316,8 @@
   <string name="talk_warn_save_dialog_publish">Veröffentlichen</string>
   <string name="talk_warn_save_dialog_cancel">Abbrechen</string>
   <string name="talk_warn_save_dialog_dont_save">Nicht speichern</string>
+  <string name="talk_warn_submitted">Nachricht auf der Diskussionsseite des Benutzers veröffentlicht</string>
+  <string name="talk_warn_submitted_and_saved">Nachricht gespeichert und auf der Diskussionsseite des Benutzers veröffentlicht</string>
   <string name="talk_warn_saved_messages">Gespeicherte Nachrichten</string>
   <string name="talk_page_empty">Diese Diskussionsseite ist leer.</string>
   <string name="talk_page_empty_title">Die Konversation beginnt hier</string>
@@ -1295,6 +1329,7 @@
   <string name="talk_message_hint">Nachricht schreiben</string>
   <string name="talk_message_empty">Die Nachricht darf nicht leer sein.</string>
   <string name="talk_subject_empty">Der Betreff darf nicht leer sein.</string>
+  <string name="talk_subject_duplicate">Der Name des Betreffs existiert bereits. Wähle einen anderen.</string>
   <string name="talk_response_submitted">Antwort übermittelt.</string>
   <string name="talk_snackbar_undo">Rückgängig</string>
   <string name="talk_last_modified">&lt;b&gt;Zuletzt bearbeitet %1$s&lt;/b&gt; von %2$s</string>
@@ -1310,7 +1345,7 @@
   <string name="talk_overflow_sort_date_published">Datum der Veröffentlichung</string>
   <string name="talk_overflow_sort_date_updated">Datum der Aktualisierung</string>
   <string name="talk_overflow_sort_topic_name">Name des Themas</string>
-  <string name="talk_new_topic_exit_dialog_title">Bist du sicher, dass du aussteigen willst?</string>
+  <string name="talk_new_topic_exit_dialog_title">Bist du sicher, dass du die Seite verlassen willst?</string>
   <string name="talk_new_topic_exit_dialog_message">Der Betreff und der Inhaltstext werden nicht gespeichert.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Antwort anzeigen</item>
@@ -1330,7 +1365,7 @@
   <string name="talk_list_item_last_comment_date">Letzter Kommentar: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Alle Antworten</string>
   <string name="talk_list_item_user_icon_content_description">Benutzersymbol</string>
-  <string name="talk_list_item_swipe_mark_as_read">Lesen</string>
+  <string name="talk_list_item_swipe_mark_as_read">Gelesen</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ungelesen</string>
   <string name="talk_login_to_subscribe_dialog_title">Melde dich an, um Themen zu abonnieren</string>
   <string name="talk_login_to_subscribe_dialog_content">Themenabonnements ermöglichen es dir, Benachrichtigungen über neue Kommentare zu diesem Thema zu erhalten. Bitte erstelle ein Konto oder melde dich bei deinem Wikipedia-Konto an, um ein Thema zu abonnieren.</string>
@@ -1341,7 +1376,7 @@
   <string name="menu_option_user_contributions">Beiträge von %s</string>
   <string name="menu_option_edit_source">Quelltext bearbeiten</string>
   <string name="menu_option_user_page">Benutzerseite von %s</string>
-  <string name="menu_option_find_in_talk_page_topic">Finde das Thema auf der Diskussionsseite</string>
+  <string name="menu_option_find_in_talk_page_topic">Thema auf der Diskussionsseite finden</string>
   <string name="menu_option_copy_link_to_clipboard">Link in die Zwischenablage kopieren</string>
   <string name="talk_menu_copy_text">Text kopieren</string>
   <string name="talk_menu_expand_threads">Themen ausklappen</string>
@@ -1352,8 +1387,8 @@
   <string name="watchlist_details_prev_edit">Vorherige Bearbeitung</string>
   <string name="thank_label">Danken</string>
   <string name="view_user_page">Benutzerseite ansehen</string>
-  <string name="thank_dialog_title_text">Öffentlich das Danke senden</string>
-  <string name="thank_dialog_text">Danken ist eine einfache Möglichkeit, einem Benutzer seine Wertschätzung für seine Arbeit in der Wikipedia zu zeigen. Danken  kann nicht rückgängig gemacht werden und ist öffentlich einsehbar</string>
+  <string name="thank_dialog_title_text">Öffentlich ein Danke senden</string>
+  <string name="thank_dialog_text">Danken ist eine einfache Möglichkeit, einem Benutzer seine Wertschätzung für seine Arbeit in der Wikipedia zu zeigen. Danken kann nicht rückgängig gemacht werden und ist öffentlich einsehbar</string>
   <string name="thank_dialog_positive_button_text">Danke senden</string>
   <string name="thank_dialog_negative_button_text">Abbrechen</string>
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
@@ -1370,6 +1405,7 @@
   <string name="revision_diff_line_removed">Zeile entfernt</string>
   <string name="revision_diff_paragraph_added">Abschnitt hinzugefügt</string>
   <string name="revision_diff_paragraph_removed">Abschnitt entfernt</string>
+  <string name="revision_diff_protected">Die Änderungen, die in dieser Version vorgenommen wurden, sind nicht öffentlich zugänglich.</string>
   <string name="revision_undo_title">Bist du sicher, dass du diese Bearbeitung rückgangig machen willst?</string>
   <string name="revision_undo_message">Rückgängigmachen bedeutet, die Auswirkungen einer oder mehrerer Bearbeitungen rückgängig zu machen.</string>
   <string name="revision_undo_summary_hint">Zusammenfassung (optional)</string>
@@ -1387,7 +1423,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">für 3 Monate</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">für 6 Monate</string>
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s und die Diskussionsseite wurde von deiner Beobachtungsliste entfernt.</string>
-  <string name="watchlist_expiry_dialog_title">Zeitraum der Beobachtungsliste auswählen</string>
+  <string name="watchlist_expiry_dialog_title">Zeitraum auf der Beobachtungsliste auswählen</string>
   <string name="watchlist_expiry_dialog_permanent">Dauerhaft</string>
   <string name="watchlist_expiry_dialog_one_week">1 Woche</string>
   <string name="watchlist_expiry_dialog_one_month">1 Monat</string>
@@ -1454,9 +1490,9 @@
   <string name="preview_edit_title">Vorherige Bearbeitung</string>
   <string name="preview_edit_summarize_edit_title">Bearbeitung zusammenfassen</string>
   <string name="preview_edit_summarize_edit_hint">Wie hast du die Seite verbessert?</string>
-  <string name="preview_edit_minor_edit">Dies ist eine geringfügige Änderung</string>
+  <string name="preview_edit_minor_edit">Dies ist eine kleine Änderung</string>
   <string name="preview_edit_watch_this_page">Diese Seite beobachten</string>
-  <string name="preview_edit_learn_more">Weitere Informationen zur Zusammenfassung von Änderungen.</string>
+  <string name="preview_edit_learn_more">Mehr zur Zusammenfassung von Änderungen</string>
   <string name="action_item_categories">Kategorien</string>
   <string name="page_no_categories">Dieser Artikel gehört zu keiner Kategorie.</string>
   <string name="category_tab_articles">Artikel</string>
@@ -1467,9 +1503,9 @@
   <string name="revision_initial_none">Keine (dies ist die erste Version)</string>
   <string name="user_contrib_activity_title">Beiträge von %s</string>
   <string name="archive_empty">Keine archivierten Seiten gefunden.</string>
-  <string name="user_contrib_filter_ns">Nach Namespace filtern</string>
+  <string name="user_contrib_filter_ns">Nach Namensraum filtern</string>
   <string name="user_contrib_filter_all">Alle Namensräume</string>
-  <string name="user_contrib_filter_ns_header">Namespace-Filter</string>
+  <string name="user_contrib_filter_ns_header">Namensraum-Filter</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_current">aktuell</string>
   <string name="media_playback_error">Fehler beim Abspielen von Medien.</string>
@@ -1478,17 +1514,18 @@
   <string name="action_item_view_on_map">Auf der Karte anzeigen</string>
   <string name="action_item_view_on_map_unavailable">Für diese Seite sind keine geografischen Koordinaten verfügbar</string>
   <string name="shareable_reading_lists_import_dialog_title">Gemeinsame Leseliste importieren</string>
-  <string name="shareable_reading_lists_import_dialog_content">Wie würdest du die Liste nennen, die man dir gegeben hat?</string>
+  <string name="shareable_reading_lists_import_dialog_content">Wie möchtest du die Liste nennen, die mit dir geteilt wurde?</string>
   <string name="shareable_reading_lists_new_indicator">*neu*</string>
-  <string name="shareable_reading_lists_new_install_dialog_title">Wir haben eine Leseliste mit dir geteilt</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Eine Leseliste wurde mit dir geteilt</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Wir haben bemerkt, dass eine Leseliste mit dir geteilt wurde. Um diese Liste in der App anzusehen, gehe zurück zur ursprünglichen Nachricht und tippe erneut auf den Link.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Verstanden</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Leseliste importiert</string>
   <string name="reading_list_share_menu_label">Teilen…</string>
   <string name="reading_list_share_menu_tooltip">Diese Leseliste mit anderen teilen</string>
-  <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
-  <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
-  <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
+  <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit dir teilen:</string>
+  <string name="reading_list_share_survey_title">Kannst du uns helfen, „Leselisten teilen“ zu verbessern?</string>
+  <string name="reading_list_share_survey_body">„Leselisten teilen“ ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
+  <string name="talk_templates_empty_message">Erstelle deine eigenen Nachrichten oder verwende &lt;a href=\"#\"&gt;Beispielnachrichten&lt;/a&gt; für den Anfang.</string>
   <string name="talk_templates_new_message_title">Neue Nachricht</string>
   <string name="talk_templates_new_message_subject_hint">Betreff</string>
   <string name="talk_templates_new_message_compose_hint">Nachricht schreiben</string>
@@ -1503,8 +1540,12 @@
   <string name="talk_templates_edit_message_dialog_title">Nachricht bearbeiten</string>
   <string name="talk_templates_edit_message_dialog_save">Speichern</string>
   <string name="talk_templates_edit_message_dialog_delete">Löschen</string>
-  <string name="talk_templates_edit_message_updated">Die Nachricht wurde aktualisiert</string>
+  <string name="talk_templates_edit_message_updated">Nachricht wurde aktualisiert</string>
   <string name="talk_templates_menu_remove_message">Nachricht entfernen</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Bist du sicher, dass du die Nachricht aus der Liste löschen willst?</item>
+    <item quantity="other">Bist du sicher, dass du die Nachrichten aus der Liste löschen willst?</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Nachricht wurde gelöscht</item>
     <item quantity="other">Nachrichten wurden gelöscht</item>
@@ -1513,6 +1554,7 @@
   <string name="talk_templates_your_messages_tab_title">Deine Nachrichten</string>
   <string name="talk_templates_example_messages_tab_title">Beispielnachrichten</string>
   <string name="patroller_tasks_edits_list_search_hint">Bearbeitungen suchen oder filtern</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Bearbeitungsmarkierungen: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keine</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benutzerseite ansehen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussionsseite anzeigen</string>
@@ -1520,6 +1562,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Benutzerbeiträge anzeigen</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Dankeschön</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Kontoinformationen</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Konto von: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Bearbeitungszahl: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Schließen</string>
   <string name="patroller_tasks_filters_title">Filter</string>
   <string name="patroller_tasks_filters_reset">Zurücksetzen</string>
@@ -1528,48 +1572,97 @@
   <string name="patroller_tasks_filters_user_status_header">Benutzeranmeldung und -erfahrung</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Unangemeldet</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Autoren, die nicht angemeldet sind.</string>
-  <string name="patroller_tasks_filters_user_status_registered">Registriert</string>
+  <string name="patroller_tasks_filters_user_status_registered">Angemeldet</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Angemeldete Autoren.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Neulinge</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Angemeldete Autoren, die weniger als 10 Bearbeitungen oder eine Aktivität von weniger als 4 Tagen haben.</string>
   <string name="patroller_tasks_filters_user_status_learners">Anfänger</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">Angemeldete Autoren, deren Erfahrung zwischen „Neulinge“ und „Erfahrene Benutzer“ fällt.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Erfahrene Benutzer</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Angemeldete Benutzer mit mehr als 500 Bearbeitungen und 30 Tagen Aktivität.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Aktuellste Versionen</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Aktuelle Version</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Nicht die aktuelle Version</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatisierte Beiträge</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Mensch (kein Bot)</string>
+  <string name="patroller_tasks_filters_significance_header">Bedeutung</string>
+  <string name="patroller_tasks_filters_significance_minor">Kleine Änderungen</string>
+  <string name="patroller_tasks_filters_significance_edits">Nicht-kleine Änderungen</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Sehr wahrscheinlich gut</string>
   <string name="patroller_tasks_filters_contribution_quality_good_desc">Sehr genau beim Auffinden fast aller problemfreien Bearbeitungen.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Könnte Probleme haben</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Findet die meisten fehlerhaften oder schädlichen Bearbeitungen, aber mit einer niedrigeren Genauigkeit.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Hat wahrscheinlich Probleme</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Findet mit mittlerer Genauigkeit einen mittleren Anteil der bearbeiteten Probleme.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Hat sehr wahrscheinlich Probleme</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Sehr genau beim Auffinden der meisten offensichtlichen fehlerhaften oder schädlichen Bearbeitungen.</string>
+  <string name="patroller_tasks_filters_user_intent_good">Sehr wahrscheinlich gute Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Sehr genau beim Auffinden fast aller guten Bearbeitungen.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Könnte schlechte Absicht sein</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Findet die meisten schlechten Bearbeitungen, aber mit einer niedrigeren Genauigkeit.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Wahrscheinlich schlechte Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Findet mit mittlerer Genauigkeit einen mittleren Anteil an Bearbeitungen mit schlechter Absicht.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Sehr wahrscheinlich schlechte Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Sehr genau beim Auffinden der meisten offensichtlichen Bearbeitungen mit einer schlechten Absicht.</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d Filter</item>
     <item quantity="other">%d Filter</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Versionsgeschichte des Artikels</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Zurücksetzen abgeschlossen</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Bist du sicher, dass du kommentarlos zurücksetzen willst?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Rollback abgeschlossen</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Ansehen</string>
   <string name="patroller_tasks_overflow_report">Problem mit der Funktion</string>
   <string name="patroller_tasks_overflow_learn">Mehr erfahren</string>
+  <string name="patroller_onboarding_one_title">Trage zur Kontrolle und Freigabe von Bearbeitungen auf Wikipedia bei.</string>
+  <string name="patroller_onboarding_one_content">Verbessere die Qualität von Wikipedia-Inhalten, indem du aktiv einen Feed der letzten Bearbeitungen überprüfst und anderen Benutzern Beratung, Qualitätskontrolle und Ermutigung bietest.</string>
+  <string name="patroller_onboarding_two_thank_title">Danken</string>
+  <string name="patroller_onboarding_two_thank_content">Eine produktive Bearbeitung entdeckt? Danke dem Benutzer für seinen Beitrag.</string>
+  <string name="patroller_onboarding_two_watch_title">Beobachten</string>
+  <string name="patroller_onboarding_two_watch_content">Möchtest du Änderungen an Artikeln verfolgen? Füge sie zu deiner Beobachtungsliste hinzu. Siehe unter \'Mehr\'.</string>
+  <string name="patroller_onboarding_two_talk_title">Diskussion</string>
+  <string name="patroller_onboarding_two_talk_content">Kommuniziere mit anderen Benutzern. Speichere häufig auf Diskussionsseiten verwendete Nachrichten oder verwende eine Vorlage.</string>
   <string name="patroller_onboarding_two_undo_title">Rückgängig machen/Zurücksetzen</string>
+  <string name="patroller_onboarding_two_undo_content">Wähle \'Rückgängig\', um eine möglicherweise schädliche Bearbeitung rückgängig zu machen oder zurückzusetzen.</string>
+  <string name="patroller_diff_tooltip_one">Schaden sagt voraus, ob eine Bearbeitung einem Wiki Schaden zufügt.</string>
+  <string name="patroller_diff_tooltip_two">Absicht sagt die Wahrscheinlichkeit voraus, dass eine Bearbeitung in guter Absicht getätigt wird.</string>
   <string name="patroller_diff_feedback_dialog_title">Hilf uns, diese Funktion zu verbessern</string>
   <string name="patroller_diff_feedback_dialog_message">Bist du mit dieser Funktion zufrieden?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Zufrieden</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unzufrieden</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Wie können wir die Funktion verbessern?</string>
+  <string name="patroller_diff_menu_edit_history_title">Versionsgeschichte des Artikels</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
+  <string name="patroller_diff_feedback_dialog_submit">Speichern</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Feedback gesendet.</string>
+  <string name="patroller_saved_message_title_vandalism">Warnung vor Vandalismus</string>
+  <string name="patroller_saved_message_title_editing_tests">Testbearbeitungen</string>
+  <string name="patroller_saved_message_title_npov">Neutraler Standpunkt</string>
   <string name="patroller_saved_message_title_auto_trans">Automatische Übersetzung</string>
   <string name="patroller_saved_message_title_final_warning">Letzte Warnung</string>
+  <string name="patroller_saved_message_title_copy_vio">Warnung vor Urheberrechtsverletzungen</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Verfasse eine Bearbeitungszusammenfassung</string>
   <string name="talk_templates_menu_edit_title">Bearbeiten</string>
   <string name="data_opt_in_accept">Zulassen</string>
   <string name="data_opt_in_reject">Ablehnen</string>
   <string name="page_issues_title">Seitenprobleme</string>
   <string name="generic_release_notes">Kleinere Fehlerbehebungen und Verbesserungen</string>
   <string name="donation_campaign_maybe_later_snackbar">Wir werden dich morgen erneut erinnern.</string>
+  <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
   <string name="donation_campaign_go_back_button">Zurück</string>
   <string name="menu_single_webview_open_external">Im Systembrowser öffnen</string>
   <string name="donate_gpay_dialog_title">Mit Google Pay spenden?</string>
+  <string name="donate_gpay_dialog_description">Mit Google Pay spenden oder eine andere Zahlungsmethode wählen.</string>
   <string name="donate_gpay_dialog_pay_button">Mit Google Pay spenden</string>
   <string name="donate_gpay_dialog_other_button">Andere Zahlungsmethode</string>
+  <string name="donate_gpay_activity_title">Spendenbetrag auswählen</string>
+  <string name="donate_gpay_check_transaction_fee">Ich werde großzügigerweise %s hinzufügen, um die Transaktionsgebühren zu decken, damit 100%% meiner Spende ankommen können.</string>
+  <string name="donate_gpay_check_recurring">Zu einer monatlichen Spende machen.</string>
+  <string name="donate_gpay_check_send_email">Ja, die Wikimedia Foundation kann mir gelegentlich eine E-Mail schicken.</string>
+  <string name="donate_gpay_minimum_amount">Bitte wähle einen Betrag (mindestens %s)</string>
   <string name="donate_gpay_maximum_amount">Wir können über unsere App keine Spenden annehmen, die höher als %s sind. Bitte wende dich an unser Teammitglied für Großspenden unter benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Danke!&lt;/b&gt; Deine Großzügigkeit gegenüber Wikipedia bedeutet uns so viel.</string>
   <string name="donate_gpay_help_problems">Probleme beim Spenden?</string>
@@ -1581,8 +1674,6 @@
   <string name="places_filter_title">Sprache filtern</string>
   <string name="places_toggle_buttons_map">Karte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Entdecke Wikipedia-Artikel in deiner Nähe mit Orte</string>
-  <string name="places_article_menu_tooltip_message">Tippe auf „Auf Karte anzeigen“, um den Standort dieses Artikels zu erkunden</string>
   <string name="places_survey_very_satisfied_option">Sehr zufrieden</string>
   <string name="places_survey_very_unsatisfied_option">Sehr unzufrieden</string>
   <string name="places_survey_dialog_title">Hilf mit, „Orte“ zu verbessern</string>

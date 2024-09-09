@@ -198,6 +198,12 @@
         <item name="lineHeight">24sp</item>
     </style>
 
+    <style name="P.Radio">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
     <style name="P.Article">
         <item name="lineHeight">28sp</item>
     </style>
@@ -363,16 +369,21 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
+    <style name="ListItem" parent="@android:style/TextAppearance">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
-        <item name="android:paddingTop">13dp</item>
-        <item name="android:paddingBottom">13dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
         <item name="android:textColor">?attr/primary_color</item>
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
+    </style>
+
+    <style name="OverflowMenuItem" parent="ListItem">
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
     </style>
 
     <style name="App.Button" parent="@style/Widget.Material3.Button">
@@ -488,11 +499,6 @@
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
-    <style name="TextInputLayoutStyle.EditSection">
-        <item name="android:textColorHighlight">?attr/focus_color</item>
-        <item name="strokeColor">@android:color/transparent</item>
-    </style>
-
     <style name="SpinnerTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
         <item name="android:textColor">?attr/primary_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>
@@ -516,6 +522,10 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="AlertDialogTheme.AdjustResize">
+        <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
     <style name="DialogIconWithTint" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">

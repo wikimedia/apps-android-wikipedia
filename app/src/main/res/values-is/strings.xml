@@ -351,7 +351,6 @@
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="tool_tip_toc_title">Flýtiaðgangur í efnisyfirlit</string>
   <string name="tool_tip_toc_text">Þú getur núna strokið til vinstri til að opna efnisyfirlitið, eins geturðu ýtt og dregið á þessum skrunhnappi til að hoppa fljótt á milli einstakra efnishluta greinar.</string>
-  <string name="tool_tip_lang_button">Þú getur núna leitað og lesið á fleiri tungumálum Wikipedia í forritinu.</string>
   <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
   <string name="error_unknown">Óþekkt villa kom upp.</string>
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
@@ -1013,7 +1012,6 @@
     <item quantity="one">Þú bættir við %d merki</item>
     <item quantity="other">Þú bættir við %d merkjum</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Í gær</string>
   <string name="suggested_edits_encourage_account_creation_title">Vissir þú að allir geta breytt efni á Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Tillögur að breytingum er ný leið til að vinna við Wikipedia á Android. Þær hjálpa til við að gera smáar en mikilvægar breytingar á Wikipedia.\nMarkmið okkar er að einfalda vinnuna og gera hana aðgengilegri fyrir alla. Skráðu þig inn eða gakktu til liðs við Wikipedia til að komast í gang.</string>
@@ -1136,10 +1134,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Haltu að minnsta kosti einu Wikipedia-tungumáli til að leita að og lesa efni.</string>
   <string name="more_language_options">meira</string>
   <string name="add_wikipedia_languages_text">Bæta við Wikipedia-tungumálum</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Fjarlægja tilbrigði kínversku úr tungumálum forritsins?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Þú ert núna með bæði hefðbundna og einfalda kínversku í tungumálum forritsins. Á að uppfæra tungumálastillingar þess?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Breyta tungumálum</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nei, takk</string>
   <string name="remove_language_dialog_cancel_button_text">Hætta við</string>
   <string name="remove_language_dialog_ok_button_text">Í lagi</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Í lagi</string>

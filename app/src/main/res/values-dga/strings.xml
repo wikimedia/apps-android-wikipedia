@@ -348,7 +348,6 @@
   <string name="page_view_in_browser">Kaa a pegi a browza poɔŋ</string>
   <string name="tool_tip_toc_title">Nyɛ wieoŋ yelbulo tabul</string>
   <string name="tool_tip_toc_text">Pampana fo na baŋ laali la gɔɔ yuo a yelbulo tabul, ane meŋ tɔ a vu a bonvuuraa neɛzie ŋa na Ɛge wieoŋ lɛ gaa a atekele lombo yuo.</string>
-  <string name="tool_tip_lang_button">Fo na baŋ weɛre bɔ la pampana ane kanne wikipiideɛ kɔkɔ yaga poɔ a app poɔ.\nTɔ a bonwulaa na paale kɔkɔ yaga.</string>
   <string name="error_response_malformed">Sagebo yi a sɛva ba wa tõɔ kɔre-bare soŋ.</string>
   <string name="error_unknown">Gbɛ-ŋmɛ kaŋa eɛɛ la</string>
   <string name="format_error_server_message">Duori: \"%s\"</string>
@@ -991,7 +990,6 @@
     <item quantity="one">You added %d tag</item>
     <item quantity="other">Fo paale la %d magere</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Zaameŋ</string>
   <string name="suggested_edits_encourage_account_creation_title">Fo baŋ ka neɛzaa na baŋ maale la wikipiideɛ eŋ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
@@ -1098,8 +1096,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Koŋ baŋ iri a kɔkɔɛ zaa</string>
   <string name="more_language_options">Yaga</string>
   <string name="add_wikipedia_languages_text">Paahi Wikipiideɛ kɔkɔɛ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Poɔ kɔkɔɛ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Bareka kyebe</string>
   <string name="remove_language_dialog_cancel_button_text">Ŋmaa o</string>
   <string name="remove_language_dialog_ok_button_text">Tɔɔ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Tɔɔ</string>

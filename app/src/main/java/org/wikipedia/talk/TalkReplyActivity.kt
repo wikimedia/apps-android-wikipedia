@@ -35,6 +35,7 @@ import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
@@ -48,7 +49,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
-class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback {
+class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback, LinkPreviewDialog.DismissCallback {
     private lateinit var binding: ActivityTalkReplyBinding
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
@@ -249,7 +250,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             binding.replySubjectLayout.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName.orEmpty(), viewModel.pageTitle)
+            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName, viewModel.pageTitle)
             binding.talkScrollContainer.post {
                 if (!isDestroyed) {
                     binding.replyInputView.editText.requestFocus()
@@ -458,7 +459,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private fun getWikitextBody(): String {
         return binding.replyInputView.editText.text.toString().trim()
             .replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
-            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
+            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName)
             .replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
     }
 
@@ -564,6 +565,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     override fun isNewPage(): Boolean {
         return !viewModel.doesPageExist
+    }
+
+    override fun onLinkPreviewDismiss() {
+        if (!isDestroyed) {
+            binding.replyInputView.editText.postDelayed({
+                DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
+            }, 200)
+        }
     }
 
     companion object {

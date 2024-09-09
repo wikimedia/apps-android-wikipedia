@@ -317,7 +317,6 @@
   <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
   <string name="tool_tip_toc_title">Brzi pristup tablici sadržaja</string>
   <string name="tool_tip_toc_text">Sadržaju od sada možete pristupiti povlačenjem ulijevo te možete kliknuti i povlačiti ovaj pokazivač kako biste brzo prešli na drugi dio članka.</string>
-  <string name="tool_tip_lang_button">U Wikipedijinoj aplikaciji sad možete pretraživati i čitati članke na više jezika.\n\nDodirnite ikonu da biste dodali još jezika.</string>
   <string name="error_response_malformed">Odgovor poslužitelja nije bio ispravno formatiran.</string>
   <string name="error_unknown">Dogodila se nepoznata pogreška.</string>
   <string name="format_error_server_message">Poruka: \"%s\"</string>
@@ -780,10 +779,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Zadržite barem jedan jezik za pretragu i čitanje sadržaja.</string>
   <string name="more_language_options">više</string>
   <string name="add_wikipedia_languages_text">Dodaj jezike Wikipedije</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Želite li ukloniti inačicu kineskog u postavkama jezika?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Trenutačno imate i tradicionalni i pojednostavljeni kineski u jezicima aplikacije. Želite li promijeniti postavke jezika?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Uredi jezike</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, hvala</string>
   <string name="remove_language_dialog_cancel_button_text">Odustani</string>
   <string name="remove_language_dialog_ok_button_text">U redu</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">U redu</string>

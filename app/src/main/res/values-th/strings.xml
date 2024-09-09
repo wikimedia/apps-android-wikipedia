@@ -342,7 +342,6 @@
   <string name="page_view_in_browser">ดูหน้าในเบราว์เซอร์</string>
   <string name="tool_tip_toc_title">การเข้าถึงสารบัญด่วน</string>
   <string name="tool_tip_toc_text">คุณสามารถปัดไปทางซ้ายเพื่อเปิดสารบัญ และยังสามารถแตะแล้วลากบนปุ่มตัวเลื่อนนี้เพื่อข้ามไปยังส่วนอื่นของบทความอย่างรวดเร็วได้แล้วตอนนี้</string>
-  <string name="tool_tip_lang_button">คุณสามารถค้นหาและอ่านในวิกิพีเดียหลายภาษาในแอปได้แล้ว\n\n\nแตะบนไอคอนเพื่อเพิ่มภาษาเพิ่มเติม</string>
   <string name="error_response_malformed">การตอบสนองจากเซิร์ฟเวอร์ไม่ได้ถูกจัดรูปแบบอย่างถูกต้อง</string>
   <string name="error_unknown">เกิดข้อผิดพลาดไม่ทราบสาเหตุ</string>
   <string name="format_error_server_message">สาร: \"%s\"</string>
@@ -864,7 +863,6 @@
   <string name="suggested_edits_contribution_type_label">ชนิดการมีส่วนร่วม</string>
   <string name="suggested_edits_contribution_image_label">ภาพ</string>
   <string name="suggested_edits_contribution_article_label">บทความ</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">เมื่อวานนี้</string>
   <string name="suggested_edits_encourage_account_creation_title">คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
@@ -929,10 +927,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">เหลือภาษาของวิกิพีเดียไว้อย่างน้อยหนึ่งภาษาเพื่อให้สามารถใช้ค้นหาและอ่านเนื้อหาได้</string>
   <string name="more_language_options">เพิ่มเติม</string>
   <string name="add_wikipedia_languages_text">เพิ่มภาษาของวิกิพีเดีย</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">เอารูปแบบภาษาจีนออกจากภาษาแอปของคุณหรือไม่</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">ขณะนี้คุณตั้งค่ารูปแบบภาษาจีนทั้งตัวเต็มและตัวย่อไว้ในภาษาแอปของคุณ ปรับปรุงการตั้งค่าภาษาแอปของคุณหรือไม่</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">แก้ไขภาษา</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ไม่ขอบคุณ</string>
   <string name="remove_language_dialog_cancel_button_text">ยกเลิก</string>
   <string name="remove_language_dialog_ok_button_text">ตกลง</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ตกลง</string>

@@ -21,10 +21,13 @@ import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -32,6 +35,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
@@ -41,7 +45,6 @@ import org.wikipedia.databinding.DialogWithCheckboxBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
-import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
@@ -75,7 +78,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
@@ -300,11 +303,15 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         if (!isFinishing) {
             showProgressBar(true)
         }
+
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
-                if (sectionID >= 0) sectionID.toString() else null, null, summaryText, if (isLoggedIn) "user" else null,
+                if (sectionID >= 0) sectionID.toString() else null, null, summaryText, AccountUtil.assertUser,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
                 if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null", isMinorEdit, watchThisPage)
+                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null",
+                isMinorEdit,
+                watchThisPage,
+                tags = getEditTag())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result ->
@@ -321,8 +328,17 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                     }
                 }) { onEditFailure(it) }
         )
-
         BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
+    }
+
+    private fun getEditTag(): String {
+        return when {
+            invokeSource == Constants.InvokeSource.TALK_TOPIC_ACTIVITY -> EditTags.APP_TALK_SOURCE
+            invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE -> if (intent.getBooleanExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, false)) EditTags.APP_IMAGE_ADD_INFOBOX else EditTags.APP_IMAGE_ADD_TOP
+            !textToHighlight.isNullOrEmpty() -> EditTags.APP_SELECT_SOURCE
+            sectionID >= 0 -> EditTags.APP_SECTION_SOURCE
+            else -> EditTags.APP_FULL_SOURCE
+        }
     }
 
     private fun waitForUpdatedRevision(newRevision: Long) {
@@ -405,23 +421,24 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
      */
     private fun handleEditingException(caught: MwException) {
         val code = caught.title
-
-        // In the case of certain AbuseFilter responses, they are sent as a code, instead of a
-        // fully parsed response. We need to make one more API call to get the parsed message:
-        if (code.startsWith("abusefilter-") && caught.message.contains("abusefilter-") && caught.message.length < 100) {
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).parsePage("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.text))) }) { showError(it) })
-        } else if ("editconflict" == code) {
-            MaterialAlertDialogBuilder(this@EditSectionActivity)
+        lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+            showError(t)
+        }) {
+            // In the case of certain AbuseFilter responses, they are sent as a code, instead of a
+            // fully parsed response. We need to make one more API call to get the parsed message:
+            if (code.startsWith("abusefilter-") && caught.message.contains("abusefilter-") && caught.message.length < 100) {
+                val response = ServiceFactory.get(pageTitle.wikiSite).parsePage("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
+                showError(MwException(MwServiceError(code, response.text)))
+            } else if ("editconflict" == code) {
+                MaterialAlertDialogBuilder(this@EditSectionActivity)
                     .setTitle(R.string.edit_conflict_title)
                     .setMessage(R.string.edit_conflict_message)
                     .setPositiveButton(R.string.edit_conflict_dialog_ok_button_text, null)
                     .show()
-            resetToStart()
-        } else {
-            showError(caught)
+                resetToStart()
+            } else {
+                showError(caught)
+            }
         }
     }
 
@@ -826,6 +843,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         doExitActionWithConfirmationDialog {
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
                 PageActivity.newIntentForCurrentTab(this, entry, title, false))
+        }
+    }
+
+    override fun onLinkPreviewDismiss() {
+        if (!isDestroyed) {
+            binding.editSectionText.postDelayed({
+                DeviceUtil.showSoftKeyboard(binding.editSectionText)
+            }, 200)
         }
     }
 

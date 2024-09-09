@@ -7,7 +7,15 @@ import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.language.AppLanguageLookUpTable.Companion.CHINESE_CN_LANGUAGE_CODE
 import org.wikipedia.language.AppLanguageLookUpTable.Companion.CHINESE_HK_LANGUAGE_CODE
 import org.wikipedia.language.AppLanguageLookUpTable.Companion.CHINESE_LANGUAGE_CODE
@@ -18,7 +26,7 @@ import org.wikipedia.language.AppLanguageLookUpTable.Companion.CHINESE_TW_LANGUA
 import org.wikipedia.language.AppLanguageLookUpTable.Companion.SIMPLIFIED_CHINESE_LANGUAGE_CODE
 import org.wikipedia.language.AppLanguageLookUpTable.Companion.TRADITIONAL_CHINESE_LANGUAGE_CODE
 import org.wikipedia.page.PageTitle
-import java.util.*
+import java.util.Locale
 
 object L10nUtil {
     val isDeviceRTL: Boolean
@@ -127,6 +135,51 @@ object L10nUtil {
             config.setLocale(getDesiredLocale(Locale(WikipediaApp.instance.languageState.appLanguageCode)))
         } else {
             config.setLocale(getDesiredLocale(desiredLocale))
+        }
+    }
+
+    suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite, shouldUpdateExtracts: Boolean = false): List<PageSummary> {
+        return withContext(Dispatchers.IO) {
+            val newList = mutableListOf<PageSummary>()
+            val titles = list.joinToString(separator = "|") { it.apiTitle }
+            // First, get the correct description from Wikidata directly.
+            val wikiDataResponse = async {
+                ServiceFactory.get(Constants.wikidataWikiSite)
+                    .getWikidataDescription(titles = titles, sites = wikiSite.dbName(), langCode = wikiSite.languageCode)
+            }
+            // Second, fetch varianttitles from prop=info endpoint.
+            val mwQueryResponse = async {
+                ServiceFactory.get(wikiSite).getVariantTitlesByTitles(titles)
+            }
+
+            // Third, update the extracts from the page/summary endpoint if needed.
+            if (shouldUpdateExtracts) {
+                list.map { pageSummary ->
+                    async {
+                        ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
+                    }
+                }.awaitAll().forEachIndexed { index, pageSummary ->
+                    list[index].extract = pageSummary.extract
+                    list[index].extractHtml = pageSummary.extractHtml
+                }
+            }
+
+            list.forEach { pageSummary ->
+                // Find the correct display title from the varianttitles map, and insert the new page summary to the list.
+                val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
+                val newPageSummary = pageSummary.apply {
+                    val newDisplayTitle = displayTitle ?: pageSummary.displayTitle
+                    this.titles = PageSummary.Titles(
+                        canonical = pageSummary.apiTitle,
+                        display = newDisplayTitle
+                    )
+                    this.description = wikiDataResponse.await().entities.values.firstOrNull {
+                        it.getLabels()[wikiSite.languageCode]?.value == newDisplayTitle
+                    }?.getDescriptions()?.get(wikiSite.languageCode)?.value ?: pageSummary.description
+                }
+                newList.add(newPageSummary)
+            }
+            newList
         }
     }
 }

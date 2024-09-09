@@ -176,7 +176,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             }
             R.id.menu_saved_messages -> {
                 sendPatrollerExperienceEvent("list_saved_init", "pt_warning_messages")
-                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), AccountUtil.userName.orEmpty(), viewModel.wikiSite)
+                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), AccountUtil.userName, viewModel.wikiSite)
                 requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
@@ -409,8 +409,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         override fun onItemClick(item: MwQueryResult.RecentChange) {
             sendPatrollerExperienceEvent("edit_item_click", "pt_recent_changes")
             viewModel.populateEditingSuggestionsProvider(item)
-            startActivity(SuggestionsActivity.newIntent(requireActivity(),
-                DescriptionEditActivity.Action.VANDALISM_PATROL, Constants.InvokeSource.SUGGESTED_EDITS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), DescriptionEditActivity.Action.VANDALISM_PATROL))
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {

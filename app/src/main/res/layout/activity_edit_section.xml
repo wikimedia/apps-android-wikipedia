@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,94 +10,101 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/ToolbarStyle.Small" />
+        style="@style/ToolbarStyle.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize">
+    <ScrollView
+        android:id="@+id/edit_section_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/edit_keyboard_overlay_formatting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="vertical">
 
-    <LinearLayout
+        <org.wikipedia.edit.SyntaxHighlightableEditText
+            android:id="@+id/edit_section_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/P"
+            android:lineHeight="24dp"
+            android:layout_marginEnd="8dp"
+            android:textColorHighlight="?attr/focus_color"
+            android:imeOptions="actionNone|flagNoExtractUi"
+            android:inputType="textMultiLine"
+            tools:targetApi="p" />
+
+    </ScrollView>
+
+    <org.wikipedia.edit.WikiTextKeyboardHeadingsView
+        android:id="@+id/edit_keyboard_overlay_headings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/edit_keyboard_overlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="?attr/paper_color"
+        android:elevation="12dp" />
+
+    <org.wikipedia.edit.WikiTextKeyboardFormattingView
+        android:id="@+id/edit_keyboard_overlay_formatting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/edit_keyboard_overlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="?attr/paper_color"
+        android:elevation="12dp"/>
+
+    <org.wikipedia.edit.WikiTextKeyboardView
+        android:id="@+id/edit_keyboard_overlay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="?attr/paper_color"
+        android:elevation="12dp"/>
+
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/edit_section_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone"
-        tools:visibility="visible">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="edit_section_scroll,edit_keyboard_overlay_headings,edit_keyboard_overlay_formatting,edit_keyboard_overlay"/>
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/edit_section_scroll"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:scrollbars="vertical">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/edit_section_preview_fragment"
+        android:name="org.wikipedia.edit.preview.EditPreviewFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout="@layout/fragment_preview_edit" />
 
-            <org.wikipedia.edit.SyntaxHighlightableEditText
-                android:id="@+id/edit_section_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:imeOptions="actionNone|flagNoExtractUi"
-                android:inputType="textMultiLine"
-                android:lineSpacingExtra="6dp"
-                style="@style/TextInputLayoutStyle.EditSection" />
-
-        </androidx.core.widget.NestedScrollView>
-
-        <org.wikipedia.edit.WikiTextKeyboardHeadingsView
-            android:id="@+id/edit_keyboard_overlay_headings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/paper_color"
-            android:elevation="12dp" />
-
-        <org.wikipedia.edit.WikiTextKeyboardFormattingView
-            android:id="@+id/edit_keyboard_overlay_formatting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/paper_color"
-            android:elevation="12dp"/>
-
-        <org.wikipedia.edit.WikiTextKeyboardView
-            android:id="@+id/edit_keyboard_overlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/paper_color"
-            android:elevation="12dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/edit_section_preview_fragment"
-            android:name="org.wikipedia.edit.preview.EditPreviewFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:layout="@layout/fragment_preview_edit" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/edit_section_summary_fragment"
-            android:name="org.wikipedia.edit.summaries.EditSummaryFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/fragment_preview_summary" />
-    </LinearLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/edit_section_summary_fragment"
+        android:name="org.wikipedia.edit.summaries.EditSummaryFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout="@layout/fragment_preview_summary" />
 
     <ScrollView
         android:id="@+id/edit_section_captcha_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="?android:windowBackground"
         android:visibility="gone"
         tools:visibility="visible">
@@ -108,24 +115,30 @@
 
     </ScrollView>
 
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/view_edit_section_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:paddingStart="@dimen/activity_horizontal_margin"
-        android:paddingEnd="@dimen/activity_horizontal_margin"
-        android:background="?android:windowBackground"
-        android:orientation="vertical"
-        android:visibility="gone" />
-
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/view_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:indeterminate="true"
         android:visibility="gone"
         tools:visibility="visible" />
 
-    </FrameLayout>
-</FrameLayout>
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/view_edit_section_error"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="center"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

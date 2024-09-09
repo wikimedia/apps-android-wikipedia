@@ -25,10 +25,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -36,10 +37,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
@@ -102,7 +103,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
     private val pageChangeCallback = PageChangeCallback()
-    private val disposables = CompositeDisposable()
     private var exclusiveTooltipRunnable: Runnable? = null
 
     // The permissions request API doesn't take a callback, so in the event we have to
@@ -125,7 +125,21 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is LoggedOutInBackgroundEvent -> {
+                            refreshContents()
+                        }
+                        is ImportReadingListsEvent -> {
+                            maybeShowImportReadingListsNewInstallDialog()
+                        }
+                    }
+                }
+            }
+        }
+
         binding.mainViewPager.isUserInputEnabled = false
         binding.mainViewPager.adapter = NavTabFragmentPagerAdapter(this)
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
@@ -171,7 +185,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
-        maybeShowPlacesTooltip()
     }
 
     override fun onDestroyView() {
@@ -179,7 +192,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainViewPager.adapter = null
         binding.mainViewPager.unregisterOnPageChangeCallback(pageChangeCallback)
         _binding = null
-        disposables.dispose()
         super.onDestroyView()
     }
 
@@ -419,7 +431,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun usernameClick() {
-        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName.orEmpty(), WikipediaApp.instance.wikiSite)
+        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName, WikipediaApp.instance.wikiSite)
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_MAIN_PAGE)
         startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
     }
@@ -430,11 +442,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun talkClick() {
         if (AccountUtil.isLoggedIn) {
-            AccountUtil.userName?.let {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), it,
-                                WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
-            }
+            startActivity(TalkTopicsActivity.newIntent(requireActivity(),
+                PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName,
+                    WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
         }
     }
 
@@ -450,7 +460,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun contribsClick() {
         if (AccountUtil.isLoggedIn) {
-            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
     }
 
@@ -556,19 +566,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private fun maybeShowPlacesTooltip() {
-        if (Prefs.showOneTimePlacesMainNavOnboardingTooltip && Prefs.exploreFeedVisitCount > SHOW_PLACES_MAIN_NAV_TOOLTIP) {
-            enqueueTooltip {
-                PlacesEvent.logImpression("main_nav_tooltip")
-                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.MORE.id),
-                    getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false, showDismissButton = true).setOnBalloonDismissListener {
-                    Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
-                    PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")
-                }
-            }
-        }
-    }
-
     private inner class PageChangeCallback : OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             callback()?.onTabChanged(NavTab.of(position))
@@ -578,16 +575,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private inner class MediaDownloadReceiverCallback : MediaDownloadReceiver.Callback {
         override fun onSuccess() {
             FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_success)
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is LoggedOutInBackgroundEvent) {
-                refreshContents()
-            } else if (event is ImportReadingListsEvent) {
-                maybeShowImportReadingListsNewInstallDialog()
-            }
         }
     }
 
@@ -612,7 +599,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     companion object {
         // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
         private const val SHOW_EDITS_SNACKBAR_COUNT = 2
-        private const val SHOW_PLACES_MAIN_NAV_TOOLTIP = 1
 
         fun newInstance(): MainFragment {
             return MainFragment().apply {

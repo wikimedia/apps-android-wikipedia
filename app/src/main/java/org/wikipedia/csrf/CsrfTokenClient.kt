@@ -1,10 +1,12 @@
 package org.wikipedia.csrf
 
+import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.runBlocking
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -35,14 +37,15 @@ object CsrfTokenClient {
                     if (retry > 0) {
                         // Log in explicitly
                         // TODO: convert this with coroutines
-                        runBlocking {
-                            try {
-                                LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
-                            } catch (e: Exception) {
-                                L.e(e)
-                                lastError = e
+                        Completable.fromAction {
+                            runBlocking {
+                                LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
                             }
-                        }
+                        }.subscribeOn(Schedulers.io())
+                            .blockingSubscribe({ }) {
+                                L.e(it)
+                                lastError = it
+                            }
                     }
                     if (emitter.isDisposed) {
                         return@create
@@ -92,6 +95,6 @@ object CsrfTokenClient {
         // Signal to the rest of the app that we're explicitly logging out in the background.
         WikipediaApp.instance.logOut()
         Prefs.loggedOutInBackground = true
-        WikipediaApp.instance.bus.post(LoggedOutInBackgroundEvent())
+        FlowEventBus.post(LoggedOutInBackgroundEvent())
     }
 }

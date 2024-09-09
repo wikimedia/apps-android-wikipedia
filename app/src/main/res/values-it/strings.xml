@@ -402,7 +402,6 @@
   <string name="page_view_in_browser">Vedi la pagina nel browser</string>
   <string name="tool_tip_toc_title">Accesso rapido all\'indice</string>
   <string name="tool_tip_toc_text">Ora puoi scorrere verso sinistra per aprire l\'indice e anche toccare e trascinare questo pulsante di scorrimento per passare rapidamente alle varie sezioni di una voce.</string>
-  <string name="tool_tip_lang_button">Ora puoi cercare e leggere in più lingue di Wikipedia nell\'applicazione.\n\n\nTocca l\'icona per aggiungere più lingue.</string>
   <string name="error_response_malformed">La risposta dal server non è stata formattata correttamente.</string>
   <string name="error_unknown">Si è verificato un errore sconosciuto.</string>
   <string name="format_error_server_message">Messaggio: \"%s\"</string>
@@ -1067,7 +1066,6 @@
     <item quantity="one">Hai aggiunto %d etichetta</item>
     <item quantity="other">Hai aggiunto %d etichette</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Le modifiche suggerite sono un nuovo modo per modificare Wikipedia su Android. Ti aiuta a dare piccoli ma vitali contributi a Wikipedia. Il nostro obiettivo è rendere la modifica più semplice ed accessibile a tutti! Accedi o unisciti a Wikipedia per iniziare.</string>
@@ -1183,10 +1181,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantieni almeno una lingua Wikipedia da cui potrai cercare e leggere il contenuto.</string>
   <string name="more_language_options">altro</string>
   <string name="add_wikipedia_languages_text">Aggiungi le lingue di Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Rimuovere una variante cinese dalle lingue della tua app?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Al momento hai varianti del cinese tradizionale e del cinese semplificato impostate nelle lingue dell\'applicazione. Aggiorna le impostazioni della lingua dell\'applicazione?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica lingue</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazie</string>
   <string name="remove_language_dialog_cancel_button_text">Annulla</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1593,8 +1587,6 @@
   <string name="donate_gpay_help_tax">Informazioni di deducibilità fiscale</string>
   <string name="places_title">Luoghi</string>
   <string name="places_toggle_buttons_map">Mappa</string>
-  <string name="places_nav_tab_tooltip_message">Scopri le voci di Wikipedia intorno a te con Luoghi</string>
-  <string name="places_article_menu_tooltip_message">Tocca \"Visualizza sulla mappa\" per esplorare la posizione di questa voce</string>
   <string name="places_survey_very_satisfied_option">Molto soddisfatto</string>
   <string name="places_survey_very_unsatisfied_option">Molto insoddisfatto</string>
   <string name="places_survey_dialog_title">Aiuta a migliorare \'Luoghi\'</string>

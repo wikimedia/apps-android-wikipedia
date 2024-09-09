@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Muotâ
 * Seipinne
 * Yupik
 -->
@@ -241,6 +242,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Jooskâ</string>
   <string name="feed_accessibility_card_load_more_button">Luođii lase</string>
+  <string name="feed_language_variants_removal_dialog_save">Vuorkkii</string>
   <string name="tabs_activity_title">Koskâloostah</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikkâl kuvvim (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikkâl kuvvim (%s)</string>
@@ -248,6 +250,7 @@
   <string name="description_edit_translate_caption_label_per_language">Kovetekstâ (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Kovetekstâ (%s)</string>
   <string name="description_edit_save">Almostit</string>
+  <string name="description_edit_read">Luuvâ</string>
   <string name="description_edit_add_description">Lasseet artikkâl kuvvim</string>
   <string name="description_edit_translate_description">Jurgâl artikkâl kuvvim</string>
   <string name="description_edit_edit_description">Mute artikkâl kuvvim</string>
@@ -258,7 +261,7 @@
   <string name="description_edit_help_about_wikidata">Tiäđuh Wikidatast</string>
   <string name="description_edit_image_caption_learn_more">Luuvâ lase koveteevstâin</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kovetekstâ almostittum!</string>
-  <string name="description_edit_tutorial_button_label_start_editing">Hammiiškuát</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Hammiiškyeđe</string>
   <string name="suggested_edits_describe_articles">Valdâl artikkâlijd</string>
   <string name="suggested_edits_caption_images">Lasseet koveteevstâid</string>
   <string name="suggested_edits_add_description_button">Lasseet kuvvim</string>
@@ -322,7 +325,7 @@
   <string name="wikitext_template">Myenster</string>
   <string name="wikitext_reference">Käldee</string>
   <string name="insert_media_search_description">Valjii tiätuvuárhá Wikimedia Commonsist</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Kovetekstâ</string>
+  <string name="insert_media_settings_caption">Kovetekstâ</string>
   <string name="insert_media_advanced_settings">Laseasâttâsah</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyyrkove</string>
   <string name="insert_media_insert_button">Lasseet</string>
@@ -366,4 +369,6 @@
   <string name="talk_templates_new_message_dialog_save">Vuorkkii</string>
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
+  <string name="talk_templates_menu_edit_title">Mute</string>
+  <string name="places_toggle_buttons_map">Kárttá</string>
 </resources>
