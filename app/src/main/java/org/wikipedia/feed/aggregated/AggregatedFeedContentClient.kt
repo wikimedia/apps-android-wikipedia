@@ -180,7 +180,7 @@ class AggregatedFeedContentClient {
                 var response = feedContentResponse
                 if (hasParentLanguageCode) {
                     val tfaDeferred = feedContentResponse.tfa?.let {
-                        async { L10nUtil.getPagesForLanguageVariant(listOf(it), wikiSite).first() }
+                        async { L10nUtil.getPagesForLanguageVariant(listOf(it), wikiSite, shouldUpdateExtracts = true).first() }
                     }
 
                     val topReadDeferred = feedContentResponse.topRead?.let {
