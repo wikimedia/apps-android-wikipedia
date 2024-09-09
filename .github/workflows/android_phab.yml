@@ -21,4 +21,5 @@ jobs:
               -d transactions[0][type]=comment \
               -d transactions[0][value]="${message}" \
               -d objectIdentifier=${line}
+          sleep 10
         done

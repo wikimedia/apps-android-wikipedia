@@ -431,7 +431,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun usernameClick() {
-        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName.orEmpty(), WikipediaApp.instance.wikiSite)
+        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName, WikipediaApp.instance.wikiSite)
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_MAIN_PAGE)
         startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
     }
@@ -442,11 +442,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun talkClick() {
         if (AccountUtil.isLoggedIn) {
-            AccountUtil.userName?.let {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), it,
-                                WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
-            }
+            startActivity(TalkTopicsActivity.newIntent(requireActivity(),
+                PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName,
+                    WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
         }
     }
 
@@ -462,7 +460,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun contribsClick() {
         if (AccountUtil.isLoggedIn) {
-            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
+            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
     }
 

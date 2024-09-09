@@ -876,7 +876,6 @@
   <string name="suggested_edits_contribution_article_label">ߞߎߡߘߊ</string>
   <string name="suggested_edits_contribution_views">%s ߦߋߟߌ</string>
   <string name="suggested_edits_contribution_seen_text">%s ߦߋߟߌ ߦߙߌߞߊ ߕߟߋ߬ ߃߀ ߕߊ߬ߡߌ߲߬ߣߍ߲ ߠߎ߬ ߞߘߐ߫.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d߸ %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ߞߎߣߎ߲߬</string>
   <string name="suggested_edits_encourage_account_creation_title">ߌ ߞߵߊ߬ ߟߐ߲߫ ߓߊ߬ ߞߏ߫ ߓߍ߯ ߘߌ߫ ߛߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫؟</string>
   <string name="suggested_edits_encourage_account_creation_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߦߋ߫ ߛߌߟߊ߫ ߞߎߘߊ߫ ߟߋ߬ ߘߌ߫ ߞߊ߬ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߊ߲ߘߙߏߌߘ ߟߊ߫. ߊ߬ ߦߋ߫ ߘߍ߬ߡߍ߲߬ߠߌ߲ ߞߍ߫ ߘߐ߰ߡߊ߲߬ߣߍ߲ ߠߎ߬ ߟߋ߬ ߡߊ߬ ߞߏ߬ߣߌ߲߬ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߢߊ߬ߕߣߐ߬ߡߊ ߟߎ߬ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬. ߒ߬ ߠߊ߫ ߟߊ߬ߢߌߣߌ߲ ߦߋ߫ ߡߍ߲ ߘߌ߫ ߓߍ߯ ߟߊߘߍ߬ߣߍ߲ ߦߋ߫ ߛߋ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߍ߫ ߟߊ߫ ߣߐ߰ߦߊ߬ ߘߐ߫߸ ߊ߬ ߣߌ߫ ߞߵߊ߬ ߟߊߛߐ߬ߘߐ߲߬߹ ߌ ߜߊ߲߬ߞߎ߲߫ ߥߟߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߟߊߛߐ߬ߘߐ߲߬ ߞߵߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫.</string>
@@ -968,9 +967,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">ߞߊ߲߫ ߞߋߟߋ߲߫ ߛߎߥߊ߲ߘߌ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬ ߌ ߘߌ߫ ߢߌߣߌ߲ߠߌ߲ ߣߌ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߞߍ߫ ߡߍ߲ ߘߐ߫.</string>
   <string name="more_language_options">ߡߞߊ߬ߝߏ߬ ߜߘߍ߫ ߟߎ߫</string>
   <string name="add_wikipedia_languages_text">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ߛ߭ߌߣߌ߲ߞߊߞߊ߲ ߓߐ߫ ߌ ߟߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߞߊ߲ߦߊ ߟߊ߫؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ߞߊ߲ ߠߎ߬ ߡߊߦߟߍ߬ߡߊ߲߫</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="remove_language_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="remove_language_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ߏ߬ߞߍ߫</string>

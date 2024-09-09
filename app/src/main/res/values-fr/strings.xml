@@ -1117,7 +1117,6 @@
     <item quantity="one">Vous avez ajouté une balise</item>
     <item quantity="other">Vous avez ajouté %d balises</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hier</string>
   <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
@@ -1244,10 +1243,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue de Wikipédia avec laquelle vous pourrez chercher et lire du contenu.</string>
   <string name="more_language_options">plus</string>
   <string name="add_wikipedia_languages_text">Ajouter des langues de Wikipédia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Supprimer une variante chinoise des langues de votre application ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vous avez actuellement les deux variantes chinoises (traditionnelle et simplifiée) définies dans vos langues de l’application. Mettre à jour vos paramètres de langue de l’application ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifier les langues</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non merci</string>
   <string name="remove_language_dialog_cancel_button_text">Annuler</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

@@ -990,7 +990,6 @@
     <item quantity="one">You added %d tag</item>
     <item quantity="other">Fo paale la %d magere</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Zaameŋ</string>
   <string name="suggested_edits_encourage_account_creation_title">Fo baŋ ka neɛzaa na baŋ maale la wikipiideɛ eŋ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
@@ -1097,8 +1096,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Koŋ baŋ iri a kɔkɔɛ zaa</string>
   <string name="more_language_options">Yaga</string>
   <string name="add_wikipedia_languages_text">Paahi Wikipiideɛ kɔkɔɛ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Poɔ kɔkɔɛ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Bareka kyebe</string>
   <string name="remove_language_dialog_cancel_button_text">Ŋmaa o</string>
   <string name="remove_language_dialog_ok_button_text">Tɔɔ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Tɔɔ</string>

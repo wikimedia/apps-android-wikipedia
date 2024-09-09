@@ -250,6 +250,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Jõõsk</string>
   <string name="feed_accessibility_card_load_more_button">Laadd lââʹzz</string>
+  <string name="feed_language_variants_removal_dialog_save">Ruõkk</string>
   <string name="tabs_activity_title">Kõskklõõst</string>
   <string name="description_edit_text_hint">Artikeeʹl deskriipt</string>
   <string name="description_edit_article_description_label">Artikkel</string>
@@ -335,7 +336,6 @@
   <string name="wikipedia_languages_remove_text">Jaukkâd ǩiõl</string>
   <string name="wikipedia_languages_remove_action_mode_title">Jaukkâd ǩiõl</string>
   <string name="add_wikipedia_languages_text">Lââʹzzet Wikipedia-ǩiõlid</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Muuʹtt ǩiõlid</string>
   <string name="remove_language_dialog_cancel_button_text">Jõõsk</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Jõõsk</string>
   <string name="edit_type_all">Puk muttâz</string>
@@ -408,4 +408,5 @@
   <string name="talk_templates_edit_message_dialog_save">Ruõkk</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
   <string name="talk_templates_menu_edit_title">Muuʹtt</string>
+  <string name="places_toggle_buttons_map">Mäddkartt</string>
 </resources>

@@ -11,17 +11,13 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.wikidata.Entities
-import org.wikipedia.descriptions.DescriptionEditFragment
+import org.wikipedia.edit.EditTags
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import java.util.UUID
 
 class SuggestedEditsImageTagsViewModel : ViewModel() {
-
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = Resource.Error(throwable)
-    }
 
     private val _uiState = MutableStateFlow(Resource<Pair<MwQueryPage, String?>>())
     val uiState = _uiState.asStateFlow()
@@ -31,7 +27,9 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
 
     fun findNextSuggestedEditsItem(languageCode: String, page: MwQueryPage?) {
         _uiState.value = Resource.Loading()
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiState.value = Resource.Error(throwable)
+        }) {
             val mwQueryPage = page ?: EditingSuggestionsProvider.getNextImageWithMissingTags()
             val caption = ServiceFactory.get(Constants.commonsWikiSite)
                 .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode))
@@ -41,7 +39,9 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
     }
 
     fun publishImageTags(page: MwQueryPage, acceptedLabels: List<ImageTag>) {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _actionState.value = Resource.Error(throwable)
+        }) {
             val csrfToken = CsrfTokenClient.getToken(Constants.commonsWikiSite).blockingSingle()
             val mId = "M" + page.pageId
             var claimStr = "{\"claims\":["
@@ -66,8 +66,8 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
                 commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
             }
             claimStr += "]}"
-            commentStr += " */" + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
-            val postResult = ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr, null)
+            commentStr += " */"
+            val postResult = ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr, tags = EditTags.APP_IMAGE_TAG_ADD)
             _actionState.value = Resource.Success(postResult.entity)
         }
     }

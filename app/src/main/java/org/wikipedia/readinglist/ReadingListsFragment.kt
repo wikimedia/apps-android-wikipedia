@@ -28,7 +28,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.flow.collectLatest
@@ -164,7 +163,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         super.onResume()
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
-        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -776,15 +774,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (shouldShowImportedSnackbar) {
             ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
-                .addCallback(object : Snackbar.Callback() {
-                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                        if (!isAdded) {
-                            return
-                        }
-                        ReadingListsReceiveSurveyHelper.activateSurvey()
-                        ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
-                    }
-                })
                 .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
                     recentPreviewSavedReadingList?.let {
                         startActivity(ReadingListActivity.newIntent(requireContext(), it))
@@ -835,12 +824,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun onListsImportResult(uri: Uri) {
         binding.swipeRefreshLayout.isRefreshing = true
-        val inputStr = activity?.contentResolver?.openInputStream(uri)
-        inputStr?.let { inputStream ->
+        activity?.contentResolver?.openInputStream(uri)?.use { inputStream ->
             val inputString = inputStream.bufferedReader().use { it.readText() }
             ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
             importMode = true
-            inputStream.close()
         }
     }
 

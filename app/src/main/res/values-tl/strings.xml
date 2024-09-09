@@ -989,7 +989,6 @@
     <item quantity="one">Nagdagdag ka ng %d tag</item>
     <item quantity="other">Nagdagdag ka ng %d (na) tag</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kahapon</string>
   <string name="suggested_edits_encourage_account_creation_title">Alam mo ba, kahit sino pwedeng mag-edit sa Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Bagong paraan ang mga mungkahing edit para makapag-edit ka sa Wikipedia sa Android. Tinutulungan ka nitong gumawa ng mga maliliit pero mahahalagang ambag sa Wikipedia. Layunin namin na padaliin pa ang pag-edit at gawing mas accessible pa ito sa mas nakakarami! Mag-login o sumali sa Wikipedia para makapagsimula ka na.</string>
@@ -1075,10 +1074,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Magtira ng di bababa sa isang wika ng Wikipedia na magagamit mo sa paghahanap at pagbabása.</string>
   <string name="more_language_options">karagdagan</string>
   <string name="add_wikipedia_languages_text">Magdagdag ng wika ng Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Tanggalin ang isang baryante ng wikang Tsino mula sa mga wika mo?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Kasalukuyan kang gumagamit ng parehong Tradisyonal at Pinasimpleng wikang Tsino na baryante sa mga wika mo. Ia-update mo ba ang mga wika sa Settings mo?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Isaayos ang mga wika</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Salamat na lang</string>
   <string name="remove_language_dialog_cancel_button_text">Ikansela</string>
   <string name="remove_language_dialog_ok_button_text">Sige</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Sige</string>

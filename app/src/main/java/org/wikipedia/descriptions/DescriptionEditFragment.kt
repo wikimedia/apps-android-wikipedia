@@ -18,13 +18,13 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
-import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
@@ -56,6 +56,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 import java.io.IOException
 import java.util.Date
 import java.util.concurrent.TimeUnit
@@ -152,16 +153,6 @@ class DescriptionEditFragment : Fragment() {
         return binding.root
     }
 
-    override fun onPause() {
-        super.onPause()
-        analyticsHelper.timer.pause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        analyticsHelper.timer.resume()
-    }
-
     override fun onDestroyView() {
         captchaHandler.dispose()
         binding.fragmentDescriptionEditView.callback = null
@@ -230,9 +221,9 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
-        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled =
-                ReleaseUtil.isPreBetaRelease && MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment &&
-                MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group != GROUP_1
+        binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
+                SuggestedArticleDescriptionsDialog.availableLanguages.contains(pageTitle.wikiSite.languageCode) &&
+                binding.fragmentDescriptionEditView.description.isNullOrEmpty()
 
         if (binding.fragmentDescriptionEditView.isSuggestionButtonEnabled) {
             binding.fragmentDescriptionEditView.showSuggestedDescriptionsLoadingProgress()
@@ -247,8 +238,14 @@ class DescriptionEditFragment : Fragment() {
             analyticsHelper.logApiFailed(requireContext(), throwable, pageTitle)
         }) {
 
-            val response = ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
-                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2))
+            val responseCall = async { ServiceFactory[pageTitle.wikiSite, LiftWingModelService.API_URL, LiftWingModelService::class.java]
+                .getDescriptionSuggestion(DescriptionSuggestion.Request(pageTitle.wikiSite.languageCode, pageTitle.prefixedText, 2)) }
+            val userInfoCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                .globalUserInfo(AccountUtil.userName) }
+
+            val response = responseCall.await()
+            val userInfo = userInfoCall.await()
+            val userTotalEdits = userInfo.query?.globalUserInfo?.editCount ?: 0
 
             // Perform some post-processing on the predictions.
             // 1) Capitalize them, if we're dealing with enwiki.
@@ -256,19 +253,10 @@ class DescriptionEditFragment : Fragment() {
             val list = (if (pageTitle.wikiSite.languageCode == "en") {
                 response.prediction.map { StringUtil.capitalize(it)!! }
             } else response.prediction).distinct()
-            analyticsHelper.apiOrderList = list
             analyticsHelper.logSuggestionsReceived(requireContext(), response.blp, pageTitle)
-            L.d("Received suggestion: " + list.first())
-            L.d("And is it a BLP? " + response.blp)
 
-            // Randomize the display order
-            if (!response.blp || MachineGeneratedArticleDescriptionsAnalyticsHelper.abcTest.group == GROUP_3) {
-                val randomizedListIndex = (0 until 2).random()
-                val firstSuggestion = if (list.size == 2) list[randomizedListIndex] else list.first()
-                val secondSuggestion = if (list.size == 2) { if (randomizedListIndex == 0) list.last() else list.first() } else null
-                analyticsHelper.displayOrderList = listOfNotNull(firstSuggestion, secondSuggestion)
-                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(firstSuggestion, secondSuggestion)
-                analyticsHelper.logSuggestionsShown(requireContext(), pageTitle)
+            if (list.isNotEmpty() && !response.blp || userTotalEdits > 50) {
+                binding.fragmentDescriptionEditView.showSuggestedDescriptionsButton(list.first(), if (list.size > 1) list.last() else null)
             } else {
                 binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = false
                 binding.fragmentDescriptionEditView.updateSuggestedDescriptionsButtonVisibility()
@@ -293,15 +281,11 @@ class DescriptionEditFragment : Fragment() {
                     analyticsHelper.articleDescriptionEditingEnd(requireContext())
                 }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
-                analyticsHelper.timer.pause()
             } else {
                 binding.fragmentDescriptionEditView.setError(null)
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
-                analyticsHelper.logAttempt(requireContext(),
-                    binding.fragmentDescriptionEditView.description.orEmpty(), binding.fragmentDescriptionEditView.wasSuggestionChosen,
-                    binding.fragmentDescriptionEditView.wasSuggestionModified, pageTitle
-                )
+                analyticsHelper.logAttempt(requireContext(), pageTitle)
                 getEditTokenThenSave()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
@@ -352,8 +336,7 @@ class DescriptionEditFragment : Fragment() {
                         }
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
                             editSummary,
-                            if (AccountUtil.isLoggedIn) "user"
-                            else null, text, null, baseRevId, editToken,
+                            AccountUtil.assertUser, text, null, baseRevId, editToken,
                             if (captchaHandler.isActive) captchaHandler.captchaId() else null,
                             if (captchaHandler.isActive) captchaHandler.captchaWord() else null, tags = getEditTags()
                         )
@@ -367,12 +350,7 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                    analyticsHelper.logSuccess(requireContext(),
-                                        binding.fragmentDescriptionEditView.description.orEmpty(),
-                                        binding.fragmentDescriptionEditView.wasSuggestionChosen,
-                                        binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                        pageTitle, newRevId
-                                    )
+                                    analyticsHelper.logSuccess(requireContext(), pageTitle, newRevId)
                                     ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, newRevId)
                                 }
                                 hasEditErrorCode -> {
@@ -418,12 +396,7 @@ class DescriptionEditFragment : Fragment() {
                         AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            analyticsHelper.logSuccess(requireContext(),
-                                binding.fragmentDescriptionEditView.description.orEmpty(),
-                                binding.fragmentDescriptionEditView.wasSuggestionChosen,
-                                binding.fragmentDescriptionEditView.wasSuggestionModified,
-                                pageTitle, response.entity?.lastRevId ?: 0
-                            )
+                            analyticsHelper.logSuccess(requireContext(), pageTitle, response.entity?.lastRevId ?: 0)
                             ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, response.entity?.lastRevId ?: 0)
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
@@ -468,12 +441,12 @@ class DescriptionEditFragment : Fragment() {
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(languageCode, languageCode, Constants.COMMONS_DB_NAME,
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
-                        getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
+                    pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
+                    getEditComment(), editToken, AccountUtil.assertUser, tags = getEditTags())
             } else {
                 ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
-                        if (AccountUtil.isLoggedIn) "user" else null, tags = getEditTags())
+                    pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
+                    AccountUtil.assertUser, tags = getEditTags())
             }
         }
 
@@ -487,11 +460,8 @@ class DescriptionEditFragment : Fragment() {
             when (action) {
                 DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
                     if (binding.fragmentDescriptionEditView.wasSuggestionChosen) {
-                        if (binding.fragmentDescriptionEditView.wasSuggestionModified) {
-                            // TODO
-                        } else {
-                            // TODO
-                        }
+                        tags.add(EditTags.APP_DESCRIPTION_ADD)
+                        tags.add(EditTags.APP_AI_ASSIST)
                     } else if (pageTitle.description.isNullOrEmpty()) {
                         tags.add(EditTags.APP_DESCRIPTION_ADD)
                     } else {
@@ -499,13 +469,13 @@ class DescriptionEditFragment : Fragment() {
                     }
                 }
                 DescriptionEditActivity.Action.ADD_CAPTION -> {
-                    // TODO
+                    tags.add(EditTags.APP_IMAGE_CAPTION_ADD)
                 }
                 DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
                     tags.add(EditTags.APP_DESCRIPTION_TRANSLATE)
                 }
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
-                    // TODO
+                    tags.add(EditTags.APP_IMAGE_CAPTION_TRANSLATE)
                 }
                 else -> { }
             }
@@ -516,12 +486,6 @@ class DescriptionEditFragment : Fragment() {
         private fun getEditComment(): String? {
             if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION && binding.fragmentDescriptionEditView.wasSuggestionChosen) {
                 return if (binding.fragmentDescriptionEditView.wasSuggestionModified) MACHINE_SUGGESTION_MODIFIED else MACHINE_SUGGESTION
-            } else if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
-                return when (action) {
-                    DescriptionEditActivity.Action.ADD_CAPTION -> SUGGESTED_EDITS_ADD_CAPTION_COMMENT
-                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT
-                    else -> null
-                }
             }
             return null
         }
@@ -540,7 +504,6 @@ class DescriptionEditFragment : Fragment() {
                 captchaHandler.cancelCaptcha()
             } else if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
-                analyticsHelper.timer.resume()
             } else {
                 DeviceUtil.hideSoftKeyboard(requireActivity())
                 requireActivity().onBackPressed()
@@ -582,12 +545,8 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_ACTION = "action"
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
-        private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
         const val MACHINE_SUGGESTION = "#machine-suggestion"
         const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-        const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_IMAGE_TAGS_COMMENT = "#suggestededit-add-tag $SUGGESTED_EDITS_UI_VERSION"
 
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`

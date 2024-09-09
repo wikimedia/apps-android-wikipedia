@@ -126,6 +126,7 @@
   <string name="menu_page_recently_viewed">近期檢視</string>
   <string name="menu_page_archive">存檔</string>
   <string name="menu_long_press_open_page">開啟</string>
+  <string name="menu_long_press_open_in_places">在地點開啟</string>
   <string name="menu_long_press_open_in_new_tab">在新分頁中開啟</string>
   <string name="menu_long_press_copy_page">複製連結位址</string>
   <string name="menu_text_select_define">定義</string>
@@ -856,6 +857,7 @@
   <string name="feed_item_type_main_page">帶有每日特色內容的維基百科首頁</string>
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
   <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
+  <string name="feed_item_type_places">基於目前位置附近的相關條目</string>
   <string name="feed_empty_message">您的探索摘要內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
   <string name="customize_lang_selection_dialog_ok_button_text">確認</string>
@@ -1084,7 +1086,6 @@
     <item quantity="one">您已新增 %d 個標籤</item>
     <item quantity="other">您已新增 %d 個標籤</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_encourage_account_creation_title">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="suggested_edits_encourage_account_creation_message">建議編輯是在 Android 上編輯維基百科的新方式。這能讓您做出微小；但對於維基百科是至關重要的貢獻。\n我們的目標是讓所有人能夠更輕鬆地編輯！請登入或加入維基百科來開始。</string>
@@ -1211,10 +1212,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">請保留至少一種用在搜尋與閱讀內容的維基語言。</string>
   <string name="more_language_options">更多</string>
   <string name="add_wikipedia_languages_text">新增維基百科語言</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">從您的應用程式語言裡移除中文異體?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">在您的應用程式語言裡，目前有繁體與簡體的中文異體設定。要更新您的應用程式語言設定嗎？</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">編輯語言</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，謝謝</string>
   <string name="remove_language_dialog_cancel_button_text">取消</string>
   <string name="remove_language_dialog_ok_button_text">確認</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">確認</string>
@@ -1697,4 +1694,16 @@
   <string name="places_survey_dialog_cancel">取消</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我們改變或改善什麼？</string>
   <string name="places_empty_list">該區域是空的。請在&lt;a href=\"#\"&gt;在地圖上&lt;/a&gt;縮小。</string>
+  <string name="places_card_title">附近地點</string>
+  <string name="places_card_action">更多的附近地點</string>
+  <string name="places_card_enable_location_card_message">地點是一種基於地圖來探索維基百科的方式</string>
+  <string name="places_card_enable_location_card_button">啟用位置</string>
+  <string name="places_card_distance_suffix">距離 %s</string>
+  <string name="places_card_distance_unknown">未知距離</string>
+  <string name="places_empty_message_snackbar">附近沒有條目。請嘗試縮小並移動地圖。</string>
+  <string name="recommended_content_section_you_might_like">您可能會喜歡</string>
+  <string name="recommended_content_survey_dialog_title">協助改善推薦內容。</string>
+  <string name="recommended_content_survey_dialog_message">您對這個推薦搜尋結果滿意嗎？</string>
+  <string name="recommended_content_survey_dialog_input_hint">額外回饋</string>
+  <string name="recommended_content_survey_dialog_submitted_message">已提交回饋。感謝您！</string>
 </resources>
