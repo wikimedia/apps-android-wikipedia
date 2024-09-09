@@ -119,6 +119,10 @@ object AccountUtil {
         return false
     }
 
+    fun isUserNameTemporary(userName: String): Boolean {
+        return userName.startsWith("~")
+    }
+
     private fun createAccount(userName: String, password: String): Boolean {
         var account = account()
         if (account == null || account.name.isNullOrEmpty() || account.name != userName) {
