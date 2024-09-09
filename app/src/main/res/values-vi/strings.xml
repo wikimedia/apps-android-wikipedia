@@ -945,7 +945,6 @@
     <item quantity="one">Bạn đã thêm thẻ %d</item>
     <item quantity="other">Bạn đã thêm thẻ %d</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hôm qua</string>
   <string name="suggested_edits_encourage_account_creation_title">Bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Các sửa đổi gợi ý là một cách mới để đóng góp cho Wikipedia trên Android. Nó giúp bạn có những đóng góp nhỏ nhưng quan trọng cho Wikipedia.\nMục tiêu của chúng tôi là làm cho việc sửa đổi dễ dàng hơn và dễ tiếp cận hơn cho mọi người! Đăng nhập hoặc tham gia Wikipedia để bắt đầu.</string>
@@ -1044,10 +1043,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Hãy giữ lại ít nhất một ngôn ngữ Wikipedia để tìm và đọc nội dung.</string>
   <string name="more_language_options">thêm</string>
   <string name="add_wikipedia_languages_text">Thêm ngôn ngữ Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Xóa biến thể tiếng Trung khỏi các ngôn ngữ ứng dụng của bạn?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Tiếng Trung phồn thể và giản thể đều được kích hoạt trong ngôn ngữ ứng dụng của bạn. Bạn có muốn cập nhật tùy chọn ngôn ngữ ứng dụng?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sửa ngôn ngữ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Thôi</string>
   <string name="remove_language_dialog_cancel_button_text">Hủy bỏ</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>

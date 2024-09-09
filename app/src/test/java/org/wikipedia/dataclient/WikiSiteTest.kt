@@ -159,7 +159,7 @@ class WikiSiteTest {
         val subject = WikiSite("http://zh.wikipedia.org/wiki/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-hant"))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-tw"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("http"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("http://zh.wikipedia.org"))
     }
@@ -169,7 +169,7 @@ class WikiSiteTest {
         val subject = WikiSite("http://zh.wikipedia.org/wiki/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-hant"))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-tw"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("http"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("http://zh.wikipedia.org"))
     }

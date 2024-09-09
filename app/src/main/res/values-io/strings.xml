@@ -939,7 +939,6 @@
     <item quantity="one">Vu adjuntis %d etiketo</item>
     <item quantity="other">Vu adjuntis %d etiketi</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hiere</string>
   <string name="suggested_edits_encourage_account_creation_title">Ka tu savis ke omni povas redaktar Wikipedio?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Enirar / partoprenar Wikipedio</string>
@@ -1018,10 +1017,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenez adminime 1 idiomo de Wikipedio de quon tu povos serchar e lektar kontenajo.</string>
   <string name="more_language_options">pluse</string>
   <string name="add_wikipedia_languages_text">Adjuntez idiomi de Wikipedio</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Ka removar varianto de Chiniana de vua \'\'app\'\' pri lingui?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Nun vu havas ambe Chiniana varianti Simpligita e Tradicionala en l\'idiomi de vua \'\'app\'\'. Ka vu deziras aktualigar l\'ajusti pri idiomi dil \'\'app\'\'?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Redaktar lingui</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, danko</string>
   <string name="remove_language_dialog_cancel_button_text">Nuligar</string>
   <string name="remove_language_dialog_ok_button_text">O.K.</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">O.K.</string>

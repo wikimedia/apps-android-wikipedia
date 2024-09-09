@@ -672,7 +672,6 @@
   <string name="suggested_edits_contribution_image_label">Сӱрет</string>
   <string name="suggested_edits_contribution_article_label">Статья</string>
   <string name="suggested_edits_contribution_views">%s ончымаш</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Теҥгече</string>
   <string name="suggested_edits_contribution_type_image_tag">Сӱрет тег</string>
   <string name="suggested_edits_image_recommendations_task_title">Статьян сӱретше</string>
@@ -704,7 +703,6 @@
   <string name="onboarding_welcome_title_v2">Эрыкан энциклопедий\n…300 деч шукырак йылме дене</string>
   <string name="app_shortcuts_random">Чокым</string>
   <string name="app_shortcuts_search">Кычалаш</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Уке, тау</string>
   <string name="remove_language_dialog_cancel_button_text">Чараш</string>
   <string name="remove_language_dialog_ok_button_text">Йӧра</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Йӧра</string>

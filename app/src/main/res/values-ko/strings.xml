@@ -1034,7 +1034,6 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">지난 30일 동안 %s건 조회되었습니다.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d개의 태그를 추가했습니다</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
   <string name="suggested_edits_encourage_account_creation_title">당신은 누구나 위키백과를 편집할 수 있다는 것을 알고 계셨나요?</string>
   <string name="suggested_edits_encourage_account_creation_message">편집 제안은 안드로이드에서 위키백과를 편집하는 새로운 방법입니다. 이 기능은 위키백과에 작지만 매우 중요한 기여를 하는 데 도움이 됩니다.\n우리의 목표는 모두를 위하여 편집의 난이도를 낮추고 접근성을 높이는 것입니다! 시작하려면 로그인하거나 회원가입하세요.</string>
@@ -1149,10 +1148,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">내용을 검색하고 읽을 위키백과 언어는 적어도 하나를 유지하십시오.</string>
   <string name="more_language_options">더 보기</string>
   <string name="add_wikipedia_languages_text">위키백과 언어 추가</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">앱 언어에서 중국어를 제거하시겠습니까?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">현재 앱 언어에서 정체 중국어와 간체 중국어가 설정되어 있습니다. 앱 언어 설정을 업데이트하시겠습니까?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">언어 편집</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">괜찮습니다</string>
   <string name="remove_language_dialog_cancel_button_text">취소</string>
   <string name="remove_language_dialog_ok_button_text">확인</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">확인</string>
@@ -1212,6 +1207,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">높이</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">넣기</string>
+  <string name="templates_search_hint">틀에서 검색</string>
   <string name="templates_insert_button">넣기</string>
   <string name="templates_param_suggested_value">예: %s</string>
   <string name="templates_param_optional_hint">%s (선택 사항)</string>
@@ -1245,6 +1241,7 @@
   <string name="talk_warn_save_dialog_dont_save">저장하지 않음</string>
   <string name="talk_warn_submitted">편집자의 사용자 토론 페이지에 게시된 메시지</string>
   <string name="talk_warn_submitted_and_saved">편집자의 사용자 토론 페이지에 메시지가 저장 및 게시되었습니다.</string>
+  <string name="talk_warn_saved_messages">저장된 메시지</string>
   <string name="talk_page_empty">이 토론 문서는 비어있습니다.</string>
   <string name="talk_page_empty_title">여기에서 토론을 시작하세요</string>
   <string name="talk_page_empty_content">토론 문서는 위키백과 문서를 더욱 발전시키기 위해 사용자들과 의논하는 곳입니다. 새로운 토론 주제를 추가하여 위키백과 공동체와 협업을 시작하세요.</string>
@@ -1553,7 +1550,10 @@
   <string name="patroller_saved_message_title_final_warning">마지막 경고</string>
   <string name="patroller_saved_message_title_copy_vio">저작권 위반 알림</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">편집 요약 남기기</string>
+  <string name="patroller_saved_message_title_do_not_censor">검열하지 마세요</string>
   <string name="patroller_saved_message_title_art_imp">문서 개선 제안</string>
+  <string name="patroller_saved_message_body_vandalism">안녕하세요, {{{username}}}님. 귀하의 [{{{diffLink}}}|최근 기여] 중 하나 이상이 건설적이지 않은 것으로 간주되어 되돌렸음을 알려드립니다. 제가 실수했다고 생각되거나 질문이 있으면 [[User talk:{{{senderUserName}}}|제 토론 문서]]에 메시지를 남겨주세요. 계속하여 훼손을 할 경우 제한을 받을 수 있습니다.</string>
+  <string name="patroller_saved_message_body_do_not_censor">안녕하세요, {{{username}}}님. 문서 토론 페이지에서 논의 없이 내용을 삭제하신 것 같습니다. 위키백과는 검열을 받지 않으며 논란의 여지가 있다는 이유로 내용을 삭제해서는 안 됩니다. 정보가 부정확하다고 생각되면 문서 토론 페이지에서 총의를 수립해 주세요.</string>
   <string name="talk_templates_menu_edit_title">편집</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>

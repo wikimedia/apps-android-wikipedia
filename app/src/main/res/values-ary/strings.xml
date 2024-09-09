@@ -372,7 +372,6 @@
   <string name="wikipedia_languages_add_language_text">زيد لوغة</string>
   <string name="more_language_options">كتر</string>
   <string name="add_wikipedia_languages_text">زيد لوغات د ويكيپيديا</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">لا شكرا</string>
   <string name="remove_language_dialog_cancel_button_text">لغي</string>
   <string name="remove_language_dialog_ok_button_text">واخا</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">واخا</string>
@@ -392,6 +391,7 @@
   <string name="talk_page_empty">هاد صفحة لهضرة خاوية</string>
   <string name="talk_no_subject">(بلا موضوع)</string>
   <string name="watchlist_details_next_edit">تبدال جاي</string>
+  <string name="thank_dialog_positive_button_text">مصيفطة د شكر</string>
   <string name="thank_dialog_negative_button_text">لغي</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ل شهر واحد</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ل 6 شهور</string>

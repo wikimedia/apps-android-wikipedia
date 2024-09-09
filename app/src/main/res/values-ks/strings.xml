@@ -571,7 +571,6 @@
   <string name="suggested_edits_contribution_image_label">شکل</string>
   <string name="suggested_edits_contribution_article_label">مَضموٗن</string>
   <string name="suggested_edits_contribution_views">%s وُچھنہٕ آمُت</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">راتھ</string>
   <string name="suggested_edits_encourage_account_creation_title">تُہؠ چھا خَبَر ہَر کانٛہہ ہیٚکہِ وِکیٖپیٖڈیا اؠڈِٹ کٔرِتھ؟</string>
   <string name="suggested_edits_encourage_account_creation_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمِل گژھُن</string>
@@ -607,8 +606,6 @@
   <string name="wikipedia_languages_remove_action_mode_title">زَبان ہَٹٲوِو</string>
   <string name="more_language_options">بێیہِ</string>
   <string name="add_wikipedia_languages_text">ویٖکیٖپیٖڈیا زبان کٕریٚو جمع/ایٚڈ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">زبانہٕ کٕریٚو جمع/ایٚڈ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نَہ، شُکریا</string>
   <string name="remove_language_dialog_cancel_button_text">مَنسوٗخ</string>
   <string name="remove_language_dialog_ok_button_text">ٹھیٖک چھُ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ٹھیٖک چھُ</string>

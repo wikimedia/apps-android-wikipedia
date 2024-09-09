@@ -148,8 +148,8 @@
   <string name="page_edit_history_filter_by_bot">Ediciones de bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métrica de %1$s a %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">%1$d editar desde %2$s</item>
-    <item quantity="other">%1$d editar desde %2$s</item>
+    <item quantity="one">%1$d edición desde %2$s</item>
+    <item quantity="other">%1$d ediciones desde %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d edición desde %2$s (%3$s)</item>
@@ -555,7 +555,7 @@
   <string name="text_size_decrease">Disminuir tamaño del texto</string>
   <string name="text_size_percent_default">%s (predeterminado)</string>
   <string name="text_style_title">Tipo de letra</string>
-  <string name="theme_category_reading">Leyendo</string>
+  <string name="theme_category_reading">Lectura</string>
   <string name="theme_category_editing">Edición</string>
   <string name="reading_focus_mode">Modo de lectura con concentración</string>
   <string name="reading_focus_mode_detail">Oculta las funciones de edición y la barra de herramientas inferior al desplazarse</string>
@@ -667,8 +667,8 @@
   <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Eliminar la(s) lista(s) seleccionada(s)?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="one">¿Estás seguro de que deseas eliminar la lista de %d?</item>
-    <item quantity="other">¿Estás seguro de que deseas eliminar las listas de %d?</item>
+    <item quantity="one">¿Confirmas que deseas eliminar %d lista?</item>
+    <item quantity="other">¿Confirmas que deseas eliminar %d listas?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accede para activar la sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accede a tu cuenta para permitir que se guarden tus listas de lectura.</string>
@@ -782,7 +782,7 @@
   <string name="notifications_empty_message">¡Tienes las notificaciones al día!</string>
   <string name="notifications_view_archived_button_text">Ver notificaciones archivadas</string>
   <string name="notification_preferences_title">Ajustes de notificaciones</string>
-  <string name="notifications_mark_unread">Marcar como no leído</string>
+  <string name="notifications_mark_unread">Marcar como no leída</string>
   <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
   <string name="notifications_direct_reply_action">Responder</string>
   <string name="notifications_direct_reply_progress">Publicando respuesta a %s...</string>
@@ -791,12 +791,12 @@
   <string name="notifications_mark_all_as_read_message">%d marcado como leído</string>
   <string name="notifications_mark_all_as_unread_message">%d marcado como no leído</string>
   <plurals name="notifications_mark_as_read_plural">
-    <item quantity="one">1 marcado como no leído </item>
-    <item quantity="other">%d marcado como no leído</item>
+    <item quantity="one">1 marcada como leída </item>
+    <item quantity="other">%d marcadas como leídas</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
-    <item quantity="one">1 marcado como no leído </item>
-    <item quantity="other">%d marcado como no leído</item>
+    <item quantity="one">1 marcada como no leída </item>
+    <item quantity="other">%d marcadas como no leídas</item>
   </plurals>
   <string name="watchlist_title">Lista de seguimiento</string>
   <string name="preference_title_notification_poll">Verificar notificaciones</string>
@@ -805,17 +805,17 @@
   <string name="preference_title_notification_system">Sistema</string>
   <string name="preference_summary_notification_system">Mensajes del sistema</string>
   <string name="preference_title_notification_milestone">Hito</string>
-  <string name="preference_summary_notification_milestone">Has alcanzado el máximo de ediciones</string>
+  <string name="preference_summary_notification_milestone">Ciertos números de ediciones han sido alcanzados</string>
   <string name="preference_title_notification_thanks">Gracias</string>
   <string name="preference_summary_notification_thanks">Alguien agradeció tu edición</string>
-  <string name="preference_title_notification_revert">Revertir</string>
+  <string name="preference_title_notification_revert">Reversión</string>
   <string name="preference_summary_notification_revert">Una de tus contribuciones fue revertida</string>
   <string name="preference_title_notification_login_fail">Acceso a la cuenta</string>
   <string name="preference_summary_notification_login_fail">Tu registro en actividades</string>
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Alguien te mencionó en una página</string>
   <string name="preference_title_notification_user_talk">Página de discusión</string>
-  <string name="preference_summary_notification_user_talk">Mensajes y respuestas de páginas de conversación</string>
+  <string name="preference_summary_notification_user_talk">Mensajes y respuestas de páginas de discusión</string>
   <string name="preference_title_notification_email_user">Email recibido</string>
   <string name="preference_summary_notification_email_user">Alguien te ha enviado un email a través de la wiki</string>
   <string name="preference_title_notification_user_rights">Cambios de derechos de usuario</string>
@@ -972,11 +972,14 @@
   <string name="customize_toolbar_shortcut_description_text">Personaliza la barra de herramientas inferior con las 5 funciones que te resulten más útiles.</string>
   <string name="customize_toolbar_category_toolbar">Barra de herramientas</string>
   <string name="customize_toolbar_category_menu">Menú</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Arrastra y suelta tus artículos favoritos aquí 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Restablecer configuración predeterminada</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
   <string name="suggested_edits_caption_images">Subtitular imágenes</string>
   <string name="suggested_edits_tag_images">Etiquetar imágenes</string>
+  <string name="suggested_edits_edit_patrol_review">Revisar</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>
   <string name="suggested_edits_edit_description_button">Editar descripción</string>
@@ -1116,7 +1119,6 @@
     <item quantity="one">Añadiste %d etiqueta</item>
     <item quantity="other">Añadiste %d etiquetas</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ayer</string>
   <string name="suggested_edits_encourage_account_creation_title">¿Sabías que todos pueden editar Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Las ediciones sugeridas son una nueva forma de editar Wikipedia en Android. Te ayudan a hacer pequeñas pero vitales contribuciones a Wikipedia. ¡Nuestro objetivo es hacer que la edición sea más fácil y accesible para todos! Accede o únete a Wikipedia para comenzar.</string>
@@ -1154,6 +1156,7 @@
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
+  <string name="image_recommendation_notsure">No sé</string>
   <string name="image_recommendation_reject_title">Motivo del rechazo</string>
   <string name="image_recommendation_reject_subtitle">El motivo del rechazo es anónimo y mejorará futuras sugerencias de imágenes.</string>
   <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
@@ -1236,10 +1239,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Conserva al menos un idioma Wikipedia por el cual buscar y leer contenido.</string>
   <string name="more_language_options">más</string>
   <string name="add_wikipedia_languages_text">Añadir idiomas de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">¿Quieres quitar una variante del chino de los idiomas de la aplicación?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ahora tienes definidos tanto el chino tradicional como el simplificado en los idiomas de la aplicación. ¿Quieres actualizar la configuración lingüística?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar idiomas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gracias</string>
   <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
   <string name="remove_language_dialog_ok_button_text">Aceptar</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Aceptar</string>
@@ -1321,6 +1320,9 @@
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
   <string name="talk_new_topic_submitted">Tema posted.</string>
+  <string name="talk_warn_save_dialog_title">¿Guardar cambios?</string>
+  <string name="talk_warn_save_dialog_publish">Publicar</string>
+  <string name="talk_warn_save_dialog_cancel">Cancelar</string>
   <string name="talk_warn_save_dialog_dont_save">No guardar</string>
   <string name="talk_warn_saved_messages">Mensajes guardados</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
@@ -1344,7 +1346,7 @@
   <string name="talk_overflow_sort_date_published">Fecha de publicación</string>
   <string name="talk_overflow_sort_date_updated">Fecha de actualización</string>
   <string name="talk_overflow_sort_topic_name">Nombre de tema</string>
-  <string name="talk_new_topic_exit_dialog_title">¿Estás seguro de que quieres salir?</string>
+  <string name="talk_new_topic_exit_dialog_title">¿Confirmas que quieres salir?</string>
   <string name="talk_new_topic_exit_dialog_message">El asunto y el texto del contenido no se guardarán.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Mostrar respuesta</item>
@@ -1396,7 +1398,7 @@
   <string name="revision_diff_line_removed">Línea eliminada</string>
   <string name="revision_diff_paragraph_added">Párrafo añadido</string>
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
-  <string name="revision_undo_title">¿Estás seguro de que quieres deshacer esta edición?</string>
+  <string name="revision_undo_title">¿Confirmas que quieres deshacer esta edición?</string>
   <string name="revision_undo_message" fuzzy="true">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
   <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
@@ -1424,7 +1426,7 @@
   <string name="watchlist_page_moved">Trasladado</string>
   <string name="watchlist_page_protected">Protegido</string>
   <string name="watchlist_page_deleted">Borrado</string>
-  <string name="watchlist_filter_title">Filtro de la lista de seguimiento</string>
+  <string name="watchlist_filter_title">Filtro de lista de seguimiento</string>
   <string name="watchlist_filter_all_text">Todo</string>
   <string name="watchlist_filter_watchlist_activity_header">Actividad de la lista de seguimiento</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Puede haber problemas</string>
@@ -1445,6 +1447,8 @@
   <string name="watchlist_filter_type_of_change_wikidata_edits">Ediciones de Wikidata</string>
   <string name="watchlist_filter_type_of_change_new_users">Cuentas de usuario nuevas</string>
   <string name="watchlist_filter_reset_button">Restablecer</string>
+  <string name="watchlist_search_bar_hint">Buscar en la lista de seguimiento o filtrarla</string>
+  <string name="watchlist_search_bar_filter_hint">Filtro de lista de seguimiento</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtros</item>
@@ -1458,19 +1462,24 @@
   <string name="user_contrib_activity_title">Contribuciones de %s</string>
   <string name="archive_empty">No se han encontrado páginas archivadas.</string>
   <string name="user_contrib_filter_ns">Filtrar por espacio de nombres</string>
-  <string name="user_contrib_filter_all">Todos los namespaces</string>
+  <string name="user_contrib_filter_all">Todos los espacios de nombres</string>
+  <string name="user_contrib_filter_ns_header">Filtro de espacio de nombres</string>
   <string name="namespace_article">Artículo</string>
   <string name="user_contrib_current">Actual</string>
   <string name="media_playback_error">Error al reproducir medios.</string>
   <string name="user_contrib_menu_label">Contribuciones</string>
+  <string name="user_contrib_filter_activity_title">Filtrar contribuciones</string>
   <string name="action_item_view_on_map">Ver en mapa</string>
   <string name="action_item_view_on_map_unavailable">No hay coordenadas geográficas disponibles para esta página</string>
+  <string name="shareable_reading_lists_new_indicator">*nuevo*</string>
   <string name="reading_list_share_menu_label">Compartir…</string>
   <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
   <string name="talk_templates_empty_message">Cree sus propios mensajes de o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
+  <string name="talk_templates_new_message_save">Guardar</string>
+  <string name="talk_templates_new_message_dialog_title">Guardar cambios</string>
   <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Se ha eliminado el mensaje</item>

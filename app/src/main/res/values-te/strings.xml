@@ -913,7 +913,6 @@
     <item quantity="one">మీరు %d ట్యాగును చేర్చారు</item>
     <item quantity="other">మీరు %d ట్యాగులను చేర్చారు</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
   <string name="suggested_edits_encourage_account_creation_title">వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>
@@ -1002,10 +1001,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">కనీసం ఒక్క వికీపీడియా భాషనైనా ఉంచండి - కంటెంటును వెతకడం, చదవడం చెయ్యాలిగా.</string>
   <string name="more_language_options">మరిన్ని</string>
   <string name="add_wikipedia_languages_text">వికీపీడియా భాషలను చేర్చు</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">మీ యాప్ భాషల నుండి ఓ చైనీసు రకాన్ని తీసెయ్యమంటారా?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">మీ యాప్ భాషల్లో ప్రస్తుతం సాంప్రదాయిక చైనీసు, సరళీకృత చైనీసు రెండూ ఉన్నాయి. మీ యాప్‌లో భాషా అమరికలను తాజాకరిస్తారా?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">భాషలను సవరించు</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">వద్దులే</string>
   <string name="remove_language_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="remove_language_dialog_ok_button_text">సరే</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">సరే</string>

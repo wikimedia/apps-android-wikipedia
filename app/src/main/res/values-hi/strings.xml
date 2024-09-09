@@ -1041,7 +1041,6 @@
     <item quantity="one">आपने %d टैग जोड़ा</item>
     <item quantity="other">आपने %d टैग जोड़े</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">कल</string>
   <string name="suggested_edits_encourage_account_creation_title">क्या आप जानते हैं कि हर कोई विकिपीडिया संपादित कर सकता है?</string>
   <string name="suggested_edits_encourage_account_creation_message">सुझाए गए संपादन एंड्रॉइड पर विकिपीडिया को संपादित करने का एक नया तरीका है। यह आपको विकिपीडिया में छोटे लेकिन महत्वपूर्ण योगदान देने में मदद करता है। हमारा लक्ष्य संपादन को सभी के लिए आसान और अधिक सुलभ बनाना है! आरंभ करने के लिए लॉग इन करें या विकिपीडिया से जुड़ें।</string>
@@ -1160,10 +1159,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">कम से कम एक विकिपीडिया भाषा रखें जिससे सामग्री को खोजा और पढ़ा जा सके।</string>
   <string name="more_language_options">अधिक</string>
   <string name="add_wikipedia_languages_text">विकिपीडिया भाषाएँ जोड़ें</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">अपने ऐप्लिकेशन की भाषाओं से एक चीनी संस्करण निकालें?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">वर्तमान में आपके पास पारंपरिक और सरलीकृत दोनों प्रकार के चीनी प्रकार हैं जो आपकी ऐप भाषाओं में सेट हैं। अपनी ऐप भाषा सेटिंग अपडेट करें?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषाएं संपादित करें</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
   <string name="remove_language_dialog_cancel_button_text">रद्द करें</string>
   <string name="remove_language_dialog_ok_button_text">ठीक है</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ठीक है</string>

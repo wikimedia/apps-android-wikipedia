@@ -96,6 +96,7 @@
   <string name="menu_page_recently_viewed">Неодамна посетени</string>
   <string name="menu_page_archive">Архива</string>
   <string name="menu_long_press_open_page">Отвори</string>
+  <string name="menu_long_press_open_in_places">Отвори во Места</string>
   <string name="menu_long_press_open_in_new_tab">Отвори ново јазиче</string>
   <string name="menu_long_press_copy_page">Копирај ја адресата на врската</string>
   <string name="menu_text_select_define">Во речник</string>
@@ -178,7 +179,7 @@
   <string name="login_join_wikipedia">Придружете ни се на Википедија</string>
   <string name="login_forgot_password">Ја заборавивте лозинката?</string>
   <string name="create_account_already_have">Веќе имате сметка?</string>
-  <string name="create_account_activity_title">Направи кориничка сметка</string>
+  <string name="create_account_activity_title">Направи сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
@@ -827,6 +828,7 @@
   <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
+  <string name="feed_item_type_places">Статии во близина врз основа на тековната местоположба</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
@@ -1055,7 +1057,6 @@
     <item quantity="one">Додадовте %d ознака</item>
     <item quantity="other">Додадовте %d ознаки</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>
@@ -1182,10 +1183,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржете барем еден јазик на Википедија од кој ќе пребарувате и читате содржини.</string>
   <string name="more_language_options">повеќе</string>
   <string name="add_wikipedia_languages_text">Додај јазици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Да отстранам кинеска варијанта од јазиците на прилогот?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Тековно имате и традиционален и упростен кинески во јазиците на прилогот. Да ги изменам јазичните поставки?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Измени јазици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодарам</string>
   <string name="remove_language_dialog_cancel_button_text">Откажи</string>
   <string name="remove_language_dialog_ok_button_text">ОК</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ОК</string>
@@ -1224,7 +1221,7 @@
   <string name="insert_media_settings_caption">Опис на сликата</string>
   <string name="insert_media_settings_caption_description">Видлив натпис на сликата во статијата</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
-  <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
+  <string name="insert_media_settings_alternative_text_description">Опис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
   <string name="insert_media_advanced_settings_wrap_image">Сложи го текстот околу сликата</string>
   <string name="insert_media_advanced_settings_image_position">Положба на сликата</string>
@@ -1668,4 +1665,16 @@
   <string name="places_survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
+  <string name="places_card_title">Околни места</string>
+  <string name="places_card_action">Повеќе места во близина</string>
+  <string name="places_card_enable_location_card_message">Места е картографски начин за истражување на Википедија</string>
+  <string name="places_card_enable_location_card_button">Овозможи местоположба</string>
+  <string name="places_card_distance_suffix">на %s од вас</string>
+  <string name="places_card_distance_unknown">Непозната оддалеченост</string>
+  <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
+  <string name="recommended_content_section_you_might_like">Можеби ќе ви се допадне</string>
+  <string name="recommended_content_survey_dialog_title">Помогнете ни да ја подобриме препорачаната содржина.</string>
+  <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Дополнително мислење</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
 </resources>

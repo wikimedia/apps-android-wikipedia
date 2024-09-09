@@ -327,6 +327,4 @@
   <string name="wikipedia_languages_add_language_text">Voeg taal by</string>
   <string name="wikipedia_languages_remove_text">Verwyder taal</string>
   <string name="wikipedia_languages_remove_action_mode_title">Verwyder taal</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Wysig tale</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, dankie</string>
 </resources>

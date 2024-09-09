@@ -119,6 +119,7 @@
   <string name="menu_page_recently_viewed">Нещодавно відвідані</string>
   <string name="menu_page_archive">Архів</string>
   <string name="menu_long_press_open_page">Відкрити</string>
+  <string name="menu_long_press_open_in_places">Відкрити в Місцях</string>
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
   <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>
   <string name="menu_text_select_define">Визначення</string>
@@ -456,7 +457,7 @@
   <string name="error_blocked_footer_no_blocker">Ви можете зв\'язатися з &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
   <string name="temp_account_not_logged_in">Ви не ввійшли в систему</string>
   <string name="temp_account_anon_dialog_body">Щойно ви внесете зміни, для вас буде створено &lt;b&gt;тимчасовий обліковий запис&lt;/b&gt; для захисту вашої конфіденційності. &lt;a href=\"%1$s\"&gt;Дізнатися більше&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Увійдіть&lt;/a&gt; або &lt;a href=\"https://#login\"&gt;створіть обліковий запис&lt;/a&gt;, щоб робити майбутні редагування під власноруч обраним іменем та отримати доступ до інших функцій.</string>
-  <string name="temp_account_temp_dialog_body">Ваша редагування буде віднесена до %1$s. Ваш IP-адрес буде видимим для адміністраторів. Якщо ви входите або створюєте аккаунт, ваші редагування будуть приписані імені, яке ви виберете, серед інших переваг.&lt;br/&gt;&lt;br/&gt;</string>
+  <string name="temp_account_temp_dialog_body">Авторство вашого редагування буде вказано як «%1$s». Вашу IP-адресу бачитимуть адміністратори.&lt;br /&gt;&lt;br /&gt;Якщо ви &lt;a href=\"https://#login\"&gt;увійдете&lt;/a&gt; або &lt;a href=\"https://#login\"&gt;створите обліковий запис&lt;/a&gt;, ваші редагування будуть приписані тому імені, яке ви оберете, серед інших переваг.</string>
   <string name="temp_account_dialog_ok">Зрозуміло</string>
   <string name="temp_account_using_title">Ви використовуєте тимчасовий обліковий запис</string>
   <string name="temp_account_dialog_discard">Скасувати зміни та увійти</string>
@@ -907,6 +908,7 @@
   <string name="feed_item_type_main_page">Головна сторінка Вікіпедії з денним вибраним контентом</string>
   <string name="feed_item_type_randomizer">Згенерувати випадкові статті до читання</string>
   <string name="feed_item_type_suggested_edits">Пропозиції додати контент у Вікіпедію</string>
+  <string name="feed_item_type_places">Статті поблизу на основі поточного місцезнаходження</string>
   <string name="feed_empty_message">У вашій стрічці нічого немає</string>
   <string name="feed_configure_onboarding_action">Налаштувати</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Гаразд</string>
@@ -1145,7 +1147,6 @@
     <item quantity="many">Ви додали %d тегів</item>
     <item quantity="other">Ви додали %d тегів</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчора</string>
   <string name="suggested_edits_encourage_account_creation_title">Чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
   <string name="suggested_edits_encourage_account_creation_message">Пропоновані редагування — це новий спосіб редагувати Вікіпедію з Android. Він допомагає робити невеликі, але життєво важливі внески у Вікіпедію.\nНаша мета — зробити редагування простішим і доступнішим на всіх! Увійдіть або зареєструйтеся у Вікіпедії, щоб розпочати.</string>
@@ -1241,6 +1242,7 @@
   <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Дані та конфіденційність</string>
+  <string name="onboarding_data_privacy_text">Ми вважаємо, що у вас має бути можливість брати участь у русі вільних знань, не надаючи персональної інформації. Дані про використання, які збирає ця програмка, є анонімними. Дізнайтеся більше про нашу &lt;a href=\"#privacy\"&gt;політику приватності&lt;/a&gt; та &lt;a href=\"#termsOfUse\"&gt;умови використання&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
@@ -1283,10 +1285,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Залиште хоча б одну мову Вікіпедії, якою шукатимете й читатимете матеріали.</string>
   <string name="more_language_options">більше</string>
   <string name="add_wikipedia_languages_text">Додати мови Вікіпедії</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Вилучити китайський варіант з мов вашого додатку?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Зараз у мовах вашого додатку є і традиційна, і спрощена китайська. Оновити мовні налаштування додатку?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редагувати мови</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ні, дякую</string>
   <string name="remove_language_dialog_cancel_button_text">Скасувати</string>
   <string name="remove_language_dialog_ok_button_text">Гаразд</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Гаразд</string>
@@ -1346,6 +1344,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Висота</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">пкс</string>
   <string name="insert_media_insert_button">Вставити</string>
+  <string name="templates_search_hint">Пошук в шаблонах</string>
+  <string name="templates_insert_button">Вставити</string>
+  <string name="templates_param_suggested_value">напр., %s</string>
+  <string name="templates_param_optional_hint">%s (необов\'язковий)</string>
+  <string name="templates_param_suggested_hint">%s (пропонований)</string>
+  <string name="templates_learn_more_link">Дізнатися більше</string>
+  <string name="templates_description_incomplete">Шаблони створюються користувачами і можуть мати неповні описи.</string>
+  <string name="templates_description_empty">Шаблон «%s» ще не має опису.</string>
+  <string name="templates_description_missing_data">У шаблоні відсутні &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, а його параметри було &lt;a href=\"%2$s\"&gt;автозгенеровано&lt;/a&gt;. Як наслідок, у шаблону і його параметрів немає опису.</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
   <string name="main_tooltip_text">Привіт, %s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
@@ -1369,8 +1376,10 @@
   <string name="talk_warn_save_dialog_hint">Заголовок повідомлення</string>
   <string name="talk_warn_save_dialog_publish">Опублікувати</string>
   <string name="talk_warn_save_dialog_cancel">Скасувати</string>
+  <string name="talk_warn_save_dialog_dont_save">Не зберігати</string>
   <string name="talk_warn_submitted">Повідомлення опубліковано на сторінці обговорення користувача</string>
   <string name="talk_warn_submitted_and_saved">Повідомлення збережено та опубліковано на сторінці обговорення користувача</string>
+  <string name="talk_warn_saved_messages">Збережені повідомлення</string>
   <string name="talk_page_empty">Ця сторінка обговорення порожня.</string>
   <string name="talk_page_empty_title">Розмова починається тут</string>
   <string name="talk_page_empty_content">Сторінки обговорення — це місце, де люди обговорюють, як зробити вміст Вікіпедії якнайкращим. Почніть із додавання нової теми для обговорення, щоб зв\'язатися та співпрацювати зі спільнотою вікіпедистів.</string>
@@ -1381,6 +1390,7 @@
   <string name="talk_message_hint">Написати повідомлення</string>
   <string name="talk_message_empty">Повідомлення не може бути порожнім.</string>
   <string name="talk_subject_empty">Тема не може бути порожньою.</string>
+  <string name="talk_subject_duplicate">Цей заголовок уже зайнятий, спробуйте ввести інший.</string>
   <string name="talk_response_submitted">Відповідь опубліковано.</string>
   <string name="talk_snackbar_undo">Скасувати</string>
   <string name="talk_last_modified">&lt;b&gt;Останнє редагування %1$s&lt;/b&gt; за %2$s</string>
@@ -1568,6 +1578,8 @@
   <string name="media_playback_error">Помилка відтворення медіа.</string>
   <string name="user_contrib_menu_label">Внесок</string>
   <string name="user_contrib_filter_activity_title">Фільтрувати внески</string>
+  <string name="action_item_view_on_map">Переглянути на мапі</string>
+  <string name="action_item_view_on_map_unavailable">Географічні координати не доступні для цієї сторінки.</string>
   <string name="shareable_reading_lists_import_dialog_title">Імпорт спільного списку читання</string>
   <string name="shareable_reading_lists_import_dialog_content">Як би ви хотіли назвати список, яким з вами поділилися?</string>
   <string name="shareable_reading_lists_new_indicator">*новий*</string>
@@ -1596,12 +1608,22 @@
   <string name="talk_templates_edit_message_dialog_save">Зберегти</string>
   <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
   <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
+  <string name="talk_templates_menu_remove_message">Вилучити повідомлення</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Ви впевнені, що бажаєте вилучити повідомлення зі списку?</item>
+    <item quantity="few">Ви впевнені, що бажаєте вилучити повідомлення зі списку?</item>
+    <item quantity="many">Ви впевнені, що бажаєте вилучити повідомлення зі списку?</item>
+    <item quantity="other">Ви впевнені, що бажаєте вилучити повідомлення зі списку?</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Повідомлення вилучено</item>
     <item quantity="few">Повідомлення вилучено</item>
     <item quantity="many">Повідомлення вилучено</item>
     <item quantity="other">Повідомлення вилучено</item>
   </plurals>
+  <string name="talk_templates_message_title_empty">Заголовок не може бути порожнім.</string>
+  <string name="talk_templates_your_messages_tab_title">Ваші повідомлення</string>
+  <string name="talk_templates_example_messages_tab_title">Приклади повідомлень</string>
   <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Немає</string>
@@ -1677,6 +1699,8 @@
   <string name="patroller_onboarding_two_thank_content">Бачите продуктивне редагування? Подякуйте користувачу за їхній внесок.</string>
   <string name="patroller_onboarding_two_watch_title">Спостереження</string>
   <string name="patroller_onboarding_two_watch_content">Хочете відстежувати редагування статті? Додайте її до свого списку спостереження. Перегляньте його в розділі «Більше».</string>
+  <string name="patroller_onboarding_two_talk_title">Обговорення</string>
+  <string name="patroller_onboarding_two_talk_content">Спілкуйтеся з іншими редакторами. Зберігайте часто використовувані повідомлення для сторінок обговорення або використовуйте шаблон.</string>
   <string name="patroller_onboarding_two_undo_title">Скасування / відкіт</string>
   <string name="patroller_onboarding_two_undo_content">Виберіть «Скасувати», щоб скасувати або повернути потенційно деструктивні зміни.</string>
   <string name="patroller_diff_tooltip_one">«Шкода» передбачає, що редагування завдає шкоди вікі.</string>
@@ -1687,11 +1711,34 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Нейтрально</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволений/а</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Як ми можемо покращити функцію?</string>
+  <string name="patroller_diff_menu_edit_history_title">Історія редагування статті</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Зворотний зв\'язок</string>
   <string name="patroller_diff_feedback_dialog_submit">Надіслати</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Відгук надіслано.</string>
   <string name="patroller_diff_feedback_tooltip">Торкніться додаткового меню, щоб надіслати відгук будь-коли у розділі «Проблема з функцією».</string>
+  <string name="patroller_saved_message_title_vandalism">Попередження про вандалізм</string>
+  <string name="patroller_saved_message_title_editing_tests">Тестові редагування</string>
+  <string name="patroller_saved_message_title_npov">Нейтральна точка зору</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматичний переклад</string>
+  <string name="patroller_saved_message_title_coi_rem">Нагадування про конфлікт інтересів</string>
+  <string name="patroller_saved_message_title_final_warning">Останнє попередження</string>
+  <string name="patroller_saved_message_title_copy_vio">Попередження про порушення авторських прав</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Вказуйте опис редагування</string>
+  <string name="patroller_saved_message_title_do_not_censor">Не цензуруйте</string>
+  <string name="patroller_saved_message_title_art_imp">Пропозиція щодо покращення статті</string>
+  <string name="patroller_saved_message_body_vandalism">Привіт, {{{username}}}! Хочу повідомити вам, що одне чи кілька з ваших [{{{diffLink}}}|нещодавніх редагувань] було мною відкинуте, бо не виглядало конструктивним. Якщо ви вважаєте інакше або маєте запитання, ви можете залишити повідомлення на [[User talk:{{{senderUserName}}}|моїй сторінці обговорення]]. Зверніть, будь ласка, увагу, що повторюваний вандалізм може призвести до обмеження можливості редагувати.</string>
+  <string name="patroller_saved_message_body_editing_tests">Привіт, {{{username}}}. Мене дуже радує, що ви звернули увагу на Вікіпедію і зацікавилися тим, щоб навчитися її редагувати. Тестове редагування, яке ви зробили, спрацювало; однак слід пам\'ятати, що мета цього проєкту — написати надійну і повну енциклопедію, корисну для всіх. Ваше редагування вплинуло на її вміст, тому було скасоване. \nЯкщо ви бажаєте потренуватися в редагуванні Вікіпедії, то [[Вікіпедія:Пісочниця|пісочниця]] до ваших послуг. Якщо ви хотіли залишити коментар про конкретну статтю, то коректним місцем для цього буде сторінка обговорення тієї статті.</string>
+  <string name="patroller_saved_message_body_npov">Привіт, {{{username}}}! Деякий ваш внесок недостатньо нейтральний і не відповідає правилам Вікіпедії щодо [[Вікіпедія:НТЗ|нейтральної точки зору]]. Через це деякий вміст було змінено чи вилучено. Будь ласка, поправте абзаци чи розділи, написані упереджено, так щоб текст був більш нейтральним і об\'єктивним, як і належить енциклопедії.</string>
+  <string name="patroller_saved_message_body_auto_trans">Привіт, {{{username}}}! Деякий зроблений вами внесок схожий на машинний переклад, тому його було змінено чи позначено шаблоном. Якщо статтю не буде покращено, її текст може бути вилучено.\n\nЯкщо незважаючи на всю цю інформацію у вас іще лишилися запитання, ви можете ставити їх мені на [[User talk:{{{senderUserName}}}|моїй сторінці обговорення]]. Нехай цей невеличкий інцидент не вплине на ваше натхнення редагувати. Ваш внесок у Вікіпедію дуже цінний для неї.</string>
+  <string name="patroller_saved_message_body_coi_rem">Привіт, {{{username}}}! Ваш внесок у Вікіпедію дуже цінований; однак я бачу, що у вас [[Вікіпедія:Конфлікт_інтересів|конфлікт інтересів]]. Конфлікт інтересів — це несумісність цілей Вікіпедії бути нейтральною і надійною та окремими цілями певних редакторів, осіб, установ чи компаній будь-якого тиау.\n\nУвесь внесок в основному просторі підпорядковується правилам цієї Вікіпедії щодо того, що в ній може бути ([[Вікіпедія:Чим_не_є_Вікіпедія|і чим Вікіпедія не є]]), енциклопедичної якості ([[Вікіпедія:Перевірність|перевірність]] і [[Вікіпедія:Жодних_оригінальних_досліджень|жодних оригінальних досліджень]]), редактури тексту ([[Вікіпедія:Нейтральна_точка_зору|нейтральна точка зору]]) і законності ([[Вікіпедія:Авторське_право|дотримання авторського права]]). Усі, хто публікує свій внесок у Вікіпедії, мають дотримуватися цих правил при створенні й оцінці контенту, а також поважати і припускати добрі наміри у діях інших редакторів задля забезпечення дотримання цих правил.\n\nЯкщо ви редагуєте за умов конфлікту інтересів, ви повинні дотримуватися відповідних правил з особливою пильністю. В іншому разі, ваш обліковий запис буде заблоковано як рекламний. Якщо у вас є запитання, ви можете поставити мені їх на моїй сторінці обговорення.</string>
+  <string name="patroller_saved_message_body_final_warning">Оскільки ви зробили багато деструктивних редагувань, це буде вашим останнім попередженням. Якщо ви знову будете вандалити Вікіпедію, вас забанять.</string>
+  <string name="patroller_saved_message_body_copy_vio">Схоже, що своїм недавнім редагуванням ви без дозволу додали текст, захищений авторським правом. Переконайтесь, будь ласка, що увесь контент, який ви додаєте, відповідає правилам цієї Вікіпедії щодо [[Вікіпедія:Авторське_право|авторського права]], інакше його буде вилучено.</string>
+  <string name="patroller_saved_message_body_edit_summary">Привіт, {{{username}}}! Схоже, що ви вилучили контент з Вікіпедії, не давши опису свого редагування. Будь ласка, додавайте опис редагування, коли додаєте чи вилучаєте щось із Вікіпедії.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Привіт, {{{username}}}! Схоже, що ви прибрали зі статті контент, не обговоривши цього на її сторінці обговорення. Зверніть, будь ласка, увагу, що Вікіпедія нецензурована, і вміст статей не повинен вилучатися через його контроверсійність. Якщо ви вважаєте, що інформація недостовірна, будь ласка, заручіться підтримкою на сторінці обговорення статті й зійдіться на компромісі.</string>
+  <string name="talk_warn_learn_more_label">Дізнатися більше про шаблонні повідомлення</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Використайте приклад повідомлення нижче, щоб налаштувати його, надіслати і зберегти у свої повідомлення.</string>
+  <string name="patroller_saved_message_body_art_imp">Привіт, {{{username}}}! Ви створили статтю — це чудовий початок! Щоб зробити її кращою, ви можете додати примітки з посиланнями на надійні джерела. Це допомагає перевіряти інформацію у статті і покращує її якість. Детальніше про це можна почитати у настановах Вікіпедії [[Вікіпедія:Авторитетні_джерела|надійних джерел]].</string>
+  <string name="talk_templates_menu_edit_title">Редагувати</string>
   <string name="data_opt_in_accept">Прийняти</string>
   <string name="data_opt_in_reject">Відхилити</string>
   <string name="page_issues_title">Проблеми сторінки</string>
@@ -1705,4 +1752,43 @@
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Відкрити в системному браузері</string>
   <string name="donate_gpay_dialog_title">Пожертвувати за допомогою Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Зробіть пожертву за допомогою Google Pay або виберіть інший спосіб оплати.</string>
+  <string name="donate_gpay_dialog_pay_button">Пожертвувати за допомогою Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Інший спосіб оплати</string>
+  <string name="donate_gpay_activity_title">Виберіть суму</string>
+  <string name="donate_gpay_check_transaction_fee">Я щедро додам %s для покриття комісії за транзакцію, щоб ви могли отримати 100 відсотків моєї пожертви.</string>
+  <string name="donate_gpay_check_recurring">Зробити це повторюваною щомісячною пожертвою.</string>
+  <string name="donate_gpay_check_send_email">Так, Фонд Вікімедіа може періодично надсилати мені електронні листи.</string>
+  <string name="donate_gpay_minimum_amount">Будь ласка, оберіть суму (мінімум %s)</string>
+  <string name="donate_gpay_maximum_amount">Ми не можемо приймати пожертви на суму понад %s через наш застосунок. Будь ласка, зв\'яжіться з нашою командою значних дарунків, написавши на benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Дякуємо!&lt;/b&gt; Ваша щедрість до Вікіпедії дуже цінна для нас.</string>
+  <string name="donate_gpay_help_problems">Виникла проблема з пожертвуванням?</string>
+  <string name="donate_gpay_help_other_ways">Способи пожертвувати кошти</string>
+  <string name="donate_gpay_help_faq">Часті запитання</string>
+  <string name="donate_gpay_help_tax">Про звільнення від податків</string>
+  <string name="places_title">Місця</string>
+  <string name="places_permissions_denied">Щоб побачити ваше місце розташування на карті, потрібно надати дозвіл на визначення місця розташування. Спробуйте ще раз.</string>
+  <string name="places_search_hint">Шукати місця</string>
+  <string name="places_filter_title">Фільтр за мовою</string>
+  <string name="places_toggle_buttons_map">Мапа</string>
+  <string name="places_toggle_buttons_list">Список</string>
+  <string name="places_survey_very_satisfied_option">Дуже задоволений/а</string>
+  <string name="places_survey_very_unsatisfied_option">Дуже незадоволений/а</string>
+  <string name="places_survey_dialog_title">Допоможіть покращити «Місця»</string>
+  <string name="places_survey_feedback_dialog_title">Як можна покращити «Місця»?</string>
+  <string name="places_survey_dialog_cancel">Скасувати</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Що ви хотіли б, щоб ми змінили або покращили?</string>
+  <string name="places_empty_list">Ця місцевість порожня. Зменшіть &lt;a href=\"#\"&gt;масштаб карти&lt;/a&gt;.</string>
+  <string name="places_card_title">Місця поблизу</string>
+  <string name="places_card_action">Більше місць поблизу</string>
+  <string name="places_card_enable_location_card_message">Місця — це спосіб дослідити Вікіпедію по карті</string>
+  <string name="places_card_enable_location_card_button">Увімкнути розташування</string>
+  <string name="places_card_distance_suffix">%s звідси</string>
+  <string name="places_card_distance_unknown">Невідома відстань</string>
+  <string name="places_empty_message_snackbar">Немає статей поблизу. Спробуйте зменшити масштаб і перемістити карту.</string>
+  <string name="recommended_content_section_you_might_like">Вам може сподобатися</string>
+  <string name="recommended_content_survey_dialog_title">Допоможіть покращити рекомендований вміст.</string>
+  <string name="recommended_content_survey_dialog_message">Ви задоволені цим рекомендованим результатом пошуку?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Додатковий відгук</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Відгук надіслано. Дякуємо!</string>
 </resources>

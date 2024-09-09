@@ -3,6 +3,7 @@
 * Amire80
 * Dbrant
 * Kareyac
+* MTongov
 * ShockD
 * Spas.Z.Spasov
 * StanProg
@@ -262,6 +263,8 @@
   <string name="edit_undo">Отмяна</string>
   <string name="edit_redo">Повторение</string>
   <string name="edit_rollback">Отмяна</string>
+  <string name="edit_warn">Предупреждение</string>
+  <string name="edit_damage">Щети %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="other">%s байта</item>
@@ -932,7 +935,6 @@
     <item quantity="one">Добавихте %d етикет</item>
     <item quantity="other">Добавихте %d етикета</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените редакции са нов начин за редактиране на Уикипедия на Андроид. Помагат Ви да направите дребни, но полезни приноси към Уикипедия.\nНашата цел е да направим редактирането по-лесно и по-достъпно за всички! Влезте или се присъединете към Уикипедия, за да започнете.</string>
@@ -1044,10 +1046,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставете поне един език на Уикипедия, на който да търсите и да четете съдържание.</string>
   <string name="more_language_options">още</string>
   <string name="add_wikipedia_languages_text">Добавяне на езици на Уикипедия</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Премахване на китайски вариант от езиците на приложението Ви?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Към момента имате както традиционен, така и опростен китайски вариант в езиците на приложението. Промяна на езиковите Ви настройки на приложението?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактиране на езици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодаря</string>
   <string name="remove_language_dialog_cancel_button_text">Отказ</string>
   <string name="remove_language_dialog_ok_button_text">Добре</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Добре</string>
