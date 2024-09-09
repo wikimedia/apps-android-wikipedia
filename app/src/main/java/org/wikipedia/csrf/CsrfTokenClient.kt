@@ -35,7 +35,7 @@ object CsrfTokenClient {
                     if (retry > 0) {
                         // Log in explicitly
                         try {
-                            LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
+                            LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
                         } catch (e: Exception) {
                             L.e(e)
                             lastError = e
