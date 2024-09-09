@@ -246,6 +246,7 @@ class WikipediaApp : Application() {
             Prefs.isPushNotificationTokenSubscribed = false
             Prefs.pushNotificationTokenOld = ""
             Prefs.tempAccountWelcomeShown = false
+            Prefs.tempAccountDialogShown = false
 
             val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
             WikipediaFirebaseMessagingService.unsubscribePushToken(token!!, Prefs.pushNotificationToken)
