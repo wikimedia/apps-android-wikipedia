@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -159,11 +160,6 @@ class TalkTopicActivity : BaseActivity() {
         viewModel.currentSearchQuery?.let {
             showFindInPage()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        AccountUtil.maybeShowTempAccountWelcome(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -427,11 +423,18 @@ class TalkTopicActivity : BaseActivity() {
 
     private fun showUndoSnackbar(undoRevId: Long) {
         FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted))
-                .setAction(R.string.talk_snackbar_undo) {
-                    binding.talkProgressBar.visibility = View.VISIBLE
-                    viewModel.undo(undoRevId)
+            .setAction(R.string.talk_snackbar_undo) {
+                binding.talkProgressBar.visibility = View.VISIBLE
+                viewModel.undo(undoRevId)
+            }
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isDestroyed) {
+                        AccountUtil.maybeShowTempAccountWelcome(this@TalkTopicActivity)
+                    }
                 }
-                .show()
+            })
+            .show()
     }
 
     companion object {

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
@@ -122,6 +123,13 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                         binding.talkConditionContainer.isVisible = true
                         viewModel.undoSave(newRevisionId, undoneSubject, undoneText)
                     }
+                    .addCallback(object : Snackbar.Callback() {
+                        override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                            if (!isDestroyed) {
+                                AccountUtil.maybeShowTempAccountWelcome(this@TalkTopicsActivity)
+                            }
+                        }
+                    })
                     .show()
                 viewModel.loadTopics()
             }
@@ -215,7 +223,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     public override fun onResume() {
         super.onResume()
-        AccountUtil.maybeShowTempAccountWelcome(this)
         searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
     }
 

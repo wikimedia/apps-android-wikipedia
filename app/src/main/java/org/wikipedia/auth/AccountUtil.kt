@@ -106,7 +106,7 @@ object AccountUtil {
         return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
     }
 
-    fun maybeShowTempAccountWelcome(activity: Activity): Boolean {
+    fun maybeShowTempAccountWelcome(activity: Activity) {
         if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
             Prefs.tempAccountWelcomeShown = true
             Prefs.tempAccountDialogShown = false
@@ -114,9 +114,7 @@ object AccountUtil {
             val expiryDays = TimeUnit.MILLISECONDS.toDays(getUserNameExpiryFromCookie() - System.currentTimeMillis()).toInt()
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
                 expiryDays, userName, expiryDays))
-            return true
         }
-        return false
     }
 
     fun isUserNameTemporary(userName: String): Boolean {
