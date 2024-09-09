@@ -24,7 +24,7 @@ open class PageSummary(
     var description: String? = null,
     @SerialName("originalimage") private val originalImage: Thumbnail? = null,
     @SerialName("wikibase_item") val wikiBaseItem: String? = null,
-    @SerialName("extract_html") val extractHtml: String? = null,
+    @SerialName("extract_html") var extractHtml: String? = null,
     @SerialName("description_source") val descriptionSource: String = "",
     @Serializable(with = LocationSerializer::class) var coordinates: Location? = null,
     val type: String = TYPE_STANDARD,
