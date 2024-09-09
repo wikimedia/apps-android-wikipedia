@@ -30,7 +30,6 @@ class RandomClient(
                 cb.error(caught)
             }
         ) {
-            val list = mutableListOf<RandomCard>()
             val deferredSummaries = WikipediaApp.instance.languageState.appLanguageCodes
                 .filter { !FeedContentType.RANDOM.langCodesDisabled.contains(it) }
                 .map { lang ->
@@ -49,9 +48,7 @@ class RandomClient(
                     }
                 }
 
-            val randomCards = deferredSummaries.awaitAll().filterNotNull()
-            list.addAll(randomCards)
-            cb.success(list)
+            cb.success(deferredSummaries.awaitAll().filterNotNull())
         }
     }
 

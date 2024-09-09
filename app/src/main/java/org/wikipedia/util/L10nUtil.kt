@@ -7,7 +7,6 @@ import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -154,14 +153,12 @@ object L10nUtil {
             }
 
             // Third, update the extracts from the page/summary endpoint if needed.
-            val summaryForExtractsDeferred = mutableListOf<Deferred<PageSummary>>()
             if (shouldUpdateExtracts) {
-                summaryForExtractsDeferred.addAll(list.map { pageSummary ->
+                list.map { pageSummary ->
                     async {
                         ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
                     }
-                })
-                summaryForExtractsDeferred.awaitAll().forEachIndexed { index, pageSummary ->
+                }.awaitAll().forEachIndexed { index, pageSummary ->
                     list[index].extract = pageSummary.extract
                     list[index].extractHtml = pageSummary.extractHtml
                 }
