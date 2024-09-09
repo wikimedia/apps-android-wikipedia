@@ -149,7 +149,7 @@
   <string name="create_account_login">Aperir session</string>
   <string name="menu_login">Aperir session</string>
   <string name="login_activity_title">Aperir session</string>
-  <string name="login_in_progress_dialog_message">Accesso in curso…</string>
+  <string name="login_in_progress_dialog_message">Apertura de session in curso…</string>
   <string name="login_success_toast">Session aperte!</string>
   <string name="reset_password_title">Definir tu contrasigno</string>
   <string name="reset_password_description">Tu ha aperite session con un contrasigno temporari.\nPro completar le accesso, tu debe definir un nove contrasigno hic.</string>

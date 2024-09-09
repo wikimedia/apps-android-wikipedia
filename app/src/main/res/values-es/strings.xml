@@ -667,8 +667,8 @@
   <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Eliminar la(s) lista(s) seleccionada(s)?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="one">¿Estás seguro de que deseas eliminar la lista de %d?</item>
-    <item quantity="other">¿Estás seguro de que deseas eliminar las listas de %d?</item>
+    <item quantity="one">¿Confirmas que deseas eliminar %d lista?</item>
+    <item quantity="other">¿Confirmas que deseas eliminar %d listas?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accede para activar la sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accede a tu cuenta para permitir que se guarden tus listas de lectura.</string>
@@ -1156,7 +1156,7 @@
   <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject">No</string>
-  <string name="image_recommendation_notsure">No estoy seguro</string>
+  <string name="image_recommendation_notsure">No sé</string>
   <string name="image_recommendation_reject_title">Motivo del rechazo</string>
   <string name="image_recommendation_reject_subtitle">El motivo del rechazo es anónimo y mejorará futuras sugerencias de imágenes.</string>
   <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
@@ -1346,7 +1346,7 @@
   <string name="talk_overflow_sort_date_published">Fecha de publicación</string>
   <string name="talk_overflow_sort_date_updated">Fecha de actualización</string>
   <string name="talk_overflow_sort_topic_name">Nombre de tema</string>
-  <string name="talk_new_topic_exit_dialog_title">¿Estás seguro de que quieres salir?</string>
+  <string name="talk_new_topic_exit_dialog_title">¿Confirmas que quieres salir?</string>
   <string name="talk_new_topic_exit_dialog_message">El asunto y el texto del contenido no se guardarán.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Mostrar respuesta</item>
@@ -1398,7 +1398,7 @@
   <string name="revision_diff_line_removed">Línea eliminada</string>
   <string name="revision_diff_paragraph_added">Párrafo añadido</string>
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
-  <string name="revision_undo_title">¿Estás seguro de que quieres deshacer esta edición?</string>
+  <string name="revision_undo_title">¿Confirmas que quieres deshacer esta edición?</string>
   <string name="revision_undo_message" fuzzy="true">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
   <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
