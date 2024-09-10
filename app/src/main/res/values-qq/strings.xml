@@ -1734,7 +1734,7 @@
   <string name="places_card_enable_location_card_button">Text for the Places card on the explore feed that requires enable location permission button.</string>
   <string name="places_card_distance_suffix">Suffix for the distance between the current location and the article location. %s will be replaced by the actual distance.</string>
   <string name="places_card_distance_unknown">Text for the Places card that indicates the distance for the location is unknown.</string>
-  <string name="places_empty_message_snackbar">Empty snackbar message for the current area that does not have articles available.</string>  <string name="recommended_content_view_more_history">Label for checking more history items in the Recommended Content.</string>
+  <string name="places_empty_message_snackbar">Empty snackbar message for the current area that does not have articles available.</string>
   <string name="recommended_content_section_you_might_like">Section label for the Recommended Content.</string>
   <string name="recommended_content_survey_dialog_title">Title for the Recommended Content survey dialog.</string>
   <string name="recommended_content_survey_dialog_message">Message text for the Recommended Content survey dialog.</string>
