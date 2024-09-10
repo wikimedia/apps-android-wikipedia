@@ -135,7 +135,7 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionText.isVisible = true
         binding.questionText.text = event.text
 
-        val thumbnailUrl = event.pages()?.firstOrNull()?.thumbnailUrl
+        val thumbnailUrl = event.pages.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl.isNullOrEmpty()) {
             binding.questionThumbnail.isVisible = false
         } else {

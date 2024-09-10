@@ -126,7 +126,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             currentState = currentState.copy(
                 answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) },
                 articles = currentState.articles.toMutableList().apply {
-                    addAll(currentState.currentQuestionState.event.pages()?.take(2) ?: emptyList())
+                    addAll(currentState.currentQuestionState.event.pages.take(2) ?: emptyList())
                 }
             )
 

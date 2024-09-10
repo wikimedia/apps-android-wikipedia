@@ -459,7 +459,8 @@
             android:key="@string/preference_key_otd_game_end_date"
             android:title="OTD Game end date" />
 
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
             android:key="@string/preference_key_otd_game_num_questions"
             android:title="OTD Game questions per day" />
 
