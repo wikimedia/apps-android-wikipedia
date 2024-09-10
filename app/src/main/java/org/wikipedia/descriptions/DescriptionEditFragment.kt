@@ -271,7 +271,13 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
                 analyticsHelper.logAttempt(requireContext(), viewModel.pageTitle)
-                viewModel.postDescription()
+                viewModel.postDescription(
+                    currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
+                    editComment = getEditComment(),
+                    editTags = getEditTags(),
+                    captchaId = captchaHandler.captchaId(),
+                    captchaWord = captchaHandler.captchaWord()
+                )
                 EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
         }
@@ -440,6 +446,39 @@ class DescriptionEditFragment : Fragment() {
                 return if (binding.fragmentDescriptionEditView.wasSuggestionModified) MACHINE_SUGGESTION_MODIFIED else MACHINE_SUGGESTION
             }
             return null
+        }
+
+        private fun getEditTags(): String? {
+            val tags = mutableListOf<String>()
+
+            if (viewModel.invokeSource == InvokeSource.SUGGESTED_EDITS) {
+                tags.add(EditTags.APP_SUGGESTED_EDIT)
+            }
+
+            when (viewModel.action) {
+                DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
+                    if (binding.fragmentDescriptionEditView.wasSuggestionChosen) {
+                        tags.add(EditTags.APP_DESCRIPTION_ADD)
+                        tags.add(EditTags.APP_AI_ASSIST)
+                    } else if (viewModel.pageTitle.description.isNullOrEmpty()) {
+                        tags.add(EditTags.APP_DESCRIPTION_ADD)
+                    } else {
+                        tags.add(EditTags.APP_DESCRIPTION_CHANGE)
+                    }
+                }
+                DescriptionEditActivity.Action.ADD_CAPTION -> {
+                    tags.add(EditTags.APP_IMAGE_CAPTION_ADD)
+                }
+                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
+                    tags.add(EditTags.APP_DESCRIPTION_TRANSLATE)
+                }
+                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
+                    tags.add(EditTags.APP_IMAGE_CAPTION_TRANSLATE)
+                }
+                else -> { }
+            }
+
+            return if (tags.isEmpty()) null else tags.joinToString(",")
         }
 
         private fun editFailed(caught: Throwable, logError: Boolean) {

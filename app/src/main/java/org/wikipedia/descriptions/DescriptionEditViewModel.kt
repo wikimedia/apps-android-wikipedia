@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.liftwing.DescriptionSuggestion
 import org.wikipedia.dataclient.liftwing.LiftWingModelService
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
+import org.wikipedia.edit.Edit
 import org.wikipedia.edit.EditTags
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -106,7 +107,11 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun postDescription(captchaHandler: CaptchaHandler, currentDescription: String, editComment: String?) {
+    fun postDescription(currentDescription: String,
+                        editComment: String?,
+                        editTags: String?,
+                        captchaId: String?,
+                        captchaWord: String?) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
@@ -124,7 +129,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             if (shouldWriteToLocalWiki()) {
                 // If the description is being applied to an article on English Wikipedia, it
                 // should be written directly to the article instead of Wikidata.
-                postDescriptionToArticle(csrfToken, captchaHandler, currentDescription, editComment)
+                postDescriptionToArticle(csrfToken, currentDescription, editComment, editTags, captchaId, captchaWord)
             } else {
                 postDescriptionToWikidata(csrfToken)
             }
@@ -133,62 +138,50 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private suspend fun postDescriptionToArticle(csrfToken: String, captchaHandler: CaptchaHandler, currentDescription: String, editComment: String?) {
-        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
-        val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
-        if (!errorForAction.isNullOrEmpty()) {
-            val error = errorForAction.first()
-            throw MwException(error)
-        }
-        val firstRevision = wikiSectionInfoResponse.query?.firstPage()?.revisions?.firstOrNull()
-        var text = firstRevision?.contentMain.orEmpty()
-        val baseRevId = firstRevision?.revId ?: 0
-        text = updateDescriptionInArticle(text, currentDescription)
-        val automaticallyAddedEditSummary = WikipediaApp.instance.getString(
-            if (pageTitle.description.isNullOrEmpty()) R.string.edit_summary_added_short_description
-            else R.string.edit_summary_updated_short_description
-        )
-        var editSummary = automaticallyAddedEditSummary
-        editComment?.let {
-            editSummary += ", $it"
-        }
+    private suspend fun postDescriptionToArticle(csrfToken: String,
+                                                 currentDescription: String,
+                                                 editComment: String?,
+                                                 editTags: String?,
+                                                 captchaId: String?,
+                                                 captchaWord: String?): Edit.Result? {
+        return withContext(Dispatchers.IO) {
+            val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
+                .getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
+            val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
+            if (!errorForAction.isNullOrEmpty()) {
+                val error = errorForAction.first()
+                throw MwException(error)
+            }
+            val firstRevision = wikiSectionInfoResponse.query?.firstPage()?.revisions?.firstOrNull()
+            var text = firstRevision?.contentMain.orEmpty()
+            val baseRevId = firstRevision?.revId ?: 0
+            text = updateDescriptionInArticle(text, currentDescription)
+            val automaticallyAddedEditSummary = WikipediaApp.instance.getString(
+                if (pageTitle.description.isNullOrEmpty()) R.string.edit_summary_added_short_description
+                else R.string.edit_summary_updated_short_description
+            )
+            var editSummary = automaticallyAddedEditSummary
+            editComment?.let {
+                editSummary += ", $it"
+            }
 
-        val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(
-            pageTitle.prefixedText, "0", null, editSummary,
-            AccountUtil.assertUser, text, null, baseRevId, csrfToken,
-            if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-            if (captchaHandler.isActive) captchaHandler.captchaWord() else null, tags = getEditTags()
-        )
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ result ->
-                result.edit?.run {
-                    when {
-                        editSucceeded -> {
-                            AnonymousNotificationHelper.onEditSubmitted()
-                            waitForUpdatedRevision(newRevId)
-                            EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                            analyticsHelper.logSuccess(requireContext(), pageTitle, newRevId)
-                            ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, newRevId)
-                        }
-                        hasEditErrorCode -> {
-                            editFailed(MwException(MwServiceError(code, spamblacklist)), false)
-                        }
-                        hasCaptchaResponse -> {
-                            binding.fragmentDescriptionEditView.showProgressBar(false)
-                            binding.fragmentDescriptionEditView.setSaveState(false)
-                            captchaHandler.handleCaptcha(null, CaptchaResult(result.edit.captchaId))
-                        }
-                        hasSpamBlacklistResponse -> {
-                            editFailed(MwException(MwServiceError(code, info)), false)
-                        }
-                        else -> {
-                            editFailed(IOException("Received unrecognized edit response"), true)
-                        }
-                    }
-                } ?: run {
-                    editFailed(IOException("An unknown error occurred."), true)
-                }
-            }) { caught -> editFailed(caught, true) })
+            val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmitSuspend(
+                title = pageTitle.prefixedText,
+                section = "0",
+                newSectionTitle = null,
+                summary = editSummary,
+                user = AccountUtil.assertUser,
+                text = text,
+                appendText = null,
+                baseRevId = baseRevId,
+                token = csrfToken,
+                captchaId = captchaId,
+                captchaWord = captchaWord,
+                tags = editTags
+            )
+
+            result.edit
+        }
     }
 
     private fun postDescriptionToWikidata(editToken: String) {
@@ -247,39 +240,6 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             // add new description template
             "{{${DescriptionEditFragment.DESCRIPTION_TEMPLATES[0]}|$newDescription}}\n$articleText".trimIndent()
         }
-    }
-
-    private fun getEditTags(): String? {
-        val tags = mutableListOf<String>()
-
-        if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
-            tags.add(EditTags.APP_SUGGESTED_EDIT)
-        }
-
-        when (action) {
-            DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
-                if (binding.fragmentDescriptionEditView.wasSuggestionChosen) {
-                    tags.add(EditTags.APP_DESCRIPTION_ADD)
-                    tags.add(EditTags.APP_AI_ASSIST)
-                } else if (pageTitle.description.isNullOrEmpty()) {
-                    tags.add(EditTags.APP_DESCRIPTION_ADD)
-                } else {
-                    tags.add(EditTags.APP_DESCRIPTION_CHANGE)
-                }
-            }
-            DescriptionEditActivity.Action.ADD_CAPTION -> {
-                tags.add(EditTags.APP_IMAGE_CAPTION_ADD)
-            }
-            DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                tags.add(EditTags.APP_DESCRIPTION_TRANSLATE)
-            }
-            DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
-                tags.add(EditTags.APP_IMAGE_CAPTION_TRANSLATE)
-            }
-            else -> { }
-        }
-
-        return if (tags.isEmpty()) null else tags.joinToString(",")
     }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
