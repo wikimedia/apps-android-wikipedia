@@ -275,8 +275,8 @@ class DescriptionEditFragment : Fragment() {
                     currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
                     editComment = getEditComment(),
                     editTags = getEditTags(),
-                    captchaId = captchaHandler.captchaId(),
-                    captchaWord = captchaHandler.captchaWord()
+                    captchaId = if (captchaHandler.isActive) captchaHandler.captchaId() else null,
+                    captchaWord = if (captchaHandler.isActive) captchaHandler.captchaWord() else null
                 )
                 EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
             }
