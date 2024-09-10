@@ -132,10 +132,10 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    class Factory(private val bunble: Bundle) : ViewModelProvider.Factory {
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return LinkPreviewViewModel(bunble) as T
+            return LinkPreviewViewModel(bundle) as T
         }
     }
 }

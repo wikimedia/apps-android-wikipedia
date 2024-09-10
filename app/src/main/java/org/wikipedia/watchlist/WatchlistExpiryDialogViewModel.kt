@@ -38,10 +38,10 @@ class WatchlistExpiryDialogViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    class Factory(private val bunble: Bundle) : ViewModelProvider.Factory {
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return WatchlistExpiryDialogViewModel(bunble) as T
+            return WatchlistExpiryDialogViewModel(bundle) as T
         }
     }
 }
