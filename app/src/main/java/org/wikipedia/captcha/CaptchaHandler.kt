@@ -41,8 +41,8 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         return captchaResult?.captchaId
     }
 
-    fun captchaWord(): String {
-        return binding.captchaText.editText?.text.toString()
+    fun captchaWord(): String? {
+        return if (isActive) binding.captchaText.editText?.text.toString() else null
     }
 
     fun dispose() {
