@@ -140,6 +140,9 @@ object L10nUtil {
 
     suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite, shouldUpdateExtracts: Boolean = false): List<PageSummary> {
         return withContext(Dispatchers.IO) {
+            if (list.isEmpty()) {
+                return@withContext emptyList()
+            }
             val newList = mutableListOf<PageSummary>()
             val titles = list.joinToString(separator = "|") { it.apiTitle }
             // First, get the correct description from Wikidata directly.
