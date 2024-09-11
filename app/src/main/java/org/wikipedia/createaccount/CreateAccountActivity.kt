@@ -157,8 +157,8 @@ class CreateAccountActivity : BaseActivity() {
                 val response = withContext(Dispatchers.IO) {
                     ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,
                         email,
-                        if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                        if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
+                        captchaHandler.captchaId().toString(),
+                        captchaHandler.captchaWord().toString())
                 }
                 if ("PASS" == response.status) {
                     finishWithUserResult(response.user)
