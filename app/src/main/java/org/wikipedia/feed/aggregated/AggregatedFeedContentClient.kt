@@ -154,7 +154,7 @@ class AggregatedFeedContentClient {
                     if (hasParentLanguageCode) {
                         // TODO: Needs to update tfa and most read
                         feedContentResponse.tfa?.let {
-                            val tfaResponse = L10nUtil.getPagesForLanguageVariant(listOf(it), wikiSite).first()
+                            val tfaResponse = L10nUtil.getPagesForLanguageVariant(listOf(it), wikiSite, shouldUpdateExtracts = true).first()
                             feedContentResponse = AggregatedFeedContent(
                                 tfa = tfaResponse,
                                 news = feedContentResponse.news,
