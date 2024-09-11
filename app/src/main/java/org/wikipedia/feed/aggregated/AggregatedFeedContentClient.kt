@@ -38,10 +38,8 @@ class AggregatedFeedContentClient {
                                          outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.instance.languageState.appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.ON_THIS_DAY.langCodesDisabled.contains(appLangCode)) {
-                    responses[appLangCode]?.onthisday?.let {
-                        if (it.isNotEmpty()) {
-                            outCards.add(OnThisDayCard(it, WikiSite.forLanguageCode(appLangCode), age))
-                        }
+                    responses[appLangCode]?.randomOnThisDayEvent?.let {
+                        outCards.add(OnThisDayCard(it, WikiSite.forLanguageCode(appLangCode), age))
                     }
                 }
             }
@@ -156,6 +154,8 @@ class AggregatedFeedContentClient {
                         val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                         var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
 
+                        feedContentResponse.randomOnThisDayEvent = feedContentResponse.onthisday?.random()
+
                         // TODO: This is a temporary fix for T355192
                         feedContentResponse = handleLanguageVariant(feedContentResponse, wikiSite, hasParentLanguageCode)
 
@@ -187,17 +187,14 @@ class AggregatedFeedContentClient {
                         async { L10nUtil.getPagesForLanguageVariant(it.articles, wikiSite) }
                     }
 
-                    val onThisDayDeferred =
-                        feedContentResponse.onthisday?.filter { it.pages.isNotEmpty() }?.map {
-                            async {
-                                val eventPages = L10nUtil.getPagesForLanguageVariant(it.pages, wikiSite)
-                                OnThisDay.Event(eventPages, it.text, it.year)
-                            }
-                        }
+                    // Same logic in OnThisDayCardView and we only need to send one page to the event class.
+                    val randomOnThisDayPageDeferred = feedContentResponse.randomOnThisDayEvent?.pages?.find { it.thumbnailUrl != null }?.let {
+                        async { L10nUtil.getPagesForLanguageVariant(listOf(it), wikiSite) }
+                    }
 
                     val tfaResponse = tfaDeferred?.await()
                     val topReadResponse = topReadDeferred?.await()
-                    val onThisDayResponse = onThisDayDeferred?.awaitAll()
+                    val randomOnThisDayPageResponse = randomOnThisDayPageDeferred?.await()
 
                     response = AggregatedFeedContent(
                         tfa = tfaResponse ?: feedContentResponse.tfa,
@@ -209,8 +206,14 @@ class AggregatedFeedContentClient {
                             )
                         } ?: feedContentResponse.topRead,
                         potd = feedContentResponse.potd,
-                        onthisday = onThisDayResponse ?: feedContentResponse.onthisday
-                    )
+                        onthisday = feedContentResponse.onthisday
+                    ).apply {
+                        randomOnThisDayEvent = OnThisDay.Event(
+                            pages = randomOnThisDayPageResponse ?: feedContentResponse.randomOnThisDayEvent?.pages ?: emptyList(),
+                            text = feedContentResponse.randomOnThisDayEvent?.text ?: "",
+                            year = feedContentResponse.randomOnThisDayEvent?.year ?: 0
+                        )
+                    }
                 }
                 response
             }
