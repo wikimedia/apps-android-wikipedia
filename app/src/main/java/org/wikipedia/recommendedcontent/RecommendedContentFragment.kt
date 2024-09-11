@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,7 +12,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
-import org.wikipedia.Constants
 import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.FragmentRecommendedContentBinding
@@ -30,7 +28,7 @@ import org.wikipedia.util.log.L
 class RecommendedContentFragment : Fragment() {
     private var _binding: FragmentRecommendedContentBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: RecommendedContentViewModel by viewModels { RecommendedContentViewModel.Factory(requireArguments()) }
+    private val viewModel: RecommendedContentViewModel by viewModels()
 
     private val parentSearchFragment get() = requireParentFragment().requireParentFragment() as SearchFragment
 
@@ -89,11 +87,6 @@ class RecommendedContentFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.loadSearchHistory()
     }
 
     override fun onDestroyView() {
@@ -172,12 +165,8 @@ class RecommendedContentFragment : Fragment() {
     }
 
     companion object {
-
-        fun newInstance(wikiSite: WikiSite, isGeneralized: Boolean) = RecommendedContentFragment().apply {
-            arguments = bundleOf(
-                Constants.ARG_WIKISITE to wikiSite,
-                Constants.ARG_BOOLEAN to isGeneralized
-            )
+        fun newInstance(): RecommendedContentFragment {
+            return RecommendedContentFragment()
         }
     }
 }

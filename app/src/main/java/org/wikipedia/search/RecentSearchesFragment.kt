@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -74,12 +75,8 @@ class RecentSearchesFragment : Fragment() {
         val itemTouchHelper = ItemTouchHelper(touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.recentSearchesRecycler)
         setButtonTooltip(binding.recentSearchesDeleteButton)
+        maybeLoadRecommendedContent()
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        loadRecommendedContent()
     }
 
     fun show() {
@@ -95,7 +92,7 @@ class RecentSearchesFragment : Fragment() {
         _binding = null
     }
 
-    private fun loadRecommendedContent() {
+    private fun maybeLoadRecommendedContent() {
         if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled ||
             RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_1) {
             // Construct and send an impression event now, since there will be no loading of recommended content.
@@ -103,13 +100,8 @@ class RecentSearchesFragment : Fragment() {
                 .also { it.logImpression() }
             return
         }
-        val isGeneralized = RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2
-        val langeCode = callback?.getLangCode() ?: WikipediaApp.instance.appOrSystemLanguageCode
-        recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), isGeneralized)
-        childFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, recommendedContentFragment!!, null)
-            .addToBackStack(null)
-            .commit()
+        recommendedContentFragment = RecommendedContentFragment.newInstance()
+        childFragmentManager.commit { replace(R.id.fragmentOverlayContainer, recommendedContentFragment!!) }
     }
 
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {

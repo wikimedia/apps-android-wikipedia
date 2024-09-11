@@ -1,9 +1,7 @@
 package org.wikipedia.recommendedcontent
 
 import android.location.Location
-import android.os.Bundle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -17,11 +15,12 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.page.PageTitle
@@ -34,10 +33,10 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.util.Date
 
-class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
+class RecommendedContentViewModel() : ViewModel() {
 
-    var wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
-    private val isGeneralized = bundle.getBoolean(Constants.ARG_BOOLEAN)
+    var wikiSite = WikipediaApp.instance.wikiSite
+    private val isGeneralized = RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2
 
     private var moreLikeTerm: String? = null
     private var feedContent = mutableMapOf<String, AggregatedFeedContent>()
@@ -227,13 +226,6 @@ class RecommendedContentViewModel(bundle: Bundle) : ViewModel() {
                     }
                 pages
             } ?: emptyList()
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return RecommendedContentViewModel(bundle) as T
         }
     }
 
