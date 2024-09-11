@@ -9,10 +9,14 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
+import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,7 +27,6 @@ import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
@@ -46,6 +49,7 @@ class CreateAccountActivity : BaseActivity() {
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
+    private val viewModel: CreateAccountActivityViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +68,47 @@ class CreateAccountActivity : BaseActivity() {
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.createAccountInfoState.collect {
+                        when (it) {
+                            is CreateAccountActivityViewModel.AccountInfoState.DoCreateAccount -> {
+                                doCreateAccount(it.token)
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
+                                captchaHandler.handleCaptcha(it.token, CaptchaResult(it.captchaId))
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.InvalidToken -> {
+                                handleAccountCreationError(getString(R.string.create_account_generic_error))
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.Error -> {
+                                showError(it.throwable)
+                                L.e(it.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.doCreateAccountState.collect {
+                        when (it) {
+                            is CreateAccountActivityViewModel.CreateAccountState.Pass -> {
+                                finishWithUserResult(it.userName)
+                            }
+                            is CreateAccountActivityViewModel.CreateAccountState.Error -> {
+                                if (it.throwable is CreateAccountException) {
+                                    createAccountEvent.logError(it.throwable.message)
+                                }
+                                L.e(it.throwable.toString())
+                                createAccountEvent.logError(it.throwable.toString())
+                                showProgressBar(false)
+                                showError(it.throwable)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun setClickListeners() {
@@ -124,55 +169,13 @@ class CreateAccountActivity : BaseActivity() {
         L.w("Account creation failed with result $message")
     }
 
-    private val createAccountInfo: Unit
-        get() {
-            lifecycleScope.launch {
-                try {
-                    val response = withContext(Dispatchers.IO) {
-                        ServiceFactory.get(wiki).getAuthManagerInfo()
-                    }
-                    val token = response.query?.createAccountToken()
-                    val captchaId = response.query?.captchaId()
-                    if (token.isNullOrEmpty()) {
-                        handleAccountCreationError(getString(R.string.create_account_generic_error))
-                    } else if (!captchaId.isNullOrEmpty()) {
-                        captchaHandler.handleCaptcha(token, CaptchaResult(captchaId))
-                    } else {
-                        doCreateAccount(token)
-                    }
-                } catch (caught: Exception) {
-                    showError(caught)
-                    L.e(caught)
-                }
-            }
-        }
-
     private fun doCreateAccount(token: String) {
         showProgressBar(true)
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
-        lifecycleScope.launch {
-            try {
-                val response = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,
-                        email,
-                        captchaHandler.captchaId().toString(),
-                        captchaHandler.captchaWord().toString())
-                }
-                if ("PASS" == response.status) {
-                    finishWithUserResult(response.user)
-                } else {
-                    createAccountEvent.logError(StringUtil.removeStyleTags(response.message))
-                    throw CreateAccountException(StringUtil.removeStyleTags(response.message))
-                }
-            } catch (caught: Exception) {
-                L.e(caught.toString())
-                createAccountEvent.logError(caught.toString())
-                showProgressBar(false)
-                showError(caught)
-            }
-        }
+        val userName = getText(binding.createAccountUsername)
+        viewModel.doCreateAccount(token, captchaHandler.captchaId().toString(), captchaHandler.captchaWord().toString(), userName, password, repeat, email)
     }
 
     override fun onBackPressed() {
@@ -250,7 +253,7 @@ class CreateAccountActivity : BaseActivity() {
         if (captchaHandler.isActive && captchaHandler.token != null) {
             doCreateAccount(captchaHandler.token!!)
         } else {
-            createAccountInfo
+            viewModel.createAccountInfo()
         }
     }
 
@@ -292,21 +295,19 @@ class CreateAccountActivity : BaseActivity() {
         }
 
         override fun run() {
-            lifecycleScope.launch {
-                try {
-                    val response = withContext(Dispatchers.IO) {
-                        ServiceFactory.get(wiki).getUserList(userName)
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+            }) {
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wiki).getUserList(userName)
+                }
+                response.query?.getUserResponse(userName)?.let {
+                    binding.createAccountUsername.isErrorEnabled = false
+                    if (it.hasBlockError) {
+                        handleAccountCreationError(it.error)
+                    } else if (!it.canCreate) {
+                        binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
                     }
-                    response.query?.getUserResponse(userName)?.let {
-                        binding.createAccountUsername.isErrorEnabled = false
-                        if (it.hasBlockError) {
-                            handleAccountCreationError(it.error)
-                        } else if (!it.canCreate) {
-                            binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
-                        }
-                    }
-                } catch (e: Exception) {
-                    L.e(e)
                 }
             }
         }
