@@ -15,7 +15,7 @@ class CreateAccountInfoClientTest : MockRetrofitTest() {
             apiService.getAuthManagerInfo()
         }.run {
             MatcherAssert.assertThat(query!!.createAccountToken(), Matchers.`is`("5d78e6a823be0901eeae9f6486f752da59123760+\\"))
-            MatcherAssert.assertThat(query!!.captchaId(),  Matchers.`is`("272460457"))
+            MatcherAssert.assertThat(query!!.captchaId(), Matchers.`is`("272460457"))
         }
     }
 
