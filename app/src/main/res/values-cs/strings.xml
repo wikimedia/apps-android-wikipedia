@@ -1170,6 +1170,7 @@
   <string name="wikitext_reference">Reference</string>
   <string name="wikitext_preview_link">Náhled odkazu</string>
   <string name="insert_media_search_description">Vyberte soubor z Wikimedia Commons</string>
+  <string name="templates_insert_button">Vložit</string>
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit / zaregistrovat se</string>
   <string name="main_tooltip_text">Dobrý den %s, věděli jste, že každý může editovat Wikipedii?</string>
