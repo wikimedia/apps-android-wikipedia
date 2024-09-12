@@ -328,10 +328,9 @@ class DescriptionEditFragment : Fragment() {
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
                             editSummary,
                             AccountUtil.assertUser, text, null, baseRevId, editToken,
-                            if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-                            if (captchaHandler.isActive) captchaHandler.captchaWord() else null, tags = getEditTags()
-                        )
-                            .subscribeOn(Schedulers.io())
+                            captchaHandler.captchaId(),
+                            captchaHandler.captchaWord(), tags = getEditTags()
+                        ).subscribeOn(Schedulers.io())
                     }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->

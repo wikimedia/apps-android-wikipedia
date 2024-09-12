@@ -33,10 +33,8 @@ class AggregatedFeedContentClient {
                                          outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.instance.languageState.appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.ON_THIS_DAY.langCodesDisabled.contains(appLangCode)) {
-                    responses[appLangCode]?.onthisday?.let {
-                        if (it.isNotEmpty()) {
-                            outCards.add(OnThisDayCard(it, WikiSite.forLanguageCode(appLangCode), age))
-                        }
+                    responses[appLangCode]?.randomOnThisDayEvent?.let {
+                        outCards.add(OnThisDayCard(it, WikiSite.forLanguageCode(appLangCode), age))
                     }
                 }
             }
@@ -174,6 +172,8 @@ class AggregatedFeedContentClient {
                             )
                         }
                     }
+
+                    feedContentResponse.randomOnThisDayEvent = feedContentResponse.onthisday?.random()
 
                     aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
                     aggregatedClient.aggregatedResponseAge = age
