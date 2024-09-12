@@ -48,19 +48,16 @@ class BecauseYouReadClient(
                 val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
                     entry.title.extract, entry.title.thumbUrl, langCode)
 
-                val deferredPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm }?.map {
-                    async {
-                        val pageSummary = PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
-                        if (hasParentLanguageCode) {
-                            L10nUtil.getPagesForLanguageVariant(listOf(pageSummary), entry.title.wikiSite).first()
-                        } else {
-                            pageSummary
-                        }
-                    }
+                var relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm }?.map {
+                    PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
+                }
+
+                if (hasParentLanguageCode && relatedPages != null) {
+                    relatedPages = L10nUtil.getPagesForLanguageVariant(relatedPages, entry.title.wikiSite)
                 }
 
                 cb.success(
-                    deferredPages?.awaitAll()?.let {
+                    relatedPages?.let {
                         listOf(toBecauseYouReadCard(it, headerPage, entry.title.wikiSite))
                     } ?: emptyList()
                 )

@@ -1686,4 +1686,9 @@
   <string name="places_card_distance_suffix">%s bort</string>
   <string name="places_card_distance_unknown">Okänt avstånd</string>
   <string name="places_empty_message_snackbar">Det finns inga närliggande artiklar. Testa att zooma ut och flytta kartan.</string>
+  <string name="recommended_content_section_you_might_like">Du kanske gillar</string>
+  <string name="recommended_content_survey_dialog_title">Hjälp till att förbättra rekommenderat innehåll.</string>
+  <string name="recommended_content_survey_dialog_message">Är du nöjd med det rekommenderade sökresultatet?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Ytterligare återkoppling</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Återkoppling inskickad. Tack!</string>
 </resources>
