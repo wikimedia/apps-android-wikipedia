@@ -2,14 +2,12 @@ package org.wikipedia.page.tabs
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -29,10 +27,12 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.WikiCardView
 
 class TabActivity : BaseActivity() {
     private lateinit var binding: ActivityTabsBinding
@@ -69,11 +69,6 @@ class TabActivity : BaseActivity() {
                 startActivity(NotificationActivity.newIntent(this))
             }
         }
-    }
-
-    override fun onDestroy() {
-        clearFirstTabBitmap()
-        super.onDestroy()
     }
 
     override fun onPause() {
@@ -205,11 +200,15 @@ class TabActivity : BaseActivity() {
     }
 
     private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableTabTouchHelperCallback.Callback {
-        open fun bindItem(tab: Tab) {
+        open fun bindItem(tab: Tab, position: Int) {
             itemView.findViewById<TextView>(R.id.tabArticleTitle).text = StringUtil.fromHtml(tab.backStackPositionTitle?.displayText.orEmpty())
             itemView.findViewById<TextView>(R.id.tabArticleDescription).text = StringUtil.fromHtml(tab.backStackPositionTitle?.description.orEmpty())
             itemView.findViewById<View>(R.id.tabContainer).setOnClickListener(this)
             itemView.findViewById<View>(R.id.tabCloseButton).setOnClickListener(this)
+            itemView.findViewById<WikiCardView>(R.id.tabCardView).run {
+                strokeWidth = DimenUtil.roundedDpToPx(if (position == 0) 1.5f else 1f)
+                strokeColor = ResourceUtil.getThemedColor(context, if (position == 0) R.attr.progressive_color else R.attr.border_color)
+            }
         }
 
         override fun onClick(v: View) {
@@ -264,38 +263,14 @@ class TabActivity : BaseActivity() {
         }
 
         override fun onBindViewHolder(holder: TabViewHolder, position: Int) {
-            holder.bindItem(app.tabList[adapterPositionToTabIndex(position)])
+            holder.bindItem(app.tabList[adapterPositionToTabIndex(position)], position)
         }
     }
 
     companion object {
         private const val LAUNCHED_FROM_PAGE_ACTIVITY = "launchedFromPageActivity"
-        private var FIRST_TAB_BITMAP: Bitmap? = null
-        private var FIRST_TAB_BITMAP_TITLE = ""
         const val RESULT_LOAD_FROM_BACKSTACK = 10
         const val RESULT_NEW_TAB = 11
-
-        fun captureFirstTabBitmap(view: View, title: String) {
-            clearFirstTabBitmap()
-            try {
-                if (view.isLaidOut) {
-                    FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
-                    FIRST_TAB_BITMAP_TITLE = title
-                }
-            } catch (e: OutOfMemoryError) {
-                // don't worry about it
-            }
-        }
-
-        private fun clearFirstTabBitmap() {
-            FIRST_TAB_BITMAP_TITLE = ""
-            FIRST_TAB_BITMAP?.run {
-                if (!isRecycled) {
-                    recycle()
-                }
-                FIRST_TAB_BITMAP = null
-            }
-        }
 
         fun newIntent(context: Context): Intent {
             return Intent(context, TabActivity::class.java)

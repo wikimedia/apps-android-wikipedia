@@ -13,6 +13,7 @@
         android:paddingHorizontal="6dp"
         android:background="?android:attr/colorBackground"
         android:scrollbars="vertical"
+        android:clipChildren="false"
         app:minColumnCount="2"
         app:minColumnWidth="180dp"/>
 
