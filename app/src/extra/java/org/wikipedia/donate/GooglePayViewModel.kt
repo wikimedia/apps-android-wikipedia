@@ -154,7 +154,7 @@ class GooglePayViewModel : ViewModel() {
                 .submitPayment(
                     decimalFormatCanonical.format(finalAmount),
                     BuildConfig.VERSION_NAME,
-                    campaignId,
+                    WikipediaApp.instance.appOrSystemLanguageCode + campaignId + "_Android",
                     billingObj.optString("locality", ""),
                     currentCountryCode,
                     currencyCode,
