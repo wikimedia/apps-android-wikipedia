@@ -9,7 +9,7 @@ class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragme
     override fun onSkip() {}
 
     override fun onComplete() {
-        setResult(RESULT_OK)
+        setResult(if (fragment.languageChanged) RESULT_LANGUAGE_CHANGED else RESULT_OK)
         Prefs.isInitialOnboardingEnabled = false
         finish()
     }
@@ -28,6 +28,7 @@ class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragme
     }
 
     companion object {
+        const val RESULT_LANGUAGE_CHANGED = 1
         fun newIntent(context: Context): Intent {
             return Intent(context, InitialOnboardingActivity::class.java)
         }
