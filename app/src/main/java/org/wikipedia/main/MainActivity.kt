@@ -24,7 +24,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
@@ -34,7 +33,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val fragment = fragment.currentFragment
         if (it.resultCode == InitialOnboardingActivity.RESULT_LANGUAGE_CHANGED && fragment is FeedFragment) {
-             L.d("Refreshing feed after initial onboarding.")
             fragment.refresh()
         }
     }
