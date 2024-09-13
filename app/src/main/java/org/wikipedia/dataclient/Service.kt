@@ -150,6 +150,9 @@ interface Service {
             @Query("wbetlanguage") entityLang: String
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&prop=info&inprop=protection")
+    suspend fun getProtection(@Query("titles") titles: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
     suspend fun getProtectionWithUserInfo(@Query("titles") titles: String): MwQueryResponse
 
@@ -190,8 +193,12 @@ interface Service {
         @Query("gcmcontinue") continueStr: String?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&prop=pageprops|description|info&inprop=protection")
+    suspend fun getRandomPages(
+        @Query("grnlimit") count: Int = 50,
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=info|description|imageinfo|revisions|globalusage&inprop=protection&gunamespace=0&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iilocalonly=1&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getRandomImages(
         @Query("grnlimit") count: Int = 10,
     ): MwQueryResponse
