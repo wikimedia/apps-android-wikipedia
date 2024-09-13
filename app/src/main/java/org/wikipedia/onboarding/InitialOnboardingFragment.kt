@@ -35,7 +35,6 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
         languageChanged = true
     }
 
-
     override fun getAdapter(): FragmentStateAdapter {
         return OnboardingPagerAdapter(this)
     }
