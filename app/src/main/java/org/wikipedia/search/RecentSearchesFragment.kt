@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -106,10 +108,7 @@ class RecentSearchesFragment : Fragment() {
         val isGeneralized = RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2
         val langeCode = callback?.getLangCode() ?: WikipediaApp.instance.appOrSystemLanguageCode
         recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), isGeneralized)
-        childFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, recommendedContentFragment!!, null)
-            .addToBackStack(null)
-            .commit()
+        childFragmentManager.commit { replace(R.id.fragmentOverlayContainer, recommendedContentFragment!!) }
     }
 
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {

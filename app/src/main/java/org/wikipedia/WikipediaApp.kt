@@ -19,6 +19,7 @@ import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
@@ -253,6 +254,7 @@ class WikipediaApp : Application() {
             ServiceFactory.get(wikiSite).postLogout(token)
         }.invokeOnCompletion {
             SharedPreferenceCookieManager.instance.clearAllCookies()
+            AppDatabase.instance.notificationDao().deleteAll()
             L.d("Logout complete.")
         }
     }
