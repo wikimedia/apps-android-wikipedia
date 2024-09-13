@@ -17,7 +17,6 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch
-import org.wikipedia.suggestededits.provider.SuggestedEditItem
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -189,25 +188,6 @@ interface RestService {
         @Path("id") listId: Long, @Path("entry_id") entryId: Long,
         @Query("csrf_token") token: String?
     ): Call<Unit>
-
-    // ------- Recommendations -------
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/caption/addition/{lang}")
-    suspend fun getImagesWithoutCaptions(@Path("lang") lang: String): List<SuggestedEditItem>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/caption/translation/from/{fromLang}/to/{toLang}")
-    suspend fun getImagesWithTranslatableCaptions(@Path("fromLang") fromLang: String,
-                                                  @Path("toLang") toLang: String): List<SuggestedEditItem>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/description/addition/{lang}")
-    suspend fun getArticlesWithoutDescriptions(@Path("lang") lang: String): List<SuggestedEditItem>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
-    suspend fun getArticlesWithTranslatableDescriptions(@Path("fromLang") fromLang: String,
-                                                        @Path("toLang") toLang: String): List<SuggestedEditItem>
 
     //  ------- Talk pages -------
     @Headers("Cache-Control: no-cache")
