@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_daily_stats/2.0.0")
+@SerialName("/analytics/mobile_apps/android_daily_stats/2.1.0")
 class DailyStatsEvent(private val app_install_age_in_days: Long,
                       private val languages: List<String>) : MobileAppsEvent(STREAM_NAME) {
 

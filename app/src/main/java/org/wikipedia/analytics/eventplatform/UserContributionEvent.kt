@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@SerialName("/analytics/mobile_apps/android_user_contribution_screen/3.0.0")
+@SerialName("/analytics/mobile_apps/android_user_contribution_screen/3.1.0")
 class UserContributionEvent(val action: String) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {

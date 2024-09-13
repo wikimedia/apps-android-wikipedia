@@ -90,7 +90,7 @@ class AppSessionEvent {
 
     @Suppress("unused")
     @Serializable
-    @SerialName("/analytics/mobile_apps/app_session/1.0.0")
+    @SerialName("/analytics/mobile_apps/app_session/1.1.0")
     class AppSessionEventImpl(@SerialName("length_ms") private val length: Int,
                               @SerialName("session_data") private val sessionData: SessionData,
                               private val languages: List<String>) :

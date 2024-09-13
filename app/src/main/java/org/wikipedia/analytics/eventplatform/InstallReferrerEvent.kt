@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_install_referrer_event/1.0.0")
+@SerialName("/analytics/mobile_apps/android_install_referrer_event/1.1.0")
 class InstallReferrerEvent(@SerialName("referrer_url") private val referrerUrl: String,
                            @SerialName("campaign_id") private val campaignId: String,
                            @SerialName("utm_medium") private val utfMedium: String,

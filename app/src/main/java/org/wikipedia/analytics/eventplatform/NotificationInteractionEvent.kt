@@ -11,7 +11,7 @@ import org.wikipedia.notifications.db.Notification
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_notification_interaction/2.0.0")
+@SerialName("/analytics/mobile_apps/android_notification_interaction/2.1.0")
 class NotificationInteractionEvent(
     private val notification_id: Int,
     private val notification_wiki: String,

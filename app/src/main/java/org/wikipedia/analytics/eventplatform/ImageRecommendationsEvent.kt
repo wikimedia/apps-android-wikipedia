@@ -9,7 +9,7 @@ import org.wikipedia.util.UriUtil
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_image_recommendation_event/1.0.0")
+@SerialName("/analytics/mobile_apps/android_image_recommendation_event/1.1.0")
 class ImageRecommendationsEvent(
    private val action: String,
    private val active_interface: String,

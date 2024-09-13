@@ -9,7 +9,7 @@ import kotlinx.serialization.Transient
 @Suppress("unused")
 @Serializable
 @OptIn(ExperimentalSerializationApi::class)
-@SerialName("/analytics/mobile_apps/app_interaction/1.0.0")
+@SerialName("/analytics/mobile_apps/app_interaction/1.1.0")
 class AppInteractionEvent(
     private val action: String,
     private val active_interface: String,
