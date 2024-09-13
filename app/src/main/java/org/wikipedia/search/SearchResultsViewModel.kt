@@ -26,20 +26,20 @@ class SearchResultsViewModel : ViewModel() {
 
     private val batchSize = 20
     private val delayMillis = 200L
-    var resultsCount = mutableListOf<Int>()
+    var resultPairList = mutableListOf<Pair<String, Int>>()
     var searchTerm: String? = null
     var languageCode: String? = null
     lateinit var invokeSource: Constants.InvokeSource
 
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, resultsCount, invokeSource)
+        SearchResultsPagingSource(searchTerm, languageCode, resultPairList, invokeSource)
     }.flow.debounce(delayMillis).cachedIn(viewModelScope)
 
     class SearchResultsPagingSource(
         private val searchTerm: String?,
         private val languageCode: String?,
-        private var resultsCount: MutableList<Int>?,
+        private var resultPairList: MutableList<Pair<String, Int>>?,
         private var invokeSource: Constants.InvokeSource
     ) : PagingSource<Int, SearchResult>() {
 
@@ -93,14 +93,12 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 if (resultList.isEmpty() && response?.continuation == null) {
-                    resultsCount?.clear()
+                    resultPairList?.clear()
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
-                        if (langCode == languageCode) {
-                            resultsCount?.add(0)
-                        } else {
+                        var countResultSize = 0
+                        if (langCode != languageCode) {
                             val prefixSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
                                     .prefixSearch(searchTerm, params.loadSize, 0)
-                            var countResultSize = 0
                             prefixSearchResponse.query?.pages?.let {
                                 countResultSize = it.size
                             }
@@ -109,12 +107,8 @@ class SearchResultsViewModel : ViewModel() {
                                         .fullTextSearch(searchTerm, params.loadSize, null)
                                 countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
-                            resultsCount?.add(countResultSize)
                         }
-                    }
-                    // make a singleton list if all results are empty.
-                    if (resultsCount?.sum() == 0) {
-                        resultsCount = mutableListOf(0)
+                        resultPairList?.add(langCode to countResultSize)
                     }
                 }
 

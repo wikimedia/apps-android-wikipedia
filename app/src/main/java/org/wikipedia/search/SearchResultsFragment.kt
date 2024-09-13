@@ -176,31 +176,32 @@ class SearchResultsFragment : Fragment() {
 
     private inner class NoSearchResultAdapter : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
         override fun onBindViewHolder(holder: NoSearchResultItemViewHolder, position: Int) {
-            holder.bindItem(position, viewModel.resultsCount[position])
+            holder.bindItem(viewModel.resultPairList[position])
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoSearchResultItemViewHolder {
             return NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
         }
 
-        override fun getItemCount(): Int { return viewModel.resultsCount.size }
+        override fun getItemCount(): Int { return viewModel.resultPairList.size }
     }
 
     private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
         private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.progressive_color)
         private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.secondary_color)
-        fun bindItem(position: Int, resultsCount: Int) {
-            if (resultsCount == 0 && viewModel.invokeSource == Constants.InvokeSource.PLACES) {
+        fun bindItem(resultPair: Pair<String, Int>) {
+            val langCode = resultPair.first
+            val resultCount = resultPair.second
+            if (resultCount == 0 && viewModel.invokeSource == Constants.InvokeSource.PLACES) {
                 PlacesEvent.logAction("no_results_impression", "search_view")
             }
-            val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
-            itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
-            itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.visibility = if (viewModel.resultsCount.size == 1) View.GONE else View.VISIBLE
+            itemBinding.resultsText.text = if (resultCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultCount, resultCount)
+            itemBinding.resultsText.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
+            itemBinding.languageCode.visibility = if (viewModel.resultPairList.size == 1) View.GONE else View.VISIBLE
             itemBinding.languageCode.setLangCode(langCode)
-            itemBinding.languageCode.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.setBackgroundTint(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            view.isEnabled = resultsCount > 0
+            itemBinding.languageCode.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
+            itemBinding.languageCode.setBackgroundTint(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
+            view.isEnabled = resultCount > 0
             view.setOnClickListener {
                 if (!isAdded) {
                     return@setOnClickListener
