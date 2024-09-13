@@ -152,8 +152,8 @@ class CreateAccountActivity : BaseActivity() {
         val repeat = getText(binding.createAccountPasswordRepeat)
         disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,
                 email,
-                if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
+                captchaHandler.captchaId().toString(),
+                captchaHandler.captchaWord().toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
