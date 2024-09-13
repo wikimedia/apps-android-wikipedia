@@ -39,7 +39,7 @@ class SearchResultsViewModel : ViewModel() {
     class SearchResultsPagingSource(
         private val searchTerm: String?,
         private val languageCode: String?,
-        private var resultPairList: MutableList<Pair<String, Int>>?,
+        private var resultPairList: MutableList<Pair<String, Int>>,
         private var invokeSource: Constants.InvokeSource
     ) : PagingSource<Int, SearchResult>() {
 
@@ -93,7 +93,7 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 if (resultList.isEmpty() && response?.continuation == null) {
-                    resultPairList?.clear()
+                    resultPairList.clear()
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                         var countResultSize = 0
                         if (langCode != languageCode) {
@@ -108,7 +108,7 @@ class SearchResultsViewModel : ViewModel() {
                                 countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
                         }
-                        resultPairList?.add(langCode to countResultSize)
+                        resultPairList.add(langCode to countResultSize)
                     }
                 }
 
