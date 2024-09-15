@@ -3,12 +3,12 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.annotation.ColorInt
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.commons.ImagePreviewDialog
-import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
@@ -22,26 +22,21 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS, IMAGE_RECOMMENDATIONS, VANDALISM_PATROL
     }
 
+    private val viewModel: DescriptionEditViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
 
-        if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
+        if (viewModel.action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
             startActivity(DescriptionEditTutorialActivity.newIntent(this))
         }
     }
 
     public override fun createFragment(): DescriptionEditFragment {
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
-        return DescriptionEditFragment.newInstance(title,
-                intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                intent.parcelableExtra(EXTRA_SOURCE_SUMMARY),
-                intent.parcelableExtra(EXTRA_TARGET_SUMMARY),
-                action,
-                invokeSource)
+        // DescriptionEditFragment can access its activity's extras through the view model, so they
+        // do not need to be explicitly passed.
+        return DescriptionEditFragment()
     }
 
     override fun onBackPressed() {
@@ -59,8 +54,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onBottomBarContainerClicked(action: Action) {
-        val key = if (action == Action.TRANSLATE_DESCRIPTION) EXTRA_TARGET_SUMMARY else EXTRA_SOURCE_SUMMARY
-        val summary = intent.parcelableExtra<PageSummaryForEdit>(key)!!
+        val summary = if (action == Action.TRANSLATE_DESCRIPTION) viewModel.targetSummary!! else viewModel.sourceSummary!!
         if (action == Action.ADD_CAPTION || action == Action.TRANSLATE_CAPTION) {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                     ImagePreviewDialog.newInstance(summary, action))
@@ -82,10 +76,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     companion object {
-        private const val EXTRA_HIGHLIGHT_TEXT = "highlightText"
-        private const val EXTRA_SOURCE_SUMMARY = "sourceSummary"
-        private const val EXTRA_TARGET_SUMMARY = "targetSummary"
-
         fun newIntent(context: Context,
                       title: PageTitle,
                       highlightText: String?,
@@ -95,9 +85,9 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                       invokeSource: InvokeSource): Intent {
             return Intent(context, DescriptionEditActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, title)
-                    .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                    .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary)
-                    .putExtra(EXTRA_TARGET_SUMMARY, targetSummary)
+                    .putExtra(Constants.ARG_HIGHLIGHT_TEXT, highlightText)
+                    .putExtra(Constants.ARG_SOURCE_SUMMARY, sourceSummary)
+                    .putExtra(Constants.ARG_TARGET_SUMMARY, targetSummary)
                     .putExtra(Constants.INTENT_EXTRA_ACTION, action)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
