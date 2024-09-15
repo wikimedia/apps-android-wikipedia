@@ -1,8 +1,7 @@
 package org.wikipedia.feed.suggestededits
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +13,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.extensions.serializable
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -22,9 +20,9 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
-    val age = bundle.getInt(SuggestedEditsCardItemFragment.EXTRA_AGE)
-    var cardActionType = bundle.serializable<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)!!
+class SuggestedEditsCardItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val age = savedStateHandle[SuggestedEditsCardItemFragment.EXTRA_AGE] ?: 0
+    var cardActionType = savedStateHandle.get<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)!!
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var imageTagPage: MwQueryPage? = null
@@ -197,12 +195,5 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun addImageTags(): MwQueryPage {
         return EditingSuggestionsProvider
             .getNextImageWithMissingTags(SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
-    }
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return SuggestedEditsCardItemViewModel(bundle) as T
-        }
     }
 }
