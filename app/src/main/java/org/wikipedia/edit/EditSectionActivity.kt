@@ -308,8 +308,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
                 if (sectionID >= 0) sectionID.toString() else null, null, summaryText, AccountUtil.assertUser,
                 binding.editSectionText.text.toString(), null, currentRevision, token,
-                if (captchaHandler.isActive) captchaHandler.captchaId() else "null",
-                if (captchaHandler.isActive) captchaHandler.captchaWord() else "null",
+                captchaHandler.captchaId().toString(),
+                captchaHandler.captchaWord().toString(),
                 isMinorEdit,
                 watchThisPage,
                 tags = getEditTag())

@@ -16,6 +16,7 @@
 * Ice bulldog
 * Ignatgg
 * Ihor.Zinchenko
+* MatviiBohdanFediura
 * Movses
 * Piramidion
 * SHaran (WMF)
@@ -30,7 +31,7 @@
   <string name="app_name_prod">Вікіпедія</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
-  <string name="wikimedia">Wikimedia</string>
+  <string name="wikimedia">Вікімедіа</string>
   <string name="nav_item_back">Назад</string>
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Уперед</string>
@@ -50,7 +51,7 @@
   <string name="page_error_back_to_main">Повернутися</string>
   <string name="error_back">Повернутися</string>
   <string name="error_next">Далі</string>
-  <string name="menu_clear_all_history">Очистити журнал</string>
+  <string name="menu_clear_all_history">Очистити історію</string>
   <string name="history_item_deleted">%s вилучено зі списку</string>
   <string name="history_items_deleted">%d статей вилучено зі списку</string>
   <string name="history_item_delete_undo">Скасувати</string>
@@ -1786,4 +1787,9 @@
   <string name="places_card_distance_suffix">%s звідси</string>
   <string name="places_card_distance_unknown">Невідома відстань</string>
   <string name="places_empty_message_snackbar">Немає статей поблизу. Спробуйте зменшити масштаб і перемістити карту.</string>
+  <string name="recommended_content_section_you_might_like">Вам може сподобатися</string>
+  <string name="recommended_content_survey_dialog_title">Допоможіть покращити рекомендований вміст.</string>
+  <string name="recommended_content_survey_dialog_message">Ви задоволені цим рекомендованим результатом пошуку?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Додатковий відгук</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Відгук надіслано. Дякуємо!</string>
 </resources>

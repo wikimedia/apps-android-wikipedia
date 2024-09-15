@@ -506,7 +506,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
                     // ...Except if the URL came as a result of a successful donation, in which case
                     // open it in a Custom Tab.
-                    val utmCampaign = uri.getQueryParameter("utm_campaign")
+                    val utmCampaign = uri.getQueryParameter("wmf_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
                         // TODO: need to verify if the page can be displayed and logged properly.
                         DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)

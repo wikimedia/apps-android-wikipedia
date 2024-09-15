@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -137,8 +138,11 @@ object L10nUtil {
         }
     }
 
-    suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite): List<PageSummary> {
+    suspend fun getPagesForLanguageVariant(list: List<PageSummary>, wikiSite: WikiSite, shouldUpdateExtracts: Boolean = false): List<PageSummary> {
         return withContext(Dispatchers.IO) {
+            if (list.isEmpty()) {
+                return@withContext emptyList()
+            }
             val newList = mutableListOf<PageSummary>()
             val titles = list.joinToString(separator = "|") { it.apiTitle }
             // First, get the correct description from Wikidata directly.
@@ -151,16 +155,31 @@ object L10nUtil {
                 ServiceFactory.get(wikiSite).getVariantTitlesByTitles(titles)
             }
 
+            // Third, update the extracts from the page/summary endpoint if needed.
+            if (shouldUpdateExtracts) {
+                list.map { pageSummary ->
+                    async {
+                        ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
+                    }
+                }.awaitAll().forEachIndexed { index, pageSummary ->
+                    list[index].extract = pageSummary.extract
+                    list[index].extractHtml = pageSummary.extractHtml
+                }
+            }
+
+            val mwQueryResult = mwQueryResponse.await()
+            val wikiDataResult = wikiDataResponse.await()
+
             list.forEach { pageSummary ->
                 // Find the correct display title from the varianttitles map, and insert the new page summary to the list.
-                val displayTitle = mwQueryResponse.await().query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
+                val displayTitle = mwQueryResult.query?.pages?.find { StringUtil.addUnderscores(it.title) == pageSummary.apiTitle }?.varianttitles?.get(wikiSite.languageCode)
                 val newPageSummary = pageSummary.apply {
                     val newDisplayTitle = displayTitle ?: pageSummary.displayTitle
                     this.titles = PageSummary.Titles(
                         canonical = pageSummary.apiTitle,
                         display = newDisplayTitle
                     )
-                    this.description = wikiDataResponse.await().entities.values.firstOrNull {
+                    this.description = wikiDataResult.entities.values.firstOrNull {
                         it.getLabels()[wikiSite.languageCode]?.value == newDisplayTitle
                     }?.getDescriptions()?.get(wikiSite.languageCode)?.value ?: pageSummary.description
                 }
