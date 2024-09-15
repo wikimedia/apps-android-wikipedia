@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -111,9 +112,10 @@ class RecommendedContentFragment : Fragment() {
         if (list.isEmpty()) {
             parentSearchFragment.analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), false)
                 .also { it.logImpression() }
-            parentFragmentManager.popBackStack()
+            binding.nestedScrollView.isVisible = false
             return
         }
+        binding.nestedScrollView.isVisible = true
         parentSearchFragment.analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), true)
             .also { it.logImpression() }
         binding.recommendedContent.buildContent(viewModel.wikiSite, list, parentSearchFragment.analyticsEvent)
