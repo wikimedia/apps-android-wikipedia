@@ -239,7 +239,7 @@ class UserContribListActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (getItem(position) is UserContribListViewModel.UserContribSeparator) {
+            return if (itemCount > position && getItem(position) is UserContribListViewModel.UserContribSeparator) {
                 VIEW_TYPE_SEPARATOR
             } else {
                 VIEW_TYPE_ITEM

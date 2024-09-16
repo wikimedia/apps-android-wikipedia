@@ -300,7 +300,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (getItem(position) is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator) {
+            return if (itemCount > position && getItem(position) is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator) {
                 VIEW_TYPE_SEPARATOR
             } else {
                 VIEW_TYPE_ITEM

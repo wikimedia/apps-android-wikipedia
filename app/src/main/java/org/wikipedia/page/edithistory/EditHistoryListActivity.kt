@@ -310,7 +310,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (getItem(position) is EditHistoryListViewModel.EditHistorySeparator) {
+            return if (itemCount > position && getItem(position) is EditHistoryListViewModel.EditHistorySeparator) {
                 VIEW_TYPE_SEPARATOR
             } else {
                 VIEW_TYPE_ITEM
