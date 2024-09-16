@@ -50,7 +50,7 @@ class RecommendedContentFragment : Fragment() {
                             }
                             is Resource.Error -> {
                                 parentSearchFragment.onSearchProgressBar(false)
-                                parentFragmentManager.popBackStack()
+                                binding.nestedScrollView.isVisible = false
                                 L.d(it.throwable)
                             }
                         }
@@ -67,7 +67,7 @@ class RecommendedContentFragment : Fragment() {
                             }
                             is Resource.Error -> {
                                 parentSearchFragment.onSearchProgressBar(false)
-                                parentFragmentManager.popBackStack()
+                                binding.nestedScrollView.isVisible = false
                                 L.d(it.throwable)
                             }
                         }
