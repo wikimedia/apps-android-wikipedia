@@ -167,8 +167,8 @@ interface Service {
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
     ): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
-    val siteInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
+    suspend fun getSiteInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
     suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
@@ -557,7 +557,7 @@ interface Service {
 
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
-    fun postDescriptionEdit(
+    suspend fun postDescriptionEdit(
         @Field("language") language: String,
         @Field("uselang") useLang: String,
         @Field("site") site: String,
@@ -567,11 +567,11 @@ interface Service {
         @Field("token") token: String,
         @Field("assert") user: String?,
         @Field("matags") tags: String? = null
-    ): Observable<EntityPostResponse>
+    ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
     @FormUrlEncoded
-    fun postLabelEdit(
+    suspend fun postLabelEdit(
         @Field("language") language: String,
         @Field("uselang") useLang: String,
         @Field("site") site: String,
@@ -581,7 +581,7 @@ interface Service {
         @Field("token") token: String,
         @Field("assert") user: String?,
         @Field("matags") tags: String? = null
-    ): Observable<EntityPostResponse>
+    ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
     @FormUrlEncoded

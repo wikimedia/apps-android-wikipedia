@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -14,33 +12,22 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
-import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.captcha.CaptchaHandler
-import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.liftwing.DescriptionSuggestion
 import org.wikipedia.dataclient.liftwing.LiftWingModelService
 import org.wikipedia.dataclient.mwapi.MwException
-import org.wikipedia.dataclient.mwapi.MwServiceError
+import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
-import org.wikipedia.edit.EditTags
 import org.wikipedia.extensions.parcelable
-import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
 
@@ -58,7 +45,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
     private val _requestSuggestionState = MutableStateFlow(Resource<Triple<DescriptionSuggestion.Response, Int, List<String>>>())
     val requestSuggestionState = _requestSuggestionState.asStateFlow()
 
-    private val _postDescriptionState = MutableStateFlow(Resource<Boolean>())
+    private val _postDescriptionState = MutableStateFlow(Resource<Any>())
     val postDescriptionState = _postDescriptionState.asStateFlow()
 
     fun loadPageSummary() {
@@ -126,12 +113,12 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
 
             val csrfToken = withContext(Dispatchers.IO) { CsrfTokenClient.getToken(csrfSite).blockingSingle() }
 
-            if (shouldWriteToLocalWiki()) {
+            val response = if (shouldWriteToLocalWiki()) {
                 // If the description is being applied to an article on English Wikipedia, it
                 // should be written directly to the article instead of Wikidata.
                 postDescriptionToArticle(csrfToken, currentDescription, editComment, editTags, captchaId, captchaWord)
             } else {
-                postDescriptionToWikidata(csrfToken)
+                postDescriptionToWikidata(csrfToken, currentDescription, editComment, editTags)
             }
 
             _postDescriptionState.value = Resource.Success(response)
@@ -143,7 +130,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                                                  editComment: String?,
                                                  editTags: String?,
                                                  captchaId: String?,
-                                                 captchaWord: String?): Edit.Result? {
+                                                 captchaWord: String?): Edit {
         return withContext(Dispatchers.IO) {
             val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
                 .getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
@@ -180,50 +167,54 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                 tags = editTags
             )
 
-            result.edit
+            result
         }
     }
 
-    private fun postDescriptionToWikidata(editToken: String) {
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
-            .subscribeOn(Schedulers.io())
-            .flatMap { response ->
-                if (response.query?.firstPage()!!.getErrorForAction("edit").isNotEmpty()) {
-                    val error = response.query?.firstPage()!!.getErrorForAction("edit")[0]
-                    throw MwException(error)
-                }
-                ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).siteInfo
+    private suspend fun postDescriptionToWikidata(csrfToken: String,
+                                                  currentDescription: String,
+                                                  editComment: String?,
+                                                  editTags: String?): EntityPostResponse {
+        return withContext(Dispatchers.IO) {
+            val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
+            val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
+            if (!errorForAction.isNullOrEmpty()) {
+                val error = errorForAction.first()
+                throw MwException(error)
             }
-            .flatMap { response ->
-                val languageCode = if (response.query?.siteInfo?.lang != null &&
-                    response.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.siteInfo?.lang
-                else pageTitle.wikiSite.languageCode
-                getPostObservable(editToken, languageCode.orEmpty())
+            val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getSiteInfo()
+            // TODO: verify this
+            val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(siteInfoResponse.query?.siteInfo?.lang).isNullOrEmpty()
+            val languageCode = if (hasParentLanguageCode) pageTitle.wikiSite.languageCode else siteInfoResponse.query?.siteInfo?.lang.orEmpty()
+
+            val entityPostResponse = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
+                action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+                ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(
+                    language = languageCode,
+                    useLang = languageCode,
+                    site = Constants.COMMONS_DB_NAME,
+                    title = pageTitle.prefixedText,
+                    newDescription = currentDescription,
+                    summary = editComment,
+                    token = csrfToken,
+                    user = AccountUtil.assertUser,
+                    tags = editTags
+                )
+            } else {
+                ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(
+                    language = languageCode,
+                    useLang = languageCode,
+                    site = pageTitle.wikiSite.dbName(),
+                    title = pageTitle.prefixedText,
+                    newDescription = currentDescription,
+                    summary = editComment,
+                    token = csrfToken,
+                    user = AccountUtil.assertUser,
+                    tags = editTags
+                )
             }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ response ->
-                AnonymousNotificationHelper.onEditSubmitted()
-                if (response.success > 0) {
-                    requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                    analyticsHelper.logSuccess(requireContext(), pageTitle, response.entity?.lastRevId ?: 0)
-                    ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, response.entity?.lastRevId ?: 0)
-                    EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                } else {
-                    editFailed(RuntimeException("Received unrecognized description edit response"), true)
-                }
-            }) { caught ->
-                if (caught is MwException) {
-                    val error = caught.error
-                    if (error.badLoginState() || error.badToken()) {
-                        getEditTokenThenSave()
-                    } else {
-                        editFailed(caught, true)
-                    }
-                } else {
-                    editFailed(caught, true)
-                }
-            })
+            entityPostResponse
+        }
     }
 
     private fun shouldWriteToLocalWiki(): Boolean {
