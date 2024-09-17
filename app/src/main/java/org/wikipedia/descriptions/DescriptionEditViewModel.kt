@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -20,6 +21,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.liftwing.DescriptionSuggestion
 import org.wikipedia.dataclient.liftwing.LiftWingModelService
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.extensions.parcelable
@@ -47,6 +49,9 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
 
     private val _postDescriptionState = MutableStateFlow(Resource<Any>())
     val postDescriptionState = _postDescriptionState.asStateFlow()
+
+    private val _waitForRevisionState = MutableStateFlow(Resource<Boolean>())
+    val waitForRevisionState = _waitForRevisionState.asStateFlow()
 
     fun loadPageSummary() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -101,6 +106,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                         captchaWord: String?) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
+            _postDescriptionState.value = Resource.Error(throwable)
         }) {
             _postDescriptionState.value = Resource.Loading()
 
@@ -122,6 +128,25 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             }
 
             _postDescriptionState.value = Resource.Success(response)
+        }
+    }
+
+    fun waitForRevisionUpdate(newRevision: Long) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+            _waitForRevisionState.value = Resource.Error(throwable)
+        }) {
+            _waitForRevisionState.value = Resource.Loading()
+            // Implement a retry mechanism to wait for the revision to be available.
+            var retry = 0
+            var revision = -1L
+            while (revision < newRevision && retry < 10) {
+                delay(2000)
+                val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponseSuspend(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
+                revision = pageSummaryResponse.body()?.revision ?: -1L
+                retry++
+            }
+            _waitForRevisionState.value = Resource.Success(true)
         }
     }
 
@@ -217,7 +242,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private fun shouldWriteToLocalWiki(): Boolean {
+    fun shouldWriteToLocalWiki(): Boolean {
         return (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
                 DescriptionEditUtil.wikiUsesLocalDescriptions(pageTitle.wikiSite.languageCode)
