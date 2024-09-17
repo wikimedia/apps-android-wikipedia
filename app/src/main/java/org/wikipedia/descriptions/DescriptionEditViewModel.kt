@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,7 +40,9 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
     val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
     val sourceSummary = bundle.parcelable<PageSummaryForEdit>(DescriptionEditFragment.ARG_SOURCE_SUMMARY)
     val targetSummary = bundle.parcelable<PageSummaryForEdit>(DescriptionEditFragment.ARG_TARGET_SUMMARY)
-    var editingAllowed = false
+    var editingAllowed = true
+
+    private var clientJob: Job? = null
 
     private val _loadPageSummaryState = MutableStateFlow(Resource<Boolean>())
     val loadPageSummaryState = _loadPageSummaryState.asStateFlow()
@@ -58,6 +61,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             L.e(throwable)
         }) {
             _loadPageSummaryState.value = Resource.Loading()
+            editingAllowed = false
             val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(null, pageTitle.prefixedText) }
             val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0) }
 
@@ -104,7 +108,8 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                         editTags: String?,
                         captchaId: String?,
                         captchaWord: String?) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+        clientJob?.cancel()
+        clientJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _postDescriptionState.value = Resource.Error(throwable)
         }) {

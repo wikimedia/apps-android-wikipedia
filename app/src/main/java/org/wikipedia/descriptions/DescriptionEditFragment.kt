@@ -60,7 +60,6 @@ class DescriptionEditFragment : Fragment() {
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
 
-    private var editingAllowed = true
     private lateinit var captchaHandler: CaptchaHandler
 
     private val analyticsHelper = MachineGeneratedArticleDescriptionsAnalyticsHelper()
@@ -288,7 +287,6 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.showProgressBar(true)
         if ((viewModel.invokeSource == InvokeSource.PAGE_ACTIVITY || viewModel.invokeSource == InvokeSource.PAGE_EDIT_PENCIL ||
                     viewModel.invokeSource == InvokeSource.PAGE_EDIT_HIGHLIGHT) && viewModel.sourceSummary?.extractHtml.isNullOrEmpty()) {
-            editingAllowed = false
             viewModel.loadPageSummary()
         } else {
             setUpEditView(savedInstanceState)
@@ -309,7 +307,7 @@ class DescriptionEditFragment : Fragment() {
             binding.fragmentDescriptionEditView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING))
         }
         binding.fragmentDescriptionEditView.showProgressBar(false)
-        binding.fragmentDescriptionEditView.setEditAllowed(editingAllowed)
+        binding.fragmentDescriptionEditView.setEditAllowed(viewModel.editingAllowed)
         binding.fragmentDescriptionEditView.updateInfoText()
 
         binding.fragmentDescriptionEditView.isSuggestionButtonEnabled = ReleaseUtil.isPreBetaRelease &&
@@ -333,7 +331,6 @@ class DescriptionEditFragment : Fragment() {
                 }
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
             } else {
-                // TODO: need to cancel calls
                 analyticsHelper.logAttempt(requireContext(), viewModel.pageTitle)
                 EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                 viewModel.postDescription(
