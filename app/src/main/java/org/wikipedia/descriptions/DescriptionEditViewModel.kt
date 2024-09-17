@@ -58,7 +58,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             L.e(throwable)
         }) {
             _loadPageSummaryState.value = Resource.Loading()
-            val summaryResponse = async {ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(null, pageTitle.prefixedText) }
+            val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(null, pageTitle.prefixedText) }
             val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0) }
 
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")

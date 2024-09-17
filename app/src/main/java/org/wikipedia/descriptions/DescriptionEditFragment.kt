@@ -375,7 +375,6 @@ class DescriptionEditFragment : Fragment() {
         }
     }
 
-
     private fun getEditComment(): String? {
         if (viewModel.action == DescriptionEditActivity.Action.ADD_DESCRIPTION && binding.fragmentDescriptionEditView.wasSuggestionChosen) {
             return if (binding.fragmentDescriptionEditView.wasSuggestionModified) MACHINE_SUGGESTION_MODIFIED else MACHINE_SUGGESTION
