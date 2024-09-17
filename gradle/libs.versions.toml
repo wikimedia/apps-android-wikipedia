@@ -1,6 +1,6 @@
 [versions]
 androidPluginAnnotationV9 = "3.0.1"
-androidSdk = "11.1.0"
+androidSdk = "11.4.0"
 appcompat = "1.7.0"
 balloon = "1.6.7"
 browser = "1.8.0"
