@@ -39,7 +39,6 @@ class BecauseYouReadClient(
                 // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
                 val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                 val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
-                val relatedPages = mutableListOf<PageSummary>()
 
                 val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
                     Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
@@ -47,20 +46,18 @@ class BecauseYouReadClient(
                 val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
                     entry.title.extract, entry.title.thumbUrl, langCode)
 
-                moreLikeResponse.query?.pages?.forEach {
-                    val pageSummary = PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
-                    if (it.title != searchTerm) {
-                        if (hasParentLanguageCode) {
-                            relatedPages.add(L10nUtil.getPagesForLanguageVariant(listOf(pageSummary), entry.title.wikiSite).first())
-                        } else {
-                            relatedPages.add(pageSummary)
-                        }
-                    }
+                var relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm }?.map {
+                    PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
+                }
+
+                if (hasParentLanguageCode && relatedPages != null) {
+                    relatedPages = L10nUtil.getPagesForLanguageVariant(relatedPages, entry.title.wikiSite)
                 }
 
                 cb.success(
-                    if (relatedPages.isEmpty()) emptyList()
-                    else listOf(toBecauseYouReadCard(relatedPages, headerPage, entry.title.wikiSite))
+                    relatedPages?.let {
+                        listOf(toBecauseYouReadCard(it, headerPage, entry.title.wikiSite))
+                    } ?: emptyList()
                 )
             }
         }

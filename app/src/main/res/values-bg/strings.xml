@@ -276,6 +276,8 @@
   <string name="edit_summary_tag_links">Добавени препратки</string>
   <string name="edit_summary_tag_other">Други</string>
   <string name="edit_summary_tag_other_hint">Други начини, по които подобрихте страницата</string>
+  <string name="edit_summary_added_short_description">Добавено кратко описание</string>
+  <string name="edit_summary_updated_short_description">Актуализирано кратко описание</string>
   <string name="edit_conflict_title">Конфликт на редакции</string>
   <string name="edit_conflict_message">Страницата вече е била променена от друг потребител, което възпрепятства вашата редакция. Моля, копирайте редакции си, върнете се и обновете страницата, след което се опитайте да редактирате отново.</string>
   <string name="edit_notices">Известия за редактиране</string>
@@ -310,6 +312,8 @@
   <string name="widget_name_featured_page">Избрана страница на Уикипедия</string>
   <string name="widget_title_featured_page">Избран материал на деня:</string>
   <string name="widget_name_search">Търсене в Уикипедия</string>
+  <string name="widget_description_search">Най-бързият начин за търсене в Уикипедия</string>
+  <string name="widget_description_featured_page">Най-добрите статии, които Уикипедия може да предложи</string>
   <string name="wiktionary_no_definitions_found">Не е намерено нищо в речника.</string>
   <string name="alpha_update_notification_title">Налична е нова алфа версия</string>
   <string name="alpha_update_notification_text">Докоснете за изтегляне</string>
@@ -392,6 +396,7 @@
   <string name="multi_select_items_selected">%d избрани</string>
   <string name="error_message_generic">Възникна грешка</string>
   <string name="view_link_preview_error_button_dismiss">Затваряне</string>
+  <string name="link_preview_dialog_read_button">Четене</string>
   <string name="link_preview_dialog_save_button">Съхраняване</string>
   <string name="link_preview_dialog_saved_button">Съхранена</string>
   <string name="link_preview_dialog_share_button">Споделяне</string>
@@ -416,7 +421,11 @@
   <string name="error_blocked_footer">Можете да се свържете с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или друг &lt;a href=\" href=\"https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Персонализирайте лентата си с инструменти</string>
   <string name="error_blocked_footer_no_blocker">Можете да се свържете с &lt;a href=\"https://https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
+  <string name="temp_account_not_logged_in">Вие не сте влезли в системата</string>
   <string name="temp_account_dialog_ok">Разбрах</string>
+  <string name="temp_account_using_title">Използвате временна сметка</string>
+  <string name="temp_account_dialog_discard">Отхвърляне на промените ли влизане</string>
+  <string name="temp_account_end_session">Завършване на сесията</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
   <string name="crash_report_relaunch">Започване отначало</string>

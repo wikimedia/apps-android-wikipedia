@@ -7,11 +7,16 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.dataclient.wikidata.Entities
+import org.wikipedia.descriptions.DescriptionEditUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
+import org.wikipedia.util.log.L
 import java.time.Instant
 import java.util.concurrent.Semaphore
 import kotlin.math.abs
@@ -42,7 +47,7 @@ object EditingSuggestionsProvider {
     private var revertCandidateLastRevId = 0L
     private var revertCandidateLastTimeStamp = Instant.now()
 
-    private const val MAX_RETRY_LIMIT: Long = 50
+    private const val MAX_RETRY_LIMIT: Long = 20
 
     suspend fun getNextArticleWithMissingDescription(wiki: WikiSite, retryLimit: Long = MAX_RETRY_LIMIT): PageSummary {
         var pageSummary: PageSummary
@@ -59,21 +64,35 @@ object EditingSuggestionsProvider {
                 }
 
                 var tries = 0
-                do {
-                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
-                        .getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode))
-                    val mwQueryResponse = ServiceFactory.get(wiki)
-                        .getDescription(listOfSuggestedEditItem.joinToString("|") { it.title() })
+                while (tries++ <= retryLimit && title.isEmpty()) {
+                    // Fetch a batch of random articles, and get the ones that have no description.
+                    val resultsWithNoDescription = ServiceFactory.get(wiki).getRandomPages().query?.pages?.filter {
+                        it.description.isNullOrEmpty()
+                    }.orEmpty()
+
                     articlesWithMissingDescriptionCacheLang = wiki.languageCode
-                    mwQueryResponse.query?.pages?.forEach {
-                        if (it.description.isNullOrEmpty()) {
+
+                    if (resultsWithNoDescription.isEmpty() || DescriptionEditUtil.wikiUsesLocalDescriptions(wiki.languageCode)) {
+                        resultsWithNoDescription.forEach {
                             articlesWithMissingDescriptionCache.addFirst(it.title)
                         }
+                    } else {
+                        // If the wiki uses Wikidata descriptions, check protection status of the Wikidata items.
+                        val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem.orEmpty().ifEmpty { null } }
+                        val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getProtection(qNums.joinToString("|"))
+                        val unprotectedQNums = wdResponse.query?.pages?.filter { it.protection.isEmpty() }?.map { it.title }
+
+                        resultsWithNoDescription.forEach {
+                            if (unprotectedQNums?.contains(it.pageProps?.wikiBaseItem) == true) {
+                                articlesWithMissingDescriptionCache.addFirst(it.title)
+                            }
+                        }
                     }
+
                     if (!articlesWithMissingDescriptionCache.isEmpty()) {
                         title = articlesWithMissingDescriptionCache.removeFirst()
                     }
-                } while (tries++ < retryLimit && title.isEmpty())
+                }
 
                 pageSummary = ServiceFactory.getRest(wiki).getPageSummary(null, title)
             } finally {
@@ -83,8 +102,7 @@ object EditingSuggestionsProvider {
         return pageSummary
     }
 
-    suspend fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String,
-                                                     retryLimit: Long = MAX_RETRY_LIMIT): Pair<PageSummary, PageSummary> {
+    suspend fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, retryLimit: Long = MAX_RETRY_LIMIT): Pair<PageSummary, PageSummary> {
         var pair = Pair(PageSummary(), PageSummary())
         withContext(Dispatchers.IO) {
             mutex.acquire()
@@ -100,41 +118,39 @@ object EditingSuggestionsProvider {
                     titles = articlesWithTranslatableDescriptionCache.removeFirst()
                 }
                 var tries = 0
-                do {
-                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.wikidataWikiSite)
-                        .getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode),
-                            WikiSite.normalizeLanguageCode(targetLang))
-                    val mwQueryPages = ServiceFactory.get(targetWiki)
-                        .getDescription(listOfSuggestedEditItem.joinToString("|") { it.title() }).query?.pages
+                while (tries++ <= retryLimit && titles == null) {
+                    // Fetch a batch of random articles from the target language wiki, and get ones that have no description.
+                    val resultsWithNoDescription = ServiceFactory.get(targetWiki).getRandomPages().query?.pages?.filter {
+                        it.description.isNullOrEmpty()
+                    }.orEmpty()
 
                     articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode
                     articlesWithTranslatableDescriptionCacheToLang = targetLang
 
-                    listOfSuggestedEditItem.forEach { item ->
-                        val page = mwQueryPages?.find { it.title == item.title() }
-                        if (page != null && !page.description.isNullOrEmpty()) {
-                            return@forEach
+                    // Get the Wikidata entities for the articles, to see if they have descriptions in the source language.
+                    val qNums = resultsWithNoDescription.mapNotNull { it.pageProps?.wikiBaseItem.orEmpty().ifEmpty { null } }
+                    val wdResponse = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(
+                        qNums.joinToString("|"),
+                        WikiSite.normalizeLanguageCode(sourceWiki.languageCode) + "|" + WikiSite.normalizeLanguageCode(targetLang),
+                        sourceWiki.dbName() + "|" + targetWiki.dbName())
+
+                    // Get the Q numbers for which the source language description exists
+                    val sourceLangEntities = wdResponse.entities.filter {
+                        it.value.getDescriptions()[sourceWiki.languageCode]?.value.orEmpty().isNotEmpty() &&
+                                it.value.getSiteLinks()[sourceWiki.dbName()]?.title.orEmpty().isNotEmpty() }
+
+                    sourceLangEntities.values.forEach { entity ->
+                        val sourceTitle = PageTitle(entity.getSiteLinks()[sourceWiki.dbName()]!!.title, sourceWiki).apply {
+                            description = entity.getDescriptions()[sourceWiki.languageCode]?.value
                         }
-                        val descriptions = item.entity?.getDescriptions().orEmpty()
-                        val siteLinks = item.entity?.getSiteLinks().orEmpty()
-                        if (descriptions.containsKey(targetLang) ||
-                            !descriptions.containsKey(sourceWiki.languageCode) ||
-                            !siteLinks.containsKey(sourceWiki.dbName()) ||
-                            !siteLinks.containsKey(targetWiki.dbName())
-                        ) {
-                            return@forEach
-                        }
-                        val sourceTitle = PageTitle(siteLinks[sourceWiki.dbName()]!!.title, sourceWiki).apply {
-                            description = descriptions[sourceWiki.languageCode]?.value
-                        }
-                        val targetTitle = PageTitle(siteLinks[targetWiki.dbName()]!!.title, targetWiki)
+                        val targetTitle = PageTitle(entity.getSiteLinks()[targetWiki.dbName()]!!.title, targetWiki)
                         articlesWithTranslatableDescriptionCache.addFirst(sourceTitle to targetTitle)
                     }
 
                     if (!articlesWithTranslatableDescriptionCache.isEmpty()) {
                         titles = articlesWithTranslatableDescriptionCache.removeFirst()
                     }
-                } while (tries++ < retryLimit && titles == null)
+                }
 
                 titles?.let {
                     val sourcePageSummary = async {
@@ -170,16 +186,33 @@ object EditingSuggestionsProvider {
                 }
                 imagesWithMissingCaptionsCacheLang = lang
                 var tries = 0
-                do {
-                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.commonsWikiSite)
-                        .getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
-                    listOfSuggestedEditItem.forEach {
-                        imagesWithMissingCaptionsCache.addFirst(it.title())
+                while (tries++ <= retryLimit && title.isEmpty()) {
+                    try {
+                        val candidates = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages()
+                            .query?.pages?.filter {
+                                it.imageInfo()?.mime.orEmpty().startsWith("image") &&
+                                        it.protection.isEmpty()
+                            }.orEmpty()
+
+                        candidates.forEach { candidate ->
+                            val entityJson = candidate.revisions.firstOrNull()?.getContentFromSlot("mediainfo")
+                            if (entityJson.isNullOrEmpty()) {
+                                return@forEach
+                            }
+                            JsonUtil.decodeFromString<Entities.Entity>(entityJson)?.let { entity ->
+                                if (entity.getLabels()[WikiSite.normalizeLanguageCode(lang)]?.value.isNullOrEmpty()) {
+                                    imagesWithMissingCaptionsCache.addFirst(candidate.title)
+                                }
+                            }
+                        }
+
+                        if (!imagesWithMissingCaptionsCache.isEmpty()) {
+                            title = imagesWithMissingCaptionsCache.removeFirst()
+                        }
+                    } catch (e: MwException) {
+                        L.w(e)
                     }
-                    if (!imagesWithMissingCaptionsCache.isEmpty()) {
-                        title = imagesWithMissingCaptionsCache.removeFirst()
-                    }
-                } while (tries++ < retryLimit && title.isEmpty())
+                }
             } finally {
                 mutex.release()
             }
@@ -205,21 +238,35 @@ object EditingSuggestionsProvider {
                 imagesWithTranslatableCaptionCacheFromLang = sourceLang
                 imagesWithTranslatableCaptionCacheToLang = targetLang
                 var tries = 0
-                do {
-                    val listOfSuggestedEditItem = ServiceFactory.getRest(Constants.commonsWikiSite).getImagesWithTranslatableCaptions(
-                        WikiSite.normalizeLanguageCode(sourceLang),
-                        WikiSite.normalizeLanguageCode(targetLang)
-                    )
-                    listOfSuggestedEditItem.forEach {
-                        if (!it.captions.containsKey(sourceLang) || it.captions.containsKey(targetLang)) {
-                            return@forEach
+                while (tries++ <= retryLimit && (pair.first.isEmpty() || pair.second.isEmpty())) {
+                    try {
+                        val candidates = ServiceFactory.get(Constants.commonsWikiSite).getRandomImages(50)
+                            .query?.pages?.filter {
+                                it.imageInfo()?.mime.orEmpty().startsWith("image") &&
+                                        it.protection.isEmpty()
+                            }.orEmpty()
+
+                        candidates.forEach { candidate ->
+                            val entityJson = candidate.revisions.firstOrNull()?.getContentFromSlot("mediainfo")
+                            if (entityJson.isNullOrEmpty()) {
+                                return@forEach
+                            }
+                            JsonUtil.decodeFromString<Entities.Entity>(entityJson)?.let { entity ->
+                                val labels = entity.getLabels()
+                                if (labels[WikiSite.normalizeLanguageCode(sourceLang)]?.value.orEmpty().isNotEmpty() &&
+                                    labels[WikiSite.normalizeLanguageCode(targetLang)]?.value.isNullOrEmpty()) {
+                                    imagesWithTranslatableCaptionCache.addFirst(labels[sourceLang]?.value.orEmpty() to candidate.title)
+                                }
+                            }
                         }
-                        imagesWithTranslatableCaptionCache.addFirst((it.captions[sourceLang] ?: error("")) to it.title())
+                    } catch (e: MwException) {
+                        L.w(e)
                     }
+
                     if (!imagesWithTranslatableCaptionCache.isEmpty()) {
                         pair = imagesWithTranslatableCaptionCache.removeFirst()
                     }
-                } while (tries++ < retryLimit && (pair.first.isEmpty() || pair.second.isEmpty()))
+                }
             } finally {
                 mutex.release()
             }

@@ -1785,4 +1785,9 @@
   <string name="places_card_distance_suffix">%s מכאן</string>
   <string name="places_card_distance_unknown">מרחק בלתי־ידוע</string>
   <string name="places_empty_message_snackbar">אין ערכים על דברים בסביבה. נא לנסות להקטין ולהזיז את המפה.</string>
+  <string name="recommended_content_section_you_might_like">אולי יעניין אותך</string>
+  <string name="recommended_content_survey_dialog_title">סיוע בשיפור התוכן המומלץ.</string>
+  <string name="recommended_content_survey_dialog_message">תוצאת החיפוש המומלצת נושאת חן בעיניך?</string>
+  <string name="recommended_content_survey_dialog_input_hint">משוב נוסף</string>
+  <string name="recommended_content_survey_dialog_submitted_message">המשוב הוגש. תודה רבה!</string>
 </resources>
