@@ -220,7 +220,6 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                 siteInfoResponse.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) siteInfoResponse.query?.siteInfo?.lang.orEmpty()
             else pageTitle.wikiSite.languageCode
 
-
             val entityPostResponse = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(
