@@ -127,6 +127,7 @@
   <string name="reading_list_action_menu_remove_from_offline">ଅଫଲାଇନ ତାଲିକାରୁ ବାହାର କରିବେ</string>
   <string name="reading_list_action_menu_save_for_offline">ଅଫଲାଇନ ସାଇତିବେ</string>
   <string name="reading_list_action_menu_add_to_another_list">ଅନ୍ୟ ଏକ ତାଲିକାରେ ଯୋଗ କରିବେ</string>
+  <string name="reading_lists_preview_save_button">ସାଇତିବେ</string>
   <string name="view_main_page_card_title">ଆଜି ଦିନରେ ଉଇକିପିଡିଆର ଅବସ୍ଥା</string>
   <string name="view_featured_image_card_title">ଦିନର ବଛା ଛବି</string>
   <string name="view_featured_image_card_download">ଡାଉନଲୋଡ଼</string>
@@ -137,5 +138,6 @@
   <string name="view_static_card_icon_content_description">କାର୍ଡ ଆଇକନ</string>
   <string name="view_card_news_title">ଖବରରେ</string>
   <string name="suggested_edits_feed_card_add_image_caption">ଛବିରେ ଶୀର୍ଷକ ଯୋଡନ୍ତୁ</string>
+  <string name="talk_warn_save_dialog_publish">ପ୍ରକାଶ କରନ୍ତୁ</string>
   <string name="watchlist_expiry_dialog_permanent">ସ୍ଥାୟୀ</string>
 </resources>
