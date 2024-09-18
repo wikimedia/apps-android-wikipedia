@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.Resource
@@ -213,9 +214,12 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                 throw MwException(error)
             }
             val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getSiteInfo()
-            // TODO: verify this
-            val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(siteInfoResponse.query?.siteInfo?.lang).isNullOrEmpty()
-            val languageCode = if (hasParentLanguageCode) pageTitle.wikiSite.languageCode else siteInfoResponse.query?.siteInfo?.lang.orEmpty()
+
+            // TODO: need to revisit this logic
+            val languageCode = if (siteInfoResponse.query?.siteInfo?.lang != null &&
+                siteInfoResponse.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) siteInfoResponse.query?.siteInfo?.lang.orEmpty()
+            else pageTitle.wikiSite.languageCode
+
 
             val entityPostResponse = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {

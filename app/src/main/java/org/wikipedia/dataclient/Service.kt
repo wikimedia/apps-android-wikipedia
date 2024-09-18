@@ -395,7 +395,7 @@ interface Service {
     ): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
-    fun getWikiTextForSectionWithInfoSuspend(
+    suspend fun getWikiTextForSectionWithInfoSuspend(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
     ): MwQueryResponse

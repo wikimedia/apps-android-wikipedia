@@ -134,7 +134,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         }
     }
 
-    private fun request(): Observable<EntityPostResponse> {
+    private fun request(): EntityPostResponse {
         val pageTitle = PageTitle("foo", WikiSite.forLanguageCode("en"))
         return apiService.postDescriptionEdit(
             pageTitle.wikiSite.languageCode,
