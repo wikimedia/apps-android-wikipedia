@@ -16,10 +16,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -27,7 +25,6 @@ import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -35,7 +32,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
-import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
 
 class CreateAccountActivity : BaseActivity() {
@@ -48,7 +44,7 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var createAccountEvent: CreateAccountEvent
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
-    private val userNameVerifyRunnable = UserNameVerifyRunnable()
+    private var verifyUserNameJob: Job? = null
     private val viewModel: CreateAccountActivityViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,6 +103,21 @@ class CreateAccountActivity : BaseActivity() {
                         }
                     }
                 }
+                launch {
+                    viewModel.verifyUserNameState.collect {
+                        when (it) {
+                            CreateAccountActivityViewModel.UserNameState.Success -> {
+                                binding.createAccountUsername.isErrorEnabled = false
+                            }
+                            is CreateAccountActivityViewModel.UserNameState.Blocked -> {
+                                handleAccountCreationError(it.error)
+                            }
+                            is CreateAccountActivityViewModel.UserNameState.CannotCreate -> {
+                                binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, it.userName)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -145,13 +156,12 @@ class CreateAccountActivity : BaseActivity() {
             false
         }
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
-            binding.createAccountUsername.removeCallbacks(userNameVerifyRunnable)
+            verifyUserNameJob?.cancel()
             binding.createAccountUsername.isErrorEnabled = false
             if (text.isNullOrEmpty()) {
                 return@doOnTextChanged
             }
-            userNameVerifyRunnable.setUserName(text.toString())
-            binding.createAccountUsername.postDelayed(userNameVerifyRunnable, TimeUnit.SECONDS.toMillis(1))
+            verifyUserNameJob = viewModel.verifyUserName(text.toString())
         }
     }
 
@@ -285,32 +295,6 @@ class CreateAccountActivity : BaseActivity() {
     private fun showError(caught: Throwable) {
         binding.viewCreateAccountError.setError(caught)
         binding.viewCreateAccountError.visibility = View.VISIBLE
-    }
-
-    private inner class UserNameVerifyRunnable : Runnable {
-        private lateinit var userName: String
-
-        fun setUserName(userName: String) {
-            this.userName = userName
-        }
-
-        override fun run() {
-            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                L.e(throwable)
-            }) {
-                val response = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(wiki).getUserList(userName)
-                }
-                response.query?.getUserResponse(userName)?.let {
-                    binding.createAccountUsername.isErrorEnabled = false
-                    if (it.hasBlockError) {
-                        handleAccountCreationError(it.error)
-                    } else if (!it.canCreate) {
-                        binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
-                    }
-                }
-            }
-        }
     }
 
     companion object {

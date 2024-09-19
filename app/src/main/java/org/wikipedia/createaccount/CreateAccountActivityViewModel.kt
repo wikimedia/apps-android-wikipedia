@@ -4,7 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -12,6 +16,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 class CreateAccountActivityViewModel : ViewModel() {
     private val _createAccountInfoState = MutableStateFlow(AccountInfoState())
@@ -19,6 +24,9 @@ class CreateAccountActivityViewModel : ViewModel() {
 
     private val _doCreateAccountState = MutableStateFlow(CreateAccountState())
     val doCreateAccountState = _doCreateAccountState.asStateFlow()
+
+    private val _verifyUserNameState = MutableSharedFlow<UserNameState>()
+    val verifyUserNameState = _verifyUserNameState.asSharedFlow()
 
     fun createAccountInfo() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -55,6 +63,25 @@ class CreateAccountActivityViewModel : ViewModel() {
         }
     }
 
+    fun verifyUserName(userName: String): Job {
+        return viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            delay(1000)
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserList(userName)
+            }
+            response.query?.getUserResponse(userName)?.let {
+                _verifyUserNameState.emit(UserNameState.Success)
+                if (it.hasBlockError) {
+                    _verifyUserNameState.emit(UserNameState.Blocked(it.error))
+                } else if (!it.canCreate) {
+                    _verifyUserNameState.emit(UserNameState.CannotCreate(userName))
+                }
+            }
+        }
+    }
+
     open class AccountInfoState {
         data class DoCreateAccount(val token: String) : AccountInfoState()
         data class HandleCaptcha(val token: String?, val captchaId: String) : AccountInfoState()
@@ -65,5 +92,11 @@ class CreateAccountActivityViewModel : ViewModel() {
     open class CreateAccountState {
         data class Pass(val userName: String) : CreateAccountState()
         data class Error(val throwable: Throwable) : CreateAccountState()
+    }
+
+    open class UserNameState {
+        data object Success : UserNameState()
+        data class Blocked(val error: String) : UserNameState()
+        data class CannotCreate(val userName: String) : UserNameState()
     }
 }
