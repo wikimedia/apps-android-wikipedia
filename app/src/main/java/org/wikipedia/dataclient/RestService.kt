@@ -51,11 +51,11 @@ interface RestService {
     @GET("page/summary/{title}")
     suspend fun getSummaryResponseSuspend(
         @Path("title") title: String,
-        @Header("Referer") referrerUrl: String?,
-        @Header("Cache-Control") cacheControl: String?,
-        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
-        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
+        @Header("Referer") referrerUrl: String? = null,
+        @Header("Cache-Control") cacheControl: String? = null,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
     ): Response<PageSummary>
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
