@@ -85,26 +85,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private lateinit var editPreviewFragment: EditPreviewFragment
     private lateinit var editSummaryFragment: EditSummaryFragment
     private lateinit var syntaxHighlighter: SyntaxHighlighter
-    lateinit var invokeSource: Constants.InvokeSource
-        private set
-    lateinit var pageTitle: PageTitle
-        private set
-
-    private var sectionID = -1
-    private var sectionAnchor: String? = null
-    private var textToHighlight: String? = null
-    private var sectionWikitext: String? = null
-    private var sectionWikitextOriginal: String? = null
     private val editNotices = mutableListOf<String>()
 
     private var sectionTextModified = false
     private var sectionTextFirstLoad = true
-    private var editingAllowed = false
 
-    // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
-    private var currentRevision: Long = 0
     private var actionMode: ActionMode? = null
-    private val disposables = CompositeDisposable()
 
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -178,12 +164,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         binding = ActivityEditSectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
-
-        pageTitle = intent.parcelableExtra(Constants.ARG_TITLE)!!
-        sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
-        sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
-        textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
-        invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
@@ -855,12 +835,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     }
 
     companion object {
-        private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
-        private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
-        private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
-        const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
-        const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
-        const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
+        const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
+        const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
+        const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
+        const val EXTRA_SECTION_ID = "sectionId"
+        const val EXTRA_SECTION_ANCHOR = "sectionAnchor"
+        const val EXTRA_HIGHLIGHT_TEXT = "sectionHighlightText"
         const val EXTRA_REV_ID = "revId"
 
         fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle,
