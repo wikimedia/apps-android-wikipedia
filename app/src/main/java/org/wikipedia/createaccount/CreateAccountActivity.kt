@@ -16,7 +16,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -44,7 +43,6 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var createAccountEvent: CreateAccountEvent
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
-    private var verifyUserNameJob: Job? = null
     private val viewModel: CreateAccountActivityViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,6 +104,7 @@ class CreateAccountActivity : BaseActivity() {
                 launch {
                     viewModel.verifyUserNameState.collect {
                         when (it) {
+                            CreateAccountActivityViewModel.UserNameState.Initial,
                             CreateAccountActivityViewModel.UserNameState.Success -> {
                                 binding.createAccountUsername.isErrorEnabled = false
                             }
@@ -156,16 +155,11 @@ class CreateAccountActivity : BaseActivity() {
             false
         }
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
-            verifyUserNameJob?.cancel()
-            binding.createAccountUsername.isErrorEnabled = false
-            if (text.isNullOrEmpty()) {
-                return@doOnTextChanged
-            }
-            verifyUserNameJob = viewModel.verifyUserName(text.toString())
+            viewModel.verifyUserName(text)
         }
     }
 
-    fun handleAccountCreationError(message: String) {
+    private fun handleAccountCreationError(message: String) {
         if (message.contains("blocked")) {
             FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message))
                     .setAction(R.string.create_account_ip_block_details) {

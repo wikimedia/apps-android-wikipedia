@@ -28,6 +28,8 @@ class CreateAccountActivityViewModel : ViewModel() {
     private val _verifyUserNameState = MutableSharedFlow<UserNameState>()
     val verifyUserNameState = _verifyUserNameState.asSharedFlow()
 
+    private var verifyUserNameJob: Job? = null
+
     fun createAccountInfo() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _createAccountInfoState.value = AccountInfoState.Error(throwable)
@@ -63,11 +65,17 @@ class CreateAccountActivityViewModel : ViewModel() {
         }
     }
 
-    fun verifyUserName(userName: String): Job {
-        return viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+    fun verifyUserName(text: CharSequence?) {
+        verifyUserNameJob?.cancel()
+        verifyUserNameJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
+            _verifyUserNameState.emit(UserNameState.Initial)
+            if (text.isNullOrEmpty()) {
+                return@launch
+            }
             delay(1000)
+            val userName = text.toString()
             val response = withContext(Dispatchers.IO) {
                 ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserList(userName)
             }
@@ -95,6 +103,7 @@ class CreateAccountActivityViewModel : ViewModel() {
     }
 
     open class UserNameState {
+        data object Initial : UserNameState()
         data object Success : UserNameState()
         data class Blocked(val error: String) : UserNameState()
         data class CannotCreate(val userName: String) : UserNameState()
