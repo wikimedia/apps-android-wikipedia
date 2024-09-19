@@ -10,8 +10,10 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -38,7 +40,9 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             uiState.value = UiState.LoadError(throwable)
         }) {
-            val response = ServiceFactory.get(pageTitle.wikiSite).getTemplateData(pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getTemplateData(pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+            }
             uiState.value = UiState.LoadTemplateData(pageTitle, response.getTemplateData.first())
         }
     }
@@ -51,8 +55,10 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(recentUsedTemplates, null, null)
                 }
                 val query = Namespace.TEMPLATE.name + ":" + searchQuery
-                val response = ServiceFactory.get(wikiSite)
-                    .fullTextSearchTemplates("$query*", params.loadSize, params.key)
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wikiSite)
+                        .fullTextSearchTemplates("$query*", params.loadSize, params.key)
+                }
 
                 return response.query?.pages?.let { list ->
                     val partition = list.partition { it.title.equals(query, true) }.apply {

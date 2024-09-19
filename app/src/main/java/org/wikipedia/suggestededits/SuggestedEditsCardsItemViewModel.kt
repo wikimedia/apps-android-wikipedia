@@ -4,9 +4,11 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -62,7 +64,9 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
 
                 DescriptionEditActivity.Action.ADD_CAPTION -> {
                     val response = EditingSuggestionsProvider.getNextImageWithMissingCaption(fromLangCode)
-                    val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(response, fromLangCode)
+                    val imageInfoResponse = withContext(Dispatchers.IO) {
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(response, fromLangCode)
+                    }
                     val page = imageInfoResponse.query?.firstPage()
                     if (page?.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!
@@ -97,7 +101,9 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
                     val pair = EditingSuggestionsProvider.getNextImageWithMissingCaption(fromLangCode, toLangCode)
                     val fileCaption = pair.first
-                    val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(pair.second, fromLangCode)
+                    val imageInfoResponse = withContext(Dispatchers.IO) {
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(pair.second, fromLangCode)
+                    }
                     val page = imageInfoResponse.query?.firstPage()
                     if (page?.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!

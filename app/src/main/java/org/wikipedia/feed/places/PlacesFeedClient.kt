@@ -3,8 +3,10 @@ package org.wikipedia.feed.places
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.NearbyPage
@@ -32,7 +34,9 @@ class PlacesFeedClient(
                 cb.error(throwable)
             }) {
                 val location = it.first
-                val response = ServiceFactory.get(wiki).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wiki).getGeoSearch("${location.latitude}|${location.longitude}", 10000, 10, 10)
+                }
                 val lastPage = response.query?.pages.orEmpty()
                     .filter { it.coordinates != null && !GeoUtil.isSamePlace(location.latitude, it.coordinates[0].lat, location.longitude, it.coordinates[0].lon) }
                     .map {

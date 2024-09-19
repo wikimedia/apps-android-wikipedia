@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -34,13 +36,11 @@ class OnThisDayViewModel(bundle: Bundle) : ViewModel() {
     fun loadOnThisDay(calendar: Calendar = DateUtil.getDefaultDateFor(age)) {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
-            val response = ServiceFactory.getRest(wikiSite).getOnThisDay(calendar[Calendar.MONTH] + 1, calendar[Calendar.DATE])
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.getRest(wikiSite).getOnThisDay(calendar[Calendar.MONTH] + 1, calendar[Calendar.DATE])
+            }
             _uiState.value = Resource.Success(response.allEvents())
         }
-    }
-
-    private fun definitionsNotFound() {
-        _uiState.value = Resource.Error(Throwable("Definitions not found."))
     }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {

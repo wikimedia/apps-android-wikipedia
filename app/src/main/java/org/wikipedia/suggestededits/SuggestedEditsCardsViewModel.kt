@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -34,7 +36,9 @@ class SuggestedEditsCardsViewModel(bundle: Bundle) : ViewModel() {
         }) {
             _uiState.value = Resource.Loading()
             val app = WikipediaApp.instance
-            val siteMatrix = ServiceFactory.get(app.wikiSite).getSiteMatrix()
+            val siteMatrix = withContext(Dispatchers.IO) {
+                ServiceFactory.get(app.wikiSite).getSiteMatrix()
+            }
             val list = mutableListOf<String>()
             app.languageState.appLanguageCodes.forEach { code ->
                 var name = SiteMatrix.getSites(siteMatrix).find { it.code == code }?.name

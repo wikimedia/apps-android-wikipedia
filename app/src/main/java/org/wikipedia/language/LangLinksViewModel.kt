@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -35,8 +37,10 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
-            val langLinks = response.query!!.langLinks().toMutableList()
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
+            }
+            val langLinks = response.query?.langLinks()?.toMutableList() ?: mutableListOf()
             updateLanguageEntriesSupported(langLinks)
             sortLanguageEntriesByMru(langLinks)
             languageEntries.postValue(Resource.Success(langLinks))
@@ -47,7 +51,9 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
+            }
             response.query?.firstPage()?.varianttitles?.let { variantMap ->
                 titles.forEach {
                     variantMap[it.wikiSite.languageCode]?.let { text ->
@@ -63,8 +69,12 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
-            val sites = SiteMatrix.getSites(siteMatrix)
+            val siteMatrix = withContext(Dispatchers.IO) {
+                ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
+            }
+            val sites = withContext(Dispatchers.IO) {
+                SiteMatrix.getSites(siteMatrix)
+            }
             siteListData.postValue(Resource.Success(sites))
         }
     }

@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
@@ -25,7 +27,9 @@ class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             categoriesData.postValue(Resource.Error(throwable))
         }) {
-            val response = ServiceFactory.get(pageTitle.wikiSite).getCategories(pageTitle.prefixedText)
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getCategories(pageTitle.prefixedText)
+            }
             val titles = response.query?.pages?.map { page ->
                 PageTitle(page.title, pageTitle.wikiSite).also {
                     it.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)

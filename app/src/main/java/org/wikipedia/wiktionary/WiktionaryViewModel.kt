@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -43,13 +45,15 @@ class WiktionaryViewModel(bundle: Bundle) : ViewModel() {
                 return@launch
             }
             val query = StringUtil.addUnderscores(selectedText)
-            val response = try {
-                ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WiktionaryDialog.WIKTIONARY_DOMAIN))
-                    .getDefinition(query)
-            } catch (e: Exception) {
-                L.w("Cannot find the definition. Try to use lowercase text.")
-                ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WiktionaryDialog.WIKTIONARY_DOMAIN))
-                    .getDefinition(query.lowercase(Locale.getDefault()))
+            val response = withContext(Dispatchers.IO) {
+                try {
+                    ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WiktionaryDialog.WIKTIONARY_DOMAIN))
+                        .getDefinition(query)
+                } catch (e: Exception) {
+                    L.w("Cannot find the definition. Try to use lowercase text.")
+                    ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WiktionaryDialog.WIKTIONARY_DOMAIN))
+                        .getDefinition(query.lowercase(Locale.getDefault()))
+                }
             }
 
             response[pageTitle.wikiSite.languageCode]?.let { usageList ->

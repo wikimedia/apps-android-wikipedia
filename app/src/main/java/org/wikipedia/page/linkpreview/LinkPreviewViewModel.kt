@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -42,10 +43,10 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {
-            val summaryCall = async { ServiceFactory.getRest(pageTitle.wikiSite)
+            val summaryCall = async(Dispatchers.IO) { ServiceFactory.getRest(pageTitle.wikiSite)
                 .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null) }
 
-            val watchedCall = async { if (fromPlaces && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText) else null }
+            val watchedCall = async(Dispatchers.IO) { if (fromPlaces && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText) else null }
 
             val response = summaryCall.await()
             val summary = response.body()!!

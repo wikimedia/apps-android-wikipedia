@@ -3,6 +3,7 @@ package org.wikipedia.watchlist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -78,7 +79,7 @@ class WatchlistViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             watchlistItems = mutableListOf()
             displayLanguages.map { language ->
-                async {
+                async(Dispatchers.IO) {
                     ServiceFactory.get(WikiSite.forLanguageCode(language))
                         .getWatchlist(latestRevisions(), showCriteriaString(), showTypesString())
                         .query?.watchlist?.map {

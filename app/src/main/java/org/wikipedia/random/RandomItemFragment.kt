@@ -84,22 +84,20 @@ class RandomItemFragment : Fragment() {
         binding.randomItemWikiArticleCardView.isVisible = false
     }
 
-    private fun updateContents(summary: PageSummary?) {
+    private fun updateContents(summary: PageSummary) {
         binding.randomItemErrorView.isVisible = false
         binding.randomItemProgress.isVisible = false
-        binding.randomItemWikiArticleCardView.isVisible = summary != null
-        summary?.run {
-            binding.randomItemWikiArticleCardView.setTitle(displayTitle)
-            binding.randomItemWikiArticleCardView.setDescription(description)
-            binding.randomItemWikiArticleCardView.setExtract(extract, EXTRACT_MAX_LINES)
+        binding.randomItemWikiArticleCardView.isVisible = true
+        binding.randomItemWikiArticleCardView.setTitle(summary.displayTitle)
+        binding.randomItemWikiArticleCardView.setDescription(summary.description)
+        binding.randomItemWikiArticleCardView.setExtract(summary.extract, EXTRACT_MAX_LINES)
 
-            var imageUri: Uri? = null
+        var imageUri: Uri? = null
 
-            thumbnailUrl.takeUnless { it.isNullOrBlank() }?.let { thumbnailUrl ->
-                imageUri = Uri.parse(getUrlForPreferredSize(thumbnailUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
-            }
-            binding.randomItemWikiArticleCardView.setImageUri(imageUri, false)
+        summary.thumbnailUrl.takeUnless { it.isNullOrBlank() }?.let { thumbnailUrl ->
+            imageUri = Uri.parse(getUrlForPreferredSize(thumbnailUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
         }
+        binding.randomItemWikiArticleCardView.setImageUri(imageUri, false)
         parent().onChildLoaded()
     }
 

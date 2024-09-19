@@ -3,7 +3,9 @@ package org.wikipedia.login
 import android.widget.Toast
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -31,10 +33,12 @@ class LoginClient {
             val loginResult = getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, loginToken).toLoginResult(wiki, password)
             if (loginResult != null) {
                 if (loginResult.pass() && userName.isNotEmpty()) {
-                    ServiceFactory.get(wiki).getUserInfo().query?.userInfo?.let {
-                        loginResult.userId = it.id
-                        loginResult.groups = it.groups()
-                        L.v("Found user ID " + it.id + " for " + wiki.subdomain())
+                    withContext(Dispatchers.IO) {
+                        ServiceFactory.get(wiki).getUserInfo().query?.userInfo?.let {
+                            loginResult.userId = it.id
+                            loginResult.groups = it.groups()
+                            L.v("Found user ID " + it.id + " for " + wiki.subdomain())
+                        }
                     }
                     cb.success(loginResult)
                 } else if (LoginResult.STATUS_UI == loginResult.status) {
@@ -70,14 +74,21 @@ class LoginClient {
     }
 
     private suspend fun getLoginToken(wiki: WikiSite): String {
-        val response = ServiceFactory.get(wiki).getLoginToken()
-        return response.query?.loginToken() ?: throw RuntimeException("Received empty login token.")
+        return withContext(Dispatchers.IO) {
+            ServiceFactory.get(wiki).getLoginToken().query?.loginToken() ?: throw RuntimeException("Received empty login token.")
+        }
     }
 
-    private suspend fun getLoginResponse(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
-        twoFactorCode: String?, loginToken: String?): LoginResponse {
-        return if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty())
-            ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
-        else ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true)
+    private suspend fun getLoginResponse(wiki: WikiSite,
+                                         userName: String,
+                                         password: String,
+                                         retypedPassword: String?,
+                                         twoFactorCode: String?,
+                                         loginToken: String?): LoginResponse {
+        return withContext(Dispatchers.IO) {
+            if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty())
+                ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
+            else ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true)
+        }
     }
 }

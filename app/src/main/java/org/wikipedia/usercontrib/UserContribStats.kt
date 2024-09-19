@@ -9,7 +9,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.settings.Prefs
-import java.util.*
+import java.util.Calendar
+import java.util.Date
 import kotlin.math.ceil
 
 object UserContribStats {
@@ -24,23 +25,26 @@ object UserContribStats {
     var totalImageTagEdits: Int = 0
 
     suspend fun verifyEditCountsAndPauseState() {
-        val response = ServiceFactory.get(Constants.wikidataWikiSite).getEditorTaskCounts()
-        if (response.query?.userInfo?.isBlocked != true) {
-            response.query?.editorTaskCounts?.let {
-                totalEdits = it.totalEdits
-                totalDescriptionEdits = it.totalDescriptionEdits
-                totalImageCaptionEdits = it.totalImageCaptionEdits
-                totalImageTagEdits = it.totalDepictsEdits
-                totalReverts = it.totalReverts
-                maybePauseAndGetEndDate()
+        withContext(Dispatchers.IO) {
+            val response = ServiceFactory.get(Constants.wikidataWikiSite).getEditorTaskCounts()
+            if (response.query?.userInfo?.isBlocked != true) {
+                response.query?.editorTaskCounts?.let {
+                    totalEdits = it.totalEdits
+                    totalDescriptionEdits = it.totalDescriptionEdits
+                    totalImageCaptionEdits = it.totalImageCaptionEdits
+                    totalImageTagEdits = it.totalDepictsEdits
+                    totalReverts = it.totalReverts
+                    maybePauseAndGetEndDate()
+                }
             }
         }
     }
 
     suspend fun getPageViews(response: MwQueryResponse): Long {
         val qLangMap = mutableMapOf<String, MutableSet<String>>()
+        val userContributions = response.query?.userContributions ?: return 0L
 
-        for (userContribution in response.query!!.userContributions) {
+        for (userContribution in userContributions) {
             val descLang = userContribution.comment.split(" ")
                 .filter { "wbsetdescription" in it }
                 .flatMap { it.split("|") }
@@ -50,7 +54,10 @@ object UserContribStats {
             }
         }
 
-        val entities = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+        val entities = withContext(Dispatchers.IO) {
+            ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+        }
+
         if (entities.entities.isEmpty()) {
             return 0L
         }

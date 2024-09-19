@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
@@ -38,21 +40,25 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
             var isFromCommons = false
-            var firstPage = ServiceFactory.get(Constants.commonsWikiSite)
-                .getImageInfoWithEntityTerms(
-                    pageTitle.prefixedText, pageTitle.wikiSite.languageCode,
-                    LanguageUtil.convertToUselangIfNeeded(pageTitle.wikiSite.languageCode)
-                ).query?.firstPage()
+            var firstPage = withContext(Dispatchers.IO) {
+                ServiceFactory.get(Constants.commonsWikiSite)
+                    .getImageInfoWithEntityTerms(
+                        pageTitle.prefixedText, pageTitle.wikiSite.languageCode,
+                        LanguageUtil.convertToUselangIfNeeded(pageTitle.wikiSite.languageCode)
+                    ).query?.firstPage()
+            }
 
             // set image caption to pageTitle description
             pageTitle.description = firstPage?.entityTerms?.label?.firstOrNull()
             if (firstPage?.imageInfo() == null) {
                 // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
-                firstPage = ServiceFactory.get(pageTitle.wikiSite)
-                    .getImageInfoSuspend(
-                        pageTitle.prefixedText,
-                        pageTitle.wikiSite.languageCode
-                    ).query?.firstPage()
+                firstPage = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(pageTitle.wikiSite)
+                        .getImageInfoSuspend(
+                            pageTitle.prefixedText,
+                            pageTitle.wikiSite.languageCode
+                        ).query?.firstPage()
+                }
             } else {
                 // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
                 isFromCommons = !(firstPage.isImageShared)
@@ -74,13 +80,13 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                     imageInfo.metadata
                 )
 
-                val imageTagsResponse = async {
+                val imageTagsResponse = async(Dispatchers.IO) {
                     ImageTagsProvider.getImageTags(
                         firstPage.pageId,
                         pageSummaryForEdit!!.lang
                     )
                 }
-                val isEditProtected = async {
+                val isEditProtected = async(Dispatchers.IO) {
                     ServiceFactory.get(Constants.commonsWikiSite)
                         .getProtectionWithUserInfo(pageTitle.prefixedText).query?.isEditProtected
                         ?: false

@@ -3,8 +3,10 @@ package org.wikipedia.feed.aggregated
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -146,7 +148,9 @@ class AggregatedFeedContentClient {
                 WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                     val wikiSite = WikiSite.forLanguageCode(langCode)
                     val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
-                    var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
+                    var feedContentResponse = withContext(Dispatchers.IO) {
+                        ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
+                    }
 
                     // TODO: This is a temporary fix for T355192
                     if (hasParentLanguageCode) {

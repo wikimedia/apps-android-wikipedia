@@ -4,7 +4,13 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -29,8 +35,10 @@ class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
     ) : PagingSource<String, PageTitle>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, PageTitle> {
             return try {
-                val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                         .getCategoryMembers(pageTitle.prefixedText, resultType, params.loadSize, params.key)
+                }
                 if (response.query == null) {
                     return LoadResult.Page(emptyList(), null, null)
                 }

@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -38,10 +40,12 @@ class GalleryItemViewModel(bundle: Bundle) : ViewModel() {
             _uiState.value = Resource.Error(throwable)
         }) {
             val wikiSite = if (mediaListItem.isInCommons) Constants.commonsWikiSite else imageTitle.wikiSite
-            val response = if (mediaListItem.isVideo) {
-                ServiceFactory.get(wikiSite).getVideoInfo(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
-            } else {
-                ServiceFactory.get(wikiSite).getImageInfoSuspend(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
+            val response = withContext(Dispatchers.IO) {
+                if (mediaListItem.isVideo) {
+                    ServiceFactory.get(wikiSite).getVideoInfo(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
+                } else {
+                    ServiceFactory.get(wikiSite).getImageInfoSuspend(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
+                }
             }
             mediaPage = response.query?.firstPage()
             _uiState.value = Resource.Success(FileUtil.isVideo(mediaPage?.imageInfo()?.mime.orEmpty()))

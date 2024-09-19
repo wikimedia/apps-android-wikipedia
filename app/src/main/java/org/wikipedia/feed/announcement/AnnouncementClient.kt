@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.annotation.VisibleForTesting
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -32,7 +34,9 @@ class AnnouncementClient(
                 cb.error(caught)
             }
         ) {
-            val announcementsResponse = ServiceFactory.getRest(wiki).getAnnouncements()
+            val announcementsResponse = withContext(Dispatchers.IO) {
+                ServiceFactory.getRest(wiki).getAnnouncements()
+            }
             cb.success(buildCards(announcementsResponse.items))
         }
     }

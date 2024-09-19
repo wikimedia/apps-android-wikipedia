@@ -3,8 +3,10 @@ package org.wikipedia.feed.becauseyouread
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -40,8 +42,10 @@ class BecauseYouReadClient(
                 val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                 val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
-                val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
-                    Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
+                val moreLikeResponse = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
+                        Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
+                }
 
                 val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
                     entry.title.extract, entry.title.thumbUrl, langCode)

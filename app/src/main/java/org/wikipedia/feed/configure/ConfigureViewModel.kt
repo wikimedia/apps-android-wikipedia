@@ -3,16 +3,18 @@ package org.wikipedia.feed.configure
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedContentType
 import org.wikipedia.util.Resource
 
-class ConfigureViewModel() : ViewModel() {
+class ConfigureViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
@@ -28,7 +30,9 @@ class ConfigureViewModel() : ViewModel() {
     private fun loadFeedAvailability() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
-            val result = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).feedAvailability()
+            val result = withContext(Dispatchers.IO) {
+                ServiceFactory.getRest(WikipediaApp.instance.wikiSite).feedAvailability()
+            }
             // apply the new availability rules to our content types
             FeedContentType.NEWS.langCodesSupported.clear()
             if (isLimitedToDomains(result.news)) {

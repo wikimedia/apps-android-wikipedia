@@ -83,8 +83,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
         viewModelScope.launch(handler) {
             if (resolveTitleRequired) {
-                val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText,
+                val siteInfoResponse = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText,
                         OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
+                }
                 resolveTitleRequired = false
                 siteInfoResponse.query?.namespaces?.let { namespaces ->
                     siteInfoResponse.query?.firstPage()?.let { page ->
@@ -101,18 +103,22 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 }
             }
 
-            val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
+            val discussionToolsInfoResponse = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
                     OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
+            }
 
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
             sortAndFilterThreadItems()
 
             if (WikipediaApp.instance.isOnline) {
-                val watchStatus = if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
-                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
-                isWatched = watchStatus.watched
-                hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
+                val watchStatus = withContext(Dispatchers.IO) {
+                    if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
+                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage() else MwQueryPage()
+                }
+                isWatched = watchStatus?.watched ?: false
+                hasWatchlistExpiry = watchStatus?.hasWatchlistExpiry() ?: false
             }
 
             uiState.value = UiState.LoadTopic(pageTitle, threadItems)
@@ -129,7 +135,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
-            val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
+            val undoResponse = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
+            }
             actionState.value = ActionState.UndoEdit(undoResponse, undoneSubject, undoneBody)
         }
     }
@@ -159,7 +167,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             val token = withContext(Dispatchers.IO) {
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
-            ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
+            withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
+            }
         }
     }
 
@@ -202,7 +212,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         if (!WikipediaApp.instance.isOnline) {
             return false
         }
-        val response = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
+        val response = withContext(Dispatchers.IO) {
+            ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
+        }
         return response.subscriptions[commentName] == 1
     }
 
@@ -213,9 +225,17 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
         }
         viewModelScope.launch(actionHandler) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-            val response = ServiceFactory.get(pageTitle.wikiSite)
-                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
+            val token = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            }
+            if (token.isNullOrEmpty()) {
+                actionState.value = ActionState.OnError(NullPointerException("Invalid token"))
+                return@launch
+            }
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite)
+                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token)
+            }
 
             if (unwatch) {
                 WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)

@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -60,14 +62,18 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             threadItemsData.postValue(Resource.Error(throwable))
         }) {
-            val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
+            val discussionToolsInfoResponse = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
                     OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
+            }
             val oldItemIdsFlattened = topic?.allReplies.orEmpty().map { it.id }.toSet()
 
             topic = discussionToolsInfoResponse.pageInfo?.threads.orEmpty().find { it.id == topicId }
 
             if (WikipediaApp.instance.isOnline) {
-                subscribed = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName).subscriptions[topicName] == 1
+                subscribed = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicName).subscriptions[topicName] == 1
+                }
             }
 
             threadSha(topic)?.let {
@@ -107,9 +113,17 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             subscribeData.postValue(Resource.Error(throwable))
         }) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
-            val response = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, topicName, token, if (!subscribed) true else null)
-            subscribed = response.status!!.subscribe
+            val token = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()
+            }
+            if (token.isNullOrEmpty()) {
+                subscribeData.postValue(Resource.Error(NullPointerException("Invalid token")))
+                return@launch
+            }
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, topicName, token, if (!subscribed) true else null)
+            }
+            subscribed = response.status?.subscribe == true
             subscribeData.postValue(Resource.Success(subscribed))
         }
     }
@@ -155,8 +169,16 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             undoResponseData.postValue(Resource.Error(throwable))
         }) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
-            val response = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = undoRevId, token = token)
+            val token = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()
+            }
+            if (token.isNullOrEmpty()) {
+                undoResponseData.postValue(Resource.Error(NullPointerException("Invalid token")))
+                return@launch
+            }
+            val response = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = undoRevId, token = token)
+            }
             undoResponseData.postValue(Resource.Success(response.edit!!.editSucceeded))
         }
     }

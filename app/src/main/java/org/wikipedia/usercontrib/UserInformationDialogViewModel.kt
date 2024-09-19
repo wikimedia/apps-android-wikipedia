@@ -4,14 +4,17 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.Resource
-import java.util.*
+import java.util.Date
 
 class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
 
@@ -29,7 +32,9 @@ class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
             _uiState.value = Resource.Error(throwable)
         }) {
             _uiState.value = Resource.Loading()
-            val userInfo = ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
+            val userInfo = withContext(Dispatchers.IO) {
+                ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
+            }
             userInfo.query?.globalUserInfo?.let {
                 val editCount = String.format("%,d", it.editCount)
                 _uiState.value = Resource.Success(Pair(editCount, it.registrationDate))

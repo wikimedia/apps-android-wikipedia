@@ -3,6 +3,8 @@ package org.wikipedia.widgets
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -19,36 +21,38 @@ class WidgetFeaturedPageWorker(
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
-        return try {
-            val app = WikipediaApp.instance
-            val mainPageTitle = PageTitle(MainPageNameData.valueFor(app.appOrSystemLanguageCode), app.wikiSite)
-            val date = DateUtil.getUtcRequestDateFor(0)
+        return withContext(Dispatchers.IO) {
+            try {
+                val app = WikipediaApp.instance
+                val mainPageTitle = PageTitle(MainPageNameData.valueFor(app.appOrSystemLanguageCode), app.wikiSite)
+                val date = DateUtil.getUtcRequestDateFor(0)
 
-            val result = ServiceFactory.getRest(WikipediaApp.instance.wikiSite)
-                .getFeedFeatured(date.year, date.month, date.day)
+                val result = ServiceFactory.getRest(WikipediaApp.instance.wikiSite)
+                    .getFeedFeatured(date.year, date.month, date.day)
 
-            // TODO: don't use PageSummary.
-            val summary = if (result.tfa != null) {
-                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(WikipediaApp.instance.wikiSite.languageCode).isNullOrEmpty()
-                if (hasParentLanguageCode) {
-                    ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(null, result.tfa.apiTitle)
+                // TODO: don't use PageSummary.
+                val summary = if (result.tfa != null) {
+                    val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(WikipediaApp.instance.wikiSite.languageCode).isNullOrEmpty()
+                    if (hasParentLanguageCode) {
+                        ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(null, result.tfa.apiTitle)
+                    } else {
+                        result.tfa
+                    }
                 } else {
-                    result.tfa
+                    val response = ServiceFactory.get(mainPageTitle.wikiSite).parseTextForMainPage(mainPageTitle.prefixedText)
+                    ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(null, findFeaturedArticleTitle(response.text))
                 }
-            } else {
-                val response = ServiceFactory.get(mainPageTitle.wikiSite).parseTextForMainPage(mainPageTitle.prefixedText)
-                ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(null, findFeaturedArticleTitle(response.text))
+
+                val pageTitle = summary.getPageTitle(app.wikiSite)
+                pageTitle.displayText = summary.displayTitle
+
+                WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle)
+
+                Result.success()
+            } catch (e: Exception) {
+                L.e(e)
+                Result.retry()
             }
-
-            val pageTitle = summary.getPageTitle(app.wikiSite)
-            pageTitle.displayText = summary.displayTitle
-
-            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle)
-
-            Result.success()
-        } catch (e: Exception) {
-            L.e(e)
-            Result.retry()
         }
     }
 

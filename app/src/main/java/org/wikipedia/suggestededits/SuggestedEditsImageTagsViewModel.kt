@@ -3,9 +3,11 @@ package org.wikipedia.suggestededits
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -31,9 +33,11 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
             _uiState.value = Resource.Error(throwable)
         }) {
             val mwQueryPage = page ?: EditingSuggestionsProvider.getNextImageWithMissingTags()
-            val caption = ServiceFactory.get(Constants.commonsWikiSite)
-                .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode))
-                .query?.firstPage()?.entityTerms?.label?.firstOrNull()
+            val caption = withContext(Dispatchers.IO) {
+                ServiceFactory.get(Constants.commonsWikiSite)
+                    .getWikidataEntityTerms(mwQueryPage.title, LanguageUtil.convertToUselangIfNeeded(languageCode))
+                    .query?.firstPage()?.entityTerms?.label?.firstOrNull()
+            }
             _uiState.value = Resource.Success(mwQueryPage to caption)
         }
     }
@@ -67,7 +71,9 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
             }
             claimStr += "]}"
             commentStr += " */"
-            val postResult = ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr, tags = EditTags.APP_IMAGE_TAG_ADD)
+            val postResult = withContext(Dispatchers.IO) {
+                ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, csrfToken, claimStr, commentStr, tags = EditTags.APP_IMAGE_TAG_ADD)
+            }
             _actionState.value = Resource.Success(postResult.entity)
         }
     }

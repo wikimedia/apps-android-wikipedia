@@ -3,6 +3,7 @@ package org.wikipedia.feed.random
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -33,7 +34,7 @@ class RandomClient(
             val deferredSummaries = WikipediaApp.instance.languageState.appLanguageCodes
                 .filter { !FeedContentType.RANDOM.langCodesDisabled.contains(it) }
                 .map { lang ->
-                    async {
+                    async(Dispatchers.IO) {
                         val wikiSite = WikiSite.forLanguageCode(lang)
                         val randomSummary = try {
                             ServiceFactory.getRest(wikiSite).getRandomSummary()

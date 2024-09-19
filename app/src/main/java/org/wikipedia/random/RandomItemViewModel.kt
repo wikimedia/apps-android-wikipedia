@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -23,7 +25,7 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
     val wikiSite: WikiSite = bundle.parcelable(Constants.ARG_WIKISITE)!!
     var summary: PageSummary? = null
 
-    private val _uiState = MutableStateFlow(Resource<PageSummary?>())
+    private val _uiState = MutableStateFlow(Resource<PageSummary>())
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -33,8 +35,10 @@ class RandomItemViewModel(bundle: Bundle) : ViewModel() {
     fun getRandomPage() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
-            summary = ServiceFactory.getRest(wikiSite).getRandomSummary()
-            _uiState.value = Resource.Success(summary)
+            summary = withContext(Dispatchers.IO) {
+                ServiceFactory.getRest(wikiSite).getRandomSummary()
+            }
+            _uiState.value = Resource.Success(summary!!)
         }
     }
 

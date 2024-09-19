@@ -5,9 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
-import kotlinx.coroutines.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import androidx.paging.filter
+import androidx.paging.insertSeparators
+import androidx.paging.map
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -22,7 +33,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.*
+import java.util.Calendar
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
@@ -91,12 +102,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             calendar.add(Calendar.YEAR, -1)
             val lastYear = DateUtil.getYMDDateString(calendar.time)
 
-            val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, null, 1, null) }
-            val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
-            val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
-            val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
-            val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
-            val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
+            val mwResponse = async(Dispatchers.IO) { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, null, 1, null) }
+            val editCountsResponse = async(Dispatchers.IO) { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
+            val editCountsUserResponse = async(Dispatchers.IO) { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
+            val editCountsAnonResponse = async(Dispatchers.IO) { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
+            val editCountsBotResponse = async(Dispatchers.IO) { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
+            val articleMetricsResponse = async(Dispatchers.IO) { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
 
             val page = mwResponse.await().query?.pages?.first()
             pageId = page?.pageId ?: -1
@@ -165,8 +176,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(cachedRevisions, null, cachedContinueKey)
                 }
 
-                val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                         .getRevisionDetailsDescending(pageTitle.prefixedText, 500, null, params.key)
+                }
 
                 val revisions = response.query!!.pages?.first()?.revisions!!
 

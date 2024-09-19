@@ -7,6 +7,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
@@ -133,14 +135,18 @@ interface ReadingListPageDao {
     }
 
     suspend fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
-        updateThumbAndDescriptionByName(pageProto.lang, pageProto.apiTitle, thumbUrl, description)
+        withContext(Dispatchers.IO) {
+            updateThumbAndDescriptionByName(pageProto.lang, pageProto.apiTitle, thumbUrl, description)
+        }
     }
 
     suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
-        return getPageByParams(
-            title.wikiSite, title.wikiSite.languageCode, title.namespace(),
-            title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
-        )
+        return withContext(Dispatchers.IO) {
+            getPageByParams(
+                title.wikiSite, title.wikiSite.languageCode, title.namespace(),
+                title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
+            )
+        }
     }
 
     fun findPageForSearchQueryInAnyList(searchQuery: String): SearchResults {

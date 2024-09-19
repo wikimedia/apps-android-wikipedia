@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.dataclient.ServiceFactory
@@ -37,7 +39,9 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
             _uiState.value = Resource.Error(throwable)
         }) {
             pageTitle?.let {
-                val response = ServiceFactory.getRest(it.wikiSite).getMediaListSuspend(it.prefixedText, revision)
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.getRest(it.wikiSite).getMediaListSuspend(it.prefixedText, revision)
+                }
                 _uiState.value = Resource.Success(response)
             }
         }
@@ -48,8 +52,8 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _descriptionState.value = Resource.Error(throwable)
         }) {
-            val firstEntity = async { ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(pageTitle.prefixedText, Constants.COMMONS_DB_NAME).first }
-            val protectionInfoResponse = async { ServiceFactory.get(Constants.commonsWikiSite).getProtectionWithUserInfo(pageTitle.prefixedText) }
+            val firstEntity = async(Dispatchers.IO) { ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(pageTitle.prefixedText, Constants.COMMONS_DB_NAME).first }
+            val protectionInfoResponse = async(Dispatchers.IO) { ServiceFactory.get(Constants.commonsWikiSite).getProtectionWithUserInfo(pageTitle.prefixedText) }
             val isProtected = protectionInfoResponse.await().query?.isEditProtected == true
             _descriptionState.value = Resource.Success(isProtected to firstEntity.await())
         }

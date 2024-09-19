@@ -14,8 +14,10 @@ import androidx.paging.filter
 import androidx.paging.insertSeparators
 import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -87,7 +89,9 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
             L.e(throwable)
         }) {
             val messageName = "project-localized-name-${wikiSite.dbName()}"
-            val query = ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
+            val query = withContext(Dispatchers.IO) {
+                ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
+            }
 
             userContribStatsData.postValue(Resource.Success(UserContribStats(query?.users!![0].editCount,
                     query.users[0].registrationDate, query.allmessages.orEmpty().getOrNull(0)?.content.orEmpty().ifEmpty { wikiSite.dbName() })))
@@ -112,8 +116,10 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                 val nsFilter = if (Prefs.userContribFilterExcludedNs.isEmpty()) "" else
                     UserContribFilterActivity.NAMESPACE_LIST.filter { !Prefs.userContribFilterExcludedNs.contains(it) }.joinToString("|")
 
-                val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
-                val contribs = response.query?.userContributions!!
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
+                }
+                val contribs = response.query?.userContributions ?: emptyList()
 
                 cachedContinueKey = response.continuation?.ucContinuation
                 cachedContribs.addAll(contribs)

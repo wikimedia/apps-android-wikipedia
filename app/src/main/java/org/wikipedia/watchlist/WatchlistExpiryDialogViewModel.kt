@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
@@ -28,12 +30,20 @@ class WatchlistExpiryDialogViewModel(bundle: Bundle) : ViewModel() {
     fun changeExpiry(expiry: WatchlistExpiry) {
         WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
         viewModelScope.launch(handler) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-            val response = ServiceFactory.get(pageTitle.wikiSite)
-                .watch(null, null, pageTitle.prefixedText, expiry.expiry, token!!)
-            response.getFirst()?.let {
-                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
-                _uiState.value = Resource.Success(expiry)
+            val token = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            }
+            token?.let {
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(pageTitle.wikiSite)
+                        .watch(null, null, pageTitle.prefixedText, expiry.expiry, it)
+                }
+                response.getFirst()?.let {
+                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+                    _uiState.value = Resource.Success(expiry)
+                }
+            } ?: run {
+                _uiState.value = Resource.Error(Throwable("Invalid token"))
             }
         }
     }

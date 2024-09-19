@@ -10,7 +10,9 @@ import androidx.paging.cachedIn
 import androidx.paging.filter
 import androidx.paging.insertSeparators
 import androidx.paging.map
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -117,8 +119,10 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             userInfoCache: MutableList<UserInfo> = mutableListOf()
         ): Triple<List<MwQueryResult.RecentChange>, List<MwQueryResult.RecentChange>, String?> {
             val service = ServiceFactory.get(wikiSite)
-            val response = service.getRecentEdits(count, startTimeStamp.toString(), direction,
-                latestRevisions(), showCriteriaString(), continueStr)
+            val response = withContext(Dispatchers.IO) {
+                service.getRecentEdits(count, startTimeStamp.toString(), direction,
+                    latestRevisions(), showCriteriaString(), continueStr)
+            }
 
             val allRecentChanges = response.query?.recentChanges.orEmpty()
 
@@ -130,7 +134,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 !userInfoCache.map { userInfo -> userInfo.name }.contains(it)
             }
 
-            val usersInfoResponse = service.userInfo(usernames.joinToString(separator = "|")).query?.users ?: emptyList()
+            val usersInfoResponse = withContext(Dispatchers.IO) {
+                service.userInfo(usernames.joinToString(separator = "|")).query?.users ?: emptyList()
+            }
 
             userInfoCache.addAll(usersInfoResponse)
 

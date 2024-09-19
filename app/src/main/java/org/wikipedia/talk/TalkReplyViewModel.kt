@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -51,8 +53,10 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
-                doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
+            withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
+                    doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
+                }
             }
         }
     }
@@ -70,13 +74,21 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             postReplyData.postValue(Resource.Error(throwable))
         }) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
-            val response = if (topic != null) {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token, tags = EditTags.APP_TALK_REPLY)
-            } else {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token, tags = EditTags.APP_TALK_TOPIC)
+            val token = withContext(Dispatchers.IO) {
+                ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()
             }
-            postReplyData.postValue(Resource.Success(response.result!!.newRevId))
+            token?.let {
+                val response = withContext(Dispatchers.IO) {
+                    if (topic != null) {
+                        ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, it, tags = EditTags.APP_TALK_REPLY)
+                    } else {
+                        ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, it, tags = EditTags.APP_TALK_TOPIC)
+                    }
+                }
+                postReplyData.postValue(Resource.Success(response.result?.newRevId ?: -1))
+            } ?: run {
+                postReplyData.postValue(Resource.Error(NullPointerException("Invalid token")))
+            }
         }
     }
 

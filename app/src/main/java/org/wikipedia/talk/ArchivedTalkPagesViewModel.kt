@@ -4,7 +4,13 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -26,8 +32,10 @@ class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
                 if (params.key == 0) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
-                val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                    .prefixSearch(pageTitle.prefixedText + "/", params.loadSize, params.key)
+                val response = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
+                        .prefixSearch(pageTitle.prefixedText + "/", params.loadSize, params.key)
+                }
                 if (response.query?.pages == null) {
                     return LoadResult.Page(emptyList(), null, null)
                 }

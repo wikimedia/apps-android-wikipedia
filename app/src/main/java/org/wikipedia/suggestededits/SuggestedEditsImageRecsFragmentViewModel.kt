@@ -68,7 +68,9 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
 
             recommendation = page?.growthimagesuggestiondata?.first()!!
             val wikiSite = WikiSite.forLanguageCode(langCode)
-            summary = ServiceFactory.getRest(wikiSite).getPageSummary(null, page.title)
+            summary = withContext(Dispatchers.IO) {
+                ServiceFactory.getRest(wikiSite).getPageSummary(null, page.title)
+            }
             pageTitle = summary.getPageTitle(wikiSite)
 
             val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
@@ -127,7 +129,6 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun invalidateRecommendation(token: String?, accepted: Boolean, revId: Long, reasonCodes: List<Int>?) {
-
         withContext(Dispatchers.IO) {
             val csrfToken = token ?: CsrfTokenClient.getToken(pageTitle.wikiSite).blockingSingle()
 
