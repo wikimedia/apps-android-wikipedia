@@ -22,6 +22,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.liftwing.DescriptionSuggestion
 import org.wikipedia.dataclient.liftwing.LiftWingModelService
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
@@ -45,7 +46,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
 
     private var clientJob: Job? = null
 
-    private val _loadPageSummaryState = MutableStateFlow(Resource<Boolean>())
+    private val _loadPageSummaryState = MutableStateFlow(Resource<MwServiceError?>())
     val loadPageSummaryState = _loadPageSummaryState.asStateFlow()
 
     private val _requestSuggestionState = MutableStateFlow(Resource<Triple<DescriptionSuggestion.Response, Int, List<String>>>())
@@ -67,14 +68,14 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0) }
 
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
+            var error: MwServiceError? = null
             if (editError.isNullOrEmpty()) {
                 editingAllowed = true
             } else {
-                val error = editError[0]
-                _loadPageSummaryState.value = Resource.Error(MwException(error))
+                error = editError[0]
             }
             sourceSummary?.extractHtml = summaryResponse.await().extractHtml
-            _loadPageSummaryState.value = Resource.Success(true)
+            _loadPageSummaryState.value = Resource.Success(error)
         }
     }
 

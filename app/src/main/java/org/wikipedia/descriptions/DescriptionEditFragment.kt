@@ -143,6 +143,9 @@ class DescriptionEditFragment : Fragment() {
 
                             is Resource.Success -> {
                                 setUpEditView(savedInstanceState)
+                                it.data?.let { error ->
+                                    FeedbackUtil.showError(requireActivity(), MwException(error), wikiSite = viewModel.pageTitle.wikiSite)
+                                }
                             }
 
                             is Resource.Error -> {
