@@ -5,6 +5,7 @@
 * Dbrant
 * Hakim1bal
 * Mohamed Belarhzali
+* Reda Tris
 * ⵕⴰⵊⵉ
 -->
 <resources>
@@ -38,6 +39,9 @@
   <string name="notification_archive_undo">ⵙⵔ</string>
   <string name="app_settings">ⵜⵉⵙⵖⴰⵍ ⵏ ⵜⵙⵏⵙⵉ</string>
   <string name="history_list_title">ⴰⵎⵣⵔⵓⵢ</string>
+  <string name="page_content_description">ⵜⴰⵙⵏⴰ: %s</string>
+  <string name="wikimedia_commons">ⵡⵉⴽⵉⵎⵉⴷⵢⴰ ⴽⴰⵎⵏⵥ</string>
+  <string name="wikidata">ⵡⵉⴽⵉⵙⴼⴽⴰ</string>
   <string name="dialog_title_clear_history">ⵙⴼⴹ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵜⴰⵔⴰ</string>
   <string name="dialog_message_clear_history">ⴰⵢⴰ ⵔⴰⴷ ⵉⴽⴽⵉⵙ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵜⴰⵔⴰ ⵏⵏⴽ ⴰⴽⴽⵯ, ⵉⵔⴳⵍ ⵉⵙⴽⵙⴰⵍ ⵉⵎⵉⵔⴰⵏⵏ ⵕⵥⵎⵏⵉⵏ. ⵉⵙ ⵏⵉⵜ ⵜⵅⵙⴷ ⴰⴷ ⵜⴳⴷ ⴰⵢⴰ?</string>
   <string name="dialog_message_clear_history_yes">ⵢⴰⵀ</string>
@@ -45,12 +49,17 @@
   <string name="share_via">ⴱⴹⵓ ⵙ</string>
   <string name="image_share_via">ⴱⴹⵓ ⵙ</string>
   <string name="search_redirect_from">ⵓⵖⵓⵍ ⵙⴳ %s</string>
+  <string name="page_edit_history_activity_title">ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵣⵣⵔⴰⵢ: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_filter_by_user">ⵉⵙⵏⴼⴰⵍⵏ ⵏ ⵓⵙⵎⵔⵙ (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ⵉⵙⵏⴼⴰⵍⵏ ⵏ ⵓⴱⵓⵜ (%s)</string>
   <string name="menu_page_show_tabs">ⵙⴽⵏ ⵉⵙⴽⵙⴰⵍ</string>
   <string name="menu_page_other_languages">ⵙⵏⴼⵍ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="menu_page_find_in_page">ⴰⴼ ⴳ ⵓⵎⴳⵔⴰⴷ</string>
   <string name="menu_page_add_to_watchlist">ⵔⵏⵓ ⵉ ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵕ</string>
   <string name="menu_page_view_talk">ⵙⴽⵏ ⵜⴰⵙⵏⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ</string>
   <string name="menu_page_view_edit_history">ⵙⴽⵏ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
+  <string name="menu_page_edit_history">ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
   <string name="menu_page_remove_from_watchlist">ⴽⴽⵉⵙ ⵙⴳ ⵜⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵕ</string>
   <string name="edit_section_find_in_page">ⴰⴼ ⴳ ⵜⵙⵏⴰ</string>
   <string name="menu_page_add_to_list">ⵔⵏⵓ ⵖⵕ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
@@ -112,6 +121,7 @@
   <string name="login_activity_title">ⴽⵛⵎ</string>
   <string name="login_in_progress_dialog_message">ⵙⴽⵛⴰⵎ...</string>
   <string name="login_success_toast">ⵜⴽⵛⵎⴷ!</string>
+  <string name="reset_password_title">ⵙⵙⴽⵛⵎ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⴽ</string>
   <string name="reset_password_hint">ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵜⴰⵎⴰⵢⵏⵓⵜ</string>
   <string name="reset_password_button">ⵃⴹⵓ, ⵜⴽⵛⵎⴷ</string>
   <string name="preference_title_logout">ⴼⴼⵖ</string>
@@ -158,8 +168,9 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+  <string name="about_libraries_heading">ⵉⴷⵍⵉⵙⵏ ⵉⵜⵜⵓⵙⵎⵔⴰⵙⵏ</string>
   <string name="about_contributors_heading">ⵉⵏⴰⵎⵓⵜⵏ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ⵉⵎⵙⵙⵓⵖⵍⵏ</string>
