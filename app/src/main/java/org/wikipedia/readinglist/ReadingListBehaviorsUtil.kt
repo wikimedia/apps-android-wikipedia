@@ -135,6 +135,15 @@ object ReadingListBehaviorsUtil {
         }
     }
 
+    fun updateReadingListPage(activity: AppCompatActivity, item: ReadingListPage) {
+        activity.lifecycleScope.launch(exceptionHandler) {
+            withContext(Dispatchers.IO) {
+                AppDatabase.instance.readingListDao().updateLists(getListsContainPage(item), false)
+                AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
+            }
+        }
+    }
+
     fun renameReadingList(activity: Activity, readingList: ReadingList?, callback: Callback) {
         if (readingList == null) {
             return
