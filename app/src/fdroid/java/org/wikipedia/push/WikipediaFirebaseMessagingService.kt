@@ -1,6 +1,5 @@
 package org.wikipedia.push
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 
 class WikipediaFirebaseMessagingService {
