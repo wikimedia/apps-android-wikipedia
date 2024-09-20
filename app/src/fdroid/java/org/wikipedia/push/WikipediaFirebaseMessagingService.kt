@@ -13,9 +13,9 @@ class WikipediaFirebaseMessagingService {
             // stub
         }
 
-        fun unsubscribePushToken(csrfToken: String, pushToken: String): Observable<MwQueryResponse> {
+        suspend fun unsubscribePushToken(csrfToken: String, pushToken: String): MwQueryResponse {
             // stub
-            return Observable.just(MwQueryResponse())
+            return MwQueryResponse()
         }
     }
 }
