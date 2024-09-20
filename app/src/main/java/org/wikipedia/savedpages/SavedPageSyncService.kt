@@ -57,12 +57,8 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
             val pagesToDelete = AppDatabase.instance.readingListPageDao().getAllPagesToBeDeleted()
             var shouldSendSyncEvent = false
             try {
-                for (page in pagesToDelete) {
-                    AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(page.id)
-                }
-                for (page in pagesToUnSave) {
-                    AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(page.id)
-                }
+                AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(pagesToDelete.map { it.id })
+                AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(pagesToUnSave.map { it.id })
             } catch (e: Exception) {
                 L.e("Error while deleting page: " + e.message)
             } finally {
