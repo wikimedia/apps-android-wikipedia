@@ -17,13 +17,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 
 class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
-
-    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+    val invokeSource = bundle.serializable<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
     val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     val isFromDiff = bundle.getBoolean(TemplatesSearchActivity.EXTRA_FROM_DIFF, false)
     var searchQuery: String? = null

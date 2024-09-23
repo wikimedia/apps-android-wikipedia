@@ -13,13 +13,14 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.extensions.serializable
 import org.wikipedia.util.Resource
 
 class SuggestedEditsCardsViewModel(bundle: Bundle) : ViewModel() {
 
     var langFromCode = WikipediaApp.instance.languageState.appLanguageCode
     var langToCode = WikipediaApp.instance.languageState.appLanguageCodes.getOrElse(1) { "" }
-    var action = bundle.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
+    val action = bundle.serializable<DescriptionEditActivity.Action>(Constants.INTENT_EXTRA_ACTION)!!
 
     private val _uiState = MutableStateFlow(Resource<List<String>>())
     val uiState = _uiState.asStateFlow()

@@ -13,6 +13,7 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.Resource
 
@@ -22,7 +23,7 @@ class ImagePreviewViewModel(bundle: Bundle) : ViewModel() {
         _uiState.value = Resource.Error(throwable)
     }
     var pageSummaryForEdit = bundle.parcelable<PageSummaryForEdit>(ImagePreviewDialog.ARG_SUMMARY)!!
-    var action = bundle.getSerializable(ImagePreviewDialog.ARG_ACTION) as DescriptionEditActivity.Action?
+    var action = bundle.serializable<DescriptionEditActivity.Action>(ImagePreviewDialog.ARG_ACTION)
 
     private val _uiState = MutableStateFlow(Resource<FilePage>())
     val uiState = _uiState.asStateFlow()
