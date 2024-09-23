@@ -39,6 +39,8 @@ scripts/backup.ab
 # miscellaneous
 all-apks.sh
 device*.png
+*.salive
+*keystore*
 
 # Log Files
 *.log
