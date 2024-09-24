@@ -3,7 +3,6 @@ package org.wikipedia.database
 import androidx.room.TypeConverter
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageBackStackItem
-import java.util.Date
 
 class PageBackStackItemTypeConverter {
     @TypeConverter
