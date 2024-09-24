@@ -124,6 +124,9 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date.time)
         maybeHideDateIndicator()
         binding.appBar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+            if (!isAdded) {
+                return@addOnOffsetChangedListener
+            }
             binding.headerFrameLayout.alpha = 1.0f - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
             if (verticalOffset > -appBarLayout.totalScrollRange) {
                 binding.dropDownToolbar.visibility = View.GONE

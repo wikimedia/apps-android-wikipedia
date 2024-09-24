@@ -604,6 +604,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private inner class AppBarListener : OnOffsetChangedListener {
         override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
+            if (!isAdded) {
+                return
+            }
             if (verticalOffset > -appBarLayout.totalScrollRange && showOverflowMenu) {
                 showOverflowMenu = false
                 binding.readingListToolbarContainer.title = ""

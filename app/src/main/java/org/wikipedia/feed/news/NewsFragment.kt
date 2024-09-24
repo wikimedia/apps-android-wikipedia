@@ -60,6 +60,9 @@ class NewsFragment : Fragment() {
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.toolbar, true)
         binding.appBarLayout.addOnOffsetChangedListener { layout, offset ->
+            if (!isAdded) {
+                return@addOnOffsetChangedListener
+            }
             DeviceUtil.updateStatusBarTheme(
                 requireActivity(), binding.toolbar,
                 layout.totalScrollRange + offset > layout.totalScrollRange / 2
