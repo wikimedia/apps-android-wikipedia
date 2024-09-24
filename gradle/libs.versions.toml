@@ -39,7 +39,6 @@ paletteKtx = "1.0.0"
 photoview = "2.3.0"
 preferenceKtx = "1.2.1"
 recyclerview = "1.3.2"
-retrofit2KotlinxSerializationConverter = "1.0.0"
 retrofitVersion = "2.11.0"
 robolectric = "4.13"
 roomVersion = "2.6.1"
@@ -108,7 +107,7 @@ preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = 
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 retrofit2-adapter-rxjava3 = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "retrofitVersion" }
-retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
+retrofit2-kotlinx-serialization-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofitVersion" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersion" }
 rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }

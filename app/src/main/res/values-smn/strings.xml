@@ -83,6 +83,7 @@
   <string name="dialog_message_edit_failed_cancel">Jooskâ</string>
   <string name="menu_show_toc">Siskáldâslisto</string>
   <string name="search_no_results_found">Iä uuccâmpuátuseh</string>
+  <string name="edit_section_captcha_request_an_account_message">Jieh-uv uáini kove? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Táátu tubdâlduv&lt;/a&gt;</string>
   <string name="nav_item_login">Čáládât siisâ Wikipedian</string>
   <string name="login_username_hint">Kevtteenommâ</string>
   <string name="login_password_hint">Syelisääni</string>
