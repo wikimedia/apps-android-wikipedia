@@ -33,7 +33,7 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 26
+const val DATABASE_VERSION = 27
 
 @Database(
     entities = [
@@ -197,7 +197,16 @@ abstract class AppDatabase : RoomDatabase() {
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
-                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27)
+                .addMigrations(
+                    MIGRATION_19_20,
+                    MIGRATION_20_21,
+                    MIGRATION_21_22,
+                    MIGRATION_22_23,
+                    MIGRATION_23_24,
+                    MIGRATION_24_25,
+                    MIGRATION_25_26,
+                    MIGRATION_26_27
+                )
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()

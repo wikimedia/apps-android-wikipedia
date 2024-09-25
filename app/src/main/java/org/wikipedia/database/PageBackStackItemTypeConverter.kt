@@ -6,14 +6,14 @@ import org.wikipedia.page.PageBackStackItem
 
 class PageBackStackItemTypeConverter {
     @TypeConverter
-    fun fromBackStack(tabs: List<PageBackStackItem>): String? {
-        return JsonUtil.encodeToString(tabs)
+    fun fromPageBackStackItem(backStacks: MutableList<PageBackStackItem>): String? {
+        return JsonUtil.encodeToString(backStacks)
     }
 
     @TypeConverter
-    fun toBackStack(tabs: String?): List<PageBackStackItem> {
-        return tabs?.let {
-            JsonUtil.decodeFromString<List<PageBackStackItem>>(it)
-        } ?: emptyList()
+    fun toPageBackStackItem(backStacks: String?): MutableList<PageBackStackItem> {
+        return backStacks?.let {
+            JsonUtil.decodeFromString<MutableList<PageBackStackItem>>(it)
+        } ?: mutableListOf()
     }
 }

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 26,
-    "identityHash": "16a25d36f8cbc3a8743699b56a550c06",
+    "identityHash": "d042bcf4c06c8727f99ac4c827e5a691",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -536,12 +536,44 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "Tab",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `backStack` TEXT NOT NULL, `backStackPosition` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "backStack",
+            "columnName": "backStack",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "backStackPosition",
+            "columnName": "backStackPosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16a25d36f8cbc3a8743699b56a550c06')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd042bcf4c06c8727f99ac4c827e5a691')"
     ]
   }
 }
