@@ -3,7 +3,6 @@ package org.wikipedia.createaccount
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -11,7 +10,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -34,9 +32,7 @@ class CreateAccountActivityViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _createAccountInfoState.value = AccountInfoState.Error(throwable)
         }) {
-            val response = withContext(Dispatchers.IO) {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).getAuthManagerInfo()
-            }
+            val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAuthManagerInfo()
             val token = response.query?.createAccountToken()
             val captchaId = response.query?.captchaId()
             if (token.isNullOrEmpty()) {
@@ -53,10 +49,8 @@ class CreateAccountActivityViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _doCreateAccountState.value = CreateAccountState.Error(throwable)
         }) {
-            val response = withContext(Dispatchers.IO) {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).postCreateAccount(userName, password, repeat, token, Service.WIKIPEDIA_URL,
-                    email, captchaId, captchaWord)
-            }
+            val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).postCreateAccount(userName, password, repeat, token, Service.WIKIPEDIA_URL,
+                email, captchaId, captchaWord)
             if ("PASS" == response.status) {
                 _doCreateAccountState.value = CreateAccountState.Pass(response.user)
             } else {
@@ -76,9 +70,7 @@ class CreateAccountActivityViewModel : ViewModel() {
             }
             delay(1000)
             val userName = text.toString()
-            val response = withContext(Dispatchers.IO) {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserList(userName)
-            }
+            val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserList(userName)
             response.query?.getUserResponse(userName)?.let {
                 _verifyUserNameState.emit(UserNameState.Success)
                 if (it.hasBlockError) {
