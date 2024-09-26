@@ -18,11 +18,12 @@ class Tab(
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
 
-    val backStackPositionTitle: PageTitle?
-        get() = if (backStack.isEmpty()) null else backStack[backStackPosition].title
+    fun getBackStackPositionTitle(): PageTitle? {
+        return backStack.getOrNull(backStackPosition)?.title
+    }
 
     fun setBackStackPositionTitle(title: PageTitle) {
-        backStackPositionTitle?.run {
+        getBackStackPositionTitle()?.run {
             backStack[backStackPosition].title = title
         }
     }

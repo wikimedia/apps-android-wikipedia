@@ -79,7 +79,7 @@ class TabActivity : BaseActivity() {
                 }
                 val titleText = view.findViewById<TextView>(R.id.tab_article_title)
                 val descriptionText = view.findViewById<TextView>(R.id.tab_article_description)
-                val title = app.tabList[tabIndex].backStackPositionTitle
+                val title = app.tabList[tabIndex].getBackStackPositionTitle()
                 titleText.text = StringUtil.fromHtml(title!!.displayText)
                 if (title.description.isNullOrEmpty()) {
                     descriptionText.visibility = View.GONE
@@ -92,7 +92,7 @@ class TabActivity : BaseActivity() {
 
             override fun getViewType(tab: de.mrapp.android.tabswitcher.Tab, index: Int): Int {
                 val tabIndex = app.tabCount - index - 1
-                return if (FIRST_TAB_BITMAP_TITLE == app.tabList.getOrNull(tabIndex)?.backStackPositionTitle?.prefixedText) {
+                return if (FIRST_TAB_BITMAP_TITLE == app.tabList.getOrNull(tabIndex)?.getBackStackPositionTitle()?.prefixedText) {
                     1
                 } else {
                     0
@@ -108,7 +108,7 @@ class TabActivity : BaseActivity() {
             if (app.tabList[tabIndex].backStack.isEmpty()) {
                 continue
             }
-            val tab = de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(app.tabList[tabIndex].backStackPositionTitle?.displayText))
+            val tab = de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(app.tabList[tabIndex].getBackStackPositionTitle()?.displayText))
             tab.setIcon(R.drawable.ic_image_black_24dp)
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
@@ -206,14 +206,14 @@ class TabActivity : BaseActivity() {
     }
 
     private fun saveTabsToList() {
-        val titlesList = app.tabList.filter { it.backStackPositionTitle != null }.map { it.backStackPositionTitle!! }
+        val titlesList = app.tabList.filter { it.getBackStackPositionTitle() != null }.map { it.getBackStackPositionTitle()!! }
         ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(titlesList, InvokeSource.TABS_ACTIVITY))
     }
 
     private fun topTabLeadImageEnabled(): Boolean {
         if (app.tabCount > 0) {
-            val pageTitle = app.tabList[app.tabCount - 1].backStackPositionTitle
+            val pageTitle = app.tabList[app.tabCount - 1].getBackStackPositionTitle()
             return pageTitle != null && !pageTitle.isMainPage && !pageTitle.thumbUrl.isNullOrEmpty()
         }
         return false
@@ -230,7 +230,7 @@ class TabActivity : BaseActivity() {
     }
 
     private fun showUndoSnackbar(tab: de.mrapp.android.tabswitcher.Tab, index: Int, appTab: Tab, appTabIndex: Int) {
-        appTab.backStackPositionTitle?.let {
+        appTab.getBackStackPositionTitle()?.let {
             FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText)).run {
                 setAction(R.string.reading_list_item_delete_undo) {
                     app.tabList.add(appTabIndex, appTab)
