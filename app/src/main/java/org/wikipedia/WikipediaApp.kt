@@ -302,6 +302,7 @@ class WikipediaApp : Application() {
                 AppDatabase.instance.tabDao().deleteAll()
                 initTabs()
             } else {
+                AppDatabase.instance.tabDao().deleteAll()
                 AppDatabase.instance.tabDao().insertTabs(tabList)
             }
         }
