@@ -176,14 +176,14 @@ class SearchResultsFragment : Fragment() {
 
     private inner class NoSearchResultAdapter : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
         override fun onBindViewHolder(holder: NoSearchResultItemViewHolder, position: Int) {
-            holder.bindItem(viewModel.resultPairList[position])
+            holder.bindItem(viewModel.countsPerLanguageCode[position])
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoSearchResultItemViewHolder {
             return NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
         }
 
-        override fun getItemCount(): Int { return viewModel.resultPairList.size }
+        override fun getItemCount(): Int { return viewModel.countsPerLanguageCode.size }
     }
 
     private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
@@ -197,7 +197,7 @@ class SearchResultsFragment : Fragment() {
             }
             itemBinding.resultsText.text = if (resultCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultCount, resultCount)
             itemBinding.resultsText.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.visibility = if (viewModel.resultPairList.size == 1) View.GONE else View.VISIBLE
+            itemBinding.languageCode.visibility = if (viewModel.countsPerLanguageCode.size == 1) View.GONE else View.VISIBLE
             itemBinding.languageCode.setLangCode(langCode)
             itemBinding.languageCode.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
             itemBinding.languageCode.setBackgroundTint(if (resultCount == 0) secondaryColorStateList else accentColorStateList)

@@ -26,20 +26,20 @@ class SearchResultsViewModel : ViewModel() {
 
     private val batchSize = 20
     private val delayMillis = 200L
-    var resultPairList = mutableListOf<Pair<String, Int>>()
+    var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
     var searchTerm: String? = null
     var languageCode: String? = null
     lateinit var invokeSource: Constants.InvokeSource
 
     @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
     val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, resultPairList, invokeSource)
+        SearchResultsPagingSource(searchTerm, languageCode, countsPerLanguageCode, invokeSource)
     }.flow.debounce(delayMillis).cachedIn(viewModelScope)
 
     class SearchResultsPagingSource(
         private val searchTerm: String?,
         private val languageCode: String?,
-        private var resultPairList: MutableList<Pair<String, Int>>,
+        private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
         private var invokeSource: Constants.InvokeSource
     ) : PagingSource<Int, SearchResult>() {
 
@@ -93,7 +93,7 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 if (resultList.isEmpty() && response?.continuation == null) {
-                    resultPairList.clear()
+                    countsPerLanguageCode.clear()
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                         var countResultSize = 0
                         if (langCode != languageCode) {
@@ -108,7 +108,7 @@ class SearchResultsViewModel : ViewModel() {
                                 countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
                         }
-                        resultPairList.add(langCode to countResultSize)
+                        countsPerLanguageCode.add(langCode to countResultSize)
                     }
                 }
 
