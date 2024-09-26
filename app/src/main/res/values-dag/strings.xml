@@ -421,7 +421,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Malimi a tuulbaa zali a ni borili shɛm</string>
   <string name="error_blocked_footer_no_blocker">A ni tooi nya &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka yi tɔɣisi a kparibu maa yɛltɔɣa.</string>
   <string name="temp_account_not_logged_in">A bi kpɛ</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Di yi niŋ ka a niŋ maliniŋ, saha bela akaunt nyɛla din yɛn nam ti a ka di gbubi a daashili. Bɔhimi pam. Nammi akaunt zaŋ n-ti suhi biɛɣu ni maliniŋ ni din yɛn che ka a tooi nya nahingbaŋ shɛŋa.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Di yi niŋ ka a niŋ maliniŋ, saha bela akaunt nyɛla din yɛn nam ti a ka di gbubi a daashili. &lt;a href=\"%1$s\"&gt;Bɔhimi pam&lt;/a&gt;. Nammi akaunt zaŋ n-ti suhi biɛɣu ni maliniŋ ni din yɛn che ka a tooi nya nahingbaŋ shɛŋa.</string>
   <string name="temp_account_dialog_ok">Nya li</string>
   <string name="temp_account_using_title">A mali la saha bela akaunt</string>
   <string name="temp_account_dialog_discard">Kpihimi taɣibunima ka kpɛ</string>
