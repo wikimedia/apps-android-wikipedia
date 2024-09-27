@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            app:minColumnWidth="@dimen/view_feed_min_column_width" />
+            app:minColumnWidth="@dimen/view_feed_min_column_width"
+            app:minColumnCount="1"/>
 
         <LinearLayout
             android:id="@+id/empty_container"
