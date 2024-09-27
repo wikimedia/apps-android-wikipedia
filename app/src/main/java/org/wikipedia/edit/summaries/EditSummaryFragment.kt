@@ -86,14 +86,14 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.editSummaryTextLayout.setEndIconOnClickListener {
-            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                 ImageRecommendationsEvent.logAction("tts_open", "editsummary_dialog", getActionDataStringForData())
             }
             launchVoiceInput()
         }
 
         binding.learnMoreButton.setOnClickListener {
-            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                 ImageRecommendationsEvent.logAction("view_help", "editsummary_dialog", getActionDataStringForData())
             }
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_edit_summary_url)))
@@ -108,7 +108,7 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.watchPageCheckBox.setOnCheckedChangeListener { _, isChecked ->
-            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                 ImageRecommendationsEvent.logAction(if (isChecked) "add_watchlist" else "remove_watchlist", "editsummary_dialog", getActionDataStringForData())
             }
         }
@@ -179,7 +179,7 @@ class EditSummaryFragment : Fragment() {
     }
 
     private fun addEditSummaries() {
-        val summaryTagStrings = if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
+        val summaryTagStrings = if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE)
             intArrayOf(R.string.edit_summary_added_image_and_caption, R.string.edit_summary_added_image)
         else
             intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
@@ -214,6 +214,8 @@ class EditSummaryFragment : Fragment() {
         binding.editSummaryTagsContainer.addView(chip)
         return chip
     }
+
+    private fun invokeSource() = (requireActivity() as EditSectionActivity).getInvokeSource()
 
     fun show() {
         ViewAnimations.fadeIn(binding.root) {

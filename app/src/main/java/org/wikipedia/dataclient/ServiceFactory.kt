@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient
 
 import androidx.collection.lruCache
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
@@ -15,6 +14,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 import java.io.IOException
 
