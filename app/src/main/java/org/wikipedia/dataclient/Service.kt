@@ -372,13 +372,7 @@ interface Service {
     // ------- Editing -------
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
-    fun getWikiTextForSectionWithInfo(
-        @Query("titles") title: String,
-        @Query("rvsection") section: Int?
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
-    suspend fun getWikiTextForSectionWithInfoSuspend(
+    suspend fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
     ): MwQueryResponse
@@ -397,26 +391,7 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
-    fun postEditSubmit(
-        @Field("title") title: String,
-        @Field("section") section: String?,
-        @Field("sectiontitle") newSectionTitle: String?,
-        @Field("summary") summary: String,
-        @Field("assert") user: String?,
-        @Field("text") text: String?,
-        @Field("appendtext") appendText: String?,
-        @Field("baserevid") baseRevId: Long,
-        @Field("token") token: String,
-        @Field("captchaid") captchaId: String?,
-        @Field("captchaword") captchaWord: String?,
-        @Field("minor") minor: Boolean? = null,
-        @Field("watchlist") watchlist: String? = null,
-        @Field("matags") tags: String? = null
-    ): Observable<Edit>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=edit")
-    suspend fun postEditSubmitSuspend(
+    suspend fun postEditSubmit(
         @Field("title") title: String,
         @Field("section") section: String?,
         @Field("sectiontitle") newSectionTitle: String?,
