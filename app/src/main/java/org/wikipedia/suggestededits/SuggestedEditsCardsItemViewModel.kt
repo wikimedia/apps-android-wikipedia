@@ -62,7 +62,7 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
 
                 DescriptionEditActivity.Action.ADD_CAPTION -> {
                     val response = EditingSuggestionsProvider.getNextImageWithMissingCaption(fromLangCode)
-                    val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(response, fromLangCode)
+                    val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(response, fromLangCode)
                     val page = imageInfoResponse.query?.firstPage()
                     if (page?.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!
@@ -97,7 +97,7 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
                 DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
                     val pair = EditingSuggestionsProvider.getNextImageWithMissingCaption(fromLangCode, toLangCode)
                     val fileCaption = pair.first
-                    val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(pair.second, fromLangCode)
+                    val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(pair.second, fromLangCode)
                     val page = imageInfoResponse.query?.firstPage()
                     if (page?.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!

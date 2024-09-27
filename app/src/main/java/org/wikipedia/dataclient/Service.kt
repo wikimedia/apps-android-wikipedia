@@ -41,12 +41,6 @@ interface Service {
     // ------- Search -------
 
     @GET(
-        MW_API_PREFIX + "action=query&prop=pageimages&piprop=thumbnail" +
-                "&converttitles=&pilicense=any&pithumbsize=" + PREFERRED_THUMB_SIZE
-    )
-    fun getPageImages(@Query("titles") titles: String): Observable<MwQueryResponse>
-
-    @GET(
         MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
                 "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
@@ -126,13 +120,7 @@ interface Service {
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getImageInfo(
-        @Query("titles") titles: String,
-        @Query("iiextmetadatalanguage") lang: String
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    suspend fun getImageInfoSuspend(
+    suspend fun getImageInfo(
         @Query("titles") titles: String,
         @Query("iiextmetadatalanguage") lang: String
     ): MwQueryResponse
@@ -367,11 +355,6 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
     suspend fun unreadNotificationWikis(): MwQueryResponse
 
-    // TODO: remove "KT" if we remove the Observable one.
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
-    suspend fun unreadNotificationWikisKT(): MwQueryResponse
-
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
     suspend fun subscribePush(
@@ -523,13 +506,7 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=wbgetclaims")
-    fun getClaims(
-        @Query("entity") entity: String,
-        @Query("property") property: String?
-    ): Observable<Claims>
-
-    @GET(MW_API_PREFIX + "action=wbgetclaims")
-    suspend fun getClaimsSuspend(
+    suspend fun getClaims(
         @Query("entity") entity: String,
         @Query("property") property: String?
     ): Claims
@@ -545,15 +522,6 @@ interface Service {
     suspend fun getWikidataDescription(@Query("titles") titles: String,
                                        @Query("sites") sites: String,
                                        @Query("languages") langCode: String): Entities
-
-    @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
-    @FormUrlEncoded
-    fun postSetClaim(
-        @Field("claim") claim: String,
-        @Field("token") token: String,
-        @Field("summary") summary: String?,
-        @Field("tags") tags: String?
-    ): Observable<MwPostResponse>
 
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
@@ -606,10 +574,6 @@ interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights")
     suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
-
-    @get:GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
-    @get:Headers("Cache-Control: no-cache")
-    val watchlist: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @Headers("Cache-Control: no-cache")

@@ -84,7 +84,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 L.w("Failed to fetch gallery collection.", throwable)
             }) {
                 val mediaList = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getMediaListSuspend(pageTitle.prefixedText, revision)
+                    .getMediaList(pageTitle.prefixedText, revision)
                 val maxImages = 10
                 val items = mediaList.getItems("image", "video").asReversed()
                 val titleList =
@@ -93,7 +93,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 else {
                     val response = ServiceFactory.get(
                         pageTitle.wikiSite
-                    ).getImageInfoSuspend(
+                    ).getImageInfo(
                         titleList.joinToString("|"),
                         pageTitle.wikiSite.languageCode
                     )
