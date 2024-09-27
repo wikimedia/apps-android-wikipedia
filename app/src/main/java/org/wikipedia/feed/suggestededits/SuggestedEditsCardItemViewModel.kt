@@ -129,7 +129,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun addCaption(langFromCode: String): PageSummaryForEdit? {
         val title = EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode,
             SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
-        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(title, langFromCode)
+        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(title, langFromCode)
         val page = imageInfoResponse.query?.firstPage()
         return page?.imageInfo()?.let {
             return@let PageSummaryForEdit(
@@ -157,7 +157,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
             SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT
         )
         val fileCaption = pair.first
-        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(pair.second, langFromCode)
+        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(pair.second, langFromCode)
         val page = imageInfoResponse.query?.firstPage()
         return page?.imageInfo()?.let {
             val sourceSummaryForEdit = PageSummaryForEdit(
