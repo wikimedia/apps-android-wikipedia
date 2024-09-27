@@ -63,7 +63,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             _loadPageSummaryState.value = Resource.Loading()
             editingAllowed = false
             val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(null, pageTitle.prefixedText) }
-            val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0) }
+            val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0) }
 
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
             var error: MwServiceError? = null
@@ -161,7 +161,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                                                  captchaId: String?,
                                                  captchaWord: String?): Edit {
         val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
-            .getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
+            .getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()
@@ -180,7 +180,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             editSummary += ", $it"
         }
 
-        return ServiceFactory.get(pageTitle.wikiSite).postEditSubmitSuspend(
+        return ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(
             title = pageTitle.prefixedText,
             section = "0",
             newSectionTitle = null,
@@ -200,7 +200,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                                                   currentDescription: String,
                                                   editComment: String?,
                                                   editTags: String?): EntityPostResponse {
-        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
+        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
         val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
         if (!errorForAction.isNullOrEmpty()) {
             val error = errorForAction.first()
