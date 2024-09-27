@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -48,7 +47,6 @@ class TabActivity : BaseActivity() {
         binding.tabCountsView.setOnClickListener { onBackPressed() }
         FeedbackUtil.setButtonTooltip(binding.tabCountsView, binding.tabButtonNotifications)
 
-        binding.tabRecyclerView.itemAnimator = DefaultItemAnimator()
         binding.tabRecyclerView.adapter = TabItemAdapter()
         val touchCallback = SwipeableTabTouchHelperCallback(this)
         touchCallback.swipeableEnabled = true
@@ -101,7 +99,7 @@ class TabActivity : BaseActivity() {
                             val appTabs = app.tabList.toMutableList()
                             app.tabList.clear()
                             binding.tabCountsView.updateTabCount(false)
-                            binding.tabRecyclerView.adapter?.notifyDataSetChanged()
+                            binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(0, appTabs.size)
                             setResult(RESULT_LOAD_FROM_BACKSTACK)
                             showUndoAllSnackbar(appTabs)
                             cancelled = false
@@ -153,6 +151,9 @@ class TabActivity : BaseActivity() {
                     app.tabList.add(index, appTab)
                     binding.tabRecyclerView.adapter?.notifyItemInserted(adapterPosition)
                     binding.tabCountsView.updateTabCount(false)
+                    if (adapterPosition == 0 && app.tabCount > 1) {
+                        binding.tabRecyclerView.adapter?.notifyItemChanged(1)
+                    }
                 }
                 show()
             }
@@ -164,7 +165,7 @@ class TabActivity : BaseActivity() {
             setAction(R.string.reading_list_item_delete_undo) {
                 app.tabList.addAll(appTabs)
                 appTabs.clear()
-                binding.tabRecyclerView.adapter?.notifyDataSetChanged()
+                binding.tabRecyclerView.adapter?.notifyItemRangeInserted(0, app.tabList.size)
                 binding.tabCountsView.updateTabCount(false)
             }
             show()
@@ -248,6 +249,9 @@ class TabActivity : BaseActivity() {
             val appTab = app.tabList.removeAt(index)
             binding.tabCountsView.updateTabCount(false)
             bindingAdapter?.notifyItemRemoved(adapterPosition)
+            if (adapterPosition == 0) {
+                bindingAdapter?.notifyItemChanged(0)
+            }
             setResult(RESULT_LOAD_FROM_BACKSTACK)
             showUndoSnackbar(index, appTab, adapterPosition)
         }

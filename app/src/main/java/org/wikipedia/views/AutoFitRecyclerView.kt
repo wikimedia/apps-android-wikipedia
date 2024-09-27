@@ -16,7 +16,7 @@ open class AutoFitRecyclerView(context: Context, attrs: AttributeSet? = null) :
         fun onColumns(columns: Int)
     }
 
-    protected var recyclerLayoutManager: StaggeredGridLayoutManager
+    private var recyclerLayoutManager: StaggeredGridLayoutManager
     private var minColumnWidth = 0
     private var minColumnCount = 1
     var columns = 0

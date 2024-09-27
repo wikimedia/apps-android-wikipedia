@@ -6,7 +6,7 @@ import android.graphics.Paint
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.ResourceUtil
 import kotlin.math.abs
 
 class SwipeableTabTouchHelperCallback(context: Context) : ItemTouchHelper.Callback() {
@@ -22,7 +22,7 @@ class SwipeableTabTouchHelperCallback(context: Context) : ItemTouchHelper.Callba
 
     init {
         swipeBackgroundPaint.style = Paint.Style.FILL
-        swipeBackgroundPaint.color = getThemedColor(context, R.attr.background_color)
+        swipeBackgroundPaint.color = ResourceUtil.getThemedColor(context, R.attr.background_color)
         itemBackgroundPaint.style = Paint.Style.FILL
         itemBackgroundPaint.color = swipeBackgroundPaint.color
     }
