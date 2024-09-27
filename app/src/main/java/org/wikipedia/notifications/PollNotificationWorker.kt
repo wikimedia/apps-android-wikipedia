@@ -7,8 +7,6 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -32,7 +30,9 @@ class PollNotificationWorker(
             Result.success()
         } catch (t: Throwable) {
             if (t is MwException && t.error.title == "login-required") {
-                assertLoggedIn()
+                // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
+                // and should automatically log us out if the credentials are no longer valid.
+                CsrfTokenClient.getTokenBlocking(WikipediaApp.instance.wikiSite)
             }
             L.e(t)
             Result.failure()
@@ -57,19 +57,6 @@ class PollNotificationWorker(
             .query?.notifications?.list?.let {
                 NotificationPollBroadcastReceiver.onNotificationsComplete(appContext, it, dbWikiSiteMap, dbWikiNameMap)
             }
-    }
-
-    private suspend fun assertLoggedIn() {
-        // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
-        // and should automatically log us out if the credentials are no longer valid.
-        try {
-            withContext(Dispatchers.IO) {
-                CsrfTokenClient.getToken(WikipediaApp.instance.wikiSite).blockingSingle()
-            }
-        } catch (e: Throwable) {
-            // Ignore the exception.
-            L.e(e)
-        }
     }
 
     companion object {
