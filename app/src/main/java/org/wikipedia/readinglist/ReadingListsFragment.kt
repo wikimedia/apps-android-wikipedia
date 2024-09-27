@@ -547,7 +547,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val title = ReadingListPage.toPageTitle(it)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
-                ReadingListBehaviorsUtil.updateReadingListPage(requireActivity() as AppCompatActivity, item)
+                ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }

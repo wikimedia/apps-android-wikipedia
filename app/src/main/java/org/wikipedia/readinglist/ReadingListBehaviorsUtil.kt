@@ -11,6 +11,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.apache.commons.lang3.StringUtils
@@ -135,8 +136,8 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun updateReadingListPage(activity: AppCompatActivity, item: ReadingListPage) {
-        activity.lifecycleScope.launch(exceptionHandler) {
+    fun updateReadingListPage(item: ReadingListPage) {
+        MainScope().launch(exceptionHandler) {
             withContext(Dispatchers.IO) {
                 AppDatabase.instance.readingListDao().updateLists(getListsContainPage(item), false)
                 AppDatabase.instance.readingListPageDao().updateReadingListPage(item)

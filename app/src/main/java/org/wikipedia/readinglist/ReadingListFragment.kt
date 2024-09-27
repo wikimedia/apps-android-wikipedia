@@ -823,7 +823,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
-                ReadingListBehaviorsUtil.updateReadingListPage(requireActivity() as AppCompatActivity, item)
+                ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }
