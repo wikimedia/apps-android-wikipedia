@@ -60,13 +60,6 @@ interface RestService {
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
-    fun getSummary(
-        @Header("Referer") referrerUrl: String?,
-        @Path("title") title: String
-    ): Observable<PageSummary>
-
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
     suspend fun getPageSummary(
         @Header("Referer") referrerUrl: String?,
         @Path("title") title: String
@@ -81,13 +74,7 @@ interface RestService {
     suspend fun getRandomSummary(): PageSummary
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaList(
-        @Path("title") title: String,
-        @Path("revision") revision: Long
-    ): Observable<MediaList>
-
-    @GET("page/media-list/{title}/{revision}")
-    suspend fun getMediaListSuspend(
+    suspend fun getMediaList(
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): MediaList
