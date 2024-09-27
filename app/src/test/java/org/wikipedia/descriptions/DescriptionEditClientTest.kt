@@ -59,7 +59,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     fun testRequestPostLabelSuccess() {
         enqueueFromFile("label_edit.json")
         runBlocking {
-            requestPostDescription()
+            requestPostLabel()
         }.run {
             MatcherAssert.assertThat(entity?.id, Matchers.`is`("Q456"))
         }
