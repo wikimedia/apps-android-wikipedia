@@ -58,7 +58,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
         }) {
             _fetchSectionTextState.value = Resource.Loading()
 
-            val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
+            val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
 
             infoResponse.query?.firstPage()?.let { firstPage ->
                 val rev = firstPage.revisions.first()
@@ -103,7 +103,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
         }) {
             _postEditState.value = Resource.Loading()
             val csrfToken = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
-            val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmitSuspend(
+            val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(
                 title = pageTitle.prefixedText,
                 section = if (sectionID >= 0) sectionID.toString() else null,
                 newSectionTitle = null,
