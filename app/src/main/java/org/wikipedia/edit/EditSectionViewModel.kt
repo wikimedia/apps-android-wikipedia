@@ -5,13 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -60,9 +58,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
         }) {
             _fetchSectionTextState.value = Resource.Loading()
 
-            val infoResponse = withContext(Dispatchers.IO) {
-                ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
-            }
+            val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
 
             infoResponse.query?.firstPage()?.let { firstPage ->
                 val rev = firstPage.revisions.first()
@@ -106,7 +102,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
             _postEditState.value = Resource.Error(throwable)
         }) {
             _postEditState.value = Resource.Loading()
-            val csrfToken = withContext(Dispatchers.IO) { CsrfTokenClient.getToken(pageTitle.wikiSite).blockingSingle() }
+            val csrfToken = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
             val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmitSuspend(
                 title = pageTitle.prefixedText,
                 section = if (sectionID >= 0) sectionID.toString() else null,
