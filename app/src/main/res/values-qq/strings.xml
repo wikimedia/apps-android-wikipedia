@@ -790,7 +790,7 @@
   <string name="notifications_channel_group_other_title">Title for the other notifications group.\n\n{{Identical|Other}}</string>
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
-  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assist with accessibility settings.</string>
   <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters, formatted using {{msg-wikimedia|wikipedia-android-strings-notifications_number_of_filters}}.</string>
   <plurals name="notifications_number_of_filters">

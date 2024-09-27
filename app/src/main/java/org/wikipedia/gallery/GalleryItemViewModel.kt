@@ -41,7 +41,7 @@ class GalleryItemViewModel(bundle: Bundle) : ViewModel() {
             val response = if (mediaListItem.isVideo) {
                 ServiceFactory.get(wikiSite).getVideoInfo(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
             } else {
-                ServiceFactory.get(wikiSite).getImageInfoSuspend(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
+                ServiceFactory.get(wikiSite).getImageInfo(imageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
             }
             mediaPage = response.query?.firstPage()
             _uiState.value = Resource.Success(FileUtil.isVideo(mediaPage?.imageInfo()?.mime.orEmpty()))

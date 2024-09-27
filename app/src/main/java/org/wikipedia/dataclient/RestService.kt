@@ -81,13 +81,7 @@ interface RestService {
     suspend fun getRandomSummary(): PageSummary
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaList(
-        @Path("title") title: String,
-        @Path("revision") revision: Long
-    ): Observable<MediaList>
-
-    @GET("page/media-list/{title}/{revision}")
-    suspend fun getMediaListSuspend(
+    suspend fun getMediaList(
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): MediaList
