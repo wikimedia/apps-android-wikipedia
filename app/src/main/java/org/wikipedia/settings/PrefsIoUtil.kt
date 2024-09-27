@@ -4,7 +4,6 @@ import android.content.SharedPreferences
 import androidx.annotation.StringRes
 import androidx.preference.PreferenceManager
 import org.wikipedia.WikipediaApp
-import java.util.Collections
 
 object PrefsIoUtil {
 
@@ -46,15 +45,6 @@ object PrefsIoUtil {
 
     fun setString(key: String?, value: String?) {
         edit().putString(key, value).apply()
-    }
-
-    fun getStringSet(key: String?, defaultValue: Set<String?>?): Set<String>? {
-        val set = preferences.getStringSet(key, defaultValue)
-        return if (set == null) null else Collections.unmodifiableSet(set)
-    }
-
-    fun setStringSet(key: String?, value: Set<String?>?) {
-        edit().putStringSet(key, value).apply()
     }
 
     fun getLong(key: String?, defaultValue: Long): Long {
