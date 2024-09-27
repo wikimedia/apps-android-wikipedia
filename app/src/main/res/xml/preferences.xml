@@ -24,6 +24,11 @@
             android:defaultValue="true"
             android:title="@string/preference_title_collapse_tables"
             android:summary="@string/preference_summary_collapse_tables" />
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_censorship_circumvention"
+            android:defaultValue="true"
+            android:title="@string/preference_title_censorship_circumvention"
+            android:summary="@string/preference_summary_censorship_circumvention" />
         <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_color_theme"
             android:defaultValue="0"

@@ -204,6 +204,7 @@ dependencies {
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
+    implementation libs.okhttp3.dnsoverhttps
     implementation libs.retrofit
     implementation libs.retrofit2.adapter.rxjava3
     implementation libs.rxjava

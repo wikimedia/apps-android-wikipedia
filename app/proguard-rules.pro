@@ -14,6 +14,8 @@
 # --- OkHttp + Okio ---
 -dontwarn okhttp3.**
 -dontwarn okio.**
+-keeppackagenames okhttp3.internal.publicsuffix.*
+-adaptresourcefilenames okhttp3/internal/publicsuffix/PublicSuffixDatabase.gz
 # --- /OkHttp + Okio ---
 
 # Glide

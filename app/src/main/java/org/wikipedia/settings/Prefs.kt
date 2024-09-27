@@ -51,6 +51,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_focus_mode, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_focus_mode, value)
 
+    val isCensorshipCircumventionEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_censorship_circumvention, true)
+
     var fontFamily
         get() = PrefsIoUtil.getString(R.string.preference_key_font_family, "").orEmpty().ifEmpty { "sans-serif" }
         set(fontFamily) = PrefsIoUtil.setString(R.string.preference_key_font_family, fontFamily)
