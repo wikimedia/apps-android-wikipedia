@@ -1,12 +1,14 @@
 package org.wikipedia.feed.onthisday
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -142,6 +144,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             if (viewModel.date[Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] &&
                 viewModel.date[Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]) View.GONE else View.VISIBLE
         binding.indicatorDate.text = String.format(Locale.getDefault(), "%d", Calendar.getInstance()[Calendar.DATE])
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.indicatorDate, 4, 10, 1, TypedValue.COMPLEX_UNIT_SP)
     }
 
     override fun onDestroyView() {
