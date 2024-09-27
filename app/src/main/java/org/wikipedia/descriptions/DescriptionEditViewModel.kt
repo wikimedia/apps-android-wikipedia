@@ -91,8 +91,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                 .globalUserInfo(AccountUtil.userName) }
 
             val response = responseCall.await()
-            val userInfo = userInfoCall.await()
-            val userTotalEdits = userInfo.query?.globalUserInfo?.editCount ?: 0
+            val userTotalEdits = userInfoCall.await().query?.globalUserInfo?.editCount ?: 0
 
             // Perform some post-processing on the predictions.
             // 1) Capitalize them, if we're dealing with enwiki.
@@ -163,91 +162,84 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                                                  editTags: String?,
                                                  captchaId: String?,
                                                  captchaWord: String?): Edit {
-        return withContext(Dispatchers.IO) {
-            val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
-                .getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
-            val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
-            if (!errorForAction.isNullOrEmpty()) {
-                val error = errorForAction.first()
-                throw MwException(error)
-            }
-            val firstRevision = wikiSectionInfoResponse.query?.firstPage()?.revisions?.firstOrNull()
-            var text = firstRevision?.contentMain.orEmpty()
-            val baseRevId = firstRevision?.revId ?: 0
-            text = updateDescriptionInArticle(text, currentDescription)
-            val automaticallyAddedEditSummary = WikipediaApp.instance.getString(
-                if (pageTitle.description.isNullOrEmpty()) R.string.edit_summary_added_short_description
-                else R.string.edit_summary_updated_short_description
-            )
-            var editSummary = automaticallyAddedEditSummary
-            editComment?.let {
-                editSummary += ", $it"
-            }
-
-            val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmitSuspend(
-                title = pageTitle.prefixedText,
-                section = "0",
-                newSectionTitle = null,
-                summary = editSummary,
-                user = AccountUtil.assertUser,
-                text = text,
-                appendText = null,
-                baseRevId = baseRevId,
-                token = csrfToken,
-                captchaId = captchaId,
-                captchaWord = captchaWord,
-                tags = editTags
-            )
-
-            result
+        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite)
+            .getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
+        val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
+        if (!errorForAction.isNullOrEmpty()) {
+            val error = errorForAction.first()
+            throw MwException(error)
         }
+        val firstRevision = wikiSectionInfoResponse.query?.firstPage()?.revisions?.firstOrNull()
+        var text = firstRevision?.contentMain.orEmpty()
+        val baseRevId = firstRevision?.revId ?: 0
+        text = updateDescriptionInArticle(text, currentDescription)
+        val automaticallyAddedEditSummary = WikipediaApp.instance.getString(
+            if (pageTitle.description.isNullOrEmpty()) R.string.edit_summary_added_short_description
+            else R.string.edit_summary_updated_short_description
+        )
+        var editSummary = automaticallyAddedEditSummary
+        editComment?.let {
+            editSummary += ", $it"
+        }
+
+        return ServiceFactory.get(pageTitle.wikiSite).postEditSubmitSuspend(
+            title = pageTitle.prefixedText,
+            section = "0",
+            newSectionTitle = null,
+            summary = editSummary,
+            user = AccountUtil.assertUser,
+            text = text,
+            appendText = null,
+            baseRevId = baseRevId,
+            token = csrfToken,
+            captchaId = captchaId,
+            captchaWord = captchaWord,
+            tags = editTags
+        )
     }
 
     private suspend fun postDescriptionToWikidata(csrfToken: String,
                                                   currentDescription: String,
                                                   editComment: String?,
                                                   editTags: String?): EntityPostResponse {
-        return withContext(Dispatchers.IO) {
-            val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
-            val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
-            if (!errorForAction.isNullOrEmpty()) {
-                val error = errorForAction.first()
-                throw MwException(error)
-            }
-            val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getSiteInfo()
+        val wikiSectionInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText, 0)
+        val errorForAction = wikiSectionInfoResponse.query?.firstPage()?.getErrorForAction("edit")
+        if (!errorForAction.isNullOrEmpty()) {
+            val error = errorForAction.first()
+            throw MwException(error)
+        }
+        val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getSiteInfo()
 
-            // TODO: need to revisit this logic
-            val languageCode = if (siteInfoResponse.query?.siteInfo?.lang != null &&
-                siteInfoResponse.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) siteInfoResponse.query?.siteInfo?.lang.orEmpty()
-            else pageTitle.wikiSite.languageCode
+        // TODO: need to revisit this logic
+        val languageCode = if (siteInfoResponse.query?.siteInfo?.lang != null &&
+            siteInfoResponse.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) siteInfoResponse.query?.siteInfo?.lang.orEmpty()
+        else pageTitle.wikiSite.languageCode
 
-            val entityPostResponse = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
-                action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(
-                    language = languageCode,
-                    useLang = languageCode,
-                    site = Constants.COMMONS_DB_NAME,
-                    title = pageTitle.prefixedText,
-                    newDescription = currentDescription,
-                    summary = editComment,
-                    token = csrfToken,
-                    user = AccountUtil.assertUser,
-                    tags = editTags
-                )
-            } else {
-                ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(
-                    language = languageCode,
-                    useLang = languageCode,
-                    site = pageTitle.wikiSite.dbName(),
-                    title = pageTitle.prefixedText,
-                    newDescription = currentDescription,
-                    summary = editComment,
-                    token = csrfToken,
-                    user = AccountUtil.assertUser,
-                    tags = editTags
-                )
-            }
-            entityPostResponse
+        return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
+            action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+            ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(
+                language = languageCode,
+                useLang = languageCode,
+                site = Constants.COMMONS_DB_NAME,
+                title = pageTitle.prefixedText,
+                newDescription = currentDescription,
+                summary = editComment,
+                token = csrfToken,
+                user = AccountUtil.assertUser,
+                tags = editTags
+            )
+        } else {
+            ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(
+                language = languageCode,
+                useLang = languageCode,
+                site = pageTitle.wikiSite.dbName(),
+                title = pageTitle.prefixedText,
+                newDescription = currentDescription,
+                summary = editComment,
+                token = csrfToken,
+                user = AccountUtil.assertUser,
+                tags = editTags
+            )
         }
     }
 
@@ -258,12 +250,12 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun updateDescriptionInArticle(articleText: String, newDescription: String): String {
-        return if (articleText.contains(DescriptionEditFragment.TEMPLATE_PARSE_REGEX.toRegex())) {
+        return if (articleText.contains(TEMPLATE_PARSE_REGEX.toRegex())) {
             // update existing description template
-            articleText.replaceFirst(DescriptionEditFragment.TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
+            articleText.replaceFirst(TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
         } else {
             // add new description template
-            "{{${DescriptionEditFragment.DESCRIPTION_TEMPLATES[0]}|$newDescription}}\n$articleText".trimIndent()
+            "{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}\n$articleText".trimIndent()
         }
     }
 
@@ -272,5 +264,12 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return DescriptionEditViewModel(bundle) as T
         }
+    }
+
+    companion object {
+        val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
+        // Don't remove the ending escaped `\\}`
+        @Suppress("RegExpRedundantEscape")
+        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})"
     }
 }
