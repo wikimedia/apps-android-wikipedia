@@ -123,7 +123,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                 if (shouldWriteToLocalWiki()) pageTitle.wikiSite else Constants.wikidataWikiSite
             }
 
-            val csrfToken = withContext(Dispatchers.IO) { CsrfTokenClient.getToken(csrfSite).blockingSingle() }
+            val csrfToken = CsrfTokenClient.getTokenBlocking(csrfSite)
 
             val response = if (shouldWriteToLocalWiki()) {
                 // If the description is being applied to an article on English Wikipedia, it
