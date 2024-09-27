@@ -271,8 +271,8 @@ class GooglePayActivity : BaseActivity() {
         if (requestCode == LOAD_PAYMENT_DATA_REQUEST_CODE) {
             when (resultCode) {
                 Activity.RESULT_OK -> {
-                    data?.let { intent ->
-                        PaymentData.getFromIntent(intent)?.let { paymentData ->
+                    data?.let { dataIntent ->
+                        PaymentData.getFromIntent(dataIntent)?.let { paymentData ->
                             viewModel.submit(paymentData,
                                 binding.checkBoxTransactionFee.isChecked,
                                 binding.checkBoxRecurring.isChecked,
