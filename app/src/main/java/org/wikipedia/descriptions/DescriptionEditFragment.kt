@@ -424,16 +424,6 @@ class DescriptionEditFragment : Fragment() {
         }
     }
 
-    private fun updateDescriptionInArticle(articleText: String, newDescription: String): String {
-        return if (articleText.contains(TEMPLATE_PARSE_REGEX.toRegex())) {
-            // update existing description template
-            articleText.replaceFirst(TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
-        } else {
-            // add new description template
-            "{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}\n$articleText".trimIndent()
-        }
-    }
-
     companion object {
         const val ARG_REVIEWING = "inReviewing"
         const val ARG_DESCRIPTION = "description"
@@ -441,13 +431,8 @@ class DescriptionEditFragment : Fragment() {
         const val ARG_ACTION = "action"
         const val ARG_SOURCE_SUMMARY = "sourceSummary"
         const val ARG_TARGET_SUMMARY = "targetSummary"
-        const val MACHINE_SUGGESTION = "#machine-suggestion"
-        const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-
-        val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
-        // Don't remove the ending escaped `\\}`
-        @Suppress("RegExpRedundantEscape")
-        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})"
+        private const val MACHINE_SUGGESTION = "#machine-suggestion"
+        private const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
 
         fun newInstance(title: PageTitle,
                         highlightText: String?,

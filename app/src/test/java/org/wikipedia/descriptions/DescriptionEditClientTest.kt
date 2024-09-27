@@ -21,11 +21,11 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         val text =
             "test test test test {{Short description|This is a description.}} foo foo {{Another template|12345}} foo foo"
         val newText = text.replaceFirst(
-            DescriptionEditFragment.TEMPLATE_PARSE_REGEX.toRegex(),
+            DescriptionEditViewModel.TEMPLATE_PARSE_REGEX.toRegex(),
             "$1" + "New description." + "$3"
         )
         MatcherAssert.assertThat(
-            Pattern.compile(DescriptionEditFragment.TEMPLATE_PARSE_REGEX).matcher(text).find(),
+            Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find(),
             Matchers.`is`(true)
         )
         MatcherAssert.assertThat(
@@ -38,7 +38,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     fun testRegexWithNoLocalDescription() {
         val text = "test test test test foo foo {{Another template|12345}} foo foo"
         MatcherAssert.assertThat(
-            Pattern.compile(DescriptionEditFragment.TEMPLATE_PARSE_REGEX).matcher(text).find(),
+            Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find(),
             Matchers.`is`(false)
         )
     }
