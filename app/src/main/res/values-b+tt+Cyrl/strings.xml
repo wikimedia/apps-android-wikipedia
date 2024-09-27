@@ -1562,6 +1562,7 @@
   <string name="patroller_saved_message_title_final_warning">Соңгы кисәтү</string>
   <string name="patroller_saved_message_title_copy_vio">Авторлык хокукларын бозу турында кисәтү</string>
   <string name="patroller_saved_message_title_art_imp">Мәкаләне яхшырту тәкъдиме</string>
+  <string name="talk_templates_menu_edit_title">Үзгәрт</string>
   <string name="data_opt_in_accept">Кабул итү</string>
   <string name="data_opt_in_reject">Баш тартырга</string>
   <string name="page_issues_title">Бит белән проблемалар</string>
