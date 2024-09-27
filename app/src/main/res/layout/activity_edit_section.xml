@@ -134,11 +134,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="?attr/paper_color"
         android:layout_gravity="center"
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:paddingEnd="@dimen/activity_horizontal_margin"
         android:orientation="vertical"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
