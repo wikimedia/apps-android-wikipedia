@@ -46,7 +46,7 @@ object NotificationDirectReplyHelper {
             }
 
             topic?.let {
-                val submitResponse = ServiceFactory.get(wiki).postEditSubmitSuspend(
+                val submitResponse = ServiceFactory.get(wiki).postEditSubmit(
                     title.prefixedText, topic.id.toString(), null,
                     DIRECT_REPLY_EDIT_COMMENT, AccountUtil.assertUser, null, replyText,
                     talkPageResponse.await().revision, token.await(), null, null
