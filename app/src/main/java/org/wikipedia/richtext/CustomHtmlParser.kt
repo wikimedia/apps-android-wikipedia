@@ -13,6 +13,7 @@ import android.text.Html.TagHandler
 import android.text.Spannable
 import android.text.Spanned
 import android.text.style.LeadingMarginSpan
+import android.text.style.ParagraphStyle
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.widget.TextView
@@ -201,9 +202,18 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
             if (listParents.last() == "ol") {
                 val count = (if (listItemCounts.size > 0) listItemCounts.pop() else 0) + 1
                 listItemCounts.push(count)
-                val spans = output.getSpans<LeadingMarginSpan>(output.length)
-                if (spans.isNotEmpty()) {
-                    val span = spans.last()
+                // TODO: improve this logic to no longer require explicitly inserting the count
+                // into the output text. This requires manual and fragile manipulation of any
+                // existing spans that may be present in the output text.
+                val paragraphSpans = output.getSpans<ParagraphStyle>(output.length)
+                var lastLeadingSpan: LeadingMarginSpan? = null
+                paragraphSpans.forEach {
+                    if (it !is LeadingMarginSpan)
+                        output.removeSpan(it)
+                    else
+                        lastLeadingSpan = it
+                }
+                lastLeadingSpan?.let { span ->
                     val spanStart = output.getSpanStart(span)
                     output.removeSpan(span)
                     output.insert(spanStart, "$count. ")
