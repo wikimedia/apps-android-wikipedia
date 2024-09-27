@@ -61,7 +61,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.SuggestedEditsImageRecsFragment
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -335,10 +334,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             if (viewModel.pageTitle.wikiSite.languageCode == "en") "/* top */" else ""
         } else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
          summaryText += editSummaryFragment.summary
-        if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-            summaryText += " ${if (intent.getBooleanExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, false))
-                SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT_INFOBOX else SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT_TOP}"
-        }
 
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
         summaryText = StringUtil.removeHTMLTags(summaryText)
