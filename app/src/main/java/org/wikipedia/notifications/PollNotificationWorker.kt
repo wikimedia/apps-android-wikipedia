@@ -1,8 +1,14 @@
 package org.wikipedia.notifications
 
 import android.content.Context
-import androidx.work.*
-import io.reactivex.rxjava3.schedulers.Schedulers
+import androidx.work.Constraints
+import androidx.work.CoroutineWorker
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.WorkerParameters
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -53,12 +59,17 @@ class PollNotificationWorker(
             }
     }
 
-    private fun assertLoggedIn() {
+    private suspend fun assertLoggedIn() {
         // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
         // and should automatically log us out if the credentials are no longer valid.
-        CsrfTokenClient.getToken(WikipediaApp.instance.wikiSite)
-            .subscribeOn(Schedulers.io())
-            .subscribe()
+        try {
+            withContext(Dispatchers.IO) {
+                CsrfTokenClient.getToken(WikipediaApp.instance.wikiSite).blockingSingle()
+            }
+        } catch (e: Throwable) {
+            // Ignore the exception.
+            L.e(e)
+        }
     }
 
     companion object {
