@@ -8,7 +8,7 @@ import org.wikipedia.language.LanguageUtil
 object ImageTagsProvider {
     suspend fun getImageTags(pageId: Int, langCode: String): Map<String, List<String>> {
         try {
-            val claims = ServiceFactory.get(Constants.commonsWikiSite).getClaimsSuspend("M$pageId", "P180")
+            val claims = ServiceFactory.get(Constants.commonsWikiSite).getClaims("M$pageId", "P180")
             val ids = getDepictsClaims(claims.claims)
             return if (ids.isEmpty()) {
                 emptyMap()

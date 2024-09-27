@@ -500,13 +500,7 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=wbgetclaims")
-    fun getClaims(
-        @Query("entity") entity: String,
-        @Query("property") property: String?
-    ): Observable<Claims>
-
-    @GET(MW_API_PREFIX + "action=wbgetclaims")
-    suspend fun getClaimsSuspend(
+    suspend fun getClaims(
         @Query("entity") entity: String,
         @Query("property") property: String?
     ): Claims
@@ -522,15 +516,6 @@ interface Service {
     suspend fun getWikidataDescription(@Query("titles") titles: String,
                                        @Query("sites") sites: String,
                                        @Query("languages") langCode: String): Entities
-
-    @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
-    @FormUrlEncoded
-    fun postSetClaim(
-        @Field("claim") claim: String,
-        @Field("token") token: String,
-        @Field("summary") summary: String?,
-        @Field("tags") tags: String?
-    ): Observable<MwPostResponse>
 
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
