@@ -3,6 +3,7 @@ package org.wikipedia.csrf
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -36,6 +37,8 @@ object CsrfTokenClient {
                         // Log in explicitly
                         try {
                             LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
+                        } catch (e: CancellationException) {
+                            throw e
                         } catch (e: Exception) {
                             L.e(e)
                             lastError = e
@@ -51,6 +54,8 @@ object CsrfTokenClient {
                         if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
                             throw RuntimeException("App believes we're logged in, but got anonymous token.")
                         }
+                    } catch (e: CancellationException) {
+                        throw e
                     } catch (e: Exception) {
                         L.e(e)
                         lastError = e
