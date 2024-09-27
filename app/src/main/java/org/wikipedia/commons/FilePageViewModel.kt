@@ -49,7 +49,7 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
             if (firstPage?.imageInfo() == null) {
                 // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                 firstPage = ServiceFactory.get(pageTitle.wikiSite)
-                    .getImageInfoSuspend(
+                    .getImageInfo(
                         pageTitle.prefixedText,
                         pageTitle.wikiSite.languageCode
                     ).query?.firstPage()
