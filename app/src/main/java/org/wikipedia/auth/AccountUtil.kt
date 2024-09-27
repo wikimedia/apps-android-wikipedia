@@ -7,13 +7,16 @@ import android.os.Build
 import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import java.util.*
 
 object AccountUtil {
+    private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
 
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
@@ -30,6 +33,9 @@ object AccountUtil {
 
     val isLoggedIn: Boolean
         get() = account() != null
+
+    val isTemporaryAccount: Boolean
+        get() = account() == null && getUserNameFromCookie().isNotEmpty()
 
     val userName: String
         get() = account()?.name.orEmpty()
@@ -86,6 +92,18 @@ object AccountUtil {
 
     fun accountType(): String {
         return WikipediaApp.instance.getString(R.string.account_type)
+    }
+
+    fun getUserNameFromCookie(): String {
+        return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
+    }
+
+    fun getUserNameExpiryFromCookie(): Long {
+        return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
+    }
+
+    fun isUserNameTemporary(userName: String): Boolean {
+        return userName.startsWith("~")
     }
 
     private fun createAccount(userName: String, password: String): Boolean {
