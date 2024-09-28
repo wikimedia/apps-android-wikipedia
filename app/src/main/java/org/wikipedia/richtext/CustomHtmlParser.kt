@@ -208,10 +208,11 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                 val paragraphSpans = output.getSpans<ParagraphStyle>(output.length)
                 var lastLeadingSpan: LeadingMarginSpan? = null
                 paragraphSpans.forEach {
-                    if (it !is LeadingMarginSpan)
+                    if (it !is LeadingMarginSpan) {
                         output.removeSpan(it)
-                    else
+                    } else {
                         lastLeadingSpan = it
+                    }
                 }
                 lastLeadingSpan?.let { span ->
                     val spanStart = output.getSpanStart(span)
