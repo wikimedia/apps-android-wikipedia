@@ -56,7 +56,7 @@ class DescriptionEditFragment : Fragment() {
         fun onBottomBarContainerClicked(action: DescriptionEditActivity.Action)
     }
 
-    private val viewModel: DescriptionEditViewModel by viewModels { DescriptionEditViewModel.Factory(requireArguments()) }
+    private val viewModel: DescriptionEditViewModel by viewModels()
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
 
