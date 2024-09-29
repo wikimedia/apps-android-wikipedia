@@ -5,15 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <de.mrapp.android.tabswitcher.TabSwitcher
-        android:id="@+id/tab_switcher"
+    <org.wikipedia.views.AutoFitRecyclerView
+        android:id="@+id/tabRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
+        android:paddingHorizontal="6dp"
         android:background="?android:attr/colorBackground"
-        app:layoutPolicy="auto"
-        app:tabBackgroundColor="?attr/paper_color"
-        app:tabContentBackgroundColor="?attr/paper_color" />
+        android:scrollbars="vertical"
+        android:clipChildren="false"
+        app:minColumnCount="2"
+        app:minColumnWidth="180dp"/>
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tab_toolbar"

@@ -35,8 +35,4 @@ class OnThisDayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _uiState.value = Resource.Success(response.allEvents())
         }
     }
-
-    private fun definitionsNotFound() {
-        _uiState.value = Resource.Error(Throwable("Definitions not found."))
-    }
 }

@@ -117,7 +117,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                         ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(imageTitle, Constants.COMMONS_DB_NAME).first
                     }
                     val firstImageInfo = async {
-                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(imageTitle, Constants.COMMONS_DB_NAME).query?.firstPage()
                     }
                     val labelMap = firstEntity.await()?.getLabels()?.values?.associate { v -> v.language to v.value }.orEmpty()
                     val depicts = ImageTagsProvider.getDepictsClaims(firstEntity.await()?.getStatements().orEmpty())

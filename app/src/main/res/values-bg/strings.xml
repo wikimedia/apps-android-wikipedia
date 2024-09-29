@@ -690,6 +690,7 @@
   <string name="notifications_filter_label">Филтриране на известия</string>
   <string name="notifications_filter_icon_content_description">Филтриране на известия</string>
   <string name="notifications_filter_update_app_languages">Актуализиране езиците на приложението</string>
+  <string name="notifications_empty_search_message">Опитайте да премахнете %s, за да видите повече известия</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d филтър</item>
     <item quantity="other">%d филтъра</item>
@@ -764,6 +765,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
+  <string name="feed_language_variants_removal_dialog_save">Съхраняване</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Моля, актуализирайте вторичните си езици</string>
   <string name="top_read_activity_title">Най-четени за %s</string>
   <string name="description_edit_text_hint">Описание на статията</string>
   <string name="description_edit_article_description_label">Статия</string>

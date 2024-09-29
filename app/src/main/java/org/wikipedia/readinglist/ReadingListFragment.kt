@@ -31,8 +31,6 @@ import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.flow.collectLatest
@@ -825,10 +823,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
-                Completable.fromAction {
-                    AppDatabase.instance.readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
-                    AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
-                }.subscribeOn(Schedulers.io()).subscribe()
+                ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }
