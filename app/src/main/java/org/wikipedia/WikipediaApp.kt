@@ -43,6 +43,7 @@ class WikipediaApp : Application() {
     init {
         instance = this
     }
+
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
