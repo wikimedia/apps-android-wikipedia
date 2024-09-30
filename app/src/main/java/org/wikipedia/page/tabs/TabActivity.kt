@@ -145,7 +145,7 @@ class TabActivity : BaseActivity() {
     }
 
     private fun showUndoSnackbar(index: Int, appTab: Tab, adapterPosition: Int) {
-        appTab.backStackPositionTitle?.let {
+        appTab.getBackStackPositionTitle()?.let {
             FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText)).run {
                 setAction(R.string.reading_list_item_delete_undo) {
                     app.tabList.add(index, appTab)
@@ -202,8 +202,8 @@ class TabActivity : BaseActivity() {
 
     private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableTabTouchHelperCallback.Callback {
         open fun bindItem(tab: Tab, position: Int) {
-            itemView.findViewById<TextView>(R.id.tabArticleTitle).text = StringUtil.fromHtml(tab.backStackPositionTitle?.displayText.orEmpty())
-            itemView.findViewById<TextView>(R.id.tabArticleDescription).text = StringUtil.fromHtml(tab.backStackPositionTitle?.description.orEmpty())
+            itemView.findViewById<TextView>(R.id.tabArticleTitle).text = StringUtil.fromHtml(tab.getBackStackPositionTitle()?.displayText.orEmpty())
+            itemView.findViewById<TextView>(R.id.tabArticleDescription).text = StringUtil.fromHtml(tab.getBackStackPositionTitle()?.description.orEmpty())
             itemView.findViewById<View>(R.id.tabContainer).setOnClickListener(this)
             itemView.findViewById<View>(R.id.tabCloseButton).setOnClickListener(this)
             itemView.findViewById<WikiCardView>(R.id.tabCardView).run {
