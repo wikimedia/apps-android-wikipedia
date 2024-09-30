@@ -1170,7 +1170,9 @@
   <string name="wikitext_reference">Reference</string>
   <string name="wikitext_preview_link">Náhled odkazu</string>
   <string name="insert_media_search_description">Vyberte soubor z Wikimedia Commons</string>
+  <string name="templates_search_hint">Hledat šablony</string>
   <string name="templates_insert_button">Vložit</string>
+  <string name="templates_description_empty">Šablona „%s“ ještě nemá popis.</string>
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit / zaregistrovat se</string>
   <string name="main_tooltip_text">Dobrý den %s, věděli jste, že každý může editovat Wikipedii?</string>
@@ -1344,4 +1346,6 @@
   <string name="places_survey_very_satisfied_option">Velmi spokojen(a)</string>
   <string name="places_survey_very_unsatisfied_option">Velmi nespokojen(a)</string>
   <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>
+  <string name="places_card_title">Místa v okolí</string>
+  <string name="places_card_action">Další místa v okolí</string>
 </resources>
