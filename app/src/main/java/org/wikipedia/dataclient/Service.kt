@@ -155,8 +155,8 @@ interface Service {
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
     ): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
-    val siteInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
+    suspend fun getSiteInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
     suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
@@ -372,10 +372,10 @@ interface Service {
     // ------- Editing -------
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
-    fun getWikiTextForSectionWithInfo(
+    suspend fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
@@ -391,26 +391,7 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
-    fun postEditSubmit(
-        @Field("title") title: String,
-        @Field("section") section: String?,
-        @Field("sectiontitle") newSectionTitle: String?,
-        @Field("summary") summary: String,
-        @Field("assert") user: String?,
-        @Field("text") text: String?,
-        @Field("appendtext") appendText: String?,
-        @Field("baserevid") baseRevId: Long,
-        @Field("token") token: String,
-        @Field("captchaid") captchaId: String?,
-        @Field("captchaword") captchaWord: String?,
-        @Field("minor") minor: Boolean? = null,
-        @Field("watchlist") watchlist: String? = null,
-        @Field("matags") tags: String? = null
-    ): Observable<Edit>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=edit")
-    suspend fun postEditSubmitSuspend(
+    suspend fun postEditSubmit(
         @Field("title") title: String,
         @Field("section") section: String?,
         @Field("sectiontitle") newSectionTitle: String?,
@@ -500,13 +481,7 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=wbgetclaims")
-    fun getClaims(
-        @Query("entity") entity: String,
-        @Query("property") property: String?
-    ): Observable<Claims>
-
-    @GET(MW_API_PREFIX + "action=wbgetclaims")
-    suspend fun getClaimsSuspend(
+    suspend fun getClaims(
         @Query("entity") entity: String,
         @Query("property") property: String?
     ): Claims
@@ -523,18 +498,9 @@ interface Service {
                                        @Query("sites") sites: String,
                                        @Query("languages") langCode: String): Entities
 
-    @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
-    @FormUrlEncoded
-    fun postSetClaim(
-        @Field("claim") claim: String,
-        @Field("token") token: String,
-        @Field("summary") summary: String?,
-        @Field("tags") tags: String?
-    ): Observable<MwPostResponse>
-
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
-    fun postDescriptionEdit(
+    suspend fun postDescriptionEdit(
         @Field("language") language: String,
         @Field("uselang") useLang: String,
         @Field("site") site: String,
@@ -544,11 +510,11 @@ interface Service {
         @Field("token") token: String,
         @Field("assert") user: String?,
         @Field("matags") tags: String? = null
-    ): Observable<EntityPostResponse>
+    ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
     @FormUrlEncoded
-    fun postLabelEdit(
+    suspend fun postLabelEdit(
         @Field("language") language: String,
         @Field("uselang") useLang: String,
         @Field("site") site: String,
@@ -558,7 +524,7 @@ interface Service {
         @Field("token") token: String,
         @Field("assert") user: String?,
         @Field("matags") tags: String? = null
-    ): Observable<EntityPostResponse>
+    ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
     @FormUrlEncoded

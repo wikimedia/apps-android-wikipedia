@@ -1573,4 +1573,6 @@
   <string name="donation_campaign_donated_snackbar">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
+  <string name="places_toggle_buttons_map">Харита</string>
+  <string name="places_toggle_buttons_list">Исемлек</string>
 </resources>
