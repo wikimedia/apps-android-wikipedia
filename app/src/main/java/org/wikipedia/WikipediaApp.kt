@@ -137,6 +137,9 @@ class WikipediaApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // Set the instance after the Application is fully initialized.
+        instance = this
+
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         connectionStateMonitor.enable()
