@@ -109,6 +109,7 @@
   <string name="menu_page_recently_viewed">Недавно прегледано</string>
   <string name="menu_page_archive">Архива</string>
   <string name="menu_long_press_open_page">Отвори</string>
+  <string name="menu_long_press_open_in_places">Отвори у Местима</string>
   <string name="menu_long_press_open_in_new_tab">Отвори у новој картици</string>
   <string name="menu_long_press_copy_page">Копирај адресу линка</string>
   <string name="menu_text_select_define">Дефиниши</string>
@@ -1620,4 +1621,10 @@
   <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
   <string name="places_survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Шта бисте желели да променимо или унапредимо?</string>
+  <string name="places_card_title">Места у близини</string>
+  <string name="places_card_action">Још места у близини</string>
+  <string name="places_card_enable_location_card_button">Омогући локацију</string>
+  <string name="places_card_distance_suffix">%s удаљено</string>
+  <string name="places_card_distance_unknown">Непозната удаљеност</string>
+  <string name="recommended_content_section_you_might_like">Можда Вам се свиди</string>
 </resources>
