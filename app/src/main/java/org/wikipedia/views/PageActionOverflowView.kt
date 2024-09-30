@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.core.view.doOnDetach
 import androidx.core.widget.PopupWindowCompat
@@ -22,6 +23,7 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
 class PageActionOverflowView(context: Context) : FrameLayout(context) {
@@ -47,10 +49,23 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             }
             binding.overflowList.addView(view)
         }
-        binding.customizeToolbar.setOnClickListener {
+        addCustomizeToolbarItem()
+    }
+
+    private fun addCustomizeToolbarItem() {
+        val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
+        view.text = context.getString(R.string.customize_toolbar_title)
+        view.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_settings_black_24dp, 0, 0, 0)
+        view.setOnClickListener {
             dismissPopupWindowHost()
             context.startActivity(CustomizeToolbarActivity.newIntent(context))
         }
+        val border = View(context)
+        border.layoutParams = LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, DimenUtil.roundedDpToPx(1f))
+        border.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.border_color))
+        view.tag = false
+//        binding.overflowList.addView(border)
+        binding.overflowList.addView(view)
     }
 
     fun show(anchorView: View, callback: PageActionItem.Callback, currentTab: Tab, model: PageViewModel) {
@@ -65,6 +80,9 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
 
         for (i in 1 until binding.overflowList.childCount) {
+            if (binding.overflowList.getChildAt(i).tag == false) {
+                continue
+            }
             val view = binding.overflowList.getChildAt(i) as MaterialTextView
             val pageActionItem = PageActionItem.find(view.id)
             val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))

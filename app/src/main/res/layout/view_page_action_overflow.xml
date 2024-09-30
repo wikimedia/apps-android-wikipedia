@@ -13,43 +13,20 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/overflowList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/overflowList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/paper_color"
-                android:orientation="vertical">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/overflow_forward"
-                    style="@style/OverflowMenuItem"
-                    android:drawablePadding="16dp"
-                    android:text="@string/nav_item_forward"
-                    android:layoutDirection="locale"
-                    android:textDirection="locale"
-                    app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-                    app:drawableTint="?attr/primary_color" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/border_color" />
-
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/customize_toolbar"
+                android:id="@+id/overflow_forward"
                 style="@style/OverflowMenuItem"
-                android:layout_width="wrap_content"
                 android:drawablePadding="16dp"
-                android:text="@string/customize_toolbar_title"
+                android:text="@string/nav_item_forward"
                 android:layoutDirection="locale"
                 android:textDirection="locale"
-                app:drawableStartCompat="@drawable/ic_settings_black_24dp"
+                app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
                 app:drawableTint="?attr/primary_color" />
 
         </LinearLayout>
