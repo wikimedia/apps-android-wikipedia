@@ -1475,8 +1475,6 @@
   <string name="reading_list_share_menu_label">Condivider…</string>
   <string name="reading_list_share_menu_tooltip">Condivider iste lista de lectura con alteres</string>
   <string name="reading_list_share_message_v2">Salute! Io vole condivider mi lista de lectura de Wikipedia con te:</string>
-  <string name="reading_list_share_survey_title">Poterea tu adjutar nos a meliorar \"Condivider listas de lectura\"?</string>
-  <string name="reading_list_share_survey_body">\"Condivider listas de lectura\" es un function in test e nos ha besonio de tu retroaction pro meliorar o remover lo.</string>
   <string name="talk_templates_empty_message">Crea tu proprie messages o usa le &lt;a href=\"#\"&gt;messages de exemplo&lt;/a&gt; pro comenciar.</string>
   <string name="talk_templates_new_message_title">Nove message</string>
   <string name="talk_templates_new_message_subject_hint">Subjecto</string>

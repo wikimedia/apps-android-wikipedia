@@ -1441,8 +1441,6 @@
   <string name="reading_list_share_menu_label">공유...</string>
   <string name="reading_list_share_menu_tooltip">이 읽기 목록을 다른 사람과 공유</string>
   <string name="reading_list_share_message_v2">안녕하세요! 저의 위키백과 읽기 목록을 당신께 공유하고 싶습니다:</string>
-  <string name="reading_list_share_survey_title">\"읽기 목록 공유\" 개선에 도움을 주시겠습니까?</string>
-  <string name="reading_list_share_survey_body">\"읽기 목록 공유\"는 시험 기능이며, 이를 개선하거나 제거하려면 여러분의 의견이 필요합니다.</string>
   <string name="talk_templates_empty_message" fuzzy="true">저장된 경고 메시지가 없습니다.</string>
   <string name="talk_templates_new_message_title">새 메시지</string>
   <string name="talk_templates_new_message_subject_hint">주제</string>
