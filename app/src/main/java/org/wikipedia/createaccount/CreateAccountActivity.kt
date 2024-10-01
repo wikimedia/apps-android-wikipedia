@@ -9,12 +9,14 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
+import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -22,8 +24,6 @@ import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
-import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -31,7 +31,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
-import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
 
 class CreateAccountActivity : BaseActivity() {
@@ -42,10 +41,9 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var createAccountEvent: CreateAccountEvent
-    private val disposables = CompositeDisposable()
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
-    private val userNameVerifyRunnable = UserNameVerifyRunnable()
+    private val viewModel: CreateAccountActivityViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +62,63 @@ class CreateAccountActivity : BaseActivity() {
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.createAccountInfoState.collect {
+                        when (it) {
+                            is CreateAccountActivityViewModel.AccountInfoState.DoCreateAccount -> {
+                                doCreateAccount(it.token)
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
+                                captchaHandler.handleCaptcha(it.token, CaptchaResult(it.captchaId))
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.InvalidToken -> {
+                                handleAccountCreationError(getString(R.string.create_account_generic_error))
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.Error -> {
+                                showError(it.throwable)
+                                L.e(it.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.doCreateAccountState.collect {
+                        when (it) {
+                            is CreateAccountActivityViewModel.CreateAccountState.Pass -> {
+                                finishWithUserResult(it.userName)
+                            }
+                            is CreateAccountActivityViewModel.CreateAccountState.Error -> {
+                                if (it.throwable is CreateAccountException) {
+                                    createAccountEvent.logError(it.throwable.message)
+                                }
+                                L.e(it.throwable.toString())
+                                createAccountEvent.logError(it.throwable.toString())
+                                showProgressBar(false)
+                                showError(it.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.verifyUserNameState.collect {
+                        when (it) {
+                            CreateAccountActivityViewModel.UserNameState.Initial,
+                            CreateAccountActivityViewModel.UserNameState.Success -> {
+                                binding.createAccountUsername.isErrorEnabled = false
+                            }
+                            is CreateAccountActivityViewModel.UserNameState.Blocked -> {
+                                handleAccountCreationError(it.error)
+                            }
+                            is CreateAccountActivityViewModel.UserNameState.CannotCreate -> {
+                                binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, it.userName)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun setClickListeners() {
@@ -100,17 +155,11 @@ class CreateAccountActivity : BaseActivity() {
             false
         }
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
-            binding.createAccountUsername.removeCallbacks(userNameVerifyRunnable)
-            binding.createAccountUsername.isErrorEnabled = false
-            if (text.isNullOrEmpty()) {
-                return@doOnTextChanged
-            }
-            userNameVerifyRunnable.setUserName(text.toString())
-            binding.createAccountUsername.postDelayed(userNameVerifyRunnable, TimeUnit.SECONDS.toMillis(1))
+            viewModel.verifyUserName(text)
         }
     }
 
-    fun handleAccountCreationError(message: String) {
+    private fun handleAccountCreationError(message: String) {
         if (message.contains("blocked")) {
             FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message))
                     .setAction(R.string.create_account_ip_block_details) {
@@ -124,51 +173,13 @@ class CreateAccountActivity : BaseActivity() {
         L.w("Account creation failed with result $message")
     }
 
-    private val createAccountInfo: Unit
-        get() {
-            disposables.add(ServiceFactory.get(wiki).authManagerInfo
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        val token = response.query?.createAccountToken()
-                        val captchaId = response.query?.captchaId()
-                        if (token.isNullOrEmpty()) {
-                            handleAccountCreationError(getString(R.string.create_account_generic_error))
-                        } else if (!captchaId.isNullOrEmpty()) {
-                            captchaHandler.handleCaptcha(token, CaptchaResult(captchaId))
-                        } else {
-                            doCreateAccount(token)
-                        }
-                    }) { caught ->
-                        showError(caught)
-                        L.e(caught)
-                    })
-        }
-
     private fun doCreateAccount(token: String) {
         showProgressBar(true)
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
-        disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,
-                email,
-                captchaHandler.captchaId().toString(),
-                captchaHandler.captchaWord().toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    if ("PASS" == response.status) {
-                        finishWithUserResult(response.user)
-                    } else {
-                        createAccountEvent.logError(StringUtil.removeStyleTags(response.message))
-                        throw CreateAccountException(StringUtil.removeStyleTags(response.message))
-                    }
-                }) { caught ->
-                    L.e(caught.toString())
-                    createAccountEvent.logError(caught.toString())
-                    showProgressBar(false)
-                    showError(caught)
-                })
+        val userName = getText(binding.createAccountUsername)
+        viewModel.doCreateAccount(token, captchaHandler.captchaId().toString(), captchaHandler.captchaWord().toString(), userName, password, repeat, email)
     }
 
     override fun onBackPressed() {
@@ -187,7 +198,6 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     public override fun onDestroy() {
-        disposables.clear()
         captchaHandler.dispose()
         userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
@@ -247,7 +257,7 @@ class CreateAccountActivity : BaseActivity() {
         if (captchaHandler.isActive && captchaHandler.token != null) {
             doCreateAccount(captchaHandler.token!!)
         } else {
-            createAccountInfo
+            viewModel.createAccountInfo()
         }
     }
 
@@ -279,30 +289,6 @@ class CreateAccountActivity : BaseActivity() {
     private fun showError(caught: Throwable) {
         binding.viewCreateAccountError.setError(caught)
         binding.viewCreateAccountError.visibility = View.VISIBLE
-    }
-
-    private inner class UserNameVerifyRunnable : Runnable {
-        private lateinit var userName: String
-
-        fun setUserName(userName: String) {
-            this.userName = userName
-        }
-
-        override fun run() {
-            disposables.add(ServiceFactory.get(wiki).getUserList(userName)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        response.query?.getUserResponse(userName)?.let {
-                            binding.createAccountUsername.isErrorEnabled = false
-                            if (it.hasBlockError) {
-                                handleAccountCreationError(it.error)
-                            } else if (!it.canCreate) {
-                                binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
-                            }
-                        }
-                    }) { L.e(it) })
-        }
     }
 
     companion object {
