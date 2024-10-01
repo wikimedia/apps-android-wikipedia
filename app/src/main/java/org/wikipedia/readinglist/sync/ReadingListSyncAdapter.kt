@@ -33,7 +33,7 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : CoroutineWorker(context, params){
+class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
