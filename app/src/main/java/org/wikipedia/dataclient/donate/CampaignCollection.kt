@@ -8,6 +8,7 @@ import kotlinx.serialization.json.decodeFromJsonElement
 import okhttp3.Request
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.donate.DonationResult
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
@@ -45,6 +46,10 @@ object CampaignCollection {
 
     fun getFormattedCampaignId(campaignId: String): String {
         return "${WikipediaApp.instance.appOrSystemLanguageCode}${GeoUtil.geoIPCountry}_${campaignId}_Android"
+    }
+
+    fun addDonationResult(fromWeb: Boolean = false) {
+        Prefs.donationResults = Prefs.donationResults.plus(DonationResult(dateTime = LocalDateTime.now().toString(), fromWeb = fromWeb))
     }
 
     @Serializable
