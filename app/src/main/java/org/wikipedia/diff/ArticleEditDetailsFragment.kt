@@ -82,9 +82,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
     private val actionBarOffsetChangedListener =
         AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
-            if (!isAdded) {
-                return@OnOffsetChangedListener
-            }
             val bounds = Rect()
             binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
             binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
