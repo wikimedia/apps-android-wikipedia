@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.decodeFromJsonElement
 import okhttp3.Request
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
@@ -40,6 +41,10 @@ object CampaignCollection {
             })
         }
         return campaignList
+    }
+
+    fun getFormattedCampaignId(campaignId: String): String {
+        return "${WikipediaApp.instance.appOrSystemLanguageCode}${GeoUtil.geoIPCountry}_${campaignId}_Android"
     }
 
     @Serializable
