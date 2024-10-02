@@ -1518,8 +1518,6 @@
   <string name="reading_list_share_menu_label">Delen…</string>
   <string name="reading_list_share_menu_tooltip">Deel deze leeslijst met anderen</string>
   <string name="reading_list_share_message_v2">Hoi! Ik wil graag mijn Wikipedia leeslijst met je delen:</string>
-  <string name="reading_list_share_survey_title">Kunt u ons helpen om \"Leeslijsten delen\" te verbeteren?</string>
-  <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
   <string name="talk_templates_empty_message">Creëer je eigen berichten of gebruik &lt;a href=\"#\"&gt;voorbeeldberichten&lt;/a&gt; om aan de slag te gaan.</string>
   <string name="talk_templates_new_message_title">Nieuw bericht</string>
   <string name="talk_templates_new_message_subject_hint">Onderwerp</string>

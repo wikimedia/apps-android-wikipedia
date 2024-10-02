@@ -1465,8 +1465,6 @@
   <string name="reading_list_share_menu_label">اشتراک‌گذاری...</string>
   <string name="reading_list_share_menu_tooltip">این فهرست مطالعه را با دیگران به اشتراک بگذارید</string>
   <string name="reading_list_share_message_v2">سلام! من می‌خواهم فهرست مطالعه ویکی‌پدیایم را با شما به اشتراک بگذارم:</string>
-  <string name="reading_list_share_survey_title">آیا می‌توانید به ما در بهبود \"اشتراک‌گذاری فهرست‌های مطالعه\" کمک کنید؟</string>
-  <string name="reading_list_share_survey_body">اشتراک‌گذاری و برون‌بری فهرست‌های مطالعه یک ویژگی آزمایشی است و ما برای بهبود یا حذف آن به بازخوردهای شما نیاز داریم.</string>
   <string name="talk_templates_new_message_title">پیام جدید</string>
   <string name="talk_templates_new_message_subject_hint">عنوان</string>
   <string name="talk_templates_new_message_compose_hint">نوشتن پیام</string>
