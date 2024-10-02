@@ -47,7 +47,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 return@withContext Result.success()
             }
             L.d("Begin sync of reading lists...")
-            val csrfToken = mutableListOf<String>()
+            val csrfToken: String? = null
             val listIdsDeleted = Prefs.readingListsDeletedIds.toMutableSet()
             val pageIdsDeleted = Prefs.readingListPagesDeletedIds.toMutableSet()
             var allLocalLists: MutableList<ReadingList>? = null
@@ -444,11 +444,8 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
     }
 
     @Throws(Throwable::class)
-    private suspend fun getCsrfToken(wiki: WikiSite, tokenList: MutableList<String>): String {
-        if (tokenList.size == 0) {
-            tokenList.add(CsrfTokenClient.getTokenBlocking(wiki))
-        }
-        return tokenList[0]
+    private suspend fun getCsrfToken(wiki: WikiSite, token: String?): String {
+        return token ?: CsrfTokenClient.getTokenBlocking(wiki)
     }
 
     private fun createOrUpdatePage(listForPage: ReadingList,
