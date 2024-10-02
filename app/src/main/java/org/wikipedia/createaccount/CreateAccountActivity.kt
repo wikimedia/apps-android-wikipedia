@@ -64,13 +64,7 @@ class CreateAccountActivity : BaseActivity() {
         }
 
         if (AccountUtil.isTemporaryAccount) {
-            binding.footerContainer.tempAccountInfoContainer.
-          
-          
-          
-          
-          
-          = true
+            binding.footerContainer.tempAccountInfoContainer.isVisible = true
             binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(getString(R.string.temp_account_login_status, AccountUtil.userName))
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
