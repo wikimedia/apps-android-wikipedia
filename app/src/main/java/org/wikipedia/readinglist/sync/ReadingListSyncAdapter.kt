@@ -258,8 +258,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 }
 
                 // Do any remote pages need to be deleted?
-                val pageIdsToDelete = mutableSetOf<String>()
-                pageIdsToDelete.addAll(pageIdsDeleted)
+                val pageIdsToDelete = pageIdsDeleted.toMutableSet()
 
                 // Determine if any articles need to be de-duplicated (because of bugs in previous sync inconsistencies)
                 if (syncEverything) {
