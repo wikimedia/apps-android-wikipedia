@@ -1581,8 +1581,6 @@
   <string name="reading_list_share_menu_label">Падзяліцца...</string>
   <string name="reading_list_share_menu_tooltip">Падзяліцца гэтым спісам для чытання з іншымі</string>
   <string name="reading_list_share_message_v2">Прывітанне! Я хацеў бы падзяліцца з вамі сваім спісам для чытання ў Вікіпедыі:</string>
-  <string name="reading_list_share_survey_title">Ці не маглі б вы дапамагчы нам палепшыць \"Падзяліцца спісам для чытання\"?</string>
-  <string name="reading_list_share_survey_body">\"Падзяліцца спісам для чытання\" – гэта тэставая функцыя, і нам патрабуюцца вашыя водгукі, каб палепшыць або выдаліць яе.</string>
   <string name="talk_templates_empty_message">Стварыце свае паведамленні або скарыстайцеся &lt;a href=\"#\"&gt;узорнымі паведамленнямі&lt;/a&gt;, каб пачаць.</string>
   <string name="talk_templates_new_message_title">Новае паведамленне</string>
   <string name="talk_templates_new_message_subject_hint">Тэма</string>

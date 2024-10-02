@@ -1475,8 +1475,6 @@
   <string name="reading_list_share_menu_label">Compartir…</string>
   <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
-  <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
-  <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
   <string name="talk_templates_empty_message">Cree sus propios mensajes de o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
   <string name="talk_templates_new_message_save">Guardar</string>
   <string name="talk_templates_new_message_dialog_title">Guardar cambios</string>
