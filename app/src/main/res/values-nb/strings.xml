@@ -1495,8 +1495,6 @@
   <string name="reading_list_share_menu_label">Del …</string>
   <string name="reading_list_share_menu_tooltip">Del denne leselista med andre</string>
   <string name="reading_list_share_message_v2">Hei! Jeg ønsker å dele leselista mi på Wikipedia med deg:</string>
-  <string name="reading_list_share_survey_title">Kan du hjelpe oss å forbedre «Del leselister»?</string>
-  <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>
   <string name="talk_templates_empty_message">Opprett dine egne meldinger eller bruk &lt;a href=\"#\"&gt;eksempelmeldinger&lt;/a&gt; for å komme i gang.</string>
   <string name="talk_templates_new_message_title">Ny melding</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>

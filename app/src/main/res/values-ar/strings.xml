@@ -1517,8 +1517,6 @@
   <string name="reading_list_share_menu_label">المشاركة…</string>
   <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
   <string name="reading_list_share_message_v2">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
-  <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين \"مشاركة قوائم القراءة\"؟</string>
-  <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
   <string name="talk_templates_new_message_title">رسالة جديدة</string>
   <string name="talk_templates_new_message_subject_hint">الموضوع</string>
   <string name="talk_templates_new_message_save">حفظ</string>
