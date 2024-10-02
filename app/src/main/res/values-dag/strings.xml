@@ -1444,8 +1444,6 @@
   <string name="reading_list_share_menu_label">tarima ha....</string>
   <string name="reading_list_share_menu_tooltip">tarima yu-karinda ti shɛbi gba</string>
   <string name="reading_list_share_message_v2">N-zo! n suhu di yuya ni n-ti a n yu-karinda</string>
-  <string name="reading_list_share_survey_title">A ku sɔŋ ti ka ti bo berisuŋ \"ni yu-karinda taribu ni taba\"?</string>
-  <string name="reading_list_share_survey_body">\"tarimi yu-karinda ni taba\" nyɛla binshɛli din na be zahimbu ni ka ti bori a ni nyali shɛm labisigu din ni sɔŋ ka ti kpaŋsili bee ka ti yihi li.</string>
   <string name="talk_templates_empty_message">Nammi a maŋmaŋ satarili bee  yunsimi &lt;a href=\"#\"&gt;shɛhirili satarili&lt;/a&gt; din yɛn che ka piligi.</string>
   <string name="talk_templates_new_message_title">Satari palli</string>
   <string name="talk_templates_new_message_subject_hint">Baŋsim yaɣili</string>

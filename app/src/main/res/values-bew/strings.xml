@@ -1414,8 +1414,6 @@
   <string name="reading_list_share_menu_label">Dumanin...</string>
   <string name="reading_list_share_menu_tooltip">Dumanin ni daptar bacaan ama nyang laènnya</string>
   <string name="reading_list_share_message_v2">Tabé! Gua pèngèn ngedumanin gua punya daptar bacaan Wikipédi ama lu:</string>
-  <string name="reading_list_share_survey_title">Apa lu bisa bantu kita nyempurnain \"Dumanin daptar bacaan\"?</string>
-  <string name="reading_list_share_survey_body">\"Dumanin daptar bacaan\" ièlah atu keboléan uji coba èn kita butuh lu punya empan balik bakal nyempurnain atawa ngebuang tu keboléan.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Lu kaga\' gableg pesen wanti-wanti kesimpen acan.</string>
   <string name="talk_templates_new_message_title">Pesen baru</string>
   <string name="talk_templates_new_message_subject_hint">Perihal</string>
