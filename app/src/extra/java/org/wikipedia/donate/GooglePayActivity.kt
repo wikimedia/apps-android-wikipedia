@@ -28,6 +28,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivityDonateBinding
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -82,6 +83,7 @@ class GooglePayActivity : BaseActivity() {
                             }
                             is GooglePayViewModel.DonateSuccess -> {
                                 DonorExperienceEvent.logAction("impression", "gpay_processed", campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
+                                CampaignCollection.addDonationResult()
                                 setResult(RESULT_OK)
                                 finish()
                             }

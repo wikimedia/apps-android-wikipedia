@@ -690,8 +690,6 @@
   <string name="reading_list_share_menu_label">شیئر کریں...</string>
   <string name="reading_list_share_menu_tooltip">اس مطالعہ کی فہرست \n کو دوسروں کے ساتھ شیئر کریں</string>
   <string name="reading_list_share_message_v2">آداب! میں آپ کے ساتھ اپنی ویکیپیڈیا کی مطالعہ کی فہرست شیئر کرنا چاہتا/چاہتی ہوں:</string>
-  <string name="reading_list_share_survey_title">کیا آپ \'مطالعہ کی فہرستیں شیئر کریں\' کو بہتر بنانے میں ہماری مدد کر سکتے ہیں؟</string>
-  <string name="reading_list_share_survey_body">مطالعہ کی فہرستیں\' شیئر کریں ایک ٹیسٹنگ خصوصیت ہے اور اسے بہتر بنانے یا ہٹانے کے لیے ہمیں آپ کے تاثرات درکار ہیں۔</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">مطمئن</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">غیر جانبدار</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">غیر مطمئن</string>

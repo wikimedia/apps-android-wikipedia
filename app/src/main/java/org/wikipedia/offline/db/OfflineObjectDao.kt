@@ -1,6 +1,11 @@
 package org.wikipedia.offline.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
@@ -83,24 +88,19 @@ interface OfflineObjectDao {
         }
     }
 
-    fun deleteObjectsForPageId(id: Long) {
-        val objects = mutableListOf<OfflineObject>()
-        val objUsedBy = getFromUsedById(id)
-
-        objUsedBy.forEach {
-            if (it.usedBy.contains(id)) {
-                it.removeUsedBy(id)
-                objects.add(it)
-            }
-        }
-
-        for (obj in objects) {
-            if (obj.usedBy.isEmpty()) {
-                // the object is now an orphan, so remove it!
-                deleteOfflineObject(obj)
-                deleteFilesForObject(obj)
-            } else {
-                updateOfflineObject(obj)
+    fun deleteObjectsForPageId(ids: List<Long>) {
+        ids.forEach { id ->
+            getFromUsedById(id).forEach { obj ->
+                if (obj.usedBy.contains(id)) {
+                    obj.removeUsedBy(id)
+                    if (obj.usedBy.isEmpty()) {
+                        // the object is now an orphan, so remove it!
+                        deleteOfflineObject(obj)
+                        deleteFilesForObject(obj)
+                    } else {
+                        updateOfflineObject(obj)
+                    }
+                }
             }
         }
     }
