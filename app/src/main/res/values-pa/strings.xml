@@ -18,8 +18,8 @@
   <string name="app_name_beta">ਵਿਕੀਪੀਡੀਆ ਬੇਟਾ</string>
   <string name="app_name_alpha">ਵਿਕੀਪੀਡੀਆ ਅਲਫ਼ਾ</string>
   <string name="wikimedia">ਵਿਕੀਮੀਡੀਆ</string>
-  <string name="nav_item_back">ਪਿੱਛੇ</string>
-  <string name="page_tabs_back">ਪਿੱਛੇ</string>
+  <string name="nav_item_back">ਪਿਛਾਂਹ</string>
+  <string name="page_tabs_back">ਪਿਛਾਂਹ</string>
   <string name="nav_item_forward">ਅੱਗੇ</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="search_hint_voice_search">ਅਵਾਜ਼ ਰਾਹੀਂ ਖੋਜ</string>
@@ -126,6 +126,7 @@
   <string name="langlinks_your_wikipedia_languages">ਤੁਹਾਡੀਆਂ ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾਵਾਂ</string>
   <string name="menu_save_changes">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
   <string name="edit_saved_successfully">ਸੋਧ ਛਾਪ ਦਿੱਤੀ ਗਈ!</string>
+  <string name="stub_article_edit_saved_successfully">ਸੋਧ ਛਾਪਿਆ ਗਿਆ! ਤਬਦੀਲੀਆਂ ਆਉਣ ਵਿੱਚ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।</string>
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
@@ -138,6 +139,7 @@
   <string name="search_reading_lists_no_results">ਰੀਡਿੰਗ ਸੂਚੀਆਂ ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
   <string name="search_history_no_results">ਅਤੀਤ ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
   <string name="edit_section_captcha_message">ਆਪੇ ਚੱਲਦੇ ਊਲ-ਜਲੂਲ ਤੋਂ ਬਚਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਵਾਸਤੇ ਹੇਠਾਂ ਵਿਖ ਰਹੇ ਸ਼ਬਦ ਭਰੋ ਜੀ।</string>
+  <string name="edit_section_captcha_request_an_account_message">ਕੀ ਤੁਸੀਂ ਚਿੱਤਰ ਨਹੀਂ ਵੇਖ ਸਕਦੇ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ਖਾਤੇ ਲਈ ਬੇਨਤੀ ਕਰੋ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ਉੱਤੇ ਦਿੱਤੇ ਸ਼ਬਦਾਂ ਨੂੰ ਦੁਹਰਾਉ</string>
   <string name="title_captcha">ਕੈਪਚਾ ਭਰੋ</string>
   <string name="edit_section_captcha_reload">ਮੁੜ ਲਿਆਉਣ ਵਾਸਤੇ ਕੈਪਚਾ ਟਕੋਰੋ</string>
@@ -251,9 +253,14 @@
   <string name="edit_preview">ਝਾਤ</string>
   <string name="edit_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="edit_redo">ਮੁੜ-ਕਰੋ</string>
+  <string name="edit_rollback">ਵਾਪਸ-ਮੋੜੋ</string>
   <string name="edit_warn">ਚੇਤਾਵਨੀ</string>
   <string name="edit_damage">ਨੁਕਸਾਨ %s</string>
   <string name="edit_intent">ਇਰਾਦਾ %s</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s ਬਾਈਟ</item>
+    <item quantity="other">%s ਬਾਈਟਾਂ</item>
+  </plurals>
   <string name="edit_summary_tag_typo">ਹਿੱਜੇ ਸਹੀ ਕੀਤੇ</string>
   <string name="edit_summary_tag_grammar">ਵਿਆਕਰਨ ਸਹੀ ਕੀਤੀ</string>
   <string name="edit_summary_tag_links">ਕੜੀਆਂ ਜੋੜੀਆਂ</string>
@@ -344,6 +351,7 @@
   <string name="nav_item_donate">ਦਾਨ</string>
   <string name="error_voice_search_not_available">ਮੁਆਫ ਕਰਨਾ, ਆਵਾਜ਼ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="enable_location_service">ਚਾਲੂ ਕਰੋ</string>
+  <string name="location_permissions_enable_action">ਚਾਲੂ ਕਰੋ</string>
   <string name="error_message_generic">ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ</string>
   <string name="view_link_preview_error_button_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
   <string name="link_preview_dialog_read_button">ਪੜ੍ਹੋ</string>
@@ -366,12 +374,16 @@
   <string name="article_menu_bar_search_button">ਖੋਜੋ</string>
   <string name="article_menu_bar_contents_button">ਸਮੱਗਰੀ</string>
   <string name="article_header_edit_hint">ਸੋਧੋ…</string>
+  <string name="article_header_edit_description">ਲੇਖ ਦਾ ਵੇਰਵਾ ਸੋਧੋ</string>
+  <string name="article_header_edit_lead_section">ਲੇਖ ਦੀ ਜਾਣ-ਪਛਾਣ ਨੂੰ ਸੋਧੋ</string>
   <string name="color_theme_select">ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="color_theme_light">ਹਲਕੀ</string>
   <string name="color_theme_dark">ਗੂੜ੍ਹੀ</string>
   <string name="color_theme_black">ਕਾਲਾ</string>
-  <string name="color_theme_test_title">ਨਮੂਨਾ ਲਿਖਤ</string>
+  <string name="color_theme_test_title">ਲਿਖਤ ਦਾ ਨਮੂਨਾ</string>
   <string name="preference_title_app_theme">ਐਪ ਦੀ ਥੀਮ</string>
+  <string name="text_size_percent_default">%s (ਮੁਢਲਾ)</string>
+  <string name="text_style_title">ਫੌਂਟ</string>
   <string name="theme_category_reading">ਪੜ੍ਹਨਾ</string>
   <string name="theme_category_editing">ਸੁਧਾਈ</string>
   <string name="nav_item_saved">ਸੰਭਾਲਿਆ</string>
@@ -379,6 +391,11 @@
   <string name="reading_list_move_to">ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਲਿਜਾਓ</string>
   <string name="reading_list_create_new">ਨਵਾਂ ਬਣਾਉ</string>
   <string name="reading_list_title_exists">ਪੜ੍ਹਤ ਸੂਚੀ \"%s\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।</string>
+  <string name="reading_list_article_added_to_named">%2$s ਵਿੱਚ %1$s ਜੋੜਿਆ ਗਿਆ ਹੈ।</string>
+  <string name="reading_list_article_added_to_default_list">%s ਸੰਭਾਲਿਆ ਗਿਆ ਹੈ। ਕੀ ਤੁਸੀਂ ਇਸ ਨੂੰ ਸੂਚੀ ਵਿੱਚ ਜੋੜਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="reading_list_article_moved_to_named">%1$s ਨੂੰ %2$s ਵਿੱਚ ਤਬਦੀਲ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
+  <string name="reading_list_article_already_exists_message">ਸਭ ਚੰਗਾ! %1$s ਵਿੱਚ ਪਹਿਲਾਂ ਹੀ %2$s ਹੈ।</string>
+  <string name="reading_list_articles_already_exist_message">ਸਭ ਠੀਕ! %s ਵਿੱਚ ਪਹਿਲਾਂ ਹੀ ਸਾਰੇ ਲੇਖ ਹਨ।</string>
   <string name="reading_list_added_view_button">ਸੂਚੀ ਵੇਖੋ</string>
   <string name="reading_list_add_to_list_button">ਸੂਚੀ ਵਿਚ ਜੋੜੋ</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
@@ -412,12 +429,17 @@
   <string name="reading_list_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_list_empty_title">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
+  <string name="reading_list_add_to_other_list">ਇੱਕ ਹੋਰ ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
+  <string name="reading_list_move_to_other_list">ਕਿਸੇ ਹੋਰ ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ ਵਿੱਚ ਜਾਓ</string>
+  <string name="reading_list_move_from_to_other_list">%s ਤੋਂ ਕਿਸੇ ਹੋਰ ਪੜ੍ਹਨ ਸੂਚੀ ਵਿੱਚ ਭੇਜੋ</string>
+  <string name="reading_list_remove_from_list">%s ਤੋਂ ਹਟਾਓ</string>
+  <string name="reading_list_remove_from_lists">ਪੜ੍ਹਨ ਸੂਚੀਆਂ ਵਿੱਚੋਂ ਹਟਾਓ</string>
   <string name="reading_list_select_item">ਚੁਣੋ</string>
   <string name="reading_lists_login_button">ਵਿਕੀਪੀਡੀਆ ਵਿੱਚ ਦਾਖਲ / ਸ਼ਾਮਲ ਹੋਵੋ</string>
   <string name="reading_lists_ignore_button">ਹਾਲੇ ਨਹੀਂ</string>
   <string name="reading_lists_confirm_remote_delete_yes">ਹਾਂ</string>
   <string name="reading_lists_confirm_remote_delete_no">ਨਹੀਂ</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">ਕੀ ਤੁਸੀਂ ਇਹ ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ %s?</string>
+  <string name="reading_list_delete_confirm">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ %s ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ਠੀਕ</string>
@@ -535,6 +557,7 @@
   <string name="suggested_card_more_edits">ਹੋਰ ਸੁਝਾਏ ਗਏ ਸੋਧ</string>
   <string name="suggested_edits_image_recommendations_task_title">ਲੇਖ ਚਿੱਤਰ</string>
   <string name="suggested_edits_image_recommendations_task_detail">ਸਮਝ ਨੂੰ ਵਧਾਉਣ ਲਈ ਵਿਕੀਪੀਡੀਆ ਲੇਖਾਂ ਵਿੱਚ ਸੁਝਾਏ ਚਿੱਤਰ ਸ਼ਾਮਲ ਕਰੋ।</string>
+  <string name="image_recommendation_tutorial">ਸਿਖਲਾਈ</string>
   <string name="image_recommendation_accept">ਹਾਂ</string>
   <string name="image_recommendation_reject_title" fuzzy="true">ਕਿਉਂ ਨਹੀਂ?</string>
   <string name="image_recommendation_reject_subtitle" fuzzy="true">ਤੁਹਾਡੇ ਜਵਾਬ ਭਵਿੱਖ ਦੇ ਸੁਝਾਵਾਂ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦੇ ਹਨ।</string>
@@ -578,4 +601,5 @@
   <string name="places_survey_dialog_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">ਤੁਸੀਂ ਕੀ ਚਾਹੁੰਦੇ ਹੋ ਕਿ ਅਸੀਂ ਕੀ ਬਦਲੀਏ ਜਾਂ ਸੁਧਾਰ ਕਰੀਏ?</string>
   <string name="places_empty_list">ਇਹ ਖੇਤਰ ਖਾਲੀ ਹੈ। &lt;a href=\"#\"&gt;ਨਕਸ਼ੇ \'ਤੇ&lt;/a&gt; ਜ਼ੂਮ ਆਉਟ ਕਰੋ।</string>
+  <string name="recommended_content_section_you_might_like">ਤੁਹਾਨੂੰ ਪਸੰਦ ਆ ਸਕਦਾ ਹੈ</string>
 </resources>
