@@ -1182,6 +1182,7 @@
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
+  <string name="app_shortcuts_places">A shortcut icon on the home screen for opening the places page.\n{{Identical|Places}}</string>
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>

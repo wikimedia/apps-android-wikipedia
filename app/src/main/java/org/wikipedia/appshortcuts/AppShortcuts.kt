@@ -22,11 +22,12 @@ class AppShortcuts {
         private const val APP_SHORTCUT_ID_CONTINUE_READING = "shortcutContinueReading"
         private const val APP_SHORTCUT_ID_RANDOM = "shortcutRandom"
         private const val APP_SHORTCUT_ID_SEARCH = "shortcutSearch"
+        private const val APP_SHORTCUT_ID_PLACES = "shortcutPlaces"
 
         fun setShortcuts(app: Context) {
             CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
-                val list = listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app))
-                if (ShortcutManagerCompat.getDynamicShortcuts(app).size < list.size) {
+                val list = listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app), placesShortcut(app))
+                if (ShortcutManagerCompat.getDynamicShortcuts(app).containsAll(list).not()) {
                     ShortcutManagerCompat.setDynamicShortcuts(app, list)
                 } else {
                     L.d("Create dynamic shortcuts skipped.")
@@ -71,6 +72,19 @@ class AppShortcuts {
                                     .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_CONTINUE_READING)
                                     .putExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING, true))
                     .build()
+        }
+
+        private fun placesShortcut(app: Context): ShortcutInfoCompat {
+            return ShortcutInfoCompat.Builder(app, APP_SHORTCUT_ID_PLACES)
+                .setShortLabel(app.getString(R.string.app_shortcuts_places))
+                .setLongLabel(app.getString(R.string.app_shortcuts_places))
+                .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_places))
+                .setIntent(
+                    Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_PLACES)
+                        .putExtra(Constants.INTENT_APP_SHORTCUT_PLACES, true))
+                .build()
         }
     }
 }
