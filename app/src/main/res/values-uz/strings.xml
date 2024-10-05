@@ -1437,8 +1437,6 @@
   <string name="reading_list_share_menu_label">Ulashish…</string>
   <string name="reading_list_share_menu_tooltip">Ushbu oʻqish roʻyxatini boshqalar bilan baham koʻring</string>
   <string name="reading_list_share_message_v2">Salom! Men Siz bilan Vikipediya oʻqish roʻyxatini baham koʻrmoqchiman:</string>
-  <string name="reading_list_share_survey_title">“Oʻqish roʻyxatini baham koʻrish”ni yaxshilashga yordam bera olasizmi?</string>
-  <string name="reading_list_share_survey_body">“Oʻqish roʻyxatlarini ulashish” sinov koʻrinishida boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Sizda hech qanday ogohlantirish xabari saqlanmagan.</string>
   <string name="talk_templates_new_message_title">Yangi xabar</string>
   <string name="talk_templates_new_message_subject_hint">Mavzu</string>

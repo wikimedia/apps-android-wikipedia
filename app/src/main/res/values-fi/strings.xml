@@ -1495,8 +1495,6 @@
   <string name="reading_list_share_menu_label">Jaa...</string>
   <string name="reading_list_share_menu_tooltip">Jaa tämä lukulista muiden kanssa</string>
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
-  <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
-  <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
   <string name="talk_templates_empty_message">Luo omia viestejä tai käytä &lt;a href=\"#\"&gt;malliviestejä&lt;/a&gt; aloittaaksesi.</string>
   <string name="talk_templates_new_message_title">Uusi viesti</string>
   <string name="talk_templates_new_message_subject_hint">Aihe</string>

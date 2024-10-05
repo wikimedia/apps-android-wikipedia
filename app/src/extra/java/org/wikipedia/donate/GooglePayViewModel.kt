@@ -15,6 +15,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.settings.Prefs
@@ -154,7 +155,7 @@ class GooglePayViewModel : ViewModel() {
                 .submitPayment(
                     decimalFormatCanonical.format(finalAmount),
                     BuildConfig.VERSION_NAME,
-                    WikipediaApp.instance.appOrSystemLanguageCode + campaignId + "_Android",
+                    CampaignCollection.getFormattedCampaignId(campaignId),
                     billingObj.optString("locality", ""),
                     currentCountryCode,
                     currencyCode,

@@ -109,6 +109,7 @@
   <string name="menu_page_recently_viewed">Недавно прегледано</string>
   <string name="menu_page_archive">Архива</string>
   <string name="menu_long_press_open_page">Отвори</string>
+  <string name="menu_long_press_open_in_places">Отвори у Местима</string>
   <string name="menu_long_press_open_in_new_tab">Отвори у новој картици</string>
   <string name="menu_long_press_copy_page">Копирај адресу линка</string>
   <string name="menu_text_select_define">Дефиниши</string>
@@ -1456,8 +1457,6 @@
   <string name="reading_list_share_menu_label">Дели…</string>
   <string name="reading_list_share_menu_tooltip">Поделите ову листу за читање са другима</string>
   <string name="reading_list_share_message_v2">Здраво! Желим да поделим моју листу за читање на Википедији са вама:</string>
-  <string name="reading_list_share_survey_title">Да ли можете да нам помогнете у унапређивању \"дељења листи за читање\"?</string>
-  <string name="reading_list_share_survey_body">\"Дељење листи за читање\" је тестна могућност и потребне су вам ваше повратне информације да би смо је унапредили или уклонили.</string>
   <string name="talk_templates_empty_message">Напишите своју поруку или користите &lt;a href=\"#\"&gt;примере порука&lt;/a&gt; да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порука</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
@@ -1620,4 +1619,10 @@
   <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
   <string name="places_survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Шта бисте желели да променимо или унапредимо?</string>
+  <string name="places_card_title">Места у близини</string>
+  <string name="places_card_action">Још места у близини</string>
+  <string name="places_card_enable_location_card_button">Омогући локацију</string>
+  <string name="places_card_distance_suffix">%s удаљено</string>
+  <string name="places_card_distance_unknown">Непозната удаљеност</string>
+  <string name="recommended_content_section_you_might_like">Можда Вам се свиди</string>
 </resources>

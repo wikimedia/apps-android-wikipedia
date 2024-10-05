@@ -1491,8 +1491,6 @@
   <string name="reading_list_share_menu_label">Juoge …</string>
   <string name="reading_list_share_menu_tooltip">Juoge dán lohkanlisttu earáiguin</string>
   <string name="reading_list_share_message_v2">Bures! Háliidan duinna juogadit iežan lohkanlisttu Wikipedias:</string>
-  <string name="reading_list_share_survey_title">Sáhtát go veahkkin midjiide buoridit «Juoge lohkanlisttuid»?</string>
-  <string name="reading_list_share_survey_body">«Juoge lohkanlisttuid» lea geahččalanfunkšuvdna, ja mii dárbbašit geavaheddjiin máhcahagaid vai sáhttit buoridit dahje sihkkut dan.</string>
   <string name="talk_templates_empty_message">Ráhkat ieš dieđáhusaid dahje geavat &lt;a href=\"#\"&gt;ovdamearkadieđuid&lt;/a&gt; boahtit johtui.</string>
   <string name="talk_templates_new_message_title">Ođđa dieđáhus</string>
   <string name="talk_templates_new_message_subject_hint">Fáddá</string>
