@@ -16,6 +16,7 @@
     <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
     <string name="nav_item_search">Search</string>
+    <string name="nav_item_contribute">Contribute</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
     <string name="card_offline_error_retry">Retry</string>
