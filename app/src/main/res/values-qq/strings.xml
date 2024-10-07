@@ -1724,5 +1724,13 @@
   <string name="contributions_dashboard_survey_dialog_title">Text for the contributions dashboard survey dialog.</string>
   <string name="contributions_dashboard_survey_dialog_message">Message for the contributions dashboard survey dialog.</string>
   <string name="contributions_dashboard_survey_dialog_cancel">Negative action button text for the contributions dashboard survey dialog.</string>
-  <string name="contributions_dashboard_survey_dialog_submit">Positive action button text for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Positive action button text for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_donation_dialog_title">Title for the donation success dialog.</string>
+  <string name="contributions_dashboard_donation_dialog_message">Message for the donation success dialog.</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Negative action button text for the donation success dialog.</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Positive action button text for the donation success dialog.</string>
+  <string name="contributions_dashboard_entry_dialog_title">Title for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_entry_dialog_message">Message for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Negative action button text for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Positive action button text for the contributions dashboard entry dialog.</string>
 </resources>

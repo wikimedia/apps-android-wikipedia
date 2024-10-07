@@ -1807,7 +1807,15 @@
     <string name="contributions_dashboard_survey_dialog_title">Could you help us improve the contributor dashboard?</string>
     <string name="contributions_dashboard_survey_dialog_message">The donor badge is a test feature and we need your feedback to improve or remove it.</string>
     <string name="contributions_dashboard_survey_dialog_cancel">No thanks</string>
-    <string name="contributions_dashboard_survey_dialog_submit">Take survey</string>
+    <string name="contributions_dashboard_survey_dialog_ok">Take survey</string>
+    <string name="contributions_dashboard_donation_dialog_title">Thank you for supporting free knowledge.</string>
+    <string name="contributions_dashboard_donation_dialog_message">We\'ve updated the contributions dashboard to recognize you for being a donor. Want to take a look at the new and improved board?</string>
+    <string name="contributions_dashboard_donation_dialog_cancel">No thanks</string>
+    <string name="contributions_dashboard_donation_dialog_ok">Yes, take me there!</string>
+    <string name="contributions_dashboard_entry_dialog_title">We\'ve updated the contributors dashboard</string>
+    <string name="contributions_dashboard_entry_dialog_message">Donors are rewarded with a badge on their dashboard. Want to take a look at the new and improved board?</string>
+    <string name="contributions_dashboard_entry_dialog_cancel">No thanks</string>
+    <string name="contributions_dashboard_entry_dialog_ok">Yes, take me there!</string>
     <!-- /Contributions Dashboard -->
 
 
