@@ -27,7 +27,7 @@ class AppShortcuts {
         fun setShortcuts(app: Context) {
             CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
                 val list = listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app), placesShortcut(app))
-                if (ShortcutManagerCompat.getDynamicShortcuts(app).containsAll(list).not()) {
+                if (ShortcutManagerCompat.getDynamicShortcuts(app).map { it.id }.containsAll(list.map { it.id }).not()) {
                     ShortcutManagerCompat.setDynamicShortcuts(app, list)
                 } else {
                     L.d("Create dynamic shortcuts skipped.")
