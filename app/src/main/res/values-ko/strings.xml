@@ -1553,6 +1553,7 @@
   <string name="patroller_saved_message_title_art_imp">문서 개선 제안</string>
   <string name="patroller_saved_message_body_vandalism">안녕하세요, {{{username}}}님. 귀하의 [{{{diffLink}}}|최근 기여] 중 하나 이상이 건설적이지 않은 것으로 간주되어 되돌렸음을 알려드립니다. 제가 실수했다고 생각되거나 질문이 있으면 [[User talk:{{{senderUserName}}}|제 토론 문서]]에 메시지를 남겨주세요. 계속하여 훼손을 할 경우 제한을 받을 수 있습니다.</string>
   <string name="patroller_saved_message_body_do_not_censor">안녕하세요, {{{username}}}님. 문서 토론 페이지에서 논의 없이 내용을 삭제하신 것 같습니다. 위키백과는 검열을 받지 않으며 논란의 여지가 있다는 이유로 내용을 삭제해서는 안 됩니다. 정보가 부정확하다고 생각되면 문서 토론 페이지에서 총의를 수립해 주세요.</string>
+  <string name="talk_warn_learn_more_label">메시지 플레이스홀더에 관해 알아보기</string>
   <string name="talk_templates_menu_edit_title">편집</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>
@@ -1587,6 +1588,7 @@
   <string name="places_survey_dialog_title">\'장소\' 개선 지원하기</string>
   <string name="places_survey_feedback_dialog_title">\"장소\"를 어떻게 개선할 수 있나요?</string>
   <string name="places_survey_dialog_cancel">취소</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">무엇을 바꾸거나 개선하기를 원하시나요?</string>
   <string name="places_card_title">주변 장소</string>
   <string name="places_card_action">더 많은 주변 장소</string>
   <string name="places_card_enable_location_card_button">위치 활성화</string>
