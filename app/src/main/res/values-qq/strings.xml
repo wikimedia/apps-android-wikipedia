@@ -55,6 +55,7 @@
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="nav_item_search">Navigation menu item label for search.\n\n{{Identical|Search}}</string>
+  <string name="nav_item_contribute">Navigation menu item label for contribute.\n\n{{Identical|Contribute}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
