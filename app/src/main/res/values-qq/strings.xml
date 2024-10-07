@@ -1733,4 +1733,7 @@
   <string name="contributions_dashboard_entry_dialog_message">Message for the contributions dashboard entry dialog.</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Negative action button text for the contributions dashboard entry dialog.</string>
   <string name="contributions_dashboard_entry_dialog_ok">Positive action button text for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_badge_donor">Label for the donor badge that indicates as a donor.</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Label for the donor badge that indicates as not a donor.</string>
+  <string name="contributions_dashboard_badge_update">Label for the donor badge that provide a link to update the donor status.</string>
 </resources>

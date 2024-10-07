@@ -1816,6 +1816,9 @@
     <string name="contributions_dashboard_entry_dialog_message">Donors are rewarded with a badge on their dashboard. Want to take a look at the new and improved board?</string>
     <string name="contributions_dashboard_entry_dialog_cancel">No thanks</string>
     <string name="contributions_dashboard_entry_dialog_ok">Yes, take me there!</string>
+    <string name="contributions_dashboard_badge_donor">Donor</string>
+    <string name="contributions_dashboard_badge_become_a_donor">Become a donor</string>
+    <string name="contributions_dashboard_badge_update">Update donor status</string>
     <!-- /Contributions Dashboard -->
 
 
