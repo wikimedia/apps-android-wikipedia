@@ -33,7 +33,7 @@
         android:textDirection="locale"
         tools:text="Reference text" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/reference_ext_link"
         android:layout_width="24dp"
         android:layout_height="24dp"
