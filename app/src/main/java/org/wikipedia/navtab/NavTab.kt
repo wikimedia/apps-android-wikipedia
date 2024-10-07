@@ -36,6 +36,11 @@ enum class NavTab constructor(
             return SuggestedEditsTasksFragment.newInstance()
         }
     },
+    CONTRIBUTE(R.string.nav_item_contribute, R.id.nav_tab_contribute, R.drawable.selector_nav_edits) {
+        override fun newInstance(): Fragment {
+            return SuggestedEditsTasksFragment.newInstance()
+        }
+    },
     MORE(R.string.nav_item_more, R.id.nav_tab_more, R.drawable.ic_menu_white_24dp) {
         override fun newInstance(): Fragment {
             return Fragment()
@@ -51,8 +56,24 @@ enum class NavTab constructor(
     }
 
     companion object {
+
+        fun getTabs(): List<NavTab> {
+            return listOf(
+                EXPLORE,
+                READING_LISTS,
+                SEARCH,
+                if (canIncludeEdits()) EDITS else CONTRIBUTE,
+                MORE
+            )
+        }
+
         fun of(code: Int): NavTab {
             return entries[code]
         }
+
+        // @TODO: Update the logic with regional restriction from the Helper class
+        private fun canIncludeEdits(): Boolean = true
+
     }
+
 }
