@@ -1721,4 +1721,8 @@
   <string name="donor_history_donate_button">Button for opening the donation dialog.</string>
   <string name="donor_history_about_this_experiment">Text for the link to see the detail about this experiment.</string>
   <string name="donor_history_updated_message_snackbar">Snackbar message for the donor history screen that the information has been saved.</string>
+  <string name="contributions_dashboard_survey_dialog_title">Text for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_survey_dialog_message">Message for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Negative action button text for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_survey_dialog_submit">Positive action button text for the contributions dashboard survey dialog.</string>
 </resources>

@@ -1804,6 +1804,10 @@
     <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
     <string name="donor_history_about_this_experiment">About this experiment</string>
     <string name="donor_history_updated_message_snackbar">Donor history updated</string>
+    <string name="contributions_dashboard_survey_dialog_title">Could you help us improve the contributor dashboard?</string>
+    <string name="contributions_dashboard_survey_dialog_message">The donor badge is a test feature and we need your feedback to improve or remove it.</string>
+    <string name="contributions_dashboard_survey_dialog_cancel">No thanks</string>
+    <string name="contributions_dashboard_survey_dialog_submit">Take survey</string>
     <!-- /Contributions Dashboard -->
 
 
