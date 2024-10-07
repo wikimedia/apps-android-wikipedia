@@ -1703,7 +1703,7 @@
   <string name="places_card_action">Meer plaatsen in de buurt</string>
   <string name="places_card_enable_location_card_message">Plaatsen is een kaartgebaseerde manier om Wikipedia te verkennen</string>
   <string name="places_card_enable_location_card_button">Locatie inschakelen</string>
-  <string name="places_card_distance_suffix">%s vanaf huidige locatie</string>
+  <string name="places_card_distance_suffix">%s verderop</string>
   <string name="places_card_distance_unknown">Onbekende afstand</string>
   <string name="places_empty_message_snackbar">Er zijn geen artikelen in de buurt. Probeer uit te zoomen en de kaart te verplaatsen.</string>
 </resources>
