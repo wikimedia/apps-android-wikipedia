@@ -1788,4 +1788,23 @@
     <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
     <!-- /Recommended Content -->
 
+    <!-- Contributions Dashboard -->
+    <string name="donor_history_title">Donor history</string>
+    <string name="donor_history_save_button">Save</string>
+    <string name="donor_history_update_donor_status_default">Update donor status</string>
+    <string name="donor_history_update_donor_status_donor">Donor</string>
+    <string name="donor_history_update_donor_status_not_a_donor">Not a donor</string>
+    <string name="donor_history_last_donated">Last donated</string>
+    <string name="donor_history_last_donated_hint">Add date of last donation</string>
+    <string name="donor_history_last_donated_date_picker_title">Select date</string>
+    <string name="donor_history_last_donated_date_picker_label">Enter date</string>
+    <string name="donor_history_last_donated_date_picker_cancel">Cancel</string>
+    <string name="donor_history_last_donated_date_picker_ok">OK</string>
+    <string name="donor_history_recurring">Recurring</string>
+    <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
+    <string name="donor_history_about_this_experiment">About this experiment</string>
+    <string name="donor_history_updated_message_snackbar">Donor history updated</string>
+    <!-- /Contributions Dashboard -->
+
+
 </resources>

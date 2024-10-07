@@ -1706,4 +1706,19 @@
   <string name="recommended_content_survey_dialog_message">Message text for the Recommended Content survey dialog.</string>
   <string name="recommended_content_survey_dialog_input_hint">Hint label for the Recommended Content survey dialog input field.</string>
   <string name="recommended_content_survey_dialog_submitted_message">Snackbar message for the Recommended Content survey after submitting it.</string>
+  <string name="donor_history_title">Title for the Donor history screen.</string>
+  <string name="donor_history_save_button">Button label for the Donor history screen to save the information.</string>
+  <string name="donor_history_update_donor_status_default">Label of the update donor status button.</string>
+  <string name="donor_history_update_donor_status_donor">Dialog option for the donor status that indicates as a donor.</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Dialog option for the donors status that indicates as not a donor.</string>
+  <string name="donor_history_last_donated">Label of the last donated field.</string>
+  <string name="donor_history_last_donated_hint">Hint of the last donated field.</string>
+  <string name="donor_history_last_donated_date_picker_title">Title of the date picker for the last donated field.</string>
+  <string name="donor_history_last_donated_date_picker_label">Message of the date picker for the last donated field.</string>
+  <string name="donor_history_last_donated_date_picker_cancel">Button of the date picker for the last donated field that closes the dialog.</string>
+  <string name="donor_history_last_donated_date_picker_ok">Button of the date picker for the last donated field that save the information.</string>
+  <string name="donor_history_recurring">Label of the recurring donation.</string>
+  <string name="donor_history_donate_button">Button for opening the donation dialog.</string>
+  <string name="donor_history_about_this_experiment">Text for the link to see the detail about this experiment.</string>
+  <string name="donor_history_updated_message_snackbar">Snackbar message for the donor history screen that the information has been saved.</string>
 </resources>
