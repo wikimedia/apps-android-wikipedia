@@ -1073,6 +1073,10 @@
         <item quantity="one">Contribution</item>
         <item quantity="other">Contributions</item>
     </plurals>
+    <plurals name="suggested_edits_edit_frequency">
+        <item quantity="one">Edit</item>
+        <item quantity="other">Edits</item>
+    </plurals>
     <plurals name="suggested_edits_edit_streak_detail_text">
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
