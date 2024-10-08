@@ -1048,7 +1048,6 @@
     <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
     <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions so far.</string>
-    <string name="suggested_edits_edit_stat_tooltip">Your total number of edits so far.</string>
     <string name="suggested_edits_edit_streak_stat_tooltip">How many days in a row that you have made contributions. If you haven\'t contributed in a while, it shows your last contribution date.</string>
     <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items to which you have contributed in the last 30 days.</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
@@ -1073,10 +1072,6 @@
     <plurals name="suggested_edits_contribution">
         <item quantity="one">Contribution</item>
         <item quantity="other">Contributions</item>
-    </plurals>
-    <plurals name="suggested_edits_edit_frequency">
-        <item quantity="one">Edit</item>
-        <item quantity="other">Edits</item>
     </plurals>
     <plurals name="suggested_edits_edit_streak_detail_text">
         <item quantity="one">%d day</item>
@@ -1223,7 +1218,6 @@
     <string name="app_shortcuts_random">Random</string>
     <string name="app_shortcuts_continue_reading">Continue reading</string>
     <string name="app_shortcuts_search">Search</string>
-    <string name="app_shortcuts_places">Places</string>
     <!-- /App Shortcuts -->
 
     <!-- On This Day -->
@@ -1793,5 +1787,39 @@
     <string name="recommended_content_survey_dialog_input_hint">Additional feedback</string>
     <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
     <!-- /Recommended Content -->
+
+    <!-- Contributions Dashboard -->
+    <string name="donor_history_title">Donor history</string>
+    <string name="donor_history_save_button">Save</string>
+    <string name="donor_history_update_donor_status_default">Update donor status</string>
+    <string name="donor_history_update_donor_status_donor">Donor</string>
+    <string name="donor_history_update_donor_status_not_a_donor">Not a donor</string>
+    <string name="donor_history_last_donated">Last donated</string>
+    <string name="donor_history_last_donated_hint">Add date of last donation</string>
+    <string name="donor_history_last_donated_date_picker_title">Select date</string>
+    <string name="donor_history_last_donated_date_picker_label">Enter date</string>
+    <string name="donor_history_last_donated_date_picker_cancel">Cancel</string>
+    <string name="donor_history_last_donated_date_picker_ok">OK</string>
+    <string name="donor_history_recurring">Recurring</string>
+    <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
+    <string name="donor_history_about_this_experiment">About this experiment</string>
+    <string name="donor_history_updated_message_snackbar">Donor history updated</string>
+    <string name="contributions_dashboard_survey_dialog_title">Could you help us improve the contributor dashboard?</string>
+    <string name="contributions_dashboard_survey_dialog_message">The donor badge is a test feature and we need your feedback to improve or remove it.</string>
+    <string name="contributions_dashboard_survey_dialog_cancel">No thanks</string>
+    <string name="contributions_dashboard_survey_dialog_ok">Take survey</string>
+    <string name="contributions_dashboard_donation_dialog_title">Thank you for supporting free knowledge.</string>
+    <string name="contributions_dashboard_donation_dialog_message">We\'ve updated the contributions dashboard to recognize you for being a donor. Want to take a look at the new and improved board?</string>
+    <string name="contributions_dashboard_donation_dialog_cancel">No thanks</string>
+    <string name="contributions_dashboard_donation_dialog_ok">Yes, take me there!</string>
+    <string name="contributions_dashboard_entry_dialog_title">We\'ve updated the contributors dashboard</string>
+    <string name="contributions_dashboard_entry_dialog_message">Donors are rewarded with a badge on their dashboard. Want to take a look at the new and improved board?</string>
+    <string name="contributions_dashboard_entry_dialog_cancel">No thanks</string>
+    <string name="contributions_dashboard_entry_dialog_ok">Yes, take me there!</string>
+    <string name="contributions_dashboard_badge_donor">Donor</string>
+    <string name="contributions_dashboard_badge_become_a_donor">Become a donor</string>
+    <string name="contributions_dashboard_badge_update">Update donor status</string>
+    <!-- /Contributions Dashboard -->
+
 
 </resources>
