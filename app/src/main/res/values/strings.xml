@@ -1223,6 +1223,7 @@
     <string name="app_shortcuts_random">Random</string>
     <string name="app_shortcuts_continue_reading">Continue reading</string>
     <string name="app_shortcuts_search">Search</string>
+    <string name="app_shortcuts_places">Places</string>
     <!-- /App Shortcuts -->
 
     <!-- On This Day -->
