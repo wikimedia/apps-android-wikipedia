@@ -80,14 +80,14 @@ interface RestService {
     ): MediaList
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaListResponse(
+    suspend fun getMediaListResponse(
         @Path("title") title: String?,
         @Path("revision") revision: Long,
         @Header("Cache-Control") cacheControl: String?,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<MediaList>>
+    ): Response<MediaList>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     suspend fun getOnThisDay(@Path("mm") month: Int,

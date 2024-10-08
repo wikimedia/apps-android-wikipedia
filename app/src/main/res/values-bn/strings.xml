@@ -1166,8 +1166,6 @@
   <string name="reading_list_share_menu_label">শেয়ার করুন…</string>
   <string name="reading_list_share_menu_tooltip">এই পঠন তালিকাটি অন্যদের সাথে শেয়ার করুন</string>
   <string name="reading_list_share_message_v2">শুভেচ্ছা নিন! আমি আপনার সাথে আমার উইকিপিডিয়া পঠন তালিকা শেয়ার করতে চাই:</string>
-  <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
-  <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
   <string name="talk_templates_new_message_save">সংরক্ষণ</string>
   <string name="talk_templates_menu_remove_message">বার্তা সরান</string>
   <string name="patroller_tasks_edits_list_card_tags_text">ট্যাগ: %s</string>

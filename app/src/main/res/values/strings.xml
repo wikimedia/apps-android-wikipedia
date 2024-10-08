@@ -16,6 +16,7 @@
     <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
     <string name="nav_item_search">Search</string>
+    <string name="nav_item_contribute">Contribute</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
     <string name="card_offline_error_retry">Retry</string>
@@ -1047,6 +1048,7 @@
     <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
     <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions so far.</string>
+    <string name="suggested_edits_edit_stat_tooltip">Your total number of edits so far.</string>
     <string name="suggested_edits_edit_streak_stat_tooltip">How many days in a row that you have made contributions. If you haven\'t contributed in a while, it shows your last contribution date.</string>
     <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items to which you have contributed in the last 30 days.</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
@@ -1071,6 +1073,10 @@
     <plurals name="suggested_edits_contribution">
         <item quantity="one">Contribution</item>
         <item quantity="other">Contributions</item>
+    </plurals>
+    <plurals name="suggested_edits_edit_frequency">
+        <item quantity="one">Edit</item>
+        <item quantity="other">Edits</item>
     </plurals>
     <plurals name="suggested_edits_edit_streak_detail_text">
         <item quantity="one">%d day</item>
@@ -1217,6 +1223,7 @@
     <string name="app_shortcuts_random">Random</string>
     <string name="app_shortcuts_continue_reading">Continue reading</string>
     <string name="app_shortcuts_search">Search</string>
+    <string name="app_shortcuts_places">Places</string>
     <!-- /App Shortcuts -->
 
     <!-- On This Day -->
@@ -1577,8 +1584,6 @@
     <string name="reading_list_share_menu_label">Share…</string>
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
     <string name="reading_list_share_message_v2">Hi! I\'d like to share my Wikipedia reading list with you:</string>
-    <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
-    <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
 
     <!-- Patroller task -->
