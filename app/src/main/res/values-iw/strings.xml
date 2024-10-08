@@ -1589,8 +1589,6 @@
   <string name="reading_list_share_menu_label">שיתוף...</string>
   <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
-  <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
-  <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונה בבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
   <string name="talk_templates_empty_message">באפשרותך ליצור הודעות משלך או להשתמש ב&lt;a href=\"#\"&gt;הודעות לדוגמה&lt;/a&gt; כדי להתחיל.</string>
   <string name="talk_templates_new_message_title">הודעה חדשה</string>
   <string name="talk_templates_new_message_subject_hint">נושא</string>
@@ -1785,4 +1783,9 @@
   <string name="places_card_distance_suffix">%s מכאן</string>
   <string name="places_card_distance_unknown">מרחק בלתי־ידוע</string>
   <string name="places_empty_message_snackbar">אין ערכים על דברים בסביבה. נא לנסות להקטין ולהזיז את המפה.</string>
+  <string name="recommended_content_section_you_might_like">אולי יעניין אותך</string>
+  <string name="recommended_content_survey_dialog_title">סיוע בשיפור התוכן המומלץ.</string>
+  <string name="recommended_content_survey_dialog_message">תוצאת החיפוש המומלצת נושאת חן בעיניך?</string>
+  <string name="recommended_content_survey_dialog_input_hint">משוב נוסף</string>
+  <string name="recommended_content_survey_dialog_submitted_message">המשוב הוגש. תודה רבה!</string>
 </resources>

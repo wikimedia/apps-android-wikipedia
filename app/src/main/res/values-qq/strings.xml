@@ -55,6 +55,7 @@
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="nav_item_search">Navigation menu item label for search.\n\n{{Identical|Search}}</string>
+  <string name="nav_item_contribute">Navigation menu item label for contribute.\n\n{{Identical|Contribute}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -790,7 +791,7 @@
   <string name="notifications_channel_group_other_title">Title for the other notifications group.\n\n{{Identical|Other}}</string>
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
-  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assist with accessibility settings.</string>
   <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters, formatted using {{msg-wikimedia|wikipedia-android-strings-notifications_number_of_filters}}.</string>
   <plurals name="notifications_number_of_filters">
@@ -1511,8 +1512,6 @@
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
   <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
-  <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
-  <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="talk_templates_empty_message">Text shown when the user has nothing in their list of saved messages.</string>
   <string name="talk_templates_new_message_title">Title of the screen for adding a new saved message.</string>
   <string name="talk_templates_new_message_subject_hint">Label of the Subject field for a new saved message.</string>

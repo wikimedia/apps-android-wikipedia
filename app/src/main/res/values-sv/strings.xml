@@ -444,7 +444,7 @@
   <string name="temp_account_anon_dialog_body">När du har gjort en redigering kommer ett &lt;b&gt;temporärt konto&lt;/b&gt; att skapas åt dig för att skydda din integritet. &lt;a href=\"%1$s\"&gt;Läs mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logga in&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;skapa ett konto&lt;/a&gt; för att få erkännande för framtida redigeringar och åtkomst till andra funktioner.</string>
   <string name="temp_account_temp_dialog_body">Din redigering kommer att tillskrivas %1$s. Din IP-adress kommer att vara synlig för administratörer.&lt;br /&gt;&lt;br /&gt; Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;skapar ett konto&lt;/a&gt; kommer dina redigeringar att tillskrivas ett valfritt namn, tillsammans med andra förmåner.</string>
   <string name="temp_account_dialog_ok">Jag förstår</string>
-  <string name="temp_account_using_title">Du använder ett tillfälligt konto</string>
+  <string name="temp_account_using_title">Du använder ett temporärt konto</string>
   <string name="temp_account_dialog_discard">Släng ändringar och logga in</string>
   <plurals name="temp_account_created">
     <item quantity="one">Det temporära kontot %1$s skapades efter att din redigering publicerades. Det upphör att gälla om %2$d dag.</item>
@@ -1496,8 +1496,6 @@
   <string name="reading_list_share_menu_label">Dela…</string>
   <string name="reading_list_share_menu_tooltip">Dela denna läslista med andra</string>
   <string name="reading_list_share_message_v2">Hej! Jag skulle vilja dela min Wikipedia-läslista med dig:</string>
-  <string name="reading_list_share_survey_title">Kan du hjälpa oss att förbättra \"Dela läslistor\"?</string>
-  <string name="reading_list_share_survey_body">\"Dela läslistor\" är en testfunktion och vi behöver din återkoppling för att förbättra eller ta bort den.</string>
   <string name="talk_templates_empty_message">Skapa dina egna meddelanden eller använd &lt;a href=\"#\"&gt;exempelmeddelanden&lt;/a&gt; för att komma igång.</string>
   <string name="talk_templates_new_message_title">Nytt meddelande</string>
   <string name="talk_templates_new_message_subject_hint">Ämne</string>

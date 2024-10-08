@@ -1,7 +1,6 @@
 package org.wikipedia.descriptions
 
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.observers.TestObserver
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Test
@@ -22,11 +21,11 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         val text =
             "test test test test {{Short description|This is a description.}} foo foo {{Another template|12345}} foo foo"
         val newText = text.replaceFirst(
-            DescriptionEditFragment.TEMPLATE_PARSE_REGEX.toRegex(),
+            DescriptionEditViewModel.TEMPLATE_PARSE_REGEX.toRegex(),
             "$1" + "New description." + "$3"
         )
         MatcherAssert.assertThat(
-            Pattern.compile(DescriptionEditFragment.TEMPLATE_PARSE_REGEX).matcher(text).find(),
+            Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find(),
             Matchers.`is`(true)
         )
         MatcherAssert.assertThat(
@@ -39,17 +38,31 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     fun testRegexWithNoLocalDescription() {
         val text = "test test test test foo foo {{Another template|12345}} foo foo"
         MatcherAssert.assertThat(
-            Pattern.compile(DescriptionEditFragment.TEMPLATE_PARSE_REGEX).matcher(text).find(),
+            Pattern.compile(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX).matcher(text).find(),
             Matchers.`is`(false)
         )
     }
 
     @Test
     @Throws(Throwable::class)
-    fun testRequestSuccess() {
+    fun testRequestPostDescriptionSuccess() {
         enqueueFromFile("description_edit.json")
-        request().test().await()
-            .assertComplete().assertNoErrors()
+        runBlocking {
+            requestPostDescription()
+        }.run {
+            MatcherAssert.assertThat(entity?.id, Matchers.`is`("Q123"))
+        }
+    }
+
+    @Test
+    @Throws(Throwable::class)
+    fun testRequestPostLabelSuccess() {
+        enqueueFromFile("label_edit.json")
+        runBlocking {
+            requestPostLabel()
+        }.run {
+            MatcherAssert.assertThat(entity?.id, Matchers.`is`("Q456"))
+        }
     }
 
     @Test
@@ -59,7 +72,13 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         val expectedCode = "abusefilter-warning"
         val expectedMessage =
             "<b>Warning:</b> This action has been automatically identified as harmful.\nUnconstructive edits will be quickly reverted,\nand egregious or repeated unconstructive editing will result in your account or IP address being blocked.\nIf you believe this action to be constructive, you may submit it again to confirm it.\nA brief description of the abuse rule which your action matched is: Possible vandalism by adding badwords or similar trolling words"
-        testErrorWithExpectedCodeAndMessage(request().test().await(), expectedCode, expectedMessage)
+        runBlocking {
+            try {
+                requestPostDescription()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(testErrorWithExpectedCodeAndMessage(e, expectedCode, expectedMessage), Matchers.`is`(true))
+            }
+        }
     }
 
     @Test
@@ -69,32 +88,52 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         val expectedCode = "abusefilter-disallowed"
         val expectedMessage =
             "This action has been automatically identified as harmful, and therefore disallowed.\nIf you believe your action was constructive, please inform an administrator of what you were trying to do."
-        request()
-        testErrorWithExpectedCodeAndMessage(request().test().await(), expectedCode, expectedMessage)
+        runBlocking {
+            try {
+                requestPostDescription()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(testErrorWithExpectedCodeAndMessage(e, expectedCode, expectedMessage), Matchers.`is`(true))
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseApiError() {
         enqueueFromFile("api_error.json")
-        request().test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                requestPostDescription()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseFailure() {
         enqueueFromFile("description_edit_unknown_site.json")
-        request().test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                requestPostDescription()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseMalformed() {
         enqueueMalformed()
-        request().test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                requestPostDescription()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
@@ -119,27 +158,30 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(false))
     }
 
-    private fun testErrorWithExpectedCodeAndMessage(
-        observer: TestObserver<EntityPostResponse>,
-        expectedCode: String,
-        expectedMessage: String
-    ) {
-        observer.assertError { caught ->
-            if (caught is MwException) {
-                val error = caught.error
-                return@assertError error.hasMessageName(expectedCode) && error.getMessageHtml(expectedCode) == expectedMessage
-            } else {
-                return@assertError false
-            }
+    private fun testErrorWithExpectedCodeAndMessage(caught: Exception, expectedCode: String, expectedMessage: String): Boolean {
+        if (caught is MwException) {
+            val error = caught.error
+            return error.hasMessageName(expectedCode) && error.getMessageHtml(expectedCode) == expectedMessage
+        } else {
+            return false
         }
     }
 
-    private fun request(): Observable<EntityPostResponse> {
+    private suspend fun requestPostDescription(): EntityPostResponse {
         val pageTitle = PageTitle("foo", WikiSite.forLanguageCode("en"))
         return apiService.postDescriptionEdit(
             pageTitle.wikiSite.languageCode,
             pageTitle.wikiSite.languageCode, pageTitle.wikiSite.dbName(),
             pageTitle.prefixedText, "some new description", "summary", MOCK_EDIT_TOKEN, null
+        )
+    }
+
+    private suspend fun requestPostLabel(): EntityPostResponse {
+        val pageTitle = PageTitle("foo", WikiSite.forLanguageCode("en"))
+        return apiService.postLabelEdit(
+            pageTitle.wikiSite.languageCode,
+            pageTitle.wikiSite.languageCode, pageTitle.wikiSite.dbName(),
+            pageTitle.prefixedText, "some new label", "summary", MOCK_EDIT_TOKEN, null
         )
     }
 
