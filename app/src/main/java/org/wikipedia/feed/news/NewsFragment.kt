@@ -84,8 +84,8 @@ class NewsFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        _binding = null
         binding.appBarLayout.removeOnOffsetChangedListener(offsetChangedListener)
+        _binding = null
         super.onDestroyView()
     }
 
