@@ -78,5 +78,4 @@ enum class NavTab constructor(
             return getTabs()[code]
         }
     }
-
 }
