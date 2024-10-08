@@ -20,8 +20,20 @@ Galeri gambar - Ketuk pada gambar untuk melihat gambar dalam layar penuh dalam r
 
 Definisi dari Wiktionary - Tekan-dan-tahan untuk menyorot kata, lalu tekan tombol "Definisi" untuk melihat definisi kata tersebut dari Wiktionary.
 
+Wikipedia Zero - Akses Wikipedia untuk Android tanpa biaya data untuk operator seluler yang berpartisipasi. (tautan ke operator yang berpartisipasi).
+
+Kirimkan tanggapan Anda tentang aplikasi ini! Di menu, tekan "Pengaturan", lalu "Tentang aplikasi Wikipedia", lalu "Kirim masukan aplikasi".
+
 Kodenya 100% sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, maka kami menantikan kontribusi Anda! https://github.com/wikimedia/apps-android-wikipedia
 
+Dengan menggunakan aplikasi ini, Anda menyetujui transmisi otomatis laporan kerusakan ke penyedia layanan pihak ketiga. Jika Anda ingin menonaktifkan fitur ini, silakan tekan "Pengaturan", lalu matikan "Kirim laporan kerusakan" di bagian Privasi. Penjelasan izin yang diperlukan oleh aplikasi: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Kebijakan Privasi: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Laporan kerusakan kebijakan privasi penyedia layanan pihak ketiga: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
 TOS: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Tentang Yayasan Wikimedia
 
 Wikimedia Foundation adalah organisasi nirlaba yang mendukung Wikipedia dan proyek Wikimedia lainnya. Yayasan Wikimedia adalah organisasi amal yang didanai terutama melalui sumbangan. Untuk informasi lebih lanjut, silakan kunjungi situs web kami: https://wikimediafoundation.org/wiki/Home.

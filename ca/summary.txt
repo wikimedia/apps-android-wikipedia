@@ -1,1 +1,1 @@
-Aplicació oficial per a Android de la Viquipèdia
+Visor oficial amb visualització enriquida de la Viquipèdia
