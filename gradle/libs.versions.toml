@@ -116,4 +116,8 @@ viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpag
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 
 [plugins]
+android-application = { id = "com.android.application", version.ref = "gradle" }
+gms-plugin = { id = 'com.google.gms.google-services', version.ref = "googleServices" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinStdlibJdk8" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinStdlibJdk8" }
 ksp-plugin = { id = 'com.google.devtools.ksp', version.ref = "kspPlugin" }
