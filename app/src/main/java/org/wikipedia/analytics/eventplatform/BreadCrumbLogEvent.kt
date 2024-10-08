@@ -20,7 +20,7 @@ import org.wikipedia.util.log.L
 class BreadCrumbLogEvent(
         private val screen_name: String,
         private val action: String
-) : MobileAppsEvent(STREAM_NAME) {
+) : MobileAppsEventWithTemp(STREAM_NAME) {
 
     // Do NOT join the declaration and assignment to these fields, or they won't be serialized correctly.
     private val app_primary_language_code: String

@@ -11,7 +11,7 @@ class InstallReferrerEvent(@SerialName("referrer_url") private val referrerUrl: 
                            @SerialName("utm_medium") private val utfMedium: String,
                            @SerialName("utm_campaign") private val utfCampaign: String,
                            @SerialName("utm_source") private val utfSource: String) :
-    MobileAppsEvent(STREAM_NAME) {
+    MobileAppsEventWithTemp(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.install_referrer_event"

@@ -94,5 +94,5 @@ class AppSessionEvent {
     class AppSessionEventImpl(@SerialName("length_ms") private val length: Int,
                               @SerialName("session_data") private val sessionData: SessionData,
                               private val languages: List<String>) :
-        MobileAppsEvent("app_session")
+        MobileAppsEventWithTemp("app_session")
 }

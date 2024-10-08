@@ -18,4 +18,4 @@ class AppInteractionEvent(
     private val wiki_id: String,
     @Transient private val streamName: String = "",
     @EncodeDefault(EncodeDefault.Mode.ALWAYS) private val platform: String = "android",
-) : MobileAppsEvent(streamName)
+) : MobileAppsEventWithTemp(streamName)

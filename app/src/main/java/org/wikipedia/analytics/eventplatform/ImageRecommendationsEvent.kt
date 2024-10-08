@@ -16,7 +16,7 @@ class ImageRecommendationsEvent(
    private val action_data: String,
    private val primary_language: String,
    private val wiki_id: String
-) : MobileAppsEvent(STREAM_NAME) {
+) : MobileAppsEventWithTemp(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.image_recommendation_event"

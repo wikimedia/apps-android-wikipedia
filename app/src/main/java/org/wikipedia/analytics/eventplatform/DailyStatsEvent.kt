@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 @Serializable
 @SerialName("/analytics/mobile_apps/android_daily_stats/2.1.0")
 class DailyStatsEvent(private val app_install_age_in_days: Long,
-                      private val languages: List<String>) : MobileAppsEvent(STREAM_NAME) {
+                      private val languages: List<String>) : MobileAppsEventWithTemp(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.daily_stats"
