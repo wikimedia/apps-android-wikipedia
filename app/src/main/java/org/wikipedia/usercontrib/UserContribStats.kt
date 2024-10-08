@@ -5,11 +5,13 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.settings.Prefs
 import java.util.*
+import kotlin.collections.flatMap
 import kotlin.math.ceil
 
 object UserContribStats {
@@ -19,28 +21,26 @@ object UserContribStats {
 
     private var totalEdits: Int = 0
     var totalReverts: Int = 0
-    var totalDescriptionEdits: Int = 0
-    var totalImageCaptionEdits: Int = 0
-    var totalImageTagEdits: Int = 0
 
-    suspend fun verifyEditCountsAndPauseState() {
-        val response = ServiceFactory.get(Constants.wikidataWikiSite).getEditorTaskCounts()
-        if (response.query?.userInfo?.isBlocked != true) {
-            response.query?.editorTaskCounts?.let {
-                totalEdits = it.totalEdits
-                totalDescriptionEdits = it.totalDescriptionEdits
-                totalImageCaptionEdits = it.totalImageCaptionEdits
-                totalImageTagEdits = it.totalDepictsEdits
-                totalReverts = it.totalReverts
-                maybePauseAndGetEndDate()
-            }
-        }
+    fun verifyEditCountsAndPauseState(totalContributionsList: List<UserContribution>) {
+        totalEdits = totalContributionsList.size
+        totalReverts = totalContributionsList.count { it.tags.contains("mw-reverted") || it.tags.contains("mw-rollback") }
+        maybePauseAndGetEndDate()
     }
 
-    suspend fun getPageViews(response: MwQueryResponse): Long {
+    suspend fun getPageViews(homeWikiContributions: List<UserContribution>, wikidataContributions: List<UserContribution>): Long {
+        // If the user has contributions in the main namespace on their home wiki, get pageviews from those.
+        val mainNamespaceContributions = homeWikiContributions.filter { it.ns == 0 }
+        if (mainNamespaceContributions.isNotEmpty()) {
+            val pageTitles = mainNamespaceContributions.map { it.title }
+            return ServiceFactory.get(WikipediaApp.instance.wikiSite).getPageViewsForTitles(pageTitles.joinToString("|"))
+                .query?.pages?.sumOf { it.pageViewsMap.values.sumOf { it ?: 0 } } ?: 0
+        }
+
+        // ...otherwise, get pageviews from the Wikidata descriptions they've added.
         val qLangMap = mutableMapOf<String, MutableSet<String>>()
 
-        for (userContribution in response.query!!.userContributions) {
+        for (userContribution in wikidataContributions) {
             val descLang = userContribution.comment.split(" ")
                 .filter { "wbsetdescription" in it }
                 .flatMap { it.split("|") }
