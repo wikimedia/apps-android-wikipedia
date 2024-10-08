@@ -9,6 +9,7 @@ import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 
 enum class NavTab constructor(
     @StringRes val text: Int,
@@ -40,19 +41,25 @@ enum class NavTab constructor(
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
         }
+
+        override fun ordinalIndex(): Int = 3
     },
     MORE(R.string.nav_item_more, R.id.nav_tab_more, R.drawable.ic_menu_white_24dp) {
         override fun newInstance(): Fragment {
             return Fragment()
         }
+
+        override fun ordinalIndex(): Int = 4
     };
+
+    open fun ordinalIndex(): Int = ordinal
 
     abstract fun newInstance(): Fragment
 
     override fun code(): Int {
         // This enumeration is not marshalled so tying declaration order to presentation order is
         // convenient and consistent.
-        return ordinal
+        return ordinalIndex()
     }
 
     companion object {
@@ -62,18 +69,14 @@ enum class NavTab constructor(
                 EXPLORE,
                 READING_LISTS,
                 SEARCH,
-                if (canIncludeEdits()) EDITS else CONTRIBUTE,
+                if (ContributionsDashboardHelper.contributionsDashboardEnabled) CONTRIBUTE else EDITS,
                 MORE
             )
         }
 
         fun of(code: Int): NavTab {
-            return entries[code]
+            return getTabs()[code]
         }
-
-        // @TODO: Update the logic with regional restriction from the Helper class
-        private fun canIncludeEdits(): Boolean = true
-
     }
 
 }

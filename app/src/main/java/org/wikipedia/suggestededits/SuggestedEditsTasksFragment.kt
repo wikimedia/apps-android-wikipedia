@@ -39,6 +39,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
@@ -242,7 +243,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.userStatsClickTarget.isEnabled = true
             binding.userNameView.text = AccountUtil.userName
             binding.contributionsStatsView.setTitle(viewModel.totalContributions.toString())
-            binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
+
+            val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
+                R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
+            binding.contributionsStatsView.setDescription(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
             if (Prefs.showOneTimeSequentialUserStatsTooltip) {
                 showOneTimeSequentialUserStatsTooltips()
             }
@@ -254,7 +258,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setUserStatsViewsAndTooltips() {
         binding.contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        binding.contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
+        binding.contributionsStatsView.tooltipText = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
+            getString(R.string.suggested_edits_edit_stat_tooltip) else getString(R.string.suggested_edits_contributions_stat_tooltip)
 
         binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         binding.editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
