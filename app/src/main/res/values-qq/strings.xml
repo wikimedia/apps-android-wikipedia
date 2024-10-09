@@ -1723,7 +1723,7 @@
   <string name="donor_history_last_donated_date_picker_label">Message of the date picker for the last donated field.</string>
   <string name="donor_history_last_donated_date_picker_cancel">Button of the date picker for the last donated field that closes the dialog.</string>
   <string name="donor_history_last_donated_date_picker_ok">Button of the date picker for the last donated field that save the information.</string>
-  <string name="donor_history_recurring">Label of the recurring donation.</string>
+  <string name="donor_history_recurring_donor">Label of the recurring donor.</string>
   <string name="donor_history_donate_button">Button for opening the donation dialog.</string>
   <string name="donor_history_about_this_experiment">Text for the link to see the detail about this experiment.</string>
   <string name="donor_history_updated_message_snackbar">Snackbar message for the donor history screen that the information has been saved.</string>
@@ -1742,4 +1742,7 @@
   <string name="contributions_dashboard_badge_donor">Label for the donor badge that indicates as a donor.</string>
   <string name="contributions_dashboard_badge_become_a_donor">Label for the donor badge that indicates as not a donor.</string>
   <string name="contributions_dashboard_badge_update">Label for the donor badge that provide a link to update the donor status.</string>
+  <string name="contributions_dashboard_app_icon_title">Label of the setting option for changing the app icon.</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Label of the app icon subtitle for change the app icon.</string>
+  <string name="contributions_dashboard_logged_out_user">Label of the logged out user in the donor history card.</string>
 </resources>
