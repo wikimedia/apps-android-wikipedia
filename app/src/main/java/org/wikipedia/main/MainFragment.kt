@@ -322,10 +322,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                         intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()) == NavTab.EXPLORE.code())) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
-            if (ContributionsDashboardHelper.contributionsDashboardEnabled) {
-                // safeguard against crash
-                return
-            }
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             goToTab(NavTab.READING_LISTS)
@@ -562,10 +558,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.showSuggestedEditsTooltip &&
                 Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
             enqueueTooltip {
-                if (ContributionsDashboardHelper.contributionsDashboardEnabled) {
-                    // safeguard against crash
-                    return@enqueueTooltip
-                }
                 FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id),
                     if (AccountUtil.isLoggedIn) getString(R.string.main_tooltip_text, AccountUtil.userName)
                     else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
