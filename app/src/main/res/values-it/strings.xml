@@ -21,6 +21,7 @@
 * Giacomo Checchin
 * Gianfranco
 * Greis
+* HaukweKwor
 * JackLantern
 * Karapananguasú Kururú Teremembé
 * LACLARETTA
@@ -141,6 +142,7 @@
   <string name="menu_page_recently_viewed">Visitato di recente</string>
   <string name="menu_page_archive">Archivio</string>
   <string name="menu_long_press_open_page">Apri</string>
+  <string name="menu_long_press_open_in_places">Apri in Luoghi</string>
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="menu_long_press_copy_page">Copia l\'indirizzo del collegamento</string>
   <string name="menu_text_select_define">Definizione</string>
@@ -165,6 +167,7 @@
   <string name="langlinks_your_wikipedia_languages">Le tue lingue di Wikipedia</string>
   <string name="menu_save_changes">Pubblica modifiche</string>
   <string name="edit_saved_successfully">Modifica pubblicata!</string>
+  <string name="stub_article_edit_saved_successfully">Modifica pubblicata! Le modifiche potrebbero richiedere del tempo per essere visualizzate.</string>
   <string name="dialog_message_edit_failed">Modifica non riuscita!</string>
   <string name="dialog_message_edit_failed_retry">Riprova</string>
   <string name="dialog_message_edit_failed_cancel">Annulla</string>
@@ -207,6 +210,7 @@
   <string name="logged_out_in_background_dialog">Sei stato disconnesso da Wikipedia. Vuoi effettuare di nuovo l\'accesso?</string>
   <string name="logged_out_in_background_login">Entra</string>
   <string name="logged_out_in_background_cancel">Annulla</string>
+  <string name="account_vanish_request_confirm">Il diritto all\'oblio è una &lt;b&gt;soluzione estrema&lt;/b&gt; e dovrebbe essere utilizzata solo quando si desidera smettere di contribuire per sempre e anche per nascondere il più possibile le proprie associazioni passate. \n\nLa cancellazione di un account su Wikipedia avviene cambiando il nome dell\'account in modo che gli altri non possano riconoscere i contributi, attraverso un processo chiamato scomparsa dell\'account. &lt;b&gt;L\'oblio non garantisce un anonimato completo né la rimozione dei contributi ai progetti.&lt;/b&gt;</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="history_offline_articles_toast">Alcune voci nella cronologia potrebbero non essere visualizzabili offline.</string>
@@ -442,6 +446,7 @@
   <string name="link_preview_dialog_save_button">Salva</string>
   <string name="link_preview_dialog_saved_button">Salvato</string>
   <string name="link_preview_dialog_share_button">Condividi</string>
+  <string name="link_preview_stub_placeholder_text">Questa voce è un abbozzo, significa che non vi è abbastanza contenuto per generare un\'antepima. Tuttavia, puoi cambiare questa cosa.</string>
   <string name="error_page_does_not_exist">Questa pagina non esiste</string>
   <string name="error_user_page_does_not_exist">Wikipedia non ha una &lt;a href=\"%1$s\"&gt;pagina utente&lt;/a&gt; con questo esatto nome. In generale, questa pagina dovrebbe essere creata e modificata da &lt;b&gt;%2$s&lt;/b&gt;. Se sei in dubbio, per favore verifica se \"%3$s\" esiste.</string>
   <string name="view_wiki_error_message_offline">Non è possibile connettersi ad internet</string>
@@ -465,9 +470,12 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalizza la barra degli strumenti</string>
   <string name="error_blocked_footer_no_blocker">Puoi contattare un\'&lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
   <string name="temp_account_not_logged_in">Non hai effettuato l\'accesso</string>
+  <string name="temp_account_anon_dialog_body">Una volta che hai apportato una modifica, verrà &lt;a href=\'https://#login\'&gt;creato un account&lt;/a&gt; temporaneo per proteggere la tua privacy. &lt;a href=\'%1$s\'&gt;Scopri di più&lt;/a&gt;. Accedi o crea un account per ricevere riconoscimento per le tue modifiche future e per accedere ad altre funzionalità.</string>
   <string name="temp_account_dialog_ok">Capito</string>
   <string name="temp_account_using_title">Stai utilizzando un\'utenza temporanea</string>
+  <string name="temp_account_dialog_discard">Ignora le modifiche ed accedi</string>
   <string name="temp_account_end_session">Termina la sessione</string>
+  <string name="temp_account_end_session_confirm">Questo ti disconnetterà dal tuo account temporaneo. Vuoi continuare?</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
@@ -1514,6 +1522,9 @@
   <string name="patroller_tasks_filters_user_status_learners">Principianti</string>
   <string name="patroller_tasks_filters_user_status_experienced">Utenti con esperienza</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Utenti registrati con più di 500 modifiche e 30 giorni di attività.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Ultime versioni</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Ultima versione</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Non l\'ultima versione</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contributi automatici</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Umani (non bot)</string>
@@ -1537,6 +1548,7 @@
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtri</item>
   </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Cronologia voce</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Visualizza</string>
   <string name="patroller_tasks_overflow_learn">Ulteriori informazioni</string>
   <string name="patroller_onboarding_two_thank_title">Ringrazia</string>
@@ -1591,4 +1603,9 @@
   <string name="places_survey_feedback_dialog_title">Come possiamo migliorare \"Luoghi\"?</string>
   <string name="places_survey_dialog_cancel">Annulla</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Cosa vorresti che cambiassimo o migliorassimo?</string>
+  <string name="places_card_enable_location_card_button">Abilita la posizione</string>
+  <string name="places_card_distance_unknown">Distanza sconosciuta</string>
+  <string name="places_empty_message_snackbar">Non ci sono voci nelle vicinanze. Prova a ridurre lo zoom e muovere la mappa.</string>
+  <string name="recommended_content_section_you_might_like">Potrebbe piacerti</string>
+  <string name="recommended_content_survey_dialog_title">Contribuisci a migliorare i contenuti consigliati.</string>
 </resources>

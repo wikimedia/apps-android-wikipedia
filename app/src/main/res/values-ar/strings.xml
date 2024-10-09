@@ -1526,6 +1526,9 @@
   <string name="talk_templates_new_message_dialog_save">حفظ</string>
   <string name="talk_templates_new_message_dialog_cancel">إلغاء</string>
   <string name="talk_templates_edit_message_dialog_save">حفظ</string>
+  <string name="talk_templates_edit_message_dialog_delete">حذف</string>
+  <string name="talk_templates_edit_message_updated">تم تحديث الرسالة</string>
+  <string name="talk_templates_menu_remove_message">إزالة الرسالة</string>
   <string name="talk_templates_message_title_empty">لا يمكن أن يكون العنوان فارغا.</string>
   <string name="talk_templates_your_messages_tab_title">رسائلك</string>
   <string name="talk_templates_example_messages_tab_title">أمثلة لرسائل</string>
@@ -1576,10 +1579,17 @@
   <string name="data_opt_in_reject">رفض</string>
   <string name="page_issues_title">مشكلات الصفحة</string>
   <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
+  <string name="places_title">أماكن</string>
+  <string name="places_search_hint">ابحث عن أماكن</string>
+  <string name="places_filter_title">فلترة حسب اللغة</string>
+  <string name="places_toggle_buttons_map">خريطة</string>
+  <string name="places_toggle_buttons_list">قائمة</string>
   <string name="places_survey_very_satisfied_option">راض جدا</string>
   <string name="places_survey_very_unsatisfied_option">غير راض جدا</string>
   <string name="places_survey_dialog_title" fuzzy="true">المساعدة في تحسين \"الأماكن\"</string>
   <string name="places_survey_feedback_dialog_title">كيف يمكن تحسين \"المناطق\"</string>
+  <string name="places_survey_dialog_cancel">إلغاء</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">ما الذي تود منا تغييره أو تحسينه؟</string>
   <string name="places_empty_list">هذه المنطقة فارغة. قم بتكبير &lt;a href\n=\"#\"&gt; الخريطة.</string>
+  <string name="recommended_content_survey_dialog_submitted_message">أرسلت التعليقات. شكرا لك!</string>
 </resources>
