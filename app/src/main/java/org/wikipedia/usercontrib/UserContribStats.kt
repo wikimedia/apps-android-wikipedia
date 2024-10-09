@@ -24,7 +24,7 @@ object UserContribStats {
 
     fun verifyEditCountsAndPauseState(totalContributionsList: List<UserContribution>) {
         totalEdits = totalContributionsList.size
-        totalReverts = totalContributionsList.count { it.tags.contains("mw-reverted") || it.tags.contains("mw-rollback") }
+        totalReverts = totalContributionsList.count { it.ns == 0 && it.tags.contains("mw-reverted") }
         maybePauseAndGetEndDate()
     }
 
@@ -32,7 +32,7 @@ object UserContribStats {
         // If the user has contributions in the main namespace on their home wiki, get pageviews from those.
         val mainNamespaceContributions = homeWikiContributions.filter { it.ns == 0 }
         if (mainNamespaceContributions.isNotEmpty()) {
-            val pageTitles = mainNamespaceContributions.map { it.title }
+            val pageTitles = mainNamespaceContributions.map { it.title }.take(10)
             return ServiceFactory.get(WikipediaApp.instance.wikiSite).getPageViewsForTitles(pageTitles.joinToString("|"))
                 .query?.pages?.sumOf { it.pageViewsMap.values.sumOf { it ?: 0 } } ?: 0
         }
