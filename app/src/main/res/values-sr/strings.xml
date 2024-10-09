@@ -1601,6 +1601,7 @@
   <string name="donate_gpay_dialog_pay_button">Донирајте путем Google Pay-а</string>
   <string name="donate_gpay_dialog_other_button">Други начини донирања</string>
   <string name="donate_gpay_activity_title">Изаберите износ</string>
+  <string name="donate_gpay_check_transaction_fee">Платићу и трошкове трансакције (%s), да би добили цео износ моје донације.</string>
   <string name="donate_gpay_check_recurring">Донирај аутоматски сваког месеца.</string>
   <string name="donate_gpay_check_send_email">Да, нека ми Задужбина Викимедија периодично шаље имејлове.</string>
   <string name="donate_gpay_minimum_amount">Изаберите износ (најмање %s)</string>
