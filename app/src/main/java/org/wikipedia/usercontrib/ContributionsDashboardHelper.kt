@@ -10,16 +10,16 @@ class ContributionsDashboardHelper {
     companion object {
 
         private val enabledCountries = listOf(
-            "FR", "NL", "IT", "JP"
+            "FR", "NL"
         )
 
         private val enabledLanguages = listOf(
-            "fr", "nl", "en", "it", "ja"
+            "fr", "nl", "en"
         )
 
         val contributionsDashboardEnabled get() = ReleaseUtil.isPreBetaRelease ||
                 (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
                         enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
-                        LocalDate.now() <= LocalDate.of(2024, 12, 2))
+                        LocalDate.now() <= LocalDate.of(2024, 12, 20))
     }
 }
