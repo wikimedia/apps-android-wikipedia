@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
 import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
@@ -17,7 +18,6 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
-import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -90,15 +90,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private var sectionTextFirstLoad = true
 
     private var actionMode: ActionMode? = null
-
-    private val movementMethodWithLogin = LinkMovementMethodExt { url: String ->
-        if (url == "https://#login") {
-            val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
-            requestLogin.launch(loginIntent)
-        } else {
-            UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
-        }
-    }
 
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -328,7 +319,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         editLicenseText.text = StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_4_url)))
-        editLicenseText.movementMethod = movementMethodWithLogin
+        editLicenseText.movementMethod = LinkMovementMethod.getInstance()
     }
 
     private fun doSave() {
