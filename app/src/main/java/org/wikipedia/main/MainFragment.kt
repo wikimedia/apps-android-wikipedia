@@ -78,7 +78,6 @@ import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
