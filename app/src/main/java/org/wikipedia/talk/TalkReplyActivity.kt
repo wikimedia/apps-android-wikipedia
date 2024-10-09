@@ -524,7 +524,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             val dialog = MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
                 .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
                 .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
-                .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName) else getString(R.string.temp_account_anon_dialog_body)))
+                .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
+                else getString(R.string.temp_account_anon_dialog_body, getString(R.string.temp_accounts_help_url))))
                 .setPositiveButton(getString(R.string.temp_account_dialog_ok)) { dialog, _ ->
                     dialog.dismiss()
                 }
@@ -535,8 +536,11 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 .show()
             dialog.window?.let {
                 it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { link ->
-                    launchLogin(link.contains("#createaccount"))
-                    dialog.dismiss()
+                    if (link.contains("#login") || link.contains("#createaccount")) {
+                        launchLogin(link.contains("#createaccount"))
+                    } else {
+                        UriUtil.handleExternalLink(this, Uri.parse(link))
+                    }
                 }
             }
             Prefs.tempAccountDialogShown = true
