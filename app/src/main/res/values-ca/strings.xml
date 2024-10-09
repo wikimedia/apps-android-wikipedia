@@ -1466,8 +1466,6 @@
   <string name="reading_list_share_menu_label">Comparteix…</string>
   <string name="reading_list_share_menu_tooltip">Comparteix la llista de lectura amb altres</string>
   <string name="reading_list_share_message_v2">Hola! Voldria compartir-vos la meva llista de lectura de la Viquipèdia:</string>
-  <string name="reading_list_share_survey_title">Ens podeu ajudar a millorar la funcionalitat de «Comparteix llistes de lectura»?</string>
-  <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>
   <string name="talk_templates_empty_message" fuzzy="true">No teniu cap missatge d\'avís desat.</string>
   <string name="talk_templates_new_message_title">Missatge nou</string>
   <string name="talk_templates_new_message_subject_hint">Assumpte</string>

@@ -96,6 +96,7 @@
   <string name="menu_page_recently_viewed">Recentemente visitate</string>
   <string name="menu_page_archive">Archivo</string>
   <string name="menu_long_press_open_page">Aperir</string>
+  <string name="menu_long_press_open_in_places">Aperir in Locos</string>
   <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
   <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
   <string name="menu_text_select_define">Definir</string>
@@ -824,6 +825,7 @@
   <string name="feed_item_type_main_page">Pagina principal de Wikipedia con le contento selecte del die</string>
   <string name="feed_item_type_randomizer">Generar articulos aleatori a leger</string>
   <string name="feed_item_type_suggested_edits">Suggestiones pro adder contento a Wikipedia</string>
+  <string name="feed_item_type_places">Articulos a proximitate a base del localisation actual</string>
   <string name="feed_empty_message">Il ha nihil sur tu canal Explorar</string>
   <string name="feed_configure_onboarding_action">Personalisar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1475,8 +1477,6 @@
   <string name="reading_list_share_menu_label">Condivider…</string>
   <string name="reading_list_share_menu_tooltip">Condivider iste lista de lectura con alteres</string>
   <string name="reading_list_share_message_v2">Salute! Io vole condivider mi lista de lectura de Wikipedia con te:</string>
-  <string name="reading_list_share_survey_title">Poterea tu adjutar nos a meliorar \"Condivider listas de lectura\"?</string>
-  <string name="reading_list_share_survey_body">\"Condivider listas de lectura\" es un function in test e nos ha besonio de tu retroaction pro meliorar o remover lo.</string>
   <string name="talk_templates_empty_message">Crea tu proprie messages o usa le &lt;a href=\"#\"&gt;messages de exemplo&lt;/a&gt; pro comenciar.</string>
   <string name="talk_templates_new_message_title">Nove message</string>
   <string name="talk_templates_new_message_subject_hint">Subjecto</string>
@@ -1658,4 +1658,16 @@
   <string name="places_survey_dialog_cancel">Cancellar</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Que vole tu que nos cambia o meliora?</string>
   <string name="places_empty_list">Iste area es vacue. Face zoom retro sur &lt;a href=\"#\"&gt;le carta&lt;/a&gt;.</string>
+  <string name="places_card_title">Locos a proximitate</string>
+  <string name="places_card_action">Plus locos a proximitate</string>
+  <string name="places_card_enable_location_card_message">‘Locos’ es un maniera cartographic de explorar Wikipedia</string>
+  <string name="places_card_enable_location_card_button">Activar le localisation</string>
+  <string name="places_card_distance_suffix">A %s</string>
+  <string name="places_card_distance_unknown">Distantia incognite</string>
+  <string name="places_empty_message_snackbar">Il non ha articulos a proximitate. Tenta facer zoom retro e displaciar le carta.</string>
+  <string name="recommended_content_section_you_might_like">Poterea placer te</string>
+  <string name="recommended_content_survey_dialog_title">Adjuta a meliorar le contento recommendate.</string>
+  <string name="recommended_content_survey_dialog_message">Es tu satisfacite con iste resultato de recerca recommendate?</string>
+  <string name="recommended_content_survey_dialog_input_hint">Retroaction additional</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Retroaction inviate. Gratias!</string>
 </resources>

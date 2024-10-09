@@ -1225,8 +1225,6 @@
   <string name="reading_list_share_menu_label">Dalintis…</string>
   <string name="reading_list_share_menu_tooltip">Dalintis šiuo skaitymo sąrašu su kitais</string>
   <string name="reading_list_share_message_v2">Labas! Noriu pasidalinti savo Vikipedijos skaitymo sąrašu su tavimi:</string>
-  <string name="reading_list_share_survey_title">Ar galite mums padėti patobulinti skaitymo sąrašų dalijimąsi?</string>
-  <string name="reading_list_share_survey_body">Skaitymo sąrašų dalijimasis yra bandoma funkcijas ir mums reikia jūsų grįžtamojo ryšio, kad galėtume patobulinti ar pašalinti šią funkciją.</string>
   <string name="data_opt_in_accept">Priimti</string>
   <string name="data_opt_in_reject">Atmesti</string>
   <string name="page_issues_title">Puslapio problemos</string>

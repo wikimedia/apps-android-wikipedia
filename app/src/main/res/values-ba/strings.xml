@@ -1460,8 +1460,6 @@
   <string name="reading_list_share_menu_label">Уртаҡлашырға...</string>
   <string name="reading_list_share_menu_tooltip">Был уҡыу исемлеген башҡалар менән дә уртаҡлаш</string>
   <string name="reading_list_share_message_v2">Сәләм! Мин һеҙҙең менән Википедиялағы үҙемдең уҡыу исемлеге менән уртаҡлашырға теләйем:</string>
-  <string name="reading_list_share_survey_title">\"Уҡыу исемлектәре менән уртаҡлашыу\" мөмкинлеген яҡшыртырға ярҙам итә алаһығыҙмы?</string>
-  <string name="reading_list_share_survey_body">\"Уҡыу исемлектәре менән уртаҡлашырға\" — был тест функцияһы һәм уны яҡшыртыу йәки юйҙырыу өсөн фекерҙәрегеҙ кәрәк.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Һеҙҙә бер ниндәй ҙә иҫкәртеү хәбәрҙәре һаҡланмаған.</string>
   <string name="talk_templates_new_message_title">Яңы хәбәр</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>

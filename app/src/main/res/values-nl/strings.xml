@@ -1518,8 +1518,6 @@
   <string name="reading_list_share_menu_label">Delen…</string>
   <string name="reading_list_share_menu_tooltip">Deel deze leeslijst met anderen</string>
   <string name="reading_list_share_message_v2">Hoi! Ik wil graag mijn Wikipedia leeslijst met je delen:</string>
-  <string name="reading_list_share_survey_title">Kunt u ons helpen om \"Leeslijsten delen\" te verbeteren?</string>
-  <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
   <string name="talk_templates_empty_message">Creëer je eigen berichten of gebruik &lt;a href=\"#\"&gt;voorbeeldberichten&lt;/a&gt; om aan de slag te gaan.</string>
   <string name="talk_templates_new_message_title">Nieuw bericht</string>
   <string name="talk_templates_new_message_subject_hint">Onderwerp</string>
@@ -1705,7 +1703,7 @@
   <string name="places_card_action">Meer plaatsen in de buurt</string>
   <string name="places_card_enable_location_card_message">Plaatsen is een kaartgebaseerde manier om Wikipedia te verkennen</string>
   <string name="places_card_enable_location_card_button">Locatie inschakelen</string>
-  <string name="places_card_distance_suffix">%s vanaf huidige locatie</string>
+  <string name="places_card_distance_suffix">%s verderop</string>
   <string name="places_card_distance_unknown">Onbekende afstand</string>
   <string name="places_empty_message_snackbar">Er zijn geen artikelen in de buurt. Probeer uit te zoomen en de kaart te verplaatsen.</string>
 </resources>

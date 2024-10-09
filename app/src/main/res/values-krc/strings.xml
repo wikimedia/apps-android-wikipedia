@@ -1467,8 +1467,6 @@
   <string name="reading_list_share_menu_label">Ортагъа салыргъа...</string>
   <string name="reading_list_share_menu_tooltip">Бу окъургъа тизмени башхала бла арагъа сал</string>
   <string name="reading_list_share_message_v2">Салам! Мен кесими окъургъа тизмеми сизге джаяргъа излей эдим:</string>
-  <string name="reading_list_share_survey_title">Окъургъа тизмени джайыу функцияны маджаллашдырыр ючюн болушлукъ эталлыкъмысыз?</string>
-  <string name="reading_list_share_survey_body">\"Окъургъа тизмелени джайыу\"  — тест функцияды, аны маджаллашдырырча неда кетерирча, бизге сизни багъаларыгъыз керекди.</string>
   <string name="talk_templates_empty_message">Ишлеб башлар ючюн, кесигизни энчи билдириулеригизни къурагъыз неда &lt;a href=\"#\"&gt;билдириу юлгюле&lt;/a&gt; къурагъыз.</string>
   <string name="talk_templates_new_message_title">Джангы билдириу</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
