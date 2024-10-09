@@ -91,7 +91,8 @@ class LoginActivity : BaseActivity() {
 
         // always go to account creation before logging in, unless we arrived here through the
         // system account creation workflow
-        if (savedInstanceState == null && !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)) {
+        if (savedInstanceState == null && !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE) &&
+                intent.getBooleanExtra(CREATE_ACCOUNT_FIRST, true)) {
             startCreateAccountActivity()
         }
 
@@ -238,6 +239,7 @@ class LoginActivity : BaseActivity() {
         const val RESULT_LOGIN_SUCCESS = 1
         const val RESULT_LOGIN_FAIL = 2
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
+        const val CREATE_ACCOUNT_FIRST = "create_account_first"
         const val SOURCE_NAV = "navigation"
         const val SOURCE_EDIT = "edit"
         const val SOURCE_SYSTEM = "system"
@@ -249,9 +251,10 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
 
-        fun newIntent(context: Context, source: String): Intent {
+        fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)
                     .putExtra(LOGIN_REQUEST_SOURCE, source)
+                    .putExtra(CREATE_ACCOUNT_FIRST, createAccountFirst)
         }
     }
 }

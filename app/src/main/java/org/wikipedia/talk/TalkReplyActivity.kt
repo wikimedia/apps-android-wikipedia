@@ -529,13 +529,13 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     dialog.dismiss()
                 }
                 .setNegativeButton(getString(R.string.create_account_login)) { dialog, _ ->
+                    launchLogin()
                     dialog.dismiss()
-                    requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_TALK))
                 }
                 .show()
             dialog.window?.let {
-                it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { _ ->
-                    requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_TALK))
+                it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { link ->
+                    launchLogin(link.contains("#createaccount"))
                     dialog.dismiss()
                 }
             }
@@ -543,6 +543,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             return true
         }
         return false
+    }
+
+    private fun launchLogin(createAccountFirst: Boolean = true) {
+        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
     }
 
     override fun onBackPressed() {
