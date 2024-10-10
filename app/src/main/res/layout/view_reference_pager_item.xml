@@ -18,7 +18,7 @@
         android:textColor="?android:textColorPrimary"
         android:textIsSelectable="true"
         android:textSize="16sp"
-        tools:text="1." />
+        tools:text="1" />
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/reference_text"

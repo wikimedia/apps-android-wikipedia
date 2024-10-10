@@ -22,6 +22,7 @@
   <string name="nav_item_suggested_edits">Modificationes</string>
   <string name="nav_item_more">Plus</string>
   <string name="nav_item_search">Cercar</string>
+  <string name="nav_item_contribute">Contribuer</string>
   <string name="error_network_error">Il non es possibile connecter se a Internet.</string>
   <string name="page_error_retry">Reprobar</string>
   <string name="card_offline_error_retry">Reprobar</string>
@@ -994,6 +995,7 @@
   <string name="suggested_edits_image_captions_task_detail">Describe un imagine pro adjutar le lectores a comprender su significato e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Summarisa un articulo pro adjutar le lectores a comprender rapidemente le subjecto.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Le numero total de tu contributiones usque al presente.</string>
+  <string name="suggested_edits_edit_stat_tooltip">Le numero total de tu modificationes usque al presente.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Le numero de dies consecutive durante que tu ha contribuite. Si tu non ha contribuite desde alcun tempore, illo monstra le data de tu ultime contribution.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de visitas de paginas al quales tu ha contribuite in le ultime 30 dies.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basate sur le numero de vices que un de tu contributiones ha essite revertite (i.e. disfacite per un altere editor). Modificationes revertite: %d.</string>
@@ -1018,6 +1020,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributiones</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Modification</item>
+    <item quantity="other">Modificationes</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d die</item>
@@ -1148,6 +1154,7 @@
   <string name="app_shortcuts_random">Aleatori</string>
   <string name="app_shortcuts_continue_reading">Continuar a leger</string>
   <string name="app_shortcuts_search">Cercar</string>
+  <string name="app_shortcuts_places">Locos</string>
   <string name="on_this_day_card_title">In iste die</string>
   <string name="more_events_text">Plus sur iste die</string>
   <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
