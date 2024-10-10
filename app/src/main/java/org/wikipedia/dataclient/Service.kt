@@ -446,9 +446,6 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    suspend fun getEditorTaskCounts(): MwQueryResponse
-
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")
     suspend fun postRollback(
