@@ -8,6 +8,7 @@
 * Lokesha kunchadka
 * Mahaveer Indra
 * Ravi Mundkur
+* Vinoda mamatharai
 * Vishwanatha Badikana
 -->
 <resources>
@@ -25,6 +26,7 @@
   <string name="nav_item_suggested_edits">ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="nav_item_more">ನನಾತ್</string>
   <string name="nav_item_search">ನಾಡ್‍ಲೆ</string>
+  <string name="nav_item_contribute">ಸಕಾಯೊ</string>
   <string name="error_network_error">ನೆಟ್ವರ್ಕ್ ಸರಿಕಟ್ಟ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
   <string name="page_error_retry">ನನೊರ ಪ್ರಯತ್ನ ಮಲ್ಪುಲೆ</string>
   <string name="card_offline_error_retry">ಪಿರ ಯತ್ನ ಮಲ್ಪುಲೆ</string>
