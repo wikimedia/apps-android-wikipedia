@@ -510,8 +510,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun selectedTabPosition(title: PageTitle): Int {
-        return app.tabList.firstOrNull { it.backStackPositionTitle != null &&
-                title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
+        return app.tabList.firstOrNull { it.getBackStackPositionTitle() != null &&
+                title == it.getBackStackPositionTitle() }?.let { app.tabList.indexOf(it) } ?: -1
     }
 
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
@@ -537,7 +537,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
                         .query?.firstPage()?.let { page ->
-                            WikipediaApp.instance.tabList.find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
+                            WikipediaApp.instance.tabList.find { it.getBackStackPositionTitle() == title }?.getBackStackPositionTitle()?.apply {
                                 thumbUrl = page.thumbUrl()
                                 description = page.description
                             }
