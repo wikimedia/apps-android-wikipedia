@@ -33,6 +33,7 @@
     <string name="preference_key_customize_explore_feed">customizeExploreFeed</string>
     <string name="preference_key_show_link_previews">showLinkPreviews</string>
     <string name="preference_key_collapse_tables">collapseTables</string>
+    <string name="preference_key_censorship_circumvention">censorshipCircumvention</string>
     <string name="preference_key_session_data">session_data</string>
     <string name="preference_key_session_timeout">session_timeout</string>
     <string name="preference_key_crashed_before_activity_created">crashedBeforeActivityCreated</string>
