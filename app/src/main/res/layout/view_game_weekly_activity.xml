@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/weekText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:textColor="?attr/primary_color"
+        tools:text="July 10-17" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/day1image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:srcCompat="@drawable/ic_star_24"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/day2image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_star_24"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/day3image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_star_24"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/day4image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_star_24"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/day5image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_star_24"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/day6image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_star_24"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/day7image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_star_24"
+            android:contentDescription="@null"/>
+
+    </LinearLayout>
+
+</merge>
