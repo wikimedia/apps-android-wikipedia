@@ -89,7 +89,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/donor_history_recurring"
+                        android:text="@string/donor_history_recurring_donor"
                         android:textColor="?attr/primary_color"
                         android:drawablePadding="16dp"
                         android:paddingVertical="16dp"
