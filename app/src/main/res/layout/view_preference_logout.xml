@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -15,6 +16,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/accountIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -42,6 +44,15 @@
             android:textColor="?attr/colorError"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/accountExpiry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="?attr/secondary_color"
+        tools:text="Lorem ipsum"/>
 
     <TextView
         android:id="@+id/accountVanishButton"

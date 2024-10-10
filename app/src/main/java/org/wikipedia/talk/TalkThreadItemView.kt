@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.richtext.CustomHtmlParser
@@ -69,6 +70,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.author, searchQuery)
         binding.userNameTapTarget.contentDescription = binding.userNameText.text
         binding.profileImage.isInvisible = !showAuthor
+        binding.profileImage.setImageResource(if (AccountUtil.isUserNameTemporary(item.author)) R.drawable.ic_temp_account else R.drawable.ic_user_avatar)
         binding.timeStampText.isVisible = item.date != null
         item.date?.let {
             val timestamp = DateUtil.getTimeAndDateString(context, it)

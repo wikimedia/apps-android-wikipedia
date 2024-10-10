@@ -3,6 +3,7 @@ package org.wikipedia.auth
 import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
+import android.app.Activity
 import android.os.Build
 import androidx.core.os.bundleOf
 import org.wikipedia.R
@@ -10,10 +11,13 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 object AccountUtil {
     private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
@@ -32,13 +36,13 @@ object AccountUtil {
     }
 
     val isLoggedIn: Boolean
-        get() = account() != null
+        get() = account() != null || isTemporaryAccount
 
     val isTemporaryAccount: Boolean
         get() = account() == null && getUserNameFromCookie().isNotEmpty()
 
     val userName: String
-        get() = account()?.name.orEmpty()
+        get() = account()?.name ?: getUserNameFromCookie()
 
     val password: String?
         get() {
@@ -47,7 +51,7 @@ object AccountUtil {
         }
 
     val assertUser: String?
-        get() = if (isLoggedIn) "user" else null
+        get() = if (isLoggedIn && !isTemporaryAccount) "user" else null
 
     var groups: Set<String>
         get() {
@@ -100,6 +104,17 @@ object AccountUtil {
 
     fun getUserNameExpiryFromCookie(): Long {
         return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
+    }
+
+    fun maybeShowTempAccountWelcome(activity: Activity) {
+        if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
+            Prefs.tempAccountWelcomeShown = true
+            Prefs.tempAccountDialogShown = false
+
+            val expiryDays = TimeUnit.MILLISECONDS.toDays(getUserNameExpiryFromCookie() - System.currentTimeMillis()).toInt()
+            FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
+                expiryDays, userName, expiryDays))
+        }
     }
 
     fun isUserNameTemporary(userName: String): Boolean {
