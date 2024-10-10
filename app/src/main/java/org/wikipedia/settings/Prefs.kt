@@ -734,4 +734,12 @@ object Prefs {
     var recommendedContentSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_content_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_content_survey_shown, value)
+
+    var hasDonorHistorySaved
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donor_history_saved, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donor_history_saved, value)
+
+    var isRecurringDonor
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)
 }
