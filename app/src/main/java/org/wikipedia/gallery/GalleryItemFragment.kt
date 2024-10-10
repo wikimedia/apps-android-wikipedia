@@ -55,7 +55,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private var _binding: FragmentGalleryItemBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: GalleryItemViewModel by viewModels { GalleryItemViewModel.Factory(requireArguments()) }
+    private val viewModel: GalleryItemViewModel by viewModels()
 
     private var mediaController: MediaController? = null
 

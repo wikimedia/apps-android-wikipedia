@@ -1,9 +1,8 @@
 package org.wikipedia.page.edithistory
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
@@ -14,7 +13,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -22,12 +20,12 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.*
+import java.util.Calendar
 
-class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
+class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
 
-    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     var pageId = -1
         private set
     var comparing = false
@@ -191,13 +189,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     class EditHistorySeparator(val date: String) : EditHistoryItemModel()
     class EditHistoryStats(val revision: MwQueryPage.Revision, val metrics: List<Metrics.Results>,
                            val allEdits: EditCount, val userEdits: EditCount, val anonEdits: EditCount, val botEdits: EditCount) : EditHistoryItemModel()
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return EditHistoryListViewModel(bundle) as T
-        }
-    }
 
     companion object {
         const val SELECT_INACTIVE = 0

@@ -34,7 +34,7 @@ class LangLinksActivity : BaseActivity() {
 
     private var currentSearchQuery: String? = null
     private var actionMode: ActionMode? = null
-    private val viewModel: LangLinksViewModel by viewModels { LangLinksViewModel.Factory(intent.extras!!) }
+    private val viewModel: LangLinksViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -107,7 +107,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var statusBarInsets: Insets? = null
     private var navBarInsets: Insets? = null
 
-    private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
+    private val viewModel: PlacesFragmentViewModel by viewModels()
 
     private var mapboxMap: MapLibreMap? = null
     private var symbolManager: SymbolManager? = null

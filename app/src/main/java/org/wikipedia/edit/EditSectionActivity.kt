@@ -77,7 +77,7 @@ import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback {
-    private val viewModel: EditSectionViewModel by viewModels { EditSectionViewModel.Factory(intent.extras!!) }
+    private val viewModel: EditSectionViewModel by viewModels()
 
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var textWatcher: TextWatcher

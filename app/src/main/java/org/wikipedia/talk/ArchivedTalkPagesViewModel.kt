@@ -1,18 +1,16 @@
 package org.wikipedia.talk
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 
-class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+class ArchivedTalkPagesViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     val archivedTalkPagesFlow = Pager(PagingConfig(pageSize = 10)) {
         ArchivedTalkPagesPagingSource(pageTitle)
     }.flow.cachedIn(viewModelScope)
@@ -44,13 +42,6 @@ class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<Int, PageTitle>): Int? {
             return null
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ArchivedTalkPagesViewModel(bundle) as T
         }
     }
 }

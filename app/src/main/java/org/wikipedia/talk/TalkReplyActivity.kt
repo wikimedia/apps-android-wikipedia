@@ -55,7 +55,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private lateinit var textWatcher: TextWatcher
     private lateinit var messagePreviewFragment: EditPreviewFragment
 
-    val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
+    val viewModel: TalkReplyViewModel by viewModels()
     private var userMentionScrolled = false
     private var shouldWatchText = true
     private var subjectOrBodyModified = false
