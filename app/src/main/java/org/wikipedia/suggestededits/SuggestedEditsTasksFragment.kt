@@ -258,8 +258,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setUserStatsViewsAndTooltips() {
         binding.contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        binding.contributionsStatsView.tooltipText = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
-            getString(R.string.suggested_edits_edit_stat_tooltip) else getString(R.string.suggested_edits_contributions_stat_tooltip)
+        binding.contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
         binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         binding.editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
