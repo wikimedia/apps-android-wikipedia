@@ -39,6 +39,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
@@ -242,7 +243,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.userStatsClickTarget.isEnabled = true
             binding.userNameView.text = AccountUtil.userName
             binding.contributionsStatsView.setTitle(viewModel.totalContributions.toString())
-            binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
+
+            val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
+                R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
+            binding.contributionsStatsView.setDescription(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
             if (Prefs.showOneTimeSequentialUserStatsTooltip) {
                 showOneTimeSequentialUserStatsTooltips()
             }
