@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.doOnDetach
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.textview.MaterialTextView
@@ -35,6 +36,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             dismissPopupWindowHost()
             callback.forwardClick()
         }
+        loadDonor()
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
@@ -95,6 +97,45 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
         anchorView.doOnDetach {
             dismissPopupWindowHost()
+        }
+    }
+
+    private fun loadDonor() {
+        if (AccountUtil.isLoggedIn.not()) {
+            binding.donorContainer.isVisible = false
+            return
+        }
+        binding.donorContainer.isVisible = true
+        binding.donorUsername.text = AccountUtil.userName
+        if (Prefs.hasUserVisitedDonorHistory.not()) {
+            // user has not visited donor history screen
+            binding.updateDonorStatusBtn.apply {
+                isVisible = true
+                setOnClickListener {
+                    // take user to the donor history screen
+                    callback.onUpdateDonorStatusBtnClick()
+                }
+            }
+            return
+        }
+        if (Prefs.donationResults.isEmpty()) {
+            // not donated
+            binding.becomeDonorBtn.apply {
+                isVisible = true
+                setOnClickListener {
+                    // take user to the donation flow (the Donation bottom sheet).
+                    callback.onBecomeDonorBtnClick()
+                }
+            }
+            return
+        }
+        // here user is a donor
+        binding.donorBtn.apply {
+            isVisible = true
+            setOnClickListener {
+                // take user to Contribution Screen
+                callback.onDonorBtnClick()
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/overflow_card_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -17,6 +18,93 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--     donor username container       -->
+            <LinearLayout
+                android:id="@+id/donor_container"
+                style="@style/OverflowMenuItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/paper_color"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/donor_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_baseline_person_24"
+                    app:tint="?attr/primary_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/donor_username"
+                        style="@android:style/TextAppearance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bagelpigeon" />
+
+                    <!--  @TODO: Update the text to use string resource  -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/donor_btn"
+                        style="@style/Chip.Accessible.Icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Donor"
+                        android:textColor="@color/white"
+                        app:chipBackgroundColor="?attr/progressive_color"
+                        app:chipCornerRadius="16dp"
+                        app:chipIcon="@drawable/ic_baseline_volunteer_activism_24"
+                        app:chipIconTint="@color/white"
+                        app:chipStrokeWidth="0dp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        />
+
+                    <!--  @TODO: Update the text to use string resource  -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/become_donor_btn"
+                        style="@style/Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Become a donor"
+                        android:textColor="?attr/progressive_color"
+                        app:chipCornerRadius="16dp"
+                        app:chipIcon="@drawable/ic_baseline_volunteer_activism_24"
+                        app:chipIconTint="?attr/progressive_color"
+                        app:chipStrokeColor="?attr/border_color"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+
+                    <!--  @TODO: Update the text to use string resource  -->
+                    <TextView
+                        android:id="@+id/update_donor_status_btn"
+                        style="@style/Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Update donor status"
+                        android:textColor="?attr/progressive_color"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/border_color" />
+
+            <!--    overflow list        -->
             <LinearLayout
                 android:id="@+id/overflowList"
                 android:layout_width="wrap_content"
