@@ -71,6 +71,7 @@
   <string name="menu_page_new_tab">Táb nua</string>
   <string name="menu_page_reading_lists">Liostaí léitheoireachta</string>
   <string name="menu_page_recently_viewed">Féachta orthu le déanaí</string>
+  <string name="menu_page_archive">Cartlann</string>
   <string name="menu_long_press_open_page">Oscail</string>
   <string name="menu_long_press_open_in_new_tab">Oscail i dtáb nua</string>
   <string name="menu_long_press_copy_page">Cóipeáil seoladh an naisc</string>
@@ -84,8 +85,8 @@
   <string name="map_view_link_text">Féach ar léarscáil</string>
   <string name="other_languages_indication_text">Léigh i dteanga eile</string>
   <string name="language_count_link_text">Ar fáil i %d teanga eile</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Luafar do chuid athruithe le seoladh IP do ghléas. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Trí fhoilsiú, toileann tú na &lt;a href=\"%1$s\"&gt;Téarmaí Úsáide&lt;/a&gt; agus ligean do do chuid ábhair a scaoileadh go neamh-inchúlghairthe de réir an cheadúnais &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Trí fhoilsiú, toileann tú na &lt;a href=\"%1$s\"&gt;Téarmaí Úsáide&lt;/a&gt; agus ligean do do chuid ábhair a scaoileadh go neamh-inchúlghairthe de réir an cheadúnais &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Leis an seoladh IP ar do ghléas a luafar na hathruithe. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
   <string name="preference_title_language">Teangacha Vicipéide</string>
   <string name="langlinks_filter_hint">Cuardaigh</string>
   <string name="langlinks_empty">Níl an leathanach seo ar fáil i dteangacha eile.</string>
@@ -130,7 +131,7 @@
   <string name="reset_password_button">Sábháil agus logáil isteach</string>
   <string name="preference_title_logout">Logáil amach</string>
   <string name="toast_logout_complete">Logáilte amach</string>
-  <string name="logout_prompt" fuzzy="true">An bhfuil tú cinnte gur mhaith leat logáil amach?</string>
+  <string name="logout_prompt">Déanfaidh sé seo tú a logáil amach ar gach gléas a bhfuil tú logáilte isteach air faoi láthair. Ar mhaith leat leanúint ar aghaidh?</string>
   <string name="logout_dialog_cancel_button_text">Cealaigh</string>
   <string name="logged_out_in_background_title">Logáilte amach</string>
   <string name="logged_out_in_background_login">Logáil isteach</string>
@@ -197,7 +198,7 @@
   <string name="about_description">Maidir leis an aip Vicipéide</string>
   <string name="privacy_policy_description">Polasaí príobháideachais</string>
   <string name="terms_of_use_description">Coinníollacha úsáide</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://ga.m.wikipedia.org/wiki/Vicipéid:Maidir leis</string>
+  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ga.wikipedia.org/wiki/Vicipéid:Dean_iarratas_ar_cuntas</string>
@@ -206,7 +207,7 @@
   <string name="about_translators_heading">Aistritheoirí</string>
   <string name="about_translators_translatewiki">Tá an aip seo arna aistriú ag na haistritheoirí deonacha de chuid &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ceadúnas</string>
-  <string name="about_app_license" fuzzy="true">Cód foinseach ar fáil ar &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; agus &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; faoin &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;gCeadúnas Apache 2.0&lt;/a&gt;. Mura luaitear a mhalairt, tá an t-inneachar ar fáil faoi &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Cheadúnas Sannta-ComhroinnteComhionnaine Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license">Cód foinseach ar fáil ar &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; de réir an &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Cheadúnais Apache 2.0&lt;/a&gt;. Mura sonraítear a mhalairt, tá an t-inneachar ar fáil de réir &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Ceadúnais Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Táirge de chuid na &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondúireachta Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Maidir leis</string>
   <string name="edit_abandon_confirm">Mionathraíodh an leathanach. An bhfuil tú cinnte gur mhaith leat scor gan do chuid athruithe a shábháil?</string>
@@ -221,6 +222,7 @@
   <string name="edit_preview">Réamhamharc</string>
   <string name="edit_undo">Cealaigh</string>
   <string name="edit_redo">Athdhéan</string>
+  <string name="edit_rollback">Tiontaigh ar ais</string>
   <string name="edit_zoom_in">Zúmáil isteach</string>
   <string name="edit_zoom_out">Zúmáil amach</string>
   <string name="edit_summary_tag_typo">Réitíodh botún cló</string>
@@ -258,7 +260,7 @@
   <string name="preference_summary_show_images">Cumasaigh no díchumasaigh íomhánna a lódáil ar leathanaigh. Díthiceáil an socrú seo má tá do nasc Idirlín mall, nó má tá do phlean sonraí teoranta.</string>
   <string name="preference_title_download_only_over_wifi">Íoslódáil trí Wi-Fi amháin</string>
   <string name="dialog_title_download_only_over_wifi">Deimhnigh sonraí móibíleacha a úsáid don íoslódáil?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Tá “Íoslódáil trí Wi-Fi amháin” casta air i do chuid socruithe. Ar mhaith leat ceadú go húsáidfear do phlean sonraí móibíleacha don íoslódáil amháin seo?</string>
+  <string name="dialog_text_download_only_over_wifi">Tá “Íoslódáil ar Wi-Fi amháin” casta air i do chuid socruithe. Ar mhaith leat ceadú go húsáidfear do phlean sonraí móibíleacha don t-aon íoslódáil amháin seo?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Ceadaigh</string>
   <string name="read_more_section">Léigh tuilleadh</string>
   <string name="about_article_section">Maidir leis an alt seo</string>
@@ -334,6 +336,9 @@
   <string name="multi_select_items_selected">%d roghnaithe</string>
   <string name="error_message_generic">Tharla earráid</string>
   <string name="view_link_preview_error_button_dismiss">Ruaig</string>
+  <string name="link_preview_dialog_read_button">Léigh</string>
+  <string name="link_preview_dialog_save_button">Sábháil</string>
+  <string name="link_preview_dialog_saved_button">Sábháilte</string>
   <string name="error_page_does_not_exist">Níl an leathanach seo ann</string>
   <string name="view_wiki_error_message_offline">Ní féidir nascadh leis an idirlíon</string>
   <string name="reference_title">Tagairt %s</string>
@@ -344,6 +349,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Ag teacht le téama an chórais</string>
   <string name="empty_tab_title">Táb nua</string>
   <string name="menu_save_all_tabs">Sábháil na táib go léir</string>
+  <string name="temp_account_dialog_ok">Tuigim</string>
   <string name="crash_report_activity_title">Earráid aipe</string>
   <string name="crash_report_relaunch_or_quit">Tá brón orainn, tharla earráid agus críochnaíodh aip na Vicipéide.\n\nAr mhaith leat atosú nó scor?</string>
   <string name="crash_report_relaunch">Atosaigh</string>
@@ -354,7 +360,7 @@
   <string name="article_menu_bar_theme_button">Téama</string>
   <string name="article_menu_bar_contents_button">Clár ábhair</string>
   <string name="article_header_edit_hint">Cuir in Eagar...</string>
-  <string name="article_header_edit_description" fuzzy="true">Cuir sainchuntas teidil in eagar</string>
+  <string name="article_header_edit_description">Cuir cur síos an ailt in eagar</string>
   <string name="article_header_edit_lead_section">Cuir réamhrá in eagar</string>
   <string name="color_theme_select">Téama</string>
   <string name="color_theme_light">Geal</string>
@@ -388,6 +394,7 @@
   <string name="reading_list_sort_by_created">Sórtáil de reir dáta cruthaithe (is nuaí)</string>
   <string name="reading_list_sort_by_created_desc">Sórtáil de réir dháta cruthaithe (is sine)</string>
   <string name="reading_list_menu_delete">Scrios liosta</string>
+  <string name="reading_list_menu_export">Easpórtáil liosta</string>
   <string name="reading_list_menu_rename">Cuir ainm/sainchuntas in eagar</string>
   <string name="reading_list_action_menu_remove_from_offline">Bain ón ábhar as líne</string>
   <string name="reading_list_action_menu_save_for_offline">Sábháil mar ábhar as líne</string>
@@ -445,6 +452,7 @@
   <string name="reading_list_article_limit_message">Ní féidir alt eile a chur ar an liosta seo. Tá an uasteorainn sroichte agat, .i. %2$d alt in aghaidh an liosta do \"%1$s\".</string>
   <string name="reading_lists_limit_message">Ní féidir liosta eile a chruthú. Tá an uasteorainn sroichte agat, .i. 100 liosta léitheoireachta in aghaidh an chuntais.</string>
   <string name="reading_lists_menu_create_list">Cruthaigh liosta nua</string>
+  <string name="reading_lists_menu_import_list">Iompórtáil liosta</string>
   <string name="reading_lists_menu_sort_by">Sórtáil de réir</string>
   <string name="reading_lists_refresh_sync_option">Athnuaigh sioncronú</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logáil isteach / cláraigh</string>
@@ -456,7 +464,7 @@
     <item quantity="one">Ní bheidh an t-alt seo ar fáil as líne a thuilleadh.</item>
     <item quantity="other">Ní bheidh na hailt seo ar fáil as líne a thuilleadh.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">D\'éirigh le liostaí léitheoireachta a shioncrónú</string>
+  <string name="reading_list_toast_last_sync">Sioncrónaíodh liostaí léitheoireachta</string>
   <string name="reading_list_menu_last_sync">Sioncronú is deireanaí: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Bain</string>
   <string name="reading_list_delete_dialog_ok_button_text">Scrios</string>
@@ -605,7 +613,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Cuir d\'fhotha Taiscéal in oiriúint&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir roghnú cad a thaispeántar ar d\'fhotha, agus is féidir tús áite a thabhairt don cineál ábhair is fearr leat, leis.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cealaigh</string>
   <string name="tabs_activity_title">Táib</string>
-  <string name="description_edit_text_hint" fuzzy="true">Sainchuntas teidil</string>
+  <string name="description_edit_text_hint">Cur síos ar an alt</string>
   <string name="description_edit_article_description_label">Alt</string>
   <string name="description_edit_add_caption_hint">Foscríbhinn íomhá</string>
   <string name="description_edit_translate_caption_label_per_language">Foscríbhinn íomhá (%s)</string>
@@ -680,7 +688,7 @@
   <string name="suggested_edits_quality_poor_text">Go holc</string>
   <string name="suggested_edits_quality_bad_text">Go dona</string>
   <string name="suggested_edits_last_edited">Ionchur is deireanaí</string>
-  <string name="suggested_edits_task_new" fuzzy="true">nua</string>
+  <string name="suggested_edits_task_new">Nua</string>
   <string name="suggested_edits_contributions_screen_title">Dréachtaí le %s</string>
   <string name="suggested_edits_contribution_language_label">Teanga</string>
   <string name="suggested_edits_contribution_date_time_label">Dáta / Am</string>

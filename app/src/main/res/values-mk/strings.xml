@@ -22,6 +22,7 @@
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="nav_item_search">Пребарај</string>
+  <string name="nav_item_contribute">Учествувајте</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -999,6 +1000,7 @@
   <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и да добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси досега.</string>
+  <string name="suggested_edits_edit_stat_tooltip">Вкупно ваши уредувања досега.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредивте во изминатите 30 дена.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања (поништени од друг корисник). Отповикани уредувања: %d.</string>
@@ -1023,6 +1025,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Уредување</item>
+    <item quantity="other">Уредувања</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ден</item>
@@ -1153,6 +1159,7 @@
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На денешен ден</string>
   <string name="more_events_text">Повеќе на овој ден</string>
   <string name="events_count_text">%1$s настани од %2$s–%3$d</string>
@@ -1482,8 +1489,6 @@
   <string name="reading_list_share_menu_label">Сподели…</string>
   <string name="reading_list_share_menu_tooltip">Споделете го списоков за читање со други</string>
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
-  <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
-  <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="talk_templates_empty_message">Создавајте ваши пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>

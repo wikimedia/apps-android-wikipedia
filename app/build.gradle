@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 34
-        versionCode 50501
+        versionCode 50506
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -191,12 +191,9 @@ dependencies {
     implementation libs.viewpager2
     implementation libs.flexbox
     implementation libs.drawerlayout
+    implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
     implementation libs.metrics.platform
-
-    implementation (libs.chrome.like.tab.switcher) {
-        exclude group: 'org.jetbrains'
-    }
 
     implementation libs.glide
     implementation libs.okhttp3.integration

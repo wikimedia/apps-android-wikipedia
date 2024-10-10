@@ -45,6 +45,7 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.ActivityPageBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
@@ -209,7 +210,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         binding.pageToolbarButtonTabs.setOnClickListener {
             pageFragment.articleInteractionEvent?.logTabsClick()
             pageFragment.metricsPlatformArticleEventToolbarInteraction.logTabsClick()
-            TabActivity.captureFirstTabBitmap(pageFragment.containerView, pageFragment.title?.prefixedText.orEmpty())
             requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
@@ -507,15 +507,19 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
                 if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
                     // ...Except if the URL came as a result of a successful donation, in which case
-                    // open it in a Custom Tab.
-                    val utmCampaign = uri.getQueryParameter("wmf_campaign")
-                    if (utmCampaign != null && utmCampaign == "Android") {
-                        // TODO: need to verify if the page can be displayed and logged properly.
-                        DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
-                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                            true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
-                        finish()
-                        return
+                    // treat it differently:
+                    if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
+                        CampaignCollection.addDonationResult(fromWeb = true)
+                        // Check if the donation started from the app, but completed via web, in which case
+                        // show it in a SingleWebViewActivity.
+                        val campaign = uri.getQueryParameter("wmf_campaign")
+                        if (campaign != null && campaign == "Android") {
+                            DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                            startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
+                                true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
+                            finish()
+                            return
+                        }
                     }
                     UriUtil.visitInExternalBrowser(this, it)
                     finish()

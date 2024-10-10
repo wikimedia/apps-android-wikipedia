@@ -42,6 +42,7 @@
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
   <string name="nav_item_search">חיפוש</string>
+  <string name="nav_item_contribute">תרומה</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="card_offline_error_retry">ניסיון חוזר</string>
@@ -1080,6 +1081,7 @@
   <string name="suggested_edits_image_captions_task_detail">תארו את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
   <string name="suggested_edits_add_descriptions_task_detail">סַכמו את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך עד עכשיו.</string>
+  <string name="suggested_edits_edit_stat_tooltip">המספר הכולל של העריכות שלך עד עכשיו.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים ברצף תרמת. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
@@ -1106,6 +1108,12 @@
     <item quantity="two">תרומות</item>
     <item quantity="many">תרומות</item>
     <item quantity="other">תרומות</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">עריכה</item>
+    <item quantity="two">עריכות</item>
+    <item quantity="many">עריכות</item>
+    <item quantity="other">עריכות</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">יום אחד</item>
@@ -1250,6 +1258,7 @@
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
+  <string name="app_shortcuts_places">מקומות</string>
   <string name="on_this_day_card_title">היום בהיסטוריה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
@@ -1589,8 +1598,6 @@
   <string name="reading_list_share_menu_label">שיתוף...</string>
   <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
-  <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
-  <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונה בבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
   <string name="talk_templates_empty_message">באפשרותך ליצור הודעות משלך או להשתמש ב&lt;a href=\"#\"&gt;הודעות לדוגמה&lt;/a&gt; כדי להתחיל.</string>
   <string name="talk_templates_new_message_title">הודעה חדשה</string>
   <string name="talk_templates_new_message_subject_hint">נושא</string>
@@ -1785,4 +1792,9 @@
   <string name="places_card_distance_suffix">%s מכאן</string>
   <string name="places_card_distance_unknown">מרחק בלתי־ידוע</string>
   <string name="places_empty_message_snackbar">אין ערכים על דברים בסביבה. נא לנסות להקטין ולהזיז את המפה.</string>
+  <string name="recommended_content_section_you_might_like">אולי יעניין אותך</string>
+  <string name="recommended_content_survey_dialog_title">סיוע בשיפור התוכן המומלץ.</string>
+  <string name="recommended_content_survey_dialog_message">תוצאת החיפוש המומלצת נושאת חן בעיניך?</string>
+  <string name="recommended_content_survey_dialog_input_hint">משוב נוסף</string>
+  <string name="recommended_content_survey_dialog_submitted_message">המשוב הוגש. תודה רבה!</string>
 </resources>

@@ -558,10 +558,14 @@
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
+  <string name="suggested_edits_edit_patrol_review">समीक्षा</string>
+  <string name="suggested_edits_review_description">लेख वर्णन सम्पादन गर्नुहोस्</string>
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
   <string name="suggested_edits_edit_description_button">विवरण सम्पादन गर्नुहोस्</string>
   <string name="suggested_edits_add_translation_button">अनुवाद थप्नुहोस्</string>
   <string name="suggested_edits_edit_translation_button">अनुवाद सम्पादन गर्नुहाेस्</string>
+  <string name="suggested_edits_add_caption_button">विवरण थप्नुहोस्</string>
+  <string name="suggested_edits_edit_caption_button">विवरण सम्पादन गर्नुहोस्</string>
   <string name="suggested_edits_my_contributions">मेरा योगदानहरू</string>
   <string name="suggested_edits_menu_info">जानकारी</string>
   <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
@@ -594,6 +598,8 @@
   <string name="suggested_edits_image_captions">तस्वीर व्याख्याहरू</string>
   <string name="suggested_edits_image_tags_publishing">प्रकाशन गर्दै...</string>
   <string name="suggested_edits_image_tags_published">प्रकाशित</string>
+  <string name="suggested_edits_views_label_text">अवलोकनहरू</string>
+  <string name="suggested_edits_quality_label_text">सम्पादन गुणस्तर</string>
   <string name="suggested_edits_quality_perfect_text">उत्तम</string>
   <string name="suggested_edits_quality_excellent_text">उत्कृष्ट</string>
   <string name="suggested_edits_quality_very_good_text">धेरै राम्रो</string>
@@ -616,12 +622,12 @@
   <string name="suggested_edits_paused_title">विराम लागेको</string>
   <string name="suggested_edits_last_edited">अन्तिम पटक सम्पादन</string>
   <string name="suggested_edits_last_edited_never">कहिल्यै</string>
-  <string name="suggested_edits_task_new" fuzzy="true">नयाँ</string>
+  <string name="suggested_edits_task_new">नयाँ</string>
   <string name="suggested_edits_reactivation_notification_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_contribution_language_label">भाषा</string>
   <string name="suggested_edits_contribution_date_time_label">मिति/समय</string>
   <string name="suggested_edits_contribution_type_label">योगदानको प्रकार</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">फाइल</string>
+  <string name="suggested_edits_contribution_image_label">तस्वीर</string>
   <string name="suggested_edits_contribution_article_label">लेख</string>
   <string name="suggested_edits_contribution_views">%s अवलोकनहरू</string>
   <string name="suggested_edits_contribution_seen_text">अन्तिम ३० दिनमा %s पटक हेरियो।</string>
@@ -629,6 +635,7 @@
   <string name="suggested_edits_encourage_account_creation_title">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">हालैको संशोधन</string>
+  <string name="suggested_card_more_edits">थप सुझावित सम्पादनहरू</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s अक्षर</item>
     <item quantity="other">%1$s अक्षरहरू</item>
@@ -759,4 +766,5 @@
   <string name="patroller_tasks_filters_user_status_experienced_desc">५०० भन्दा बढी सम्पादन र ३० दिनको गतिविधिस सहितका दर्ता भएका सम्पादकहरू।</string>
   <string name="patroller_onboarding_two_talk_title">वार्तालाप</string>
   <string name="patroller_saved_message_title_auto_trans">स्वचालित अनुवाद</string>
+  <string name="places_title">स्थानहरू</string>
 </resources>

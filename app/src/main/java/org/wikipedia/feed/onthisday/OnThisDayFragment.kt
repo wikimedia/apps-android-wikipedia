@@ -1,12 +1,14 @@
 package org.wikipedia.feed.onthisday
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -14,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -38,6 +41,20 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayViewModel by viewModels { OnThisDayViewModel.Factory(requireArguments()) }
+
+    private val offsetChangedListener =
+        AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            binding.headerFrameLayout.alpha = 1.0f - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
+            if (verticalOffset > -appBarLayout.totalScrollRange) {
+                binding.dropDownToolbar.visibility = View.GONE
+            } else if (verticalOffset <= -appBarLayout.totalScrollRange) {
+                binding.dropDownToolbar.visibility = View.VISIBLE
+            }
+            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date.time) else ""
+            if (newText != binding.toolbarDay.text.toString()) {
+                appBarLayout.post { binding.toolbarDay.text = newText }
+            }
+        }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
@@ -123,18 +140,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         )
         binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date.time)
         maybeHideDateIndicator()
-        binding.appBar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            binding.headerFrameLayout.alpha = 1.0f - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
-            if (verticalOffset > -appBarLayout.totalScrollRange) {
-                binding.dropDownToolbar.visibility = View.GONE
-            } else if (verticalOffset <= -appBarLayout.totalScrollRange) {
-                binding.dropDownToolbar.visibility = View.VISIBLE
-            }
-            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date.time) else ""
-            if (newText != binding.toolbarDay.text.toString()) {
-                appBarLayout.post { binding.toolbarDay.text = newText }
-            }
-        }
+        binding.appBar.addOnOffsetChangedListener(offsetChangedListener)
     }
 
     private fun maybeHideDateIndicator() {
@@ -142,10 +148,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             if (viewModel.date[Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] &&
                 viewModel.date[Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]) View.GONE else View.VISIBLE
         binding.indicatorDate.text = String.format(Locale.getDefault(), "%d", Calendar.getInstance()[Calendar.DATE])
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.indicatorDate, 4, 10, 1, TypedValue.COMPLEX_UNIT_SP)
     }
 
     override fun onDestroyView() {
         binding.eventsRecycler.adapter = null
+        binding.appBar.removeOnOffsetChangedListener(offsetChangedListener)
         _binding = null
         super.onDestroyView()
     }

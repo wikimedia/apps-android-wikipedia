@@ -55,6 +55,7 @@
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="nav_item_search">Navigation menu item label for search.\n\n{{Identical|Search}}</string>
+  <string name="nav_item_contribute">Navigation menu item label for contribute.\n\n{{Identical|Contribute}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -790,7 +791,7 @@
   <string name="notifications_channel_group_other_title">Title for the other notifications group.\n\n{{Identical|Other}}</string>
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
-  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assist with accessibility settings.</string>
   <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters, formatted using {{msg-wikimedia|wikipedia-android-strings-notifications_number_of_filters}}.</string>
   <plurals name="notifications_number_of_filters">
@@ -1033,6 +1034,7 @@
   <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
   <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
+  <string name="suggested_edits_edit_stat_tooltip">Tool tip text explaining the edit statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Tool tip text explaining the edit quality statistics to the user. %d represents the number of reverts.</string>
@@ -1057,6 +1059,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Label text for indicating how many contributions a user has made. For One contribution.</item>
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Label text for indicating how many edits a user has made. For One edit.</item>
+    <item quantity="other">Label text for indicating how many edits a user has made. For many edits.</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one day.</item>
@@ -1182,6 +1188,7 @@
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
+  <string name="app_shortcuts_places">A shortcut icon on the home screen for opening the places page.\n{{Identical|Places}}</string>
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
@@ -1511,8 +1518,6 @@
   <string name="reading_list_share_menu_label">Menu label for sharing the selected reading list.</string>
   <string name="reading_list_share_menu_tooltip">Tooltip text for the share reading list button.</string>
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
-  <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
-  <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="talk_templates_empty_message">Text shown when the user has nothing in their list of saved messages.</string>
   <string name="talk_templates_new_message_title">Title of the screen for adding a new saved message.</string>
   <string name="talk_templates_new_message_subject_hint">Label of the Subject field for a new saved message.</string>

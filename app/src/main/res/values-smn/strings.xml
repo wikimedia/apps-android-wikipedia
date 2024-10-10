@@ -38,10 +38,22 @@
   <string name="page_content_description">Sijđo: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
+  <string name="dialog_title_clear_history">Kuorrii laađđâmhistorjá</string>
+  <string name="dialog_message_clear_history">Taat sikko puoh tuu laađđâmhistorjá já kiddee puoh ávus loostâid. Lah-uv vises?</string>
   <string name="dialog_message_clear_history_yes">Joo</string>
   <string name="dialog_message_clear_history_no">Ij</string>
   <string name="share_via">Jyevi palvâlusâst</string>
   <string name="image_share_via">Jyevi palvâlusâst</string>
+  <string name="search_redirect_from">Stivrejum sijđoost %s</string>
+  <string name="page_edit_history_activity_title">Nubástushistorjá: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;u&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Kuárus čuákánkiäsu</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Uusâ teikkâ sillii hammiimijd</string>
+  <string name="page_edit_history_filter_by">Sillii</string>
+  <string name="page_edit_history_filter_by_all">Puoh nubástusah (%s)</string>
+  <string name="page_edit_history_filter_by_user">Kevttee nubástusah (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyymeh nubástusah (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Booti nubástusah (%s)</string>
   <string name="menu_page_show_tabs">Čääiti koskâloostâid</string>
   <string name="menu_page_other_languages">Molso kielâ</string>
   <string name="menu_page_find_in_page">Uusâ artikkâlist</string>
@@ -51,6 +63,7 @@
   <string name="menu_page_view_talk">Čääiti savâstâllâmsiijđo</string>
   <string name="menu_page_talk_page">Savâstâllâmsijđo</string>
   <string name="menu_page_view_edit_history">Čääiti hammimhistorjá</string>
+  <string name="menu_page_edit_history">Hammimhistorjá</string>
   <string name="edit_section_find_in_page">Uusâ siijđost</string>
   <string name="menu_page_add_to_list">Lasseet luuhâmliiston</string>
   <string name="menu_page_add_to_default_list">Vuorkkii</string>
@@ -83,6 +96,7 @@
   <string name="dialog_message_edit_failed_cancel">Jooskâ</string>
   <string name="menu_show_toc">Siskáldâslisto</string>
   <string name="search_no_results_found">Iä uuccâmpuátuseh</string>
+  <string name="edit_section_captcha_request_an_account_message">Jieh-uv uáini kove? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Táátu tubdâlduv&lt;/a&gt;</string>
   <string name="nav_item_login">Čáládât siisâ Wikipedian</string>
   <string name="login_username_hint">Kevtteenommâ</string>
   <string name="login_password_hint">Syelisääni</string>
@@ -329,6 +343,7 @@
   <string name="insert_media_advanced_settings">Laseasâttâsah</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyyrkove</string>
   <string name="insert_media_insert_button">Lasseet</string>
+  <string name="templates_param_optional_hint">%s (valjimiävtulâš)</string>
   <string name="main_drawer_help">Iše</string>
   <string name="main_drawer_login">Čáládât siisâ / seervâ Wikipedian</string>
   <string name="main_tooltip_watchlist_title">Tarkkumlisto</string>

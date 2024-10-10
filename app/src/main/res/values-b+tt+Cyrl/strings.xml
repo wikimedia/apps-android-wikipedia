@@ -7,6 +7,7 @@
 * Run Li
 * Ерней
 * З. ӘЙЛЕ
+* Ильгиз
 * Ильнар
 -->
 <resources>
@@ -122,6 +123,7 @@
   <string name="langlinks_your_wikipedia_languages">Википедия телләрегез</string>
   <string name="menu_save_changes">Үзгәрешләрне саклау</string>
   <string name="edit_saved_successfully">Төзәтмә сакланган!</string>
+  <string name="stub_article_edit_saved_successfully">Үзгәртү кертелде! Аның сафка керүе өчен күпмедер вакыт кирәгергә мөмкин.</string>
   <string name="dialog_message_edit_failed">Үзгәртү хатасы!</string>
   <string name="dialog_message_edit_failed_retry">Кабатлау</string>
   <string name="dialog_message_edit_failed_cancel">Кире алу</string>
@@ -164,6 +166,8 @@
   <string name="logged_out_in_background_dialog">Сез Википедиядән чыктыгыз. Яңадан системага керергә телисезме?</string>
   <string name="logged_out_in_background_login">Керү</string>
   <string name="logged_out_in_background_cancel">Кире алу</string>
+  <string name="account_vanish_request_title">Хисапъязманы бетер</string>
+  <string name="account_vanish_request_confirm_title">Хисапъязманы бетерү турында кисәтү</string>
   <string name="history_empty_title">Күптән түгел генә каралган мәкаләләр юк.</string>
   <string name="history_empty_message">Монда укыганнарыгызны күзәтеп торыгыз.</string>
   <string name="history_offline_articles_toast">Тарихтагы кайбер мәкаләләрне оффлайн карау мөмкин түгел.</string>
@@ -233,7 +237,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tt</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tt</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
   <string name="about_contributors_heading">Авторлар</string>
@@ -271,6 +275,8 @@
   <string name="edit_summary_tag_links">Сылтамалар өстәлде</string>
   <string name="edit_summary_tag_other">Башка</string>
   <string name="edit_summary_tag_other_hint">Битне яхшыртуның башка ысуллары</string>
+  <string name="edit_summary_added_short_description">Кыска тасвирлама өстәлде</string>
+  <string name="edit_summary_updated_short_description">Кыска тасвирлама яңартылды</string>
   <string name="edit_conflict_title">Үзгәртү конфликты</string>
   <string name="edit_conflict_message">Бит башка кулланучы тарафыннан үзгәртелгән һәм сезнең мөхәррирләүгә каршы килә.\nЗинһар, үзегезнең үзгәрешләрне йөкләп алыгыз, биткә кире кайтыгыз һәм яңартыгыз, шуннан соң мөхәррирләү омтылышын кабатлагыз.</string>
   <string name="edit_notices">Хәбәрнамәне мөхәррирләү</string>
@@ -305,6 +311,8 @@
   <string name="widget_name_featured_page">Википедиянең сайланган бите</string>
   <string name="widget_title_featured_page">Көннең сайланган бите:</string>
   <string name="widget_name_search">Википедиядә эзләү</string>
+  <string name="widget_description_search">Википедиядә нидер эзләү өчен иң тиз ысул</string>
+  <string name="widget_description_featured_page">Википедия тарфыннан тәкъдим ителүче иң яхшы мәкаләләр.</string>
   <string name="wiktionary_no_definitions_found">Аңлатмалар табылмады.</string>
   <string name="alpha_update_notification_title">Яңа альфа-яңарту бар</string>
   <string name="alpha_update_notification_text">Йөкләү өчен басыгыз</string>
@@ -387,6 +395,11 @@
   <string name="multi_select_items_selected">%d сайланган</string>
   <string name="error_message_generic">Хата бар</string>
   <string name="view_link_preview_error_button_dismiss">яшерергә</string>
+  <string name="link_preview_dialog_read_button">Укы</string>
+  <string name="link_preview_dialog_save_button">Сакла</string>
+  <string name="link_preview_dialog_saved_button">Сакланганнары</string>
+  <string name="link_preview_dialog_share_button">Уртаклаш</string>
+  <string name="link_preview_stub_placeholder_text">Бу мәкалә әлегә тәмамланмаган. Бу аның эчтәлеге алкарауны күрсәтү өчен җитми дигәнне аңлата. Әмма сез моны үзгәртә аласыз.</string>
   <string name="error_page_does_not_exist">Бу бит юк</string>
   <string name="error_user_page_does_not_exist">Википедиядә шул ук исемдәге &lt;a href=\"%1$s\"&gt;кулланучы бите&lt;/a&gt; юк. Кагыйдә буларак, бу битне &lt;b&gt;%2$s&lt;/b&gt; төзәтергә һәм мөхәррирләргә тиеш. Әгәр дә сез шикләнәсез икән, \"%3$s\" барлыгына ышаныгыз.</string>
   <string name="view_wiki_error_message_offline">Интернетка тоташып булмый</string>
@@ -409,6 +422,16 @@
   <string name="error_blocked_footer">Сез блоклау турында фикер алышу өчен &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яки башка &lt;a href=\"https://en.wikipedia.org/wiki/Википедия: идарәчеләр\"&gt;идарәче&lt;/a&gt; белән  элемтәгә керә аласыз.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Үзегезнең кораллар панелен көйләгез</string>
   <string name="error_blocked_footer_no_blocker">Сез блоклау турында фикер алышу өчен &lt;a href=\"https://en.wikipedia.org/wiki\n/Википедия:идарәчеләр\"&gt;идарәче&lt;/a&gt; белән элемтәгә керә аласыз.</string>
+  <string name="temp_account_not_logged_in">Сез системага кермәгәнсез</string>
+  <string name="temp_account_dialog_ok">Аңлашыла</string>
+  <string name="temp_account_using_title">Сез вакытлы хисапъязманы кулланасыз</string>
+  <string name="temp_account_dialog_discard">Үзгәртүләрне арындыр һәм системага кер</string>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Хисапъязма %d көннән соң эшләүдән туктыячак.</item>
+    <item quantity="other">Хисапъязма %d көннән соң эшләүдән туктаячак.</item>
+  </plurals>
+  <string name="temp_account_end_session">Сеансны тәмамла</string>
+  <string name="temp_account_end_session_confirm">Бу гамәлнең нәтиҗәсендә сез вакытлы хисапъязмагыздан чыгачаксыз. Дәвам итәргә телисезме?</string>
   <string name="crash_report_activity_title">Кушымта хатасы</string>
   <string name="crash_report_relaunch_or_quit">Гафу үтенәбез, Википедия кушымтасында хата барлыкка килде һәм ул ябылды.\n\nБаштан башларга яки чыгарга телисезме?</string>
   <string name="crash_report_relaunch">Яңадан башларга</string>
@@ -741,7 +764,7 @@
   <string name="notifications_menu_uncheck_all">Барлык элементлардан да тамгаларны алыгыз</string>
   <string name="notifications_wiki_filter_header">Вики-фильтр</string>
   <string name="notifications_type_filter_header">Фильтр төре</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Барлык \"вики\"</string>
+  <string name="notifications_all_wikis_text">Барлык викиләр</string>
   <string name="notifications_all_types_text" fuzzy="true">Барлык \"төрләр\"</string>
   <string name="notifications_menu_user_talk_page">%s фикер алышу бите</string>
   <string name="notifications_offline_disable_message">Бу функция автоном режимда кулланылмый</string>
@@ -792,6 +815,7 @@
   <string name="feed_item_type_main_page">Википедиянең бер көн эчендә сайланган эчтәлеге белән Баш бите</string>
   <string name="feed_item_type_randomizer">Уку өчен очраклы мәкаләләр булдырыгыз</string>
   <string name="feed_item_type_suggested_edits">Википедиягә эчтәлек өстәү буенча тәкъдимнәр</string>
+  <string name="feed_item_type_places">Хәзерге локациягезгә бәйле якындагы мәкаләләр</string>
   <string name="feed_empty_message">Сезнең \"Тикшеренүләр\" лентасында бернәрсә дә юк</string>
   <string name="feed_configure_onboarding_action">Көйләргә</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Ярар</string>
@@ -801,6 +825,10 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алу</string>
   <string name="feed_accessibility_card_text">Сез лентаның аскы өлешенә барып җиттегез.</string>
   <string name="feed_accessibility_card_load_more_button">Күбрәк йөкләргә</string>
+  <string name="feed_language_variants_removal_dialog_title">Уку җайлырак булсын өчен региональ тел вариантын сайлагыз</string>
+  <string name="feed_language_variants_removal_dialog_save">Сакла</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Өстәмә телләрегезне яңартыгызчы</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Көйләүләргә күч</string>
   <string name="top_read_activity_title">%s иң күп укылганнар</string>
   <string name="tabs_activity_title">Өстәлмәләр</string>
   <string name="description_edit_text_hint">Мәкалә тасвирламасы</string>
@@ -1050,8 +1078,8 @@
   <string name="image_recommendation_accept">Әйе</string>
   <string name="image_recommendation_reject">Юк</string>
   <string name="image_recommendation_notsure">Җавап бирергә кыенсынам</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Ник булмасын?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
+  <string name="image_recommendation_reject_title">Кире кагуның сәбәбе</string>
+  <string name="image_recommendation_reject_subtitle">Кире кагу сәбәбе аноним күрсәтелгән һәм сурәтләрнең киләсе тәкъдимнәрен яхшыртырга булышачак.</string>
   <string name="image_recommendation_reject_not_relevant">Сурәтнең катнашы юк</string>
   <string name="image_recommendation_reject_no_info">Карар кабул итү өчен җитәрлек мәгълүмат юк</string>
   <string name="image_recommendation_reject_offensive">Сурәт мыскыллы</string>
@@ -1195,6 +1223,11 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Биеклек</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">нкт</string>
   <string name="insert_media_insert_button">Куярга</string>
+  <string name="templates_insert_button">Кертеп куй</string>
+  <string name="templates_param_suggested_value">мәсәлән, %s</string>
+  <string name="templates_param_optional_hint">%s (мәҗбүри түгел)</string>
+  <string name="templates_param_suggested_hint">%s (киңәш ителә)</string>
+  <string name="templates_learn_more_link">Күбрәк күрсәт</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Википедиягә керү / кушылу</string>
   <string name="main_tooltip_text">Сәлам, %s, Сез Википедияне һәркем мөхәррирли алуын белә идегезме?</string>
@@ -1218,8 +1251,10 @@
   <string name="talk_warn_save_dialog_hint">Хикәянең исеме</string>
   <string name="talk_warn_save_dialog_publish">Бастырып чыгару</string>
   <string name="talk_warn_save_dialog_cancel">Кире алу</string>
+  <string name="talk_warn_save_dialog_dont_save">Саклама</string>
   <string name="talk_warn_submitted">Хәбәр редактор кулланучыларының фикер алышу битендә басылган</string>
   <string name="talk_warn_submitted_and_saved">Хәбәр редактор кулланучының фикер алышу битендә сакланган һәм бастырылган.</string>
+  <string name="talk_warn_saved_messages">Сакланган хәбәрләр</string>
   <string name="talk_page_empty">Фикер алышуның бу бите буш.</string>
   <string name="talk_page_empty_title">Фикер алышу монда башлана</string>
   <string name="talk_page_empty_content">Фикер алышу битләре - кешеләр Википедиянең эчтәлеген мөмкин кадәр яхшы итү турында фикер алышкан урын. Википедистлар җәмгыяте белән хезмәттәшлек итү һәм элемтә урнаштыру өчен фикер алышуга яңа теманы өстәүдән башлагыз.</string>
@@ -1230,6 +1265,7 @@
   <string name="talk_message_hint">Хәбәр язарга</string>
   <string name="talk_message_empty">Хәбәр буш була алмый.</string>
   <string name="talk_subject_empty">Тема буш була алмый.</string>
+  <string name="talk_subject_duplicate">Субъектның исеме кайдадыр кулланыла инде. Башкасын кертегез.</string>
   <string name="talk_response_submitted">Җавап басылган.</string>
   <string name="talk_snackbar_undo">Кире кагырга</string>
   <string name="talk_last_modified">%2$s кулланучы тарафыннан &lt;b&gt;%1$s датасы белән соңгы мөхәррирләү&lt;/b&gt;</string>
@@ -1411,6 +1447,8 @@
   <string name="media_playback_error">Медиафайлны уйнату хатасы.</string>
   <string name="user_contrib_menu_label">Кертемнәр</string>
   <string name="user_contrib_filter_activity_title">Кертемнәрне фильтрлау</string>
+  <string name="action_item_view_on_map">Харитада күрсәт</string>
+  <string name="action_item_view_on_map_unavailable">Бу бит өчен географик координатлар юк.</string>
   <string name="shareable_reading_lists_import_dialog_title">Укуның гомуми исемлеген импортлау</string>
   <string name="shareable_reading_lists_import_dialog_content">Сезнең белән бүлешкән исемлекне ничек атарга теләр идегез?</string>
   <string name="shareable_reading_lists_new_indicator">*яңа*</string>
@@ -1421,8 +1459,6 @@
   <string name="reading_list_share_menu_label">Уртаклашу…</string>
   <string name="reading_list_share_menu_tooltip">Бу уку өчен исемлекне башкалар белән дә уртаклашыгыз</string>
   <string name="reading_list_share_message_v2">Сәлам! Мин сезнең белән Википедиядәге үземнең уку исемлеге белән уртаклашырга телим.</string>
-  <string name="reading_list_share_survey_title">Сез безгә \"Уку исемлекләре белән уртаклашырга\" дигән функцияне яхшыртырга ярдәм итә аласызмы?</string>
-  <string name="reading_list_share_survey_body">\"Уку исемлекләре белән уртаклашырга\" — бу текст функциясе һәм безгә аны яхшырту яки бетерү өчен сезнең фикерләрегез кирәк.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
   <string name="talk_templates_new_message_title">Яңа хәбәр</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
@@ -1439,7 +1475,14 @@
   <string name="talk_templates_edit_message_dialog_save">Сакларга</string>
   <string name="talk_templates_edit_message_dialog_delete">Бетерергә</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңартылды</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">Хәбәр бетерелде</string>
+  <string name="talk_templates_menu_remove_message">Хәбәрне бетер</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Хәбәр бетерелде</item>
+    <item quantity="other">Хәбәрләр бетерелде</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Башлык буш була алмый.</string>
+  <string name="talk_templates_your_messages_tab_title">Сезнең хәбәрләрегез</string>
+  <string name="talk_templates_example_messages_tab_title">Хәбәрләр мисаллары</string>
   <string name="patroller_tasks_edits_list_search_hint">Үзгәрешләрне эзләү яки фильтрлау</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Теглар: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Һичкем</string>
@@ -1502,6 +1545,8 @@
   <string name="patroller_tasks_overflow_learn">Күбрәк белергә</string>
   <string name="patroller_onboarding_two_thank_title">Рәхмәт</string>
   <string name="patroller_onboarding_two_watch_title">Күзәтү</string>
+  <string name="patroller_onboarding_two_talk_title">Фикер алыш</string>
+  <string name="patroller_onboarding_two_talk_content">Башка төзәтүчеләр белән аралашыгыз. Еш кулланылган битләрне фикер алышу битендә саклагыз яки калыпны кулланыгыз.</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
   <string name="patroller_diff_feedback_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="patroller_diff_feedback_dialog_message">Сезне бу функция канәгатьләндерәме?</string>
@@ -1511,6 +1556,11 @@
   <string name="patroller_diff_feedback_dialog_submit">Җибәрү</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Бәяләмә җибәрелде.</string>
   <string name="patroller_diff_feedback_tooltip">«Функциясе белән проблема» бүлегендә бәяләмәләрне теләсә кайсы вакытта җибәрү өчен өстәмә менюга басыгыз.</string>
+  <string name="patroller_saved_message_title_auto_trans">Автоматик тәрҗемә</string>
+  <string name="patroller_saved_message_title_final_warning">Соңгы кисәтү</string>
+  <string name="patroller_saved_message_title_copy_vio">Авторлык хокукларын бозу турында кисәтү</string>
+  <string name="patroller_saved_message_title_art_imp">Мәкаләне яхшырту тәкъдиме</string>
+  <string name="talk_templates_menu_edit_title">Үзгәрт</string>
   <string name="data_opt_in_accept">Кабул итү</string>
   <string name="data_opt_in_reject">Баш тартырга</string>
   <string name="page_issues_title">Бит белән проблемалар</string>
@@ -1521,4 +1571,6 @@
   <string name="donation_campaign_donated_snackbar">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
+  <string name="places_toggle_buttons_map">Харита</string>
+  <string name="places_toggle_buttons_list">Исемлек</string>
 </resources>
