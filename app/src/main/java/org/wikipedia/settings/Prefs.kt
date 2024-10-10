@@ -734,4 +734,8 @@ object Prefs {
     var recommendedContentSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_content_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_content_survey_shown, value)
+
+    var hasUserVisitedDonorHistory
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_user_visited_donor_history_screen, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_user_visited_donor_history_screen, value)
 }

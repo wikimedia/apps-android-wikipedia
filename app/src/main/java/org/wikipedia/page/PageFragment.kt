@@ -46,6 +46,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
@@ -1295,6 +1296,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().finish()
     }
 
+    fun goToSETab() {
+        startActivity(MainActivity.newIntent(requireContext())
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+            .putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code()))
+        requireActivity().finish()
+    }
+
     private inner class AvCallback : AvPlayer.Callback {
         override fun onSuccess() {
             avPlayer?.stop()
@@ -1516,6 +1525,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
+        }
+
+        override fun onDonorBtnClick() {
+            goToSETab()
+        }
+
+        override fun onBecomeDonorBtnClick() {
+            (requireActivity() as? BaseActivity)?.launchDonateDialog()
+        }
+
+        override fun onUpdateDonorStatusBtnClick() {
+            // @TODO: take user to the donor history screen
         }
     }
 
