@@ -47,7 +47,6 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 return@withContext Result.success()
             }
             L.d("Begin sync of reading lists...")
-            val csrfToken: String? = null
             val listIdsDeleted = Prefs.readingListsDeletedIds.toMutableSet()
             val pageIdsDeleted = Prefs.readingListPagesDeletedIds.toMutableSet()
             var allLocalLists: MutableList<ReadingList>? = null
@@ -71,15 +70,18 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                     AppDatabase.instance.readingListPageDao().markAllPagesUnsynced()
                     allLocalLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
                 }
+
+                val csrfToken = CsrfTokenClient.getTokenBlocking(wiki)
+
                 if (Prefs.isReadingListsRemoteDeletePending) {
                     // Are we scheduled for a teardown? If so, delete everything and bail.
                     L.d("Tearing down remote lists...")
-                    client.tearDown(getCsrfToken(wiki, csrfToken))
+                    client.tearDown(csrfToken)
                     Prefs.isReadingListsRemoteDeletePending = false
                     return@withContext Result.success()
                 } else if (Prefs.isReadingListsRemoteSetupPending) {
                     // ...Or are we scheduled for setup?
-                    client.setup(getCsrfToken(wiki, csrfToken))
+                    client.setup(csrfToken)
                     Prefs.isReadingListsRemoteSetupPending = false
                 }
 
@@ -247,7 +249,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 for (id in listIdsToDelete) {
                     L.d("Deleting remote list id $id")
                     try {
-                        client.deleteList(getCsrfToken(wiki, csrfToken), id)
+                        client.deleteList(csrfToken, id)
                     } catch (t: Throwable) {
                         L.w(t)
                         if (!client.isServiceError(t) && !client.isUnavailableError(t)) {
@@ -280,7 +282,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                     val listAndPageId = id.split(":").toTypedArray()
                     try {
                         // TODO: optimization opportunity once server starts supporting batch deletes.
-                        client.deletePageFromList(getCsrfToken(wiki, csrfToken), listAndPageId[0].toLong(), listAndPageId[1].toLong())
+                        client.deletePageFromList(csrfToken, listAndPageId[0].toLong(), listAndPageId[1].toLong())
                     } catch (t: Throwable) {
                         L.w(t)
                         if (!client.isServiceError(t) && !client.isUnavailableError(t)) {
@@ -302,13 +304,13 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                         if (!localList.isDefault && localList.dirty) {
                             // Update remote metadata for this list.
                             L.d("Updating info for remote list " + remoteList.name())
-                            client.updateList(getCsrfToken(wiki, csrfToken), localList.remoteId, remoteList)
+                            client.updateList(csrfToken, localList.remoteId, remoteList)
                             upsertNeeded = true
                         }
                     } else if (!localList.isDefault) {
                         // This list needs to be created remotely.
                         L.d("Creating remote list " + remoteList.name())
-                        val id = client.createList(getCsrfToken(wiki, csrfToken), remoteList)
+                        val id = client.createList(csrfToken, remoteList)
                         localList.remoteId = id
                         upsertNeeded = true
                     }
@@ -328,11 +330,11 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                     try {
                         if (localPages.size == 1) {
                             L.d("Creating new remote page " + localPages[0].displayTitle)
-                            localPages[0].remoteId = client.addPageToList(getCsrfToken(wiki, csrfToken), localList.remoteId, newEntries[0])
+                            localPages[0].remoteId = client.addPageToList(csrfToken, localList.remoteId, newEntries[0])
                             AppDatabase.instance.readingListPageDao().updateReadingListPage(localPages[0])
                         } else {
                             L.d("Creating " + newEntries.size + " new remote pages")
-                            val ids = client.addPagesToList(getCsrfToken(wiki, csrfToken), localList.remoteId, newEntries)
+                            val ids = client.addPagesToList(csrfToken, localList.remoteId, newEntries)
                             for (i in ids.indices) {
                                 localPages[i].remoteId = ids[i]
                             }
@@ -364,7 +366,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                             val localPage = localPages[i]
                             try {
                                 L.d("Creating new remote page " + localPage.displayTitle)
-                                localPage.remoteId = client.addPageToList(getCsrfToken(wiki, csrfToken), localList.remoteId, newEntries[i])
+                                localPage.remoteId = client.addPageToList(csrfToken, localList.remoteId, newEntries[i])
                             } catch (t: Throwable) {
                                 if (client.isErrorType(t, "duplicate-page")) {
                                     shouldRetryWithForce = true
@@ -402,7 +404,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 if (client.isErrorType(t, "notloggedin")) {
                     try {
                         L.d("Server doesn't believe we're logged in, so logging in...")
-                        getCsrfToken(wiki, csrfToken)
+                        CsrfTokenClient.getTokenBlocking(wiki)
                         shouldRetry = true
                     } catch (caught: Throwable) {
                         errorMsg = caught
@@ -440,11 +442,6 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
             extras.putBoolean(it.key, it.value as Boolean)
         }
         return extras
-    }
-
-    @Throws(Throwable::class)
-    private suspend fun getCsrfToken(wiki: WikiSite, token: String?): String {
-        return token ?: CsrfTokenClient.getTokenBlocking(wiki)
     }
 
     private fun createOrUpdatePage(listForPage: ReadingList,
