@@ -371,6 +371,11 @@
         <activity
             android:name=".donate.GooglePayActivity"/>
 
+        <activity
+            android:name=".donate.DonorHistoryActivity"
+            android:label="@string/donor_history_title"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
