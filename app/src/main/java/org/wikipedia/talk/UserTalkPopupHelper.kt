@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
+import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -21,7 +22,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -63,8 +63,9 @@ object UserTalkPopupHelper {
 
             helper.show()
         } else {
-            ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(title, historySource)))
+            activity.supportFragmentManager.commit {
+                add(LinkPreviewDialog.newInstance(HistoryEntry(title, historySource)), "foo")
+            }
         }
     }
 

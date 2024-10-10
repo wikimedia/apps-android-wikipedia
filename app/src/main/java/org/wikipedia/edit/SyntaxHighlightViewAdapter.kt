@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.commit
 import org.wikipedia.Constants
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
@@ -74,8 +75,10 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onPreviewLink(title: String) {
-        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
-            LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK)))
+        val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK))
+        activity.supportFragmentManager.commit {
+            add(dialog, "foo")
+        }
     }
 
     override fun onRequestInsertMedia() {
