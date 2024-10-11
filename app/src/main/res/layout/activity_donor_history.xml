@@ -84,7 +84,7 @@
                     android:layout_marginStart="16dp">
 
                     <TextView
-                        android:id="@+id/recurringLabel"
+                        android:id="@+id/recurringDonorLabel"
                         style="@style/P"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                         app:drawableTint="?attr/primary_color"/>
 
                     <com.google.android.material.checkbox.MaterialCheckBox
-                        android:id="@+id/recurringCheckbox"
+                        android:id="@+id/recurringDonorCheckbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 

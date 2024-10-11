@@ -18,8 +18,8 @@ class DonorHistoryViewModel(bundle: Bundle) : ViewModel() {
     }
 
     var completedDonation = bundle.getBoolean(Constants.ARG_BOOLEAN)
-    var isDonor = Prefs.hasDonorHistorySaved && Prefs.donationResults.isNotEmpty()
-    var lastDonated = Prefs.donationResults.last().dateTime
+    var isDonor = completedDonation || (Prefs.hasDonorHistorySaved && Prefs.donationResults.isNotEmpty())
+    var lastDonated = Prefs.donationResults.lastOrNull()?.dateTime
     var isRecurringDonor = Prefs.isRecurringDonor
 
     private val _uiState = MutableStateFlow(Resource<List<RbDefinition.Usage>>())
