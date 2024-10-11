@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
