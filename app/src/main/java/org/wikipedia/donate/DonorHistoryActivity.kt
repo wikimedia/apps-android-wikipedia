@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateUtils
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -16,6 +18,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
+import java.time.LocalDateTime
 import kotlin.getValue
 
 class DonorHistoryActivity : BaseActivity() {
@@ -31,8 +34,25 @@ class DonorHistoryActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDonorHistoryBinding.inflate(layoutInflater)
-
         init()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_donor_history, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.menu_donor_history_save -> {
+                viewModel.saveDonorHistory()
+                setResult(RESULT_DONOR_HISTORY_SAVED)
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun init() {
@@ -105,12 +125,14 @@ class DonorHistoryActivity : BaseActivity() {
 
     private fun showLastDonatedDatePicker() {
         DatePickerDialog(this, { _, year, month, day ->
-            viewModel.lastDonated = "$year-${month + 1}-$day"
+            viewModel.lastDonated = LocalDateTime.of(year, month + 1, day, 0, 0).toString()
             updateLastDonatedText()
         }, 2024, 10, 10).show()
     }
 
     companion object {
+
+        const val RESULT_DONOR_HISTORY_SAVED = 1
 
         fun newIntent(context: Context, completedDonation: Boolean = false): Intent {
             return Intent(context, DonorHistoryActivity::class.java)
