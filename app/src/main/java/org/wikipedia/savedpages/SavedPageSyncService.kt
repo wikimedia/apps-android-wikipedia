@@ -204,7 +204,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
 
     private suspend fun reqPageSummary(pageTitle: PageTitle): Response<PageSummary> {
         return withContext(Dispatchers.IO) {
-            ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponseSuspend(pageTitle.prefixedText,
+            ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText,
                 null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
                 UriUtil.encodeURL(pageTitle.prefixedText))

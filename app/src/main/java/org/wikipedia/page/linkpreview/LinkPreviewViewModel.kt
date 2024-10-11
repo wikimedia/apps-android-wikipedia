@@ -43,7 +43,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {
             val summaryCall = async { ServiceFactory.getRest(pageTitle.wikiSite)
-                .getSummaryResponseSuspend(pageTitle.prefixedText) }
+                .getSummaryResponse(pageTitle.prefixedText) }
 
             val watchedCall = async { if (fromPlaces && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText) else null }
 
