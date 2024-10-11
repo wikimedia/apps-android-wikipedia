@@ -107,7 +107,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         }
         binding.donorContainer.isVisible = true
         binding.donorUsername.text = AccountUtil.userName
-        if (Prefs.hasUserVisitedDonorHistory.not()) {
+        if (Prefs.hasDonorHistorySaved.not()) {
             // user has not visited donor history screen
             binding.updateDonorStatusBtn.apply {
                 isVisible = true
