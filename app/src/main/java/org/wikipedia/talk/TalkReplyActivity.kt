@@ -182,6 +182,21 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             }
         }
 
+        viewModel.pageExistsData.observe(this) {
+            if (it is Resource.Success) {
+                if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+                    binding.footerContainer.tempAccountInfoContainer.isVisible = true
+                    binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+                    binding.footerContainer.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
+                    binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getUserNameFromCookie(), getString(R.string.temp_accounts_help_url))
+                    else getString(if (viewModel.tempAccountsEnabled) R.string.temp_account_anon_edit_status else R.string.temp_account_anon_ip_edit_status, getString(R.string.temp_accounts_help_url)))
+                } else {
+                    binding.footerContainer.tempAccountInfoContainer.isVisible = false
+                }
+                maybeShowTempAccountDialog()
+            }
+        }
+
         viewModel.selectedTemplate?.let {
             binding.root.post {
                 shouldWatchText = false
@@ -203,16 +218,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     override fun onResume() {
         super.onResume()
-        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
-            binding.footerContainer.tempAccountInfoContainer.isVisible = true
-            binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
-            binding.footerContainer.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
-            binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getUserNameFromCookie(), getString(R.string.temp_accounts_help_url))
-            else getString(R.string.temp_account_anon_edit_status, getString(R.string.temp_accounts_help_url)))
-        } else {
-            binding.footerContainer.tempAccountInfoContainer.isVisible = false
-        }
-        maybeShowTempAccountDialog()
         setToolbarTitle(viewModel.pageTitle)
         updateEditLicenseText()
     }
@@ -227,6 +232,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun onInitialLoad() {
+        binding.footerContainer.tempAccountInfoContainer.isVisible = false
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
         binding.learnMoreButton.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
@@ -525,7 +531,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
                 .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
                 .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
-                else getString(R.string.temp_account_anon_dialog_body, getString(R.string.temp_accounts_help_url))))
+                else getString(if (viewModel.tempAccountsEnabled) R.string.temp_account_anon_dialog_body else R.string.temp_account_anon_ip_dialog_body, getString(R.string.temp_accounts_help_url))))
                 .setPositiveButton(getString(R.string.temp_account_dialog_ok)) { dialog, _ ->
                     dialog.dismiss()
                 }

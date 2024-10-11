@@ -775,7 +775,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
                 .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
                 .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
-                else getString(R.string.temp_account_anon_dialog_body, getString(R.string.temp_accounts_help_url))))
+                else getString(if (viewModel.tempAccountsEnabled) R.string.temp_account_anon_dialog_body else R.string.temp_account_anon_ip_dialog_body, getString(R.string.temp_accounts_help_url))))
                 .setPositiveButton(getString(if (fromToolbar) R.string.temp_account_dialog_ok else R.string.create_account_button)) { dialog, _ ->
                     dialog.dismiss()
                     if (!fromToolbar) {
