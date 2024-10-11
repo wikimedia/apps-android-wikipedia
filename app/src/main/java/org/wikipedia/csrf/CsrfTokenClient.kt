@@ -1,11 +1,7 @@
 package org.wikipedia.csrf
 
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -25,7 +21,7 @@ object CsrfTokenClient {
     private const val ANON_TOKEN = "+\\"
     private const val MAX_RETRIES = 3
 
-    suspend fun getTokenBlocking(site: WikiSite, type: String = "csrf", svc: Service? = null): String {
+    suspend fun getToken(site: WikiSite, type: String = "csrf", svc: Service? = null): String {
         var token = ""
         withContext(Dispatchers.IO) {
             try {
@@ -60,73 +56,6 @@ object CsrfTokenClient {
                         L.e(e)
                         lastError = e
                     }
-                    if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
-                        continue
-                    }
-                    break
-                }
-                if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
-                    if (token == ANON_TOKEN) {
-                        bailWithLogout()
-                    }
-                    throw lastError ?: IOException("Invalid token, or login failure.")
-                }
-            } finally {
-                MUTEX.release()
-            }
-        }
-        return token
-    }
-
-    // TODO: remove this after all usages are converted to coroutines
-    fun getToken(site: WikiSite, type: String = "csrf", svc: Service? = null): Observable<String> {
-        return Observable.create { emitter ->
-            var token = ""
-            try {
-                MUTEX.acquire()
-                val service = svc ?: ServiceFactory.get(site)
-
-                if (emitter.isDisposed) {
-                    return@create
-                }
-                var lastError: Throwable? = null
-                for (retry in 0 until MAX_RETRIES) {
-                    if (retry > 0) {
-                        // Log in explicitly
-                        // TODO: convert this with coroutines
-                        Completable.fromAction {
-                            runBlocking {
-                                LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
-                            }
-                        }.subscribeOn(Schedulers.io())
-                            .blockingSubscribe({ }) {
-                                L.e(it)
-                                lastError = it
-                            }
-                    }
-                    if (emitter.isDisposed) {
-                        return@create
-                    }
-
-                    service.getTokenObservable(type)
-                            .subscribeOn(Schedulers.io())
-                            .blockingSubscribe({
-                                if (type == "rollback") {
-                                    token = it.query?.rollbackToken().orEmpty()
-                                } else {
-                                    token = it.query?.csrfToken().orEmpty()
-                                }
-                                if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
-                                    throw RuntimeException("App believes we're logged in, but got anonymous token.")
-                                }
-                            }, {
-                                L.e(it)
-                                lastError = it
-                            })
-                    if (emitter.isDisposed) {
-                        return@create
-                    }
-
                     if (token.isEmpty() || (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)) {
                         continue
                     }
@@ -138,14 +67,11 @@ object CsrfTokenClient {
                     }
                     throw lastError ?: IOException("Invalid token, or login failure.")
                 }
-            } catch (t: Throwable) {
-                emitter.onError(t)
             } finally {
                 MUTEX.release()
             }
-            emitter.onNext(token)
-            emitter.onComplete()
         }
+        return token
     }
 
     private fun bailWithLogout() {

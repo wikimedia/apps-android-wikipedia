@@ -52,6 +52,7 @@
   <string name="nav_item_suggested_edits">編輯</string>
   <string name="nav_item_more">更多</string>
   <string name="nav_item_search">搜尋</string>
+  <string name="nav_item_contribute">貢獻</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
   <string name="card_offline_error_retry">重試</string>
@@ -1028,6 +1029,7 @@
   <string name="suggested_edits_image_captions_task_detail">描述圖片來幫助讀者了解含意與脈絡。</string>
   <string name="suggested_edits_add_descriptions_task_detail">概括條目來幫助讀者一目瞭然主題內容。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您到目前為止的貢獻總數。</string>
+  <string name="suggested_edits_edit_stat_tooltip">您目前為止的貢獻總數。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">您有做出貢獻的連續天數。如果您已有一段時間未做出貢獻，則顯示最後的貢獻日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">您曾做過貢獻的項目在過去 30 天內的頁面總瀏覽次數。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">基於您的編輯裡有多少次被回退（被其他編輯者撤銷）。回退編輯數：%d。</string>
@@ -1052,6 +1054,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">貢獻</item>
     <item quantity="other">貢獻</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">編輯</item>
+    <item quantity="other">編輯</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d 天</item>
@@ -1182,6 +1188,7 @@
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
+  <string name="app_shortcuts_places">地點</string>
   <string name="on_this_day_card_title">歷史上的今天</string>
   <string name="more_events_text">更多歷史上的今天</string>
   <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>

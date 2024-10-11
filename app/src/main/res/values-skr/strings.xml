@@ -17,6 +17,7 @@
   <string name="nav_item_suggested_edits">تبدیلیاں</string>
   <string name="nav_item_more">ٻئے</string>
   <string name="nav_item_search">ڳولو</string>
+  <string name="nav_item_contribute">حصہ پاؤ</string>
   <string name="error_network_error">انٹرنیٹ نال جوڑ نی تھی سڳا</string>
   <string name="page_error_retry">ولدا کوشش کرو</string>
   <string name="card_offline_error_retry">ولدا کوشش کرو</string>

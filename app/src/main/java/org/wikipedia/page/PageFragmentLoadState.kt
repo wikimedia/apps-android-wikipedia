@@ -140,7 +140,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 }
 
                 val pageSummaryRequest = async {
-                    ServiceFactory.getRest(title.wikiSite).getSummaryResponseSuspend(title.prefixedText, null, model.cacheControl.toString(),
+                    ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
                         if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null, title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText))
                 }
                 val watchedRequest = async {
