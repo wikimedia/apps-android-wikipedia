@@ -1288,19 +1288,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         PageActionOverflowView(requireContext()).show(anchor, pageActionItemCallback, currentTab, model)
     }
 
-    fun goToMainTab() {
-        startActivity(MainActivity.newIntent(requireContext())
+    fun goToMainActivity(tab: NavTab, tabExtra: String) {
+        startActivity(MainActivity.newIntent(requireActivity())
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
-        requireActivity().finish()
-    }
-
-    fun goToSETab() {
-        startActivity(MainActivity.newIntent(requireContext())
-            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-            .putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code()))
+            .putExtra(tabExtra, tab.code()))
         requireActivity().finish()
     }
 
@@ -1490,7 +1482,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onExploreSelected() {
-            goToMainTab()
+            goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
             articleInteractionEvent?.logExploreClick()
             metricsPlatformArticleEventToolbarInteraction.logExploreClick()
         }
@@ -1527,15 +1519,15 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
         }
 
-        override fun onDonorBtnClick() {
-            goToSETab()
+        override fun onDonorSelected() {
+            goToMainActivity(tab = NavTab.EDITS, tabExtra = Constants.INTENT_EXTRA_GO_TO_SE_TAB)
         }
 
-        override fun onBecomeDonorBtnClick() {
+        override fun onBecomeDonorSelected() {
             (requireActivity() as? BaseActivity)?.launchDonateDialog()
         }
 
-        override fun onUpdateDonorStatusBtnClick() {
+        override fun onUpdateDonorStatusSelected() {
             // @TODO: take user to the donor history screen
         }
     }

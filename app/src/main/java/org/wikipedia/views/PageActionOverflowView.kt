@@ -36,7 +36,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             dismissPopupWindowHost()
             callback.forwardClick()
         }
-        loadDonor()
+        loadDonorInformation()
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
@@ -100,41 +100,44 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 
-    private fun loadDonor() {
+    private fun loadDonorInformation() {
         if (AccountUtil.isLoggedIn.not()) {
             binding.donorContainer.isVisible = false
             return
         }
         binding.donorContainer.isVisible = true
         binding.donorUsername.text = AccountUtil.userName
+        // user has not updated their donor status
         if (Prefs.hasDonorHistorySaved.not()) {
-            // user has not visited donor history screen
             binding.updateDonorStatusBtn.apply {
                 isVisible = true
                 setOnClickListener {
                     // take user to the donor history screen
-                    callback.onUpdateDonorStatusBtnClick()
+                    callback.onUpdateDonorStatusSelected()
+                    dismissPopupWindowHost()
                 }
             }
             return
         }
+        // user has not donated
         if (Prefs.donationResults.isEmpty()) {
-            // not donated
             binding.becomeDonorBtn.apply {
                 isVisible = true
                 setOnClickListener {
                     // take user to the donation flow (the Donation bottom sheet).
-                    callback.onBecomeDonorBtnClick()
+                    callback.onBecomeDonorSelected()
+                    dismissPopupWindowHost()
                 }
             }
             return
         }
-        // here user is a donor
+        // user is a donor
         binding.donorBtn.apply {
             isVisible = true
             setOnClickListener {
                 // take user to Contribution Screen
-                callback.onDonorBtnClick()
+                callback.onDonorSelected()
+                dismissPopupWindowHost()
             }
         }
     }

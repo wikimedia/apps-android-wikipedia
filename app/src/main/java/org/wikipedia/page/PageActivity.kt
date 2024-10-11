@@ -58,6 +58,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -295,7 +296,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 if (app.haveMainActivity) {
                     onBackPressed()
                 } else {
-                    pageFragment.goToMainTab()
+                    pageFragment.goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 }
                 true
             } else -> super.onOptionsItemSelected(item)

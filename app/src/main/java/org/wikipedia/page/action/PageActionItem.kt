@@ -108,9 +108,9 @@ enum class PageActionItem constructor(val id: Int,
         fun onEditArticleSelected()
         fun onViewOnMapSelected()
         fun forwardClick()
-        fun onDonorBtnClick()
-        fun onBecomeDonorBtnClick()
-        fun onUpdateDonorStatusBtnClick()
+        fun onDonorSelected()
+        fun onBecomeDonorSelected()
+        fun onUpdateDonorStatusSelected()
     }
 
     companion object {
