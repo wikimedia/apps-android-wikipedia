@@ -194,6 +194,7 @@ dependencies {
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
     implementation libs.metrics.platform
+    implementation libs.core.splashscreen
 
     implementation libs.glide
     implementation libs.okhttp3.integration

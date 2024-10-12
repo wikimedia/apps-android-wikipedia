@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO: Move this to drawable folder when no longer supporting API levels < 21 -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@color/gray700" />
-
-    <item android:bottom="128dp">
-        <shape android:shape="rectangle">
-            <gradient android:type="radial" android:gradientRadius="100dp"
-                android:startColor="@color/gray500" android:endColor="@color/gray700" />
-        </shape>
-    </item>
-
-    <item android:bottom="128dp">
-        <!-- Use a bitmap element with centered gravity to prevent scaling. -->
-        <bitmap
-            android:src="@drawable/w_nav_mark"
-            android:antialias="true"
-            android:gravity="center" />
-    </item>
-
-</layer-list>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:antialias="true"
+    android:gravity="center"
+    android:src="@drawable/w_nav_mark" />

@@ -89,11 +89,6 @@
 
     </style>
 
-    <style name="AppTheme.Splash">
-        <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="android:navigationBarColor">@color/gray700</item>
-    </style>
-
     <style name="AppTheme.ActionBar">
         <item name="windowNoTitle">false</item>
         <item name="windowActionBar">true</item>
