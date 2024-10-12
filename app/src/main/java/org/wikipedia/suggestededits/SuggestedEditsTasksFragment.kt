@@ -35,6 +35,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
+import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
@@ -321,9 +322,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!ReleaseUtil.isPreBetaRelease) {
             binding.showIPBlockedMessage.visibility = GONE
             binding.showOnboardingMessage.visibility = GONE
+            binding.donorHistoryEntry.visibility = GONE
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
+        binding.donorHistoryEntry.setOnClickListener {
+            startActivity(DonorHistoryActivity.newIntent(requireContext()))
+        }
     }
 
     private fun setUpTasks() {

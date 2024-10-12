@@ -1,6 +1,5 @@
 package org.wikipedia.donate
 
-import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -16,9 +16,9 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityDonorHistoryBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import java.time.LocalDateTime
+import java.time.ZoneOffset
 import kotlin.getValue
 
 class DonorHistoryActivity : BaseActivity() {
@@ -26,14 +26,10 @@ class DonorHistoryActivity : BaseActivity() {
     private lateinit var binding: ActivityDonorHistoryBinding
     private val viewModel: DonorHistoryViewModel by viewModels { DonorHistoryViewModel.Factory(intent.extras!!) }
 
-    private var donorStatusList = arrayOf(
-        getString(R.string.donor_history_update_donor_status_donor),
-        getString(R.string.donor_history_update_donor_status_not_a_donor)
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDonorHistoryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         init()
     }
 
@@ -74,6 +70,7 @@ class DonorHistoryActivity : BaseActivity() {
             viewModel.isRecurringDonor = isChecked
         }
 
+        binding.donateButton.isVisible = Prefs.hasDonorHistorySaved
         binding.donateButton.setOnClickListener {
             launchDonateDialog()
         }
@@ -83,9 +80,9 @@ class DonorHistoryActivity : BaseActivity() {
         }
     }
 
-    private fun updateDonorStatusText() {
+    private fun updateDonorStatusText(manualUpdate: Boolean = false) {
         var donorStatusTextColor = R.attr.primary_color
-        val donorStatusText = if (!Prefs.hasDonorHistorySaved && !viewModel.isDonor) {
+        val donorStatusText = if (!Prefs.hasDonorHistorySaved && !manualUpdate) {
             donorStatusTextColor = R.attr.placeholder_color
             R.string.donor_history_update_donor_status_default
         } else if (viewModel.isDonor) {
@@ -95,6 +92,8 @@ class DonorHistoryActivity : BaseActivity() {
         }
         binding.donorStatus.text = getString(donorStatusText)
         binding.donorStatus.setTextColor(ResourceUtil.getThemedColorStateList(this, donorStatusTextColor))
+        binding.donateButton.isVisible = manualUpdate
+        binding.donationInfoContainer.isVisible = viewModel.isDonor
     }
 
     private fun updateLastDonatedText() {
@@ -109,25 +108,41 @@ class DonorHistoryActivity : BaseActivity() {
         binding.lastDonationLabel.text = getString(lastDonatedText)
         binding.lastDonationLabel.setTextColor(ResourceUtil.getThemedColorStateList(this, lastDonatedTextColor))
         viewModel.lastDonated?.let {
-            binding.lastDonationDate.text = DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(it).time, System.currentTimeMillis(), 0L)
+            val millis = LocalDateTime.parse(it).toInstant(ZoneOffset.UTC).toEpochMilli()
+            binding.lastDonationDate.text = DateUtils.getRelativeTimeSpanString(millis, System.currentTimeMillis(), 0L)
         }
     }
 
     private fun showDonorStatusDialog() {
+        val donorStatusList = arrayOf(
+            getString(R.string.donor_history_update_donor_status_donor),
+            getString(R.string.donor_history_update_donor_status_not_a_donor)
+        )
         MaterialAlertDialogBuilder(this)
             .setSingleChoiceItems(donorStatusList, -1) { dialog, which ->
                 viewModel.isDonor = which == 0
-                updateDonorStatusText()
+                updateDonorStatusText(true)
+                updateLastDonatedText()
                 dialog.dismiss()
             }
             .show()
     }
 
     private fun showLastDonatedDatePicker() {
-        DatePickerDialog(this, { _, year, month, day ->
-            viewModel.lastDonated = LocalDateTime.of(year, month + 1, day, 0, 0).toString()
-            updateLastDonatedText()
-        }, 2024, 10, 10).show()
+        // TODO: investigate why the theme is not being applied properly
+        // TODO: use local time
+        MaterialDatePicker.Builder.datePicker()
+            .setTheme(com.google.android.material.R.style.ThemeOverlay_Material3_MaterialCalendar)
+            .setSelection(LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli())
+            .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
+            .build()
+            .apply {
+                addOnPositiveButtonClickListener {
+                    viewModel.lastDonated = LocalDateTime.ofEpochSecond(it / 1000, 0, ZoneOffset.UTC).toString()
+                    updateLastDonatedText()
+                }
+            }
+            .show(supportFragmentManager, "date_picker")
     }
 
     companion object {
