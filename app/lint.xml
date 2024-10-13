@@ -25,4 +25,5 @@
     <issue id="MissingQuantity" severity="warning" />
     <issue id="ImpliedQuantity" severity="warning" />
     <issue id="AppLinkUrlError" severity="warning" />
+    <issue id="UnsafeOptInUsageError" severity="ignore" />
 </lint>

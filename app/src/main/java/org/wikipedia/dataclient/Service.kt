@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
@@ -262,10 +261,6 @@ interface Service {
 
     // ------- CSRF, Login, and Create Account -------
 
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=tokens")
-    fun getTokenObservable(@Query("type") type: String = "csrf"): Observable<MwQueryResponse>
-
     @GET(MW_API_PREFIX + "action=query&meta=tokens")
     @Headers("Cache-Control: no-cache")
     suspend fun getToken(@Query("type") type: String = "csrf"): MwQueryResponse
@@ -445,9 +440,6 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
-
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    suspend fun getEditorTaskCounts(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")

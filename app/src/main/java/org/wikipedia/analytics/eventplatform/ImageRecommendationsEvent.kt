@@ -9,14 +9,14 @@ import org.wikipedia.util.UriUtil
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_image_recommendation_event/1.0.0")
+@SerialName("/analytics/mobile_apps/android_image_recommendation_event/1.1.0")
 class ImageRecommendationsEvent(
    private val action: String,
    private val active_interface: String,
    private val action_data: String,
    private val primary_language: String,
    private val wiki_id: String
-) : MobileAppsEvent(STREAM_NAME) {
+) : MobileAppsEventWithTemp(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.image_recommendation_event"

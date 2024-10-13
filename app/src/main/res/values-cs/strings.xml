@@ -777,8 +777,8 @@
   <string name="notifications_menu_uncheck_all">Odebrat všechny položky</string>
   <string name="notifications_wiki_filter_header">Wiki filtr</string>
   <string name="notifications_type_filter_header">Filtr typu</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Vše \"wiki\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Všechny „typy“</string>
+  <string name="notifications_all_wikis_text">Všechny wiki</string>
+  <string name="notifications_all_types_text">Všechny typy</string>
   <string name="notifications_menu_user_talk_page">Diskusní stránka uživatele %s</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
@@ -1027,7 +1027,7 @@
   <string name="suggested_edits_ip_blocked_title">Zablokovaná IP</string>
   <string name="suggested_edits_last_edited">Poslední editace</string>
   <string name="suggested_edits_last_edited_never">Nikdy</string>
-  <string name="suggested_edits_task_new" fuzzy="true">nové</string>
+  <string name="suggested_edits_task_new">Nové</string>
   <string name="suggested_edits_cc0_notice">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami použití&lt;/a&gt; a neodvolatelně také souhlasíte se zveřejněním tohoto příspěvku pod &lt;a href=\"%2$s\"&gt;licencí CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhování editací</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Děkujeme, že editujete Wikipedii! Proč nepokračovat tam, kde jste skončili?</string>
