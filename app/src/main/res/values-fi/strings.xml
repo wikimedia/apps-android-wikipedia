@@ -1039,6 +1039,10 @@
     <item quantity="one">Muokkaus</item>
     <item quantity="other">Muokkausta</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">muokkaus</item>
+    <item quantity="other">muokkausta</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d päivä</item>
     <item quantity="other">%d päivää</item>
@@ -1168,6 +1172,7 @@
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
+  <string name="app_shortcuts_places">Paikat</string>
   <string name="on_this_day_card_title">Tänä päivänä</string>
   <string name="more_events_text">Lisää tänä päivänä</string>
   <string name="events_count_text">%1$s tapahtumat %2$s–%3$d</string>
@@ -1495,8 +1500,6 @@
   <string name="reading_list_share_menu_label">Jaa...</string>
   <string name="reading_list_share_menu_tooltip">Jaa tämä lukulista muiden kanssa</string>
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
-  <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
-  <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
   <string name="talk_templates_empty_message">Luo omia viestejä tai käytä &lt;a href=\"#\"&gt;malliviestejä&lt;/a&gt; aloittaaksesi.</string>
   <string name="talk_templates_new_message_title">Uusi viesti</string>
   <string name="talk_templates_new_message_subject_hint">Aihe</string>

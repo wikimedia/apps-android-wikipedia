@@ -16,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -40,6 +41,20 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayViewModel by viewModels()
+
+    private val offsetChangedListener =
+        AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            binding.headerFrameLayout.alpha = 1.0f - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
+            if (verticalOffset > -appBarLayout.totalScrollRange) {
+                binding.dropDownToolbar.visibility = View.GONE
+            } else if (verticalOffset <= -appBarLayout.totalScrollRange) {
+                binding.dropDownToolbar.visibility = View.VISIBLE
+            }
+            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date.time) else ""
+            if (newText != binding.toolbarDay.text.toString()) {
+                appBarLayout.post { binding.toolbarDay.text = newText }
+            }
+        }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
@@ -125,18 +140,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         )
         binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date.time)
         maybeHideDateIndicator()
-        binding.appBar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            binding.headerFrameLayout.alpha = 1.0f - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
-            if (verticalOffset > -appBarLayout.totalScrollRange) {
-                binding.dropDownToolbar.visibility = View.GONE
-            } else if (verticalOffset <= -appBarLayout.totalScrollRange) {
-                binding.dropDownToolbar.visibility = View.VISIBLE
-            }
-            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date.time) else ""
-            if (newText != binding.toolbarDay.text.toString()) {
-                appBarLayout.post { binding.toolbarDay.text = newText }
-            }
-        }
+        binding.appBar.addOnOffsetChangedListener(offsetChangedListener)
     }
 
     private fun maybeHideDateIndicator() {
@@ -149,6 +153,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     override fun onDestroyView() {
         binding.eventsRecycler.adapter = null
+        binding.appBar.removeOnOffsetChangedListener(offsetChangedListener)
         _binding = null
         super.onDestroyView()
     }

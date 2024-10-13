@@ -8,8 +8,6 @@ import android.os.Handler
 import android.speech.RecognizerIntent
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
-import io.reactivex.rxjava3.internal.functions.Functions
-import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -137,6 +135,9 @@ class WikipediaApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // Set the instance after the Application is fully initialized.
+        instance = this
+
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         connectionStateMonitor.enable()
@@ -145,11 +146,6 @@ class WikipediaApp : Application() {
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-
-        // This handler will catch exceptions thrown from Observables after they are disposed,
-        // or from Observables that are (deliberately or not) missing an onError handler.
-        // TODO: consider more comprehensive handling of these errors.
-        RxJavaPlugins.setErrorHandler(Functions.emptyConsumer())
 
         currentTheme = unmarshalTheme(Prefs.currentThemeId)
 

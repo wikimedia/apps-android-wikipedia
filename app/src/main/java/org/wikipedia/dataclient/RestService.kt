@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
@@ -31,25 +30,9 @@ import retrofit2.http.Query
 
 interface RestService {
 
-    /**
-     * Gets a page summary for a given title -- for link previews
-     *
-     * @param title the page title to be used including prefix
-     */
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
-    fun getSummaryResponse(
-        @Path("title") title: String,
-        @Header("Referer") referrerUrl: String?,
-        @Header("Cache-Control") cacheControl: String?,
-        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
-        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<PageSummary>>
-
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
-    suspend fun getSummaryResponseSuspend(
+    suspend fun getSummaryResponse(
         @Path("title") title: String,
         @Header("Referer") referrerUrl: String? = null,
         @Header("Cache-Control") cacheControl: String? = null,
@@ -80,14 +63,14 @@ interface RestService {
     ): MediaList
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaListResponse(
+    suspend fun getMediaListResponse(
         @Path("title") title: String?,
         @Path("revision") revision: Long,
         @Header("Cache-Control") cacheControl: String?,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<MediaList>>
+    ): Response<MediaList>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     suspend fun getOnThisDay(@Path("mm") month: Int,

@@ -91,6 +91,7 @@
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
   <string name="nav_item_search">Найти</string>
+  <string name="nav_item_contribute">Вклад</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="card_offline_error_retry">Повторить</string>
@@ -1577,8 +1578,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Список чтения импортирован</string>
   <string name="reading_list_share_menu_label">Поделиться…</string>
   <string name="reading_list_share_message_v2">Привет! Я хотел бы поделиться с тобой своим списком для чтения из Википедии:</string>
-  <string name="reading_list_share_survey_title">Могли бы вы помочь нам улучшить «Поделиться списком для чтения»?</string>
-  <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="talk_templates_empty_message">Создайте свои собственные сообщения или используйте &lt;a href=\"#\"&gt;примеры сообщений&lt;/a&gt; , чтобы начать работу.</string>
   <string name="talk_templates_new_message_title">Новое сообщение</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>

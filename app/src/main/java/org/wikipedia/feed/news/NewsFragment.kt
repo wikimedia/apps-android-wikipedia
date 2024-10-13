@@ -13,6 +13,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.appbar.AppBarLayout
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -41,6 +42,15 @@ class NewsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
 
+    private val offsetChangedListener =
+        AppBarLayout.OnOffsetChangedListener { layout: AppBarLayout, offset: Int ->
+            DeviceUtil.updateStatusBarTheme(
+                requireActivity(), binding.toolbar,
+                layout.totalScrollRange + offset > layout.totalScrollRange / 2
+            )
+            (requireActivity() as NewsActivity).updateNavigationBarColor()
+        }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
@@ -59,13 +69,7 @@ class NewsFragment : Fragment() {
         binding.headerImageView.loadImage(imageUri)
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.toolbar, true)
-        binding.appBarLayout.addOnOffsetChangedListener { layout, offset ->
-            DeviceUtil.updateStatusBarTheme(
-                requireActivity(), binding.toolbar,
-                layout.totalScrollRange + offset > layout.totalScrollRange / 2
-            )
-            (requireActivity() as NewsActivity).updateNavigationBarColor()
-        }
+        binding.appBarLayout.addOnOffsetChangedListener(offsetChangedListener)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
@@ -80,6 +84,7 @@ class NewsFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        binding.appBarLayout.removeOnOffsetChangedListener(offsetChangedListener)
         _binding = null
         super.onDestroyView()
     }

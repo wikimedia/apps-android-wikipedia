@@ -100,7 +100,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _postEditState.value = Resource.Error(throwable)
         }) {
             _postEditState.value = Resource.Loading()
-            val csrfToken = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
+            val csrfToken = CsrfTokenClient.getToken(pageTitle.wikiSite)
             val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(
                 title = pageTitle.prefixedText,
                 section = if (sectionID >= 0) sectionID.toString() else null,
@@ -132,7 +132,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             while (revision < newRevision && retry < 10) {
                 delay(2000)
                 val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getSummaryResponseSuspend(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
+                    .getSummaryResponse(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummaryResponse.body()?.revision ?: -1L
                 retry++
             }

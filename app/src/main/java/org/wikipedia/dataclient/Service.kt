@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
@@ -262,17 +261,13 @@ interface Service {
 
     // ------- CSRF, Login, and Create Account -------
 
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=tokens")
-    fun getTokenObservable(@Query("type") type: String = "csrf"): Observable<MwQueryResponse>
-
     @GET(MW_API_PREFIX + "action=query&meta=tokens")
     @Headers("Cache-Control: no-cache")
     suspend fun getToken(@Query("type") type: String = "csrf"): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
-    fun postCreateAccount(
+    suspend fun postCreateAccount(
         @Field("username") user: String,
         @Field("password") pass: String,
         @Field("retype") retype: String,
@@ -281,7 +276,7 @@ interface Service {
         @Field("email") email: String?,
         @Field("captchaId") captchaId: String?,
         @Field("captchaWord") captchaWord: String?
-    ): Observable<CreateAccountResponse>
+    ): CreateAccountResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
     @Headers("Cache-Control: no-cache")
@@ -311,8 +306,8 @@ interface Service {
     @POST(MW_API_PREFIX + "action=logout")
     suspend fun postLogout(@Field("token") token: String): MwPostResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
-    val authManagerInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
+    suspend fun getAuthManagerInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
     suspend fun getUserInfo(): MwQueryResponse
@@ -327,7 +322,7 @@ interface Service {
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
-    fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
+    suspend fun getUserList(@Query("ususers") userNames: String): MwQueryResponse
 
     // ------- Notifications -------
 
@@ -445,9 +440,6 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
-
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    suspend fun getEditorTaskCounts(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")

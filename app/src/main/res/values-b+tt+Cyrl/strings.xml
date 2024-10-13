@@ -1459,8 +1459,6 @@
   <string name="reading_list_share_menu_label">Уртаклашу…</string>
   <string name="reading_list_share_menu_tooltip">Бу уку өчен исемлекне башкалар белән дә уртаклашыгыз</string>
   <string name="reading_list_share_message_v2">Сәлам! Мин сезнең белән Википедиядәге үземнең уку исемлеге белән уртаклашырга телим.</string>
-  <string name="reading_list_share_survey_title">Сез безгә \"Уку исемлекләре белән уртаклашырга\" дигән функцияне яхшыртырга ярдәм итә аласызмы?</string>
-  <string name="reading_list_share_survey_body">\"Уку исемлекләре белән уртаклашырга\" — бу текст функциясе һәм безгә аны яхшырту яки бетерү өчен сезнең фикерләрегез кирәк.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
   <string name="talk_templates_new_message_title">Яңа хәбәр</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
@@ -1573,4 +1571,6 @@
   <string name="donation_campaign_donated_snackbar">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
+  <string name="places_toggle_buttons_map">Харита</string>
+  <string name="places_toggle_buttons_list">Исемлек</string>
 </resources>
