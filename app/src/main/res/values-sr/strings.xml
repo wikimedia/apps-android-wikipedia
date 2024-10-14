@@ -1601,7 +1601,7 @@
   <string name="donate_gpay_dialog_pay_button">Донирајте путем Google Pay-а</string>
   <string name="donate_gpay_dialog_other_button">Други начини донирања</string>
   <string name="donate_gpay_activity_title">Изаберите износ</string>
-  <string name="donate_gpay_check_transaction_fee">Платићу и трошкове трансакције (%s), да би добили цео износ моје донације.</string>
+  <string name="donate_gpay_check_transaction_fee">Платићу и провизију (%s), да би добили цео износ моје донације.</string>
   <string name="donate_gpay_check_recurring">Донирај аутоматски сваког месеца.</string>
   <string name="donate_gpay_check_send_email">Да, нека ми Задужбина Викимедија периодично шаље имејлове.</string>
   <string name="donate_gpay_minimum_amount">Изаберите износ (најмање %s)</string>
@@ -1626,4 +1626,21 @@
   <string name="places_card_distance_suffix">%s удаљено</string>
   <string name="places_card_distance_unknown">Непозната удаљеност</string>
   <string name="recommended_content_section_you_might_like">Можда Вам се свиди</string>
+  <string name="donor_history_title">Историја донирања</string>
+  <string name="donor_history_save_button">Сачувај</string>
+  <string name="donor_history_update_donor_status_donor">Донатор</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Није донатор</string>
+  <string name="donor_history_last_donated">Последња донација</string>
+  <string name="donor_history_last_donated_date_picker_title">Изаберите датум</string>
+  <string name="donor_history_last_donated_date_picker_label">Унесите датум</string>
+  <string name="donor_history_recurring_donor">Редовни донатор</string>
+  <string name="donor_history_donate_button">Донирајте Задужбини Викимедије</string>
+  <string name="donor_history_about_this_experiment">О овом експерименту</string>
+  <string name="donor_history_updated_message_snackbar">Историја донирања ажурирана</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Дајте своје мишљење</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Не, хвала</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Да, води ме тамо</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Не, хвала</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Да, води ме тамо</string>
+  <string name="contributions_dashboard_badge_donor">Донатор</string>
 </resources>
