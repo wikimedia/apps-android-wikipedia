@@ -602,4 +602,8 @@
         <item name="strokeColor">?attr/paper_color</item>
     </style>
 
+    <style name="MaterialDatePickerStyle" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="android:textViewStyle">@android:style/Widget.TextView</item>
+    </style>
+
 </resources>

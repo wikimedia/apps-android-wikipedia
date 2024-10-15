@@ -129,10 +129,9 @@ class DonorHistoryActivity : BaseActivity() {
     }
 
     private fun showLastDonatedDatePicker() {
-        // TODO: investigate why the theme is not being applied properly
         // TODO: use local time
         MaterialDatePicker.Builder.datePicker()
-            .setTheme(com.google.android.material.R.style.ThemeOverlay_Material3_MaterialCalendar)
+            .setTheme(R.style.MaterialDatePickerStyle)
             .setSelection(LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli())
             .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
             .build()
