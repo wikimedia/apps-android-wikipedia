@@ -8,6 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
@@ -114,7 +116,7 @@ class DonorHistoryActivity : BaseActivity() {
             binding.lastDonationDate.text = DateUtils.getRelativeTimeSpanString(
                 viewModel.dateTimeToMilli(it),
                 System.currentTimeMillis(),
-                0L
+                DateUtils.DAY_IN_MILLIS
             )
         }
     }
@@ -135,15 +137,22 @@ class DonorHistoryActivity : BaseActivity() {
     }
 
     private fun showLastDonatedDatePicker() {
+        val today = System.currentTimeMillis()
         val defaultDatePickerMilli = viewModel.lastDonated?.let {
             viewModel.dateTimeToMilli(it)
         } ?: run {
-            System.currentTimeMillis()
+            today
         }
+        val calendarConstraints = CalendarConstraints.Builder()
+            .setEnd(today)
+            .setValidator(DateValidatorPointBackward.before(today))
+            .build()
+
         MaterialDatePicker.Builder.datePicker()
             .setTheme(R.style.MaterialDatePickerStyle)
             .setSelection(defaultDatePickerMilli)
             .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
+            .setCalendarConstraints(calendarConstraints)
             .build()
             .apply {
                 addOnPositiveButtonClickListener {
