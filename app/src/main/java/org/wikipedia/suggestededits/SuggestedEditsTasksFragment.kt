@@ -100,6 +100,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
+    private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == DonorHistoryActivity.RESULT_DONOR_HISTORY_SAVED) {
+            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+            // TODO: show survey dialog after 10 seconds
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -327,7 +334,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
         binding.donorHistoryEntry.setOnClickListener {
-            startActivity(DonorHistoryActivity.newIntent(requireContext()))
+            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireActivity()))
         }
     }
 

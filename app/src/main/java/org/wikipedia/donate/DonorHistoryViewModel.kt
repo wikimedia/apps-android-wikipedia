@@ -17,9 +17,14 @@ class DonorHistoryViewModel(bundle: Bundle) : ViewModel() {
 
     fun saveDonorHistory() {
         Prefs.hasDonorHistorySaved = true
-        Prefs.isRecurringDonor = isRecurringDonor
-        lastDonated?.let {
-            Prefs.donationResults = Prefs.donationResults.plus(DonationResult(it, false))
+        if (isDonor) {
+            Prefs.isRecurringDonor = isRecurringDonor
+            lastDonated?.let {
+                Prefs.donationResults = Prefs.donationResults.plus(DonationResult(it, false))
+            }
+        } else {
+            Prefs.isRecurringDonor = false
+            Prefs.donationResults = emptyList()
         }
     }
 
