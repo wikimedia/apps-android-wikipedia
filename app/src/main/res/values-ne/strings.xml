@@ -579,7 +579,7 @@
   <string name="suggested_edits_edit_caption_button">विवरण सम्पादन गर्नुहोस्</string>
   <string name="suggested_edits_my_contributions">मेरा योगदानहरू</string>
   <string name="suggested_edits_license_notice">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;क्रिएटिभ कमन्स सेयर अलाइक- ४.०&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
-  <string name="suggested_edits_image_caption_license_notice">तस्वीर वर्णन थपेर, म &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;सँगै &lt;a href=\"%2$s\"&gt;क्रिएटिभ कमन्स सिसिओ&lt;/a&gt; इजाजतपत्र अन्तर्गत मेरो योगदानहरू अपरिवर्तनीय रूप&lt;a href=\"%2$s\"&gt;&lt;/a&gt;मा जारी गर्न सहमत छु।</string>
+  <string name="suggested_edits_image_caption_license_notice">तस्वीर वर्णन थपेर, म &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;सँगै &lt;a href=\"%2$s\"&gt;क्रिएटिभ कमन्स सिसिओ&lt;/a&gt; इजाजतपत्र अन्तर्गत मेरो योगदानहरू अपरिवर्तनीय रूपमा जारी गर्न सहमत छु।</string>
   <string name="suggested_edits_menu_info">जानकारी</string>
   <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_negative">मेरो लागि होइन</string>
