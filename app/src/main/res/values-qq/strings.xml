@@ -91,7 +91,7 @@
   <string name="page_edit_history_filter_by">Menu header for the overflow menu when clicking on the filter icon in the search bar in edit history.</string>
   <string name="page_edit_history_filter_by_all">Menu item text for the filter overflow menu to show all edits in edit history. %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_filter_by_user">Menu item text for the filter overflow menu to show user edits in edit history. %s will be replaced by the number of edits.</string>
-  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show anonymous in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show unregistered edits in edit history (anonymous or temporary accounts). %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_filter_by_bot">Menu item text for the filter overflow menu to show bot edits in edit history. %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -462,6 +462,7 @@
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="temp_account_not_logged_in">Title of dialog informing the user that a temporary account is being used.</string>
   <string name="temp_account_anon_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_anon_ip_dialog_body">Body text of dialog explaining that the edit will be attributed to the current IP address. Please preserve HTML formatting.</string>
   <string name="temp_account_temp_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
   <string name="temp_account_dialog_ok">Positive action button in Temporary Account info dialog.</string>
   <string name="temp_account_using_title">Title of dialog informing the user that a temporary account is being used.</string>
@@ -475,6 +476,7 @@
     <item quantity="other">Message shown when a temporary account will expire in %d days.</item>
   </plurals>
   <string name="temp_account_anon_edit_status">Status message shown while editing anonymously, explaining that a temporary account will be created if an edit is made. Please preserve any HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_anon_ip_edit_status">Status message shown while editing anonymously, explaining that the edit will be attributed to the current IP address. Please preserve any HTML formatting.</string>
   <string name="temp_account_edit_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting. The %2$s symbol is replaced with a URL.</string>
   <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting.</string>
   <string name="temp_account_end_session">Button label for discarding the current temporary account.</string>

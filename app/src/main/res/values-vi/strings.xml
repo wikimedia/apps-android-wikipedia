@@ -3,6 +3,7 @@
 * Amire80
 * Awdsweq123
 * Bluetpp
+* Băng Tỏa
 * Dinhxuanduyet
 * Doraemonluonbentoi
 * DreamSeeeeker
@@ -1176,4 +1177,19 @@
   <string name="patroller_tasks_filters_significance_minor">Sửa đổi nhỏ</string>
   <string name="patroller_onboarding_two_thank_title">Cảm ơn</string>
   <string name="donate_gpay_dialog_title">Quyên góp bằng Google Pay?</string>
+  <string name="donor_history_title">Lịch sử nhà hảo tâm</string>
+  <string name="donor_history_save_button">Lưu</string>
+  <string name="donor_history_update_donor_status_donor">Nhà hảo tâm</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Không phải nhà hảo tâm</string>
+  <string name="donor_history_last_donated">Lần quyên góp gần nhất</string>
+  <string name="donor_history_last_donated_date_picker_label">Nhập ngày</string>
+  <string name="donor_history_donate_button">Quyên góp cho Quỹ Wikimedia</string>
+  <string name="contributions_dashboard_donation_dialog_title">Cảm ơn bạn đã ủng hộ kho tri thức mở</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Thôi</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Có, đưa tôi qua đó</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Thôi</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Có, đưa tôi qua đó</string>
+  <string name="contributions_dashboard_badge_donor">Nhà hảo tâm</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Trở thành nhà hảo tâm</string>
+  <string name="contributions_dashboard_logged_out_user">Người dùng đã đăng xuất</string>
 </resources>
