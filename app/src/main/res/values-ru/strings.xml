@@ -16,6 +16,7 @@
 * Envlh
 * Esukhovnina
 * Facenapalm
+* Firapinch
 * Helpau
 * Iluvatar
 * Infovarius
@@ -1716,4 +1717,13 @@
   <string name="places_survey_very_unsatisfied_option">Очень неудовлетворен</string>
   <string name="places_survey_dialog_cancel">Отмена</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Что бы вы хотели, чтобы мы изменили или улучшили?</string>
+  <string name="donor_history_save_button">Сохранить</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Не донор</string>
+  <string name="donor_history_last_donated">Последнее пожертвование</string>
+  <string name="donor_history_last_donated_date_picker_label">Ввести дату</string>
+  <string name="donor_history_donate_button">Пожертвовать в Фонд Викимедиа</string>
+  <string name="contributions_dashboard_survey_dialog_title">Помогите улучшить панель пожертвований</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Нет, спасибо</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Нет, спасибо</string>
+  <string name="contributions_dashboard_badge_donor">Донор</string>
 </resources>
