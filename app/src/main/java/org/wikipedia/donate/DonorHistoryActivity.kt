@@ -17,8 +17,11 @@ import org.wikipedia.databinding.ActivityDonorHistoryBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.ResourceUtil
+import java.time.Instant
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZoneOffset
+import java.time.ZonedDateTime
 import kotlin.getValue
 
 class DonorHistoryActivity : BaseActivity() {
@@ -108,8 +111,11 @@ class DonorHistoryActivity : BaseActivity() {
         binding.lastDonationLabel.text = getString(lastDonatedText)
         binding.lastDonationLabel.setTextColor(ResourceUtil.getThemedColorStateList(this, lastDonatedTextColor))
         viewModel.lastDonated?.let {
-            val millis = LocalDateTime.parse(it).toInstant(ZoneOffset.UTC).toEpochMilli()
-            binding.lastDonationDate.text = DateUtils.getRelativeTimeSpanString(millis, System.currentTimeMillis(), 0L)
+            binding.lastDonationDate.text = DateUtils.getRelativeTimeSpanString(
+                viewModel.dateTimeToMilli(it),
+                System.currentTimeMillis(),
+                0L
+            )
         }
     }
 
@@ -129,19 +135,25 @@ class DonorHistoryActivity : BaseActivity() {
     }
 
     private fun showLastDonatedDatePicker() {
-        // TODO: use local time
+        val defaultDatePickerMilli = viewModel.lastDonated?.let {
+            viewModel.dateTimeToMilli(it)
+        } ?: run {
+            System.currentTimeMillis()
+        }
         MaterialDatePicker.Builder.datePicker()
             .setTheme(R.style.MaterialDatePickerStyle)
-            .setSelection(LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli())
+            .setSelection(defaultDatePickerMilli)
             .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
             .build()
             .apply {
                 addOnPositiveButtonClickListener {
-                    viewModel.lastDonated = LocalDateTime.ofEpochSecond(it / 1000, 0, ZoneOffset.UTC).toString()
+                    // The date picker returns milliseconds in UTC timezone.
+                    val utcDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(it), ZoneOffset.UTC)
+                    viewModel.lastDonated = ZonedDateTime.of(utcDate, ZoneId.systemDefault()).toLocalDateTime().toString()
                     updateLastDonatedText()
                 }
             }
-            .show(supportFragmentManager, "date_picker")
+            .show(supportFragmentManager, "datePicker")
     }
 
     companion object {
