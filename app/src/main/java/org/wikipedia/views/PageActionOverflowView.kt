@@ -141,7 +141,6 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
                 }
             }
         }
-
     }
 
     private fun getDonorStatus(): DonorStatus {
@@ -165,4 +164,3 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 }
-
