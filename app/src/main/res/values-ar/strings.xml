@@ -1086,6 +1086,7 @@
   <string name="suggested_edits_image_captions_task_detail">صف صورة لمساعدة القراء على فهم معناها وسياقها.</string>
   <string name="suggested_edits_add_descriptions_task_detail">تلخيص مقال لمساعدة القراء على فهم الموضوع في لمحة.</string>
   <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد مساهماتك حتى الآن.</string>
+  <string name="suggested_edits_edit_stat_tooltip">عدد تعديلاتك الكلي حتى الآن.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">كم يومًا متتابعًا ساهمت فيها بتعديلاتٍ، إن لم تكن قد ساهمت لفترةٍ من الوقت، فسيُعرض تاريخ آخر مساهمة لك.</string>
   <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت فيها في آخر 30 يومًا.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها: %d.</string>

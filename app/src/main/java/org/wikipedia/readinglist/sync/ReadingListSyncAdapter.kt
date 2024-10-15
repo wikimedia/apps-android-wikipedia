@@ -38,7 +38,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
             val extras = getBooleanExtraFromData(inputData)
-            if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn ||
+            if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount ||
                 !(Prefs.isReadingListSyncEnabled || Prefs.isReadingListsRemoteDeletePending)) {
                 L.d("Skipping sync of reading lists.")
                 if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
