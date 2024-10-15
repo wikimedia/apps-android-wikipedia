@@ -106,6 +106,14 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
+        <ListPreference
+            android:key="@string/preference_key_donor_status"
+            android:title="@string/preference_key_donor_status"
+            android:entries="@array/donor_status_values"
+            android:entryValues="@array/donor_status_values"
+            android:summary="change donor status"
+            android:defaultValue="NONE"/>
+
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_visited_article_page"
             android:title="@string/preference_key_visited_article_page"

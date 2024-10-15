@@ -18,6 +18,7 @@ import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
+import org.wikipedia.donate.DonorStatus
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
@@ -107,39 +108,54 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         }
         binding.donorContainer.isVisible = true
         binding.donorUsername.text = AccountUtil.userName
-        // user has not updated their donor status
-        if (Prefs.hasDonorHistorySaved.not()) {
-            binding.updateDonorStatusBtn.apply {
-                isVisible = true
-                setOnClickListener {
-                    // take user to the donor history screen
-                    callback.onUpdateDonorStatusSelected()
-                    dismissPopupWindowHost()
+
+        when (getDonorStatus()) {
+            DonorStatus.DONOR -> {
+                binding.donorBtn.apply {
+                    isVisible = true
+                    setOnClickListener {
+                        // take user to Contribution Screen
+                        callback.onDonorSelected()
+                        dismissPopupWindowHost()
+                    }
                 }
             }
-            return
+            DonorStatus.NON_DONOR -> {
+                binding.becomeDonorBtn.apply {
+                    isVisible = true
+                    setOnClickListener {
+                        // take user to the donation flow (the Donation bottom sheet).
+                        callback.onBecomeDonorSelected()
+                        dismissPopupWindowHost()
+                    }
+                }
+            }
+            DonorStatus.UNKNOWN -> {
+                binding.updateDonorStatusBtn.apply {
+                    isVisible = true
+                    setOnClickListener {
+                        // take user to the donor history screen
+                        callback.onUpdateDonorStatusSelected()
+                        dismissPopupWindowHost()
+                    }
+                }
+            }
+        }
+
+    }
+
+    private fun getDonorStatus(): DonorStatus {
+        Prefs.donorStatus?.let { return it }
+
+        // user has not updated their donor status
+        if (Prefs.hasDonorHistorySaved.not()) {
+            return DonorStatus.UNKNOWN
         }
         // user has not donated
         if (Prefs.donationResults.isEmpty()) {
-            binding.becomeDonorBtn.apply {
-                isVisible = true
-                setOnClickListener {
-                    // take user to the donation flow (the Donation bottom sheet).
-                    callback.onBecomeDonorSelected()
-                    dismissPopupWindowHost()
-                }
-            }
-            return
+            return DonorStatus.NON_DONOR
         }
-        // user is a donor
-        binding.donorBtn.apply {
-            isVisible = true
-            setOnClickListener {
-                // take user to Contribution Screen
-                callback.onDonorSelected()
-                dismissPopupWindowHost()
-            }
-        }
+        return DonorStatus.DONOR
     }
 
     private fun dismissPopupWindowHost() {
@@ -149,3 +165,4 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 }
+

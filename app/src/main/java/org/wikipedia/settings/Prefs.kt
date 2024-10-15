@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
+import org.wikipedia.donate.DonorStatus
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
@@ -738,4 +739,15 @@ object Prefs {
     var hasDonorHistorySaved
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donor_history_saved, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donor_history_saved, value)
+
+    val donorStatus: DonorStatus?
+        get() {
+            val prefValue = PrefsIoUtil.getString(R.string.preference_key_donor_status, null)
+            return when (prefValue) {
+                "DONOR" -> DonorStatus.DONOR
+                "NON_DONOR" -> DonorStatus.NON_DONOR
+                "NONE" -> null
+                else -> DonorStatus.UNKNOWN
+            }
+        }
 }

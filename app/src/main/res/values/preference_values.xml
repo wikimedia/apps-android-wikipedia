@@ -6,4 +6,10 @@
         <item>HEADERS</item>
         <item>BODY</item>
     </string-array>
+    <string-array name="donor_status_values">
+        <item>DONOR</item>
+        <item>NON_DONOR</item>
+        <item>UNKNOWN</item>
+        <item>NONE</item>
+    </string-array>
 </resources>
