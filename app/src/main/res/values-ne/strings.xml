@@ -29,6 +29,7 @@
   <string name="nav_item_suggested_edits">सम्पादनहरू</string>
   <string name="nav_item_more">थप</string>
   <string name="nav_item_search">खोज्नुहोस्</string>
+  <string name="nav_item_contribute">योगदान गर्नुहोस्</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
   <string name="page_error_retry">पुनः प्रयास गर्नुहोस्</string>
   <string name="card_offline_error_retry">पुन:प्रयास गर्नुहोस्</string>
@@ -108,7 +109,7 @@
   <string name="language_count_link_text">अरू %d ओटा भाषाहरूमा उपलब्ध</string>
   <string name="content_license_cc_by_sa">CC BY-SA ४.०</string>
   <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">प्रकाशन गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनहरू तपाईँको उपकरणको आइपओ ठेगानामा एट्रिब्युट गरिनेछन् । यदि &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;,  गर्नु भयो भने राम्रो गोपनियता प्राप्त हुनसक्छ।</string>
+  <string name="edit_save_action_license_anon">प्रकाशन गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनहरू तपाईँको उपकरणको आइपओ ठेगानामा एट्रिब्युट गरिनेछन्। यदि &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;,  गर्नु भयो भने राम्रो गोपनियता प्राप्त हुनसक्छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
@@ -226,8 +227,8 @@
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">प्रयोगका सर्तहरू</string>
   <string name="about_wikipedia_url">https://ne.wikipedia.org/wiki/विकिपिडिया:विकिपिडियाको_बारेमा</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ne.wikipedia.org/wiki/विकिपिडिया:खाता_बनाउनको_लागि_अनुरोध</string>
   <string name="about_libraries_heading">प्रयोग भएका पुस्तकालयहरू</string>
   <string name="about_contributors_heading">योगदानकर्ताहरू</string>
@@ -341,14 +342,21 @@
   <string name="button_add_to_reading_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="button_get_directions">दिशानिर्देशन प्राप्त गर्नुहोस्</string>
   <string name="error_no_maps_app">दिशानिर्देशन प्रदान गर्ने कुनै पनि अनुप्रयोग फेला पार्न सकिएन।</string>
+  <string name="preference_title_customize_explore_feed">फिड अन्वेषण गर्नुहोस्</string>
   <string name="preference_title_show_link_previews">लिङ्कका पूर्वावलोकनहरू देखाउनुहोस्</string>
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
   <string name="preference_title_collapse_tables">तालिका लुकाउनुहोस्</string>
-  <string name="nav_item_donate" fuzzy="true">विकिपिडियालाई समर्थन गर्नुहोस्</string>
+  <string name="nav_item_donate">दान गर्नुहाेस्</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>
+  <string name="location_permissions_enable_prompt">आफ्नो नजिकका ठाउँहरू हेर्न स्थान अनुमतिहरू सक्षम गर्नुहोस्।</string>
   <string name="location_permissions_enable_action">खोल्नुहोस्</string>
+  <string name="error_webview_updating">एन्ड्रोइड प्रणाली वेवभ्यु हाल अद्यावधिक भइरहेको छ। कृपया एक क्षणमा पुन: प्रयास गर्नुहोस्।</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d चयन गरियो</item>
+    <item quantity="other">%d चयन गरियो</item>
+  </plurals>
   <string name="multi_select_items_selected">%d चयन गरियो</string>
   <string name="error_message_generic">एउटा त्रुटी देखियो</string>
   <string name="view_link_preview_error_button_dismiss">खारेज गर्नुहोस्</string>
@@ -365,7 +373,7 @@
   <string name="crash_report_relaunch_or_quit">के तपाईं पुन: सुरु गर्न वा बन्द गर्न चाहानुहुन्छ?</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
-  <string name="article_menu_bar_save_button">संग्रह गर्नुहोस्</string>
+  <string name="article_menu_bar_save_button">सङ्ग्रह गर्नुहोस्</string>
   <string name="article_menu_bar_language_button">भाषा</string>
   <string name="article_menu_bar_search_button">खोज्नुहोस्</string>
   <string name="article_menu_bar_contents_button">सामग्रीहरू</string>
@@ -478,7 +486,7 @@
   <string name="preference_title_notification_mention">उल्लेख</string>
   <string name="preference_summary_notification_mention">कसैले तपाईलाई पृष्ठमा उल्लेख गरेकाे छ</string>
   <string name="preference_title_notification_user_talk">वार्तालाप पृष्ठ</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">वार्तालाप पृष्ठका सन्देशहरू</string>
+  <string name="preference_summary_notification_user_talk">वार्ता पृष्ठहरूबाट सन्देशहरू र जवाफहरू</string>
   <string name="preference_title_notification_email_user">इमेल प्राप्त भयो</string>
   <string name="preference_summary_notification_email_user">कसैले तपाईंलाई विकी मार्फत इमेल पठायो</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">विकिपिडिया</string>
@@ -498,6 +506,7 @@
   <string name="view_featured_image_card_download">डाउनलोड गर्नुहोस्</string>
   <string name="menu_feed_card_dismiss">यो कार्ड लुकाउनुहोस्</string>
   <string name="menu_feed_card_dismissed">कार्ड लुकाइयो।</string>
+  <string name="menu_feed_card_edit_card_languages">कार्ड भाषाहरू सम्पादन गर्नुहोस्</string>
   <string name="menu_feed_overflow_label">थप विकल्पहरू</string>
   <string name="feed_featured_image_share_subject">विकिमिडिया कमन्सको प्रमुख छवि</string>
   <string name="feed">अन्वेषण</string>
@@ -550,11 +559,13 @@
   <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
   <string name="description_edit_help_title">जानकारी: लेख विवरणहरू</string>
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
+  <string name="description_edit_learn_more">लेख विवरण बारे थप जान्नुहोस्</string>
   <string name="description_too_short">पाठ धेरै छोटो छ।</string>
-  <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
+  <string name="description_edit_success_saved">लेख विवरण प्रकाशित भयो!</string>
   <string name="description_edit_success_encouragement">तपाईंले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
+  <string name="description_edit_success_article_edit_hint">तपाईँ यो एप भित्र लेख सम्पादन गर्न सक्नुहुन्छ। अर्को पटक ^1 प्रतिमामा क्लिक गरेर लेख्य त्रुटिहरू र साना वाक्यहरू समाधान गर्ने प्रयास गर्नुहोस्</string>
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
@@ -567,6 +578,8 @@
   <string name="suggested_edits_add_caption_button">विवरण थप्नुहोस्</string>
   <string name="suggested_edits_edit_caption_button">विवरण सम्पादन गर्नुहोस्</string>
   <string name="suggested_edits_my_contributions">मेरा योगदानहरू</string>
+  <string name="suggested_edits_license_notice">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;क्रिएटिभ कमन्स सेयर अलाइक- ४.०&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
+  <string name="suggested_edits_image_caption_license_notice">तस्वीर वर्णन थपेर, म &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;सँगै &lt;a href=\"%2$s\"&gt;क्रिएटिभ कमन्स सिसिओ&lt;/a&gt; इजाजतपत्र अन्तर्गत मेरो योगदानहरू अपरिवर्तनीय रूपमा जारी गर्न सहमत छु।</string>
   <string name="suggested_edits_menu_info">जानकारी</string>
   <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_negative">मेरो लागि होइन</string>
@@ -634,7 +647,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">हिजो</string>
   <string name="suggested_edits_encourage_account_creation_title">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
-  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">हालैको संशोधन</string>
+  <string name="suggested_edits_contribution_current_revision_text">तपाईको सम्पादन हाल विकिपिडियामा प्रत्यक्ष छ</string>
   <string name="suggested_card_more_edits">थप सुझावित सम्पादनहरू</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s अक्षर</item>
@@ -703,9 +716,10 @@
   <string name="wikitext_reference">सन्दर्भ</string>
   <string name="wikitext_preview_link">लिङ्क पूर्वावलोकन</string>
   <string name="insert_media_advanced_settings_image_position_left">बायाँ</string>
+  <string name="templates_learn_more_link">अधिक जानकारी</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
+  <string name="main_tooltip_text">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
   <string name="main_tooltip_text_v2">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="main_tooltip_action_button">सुरु गर्नुहोस्</string>
   <string name="main_tooltip_watchlist_title">अवलोकनसूची</string>
@@ -766,5 +780,15 @@
   <string name="patroller_tasks_filters_user_status_experienced_desc">५०० भन्दा बढी सम्पादन र ३० दिनको गतिविधिस सहितका दर्ता भएका सम्पादकहरू।</string>
   <string name="patroller_onboarding_two_talk_title">वार्तालाप</string>
   <string name="patroller_saved_message_title_auto_trans">स्वचालित अनुवाद</string>
+  <string name="talk_templates_menu_edit_title">सम्पादन</string>
+  <string name="donate_gpay_activity_title">रकम चयन गर्नुहोस्</string>
+  <string name="donate_gpay_help_faq">बारम्बार सोधिने प्रश्नहरू</string>
   <string name="places_title">स्थानहरू</string>
+  <string name="places_toggle_buttons_map">नक्सा</string>
+  <string name="places_toggle_buttons_list">सूची</string>
+  <string name="places_survey_dialog_cancel">रद्द गर्नुहोस्</string>
+  <string name="places_card_enable_location_card_button">स्थान सक्षम पार्नुहोस्</string>
+  <string name="recommended_content_survey_dialog_input_hint">अतिरिक्त प्रतिक्रिया</string>
+  <string name="donor_history_donate_button">विकिमिडिया फाउन्डेसनलाई दान गर्नुहोस्</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">पर्दैन, धन्यवाद</string>
 </resources>
