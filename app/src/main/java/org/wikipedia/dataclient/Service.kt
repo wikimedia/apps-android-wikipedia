@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
@@ -261,10 +260,6 @@ interface Service {
     ): PaymentResponseContainer
 
     // ------- CSRF, Login, and Create Account -------
-
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=tokens")
-    fun getTokenObservable(@Query("type") type: String = "csrf"): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&meta=tokens")
     @Headers("Cache-Control: no-cache")

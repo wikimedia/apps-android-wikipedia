@@ -121,7 +121,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
                 if (shouldWriteToLocalWiki()) pageTitle.wikiSite else Constants.wikidataWikiSite
             }
 
-            val csrfToken = CsrfTokenClient.getTokenBlocking(csrfSite)
+            val csrfToken = CsrfTokenClient.getToken(csrfSite)
 
             val response = if (shouldWriteToLocalWiki()) {
                 // If the description is being applied to an article on English Wikipedia, it
@@ -146,7 +146,7 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
             var revision = -1L
             while (revision < newRevision && retry < 10) {
                 delay(2000)
-                val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponseSuspend(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
+                val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummaryResponse.body()?.revision ?: -1L
                 retry++
             }
