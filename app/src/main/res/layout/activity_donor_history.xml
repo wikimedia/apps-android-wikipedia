@@ -7,14 +7,38 @@
     android:background="?attr/paper_color"
     tools:context=".donate.DonorHistoryActivity">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/H3.Button"
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:paddingHorizontal="16dp"
+            android:text="@string/donor_history_save_button"
+            android:textColor="?attr/progressive_color"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <ScrollView
         android:id="@+id/donorHistoryScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginVertical="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toTopOf="@id/experimentLink">
 
         <LinearLayout

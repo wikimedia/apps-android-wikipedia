@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateUtils
-import android.view.Menu
-import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.google.android.material.datepicker.CalendarConstraints
@@ -35,25 +33,10 @@ class DonorHistoryActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDonorHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = getString(R.string.donor_history_title)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         init()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_donor_history, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        super.onOptionsItemSelected(item)
-        return when (item.itemId) {
-            R.id.menu_donor_history_save -> {
-                viewModel.saveDonorHistory()
-                setResult(RESULT_DONOR_HISTORY_SAVED)
-                finish()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     private fun init() {
@@ -83,6 +66,12 @@ class DonorHistoryActivity : BaseActivity() {
 
         binding.experimentLink.setOnClickListener {
             CustomTabsUtil.openInCustomTab(this, getString(R.string.contributions_dashboard_wiki_url))
+        }
+
+        binding.saveButton.setOnClickListener {
+            viewModel.saveDonorHistory()
+            setResult(RESULT_DONOR_HISTORY_SAVED)
+            finish()
         }
     }
 
