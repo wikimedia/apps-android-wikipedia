@@ -117,16 +117,10 @@ class DonorHistoryActivity : BaseActivity() {
             getString(R.string.donor_history_update_donor_status_donor),
             getString(R.string.donor_history_update_donor_status_not_a_donor)
         )
-        val selectItem = if (!Prefs.hasDonorHistorySaved) {
-            -1
-        } else if (viewModel.isDonor) {
-            0
-        } else {
-            1
-        }
         MaterialAlertDialogBuilder(this)
-            .setSingleChoiceItems(donorStatusList, selectItem) { dialog, which ->
+            .setSingleChoiceItems(donorStatusList, viewModel.currentDonorStatus) { dialog, which ->
                 viewModel.isDonor = which == 0
+                viewModel.currentDonorStatus = which
                 updateDonorStatusText(true)
                 updateLastDonatedText()
                 dialog.dismiss()

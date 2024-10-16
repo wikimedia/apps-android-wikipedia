@@ -11,6 +11,7 @@ import java.time.ZoneId
 class DonorHistoryViewModel(bundle: Bundle) : ViewModel() {
 
     var completedDonation = bundle.getBoolean(Constants.ARG_BOOLEAN)
+    var currentDonorStatus = -1
     var isDonor = completedDonation || (Prefs.hasDonorHistorySaved && Prefs.donationResults.isNotEmpty())
     var lastDonated = Prefs.donationResults.lastOrNull()?.dateTime
     var isRecurringDonor = Prefs.isRecurringDonor
@@ -20,6 +21,7 @@ class DonorHistoryViewModel(bundle: Bundle) : ViewModel() {
         if (isDonor) {
             Prefs.isRecurringDonor = isRecurringDonor
             lastDonated?.let {
+                // TODO: discuss that should we distinguish the donation from the same date.
                 Prefs.donationResults = Prefs.donationResults.plus(DonationResult(it, false))
             }
         } else {
