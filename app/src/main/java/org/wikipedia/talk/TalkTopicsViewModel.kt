@@ -124,7 +124,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
         viewModelScope.launch(actionHandler) {
-            val token = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
+            val token = CsrfTokenClient.getToken(pageTitle.wikiSite)
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
             actionState.value = ActionState.UndoEdit(undoResponse, undoneSubject, undoneBody)
         }
@@ -152,7 +152,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
         viewModelScope.launch(actionHandler) {
-            val token = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
+            val token = CsrfTokenClient.getToken(pageTitle.wikiSite)
             ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
         }
     }

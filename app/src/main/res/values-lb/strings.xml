@@ -879,6 +879,10 @@
     <item quantity="one">Kontributioun</item>
     <item quantity="other">Kontributiounen</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Ännerung</item>
+    <item quantity="other">Ännerungen</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d Dag</item>
     <item quantity="other">%d Deeg</item>
@@ -966,6 +970,7 @@
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
+  <string name="app_shortcuts_places">Plazen</string>
   <string name="on_this_day_card_title">Op dësem Dag</string>
   <string name="more_events_text">Méi op dësem Dag</string>
   <string name="events_count_text">%1$s Evenementer vum %2$s bis %3$d</string>
@@ -1354,4 +1359,11 @@
   <string name="places_card_action">Méi Plazen an der Géigend</string>
   <string name="places_card_distance_suffix">%s ewech</string>
   <string name="places_card_distance_unknown">onbekannt Distanz</string>
+  <string name="donor_history_save_button">Späicheren</string>
+  <string name="donor_history_last_donated_date_picker_title">Datum eraussichen</string>
+  <string name="donor_history_last_donated_date_picker_label">Datum aginn</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Keng Meenung</string>
+  <string name="contributions_dashboard_donation_dialog_title">Merci, datt Dir fräit Wëssen ënnerstëtzt</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Nee, merci</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Nee, merci</string>
 </resources>

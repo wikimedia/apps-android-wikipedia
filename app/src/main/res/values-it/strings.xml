@@ -1041,6 +1041,10 @@
     <item quantity="one">Contributo</item>
     <item quantity="other">Contributi</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Modifica</item>
+    <item quantity="other">Modifiche</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d giorno</item>
     <item quantity="other">%d giorni</item>
@@ -1159,6 +1163,7 @@
   <string name="app_shortcuts_random">Casuale</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
+  <string name="app_shortcuts_places">Luoghi</string>
   <string name="on_this_day_card_title">In questo giorno</string>
   <string name="more_events_text">Altro in questo giorno</string>
   <string name="events_count_text">%1$s eventi dal %2$s–%3$d</string>
@@ -1608,4 +1613,5 @@
   <string name="places_empty_message_snackbar">Non ci sono voci nelle vicinanze. Prova a ridurre lo zoom e muovere la mappa.</string>
   <string name="recommended_content_section_you_might_like">Potrebbe piacerti</string>
   <string name="recommended_content_survey_dialog_title">Contribuisci a migliorare i contenuti consigliati.</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">No, grazie</string>
 </resources>

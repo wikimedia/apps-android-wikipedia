@@ -22,6 +22,7 @@
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="nav_item_search">Пребарај</string>
+  <string name="nav_item_contribute">Учествувајте</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -999,6 +1000,7 @@
   <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и да добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси досега.</string>
+  <string name="suggested_edits_edit_stat_tooltip">Вкупно ваши уредувања досега.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредивте во изминатите 30 дена.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања (поништени од друг корисник). Отповикани уредувања: %d.</string>
@@ -1023,6 +1025,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Уредување</item>
+    <item quantity="other">Уредувања</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ден</item>
@@ -1153,6 +1159,7 @@
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На денешен ден</string>
   <string name="more_events_text">Повеќе на овој ден</string>
   <string name="events_count_text">%1$s настани од %2$s–%3$d</string>
@@ -1675,4 +1682,35 @@
   <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
   <string name="recommended_content_survey_dialog_input_hint">Дополнително мислење</string>
   <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
+  <string name="donor_history_title">Историја на дарување</string>
+  <string name="donor_history_save_button">Зачувај</string>
+  <string name="donor_history_update_donor_status_default">Поднови статус на дарител</string>
+  <string name="donor_history_update_donor_status_donor">Дарител</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Не е дарител</string>
+  <string name="donor_history_last_donated">Последен пат дарувал</string>
+  <string name="donor_history_last_donated_hint">Додај датум на последно дарување</string>
+  <string name="donor_history_last_donated_date_picker_title">Изберете датум</string>
+  <string name="donor_history_last_donated_date_picker_label">Внесете датум</string>
+  <string name="donor_history_recurring_donor">Редовен дарител</string>
+  <string name="donor_history_donate_button">Дарувајте на Фондацијата Викимедија</string>
+  <string name="donor_history_about_this_experiment">За овој опит</string>
+  <string name="donor_history_updated_message_snackbar">Историјата на дарување е подновена</string>
+  <string name="contributions_dashboard_survey_dialog_title">Помогнете ни да ја подобриме управувачница на придонеси</string>
+  <string name="contributions_dashboard_survey_dialog_message">Оваа поднова на управувачницата е пробна функција. Дали би сакале оваа функција да се подобри или да се отстрани?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Немам мислење</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Дајте мислење</string>
+  <string name="contributions_dashboard_donation_dialog_title">Ви благодариме што го поддржувате слободното знаење</string>
+  <string name="contributions_dashboard_donation_dialog_message">Вие сте дел од 2 ‰ кои избраа да го поддржат ресурсот на кој се потпираат милиони. За да ја искажеме нашата благодарност, вашата управувачница на дарувања е подновена како признание на вашиот статус на дарител. Дали би сакале да ја видите подновата?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Да, покажи ми</string>
+  <string name="contributions_dashboard_entry_dialog_title">Вашата управувачница со придонеси е подновена</string>
+  <string name="contributions_dashboard_entry_dialog_message">Управувачницата со придонеси сега прикажува поединости за вашиот статус на дарител. Сакате да ја разгледате оваа опитна функција?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Да, покажи ми</string>
+  <string name="contributions_dashboard_badge_donor">Дарител</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Станете дарител</string>
+  <string name="contributions_dashboard_badge_update">Поднови дарителски статус</string>
+  <string name="contributions_dashboard_app_icon_title">Икона на прилогот</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Погодност на дарителот</string>
+  <string name="contributions_dashboard_logged_out_user">Одјавен корисник</string>
 </resources>

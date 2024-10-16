@@ -28,6 +28,7 @@
   <string name="nav_item_suggested_edits">ਸੋਧਾਂ</string>
   <string name="nav_item_more">ਹੋਰ</string>
   <string name="nav_item_search">ਖੋਜ</string>
+  <string name="nav_item_contribute">ਯੋਗਦਾਨ ਪਾਓ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="card_offline_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -40,8 +41,8 @@
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="history_item_deleted">%s ਨੂੰ ਇਤਿਹਾਸ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="history_items_deleted">%d ਲੇਖਾਂ ਨੂੰ ਇਤਿਹਾਸ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
-  <string name="history_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
-  <string name="notification_archive_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
+  <string name="history_item_delete_undo">ਰੱਦ ਕਰੋ</string>
+  <string name="notification_archive_undo">ਰੱਦ ਕਰੋ</string>
   <string name="app_settings">ਐਪ ਦੀਆਂ ਸੈਟਿੰਗਾਂ</string>
   <string name="search_tab_tooltip">ਖੋਜ ਸ਼ਬਦ ਨੂੰ ਸਿੱਧਾ ਟਾਈਪ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਈਕਾਨ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ।</string>
   <string name="history_list_title">ਅਤੀਤ</string>
@@ -236,7 +237,7 @@
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;ਟੀਮ ਸਫ਼ਾ&lt;/a&gt;</string>
   <string name="about_translators_heading">ਤਰਜਮੇਕਾਰ</string>
-  <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ ਸਵੈ-ਸੇਵੀ ਤਰਜਮਾਕਾਰਾਂ ਦੁਆਰਾ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਉੱਤੇ ਕੀਤਾ ਗਿਆ ਸੀ।</string>
+  <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ ਸਵੈ-ਸੇਵੀ ਤਰਜਮਾਕਾਰਾਂ ਵੱਲੋਂ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਉੱਤੇ ਕੀਤਾ ਗਿਆ ਸੀ।</string>
   <string name="about_app_license_heading">ਲਸੰਸ</string>
   <string name="about_app_license">ਸਰੋਤ ਕੋਡ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ਅਪਾਚੇ 2.0 ਲਸੰਸ&lt;/a&gt; ਹੇਠ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;ਗਿਟਹਬ&lt;/a&gt; ਉੱਤੇ ਉਪਲਬਧ ਹੈ। ਜਦੋਂ ਤੱਕ ਹੋਰ ਨਿਰਧਾਰਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ, ਇਹ ਸਮੱਗਰੀ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ਦੇ ਤਹਿਤ ਉਪਲਬਧ ਹੈ।</string>
   <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
@@ -251,7 +252,7 @@
   <string name="edit_next">ਅੱਗੇ</string>
   <string name="edit_done">ਸਾਂਭੋ</string>
   <string name="edit_preview">ਝਾਤ</string>
-  <string name="edit_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
+  <string name="edit_undo">ਰੱਦ ਕਰੋ</string>
   <string name="edit_redo">ਮੁੜ-ਕਰੋ</string>
   <string name="edit_rollback">ਵਾਪਸ-ਮੋੜੋ</string>
   <string name="edit_warn">ਚੇਤਾਵਨੀ</string>
@@ -409,7 +410,7 @@
   <string name="reading_list_sort">ਤਰਤੀਬਵਾਰ ਕਰੋ</string>
   <string name="reading_list_sort_ellipsis">ਇਸ ਮੁਤਾਬਕ ਛਾਂਟੋ</string>
   <string name="reading_list_sort_by_name">ਨਾਂ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
-  <string name="reading_list_sort_by_name_desc">ਨਾਮ ਦੁਆਰਾ ਕ੍ਰਮਬੱਧ (ਉਲਟ)</string>
+  <string name="reading_list_sort_by_name_desc">ਨਾਮ ਵੱਲੋਂ ਕ੍ਰਮਬੱਧ (ਉਲਟ)</string>
   <string name="reading_list_sort_by_recent">ਜੋੜੀ ਗਈ ਮਿਤੀ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ (ਨਵਾਂ)</string>
   <string name="reading_list_menu_delete">ਸੂਚੀ ਮਿਟਾਉ</string>
   <string name="reading_list_menu_select">ਚੁਣੋ</string>
@@ -426,7 +427,7 @@
     <item quantity="one">%d ਲੇਖ ਹਟਾਇਆ ਗਿਆ</item>
     <item quantity="other"> ਸੂਚੀ ਵਿੱਚੋਂ %d ਲੇਖ ਹਟਾਏ ਗਏ</item>
   </plurals>
-  <string name="reading_list_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
+  <string name="reading_list_item_delete_undo">ਰੱਦ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_list_empty_title">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
   <string name="reading_list_add_to_other_list">ਇੱਕ ਹੋਰ ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
@@ -499,9 +500,9 @@
   <string name="view_top_read_card_title">ਸਭ ਤੋਂ ਵੱਧ ਪੜ੍ਹਿਆ</string>
   <string name="view_top_read_card_action">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ਹਜ਼ਾਰ</string>
-  <string name="view_next_random_article">ਕੋਈ ਹੋਰ ਬੇਤਰਤੀਬ ਲੇਖ ਲੋਡ ਕਰੋ</string>
+  <string name="view_next_random_article">ਇੱਕ ਹੋਰ ਬੇਤਰਤੀਬ ਲੇਖ ਲੱਦੋ</string>
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
-  <string name="view_main_page_card_action">ਮੁੱਢਲਾ ਵਰਕਾ ਵੇਖੋ</string>
+  <string name="view_main_page_card_action">ਮੁੱਖ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
   <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
   <string name="view_featured_image_card_share">ਸਾਂਝਾ ਕਰੋ</string>
@@ -519,7 +520,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ਅੱਜ</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s ਪੜ੍ਹਿਆ</string>
-  <string name="view_announcement_card_negative_action">ਨਹੀਂ, ਸ਼ੁਕਰੀਆ</string>
+  <string name="view_announcement_card_negative_action">ਨਹੀਂ ਧੰਨਵਾਦ</string>
   <string name="view_static_card_save_button_label">ਸਾਂਭੋ</string>
   <string name="feed_configure_menu_select_all">ਸਾਰੇ ਵਿਖਾਓ</string>
   <string name="feed_configure_menu_deselect_all">ਸਾਰੇ ਲੁਕਾਓ</string>
@@ -550,7 +551,12 @@
   <string name="suggested_edits_task_action_text_add">ਜੋੜੋ</string>
   <string name="suggested_edits_task_action_text_translate">ਤਰਜਮਾ ਕਰੋ</string>
   <string name="suggested_edits_contributions_stat_tooltip">ਤੁਹਾਡੇ ਹੁਣ ਤੱਕ ਦੇ ਯੋਗਦਾਨਾਂ ਦੀ ਕੁੱਲ ਸੰਖਿਆ।</string>
+  <string name="suggested_edits_edit_stat_tooltip">ਤੁਹਾਡੇ ਹੁਣ ਤੱਕ ਦੇ ਸੋਧਾਂ ਦੀ ਕੁੱਲ ਗਿਣਤੀ।</string>
   <string name="suggested_edits_label">ਸੁਝਾਏ ਗਏ ਸੋਧ</string>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">ਸੋਧ</item>
+    <item quantity="other">ਸੋਧਾਂ</item>
+  </plurals>
   <string name="suggested_edits_what_is_title">ਸੁਝਾਏ ਗਏ ਸੋਧ ਕੀ ਹਨ?</string>
   <string name="suggested_edits_reactivation_notification_title">ਸੁਝਾਏ ਗਏ ਸੋਧ</string>
   <string name="suggested_edits_contributions_screen_title">%s ਦੇ ਯੋਗਦਾਨ</string>
@@ -564,7 +570,7 @@
   <string name="image_recommendation_reject_low_quality">ਚਿੱਤਰ ਘੱਟ ਗੁਣਵੱਤਾ ਵਾਲਾ ਹੈ</string>
   <string name="image_recommendation_reject_dont_know">ਮੈ ਇਹ ਵਿਸ਼ਾ ਨਹੀਂ ਜਾਣਦਾ</string>
   <string name="image_recommendation_onboarding_2">ਤੁਸੀਂ ਫੈਸਲਾ ਕਰੋਗੇ ਕਿ ਸੁਝਾਏ ਚਿੱਤਰ ਨੂੰ ਵਿਕੀਪੀਡੀਆ ਲੇਖ ਵਿੱਚ ਰੱਖਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।</string>
-  <string name="image_recommendation_onboarding_3">ਸੁਝਾਅ ਮਸ਼ੀਨ ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ ਅਤੇ ਤੁਸੀਂ ਉਹਨਾਂ ਨੂੰ ਸਵੀਕਾਰ ਕਰਨ ਜਾਂ ਅਸਵੀਕਾਰ ਕਰਨ ਦਾ ਫੈਸਲਾ ਕਰਨ ਲਈ ਆਪਣੇ ਨਿਰਣੇ ਦੀ ਵਰਤੋਂ ਕਰੋਗੇ।</string>
+  <string name="image_recommendation_onboarding_3">ਸੁਝਾਅ ਮਸ਼ੀਨ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ ਅਤੇ ਤੁਸੀਂ ਉਹਨਾਂ ਨੂੰ ਸਵੀਕਾਰ ਕਰਨ ਜਾਂ ਅਸਵੀਕਾਰ ਕਰਨ ਦਾ ਫੈਸਲਾ ਕਰਨ ਲਈ ਆਪਣੇ ਨਿਰਣੇ ਦੀ ਵਰਤੋਂ ਕਰੋਗੇ।</string>
   <string name="image_recommendation_tooltip_1">ਇਸ ਦੇ ਵਿਸ਼ੇ ਨੂੰ ਸਮਝਣ ਲਈ ਇਸ ਲੇਖ ਦੀ ਸਮੀਖਿਆ ਕਰੋ</string>
   <string name="onboarding_skip">ਛੱਡੋ</string>
   <string name="onboarding_continue">ਜਾਰੀ ਰੱਖੋ</string>
@@ -572,12 +578,15 @@
   <string name="app_shortcuts_random">ਬੇਤਰਤੀਬ</string>
   <string name="app_shortcuts_continue_reading">ਰੀਡਿੰਗ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="app_shortcuts_search">ਖੋਜ</string>
+  <string name="app_shortcuts_places">ਥਾਂਵਾਂ</string>
   <string name="on_this_day_card_title">ਅੱਜ ਦੇ ਦਿਨ</string>
   <string name="this_year">ਇਸ ਸਾਲ</string>
   <string name="edit_type_all">ਸਾਰੇ ਯੋਗਦਾਨ</string>
   <string name="insert_media_settings">ਚਿੱਤਰ ਵੇਰਵੇ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="insert_media_settings_alternative_text_description">ਨੇਤਰਹੀਣ ਪਾਠਕਾਂ ਲਈ ਵਰਣਨ</string>
   <string name="menu_option_user_contributions">%s ਦੇ ਯੋਗਦਾਨ</string>
+  <string name="talk_menu_expand_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਫੈਲਾਓ</string>
+  <string name="talk_menu_collapse_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਸਮੇਟੋ</string>
   <string name="menu_option_view_user_contributions">ਵਰਤੋਂਕਾਰ ਯੋਗਦਾਨ ਦੇਖੋ</string>
   <string name="watchlist_filter_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="action_item_categories">ਸ਼੍ਰੇਣੀਆਂ</string>
@@ -585,7 +594,9 @@
   <string name="user_contrib_activity_title">%s ਦੇ ਯੋਗਦਾਨ</string>
   <string name="user_contrib_menu_label">ਯੋਗਦਾਨ</string>
   <string name="user_contrib_filter_activity_title">ਯੋਗਦਾਨਾਂ ਨੂੰ ਫਿਲਟਰ ਕਰੋ</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">ਵਰਤੋਂਕਾਰ ਜਾਣਕਾਰੀ</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">ਵਰਤੋਂਕਾਰ ਯੋਗਦਾਨ ਦੇਖੋ</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">ਵਰਤੋਂਕਾਰ ਜਾਣਕਾਰੀ</string>
   <string name="patroller_tasks_filters_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="patroller_saved_message_title_vandalism">ਭੰਨਤੋੜ ਦੀ ਚੇਤਾਵਨੀ</string>
   <string name="page_issues_title">ਸਫ਼ੇ ਸੰਬੰਧੀ ਮੁੱਦੇ</string>
@@ -602,4 +613,24 @@
   <string name="places_survey_feedback_low_satisfaction_dialog_title">ਤੁਸੀਂ ਕੀ ਚਾਹੁੰਦੇ ਹੋ ਕਿ ਅਸੀਂ ਕੀ ਬਦਲੀਏ ਜਾਂ ਸੁਧਾਰ ਕਰੀਏ?</string>
   <string name="places_empty_list">ਇਹ ਖੇਤਰ ਖਾਲੀ ਹੈ। &lt;a href=\"#\"&gt;ਨਕਸ਼ੇ \'ਤੇ&lt;/a&gt; ਜ਼ੂਮ ਆਉਟ ਕਰੋ।</string>
   <string name="recommended_content_section_you_might_like">ਤੁਹਾਨੂੰ ਪਸੰਦ ਆ ਸਕਦਾ ਹੈ</string>
+  <string name="donor_history_title">ਦਾਨੀ ਦਾ ਇਤਿਹਾਸ</string>
+  <string name="donor_history_save_button">ਸਾਂਭੋ</string>
+  <string name="donor_history_update_donor_status_donor">ਦਾਨੀ</string>
+  <string name="donor_history_update_donor_status_not_a_donor">ਇਹ ਦਾਨੀ ਨਹੀਂ</string>
+  <string name="donor_history_last_donated">ਆਖਰੀ ਵਾਰ ਦਾਨ ਕੀਤਾ</string>
+  <string name="donor_history_last_donated_hint">ਆਖਰੀ ਦਾਨ ਦੀ ਮਿਤੀ ਸ਼ਾਮਲ ਕਰੋ</string>
+  <string name="donor_history_last_donated_date_picker_title">ਮਿਤੀ ਚੁਣੋ</string>
+  <string name="donor_history_last_donated_date_picker_label">ਮਿਤੀ ਦਰਜ ਕਰੋ</string>
+  <string name="donor_history_recurring_donor">ਵਾਰ-ਵਾਰ ਦਾਨ ਕਰਨ ਵਾਲਾ</string>
+  <string name="donor_history_donate_button">ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ ਨੂੰ ਦਾਨ ਕਰੋ</string>
+  <string name="donor_history_about_this_experiment">ਇਸ ਤਜਰਬੇ ਬਾਰੇ</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">ਕੋਈ ਰਾਏ ਨਹੀਂ ਏ</string>
+  <string name="contributions_dashboard_survey_dialog_ok">ਸੁਝਾਅ ਸਾਂਝੇ ਕਰੋ</string>
+  <string name="contributions_dashboard_donation_dialog_title">ਮੁਫ਼ਤ ਗਿਆਨ ਦਾ ਸਮਰਥਨ ਕਰਨ ਲਈ ਤੁਹਾਡਾ ਧੰਨਵਾਦ</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">ਨਹੀਂ, ਧੰਨਵਾਦ</string>
+  <string name="contributions_dashboard_donation_dialog_ok">ਹਾਂ, ਮੈਨੂੰ ਉੱਥੇ ਲੈ ਜਾਓ</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">ਨਹੀਂ, ਧੰਨਵਾਦ</string>
+  <string name="contributions_dashboard_entry_dialog_ok">ਹਾਂ, ਮੈਨੂੰ ਉੱਥੇ ਲੈ ਜਾਓ</string>
+  <string name="contributions_dashboard_badge_donor">ਦਾਨੀ</string>
+  <string name="contributions_dashboard_badge_become_a_donor">ਦਾਨੀ ਬਣੋ</string>
 </resources>

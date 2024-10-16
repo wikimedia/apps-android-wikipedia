@@ -9,11 +9,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
@@ -25,6 +27,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
@@ -79,9 +82,17 @@ class LoginActivity : BaseActivity() {
             Prefs.isSuggestedEditsHighestPriorityEnabled = true
         }
 
+        if (AccountUtil.isTemporaryAccount) {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = true
+            binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(getString(R.string.temp_account_login_status, AccountUtil.userName))
+        } else {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = false
+        }
+
         // always go to account creation before logging in, unless we arrived here through the
         // system account creation workflow
-        if (savedInstanceState == null && !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)) {
+        if (savedInstanceState == null && !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE) &&
+                intent.getBooleanExtra(CREATE_ACCOUNT_FIRST, true)) {
             startCreateAccountActivity()
         }
 
@@ -109,8 +120,8 @@ class LoginActivity : BaseActivity() {
     private fun setAllViewsClickListener() {
         binding.loginButton.setOnClickListener { validateThenLogin() }
         binding.loginCreateAccountButton.setOnClickListener { startCreateAccountActivity() }
-        binding.inflateLoginAndAccount.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
-        binding.inflateLoginAndAccount.forgotPasswordLink.setOnClickListener {
+        binding.footerContainer.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
+        binding.footerContainer.forgotPasswordLink.setOnClickListener {
             val title = PageTitle("Special:PasswordReset", WikipediaApp.instance.wikiSite)
             visitInExternalBrowser(this, Uri.parse(title.uri))
         }
@@ -155,6 +166,7 @@ class LoginActivity : BaseActivity() {
         Prefs.isReadingListSyncEnabled = true
         Prefs.readingListPagesDeletedIds = emptySet()
         Prefs.readingListsDeletedIds = emptySet()
+        Prefs.tempAccountWelcomeShown = false
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(this)
         Prefs.isPushNotificationOptionsSet = false
@@ -227,6 +239,7 @@ class LoginActivity : BaseActivity() {
         const val RESULT_LOGIN_SUCCESS = 1
         const val RESULT_LOGIN_FAIL = 2
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
+        const val CREATE_ACCOUNT_FIRST = "create_account_first"
         const val SOURCE_NAV = "navigation"
         const val SOURCE_EDIT = "edit"
         const val SOURCE_SYSTEM = "system"
@@ -236,10 +249,12 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_READING_MANUAL_SYNC = "reading_lists_manual_sync"
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
+        const val SOURCE_TALK = "talk"
 
-        fun newIntent(context: Context, source: String): Intent {
+        fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)
                     .putExtra(LOGIN_REQUEST_SOURCE, source)
+                    .putExtra(CREATE_ACCOUNT_FIRST, createAccountFirst)
         }
     }
 }

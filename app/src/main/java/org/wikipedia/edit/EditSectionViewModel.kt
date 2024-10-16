@@ -31,6 +31,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
     var textToHighlight = bundle.getString(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT)
     var sectionWikitext: String? = null
     var sectionWikitextOriginal: String? = null
+    var tempAccountsEnabled = true
     var editingAllowed = false
     val editNotices = mutableListOf<String>()
 
@@ -59,6 +60,8 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
             _fetchSectionTextState.value = Resource.Loading()
 
             val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
+
+            tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
 
             infoResponse.query?.firstPage()?.let { firstPage ->
                 val rev = firstPage.revisions.first()
@@ -102,7 +105,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
             _postEditState.value = Resource.Error(throwable)
         }) {
             _postEditState.value = Resource.Loading()
-            val csrfToken = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
+            val csrfToken = CsrfTokenClient.getToken(pageTitle.wikiSite)
             val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(
                 title = pageTitle.prefixedText,
                 section = if (sectionID >= 0) sectionID.toString() else null,
@@ -134,7 +137,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
             while (revision < newRevision && retry < 10) {
                 delay(2000)
                 val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getSummaryResponseSuspend(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
+                    .getSummaryResponse(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummaryResponse.body()?.revision ?: -1L
                 retry++
             }
