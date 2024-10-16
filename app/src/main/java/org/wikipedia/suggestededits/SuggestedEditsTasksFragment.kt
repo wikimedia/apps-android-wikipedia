@@ -37,6 +37,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCR
 import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.usercontrib.ContributionsDashboardHelper
@@ -155,6 +156,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     fun refreshContents() {
+        (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
         viewModel.fetchData()
     }
