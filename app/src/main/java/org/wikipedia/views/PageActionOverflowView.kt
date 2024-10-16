@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.doOnDetach
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.textview.MaterialTextView
@@ -17,6 +18,7 @@ import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
+import org.wikipedia.donate.DonorStatus
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
@@ -35,6 +37,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             dismissPopupWindowHost()
             callback.forwardClick()
         }
+        loadDonorInformation()
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
@@ -96,6 +99,62 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         anchorView.doOnDetach {
             dismissPopupWindowHost()
         }
+    }
+
+    private fun loadDonorInformation() {
+        if (AccountUtil.isLoggedIn.not()) {
+            binding.donorContainer.isVisible = false
+            return
+        }
+        binding.donorContainer.isVisible = true
+        binding.donorUsername.text = AccountUtil.userName
+
+        when (getDonorStatus()) {
+            DonorStatus.DONOR -> {
+                binding.donorBtn.apply {
+                    isVisible = true
+                    setOnClickListener {
+                        // take user to Contribution Screen
+                        callback.onDonorSelected()
+                        dismissPopupWindowHost()
+                    }
+                }
+            }
+            DonorStatus.NON_DONOR -> {
+                binding.becomeDonorBtn.apply {
+                    isVisible = true
+                    setOnClickListener {
+                        // take user to the donation flow (the Donation bottom sheet).
+                        callback.onBecomeDonorSelected()
+                        dismissPopupWindowHost()
+                    }
+                }
+            }
+            DonorStatus.UNKNOWN -> {
+                binding.updateDonorStatusBtn.apply {
+                    isVisible = true
+                    setOnClickListener {
+                        // take user to the donor history screen
+                        callback.onUpdateDonorStatusSelected()
+                        dismissPopupWindowHost()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getDonorStatus(): DonorStatus {
+        Prefs.donorStatus?.let { return it }
+
+        // user has not updated their donor status
+        if (Prefs.hasDonorHistorySaved.not()) {
+            return DonorStatus.UNKNOWN
+        }
+        // user has not donated
+        if (Prefs.donationResults.isEmpty()) {
+            return DonorStatus.NON_DONOR
+        }
+        return DonorStatus.DONOR
     }
 
     private fun dismissPopupWindowHost() {
