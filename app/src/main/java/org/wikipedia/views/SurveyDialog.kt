@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
@@ -14,12 +15,26 @@ import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
+import org.wikipedia.databinding.DialogSurveyBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 
 object SurveyDialog {
+
+    // @TODO: add logic to show this dialog after 10 seconds
+    fun showContributionDashboardSurvey(activity: Activity, delay: Long = 0) {
+        MaterialAlertDialogBuilder(activity)
+            .setView(DialogSurveyBinding.inflate(activity.layoutInflater).root)
+            .setPositiveButton("Take Survey") { _, _ ->
+                // @TODO: Take user to google form
+            }
+            .setNegativeButton("No Thanks") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
 
     fun showFeedbackOptionsDialog(activity: Activity,
                                   titleId: Int = R.string.patroller_diff_feedback_dialog_title,

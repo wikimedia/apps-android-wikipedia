@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_feedback"/>
+
+
+    <TextView
+        android:id="@+id/titleText"
+        style="@style/H2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="24dp"
+        android:textColor="?attr/primary_color"
+        android:text="Could you help us improve the contributor dashboard?" />
+
+    <TextView
+        android:id="@+id/messageText"
+        style="@style/P.DialogBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:paddingHorizontal="24dp"
+        android:text="The donor badge is a test feature and we need your feedback to improve or remove it." />
+
+</LinearLayout>
