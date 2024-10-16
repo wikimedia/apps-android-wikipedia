@@ -27,6 +27,10 @@ class GrowthUserImpact(
     val totalPageviewsCount: Long = 0,
     @SerialName("topViewedArticles") private val mTopViewedArticles: JsonElement? = null,
 ) {
+    // All of these properties need to be lazily initialized from a generic JsonElement because
+    // of an annoying quirk in the way PHP serializes JSON objects. If the object is empty, it
+    // serializes as an empty array, not an empty object, which causes kotlinx.serialization to
+    // fail. Therefore we need to conditionally deserialize these items at runtime.
     val editCountByNamespace: Map<Int, Int> by lazy { if (mEditCountByNamespace is JsonObject) { JsonUtil.json.decodeFromJsonElement(mEditCountByNamespace) } else { emptyMap() } }
     val editCountByDay: Map<String, Int> by lazy { if (mEditCountByDay is JsonObject) { JsonUtil.json.decodeFromJsonElement(mEditCountByDay) } else { emptyMap() } }
     val editCountByTaskType: Map<String, Int> by lazy { if (mEditCountByTaskType is JsonObject) { JsonUtil.json.decodeFromJsonElement(mEditCountByTaskType) } else { emptyMap() } }
