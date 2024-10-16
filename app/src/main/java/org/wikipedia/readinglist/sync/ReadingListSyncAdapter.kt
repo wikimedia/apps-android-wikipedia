@@ -38,7 +38,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
             val extras = getBooleanExtraFromData(inputData)
-            if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn ||
+            if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount ||
                 !(Prefs.isReadingListSyncEnabled || Prefs.isReadingListsRemoteDeletePending)) {
                 L.d("Skipping sync of reading lists.")
                 if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
@@ -71,7 +71,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                     allLocalLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
                 }
 
-                val csrfToken = CsrfTokenClient.getTokenBlocking(wiki)
+                val csrfToken = CsrfTokenClient.getToken(wiki)
 
                 if (Prefs.isReadingListsRemoteDeletePending) {
                     // Are we scheduled for a teardown? If so, delete everything and bail.
@@ -404,7 +404,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 if (client.isErrorType(t, "notloggedin")) {
                     try {
                         L.d("Server doesn't believe we're logged in, so logging in...")
-                        CsrfTokenClient.getTokenBlocking(wiki)
+                        CsrfTokenClient.getToken(wiki)
                         shouldRetry = true
                     } catch (caught: Throwable) {
                         errorMsg = caught

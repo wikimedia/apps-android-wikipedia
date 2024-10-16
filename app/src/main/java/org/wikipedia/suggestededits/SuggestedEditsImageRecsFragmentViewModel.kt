@@ -129,7 +129,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun invalidateRecommendation(token: String?, accepted: Boolean, revId: Long, reasonCodes: List<Int>?) {
 
         withContext(Dispatchers.IO) {
-            val csrfToken = token ?: CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
+            val csrfToken = token ?: CsrfTokenClient.getToken(pageTitle.wikiSite)
 
             // Attempt to call the AddImageFeedback API first, and if it fails, try the
             // growthinvalidateimagerecommendation API instead.

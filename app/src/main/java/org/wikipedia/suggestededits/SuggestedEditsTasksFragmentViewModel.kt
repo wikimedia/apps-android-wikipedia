@@ -49,7 +49,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
         _uiState.value = Resource.Loading()
         wikiSupportsImageRecommendations = false
 
-        if (!AccountUtil.isLoggedIn) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
             _uiState.value = RequireLogin()
             return
         }
@@ -62,16 +62,14 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             latestEditStreak = 0
             revertSeverity = 0
 
-            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 10, null, null) }
+            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 50, null, null) }
             // val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
             val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName, 10, null, null) }
             val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, 0, null) }
-            val editCountsCall = async { UserContribStats.verifyEditCountsAndPauseState() }
 
             val homeSiteResponse = homeSiteCall.await()
             val commonsResponse = commonsCall.await()
             val wikidataResponse = wikidataCall.await()
-            editCountsCall.await()
 
             // Logic for checking whether the wiki has image recommendations enabled
             // (in case we need to rely on it in the future)
@@ -123,14 +121,16 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                 latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
             }
 
-            latestEditStreak = getEditStreak(
-                wikidataResponse.query!!.userContributions +
-                        commonsResponse.query!!.userContributions +
-                        homeSiteResponse.query!!.userContributions
-            )
+            val totalContributionsList = homeSiteResponse.query!!.userContributions +
+                    wikidataResponse.query!!.userContributions +
+                    commonsResponse.query!!.userContributions
+
+            latestEditStreak = getEditStreak(totalContributionsList)
+
+            UserContribStats.verifyEditCountsAndPauseState(totalContributionsList)
             revertSeverity = UserContribStats.getRevertSeverity()
 
-            totalPageviews = UserContribStats.getPageViews(wikidataResponse)
+            totalPageviews = UserContribStats.getPageViews(homeSiteResponse.query!!.userContributions, wikidataResponse.query!!.userContributions)
 
             _uiState.value = Resource.Success(Unit)
         }
