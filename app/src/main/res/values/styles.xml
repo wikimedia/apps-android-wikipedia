@@ -425,7 +425,7 @@
         <item name="iconTint">?attr/placeholder_color</item>
     </style>
 
-    <style name="App.Button.Text.Outline">
+    <style name="App.Button.Text.Outline" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textColor">?attr/progressive_color</item>
         <item name="iconTint">?attr/inactive_color</item>
         <item name="cornerRadius">8dp</item>

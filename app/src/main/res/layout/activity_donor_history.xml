@@ -33,6 +33,7 @@
                 android:drawablePadding="16dp"
                 android:paddingVertical="16dp"
                 android:layout_marginHorizontal="16dp"
+                android:background="?android:selectableItemBackground"
                 app:drawableStartCompat="@drawable/donor_icon"
                 app:drawableTint="?attr/secondary_color" />
 
@@ -43,10 +44,12 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/lastDonationContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginHorizontal="16dp">
+                    android:layout_marginHorizontal="16dp"
+                    android:background="?android:selectableItemBackground">
 
                     <TextView
                         android:id="@+id/lastDonationLabel"
@@ -58,8 +61,8 @@
                         android:textColor="?attr/primary_color"
                         android:drawablePadding="16dp"
                         android:paddingVertical="16dp"
-                        app:drawableStartCompat="@drawable/donor_icon"
-                        app:drawableTint="?attr/paper_color"/>
+                        app:drawableStartCompat="@drawable/outline_repeat_24"
+                        app:drawableTint="@android:color/transparent"/>
 
                     <TextView
                         android:id="@+id/lastDonationDate"
@@ -78,10 +81,12 @@
                     android:layout_marginVertical="12dp"/>
 
                 <LinearLayout
+                    android:id="@+id/recurringDonorContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="16dp">
+                    android:layout_marginStart="16dp"
+                    android:background="?android:selectableItemBackground">
 
                     <TextView
                         android:id="@+id/recurringDonorLabel"

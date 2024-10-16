@@ -66,13 +66,14 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         updateLastDonatedText()
-        binding.lastDonationLabel.setOnClickListener {
+        binding.lastDonationContainer.setOnClickListener {
             showLastDonatedDatePicker()
         }
 
         binding.recurringDonorCheckbox.isChecked = viewModel.isRecurringDonor
-        binding.recurringDonorCheckbox.setOnCheckedChangeListener { _, isChecked ->
-            viewModel.isRecurringDonor = isChecked
+        binding.recurringDonorContainer.setOnClickListener {
+            viewModel.isRecurringDonor = !binding.recurringDonorCheckbox.isChecked
+            binding.recurringDonorCheckbox.isChecked = viewModel.isRecurringDonor
         }
 
         binding.donateButton.isVisible = Prefs.hasDonorHistorySaved
