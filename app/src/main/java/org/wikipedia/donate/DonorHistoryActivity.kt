@@ -145,15 +145,17 @@ class DonorHistoryActivity : BaseActivity() {
     }
 
     private fun showLastDonatedDatePicker() {
-        val today = System.currentTimeMillis()
+        // The CalendarConstraints handles date in UTC
+        val utcMillis = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
         val defaultDatePickerMilli = viewModel.lastDonated?.let {
             viewModel.dateTimeToMilli(it)
         } ?: run {
-            today
+            utcMillis
         }
+
         val calendarConstraints = CalendarConstraints.Builder()
-            .setEnd(today)
-            .setValidator(DateValidatorPointBackward.before(today))
+            .setEnd(utcMillis)
+            .setValidator(DateValidatorPointBackward.before(utcMillis))
             .build()
 
         MaterialDatePicker.Builder.datePicker()
