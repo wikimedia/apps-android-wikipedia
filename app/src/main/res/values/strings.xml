@@ -1828,6 +1828,7 @@
     <string name="contributions_dashboard_app_icon_title">App icon</string>
     <string name="contributions_dashboard_app_icon_subtitle">Donor benefit</string>
     <string name="contributions_dashboard_logged_out_user">Logged-out user</string>
+    <string name="contributions_dashboard_survey_dialog_positive_button_title">Take survey</string>
     <!-- /Contributions Dashboard -->
 
 

@@ -1745,4 +1745,5 @@
   <string name="contributions_dashboard_app_icon_title">Label of the setting option for changing the app icon.</string>
   <string name="contributions_dashboard_app_icon_subtitle">Label of the app icon subtitle for change the app icon.</string>
   <string name="contributions_dashboard_logged_out_user">Label of the logged out user in the donor history card.</string>
+  <string name="contributions_dashboard_survey_dialog_positive_button_title">Positive action button text for the contributions dashboard survey dialog.</string>
 </resources>
