@@ -6,7 +6,6 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -22,15 +21,44 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.StringUtil
 
 object SurveyDialog {
+    // @TODO: update the strings after product confirm them
+    fun showContributionSurveyDialog(
+        activity: AppCompatActivity,
+        @StringRes titleId: Int,
+        @StringRes messageId: Int,
+        @DrawableRes icon: Int? = null,
+        delayMillis: Long = 0,
+        isCancellable: Boolean = false
+    ) {
+        activity.lifecycleScope.launch {
+            val dialog = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Icon)
+                .setTitle(titleId)
+                .setMessage(messageId)
+                .setCancelable(isCancellable)
+                .setPositiveButton("Take Survey") { _, _ ->
+                    // Go to google form
+                }
+                .setNegativeButton("No, Thanks") { _, _ ->
+                    // dismiss
+                }
+            if (icon != null) {
+                dialog.setIcon(icon)
+            }
+
+            dialog.create()
+            delay(delayMillis)
+            withContext(Dispatchers.Main) {
+                dialog.show()
+            }
+        }
+    }
 
     fun showFeedbackOptionsDialog(
         activity: Activity,
