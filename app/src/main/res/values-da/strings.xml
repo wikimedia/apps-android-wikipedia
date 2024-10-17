@@ -72,7 +72,7 @@
   <string name="page_edit_history_filter_by">Filtrer efter</string>
   <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_user">Brugerredigeringer (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonyme redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyme redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot redigeringer (%s)</string>
   <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -440,8 +440,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Tilpas din værktøjslinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
   <string name="temp_account_not_logged_in">Du er ikke logget ind</string>
-  <string name="temp_account_anon_dialog_body">Når du har foretaget en redigering, vil der blive oprettet en &lt;b&gt;midlertidig konto&lt;/b&gt; til dig for at beskytte dit privatliv. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Lær mere&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opret en konto&lt;/a&gt; for at få kredit for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
-  <string name="temp_account_temp_dialog_body">Din redigering vil blive tilskrevet %1$s. Din IP-adresse vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opretter en konto&lt;/a&gt;, vil dine redigeringer blive tilskrevet et navn, du vælger, blandt andre fordele.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Når du har foretaget en redigering, vil der blive oprettet en &lt;b&gt;midlertidig konto&lt;/b&gt; til dig for at beskytte dit privatliv. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Lær mere&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opret en konto&lt;/a&gt; for at få kredit for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Din redigering vil blive tilskrevet %1$s. Din IP-adresse vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opretter en konto&lt;/a&gt;, vil dine redigeringer blive tilskrevet et navn, du vælger, blandt andre fordele.</string>
   <string name="temp_account_dialog_ok">Forstået</string>
   <string name="temp_account_using_title">Du bruger en midlertidig konto</string>
   <string name="temp_account_dialog_discard">Kassér ændringer og log ind</string>

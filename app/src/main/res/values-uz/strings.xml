@@ -61,7 +61,7 @@
   <string name="page_edit_history_filter_by">Quyidagicha filtrlash</string>
   <string name="page_edit_history_filter_by_all">Barcha tahrirlar (%s)</string>
   <string name="page_edit_history_filter_by_user">Foydalanuvchi tahrirlari (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonim tahrirlar (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonim tahrirlar (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot tahrirlari (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s dan %2$s gacha metrikada</string>
   <plurals name="page_edit_history_article_edits_since_year">

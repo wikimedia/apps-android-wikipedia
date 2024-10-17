@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">ߛߍ߲ߛߍ߲ߣߍ߲߫ ߦߋ߫</string>
   <string name="page_edit_history_filter_by_all">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߓߍ߯ (%s)</string>
   <string name="page_edit_history_filter_by_user">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ߣߐ ߟߎ߬ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߕߐ߯ߒߕߊ߲ ߠߎ߬ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߕߐ߯ߒߕߊ߲ ߠߎ߬ (%s)</string>
   <string name="page_edit_history_filter_by_bot">ߡߐ߰ߡߐ߮ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ߣߐ ߟߎ߬ (%s)</string>
   <string name="page_edit_history_metrics_content_description">ߛߎߡߊ߲ߣߍ߲߫ ߦߋ߫ ߞߊ߬ ߓߐ߫ %1$s ߞߊ߬ ߕߊ߯ %2$s</string>
   <string name="page_edit_history_empty_search_message">ߌ ߡߊߝߍߣߍ߲߫ ߞߊ߬ ߣߌ߲߬ ߡߊߝߊ߬ߟߋ߲߫ &lt;a href=\"#\"&gt;ߛߍ߲ߛߍ߲߲&lt;/a&gt; ߞߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߜߘߍ߫ ߟߎ߫ ߦߋ߫</string>

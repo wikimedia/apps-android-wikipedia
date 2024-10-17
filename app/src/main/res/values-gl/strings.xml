@@ -68,7 +68,7 @@
   <string name="page_edit_history_filter_by">Filtrar por</string>
   <string name="page_edit_history_filter_by_all">Todas as edicións (%s)</string>
   <string name="page_edit_history_filter_by_user">Edicións do usuario (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Edicións de anónimos (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edicións de anónimos (%s)</string>
   <string name="menu_page_show_tabs">Amosar as lapelas</string>
   <string name="menu_page_other_languages">Cambiar a lingua</string>
   <string name="menu_page_find_in_page">Atopar no artigo</string>

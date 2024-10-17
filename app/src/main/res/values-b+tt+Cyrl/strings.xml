@@ -60,7 +60,7 @@
   <string name="page_edit_history_filter_by">... буенча фильтрлау:</string>
   <string name="page_edit_history_filter_by_all">Барлык төзәтмәләр (%s)</string>
   <string name="page_edit_history_filter_by_user">Кулланучылар төзәтмәләр (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Аноним төзәтмәләр (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Аноним төзәтмәләр (%s)</string>
   <string name="page_edit_history_filter_by_bot">Бот төзәтмәләре (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s-%2$s кадәрге күрсәткечләр</string>
   <plurals name="page_edit_history_article_edits_since_year">
