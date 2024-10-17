@@ -1,8 +1,7 @@
 package org.wikipedia.wiktionary
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,21 +11,19 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.RbDefinition
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.util.Locale
 
-class WiktionaryViewModel(bundle: Bundle) : ViewModel() {
-
+class WiktionaryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
     }
 
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
-    var selectedText = bundle.getString(Constants.ARG_TEXT)
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
+    var selectedText = savedStateHandle.get<String>(Constants.ARG_TEXT)
 
     private val _uiState = MutableStateFlow(Resource<List<RbDefinition.Usage>>())
     val uiState = _uiState.asStateFlow()
@@ -66,12 +63,5 @@ class WiktionaryViewModel(bundle: Bundle) : ViewModel() {
 
     private fun definitionsNotFound() {
         _uiState.value = Resource.Error(Throwable("Definitions not found."))
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return WiktionaryViewModel(bundle) as T
-        }
     }
 }

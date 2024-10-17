@@ -39,7 +39,7 @@ class RandomFragment : Fragment() {
 
     private var _binding: FragmentRandomBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: RandomViewModel by viewModels { RandomViewModel.Factory(requireArguments()) }
+    private val viewModel: RandomViewModel by viewModels()
     private val viewPagerListener = ViewPagerListener()
     private val topTitle get() = getTopChild()?.title
 

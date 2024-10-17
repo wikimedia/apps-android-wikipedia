@@ -1,39 +1,33 @@
 package org.wikipedia.edit.insertmedia
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
-import androidx.paging.cachedIn
+import androidx.paging.*
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
-
-    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-    val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
-    var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
+class InsertMediaViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+    val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
+    var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(savedStateHandle[InsertMediaActivity.EXTRA_SEARCH_QUERY]!!))
     val originalSearchQuery = searchQuery
-    var selectedImage = bundle.parcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
-    var selectedImageSource = bundle.getString(InsertMediaActivity.EXTRA_IMAGE_SOURCE).orEmpty()
-    var selectedImageSourceProjects = bundle.getString(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS).orEmpty()
-    var imagePosition: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_POS, defaultImagePositionForLang(wikiSite.languageCode))
-    var imageType: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_TYPE, IMAGE_TYPE_THUMBNAIL)
-    var imageSize: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_SIZE, IMAGE_SIZE_DEFAULT)
+    var selectedImage = savedStateHandle.get<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+    var selectedImageSource = savedStateHandle[InsertMediaActivity.EXTRA_IMAGE_SOURCE] ?: ""
+    var selectedImageSourceProjects = savedStateHandle[InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS] ?: ""
+    var imagePosition = savedStateHandle[InsertMediaActivity.RESULT_IMAGE_POS]
+        ?: defaultImagePositionForLang(wikiSite.languageCode)
+    var imageType = savedStateHandle[InsertMediaActivity.RESULT_IMAGE_TYPE] ?: IMAGE_TYPE_THUMBNAIL
+    var imageSize = savedStateHandle[InsertMediaActivity.RESULT_IMAGE_SIZE] ?: IMAGE_SIZE_DEFAULT
 
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)
@@ -99,13 +93,6 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                     it.find { it.name == IMAGE_POSITION_NONE }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_NONE] = it }
                 }
             magicWordsLang = wikiSite.languageCode
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return InsertMediaViewModel(bundle) as T
         }
     }
 

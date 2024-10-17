@@ -63,7 +63,7 @@ class UserContribListActivity : BaseActivity() {
     private val userContribEmptyMessagesAdapter = EmptyMessagesAdapter()
     private val loadHeader = LoadingItemAdapter { userContribListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { userContribListAdapter.retry() }
-    private val viewModel: UserContribListViewModel by viewModels { UserContribListViewModel.Factory(intent.extras!!) }
+    private val viewModel: UserContribListViewModel by viewModels()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 

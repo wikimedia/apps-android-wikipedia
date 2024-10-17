@@ -40,7 +40,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: OnThisDayViewModel by viewModels { OnThisDayViewModel.Factory(requireArguments()) }
+    private val viewModel: OnThisDayViewModel by viewModels()
 
     private val offsetChangedListener =
         AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->

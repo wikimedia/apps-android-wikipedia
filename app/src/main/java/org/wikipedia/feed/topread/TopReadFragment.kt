@@ -32,7 +32,7 @@ class TopReadFragment : Fragment() {
 
     private var _binding: FragmentMostReadBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: TopReadViewModel by viewModels { TopReadViewModel.Factory(requireActivity().intent.extras!!) }
+    private val viewModel: TopReadViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)

@@ -61,8 +61,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels { SuggestedEditsImageRecsFragmentViewModel.Factory(
-        bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)) }
+    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels()
 
     private var infoClicked = false
     private var scrolled = false
@@ -464,7 +463,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         const val MIN_TIME_WARNING_MILLIS = 5000
 
         fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageRecsFragment()
+            return SuggestedEditsImageRecsFragment().apply {
+                arguments = bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)
+            }
         }
     }
 }

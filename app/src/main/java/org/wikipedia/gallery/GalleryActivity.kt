@@ -68,7 +68,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var galleryAdapter: GalleryItemAdapter
-    private val viewModel: GalleryViewModel by viewModels { GalleryViewModel.Factory(intent.extras!!) }
+    private val viewModel: GalleryViewModel by viewModels()
     private var pageChangeListener = GalleryPageChangeListener()
     private var imageEditType: ImageEditType? = null
     private var controlsShowing = true

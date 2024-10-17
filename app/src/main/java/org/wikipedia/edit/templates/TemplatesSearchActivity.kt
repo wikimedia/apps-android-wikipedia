@@ -42,7 +42,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
     private var templatesSearchAdapter: TemplatesSearchAdapter? = null
 
-    val viewModel: TemplatesSearchViewModel by viewModels { TemplatesSearchViewModel.Factory(intent.extras!!) }
+    val viewModel: TemplatesSearchViewModel by viewModels()
 
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
