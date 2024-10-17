@@ -21,8 +21,7 @@
         app:rippleColor="?attr/overlay_color"
         android:visibility="gone"
         tools:text="Donor"
-        tools:visibility="visible"
-        />
+        tools:visibility="visible" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/becomeADonorChip"
@@ -55,6 +54,5 @@
         android:visibility="gone"
         tools:text="Update donor status"
         tools:visibility="visible"/>
-
 
 </merge>

@@ -25,8 +25,13 @@ class DonorBadgeView(context: Context, attrs: AttributeSet? = null) : FrameLayou
 
     fun setup(callback: Callback) {
         if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            isVisible = false
             return
         }
+        isVisible = true
+        binding.donorChip.isVisible = false
+        binding.becomeADonorChip.isVisible = false
+        binding.updateDonorStatusChip.isVisible = false
         when (DonorStatus.donorStatus()) {
             DonorStatus.DONOR -> {
                 binding.donorChip.apply {
