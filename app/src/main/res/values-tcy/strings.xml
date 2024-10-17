@@ -62,9 +62,15 @@
   <string name="page_edit_history_filter_by">ಅರಿಪೆದ ಐಡಿ</string>
   <string name="page_edit_history_filter_by_all">ಮಾಂತ ಸಂಪಾದನೆಲು (%s)</string>
   <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರೆರೆನ ಸಂಪಾದಿ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ಮಾಂತ ಸಂಪಾದನೆಲು (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ನೋಂದಾಯಿಸಂದಿನ ಸಂಪಾದನೆಲು (%s)</string>
   <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದಿಲು (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$sಡ್ದ್ %2$s ಮುಟ್ಟದ ಸಂಪಾದಿ ಇತಿಹಾಸೊ</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">ಒಂಜಿ= %2$s ಡ್ದ್ %1$d ಸಂಪಾದನೆ</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="other">ಒಂಜಿ= %1$d %2$s ( %3$s) ಡ್ದ್ ಬೊಕ್ಕ ಸಂಪಾದನೆ ಮಲ್ಪುಲೆ</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">ನನಾತ್ ಜಾಸ್ತಿ ಸಂಪಾದಿ ತೂವರ &lt;a href=\"#\"&gt;&lt;/a&gt; ಉಂದೆನ್ ಪಗತ್‌ದ್ ತೂಲೆ.</string>
   <string name="menu_page_show_tabs">ಟ್ಯಾಬ್ ನು ತೊಜಾಲೆ</string>
   <string name="menu_page_other_languages">ಬಾಸೆನ್ ಬದಲ್ ಮಾನ್ಪಿ</string>
@@ -212,6 +218,7 @@
   <string name="preference_title_auto_upload_crash_reports">ಬೊಡ್ಚಂತಿನ ವರದಿ ಕಡಪ‍್ಡುಕಾ</string>
   <string name="history_filter_list_hint">ಇತಿಹಾಸೊನು ಅರಿಪುಲೆ</string>
   <string name="error_can_not_process_link">ಈ ಕೊಂಡಿತಾ ಪುಟೋ ತೋಜೊಂತಿಜ್ಜಿ</string>
+  <string name="page_protected_sysop">ಈ ಪುಟೊನು ಪೂರ್ತಿ ರಕ್ಷಣೆ ಮಲ್ತ್ ದ್ ದೀತೆರ್.</string>
   <string name="page_protected_can_not_edit_title">ಈ ಪುಟನ್ ಜಾಗ್ರತೆಡ್ ಡಿತುಂಡು</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ತೂಪಿಪಟ್ಟಿಗ್ ಸೇರಾಲೆ</string>
   <string name="settings_item_preferences">ಸಂಯೋಜನೆಲು</string>
@@ -245,6 +252,7 @@
   <string name="edit_rollback">ಪಿರ ತಿರ್ಗಾಲೆ</string>
   <string name="edit_warn">ಎಚ್ಚರಿಕೆ</string>
   <string name="edit_damage">%sದಾತ್ ಗಾತಿ</string>
+  <string name="edit_intent">ಉದ್ದೇಸೊ %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s ಬೈಟ್</item>
     <item quantity="other">%s ಬೈಟ್‌ಗಳು</item>
@@ -256,6 +264,7 @@
   <string name="edit_summary_tag_other">ಬೇತೆ</string>
   <string name="edit_summary_added_short_description">ಎಲ್ಯ ಇವರಣೆ ಸೇರಾಯೆ</string>
   <string name="edit_conflict_title">ಸಂಘರ್ಷ ಸಂಪಾದನೆ</string>
+  <string name="edit_notices">ಸೂಚನೆಲೆನ್ ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="edit_notices_please_read">ಸಂಪಾದಿಸಾವರ ದುಂಬು ಇಂದೆನ್ ಓದುಲೆ</string>
   <string name="find_next"> ನಾನತೆನ್ ತೂಲೆ</string>
   <string name="find_previous">ದುಂಬುತೇನ್ ತೂಲೆ</string>
@@ -281,6 +290,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ಅನುಮತಿ</string>
   <string name="read_more_section">ನನತ್ ಓದುಲೇ</string>
   <string name="about_article_section">ಈ ಲೇಕನೋತ ಬಗ್ಗೆ</string>
+  <string name="menu_gallery_visit_image_page">ಚಿತ್ರ ಪುಟೊಕ್ ಪೋಲೆ</string>
   <string name="gallery_error_draw_failed">ಇಂಚಿನಾ ಚಿತ್ರ ಇಜ್ಜಿ</string>
   <string name="gallery_menu_share">ಪಟ್ಟುಲೆ</string>
   <string name="gallery_save_progress">ಫೈಲ್ ಡೌನ್ಲೋಡ್ ಅವೊನ್ತುಂಡು...</string>
@@ -313,6 +323,7 @@
   <string name="reference_list_title">ಉಲ್ಲೆಕೊಲು</string>
   <string name="temp_account_dialog_ok">ಗೊತ್ತಂಡ್</string>
   <string name="crash_report_quit">ಬುಡ್ಲೆ</string>
+  <string name="article_menu_bar_save_button">ಒರಿಪಾಲೆ</string>
   <string name="article_menu_bar_language_button">ಬಾಸೆ</string>
   <string name="article_menu_bar_search_button">ನಾಡ್‍ಲೆ</string>
   <string name="article_menu_bar_contents_button">ವಿಸಯೊಲು</string>

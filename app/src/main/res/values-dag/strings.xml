@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">doli jɛhi</string>
   <string name="page_edit_history_filter_by_all">Maliniŋ nima zaa (%s)</string>
   <string name="page_edit_history_filter_by_user">ŋun su maliniŋ nima (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anon mali niŋ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anon mali niŋ (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot mali niŋ nima (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrics din gbaai %1$s zaŋ chaŋ %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -422,7 +422,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Malimi a tuulbaa zali a ni borili shɛm</string>
   <string name="error_blocked_footer_no_blocker">A ni tooi nya &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka yi tɔɣisi a kparibu maa yɛltɔɣa.</string>
   <string name="temp_account_not_logged_in">A bi kpɛ</string>
-  <string name="temp_account_anon_dialog_body">Di yi niŋ ka a niŋ maliniŋ, &lt;b&gt;saha bela akaunti&lt;/b&gt; nyɛla din yɛn nam n zaŋ ti a ka di gbubi a daashili. &lt;a href=\"%1$s\"&gt;Bɔhimi m pahi&lt;/a&gt;. &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Log in&lt;/a&gt; or &lt;a href=\"https://#login\"&gt;Nammi akaunti&lt;/a&gt; zaŋ n-ti sɔhi biɛɣu ni mali niŋ ni din yɛn che ka a tooi nya nahingbaŋ shɛŋa.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Di yi niŋ ka a niŋ maliniŋ, &lt;b&gt;saha bela akaunti&lt;/b&gt; nyɛla din yɛn nam n zaŋ ti a ka di gbubi a daashili. &lt;a href=\"%1$s\"&gt;Bɔhimi m pahi&lt;/a&gt;. &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Log in&lt;/a&gt; or &lt;a href=\"https://#login\"&gt;Nammi akaunti&lt;/a&gt; zaŋ n-ti sɔhi biɛɣu ni mali niŋ ni din yɛn che ka a tooi nya nahingbaŋ shɛŋa.</string>
   <string name="temp_account_dialog_ok">Nya li</string>
   <string name="temp_account_using_title">A mali la saha bela akaunt</string>
   <string name="temp_account_dialog_discard">Kpihimi taɣibunima ka kpɛ</string>

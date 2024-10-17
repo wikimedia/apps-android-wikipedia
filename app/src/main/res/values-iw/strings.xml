@@ -78,7 +78,7 @@
   <string name="page_edit_history_filter_by">לסנן לפי</string>
   <string name="page_edit_history_filter_by_all">כל העריכות (%s)</string>
   <string name="page_edit_history_filter_by_user">עריכות משתמש (%s)</string>
-  <string name="page_edit_history_filter_by_anon">עריכות אלמוניות (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">עריכות אלמוניות (%s)</string>
   <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -457,8 +457,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">התאמת סרגל הכלים שלך</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="temp_account_not_logged_in">לא נכנסת לחשבון</string>
-  <string name="temp_account_anon_dialog_body">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
-  <string name="temp_account_temp_dialog_body">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
   <string name="temp_account_dialog_ok">הבנתי</string>
   <string name="temp_account_using_title">זהו חשבון חולף</string>
   <string name="temp_account_dialog_discard">לזרוק את השינויים ולהיכנס לחשבון</string>

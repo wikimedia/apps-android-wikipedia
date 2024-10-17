@@ -54,7 +54,7 @@
   <string name="page_edit_history_filter_by">Filtriraj po</string>
   <string name="page_edit_history_filter_by_all">Sve izmjene (%s)</string>
   <string name="page_edit_history_filter_by_user">Korisničke izmjene (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonimne izmjene (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonimne izmjene (%s)</string>
   <string name="page_edit_history_filter_by_bot">Izmjene botova (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrika od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

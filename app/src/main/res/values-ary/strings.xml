@@ -56,7 +56,7 @@
   <string name="page_edit_history_filter_by">فيلتري ب</string>
   <string name="page_edit_history_filter_by_all">جميع تّبديلات (%s)</string>
   <string name="page_edit_history_filter_by_user">تّبديلات د لخدايمي (%s)</string>
-  <string name="page_edit_history_filter_by_anon">تبديلات لمجهولين (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">تبديلات لمجهولين (%s)</string>
   <string name="page_edit_history_filter_by_bot">تبديلات لبوتات (%s)</string>
   <string name="menu_page_show_tabs">ورّي التبويبات</string>
   <string name="menu_page_other_languages">بدّل اللغة</string>
