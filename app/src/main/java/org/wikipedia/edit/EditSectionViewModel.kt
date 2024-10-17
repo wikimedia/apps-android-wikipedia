@@ -29,6 +29,7 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var textToHighlight = savedStateHandle.get<String>(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT)
     var sectionWikitext: String? = null
     var sectionWikitextOriginal: String? = null
+    var tempAccountsEnabled = true
     var editingAllowed = false
     val editNotices = mutableListOf<String>()
 
@@ -57,6 +58,8 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _fetchSectionTextState.value = Resource.Loading()
 
             val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
+
+            tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
 
             infoResponse.query?.firstPage()?.let { firstPage ->
                 val rev = firstPage.revisions.first()

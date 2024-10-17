@@ -53,8 +53,8 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             null
         }.filter {
             when {
-                anonEditsOnly -> { it.isAnon }
-                userEditsOnly -> { !it.isAnon }
+                anonEditsOnly -> { it.isAnon || it.isTemp }
+                userEditsOnly -> { !it.isAnon && !it.isTemp }
                 else -> { true }
             }
         }.filter {

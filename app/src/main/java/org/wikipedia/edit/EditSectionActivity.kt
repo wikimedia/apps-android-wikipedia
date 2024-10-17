@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
 import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
@@ -17,7 +18,6 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
-import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -36,7 +36,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
-import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityEditSectionBinding
@@ -94,6 +94,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
+            invalidateOptionsMenu()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         }
     }
@@ -228,10 +229,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                                 displaySectionText()
                                 maybeShowEditSourceDialog()
                                 invalidateOptionsMenu()
-                                if (Prefs.autoShowEditNotices) {
-                                    showEditNotices()
-                                } else {
-                                    maybeShowEditNoticesTooltip()
+                                if (!maybeShowTempAccountDialog()) {
+                                    if (Prefs.autoShowEditNotices) {
+                                        showEditNotices()
+                                    } else {
+                                        maybeShowEditNoticesTooltip()
+                                    }
                                 }
                                 it.data?.let { error ->
                                     FeedbackUtil.showError(this@EditSectionActivity, MwException(error), viewModel.pageTitle.wikiSite)
@@ -313,17 +316,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
     private fun updateEditLicenseText() {
         val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
-        editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+        editLicenseText.text = StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_4_url)))
-        editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
-            if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
-                requestLogin.launch(loginIntent)
-            } else {
-                UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
-            }
-        }
+        editLicenseText.movementMethod = LinkMovementMethod.getInstance()
     }
 
     private fun doSave() {
@@ -517,14 +513,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 showEditNotices()
                 true
             }
+            R.id.menu_temp_account -> {
+                maybeShowTempAccountDialog(true)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
-        val item = menu.findItem(R.id.menu_save_section)
 
+        menu.findItem(R.id.menu_temp_account).apply {
+            isVisible = !AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount
+            setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+        }
+
+        val item = menu.findItem(R.id.menu_save_section)
         supportActionBar?.elevation = if (editPreviewFragment.isActive) 0f else DimenUtil.dpToPx(4f)
         menu.findItem(R.id.menu_edit_notices).isVisible = viewModel.editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_theme).isVisible = !editPreviewFragment.isActive
@@ -762,6 +767,46 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         } else {
             action()
         }
+    }
+
+    private fun maybeShowTempAccountDialog(fromToolbar: Boolean = false): Boolean {
+        if (fromToolbar || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
+            val dialog = MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
+                .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+                .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
+                .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
+                else getString(if (viewModel.tempAccountsEnabled) R.string.temp_account_anon_dialog_body else R.string.temp_account_anon_ip_dialog_body, getString(R.string.temp_accounts_help_url))))
+                .setPositiveButton(getString(if (fromToolbar) R.string.temp_account_dialog_ok else R.string.create_account_button)) { dialog, _ ->
+                    dialog.dismiss()
+                    if (!fromToolbar) {
+                        launchLogin()
+                    }
+                }
+                .setNegativeButton(getString(if (fromToolbar) R.string.create_account_login else R.string.temp_account_dialog_ok)) { dialog, _ ->
+                    dialog.dismiss()
+                    if (fromToolbar) {
+                        launchLogin()
+                    }
+                }
+                .show()
+            dialog.window?.let {
+                it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { link ->
+                    if (link.contains("#login") || link.contains("#createaccount")) {
+                        launchLogin(link.contains("#createaccount"))
+                    } else {
+                        UriUtil.handleExternalLink(this, Uri.parse(link))
+                    }
+                    dialog.dismiss()
+                }
+            }
+            Prefs.tempAccountDialogShown = true
+            return true
+        }
+        return false
+    }
+
+    private fun launchLogin(createAccountFirst: Boolean = true) {
+        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
     }
 
     private fun startInsertImageFlow() {
