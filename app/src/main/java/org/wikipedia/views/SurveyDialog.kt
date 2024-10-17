@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.app.Activity
+import android.net.Uri
 import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
@@ -26,6 +27,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.UriUtil
 
 object SurveyDialog {
     // @TODO: update the strings after product confirm them
@@ -43,7 +45,10 @@ object SurveyDialog {
                 .setMessage(messageId)
                 .setCancelable(isCancellable)
                 .setPositiveButton("Take Survey") { _, _ ->
-                    // Go to google form
+                    UriUtil.visitInExternalBrowser(
+                        activity,
+                        Uri.parse(activity.getString(R.string.contribution_dashboard_survey_url))
+                    )
                 }
                 .setNegativeButton("No, Thanks") { _, _ ->
                     // dismiss
