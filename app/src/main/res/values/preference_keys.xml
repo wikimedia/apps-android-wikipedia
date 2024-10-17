@@ -170,4 +170,6 @@
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_recommended_content_survey_shown">recommendedContentSurveyShown</string>
+    <string name="preference_key_donor_history_saved">hasDonorHistorySaved</string>
+    <string name="preference_key_is_recurring_donor">isRecurringDonor</string>
 </resources>
