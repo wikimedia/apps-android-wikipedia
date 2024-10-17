@@ -1,8 +1,7 @@
 package org.wikipedia.descriptions
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
@@ -24,7 +23,6 @@ import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -32,14 +30,14 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
+class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
-    val highlightText = bundle.getString(DescriptionEditFragment.ARG_HIGHLIGHT_TEXT)
-    val action = bundle.getSerializable(DescriptionEditFragment.ARG_ACTION) as DescriptionEditActivity.Action
-    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-    val sourceSummary = bundle.parcelable<PageSummaryForEdit>(DescriptionEditFragment.ARG_SOURCE_SUMMARY)
-    val targetSummary = bundle.parcelable<PageSummaryForEdit>(DescriptionEditFragment.ARG_TARGET_SUMMARY)
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
+    val highlightText = savedStateHandle.get<String>(DescriptionEditActivity.EXTRA_HIGHLIGHT_TEXT)
+    val action = savedStateHandle.get<DescriptionEditActivity.Action>(Constants.INTENT_EXTRA_ACTION)!!
+    val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+    val sourceSummary = savedStateHandle.get<PageSummaryForEdit>(DescriptionEditActivity.EXTRA_SOURCE_SUMMARY)
+    val targetSummary = savedStateHandle.get<PageSummaryForEdit>(DescriptionEditActivity.EXTRA_TARGET_SUMMARY)
     var editingAllowed = true
 
     private var clientJob: Job? = null
@@ -254,13 +252,6 @@ class DescriptionEditViewModel(bundle: Bundle) : ViewModel() {
         } else {
             // add new description template
             "{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}\n$articleText".trimIndent()
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return DescriptionEditViewModel(bundle) as T
         }
     }
 
