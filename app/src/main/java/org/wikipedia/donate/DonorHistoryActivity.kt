@@ -43,12 +43,10 @@ class DonorHistoryActivity : BaseActivity() {
 
         binding.donationInfoContainer.isVisible = viewModel.isDonor
 
-        updateDonorStatusText()
         binding.donorStatus.setOnClickListener {
             showDonorStatusDialog()
         }
 
-        updateLastDonatedText()
         binding.lastDonationContainer.setOnClickListener {
             showLastDonatedDatePicker()
         }
@@ -59,7 +57,6 @@ class DonorHistoryActivity : BaseActivity() {
             binding.recurringDonorCheckbox.isChecked = viewModel.isRecurringDonor
         }
 
-        binding.donateButton.isVisible = Prefs.hasDonorHistorySaved
         binding.donateButton.setOnClickListener {
             launchDonateDialog()
         }
@@ -73,11 +70,13 @@ class DonorHistoryActivity : BaseActivity() {
             setResult(RESULT_DONOR_HISTORY_SAVED)
             finish()
         }
+        updateDonorStatusText()
+        updateLastDonatedText()
     }
 
-    private fun updateDonorStatusText(manualUpdate: Boolean = false) {
+    private fun updateDonorStatusText() {
         var donorStatusTextColor = R.attr.primary_color
-        val donorStatusText = if (!Prefs.hasDonorHistorySaved && !manualUpdate) {
+        val donorStatusText = if (!Prefs.hasDonorHistorySaved && viewModel.currentDonorStatus == -1) {
             donorStatusTextColor = R.attr.placeholder_color
             R.string.donor_history_update_donor_status_default
         } else if (viewModel.isDonor) {
@@ -87,7 +86,7 @@ class DonorHistoryActivity : BaseActivity() {
         }
         binding.donorStatus.text = getString(donorStatusText)
         binding.donorStatus.setTextColor(ResourceUtil.getThemedColorStateList(this, donorStatusTextColor))
-        binding.donateButton.isVisible = manualUpdate
+        binding.donateButton.isVisible = viewModel.currentDonorStatus != -1
         binding.donationInfoContainer.isVisible = viewModel.isDonor
     }
 
@@ -121,7 +120,7 @@ class DonorHistoryActivity : BaseActivity() {
             .setSingleChoiceItems(donorStatusList, viewModel.currentDonorStatus) { dialog, which ->
                 viewModel.isDonor = which == 0
                 viewModel.currentDonorStatus = which
-                updateDonorStatusText(true)
+                updateDonorStatusText()
                 updateLastDonatedText()
                 dialog.dismiss()
             }
