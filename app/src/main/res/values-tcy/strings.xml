@@ -66,7 +66,7 @@
   <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದಿಲು (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$sಡ್ದ್ %2$s ಮುಟ್ಟದ ಸಂಪಾದಿ ಇತಿಹಾಸೊ</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="other">ಒಂಜಿ= %2$s ಡ್ದ್ %1$d ಸಂಪಾದನೆ %2$s</item>
+    <item quantity="other">ಒಂಜಿ= %2$s ಡ್ದ್ %1$d ಸಂಪಾದನೆ</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="other">ಒಂಜಿ= %1$d %2$s ( %3$s) ಡ್ದ್ ಬೊಕ್ಕ ಸಂಪಾದನೆ ಮಲ್ಪುಲೆ</item>
