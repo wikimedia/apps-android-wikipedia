@@ -72,7 +72,7 @@
   <string name="page_edit_history_filter_by">... буйынса фильтрларға</string>
   <string name="page_edit_history_filter_by_all">Бөтә төҙәтеүҙәр (%s)</string>
   <string name="page_edit_history_filter_by_user">Ҡатнашыусылар төҙәтеүҙәре (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Аноним төҙәтеүҙәр (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Аноним төҙәтеүҙәр (%s)</string>
   <string name="page_edit_history_filter_by_bot">Роботтарҙың төҙәтеүҙәре (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s алып %2$s тиклем күләм</string>
   <string name="page_edit_history_article_edits_since_year">{{PLURAL\n|one=%2$s алып %1$d төҙәтеү|%2$s алып %1$d төҙәтеү}}</string>
@@ -438,8 +438,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Ҡоралдар панелын көйләгеҙ</string>
   <string name="error_blocked_footer_no_blocker">Һеҙ &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;хаким&lt;/a&gt; менән бикләү сәбәптәре тураһында һөйләшә алаһығыҙ</string>
   <string name="temp_account_not_logged_in">Һеҙ системаға инмәнегеҙ</string>
-  <string name="temp_account_anon_dialog_body">Бер үҙгәртеү индергәс, һеҙҙең өсөн шәхси мәғлүмәтегеҙҙе яҡлау маҡсатында &lt;b&gt;ваҡытлыса аккаунт&lt;/b&gt; булдырыласаҡ. [Тулыраҡ мәғлүмәт](%1$s).&lt;br /&gt;&lt;br /&gt;Киләсәктәге үҙгәртеүҙәр өсөн кредит алыу һәм башҡа мөмкинлектәргә инеү өсөн [Системаға инегеҙ](https://#login) йәки [Аккаунт булдырығыҙ](https://#login).</string>
-  <string name="temp_account_temp_dialog_body">Һеҙҙең үҙгәртеү %1$s исеме аҫтында күрһәтеләсәк. Һеҙҙең IP-адресығыҙ администраторҙар өсөн күренерлек буласаҡ.&lt;br /&gt;&lt;br /&gt;Әгәр һеҙ &lt;a href=\"https://#login\"&gt;инеп&lt;/a&gt; йәки &lt;a href=\"https://#login\"&gt;яңы аккаунт булдырһағыҙ&lt;/a&gt;, һеҙҙең үҙгәртеүҙәрегеҙ һеҙ һайлаған исем аҫтында күрһәтеләсәк, башҡа өҫтөнлөктәр менән бер рәттән.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Бер үҙгәртеү индергәс, һеҙҙең өсөн шәхси мәғлүмәтегеҙҙе яҡлау маҡсатында &lt;b&gt;ваҡытлыса аккаунт&lt;/b&gt; булдырыласаҡ. [Тулыраҡ мәғлүмәт](%1$s).&lt;br /&gt;&lt;br /&gt;Киләсәктәге үҙгәртеүҙәр өсөн кредит алыу һәм башҡа мөмкинлектәргә инеү өсөн [Системаға инегеҙ](https://#login) йәки [Аккаунт булдырығыҙ](https://#login).</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Һеҙҙең үҙгәртеү %1$s исеме аҫтында күрһәтеләсәк. Һеҙҙең IP-адресығыҙ администраторҙар өсөн күренерлек буласаҡ.&lt;br /&gt;&lt;br /&gt;Әгәр һеҙ &lt;a href=\"https://#login\"&gt;инеп&lt;/a&gt; йәки &lt;a href=\"https://#login\"&gt;яңы аккаунт булдырһағыҙ&lt;/a&gt;, һеҙҙең үҙгәртеүҙәрегеҙ һеҙ һайлаған исем аҫтында күрһәтеләсәк, башҡа өҫтөнлөктәр менән бер рәттән.</string>
   <string name="temp_account_dialog_ok">Аңланым</string>
   <string name="temp_account_using_title">Һеҙ ваҡытлыса иҫәп яҙмаһын ҡулланаһығыҙ</string>
   <string name="temp_account_dialog_discard">Үҙгәрештәрҙе кире алырға һәм системаға инергә</string>

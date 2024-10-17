@@ -71,7 +71,7 @@
   <string name="page_edit_history_filter_by">Filtrovať podľa</string>
   <string name="page_edit_history_filter_by_all">Všetky úpravy (%s)</string>
   <string name="page_edit_history_filter_by_user">Úpravy používateľa (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonymné úpravy (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonymné úpravy (%s)</string>
   <string name="page_edit_history_filter_by_bot">Úpravy bota (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metriky od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

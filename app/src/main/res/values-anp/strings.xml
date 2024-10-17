@@ -53,7 +53,7 @@
   <string name="page_edit_history_filter_by">द्वारा छनित</string>
   <string name="page_edit_history_filter_by_all">सब्भे संपादन (%s)</string>
   <string name="page_edit_history_filter_by_user">सदस्य द्वारा संपादन (%s)</string>
-  <string name="page_edit_history_filter_by_anon">गुमनाम संपादन (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">गुमनाम संपादन (%s)</string>
   <string name="page_edit_history_filter_by_bot">बॉट्स द्वारा संपादन (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s सँ %2$s तलक मेट्रिक्स</string>
   <string name="menu_page_show_tabs">टैब देखाबौ</string>

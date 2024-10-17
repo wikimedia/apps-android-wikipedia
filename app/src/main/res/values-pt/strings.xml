@@ -79,7 +79,7 @@
   <string name="page_edit_history_filter_by">Filtrar por</string>
   <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
   <string name="page_edit_history_filter_by_user">Edições do utilizador (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Edições de anónimos (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edições de anónimos (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
