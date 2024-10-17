@@ -64,7 +64,7 @@
   <string name="page_edit_history_filter_by">بیپاڵێوە بە</string>
   <string name="page_edit_history_filter_by_all">ھەموو دەستکارییەکان (%s)</string>
   <string name="page_edit_history_filter_by_user">دەستکارییەکانی یەکارھێنەر (%s)</string>
-  <string name="page_edit_history_filter_by_anon">دەستکارییەکانی بەکارھێنەری نەزانراو (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">دەستکارییەکانی بەکارھێنەری نەزانراو (%s)</string>
   <string name="page_edit_history_filter_by_bot">دەستکارییەکانی بۆت (%s)</string>
   <string name="page_edit_history_metrics_content_description">پێوانەکان لە %1$s بۆ %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

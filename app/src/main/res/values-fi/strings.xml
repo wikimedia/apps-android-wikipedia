@@ -87,7 +87,7 @@
   <string name="page_edit_history_filter_by">Suodata</string>
   <string name="page_edit_history_filter_by_all">Kaikki muokkaukset (%s)</string>
   <string name="page_edit_history_filter_by_user">Käyttäjät (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonyymit (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyymit (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botit (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mittarit välillä %1$s %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -455,8 +455,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Mukauta työkalupalkkia</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="temp_account_not_logged_in">Et ole kirjautunut sisään</string>
-  <string name="temp_account_anon_dialog_body">Kun teet muokkauksen, sinulle luodaan &lt;b&gt;väliaikainen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Kirjaudu sisään&lt;/a&gt; tai  &lt;a href=\"https://#login\"&gt;Luo tunnus&lt;/a&gt; saadaksesi tulevat muokkauksesi omiin nimiisi sekä saadaksesi muita etuja.</string>
-  <string name="temp_account_temp_dialog_body">Muokkauksesi merkitään nimellä %1$s. IP-osoitteesi tulee näkymään ylläpitäjille.&lt;br /&gt;&lt;br /&gt;Jos &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt; tai &lt;a href=\"https://#login\"&gt;luot tunnuksen&lt;/a&gt;, muokkauksesi merkitään valitsemallesi nimelle, ja saat muita etuja.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Kun teet muokkauksen, sinulle luodaan &lt;b&gt;väliaikainen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Kirjaudu sisään&lt;/a&gt; tai  &lt;a href=\"https://#login\"&gt;Luo tunnus&lt;/a&gt; saadaksesi tulevat muokkauksesi omiin nimiisi sekä saadaksesi muita etuja.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Muokkauksesi merkitään nimellä %1$s. IP-osoitteesi tulee näkymään ylläpitäjille.&lt;br /&gt;&lt;br /&gt;Jos &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt; tai &lt;a href=\"https://#login\"&gt;luot tunnuksen&lt;/a&gt;, muokkauksesi merkitään valitsemallesi nimelle, ja saat muita etuja.</string>
   <string name="temp_account_dialog_ok">Selvä</string>
   <string name="temp_account_using_title">Käytät väliaikaista käyttäjätunnusta</string>
   <string name="temp_account_dialog_discard">Hylkää muutokset ja kirjaudu sisään</string>
@@ -1675,4 +1675,13 @@
   <string name="recommended_content_survey_dialog_message">Oletko tyytyväinen tähän suositeltuun hakutulokseen?</string>
   <string name="recommended_content_survey_dialog_input_hint">Lisää palautetta</string>
   <string name="recommended_content_survey_dialog_submitted_message">Palaute lähetetty. Kiitos!</string>
+  <string name="donor_history_save_button">Tallenna</string>
+  <string name="donor_history_last_donated_date_picker_title">Valitse päivämäärä</string>
+  <string name="donor_history_donate_button">Lahjoita Wikimedia Foundationille</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Ei kiitos</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Kyllä, vie minut sinne</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Ei kiitos</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Kyllä, vie minut sinne</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Ryhdy lahjoittajaksi</string>
+  <string name="contributions_dashboard_logged_out_user">Uloskirjautunut käyttäjä</string>
 </resources>
