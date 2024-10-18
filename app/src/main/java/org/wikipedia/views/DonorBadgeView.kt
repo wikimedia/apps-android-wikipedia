@@ -13,9 +13,9 @@ import org.wikipedia.usercontrib.ContributionsDashboardHelper
 class DonorBadgeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     interface Callback {
-        fun onDonorBadgeClick()
-        fun onBecomeDonorClick()
-        fun onUpdateDonorStatusClick()
+        fun onDonorBadgeClick() { }
+        fun onBecomeDonorClick() { }
+        fun onUpdateDonorStatusClick() { }
     }
     val binding = ViewDonorBadgeBinding.inflate(LayoutInflater.from(context), this)
 

@@ -8,6 +8,7 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -17,6 +18,7 @@ import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.DonorStatus
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
@@ -26,6 +28,7 @@ import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.DonorBadgeView
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
@@ -92,6 +95,12 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                     } else {
                         getString(R.string.contributions_dashboard_logged_out_user)
                     }
+                    binding.donorBadge.setup(object : DonorBadgeView.Callback {
+                        override fun onBecomeDonorClick() {
+                            launchDonateDialog()
+                        }
+                    })
+                    binding.donorBadge.isVisible = DonorStatus.donorStatus() != DonorStatus.UNKNOWN
                 }
             }
             binding.mainToolbarWordmark.visibility = View.GONE
