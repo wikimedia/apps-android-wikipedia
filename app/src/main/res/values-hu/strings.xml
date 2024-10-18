@@ -73,7 +73,7 @@
   <string name="page_edit_history_filter_by">Szűrés</string>
   <string name="page_edit_history_filter_by_all">Minden szerkesztés (%s)</string>
   <string name="page_edit_history_filter_by_user">Bejelentkezett szerkesztők (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonim szerkesztők (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonim szerkesztők (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botszerkesztések (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrikák %1$s és %2$s között</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -441,7 +441,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
   <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
-  <string name="temp_account_anon_dialog_body">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#login\"&gt;regisztrálsz&lt;/a&gt;&lt;strong&gt;[$1 bejelentkezel]&lt;/strong&gt; vagy &lt;strong&gt;[$2 felhasználói fiókot hozol létre]&lt;/strong&gt; akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#login\"&gt;regisztrálsz&lt;/a&gt;&lt;strong&gt;[$1 bejelentkezel]&lt;/strong&gt; vagy &lt;strong&gt;[$2 felhasználói fiókot hozol létre]&lt;/strong&gt; akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
   <string name="temp_account_dialog_ok">Értem</string>
   <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
   <string name="temp_account_dialog_discard">Változtatások elvetése és bejelentkezés</string>

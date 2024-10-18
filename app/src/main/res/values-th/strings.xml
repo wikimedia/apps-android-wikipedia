@@ -70,7 +70,7 @@
   <string name="page_edit_history_filter_by">กรองตาม</string>
   <string name="page_edit_history_filter_by_all">การแก้ไขทั้งหมด (%s)</string>
   <string name="page_edit_history_filter_by_user">การแก้ไขโดยผู้ใช้ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">การแก้ไขนิรนาม (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">การแก้ไขนิรนาม (%s)</string>
   <string name="page_edit_history_filter_by_bot">การแก้ไขโดยบอต (%s)</string>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>

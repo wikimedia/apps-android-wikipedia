@@ -95,7 +95,7 @@
   <string name="page_edit_history_filter_by">Filteren op</string>
   <string name="page_edit_history_filter_by_all">Alle bewerkingen (%s)</string>
   <string name="page_edit_history_filter_by_user">Gebruikersbewerkingen (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonieme bewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Niet-geregistreerde bewerkingen (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botbewerkingen (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statistieken van %1$s tot %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -464,8 +464,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
   <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="temp_account_not_logged_in">U bent niet aangemeld</string>
-  <string name="temp_account_anon_dialog_body">Nadat je een wijziging hebt aangebracht, wordt er een &lt;b&gt;tijdelijk account&lt;/b&gt; aangemaakt om je privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Log in&lt;/a&gt; of &lt;a href=\"https://#login\"&gt;maak een account aan&lt;/a&gt; om onder een zelfgekozen naam bij te dragen en om toegang te krijgen tot meer mogelijkheden.</string>
-  <string name="temp_account_temp_dialog_body">Je bewerking wordt toegeschreven aan %1$s. Je IP-adres is zichtbaar voor beheerders.&lt;br /&gt;&lt;br /&gt; Als je &lt;a href=\"https://#login\"&gt;inlogt&lt;/a&gt; of &lt;a href=\"https://#login\"&gt;een account aanmaakt&lt;/a&gt;, worden je bewerkingen toegeschreven aan een door jou gekozen naam en zijn er andere voordelen.</string>
+  <string name="temp_account_anon_dialog_body">Nadat u een wijziging hebt aangebracht, wordt er een &lt;b&gt;tijdelijk account&lt;/b&gt; aangemaakt om uw privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om onder een zelfgekozen naam bij te dragen en om toegang te krijgen tot meer mogelijkheden.</string>
+  <string name="temp_account_temp_dialog_body">Uw bewerking wordt toegeschreven aan %1$s. Uw IP-adres is zichtbaar voor beheerders.&lt;br /&gt;&lt;br /&gt; Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;een account aanmaakt&lt;/a&gt;, worden uw bewerkingen toegeschreven aan een door u gekozen naam en zijn er andere voordelen.</string>
   <string name="temp_account_dialog_ok">Begrepen</string>
   <string name="temp_account_using_title">Je gebruikt een tijdelijk account</string>
   <string name="temp_account_dialog_discard">Wijzigingen negeren en inloggen</string>

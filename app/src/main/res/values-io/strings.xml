@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">Filtrar segun</string>
   <string name="page_edit_history_filter_by_all">Omna redakturi (%s)</string>
   <string name="page_edit_history_filter_by_user">Redakturi dal uzero (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonima redakturi (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonima redakturi (%s)</string>
   <string name="page_edit_history_filter_by_bot">Redakturi da \'\'bot\'\'-i (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statistiki de %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

@@ -70,7 +70,7 @@
   <string name="page_edit_history_filter_by">Филтрирај по</string>
   <string name="page_edit_history_filter_by_all">Све измене (%s)</string>
   <string name="page_edit_history_filter_by_user">Корисничке измене (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимне измене (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Нерегистроване измене (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ботовске измене (%s)</string>
   <string name="page_edit_history_metrics_content_description">Од %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -433,8 +433,8 @@
   <string name="error_blocked_expiry">Истек блокаде: %s</string>
   <string name="error_blocked_id">ID блокаде: %s</string>
   <string name="temp_account_not_logged_in">Нисте пријављени</string>
-  <string name="temp_account_anon_dialog_body">Када начините измену &lt;b&gt;привремени налог&lt;/b&gt; ће бити направљен ради заштите Ваше приватности. &lt;a href=\"%1$s\"&gt;Сазнајте више&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Пријавите се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;отворите налог&lt;/a&gt; тиме ће ваши доприноси бити приписивани корисничком имену које одаберете и стећи ћете многе погодности.</string>
-  <string name="temp_account_temp_dialog_body">Ваше измене ће бити приписане %1$s. Ваша IP адреса ће бити видљива администраторима.&lt;br /&gt;&lt;br /&gt;Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;отворите налог&lt;/a&gt;, Ваше измене ће бити приписане имену које изаберете, између осталога.</string>
+  <string name="temp_account_anon_dialog_body">Када начините измену &lt;b&gt;привремени налог&lt;/b&gt; ће бити направљен ради заштите Ваше приватности. &lt;a href=\"%1$s\"&gt;Сазнајте више&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Пријавите се&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;отворите налог&lt;/a&gt; тиме ће ваши доприноси бити приписивани корисничком имену које одаберете и стећи ћете многе погодности.</string>
+  <string name="temp_account_temp_dialog_body">Ваше измене ће бити приписане %1$s. Ваша IP адреса ће бити видљива администраторима.&lt;br /&gt;&lt;br /&gt;Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;отворите налог&lt;/a&gt;, Ваше измене ће бити приписане имену које изаберете, између осталога.</string>
   <string name="temp_account_dialog_ok">Разумео</string>
   <string name="temp_account_using_title">Користите привремени налог</string>
   <string name="temp_account_dialog_discard">Одбаци измене и пријави ме</string>
