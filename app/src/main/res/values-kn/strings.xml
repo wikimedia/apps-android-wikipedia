@@ -66,7 +66,7 @@
   <string name="page_edit_history_filter_by">ಆರಿಸಿ</string>
   <string name="page_edit_history_filter_by_all">ಎಲ್ಲಾ ಸಂಪಾದನೆಗಳು (%s)</string>
   <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರರ ಸಂಪಾದನೆಗಳು (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ಅನಾಮಧೇಯ ಸಂಪಾದನೆಗಳು (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">ಅನಾಮಧೇಯ ಸಂಪಾದನೆಗಳು (%s)</string>
   <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದನೆಗಳು (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$sರಿಂದ %2$sರವರೆಗಿನ ಸಂಪಾದನೆ</string>
   <string name="page_edit_history_empty_search_message">&lt;a href=\"#\"&gt;ವನ್ನು ಆರಿಸಿ&lt;/a&gt; ಹೆಚ್ಚಿನ ಇತಿಹಾಸವನ್ನು ನೋಡಿ</string>

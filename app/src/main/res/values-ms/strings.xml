@@ -68,7 +68,7 @@
   <string name="page_edit_history_filter_by">Tapis mengikut</string>
   <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Suntingan awanama (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Suntingan awanama (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik daripada %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

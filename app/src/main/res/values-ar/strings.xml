@@ -103,7 +103,7 @@
   <string name="page_edit_history_filter_by">الفرز حسب</string>
   <string name="page_edit_history_filter_by_all">جميع التعديلات (%s)</string>
   <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
-  <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">تعديلات المجهولين (%s)</string>
   <string name="page_edit_history_filter_by_bot">تعديلات البوت (%s)</string>
   <string name="page_edit_history_metrics_content_description">المصفوفات من %1$s إلى %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -491,7 +491,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">تخصيص شريط الأدوات الخاص بك</string>
   <string name="error_blocked_footer_no_blocker">يمكنك التواصل مع أحد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;الإداريين&lt;/a&gt; لمناقشة المنع.</string>
   <string name="temp_account_not_logged_in">أنت غير مسجل الدخول</string>
-  <string name="temp_account_temp_dialog_body">سيُنسب تعديلك إلى %1$s. سيكون عنوان الآي بي الخاص بك مرئيًا للإداريين.&lt;br /&gt;&lt;br /&gt; إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#login\"&gt;إنشاء حساب&lt;/a&gt; ، فستُنسب تعديلاتك إلى الاسم الذي تختاره، من بين مزايا أخرى.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">سيُنسب تعديلك إلى %1$s. سيكون عنوان الآي بي الخاص بك مرئيًا للإداريين.&lt;br /&gt;&lt;br /&gt; إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#login\"&gt;إنشاء حساب&lt;/a&gt; ، فستُنسب تعديلاتك إلى الاسم الذي تختاره، من بين مزايا أخرى.</string>
   <string name="temp_account_dialog_ok">عُلِم</string>
   <string name="temp_account_using_title">أنت تستخدم حساباً مؤقتاً</string>
   <string name="temp_account_end_session">أنه الجلسة</string>

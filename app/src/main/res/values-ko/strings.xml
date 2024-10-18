@@ -49,6 +49,7 @@
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_more">더 보기</string>
   <string name="nav_item_search">검색</string>
+  <string name="nav_item_contribute">기여</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="card_offline_error_retry">다시 시도</string>
@@ -84,7 +85,7 @@
   <string name="page_edit_history_filter_by">필터 기준</string>
   <string name="page_edit_history_filter_by_all">모든 편집 (%s)</string>
   <string name="page_edit_history_filter_by_user">유저 편집 (%s)</string>
-  <string name="page_edit_history_filter_by_anon">익명 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">익명 편집 (%s)</string>
   <string name="page_edit_history_filter_by_bot">봇 편집 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s부터 %2$s까지의 메트릭스</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -121,6 +122,7 @@
   <string name="menu_page_recently_viewed">최근에 읽음</string>
   <string name="menu_page_archive">보존</string>
   <string name="menu_long_press_open_page">열기</string>
+  <string name="menu_long_press_open_in_places">장소에서 열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="menu_long_press_copy_page">링크 주소 복사</string>
   <string name="menu_text_select_define">정의</string>
@@ -980,6 +982,7 @@
   <string name="suggested_edits_image_captions_task_detail">이미지 설명은 독자가 그림의 의미나 맥락을 파악하는 데 도움을 줍니다.</string>
   <string name="suggested_edits_add_descriptions_task_detail">문서 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
   <string name="suggested_edits_contributions_stat_tooltip">지금까지의 당신의 총 기여 수입니다.</string>
+  <string name="suggested_edits_edit_stat_tooltip">지금까지의 당신의 총 편집 수입니다.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">지금까지 기여한 일수입니다. 한동안 기여가 없는 경우, 최근 기여 날짜를 표시합니다.</string>
   <string name="suggested_edits_page_views_stat_tooltip">최근 30일 동안 기여한 항목들의 총 조회수입니다.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">당신의 편집이 (다른 편집자에 의하여) 몇 번 되돌려졌는지를 기반으로 합니다.\n되돌려진 편집: %d건.</string>
@@ -1004,6 +1007,9 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">기여</item>
     <item quantity="other">기여</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="other">편집</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d일</item>
@@ -1120,6 +1126,7 @@
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
+  <string name="app_shortcuts_places">장소</string>
   <string name="on_this_day_card_title">오늘의 역사</string>
   <string name="more_events_text">이 날에 있었던 더 많은 사건</string>
   <string name="events_count_text">%2$s~%3$d년 사이의 이벤트 %1$s개</string>
@@ -1597,4 +1604,15 @@
   <string name="recommended_content_survey_dialog_message">추천 검색 결과에 만족하시나요?</string>
   <string name="recommended_content_survey_dialog_input_hint">추가 피드백</string>
   <string name="recommended_content_survey_dialog_submitted_message">피드백을 제출했습니다. 감사합니다!</string>
+  <string name="donor_history_save_button">저장</string>
+  <string name="donor_history_last_donated_hint">마지막 기부일 추가</string>
+  <string name="donor_history_last_donated_date_picker_title">날짜 선택</string>
+  <string name="donor_history_last_donated_date_picker_label">날짜 입력</string>
+  <string name="donor_history_about_this_experiment">이 실험 정보</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">의견 없음</string>
+  <string name="contributions_dashboard_donation_dialog_title">자유의 지식을 지원해 주셔서 고맙습니다</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">아니요, 괜찮습니다</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">아니요, 괜찮습니다</string>
+  <string name="contributions_dashboard_app_icon_title">앱 아이콘</string>
+  <string name="contributions_dashboard_logged_out_user">로그아웃된 사용자</string>
 </resources>
