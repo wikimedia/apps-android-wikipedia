@@ -53,7 +53,7 @@
   <string name="page_edit_history_filter_by">Embogua:</string>
   <string name="page_edit_history_filter_by_all">Opaite ñemoambue (%s)</string>
   <string name="page_edit_history_filter_by_user">Puruhára ñemoambuekuéra (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Ñemoambue ijapohára rera\'ỹva (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Ñemoambue ijapohára rera\'ỹva (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot ñemoambuekuéra (%s)</string>
   <string name="page_edit_history_metrics_content_description">Ojeipapa %1$s guive %2$s peve</string>
   <plurals name="page_edit_history_article_edits_since_year">

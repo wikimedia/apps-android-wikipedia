@@ -119,7 +119,7 @@
   <string name="page_edit_history_filter_by">Filtrer par</string>
   <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
   <string name="page_edit_history_filter_by_user">Modifications par utilisateur (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Modifications anonyme (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Modifications anonyme (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modifications par robot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -487,8 +487,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
-  <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour vous permettre de protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#login\"&gt;créez un compte&lt;/a&gt; pour obtenir un crédit pour les modifications futures et accéder à d\'autres fonctionnalités.</string>
-  <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible par les administrateurs.&lt;br /&gt;&lt;br /&gt;Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#login\"&gt;créez un compte&lt;/a&gt;, vos modifications seront attribuées à un pseudonyme que vous choisirez, parmi d\'autres avantages.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour vous permettre de protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#login\"&gt;créez un compte&lt;/a&gt; pour obtenir un crédit pour les modifications futures et accéder à d\'autres fonctionnalités.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible par les administrateurs.&lt;br /&gt;&lt;br /&gt;Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#login\"&gt;créez un compte&lt;/a&gt;, vos modifications seront attribuées à un pseudonyme que vous choisirez, parmi d\'autres avantages.</string>
   <string name="temp_account_dialog_ok">Compris !</string>
   <string name="temp_account_using_title">Vous utilisez un compte temporaire</string>
   <string name="temp_account_dialog_discard">Annuler les modifications et se connecter</string>

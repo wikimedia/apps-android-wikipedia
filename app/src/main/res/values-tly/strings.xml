@@ -54,7 +54,7 @@
   <string name="page_edit_history_filter_by">Cešidin karde de</string>
   <string name="page_edit_history_filter_by_all">Həmmə ovaxtətijon (%s)</string>
   <string name="page_edit_history_filter_by_user">Ce ištirokəkon ovaxtətijon (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Noməlumə ovaxtə cijon (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Noməlumə ovaxtə cijon (%s)</string>
   <string name="page_edit_history_filter_by_bot">Boton ovaxtə cijon (%s)</string>
   <string name="page_edit_history_metrics_content_description">Pamjəjon ce %1$s tosə %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

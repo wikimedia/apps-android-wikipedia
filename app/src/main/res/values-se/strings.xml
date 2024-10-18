@@ -59,7 +59,7 @@
   <string name="page_edit_history_filter_by">Sille</string>
   <string name="page_edit_history_filter_by_all">Buot rievdadusat (%s)</string>
   <string name="page_edit_history_filter_by_user">Geavaheddjiid rievdadusat (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonyma rievdadusat (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyma rievdadusat (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bohta rievdadusat (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mihtideamit %1$s:as %2$s:ii</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -417,8 +417,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Heivet reaidoholgga</string>
   <string name="error_blocked_footer_no_blocker">Sáhtát váldit oktavuođa ovttain &lt;a href=\"https://se.wikipedia.org/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
   <string name="temp_account_not_logged_in">It leat čálihuvvon sisa</string>
-  <string name="temp_account_anon_dialog_body">Go dagat rievdademiid, de ásahuvvo &lt;b&gt;gaskaboddosaš geavaheaddjidovddaldat&lt;/b&gt; dutnje, iežat persovdnasuodjalusa dihte. &lt;a href=\"%1$s\"&gt;Oahpa eambbo&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Čálit sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásat geavaheaddjidovddaldaga&lt;/a&gt; oažžun dihte boahttevaš rievdademiid ektui krediteremiid, ja beassanlobi eará doaimmaide.</string>
-  <string name="temp_account_temp_dialog_body">Du rievdadeapmi šaddá %1$s nammii. Du IP-čujuhus boahtá lea oidnosis hálddašeddjiide.&lt;br /&gt;&lt;br /&gt;Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásahat geavaheaddjidovddaldaga&lt;/a&gt;, de du rievdadeamit biddjojuvvojit ovtta nammii man don válljet, oktan eará ovdamuniin.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Go dagat rievdademiid, de ásahuvvo &lt;b&gt;gaskaboddosaš geavaheaddjidovddaldat&lt;/b&gt; dutnje, iežat persovdnasuodjalusa dihte. &lt;a href=\"%1$s\"&gt;Oahpa eambbo&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Čálit sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásat geavaheaddjidovddaldaga&lt;/a&gt; oažžun dihte boahttevaš rievdademiid ektui krediteremiid, ja beassanlobi eará doaimmaide.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Du rievdadeapmi šaddá %1$s nammii. Du IP-čujuhus boahtá lea oidnosis hálddašeddjiide.&lt;br /&gt;&lt;br /&gt;Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásahat geavaheaddjidovddaldaga&lt;/a&gt;, de du rievdadeamit biddjojuvvojit ovtta nammii man don válljet, oktan eará ovdamuniin.</string>
   <string name="temp_account_dialog_ok">Ok, ipmirdin.</string>
   <string name="temp_account_using_title">Don anát gaskaboddosaš geavaheaddjidovddaldaga.</string>
   <string name="temp_account_dialog_discard">Healbat rievdadusaid ja čálit sisa</string>

@@ -80,7 +80,7 @@
   <string name="page_edit_history_filter_by">Filtra per</string>
   <string name="page_edit_history_filter_by_all">Totes les edicions (%s)</string>
   <string name="page_edit_history_filter_by_user">Edicions de l\'usuari (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Edicions anònimes (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edicions anònimes (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edicions de bots (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
