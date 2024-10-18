@@ -758,4 +758,8 @@ object Prefs {
                 else -> DonorStatus.UNKNOWN
             }
         }
+
+    var isRecurringDonor
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)
 }
