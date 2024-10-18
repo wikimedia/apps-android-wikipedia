@@ -1359,4 +1359,11 @@
   <string name="places_card_action">Méi Plazen an der Géigend</string>
   <string name="places_card_distance_suffix">%s ewech</string>
   <string name="places_card_distance_unknown">onbekannt Distanz</string>
+  <string name="donor_history_save_button">Späicheren</string>
+  <string name="donor_history_last_donated_date_picker_title">Datum eraussichen</string>
+  <string name="donor_history_last_donated_date_picker_label">Datum aginn</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Keng Meenung</string>
+  <string name="contributions_dashboard_donation_dialog_title">Merci, datt Dir fräit Wëssen ënnerstëtzt</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Nee, merci</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Nee, merci</string>
 </resources>

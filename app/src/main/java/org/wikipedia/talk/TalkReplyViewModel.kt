@@ -1,6 +1,7 @@
 package org.wikipedia.talk
 
 import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -37,7 +38,9 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
 
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
+    val pageExistsData = MutableLiveData<Resource<Boolean>>()
     var doesPageExist = false
+    var tempAccountsEnabled = true
 
     init {
         if (isFromDiff) {
@@ -53,7 +56,9 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         }) {
             ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
                 doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
+                tempAccountsEnabled = it.query?.autoCreateTempUser?.enabled == true
             }
+            pageExistsData.postValue(Resource.Success(doesPageExist))
         }
     }
 

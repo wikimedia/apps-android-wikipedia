@@ -56,12 +56,12 @@ object CsrfTokenClient {
                         L.e(e)
                         lastError = e
                     }
-                    if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
+                    if (token.isEmpty() || (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)) {
                         continue
                     }
                     break
                 }
-                if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
+                if (token.isEmpty() || (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)) {
                     if (token == ANON_TOKEN) {
                         bailWithLogout()
                     }

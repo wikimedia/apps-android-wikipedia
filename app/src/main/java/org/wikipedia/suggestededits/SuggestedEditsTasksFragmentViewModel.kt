@@ -49,7 +49,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
         _uiState.value = Resource.Loading()
         wikiSupportsImageRecommendations = false
 
-        if (!AccountUtil.isLoggedIn) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
             _uiState.value = RequireLogin()
             return
         }
