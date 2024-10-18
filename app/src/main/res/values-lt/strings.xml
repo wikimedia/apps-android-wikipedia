@@ -65,7 +65,7 @@
   <string name="page_edit_history_filter_by">Filtruoti pagal</string>
   <string name="page_edit_history_filter_by_all">Visi pakeitimai (%s)</string>
   <string name="page_edit_history_filter_by_user">Naudotojo pakeitimai (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anoniniai pakeitimai (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anoniniai pakeitimai (%s)</string>
   <string name="page_edit_history_filter_by_bot">Robotų pakeitimai (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrika nuo %1$s iki %2$s</string>
   <string name="page_edit_history_empty_search_message">Pabandykite pakeisti &lt;a href=\"#\"&gt;filtrus&lt;/a&gt;, kad matytumėte daugiau keitimų</string>

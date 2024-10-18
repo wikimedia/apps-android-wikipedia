@@ -55,7 +55,7 @@
   <string name="page_edit_history_filter_by">Filteren no</string>
   <string name="page_edit_history_filter_by_all">All Ännerungen (%s)</string>
   <string name="page_edit_history_filter_by_user">Benotzer-Ännerungen (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonym Ännerungen (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonym Ännerungen (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot-Ännerungen (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrike vum %1$s bis de(n) %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

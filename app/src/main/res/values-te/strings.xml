@@ -61,7 +61,7 @@
   <string name="page_edit_history_filter_by">ఇలా వడపోయి:</string>
   <string name="page_edit_history_filter_by_all">దిద్దుబాట్లన్నీ (%s)</string>
   <string name="page_edit_history_filter_by_user">వాడుకరి దిద్దుబాట్లు (%s)</string>
-  <string name="page_edit_history_filter_by_anon">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
   <string name="page_edit_history_filter_by_bot">బాట్ల దిద్దుబాట్లు (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%2$s నుండి %1$d దిద్దుబాటు</item>

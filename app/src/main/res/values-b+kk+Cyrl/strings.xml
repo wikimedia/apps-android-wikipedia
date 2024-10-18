@@ -57,7 +57,7 @@
   <string name="page_edit_history_filter_by">Сүзгі</string>
   <string name="page_edit_history_filter_by_all">Барлық өңдеме (%s)</string>
   <string name="page_edit_history_filter_by_user">Қатысушы өңдемелері (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Аноним өңдемелері (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Аноним өңдемелері (%s)</string>
   <string name="page_edit_history_filter_by_bot">Бот өңдемелері (%s)</string>
   <string name="menu_page_other_languages">Тіл ауыстыру</string>
   <string name="menu_page_find_in_page">Мақала ішінен табу</string>
