@@ -51,49 +51,11 @@
                         android:layout_height="wrap_content"
                         tools:text="Bagelpigeon" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/donor_btn"
-                        style="@style/Chip.Accessible.Icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/contributions_dashboard_badge_donor"
-                        android:textColor="@color/white"
-                        app:chipBackgroundColor="?attr/progressive_color"
-                        app:chipCornerRadius="16dp"
-                        app:chipIcon="@drawable/ic_baseline_volunteer_activism_24"
-                        app:chipIconTint="@color/white"
-                        app:chipStrokeWidth="0dp"
-                        android:visibility="gone"
-                        tools:text="Donor"
-                        tools:visibility="visible"
-                        />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/become_donor_btn"
-                        style="@style/Small"
+                    <org.wikipedia.views.DonorBadgeView
+                        android:id="@+id/donorBadgeView"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/contributions_dashboard_badge_become_a_donor"
-                        android:textColor="?attr/progressive_color"
-                        app:chipCornerRadius="16dp"
-                        app:chipIcon="@drawable/ic_baseline_volunteer_activism_24"
-                        app:chipIconTint="?attr/progressive_color"
-                        app:chipStrokeColor="?attr/border_color"
-                        android:visibility="gone"
-                        tools:text="Become a donor"
-                        tools:visibility="visible"/>
-
-                    <TextView
-                        android:id="@+id/update_donor_status_btn"
-                        style="@style/Small"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/contributions_dashboard_badge_update"
-                        android:textColor="?attr/progressive_color"
-                        android:visibility="gone"
-                        tools:text="Update donor status"
-                        tools:visibility="visible"
-                        />
+                        android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 

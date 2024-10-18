@@ -24,9 +24,10 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ResourceUtil
 
-class PageActionOverflowView(context: Context) : FrameLayout(context) {
+class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadgeView.Callback {
 
     private var binding = ViewPageActionOverflowBinding.inflate(LayoutInflater.from(context), this, true)
     private var popupWindowHost: PopupWindow? = null
@@ -102,45 +103,14 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
     }
 
     private fun loadDonorInformation() {
-        if (AccountUtil.isLoggedIn.not()) {
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && AccountUtil.isLoggedIn.not()) {
             binding.donorContainer.isVisible = false
             return
         }
         binding.donorContainer.isVisible = true
         binding.donorUsername.text = AccountUtil.userName
+        binding.donorBadgeView.setup(this)
 
-        when (getDonorStatus()) {
-            DonorStatus.DONOR -> {
-                binding.donorBtn.apply {
-                    isVisible = true
-                    setOnClickListener {
-                        // take user to Contribution Screen
-                        callback.onDonorSelected()
-                        dismissPopupWindowHost()
-                    }
-                }
-            }
-            DonorStatus.NON_DONOR -> {
-                binding.becomeDonorBtn.apply {
-                    isVisible = true
-                    setOnClickListener {
-                        // take user to the donation flow (the Donation bottom sheet).
-                        callback.onBecomeDonorSelected()
-                        dismissPopupWindowHost()
-                    }
-                }
-            }
-            DonorStatus.UNKNOWN -> {
-                binding.updateDonorStatusBtn.apply {
-                    isVisible = true
-                    setOnClickListener {
-                        // take user to the donor history screen
-                        callback.onUpdateDonorStatusSelected()
-                        dismissPopupWindowHost()
-                    }
-                }
-            }
-        }
     }
 
     private fun getDonorStatus(): DonorStatus {
@@ -163,4 +133,24 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             popupWindowHost = null
         }
     }
+
+    override fun onDonorBadgeClick() {
+        // take user to Contribution Screen
+        callback.onDonorSelected()
+        dismissPopupWindowHost()
+    }
+
+    override fun onBecomeDonorClick() {
+        // take user to the donation flow (the Donation bottom sheet).
+        callback.onBecomeDonorSelected()
+        dismissPopupWindowHost()
+    }
+
+    override fun onUpdateDonorStatusClick() {
+        // take user to the donor history screen
+        callback.onUpdateDonorStatusSelected()
+        dismissPopupWindowHost()
+    }
+
+
 }
