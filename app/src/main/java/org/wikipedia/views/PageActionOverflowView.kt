@@ -110,7 +110,6 @@ class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadg
         binding.donorContainer.isVisible = true
         binding.donorUsername.text = AccountUtil.userName
         binding.donorBadgeView.setup(this)
-
     }
 
     private fun getDonorStatus(): DonorStatus {
@@ -151,6 +150,4 @@ class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadg
         callback.onUpdateDonorStatusSelected()
         dismissPopupWindowHost()
     }
-
-
 }
