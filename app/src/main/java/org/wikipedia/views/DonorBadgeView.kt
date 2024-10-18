@@ -31,7 +31,7 @@ class DonorBadgeView(context: Context, attrs: AttributeSet? = null) : FrameLayou
         isVisible = true
         binding.donorChip.isVisible = false
         binding.becomeADonorChip.isVisible = false
-        binding.updateDonorStatusChip.isVisible = false
+        binding.updateDonorStatusText.isVisible = false
         when (DonorStatus.donorStatus()) {
             DonorStatus.DONOR -> {
                 binding.donorChip.apply {
@@ -50,7 +50,7 @@ class DonorBadgeView(context: Context, attrs: AttributeSet? = null) : FrameLayou
                 }
             }
             DonorStatus.UNKNOWN -> {
-                binding.updateDonorStatusChip.apply {
+                binding.updateDonorStatusText.apply {
                     isVisible = true
                     setOnClickListener {
                         callback.onUpdateDonorStatusClick()
