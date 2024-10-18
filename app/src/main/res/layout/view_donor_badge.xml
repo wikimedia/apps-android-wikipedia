@@ -25,7 +25,7 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/becomeADonorChip"
-        style="@style/Small"
+        style="@style/Chip.Accessible.Icon.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/contributions_dashboard_badge_become_a_donor"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:text="@string/contributions_dashboard_badge_update"
         android:textColor="?attr/progressive_color"
-        android:paddingVertical="16dp"
+        android:paddingVertical="8dp"
         android:visibility="gone"
         android:background="?selectableItemBackground"
         tools:text="Update donor status"
