@@ -58,7 +58,7 @@
                 android:paddingVertical="16dp"
                 android:layout_marginHorizontal="16dp"
                 android:background="?android:selectableItemBackground"
-                app:drawableStartCompat="@drawable/donor_icon"
+                app:drawableStartCompat="@drawable/outline_volunteer_activism_24"
                 app:drawableTint="?attr/secondary_color" />
 
             <LinearLayout

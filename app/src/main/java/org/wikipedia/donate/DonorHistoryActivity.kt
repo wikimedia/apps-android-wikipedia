@@ -86,7 +86,7 @@ class DonorHistoryActivity : BaseActivity() {
         }
         binding.donorStatus.text = getString(donorStatusText)
         binding.donorStatus.setTextColor(ResourceUtil.getThemedColorStateList(this, donorStatusTextColor))
-        binding.donateButton.isVisible = viewModel.currentDonorStatus != -1
+        binding.donateButton.isVisible = viewModel.currentDonorStatus == 1 // Not a donor
         binding.donationInfoContainer.isVisible = viewModel.isDonor
     }
 
