@@ -38,7 +38,7 @@
         app:chipStrokeColor="?attr/border_color"
         app:rippleColor="?attr/overlay_color"
         tools:text="Become a donor"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/updateDonorStatusText"
@@ -51,6 +51,6 @@
         android:visibility="gone"
         android:background="?selectableItemBackground"
         tools:text="Update donor status"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
 </merge>
