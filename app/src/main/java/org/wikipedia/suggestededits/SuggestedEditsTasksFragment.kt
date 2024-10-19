@@ -156,6 +156,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     fun refreshContents() {
+        // TODO: logged out event happens after onResume
         (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
         viewModel.fetchData()
