@@ -79,8 +79,12 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (tab == NavTab.EXPLORE) {
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
+            binding.toolbarTitle.isVisible = false
+            binding.donorBadge.isVisible = false
             controlNavTabInFragment = false
         } else {
+            binding.toolbarTitle.isVisible = true
+            binding.donorBadge.isVisible = false
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.showSearchTabTooltip = false
@@ -104,7 +108,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                 }
             }
             binding.mainToolbarWordmark.visibility = View.GONE
-            binding.mainToolbar.title = titleText
+            binding.toolbarTitle.text = titleText
             controlNavTabInFragment = true
         }
         fragment.requestUpdateToolbarElevation()
