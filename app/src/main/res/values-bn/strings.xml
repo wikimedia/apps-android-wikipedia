@@ -89,7 +89,7 @@
   <string name="page_edit_history_filter_by">ছাঁকুন</string>
   <string name="page_edit_history_filter_by_all">সমস্ত সম্পাদনা (%s)</string>
   <string name="page_edit_history_filter_by_user">ব্যবহারকারীর সম্পাদনা (%s)</string>
-  <string name="page_edit_history_filter_by_anon">বেনামি সম্পাদনা (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">বেনামি সম্পাদনা (%s)</string>
   <string name="page_edit_history_filter_by_bot">বট সম্পাদনা (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%2$s থেকে %1$dটি সম্পাদনা</item>

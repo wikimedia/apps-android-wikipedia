@@ -64,7 +64,7 @@
   <string name="page_edit_history_filter_by">ਅਨੁਸਾਰ ਫਿਲਟਰ</string>
   <string name="page_edit_history_filter_by_all">ਸਾਰੀਆਂ ਸੋਧਾਂ (%s)</string>
   <string name="page_edit_history_filter_by_user">ਵਰਤੋਂਕਾਰ ਸੋਧਾਂ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ਅਗਿਆਤ ਸੋਧਾਂ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">ਅਗਿਆਤ ਸੋਧਾਂ (%s)</string>
   <string name="page_edit_history_filter_by_bot">ਬੋਟ ਸੋਧਾਂ (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s ਤੋਂ %2$s ਤੱਕ ਮੈਟ੍ਰਿਕਸ</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -270,7 +270,7 @@
   <string name="edit_summary_added_short_description">ਛੋਟਾ ਵੇਰਵਾ ਜੋੜਿਆ ਗਿਆ</string>
   <string name="edit_conflict_title">ਸੋਧ ਤਕਰਾਰ</string>
   <string name="edit_notices_please_read">ਕਿਰਪਾ ਕਰਕੇ ਸੰਪਾਦਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪੜ੍ਹੋ</string>
-  <string name="edit_notices_show_auto">ਆਪਣੇ ਆਪ ਸੰਪਾਦਨ ਨੋਟਿਸ ਦਿਖਾਓ</string>
+  <string name="edit_notices_show_auto">ਆਪਣੇ ਆਪ ਸੋਧ ਸੁਨੇਹੇ ਵਿਖਾਓ</string>
   <string name="edit_notices_tooltip">ਇਸ ਲੇਖ ਲਈ ਸੰਪਾਦਨ ਨੋਟਿਸ ਦੇਖਣ ਲਈ ਇਸ ਬਟਨ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
   <string name="find_next">ਅੱਗੇ ਲੱਭੋ</string>
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
@@ -492,7 +492,7 @@
   <string name="notifications_menu_uncheck_all">ਸਾਰੀਆਂ ਚੀਜ਼ਾ ਤੋਂ ਨਿਸ਼ਾਨ ਹਟਾਓ</string>
   <string name="notifications_all_wikis_text">ਸਾਰਿਆਂ ਵਿਕੀਆਂ</string>
   <string name="notifications_all_types_text">ਸਾਰੀਆਂ ਕਿਸਮਾਂ</string>
-  <string name="notifications_menu_user_talk_page">%s ਦਾ ਗੱਲਬਾਤ ਵਰਕਾ</string>
+  <string name="notifications_menu_user_talk_page">%s ਦਾ ਗੱਲਬਾਤ ਸਫ਼ਾ</string>
   <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
   <string name="view_random_card_title">ਬੇਤਰਤੀਬੀ</string>
   <string name="view_random_article_card_title">ਬੇਤਰਤੀਬ ਲੇਖ</string>
@@ -582,11 +582,12 @@
   <string name="on_this_day_card_title">ਅੱਜ ਦੇ ਦਿਨ</string>
   <string name="this_year">ਇਸ ਸਾਲ</string>
   <string name="edit_type_all">ਸਾਰੇ ਯੋਗਦਾਨ</string>
+  <string name="wikitext_link">ਕੜੀ ਜੋੜੋ</string>
   <string name="insert_media_settings">ਚਿੱਤਰ ਵੇਰਵੇ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="insert_media_settings_alternative_text_description">ਨੇਤਰਹੀਣ ਪਾਠਕਾਂ ਲਈ ਵਰਣਨ</string>
   <string name="menu_option_user_contributions">%s ਦੇ ਯੋਗਦਾਨ</string>
   <string name="talk_menu_expand_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਫੈਲਾਓ</string>
-  <string name="talk_menu_collapse_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਸਮੇਟੋ</string>
+  <string name="talk_menu_collapse_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਢਾਓ</string>
   <string name="menu_option_view_user_contributions">ਵਰਤੋਂਕਾਰ ਯੋਗਦਾਨ ਦੇਖੋ</string>
   <string name="watchlist_filter_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="action_item_categories">ਸ਼੍ਰੇਣੀਆਂ</string>

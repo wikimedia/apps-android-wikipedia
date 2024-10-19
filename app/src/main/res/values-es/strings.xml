@@ -144,7 +144,7 @@
   <string name="page_edit_history_filter_by">Filtrar por:</string>
   <string name="page_edit_history_filter_by_all">Todas las ediciones (%s)</string>
   <string name="page_edit_history_filter_by_user">Ediciones de usuario (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Ediciones anónimas (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Ediciones anónimas (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ediciones de bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métrica de %1$s a %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -512,8 +512,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalice su barra de herramientas</string>
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="temp_account_not_logged_in">No has iniciado sesión</string>
-  <string name="temp_account_anon_dialog_body">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicie sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;cree una cuenta&lt;/a&gt; para obtener crédito para futuras ediciones y acceder a otras funciones.</string>
-  <string name="temp_account_temp_dialog_body">Tu edición se atribuirá a %1$s . Su dirección IP será visible para los administradores.&lt;br /&gt;&lt;br /&gt; Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;creas una cuenta&lt;/a&gt; , tus ediciones se atribuirán al nombre que elijas, entre otros beneficios.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicie sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;cree una cuenta&lt;/a&gt; para obtener crédito para futuras ediciones y acceder a otras funciones.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Tu edición se atribuirá a %1$s . Su dirección IP será visible para los administradores.&lt;br /&gt;&lt;br /&gt; Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;creas una cuenta&lt;/a&gt; , tus ediciones se atribuirán al nombre que elijas, entre otros beneficios.</string>
   <string name="temp_account_dialog_ok">Conseguido</string>
   <string name="temp_account_using_title">Estás usando una cuenta temporal</string>
   <string name="temp_account_dialog_discard">Descartar cambios e iniciar sesión</string>

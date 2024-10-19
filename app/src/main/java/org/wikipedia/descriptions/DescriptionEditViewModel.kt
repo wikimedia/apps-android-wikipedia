@@ -33,11 +33,11 @@ import org.wikipedia.util.log.L
 class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
-    val highlightText = savedStateHandle.get<String>(DescriptionEditFragment.ARG_HIGHLIGHT_TEXT)
-    val action = savedStateHandle.get<DescriptionEditActivity.Action>(DescriptionEditFragment.ARG_ACTION)!!
+    val highlightText = savedStateHandle.get<String>(DescriptionEditActivity.EXTRA_HIGHLIGHT_TEXT)
+    val action = savedStateHandle.get<DescriptionEditActivity.Action>(Constants.INTENT_EXTRA_ACTION)!!
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
-    val sourceSummary = savedStateHandle.get<PageSummaryForEdit>(DescriptionEditFragment.ARG_SOURCE_SUMMARY)
-    val targetSummary = savedStateHandle.get<PageSummaryForEdit>(DescriptionEditFragment.ARG_TARGET_SUMMARY)
+    val sourceSummary = savedStateHandle.get<PageSummaryForEdit>(DescriptionEditActivity.EXTRA_SOURCE_SUMMARY)
+    val targetSummary = savedStateHandle.get<PageSummaryForEdit>(DescriptionEditActivity.EXTRA_TARGET_SUMMARY)
     var editingAllowed = true
 
     private var clientJob: Job? = null

@@ -57,7 +57,7 @@
   <string name="page_edit_history_search_or_filter_edits_hint">Засваруудыг хайх эсвэл шүүх</string>
   <string name="page_edit_history_filter_by_all">Бүх засвар ( %s )</string>
   <string name="page_edit_history_filter_by_user">Хэрэглэгчийн засвар ( %s )</string>
-  <string name="page_edit_history_filter_by_anon">Анон засвар ( %s )</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Анон засвар ( %s )</string>
   <string name="menu_page_show_tabs">Цонхнуудыг харуулах</string>
   <string name="menu_page_other_languages">Хэл солих</string>
   <string name="menu_page_find_in_page">Өгүүллээс хайх</string>

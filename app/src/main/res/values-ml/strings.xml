@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">ഇതനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക</string>
   <string name="page_edit_history_filter_by_all">എല്ലാ എഡിറ്റുകളും ( %s )</string>
   <string name="page_edit_history_filter_by_user">ഉപയോക്തൃ എഡിറ്റുകൾ ( %s )</string>
-  <string name="page_edit_history_filter_by_anon">അനോൺ എഡിറ്റുകൾ ( %s )</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">അനോൺ എഡിറ്റുകൾ ( %s )</string>
   <string name="page_edit_history_filter_by_bot">ബോട്ട് എഡിറ്റുകൾ ( %s )</string>
   <string name="page_edit_history_metrics_content_description">%1$s മുതൽ %2$s s വരെയുള്ള മെട്രിക്കുകൾ</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>

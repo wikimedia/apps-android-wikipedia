@@ -53,7 +53,7 @@
   <string name="page_edit_history_filter_by">Saring berales</string>
   <string name="page_edit_history_filter_by_all">Semua permakan (%s)</string>
   <string name="page_edit_history_filter_by_user">Permakan pemaké (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Permakan sondernama (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Permakan sondernama (%s)</string>
   <string name="page_edit_history_filter_by_bot">Permakan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Penakeran deri %1$s ampé %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

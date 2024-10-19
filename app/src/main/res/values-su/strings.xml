@@ -56,7 +56,7 @@
   <string name="page_edit_history_filter_by">Saring dumasar</string>
   <string name="page_edit_history_filter_by_all">Sadaya éditan (%s)</string>
   <string name="page_edit_history_filter_by_user">Éditan pamaké (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Éditan anon (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Éditan anon (%s)</string>
   <string name="page_edit_history_filter_by_bot">Éditan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métrik ti %1$s nepi ka %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

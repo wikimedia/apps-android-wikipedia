@@ -10,9 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -35,9 +34,7 @@ import org.wikipedia.edit.Edit
 import org.wikipedia.edit.EditTags
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
-import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
@@ -53,10 +50,10 @@ import java.util.concurrent.TimeUnit
 class DescriptionEditFragment : Fragment() {
     interface Callback {
         fun onDescriptionEditSuccess()
-        fun onBottomBarContainerClicked(action: DescriptionEditActivity.Action)
+        fun onBottomBarContainerClicked()
     }
 
-    private val viewModel: DescriptionEditViewModel by viewModels()
+    private val viewModel: DescriptionEditViewModel by activityViewModels()
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
 
@@ -358,7 +355,7 @@ class DescriptionEditFragment : Fragment() {
         }
 
         override fun onBottomBarClick() {
-            callback()?.onBottomBarContainerClicked(viewModel.action)
+            callback()?.onBottomBarContainerClicked()
         }
 
         override fun onVoiceInputClick() {
@@ -427,27 +424,7 @@ class DescriptionEditFragment : Fragment() {
     companion object {
         const val ARG_REVIEWING = "inReviewing"
         const val ARG_DESCRIPTION = "description"
-        const val ARG_HIGHLIGHT_TEXT = "highlightText"
-        const val ARG_ACTION = "action"
-        const val ARG_SOURCE_SUMMARY = "sourceSummary"
-        const val ARG_TARGET_SUMMARY = "targetSummary"
         private const val MACHINE_SUGGESTION = "#machine-suggestion"
         private const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-
-        fun newInstance(title: PageTitle,
-                        highlightText: String?,
-                        sourceSummary: PageSummaryForEdit?,
-                        targetSummary: PageSummaryForEdit?,
-                        action: DescriptionEditActivity.Action,
-                        source: InvokeSource): DescriptionEditFragment {
-            return DescriptionEditFragment().apply {
-                arguments = bundleOf(Constants.ARG_TITLE to title,
-                        ARG_HIGHLIGHT_TEXT to highlightText,
-                        ARG_SOURCE_SUMMARY to sourceSummary,
-                        ARG_TARGET_SUMMARY to targetSummary,
-                        ARG_ACTION to action,
-                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
-            }
-        }
     }
 }
