@@ -55,7 +55,7 @@
   <string name="page_edit_history_filter_by">سٕنٛدی طرفہٕ فِلٹر</string>
   <string name="page_edit_history_filter_by_all">تمام ایٚڈِٹٕز %s</string>
   <string name="page_edit_history_filter_by_user">رُکُن ایٚڈِٹٕز %s</string>
-  <string name="page_edit_history_filter_by_anon">اؠنان اؠڑِٹٕز (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">اؠنان اؠڑِٹٕز (%s)</string>
   <string name="page_edit_history_filter_by_bot">باٹ ایٚڈِٹٕز %s</string>
   <string name="page_edit_history_metrics_content_description">حساب %1$s پؠٹھہٕ تس %2$s تسم</string>
   <plurals name="page_edit_history_article_edits_since_year">

@@ -52,7 +52,7 @@
   <string name="page_edit_history_filter_by">Tafi\'ö molo\'ö</string>
   <string name="page_edit_history_filter_by_all">Fefu wamulö\'ö (%s)</string>
   <string name="page_edit_history_filter_by_user">Nibulö\'ö zangoguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Nibulö\'ö niha sanörö (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Nibulö\'ö niha sanörö (%s)</string>
   <string name="page_edit_history_filter_by_bot">Nibulö\'ö robot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik i\'otarai %1$s irugi %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

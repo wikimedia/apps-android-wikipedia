@@ -57,7 +57,7 @@
   <string name="page_edit_history_filter_by">Maalim dɔlis</string>
   <string name="page_edit_history_filter_by_all">Dɛmisa wʋsa (%s)</string>
   <string name="page_edit_history_filter_by_user">tʋntʋn dɛmisa (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anon dɛmisa (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anon dɛmisa (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot dɛmisa (%s)</string>
   <string name="page_edit_history_metrics_content_description">Makim yi %1$s paae %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

@@ -52,7 +52,7 @@
   <string name="page_edit_history_filter_by">Sillii</string>
   <string name="page_edit_history_filter_by_all">Puoh nubástusah (%s)</string>
   <string name="page_edit_history_filter_by_user">Kevttee nubástusah (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonyymeh nubástusah (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyymeh nubástusah (%s)</string>
   <string name="page_edit_history_filter_by_bot">Booti nubástusah (%s)</string>
   <string name="menu_page_show_tabs">Čääiti koskâloostâid</string>
   <string name="menu_page_other_languages">Molso kielâ</string>

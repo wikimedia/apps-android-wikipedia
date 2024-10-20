@@ -60,7 +60,7 @@
   <string name="page_edit_history_comment_placeholder">တည်းဖြတ်မှု အကျဉ်းချုပ်ကို ဗလာပြုလုပ်ရန်</string>
   <string name="page_edit_history_filter_by_all">တည်းဖြတ်မှုများအားလုံး (%s)</string>
   <string name="page_edit_history_filter_by_user">အသုံးပြုသူ တည်းဖြတ်မှုများ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">အမည်မသိ တည်းဖြတ်မှုများ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">အမည်မသိ တည်းဖြတ်မှုများ (%s)</string>
   <string name="page_edit_history_filter_by_bot">ဘော့ တည်ဖြတ်မှုများ (%s)</string>
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
