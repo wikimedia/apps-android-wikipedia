@@ -450,6 +450,8 @@
   <string name="preference_title_collapse_tables">折叠表格</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、参考文献和注释。</string>
   <string name="nav_item_donate">捐款</string>
+  <string name="preference_title_censorship_circumvention">审查规避</string>
+  <string name="preference_summary_censorship_circumvention">绕过基于DPI的网络审查</string>
   <string name="error_voice_search_not_available">对不起，语言识别不可用。</string>
   <string name="location_service_disabled">位置服务被禁用。</string>
   <string name="enable_location_service">启用</string>
