@@ -103,6 +103,25 @@
                 <data android:scheme="wikipedia" />
             </intent-filter>
         </activity>
+        <activity-alias
+            android:name=".DonorIcon"
+            android:icon="@mipmap/ic_donor_test"
+            android:targetActivity=".main.MainActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme.Splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="wikipedia" />
+            </intent-filter>
+        </activity-alias>
         <activity
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"

@@ -1,5 +1,6 @@
 package org.wikipedia.main
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -59,6 +60,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
+
+        val componentName = ComponentName(this, "$packageName.")
     }
 
     override fun onResume() {

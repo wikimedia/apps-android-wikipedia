@@ -7,6 +7,8 @@
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
+    <string name="preference_key_app_icon">AppIcon</string>
+    <string name="preference_key_donor_icon">DonorIcon</string>
     <string name="preference_key_previous_color_theme">previousColorTheme</string>
     <string name="preference_key_font_family">fontFamily</string>
     <string name="preference_key_app_channel">channel</string>

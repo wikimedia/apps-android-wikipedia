@@ -9,6 +9,8 @@ import androidx.preference.SwitchPreferenceCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.BuildConfig
 import org.wikipedia.Constants
+import org.wikipedia.LauncherController
+import org.wikipedia.LauncherIcon
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -44,6 +46,18 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             it.setSummary(WikipediaApp.instance.currentTheme.nameId)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
+                true
+            }
+        }
+        findPreference(R.string.preference_key_app_icon).let {
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                LauncherController.setIcon(icon = LauncherIcon.DEFAULT)
+                true
+            }
+        }
+        findPreference(R.string.preference_key_donor_icon).let {
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                LauncherController.setIcon(icon = LauncherIcon.DONOR)
                 true
             }
         }
