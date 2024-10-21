@@ -495,5 +495,6 @@
   <string name="data_opt_in_accept">Ընդունել</string>
   <string name="data_opt_in_reject">Մերժել</string>
   <string name="donor_history_save_button">Հիշել</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Ոչ, շնորհակալություն</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Ոչ, շնորհակալություն</string>
 </resources>
