@@ -77,13 +77,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!isAdded) {
             return@Runnable
         }
-        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
+        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.editsCountStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
+        balloon.showAlignBottom(binding.editsCountStatsView.getTitleView())
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getTitleView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getTitleView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getTitleView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
-        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
+        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.editsCountStatsView)
     }
 
     private val requestAddLanguage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -235,15 +235,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
         setUserStatsViewsAndTooltips()
 
-        binding.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
+        binding.pageViewStatsView.setDescription(viewModel.totalPageviews.toString())
 
         if (viewModel.latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+            binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_last_edited))
+            binding.editStreakStatsView.setDescription(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
         } else {
-            binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+            binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+            binding.editStreakStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
                 viewModel.latestEditStreak, viewModel.latestEditStreak))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         }
 
         if (viewModel.totalContributions == 0) {
@@ -257,12 +257,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.onboardingImageView.visibility = GONE
             binding.onboardingTextView.visibility = GONE
             binding.userStatsClickTarget.isEnabled = true
-            binding.userNameView.text = AccountUtil.userName
-            binding.contributionsStatsView.setTitle(viewModel.totalContributions.toString())
-
             val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
                 R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
-            binding.contributionsStatsView.setDescription(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
+            binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
+            binding.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
             if (Prefs.showOneTimeSequentialUserStatsTooltip) {
                 showOneTimeSequentialUserStatsTooltips()
             }
@@ -273,19 +271,19 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUserStatsViewsAndTooltips() {
-        binding.contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        binding.contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
+        binding.editsCountStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        binding.editsCountStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
-        binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        binding.editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+        binding.editStreakStatsView.setImageDrawable(R.drawable.ic_icon_revision_history_apps)
         binding.editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
 
-        binding.pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
+        binding.pageViewStatsView.setTitle(getString(R.string.suggested_edits_views_label_text))
         binding.pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
         binding.pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
 
        binding.editQualityStatsView.setGoodnessState(viewModel.revertSeverity)
-       binding.editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+       binding.editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_label_text))
        binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
     }
 
