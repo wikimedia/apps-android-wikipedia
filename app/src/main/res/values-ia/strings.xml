@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">Filtrar per</string>
   <string name="page_edit_history_filter_by_all">Tote le modificationes (%s)</string>
   <string name="page_edit_history_filter_by_user">Modificationes de usatores (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Modificationes anonyme (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modificationes non registrate (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modificationes de robots (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statisticas desde le %1$s usque al %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -425,8 +425,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalisar tu barra de utensiles</string>
   <string name="error_blocked_footer_no_blocker">Tu pote contactar un &lt;a href=\"https://ia.wikipedia.org/wiki/Wikipedia:Administratores\"&gt;administrator&lt;/a&gt; pro discuter le blocada.</string>
   <string name="temp_account_not_logged_in">Tu non ha aperite session</string>
-  <string name="temp_account_anon_dialog_body">Quando tu face un modification, un &lt;b&gt;conto temporari&lt;/b&gt; te essera create pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Lege plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Aperi session&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;crea un conto&lt;/a&gt; pro reciper credito pro futur modificationes e acceder a altere functiones.</string>
-  <string name="temp_account_temp_dialog_body">Tu modification essera attribuite a %1$s. Tu adresse IP essera visibile al administratores.&lt;br /&gt;&lt;br /&gt;Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt; oor &lt;a href=\"https://#login\"&gt;crea un conto&lt;/a&gt;, tu modificationes essera attribuite a un nomine que tu elige, inter altere beneficios.</string>
+  <string name="temp_account_anon_ip_dialog_body">Quando tu face un modification, tu adresse IP essera associate a tu modificationes.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Aperi session&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un conto&lt;/a&gt; pro reciper attribution pro futur modificationes e pro acceder a altere functionalitate.</string>
+  <string name="temp_account_anon_dialog_body">Quando tu face un modification, un &lt;b&gt;conto temporari&lt;/b&gt; te essera create pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Lege plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Aperi session&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un conto&lt;/a&gt; pro reciper credito pro futur modificationes e acceder a altere functiones.</string>
+  <string name="temp_account_temp_dialog_body">Tu modification essera attribuite a %1$s. Tu adresse IP essera visibile al administratores.&lt;br /&gt;&lt;br /&gt;Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un conto&lt;/a&gt;, tu modificationes essera attribuite a un nomine que tu elige, inter altere beneficios.</string>
   <string name="temp_account_dialog_ok">Comprendite</string>
   <string name="temp_account_using_title">Tu usa un conto temporari</string>
   <string name="temp_account_dialog_discard">Abandonar cambiamentos e aperir session</string>
@@ -438,6 +439,7 @@
     <item quantity="one">Le conto expirara in %d die.</item>
     <item quantity="other">Le conto expirara in %d dies.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Tu non ha aperite session.&lt;/b&gt; Quando tu face un modification, tu adresse IP essera associate a tu modificaiontes.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Tu non ha aperite session.&lt;/b&gt; Un vice que tu apporta un modification, un conto temporari essera create pro te pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Tu usa un conto temporari.&lt;/b&gt; Tu modification essera attribuite a %1$s. &lt;a href=\"%2$s\"&gt;Leger plus&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Tu usa in iste momento un conto temporari.&lt;/b&gt; Le modificationes apportate con le conto temporari %1$s non essera transferite a tu conto permanente quando tu aperi session. Aperi session o crea un conto pro reciper attribution a tu nomine de usator, inter altere beneficios.</string>
@@ -1677,4 +1679,35 @@
   <string name="recommended_content_survey_dialog_message">Es tu satisfacite con iste resultato de recerca recommendate?</string>
   <string name="recommended_content_survey_dialog_input_hint">Retroaction additional</string>
   <string name="recommended_content_survey_dialog_submitted_message">Retroaction inviate. Gratias!</string>
+  <string name="donor_history_title">Historia del donator</string>
+  <string name="donor_history_save_button">Salveguardar</string>
+  <string name="donor_history_update_donor_status_default">Actualisar stato de donator</string>
+  <string name="donor_history_update_donor_status_donor">Donator</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Non donator</string>
+  <string name="donor_history_last_donated">Ultime donation</string>
+  <string name="donor_history_last_donated_hint">Adder le data del ultime donation</string>
+  <string name="donor_history_last_donated_date_picker_title">Selige un data</string>
+  <string name="donor_history_last_donated_date_picker_label">Insere data</string>
+  <string name="donor_history_recurring_donor">Donator recurrente</string>
+  <string name="donor_history_donate_button">Donar al Fundation Wikimedia</string>
+  <string name="donor_history_about_this_experiment">A proposito de iste experimento</string>
+  <string name="donor_history_updated_message_snackbar">Historia del donator actualisate</string>
+  <string name="contributions_dashboard_survey_dialog_title">Adjuta a meliorar le tabuliero de contributiones</string>
+  <string name="contributions_dashboard_survey_dialog_message">Iste actualisation al tabuliero de instrumentos es un function experimental. Vole tu que iste function es meliorate o removite?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Necun opinion</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Dar tu opinion</string>
+  <string name="contributions_dashboard_donation_dialog_title">Gratias pro appoiar le cognoscentia libere</string>
+  <string name="contributions_dashboard_donation_dialog_message">Tu face parte del 2%% que ha eligite a appoiar le ressource al qual milliones se fide. Pro demonstrar nostre gratitude, tu tabuliero de contributiones ha essite actualisate pro recognoscer tu stato de donator. Vole tu vider le actualisation?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">No, gratias</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Si, porta me la</string>
+  <string name="contributions_dashboard_entry_dialog_title">Tu tabuliero de contributiones ha essite actualisate</string>
+  <string name="contributions_dashboard_entry_dialog_message">Le tabuliero de contributiones ora monstra detalios sur tu stato de donator. Vole tu revider iste function experimental?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">No, gratias</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Si, porta me la</string>
+  <string name="contributions_dashboard_badge_donor">Donator</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Devenir donator</string>
+  <string name="contributions_dashboard_badge_update">Actualisar stato de donator</string>
+  <string name="contributions_dashboard_app_icon_title">Icone del app</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Beneficio de donator</string>
+  <string name="contributions_dashboard_logged_out_user">Usator sin session</string>
 </resources>

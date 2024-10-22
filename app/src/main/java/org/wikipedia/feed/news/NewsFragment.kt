@@ -40,7 +40,7 @@ class NewsFragment : Fragment() {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: NewsViewModel by viewModels { NewsViewModel.Factory(requireArguments()) }
+    private val viewModel: NewsViewModel by viewModels()
 
     private val offsetChangedListener =
         AppBarLayout.OnOffsetChangedListener { layout: AppBarLayout, offset: Int ->

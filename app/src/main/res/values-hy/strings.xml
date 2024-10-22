@@ -55,7 +55,7 @@
   <string name="page_edit_history_filter_by">Զտել ըստ</string>
   <string name="page_edit_history_filter_by_all">Բոլոր խմբագրումները (%s)</string>
   <string name="page_edit_history_filter_by_user">Մասնակիցների խմբագրումները (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Անանուն խմբագրումներ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Անանուն խմբագրումներ (%s)</string>
   <string name="page_edit_history_filter_by_bot">Բոտերի խմբագրումները (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d խմբագրում սկսած %2$s-ից</item>
@@ -495,5 +495,6 @@
   <string name="data_opt_in_accept">Ընդունել</string>
   <string name="data_opt_in_reject">Մերժել</string>
   <string name="donor_history_save_button">Հիշել</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Ոչ, շնորհակալություն</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Ոչ, շնորհակալություն</string>
 </resources>

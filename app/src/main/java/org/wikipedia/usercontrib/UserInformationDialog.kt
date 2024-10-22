@@ -26,7 +26,7 @@ import java.util.Date
 
 class UserInformationDialog : DialogFragment() {
 
-    private val viewModel: UserInformationDialogViewModel by viewModels { UserInformationDialogViewModel.Factory(requireArguments()) }
+    private val viewModel: UserInformationDialogViewModel by viewModels()
 
     private var _binding: DialogUserInformationBinding? = null
     private val binding get() = _binding!!
