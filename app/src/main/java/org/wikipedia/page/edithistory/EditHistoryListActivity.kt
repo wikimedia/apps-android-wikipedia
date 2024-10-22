@@ -65,7 +65,7 @@ class EditHistoryListActivity : BaseActivity() {
     private val editHistoryEmptyMessagesAdapter = EmptyMessagesAdapter()
     private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
-    private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
+    private val viewModel: EditHistoryListViewModel by viewModels()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
