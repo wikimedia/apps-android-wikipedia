@@ -133,7 +133,7 @@ class SearchResultsViewModel : ViewModel() {
 
         private fun getSearchResultsFromTabs(searchTerm: String): SearchResults {
             WikipediaApp.instance.tabList.forEach { tab ->
-                tab.backStackPositionTitle?.let {
+                tab.getBackStackPositionTitle()?.let {
                     if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
                         return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                     }

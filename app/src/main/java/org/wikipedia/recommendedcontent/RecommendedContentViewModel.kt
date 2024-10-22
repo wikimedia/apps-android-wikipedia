@@ -83,8 +83,8 @@ class RecommendedContentViewModel(savedStateHandle: SavedStateHandle) : ViewMode
         return withContext(Dispatchers.IO) {
             // Get term from last opened article
             var term = WikipediaApp.instance.tabList.lastOrNull {
-                it.backStackPositionTitle?.wikiSite == wikiSite
-            }?.backStackPositionTitle?.displayText
+                it.getBackStackPositionTitle()?.wikiSite == wikiSite
+            }?.getBackStackPositionTitle()?.displayText
 
             // Get term from last history entry if no article is opened
             if (term.isNullOrEmpty()) {
