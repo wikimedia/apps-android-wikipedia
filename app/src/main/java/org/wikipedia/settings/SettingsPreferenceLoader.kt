@@ -51,10 +51,16 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
 
-        findPreference(R.string.preference_key_app_icon).let {
+        val dynamicListPreference: ListPreference? = findPreference(R.string.preference_key_app_icon) as? ListPreference
+        dynamicListPreference?.let {
+            if (Prefs.donationResults.isNotEmpty()) {
+                it.entries = listOf("DEFAULT", "DONOR").toTypedArray()
+                it.entryValues = listOf("DEFAULT", "DONOR").toTypedArray()
+            }
             it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 when (newValue as String) {
                     "DEFAULT" -> {
+                        // @TODO: string translation
                         FeedbackUtil.makeSnackbar(activity = activity, text = "App Icon changed to DEFAULT").show()
                         LauncherController.setIcon(icon = LauncherIcon.DEFAULT)
                     }

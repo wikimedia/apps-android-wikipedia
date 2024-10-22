@@ -60,8 +60,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
-
-        val componentName = ComponentName(this, "$packageName.")
     }
 
     override fun onResume() {
