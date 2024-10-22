@@ -5,11 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup.LayoutParams
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.android.flexbox.FlexboxLayout
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
@@ -105,6 +107,18 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                         }
                     })
                     binding.donorBadge.isVisible = DonorStatus.donorStatus() != DonorStatus.UNKNOWN
+                    // Hacky: flex box will add a space between wrapped items.
+                    // Remove the top space of the badge by adding a minus top margin to resolve the issue.
+                    val margin = DimenUtil.roundedDpToPx(12f)
+                    binding.donorBadge.post {
+                        binding.donorBadge.layoutParams = FlexboxLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+                            if (binding.flexboxLayout.flexLines.size > 1) {
+                                setMargins(0, -margin, margin, 0)
+                            } else {
+                                setMargins(0, 0, margin, 0)
+                            }
+                        }
+                    }
                 }
             }
             binding.mainToolbarWordmark.visibility = View.GONE

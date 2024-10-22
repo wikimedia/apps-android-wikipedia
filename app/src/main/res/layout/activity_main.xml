@@ -24,6 +24,7 @@
             app:tint="?attr/primary_color" />
 
         <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexboxLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:flexWrap="wrap"
