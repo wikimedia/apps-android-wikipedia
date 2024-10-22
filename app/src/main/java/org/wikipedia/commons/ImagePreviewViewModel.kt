@@ -1,8 +1,7 @@
 package org.wikipedia.commons
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
@@ -12,17 +11,15 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.Resource
 
-class ImagePreviewViewModel(bundle: Bundle) : ViewModel() {
-
+class ImagePreviewViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
     }
-    var pageSummaryForEdit = bundle.parcelable<PageSummaryForEdit>(ImagePreviewDialog.ARG_SUMMARY)!!
-    var action = bundle.getSerializable(ImagePreviewDialog.ARG_ACTION) as DescriptionEditActivity.Action?
+    var pageSummaryForEdit = savedStateHandle.get<PageSummaryForEdit>(ImagePreviewDialog.ARG_SUMMARY)!!
+    var action = savedStateHandle.get<DescriptionEditActivity.Action>(ImagePreviewDialog.ARG_ACTION)
 
     private val _uiState = MutableStateFlow(Resource<FilePage>())
     val uiState = _uiState.asStateFlow()
@@ -66,13 +63,6 @@ class ImagePreviewViewModel(bundle: Bundle) : ViewModel() {
             } ?: run {
                 _uiState.value = Resource.Error(Throwable("No image info found."))
             }
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ImagePreviewViewModel(bundle) as T
         }
     }
 }

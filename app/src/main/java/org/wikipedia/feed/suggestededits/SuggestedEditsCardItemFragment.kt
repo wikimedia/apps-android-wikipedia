@@ -46,7 +46,7 @@ import org.wikipedia.util.StringUtil
 class SuggestedEditsCardItemFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsCardItemBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: SuggestedEditsCardItemViewModel by viewModels { SuggestedEditsCardItemViewModel.Factory(requireArguments()) }
+    private val viewModel: SuggestedEditsCardItemViewModel by viewModels()
 
     private var itemClickable = false
 
