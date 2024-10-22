@@ -7,9 +7,6 @@ enum class DonorStatus {
 
     companion object {
         fun donorStatus(): DonorStatus {
-            // when donor status is set from developer settings
-            Prefs.donorStatus?.let { return it }
-
             return if (Prefs.hasDonorHistorySaved.not()) {
                 UNKNOWN
             } else if (Prefs.donationResults.isEmpty()) {

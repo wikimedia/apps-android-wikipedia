@@ -748,17 +748,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donor_history_saved, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donor_history_saved, value)
 
-    val donorStatus: DonorStatus?
-        get() {
-            val prefValue = PrefsIoUtil.getString(R.string.preference_key_donor_status, null)
-            return when (prefValue) {
-                "DONOR" -> DonorStatus.DONOR
-                "NON_DONOR" -> DonorStatus.NON_DONOR
-                "NONE" -> null
-                else -> DonorStatus.UNKNOWN
-            }
-        }
-
     var isRecurringDonor
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)

@@ -112,20 +112,6 @@ class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadg
         binding.donorBadgeView.setup(this)
     }
 
-    private fun getDonorStatus(): DonorStatus {
-        Prefs.donorStatus?.let { return it }
-
-        // user has not updated their donor status
-        if (Prefs.hasDonorHistorySaved.not()) {
-            return DonorStatus.UNKNOWN
-        }
-        // user has not donated
-        if (Prefs.donationResults.isEmpty()) {
-            return DonorStatus.NON_DONOR
-        }
-        return DonorStatus.DONOR
-    }
-
     private fun dismissPopupWindowHost() {
         popupWindowHost?.let {
             it.dismiss()
