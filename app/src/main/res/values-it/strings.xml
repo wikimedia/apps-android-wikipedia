@@ -103,7 +103,7 @@
   <string name="page_edit_history_filter_by">Filtra per</string>
   <string name="page_edit_history_filter_by_all">Tutte le modifiche (%s)</string>
   <string name="page_edit_history_filter_by_user">Modifiche dell\'utente (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Modifiche anonime (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modifiche non registrate (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modifiche di bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statistiche dal %1$s al %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -470,7 +470,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalizza la barra degli strumenti</string>
   <string name="error_blocked_footer_no_blocker">Puoi contattare un\'&lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
   <string name="temp_account_not_logged_in">Non hai effettuato l\'accesso</string>
-  <string name="temp_account_anon_dialog_body">Una volta che hai apportato una modifica, verrà &lt;a href=\'https://#login\'&gt;creato un account&lt;/a&gt; temporaneo per proteggere la tua privacy. &lt;a href=\'%1$s\'&gt;Scopri di più&lt;/a&gt;. Accedi o crea un account per ricevere riconoscimento per le tue modifiche future e per accedere ad altre funzionalità.</string>
+  <string name="temp_account_anon_dialog_body">Una volta che hai apportato una modifica, verrà &lt;a href=\'https://#login\'&gt;creata un\'utenza&lt;/a&gt; temporanea per proteggere la tua privacy. &lt;a href=\'%1$s\'&gt;Scopri di più&lt;/a&gt;. &lt;br /&gt;&lt;a href=\"https://#login\"&gt;Accedi&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un\'utenza&lt;/a&gt; per ricevere riconoscimento per le tue modifiche future e per accedere ad altre funzionalità.</string>
   <string name="temp_account_dialog_ok">Capito</string>
   <string name="temp_account_using_title">Stai utilizzando un\'utenza temporanea</string>
   <string name="temp_account_dialog_discard">Ignora le modifiche ed accedi</string>

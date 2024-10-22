@@ -25,6 +25,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ChangeTextSizeEvent
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.installreferrer.InstallReferrerListener
 import org.wikipedia.language.AcceptLanguageUtil
@@ -138,9 +139,6 @@ class WikipediaApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // Set the instance after the Application is fully initialized.
-        instance = this
-
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         connectionStateMonitor.enable()
@@ -250,6 +248,7 @@ class WikipediaApp : Application() {
         }.invokeOnCompletion {
             SharedPreferenceCookieManager.instance.clearAllCookies()
             AppDatabase.instance.notificationDao().deleteAll()
+            FlowEventBus.post(LoggedOutEvent())
             L.d("Logout complete.")
         }
     }
