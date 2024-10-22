@@ -90,7 +90,6 @@
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
             android:exported="true"/>
-
         <activity-alias
             android:name=".DefaultIcon"
             android:targetActivity=".main.MainActivity"
@@ -108,13 +107,12 @@
                 <data android:scheme="wikipedia" />
             </intent-filter>
         </activity-alias>
-
-
         <activity-alias
             android:name=".DonorIcon"
             android:icon="@mipmap/ic_donor_test"
             android:targetActivity=".main.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -12,7 +12,7 @@ object LauncherController {
         LauncherIcon.entries.forEach { i ->
             packageManager.setComponentEnabledSetting(
                 i.getComponentName(context),
-                if (i == icon) PackageManager.COMPONENT_ENABLED_STATE_DEFAULT else
+                if (i == icon) PackageManager.COMPONENT_ENABLED_STATE_ENABLED else
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP
             )
