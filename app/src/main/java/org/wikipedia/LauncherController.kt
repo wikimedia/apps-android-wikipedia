@@ -28,7 +28,7 @@ enum class LauncherIcon(
     val label: Int,
 ) {
     DEFAULT(
-        key = "main.MainActivity",
+        key = "DefaultIcon",
         background = R.drawable.launcher_background,
         foreground = R.drawable.launcher_foreground,
         label = R.string.app_name

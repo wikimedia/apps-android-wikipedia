@@ -6,5 +6,9 @@
         <item>HEADERS</item>
         <item>BODY</item>
     </string-array>
+    <string-array name="preference_values_app_icon">
+        <item>DEFAULT</item>
+        <item>DONOR</item>
+    </string-array>
 
 </resources>

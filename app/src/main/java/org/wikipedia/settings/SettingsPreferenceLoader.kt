@@ -3,6 +3,7 @@ package org.wikipedia.settings
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
@@ -49,15 +50,19 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 true
             }
         }
+
         findPreference(R.string.preference_key_app_icon).let {
-            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                LauncherController.setIcon(icon = LauncherIcon.DEFAULT)
-                true
-            }
-        }
-        findPreference(R.string.preference_key_donor_icon).let {
-            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                LauncherController.setIcon(icon = LauncherIcon.DONOR)
+            it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                when (newValue as String) {
+                    "DEFAULT" -> {
+                        FeedbackUtil.makeSnackbar(activity = activity, text = "App Icon changed to DEFAULT").show()
+                        LauncherController.setIcon(icon = LauncherIcon.DEFAULT)
+                    }
+                    "DONOR" -> {
+                        FeedbackUtil.makeSnackbar(activity = activity, text = "App Icon changed to DONOR").show()
+                        LauncherController.setIcon(icon = LauncherIcon.DONOR)
+                    }
+                }
                 true
             }
         }
