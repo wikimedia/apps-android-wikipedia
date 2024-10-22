@@ -18,7 +18,6 @@ object LauncherController {
             )
         }
     }
-
 }
 
 enum class LauncherIcon(
@@ -40,9 +39,7 @@ enum class LauncherIcon(
         label = R.string.app_name
     );
 
-
     fun getComponentName(context: Context): ComponentName {
         return ComponentName(context.packageName, "org.wikipedia.$key")
     }
-
 }
