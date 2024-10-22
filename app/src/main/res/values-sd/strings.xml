@@ -60,7 +60,7 @@
   <string name="page_edit_history_filter_by">جي لحاظ سان ڇاڻيو</string>
   <string name="page_edit_history_filter_by_all">سڀ سنوارون (%s)</string>
   <string name="page_edit_history_filter_by_user">واپرائيندڙ جون سنوارون (%s)</string>
-  <string name="page_edit_history_filter_by_anon">اڻڄاتل سنوارون (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">اڻڄاتل سنوارون (%s)</string>
   <string name="page_edit_history_filter_by_bot">بوٽ سنوارون (%s)</string>
   <string name="page_edit_history_metrics_content_description">ميٽرڪس %1$s کان %2$s تائين</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1366,8 +1366,6 @@
   <string name="reading_list_share_menu_label">ونڊيو...</string>
   <string name="reading_list_share_menu_tooltip">ھيءَ پڙھڻ جي فھرست ٻين سان ونڊيو</string>
   <string name="reading_list_share_message_v2">سلام! آئون توھان سان پنھنجي وڪيپيڊيا جي پڙھڻ جي فھرست ونڊڻ چاھيندس:</string>
-  <string name="reading_list_share_survey_title">ڇا توھان \"پڙھڻ جون فھرستون ونڊيو\" ۾ اسان جي مدد ڪري سگهو ٿا؟</string>
-  <string name="reading_list_share_survey_body">\"پڙھڻ جون فھرستون ونڊيو\" ھڪ آزمائشي خصوصيت آھي ۽ ان کي بھتر ڪرڻ يا ھٽائڻ لاءِ اسان کي توھان جي موٽ جي ضرورت آھي.</string>
   <string name="talk_templates_new_message_title">نئون نياپو</string>
   <string name="talk_templates_new_message_subject_hint">موضوع</string>
   <string name="talk_templates_new_message_compose_hint">نياپو لکو</string>

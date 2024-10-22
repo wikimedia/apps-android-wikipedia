@@ -54,7 +54,7 @@
   <string name="page_edit_history_filter_by">Filtriraj po</string>
   <string name="page_edit_history_filter_by_all">Sve izmene (%s)</string>
   <string name="page_edit_history_filter_by_user">Korisničke izmene (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonimne izmene (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonimne izmene (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botovske izmene (%s)</string>
   <string name="page_edit_history_metrics_content_description">Od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1396,8 +1396,6 @@
   <string name="reading_list_share_menu_label">Deli…</string>
   <string name="reading_list_share_menu_tooltip">Podelite ovu listu za čitanje sa drugima</string>
   <string name="reading_list_share_message_v2">Zdravo! Želim da podelim moju listu za čitanje na Vikipediji sa vama:</string>
-  <string name="reading_list_share_survey_title">Da li možete da nam pomognete u unapređivanju \"deljenja listi za čitanje\"?</string>
-  <string name="reading_list_share_survey_body">\"Deljenje listi za čitanje\" je testna mogućnost i potrebne su vam vaše povratne informacije da bi smo je unapredili ili uklonili.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Nemate sačuvane poruke upozorenja.</string>
   <string name="talk_templates_new_message_title">Nova poruka</string>
   <string name="talk_templates_new_message_subject_hint">Tema</string>

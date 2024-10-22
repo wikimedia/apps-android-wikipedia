@@ -3,13 +3,12 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.annotation.ColorInt
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.commons.ImagePreviewDialog
-import org.wikipedia.extensions.parcelableExtra
-import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
@@ -23,26 +22,19 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS, IMAGE_RECOMMENDATIONS, VANDALISM_PATROL
     }
 
+    private val viewModel: DescriptionEditViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val action = intent.serializableExtra<Action>(Constants.INTENT_EXTRA_ACTION)
 
-        if (action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
+        if (viewModel.action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
             startActivity(DescriptionEditTutorialActivity.newIntent(this))
         }
     }
 
-    public override fun createFragment(): DescriptionEditFragment {
-        return DescriptionEditFragment.newInstance(
-            intent.parcelableExtra(Constants.ARG_TITLE)!!,
-            intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-            intent.parcelableExtra(EXTRA_SOURCE_SUMMARY),
-            intent.parcelableExtra(EXTRA_TARGET_SUMMARY),
-            intent.serializableExtra(Constants.INTENT_EXTRA_ACTION)!!,
-            intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
-        )
-    }
+    // The description edit view model provides the activity's extras to the fragment.
+    public override fun createFragment() = DescriptionEditFragment()
 
     override fun onBackPressed() {
         if (fragment.binding.fragmentDescriptionEditView.showingReviewContent()) {
@@ -58,16 +50,17 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         finish()
     }
 
-    override fun onBottomBarContainerClicked(action: Action) {
-        val key = if (action == Action.TRANSLATE_DESCRIPTION) EXTRA_TARGET_SUMMARY else EXTRA_SOURCE_SUMMARY
-        val summary = intent.parcelableExtra<PageSummaryForEdit>(key)!!
-        if (action == Action.ADD_CAPTION || action == Action.TRANSLATE_CAPTION) {
+    override fun onBottomBarContainerClicked() {
+        val summary = if (viewModel.action == Action.TRANSLATE_DESCRIPTION) viewModel.targetSummary!!
+        else viewModel.sourceSummary!!
+
+        if (viewModel.action == Action.ADD_CAPTION || viewModel.action == Action.TRANSLATE_CAPTION) {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                    ImagePreviewDialog.newInstance(summary, action))
+                    ImagePreviewDialog.newInstance(summary, viewModel.action))
         } else {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle,
-                            if (intent.serializableExtra<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
+                            if (viewModel.invokeSource == InvokeSource.PAGE_ACTIVITY)
                                 HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS)))
         }
     }
@@ -81,9 +74,9 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     companion object {
-        private const val EXTRA_HIGHLIGHT_TEXT = "highlightText"
-        private const val EXTRA_SOURCE_SUMMARY = "sourceSummary"
-        private const val EXTRA_TARGET_SUMMARY = "targetSummary"
+        const val EXTRA_HIGHLIGHT_TEXT = "highlightText"
+        const val EXTRA_SOURCE_SUMMARY = "sourceSummary"
+        const val EXTRA_TARGET_SUMMARY = "targetSummary"
 
         fun newIntent(context: Context,
                       title: PageTitle,

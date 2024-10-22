@@ -17,11 +17,11 @@ import org.wikipedia.util.log.L
 
 @Suppress("unused", "CanBeParameter")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_breadcrumbs_event/1.0.0")
+@SerialName("/analytics/mobile_apps/android_breadcrumbs_event/1.1.0")
 class BreadCrumbLogEvent(
         private val screen_name: String,
         private val action: String
-) : MobileAppsEvent(STREAM_NAME) {
+) : MobileAppsEventWithTemp(STREAM_NAME) {
 
     // Do NOT join the declaration and assignment to these fields, or they won't be serialized correctly.
     private val app_primary_language_code: String

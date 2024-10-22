@@ -42,7 +42,7 @@ class SuggestedEditsImageTagsViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _actionState.value = Resource.Error(throwable)
         }) {
-            val csrfToken = CsrfTokenClient.getToken(Constants.commonsWikiSite).blockingSingle()
+            val csrfToken = CsrfTokenClient.getToken(Constants.commonsWikiSite)
             val mId = "M" + page.pageId
             var claimStr = "{\"claims\":["
             var commentStr = "/* add-depicts: "

@@ -306,6 +306,14 @@
             android:key="@string/preference_key_show_sequential_recent_edits_diff_tooltip"
             android:title="@string/preference_key_show_sequential_recent_edits_diff_tooltip" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_temp_account_welcome_shown"
+            android:title="@string/preference_key_temp_account_welcome_shown" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_temp_account_dialog_shown"
+            android:title="@string/preference_key_temp_account_dialog_shown" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">
@@ -428,6 +436,11 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_donation_test_env"
             android:title="Donation test environment" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_donation_results"
+            android:title="Donation results" />
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"

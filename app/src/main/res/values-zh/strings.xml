@@ -123,7 +123,7 @@
   <string name="page_edit_history_filter_by">筛选条件</string>
   <string name="page_edit_history_filter_by_all">所有编辑（%s）</string>
   <string name="page_edit_history_filter_by_user">用户编辑（%s）</string>
-  <string name="page_edit_history_filter_by_anon">匿名编辑（%s）</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">匿名编辑（%s）</string>
   <string name="page_edit_history_filter_by_bot">机器人编辑（%s）</string>
   <string name="page_edit_history_metrics_content_description">从%1$s到%2$s的数据</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -491,8 +491,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">自定义您的工具栏</string>
   <string name="error_blocked_footer_no_blocker">您可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理员&lt;/a&gt;来讨论此封禁。</string>
   <string name="temp_account_not_logged_in">您尚未登录</string>
-  <string name="temp_account_anon_dialog_body">一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
-  <string name="temp_account_temp_dialog_body">您的编辑将会以%1$s署名。您的IP地址将对管理员可见。&lt;br /&gt;&lt;br /&gt;如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;，您的编辑将以您选择的名称署名，且还可享有其他好处。</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">您的编辑将会以%1$s署名。您的IP地址将对管理员可见。&lt;br /&gt;&lt;br /&gt;如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;，您的编辑将以您选择的名称署名，且还可享有其他好处。</string>
   <string name="temp_account_dialog_ok">明白了</string>
   <string name="temp_account_using_title">您正在使用临时账号</string>
   <string name="temp_account_dialog_discard">放弃更改并登录</string>
@@ -1536,8 +1536,6 @@
   <string name="reading_list_share_menu_label">分享…</string>
   <string name="reading_list_share_menu_tooltip">与他人分享这份阅读清单</string>
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
-  <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
-  <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
   <string name="talk_templates_empty_message">创建您自己的消息，或使用&lt;a href=\"#\"&gt;示例消息&lt;/a&gt;来开始。</string>
   <string name="talk_templates_new_message_title">新留言</string>
   <string name="talk_templates_new_message_subject_hint">主题</string>

@@ -42,6 +42,7 @@
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
   <string name="nav_item_search">חיפוש</string>
+  <string name="nav_item_contribute">תרומה</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="card_offline_error_retry">ניסיון חוזר</string>
@@ -77,7 +78,7 @@
   <string name="page_edit_history_filter_by">לסנן לפי</string>
   <string name="page_edit_history_filter_by_all">כל העריכות (%s)</string>
   <string name="page_edit_history_filter_by_user">עריכות משתמש (%s)</string>
-  <string name="page_edit_history_filter_by_anon">עריכות אלמוניות (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">עריכות אלמוניות (%s)</string>
   <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -456,8 +457,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">התאמת סרגל הכלים שלך</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="temp_account_not_logged_in">לא נכנסת לחשבון</string>
-  <string name="temp_account_anon_dialog_body">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
-  <string name="temp_account_temp_dialog_body">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
   <string name="temp_account_dialog_ok">הבנתי</string>
   <string name="temp_account_using_title">זהו חשבון חולף</string>
   <string name="temp_account_dialog_discard">לזרוק את השינויים ולהיכנס לחשבון</string>
@@ -1080,6 +1081,7 @@
   <string name="suggested_edits_image_captions_task_detail">תארו את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
   <string name="suggested_edits_add_descriptions_task_detail">סַכמו את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך עד עכשיו.</string>
+  <string name="suggested_edits_edit_stat_tooltip">המספר הכולל של העריכות שלך עד עכשיו.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים ברצף תרמת. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
@@ -1106,6 +1108,12 @@
     <item quantity="two">תרומות</item>
     <item quantity="many">תרומות</item>
     <item quantity="other">תרומות</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">עריכה</item>
+    <item quantity="two">עריכות</item>
+    <item quantity="many">עריכות</item>
+    <item quantity="other">עריכות</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">יום אחד</item>
@@ -1250,6 +1258,7 @@
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
+  <string name="app_shortcuts_places">מקומות</string>
   <string name="on_this_day_card_title">היום בהיסטוריה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
@@ -1589,8 +1598,6 @@
   <string name="reading_list_share_menu_label">שיתוף...</string>
   <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
-  <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
-  <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונה בבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
   <string name="talk_templates_empty_message">באפשרותך ליצור הודעות משלך או להשתמש ב&lt;a href=\"#\"&gt;הודעות לדוגמה&lt;/a&gt; כדי להתחיל.</string>
   <string name="talk_templates_new_message_title">הודעה חדשה</string>
   <string name="talk_templates_new_message_subject_hint">נושא</string>
@@ -1790,4 +1797,35 @@
   <string name="recommended_content_survey_dialog_message">תוצאת החיפוש המומלצת נושאת חן בעיניך?</string>
   <string name="recommended_content_survey_dialog_input_hint">משוב נוסף</string>
   <string name="recommended_content_survey_dialog_submitted_message">המשוב הוגש. תודה רבה!</string>
+  <string name="donor_history_title">היסטוריית התרומות</string>
+  <string name="donor_history_save_button">שמירה</string>
+  <string name="donor_history_update_donor_status_default">עדכון מצב תורם</string>
+  <string name="donor_history_update_donor_status_donor">תורם</string>
+  <string name="donor_history_update_donor_status_not_a_donor">לא תורם</string>
+  <string name="donor_history_last_donated">תרומה אחרונה</string>
+  <string name="donor_history_last_donated_hint">הוספת תאריך התרומה האחרונה</string>
+  <string name="donor_history_last_donated_date_picker_title">בחירת תאריך</string>
+  <string name="donor_history_last_donated_date_picker_label">נא להזין תאריך</string>
+  <string name="donor_history_recurring_donor">תורם חוזר</string>
+  <string name="donor_history_donate_button">תרומה לקרן ויקימדיה</string>
+  <string name="donor_history_about_this_experiment">על הניסוי הזה</string>
+  <string name="donor_history_updated_message_snackbar">היסטוריית התרומה עודכנה</string>
+  <string name="contributions_dashboard_survey_dialog_title">איך אפשר לעזור לנו לשפר את לוח הבקרה לתרומות</string>
+  <string name="contributions_dashboard_survey_dialog_message">העדכון הזה ללוח הבקרה הוא תכונה בבדיקה. האם יש דברים בתכונה הזאת שכדאי לשפר או להסיר?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">אין דעה</string>
+  <string name="contributions_dashboard_survey_dialog_ok">שליחת משוב</string>
+  <string name="contributions_dashboard_donation_dialog_title">תודה על תתמיכתך בידע חופשי</string>
+  <string name="contributions_dashboard_donation_dialog_message">אני מודים לך על היותך ב־2%% מהאנשים שבחרו לתמוך במשאב שמיליונים מסתמכים עליו. כדי להראות את הכרת התודה שלנו, לוח הבקרה של התרומות שלך עודכן כדי להכיר בסטטוס שלך כתורם. מעניין אותך לראות את העדכון?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">לא, תודה</string>
+  <string name="contributions_dashboard_donation_dialog_ok">כן, קחו אותי לשם</string>
+  <string name="contributions_dashboard_entry_dialog_title">לוח הבקרה של התרומות שלך עודכן</string>
+  <string name="contributions_dashboard_entry_dialog_message">לוח הבקרה של התרומות מציג כעת פרטים על סטטוס התורם שלך. רוצה לסקור את התכונה הניסיונית הזאת?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">לא, תודה</string>
+  <string name="contributions_dashboard_entry_dialog_ok">כן, קחו אותי לשם</string>
+  <string name="contributions_dashboard_badge_donor">תורם</string>
+  <string name="contributions_dashboard_badge_become_a_donor">להפוך לתורם</string>
+  <string name="contributions_dashboard_badge_update">עדכון מצב תורם</string>
+  <string name="contributions_dashboard_app_icon_title">סמל יישום</string>
+  <string name="contributions_dashboard_app_icon_subtitle">הטבת תורם</string>
+  <string name="contributions_dashboard_logged_out_user">משתמש שלא מחובר לחשבון</string>
 </resources>

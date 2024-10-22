@@ -40,10 +40,6 @@ class OnThisDayViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private fun definitionsNotFound() {
-        _uiState.value = Resource.Error(Throwable("Definitions not found."))
-    }
-
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

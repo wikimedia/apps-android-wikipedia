@@ -62,7 +62,7 @@
   <string name="page_edit_history_filter_by">Filtrləşdir</string>
   <string name="page_edit_history_filter_by_all">Bütün redaktələr (%s)</string>
   <string name="page_edit_history_filter_by_user">İstifadəçi redaktələri (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonim redaktələr (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonim redaktələr (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bütün redaktələr (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s ilə %2$s arasında olan ölçülər</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -249,7 +249,7 @@
   <string name="about_translators_translatewiki">Bu proqramlar, könüllü tərcüməçilər tərəfindən &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net saytında&lt;/a&gt; tərcümə edildi</string>
   <string name="about_app_license_heading">Lisenziya</string>
   <string name="about_app_license">Mənbə kodu &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisenziyası&lt;/a&gt; altında mövcuddur. Başqa cür göstərilmədiyi halda, məzmun &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike Lisenziyası&lt;/a&gt; altında yayımlanır.</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya fondunun&lt;/a&gt; məhsulu</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimedia fondunun&lt;/a&gt; məhsulu</string>
   <string name="about_activity_title">Haqqında</string>
   <string name="edit_abandon_confirm">Səhifə redaktə edildi. Dəyişikliklərinizi saxlamadan çıxmaq istədiyinizə əminsiniz?</string>
   <string name="edit_abandon_confirm_yes">Bəli</string>
@@ -426,8 +426,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Alətlər panelinizi fərdiləşdirin</string>
   <string name="error_blocked_footer_no_blocker">Digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
   <string name="temp_account_not_logged_in">Siz daxil olmamısınız</string>
-  <string name="temp_account_anon_dialog_body">Redaktə etdikdən sonra məxfiliyinizi qorumaq üçün sizin üçün &lt;b&gt;müvəqqəti hesab&lt;/b&gt; yaradılacaq. &lt;a href=\"%1$s\"&gt;Ətraflı öyrənin&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Gələcəkdə adınıza istinad verilməsi üçün və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaradın.&lt;/a&gt;</string>
-  <string name="temp_account_temp_dialog_body">Redaktəniz %1$s ilə əlaqələndiriləcək. IP ünvanınız administratorlara görünəcək.&lt;br /&gt;&lt;br /&gt; &lt; href=\"https://#login\"&gt;Daxil olsanız&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaratsanız&lt;/a&gt;, redaktələriniz digər üstünlüklərlə birlikdə seçdiyiniz ada aid ediləcək.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Redaktə etdikdən sonra məxfiliyinizi qorumaq üçün sizin üçün &lt;b&gt;müvəqqəti hesab&lt;/b&gt; yaradılacaq. &lt;a href=\"%1$s\"&gt;Ətraflı öyrənin&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Gələcəkdə adınıza istinad verilməsi üçün və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaradın.&lt;/a&gt;</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Redaktəniz %1$s ilə əlaqələndiriləcək. IP ünvanınız administratorlara görünəcək.&lt;br /&gt;&lt;br /&gt; &lt; href=\"https://#login\"&gt;Daxil olsanız&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaratsanız&lt;/a&gt;, redaktələriniz digər üstünlüklərlə birlikdə seçdiyiniz ada aid ediləcək.</string>
   <string name="temp_account_dialog_ok">Başa düşdüm</string>
   <string name="temp_account_using_title">Siz müvəqqəti hesabdan istifadə edirsiniz</string>
   <string name="temp_account_dialog_discard">Dəyişiklikləri ləğv edin və daxil olun</string>

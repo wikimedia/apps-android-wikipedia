@@ -43,7 +43,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {
             val summaryCall = async { ServiceFactory.getRest(pageTitle.wikiSite)
-                .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null) }
+                .getSummaryResponse(pageTitle.prefixedText) }
 
             val watchedCall = async { if (fromPlaces && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText) else null }
 
@@ -84,7 +84,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 L.w("Failed to fetch gallery collection.", throwable)
             }) {
                 val mediaList = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getMediaListSuspend(pageTitle.prefixedText, revision)
+                    .getMediaList(pageTitle.prefixedText, revision)
                 val maxImages = 10
                 val items = mediaList.getItems("image", "video").asReversed()
                 val titleList =
@@ -93,7 +93,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 else {
                     val response = ServiceFactory.get(
                         pageTitle.wikiSite
-                    ).getImageInfoSuspend(
+                    ).getImageInfo(
                         titleList.joinToString("|"),
                         pageTitle.wikiSite.languageCode
                     )

@@ -418,10 +418,6 @@
         </receiver>
 
         <service
-            android:name=".readinglist.sync.ReadingListSyncAdapter"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <service
             android:name=".auth.AuthenticatorService"
             android:exported="false">
 
@@ -434,10 +430,6 @@
                 android:resource="@xml/wikimedia_authenticator" />
 
         </service>
-
-        <service
-            android:name=".savedpages.SavedPageSyncService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
 

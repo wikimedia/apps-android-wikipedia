@@ -72,7 +72,7 @@
   <string name="page_edit_history_filter_by">Filtrare după</string>
   <string name="page_edit_history_filter_by_all">Toate editările (%s)</string>
   <string name="page_edit_history_filter_by_user">Editări ale utilizatorului (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Editări anon (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Editări anon (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modificări bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Valori de la %1$s la %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

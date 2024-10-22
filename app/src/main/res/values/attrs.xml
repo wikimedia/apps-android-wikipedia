@@ -28,6 +28,7 @@
     <attr name="talk_page_empty_state_drawable" format="reference" />
 
     <declare-styleable name="AutoFitRecyclerView">
+        <attr name="minColumnCount" format="integer" />
         <attr name="minColumnWidth" format="dimension" />
     </declare-styleable>
 

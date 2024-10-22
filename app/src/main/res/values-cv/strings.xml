@@ -55,7 +55,7 @@
   <string name="page_edit_history_filter_by">Фильтрла</string>
   <string name="page_edit_history_filter_by_all">Пур тӳрлетӳсем те (%s)</string>
   <string name="page_edit_history_filter_by_user">Хутшӑнакансен тӳрлетӗвӗсем (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимлӑ тӳрлетнисем (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Анонимлӑ тӳрлетнисем (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ботсен тӳрлетӗвӗсем (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s пуҫласа %2$s таран метрикӑсем</string>
   <plurals name="page_edit_history_article_edits_since_year">

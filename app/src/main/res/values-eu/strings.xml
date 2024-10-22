@@ -71,7 +71,7 @@
   <string name="page_edit_history_filter_by">Honen arabera iragazi</string>
   <string name="page_edit_history_filter_by_all">Aldaketa guztiak (%s)</string>
   <string name="page_edit_history_filter_by_user">Erabiltzaileen aldaketak (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonimoen aldaketak (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonimoen aldaketak (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot-en aldaketak (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$stik %2$sra bitarteko metrikak</string>
   <plurals name="page_edit_history_article_edits_since_year">

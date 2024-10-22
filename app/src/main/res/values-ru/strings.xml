@@ -16,6 +16,7 @@
 * Envlh
 * Esukhovnina
 * Facenapalm
+* Firapinch
 * Helpau
 * Iluvatar
 * Infovarius
@@ -91,6 +92,7 @@
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
   <string name="nav_item_search">Найти</string>
+  <string name="nav_item_contribute">Вклад</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="card_offline_error_retry">Повторить</string>
@@ -126,7 +128,7 @@
   <string name="page_edit_history_filter_by">Отфильтровать по</string>
   <string name="page_edit_history_filter_by_all">Все правки (%s)</string>
   <string name="page_edit_history_filter_by_user">Правки участников (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимные правки (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Анонимные правки (%s)</string>
   <string name="page_edit_history_filter_by_bot">Правки ботов (%s)</string>
   <string name="page_edit_history_metrics_content_description">Метрики от %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -505,8 +507,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
-  <string name="temp_account_anon_dialog_body">После внесения изменений для вас будет создана &lt;b&gt;временная учетная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создайте учетную запись&lt;/a&gt; , чтобы получить признание за будущие изменения и получить доступ к другим функциям.</string>
-  <string name="temp_account_temp_dialog_body">Ваше изменение будет отнесено к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдете в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадите учетную запись&lt;/a&gt; , ваши изменения будут связаны с выбранным вами именем, помимо других преимуществ.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">После внесения изменений для вас будет создана &lt;b&gt;временная учетная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создайте учетную запись&lt;/a&gt; , чтобы получить признание за будущие изменения и получить доступ к другим функциям.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Ваше изменение будет отнесено к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдете в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадите учетную запись&lt;/a&gt; , ваши изменения будут связаны с выбранным вами именем, помимо других преимуществ.</string>
   <string name="temp_account_dialog_ok">Понятно</string>
   <string name="temp_account_using_title">Вы используете временную учётную запись</string>
   <string name="temp_account_dialog_discard">Отменить изменения и войти в систему</string>
@@ -1247,6 +1249,7 @@
   <string name="app_shortcuts_random">Случайная</string>
   <string name="app_shortcuts_continue_reading">Продолжить чтение</string>
   <string name="app_shortcuts_search">Поиск</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">В этот день</string>
   <string name="more_events_text">Ещё в этот день</string>
   <string name="events_count_text">%1$s событий за %2$s—%3$d</string>
@@ -1577,8 +1580,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Список чтения импортирован</string>
   <string name="reading_list_share_menu_label">Поделиться…</string>
   <string name="reading_list_share_message_v2">Привет! Я хотел бы поделиться с тобой своим списком для чтения из Википедии:</string>
-  <string name="reading_list_share_survey_title">Могли бы вы помочь нам улучшить «Поделиться списком для чтения»?</string>
-  <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="talk_templates_empty_message">Создайте свои собственные сообщения или используйте &lt;a href=\"#\"&gt;примеры сообщений&lt;/a&gt; , чтобы начать работу.</string>
   <string name="talk_templates_new_message_title">Новое сообщение</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
@@ -1717,4 +1718,27 @@
   <string name="places_survey_very_unsatisfied_option">Очень неудовлетворен</string>
   <string name="places_survey_dialog_cancel">Отмена</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Что бы вы хотели, чтобы мы изменили или улучшили?</string>
+  <string name="places_card_enable_location_card_button">Включить определение местоположения</string>
+  <string name="donor_history_title">История донора</string>
+  <string name="donor_history_save_button">Сохранить</string>
+  <string name="donor_history_update_donor_status_donor">Донор</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Не донор</string>
+  <string name="donor_history_last_donated">Последнее пожертвование</string>
+  <string name="donor_history_last_donated_date_picker_title">Выберите дату</string>
+  <string name="donor_history_last_donated_date_picker_label">Ввести дату</string>
+  <string name="donor_history_recurring_donor">Постоянный донор</string>
+  <string name="donor_history_donate_button">Пожертвовать в Фонд Викимедиа</string>
+  <string name="donor_history_about_this_experiment">Об этом эксперименте</string>
+  <string name="donor_history_updated_message_snackbar">История донора обновлена</string>
+  <string name="contributions_dashboard_survey_dialog_title">Помогите улучшить панель пожертвований</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Нет мнения</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Поделиться отзывом</string>
+  <string name="contributions_dashboard_donation_dialog_title">Спасибо за поддержку бесплатных знаний</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Нет, спасибо</string>
+  <string name="contributions_dashboard_entry_dialog_title">Панель инструментов вашего вклада обновлена</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Нет, спасибо</string>
+  <string name="contributions_dashboard_badge_donor">Донор</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Стать донором</string>
+  <string name="contributions_dashboard_badge_update">Обновить статус донора</string>
+  <string name="contributions_dashboard_app_icon_title">Значок приложения</string>
 </resources>

@@ -114,7 +114,7 @@
   <string name="page_edit_history_filter_by">絞り込みの条件：</string>
   <string name="page_edit_history_filter_by_all">すべての編集 (%s)</string>
   <string name="page_edit_history_filter_by_user">利用者編集 (%s)</string>
-  <string name="page_edit_history_filter_by_anon">匿名編集 (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">匿名編集 (%s)</string>
   <string name="page_edit_history_filter_by_bot">ボットの編集 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s から %2$s までの指標。</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1490,8 +1490,6 @@
   <string name="reading_list_share_menu_label">共有…</string>
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
   <string name="reading_list_share_message_v2">こんにちは！私の閲覧リストを共有します。</string>
-  <string name="reading_list_share_survey_title">「閲覧リストの共有」機能の改善にご協力いただけませんか？</string>
-  <string name="reading_list_share_survey_body">「閲覧リストの共有」は実験的な機能であり、改善または棄却のためフィードバックを必要としています。</string>
   <string name="talk_templates_empty_message">自分のメッセージを作成するか &lt;a href=\"#\"&gt;メッセージの例&lt;/a&gt; を使って始めます。</string>
   <string name="talk_templates_new_message_title">新しいメッセージ</string>
   <string name="talk_templates_new_message_subject_hint">件名</string>

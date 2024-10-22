@@ -74,7 +74,7 @@
   <string name="page_edit_history_filter_by">Filtrer etter</string>
   <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_user">Brukerredigeringer (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonyme redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyme redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botredigeringer (%s)</string>
   <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -440,8 +440,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Tilpass verktøylinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
   <string name="temp_account_not_logged_in">Du er ikke logget inn</string>
-  <string name="temp_account_anon_dialog_body">Når du gjør en redigering blir en &lt;b&gt;midlertidig konto&lt;/b&gt; opprettet for å beskytte personvernet ditt. &lt;a href=\"%1$s\"&gt;Lær mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logg inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opprett en konto&lt;/a&gt; for å få kreditering for framtidige redigeringer du gjør og få tilgang til andre funksjoner.</string>
-  <string name="temp_account_temp_dialog_body">Redigeringen din blir tilskrevet %1$s. IP-adressen din vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;oppretter en konto&lt;/a&gt; blir redigeringene dine tilskrevet et navn du velger, blant andre fordeler.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Når du gjør en redigering blir en &lt;b&gt;midlertidig konto&lt;/b&gt; opprettet for å beskytte personvernet ditt. &lt;a href=\"%1$s\"&gt;Lær mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logg inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opprett en konto&lt;/a&gt; for å få kreditering for framtidige redigeringer du gjør og få tilgang til andre funksjoner.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Redigeringen din blir tilskrevet %1$s. IP-adressen din vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;oppretter en konto&lt;/a&gt; blir redigeringene dine tilskrevet et navn du velger, blant andre fordeler.</string>
   <string name="temp_account_dialog_ok">Skjønner</string>
   <string name="temp_account_using_title">Du bruker en midlertidig konto</string>
   <string name="temp_account_dialog_discard">Forkast endringer og logg inn</string>
@@ -1495,8 +1495,6 @@
   <string name="reading_list_share_menu_label">Del …</string>
   <string name="reading_list_share_menu_tooltip">Del denne leselista med andre</string>
   <string name="reading_list_share_message_v2">Hei! Jeg ønsker å dele leselista mi på Wikipedia med deg:</string>
-  <string name="reading_list_share_survey_title">Kan du hjelpe oss å forbedre «Del leselister»?</string>
-  <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>
   <string name="talk_templates_empty_message">Opprett dine egne meldinger eller bruk &lt;a href=\"#\"&gt;eksempelmeldinger&lt;/a&gt; for å komme i gang.</string>
   <string name="talk_templates_new_message_title">Ny melding</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>

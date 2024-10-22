@@ -92,7 +92,7 @@
   <string name="page_edit_history_filter_by">Saring berdasarkan</string>
   <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Suntingan anonim (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Suntingan anonim (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik dari %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1421,8 +1421,6 @@
   <string name="reading_list_share_menu_label">Bagikan...</string>
   <string name="reading_list_share_menu_tooltip">Bagikan daftar bacaan ini dengan orang lain</string>
   <string name="reading_list_share_message_v2">Hai! Saya ingin berbagi daftar bacaan Wikipedia saya dengan Anda:</string>
-  <string name="reading_list_share_survey_title">Bisakah Anda membantu kami meningkatkan \"Bagikan daftar bacaan\"?</string>
-  <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Anda tidak memiliki pesan peringatan yang disimpan.</string>
   <string name="talk_templates_new_message_title">pesan baru</string>
   <string name="talk_templates_new_message_subject_hint">Subyek</string>

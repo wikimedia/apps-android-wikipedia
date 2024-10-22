@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
@@ -31,39 +30,16 @@ import retrofit2.http.Query
 
 interface RestService {
 
-    /**
-     * Gets a page summary for a given title -- for link previews
-     *
-     * @param title the page title to be used including prefix
-     */
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
-    fun getSummaryResponse(
+    suspend fun getSummaryResponse(
         @Path("title") title: String,
-        @Header("Referer") referrerUrl: String?,
-        @Header("Cache-Control") cacheControl: String?,
-        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
-        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<PageSummary>>
-
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
-    suspend fun getSummaryResponseSuspend(
-        @Path("title") title: String,
-        @Header("Referer") referrerUrl: String?,
-        @Header("Cache-Control") cacheControl: String?,
-        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
-        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
+        @Header("Referer") referrerUrl: String? = null,
+        @Header("Cache-Control") cacheControl: String? = null,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
     ): Response<PageSummary>
-
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
-    fun getSummary(
-        @Header("Referer") referrerUrl: String?,
-        @Path("title") title: String
-    ): Observable<PageSummary>
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
@@ -81,26 +57,20 @@ interface RestService {
     suspend fun getRandomSummary(): PageSummary
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaList(
-        @Path("title") title: String,
-        @Path("revision") revision: Long
-    ): Observable<MediaList>
-
-    @GET("page/media-list/{title}/{revision}")
-    suspend fun getMediaListSuspend(
+    suspend fun getMediaList(
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): MediaList
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaListResponse(
+    suspend fun getMediaListResponse(
         @Path("title") title: String?,
         @Path("revision") revision: Long,
         @Header("Cache-Control") cacheControl: String?,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<MediaList>>
+    ): Response<MediaList>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     suspend fun getOnThisDay(@Path("mm") month: Int,

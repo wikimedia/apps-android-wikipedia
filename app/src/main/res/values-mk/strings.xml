@@ -22,6 +22,7 @@
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="nav_item_search">Пребарај</string>
+  <string name="nav_item_contribute">Учествувајте</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -57,7 +58,7 @@
   <string name="page_edit_history_filter_by">Филтрирај по</string>
   <string name="page_edit_history_filter_by_all">Сите уредувања (%s)</string>
   <string name="page_edit_history_filter_by_user">Кориснички уредувања (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимни уредувања (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Уредувања на непријавени (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ботовски уредувања (%s)</string>
   <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -426,8 +427,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Прилагодете си го алатникот</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="temp_account_not_logged_in">Не сте најавени</string>
-  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;Создајте сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
-  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
+  <string name="temp_account_anon_ip_dialog_body">Штом ќе направите уредување, вашата IP-адреса ќе биде поврзана со уредувањата што ги правите.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\n\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
   <string name="temp_account_dialog_ok">Јасно</string>
   <string name="temp_account_using_title">Користите привремена сметка</string>
   <string name="temp_account_dialog_discard">Отфрли промени и најави ме</string>
@@ -439,6 +441,7 @@
     <item quantity="one">Сметката ќе истече за %d ден.</item>
     <item quantity="other">Сметката ќе истече за %d дена.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Штом ќе направите уредување, вашата IP-адреса ќе биде поврзана со уредувања што ги правите.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Откако ќе направите уредување, ќе ви биде создадена привремена сметка за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Користите привремена сметка.&lt;/b&gt; Вашето уредување му е припишано на %1$s. &lt;a href=\"%2$s\"&gt;Дознајте повеќе&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Моменталално користите приврмена сметка.&lt;/b&gt; Уредувањата направени од привремената сметка %1$s нема да се префрлат во трајната сметка кога ќе се најавите. Најавете се или направете сметка за уредувањата да му се припишуваат на вашето корисничко име, меѓу други поволности.</string>
@@ -999,6 +1002,7 @@
   <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и да добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси досега.</string>
+  <string name="suggested_edits_edit_stat_tooltip">Вкупно ваши уредувања досега.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредивте во изминатите 30 дена.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања (поништени од друг корисник). Отповикани уредувања: %d.</string>
@@ -1023,6 +1027,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Уредување</item>
+    <item quantity="other">Уредувања</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ден</item>
@@ -1153,6 +1161,7 @@
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На денешен ден</string>
   <string name="more_events_text">Повеќе на овој ден</string>
   <string name="events_count_text">%1$s настани од %2$s–%3$d</string>
@@ -1482,8 +1491,6 @@
   <string name="reading_list_share_menu_label">Сподели…</string>
   <string name="reading_list_share_menu_tooltip">Споделете го списоков за читање со други</string>
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
-  <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
-  <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="talk_templates_empty_message">Создавајте ваши пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>
@@ -1677,4 +1684,35 @@
   <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
   <string name="recommended_content_survey_dialog_input_hint">Дополнително мислење</string>
   <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
+  <string name="donor_history_title">Историја на дарување</string>
+  <string name="donor_history_save_button">Зачувај</string>
+  <string name="donor_history_update_donor_status_default">Поднови статус на дарител</string>
+  <string name="donor_history_update_donor_status_donor">Дарител</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Не е дарител</string>
+  <string name="donor_history_last_donated">Последен пат дарувал</string>
+  <string name="donor_history_last_donated_hint">Додај датум на последно дарување</string>
+  <string name="donor_history_last_donated_date_picker_title">Изберете датум</string>
+  <string name="donor_history_last_donated_date_picker_label">Внесете датум</string>
+  <string name="donor_history_recurring_donor">Редовен дарител</string>
+  <string name="donor_history_donate_button">Дарувајте на Фондацијата Викимедија</string>
+  <string name="donor_history_about_this_experiment">За овој опит</string>
+  <string name="donor_history_updated_message_snackbar">Историјата на дарување е подновена</string>
+  <string name="contributions_dashboard_survey_dialog_title">Помогнете ни да ја подобриме управувачница на придонеси</string>
+  <string name="contributions_dashboard_survey_dialog_message">Оваа поднова на управувачницата е пробна функција. Дали би сакале оваа функција да се подобри или да се отстрани?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Немам мислење</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Дајте мислење</string>
+  <string name="contributions_dashboard_donation_dialog_title">Ви благодариме што го поддржувате слободното знаење</string>
+  <string name="contributions_dashboard_donation_dialog_message">Вие сте дел од 2 ‰ кои избраа да го поддржат ресурсот на кој се потпираат милиони. За да ја искажеме нашата благодарност, вашата управувачница на дарувања е подновена како признание на вашиот статус на дарител. Дали би сакале да ја видите подновата?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Да, покажи ми</string>
+  <string name="contributions_dashboard_entry_dialog_title">Вашата управувачница со придонеси е подновена</string>
+  <string name="contributions_dashboard_entry_dialog_message">Управувачницата со придонеси сега прикажува поединости за вашиот статус на дарител. Сакате да ја разгледате оваа опитна функција?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Да, покажи ми</string>
+  <string name="contributions_dashboard_badge_donor">Дарител</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Станете дарител</string>
+  <string name="contributions_dashboard_badge_update">Поднови дарителски статус</string>
+  <string name="contributions_dashboard_app_icon_title">Икона на прилогот</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Погодност на дарителот</string>
+  <string name="contributions_dashboard_logged_out_user">Одјавен корисник</string>
 </resources>

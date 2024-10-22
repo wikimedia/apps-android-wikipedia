@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">ߛߍ߲ߛߍ߲ߣߍ߲߫ ߦߋ߫</string>
   <string name="page_edit_history_filter_by_all">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߓߍ߯ (%s)</string>
   <string name="page_edit_history_filter_by_user">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ߣߐ ߟߎ߬ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߕߐ߯ߒߕߊ߲ ߠߎ߬ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߕߐ߯ߒߕߊ߲ ߠߎ߬ (%s)</string>
   <string name="page_edit_history_filter_by_bot">ߡߐ߰ߡߐ߮ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ߣߐ ߟߎ߬ (%s)</string>
   <string name="page_edit_history_metrics_content_description">ߛߎߡߊ߲ߣߍ߲߫ ߦߋ߫ ߞߊ߬ ߓߐ߫ %1$s ߞߊ߬ ߕߊ߯ %2$s</string>
   <string name="page_edit_history_empty_search_message">ߌ ߡߊߝߍߣߍ߲߫ ߞߊ߬ ߣߌ߲߬ ߡߊߝߊ߬ߟߋ߲߫ &lt;a href=\"#\"&gt;ߛߍ߲ߛߍ߲߲&lt;/a&gt; ߞߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߜߘߍ߫ ߟߎ߫ ߦߋ߫</string>
@@ -1221,8 +1221,6 @@
   <string name="reading_list_share_menu_label">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="reading_list_share_menu_tooltip">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߣߌ߲߬ ߠߊߖߍ߲ߛߍ߲߫ ߘߏ ߟߎ߬ ߡߊ߬</string>
   <string name="reading_list_share_message_v2">ߌ ߣߌ߫ ߕߎ߬ߡߊ߬߹ ߒ ߧߴߊ߬ ߝߍ߬ ߞߊ߬ ߒ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߟߊߖߍ߲ߛߍ߲߫ ߌ ߡߊ߬:</string>
-  <string name="reading_list_share_survey_title">ߊ߬ ߝߐ߫ ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߫ ߠߊ߫ \"ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߟߊߖߍ߲ߛߍ߲ߠߌ߲ ߟߊߢߊ߬ ߟߊ߫\"؟</string>
-  <string name="reading_list_share_survey_body">\"ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ߫ ߟߊ߬ߖߍ߲ߛߍ߲\" ߦߋ߫ ߗߋߘߊ߫ ߡߊߝߍߣߍ߲ߕߊ ߟߋ߬ ߘߌ߫߸ ߊ߲ ߡߊߞߏ ߦߴߌ ߟߊ߫ ߞߊ߲߬ߞߎߡߊ ߟߴߏ߬ ߟߋ ߘߐ߫ ߜߘߋߜߘߋ߫߸ ߊ߬ ߟߊߢߊ߬ߟߌ ߘߐ߫ ߥߟߴߊ߬ ߘߐߛߊ߬ߟߌ ߘߐ߫.</string>
   <string name="data_opt_in_accept">ߊ߬ ߟߊߡߌ߬ߣߊ߫</string>
   <string name="data_opt_in_reject">ߊ߬ ߟߊߕߊ߲߬ߞߌ߫</string>
   <string name="page_issues_title">ߞߐߜߍ ߝߙߋߞߋ ߟߎ߬</string>

@@ -11,6 +11,7 @@ import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.DonationResult
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
@@ -616,6 +617,14 @@ object Prefs {
     val useUrlShortenerForSharing
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)
 
+    var tempAccountWelcomeShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_welcome_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_welcome_shown, value)
+
+    var tempAccountDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_dialog_shown, value)
+
     var readingListShareTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
@@ -725,6 +734,10 @@ object Prefs {
     var isDonationTestEnvironment
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
+
+    var donationResults
+        get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
 
     var recommendedContentSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_content_survey_shown, false)
