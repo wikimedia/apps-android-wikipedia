@@ -161,7 +161,9 @@
         android:layout_height="wrap_content"
         android:text="@string/donor_history_about_this_experiment"
         android:textColor="?attr/progressive_color"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
