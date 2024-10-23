@@ -26,7 +26,7 @@
   <string name="share_via">આના માધ્યમથી વહેંચો</string>
   <string name="page_edit_history_filter_by_all">બધા સંપાદનો (%s)</string>
   <string name="page_edit_history_filter_by_user">સભ્ય સંપાદનો (%s)</string>
-  <string name="page_edit_history_filter_by_anon">અજ્ઞાત સંપાદનો (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">અજ્ઞાત સંપાદનો (%s)</string>
   <string name="menu_page_other_languages">ભાષા બદલો</string>
   <string name="menu_page_find_in_page" fuzzy="true">પાનામાં શોધો</string>
   <string name="menu_page_talk_page">ચર્ચા પાનું</string>

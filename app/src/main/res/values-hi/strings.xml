@@ -87,7 +87,7 @@
   <string name="page_edit_history_filter_by">छाँटने के मानदंड</string>
   <string name="page_edit_history_filter_by_all">सभी संपादन (%s)</string>
   <string name="page_edit_history_filter_by_user">सदस्य द्वारा संपादन (%s)</string>
-  <string name="page_edit_history_filter_by_anon">गुमनाम संपादन (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">गुमनाम संपादन (%s)</string>
   <string name="page_edit_history_filter_by_bot">बॉट्स द्वारा संपादन (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s से %2$s तक मेट्रिक्स</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1460,4 +1460,8 @@
   <string name="places_survey_dialog_title" fuzzy="true">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">हमें क्या परिवर्तन या सुधार करने चाहिए?</string>
   <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
+  <string name="donor_history_save_button">सहेजें</string>
+  <string name="donor_history_last_donated_date_picker_title">तिथि चुनें</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">नहीं, धन्यवाद</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">नहीं, धन्यवाद</string>
 </resources>
