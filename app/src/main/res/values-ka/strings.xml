@@ -174,9 +174,6 @@
   <string name="preferences_heading_experimental">ექსპერიმენტალური</string>
   <string name="preference_title_sync_reading_lists_from_account">საკითხავი სიის სინქრონიზაცია</string>
   <string name="preference_title_download_reading_list_articles">საკითხავის სტატიების სიის ჩამოტვირთვა</string>
-  <string name="preferences_privacy_settings_heading">უსაფრთხოება</string>
-  <string name="preference_title_eventlogging_opt_in">გამოყენების ანგარიშის გაგზავნა</string>
-  <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
   <string name="preference_title_auto_upload_crash_reports">პრობლემის ანგარიშის გაგზავნა</string>
   <string name="editing_error_spamblacklist">შემჩნეულია ბმულები დაბლოკილ დომეიზე (%s). გთხოვთ წაშალოთ და სცადოთ თავიდან.</string>
   <string name="history_filter_list_hint">ფილტრის ისტორია</string>

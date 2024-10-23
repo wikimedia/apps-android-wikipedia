@@ -3,7 +3,11 @@ package org.wikipedia.language
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
@@ -19,7 +23,6 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 class LanguagesListActivity : BaseActivity() {
     private lateinit var binding: ActivityLanguagesListBinding

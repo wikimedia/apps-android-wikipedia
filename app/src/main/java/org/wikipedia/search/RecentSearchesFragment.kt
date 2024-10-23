@@ -7,22 +7,30 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
+import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
+import org.wikipedia.recommendedcontent.RecommendedContentFragment
 import org.wikipedia.search.db.RecentSearch
-import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
+import org.wikipedia.util.FeedbackUtil.setButtonTooltip
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
@@ -36,10 +44,11 @@ class RecentSearchesFragment : Fragment() {
     }
 
     private var _binding: FragmentSearchRecentBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
     private val namespaceHints = listOf(Namespace.USER, Namespace.PORTAL, Namespace.HELP)
     private val namespaceMap = ConcurrentHashMap<String, Map<Namespace, String>>()
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable -> L.e(throwable) }
+    private var recommendedContentFragment: RecommendedContentFragment? = null
     var callback: Callback? = null
     val recentSearchList = mutableListOf<RecentSearch>()
 
@@ -66,8 +75,13 @@ class RecentSearchesFragment : Fragment() {
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.recentSearchesRecycler)
-        setButtonLongPressToast(binding.recentSearchesDeleteButton)
+        setButtonTooltip(binding.recentSearchesDeleteButton)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadRecommendedContent()
     }
 
     fun show() {
@@ -81,6 +95,20 @@ class RecentSearchesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadRecommendedContent() {
+        if (!RecommendedContentAnalyticsHelper.recommendedContentEnabled ||
+            RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_1) {
+            // Construct and send an impression event now, since there will be no loading of recommended content.
+            (requireParentFragment() as SearchFragment).analyticsEvent = ExperimentalLinkPreviewInteraction(HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName(), false)
+                .also { it.logImpression() }
+            return
+        }
+        val isGeneralized = RecommendedContentAnalyticsHelper.abcTest.group == ABTest.GROUP_2
+        val langeCode = callback?.getLangCode() ?: WikipediaApp.instance.appOrSystemLanguageCode
+        recommendedContentFragment = RecommendedContentFragment.newInstance(wikiSite = WikiSite.forLanguageCode(langeCode), isGeneralized)
+        childFragmentManager.commit { replace(R.id.fragmentOverlayContainer, recommendedContentFragment!!) }
     }
 
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {
@@ -102,10 +130,14 @@ class RecentSearchesFragment : Fragment() {
         callback?.onAddLanguageClicked()
     }
 
-    fun onLangCodeChanged() {
+    fun reloadRecentSearches() {
         lifecycleScope.launch(coroutineExceptionHandler) {
             updateList()
         }
+    }
+
+    fun reloadRecommendedContent(wikiSite: WikiSite) {
+        recommendedContentFragment?.reload(wikiSite)
     }
 
     suspend fun updateList() {
@@ -136,7 +168,7 @@ class RecentSearchesFragment : Fragment() {
         binding.recentSearches.isInvisible = searchesEmpty
     }
 
-    private inner class RecentSearchItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
+    private inner class RecentSearchItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
         private lateinit var recentSearch: RecentSearch
 
         fun bindItem(position: Int) {
@@ -173,13 +205,15 @@ class RecentSearchesFragment : Fragment() {
         }
     }
 
-    private inner class NamespaceItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    private inner class NamespaceItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(ns: Namespace?) {
             val isHeader = ns == null
-            itemView.setOnClickListener(this)
-            (itemView as TextView).text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
-            itemView.isEnabled = !isHeader
-            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.primary_color else R.attr.progressive_color))
+            (itemView as TextView).apply {
+                setOnClickListener(this@NamespaceItemViewHolder)
+                text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
+                isEnabled = !isHeader
+                setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.primary_color else R.attr.progressive_color))
+            }
         }
 
         override fun onClick(v: View) {

@@ -156,9 +156,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkan daftar baco di babagai parangkek jo manyimpannyo ka akun Wikipedia Sanak \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Apuih daftar baco nan disinkronkan dari \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Iko ka maapuih sadoalah daftar baco nan disinkronkan sabalunnyo dari panyimpanan jarak jauah. Apuih sadoalah daftar nan disinkronkan dari akun Sanak \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privasi</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim laporan panggunoan</string>
-  <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuak mangumpua informasi tantang baa Sanak manggunokan aplikasi untuak mambuek aplikasi nan labiah rancak</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karusakan</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkan aplikasi untuak mangirimkan laporan karusakan ka HockeyApp / panyadio layanan pihak katigo sacaro otomatis sainggo kami dapek maninjau karusakan Sanak jo mameloki kasalahan labiah capek sarato labiah mudah.</string>
   <string name="editing_error_spamblacklist">Pautan ka domain nan disakek (%s) tadeteksi. Arok maapuihnyo dan cubo baliak.</string>

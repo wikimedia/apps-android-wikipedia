@@ -10,8 +10,6 @@ object Constants {
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
-    const val ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING = 65
-    const val ACTIVITY_REQUEST_LANGLINKS = 50
     const val ACTIVITY_REQUEST_LOGIN = 53
     const val ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62
     const val ACTIVITY_REQUEST_SETTINGS = 41
@@ -19,9 +17,12 @@ object Constants {
 
     const val ARG_TITLE = "title"
     const val ARG_WIKISITE = "wikiSite"
+    const val ARG_TEXT = "text"
+    const val ARG_BOOLEAN = "boolean"
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"
+    const val INTENT_APP_SHORTCUT_PLACES = "appShortcutPlaces"
     const val INTENT_EXTRA_ACTION = "intentAction"
     const val INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList"
     const val INTENT_EXTRA_GO_TO_MAIN_TAB = "goToMainTab"
@@ -34,7 +35,6 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
-    const val INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
 
     const val MAX_READING_LIST_ARTICLE_LIMIT = 5000
@@ -50,6 +50,8 @@ object Constants {
     const val COMMONS_DB_NAME = "commonswiki"
     const val WIKI_CODE_WIKIDATA = "wikidata"
     const val WIKIDATA_DB_NAME = "wikidatawiki"
+
+    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta")
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
@@ -68,7 +70,6 @@ object Constants {
         INTENT_PROCESS_TEXT("intentProcessText"),
         INTENT_SHARE("intentShare"),
         INTENT_UNKNOWN("intentUnknown"),
-        LANG_VARIANT_DIALOG("lang_variant_dialog"),
         LEAD_IMAGE("leadImage"),
         LINK_PREVIEW_MENU("linkPreviewMenu"),
         MOST_READ_ACTIVITY("mostRead"),
@@ -86,6 +87,7 @@ object Constants {
         PAGE_EDIT_PENCIL("pageEditPencil"),
         PAGE_EDIT_HIGHLIGHT("pageEditHighlight"),
         PAGE_OVERFLOW_MENU("pageOverflowMenu"),
+        PLACES("places"),
         RANDOM_ACTIVITY("random"),
         READING_LIST_ACTIVITY("readingList"),
         SEARCH("search"),
@@ -96,7 +98,6 @@ object Constants {
         TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
         TALK_TOPIC_ACTIVITY("talkTopicActivity"),
         TALK_REPLY_ACTIVITY("talkReplyActivity"),
-        ADD_TEMPLATE_ACTIVITY("addTemplateActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),
@@ -106,6 +107,7 @@ object Constants {
         USER_CONTRIB_ACTIVITY("userContribActivity"),
         EDIT_ADD_IMAGE("editAddImage"),
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
+        RECOMMENDED_CONTENT("recommendedContent"),
     }
 
     enum class ImageEditType(name: String) {

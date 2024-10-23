@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/listItem"
+        style="@style/ListItem"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp"
+        android:drawablePadding="16dp"
+        app:drawableStartCompat="@drawable/ic_history_24"
+        app:drawableTint="?attr/secondary_color" />
+
+    <ImageView
+        android:id="@+id/deleteIcon"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/reading_list_delete_lists_dialog_delete_button_text"
+        android:scaleType="center"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:srcCompat="@drawable/ic_close_black_24dp"
+        app:tint="?android:attr/textColorTertiary" />
+
+</LinearLayout>

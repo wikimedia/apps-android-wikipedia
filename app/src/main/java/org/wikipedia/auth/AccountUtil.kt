@@ -3,17 +3,24 @@ package org.wikipedia.auth
 import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
+import android.app.Activity
 import android.os.Build
 import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 object AccountUtil {
+    private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
 
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
@@ -25,18 +32,17 @@ object AccountUtil {
             return
         }
         setPassword(result.password)
-        putUserIdForLanguage(result.site.languageCode, result.userId)
         groups = result.groups
     }
 
     val isLoggedIn: Boolean
-        get() = account() != null
+        get() = account() != null || isTemporaryAccount
 
-    val userName: String?
-        get() {
-            val account = account()
-            return account?.name
-        }
+    val isTemporaryAccount: Boolean
+        get() = account() == null && getUserNameFromCookie().isNotEmpty()
+
+    val userName: String
+        get() = account()?.name ?: getUserNameFromCookie()
 
     val password: String?
         get() {
@@ -44,13 +50,8 @@ object AccountUtil {
             return if (account == null) null else accountManager().getPassword(account)
         }
 
-    fun getUserIdForLanguage(code: String): Int {
-        return userIds.getOrElse(code) { 0 }
-    }
-
-    fun putUserIdForLanguage(code: String, id: Int) {
-        userIds += code to id
-    }
+    val assertUser: String?
+        get() = if (isLoggedIn && !isTemporaryAccount) "user" else null
 
     var groups: Set<String>
         get() {
@@ -97,6 +98,29 @@ object AccountUtil {
         return WikipediaApp.instance.getString(R.string.account_type)
     }
 
+    fun getUserNameFromCookie(): String {
+        return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
+    }
+
+    fun getUserNameExpiryFromCookie(): Long {
+        return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
+    }
+
+    fun maybeShowTempAccountWelcome(activity: Activity) {
+        if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
+            Prefs.tempAccountWelcomeShown = true
+            Prefs.tempAccountDialogShown = false
+
+            val expiryDays = TimeUnit.MILLISECONDS.toDays(getUserNameExpiryFromCookie() - System.currentTimeMillis()).toInt()
+            FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
+                expiryDays, userName, expiryDays))
+        }
+    }
+
+    fun isUserNameTemporary(userName: String): Boolean {
+        return userName.startsWith("~")
+    }
+
     private fun createAccount(userName: String, password: String): Boolean {
         var account = account()
         if (account == null || account.name.isNullOrEmpty() || account.name != userName) {
@@ -113,19 +137,6 @@ object AccountUtil {
             accountManager().setPassword(account, password)
         }
     }
-
-    private var userIds: Map<String, Int>
-        get() {
-            val account = account() ?: return emptyMap()
-            val mapStr = accountManager().getUserData(account, WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map))
-            return if (mapStr.isNullOrEmpty()) emptyMap() else (JsonUtil.decodeFromString(mapStr) ?: emptyMap())
-        }
-        private set(ids) {
-            val account = account() ?: return
-            accountManager().setUserData(account,
-                    WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map),
-                    JsonUtil.encodeToString(ids))
-        }
 
     private fun accountManager(): AccountManager {
         return AccountManager.get(WikipediaApp.instance)

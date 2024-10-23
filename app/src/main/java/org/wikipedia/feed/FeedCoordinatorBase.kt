@@ -14,6 +14,7 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.offline.OfflineCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.places.PlacesFeedClient
 import org.wikipedia.feed.progress.ProgressCard
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
 import org.wikipedia.feed.topread.TopReadListCard
@@ -21,7 +22,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Collections
 
 abstract class FeedCoordinatorBase(private val context: Context) {
 
@@ -101,6 +102,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 FeedContentType.MAIN_PAGE.isEnabled = false
                 FeedContentType.saveState()
             }
+            card.type() == CardType.PLACES -> {
+                FeedContentType.PLACES.isEnabled = false
+                FeedContentType.saveState()
+            }
             else -> {
                 addHiddenCard(card)
             }
@@ -118,6 +123,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
             }
             card.type() === CardType.MAIN_PAGE -> {
                 FeedContentType.MAIN_PAGE.isEnabled = true
+                FeedContentType.saveState()
+            }
+            card.type() == CardType.PLACES -> {
+                FeedContentType.PLACES.isEnabled = true
                 FeedContentType.saveState()
             }
             else -> unHideCard(card)
@@ -149,7 +158,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         if (pendingClients.isNotEmpty()) {
             pendingClients.removeAt(0)
         }
-        if (lastCard !is ProgressCard && shouldShowProgressCard(pendingClients[0])) {
+        if (lastCard !is ProgressCard && shouldShowProgressCard(pendingClients.getOrNull(0))) {
             requestProgressCard()
         }
         requestCard(wiki)
@@ -262,10 +271,12 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 card is FeaturedImageCard
     }
 
-    private fun shouldShowProgressCard(pendingClient: FeedClient): Boolean {
+    private fun shouldShowProgressCard(pendingClient: FeedClient?): Boolean {
         return pendingClient is SuggestedEditsFeedClient ||
                 pendingClient is AnnouncementClient ||
-                pendingClient is BecauseYouReadClient
+                pendingClient is BecauseYouReadClient ||
+                pendingClient is PlacesFeedClient ||
+                pendingClient == null
     }
 
     companion object {

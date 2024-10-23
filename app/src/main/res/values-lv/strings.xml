@@ -125,8 +125,6 @@
   <string name="create_account_account_created_toast">Konts izveidots!</string>
   <string name="preferences_heading_syncing">Sinhronizē</string>
   <string name="preferences_heading_data_usage">Datu lietojums</string>
-  <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
-  <string name="preference_title_eventlogging_opt_in">Sūtīt lietojuma ziņojumus</string>
   <string name="page_protected_can_not_edit_title">Šī lapa ir aizsargāta</string>
   <string name="settings_item_preferences">Iestatījumi</string>
   <string name="settings_activity_title">Iestatījumi</string>
@@ -330,7 +328,6 @@
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_maybe_later">Varbūt vēlāk</string>
-  <string name="onboarding_analytics_title">Sūtīt anonīmus datus</string>
   <string name="onboarding_got_it">Sapratu</string>
   <string name="onboarding_multilingual_add_language_text">Pievienot vai labot valodas</string>
   <string name="app_shortcuts_random">Nejaušs</string>
@@ -348,8 +345,6 @@
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Noņemt izvēlētās valodas?</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nevar noņemt visas valodas</string>
   <string name="more_language_options">vairāk</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Labot valodas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nē, paldies</string>
   <string name="remove_language_dialog_cancel_button_text">Atcelt</string>
   <string name="remove_language_dialog_ok_button_text">Labi</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Atcelt</string>

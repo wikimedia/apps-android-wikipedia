@@ -24,6 +24,7 @@ class LanguageScrollView(context: Context, attrs: AttributeSet? = null) : Constr
     private val binding = ViewLanguageScrollBinding.inflate(LayoutInflater.from(context), this)
     private var callback: Callback? = null
     private var languageCodes: List<String> = mutableListOf()
+    private var allowSelect = false
     val selectedPosition: Int
         get() = binding.horizontalScrollLanguages.selectedTabPosition
 
@@ -55,7 +56,9 @@ class LanguageScrollView(context: Context, attrs: AttributeSet? = null) : Constr
                 updateTabLanguageCode(it, textColor = paperColor, backgroundColorTint = color, fillBackground = true)
                 updateTabLanguageLabel(it, textColor = color)
             }
-            callback?.onLanguageTabSelected(languageCodes[tab.position])
+            if (allowSelect) {
+                callback?.onLanguageTabSelected(languageCodes[tab.position])
+            }
         } else {
             view?.let {
                 @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.placeholder_color)
@@ -68,6 +71,7 @@ class LanguageScrollView(context: Context, attrs: AttributeSet? = null) : Constr
     fun setUpLanguageScrollTabData(languageCodes: List<String>, position: Int, callback: Callback?) {
         this.callback = callback
         this.languageCodes = languageCodes
+        allowSelect = false
         if (binding.horizontalScrollLanguages.childCount > 0) {
             binding.horizontalScrollLanguages.removeAllTabs()
         }
@@ -77,12 +81,10 @@ class LanguageScrollView(context: Context, attrs: AttributeSet? = null) : Constr
             binding.horizontalScrollLanguages.addTab(tab)
             updateTabView(false, tab)
         }
-        binding.horizontalScrollLanguages.getTabAt(position)?.let {
-            binding.horizontalScrollLanguages.post {
-                if (!isAttachedToWindow) {
-                    return@post
-                }
-                binding.horizontalScrollLanguages.getTabAt(position)!!.select()
+        allowSelect = true
+        binding.horizontalScrollLanguages.post {
+            if (isAttachedToWindow) {
+                binding.horizontalScrollLanguages.getTabAt(position)?.select()
             }
         }
     }

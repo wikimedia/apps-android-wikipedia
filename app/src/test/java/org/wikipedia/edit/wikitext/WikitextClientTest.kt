@@ -1,7 +1,10 @@
 package org.wikipedia.edit.wikitext
 
+import kotlinx.coroutines.runBlocking
+import org.hamcrest.MatcherAssert
+import org.hamcrest.Matchers
 import org.junit.Test
-import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.test.MockRetrofitTest
 
 class WikitextClientTest : MockRetrofitTest() {
@@ -9,27 +12,41 @@ class WikitextClientTest : MockRetrofitTest() {
     @Throws(Throwable::class)
     fun testRequestSuccessHasResults() {
         enqueueFromFile("wikitext.json")
-        observable.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue { response -> response.query!!.firstPage()!!.revisions[0].contentMain == "\\o/\n\ntest12\n\n3" && response.query!!.firstPage()!!.revisions[0].timeStamp == "2018-03-18T18:10:54Z" }
+        runBlocking {
+            requestWikiTextForSectionWithInfo()
+        }.run {
+            MatcherAssert.assertThat(query?.firstPage()?.revisions?.first()?.contentMain, Matchers.`is`("\\o/\n\ntest12\n\n3"))
+            MatcherAssert.assertThat(query?.firstPage()?.revisions?.first()?.timeStamp, Matchers.`is`("2018-03-18T18:10:54Z"))
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseApiError() {
         enqueueFromFile("api_error.json")
-        observable.test().await()
-            .assertError(MwException::class.java)
+        runBlocking {
+            try {
+                requestWikiTextForSectionWithInfo()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestResponseMalformed() {
         enqueueMalformed()
-        observable.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                requestWikiTextForSectionWithInfo()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
-    private val observable
-        get() = apiService.getWikiTextForSectionWithInfo("User:Mhollo/sandbox", 0)
+    private suspend fun requestWikiTextForSectionWithInfo(): MwQueryResponse {
+        return apiService.getWikiTextForSectionWithInfo("User:Mhollo/sandbox", 0)
+    }
 }

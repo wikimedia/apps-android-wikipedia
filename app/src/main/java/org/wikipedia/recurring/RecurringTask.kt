@@ -2,7 +2,7 @@ package org.wikipedia.recurring
 
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Date
 import kotlin.math.max
 import kotlin.math.min
 
@@ -17,7 +17,7 @@ import kotlin.math.min
  * last run times are tracked automatically by the base class.
  */
 abstract class RecurringTask {
-    fun runIfNecessary() {
+    suspend fun runIfNecessary() {
         val lastRunDate = lastRunDate
         val lastExecutionLog = "$name. Last execution was $lastRunDate."
         if (shouldRun(lastRunDate)) {
@@ -30,7 +30,7 @@ abstract class RecurringTask {
     }
 
     protected abstract fun shouldRun(lastRun: Date): Boolean
-    protected abstract fun run(lastRun: Date)
+    protected abstract suspend fun run(lastRun: Date)
 
     protected abstract val name: String
 

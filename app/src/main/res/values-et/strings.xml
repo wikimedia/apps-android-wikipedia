@@ -77,8 +77,6 @@
   <string name="preferences_general_heading">Üldine</string>
   <string name="send_feedback">Saada tagasisidet rakenduse kohta</string>
   <string name="create_account_account_created_toast">Konto loodud!</string>
-  <string name="preference_title_eventlogging_opt_in">Saada kasutusaruanded</string>
-  <string name="preference_summary_eventlogging_opt_in">Luba Wikimedial koguda teavet selle kohta, kuidas rakendust kasutad, et seda paremaks muuta.</string>
   <string name="editing_error_spamblacklist">Lingid tõkestatud domeenidele (%s) tuvastatud. Palun eemalda need ja proovi uuesti.</string>
   <string name="error_can_not_process_link">Seda linki ei saa kuvada</string>
   <string name="page_protected_autoconfirmed">See lehekülg on poolkaitstud.</string>

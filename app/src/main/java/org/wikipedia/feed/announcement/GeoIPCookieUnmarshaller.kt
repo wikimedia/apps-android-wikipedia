@@ -15,7 +15,7 @@ object GeoIPCookieUnmarshaller {
     private const val COOKIE_NAME = "GeoIP"
 
     fun unmarshal(): GeoIPCookie {
-        return unmarshal(SharedPreferenceCookieManager.instance.getCookieByName(COOKIE_NAME))
+        return unmarshal(SharedPreferenceCookieManager.instance.getCookieValueByName(COOKIE_NAME))
     }
 
     @VisibleForTesting

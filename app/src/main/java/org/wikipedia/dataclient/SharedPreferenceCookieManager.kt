@@ -3,6 +3,7 @@ package org.wikipedia.dataclient
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
@@ -22,10 +23,32 @@ class SharedPreferenceCookieManager(
     }
 
     @Synchronized
-    fun getCookieByName(name: String): String? {
+    fun getCookieValueByName(name: String): String? {
+        for (domainSpec in cookieJar.keys) {
+            getCookieByName(name, domainSpec)?.let {
+                return it
+            }
+        }
+        return null
+    }
+
+    @Synchronized
+    fun getCookieExpiryByName(name: String): Long {
         for (domainSpec in cookieJar.keys) {
             for (cookie in cookieJar[domainSpec]!!) {
                 if (cookie.name == name) {
+                    return cookie.expiresAt
+                }
+            }
+        }
+        return 0
+    }
+
+    @Synchronized
+    fun getCookieByName(name: String, domainSpec: String, matchExactName: Boolean = true): String? {
+        cookieJar[domainSpec]?.let { cookies ->
+            for (cookie in cookies) {
+                if (if (matchExactName) cookie.name == name else cookie.name.contains(name, ignoreCase = false)) {
                     return cookie.value
                 }
             }
@@ -95,6 +118,11 @@ class SharedPreferenceCookieManager(
             }
         }
         return cookieList
+    }
+
+    @Synchronized
+    fun loadForRequest(url: String): List<Cookie> {
+        return loadForRequest(url.toHttpUrl())
     }
 
     private fun buildCookieList(outList: MutableList<Cookie>, inList: MutableList<Cookie>, prefix: String?) {

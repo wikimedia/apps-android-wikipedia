@@ -193,9 +193,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronigi legolistojn trans malsamaj aparatoj konservante ilin al via Vikipedia konto \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ĉu forigi sinkronigitajn legolistojn de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tio ĉi tute forigos ĉiujn antaŭe sinkrinigitajn legolistojn de fora konservado. Ĉu forigi ĉiujn sinkronigitajn listojn de via konto \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privateco</string>
-  <string name="preference_title_eventlogging_opt_in">Sendi raportojn pri uzado</string>
-  <string name="preference_summary_eventlogging_opt_in">Permesi al Vikipedio kolekti informon pri kiel vi uzas la aplikaĵon por helpi ĝin plibonigi</string>
   <string name="preference_title_auto_upload_crash_reports">Sendi prikraŝajn raportojn</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
@@ -217,8 +214,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eo</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eo</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/eo</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/eo</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotekoj uzataj</string>
   <string name="about_contributors_heading">Kontribuantoj</string>
   <string name="about_translators_heading">Tradukantoj</string>
@@ -322,7 +319,6 @@
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="tool_tip_toc_title">Enhavtabelo rapida aliro</string>
   <string name="tool_tip_toc_text">Nun vi povas ŝovumi maldekstren por malfermi la enhavotabelon, kaj frapeti-treni la ruluma butonon por rapide salti al paragrafoj de artikolo.</string>
-  <string name="tool_tip_lang_button">Vi povas nun serĉi kaj legi je pluraj Vikipediaj lingvoj en la aplikaĵo.\n\n\nFrapetu la ikonon por aldoni pliajn lingvojn.</string>
   <string name="error_response_malformed">Respondo de la servilo ne estas ĝuste aranĝita.</string>
   <string name="error_unknown">Okazis nekonata eraro.</string>
   <string name="format_error_server_message">Mesaĝo: \"%s\"</string>
@@ -388,7 +384,7 @@
   <string name="text_size_percent_default">%s (Defaŭlto)</string>
   <string name="text_style_title">Tiparo</string>
   <string name="theme_category_reading">Legado</string>
-  <string name="nav_item_saved">Konservita</string>
+  <string name="nav_item_saved">Konservitaj</string>
   <string name="reading_list_save_to">Konservi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>
@@ -704,7 +700,6 @@
   <string name="suggested_edits_contribution_language_label">Lingvo</string>
   <string name="suggested_edits_contribution_image_label">Bildo</string>
   <string name="suggested_edits_contribution_article_label">Artikolo</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hieraŭ</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etikedo</item>
@@ -732,8 +727,6 @@
   <string name="onboarding_explore_text">Saltu en la Vikipedian kuniklotruon per konstante ĝisdatigata Esploro-fluo. &lt;br/&gt; &lt;b&gt;Personecigu&lt;/b&gt; la fluon al viaj interesoj – ĉu pri historiaj eventoj &lt;b&gt;En ĉi tiu tago&lt;/b&gt;, ĉu hazardludado per la funkcio &lt;b&gt;Hazarde&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Legolistoj sinkronigeblaj</string>
   <string name="onboarding_reading_list_sync_text_v2">Vi povas fari legolistojn el artikoloj kiujn vi volas poste legi, eĉ se vi estas ne konektita. &lt;br/&gt;Ensalutu en vian Vikipedian konton por sinkronigi viajn legolistojn. &lt;a href=\"#login\"&gt;Aniĝu al Vikipedio&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Sendi anoniman datenon</string>
-  <string name="onboarding_analytics_offline_text">Helpu plibonigi la aplikaĵon per sciigi nin pri kiel vi uzas ĝin. La kolektota dateno estos anonima. &lt;a href=\"#privacy\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sendi datenon pri uzado</string>
   <string name="onboarding_got_it">Komprenite</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis la sekvajn sur via aparato:</string>
@@ -764,10 +757,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Lasu almenaŭ unu Vikipedian lingvon por serĉado kaj legado de enhavo.</string>
   <string name="more_language_options">pli</string>
   <string name="add_wikipedia_languages_text">Aldoni vikipediajn lingvojn</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Forigi ĉinan varianton el viaj aplikaĵaj lingvoj?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vi aktuale havas kaj tradician kaj simpligitan formojn de ĉina lingvo en viaj aplikaĵaj lingvoj. Ĉu ĝisdatigi la lingvo-agordojn de la aplikaĵo?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Redakti lingvojn</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, dankon</string>
   <string name="remove_language_dialog_cancel_button_text">Nuligi</string>
   <string name="remove_language_dialog_ok_button_text">Bone</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Bone</string>

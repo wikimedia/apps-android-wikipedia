@@ -49,6 +49,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -60,8 +61,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels { SuggestedEditsImageRecsFragmentViewModel.Factory(
-        bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)) }
+    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels()
 
     private var infoClicked = false
     private var scrolled = false
@@ -180,10 +180,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is SuggestedEditsImageRecsFragmentViewModel.UiState.Loading -> onLoading()
-                        is SuggestedEditsImageRecsFragmentViewModel.UiState.Success -> onLoadSuccess()
-                        is SuggestedEditsImageRecsFragmentViewModel.UiState.Depleted -> onDepletedState()
-                        is SuggestedEditsImageRecsFragmentViewModel.UiState.Error -> onError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> onLoadSuccess()
+                        is SuggestedEditsImageRecsFragmentViewModel.Depleted -> onDepletedState()
+                        is Resource.Error -> onError(it.throwable)
                     }
                 }
             }
@@ -313,7 +313,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     override fun onPrepareMenu(menu: Menu) {
         super.onPrepareMenu(menu)
-        menu.findItem(R.id.menu_tutorial).isVisible = viewModel.uiState.value is SuggestedEditsImageRecsFragmentViewModel.UiState.Success
+        menu.findItem(R.id.menu_tutorial).isVisible = viewModel.uiState.value is Resource.Success
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -438,7 +438,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private fun getActionStringForAnalytics(acceptanceState: String? = null, rejectionReasons: String? = null,
                                             revisionId: Long? = null, addTimeSpent: Boolean = false): String {
-        val recommendedImage = if (viewModel.uiState.value is SuggestedEditsImageRecsFragmentViewModel.UiState.Success) viewModel.recommendation.images[0] else null
+        val recommendedImage = if (viewModel.uiState.value is Resource.Success) viewModel.recommendation.images[0] else null
         return ImageRecommendationsEvent.getActionDataString(filename = recommendedImage?.image,
             recommendationSource = recommendedImage?.source,
             recommendationSourceProjects = recommendedImage?.projects.toString(),
@@ -461,11 +461,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
-        const val IMAGE_REC_EDIT_COMMENT_TOP = "#suggestededit-add-image-top"
-        const val IMAGE_REC_EDIT_COMMENT_INFOBOX = "#suggestededit-add-image-infobox"
 
         fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageRecsFragment()
+            return SuggestedEditsImageRecsFragment().apply {
+                arguments = bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)
+            }
         }
     }
 }

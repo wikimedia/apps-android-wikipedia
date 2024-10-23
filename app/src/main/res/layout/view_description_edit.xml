@@ -45,7 +45,9 @@
                 android:textStyle="bold"
                 android:text="@string/description_edit_edit_description"
                 android:textColor="?attr/primary_color"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMaxTextSize="20sp" />
 
             <TextView
                 android:id="@+id/view_description_edit_save_button"
@@ -177,6 +179,7 @@
                                     android:visibility="gone"
                                     app:chipIcon="@drawable/ic_robot_24"
                                     app:chipIconSize="20dp"
+                                    app:chipIconTint="?attr/primary_color"
                                     tools:visibility="visible" />
 
                                 <org.wikipedia.views.PlainPasteEditText

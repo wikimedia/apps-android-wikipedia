@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/background_color"
+    tools:context=".places.PlacesFilterActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="?attr/background_color"
+        android:layout_height="?attr/actionBarSize"
+        app:title="@string/places_filter_title"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/placesFiltersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="24dp"
+        android:background="?attr/paper_color"
+        android:scrollbars="vertical" />
+</FrameLayout>

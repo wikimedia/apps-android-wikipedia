@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,18 +14,22 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.usercontrib.UserContribStats
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ThrowableUtil
+import java.time.Instant
 import java.time.temporal.ChronoUnit
 import java.util.Date
 
 class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
+
+    private var clientJob: Job? = null
 
     var blockMessageWikipedia: String? = null
     var blockMessageWikidata: String? = null
@@ -38,19 +43,18 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var revertSeverity = 0
 
     var wikiSupportsImageRecommendations = false
-    // TODO: remove this limitation later.
     var allowToPatrolEdits = false
 
     fun fetchData() {
-        _uiState.value = UiState.Loading()
+        _uiState.value = Resource.Loading()
         wikiSupportsImageRecommendations = false
 
-        if (!AccountUtil.isLoggedIn) {
-            _uiState.value = UiState.RequireLogin()
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            _uiState.value = RequireLogin()
             return
         }
-
-        viewModelScope.launch(handler) {
+        clientJob?.cancel()
+        clientJob = viewModelScope.launch(handler) {
             blockMessageWikipedia = null
             blockMessageWikidata = null
             blockMessageCommons = null
@@ -58,16 +62,14 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             latestEditStreak = 0
             revertSeverity = 0
 
-            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
+            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 50, null, null) }
             // val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
-            val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
-            val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
-            val editCountsCall = async { UserContribStats.verifyEditCountsAndPauseState() }
+            val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName, 10, null, null) }
+            val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, 0, null) }
 
             val homeSiteResponse = homeSiteCall.await()
             val commonsResponse = commonsCall.await()
             val wikidataResponse = wikidataCall.await()
-            editCountsCall.await()
 
             // Logic for checking whether the wiki has image recommendations enabled
             // (in case we need to rely on it in the future)
@@ -81,7 +83,14 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             wikiSupportsImageRecommendations = true
 
             homeSiteResponse.query?.userInfo?.let {
-                allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
+                // T371442: In the case of Igbo Wikipedia, allow patrolling if the user has 500 or more edits, and 30 days of tenure.
+                // For all other wikis, allow patrolling if the user has rollback rights or is an admin.
+                if (WikipediaApp.instance.wikiSite.languageCode == "ig") {
+                    allowToPatrolEdits = it.editCount >= 500 && it.registrationDate.toInstant().plus(30, ChronoUnit.DAYS).isBefore(Instant.now())
+                } else {
+                    allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
+                }
+
                 if (it.isBlocked) {
                     blockMessageWikipedia = ThrowableUtil.getBlockMessageHtml(it, WikipediaApp.instance.wikiSite)
                 }
@@ -97,10 +106,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                 }
             }
 
+            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
             totalContributions += wikidataResponse.query?.userInfo!!.editCount
             totalContributions += commonsResponse.query?.userInfo!!.editCount
-            totalContributions += homeSiteResponse.query?.userInfo!!.editCount
-            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
+            totalContributions += homeContributions
 
             latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
 
@@ -112,16 +121,18 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                 latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
             }
 
-            latestEditStreak = getEditStreak(
-                wikidataResponse.query!!.userContributions +
-                        commonsResponse.query!!.userContributions +
-                        homeSiteResponse.query!!.userContributions
-            )
+            val totalContributionsList = homeSiteResponse.query!!.userContributions +
+                    wikidataResponse.query!!.userContributions +
+                    commonsResponse.query!!.userContributions
+
+            latestEditStreak = getEditStreak(totalContributionsList)
+
+            UserContribStats.verifyEditCountsAndPauseState(totalContributionsList)
             revertSeverity = UserContribStats.getRevertSeverity()
 
-            totalPageviews = UserContribStats.getPageViews(wikidataResponse)
+            totalPageviews = UserContribStats.getPageViews(homeSiteResponse.query!!.userContributions, wikidataResponse.query!!.userContributions)
 
-            _uiState.value = UiState.Success()
+            _uiState.value = Resource.Success(Unit)
         }
     }
 
@@ -137,10 +148,5 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             .count()
     }
 
-    open class UiState {
-        class Loading : UiState()
-        class RequireLogin : UiState()
-        class Success : UiState()
-        class Error(val throwable: Throwable) : UiState()
-    }
+    class RequireLogin : Resource<Unit>()
 }

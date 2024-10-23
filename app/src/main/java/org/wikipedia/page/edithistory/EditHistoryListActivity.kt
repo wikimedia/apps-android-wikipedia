@@ -65,7 +65,7 @@ class EditHistoryListActivity : BaseActivity() {
     private val editHistoryEmptyMessagesAdapter = EmptyMessagesAdapter()
     private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
-    private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
+    private val viewModel: EditHistoryListViewModel by viewModels()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
@@ -389,7 +389,7 @@ class EditHistoryListActivity : BaseActivity() {
                 showFilterOverflowMenu()
             }
 
-            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+            FeedbackUtil.setButtonTooltip(binding.filterByButton)
             binding.root.isVisible = true
         }
 
@@ -432,7 +432,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle, viewModel.pageId, revision.revId))
+                        viewModel.pageTitle, viewModel.pageId, revisionTo = revision.revId))
             }
         }
 
@@ -481,13 +481,10 @@ class EditHistoryListActivity : BaseActivity() {
         val searchBarFilterIcon get() = searchAndFilterActionProvider?.filterIcon
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@EditHistoryListActivity, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@EditHistoryListActivity, getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -503,7 +500,7 @@ class EditHistoryListActivity : BaseActivity() {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

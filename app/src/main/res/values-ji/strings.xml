@@ -147,9 +147,6 @@
   <string name="create_account_account_created_toast">קאָנטע באַשאַפֿן!</string>
   <string name="preferences_heading_data_usage">דאטן־באניצן</string>
   <string name="preferences_heading_experimental">עקספערימענטאל</string>
-  <string name="preferences_privacy_settings_heading">פריוואטקייט</string>
-  <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
-  <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
   <string name="error_can_not_process_link">נישט מעגלעך צו ווײַזן דעם לינק</string>
   <string name="page_protected_autoconfirmed">דער בלאט איז געווארן האלב געשיצט.</string>
   <string name="page_protected_sysop">דער בלאט איז געווארן גאנג געשיצט</string>
@@ -279,7 +276,6 @@
   <string name="onboarding_welcome_title_v2">די פֿרייע ענציקלאפעדיע\n…אין מער ווי 300 שפראכן</string>
   <string name="app_shortcuts_search">זוכן</string>
   <string name="more_language_options">נאָך</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">רעדאקטירן שפראכן</string>
   <string name="remove_language_dialog_cancel_button_text">אַנולירן</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">אַנולירן</string>
   <string name="wikitext_link">לינק</string>

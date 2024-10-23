@@ -61,7 +61,7 @@
   <string name="page_edit_history_filter_by">ఇలా వడపోయి:</string>
   <string name="page_edit_history_filter_by_all">దిద్దుబాట్లన్నీ (%s)</string>
   <string name="page_edit_history_filter_by_user">వాడుకరి దిద్దుబాట్లు (%s)</string>
-  <string name="page_edit_history_filter_by_anon">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
   <string name="page_edit_history_filter_by_bot">బాట్ల దిద్దుబాట్లు (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%2$s నుండి %1$d దిద్దుబాటు</item>
@@ -205,9 +205,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">చదివే జాబితాలను మీ వికీపీడియా ఖాతా %s లో భద్రపరచుకుని, వాటిని వివిధ డివైసుల్లో సింకు చేసుకోండి</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" నుండి సింకై ఉన్న చదివే జాబితాలను తీసెయ్యమంటారా?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">దీంతో, గతంలో రిమోట్ నిల్వలో సింకై ఉన్న చదివే జాబితాలన్నీ పోతాయి. మీ ఖాతా %s నుండీ చదివే జాబితా లన్నిటినీ తీసెయ్యమంటారా?</string>
-  <string name="preferences_privacy_settings_heading">అంతరంగికత</string>
-  <string name="preference_title_eventlogging_opt_in">వాడుక నివేదికని పంపండి</string>
-  <string name="preference_summary_eventlogging_opt_in">ఈ అనువర్తనం మెరుగుపరచుటకు, మీరు ఈ అనువర్తనం ఎలా వాడుతున్నారో అన్న సమాచారం సేకరించటానికి వికీపీడియాకి అనుమతి ఇవ్వండి</string>
   <string name="preference_title_auto_upload_crash_reports">క్రాష్ నివేదికలను పంపించు</string>
   <string name="editing_error_spamblacklist">ఆమోదంకాని డోమైన్లకి (%s) లింక్లు కొనుగోనబడ్డాయి. దయచేసి వాటిని తొలగించి మళ్ళి ప్రయత్నించండి.</string>
   <string name="history_filter_list_hint">చరిత్రను వడపోయండి</string>
@@ -231,8 +228,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
   <string name="android_app_request_an_account_url">https://te.wikipedia.org/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
   <string name="about_contributors_heading">సహాయకులు</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
@@ -341,7 +338,6 @@
   <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
   <string name="tool_tip_toc_title">విషయ సూచిక సత్వర అందుబాటు</string>
   <string name="tool_tip_toc_text">విషయ సూచికను తెరిచేందుకు ఎడమ వైపుకు స్వైపు చెయ్యండి. అలాగే వ్యాసం లోని వివిధ విభాగాలకు దూకేందుకు ఈ స్క్రాలరు బొత్తాన్ని తట్టి లాగండి.</string>
-  <string name="tool_tip_lang_button">మీరిప్పుడు యాప్‌లో అనేక వికీపీడియా భాషల్లో వెతకడం, చదవడం చెయ్యవచ్చు.\n\n\nమరిన్ని భాషలను చేర్చేందుకు ఐకనుపై తట్టండి.</string>
   <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
@@ -651,7 +647,7 @@
   <string name="preference_title_customize_push_notifications">పంపించే గమనింపులను కస్టమైజు చెయ్యండి</string>
   <string name="preference_category_display_settings">ప్రదర్శన అమరికలు</string>
   <string name="preference_title_hide_read_notifications">చదివే గమనింపులను దాచు</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">వికీపీడీయా</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">వికీపీడియా</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">వికీపీడియా నుండి గమనింపులు</string>
   <string name="notifications_channel_group_other_title">ఇతర</string>
   <string name="notifications_channel_group_other_description">యాప్ నుండి ఇతర గమనింపులు</string>
@@ -676,8 +672,8 @@
   <string name="notifications_menu_uncheck_all">అంశాలన్నిటి ఎంపికనూ తీసెయ్యి</string>
   <string name="notifications_wiki_filter_header">వికీ వడపోత</string>
   <string name="notifications_type_filter_header">వడపోతను టైపించండి</string>
-  <string name="notifications_all_wikis_text">అన్ని \"వికీ\"</string>
-  <string name="notifications_all_types_text">అన్ని \"రకం\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">అన్ని \"వికీ\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">అన్ని \"రకం\"</string>
   <string name="notifications_menu_user_talk_page">%s చర్చ పేజీ</string>
   <string name="notifications_offline_disable_message">ఈ ఫంక్షను ఆప్‌లైనులో అందుబాటులో లేదు.</string>
   <string name="view_because_you_read_card_title">మీరివి చదివారు కాబట్టి</string>
@@ -917,7 +913,6 @@
     <item quantity="one">మీరు %d ట్యాగును చేర్చారు</item>
     <item quantity="other">మీరు %d ట్యాగులను చేర్చారు</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
   <string name="suggested_edits_encourage_account_creation_title">వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>
@@ -943,7 +938,7 @@
   <string name="suggested_edits_image_recommendations_task_title">వ్యాస చిత్రాలు</string>
   <string name="suggested_edits_image_recommendations_task_detail">వికీపీడియా వ్యాసాలను మరింత మెరుగ్గా అర్థం చేసుకోవడానికి సూచించిన చిత్రాలను చేర్చండి.</string>
   <string name="image_recommendation_accept">సరే</string>
-  <string name="image_recommendation_reject_title">ఎందుకని వద్దు?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">ఎందుకని వద్దు?</string>
   <string name="image_recommendation_reject_dont_know">ఈ విషయం గురించి నాకు తెలియదు</string>
   <string name="image_recommendation_onboarding_2">సూచించబడిన చిత్రాన్ని వికీపీడియా వ్యాసంలో చేర్చాలా వద్దా అనేది నిర్ణయించవలసినది మీరే.</string>
   <string name="image_recommendation_onboarding_3">ఈ సూచనలు యాంత్రికంగా తయారైనవి. వీటిని స్వీకరించాలో తిరస్కరించాలో లేదో మీ విజ్ఞతతో మీరే నిర్ణయించుకోవాలి.</string>
@@ -969,8 +964,6 @@
   <string name="onboarding_explore_title">శోధించేందుకు కొత్త పద్ధతులు</string>
   <string name="onboarding_reading_list_sync_title">సింకుతో చదివే జాబితాలు</string>
   <string name="onboarding_reading_list_sync_text_v2">తరువాత చదువుదామని అనుకున్న వ్యాసాలను ఆఫ్‌లైనులో కూడా చదివేందుకు చదివే జాబితాలు తయారు చేసుకోవచ్చు. &lt;br/&gt;మీ చదివే జాబితాలను సింకు చేసుకునేందుకు వికీపీడియా లోకి లాగినవండి. &lt;a href=\"#login\"&gt;వికీపీడీయాలో చేరండి&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">అజ్ఞాత డేటాను పంపించు</string>
-  <string name="onboarding_analytics_offline_text">ఈ యాప్‌ను మీరు ఎలా వాడుతున్నారో మాకు చెప్పి, దాన్ని మెరుగు పరచేందుకు దోహదం చెయ్యండి. మే సేకరించిన డేటా అజ్ఞాతంగా ఉంటుంది. &lt;a href=\"#privacy\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">వాడుక డేటాను పంపించు</string>
   <string name="onboarding_got_it">అర్థమైంది</string>
   <string name="onboarding_multilingual_secondary_text">మీ డివైసులో మాకు ఇవి కనబడ్డాయి:</string>
@@ -1008,10 +1001,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">కనీసం ఒక్క వికీపీడియా భాషనైనా ఉంచండి - కంటెంటును వెతకడం, చదవడం చెయ్యాలిగా.</string>
   <string name="more_language_options">మరిన్ని</string>
   <string name="add_wikipedia_languages_text">వికీపీడియా భాషలను చేర్చు</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">మీ యాప్ భాషల నుండి ఓ చైనీసు రకాన్ని తీసెయ్యమంటారా?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">మీ యాప్ భాషల్లో ప్రస్తుతం సాంప్రదాయిక చైనీసు, సరళీకృత చైనీసు రెండూ ఉన్నాయి. మీ యాప్‌లో భాషా అమరికలను తాజాకరిస్తారా?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">భాషలను సవరించు</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">వద్దులే</string>
   <string name="remove_language_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="remove_language_dialog_ok_button_text">సరే</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">సరే</string>

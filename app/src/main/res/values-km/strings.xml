@@ -127,9 +127,6 @@
   <string name="send_feedback">ផ្ញើមតិយោបល់អំពីកម្មវិធីនេះ</string>
   <string name="create_account_account_created_toast">គណនីបានបង្កើតហើយ!</string>
   <string name="preferences_heading_experimental">ស្ថិតក្រោមការពិសោធន៍នៅឡើយ</string>
-  <string name="preferences_privacy_settings_heading">ឯកជនភាព</string>
-  <string name="preference_title_eventlogging_opt_in">ផ្ញើរបាយការណ៍ពីបម្រើបម្រាស់</string>
-  <string name="preference_summary_eventlogging_opt_in">អនុញ្ញាតអោយវិគីមេឌាប្រមូលព័ត៌មានអំពីរបៀបប្រើប្រាស់កម្មវិធីរបស់អ្នក ដើម្បីជួយកែច្នៃកម្មវិធីនេះអោយកាន់តែប្រសើរ</string>
   <string name="preference_title_auto_upload_crash_reports">ផ្ញើរបាយការណ៍ពីការគាំង</string>
   <string name="error_can_not_process_link">មិនអាចបង្ហាញតំណភ្ជាប់នេះទេ</string>
   <string name="page_protected_autoconfirmed">ទំព័រនេះត្រូវបានការពារពាក់កណ្ដាល។</string>
@@ -371,7 +368,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">ទុកយ៉ាងហោចណាស់មួយភាសាវិគីភីឌាសម្រាប់ស្វែងរកនិងអាចខ្លឹមសារអត្ថបទ។</string>
   <string name="more_language_options">បន្ថែមទៀត</string>
   <string name="add_wikipedia_languages_text">បន្ថែមភាសាវិគីភីឌា</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ទេ, អរគុណហើយ</string>
   <string name="edit_type_all">វិភាគទានទាំងអស់</string>
   <string name="main_drawer_help">ជំនួយ</string>
   <string name="main_drawer_login">កត់ឈ្មោះចូល / ចូលរួមជាមួយវិគីភីឌា</string>

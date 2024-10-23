@@ -26,7 +26,7 @@
   <string name="share_via">આના માધ્યમથી વહેંચો</string>
   <string name="page_edit_history_filter_by_all">બધા સંપાદનો (%s)</string>
   <string name="page_edit_history_filter_by_user">સભ્ય સંપાદનો (%s)</string>
-  <string name="page_edit_history_filter_by_anon">અજ્ઞાત સંપાદનો (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">અજ્ઞાત સંપાદનો (%s)</string>
   <string name="menu_page_other_languages">ભાષા બદલો</string>
   <string name="menu_page_find_in_page" fuzzy="true">પાનામાં શોધો</string>
   <string name="menu_page_talk_page">ચર્ચા પાનું</string>
@@ -59,7 +59,7 @@
   <string name="login_success_toast" fuzzy="true">પ્રવેશ સફળ!</string>
   <string name="preference_title_logout">પ્રસ્થાન</string>
   <string name="toast_logout_complete">બહાર નીકળી ગયા</string>
-  <string name="history_empty_title" fuzzy="true">અહીં તાજેતરનાં પાનાઓ નથી!</string>
+  <string name="history_empty_title">અહીં તાજેતરનાં પાનાં નથી!</string>
   <string name="wp_stylized">&lt;big&gt;વિ&lt;/big&gt;કિપીડિ&lt;big&gt;યા&lt;/big&gt;</string>
   <string name="create_account_username_hint">સભ્યનામ</string>
   <string name="create_account_activity_title">ખાતું ખોલો</string>
@@ -74,7 +74,6 @@
   <string name="preferences_general_heading">સામાન્ય</string>
   <string name="preferences_account_heading">ખાતું</string>
   <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
-  <string name="preferences_privacy_settings_heading">ગોપનીયતા</string>
   <string name="settings_activity_title" fuzzy="true">ગોઠવણીઓ</string>
   <string name="privacy_policy_description">ગોપનિયતા નીતિ</string>
   <string name="terms_of_use_description">વપરાશની શરતો</string>

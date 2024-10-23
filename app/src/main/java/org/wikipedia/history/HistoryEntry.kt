@@ -68,6 +68,7 @@ class HistoryEntry(
         const val SOURCE_LANGUAGE_LINK = 6
         const val SOURCE_RANDOM = 7
         const val SOURCE_MAIN_PAGE = 8
+        const val SOURCE_PLACES = 9
         const val SOURCE_DISAMBIG = 10
         const val SOURCE_READING_LIST = 11
         const val SOURCE_FEED_BECAUSE_YOU_READ = 13
@@ -98,5 +99,8 @@ class HistoryEntry(
         const val SOURCE_FILE_PAGE = 39
         const val SOURCE_SINGLE_WEBVIEW = 40
         const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
+        const val SOURCE_FEED_PLACES = 42
+        const val SOURCE_RECOMMENDED_CONTENT_PERSONALIZED = 43
+        const val SOURCE_RECOMMENDED_CONTENT_GENERALIZED = 44
     }
 }

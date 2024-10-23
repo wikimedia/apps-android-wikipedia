@@ -12,7 +12,7 @@ data class PageSummaryForEdit(
         var title: String,
         var lang: String,
         var pageTitle: PageTitle,
-        var displayTitle: String?,
+        var displayTitle: String = pageTitle.displayText,
         var description: String?,
         var thumbnailUrl: String?,
         var extract: String? = null,

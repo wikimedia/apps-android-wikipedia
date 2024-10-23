@@ -9,10 +9,7 @@ import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.L10nUtil
 import kotlin.math.abs
 
-class FrameLayoutNavMenuTriggerer : FrameLayout {
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr)
+class FrameLayoutNavMenuTriggerer(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     interface Callback {
         fun onNavMenuSwipeRequest(gravity: Int)
@@ -41,7 +38,7 @@ class FrameLayoutNavMenuTriggerer : FrameLayout {
                 maybeSwiping = false
             } else if (abs(ev.x - initialX) > SWIPE_SLOP_X) {
                 maybeSwiping = false
-                if (callback != null) {
+                callback?.let {
                     // send an explicit event to children to cancel the current gesture that
                     // they thought was occurring.
                     val moveEvent = MotionEvent.obtain(ev)
@@ -49,7 +46,7 @@ class FrameLayoutNavMenuTriggerer : FrameLayout {
                     post { super.dispatchTouchEvent(moveEvent) }
 
                     // and trigger our custom swipe request!
-                    callback!!.onNavMenuSwipeRequest(if (L10nUtil.isDeviceRTL)
+                    it.onNavMenuSwipeRequest(if (L10nUtil.isDeviceRTL)
                         if (ev.x > initialX) Gravity.END else Gravity.START else if (ev.x > initialX) Gravity.START else Gravity.END)
                 }
             }

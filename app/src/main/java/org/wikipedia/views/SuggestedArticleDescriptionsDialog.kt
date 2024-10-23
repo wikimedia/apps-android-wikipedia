@@ -64,8 +64,9 @@ class SuggestedArticleDescriptionsDialog(
     }
 
     companion object {
+        // TODO: reenable 'en' when ready.
         val availableLanguages = listOf(
-            "en", "ru", "vi", "ja", "de", "ro", "fr", "fi", "ko", "es", "zh", "it",
+            "ru", "vi", "ja", "de", "ro", "fr", "fi", "ko", "es", "zh", "it",
             "nl", "ar", "tr", "hi", "cs", "lt", "lv", "kk", "et", "ni", "si", "gu", "my"
         )
     }

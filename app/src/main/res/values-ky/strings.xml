@@ -100,9 +100,6 @@
   <string name="preferences_account_heading">Аккаунт</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
-  <string name="preferences_privacy_settings_heading">Купуялык</string>
-  <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
-  <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
   <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>
   <string name="error_can_not_process_link">Бул шилтемени көрсөтүүгө мүмкүнчүлүк болбоду.</string>
   <string name="page_protected_autoconfirmed">Бул барак жарым-жартылай корголгон.</string>
@@ -110,7 +107,8 @@
   <string name="page_protected_other">Бул барак мындай деңгээлдерде корголгон: %s</string>
   <string name="page_protected_can_not_edit" fuzzy="true">Бул баракты оңдоого сиздин укугуңуз жок.</string>
   <string name="page_protected_can_not_edit_title">Бул барак корголгон</string>
-  <string name="settings_activity_title" fuzzy="true">Ырастоолор</string>
+  <string name="settings_item_preferences">Параметрлер</string>
+  <string name="settings_activity_title">Параметрлер</string>
   <string name="about_description">«Уикипедия» тиркемеси жөнүндө</string>
   <string name="privacy_policy_description">Купуялык саясаты</string>
   <string name="terms_of_use_description">Колдонуу шарттары</string>
@@ -121,6 +119,7 @@
   <string name="about_contributors_heading" fuzzy="true">авторлор</string>
   <string name="about_translators_heading">Котормочулар</string>
   <string name="about_translators_translatewiki">Бул тиркеме &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'деги ыктыярчылар тарабынан которулган.</string>
+  <string name="about_app_license_heading">Лицензия</string>
   <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
   <string name="about_activity_title">Тиркеме жөнүндө</string>
   <string name="edit_abandon_confirm">Барак өзгөрүлдү. Сиз өзгөртүүлөрдү сактабай чыгууңузга ишенесизби?</string>
@@ -154,6 +153,7 @@
   <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
   <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
   <string name="dialog_close_description">Жабуу</string>
+  <string name="gallery_menu_share">Бөлүшүү</string>
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
@@ -170,13 +170,16 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Жокко чыгаруу</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Кирүү</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Макул</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Параметрлер</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Жокко чыгаруу</string>
+  <string name="user_option_sync_label">Параметрлер</string>
   <string name="notification_syncing_cancel_button">Жокко чыгаруу</string>
   <string name="notifications_channel_group_other_title">Башка</string>
   <string name="view_featured_image_card_download">Жүктөп алуу</string>
+  <string name="view_featured_image_card_share">Бөлүшүү</string>
   <string name="view_continue_reading_card_subtitle_today">бүгүнкү</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
@@ -188,6 +191,7 @@
   <string name="suggested_edits_task_action_text_translate">Которуу</string>
   <string name="suggested_edits_task_new" fuzzy="true">жаңы</string>
   <string name="suggested_edits_contribution_language_label">Тил</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Кечээ</string>
   <string name="file_page_edit_button_content_description">%s түзөтүү</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
   <string name="onboarding_continue">Улантуу</string>
@@ -197,6 +201,7 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="wikitext_link">Шилтеме</string>
   <string name="wikitext_template">Калып</string>
+  <string name="wikitext_reference">Булак</string>
   <string name="text_input_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="talk_title">Талкуу</string>

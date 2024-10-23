@@ -21,7 +21,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
-import java.util.*
+import java.util.Date
 
 class ReadingListPreviewSaveDialogView : FrameLayout {
 
@@ -91,7 +91,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
             itemBinding.articleName.text = StringUtil.fromHtml(readingListPage.displayTitle)
             itemBinding.articleDescription.isVisible = !readingListPage.description.isNullOrEmpty()
             itemBinding.articleDescription.text = StringUtil.fromHtml(readingListPage.description)
-            ViewUtil.loadImage(itemBinding.articleThumbnail, readingListPage.thumbUrl, true)
+            ViewUtil.loadImage(itemBinding.articleThumbnail, readingListPage.thumbUrl, roundedCorners = true)
             itemBinding.container.setOnClickListener(this)
             itemBinding.checkbox.setOnClickListener(this)
             updateState()

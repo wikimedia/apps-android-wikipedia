@@ -70,7 +70,7 @@
   <string name="page_edit_history_filter_by">กรองตาม</string>
   <string name="page_edit_history_filter_by_all">การแก้ไขทั้งหมด (%s)</string>
   <string name="page_edit_history_filter_by_user">การแก้ไขโดยผู้ใช้ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">การแก้ไขนิรนาม (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">การแก้ไขนิรนาม (%s)</string>
   <string name="page_edit_history_filter_by_bot">การแก้ไขโดยบอต (%s)</string>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
@@ -211,9 +211,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">ซิงค์รายการอ่านในแต่ละอุปกรณ์ด้วยการบันทึกลงในบัญชีวิกิพีเดีย \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ลบรายการอ่านที่ซิงค์จาก \"%s\" หรือไม่?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">การกระทำนี้จะลบรายการอ่านที่ซิงค์มาทั้งหมดออกจากที่เก็บข้อมูลระยะไกล แน่ใจหรือไม่ว่าจะลบรายการอ่านทั้งหมดออกจากบัญชีของคุณ \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
-  <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
-  <string name="preference_summary_eventlogging_opt_in">อนุญาตให้วิกิมีเดียเก็บข้อมูลการใช้แอปของคุณเพื่อพัฒนาแอปให้ดีขึ้น</string>
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานข้อขัดข้อง</string>
   <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอปส่งรายงานข้อขัดข้องไปยังบริการของบุคคลที่สามโดยอัตโนมัติ เพื่อเราจะได้ตรวจสอบและแก้ไขปัญหาได้รวดเร็วและง่ายดายยิ่งขึ้น</string>
   <string name="editing_error_spamblacklist">ตรวจพบลิงก์ไปยังโดเมนที่ถูกระงับ (%s) กรุณาลบและลองอีกครั้ง</string>
@@ -237,8 +234,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ไลบรารีที่ใช้งาน</string>
   <string name="about_contributors_heading">ผู้มีส่วนร่วม</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
@@ -345,7 +342,6 @@
   <string name="page_view_in_browser">ดูหน้าในเบราว์เซอร์</string>
   <string name="tool_tip_toc_title">การเข้าถึงสารบัญด่วน</string>
   <string name="tool_tip_toc_text">คุณสามารถปัดไปทางซ้ายเพื่อเปิดสารบัญ และยังสามารถแตะแล้วลากบนปุ่มตัวเลื่อนนี้เพื่อข้ามไปยังส่วนอื่นของบทความอย่างรวดเร็วได้แล้วตอนนี้</string>
-  <string name="tool_tip_lang_button">คุณสามารถค้นหาและอ่านในวิกิพีเดียหลายภาษาในแอปได้แล้ว\n\n\nแตะบนไอคอนเพื่อเพิ่มภาษาเพิ่มเติม</string>
   <string name="error_response_malformed">การตอบสนองจากเซิร์ฟเวอร์ไม่ได้ถูกจัดรูปแบบอย่างถูกต้อง</string>
   <string name="error_unknown">เกิดข้อผิดพลาดไม่ทราบสาเหตุ</string>
   <string name="format_error_server_message">สาร: \"%s\"</string>
@@ -646,8 +642,8 @@
   <string name="notifications_menu_mark_as_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
   <string name="notifications_swipe_action_read">อ่านแล้ว</string>
   <string name="notifications_wiki_filter_header">ตัวกรองวิกิ</string>
-  <string name="notifications_all_wikis_text">ทุก \"วิกิ\"</string>
-  <string name="notifications_all_types_text">ทุก \"ชนิด\"</string>
+  <string name="notifications_all_wikis_text">วิกิทั้งหมด</string>
+  <string name="notifications_all_types_text">ทุกประเภท</string>
   <string name="notifications_menu_user_talk_page">หน้าคุยของ %s</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
@@ -859,7 +855,7 @@
   <string name="suggested_edits_ip_blocked_title">เลขที่อยู่ไอพีถูกระงับ</string>
   <string name="suggested_edits_last_edited">แก้ไขล่าสุดเมื่อ</string>
   <string name="suggested_edits_last_edited_never">ไม่เคย</string>
-  <string name="suggested_edits_task_new" fuzzy="true">ใหม่</string>
+  <string name="suggested_edits_task_new">ใหม่</string>
   <string name="suggested_edits_reactivation_notification_title">การแก้ไขที่แนะนำ</string>
   <string name="suggested_edits_contributions_screen_title">เรื่องที่มีส่วนร่วมของ %s</string>
   <string name="suggested_edits_contribution_language_label">ภาษา</string>
@@ -867,7 +863,6 @@
   <string name="suggested_edits_contribution_type_label">ชนิดการมีส่วนร่วม</string>
   <string name="suggested_edits_contribution_image_label">ภาพ</string>
   <string name="suggested_edits_contribution_article_label">บทความ</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">เมื่อวานนี้</string>
   <string name="suggested_edits_encourage_account_creation_title">คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
@@ -894,8 +889,6 @@
   <string name="onboarding_explore_text">สำรวจเนื้อหาใหม่ ๆ ในวิกิพีเดียด้วยฟีดสำรวจที่ปรับปรุงอย่างต่อเนื่อง &lt;br/&gt; &lt;b&gt;ปรับแต่ง&lt;/b&gt;ฟีดให้ตรงตามความสนใจของคุณ ไม่ว่าจะเป็นเรื่องเกี่ยวกับเหตุการณ์&lt;b&gt;วันนี้ในอดีต&lt;/b&gt; หรือ&lt;b&gt;สุ่ม&lt;/b&gt;เนื้อหาต่าง ๆ</string>
   <string name="onboarding_reading_list_sync_title">รายการอ่านที่มีการซิงค์</string>
   <string name="onboarding_reading_list_sync_text_v2">คุณสามารถสร้างรายการอ่านจากบทความที่คุณต้องการอ่านในภายหลังแม้กระทั่งเมื่อคุณออฟไลน์ได้ &lt;br/&gt;เข้าสู่ระบบบัญชีวิกิพีเดียของคุณเพื่อซิงค์รายการอ่านของคุณ &lt;a href=\"#login\"&gt;เข้าร่วมวิกิพีเดีย&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>
-  <string name="onboarding_analytics_offline_text">ช่วยพัฒนาแอปให้ดีขึ้นด้วยการบอกให้เรารู้เกี่ยวกับการใช้งานของคุณ ข้อมูลที่รวบรวมจะเป็นแบบไม่ระบุตัวตน &lt;a href=\"#privacy\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ส่งข้อมูลการใช้งาน</string>
   <string name="onboarding_got_it">เข้าใจแล้ว</string>
   <string name="onboarding_multilingual_secondary_text">เราได้พบภาษาดังต่อไปนี้บนอุปกรณ์ของคุณ:</string>
@@ -934,10 +927,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">เหลือภาษาของวิกิพีเดียไว้อย่างน้อยหนึ่งภาษาเพื่อให้สามารถใช้ค้นหาและอ่านเนื้อหาได้</string>
   <string name="more_language_options">เพิ่มเติม</string>
   <string name="add_wikipedia_languages_text">เพิ่มภาษาของวิกิพีเดีย</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">เอารูปแบบภาษาจีนออกจากภาษาแอปของคุณหรือไม่</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">ขณะนี้คุณตั้งค่ารูปแบบภาษาจีนทั้งตัวเต็มและตัวย่อไว้ในภาษาแอปของคุณ ปรับปรุงการตั้งค่าภาษาแอปของคุณหรือไม่</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">แก้ไขภาษา</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ไม่ขอบคุณ</string>
   <string name="remove_language_dialog_cancel_button_text">ยกเลิก</string>
   <string name="remove_language_dialog_ok_button_text">ตกลง</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ตกลง</string>
@@ -957,6 +946,11 @@
   <string name="wikitext_template">แม่แบบ</string>
   <string name="wikitext_reference">แหล่งอ้างอิง</string>
   <string name="wikitext_preview_link">แสดงตัวอย่างลิงก์</string>
+  <string name="insert_media_advanced_settings">การตั้งค่าขั้นสูง</string>
+  <string name="insert_media_advanced_settings_wrap_image">ตัดข้อความรอบ ๆ รูปภาพ</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">ความกว้าง</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">ความสูง</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">พิกเซล</string>
   <string name="main_drawer_help">วิธีใช้</string>
   <string name="main_drawer_login">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
   <string name="main_tooltip_text">สวัสดี %s คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>

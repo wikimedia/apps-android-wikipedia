@@ -35,7 +35,7 @@
             app:srcCompat="@drawable/ic_play_circle" />
     </FrameLayout>
 
-    <com.github.chrisbanes.photoview.PhotoView
+    <io.getstream.photoview.PhotoView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

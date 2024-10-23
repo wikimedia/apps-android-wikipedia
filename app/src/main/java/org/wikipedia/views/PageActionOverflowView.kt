@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.doOnDetach
 import androidx.core.widget.PopupWindowCompat
+import androidx.core.widget.TextViewCompat
 import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
@@ -21,6 +22,7 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ResourceUtil
 
 class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
@@ -78,6 +80,12 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
                 }
                 PageActionItem.EDIT_ARTICLE -> {
                     view.setCompoundDrawablesRelativeWithIntrinsicBounds(PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0, 0)
+                }
+                PageActionItem.VIEW_ON_MAP -> {
+                    val geoAvailable = model.page?.pageProperties?.geo != null
+                    val tintColor = ResourceUtil.getThemedColorStateList(context, if (geoAvailable) R.attr.primary_color else R.attr.inactive_color)
+                    view.setTextColor(tintColor)
+                    TextViewCompat.setCompoundDrawableTintList(view, tintColor)
                 }
                 else -> {
                     view.visibility = if (enabled) VISIBLE else GONE

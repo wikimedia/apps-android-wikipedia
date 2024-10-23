@@ -16,11 +16,12 @@ import org.wikipedia.databinding.DatePickerDialogBinding
 import org.wikipedia.databinding.ViewCustomCalendarDayBinding
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class CustomDatePicker : DialogFragment() {
     interface Callback {
-        fun onDatePicked(month: Int, day: Int)
+        fun onDatePicked(calendar: Calendar)
     }
 
     private var _binding: DatePickerDialogBinding? = null
@@ -41,7 +42,7 @@ class CustomDatePicker : DialogFragment() {
         setNextMonthClickListener()
         return MaterialAlertDialogBuilder(requireActivity())
                 .setView(binding.root)
-                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text) { _: DialogInterface?, _: Int -> callback?.onDatePicked(callbackDay[Calendar.MONTH], callbackDay[Calendar.DATE]) }
+                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text) { _: DialogInterface?, _: Int -> callback?.onDatePicked(callbackDay) }
                 .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
                 .create()
     }

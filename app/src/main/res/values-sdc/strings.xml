@@ -43,7 +43,7 @@
   <string name="page_edit_history_activity_title">Cronologia: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_filter_by_all">Tutti li mudìfigghi (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Tutti li mudìfigghi (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Tutti li mudìfigghi (%s)</string>
   <string name="page_edit_history_filter_by_bot">Tutti li mudìfigghi (%s)</string>
   <string name="page_edit_history_metrics_content_description">Sthatìsthigghi da %1$s a %2$s</string>
   <string name="menu_page_other_languages">Ciambà linga</string>
@@ -107,7 +107,6 @@
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="create_account_account_created_toast">Registhrazioni criadda!</string>
   <string name="preferences_heading_experimental">Ippirimintari</string>
-  <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="history_filter_list_hint">Cronologia di lu file</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Aggiugnì a la listha di l\'abbaiddaddi ippiziari</string>
   <string name="settings_item_preferences">Prifirènzi</string>
@@ -115,8 +114,8 @@
   <string name="privacy_policy_description">Infuimmazioni i\' la riseivvaddèzia</string>
   <string name="terms_of_use_description">Cundiziòni d\'usu</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">Autori</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
   <string name="about_translators_heading">Traduttorii</string>
@@ -244,7 +243,6 @@
   <string name="suggested_edits_contribution_date_time_label">Data / Ora</string>
   <string name="suggested_edits_contribution_image_label">Immàgina</string>
   <string name="suggested_edits_contribution_article_label">Bozi</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="description_edit_login_cancel_button_text">Annullà</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>

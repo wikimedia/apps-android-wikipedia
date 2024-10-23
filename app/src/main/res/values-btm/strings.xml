@@ -119,9 +119,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkon daftar bacaan i sude perangkat dohot manyimpanna tu akun Wikipedia Mu \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Apus daftar bacaan na isinkronkon tingon \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">On nangkan mangapus sude daftar bacaan na isinkronkon parjolo tingon panyimpanan nadao. Apus sude daftar na isinkronkon timgon akun Muyu \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Pripasi</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim laporan panggunaan</string>
-  <string name="preference_summary_eventlogging_opt_in">Izinkon Wikimedia get mangumpulkon informasi tontang songondia Amu mamake aplikasi anso mambaen aplikasi tu nadegesna</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan nasega</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkon aplikasi tu mangirimkon laporan nasega tu HockeyApp / panyadio layanan pihak patolu sacara otomatis mambaen ami bisa mangida sega muyui dot pature kasalahan lobi cipat dot lobi momo.</string>
   <string name="editing_error_spamblacklist">Pranala tu domain na iblokir (%s) tardeteksi. Apusma dot kajo mulak.</string>
@@ -146,7 +143,6 @@
   <string name="about_translators_translatewiki">Aplikasi on madung itarjamahkon ni panerjemah sukarela i &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
   <string name="about_app_license" fuzzy="true">Kode sumber tarsadio i &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dot &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; i toru &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tarsadio i toru &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-MarbagiSerupa Creative Commons&lt;/a&gt; kacuali inyatoon lain.</string>
-  <string name="tool_tip_lang_button">Amu sonnari bisa manjalaki dot mambaca i bahat saro i aplikasi.\n\n\n\nPisat ikon anso manamba lobi bahat saro.</string>
   <string name="feed_configure_menu_select_all">Patidaon sude</string>
   <string name="feed_configure_menu_deselect_all">Pajopi sude</string>
   <string name="feed_configure_language_warning">Roaon molo inda sude mocoman kartu tarsadio i sude saro Wikipedia. Edit saro na ipili Muyu i Pangaturan.</string>

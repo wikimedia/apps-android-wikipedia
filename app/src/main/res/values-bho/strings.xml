@@ -159,9 +159,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">अलग-अलग डिवाइस सभ पर के रीडिंग लिस्ट सभ के अपना विकिपीडिया खाता \"%s\" में सहेज के सिंक करीं</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" से सिंक कइल पढ़ाई लिस्ट हटावल जाय?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ई सगरी पहिले के सिंक भइल रीडिंग लिस्ट के दूर मौजूद स्टोरेज से डिलीट कइ देई। राउर खाता \"%s\" से साथे सिंक सगरी लिस्ट हटावल जाय?</string>
-  <string name="preferences_privacy_settings_heading">प्राइवेसी</string>
-  <string name="preference_title_eventlogging_opt_in">इस्तेमाल के रपट भेजीं</string>
-  <string name="preference_summary_eventlogging_opt_in">आप एह एप के कइसे इस्तेमाल करीं ले एकरे बारे में जानकारी एकट्ठा करे खातिर विकिमीडिया के अनुमती देईं जवना से एप के अउरी बेहतर बनावल जा सके</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रपट भेजीं</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
   <string name="editing_error_spamblacklist">ब्लॉक डोमेन (%s) से जुड़ल कड़ी मिलल बा। इनहन के हटाईं आ दोबारा कोसिस करीं।</string>
@@ -181,7 +178,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://bh.wikipedia.org/wiki/विकिपीडिया:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">इस्तेमाल कइल गइल लाइब्रेरी</string>
   <string name="about_contributors_heading">योगदान</string>
   <string name="about_translators_heading">अनुवादक</string>

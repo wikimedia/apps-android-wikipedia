@@ -15,3 +15,9 @@ sealed class MobileAppsEvent(@Transient private val _streamName: String = "") : 
     @SerialName("app_session_id") @Required private val sessionId = EventPlatformClient.AssociationController.sessionId
     @SerialName("app_install_id") @Required private val appInstallId = WikipediaApp.instance.appInstallID
 }
+
+@Suppress("unused")
+@Serializable
+sealed class MobileAppsEventWithTemp(@Transient private val _streamName: String = "") : MobileAppsEvent(_streamName) {
+    @SerialName("is_temp") @Required private val temp = AccountUtil.isTemporaryAccount
+}

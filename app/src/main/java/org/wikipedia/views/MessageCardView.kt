@@ -7,16 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.fragment.app.Fragment
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewMessageCardBinding
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
-class MessageCardView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     val binding = ViewMessageCardBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -84,14 +81,14 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }
 
-    fun setRequiredLogin(fragment: Fragment) {
+    fun setRequiredLogin(onClickListener: OnClickListener) {
         binding.imageView.visibility = View.VISIBLE
         binding.messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         binding.messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         binding.imageView.setImageResource(R.drawable.ic_require_login_header)
         binding.positiveButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
-        binding.positiveButton.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, LoginActivity.SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
-        binding.containerClickArea.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, LoginActivity.SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
+        binding.positiveButton.setOnClickListener(onClickListener)
+        binding.containerClickArea.setOnClickListener(onClickListener)
     }
 
     private fun setDefaultState() {

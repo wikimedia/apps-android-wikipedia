@@ -87,11 +87,11 @@ open class SyntaxHighlightableEditText : EditText {
                 (if (enabled) 0 else (EditorInfo.TYPE_TEXT_FLAG_NO_SUGGESTIONS or EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD))
     }
 
-    override fun bringPointIntoView(offset: Int): Boolean {
+    override fun requestRectangleOnScreen(rectangle: Rect?): Boolean {
         if (!allowScrollToCursor) {
             return false
         }
-        return super.bringPointIntoView(offset)
+        return super.requestRectangleOnScreen(rectangle)
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {

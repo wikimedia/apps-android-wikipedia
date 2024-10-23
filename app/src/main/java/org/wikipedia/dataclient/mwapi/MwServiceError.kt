@@ -1,11 +1,14 @@
 package org.wikipedia.dataclient.mwapi
 
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.util.log.L
 import java.util.*
 
 @Serializable
@@ -36,7 +39,11 @@ class MwServiceError(val code: String? = null,
     init {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
         if (("blocked" == code || "autoblocked" == code) && data?.blockinfo != null) {
-            html = ThrowableUtil.getBlockMessageHtml(data.blockinfo)
+            runBlocking(CoroutineExceptionHandler { _, t ->
+                L.e(t)
+            }) {
+                html = ThrowableUtil.getBlockMessageHtml(data.blockinfo)
+            }
         }
     }
 

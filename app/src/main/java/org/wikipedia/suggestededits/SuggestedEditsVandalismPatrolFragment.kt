@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import org.wikipedia.Constants
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.diff.ArticleEditDetailsFragment
@@ -23,7 +24,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Arti
         if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
                 .add(binding.suggestedEditsItemRootView.id, ArticleEditDetailsFragment
-                    .newInstance(PageTitle("", WikiSite.forLanguageCode(targetWikiLangCode)), -1, -1, -1, fromRecentEdits = true))
+                    .newInstance(PageTitle("", WikiSite.forLanguageCode(targetWikiLangCode)), -1, -1, -1, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS))
                 .commit()
         }
         return binding.root

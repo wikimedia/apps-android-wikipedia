@@ -5,25 +5,15 @@ import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.annotation.StyleRes
-import androidx.core.view.WindowInsetsControllerCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
 open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
-    protected fun disableBackgroundDim() {
-        requireDialog().window?.let {
-            WindowInsetsControllerCompat(it, it.decorView).run {
-                isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
-            }
-            it.setDimAmount(0f)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

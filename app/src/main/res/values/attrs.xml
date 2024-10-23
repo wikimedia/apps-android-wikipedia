@@ -28,6 +28,7 @@
     <attr name="talk_page_empty_state_drawable" format="reference" />
 
     <declare-styleable name="AutoFitRecyclerView">
+        <attr name="minColumnCount" format="integer" />
         <attr name="minColumnWidth" format="dimension" />
     </declare-styleable>
 
@@ -94,7 +95,6 @@
     <declare-styleable name="WikiCardView">
         <attr name="hasBorder" format="boolean" />
         <attr name="elevation" format="dimension" />
-        <attr name="radius" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="LangCodeView">

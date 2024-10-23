@@ -52,7 +52,6 @@ lang_list_en_response = json.loads(requests.get(QUERY_LANGLIST + "en").text)
 for key, value in data[u"sitematrix"].items():
     if type(value) is not dict:
         continue
-    language_code = value[u"code"]
     site_list = value[u"site"]
     if type(site_list) is not list:
         continue
@@ -62,6 +61,12 @@ for key, value in data[u"sitematrix"].items():
             wikipedia_url = site[u"url"]
     if len(wikipedia_url) == 0:
         continue
+
+    # At this stage, the language code should be the subdomain of the Wikipedia URL,
+    # instead of the "code" field in the sitematrix response.
+    # language_code = value[u"code"]
+    language_code = wikipedia_url.replace('https://', '').replace('.wikipedia.org', '')
+
     # TODO: If we want to remove languages with too few active users:
     # allusers = json.loads(requests.get(wikipedia_url + QUERY_ALLUSERS).text)
     # if len(allusers[u"query"][u"allusers"]) < 10:

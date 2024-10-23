@@ -208,9 +208,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Συγχρονισμός των λιστών ανάγνωσης μεταξύ διαφορετικών συσκευών αποθηκεύοντάς τις στο λογαριασμός σας στη Βικιπαίδεια \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Αφαίρεση συγχρονισμένων λιστών ανάγνωσης από «%s»;</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Αυτό θα διαγράψει εντελώς όλες τις προηγούμενες συγχρονισμένες λίστες ανάγνωσης από τον απομακρυσμένο χώρο αποθήκευσης. Κατάργηση όλων των συγχρονισμένων λιστών από τον λογαριασμό σας \"%s\";</string>
-  <string name="preferences_privacy_settings_heading">Ιδιωτικότητα</string>
-  <string name="preference_title_eventlogging_opt_in">Αποστολή αναφορών χρήσης</string>
-  <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
   <string name="preference_summary_auto_upload_crash_reports">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος σε μια υπηρεσία τρίτου μέρους αυτόματα, ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους (%s). Παρακαλούμε αφαιρέστε τους και προσπαθήστε ξανά.</string>
@@ -236,8 +233,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.el</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/el</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/el</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Βιβλιοθήκες που χρησιμοποιούνται</string>
   <string name="about_contributors_heading">Συνεισφέροντες</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
@@ -345,7 +342,6 @@
   <string name="page_view_in_browser">Προβολή σελίδας στον περιηγητή</string>
   <string name="tool_tip_toc_title">Γρήγορη πρόσβαση στον πίνακα περιεχομένων</string>
   <string name="tool_tip_toc_text">Τώρα μπορείτε να σύρετε προς τα αριστερά για να ανοίξετε τον πίνακα περιεχομένων και επίσης να πατήσετε και να σύρετε σε αυτό το κουμπί κύλισης για γρήγορη μετάβαση σε διαφορετικές ενότητες ενός άρθρου.</string>
-  <string name="tool_tip_lang_button">Τώρα μπορείτε να αναζητήσετε και να διαβάσετε σε πολλές γλώσσες της Βικιπαίδεια στην εφαρμογή.\n\n\nΠατήστε στο εικονίδιο για να προσθέσετε περισσότερες γλώσσες.</string>
   <string name="error_response_malformed">Η απάντηση από το διακομιστή δεν ήταν κατάλληλα διαμορφωμένη.</string>
   <string name="error_unknown">Προέκυψε ένα άγνωστο σφάλμα.</string>
   <string name="format_error_server_message">Μήνυμα: «%s»</string>
@@ -656,7 +652,7 @@
   <string name="notifications_swipe_action_unread">Μη αναγνωσμένο</string>
   <string name="notifications_menu_check_all">Επισήμανση όλων των αντικειμένων</string>
   <string name="notifications_type_filter_header">Τύπος φίλτρου</string>
-  <string name="notifications_all_types_text">Όλοι οι \"τύποι\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Όλοι οι \"τύποι\"</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
   <string name="view_random_article_card_title">Τυχαίο άρθρο</string>
@@ -854,7 +850,6 @@
   <string name="suggested_edits_contribution_image_label">Εικόνα</string>
   <string name="suggested_edits_contribution_article_label">Άρθρο</string>
   <string name="suggested_edits_contribution_views">%s εμφανίσεις</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Χθες</string>
   <string name="suggested_edits_encourage_account_creation_title">Γνωρίζετε ότι όλοι μπορούν να επεξεργαστούν την Βικιπαίδεια;</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Σύνδεση / εγγραφή στη Βικιπαίδεια</string>
@@ -894,7 +889,6 @@
   <string name="onboarding_maybe_later">Ίσως αργότερα</string>
   <string name="onboarding_explore_title">Νέοι τρόποι να εξερευνήσετε</string>
   <string name="onboarding_reading_list_sync_text_v2">Μπορείτε να δημιουργήσετε λίστες ανάγνωσης από άρθρα που θέλετε να διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης. &lt;br/&gt; Συνδεθείτε στον λογαριασμό σας στη Wikipedia για να συγχρονίσετε τις λίστες ανάγνωσης. &lt;a href=\"#login\"&gt; Εγγραφείτε στο Wikipedia &lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Αποστολή ανώνυμων δεδομένων</string>
   <string name="onboarding_analytics_switch_title">Αποστολή δεδομένων χρήσης</string>
   <string name="onboarding_got_it">Κατάλαβα</string>
   <string name="onboarding_multilingual_secondary_text">Έχουμε βρει τα ακόλουθα στην συσκευή σας:</string>
@@ -932,9 +926,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Κρατήστε τουλάχιστον μια γλώσσα Βικιπαίδειας από την οποία θα γίνεται αναζήτηση και ανάγνωση περιεχομένου.</string>
   <string name="more_language_options">περισσότερα</string>
   <string name="add_wikipedia_languages_text">Πρόσθεση γλωσσών Βικιπαίδειας</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Αφαίρεση μιας Κινεζικής παραλλαγής από τις γλώσσες εφαρμογής σας;</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Επεξεργασία γλωσσών</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Όχι, ευχαριστώ</string>
   <string name="remove_language_dialog_cancel_button_text">Ακύρωση</string>
   <string name="remove_language_dialog_ok_button_text">Εντάξει</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Εντάξει</string>

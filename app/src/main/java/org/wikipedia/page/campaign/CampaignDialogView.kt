@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogCampaignBinding
 import org.wikipedia.dataclient.donate.Campaign
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -24,10 +25,9 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
 
     private val binding = DialogCampaignBinding.inflate(LayoutInflater.from(context), this, true)
     var showNeutralButton = true
-    var campaignAssets: Campaign.Assets? = null
     var callback: Callback? = null
 
-    fun setupViews() {
+    fun setupViews(campaignId: String, campaignAssets: Campaign.Assets?) {
         campaignAssets?.let {
             if (!it.text.isNullOrEmpty()) {
                 binding.contentText.movementMethod = LinkMovementMethodCompat.getInstance()
@@ -46,7 +46,7 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
             binding.closeButton.setOnClickListener {
                 callback?.onClose()
             }
-            FeedbackUtil.setButtonLongPressToast(binding.closeButton)
+            FeedbackUtil.setButtonTooltip(binding.closeButton)
 
             // TODO: think about optimizing the usage of actions array
             try {
@@ -58,7 +58,8 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
                     binding.positiveButton.text = positiveButton.title
                     positiveButton.url?.let { url ->
                         binding.positiveButton.setOnClickListener {
-                            callback?.onPositiveAction(url)
+                            val formattedUrl = url.replace("\$platform;", "Android").replace("\$formattedId;", CampaignCollection.getFormattedCampaignId(campaignId))
+                            callback?.onPositiveAction(formattedUrl)
                         }
                     }
 
