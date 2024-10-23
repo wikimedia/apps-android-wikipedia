@@ -24,6 +24,7 @@
             android:layout_gravity="center"
             android:contentDescription="@null"
             android:src="@drawable/shape_circle"
+            app:tint="?attr/paper_color"
             android:visibility="gone"/>
 
         <ImageView

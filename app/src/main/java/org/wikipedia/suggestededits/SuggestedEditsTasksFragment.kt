@@ -9,7 +9,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
@@ -113,7 +112,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        binding.userStatsViewsGroup.addOnClickListener {
+        binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
 
@@ -159,13 +158,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun Group.addOnClickListener(listener: View.OnClickListener) {
-        referencedIds.forEach { id ->
-            binding.userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
-        }
-        binding.userStatsClickTarget.setOnClickListener(listener)
     }
 
     fun refreshContents() {
@@ -247,16 +239,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         if (viewModel.totalContributions == 0) {
-            binding.userStatsClickTarget.isEnabled = false
-            binding.userStatsViewsGroup.visibility = GONE
-            binding.onboardingImageView.visibility = VISIBLE
-            binding.onboardingTextView.visibility = VISIBLE
+            binding.contributionsContainer.visibility = GONE
+            binding.onboardingContainer.visibility = VISIBLE
             binding.onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
         } else {
-            binding.userStatsViewsGroup.visibility = VISIBLE
-            binding.onboardingImageView.visibility = GONE
-            binding.onboardingTextView.visibility = GONE
-            binding.userStatsClickTarget.isEnabled = true
+            binding.contributionsContainer.visibility = VISIBLE
+            binding.onboardingContainer.visibility = GONE
             val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
                 R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
             binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))

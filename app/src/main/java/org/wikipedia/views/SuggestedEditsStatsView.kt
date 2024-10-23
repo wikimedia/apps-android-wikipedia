@@ -23,7 +23,7 @@ internal class SuggestedEditsStatsView(context: Context, attrs: AttributeSet? = 
 
     init {
         layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-        setOnLongClickListener {
+        binding.description.setOnLongClickListener {
             if (tooltipText.isNotEmpty()) {
                 FeedbackUtil.showTooltip(context as Activity, binding.description, tooltipText,
                     aboveOrBelow = false,
@@ -71,7 +71,6 @@ internal class SuggestedEditsStatsView(context: Context, attrs: AttributeSet? = 
         binding.circularProgressBar.progressColor = ResourceUtil.getThemedColor(context, iconTint)
         binding.circularProgressBar.visibility = VISIBLE
 
-        ImageViewCompat.setImageTintList(binding.circularProgressBarOverlay, ResourceUtil.getThemedColorStateList(context, R.attr.paper_color))
         binding.circularProgressBarOverlay.visibility = VISIBLE
 
         binding.description.text = context.getString(textRes)
