@@ -440,7 +440,12 @@
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_donation_results"
-            android:title="Donation results" />
+            android:title="Donation results"
+            android:dialogMessage="Example: [{&quot;dateTime&quot;:&quot;2024-10-22T00:00:00.000&quot;}]"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_donor_history_saved"
+            android:title="@string/preference_key_donor_history_saved" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_donor_history_saved"

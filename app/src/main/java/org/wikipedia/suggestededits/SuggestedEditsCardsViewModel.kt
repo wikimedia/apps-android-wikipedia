@@ -1,8 +1,7 @@
 package org.wikipedia.suggestededits
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,11 +14,10 @@ import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.util.Resource
 
-class SuggestedEditsCardsViewModel(bundle: Bundle) : ViewModel() {
-
+class SuggestedEditsCardsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var langFromCode = WikipediaApp.instance.languageState.appLanguageCode
     var langToCode = WikipediaApp.instance.languageState.appLanguageCodes.getOrElse(1) { "" }
-    var action = bundle.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
+    var action = savedStateHandle.get<DescriptionEditActivity.Action>(Constants.INTENT_EXTRA_ACTION)!!
 
     private val _uiState = MutableStateFlow(Resource<List<String>>())
     val uiState = _uiState.asStateFlow()
@@ -44,13 +42,6 @@ class SuggestedEditsCardsViewModel(bundle: Bundle) : ViewModel() {
                 list.add(name ?: code)
             }
             _uiState.value = Resource.Success(list)
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return SuggestedEditsCardsViewModel(bundle) as T
         }
     }
 }
