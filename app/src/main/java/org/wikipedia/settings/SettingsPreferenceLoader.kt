@@ -3,20 +3,18 @@ package org.wikipedia.settings
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
-import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.BuildConfig
 import org.wikipedia.Constants
-import org.wikipedia.LauncherController
-import org.wikipedia.LauncherIcon
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
@@ -51,27 +49,11 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
 
-        val dynamicListPreference: ListPreference? = findPreference(R.string.preference_key_app_icon) as? ListPreference
-        dynamicListPreference?.let {
-            if (Prefs.donationResults.isNotEmpty()) {
-                it.entries = listOf("DEFAULT", "DONOR").toTypedArray()
-                it.entryValues = listOf("DEFAULT", "DONOR").toTypedArray()
-            }
-            it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
-                when (newValue as String) {
-                    "DEFAULT" -> {
-                        // @TODO: string translation
-                        FeedbackUtil.makeSnackbar(activity = activity, text = "App Icon changed to DEFAULT").show()
-                        LauncherController.setIcon(icon = LauncherIcon.DEFAULT)
-                    }
-                    "DONOR" -> {
-                        FeedbackUtil.makeSnackbar(activity = activity, text = "App Icon changed to DONOR").show()
-                        LauncherController.setIcon(icon = LauncherIcon.DONOR)
-                    }
-                }
-                true
-            }
+        findPreference(R.string.preference_key_app_icon).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
+            true
         }
+
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true

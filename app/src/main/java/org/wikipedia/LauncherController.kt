@@ -22,18 +22,22 @@ object LauncherController {
 
 enum class LauncherIcon(
     val key: String,
+    val displayName: String,
     val background: Int,
     val foreground: Int,
     val label: Int,
+    var isSelected: Boolean = false
 ) {
     DEFAULT(
         key = "DefaultIcon",
+        displayName = "Default Icon",
         background = R.drawable.launcher_background,
         foreground = R.drawable.launcher_foreground,
         label = R.string.app_name
     ),
     DONOR(
         key = "DonorIcon",
+        displayName = "Donor Icon",
         background = R.drawable.launcher_background,
         foreground = R.drawable.ic_donor_test_foreground,
         label = R.string.app_name

@@ -29,15 +29,10 @@
             android:defaultValue="0"
             android:title="@string/preference_title_app_theme"
             android:summary="@string/preference_summary_color_theme" />
-        <!--  @TODO: String translation      -->
-        <ListPreference
+        <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_app_icon"
-            android:summary="Sets App Icon"
-            android:title="App Icon (Restart Required)"
-            android:entries="@array/preference_values_app_icon"
-            android:entryValues="@array/preference_values_app_icon"
-            />
-
+            android:defaultValue="0"
+            android:title="@string/contributions_dashboard_app_icon_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_sync"
