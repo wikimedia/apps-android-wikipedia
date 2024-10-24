@@ -5,8 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
@@ -50,7 +48,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
@@ -116,6 +113,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
 
+        binding.donorHistoryContainer.setOnClickListener {
+            // TODO: start donor history
+        }
+
         binding.learnMoreCard.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
@@ -161,7 +162,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     fun refreshContents() {
-        // TODO: logged out event happens after onResume
         (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
         viewModel.fetchData()
@@ -185,10 +185,11 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onRequireLogin() {
         clearContents()
-        binding.disabledStatesView.setRequiredLogin {
+        binding.messageCard.setRequiredLogin {
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
-        binding.disabledStatesView.isVisible = true
+        binding.messageCard.isVisible = true
+        binding.contributionsContainer.isVisible = false
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {
@@ -196,7 +197,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.progressBar.isVisible = false
         binding.tasksContainer.isVisible = false
         binding.errorView.isVisible = false
-        binding.disabledStatesView.isVisible = false
+        binding.messageCard.isVisible = false
         if (shouldScrollToTop) {
             binding.suggestedEditsScrollView.scrollTo(0, 0)
         }
@@ -238,13 +239,13 @@ class SuggestedEditsTasksFragment : Fragment() {
                 viewModel.latestEditStreak, viewModel.latestEditStreak))
         }
 
+        viewModel.totalContributions = 0
         if (viewModel.totalContributions == 0) {
-            binding.contributionsContainer.visibility = GONE
-            binding.onboardingContainer.visibility = VISIBLE
-            binding.onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
+            binding.contributionsContainer.isVisible = false
+            binding.messageCard.isVisible = true
+            binding.messageCard.setOnboarding(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
         } else {
-            binding.contributionsContainer.visibility = VISIBLE
-            binding.onboardingContainer.visibility = GONE
+            binding.contributionsContainer.isVisible = true
             val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
                 R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
             binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
@@ -283,8 +284,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setIPBlockedStatus() {
         clearContents()
-        binding.disabledStatesView.setIPBlocked(viewModel.blockMessageWikipedia)
-        binding.disabledStatesView.visibility = VISIBLE
+        binding.messageCard.setIPBlocked(viewModel.blockMessageWikipedia)
+        binding.messageCard.isVisible = true
         UserContributionEvent.logIpBlock()
     }
 
@@ -293,36 +294,36 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         if (viewModel.totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
             clearContents()
-            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
-            binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
+            binding.messageCard.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
+            binding.messageCard.setPositiveButton(R.string.suggested_edits_learn_more, {
                 UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(MIN_CONTRIBUTIONS_GATE_URL))
             }, true)
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.isVisible = true
             return true
         } else if (UserContribStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
-            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
+            binding.messageCard.isVisible = true
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             val localDateTime = LocalDateTime.ofInstant(pauseEndDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
+            binding.messageCard.isVisible = true
             UserContributionEvent.logPaused()
             return true
         }
 
-        binding.disabledStatesView.visibility = GONE
+        binding.messageCard.isVisible = false
         return false
     }
 
     private fun setupTestingButtons() {
         if (!ReleaseUtil.isPreBetaRelease) {
-            binding.showIPBlockedMessage.visibility = GONE
-            binding.showOnboardingMessage.visibility = GONE
+            binding.showIPBlockedMessage.isVisible = false
+            binding.showOnboardingMessage.isVisible = false
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
