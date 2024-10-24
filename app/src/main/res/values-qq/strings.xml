@@ -1745,4 +1745,6 @@
   <string name="contributions_dashboard_app_icon_title">Label of the setting option for changing the app icon.</string>
   <string name="contributions_dashboard_app_icon_subtitle">Label of the app icon subtitle for change the app icon.</string>
   <string name="contributions_dashboard_logged_out_user">Label of the logged out user in the donor history card.</string>
+  <string name="contributions_dashboard_tab_last_donated">Label that indicates the last date on which the user made a donation in the Contribute screen.</string>
+  <string name="contributions_dashboard_tab_update_button">Button for updating the donor history in the Contribute screen.</string>
 </resources>
