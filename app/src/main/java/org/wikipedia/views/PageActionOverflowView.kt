@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.doOnDetach
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.textview.MaterialTextView
@@ -22,9 +23,10 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ResourceUtil
 
-class PageActionOverflowView(context: Context) : FrameLayout(context) {
+class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadgeView.Callback {
 
     private var binding = ViewPageActionOverflowBinding.inflate(LayoutInflater.from(context), this, true)
     private var popupWindowHost: PopupWindow? = null
@@ -35,6 +37,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             dismissPopupWindowHost()
             callback.forwardClick()
         }
+        loadDonorInformation()
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
@@ -98,10 +101,38 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 
+    private fun loadDonorInformation() {
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && AccountUtil.isLoggedIn.not()) {
+            binding.donorContainer.isVisible = false
+            return
+        }
+        binding.donorContainer.isVisible = true
+        binding.donorUsername.text = AccountUtil.userName
+        binding.donorBadgeView.setup(this)
+    }
+
     private fun dismissPopupWindowHost() {
         popupWindowHost?.let {
             it.dismiss()
             popupWindowHost = null
         }
+    }
+
+    override fun onDonorBadgeClick() {
+        // take user to Contribution Screen
+        callback.onDonorSelected()
+        dismissPopupWindowHost()
+    }
+
+    override fun onBecomeDonorClick() {
+        // take user to the donation flow (the Donation bottom sheet).
+        callback.onBecomeDonorSelected()
+        dismissPopupWindowHost()
+    }
+
+    override fun onUpdateDonorStatusClick() {
+        // take user to the donor history screen
+        callback.onUpdateDonorStatusSelected()
+        dismissPopupWindowHost()
     }
 }
