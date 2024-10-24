@@ -401,6 +401,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         isCancellable: Boolean = false
     ) {
         Handler(Looper.getMainLooper()).postDelayed({
+            Prefs.contributionDashboardSurveyDialogShown = true
             MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Icon)
                 .setTitle(titleId)
                 .setMessage(messageId)
