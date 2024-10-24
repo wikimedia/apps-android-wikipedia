@@ -55,41 +55,110 @@
                         android:layout_marginTop="8dp">
 
                         <LinearLayout
-                            android:id="@+id/contributionsContainer"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:paddingStart="16dp"
-                            android:paddingTop="12dp"
-                            android:paddingEnd="16dp"
-                            android:paddingBottom="12dp"
                             android:orientation="vertical">
 
-                            <org.wikipedia.views.SuggestedEditsStatsView
-                                android:id="@+id/editsCountStatsView"
+                            <LinearLayout
+                                android:id="@+id/contributionsContainer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:minHeight="48dp" />
+                                android:background="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingStart="16dp"
+                                android:paddingTop="12dp"
+                                android:paddingEnd="16dp"
+                                android:paddingBottom="12dp"
+                                android:orientation="vertical">
 
-                            <org.wikipedia.views.SuggestedEditsStatsView
-                                android:id="@+id/pageViewStatsView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:minHeight="48dp" />
+                                <org.wikipedia.views.SuggestedEditsStatsView
+                                    android:id="@+id/editsCountStatsView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="48dp" />
 
-                            <org.wikipedia.views.SuggestedEditsStatsView
-                                android:id="@+id/editStreakStatsView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:minHeight="48dp" />
+                                <org.wikipedia.views.SuggestedEditsStatsView
+                                    android:id="@+id/pageViewStatsView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="48dp" />
 
-                            <org.wikipedia.views.SuggestedEditsStatsView
-                                android:id="@+id/editQualityStatsView"
+                                <org.wikipedia.views.SuggestedEditsStatsView
+                                    android:id="@+id/editStreakStatsView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="48dp" />
+
+                                <org.wikipedia.views.SuggestedEditsStatsView
+                                    android:id="@+id/editQualityStatsView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="48dp" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="?attr/list_divider"
+                                    android:layout_marginTop="8dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/donorHistoryContainer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:minHeight="48dp" />
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="24dp"
+                                android:layout_marginHorizontal="16dp">
+
+                                <ImageView
+                                    android:layout_width="@dimen/suggested_edits_icon_size"
+                                    android:layout_height="@dimen/suggested_edits_icon_size"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/outline_volunteer_activism_24"
+                                    app:tint="?attr/progressive_color" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="24dp"
+                                    android:textSize="16sp"
+                                    android:textColor="?attr/primary_color"
+                                    android:text="@string/contributions_dashboard_tab_last_donated"
+                                    android:gravity="center_vertical"/>
+
+                                <TextView
+                                    android:id="@+id/donorHistoryStatus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:textSize="16sp"
+                                    android:textColor="?attr/primary_color"
+                                    android:layout_marginStart="8dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center_vertical"
+                                    android:text="1 week ago"
+                                    app:drawableTint="?attr/primary_color"
+                                    app:drawableEndCompat="@drawable/ic_chevron_forward_white_24dp" />
+
+                                <com.google.android.material.chip.Chip
+                                    style="@style/Chip.Accessible.Icon.Small"
+                                    android:id="@+id/donorHistoryUpdateChip"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/contributions_dashboard_tab_update_button"
+                                    android:textColor="?attr/progressive_color"
+                                    app:chipBackgroundColor="?attr/background_color"
+                                    app:chipCornerRadius="16dp"
+                                    app:chipIcon="@drawable/round_app_registration_24"
+                                    app:chipIconTint="?attr/progressive_color"
+                                    app:chipStrokeWidth="0dp"
+                                    app:rippleColor="?attr/overlay_color" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 

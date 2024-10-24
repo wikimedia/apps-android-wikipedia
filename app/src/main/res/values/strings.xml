@@ -1827,6 +1827,8 @@
     <string name="contributions_dashboard_app_icon_title">App icon</string>
     <string name="contributions_dashboard_app_icon_subtitle">Donor benefit</string>
     <string name="contributions_dashboard_logged_out_user">Logged-out user</string>
+    <string name="contributions_dashboard_tab_last_donated">Last donated</string>
+    <string name="contributions_dashboard_tab_update_button">Update</string>
     <!-- /Contributions Dashboard -->
 
 
