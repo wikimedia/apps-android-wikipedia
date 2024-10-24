@@ -2,6 +2,7 @@ package org.wikipedia.settings
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,47 +22,68 @@ import org.wikipedia.databinding.ItemAppIconBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 
 class AppIconDialog : ExtendedBottomSheetDialogFragment() {
+    private var _binding: DialogAppIconBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var binding: DialogAppIconBinding
+    private val appIconAdapter: AppIconAdapter by lazy {
+        AppIconAdapter().apply {
+            onItemClickListener { selectedIcon ->
+                Prefs.currentSelectedAppIcon = selectedIcon.key
+                LauncherController.setIcon(selectedIcon)
+                AppShortcuts.setShortcuts(requireContext())
+                updateIcons(selectedIcon)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DialogAppIconBinding.inflate(inflater, container, false)
+        _binding = DialogAppIconBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
         val layoutManager = FlexboxLayoutManager(requireContext()).apply {
             flexDirection = FlexDirection.ROW
             justifyContent = JustifyContent.CENTER
             alignItems = AlignItems.CENTER
         }
-        val appIconAdapter = AppIconAdapter()
-        appIconAdapter.updateItems(LauncherIcon.entries)
-        appIconAdapter.onItemClickListener { selectedIcon ->
-            LauncherController.setIcon(selectedIcon)
-            AppShortcuts.setShortcuts(requireContext())
-            LauncherIcon.entries.forEach {
-                it.isSelected = it.key == selectedIcon.key
-            }
-            appIconAdapter.updateItems(LauncherIcon.entries)
-        }
         binding.appIconRecyclerView.apply {
             this.layoutManager = layoutManager
             adapter = appIconAdapter
         }
-        return binding.root
+        appIconAdapter.updateItems(LauncherIcon.initialValues())
+    }
+
+    private fun updateIcons(selectedIcon: LauncherIcon) {
+        val currentSelectedIcon = if (Prefs.currentSelectedAppIcon != null) Prefs.currentSelectedAppIcon
+        else selectedIcon.key
+
+        LauncherIcon.entries.forEach {
+            it.isSelected = it.key == currentSelectedIcon
+        }
+        appIconAdapter.updateItems(LauncherIcon.entries)
     }
 
     private class AppIconAdapter : RecyclerView.Adapter<AppIconAdapter.AppIconViewHolder>() {
-        private var list: List<LauncherIcon> = listOf()
+        private var list = mutableListOf<LauncherIcon>()
         private var onItemClickListener: ((LauncherIcon) -> Unit)? = null
 
         fun onItemClickListener(onItemClickListener: (LauncherIcon) -> Unit) {
             this.onItemClickListener = onItemClickListener
         }
 
-        fun updateItems(list: List<LauncherIcon>) {
-            this.list = list
+        fun updateItems(newList: List<LauncherIcon>) {
+            list.clear()
+            list.addAll(newList)
             notifyDataSetChanged()
         }
 
@@ -79,17 +101,28 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
 
         private inner class AppIconViewHolder(val binding: ItemAppIconBinding) : RecyclerView.ViewHolder(binding.root) {
             fun bind(item: LauncherIcon) {
-                binding.appIcon.foreground = ContextCompat.getDrawable(binding.root.context, item.foreground)
-                binding.appIcon.background = ContextCompat.getDrawable(binding.root.context, item.background)
-                binding.appIcon.setOnClickListener {
-                   onItemClickListener?.invoke(item)
+                binding.appIcon.apply {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        foreground = ContextCompat.getDrawable(binding.root.context, item.foreground)
+                    } else {
+                        setImageDrawable(ContextCompat.getDrawable(binding.root.context, item.foreground))
+                    }
+                    background = ContextCompat.getDrawable(binding.root.context, item.background)
+                    setOnClickListener {
+                        onItemClickListener?.invoke(item)
+                    }
+                    val strokeColor = if (item.isSelected) {
+                        ContextCompat.getColor(binding.root.context, R.color.blue600)
+                    } else Color.TRANSPARENT
+                    this.strokeColor = ColorStateList.valueOf(strokeColor)
                 }
-                val strokeColor = if (item.isSelected) {
-                    ContextCompat.getColor(binding.root.context, R.color.blue600)
-                } else Color.TRANSPARENT
-                binding.appIcon.strokeColor = ColorStateList.valueOf(strokeColor)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

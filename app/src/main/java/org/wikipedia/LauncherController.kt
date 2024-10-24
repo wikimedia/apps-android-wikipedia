@@ -3,6 +3,7 @@ package org.wikipedia
 import android.content.ComponentName
 import android.content.Context
 import android.content.pm.PackageManager
+import org.wikipedia.settings.Prefs
 
 object LauncherController {
 
@@ -38,12 +39,22 @@ enum class LauncherIcon(
     DONOR(
         key = "DonorIcon",
         displayName = "Donor Icon",
-        background = R.drawable.launcher_background,
+        background = R.color.ic_donor_test_background,
         foreground = R.drawable.ic_donor_test_foreground,
         label = R.string.app_name
     );
 
     fun getComponentName(context: Context): ComponentName {
         return ComponentName(context.packageName, "org.wikipedia.$key")
+    }
+
+    companion object {
+        fun initialValues(): List<LauncherIcon> {
+            val savedAppIcon = Prefs.currentSelectedAppIcon ?: DEFAULT.key
+            entries.forEach { icon ->
+                icon.isSelected = icon.key == savedAppIcon
+            }
+            return entries
+        }
     }
 }
