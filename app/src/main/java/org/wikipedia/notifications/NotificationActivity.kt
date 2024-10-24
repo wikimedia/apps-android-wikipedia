@@ -7,7 +7,6 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -37,6 +36,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.launch
+import kotlinx.datetime.toJavaInstant
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -50,6 +50,7 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -391,7 +392,7 @@ class NotificationActivity : BaseActivity() {
                 }
             }
 
-            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
+            binding.notificationTime.text = DateUtil.formatRelativeTime(n.instant().toJavaInstant())
             binding.notificationTime.setTextColor(if (n.isUnread) primaryColor else inactiveColor)
             binding.notificationOverflowMenu.imageTintList = if (n.isUnread) primaryColor else inactiveColor
 
