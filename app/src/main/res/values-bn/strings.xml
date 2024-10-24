@@ -862,7 +862,7 @@
   </plurals>
   <plurals name="suggested_edits_edit_frequency">
     <item quantity="one">সম্পাদনা</item>
-    <item quantity="other">সম্পাদনাগুলি</item>
+    <item quantity="other">সম্পাদনা</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d দিন</item>
@@ -1216,7 +1216,7 @@
   <string name="places_empty_list">এই এলাকাটি ফাঁকা। মানচিত্রে জুমআউট করুন।</string>
   <string name="donor_history_title">দাতার ইতিহাস</string>
   <string name="donor_history_save_button">সংরক্ষণ করুন</string>
-  <string name="donor_history_update_donor_status_default">দাতার অবস্থা আপডেট করুন</string>
+  <string name="donor_history_update_donor_status_default">দাতার অবস্থা হালনাগাদ করুন</string>
   <string name="donor_history_update_donor_status_donor">দাতা</string>
   <string name="donor_history_update_donor_status_not_a_donor">দাতা নয়</string>
   <string name="donor_history_last_donated">শেষ দান</string>
@@ -1232,7 +1232,6 @@
   <string name="contributions_dashboard_survey_dialog_cancel">কোন মতামত নেই</string>
   <string name="contributions_dashboard_survey_dialog_ok">মতামত শেয়ার করুন</string>
   <string name="contributions_dashboard_donation_dialog_title">বিনামূল্যে জ্ঞানকে সমর্থন করার জন্য আপনাকে ধন্যবাদ</string>
-  <string name="contributions_dashboard_donation_dialog_message">আপনি 2%%-এর একটি অংশ যা লক্ষ লক্ষ লোকের উপর নির্ভর করে। আমাদের কৃতজ্ঞতা প্রদর্শনের জন্য, আপনার অবদানের ড্যাশবোর্ড আপডেট করা হয়েছে একজন দাতা হিসেবে আপনার স্থিতি চিনতে। আপনি আপডেট দেখতে চান?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">না, ধন্যবাদ</string>
   <string name="contributions_dashboard_donation_dialog_ok">হ্যাঁ, আমাকে সেখানে নিয়ে যান</string>
   <string name="contributions_dashboard_entry_dialog_title">আপনার অবদান ড্যাশবোর্ড আপডেট করা হয়েছে</string>
@@ -1240,9 +1239,9 @@
   <string name="contributions_dashboard_entry_dialog_cancel">না, ধন্যবাদ</string>
   <string name="contributions_dashboard_entry_dialog_ok">হ্যাঁ, আমাকে সেখানে নিয়ে যান</string>
   <string name="contributions_dashboard_badge_donor">দাতা</string>
-  <string name="contributions_dashboard_badge_become_a_donor">দাতা হয়ে উঠুন</string>
-  <string name="contributions_dashboard_badge_update">দাতার অবস্থা আপডেট করুন</string>
+  <string name="contributions_dashboard_badge_become_a_donor">দাতা হোন</string>
+  <string name="contributions_dashboard_badge_update">দাতার অবস্থা হালনাগাদ করুন</string>
   <string name="contributions_dashboard_app_icon_title">অ্যাপ আইকন</string>
-  <string name="contributions_dashboard_app_icon_subtitle">দাতাদের উপকারিতা</string>
+  <string name="contributions_dashboard_app_icon_subtitle">দাতার সুবিধা</string>
   <string name="contributions_dashboard_logged_out_user">লগ আউট ব্যবহারকারী</string>
 </resources>
