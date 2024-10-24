@@ -104,63 +104,84 @@
 
                             </LinearLayout>
 
-                            <LinearLayout
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/donorHistoryContainer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="24dp"
                                 android:layout_marginHorizontal="16dp">
 
                                 <ImageView
+                                    android:id="@+id/lastDonatedIcon"
                                     android:layout_width="@dimen/suggested_edits_icon_size"
                                     android:layout_height="@dimen/suggested_edits_icon_size"
-                                    android:layout_gravity="center"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/lastDonatedLabel"
+                                    app:layout_constraintBottom_toBottomOf="@id/lastDonatedLabel"
                                     android:contentDescription="@null"
                                     android:src="@drawable/outline_volunteer_activism_24"
                                     app:tint="?attr/progressive_color" />
 
-                                <TextView
+                                <ImageView
+                                    android:id="@+id/lastDonatedChevron"
+                                    android:layout_width="@dimen/suggested_edits_icon_size"
+                                    android:layout_height="@dimen/suggested_edits_icon_size"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/lastDonatedLabel"
+                                    app:layout_constraintBottom_toBottomOf="@id/lastDonatedLabel"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_chevron_forward_white_24dp"
+                                    app:tint="?attr/primary_color" />
+
+                                <androidx.constraintlayout.helper.widget.Flow
+                                    android:id="@+id/lastDonatedFlow"
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintStart_toEndOf="@id/lastDonatedIcon"
+                                    app:layout_constraintEnd_toStartOf="@id/lastDonatedChevron"
+                                    app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginStart="24dp"
+                                    android:layout_marginEnd="4dp"
+                                    app:flow_wrapMode="chain"
+                                    app:flow_horizontalBias="0"
+                                    app:flow_horizontalGap="8dp"
+                                    app:flow_verticalGap="8dp"
+                                    app:flow_horizontalAlign="start"
+                                    app:flow_horizontalStyle="spread_inside"
+                                    app:constraint_referenced_ids="lastDonatedLabel,donorHistoryStatus,donorHistoryUpdateButton"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/lastDonatedLabel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:textSize="16sp"
                                     android:textColor="?attr/primary_color"
-                                    android:text="@string/contributions_dashboard_tab_last_donated"
-                                    android:gravity="center_vertical"/>
+                                    android:text="@string/contributions_dashboard_tab_last_donated"/>
 
                                 <TextView
                                     android:id="@+id/donorHistoryStatus"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_marginEnd="-8dp"
+                                    android:visibility="visible"
                                     android:textSize="16sp"
                                     android:textColor="?attr/primary_color"
                                     android:textStyle="bold"
-                                    android:gravity="center_vertical"
-                                    android:text="1 week ago"
-                                    app:drawableTint="?attr/primary_color"
-                                    app:drawableEndCompat="@drawable/ic_chevron_forward_white_24dp" />
+                                    android:text="1 week ago" />
 
-                                <com.google.android.material.chip.Chip
-                                    style="@style/Chip.Accessible.Icon.Small"
-                                    android:id="@+id/donorHistoryUpdateChip"
+                                <Button
+                                    android:id="@+id/donorHistoryUpdateButton"
+                                    style="@style/App.Button.Secondary"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:paddingVertical="0dp"
                                     android:text="@string/contributions_dashboard_tab_update_button"
                                     android:textColor="?attr/progressive_color"
                                     android:visibility="gone"
-                                    app:chipBackgroundColor="?attr/background_color"
-                                    app:chipCornerRadius="16dp"
-                                    app:chipIcon="@drawable/round_app_registration_24"
-                                    app:chipIconTint="?attr/progressive_color"
-                                    app:chipStrokeWidth="0dp"
-                                    app:rippleColor="?attr/overlay_color" />
+                                    app:icon="@drawable/round_app_registration_24" />
 
-                            </LinearLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
                         </LinearLayout>
 
