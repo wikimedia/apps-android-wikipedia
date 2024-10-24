@@ -172,4 +172,5 @@
     <string name="preference_key_recommended_content_survey_shown">recommendedContentSurveyShown</string>
     <string name="preference_key_donor_history_saved">hasDonorHistorySaved</string>
     <string name="preference_key_is_recurring_donor">isRecurringDonor</string>
+    <string name="preference_key_contribution_dashboard_survey_dialog_shown">contributionDashboardSurveyDialogShown</string>
 </resources>
