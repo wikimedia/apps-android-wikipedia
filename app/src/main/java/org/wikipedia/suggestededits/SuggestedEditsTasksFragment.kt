@@ -35,6 +35,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
+import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
@@ -96,6 +97,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
+        }
+    }
+
+    private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == DonorHistoryActivity.RESULT_DONOR_HISTORY_SAVED) {
+            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+            // TODO: show survey dialog after 10 seconds
         }
     }
 
@@ -321,9 +329,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!ReleaseUtil.isPreBetaRelease) {
             binding.showIPBlockedMessage.visibility = GONE
             binding.showOnboardingMessage.visibility = GONE
+            binding.donorHistoryEntry.visibility = GONE
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
+        binding.donorHistoryEntry.setOnClickListener {
+            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireActivity()))
+        }
     }
 
     private fun setUpTasks() {
