@@ -1,6 +1,7 @@
 package org.wikipedia.settings
 
 import android.location.Location
+import kotlinx.datetime.Instant
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,8 +24,7 @@ import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
-import java.time.Instant
-import java.util.*
+import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {
@@ -369,7 +369,7 @@ object Prefs {
     var remoteNotificationsSeenTime: Instant
         get() {
             val timestamp = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "")!!
-            return if (timestamp.isEmpty()) Instant.EPOCH else Instant.parse(timestamp)
+            return if (timestamp.isEmpty()) Instant.fromEpochMilliseconds(0) else Instant.parse(timestamp)
         }
         set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime.toString())
 

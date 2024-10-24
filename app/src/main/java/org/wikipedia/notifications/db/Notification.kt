@@ -1,6 +1,8 @@
 package org.wikipedia.notifications.db
 
 import androidx.room.Entity
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
@@ -9,12 +11,9 @@ import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.InstantAsString
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.util.UriUtil
-import java.time.Instant
-import java.util.*
 
 @Serializable
 @Entity(primaryKeys = ["id", "wiki"])
@@ -39,7 +38,7 @@ class Notification(var id: Long = 0,
     }
 
     fun instant(): Instant {
-        return timestamp?.instant ?: Instant.now()
+        return timestamp?.instant ?: Clock.System.now()
     }
 
     override fun toString(): String {
@@ -67,7 +66,7 @@ class Notification(var id: Long = 0,
     }
 
     @Serializable
-    class Timestamp(@SerialName("utciso8601") val instant: InstantAsString)
+    class Timestamp(@SerialName("utciso8601") val instant: Instant)
 
     @Serializable
     class Link {

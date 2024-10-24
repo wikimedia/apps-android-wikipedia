@@ -7,6 +7,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import kotlinx.datetime.Instant
 import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -14,7 +15,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
-import java.time.Instant
 
 class PollNotificationWorker(
     private val appContext: Context,
@@ -24,7 +24,7 @@ class PollNotificationWorker(
         return try {
             val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).lastUnreadNotification()
             val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.instant() }
-                ?: Instant.EPOCH
+                ?: Instant.fromEpochMilliseconds(0)
             if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                 Prefs.remoteNotificationsSeenTime = lastNotificationTime
                 retrieveNotifications()

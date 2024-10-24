@@ -36,6 +36,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.launch
+import kotlinx.datetime.toJavaInstant
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -391,7 +392,7 @@ class NotificationActivity : BaseActivity() {
                 }
             }
 
-            binding.notificationTime.text = DateUtil.formatRelativeTime(n.instant())
+            binding.notificationTime.text = DateUtil.formatRelativeTime(n.instant().toJavaInstant())
             binding.notificationTime.setTextColor(if (n.isUnread) primaryColor else inactiveColor)
             binding.notificationOverflowMenu.imageTintList = if (n.isUnread) primaryColor else inactiveColor
 
