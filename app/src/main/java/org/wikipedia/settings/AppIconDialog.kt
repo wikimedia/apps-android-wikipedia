@@ -33,7 +33,9 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                 LauncherController.setIcon(selectedIcon)
                 AppShortcuts.setShortcuts(requireContext())
                 updateIcons(selectedIcon)
-                FeedbackUtil.makeSnackbar(binding.root,"App icon changed to ${selectedIcon.displayName}").show()
+                FeedbackUtil.makeSnackbar(
+                    binding.root,
+                    "App icon changed to ${selectedIcon.displayName}").show()
             }
         }
     }
