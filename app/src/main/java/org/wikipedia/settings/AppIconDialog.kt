@@ -20,6 +20,7 @@ import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.databinding.DialogAppIconBinding
 import org.wikipedia.databinding.ItemAppIconBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.util.FeedbackUtil
 
 class AppIconDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogAppIconBinding? = null
@@ -32,6 +33,7 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                 LauncherController.setIcon(selectedIcon)
                 AppShortcuts.setShortcuts(requireContext())
                 updateIcons(selectedIcon)
+                FeedbackUtil.makeSnackbar(binding.root,"App icon changed to ${selectedIcon.displayName}").show()
             }
         }
     }
