@@ -1,22 +1,13 @@
 package org.wikipedia.views
 
 import android.app.Activity
-import android.net.Uri
 import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
@@ -27,44 +18,8 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.UriUtil
 
 object SurveyDialog {
-    // @TODO: update the strings after product confirm them
-    fun showContributionSurveyDialog(
-        activity: AppCompatActivity,
-        @StringRes titleId: Int,
-        @StringRes messageId: Int,
-        @DrawableRes icon: Int? = null,
-        delayMillis: Long = 0,
-        isCancellable: Boolean = false
-    ) {
-        activity.lifecycleScope.launch {
-            val dialog = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Icon)
-                .setTitle(titleId)
-                .setMessage(messageId)
-                .setCancelable(isCancellable)
-                .setPositiveButton("Take Survey") { _, _ ->
-                    UriUtil.visitInExternalBrowser(
-                        activity,
-                        Uri.parse(activity.getString(R.string.contribution_dashboard_survey_url))
-                    )
-                }
-                .setNegativeButton("No, Thanks") { _, _ ->
-                    // dismiss
-                }
-            if (icon != null) {
-                dialog.setIcon(icon)
-            }
-
-            dialog.create()
-            delay(delayMillis)
-            withContext(Dispatchers.Main) {
-                dialog.show()
-            }
-        }
-    }
-
     fun showFeedbackOptionsDialog(
         activity: Activity,
         titleId: Int = R.string.patroller_diff_feedback_dialog_title,

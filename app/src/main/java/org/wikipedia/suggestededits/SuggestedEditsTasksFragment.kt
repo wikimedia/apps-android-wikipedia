@@ -3,12 +3,16 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
@@ -18,6 +22,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -386,6 +391,31 @@ class SuggestedEditsTasksFragment : Fragment() {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
         }
+    }
+
+    private fun showSurveyDialog(
+        @StringRes titleId: Int = R.string.contributions_dashboard_survey_dialog_title,
+        @StringRes messageId: Int = R.string.contributions_dashboard_survey_dialog_message,
+        @DrawableRes iconId: Int = R.drawable.ic_feedback,
+        delayMillis: Long = 10000,
+        isCancellable: Boolean = false
+    ) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Icon)
+                .setTitle(titleId)
+                .setMessage(messageId)
+                .setCancelable(isCancellable)
+                .setIcon(iconId)
+                .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
+                    UriUtil.visitInExternalBrowser(
+                        requireContext(),
+                        Uri.parse(getString(R.string.contribution_dashboard_survey_url))
+                    )
+                }
+                .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel) { _, _ ->
+                    // dismiss
+                }.show()
+        }, delayMillis)
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
