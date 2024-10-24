@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Alex00728
-* Amire80
 * Apzp79
 * Bluemersen
 * Codenstory
@@ -85,7 +84,7 @@
   <string name="page_edit_history_filter_by">필터 기준</string>
   <string name="page_edit_history_filter_by_all">모든 편집 (%s)</string>
   <string name="page_edit_history_filter_by_user">유저 편집 (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">익명 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_anon">익명 편집 (%s)</string>
   <string name="page_edit_history_filter_by_bot">봇 편집 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s부터 %2$s까지의 메트릭스</string>
   <plurals name="page_edit_history_article_edits_since_year">
