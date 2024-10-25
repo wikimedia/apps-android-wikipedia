@@ -5,6 +5,7 @@ import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
+import org.wikipedia.LauncherIcon
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SessionData
@@ -750,4 +751,8 @@ object Prefs {
     var isRecurringDonor
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)
+
+    var currentSelectedAppIcon
+        get() = PrefsIoUtil.getString(R.string.preference_key_current_selected_app_icon, LauncherIcon.DEFAULT.key)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_current_selected_app_icon, value)
 }
