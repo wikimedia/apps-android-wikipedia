@@ -244,7 +244,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                 viewModel.latestEditStreak, viewModel.latestEditStreak))
         }
 
-        // TODO: need to test device's orientation
         if (viewModel.totalContributions == 0) {
             binding.contributionsContainer.isVisible = false
             binding.statsDivider.isVisible = false
@@ -257,10 +256,10 @@ class SuggestedEditsTasksFragment : Fragment() {
                 R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
             binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
             binding.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
-            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-                // TODO: add the sequential tooltips back after the experiment code is removed.
-                // showOneTimeSequentialUserStatsTooltips()
-            }
+            // TODO: add the sequential tooltips back after the experiment code is removed.
+//            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
+//                 showOneTimeSequentialUserStatsTooltips()
+//            }
         }
 
         binding.donorHistoryContainer.isVisible = true
