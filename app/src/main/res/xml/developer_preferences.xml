@@ -447,10 +447,6 @@
             android:key="@string/preference_key_donor_history_saved"
             android:title="@string/preference_key_donor_history_saved" />
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_donor_history_saved"
-            android:title="@string/preference_key_donor_history_saved" />
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="ab_test_recommendedContent"
