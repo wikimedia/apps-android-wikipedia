@@ -190,6 +190,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
         binding.messageCard.isVisible = true
         binding.contributionsContainer.isVisible = false
+        binding.statsDivider.isVisible = false
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {
@@ -198,6 +199,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksContainer.isVisible = false
         binding.errorView.isVisible = false
         binding.messageCard.isVisible = false
+        binding.contributionsContainer.isVisible = false
+        binding.statsDivider.isVisible = false
         if (shouldScrollToTop) {
             binding.suggestedEditsScrollView.scrollTo(0, 0)
         }
@@ -239,13 +242,15 @@ class SuggestedEditsTasksFragment : Fragment() {
                 viewModel.latestEditStreak, viewModel.latestEditStreak))
         }
 
-        viewModel.totalContributions = 0
+        // TODO: need to test device's orientation
         if (viewModel.totalContributions == 0) {
             binding.contributionsContainer.isVisible = false
+            binding.statsDivider.isVisible = false
             binding.messageCard.isVisible = true
             binding.messageCard.setOnboarding(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
         } else {
             binding.contributionsContainer.isVisible = true
+            binding.statsDivider.isVisible = true
             val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
                 R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
             binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))

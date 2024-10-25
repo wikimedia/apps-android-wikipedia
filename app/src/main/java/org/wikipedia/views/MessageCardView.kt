@@ -89,6 +89,8 @@ class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardV
 
     fun setRequiredLogin(onClickListener: OnClickListener) {
         binding.imageView.visibility = VISIBLE
+        binding.messageTitleView.visibility = VISIBLE
+        binding.buttonsContainer.visibility = VISIBLE
         binding.messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         binding.messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         binding.imageView.setImageResource(R.drawable.ic_require_login_header)
@@ -99,6 +101,8 @@ class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardV
 
     private fun setDefaultState() {
         binding.imageView.visibility = VISIBLE
+        binding.messageTitleView.visibility = VISIBLE
+        binding.buttonsContainer.visibility = VISIBLE
         binding.positiveButton.text = context.getString(R.string.suggested_edits_learn_more)
         binding.positiveButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
         binding.positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }

@@ -59,7 +59,8 @@
                                 android:paddingTop="12dp"
                                 android:paddingEnd="16dp"
                                 android:paddingBottom="12dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:visibility="gone">
 
                                 <org.wikipedia.views.SuggestedEditsStatsView
                                     android:id="@+id/editsCountStatsView"
@@ -181,8 +182,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="24dp"
+                        android:layout_marginVertical="16dp"
                         android:visibility="gone" />
 
                     <LinearLayout
