@@ -90,10 +90,8 @@
     <dimen name="divider_width_for_article">60dp</dimen>
 
     <!-- Suggested Edits -->
-    <dimen name="suggested_edits_icon_size">28dp</dimen>
-    <dimen name="suggested_edits_icon_background_size">23dp</dimen>
-    <dimen name="suggested_edits_icon_title_text_size">16sp</dimen>
-    <dimen name="suggested_edits_title_margin_start">14dp</dimen>
+    <dimen name="suggested_edits_icon_size">24dp</dimen>
+    <dimen name="suggested_edits_icon_background_size">20dp</dimen>
     <dimen name="suggested_edits_message_textview_text_size">14sp</dimen>
     <dimen name="suggested_edits_top_illustration_height">92dp</dimen>
 

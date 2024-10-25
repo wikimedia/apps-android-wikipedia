@@ -15,8 +15,6 @@
 <!-- Suggested Edits -->
     <dimen name="suggested_edits_icon_size">40dp</dimen>
     <dimen name="suggested_edits_icon_background_size">34dp</dimen>
-    <dimen name="suggested_edits_icon_title_text_size">24sp</dimen>
-    <dimen name="suggested_edits_title_margin_start">24dp</dimen>
     <dimen name="suggested_edits_message_textview_text_size">20sp</dimen>
     <dimen name="suggested_edits_top_illustration_height">132dp</dimen>
 
