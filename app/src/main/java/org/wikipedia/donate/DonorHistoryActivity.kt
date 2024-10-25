@@ -52,9 +52,12 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         binding.recurringDonorCheckbox.isChecked = viewModel.isRecurringDonor
-        binding.recurringDonorContainer.setOnClickListener {
-            viewModel.isRecurringDonor = !binding.recurringDonorCheckbox.isChecked
+        binding.recurringDonorCheckbox.setOnClickListener {
+            viewModel.isRecurringDonor = binding.recurringDonorCheckbox.isChecked
             binding.recurringDonorCheckbox.isChecked = viewModel.isRecurringDonor
+        }
+        binding.recurringDonorContainer.setOnClickListener {
+            binding.recurringDonorCheckbox.performClick()
         }
 
         binding.donateButton.setOnClickListener {
