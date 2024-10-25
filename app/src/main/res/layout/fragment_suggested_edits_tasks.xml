@@ -99,7 +99,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:paddingVertical="24dp"
-                                android:paddingHorizontal="16dp">
+                                android:paddingHorizontal="16dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <ImageView
                                     android:id="@+id/lastDonatedIcon"
@@ -156,8 +159,7 @@
                                     android:visibility="visible"
                                     android:textSize="16sp"
                                     android:textColor="?attr/primary_color"
-                                    android:textStyle="bold"
-                                    android:text="1 week ago" />
+                                    android:textStyle="bold" />
 
                                 <Button
                                     android:id="@+id/donorHistoryUpdateButton"

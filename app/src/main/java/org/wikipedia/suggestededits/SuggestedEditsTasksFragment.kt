@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -114,7 +115,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         binding.donorHistoryContainer.setOnClickListener {
-            // TODO: start donor history
+            // TODO: go to donor history
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -220,6 +221,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
+        setUpDonorHistoryStatus()
         setUpTasks()
 
         if (displayedTasks.isEmpty() && !viewModel.blockMessageWikipedia.isNullOrEmpty()) {
@@ -332,6 +334,27 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
+    }
+
+    private fun setUpDonorHistoryStatus() {
+        Prefs.donationResults.lastOrNull()?.dateTime?.let {
+            val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+            binding.donorHistoryStatus.text = DateUtils.getRelativeTimeSpanString(
+                lastDonateMilli,
+                System.currentTimeMillis(),
+                DateUtils.DAY_IN_MILLIS
+            )
+            binding.lastDonatedChevron.isVisible = true
+            binding.donorHistoryStatus.isVisible = true
+            binding.donorHistoryUpdateButton.isVisible = false
+        } ?: run {
+            binding.donorHistoryUpdateButton.setOnClickListener {
+                // TODO: go to donor history
+            }
+            binding.donorHistoryStatus.isVisible = false
+            binding.lastDonatedChevron.isVisible = false
+            binding.donorHistoryUpdateButton.isVisible = true
+        }
     }
 
     private fun setUpTasks() {
