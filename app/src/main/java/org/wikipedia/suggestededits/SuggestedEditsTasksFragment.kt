@@ -258,8 +258,15 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
             binding.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
             if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-                showOneTimeSequentialUserStatsTooltips()
+                // TODO: add the sequential tooltips back after the experiment code is removed.
+                // showOneTimeSequentialUserStatsTooltips()
             }
+        }
+
+        binding.donorHistoryContainer.isVisible = true
+        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            binding.donorHistoryContainer.isVisible = false
+            binding.statsDivider.isVisible = false
         }
 
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
