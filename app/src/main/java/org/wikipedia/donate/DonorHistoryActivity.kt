@@ -27,7 +27,7 @@ import kotlin.getValue
 class DonorHistoryActivity : BaseActivity() {
 
     private lateinit var binding: ActivityDonorHistoryBinding
-    private val viewModel: DonorHistoryViewModel by viewModels { DonorHistoryViewModel.Factory(intent.extras!!) }
+    private val viewModel: DonorHistoryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,6 +109,7 @@ class DonorHistoryActivity : BaseActivity() {
             )
         }
         binding.recurringDonorCheckbox.isEnabled = viewModel.lastDonated != null
+        binding.recurringDonorContainer.isEnabled = viewModel.lastDonated != null
     }
 
     private fun showDonorStatusDialog() {

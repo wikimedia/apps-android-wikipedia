@@ -1,16 +1,15 @@
 package org.wikipedia.donate
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import org.wikipedia.Constants
 import org.wikipedia.settings.Prefs
 import java.time.LocalDateTime
 import java.time.ZoneId
 
-class DonorHistoryViewModel(bundle: Bundle) : ViewModel() {
+class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    var completedDonation = bundle.getBoolean(Constants.ARG_BOOLEAN)
+    var completedDonation = savedStateHandle.get<Boolean>(Constants.ARG_BOOLEAN) == true
     var currentDonorStatus = -1
     var isDonor = completedDonation || (Prefs.hasDonorHistorySaved && Prefs.donationResults.isNotEmpty())
     var lastDonated = Prefs.donationResults.lastOrNull()?.dateTime
@@ -32,12 +31,5 @@ class DonorHistoryViewModel(bundle: Bundle) : ViewModel() {
 
     fun dateTimeToMilli(dateTime: String): Long {
         return LocalDateTime.parse(dateTime).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return DonorHistoryViewModel(bundle) as T
-        }
     }
 }
