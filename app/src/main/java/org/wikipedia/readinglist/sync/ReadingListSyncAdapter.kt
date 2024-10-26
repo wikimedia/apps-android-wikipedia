@@ -1,18 +1,26 @@
 package org.wikipedia.readinglist.sync
 
+import android.app.Notification
 import android.content.*
+import android.content.pm.ServiceInfo
+import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
+import androidx.core.app.NotificationCompat
 import androidx.core.os.bundleOf
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.Data
 import androidx.work.ExistingWorkPolicy
+import androidx.work.ForegroundInfo
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
@@ -22,6 +30,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ReadingListsEnableDialogEvent
 import org.wikipedia.events.ReadingListsEnabledStatusEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -30,10 +39,19 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.MathUtil.percentage
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
+    // This is needed for API levels < 31.
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        val title = applicationContext.getString(R.string.notification_syncing_reading_list_initial_title)
+        val description = applicationContext.getString(R.string.notification_syncing_reading_list_initial_description)
+        val notification = getNotificationBuilder(title, description, 0, 0).build()
+
+        return createForegroundInfo(notification)
+    }
 
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
@@ -52,7 +70,6 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
             var allLocalLists: MutableList<ReadingList>? = null
             val wiki = WikipediaApp.instance.wikiSite
             val client = ReadingListClient(wiki)
-            val readingListSyncNotification = ReadingListSyncNotification.instance
             val lastSyncTime = Prefs.readingListsLastSyncTime.orEmpty()
             var shouldSendSyncEvent = extras.containsKey(SYNC_EXTRAS_REFRESHING)
             var shouldRetry = false
@@ -148,7 +165,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
 
                 // First, update our list hierarchy to match the remote hierarchy.
                 for ((remoteItemsSynced, remoteList) in remoteListsModified.withIndex()) {
-                    readingListSyncNotification.setNotificationProgress(applicationContext, remoteItemsTotal, remoteItemsSynced)
+                    updateForeground(remoteItemsTotal, remoteItemsSynced)
                     // Find the remote list in our local lists...
                     var localList: ReadingList? = null
                     var upsertNeeded = false
@@ -297,7 +314,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
 
                 // Determine whether any remote lists need to be created or updated
                 for ((localItemsSynced, localList) in allLocalLists.withIndex()) {
-                    readingListSyncNotification.setNotificationProgress(applicationContext, localItemsTotal, localItemsSynced)
+                    updateForeground(localItemsTotal, localItemsSynced)
                     val remoteList = RemoteReadingList(name = localList.title, description = localList.description)
                     var upsertNeeded = false
                     if (localList.remoteId > 0) {
@@ -415,7 +432,6 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 Prefs.readingListsLastSyncTime = client.lastDateHeader?.toString() ?: lastSyncTime
                 Prefs.readingListsDeletedIds = listIdsDeleted
                 Prefs.readingListPagesDeletedIds = pageIdsDeleted
-                readingListSyncNotification.cancelNotification(applicationContext)
                 if (shouldSendSyncEvent) {
                     SavedPageSyncService.sendSyncEvent(extras.containsKey(SYNC_EXTRAS_REFRESHING))
                 }
@@ -434,6 +450,46 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
             }
             Result.success()
         }
+    }
+
+    private suspend fun updateForeground(total: Int, progress: Int) {
+        val resources = applicationContext.resources
+        val title = resources.getQuantityString(R.plurals.notification_syncing_reading_list_title, total, total)
+        val description = resources.getQuantityString(R.plurals.notification_syncing_reading_list_description, total - progress, total - progress)
+        val contentInfo = "${percentage(progress.toFloat(), total.toFloat()).toInt()}%"
+        val notification = getNotificationBuilder(title, description, total, progress)
+            .setContentInfo(contentInfo)
+            .apply {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    setSubText(contentInfo)
+                }
+            }
+            .build()
+
+        setForeground(createForegroundInfo(notification))
+    }
+
+    private fun createForegroundInfo(notification: Notification): ForegroundInfo {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ForegroundInfo(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
+        } else {
+            ForegroundInfo(NOTIFICATION_ID, notification)
+        }
+    }
+
+    private fun getNotificationBuilder(
+        title: String, description: String, total: Int, progress: Int
+    ): NotificationCompat.Builder {
+        val icon = NotificationCategory.READING_LIST_SYNCING.iconResId
+        return NotificationCompat.Builder(applicationContext, NotificationCategory.READING_LIST_SYNCING.id)
+            .setSmallIcon(icon)
+            .setLargeIcon(BitmapFactory.decodeResource(applicationContext.resources, icon))
+            .setContentTitle(title)
+            .setContentText(description)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(description))
+            .setSilent(true)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setProgress(total, progress, progress == 0)
     }
 
     private fun getBooleanExtraFromData(inputData: Data): Bundle {
@@ -490,6 +546,8 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
     }
 
     companion object {
+        private const val NOTIFICATION_ID = 1002
+
         private const val WORK_NAME = "readingListSyncAdapter"
         private const val SYNC_EXTRAS_FORCE_FULL_SYNC = "forceFullSync"
         private const val SYNC_EXTRAS_REFRESHING = "refreshing"
@@ -546,8 +604,6 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 }
                 return
             }
-            extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true)
-            extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true)
 
             // Convert the Bundle to a Data object
             val dataBuilder = Data.Builder()
@@ -555,11 +611,9 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                 dataBuilder.putBoolean(it, extras.getBoolean(it))
             }
 
-            val constraints = Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.CONNECTED)
-                .build()
             val workRequest = OneTimeWorkRequestBuilder<ReadingListSyncAdapter>()
-                .setConstraints(constraints)
+                .setConstraints(Constraints(NetworkType.CONNECTED))
+                .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .setInputData(dataBuilder.build())
                 .build()
             WorkManager.getInstance(WikipediaApp.instance)

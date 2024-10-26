@@ -710,6 +710,8 @@
         <item quantity="one">Syncing Reading List</item>
         <item quantity="other">Syncing Reading Lists</item>
     </plurals>
+    <string name="notification_syncing_reading_list_initial_title">Syncing lists</string>
+    <string name="notification_syncing_reading_list_initial_description">Starting sync…</string>
     <plurals name="notification_syncing_reading_list_title">
         <item quantity="one">Syncing %1$d list&#8230;</item>
         <item quantity="other">Syncing %1$d lists&#8230;</item>
