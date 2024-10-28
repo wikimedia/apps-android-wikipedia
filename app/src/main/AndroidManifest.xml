@@ -110,7 +110,7 @@
         <!-- @TODO: set actual image asset for donor icon      -->
         <activity-alias
             android:name=".DonorIcon"
-            android:icon="@mipmap/ic_donor_test"
+            android:icon="@mipmap/ic_launcher_donor_benefit"
             android:targetActivity=".main.MainActivity"
             android:exported="true"
             android:enabled="false">
