@@ -839,7 +839,6 @@
   <string name="suggested_edits_encouragement_message">আপনার অবদানের জন্য ধন্যবাদ, %s। নিচে উইকিপিডিয়ায় অবদান রাখার আরও মাধ্যম খুঁজে পাবেন।</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;প্রিয় %s&lt;/b&gt;, নীচে উইকিপিডিয়াকে সমৃদ্ধ করার জন্য তাড়াতাড়ি করা যায় এমন কিছু সহজ উপায় দেওয়া আছে। শুরু করার পরে আপনি জানতে পারবেন যে এখানে আপনার অবদান কতটা অমূল্য। সম্পাদনা শুভ হোক!</string>
   <string name="suggested_edits_contributions_stat_tooltip">এই পর্যন্ত আপনার মোট সম্পাদনার সংখ্যা।</string>
-  <string name="suggested_edits_edit_stat_tooltip">এখন পর্যন্ত আপনার মোট সম্পাদনার সংখ্যা।</string>
   <string name="suggested_edits_paused_message">পরামর্শকৃত সম্পাদনা %1$s অবধি বিরত রাখা হয়েছে। দুঃখিত %2$s, আপনার সাম্প্রতিক সম্পাদনাগুলির কয়েকটি প্রত্যাবর্তন করা হয়েছে।</string>
   <string name="suggested_edits_disabled_message">পরামর্শকৃত সম্পাদনা নিষ্ক্রিয় করা হয়েছে। দুঃখিত %s, আপনার সাম্প্রতিক সম্পাদনাগুলির অনেকগুলো প্রত্যাবর্তন করা হয়েছে।</string>
   <string name="suggested_edits_ip_blocked_message">মনে হচ্ছে যে আপনার আইপি ঠিকানা (অথবা আইপি ঠিকানার রেঞ্জটি) কে উইকিপিডিয়াতে সম্পাদনা করা থেকে বাধাদান করা হয়েছে।</string>
