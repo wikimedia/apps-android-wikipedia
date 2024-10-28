@@ -107,7 +107,6 @@
                 <data android:scheme="wikipedia" />
             </intent-filter>
         </activity-alias>
-        <!-- @TODO: set actual image asset for donor icon      -->
         <activity-alias
             android:name=".DonorIcon"
             android:icon="@mipmap/ic_launcher_donor_benefit"
