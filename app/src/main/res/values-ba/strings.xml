@@ -1003,7 +1003,6 @@
   <string name="suggested_edits_image_captions_task_detail">Уҡыусыға мәғәнәһе һәм йөкмәткеһе аңлашылырлыҡ итеп рәсемдең аңлатмаһын яҙығыҙ.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Мәҡәлә темаһын уҡыусы тиҙ генә аңларлыҡ итеп ҡыҫҡаса яҙығыҙ.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Бөгөнгә ҡарата дөйөм өлөшөгөҙ</string>
-  <string name="suggested_edits_edit_stat_tooltip">Һеҙҙең бөтәһе индергән үҙгәртеүҙәрегеҙ һаны.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Нисә көн рәттән өлөш индерәһегеҙ. Әгәр күпмелер ваҡыт өлөш индермәһәгеҙ, бында һуңғы өлөш датаһы күрһәтелә.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Һуңғы 30 көндә өлөш кереткән биттәрегеҙҙе иҫәпкә алып, ҡаралған элемент биттәренең  дөйөм һаны</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Бер төҙәтеүегеҙ нисә тапҡыр (башҡа мөхәррирҙәр тарафынан) кире ҡайтарылыуға нигеҙләнә. Кире ҡайтарылған төҙәтеүҙер һаны:%d</string>

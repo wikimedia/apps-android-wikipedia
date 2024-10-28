@@ -1644,4 +1644,6 @@
   <string name="contributions_dashboard_entry_dialog_cancel">Не, хвала</string>
   <string name="contributions_dashboard_entry_dialog_ok">Да, води ме тамо</string>
   <string name="contributions_dashboard_badge_donor">Донатор</string>
+  <string name="contributions_dashboard_tab_last_donated">Последња донација</string>
+  <string name="contributions_dashboard_tab_update_button">Ажурирај</string>
 </resources>
