@@ -100,7 +100,7 @@
                                 android:layout_height="wrap_content"
                                 android:minHeight="60dp"
                                 android:paddingTop="8dp"
-                                android:paddingBottom="16dp"
+                                android:paddingBottom="8dp"
                                 android:paddingStart="16dp"
                                 android:paddingEnd="8dp"
                                 android:background="?attr/selectableItemBackground"
