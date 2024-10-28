@@ -430,6 +430,18 @@
         <item name="iconTint">?attr/placeholder_color</item>
     </style>
 
+    <style name="App.Button.Outline" parent="@style/Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="backgroundTint">?attr/paper_color</item>
+        <item name="iconSize">24dp</item>
+        <item name="iconTint">?attr/progressive_color</item>
+        <item name="android:textColor">?attr/progressive_color</item>
+        <item name="strokeColor">?attr/border_color</item>
+    </style>
+
     <style name="ThemeColorCircularButton" parent="@style/Widget.Material3.Button.Icon">
         <item name="android:layout_width">40dp</item>
         <item name="android:layout_height">40dp</item>
