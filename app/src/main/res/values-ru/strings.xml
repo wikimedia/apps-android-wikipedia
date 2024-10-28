@@ -1741,4 +1741,5 @@
   <string name="contributions_dashboard_badge_become_a_donor">Стать донором</string>
   <string name="contributions_dashboard_badge_update">Обновить статус донора</string>
   <string name="contributions_dashboard_app_icon_title">Значок приложения</string>
+  <string name="contributions_dashboard_tab_update_button">Обновить</string>
 </resources>
