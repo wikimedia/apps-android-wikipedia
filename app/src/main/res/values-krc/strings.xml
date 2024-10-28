@@ -796,7 +796,7 @@
   <string name="menu_feed_overflow_label">Аслам сайлам</string>
   <string name="feed_featured_image_share_subject">Викигёзенни сайланнган суратлары</string>
   <string name="feed">Аула</string>
-  <string name="home">Баш бет</string>
+  <string name="home">Тамал бет</string>
   <string name="view_static_card_icon_content_description">Картчыкъны белгичиги</string>
   <string name="view_card_news_title">Джангылыкълада</string>
   <plurals name="view_continue_reading_card_subtitle">

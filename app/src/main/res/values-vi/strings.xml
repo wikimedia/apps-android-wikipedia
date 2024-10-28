@@ -1008,7 +1008,6 @@
   <string name="suggested_edits_image_captions_task_detail">Mô tả một hình ảnh để giúp người đọc hiểu ý nghĩa và ngữ cảnh của nó.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Tóm lược bài để giúp độc giả dễ dàng hiểu hơn.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tổng số đóng góp của bạn cho đến nay.</string>
-  <string name="suggested_edits_edit_stat_tooltip">Tổng số đóng góp của bạn cho đến nay.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Số ngày đóng góp tài nguyên liên tiếp của bạn. Nếu bạn không đóng góp trong một khoảng thời gian, ngày đóng góp mới nhất sẽ được hiển thị.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Tổng số lượt tải của trang bạn đã đóng góp trong 30 ngày gần đây</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Dựa trên số lần một trong những đóng góp của bạn đã được lùi sửa (lùi sửa bởi một người dùng khác). Sửa đổi bị lùi sửa: %d.</string>
