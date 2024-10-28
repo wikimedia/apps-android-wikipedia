@@ -826,6 +826,7 @@
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="feed_language_variants_removal_dialog_save">저장</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">2차 언어를 업데이트해 주십시오</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">설정으로 이동</string>
   <string name="top_read_activity_title">%s의 가장 많이 읽은 글</string>
   <string name="tabs_activity_title">탭</string>
@@ -981,7 +982,6 @@
   <string name="suggested_edits_image_captions_task_detail">이미지 설명은 독자가 그림의 의미나 맥락을 파악하는 데 도움을 줍니다.</string>
   <string name="suggested_edits_add_descriptions_task_detail">문서 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
   <string name="suggested_edits_contributions_stat_tooltip">지금까지의 당신의 총 기여 수입니다.</string>
-  <string name="suggested_edits_edit_stat_tooltip">지금까지의 당신의 총 편집 수입니다.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">지금까지 기여한 일수입니다. 한동안 기여가 없는 경우, 최근 기여 날짜를 표시합니다.</string>
   <string name="suggested_edits_page_views_stat_tooltip">최근 30일 동안 기여한 항목들의 총 조회수입니다.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">당신의 편집이 (다른 편집자에 의하여) 몇 번 되돌려졌는지를 기반으로 합니다.\n되돌려진 편집: %d건.</string>
@@ -1566,6 +1566,7 @@
   <string name="page_issues_title">문서 이슈</string>
   <string name="generic_release_notes">사소한 버그 수정 및 개선</string>
   <string name="email_report_image_recommendations_subject">문제 보고 - 이미지 추천 기능</string>
+  <string name="email_report_patroller_tasks_subject">문제 보고 - 편집 점검 기능</string>
   <string name="email_report_patroller_tasks_body">편집 순찰 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다.\n- [해결책 제안 설명]\n\n [스크린샷 또는 링크]</string>
   <string name="donation_campaign_maybe_later_snackbar">내일 다시 알려드리겠습니다.</string>
   <string name="donation_campaign_donated_snackbar">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 자매 사이트의 발전에 큰 힘이 되었습니다.</string>
@@ -1595,6 +1596,7 @@
   <string name="places_survey_feedback_dialog_title">\"장소\"를 어떻게 개선할 수 있나요?</string>
   <string name="places_survey_dialog_cancel">취소</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">무엇을 바꾸거나 개선하기를 원하시나요?</string>
+  <string name="places_empty_list">이 지역은 비어 있습니다. &lt;a href=\"#\"&gt;지도를&lt;/a&gt; 확대해 보세요.</string>
   <string name="places_card_title">주변 장소</string>
   <string name="places_card_action">더 많은 주변 장소</string>
   <string name="places_card_enable_location_card_button">위치 활성화</string>
@@ -1609,9 +1611,11 @@
   <string name="donor_history_last_donated_date_picker_label">날짜 입력</string>
   <string name="donor_history_about_this_experiment">이 실험 정보</string>
   <string name="contributions_dashboard_survey_dialog_cancel">의견 없음</string>
+  <string name="contributions_dashboard_survey_dialog_ok">피드백 공유</string>
   <string name="contributions_dashboard_donation_dialog_title">자유의 지식을 지원해 주셔서 고맙습니다</string>
   <string name="contributions_dashboard_donation_dialog_cancel">아니요, 괜찮습니다</string>
   <string name="contributions_dashboard_entry_dialog_cancel">아니요, 괜찮습니다</string>
   <string name="contributions_dashboard_app_icon_title">앱 아이콘</string>
   <string name="contributions_dashboard_logged_out_user">로그아웃된 사용자</string>
+  <string name="contributions_dashboard_tab_update_button">업데이트</string>
 </resources>
