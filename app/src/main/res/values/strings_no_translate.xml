@@ -22,7 +22,7 @@
     <string name="donate_tax_url">https://donate.wikimedia.org/wiki/Special:LandingCheck?landing_page=Tax_deductibility&amp;basic=true</string>
     <string name="donate_email">donate@wikimedia.org</string>
     <string name="donor_privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Donor_privacy_policy</string>
-    <string name="contribution_dashboard_survey_url">https://docs.google.com/forms/d/1wIJWp75MMyp2e51kSaPH9ctByUzbyhazEOaJTxQhKqs/edit</string>
+    <string name="contributions_dashboard_survey_url">https://docs.google.com/forms/d/1wIJWp75MMyp2e51kSaPH9ctByUzbyhazEOaJTxQhKqs/edit</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

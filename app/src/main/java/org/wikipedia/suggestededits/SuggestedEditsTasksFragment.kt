@@ -11,8 +11,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
@@ -113,7 +111,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-
+        showSurveyDialog()
         binding.userStatsViewsGroup.addOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
@@ -393,30 +391,25 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    private fun showSurveyDialog(
-        @StringRes titleId: Int = R.string.contributions_dashboard_survey_dialog_title,
-        @StringRes messageId: Int = R.string.contributions_dashboard_survey_dialog_message,
-        @DrawableRes iconId: Int = R.drawable.ic_feedback,
-        delayMillis: Long = 10000,
-        isCancellable: Boolean = false
-    ) {
-        Handler(Looper.getMainLooper()).postDelayed({
-            Prefs.contributionDashboardSurveyDialogShown = true
-            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Icon)
-                .setTitle(titleId)
-                .setMessage(messageId)
-                .setCancelable(isCancellable)
-                .setIcon(iconId)
-                .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
-                    UriUtil.visitInExternalBrowser(
-                        requireContext(),
-                        Uri.parse(getString(R.string.contribution_dashboard_survey_url))
-                    )
-                }
-                .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel) { _, _ ->
-                    // dismiss
-                }.show()
-        }, delayMillis)
+    private fun showSurveyDialog() {
+        if (!Prefs.contributionsDashboardSurveyDialogShown) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Icon)
+                    .setTitle(R.string.contributions_dashboard_survey_dialog_title)
+                    .setMessage(R.string.contributions_dashboard_survey_dialog_message)
+                    .setIcon(R.drawable.ic_feedback)
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
+                        UriUtil.visitInExternalBrowser(
+                            requireContext(),
+                            Uri.parse(getString(R.string.contributions_dashboard_survey_url))
+                        )
+                    }
+                    .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel, null)
+                    .show()
+                Prefs.contributionsDashboardSurveyDialogShown = true
+            }, SURVEY_DIALOG_DELAY_TIME_IN_MILLIS)
+        }
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
@@ -457,6 +450,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
+        private const val SURVEY_DIALOG_DELAY_TIME_IN_MILLIS = 10000L
         private const val MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS = 3
         private const val MIN_CONTRIBUTIONS_GATE_URL = "https://en.wikipedia.org/wiki/Help:Introduction_to_editing_with_Wiki_Markup/1"
 
