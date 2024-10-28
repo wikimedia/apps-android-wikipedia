@@ -88,6 +88,7 @@
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
   <string name="nav_item_search">搜索</string>
+  <string name="nav_item_contribute">贡献</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -123,7 +124,7 @@
   <string name="page_edit_history_filter_by">筛选条件</string>
   <string name="page_edit_history_filter_by_all">所有编辑（%s）</string>
   <string name="page_edit_history_filter_by_user">用户编辑（%s）</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">匿名编辑（%s）</string>
+  <string name="page_edit_history_filter_by_anon">未注册编辑（%s）</string>
   <string name="page_edit_history_filter_by_bot">机器人编辑（%s）</string>
   <string name="page_edit_history_metrics_content_description">从%1$s到%2$s的数据</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -162,6 +163,7 @@
   <string name="menu_page_recently_viewed">近期浏览</string>
   <string name="menu_page_archive">存档</string>
   <string name="menu_long_press_open_page">打开</string>
+  <string name="menu_long_press_open_in_places">在地点开放</string>
   <string name="menu_long_press_open_in_new_tab">在新标签页中打开</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
   <string name="menu_text_select_define">定义</string>
@@ -491,8 +493,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">自定义您的工具栏</string>
   <string name="error_blocked_footer_no_blocker">您可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理员&lt;/a&gt;来讨论此封禁。</string>
   <string name="temp_account_not_logged_in">您尚未登录</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">您的编辑将会以%1$s署名。您的IP地址将对管理员可见。&lt;br /&gt;&lt;br /&gt;如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;创建账号&lt;/a&gt;，您的编辑将以您选择的名称署名，且还可享有其他好处。</string>
+  <string name="temp_account_anon_ip_dialog_body">一旦您作出编辑，您的IP地址将与您的编辑相关联。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
+  <string name="temp_account_anon_dialog_body">一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
+  <string name="temp_account_temp_dialog_body">您的编辑将会以%1$s署名。您的IP地址将对管理员可见。&lt;br /&gt;&lt;br /&gt;如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;创建账号&lt;/a&gt;，您的编辑将以您选择的名称署名，且还可享有其他好处。</string>
   <string name="temp_account_dialog_ok">明白了</string>
   <string name="temp_account_using_title">您正在使用临时账号</string>
   <string name="temp_account_dialog_discard">放弃更改并登录</string>
@@ -502,6 +505,7 @@
   <plurals name="temp_account_expiry">
     <item quantity="other">账号将会在%d天后过期。</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;您尚未登录。&lt;/b&gt;一旦您作出编辑，您的IP地址将与您的编辑相关联。</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;您尚未登录。&lt;/b&gt;一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;您的编辑将会以%1$s署名。&lt;a href=\"%2$s\"&gt;了解更多信息&lt;/a&gt;。</string>
   <string name="temp_account_login_status">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;登录后，在该临时账号“%1$s”下作出的编辑不会转移至您的永久账号。请登录或创建账号，以便以您的用户名署名贡献，并可享有其他好处。</string>
@@ -756,7 +760,7 @@
   <string name="notifications_search">搜索通知</string>
   <string name="notifications_view_unread">查看未读</string>
   <string name="notifications_view_archived">查看已存档</string>
-  <string name="notifications_prefs">通知参数设置</string>
+  <string name="notifications_prefs">通知设置</string>
   <string name="notifications_archive">标记为已读并存档</string>
   <plurals name="notification_archive_message">
     <item quantity="one">通知已存档</item>
@@ -767,7 +771,7 @@
   <string name="notifications_poll_enable_negative">现在不要</string>
   <string name="notifications_empty_message">您已阅读所有通知！</string>
   <string name="notifications_view_archived_button_text">查看已存档通知</string>
-  <string name="notification_preferences_title">通知参数设置</string>
+  <string name="notification_preferences_title">通知设置</string>
   <string name="notifications_mark_unread">标记为未读</string>
   <string name="notifications_mark_all_as_read">标记所有为已读</string>
   <string name="notifications_direct_reply_action">回复</string>
@@ -886,6 +890,7 @@
   <string name="feed_item_type_main_page">包含每日特色内容的维基百科首页</string>
   <string name="feed_item_type_randomizer">随机选择条目以便阅读</string>
   <string name="feed_item_type_suggested_edits">向维基百科添加内容的建议</string>
+  <string name="feed_item_type_places">当前位置附近的条目</string>
   <string name="feed_empty_message">您的探索订阅源中没有内容</string>
   <string name="feed_configure_onboarding_action">自定义</string>
   <string name="customize_lang_selection_dialog_ok_button_text">确定</string>
@@ -964,7 +969,7 @@
   <string name="customize_toolbar_category_toolbar">工具栏</string>
   <string name="customize_toolbar_category_menu">菜单</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">将您喜欢的项目拖放到这里👋</string>
-  <string name="customize_toolbar_reset_to_default_button">重置到默认</string>
+  <string name="customize_toolbar_reset_to_default_button">重置为默认设置</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">按住并拖动图标可移动项目</string>
   <string name="customize_toolbar_item_default_tooltip">按下并拖拽一个要重新定位的项目</string>
   <string name="suggested_edits_describe_articles">描述条目</string>
@@ -1079,6 +1084,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">贡献</item>
     <item quantity="other">贡献</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">编辑</item>
+    <item quantity="other">编辑</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d天</item>
@@ -1208,6 +1217,7 @@
   <string name="app_shortcuts_random">随机</string>
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>
+  <string name="app_shortcuts_places">地点</string>
   <string name="on_this_day_card_title">历史上的今天</string>
   <string name="more_events_text">今天的更多事件</string>
   <string name="events_count_text">%2$s–%3$d年间的%1$s个事件</string>
@@ -1716,4 +1726,31 @@
   <string name="places_survey_dialog_cancel">取消</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我们改变或优化什么？</string>
   <string name="places_empty_list">此区域无内容。请缩小&lt;a href=\"#\"&gt;地图&lt;/a&gt;。</string>
+  <string name="places_card_title">附近地点</string>
+  <string name="places_card_action">更多附近地点</string>
+  <string name="places_card_enable_location_card_message">地点功能使用地图来探索维基百科</string>
+  <string name="places_card_enable_location_card_button">启用位置</string>
+  <string name="places_card_distance_unknown">未知距离</string>
+  <string name="places_empty_message_snackbar">附近没有条目。请尝试缩小并移动地图。</string>
+  <string name="recommended_content_section_you_might_like">您可能会喜欢</string>
+  <string name="recommended_content_survey_dialog_title">帮助改进推荐内容。</string>
+  <string name="recommended_content_survey_dialog_message">您对这个推荐搜索结果满意吗？</string>
+  <string name="recommended_content_survey_dialog_input_hint">其他反馈</string>
+  <string name="recommended_content_survey_dialog_submitted_message">已提交反馈。感谢您！</string>
+  <string name="donor_history_title">捐款者历史</string>
+  <string name="donor_history_save_button">保存</string>
+  <string name="donor_history_update_donor_status_default">更新捐款者状态</string>
+  <string name="donor_history_update_donor_status_donor">捐款者</string>
+  <string name="donor_history_update_donor_status_not_a_donor">非捐款者</string>
+  <string name="donor_history_last_donated">上一次捐款</string>
+  <string name="donor_history_last_donated_hint">添加上次捐款日期</string>
+  <string name="donor_history_last_donated_date_picker_title">选择日期</string>
+  <string name="donor_history_last_donated_date_picker_label">输入日期</string>
+  <string name="donor_history_recurring_donor">定期捐款者</string>
+  <string name="donor_history_donate_button">向维基媒体基金会捐款</string>
+  <string name="donor_history_about_this_experiment">关于此实验功能</string>
+  <string name="donor_history_updated_message_snackbar">已更新捐款者历史</string>
+  <string name="contributions_dashboard_survey_dialog_title">帮助改进贡献面板</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">无意见</string>
+  <string name="contributions_dashboard_survey_dialog_ok">分享反馈</string>
 </resources>
