@@ -532,6 +532,8 @@
 
     <style name="AlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="colorSurface">?attr/paper_color</item>
+        <item name="colorOnSurface">?attr/primary_color</item>
+        <item name="colorOnSurfaceVariant">?attr/primary_color</item>
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
