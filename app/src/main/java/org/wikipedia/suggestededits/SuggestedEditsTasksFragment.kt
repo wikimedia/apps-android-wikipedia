@@ -3,8 +3,6 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -20,7 +18,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -111,7 +108,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-        showSurveyDialog()
         binding.userStatsViewsGroup.addOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
@@ -391,27 +387,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    private fun showSurveyDialog() {
-        if (!Prefs.contributionsDashboardSurveyDialogShown) {
-            Handler(Looper.getMainLooper()).postDelayed({
-                MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Icon)
-                    .setTitle(R.string.contributions_dashboard_survey_dialog_title)
-                    .setMessage(R.string.contributions_dashboard_survey_dialog_message)
-                    .setIcon(R.drawable.ic_feedback)
-                    .setCancelable(false)
-                    .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
-                        UriUtil.visitInExternalBrowser(
-                            requireContext(),
-                            Uri.parse(getString(R.string.contributions_dashboard_survey_url))
-                        )
-                    }
-                    .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel, null)
-                    .show()
-                Prefs.contributionsDashboardSurveyDialogShown = true
-            }, SURVEY_DIALOG_DELAY_TIME_IN_MILLIS)
-        }
-    }
-
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
             if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
@@ -450,7 +425,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
-        private const val SURVEY_DIALOG_DELAY_TIME_IN_MILLIS = 10000L
         private const val MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS = 3
         private const val MIN_CONTRIBUTIONS_GATE_URL = "https://en.wikipedia.org/wiki/Help:Introduction_to_editing_with_Wiki_Markup/1"
 
