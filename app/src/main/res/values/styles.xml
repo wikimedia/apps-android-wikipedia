@@ -430,12 +430,15 @@
         <item name="iconTint">?attr/placeholder_color</item>
     </style>
 
-    <style name="App.Button.Text.Outline">
+    <style name="App.Button.Outline">
         <item name="android:textColor">?attr/progressive_color</item>
+        <item name="android:backgroundTint">?attr/paper_color</item>
+        <item name="backgroundTint">?attr/paper_color</item>
         <item name="iconTint">?attr/inactive_color</item>
         <item name="cornerRadius">8dp</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">?attr/progressive_color</item>
+        <item name="rippleColor">?attr/placeholder_color</item>
     </style>
 
     <style name="ThemeColorCircularButton" parent="@style/Widget.Material3.Button.Icon">
