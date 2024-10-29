@@ -609,7 +609,8 @@
 
     <style name="MaterialDatePickerStyle" parent="ThemeOverlay.Material3.MaterialCalendar">
         <item name="android:textViewStyle">@android:style/Widget.TextView</item>
-        <item name="android:textColor">?attr/primary_color</item>
+        <item name="colorOnSurface">?attr/primary_color</item>
+        <item name="colorOnSurfaceVariant">?attr/primary_color</item>
     </style>
 
 </resources>
