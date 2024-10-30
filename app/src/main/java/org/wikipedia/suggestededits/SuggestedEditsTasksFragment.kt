@@ -237,7 +237,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                 onboardingTextView.visibility = VISIBLE
                 onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
             }
-
         } else {
             binding.contributionContainer.apply {
                 userStatsViewsGroup.visibility = VISIBLE
@@ -251,7 +250,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                     showOneTimeSequentialUserStatsTooltips()
                 }
             }
-
         }
 
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
