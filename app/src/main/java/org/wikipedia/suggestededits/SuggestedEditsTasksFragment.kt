@@ -129,7 +129,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         binding.donorHistoryContainer.setOnClickListener {
-            // TODO: go to donor history
+            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -350,15 +350,11 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setupTestingButtons() {
         if (!ReleaseUtil.isPreBetaRelease) {
-            binding.showIPBlockedMessage.visibility = GONE
-            binding.showOnboardingMessage.visibility = GONE
-            binding.donorHistoryEntry.visibility = GONE
+            binding.showIPBlockedMessage.isVisible = false
+            binding.showOnboardingMessage.isVisible = false
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
-        binding.donorHistoryEntry.setOnClickListener {
-            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireActivity()))
-        }
     }
 
     private fun setUpDonorHistoryStatus() {
@@ -374,7 +370,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.donorHistoryUpdateButton.isVisible = false
         } ?: run {
             binding.donorHistoryUpdateButton.setOnClickListener {
-                // TODO: go to donor history
+                requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
             }
             binding.donorHistoryStatus.isVisible = false
             binding.lastDonatedChevron.isVisible = false

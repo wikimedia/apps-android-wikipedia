@@ -24,7 +24,7 @@
 
     <Button
         android:id="@+id/becomeADonorChip"
-        style="@style/App.Button.Outline"
+        style="@style/App.Button.Outline.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="0dp"
