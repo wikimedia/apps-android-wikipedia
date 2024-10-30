@@ -429,7 +429,7 @@
         <item name="android:textColor">?attr/placeholder_color</item>
         <item name="iconTint">?attr/placeholder_color</item>
     </style>
-
+      
     <style name="App.Button.Outline">
         <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:backgroundTint">?attr/paper_color</item>
@@ -439,6 +439,17 @@
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">?attr/progressive_color</item>
         <item name="rippleColor">?attr/placeholder_color</item>
+    </style>
+
+    <style name="App.Button.Outline.Small">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="iconSize">24dp</item>
+        <item name="iconTint">?attr/progressive_color</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">?attr/border_color</item>
     </style>
 
     <style name="ThemeColorCircularButton" parent="@style/Widget.Material3.Button.Icon">

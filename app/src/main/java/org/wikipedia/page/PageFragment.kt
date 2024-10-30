@@ -73,6 +73,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
@@ -1533,7 +1534,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onUpdateDonorStatusSelected() {
-            // @TODO: take user to the donor history screen
+            startActivity(DonorHistoryActivity.newIntent(requireContext()))
         }
     }
 
