@@ -290,6 +290,40 @@
                                 android:text="Onboarding" />
                         </LinearLayout>
 
+                    </org.wikipedia.views.WikiCardView>
+
+                    <!-- TODO: remove. -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/showIPBlockedMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="?attr/progressive_color"
+                            android:textSize="@dimen/bottom_nav_label_text_size"
+                            android:text="IPBlocked" />
+
+                        <TextView
+                            android:id="@+id/showOnboardingMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="?attr/progressive_color"
+                            android:textSize="@dimen/bottom_nav_label_text_size"
+                            android:text="Onboarding" />
+
+                        <TextView
+                            android:id="@+id/donorHistoryEntry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="?attr/progressive_color"
+                            android:textSize="@dimen/bottom_nav_label_text_size"
+                            android:text="Donor history" />
                     </LinearLayout>
 
                 </LinearLayout>
