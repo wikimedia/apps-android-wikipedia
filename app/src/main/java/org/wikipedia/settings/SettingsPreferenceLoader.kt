@@ -55,8 +55,8 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             Preference.OnPreferenceClickListener {
                 FeedbackUtil.composeFeedbackEmail(
                     activity,
-                    "Android App ${BuildConfig.VERSION_NAME} Feedback",
-                    deviceInformation()
+                    subject = "Android App ${BuildConfig.VERSION_NAME} Feedback",
+                    body = deviceInformation()
                 )
                 true
         }

@@ -9,6 +9,7 @@ import org.wikipedia.bridge.CommunicationBridge.JSEventListener
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.LinkMovementMethodExt.UrlHandlerWithText
 import org.wikipedia.places.PlacesActivity
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -36,6 +37,12 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
             href = wikiSite.scheme() + ":" + href
         } else if (href.startsWith("./")) {
             href = href.replace("./", "/wiki/")
+        }
+
+        if (href.startsWith("mailto:")) {
+            val emailAddress = href.removePrefix("mailto:")
+            FeedbackUtil.composeFeedbackEmail(context, email = emailAddress, subject = "", body = "")
+            return
         }
 
         // special: returned by page-library when clicking Read More items in the footer.
