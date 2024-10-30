@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Carlosedepaula
 * Julian Mendez
 * Karmwiki
@@ -997,7 +996,6 @@
   <string name="suggested_edits_image_captions_task_detail">Describe un imagine pro adjutar le lectores a comprender su significato e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Summarisa un articulo pro adjutar le lectores a comprender rapidemente le subjecto.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Le numero total de tu contributiones usque al presente.</string>
-  <string name="suggested_edits_edit_stat_tooltip">Le numero total de tu modificationes usque al presente.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Le numero de dies consecutive durante que tu ha contribuite. Si tu non ha contribuite desde alcun tempore, illo monstra le data de tu ultime contribution.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de visitas de paginas al quales tu ha contribuite in le ultime 30 dies.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basate sur le numero de vices que un de tu contributiones ha essite revertite (i.e. disfacite per un altere editor). Modificationes revertite: %d.</string>
