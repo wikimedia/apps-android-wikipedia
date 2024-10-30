@@ -106,6 +106,9 @@ class SuggestedEditsTasksFragment : Fragment() {
             FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
             if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
                 binding.tasksContainer.postDelayed({
+                    if (!isAdded) {
+                        return@postDelayed
+                    }
                     ContributionsDashboardHelper.showSurveyDialog(requireContext())
                     Prefs.contributionsDashboardSurveyDialogShown = true
                 }, TimeUnit.SECONDS.toMillis(10))
