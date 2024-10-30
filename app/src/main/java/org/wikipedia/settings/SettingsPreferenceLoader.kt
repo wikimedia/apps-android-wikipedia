@@ -50,15 +50,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
 
-        when (DonorStatus.donorStatus()) {
-            DonorStatus.DONOR -> {
-                findPreference(R.string.preference_key_app_icon).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                    ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
-                    true
-                }
-            }
-            else -> { findPreference(R.string.preference_key_app_icon).isVisible = false }
-        }
+        findPreference(R.string.preference_key_app_icon).isVisible = false
 
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
