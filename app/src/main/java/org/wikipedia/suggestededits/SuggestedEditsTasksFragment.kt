@@ -54,6 +54,7 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.util.concurrent.TimeUnit
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -103,7 +104,12 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == DonorHistoryActivity.RESULT_DONOR_HISTORY_SAVED) {
             FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-            // TODO: show survey dialog after 10 seconds
+            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
+                binding.tasksContainer.postDelayed({
+                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
+                    Prefs.contributionsDashboardSurveyDialogShown = true
+                }, TimeUnit.SECONDS.toMillis(10))
+            }
         }
     }
 
