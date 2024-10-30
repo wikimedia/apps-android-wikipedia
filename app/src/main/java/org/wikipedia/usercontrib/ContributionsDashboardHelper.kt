@@ -2,12 +2,9 @@ package org.wikipedia.usercontrib
 
 import android.content.Context
 import android.net.Uri
-import android.os.Handler
-import android.os.Looper
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.UriUtil
@@ -25,25 +22,29 @@ class ContributionsDashboardHelper {
             "fr", "nl", "en"
         )
 
-        fun maybeShowContributionsDashboardSurveyDialog(context: Context, delay: Long = 0) {
-            if (!Prefs.contributionsDashboardSurveyDialogShown || Prefs.hasDonorHistorySaved) {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon)
-                        .setTitle(R.string.contributions_dashboard_survey_dialog_title)
-                        .setMessage(R.string.contributions_dashboard_survey_dialog_message)
-                        .setIcon(R.drawable.ic_feedback)
-                        .setCancelable(false)
-                        .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
-                            UriUtil.visitInExternalBrowser(
-                                context,
-                                Uri.parse(context.getString(R.string.contributions_dashboard_survey_url))
-                            )
-                        }
-                        .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel, null)
-                        .show()
-                    Prefs.contributionsDashboardSurveyDialogShown = true
-                }, delay)
-            }
+        private fun getSurveyDialogUrl(): String {
+            val surveyUrls = mapOf(
+                "fr" to "https://docs.google.com/forms/d/1EfPNslpWWQd1WQoA3IkFRKhWy02BTaBgTer1uCKiIHU/edit",
+                "nl" to "https://docs.google.com/forms/d/15GXIEfQTujFtXNU5NqfDyr9lxxET6fP0hk_p_Xz-NOk/edit",
+                "en" to "https://docs.google.com/forms/d/1wIJWp75MMyp2e51kSaPH9ctByUzbyhazEOaJTxQhKqs/edit"
+            )
+            return surveyUrls[WikipediaApp.instance.languageState.appLanguageCode].orEmpty()
+        }
+
+        fun showSurveyDialog(context: Context) {
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon)
+                .setTitle(R.string.contributions_dashboard_survey_dialog_title)
+                .setMessage(R.string.contributions_dashboard_survey_dialog_message)
+                .setIcon(R.drawable.ic_feedback)
+                .setCancelable(false)
+                .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
+                    UriUtil.visitInExternalBrowser(
+                        context,
+                        Uri.parse(getSurveyDialogUrl())
+                    )
+                }
+                .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel, null)
+                .show()
         }
 
         val contributionsDashboardEnabled get() = ReleaseUtil.isPreBetaRelease ||
