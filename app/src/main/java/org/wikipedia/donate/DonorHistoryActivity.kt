@@ -2,6 +2,7 @@ package org.wikipedia.donate
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
 import androidx.activity.viewModels
@@ -15,8 +16,8 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityDonorHistoryBinding
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.UriUtil
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -65,7 +66,7 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         binding.experimentLink.setOnClickListener {
-            CustomTabsUtil.openInCustomTab(this, getString(R.string.contributions_dashboard_wiki_url))
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.contributions_dashboard_wiki_url)))
         }
 
         binding.saveButton.setOnClickListener {
