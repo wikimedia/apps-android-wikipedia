@@ -117,8 +117,10 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                     }
                     val strokeColor = if (item.isSelected) {
                         ContextCompat.getColor(binding.root.context, R.color.blue600)
-                    } else Color.TRANSPARENT
+                    } else ContextCompat.getColor(binding.root.context, R.color.gray200)
+                    val newStrokeWidth = if (item.isSelected) 2f else 1f
                     this.strokeColor = ColorStateList.valueOf(strokeColor)
+                    this.strokeWidth = newStrokeWidth
                 }
             }
         }

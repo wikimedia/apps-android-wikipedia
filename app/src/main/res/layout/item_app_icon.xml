@@ -9,7 +9,6 @@
     android:padding="2dp"
     app:shapeAppearanceOverlay="@style/CircularImageView"
     app:strokeWidth="2dp"
-    android:clipToOutline="false"
     xmlns:tools="http://schemas.android.com/tools"
     tools:srcCompat="@tools:sample/avatars">
 
