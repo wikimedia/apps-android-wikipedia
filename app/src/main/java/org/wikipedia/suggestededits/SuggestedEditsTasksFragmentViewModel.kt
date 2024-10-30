@@ -58,7 +58,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             blockMessageWikipedia = null
             blockMessageWikidata = null
             blockMessageCommons = null
-            totalContributions = 0
+            totalContributions = 10
             latestEditStreak = 0
             revertSeverity = 0
 

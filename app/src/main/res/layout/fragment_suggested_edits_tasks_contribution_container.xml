@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/userStatsClickTarget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/userStatsViewsGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="userNameView,userStatsArrow,
+                                guideLineMiddle,contributionsStatsView,editStreakStatsView,pageViewStatsView,editQualityStatsView" />
+
+        <TextView
+            android:id="@+id/userNameView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:textColor="?attr/primary_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/userStatsArrow"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/background_color"
+            android:contentDescription="@string/suggested_edits_my_contributions"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+            app:tint="?attr/progressive_color" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLineMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <org.wikipedia.views.ImageTitleDescriptionView
+            android:id="@+id/contributionsStatsView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toStartOf="@id/guideLineMiddle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userNameView" />
+
+        <org.wikipedia.views.ImageTitleDescriptionView
+            android:id="@+id/editStreakStatsView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
+            app:layout_constraintTop_toTopOf="@id/contributionsStatsView" />
+
+        <org.wikipedia.views.ImageTitleDescriptionView
+            android:id="@+id/pageViewStatsView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@id/guideLineMiddle"
+            app:layout_constraintStart_toStartOf="@id/contributionsStatsView"
+            app:layout_constraintTop_toBottomOf="@id/editStreakStatsView" />
+
+        <org.wikipedia.views.ImageTitleDescriptionView
+            android:id="@+id/editQualityStatsView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
+            app:layout_constraintTop_toTopOf="@id/pageViewStatsView" />
+
+        <ImageView
+            android:id="@+id/onboardingImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/suggested_edits_top_illustration_height"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@null"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/editQualityStatsView"
+            app:srcCompat="@drawable/ic_suggested_edits_onboarding" />
+
+        <TextView
+            android:id="@+id/onboardingTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="6sp"
+            android:paddingBottom="4dp"
+            android:textAlignment="center"
+            android:textColor="?attr/primary_color"
+            android:textSize="@dimen/suggested_edits_message_textview_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onboardingImageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</org.wikipedia.views.WikiCardView>

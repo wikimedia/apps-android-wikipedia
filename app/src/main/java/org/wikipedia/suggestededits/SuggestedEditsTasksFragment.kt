@@ -72,17 +72,17 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!isAdded) {
             return@Runnable
         }
-        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
+        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionContainer.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
+        balloon.showAlignBottom(binding.contributionContainer.contributionsStatsView.getDescriptionView())
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.contributionContainer.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.contributionContainer.editStreakStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.contributionContainer.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.contributionContainer.pageViewStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.contributionContainer.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.contributionContainer.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
-        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
+        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionContainer.contributionsStatsView)
     }
 
     private val requestAddLanguage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        binding.tasksRecyclerView.adapter?.notifyDataSetChanged()
+        binding.tasksContainer.tasksRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private val requestAddImageTags = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -108,14 +108,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        binding.userStatsViewsGroup.addOnClickListener {
+        binding.contributionContainer.userStatsViewsGroup.addOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
 
-        binding.learnMoreCard.setOnClickListener {
+        binding.tasksContainer.learnMoreCard.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
-        binding.learnMoreButton.setOnClickListener {
+        binding.tasksContainer.learnMoreButton.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
@@ -128,9 +128,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
-        binding.tasksRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
-        binding.tasksContainer.isVisible = false
+        binding.tasksContainer.tasksRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.tasksContainer.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
+        binding.tasksContainer.root.isVisible = false
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -148,9 +148,9 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {
         referencedIds.forEach { id ->
-            binding.userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
+            binding.contributionContainer.userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
         }
-        binding.userStatsClickTarget.setOnClickListener(listener)
+        binding.contributionContainer.userStatsClickTarget.setOnClickListener(listener)
     }
 
     fun refreshContents() {
@@ -164,7 +164,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        binding.tasksRecyclerView.adapter = null
+        binding.tasksContainer.tasksRecyclerView.adapter = null
         binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
         _binding = null
         super.onDestroyView()
@@ -185,7 +185,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun clearContents(shouldScrollToTop: Boolean = true) {
         binding.swipeRefreshLayout.isRefreshing = false
         binding.progressBar.isVisible = false
-        binding.tasksContainer.isVisible = false
+        binding.tasksContainer.root.isVisible = false
         binding.errorView.isVisible = false
         binding.disabledStatesView.isVisible = false
         if (shouldScrollToTop) {
@@ -215,58 +215,66 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
-        binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
+        binding.tasksContainer.tasksRecyclerView.adapter!!.notifyDataSetChanged()
         setUserStatsViewsAndTooltips()
 
-        binding.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
+        binding.contributionContainer.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
 
         if (viewModel.latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+            binding.contributionContainer.editStreakStatsView.setTitle(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+            binding.contributionContainer.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
         } else {
-            binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+            binding.contributionContainer.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
                 viewModel.latestEditStreak, viewModel.latestEditStreak))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+            binding.contributionContainer.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         }
 
         if (viewModel.totalContributions == 0) {
-            binding.userStatsClickTarget.isEnabled = false
-            binding.userStatsViewsGroup.visibility = GONE
-            binding.onboardingImageView.visibility = VISIBLE
-            binding.onboardingTextView.visibility = VISIBLE
-            binding.onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
-        } else {
-            binding.userStatsViewsGroup.visibility = VISIBLE
-            binding.onboardingImageView.visibility = GONE
-            binding.onboardingTextView.visibility = GONE
-            binding.userStatsClickTarget.isEnabled = true
-            binding.userNameView.text = AccountUtil.userName
-            binding.contributionsStatsView.setTitle(viewModel.totalContributions.toString())
-            binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
-            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-                showOneTimeSequentialUserStatsTooltips()
+            binding.contributionContainer.apply {
+                userStatsClickTarget.isEnabled = false
+                userStatsViewsGroup.visibility = GONE
+                onboardingImageView.visibility = VISIBLE
+                onboardingTextView.visibility = VISIBLE
+                onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
             }
+
+        } else {
+            binding.contributionContainer.apply {
+                userStatsViewsGroup.visibility = VISIBLE
+                onboardingImageView.visibility = GONE
+                onboardingTextView.visibility = GONE
+                userStatsClickTarget.isEnabled = true
+                userNameView.text = AccountUtil.userName
+                contributionsStatsView.setTitle(viewModel.totalContributions.toString())
+                contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
+                if (Prefs.showOneTimeSequentialUserStatsTooltip) {
+                    showOneTimeSequentialUserStatsTooltips()
+                }
+            }
+
         }
 
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        binding.tasksContainer.isVisible = true
+        binding.tasksContainer.root.isVisible = true
     }
 
     private fun setUserStatsViewsAndTooltips() {
-        binding.contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        binding.contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
+        binding.contributionContainer.apply {
+            contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+            contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
-        binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        binding.editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
-        binding.editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
+            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+            editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+            editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
 
-        binding.pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
-        binding.pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
-        binding.pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
+            pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
+            pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
+            pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
 
-       binding.editQualityStatsView.setGoodnessState(viewModel.revertSeverity)
-       binding.editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-       binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
+            editQualityStatsView.setGoodnessState(viewModel.revertSeverity)
+            editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+            editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
+        }
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
@@ -315,11 +323,11 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setupTestingButtons() {
         if (!ReleaseUtil.isPreBetaRelease) {
-            binding.showIPBlockedMessage.visibility = GONE
-            binding.showOnboardingMessage.visibility = GONE
+            binding.tasksContainer.showIPBlockedMessage.visibility = GONE
+            binding.tasksContainer.showOnboardingMessage.visibility = GONE
         }
-        binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
-        binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
+        binding.tasksContainer.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
+        binding.tasksContainer.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
     }
 
     private fun setUpTasks() {
