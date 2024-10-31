@@ -67,6 +67,12 @@
 
         </com.google.android.flexbox.FlexboxLayout>
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="view_announcement_action_negative" />
+
         <LinearLayout
             android:id="@+id/view_announcement_card_dialog_buttons_container"
             android:layout_width="wrap_content"
