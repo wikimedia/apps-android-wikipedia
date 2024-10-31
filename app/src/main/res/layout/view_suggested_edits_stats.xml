@@ -4,13 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:baselineAligned="false"
     tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
         android:layout_width="@dimen/suggested_edits_icon_size"
         android:layout_height="@dimen/suggested_edits_icon_size"
-        android:layout_marginTop="8dp">
+        android:layout_gravity="center_vertical">
 
         <org.wikipedia.views.CircularProgressBar
             android:id="@+id/circularProgressBar"
@@ -23,10 +22,9 @@
             android:layout_width="@dimen/suggested_edits_icon_background_size"
             android:layout_height="@dimen/suggested_edits_icon_background_size"
             android:layout_gravity="center"
-            android:paddingStart="0.05dp"
-            android:paddingTop="0.05dp"
             android:contentDescription="@null"
             android:src="@drawable/shape_circle"
+            app:tint="?attr/paper_color"
             android:visibility="gone"/>
 
         <ImageView
@@ -40,30 +38,24 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/titleDescriptionLayout"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/suggested_edits_title_margin_start"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_marginStart="24dp"
+        android:textSize="16sp"
+        android:textColor="?attr/primary_color"
+        android:gravity="center_vertical"/>
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:textSize="@dimen/suggested_edits_icon_title_text_size"
-            android:textColor="?attr/primary_color"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/suggested_edits_message_textview_text_size"
-            android:textColor="?attr/secondary_color"/>
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="16sp"
+        android:textColor="?attr/primary_color"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"/>
 
 </merge>

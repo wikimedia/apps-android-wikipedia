@@ -6,38 +6,36 @@
     android:layout_height="wrap_content"
     tools:parentTag="android.widget.FrameLayout">
 
-    <com.google.android.material.chip.Chip
+    <Button
         android:id="@+id/donorChip"
-        style="@style/Chip.Accessible.Icon"
+        style="@style/App.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
         android:text="@string/contributions_dashboard_badge_donor"
-        android:textColor="?attr/paper_color"
-        android:visibility="gone"
-        app:chipBackgroundColor="?attr/progressive_color"
-        app:chipCornerRadius="16dp"
-        app:chipIcon="@drawable/ic_baseline_volunteer_activism_24"
-        app:chipIconTint="?attr/paper_color"
-        app:chipStrokeWidth="0dp"
-        app:rippleColor="?attr/overlay_color"
-        tools:text="Donor"
-        tools:visibility="gone" />
+        android:visibility="visible"
+        android:textSize="12sp"
+        app:icon="@drawable/ic_baseline_volunteer_activism_24"
+        app:iconTint="?attr/paper_color"
+        app:iconSize="16dp"
+        tools:visibility="visible" />
 
-    <com.google.android.material.chip.Chip
+    <Button
         android:id="@+id/becomeADonorChip"
-        style="@style/Chip.Accessible.Icon.Small"
+        style="@style/App.Button.Outline.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
         android:text="@string/contributions_dashboard_badge_become_a_donor"
-        android:textColor="?attr/progressive_color"
         android:visibility="gone"
-        app:chipBackgroundColor="?attr/paper_color"
-        app:chipCornerRadius="16dp"
-        app:chipIcon="@drawable/ic_baseline_volunteer_activism_24"
-        app:chipIconTint="?attr/progressive_color"
-        app:chipStrokeColor="?attr/border_color"
-        app:rippleColor="?attr/overlay_color"
-        tools:text="Become a donor"
+        android:textSize="12sp"
+        app:icon="@drawable/ic_baseline_volunteer_activism_24"
+        app:iconTint="?attr/progressive_color"
+        app:iconSize="16dp"
         tools:visibility="gone" />
 
     <TextView
@@ -47,10 +45,9 @@
         android:layout_height="wrap_content"
         android:text="@string/contributions_dashboard_badge_update"
         android:textColor="?attr/progressive_color"
-        android:paddingVertical="8dp"
         android:visibility="gone"
         android:background="?selectableItemBackground"
         tools:text="Update donor status"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
 </merge>

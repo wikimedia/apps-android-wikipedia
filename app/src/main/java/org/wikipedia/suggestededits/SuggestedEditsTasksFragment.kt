@@ -3,13 +3,11 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
@@ -18,6 +16,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -27,6 +26,7 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
@@ -35,8 +35,12 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
+import org.wikipedia.donate.DonorHistoryActivity
+import org.wikipedia.donate.DonorStatus
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.usercontrib.ContributionsDashboardHelper
@@ -47,12 +51,12 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.util.concurrent.TimeUnit
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -73,13 +77,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!isAdded) {
             return@Runnable
         }
-        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
+        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.editsCountStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
+        balloon.showAlignBottom(binding.editsCountStatsView.getTitleView())
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getTitleView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getTitleView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getTitleView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
-        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
+        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.editsCountStatsView)
     }
 
     private val requestAddLanguage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -99,6 +103,18 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
+    private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == DonorHistoryActivity.RESULT_DONOR_HISTORY_SAVED) {
+            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
+                binding.tasksContainer.postDelayed({
+                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
+                    Prefs.contributionsDashboardSurveyDialogShown = true
+                }, TimeUnit.SECONDS.toMillis(10))
+            }
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -109,8 +125,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        binding.userStatsViewsGroup.addOnClickListener {
+        binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
+        }
+
+        binding.donorHistoryContainer.setOnClickListener {
+            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -135,26 +155,30 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.uiState.collect {
-                    when (it) {
-                        is Resource.Loading -> onLoading()
-                        is Resource.Success -> setFinalUIState()
-                        is SuggestedEditsTasksFragmentViewModel.RequireLogin -> onRequireLogin()
-                        is Resource.Error -> showError(it.throwable)
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> setFinalUIState()
+                            is SuggestedEditsTasksFragmentViewModel.RequireLogin -> onRequireLogin()
+                            is Resource.Error -> showError(it.throwable)
+                        }
+                    }
+                }
+
+                launch {
+                    FlowEventBus.events.collectLatest { event ->
+                        if (event is LoggedOutEvent) {
+                            refreshContents()
+                        }
                     }
                 }
             }
         }
     }
 
-    private fun Group.addOnClickListener(listener: View.OnClickListener) {
-        referencedIds.forEach { id ->
-            binding.userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
-        }
-        binding.userStatsClickTarget.setOnClickListener(listener)
-    }
-
     fun refreshContents() {
+        (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
         viewModel.fetchData()
     }
@@ -177,10 +201,12 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onRequireLogin() {
         clearContents()
-        binding.disabledStatesView.setRequiredLogin {
+        binding.messageCard.setRequiredLogin {
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
-        binding.disabledStatesView.isVisible = true
+        binding.messageCard.isVisible = true
+        binding.contributionsContainer.isVisible = false
+        binding.statsDivider.isVisible = false
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {
@@ -188,11 +214,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.progressBar.isVisible = false
         binding.tasksContainer.isVisible = false
         binding.errorView.isVisible = false
-        binding.disabledStatesView.isVisible = false
+        binding.messageCard.isVisible = false
+        binding.contributionsContainer.isVisible = false
+        binding.statsDivider.isVisible = false
         if (shouldScrollToTop) {
             binding.suggestedEditsScrollView.scrollTo(0, 0)
         }
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+
+        setUpDonorHistoryStatus()
     }
 
     private fun showError(t: Throwable) {
@@ -219,37 +249,39 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
         setUserStatsViewsAndTooltips()
 
-        binding.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
+        binding.pageViewStatsView.setDescription(viewModel.totalPageviews.toString())
 
         if (viewModel.latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+            binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_last_edited))
+            binding.editStreakStatsView.setDescription(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
         } else {
-            binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+            binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+            binding.editStreakStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
                 viewModel.latestEditStreak, viewModel.latestEditStreak))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         }
 
         if (viewModel.totalContributions == 0) {
-            binding.userStatsClickTarget.isEnabled = false
-            binding.userStatsViewsGroup.visibility = GONE
-            binding.onboardingImageView.visibility = VISIBLE
-            binding.onboardingTextView.visibility = VISIBLE
-            binding.onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
+            binding.contributionsContainer.isVisible = false
+            binding.statsDivider.isVisible = false
+            binding.messageCard.isVisible = true
+            binding.messageCard.setOnboarding(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
         } else {
-            binding.userStatsViewsGroup.visibility = VISIBLE
-            binding.onboardingImageView.visibility = GONE
-            binding.onboardingTextView.visibility = GONE
-            binding.userStatsClickTarget.isEnabled = true
-            binding.userNameView.text = AccountUtil.userName
-            binding.contributionsStatsView.setTitle(viewModel.totalContributions.toString())
-
+            binding.contributionsContainer.isVisible = true
+            binding.statsDivider.isVisible = true
             val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
                 R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
-            binding.contributionsStatsView.setDescription(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
-            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-                showOneTimeSequentialUserStatsTooltips()
-            }
+            binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
+            binding.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
+            // TODO: add the sequential tooltips back after the experiment code is removed.
+//            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
+//                 showOneTimeSequentialUserStatsTooltips()
+//            }
+        }
+
+        binding.donorHistoryContainer.isVisible = true
+        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            binding.donorHistoryContainer.isVisible = false
+            binding.statsDivider.isVisible = false
         }
 
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
@@ -257,19 +289,19 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUserStatsViewsAndTooltips() {
-        binding.contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        binding.contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
+        binding.editsCountStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        binding.editsCountStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
-        binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        binding.editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+        binding.editStreakStatsView.setImageDrawable(R.drawable.ic_icon_revision_history_apps)
         binding.editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
 
-        binding.pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
+        binding.pageViewStatsView.setTitle(getString(R.string.suggested_edits_views_label_text))
         binding.pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
         binding.pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
 
        binding.editQualityStatsView.setGoodnessState(viewModel.revertSeverity)
-       binding.editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+       binding.editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_label_text))
        binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
     }
 
@@ -281,8 +313,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setIPBlockedStatus() {
         clearContents()
-        binding.disabledStatesView.setIPBlocked(viewModel.blockMessageWikipedia)
-        binding.disabledStatesView.visibility = VISIBLE
+        binding.messageCard.setIPBlocked(viewModel.blockMessageWikipedia)
+        binding.messageCard.isVisible = true
         UserContributionEvent.logIpBlock()
     }
 
@@ -291,39 +323,65 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         if (viewModel.totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
             clearContents()
-            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
-            binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
+            binding.messageCard.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
+            binding.messageCard.setPositiveButton(R.string.suggested_edits_learn_more, {
                 UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(MIN_CONTRIBUTIONS_GATE_URL))
             }, true)
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.isVisible = true
             return true
         } else if (UserContribStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
-            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
+            binding.messageCard.isVisible = true
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             val localDateTime = LocalDateTime.ofInstant(pauseEndDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
+            binding.messageCard.isVisible = true
             UserContributionEvent.logPaused()
             return true
         }
 
-        binding.disabledStatesView.visibility = GONE
+        binding.messageCard.isVisible = false
         return false
     }
 
     private fun setupTestingButtons() {
         if (!ReleaseUtil.isPreBetaRelease) {
-            binding.showIPBlockedMessage.visibility = GONE
-            binding.showOnboardingMessage.visibility = GONE
+            binding.showIPBlockedMessage.isVisible = false
+            binding.showOnboardingMessage.isVisible = false
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
+    }
+
+    private fun setUpDonorHistoryStatus() {
+        if (DonorStatus.donorStatus() == DonorStatus.DONOR) {
+            Prefs.donationResults.lastOrNull()?.dateTime?.let {
+                val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
+                    .toEpochMilli()
+                binding.donorHistoryStatus.text = DateUtils.getRelativeTimeSpanString(
+                    lastDonateMilli,
+                    System.currentTimeMillis(),
+                    DateUtils.DAY_IN_MILLIS
+                )
+            } ?: run {
+                binding.donorHistoryStatus.text = getString(R.string.donor_history_recurring_donor)
+            }
+            binding.donorHistoryStatus.isVisible = true
+            binding.lastDonatedChevron.isVisible = true
+            binding.donorHistoryUpdateButton.isVisible = false
+        } else {
+            binding.donorHistoryUpdateButton.setOnClickListener {
+                requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
+            }
+            binding.donorHistoryStatus.isVisible = false
+            binding.lastDonatedChevron.isVisible = false
+            binding.donorHistoryUpdateButton.isVisible = true
+        }
     }
 
     private fun setUpTasks() {
@@ -332,14 +390,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask = SuggestedEditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
-        addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
 
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
-        addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
         addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
