@@ -690,6 +690,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             dialog.setCancelable(false)
                             dialog.show()
                         }
+                    } ?: run {
+                        maybeShowContributionsDashboardDialog()
                     }
                 }
             }
@@ -722,7 +724,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun maybeShowContributionsDashboardDialog() {
-        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled && Prefs.hasVisitedArticlePage) {
+        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
             ContributionsDashboardHelper.showEntryDialog(requireActivity())
             Prefs.contributionsDashboardEntryDialogShown = true
         }
@@ -972,7 +974,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         maybeShowAnnouncement()
         maybeShowRecommendedContentSurvey()
-        maybeShowContributionsDashboardDialog()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.
