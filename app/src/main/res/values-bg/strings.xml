@@ -1455,8 +1455,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Вие сте част от 2%%, които избраха да подкрепят ресурса, на който разчитат милиони. За да демонстрираме нашата благодарност, таблото за управление на вашите дарения е актуализирано, за да разпознае статуса Ви на дарител. Искате ли да видите актуализацията?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Не, благодаря</string>
   <string name="contributions_dashboard_donation_dialog_ok">Да, покажете ми</string>
-  <string name="contributions_dashboard_entry_dialog_title">Таблото за управление на вашите приноси е актуализирано</string>
-  <string name="contributions_dashboard_entry_dialog_message">Таблото за управление на даренията вече показва подробности за вашия статус на дарител. Искате ли да прегледате тази експериментална възможност?</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Таблото за управление на вашите приноси е актуализирано</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Таблото за управление на даренията вече показва подробности за вашия статус на дарител. Искате ли да прегледате тази експериментална възможност?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Не, благодаря</string>
   <string name="contributions_dashboard_entry_dialog_ok">Да, покажете ми</string>
   <string name="contributions_dashboard_badge_donor">Дарител</string>
