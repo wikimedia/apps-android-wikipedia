@@ -1830,15 +1830,10 @@
     <string name="contributions_dashboard_tab_last_donated">Last donated</string>
     <string name="contributions_dashboard_tab_update_button">Update</string>
     <string name="contributions_dashboard_donor_icon_dialog_title">Thank you for being a donor.</string>
-    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under Donor Benefit. Would you like to update your icon now?</string>
+    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App Icon. Would you like to update your icon now?</string>
     <string name="contributions_dashboard_donor_icon_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
-    <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_title">Warning!</string>
-    <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_message">If you leave this screen without clicking save, you will lose your changes.</string>
-    <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_cancel">Leave without saving</string>
-    <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_ok">Save changes</string>
     <string-array name="contributions_dashboard_app_icon_updated">App Icon updated</string-array>
     <!-- /Contributions Dashboard -->
-
 
 </resources>

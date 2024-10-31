@@ -1746,13 +1746,9 @@
   <string name="contributions_dashboard_logged_out_user">Label of the logged out user in the donor history card.</string>
   <string name="contributions_dashboard_tab_last_donated">Label that indicates the last date on which the user made a donation in the Contribute screen.</string>
   <string name="contributions_dashboard_tab_update_button">Button for updating the donor history in the Contribute screen.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">Title for the donor benefit dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Message for the donor benefit dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Negative action for the donor benefit dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Positive action for the donor benefit dialog that indicates the user unlocks the functionality to change the app icon temporarily, which will open the Settings screen.</string>
-  <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_title">Title for the Donor History screen that indicates the user has not saved the changes.</string>
-  <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_message">Message for the Donor History screen that indicates the user has not saved the changes.</string>
-  <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_cancel">Negative action for the Donor History screen that indicates the user has not saved the changes.</string>
-  <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_ok">Positive action for the Donor History screen that indicates the user has not saved the changes, which will save the changes.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Title for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Message for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Negative action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Positive action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily, which will open the Settings screen.</string>
   <string-array name="contributions_dashboard_app_icon_updated">Message shown when user updates the app icon from settings.</string-array>
 </resources>
