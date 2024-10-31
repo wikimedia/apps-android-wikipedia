@@ -32,17 +32,17 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
 
     override fun onUrlClick(url: String, titleString: String?, linkText: String) {
         var href = url
+        if (href.startsWith("mailto:")) {
+            val emailAddress = href.removePrefix("mailto:")
+            FeedbackUtil.composeFeedbackEmail(context, email = emailAddress, subject = "", body = "")
+            return
+        }
+
         if (href.startsWith("//")) {
             // for URLs without an explicit scheme, add our default scheme explicitly.
             href = wikiSite.scheme() + ":" + href
         } else if (href.startsWith("./")) {
             href = href.replace("./", "/wiki/")
-        }
-
-        if (href.startsWith("mailto:")) {
-            val emailAddress = href.removePrefix("mailto:")
-            FeedbackUtil.composeFeedbackEmail(context, email = emailAddress, subject = "", body = "")
-            return
         }
 
         // special: returned by page-library when clicking Read More items in the footer.
