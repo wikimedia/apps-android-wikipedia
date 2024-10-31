@@ -1704,8 +1704,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Вие сте дел од 2 ‰ кои избраа да го поддржат ресурсот на кој се потпираат милиони. За да ја искажеме нашата благодарност, вашата управувачница на дарувања е подновена како признание на вашиот статус на дарител. Дали би сакале да ја видите подновата?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Не, благодарам</string>
   <string name="contributions_dashboard_donation_dialog_ok">Да, покажи ми</string>
-  <string name="contributions_dashboard_entry_dialog_title">Вашата управувачница со придонеси е подновена</string>
-  <string name="contributions_dashboard_entry_dialog_message">Управувачницата со придонеси сега прикажува поединости за вашиот статус на дарител. Сакате да ја разгледате оваа опитна функција?</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Вашата управувачница со придонеси е подновена</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Управувачницата со придонеси сега прикажува поединости за вашиот статус на дарител. Сакате да ја разгледате оваа опитна функција?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Не, благодарам</string>
   <string name="contributions_dashboard_entry_dialog_ok">Да, покажи ми</string>
   <string name="contributions_dashboard_badge_donor">Дарител</string>
