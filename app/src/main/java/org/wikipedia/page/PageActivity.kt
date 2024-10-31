@@ -73,6 +73,7 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -136,6 +137,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private val requestGalleryEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED || it.resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_TAGS_ADDED) {
             pageFragment.reloadFromBackstack()
+        }
+    }
+
+    private val requestWebViewActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == SingleWebViewActivity.ACTIVITY_DONOR_EXPERIENCE &&
+            !Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            ContributionsDashboardHelper.showDonationCompletedDialog(this)
+            Prefs.contributionsDashboardEntryDialogShown = true
         }
     }
 
