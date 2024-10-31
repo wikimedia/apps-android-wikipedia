@@ -1837,6 +1837,7 @@
     <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_message">If you leave this screen without clicking save, you will lose your changes.</string>
     <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_cancel">Leave without saving</string>
     <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_ok">Save changes</string>
+    <string-array name="contributions_dashboard_app_icon_updated">App Icon updated</string-array>
     <!-- /Contributions Dashboard -->
 
 

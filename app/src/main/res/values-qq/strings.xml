@@ -1754,4 +1754,5 @@
   <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_message">Message for the Donor History screen that indicates the user has not saved the changes.</string>
   <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_cancel">Negative action for the Donor History screen that indicates the user has not saved the changes.</string>
   <string name="contributions_dashboard_donor_history_unsaved_warning_dialog_ok">Positive action for the Donor History screen that indicates the user has not saved the changes, which will save the changes.</string>
+  <string-array name="contributions_dashboard_app_icon_updated">Message shown when user updates the app icon from settings.</string-array>
 </resources>
