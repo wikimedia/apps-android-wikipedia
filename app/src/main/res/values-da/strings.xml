@@ -1375,7 +1375,7 @@
   <string name="menu_option_view_user_talk">Vis diskussionsside</string>
   <string name="menu_option_view_user_contributions">Vis brugers bidrag</string>
   <string name="revision_diff_compare">Sammenlign revisioner</string>
-  <string name="revision_diff_compare_title">Sammenlign revisioner: %s</string>
+  <string name="revision_diff_compare_title">Sammenlign sideversioner: %s</string>
   <string name="revision_diff_from">Fra:</string>
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Linje %d</string>
@@ -1393,7 +1393,7 @@
   <string name="revision_rollback_dialog_title">Er du sikker på, at du vil rulle ændringerne tilbage?</string>
   <string name="revision_rollback_success">Redigeringer tilbagerullet.</string>
   <string name="revision_compare_button">Sammenlign</string>
-  <string name="revision_compare_two_only">Kun to revisioner kan vælges.</string>
+  <string name="revision_compare_two_only">Kun to sideversioner kan vælges.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og dens diskussionsside er blevet tilføjet til din overvågningsliste %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ændr</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
@@ -1496,11 +1496,13 @@
   <string name="shareable_reading_lists_import_dialog_content">Hvordan vil du navngive den liste, der er blevet delt med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">En læseliste er blevet delt med dig</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Vi har bemærket, at en læseliste er blevet delt med dig. For at se denne liste i appen skal du gå tilbage til den oprindelige besked og trykke på linket igen.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Forstået</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Læseliste importeret</string>
   <string name="reading_list_share_menu_label">Del...</string>
   <string name="reading_list_share_menu_tooltip">Del din læseliste med andre</string>
   <string name="reading_list_share_message_v2">Hej! Jeg vil gerne dele min Wikipedia-læseliste med dig:</string>
+  <string name="talk_templates_empty_message">Opret dine egne beskeder eller brug &lt;a href=\"#\"&gt;eksempelbeskeder&lt;/a&gt; for at komme i gang.</string>
   <string name="talk_templates_new_message_title">Ny besked</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv besked</string>
@@ -1510,7 +1512,7 @@
   <string name="talk_templates_new_message_dialog_hint">Beskedens titel</string>
   <string name="talk_templates_new_message_dialog_save">Gem</string>
   <string name="talk_templates_new_message_dialog_cancel">Annullér</string>
-  <string name="talk_templates_new_message_dialog_exists">Skabelonen \" %s \" findes allerede.</string>
+  <string name="talk_templates_new_message_dialog_exists">Skabelonen \"%s\" findes allerede.</string>
   <string name="talk_templates_new_message_saved">Beskeden er blevet gemt</string>
   <string name="talk_templates_edit_message_dialog_title">Rediger besked</string>
   <string name="talk_templates_edit_message_dialog_save">Gem</string>
@@ -1553,7 +1555,7 @@
   <string name="patroller_tasks_filters_user_status_experienced_desc">Registrerede brugere med mere end 500 redigeringer og 30 dages aktivitet.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Seneste revisioner</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Seneste revision</string>
-  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste revision</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste sideversion</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserede bidrag</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Menneske (ikke bot)</string>
@@ -1675,7 +1677,7 @@
   <string name="donor_history_updated_message_snackbar">Donorhistorik opdateret</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Nej tak</string>
   <string name="contributions_dashboard_donation_dialog_ok">Ja, tag mig derhen</string>
-  <string name="contributions_dashboard_entry_dialog_title">Dit dashboard for bidrag er blevet opdateret</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Dit dashboard for bidrag er blevet opdateret</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Nej tak</string>
   <string name="contributions_dashboard_entry_dialog_ok">Ja, tag mig derhen</string>
   <string name="contributions_dashboard_badge_donor">Donor</string>

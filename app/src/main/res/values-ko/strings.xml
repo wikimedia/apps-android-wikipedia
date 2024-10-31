@@ -451,6 +451,13 @@
   <string name="temp_account_dialog_ok">알겠습니다</string>
   <string name="temp_account_using_title">임시 계정을 사용하고 있습니다</string>
   <string name="temp_account_dialog_discard">변경사항을 버리고 로그인</string>
+  <plurals name="temp_account_created">
+    <item quantity="other">편집이 게시된 후 %1$s 임시 계정이 생성되었습니다. %2$d일 후에 만료됩니다.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="other">계정이 %d일 후에 만료됩니다.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;로그인 상태가 아닙니다.&lt;/b&gt; 편집을 하면 IP 주소가 편집에 연결됩니다.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;로그인 상태가 아닙니다.&lt;/b&gt; 편집을 하면 개인정보 보호를 위해 임시 계정이 생성됩니다. &lt;a href=\"%1$s\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;임시 계정을 사용하고 있습니다.&lt;/b&gt; 귀하의 편집은 %1$s에 귀속됩니다. &lt;a href=\"%2$s\"&gt;더 알아보기&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;현재 임시 계정을 사용하고 있습니다.&lt;/b&gt; %1$s 임시 계정에서 이루어진 편집은 로그인할 때 영구 계정으로 이전되지 않습니다. 로그인하거나 계정을 만들면 사용자 이름에 대한 신뢰를 얻는 등 여러 장점이 있습니다.</string>
@@ -543,6 +550,9 @@
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%s에서 제거된 문서 %d개</item>
     <item quantity="other">%s에서 제거된 문서 %d개</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="other">목록 %d개 삭제됨</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">기본 목록(%s)은 삭제할 수 없습니다</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">목록이 삭제되었습니다. 기본 목록(%s)은 삭제할 수 없습니다.</string>
@@ -1606,6 +1616,7 @@
   <string name="recommended_content_survey_dialog_input_hint">추가 피드백</string>
   <string name="recommended_content_survey_dialog_submitted_message">피드백을 제출했습니다. 감사합니다!</string>
   <string name="donor_history_save_button">저장</string>
+  <string name="donor_history_last_donated">마지막 기부</string>
   <string name="donor_history_last_donated_hint">마지막 기부일 추가</string>
   <string name="donor_history_last_donated_date_picker_title">날짜 선택</string>
   <string name="donor_history_last_donated_date_picker_label">날짜 입력</string>
@@ -1614,8 +1625,10 @@
   <string name="contributions_dashboard_survey_dialog_ok">피드백 공유</string>
   <string name="contributions_dashboard_donation_dialog_title">자유의 지식을 지원해 주셔서 고맙습니다</string>
   <string name="contributions_dashboard_donation_dialog_cancel">아니요, 괜찮습니다</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">기여 대시보드가 업데이트되었습니다</string>
   <string name="contributions_dashboard_entry_dialog_cancel">아니요, 괜찮습니다</string>
   <string name="contributions_dashboard_app_icon_title">앱 아이콘</string>
   <string name="contributions_dashboard_logged_out_user">로그아웃된 사용자</string>
+  <string name="contributions_dashboard_tab_last_donated">마지막 기부</string>
   <string name="contributions_dashboard_tab_update_button">업데이트</string>
 </resources>

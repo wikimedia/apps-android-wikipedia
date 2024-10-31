@@ -423,6 +423,9 @@
   <string name="multi_select_items_selected">%d vybráno</string>
   <string name="error_message_generic">Došlo k chybě</string>
   <string name="view_link_preview_error_button_dismiss">Skrýt</string>
+  <string name="link_preview_dialog_read_button">Číst</string>
+  <string name="link_preview_dialog_save_button">Uložit</string>
+  <string name="link_preview_dialog_share_button">Sdílet</string>
   <string name="error_page_does_not_exist">Tato stránka neexistuje</string>
   <string name="error_user_page_does_not_exist">Na Wikipedii není &lt;a href=\"%1$s\"&gt;uživatelská stránka&lt;/a&gt; přesně s tímto jménem. Obecně by tato stránka měla být vytvořená a upravovaná uživatelem &lt;b&gt;%2$s&lt;/b&gt;. Jste-li na pochybách, ověřte si prosím, jestli uživatel \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nejste připojeni k internetu.</string>
@@ -650,6 +653,8 @@
     <item quantity="many">Seznamy k přečtení importovány</item>
     <item quantity="other">Seznamy k přečtení importovány</item>
   </plurals>
+  <string name="reading_lists_preview_save_button">Uložit</string>
+  <string name="reading_lists_preview_save_dialog_save">Uložit</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_reverted_title">Zrušená úprava</string>
   <string name="notification_channel_title">Stahování článků</string>
@@ -723,6 +728,18 @@
   <string name="notifications_direct_reply_error">Odpověď nelze odeslat automaticky.</string>
   <string name="notifications_mark_all_as_read_message">%d označeno jako přečtené</string>
   <string name="notifications_mark_all_as_unread_message">%d označeno jako nepřečtené</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 označeno jako přečteno</item>
+    <item quantity="few">%d označeny jako přečteno</item>
+    <item quantity="many">%d označeno jako přečteno</item>
+    <item quantity="other">%d označeno jako přečteno</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 označeno jako nepřečteno</item>
+    <item quantity="few">%d označeny jako nepřečteno</item>
+    <item quantity="many">%d označeno jako nepřečteno</item>
+    <item quantity="other">%d označeno jako nepřečteno</item>
+  </plurals>
   <string name="watchlist_title">Sledované stránky</string>
   <string name="preference_title_notification_poll">Kontrola nových upozornění</string>
   <string name="preference_summary_notification_poll">Povolit aplikaci používaní dat ke kontrole nových upozornění na pozadí.</string>
@@ -837,6 +854,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
   <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
   <string name="feed_accessibility_card_load_more_button">Načíst další</string>
+  <string name="feed_language_variants_removal_dialog_save">Uložit</string>
   <string name="top_read_activity_title">Nejčtenější dne %s</string>
   <string name="tabs_activity_title">Karty</string>
   <string name="description_edit_text_hint">Popis článku</string>
@@ -1322,7 +1340,11 @@
   <string name="user_contrib_menu_label">Příspěvky</string>
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
   <string name="action_item_view_on_map">Zobrazit na mapě</string>
+  <string name="reading_list_share_menu_label">Sdílet…</string>
+  <string name="reading_list_share_menu_tooltip">Sdílejte tento seznam s ostatními</string>
   <string name="talk_templates_empty_message">Abyste mohli začít, vytvořte si vlastní zprávy nebo použijte &lt;a href=\"#\"&gt;vzorové zprávy&lt;/a&gt;.</string>
+  <string name="talk_templates_new_message_save">Uložit</string>
+  <string name="talk_templates_edit_message_dialog_save">Uložit</string>
   <string name="talk_templates_your_messages_tab_title">Vaše zprávy</string>
   <string name="talk_templates_example_messages_tab_title">Vzorové zprávy</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informace o uživateli</string>
@@ -1353,4 +1375,8 @@
   <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>
   <string name="places_card_title">Místa v okolí</string>
   <string name="places_card_action">Další místa v okolí</string>
+  <string name="places_card_enable_location_card_message">Místa je způsob prozkoumávání Wikipedie založený na mapách</string>
+  <string name="places_card_enable_location_card_button">Povolit polohu</string>
+  <string name="places_card_distance_suffix">%s daleko</string>
+  <string name="donor_history_save_button">Uložit</string>
 </resources>

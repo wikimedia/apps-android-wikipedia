@@ -1118,7 +1118,7 @@
   <string name="image_recommendation_notsure">Non sono sicuro</string>
   <string name="image_recommendation_reject_title">Motivo del rifiuto</string>
   <string name="image_recommendation_reject_not_relevant">L\'immagine non è rilevante</string>
-  <string name="image_recommendation_reject_no_info">Non dispongo di ababstanza informazioni per decidere</string>
+  <string name="image_recommendation_reject_no_info">Non dispongo di abbastanza informazioni per decidere</string>
   <string name="image_recommendation_reject_offensive">L\'immagine è offensiva</string>
   <string name="image_recommendation_reject_low_quality">L\'immagine è di bassa qualità</string>
   <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
