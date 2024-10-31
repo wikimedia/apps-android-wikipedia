@@ -34,7 +34,7 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                 updateIcons(selectedIcon)
                 FeedbackUtil.makeSnackbar(
                     binding.root,
-                    "App icon changed to ${selectedIcon.displayName}").show()
+                    "App icon changed successfully.").show()
             }
         }
     }
