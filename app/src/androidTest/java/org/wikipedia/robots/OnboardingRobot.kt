@@ -4,7 +4,7 @@ import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
-class OnboardingRobot: BaseRobot() {
+class OnboardingRobot : BaseRobot() {
     fun completeOnboarding() = apply {
         repeat(3) {
             clickOnDisplayedView(R.id.fragment_onboarding_forward_button)

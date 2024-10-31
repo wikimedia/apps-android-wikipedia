@@ -1,8 +1,5 @@
 package org.wikipedia.base
 
-import android.app.Activity
-import android.view.View
-import android.view.Window
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -13,22 +10,12 @@ import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.RootMatchers.isDialog
-import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
-import androidx.test.runner.lifecycle.Stage
-import org.hamcrest.Description
-import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.not
-import org.hamcrest.TypeSafeMatcher
 import org.wikipedia.TestUtil.waitOnId
-import org.wikipedia.main.MainActivity
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
@@ -37,7 +24,7 @@ abstract class BaseRobot {
         onView(allOf(withId(viewId), isDisplayed())).perform(click())
     }
 
-    protected fun clicksOnDisplayedViewWithText(@IdRes viewId: Int, text:String) {
+    protected fun clicksOnDisplayedViewWithText(@IdRes viewId: Int, text: String) {
         onView(allOf(withId(viewId), withText(text), isDisplayed())).perform(click())
     }
 
@@ -77,14 +64,7 @@ abstract class BaseRobot {
             .check(matches(withText(text)))
     }
 
-    protected fun clickOnViewInDecorView(@IdRes viewId: Int) {
-//        onView(allOf(withId(viewId)))
-//            .inRoot(withDecorView(not(isDecorView())))
-//            .perform(click())
-    }
-
     protected fun goBack() {
         pressBack()
     }
-
 }

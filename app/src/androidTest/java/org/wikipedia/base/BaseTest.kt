@@ -1,11 +1,9 @@
 package org.wikipedia.base
 
-import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.IdlingPolicies
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
-import kotlinx.coroutines.delay
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -48,6 +46,6 @@ abstract class BaseTest {
 
     @After
     open fun tearDown() {
-
+        // @TODO
     }
 }

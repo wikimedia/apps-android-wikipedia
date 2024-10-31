@@ -4,7 +4,6 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.web.assertion.WebViewAssertions
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
@@ -17,7 +16,7 @@ import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 import org.wikipedia.main.MainActivity
 
-class ArticleRobot: BaseRobot() {
+class ArticleRobot : BaseRobot() {
 
     fun clickLink(linkTitle: String) = apply {
         onWebView()

@@ -4,7 +4,7 @@ import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
-class SearchRobot: BaseRobot() {
+class SearchRobot : BaseRobot() {
     fun performSearch(searchTerm: String) = apply {
         // Click the Search box
         clickOnDisplayedView(R.id.search_container)
