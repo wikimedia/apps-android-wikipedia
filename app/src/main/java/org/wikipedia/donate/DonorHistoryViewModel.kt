@@ -11,7 +11,7 @@ class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     var completedDonation = savedStateHandle.get<Boolean>(Constants.ARG_BOOLEAN) == true
     var currentDonorStatus = -1
-    var isDonor = completedDonation || (Prefs.hasDonorHistorySaved && Prefs.donationResults.isNotEmpty())
+    var isDonor = completedDonation || (Prefs.hasDonorHistorySaved && (Prefs.donationResults.isNotEmpty() || Prefs.isRecurringDonor))
     var lastDonated = Prefs.donationResults.lastOrNull()?.dateTime
     var isRecurringDonor = Prefs.isRecurringDonor
 

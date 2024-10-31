@@ -36,6 +36,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTI
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.donate.DonorHistoryActivity
+import org.wikipedia.donate.DonorStatus
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -358,17 +359,22 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUpDonorHistoryStatus() {
-        Prefs.donationResults.lastOrNull()?.dateTime?.let {
-            val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            binding.donorHistoryStatus.text = DateUtils.getRelativeTimeSpanString(
-                lastDonateMilli,
-                System.currentTimeMillis(),
-                DateUtils.DAY_IN_MILLIS
-            )
-            binding.lastDonatedChevron.isVisible = true
+        if (DonorStatus.donorStatus() == DonorStatus.DONOR) {
+            Prefs.donationResults.lastOrNull()?.dateTime?.let {
+                val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
+                    .toEpochMilli()
+                binding.donorHistoryStatus.text = DateUtils.getRelativeTimeSpanString(
+                    lastDonateMilli,
+                    System.currentTimeMillis(),
+                    DateUtils.DAY_IN_MILLIS
+                )
+            } ?: run {
+                binding.donorHistoryStatus.text = getString(R.string.donor_history_recurring_donor)
+            }
             binding.donorHistoryStatus.isVisible = true
+            binding.lastDonatedChevron.isVisible = true
             binding.donorHistoryUpdateButton.isVisible = false
-        } ?: run {
+        } else {
             binding.donorHistoryUpdateButton.setOnClickListener {
                 requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
             }

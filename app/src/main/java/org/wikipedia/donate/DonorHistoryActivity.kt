@@ -112,8 +112,6 @@ class DonorHistoryActivity : BaseActivity() {
                 DateUtils.DAY_IN_MILLIS
             )
         }
-        binding.recurringDonorCheckbox.isEnabled = viewModel.lastDonated != null
-        binding.recurringDonorContainer.isEnabled = viewModel.lastDonated != null
     }
 
     private fun showDonorStatusDialog() {
