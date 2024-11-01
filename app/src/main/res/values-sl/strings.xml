@@ -1721,8 +1721,8 @@
   <string name="contributions_dashboard_survey_dialog_ok">Pustite povratno informacijo</string>
   <string name="contributions_dashboard_donation_dialog_title">Hvala, ker podpirate prosto znanje</string>
   <string name="contributions_dashboard_donation_dialog_ok">Da, premesti me tja</string>
-  <string name="contributions_dashboard_entry_dialog_title">Vaša nadzorna plošča prispevkov je posodobljena</string>
-  <string name="contributions_dashboard_entry_dialog_message">Nadzorna plošča prispevkov zdaj prikazuje podrobnosti o vašem statusu donatorja. Želite oceniti to poskusno možnost?</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Vaša nadzorna plošča prispevkov je posodobljena</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Nadzorna plošča prispevkov zdaj prikazuje podrobnosti o vašem statusu donatorja. Želite oceniti to poskusno možnost?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Ne, hvala</string>
   <string name="contributions_dashboard_entry_dialog_ok">Da, premesti me tja.</string>
   <string name="contributions_dashboard_badge_donor">Donator</string>
