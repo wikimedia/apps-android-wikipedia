@@ -60,7 +60,7 @@
   <string name="page_edit_history_filter_by">Filtriraj po</string>
   <string name="page_edit_history_filter_by_all">Vseh urejanjih (%s)</string>
   <string name="page_edit_history_filter_by_user">Urejanjih uporabnikov (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonimnih urejanjih (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonimnih urejanjih (%s)</string>
   <string name="page_edit_history_filter_by_bot">Urejanjih botov (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrike od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1702,4 +1702,33 @@
   <string name="places_survey_dialog_cancel">Prekliči</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Kaj bi želeli, da spremenimo ali izboljšamo?</string>
   <string name="places_empty_list">To območje je prazno. Pomanjšaj &lt;a href=\"#\"&gt;zemljevid&lt;/a&gt;.</string>
+  <string name="donor_history_title">Zgodovina doniranja</string>
+  <string name="donor_history_save_button">Shrani</string>
+  <string name="donor_history_update_donor_status_default">Posodobi status donatorja</string>
+  <string name="donor_history_update_donor_status_donor">Donator</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Ni donator</string>
+  <string name="donor_history_last_donated">Zadnja donacija</string>
+  <string name="donor_history_last_donated_hint">Dodajte datum zadnje donacije</string>
+  <string name="donor_history_last_donated_date_picker_title">Izberite datum</string>
+  <string name="donor_history_last_donated_date_picker_label">Vnesite datum</string>
+  <string name="donor_history_recurring_donor">Redni donatot</string>
+  <string name="donor_history_donate_button">Donirajte fundaciji Wikimedia</string>
+  <string name="donor_history_about_this_experiment">O tem eksperimentu</string>
+  <string name="donor_history_updated_message_snackbar">Zgodovina doniranja je posodobljena</string>
+  <string name="contributions_dashboard_survey_dialog_title">Pomagajte izboljšati nadzorno ploščo  prispevkov</string>
+  <string name="contributions_dashboard_survey_dialog_message">Ta posodobitev nadzorne plošče je preizkusna možnost. Ali želite, da se ta možnost izboljša ali odstrani?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Brez mnenja</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Pustite povratno informacijo</string>
+  <string name="contributions_dashboard_donation_dialog_title">Hvala, ker podpirate prosto znanje</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Da, premesti me tja</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Vaša nadzorna plošča prispevkov je posodobljena</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Nadzorna plošča prispevkov zdaj prikazuje podrobnosti o vašem statusu donatorja. Želite oceniti to poskusno možnost?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Ne, hvala</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Da, premesti me tja.</string>
+  <string name="contributions_dashboard_badge_donor">Donator</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Postanite donator</string>
+  <string name="contributions_dashboard_badge_update">Posodobi status donatorja</string>
+  <string name="contributions_dashboard_app_icon_title">Ikona aplikacije</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Ugodnost donatorja</string>
+  <string name="contributions_dashboard_logged_out_user">Odjavljeni uporabnik</string>
 </resources>

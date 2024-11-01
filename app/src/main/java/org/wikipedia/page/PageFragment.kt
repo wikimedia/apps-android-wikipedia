@@ -408,6 +408,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     // tells us the page is finished loading. In such a case, we must infer that the
                     // page has now loaded and trigger the remaining logic ourselves.
                     if ("true" != pcsExists) {
+                        if (WikipediaApp.instance.currentTheme.isDark) {
+                            // TODO: remove when mobile web supports automatic dark mode through
+                            // the `prefers-color-scheme` media query.
+                            bridge.execute(JavaScriptActionHandler.mobileWebSetDarkMode())
+                        }
                         onPageSetupEvent()
                         bridge.onMetadataReady()
                         bridge.onPcsReady()

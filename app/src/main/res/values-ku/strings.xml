@@ -61,7 +61,7 @@
   <string name="page_edit_history_filter_by">Biparzîne bi</string>
   <string name="page_edit_history_filter_by_all">Temamê guhartinan (%s)</string>
   <string name="page_edit_history_filter_by_user">Guhartinên bikarhêner (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Guhartinên anonîm (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Guhartinên anonîm (%s)</string>
   <string name="page_edit_history_filter_by_bot">Guherandinên botan (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrîkên ji %1$s heya %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

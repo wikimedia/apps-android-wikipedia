@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">ဖဍိုဟ် နကဵု</string>
   <string name="page_edit_history_filter_by_all">ပလေဝ်ဒါန်လဝ် သီုဖအိုတ် (%s)</string>
   <string name="page_edit_history_filter_by_user">ညးလွပ် မပလေဝ်ဒါန်ဂမၠိုင် (%s)</string>
-  <string name="page_edit_history_filter_by_anon">သက္ကုယၟု မပလေဝ်ဒါန်လဝ်ဂမၠိုင် (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">သက္ကုယၟု မပလေဝ်ဒါန်လဝ်ဂမၠိုင် (%s)</string>
   <string name="page_edit_history_filter_by_bot">စဗောတ် မပလေဝ်ဒါန်လဝ်ဂမၠိုင် (%s)</string>
   <string name="page_edit_history_metrics_content_description">လၟိဟ် နူကဵု %1$s စဵုကဵု %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

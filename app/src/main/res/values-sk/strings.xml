@@ -36,6 +36,7 @@
   <string name="nav_item_suggested_edits">Úpravy</string>
   <string name="nav_item_more">Viac</string>
   <string name="nav_item_search">Hľadať</string>
+  <string name="nav_item_contribute">prispejte</string>
   <string name="error_network_error">Nedá sa pripojiť na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
@@ -71,7 +72,7 @@
   <string name="page_edit_history_filter_by">Filtrovať podľa</string>
   <string name="page_edit_history_filter_by_all">Všetky úpravy (%s)</string>
   <string name="page_edit_history_filter_by_user">Úpravy používateľa (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonymné úpravy (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Neregistrované úpravy ( %s )</string>
   <string name="page_edit_history_filter_by_bot">Úpravy bota (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metriky od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -108,6 +109,7 @@
   <string name="menu_page_recently_viewed">Naposledy navštívené</string>
   <string name="menu_page_archive">Archív</string>
   <string name="menu_long_press_open_page">Otvoriť</string>
+  <string name="menu_long_press_open_in_places">Otvorené na miestach</string>
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
   <string name="menu_text_select_define">Definícia</string>
@@ -430,6 +432,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Prispôsobte si panel nástrojov</string>
   <string name="error_blocked_footer_no_blocker">Môžete kontaktovať a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
   <string name="temp_account_not_logged_in">Nie ste prihlásení</string>
+  <string name="temp_account_dialog_ok">Rozumiem</string>
   <string name="temp_account_using_title">Používate dočasný účet</string>
   <string name="temp_account_dialog_discard">Zrušte zmeny a prihláste sa</string>
   <string name="temp_account_end_session">Ukončiť reláciu</string>
@@ -464,6 +467,9 @@
   <string name="reading_focus_mode">Mód sústredeného čítania</string>
   <string name="reading_focus_mode_detail">Skryje funkcie úprav a spodný panel nástrojov pri skrolovaní</string>
   <string name="editing_syntax_highlight_label">Zvýraznenie syntaxe</string>
+  <string name="editing_line_numbers_label">Zobraziť čísla riadkov</string>
+  <string name="editing_monospace_font_label">Používať písmo monospace</string>
+  <string name="editing_typing_suggestions">Zobraziť návrhy na písanie</string>
   <string name="nav_item_saved">Uložené</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_move_to">Presunúť do zoznamu na prečítanie</string>
@@ -497,6 +503,8 @@
   <string name="reading_list_sort_by_created">Zoradiť podľa dátumu vytvorenia (od najnovšieho)</string>
   <string name="reading_list_sort_by_created_desc">Zoradiť podľa dátumu vytvorenia (od najstaršieho)</string>
   <string name="reading_list_menu_delete">Vymazať zoznam</string>
+  <string name="reading_list_menu_select">Vybrať</string>
+  <string name="reading_list_menu_unselect">Nevyberané</string>
   <string name="reading_list_menu_rename">Upraviť názov/popis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_action_menu_save_for_offline">Uložiť článok do zariadenia</string>

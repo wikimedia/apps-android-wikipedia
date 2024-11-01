@@ -55,7 +55,7 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_filter_by_all">ခြပ်ချော်ꩻမုꩻကားကအဝ်ႏ (%s)</string>
   <string name="page_edit_history_filter_by_user">ကေားသုင်ꩻသား မွဉ်းဖျင်ခြပ်ချော်ꩻဖိုင်ႏ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">သေတဝ်းအမိဉ်ꩻ မွဉ်းဖျင်ခြပ်ချော်ꩻဖိုင်ႏ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">သေတဝ်းအမိဉ်ꩻ မွဉ်းဖျင်ခြပ်ချော်ꩻဖိုင်ႏ (%s)</string>
   <string name="page_edit_history_filter_by_bot">ဗော့ မွဉ်းဖျင်ခြပ်ချော်ꩻဖိုင်ႏ (%s)</string>
   <string name="menu_page_show_tabs">အွောန်ႏနယ် tab ဖိုင်ႏ</string>
   <string name="menu_page_other_languages">ပြောင်ꩻလုဲင်ႏ ဘာႏသာႏငဝ်းငွါ</string>

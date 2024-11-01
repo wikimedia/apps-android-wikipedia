@@ -19,6 +19,7 @@
   <string name="nav_item_suggested_edits">Тюрлениуле</string>
   <string name="nav_item_more">Энтда</string>
   <string name="nav_item_search">Изле</string>
+  <string name="nav_item_contribute">Къошум</string>
   <string name="error_network_error">Интернетге байланалмайды</string>
   <string name="page_error_retry">Джангыдан сына</string>
   <string name="card_offline_error_retry">Джангыдан сына</string>
@@ -54,7 +55,7 @@
   <string name="page_edit_history_filter_by">Буну фильтр эт:</string>
   <string name="page_edit_history_filter_by_all">Бютеу тюзетиуле (%s)</string>
   <string name="page_edit_history_filter_by_user">Хайрланыучу тюзетиуле (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Аноним тюзетиуле (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Регистрациясыз тюзетиуле (%s)</string>
   <string name="page_edit_history_filter_by_bot">Бот тюзетиуле (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s бла %2$s арасындагъы ёлчемле</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -421,8 +422,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Адыр панелигизни джарашдырыгъыз</string>
   <string name="error_blocked_footer_no_blocker">Блокну сюзер ючюн &lt;a href=\"https://krc.wikipedia.org/wiki/Википедия:Администраторла\"&gt;администратор&lt;/a&gt; бла байлам къурургъа боллукъсуз.</string>
   <string name="temp_account_not_logged_in">Системагъа кирмегенсиз</string>
-  <string name="temp_account_anon_dialog_body">Ташалыгъызны къоруулар ючюн, тюзетиу этгенлей &lt;b&gt;болджаллы хыйсаб&lt;/b&gt; къураллыкъды. &lt;a href=\"%1$s\"&gt;Аслам бил&lt;/a&gt;.Келликде тюзетиуде эмда башха онгчулукъла бла хайырланырча &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Кир&lt;/a&gt; неда &lt;a href=\"https://#login\"&gt;Хыйсаб къура&lt;/a&gt;.</string>
-  <string name="temp_account_temp_dialog_body">Тюзетиуюгюз %1$s джаздырыллыкъды. IP-адресигиз администраторлагъа кёрюнюрча боллукъду.&lt;br /&gt;&lt;br /&gt;Сиз &lt;a href=\"https://#login\"&gt;кирсегиз&lt;/a&gt; неда &lt;a href=\"https://#login \"&gt;хыйысаб къурасагъыз&lt;/a&gt;, башха онгчулукъла бла бирге, тюзетиулеригиз, сайлагъан атыгъызгъа джаздырыллыкъды.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Ташалыгъызны къоруулар ючюн, тюзетиу этгенлей &lt;b&gt;болджаллы хыйсаб&lt;/b&gt; къураллыкъды. &lt;a href=\"%1$s\"&gt;Аслам бил&lt;/a&gt;.Келликде тюзетиуде эмда башха онгчулукъла бла хайырланырча &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Кир&lt;/a&gt; неда &lt;a href=\"https://#login\"&gt;Хыйсаб къура&lt;/a&gt;.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Тюзетиуюгюз %1$s джаздырыллыкъды. IP-адресигиз администраторлагъа кёрюнюрча боллукъду.&lt;br /&gt;&lt;br /&gt;Сиз &lt;a href=\"https://#login\"&gt;кирсегиз&lt;/a&gt; неда &lt;a href=\"https://#login \"&gt;хыйысаб къурасагъыз&lt;/a&gt;, башха онгчулукъла бла бирге, тюзетиулеригиз, сайлагъан атыгъызгъа джаздырыллыкъды.</string>
   <string name="temp_account_dialog_ok">Англашынды</string>
   <string name="temp_account_using_title">Сиз заманлы хыйсабны хайырланасыз</string>
   <string name="temp_account_dialog_discard">Тюрлениулени кери ал эмда системагъа кир</string>
@@ -795,7 +796,7 @@
   <string name="menu_feed_overflow_label">Аслам сайлам</string>
   <string name="feed_featured_image_share_subject">Викигёзенни сайланнган суратлары</string>
   <string name="feed">Аула</string>
-  <string name="home">Баш бет</string>
+  <string name="home">Тамал бет</string>
   <string name="view_static_card_icon_content_description">Картчыкъны белгичиги</string>
   <string name="view_card_news_title">Джангылыкълада</string>
   <plurals name="view_continue_reading_card_subtitle">

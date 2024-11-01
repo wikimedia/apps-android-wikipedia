@@ -91,7 +91,7 @@
   <string name="page_edit_history_filter_by">Menu header for the overflow menu when clicking on the filter icon in the search bar in edit history.</string>
   <string name="page_edit_history_filter_by_all">Menu item text for the filter overflow menu to show all edits in edit history. %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_filter_by_user">Menu item text for the filter overflow menu to show user edits in edit history. %s will be replaced by the number of edits.</string>
-  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show anonymous in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show unregistered edits in edit history (anonymous or temporary accounts). %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_filter_by_bot">Menu item text for the filter overflow menu to show bot edits in edit history. %s will be replaced by the number of edits.</string>
   <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -461,6 +461,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="temp_account_not_logged_in">Title of dialog informing the user that a temporary account is being used.</string>
+  <string name="temp_account_anon_ip_dialog_body">Body text of dialog explaining that the edit will be attributed to the current IP address. Please preserve HTML formatting.</string>
   <string name="temp_account_anon_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
   <string name="temp_account_temp_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
   <string name="temp_account_dialog_ok">Positive action button in Temporary Account info dialog.</string>
@@ -474,6 +475,7 @@
     <item quantity="one">Message shown when a temporary account will expire in 1 day.</item>
     <item quantity="other">Message shown when a temporary account will expire in %d days.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">Status message shown while editing anonymously, explaining that the edit will be attributed to the current IP address. Please preserve any HTML formatting.</string>
   <string name="temp_account_anon_edit_status">Status message shown while editing anonymously, explaining that a temporary account will be created if an edit is made. Please preserve any HTML formatting. The %1$s symbol is replaced with a URL.</string>
   <string name="temp_account_edit_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting. The %2$s symbol is replaced with a URL.</string>
   <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting.</string>
@@ -1034,7 +1036,6 @@
   <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
   <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
-  <string name="suggested_edits_edit_stat_tooltip">Tool tip text explaining the edit statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Tool tip text explaining the edit quality statistics to the user. %d represents the number of reverts.</string>
@@ -1745,4 +1746,42 @@
   <string name="recommended_content_survey_dialog_message">Message text for the Recommended Content survey dialog.</string>
   <string name="recommended_content_survey_dialog_input_hint">Hint label for the Recommended Content survey dialog input field.</string>
   <string name="recommended_content_survey_dialog_submitted_message">Snackbar message for the Recommended Content survey after submitting it.</string>
+  <string name="donor_history_title">Title for the Donor history screen.</string>
+  <string name="donor_history_save_button">Button label for the Donor history screen to save the information.</string>
+  <string name="donor_history_update_donor_status_default">Label of the update donor status button.</string>
+  <string name="donor_history_update_donor_status_donor">Dialog option for the donor status that indicates as a donor.</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Dialog option for the donors status that indicates as not a donor.</string>
+  <string name="donor_history_last_donated">Label that indicates the last date on which the user made a donation.</string>
+  <string name="donor_history_last_donated_hint">Hint of the last donated field that allows the user to add the last donation date.</string>
+  <string name="donor_history_last_donated_date_picker_title">Title of the date picker dialog when user clicks on the last donated filed.</string>
+  <string name="donor_history_last_donated_date_picker_label">Message of the date picker dialog when user clicks on the last donated filed.</string>
+  <string name="donor_history_recurring_donor">Label indicating that the user is a recurring donor.</string>
+  <string name="donor_history_donate_button">Button for opening the donation dialog.</string>
+  <string name="donor_history_about_this_experiment">Text for the link to see the detail about this experiment.</string>
+  <string name="donor_history_updated_message_snackbar">Snackbar message for the donor history screen that the information has been saved.</string>
+  <string name="contributions_dashboard_survey_dialog_title">Text for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_survey_dialog_message">Message for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Negative action button text for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Positive action button text for the contributions dashboard survey dialog.</string>
+  <string name="contributions_dashboard_donation_dialog_title">Title for the donation success dialog that shows after the user completed the donation flow.</string>
+  <string name="contributions_dashboard_donation_dialog_message">Message for the donation success dialog that shows after the user completed the donation flow. Please preserve the double-percent (2%%) escaping.</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Negative action button text for the donation success dialog that shows after the user completed the donation flow.</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Positive action button text for the donation success dialog that shows after the user completed the donation flow.</string>
+  <string name="contributions_dashboard_entry_dialog_title">Title for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_entry_dialog_message">Message for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Negative action button text for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Positive action button text for the contributions dashboard entry dialog.</string>
+  <string name="contributions_dashboard_badge_donor">Label for the donor badge that indicates as a donor.</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Label for the donor badge that indicates as not a donor.</string>
+  <string name="contributions_dashboard_badge_update">Label for the donor badge that provide a link to update the donor status.</string>
+  <string name="contributions_dashboard_app_icon_title">Label of the setting option for changing the app icon.</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Label of the app icon subtitle for change the app icon.</string>
+  <string name="contributions_dashboard_logged_out_user">Label of the logged out user in the donor history card.</string>
+  <string name="contributions_dashboard_tab_last_donated">Label that indicates the last date on which the user made a donation in the Contribute screen.</string>
+  <string name="contributions_dashboard_tab_update_button">Button for updating the donor history in the Contribute screen.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Title for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Message for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Negative action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Positive action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily, which will open the Settings screen.</string>
+  <string name="contributions_dashboard_app_icon_updated">Message shown when user updates the app icon from settings.</string>
 </resources>

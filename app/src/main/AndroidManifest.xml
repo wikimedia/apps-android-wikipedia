@@ -421,10 +421,6 @@
         </receiver>
 
         <service
-            android:name=".readinglist.sync.ReadingListSyncAdapter"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <service
             android:name=".auth.AuthenticatorService"
             android:exported="false">
 

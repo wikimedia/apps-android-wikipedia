@@ -56,7 +56,7 @@
   <string name="page_edit_history_filter_by">Gyɛ ne</string>
   <string name="page_edit_history_filter_by_all">Maale emmo zaa (%s)</string>
   <string name="page_edit_history_filter_by_user">Tontona maale emmo (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anon maale emmo (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anon maale emmo (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot Maale emmo (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrics a yi %1$s wa tɔ %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

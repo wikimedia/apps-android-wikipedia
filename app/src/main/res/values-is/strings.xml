@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * Maxí
 * MuratTheTurkish
@@ -58,7 +57,7 @@
   <string name="page_edit_history_filter_by">Sía eftir:</string>
   <string name="page_edit_history_filter_by_all">Allar breytingar (%s)</string>
   <string name="page_edit_history_filter_by_user">Breytingar notanda (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Nafnlausar breytingar (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Nafnlausar breytingar (%s)</string>
   <string name="page_edit_history_filter_by_bot">Breytingar vélmenna (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mælingar frá %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

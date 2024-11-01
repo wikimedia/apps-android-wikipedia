@@ -1,8 +1,7 @@
 package org.wikipedia.edit
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
@@ -16,21 +15,21 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class EditSectionViewModel(bundle: Bundle) : ViewModel() {
+class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
-    var invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-    var sectionID = bundle.getInt(EditSectionActivity.EXTRA_SECTION_ID, -1)
-    var sectionAnchor = bundle.getString(EditSectionActivity.EXTRA_SECTION_ANCHOR)
-    var textToHighlight = bundle.getString(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT)
+    var pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
+    var invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+    var sectionID = savedStateHandle[EditSectionActivity.EXTRA_SECTION_ID] ?: -1
+    var sectionAnchor = savedStateHandle.get<String>(EditSectionActivity.EXTRA_SECTION_ANCHOR)
+    var textToHighlight = savedStateHandle.get<String>(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT)
     var sectionWikitext: String? = null
     var sectionWikitextOriginal: String? = null
+    var tempAccountsEnabled = true
     var editingAllowed = false
     val editNotices = mutableListOf<String>()
 
@@ -59,6 +58,8 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
             _fetchSectionTextState.value = Resource.Loading()
 
             val infoResponse = ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
+
+            tempAccountsEnabled = infoResponse.query?.autoCreateTempUser?.enabled == true
 
             infoResponse.query?.firstPage()?.let { firstPage ->
                 val rev = firstPage.revisions.first()
@@ -102,7 +103,7 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
             _postEditState.value = Resource.Error(throwable)
         }) {
             _postEditState.value = Resource.Loading()
-            val csrfToken = CsrfTokenClient.getTokenBlocking(pageTitle.wikiSite)
+            val csrfToken = CsrfTokenClient.getToken(pageTitle.wikiSite)
             val result = ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(
                 title = pageTitle.prefixedText,
                 section = if (sectionID >= 0) sectionID.toString() else null,
@@ -134,18 +135,11 @@ class EditSectionViewModel(bundle: Bundle) : ViewModel() {
             while (revision < newRevision && retry < 10) {
                 delay(2000)
                 val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getSummaryResponseSuspend(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
+                    .getSummaryResponse(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
                 revision = pageSummaryResponse.body()?.revision ?: -1L
                 retry++
             }
             _waitForRevisionState.value = Resource.Success(revision)
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return EditSectionViewModel(bundle) as T
         }
     }
 }

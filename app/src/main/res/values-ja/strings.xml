@@ -4,7 +4,6 @@
 * A2y4
 * Aefgh39622
 * Afaz
-* Amire80
 * Bonfire12
 * Buntschann
 * Chqaz
@@ -79,6 +78,7 @@
   <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_more">もっと見る</string>
   <string name="nav_item_search">検索</string>
+  <string name="nav_item_contribute">投稿</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
   <string name="card_offline_error_retry">再試行</string>
@@ -114,7 +114,7 @@
   <string name="page_edit_history_filter_by">絞り込みの条件：</string>
   <string name="page_edit_history_filter_by_all">すべての編集 (%s)</string>
   <string name="page_edit_history_filter_by_user">利用者編集 (%s)</string>
-  <string name="page_edit_history_filter_by_anon">匿名編集 (%s)</string>
+  <string name="page_edit_history_filter_by_anon">未登録編集 (%s)</string>
   <string name="page_edit_history_filter_by_bot">ボットの編集 (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s から %2$s までの指標。</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -151,6 +151,7 @@
   <string name="menu_page_recently_viewed">最近見たページ</string>
   <string name="menu_page_archive">アーカイブ</string>
   <string name="menu_long_press_open_page">開く</string>
+  <string name="menu_long_press_open_in_places">場所で開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
   <string name="menu_text_select_define">語釈</string>
@@ -1636,4 +1637,10 @@
   <string name="places_survey_dialog_cancel">キャンセル</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">何を変更または改善してほしいですか？</string>
   <string name="places_empty_list">このエリアには何もありません。&lt;a href=\"#\"&gt;地図上&lt;/a&gt;でズームアウトしてください。</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">いいえ、結構です</string>
+  <string name="contributions_dashboard_badge_donor">寄付者</string>
+  <string name="contributions_dashboard_badge_become_a_donor">寄付者になる</string>
+  <string name="contributions_dashboard_badge_update">寄付者の状態を更新</string>
+  <string name="contributions_dashboard_app_icon_title">アプリアイコン</string>
+  <string name="contributions_dashboard_app_icon_subtitle">寄付者のメリット</string>
 </resources>

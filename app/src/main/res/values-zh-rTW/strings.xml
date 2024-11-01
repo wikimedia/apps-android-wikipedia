@@ -52,6 +52,7 @@
   <string name="nav_item_suggested_edits">編輯</string>
   <string name="nav_item_more">更多</string>
   <string name="nav_item_search">搜尋</string>
+  <string name="nav_item_contribute">貢獻</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
   <string name="card_offline_error_retry">重試</string>
@@ -87,7 +88,7 @@
   <string name="page_edit_history_filter_by">篩選依據</string>
   <string name="page_edit_history_filter_by_all">所有編輯 (%s 筆)</string>
   <string name="page_edit_history_filter_by_user">使用者編輯 (%s 筆)</string>
-  <string name="page_edit_history_filter_by_anon">匿名編輯 (%s 筆)</string>
+  <string name="page_edit_history_filter_by_anon">未註冊編輯 (%s 筆)</string>
   <string name="page_edit_history_filter_by_bot">機器人編輯 (%s 筆)</string>
   <string name="page_edit_history_metrics_content_description">%1$s 到 %2$s 之間的計量</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -456,8 +457,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">自訂您的工具列</string>
   <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
   <string name="temp_account_not_logged_in">您尚未登入</string>
-  <string name="temp_account_anon_dialog_body">一旦您做出編輯，會為您建立&lt;b&gt;臨時帳號&lt;/b&gt;以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;請&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;建立帳號&lt;/a&gt;來讓編輯內容歸在您名下，並存取其他功能。</string>
-  <string name="temp_account_temp_dialog_body">您的編輯將會歸在%1$s名下。管理員可看到您的 IP 位址。&lt;br /&gt;&lt;br /&gt;如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;建立帳號&lt;/a&gt;，您做出的編輯將會歸在您所選的使用者名稱，並擁有其他好處。</string>
+  <string name="temp_account_anon_ip_dialog_body">一旦您做出編輯，您的IP位址將與您的編輯相關聯。&lt;br /&gt;&lt;br /&gt;請&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;建立帳號&lt;/a&gt;來讓編輯內容歸在您名下，並存取其他功能。</string>
+  <string name="temp_account_anon_dialog_body">一旦您做出編輯，會為您建立&lt;b&gt;臨時帳號&lt;/b&gt;以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;請&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;建立帳號&lt;/a&gt;來讓編輯內容歸在您名下，並存取其他功能。</string>
+  <string name="temp_account_temp_dialog_body">您的編輯將會歸在%1$s名下。管理員可看到您的 IP 位址。&lt;br /&gt;&lt;br /&gt;如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;建立帳號&lt;/a&gt;，您做出的編輯將會歸在您所選的使用者名稱，並擁有其他好處。</string>
   <string name="temp_account_dialog_ok">了解</string>
   <string name="temp_account_using_title">您正在使用臨時帳號</string>
   <string name="temp_account_dialog_discard">放棄更改並登入</string>
@@ -469,6 +471,7 @@
     <item quantity="one">帳號會在 %d 天後失效。</item>
     <item quantity="other">帳號會在 %d 天後失效。</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;您還沒有登入。&lt;/b&gt;一旦您進行編輯，做過的編輯內容會歸在您的 IP 位址名義下。</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;您尚未登入。&lt;/b&gt;一旦您做出編輯，會為您建立臨時帳號以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;您正在使用臨時帳號。&lt;/b&gt;您做出的編輯內容會歸在%1$s名下。&lt;a href=\"%2$s\"&gt;了解更多&lt;/a&gt;。</string>
   <string name="temp_account_login_status">&lt;b&gt;您目前使用的是臨時帳號。&lt;/b&gt;當您登入時，使用臨時帳號「%1$s」所做過的編輯不會轉移到您的永久帳號。登入或建立帳號，可讓編輯記錄在您使用者名稱的名下，以及其他好處。</string>
@@ -1053,6 +1056,10 @@
     <item quantity="one">貢獻</item>
     <item quantity="other">貢獻</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">編輯</item>
+    <item quantity="other">編輯</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d 天</item>
     <item quantity="other">%d 天</item>
@@ -1182,6 +1189,7 @@
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
+  <string name="app_shortcuts_places">地點</string>
   <string name="on_this_day_card_title">歷史上的今天</string>
   <string name="more_events_text">更多歷史上的今天</string>
   <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>
@@ -1704,4 +1712,37 @@
   <string name="recommended_content_survey_dialog_message">您對這個推薦搜尋結果滿意嗎？</string>
   <string name="recommended_content_survey_dialog_input_hint">額外回饋</string>
   <string name="recommended_content_survey_dialog_submitted_message">已提交回饋。感謝您！</string>
+  <string name="donor_history_title">捐款者歷史</string>
+  <string name="donor_history_save_button">儲存</string>
+  <string name="donor_history_update_donor_status_default">更新捐款者狀態</string>
+  <string name="donor_history_update_donor_status_donor">捐款者</string>
+  <string name="donor_history_update_donor_status_not_a_donor">非捐款者</string>
+  <string name="donor_history_last_donated">上一次捐款</string>
+  <string name="donor_history_last_donated_hint">新增上次捐款日期</string>
+  <string name="donor_history_last_donated_date_picker_title">選擇日期</string>
+  <string name="donor_history_last_donated_date_picker_label">輸入日期</string>
+  <string name="donor_history_recurring_donor">定期捐款者</string>
+  <string name="donor_history_donate_button">對維基媒體基金會捐款</string>
+  <string name="donor_history_about_this_experiment">關於此實驗功能</string>
+  <string name="donor_history_updated_message_snackbar">已更新捐款者歷史</string>
+  <string name="contributions_dashboard_survey_dialog_title">協助改善貢獻面板</string>
+  <string name="contributions_dashboard_survey_dialog_message">此次的面板更新是一項測試功能。您要看到此功能已改善或移除的內容嗎？</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">無意見</string>
+  <string name="contributions_dashboard_survey_dialog_ok">分享意見回饋</string>
+  <string name="contributions_dashboard_donation_dialog_title">感謝您對自由知識的支持</string>
+  <string name="contributions_dashboard_donation_dialog_message">您選擇作為支持數百萬人所依賴資源的 2%% 的一分子。為了表達我們的謝意，已更新您的貢獻面板來表揚出您的身份為捐款者。您想查看更新嗎？</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">不用了，謝謝</string>
+  <string name="contributions_dashboard_donation_dialog_ok">是的，讓我查看</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">已更新您的貢獻面板</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">貢獻面板現在顯示關於您的捐款者狀態詳細資訊。您要查看這個實驗功能嗎？</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">不用了，謝謝</string>
+  <string name="contributions_dashboard_entry_dialog_ok">是的，讓我查看</string>
+  <string name="contributions_dashboard_badge_donor">捐款者</string>
+  <string name="contributions_dashboard_badge_become_a_donor">成為捐款者</string>
+  <string name="contributions_dashboard_badge_update">更新捐款者狀態</string>
+  <string name="contributions_dashboard_app_icon_title">應用程式圖示</string>
+  <string name="contributions_dashboard_app_icon_subtitle">捐款者益處</string>
+  <string name="contributions_dashboard_logged_out_user">使用者登出</string>
+  <string name="contributions_dashboard_tab_last_donated">上一次捐款</string>
+  <string name="contributions_dashboard_tab_update_button">更新</string>
 </resources>

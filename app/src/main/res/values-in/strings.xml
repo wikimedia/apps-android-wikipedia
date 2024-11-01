@@ -4,7 +4,6 @@
 * Agam Riyandana
 * Ahdan
 * Akmaie Ajam
-* Amire80
 * Andikbuyung
 * Arifin.wijaya
 * ArlandGa
@@ -92,7 +91,7 @@
   <string name="page_edit_history_filter_by">Saring berdasarkan</string>
   <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Suntingan anonim (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Suntingan anonim (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik dari %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
