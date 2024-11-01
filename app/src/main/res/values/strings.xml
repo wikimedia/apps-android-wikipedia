@@ -1829,7 +1829,11 @@
     <string name="contributions_dashboard_logged_out_user">Logged-out user</string>
     <string name="contributions_dashboard_tab_last_donated">Last donated</string>
     <string name="contributions_dashboard_tab_update_button">Update</string>
+    <string name="contributions_dashboard_donor_icon_dialog_title">Thank you for being a donor.</string>
+    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App Icon. Would you like to update your icon now?</string>
+    <string name="contributions_dashboard_donor_icon_dialog_cancel">No, thanks</string>
+    <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
+    <string name="contributions_dashboard_app_icon_updated">App Icon updated</string>
     <!-- /Contributions Dashboard -->
-
 
 </resources>

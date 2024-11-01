@@ -14,19 +14,20 @@ class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var isDonor = completedDonation || (Prefs.hasDonorHistorySaved && (Prefs.donationResults.isNotEmpty() || Prefs.isRecurringDonor))
     var lastDonated = Prefs.donationResults.lastOrNull()?.dateTime
     var isRecurringDonor = Prefs.isRecurringDonor
+    var donorHistoryModified = false
 
     fun saveDonorHistory() {
         Prefs.hasDonorHistorySaved = true
         if (isDonor) {
             Prefs.isRecurringDonor = isRecurringDonor
             lastDonated?.let {
-                // TODO: discuss that should we distinguish the donation from the same date.
-                Prefs.donationResults = Prefs.donationResults.plus(DonationResult(it, false))
+                Prefs.donationResults = Prefs.donationResults.plus(DonationResult(it, false)).distinct()
             }
         } else {
             Prefs.isRecurringDonor = false
             Prefs.donationResults = emptyList()
         }
+        donorHistoryModified = false
     }
 
     fun dateTimeToMilli(dateTime: String): Long {

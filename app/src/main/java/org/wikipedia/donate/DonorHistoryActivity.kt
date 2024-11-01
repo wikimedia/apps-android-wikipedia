@@ -40,6 +40,23 @@ class DonorHistoryActivity : BaseActivity() {
         init()
     }
 
+    override fun onBackPressed() {
+        if (viewModel.donorHistoryModified) {
+            MaterialAlertDialogBuilder(this)
+                .setMessage(getString(R.string.edit_abandon_confirm))
+                .setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
+                    dialog.dismiss()
+                    finish()
+                }
+                .setNegativeButton(getString(R.string.edit_abandon_confirm_no)) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+            return
+        }
+        super.onBackPressed()
+    }
+
     private fun init() {
 
         binding.donationInfoContainer.isVisible = viewModel.isDonor
@@ -54,6 +71,7 @@ class DonorHistoryActivity : BaseActivity() {
 
         binding.recurringDonorCheckbox.isChecked = viewModel.isRecurringDonor
         binding.recurringDonorCheckbox.setOnClickListener {
+            viewModel.donorHistoryModified = true
             viewModel.isRecurringDonor = binding.recurringDonorCheckbox.isChecked
             binding.recurringDonorCheckbox.isChecked = viewModel.isRecurringDonor
         }
@@ -84,8 +102,10 @@ class DonorHistoryActivity : BaseActivity() {
             donorStatusTextColor = R.attr.placeholder_color
             R.string.donor_history_update_donor_status_default
         } else if (viewModel.isDonor) {
+            viewModel.currentDonorStatus = 0
             R.string.donor_history_update_donor_status_donor
         } else {
+            viewModel.currentDonorStatus = 1
             R.string.donor_history_update_donor_status_not_a_donor
         }
         binding.donorStatus.text = getString(donorStatusText)
@@ -123,6 +143,7 @@ class DonorHistoryActivity : BaseActivity() {
             .setSingleChoiceItems(donorStatusList, viewModel.currentDonorStatus) { dialog, which ->
                 viewModel.isDonor = which == 0
                 viewModel.currentDonorStatus = which
+                viewModel.donorHistoryModified = true
                 updateDonorStatusText()
                 updateLastDonatedText()
                 dialog.dismiss()
@@ -155,6 +176,7 @@ class DonorHistoryActivity : BaseActivity() {
                     // The date picker returns milliseconds in UTC timezone.
                     val utcDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(it), ZoneOffset.UTC)
                     viewModel.lastDonated = ZonedDateTime.of(utcDate, ZoneId.systemDefault()).toLocalDateTime().toString()
+                    viewModel.donorHistoryModified = true
                     updateLastDonatedText()
                 }
             }
