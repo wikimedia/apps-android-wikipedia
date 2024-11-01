@@ -88,8 +88,10 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         binding.saveButton.setOnClickListener {
-            viewModel.saveDonorHistory()
-            setResult(RESULT_DONOR_HISTORY_SAVED)
+            if (viewModel.donorHistoryModified) {
+                viewModel.saveDonorHistory()
+                setResult(RESULT_DONOR_HISTORY_SAVED)
+            }
             finish()
         }
         updateDonorStatusText()
