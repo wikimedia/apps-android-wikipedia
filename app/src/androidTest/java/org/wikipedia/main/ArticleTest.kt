@@ -1,21 +1,18 @@
 package org.wikipedia.main
 
-import android.location.Location
-import android.net.Uri
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.Constants
+import org.wikipedia.FakeData
 import org.wikipedia.base.BaseTest
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.SmokeTest2.Companion.ARTICLE_TITLE
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
-import org.wikipedia.page.PageTitle
 import org.wikipedia.robots.ArticleRobot
+import org.wikipedia.robots.EditorRobot
 
 
 @LargeTest
@@ -29,6 +26,8 @@ class ArticleTest: BaseTest<PageActivity>(
     }
 ) {
     private val articleRobot = ArticleRobot()
+    private val editorRobot = EditorRobot()
+    private val themeRobot = ThemeRobot()
 
     @Test
     fun articlePageTest() {
@@ -54,7 +53,7 @@ class ArticleTest: BaseTest<PageActivity>(
             .verifyLeadImageIsNotVisible()
             .verifyArticleTitle(ARTICLE_TITLE)
         setDeviceOrientation(isLandscape = false)
-        articleRobot
+        themeRobot
             .toggleTheme()
             .switchOffMatchSystemTheme()
             .selectBlackTheme()
@@ -62,21 +61,10 @@ class ArticleTest: BaseTest<PageActivity>(
             .verifyBackgroundIsBlack()
             .goBackToLightTheme()
             .pressBack()
+
+        editorRobot
+            .clickEditPencilAtTopOfArticle()
+            .clickEditIntroductionMenuItem()
     }
 }
 
-object FakeData {
-    val title = PageTitle(
-        _displayText = "Hopf_fibration",
-        _text = "Hopf fibration",
-        description = "Fiber bundle of the 3-sphere over the 2-sphere, with 1-spheres as fibers",
-        thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/320px-Hopf_Fibration.png",
-        wikiSite = WikiSite(
-            uri = Uri.parse("https://en.wikipedia.org")
-        )
-    )
-    val inNewTab = false
-    val position = 0
-    val location: Location? = null
-    val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
-}

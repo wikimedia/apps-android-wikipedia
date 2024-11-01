@@ -24,16 +24,12 @@ import org.wikipedia.base.TestConfig
 
 class ArticleRobot : BaseRobot() {
     fun clickLink(linkTitle: String) = apply {
-        onWebView()
-            .withElement(findElement(Locator.CSS_SELECTOR, "a[title='$linkTitle']"))
-            .perform(webClick())
+        clickWebLink(linkTitle)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun verifyArticleTitle(expectedTitle: String) = apply {
-        onWebView()
-            .withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-            .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(expectedTitle)))
+        verifyH1Title(expectedTitle)
     }
 
     fun previewArticle() = apply {
@@ -84,39 +80,9 @@ class ArticleRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun toggleTheme() = apply {
-        clickOnDisplayedView(R.id.page_theme)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun switchOffMatchSystemTheme() = apply {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-            checkViewDoesNotExist(R.id.theme_chooser_match_system_theme_switch)
-        } else {
-            scrollToViewAndClick(R.id.theme_chooser_match_system_theme_switch)
-        }
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun selectBlackTheme() = apply {
-        scrollToViewAndClick(R.id.button_theme_black)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun pressBack() = apply {
         goBack()
         delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun verifyBackgroundIsBlack() = apply {
-        onView(withId(R.id.page_actions_tab_layout)).check(matches(TestUtil.hasBackgroundColor(Color.BLACK)))
-    }
-
-    fun goBackToLightTheme() = apply {
-        clickWithId(R.id.page_theme)
-        delay(TestConfig.DELAY_SHORT)
-        scrollToViewAndClick(R.id.button_theme_light)
-        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun goBackToGalleryView() = apply {

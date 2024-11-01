@@ -271,82 +271,82 @@ class SmokeTests {
         TestUtil.delay(2)
 
         pressBack()
-//
-//        // Click the edit pencil at the top of the article
-//        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
-//                .perform(webClick())
-//
-//        TestUtil.delay(1)
-//
-//        // Click the "edit introduction" menu item
-//        onView(allOf(withId(R.id.title), withText("Edit introduction"), isDisplayed()))
-//                .perform(click())
-//
-//        TestUtil.delay(3)
-//
-//        // Click on the fonts and theme icon
-//        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Increase text size by clicking on increase text icon
-//        onView(allOf(withId(R.id.buttonIncreaseTextSize))).perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.buttonIncreaseTextSize))).perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        // Exit bottom sheet
-//        pressBack()
-//
-//        TestUtil.delay(4)
-//
-//        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(3)
-//
-//        // Decrease text size by clicking on decrease text icon
-//        onView(allOf(withId(R.id.buttonDecreaseTextSize))).perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.buttonDecreaseTextSize))).perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        // Exit bottom sheet
-//        pressBack()
-//
-//        TestUtil.delay(3)
-//
-//        // Type in some stuff into the edit window
-//        onView(allOf(withId(R.id.edit_section_text))).perform(replaceText("abc"))
-//
-//        TestUtil.delay(3)
-//
-//        // Proceed to edit preview
-//        onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed())).perform(click())
-//
-//        // Give sufficient time for the API to load the preview
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(3)
-//
-//        // Click one of the default edit summary choices
-//        onView(allOf(withText("Fixed typo"))).perform(scrollTo(), click())
-//
-//        TestUtil.delay(3)
-//
-//        // Go back out of the editing workflow
-//        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(1)
+
+        // Click the edit pencil at the top of the article
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
+                .perform(webClick())
+
+        TestUtil.delay(1)
+
+        // Click the "edit introduction" menu item
+        onView(allOf(withId(R.id.title), withText("Edit introduction"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(3)
+
+        // Click on the fonts and theme icon
+        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        // Increase text size by clicking on increase text icon
+        onView(allOf(withId(R.id.buttonIncreaseTextSize))).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.buttonIncreaseTextSize))).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        // Exit bottom sheet
+        pressBack()
+
+        TestUtil.delay(4)
+
+        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(3)
+
+        // Decrease text size by clicking on decrease text icon
+        onView(allOf(withId(R.id.buttonDecreaseTextSize))).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.buttonDecreaseTextSize))).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        // Exit bottom sheet
+        pressBack()
+
+        TestUtil.delay(3)
+
+        // Type in some stuff into the edit window
+        onView(allOf(withId(R.id.edit_section_text))).perform(replaceText("abc"))
+
+        TestUtil.delay(3)
+
+        // Proceed to edit preview
+        onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed())).perform(click())
+
+        // Give sufficient time for the API to load the preview
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed())).perform(click())
+
+        TestUtil.delay(3)
+
+        // Click one of the default edit summary choices
+        onView(allOf(withText("Fixed typo"))).perform(scrollTo(), click())
+
+        TestUtil.delay(3)
+
+        // Go back out of the editing workflow
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+        TestUtil.delay(1)
 //
 //        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
 //
