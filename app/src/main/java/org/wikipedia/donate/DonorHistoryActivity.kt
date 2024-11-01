@@ -100,12 +100,10 @@ class DonorHistoryActivity : BaseActivity() {
                         MainActivity.newIntent(this)
                             .putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true)
                     )
-                } else {
-                    finish()
+                    return@setOnClickListener
                 }
-            } else {
-                finish()
             }
+            finish()
         }
         updateDonorStatusText()
         updateLastDonatedText()
