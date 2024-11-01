@@ -1698,8 +1698,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Tu face parte del 2%% que ha eligite a appoiar le ressource al qual milliones se fide. Pro demonstrar nostre gratitude, tu tabuliero de contributiones ha essite actualisate pro recognoscer tu stato de donator. Vole tu vider le actualisation?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">No, gratias</string>
   <string name="contributions_dashboard_donation_dialog_ok">Si, porta me la</string>
-  <string name="contributions_dashboard_entry_dialog_title">Tu tabuliero de contributiones ha essite actualisate</string>
-  <string name="contributions_dashboard_entry_dialog_message">Le tabuliero de contributiones ora monstra detalios sur tu stato de donator. Vole tu revider iste function experimental?</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Tu tabuliero de contributiones ha essite actualisate</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Le tabuliero de contributiones ora monstra detalios sur tu stato de donator. Vole tu revider iste function experimental?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">No, gratias</string>
   <string name="contributions_dashboard_entry_dialog_ok">Si, porta me la</string>
   <string name="contributions_dashboard_badge_donor">Donator</string>
