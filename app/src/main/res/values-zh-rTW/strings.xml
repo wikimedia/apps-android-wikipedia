@@ -471,6 +471,7 @@
     <item quantity="one">帳號會在 %d 天後失效。</item>
     <item quantity="other">帳號會在 %d 天後失效。</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;您還沒有登入。&lt;/b&gt;一旦您進行編輯，做過的編輯內容會歸在您的 IP 位址名義下。</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;您尚未登入。&lt;/b&gt;一旦您做出編輯，會為您建立臨時帳號以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;您正在使用臨時帳號。&lt;/b&gt;您做出的編輯內容會歸在%1$s名下。&lt;a href=\"%2$s\"&gt;了解更多&lt;/a&gt;。</string>
   <string name="temp_account_login_status">&lt;b&gt;您目前使用的是臨時帳號。&lt;/b&gt;當您登入時，使用臨時帳號「%1$s」所做過的編輯不會轉移到您的永久帳號。登入或建立帳號，可讓編輯記錄在您使用者名稱的名下，以及其他好處。</string>
@@ -1030,7 +1031,6 @@
   <string name="suggested_edits_image_captions_task_detail">描述圖片來幫助讀者了解含意與脈絡。</string>
   <string name="suggested_edits_add_descriptions_task_detail">概括條目來幫助讀者一目瞭然主題內容。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您到目前為止的貢獻總數。</string>
-  <string name="suggested_edits_edit_stat_tooltip">您目前為止的貢獻總數。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">您有做出貢獻的連續天數。如果您已有一段時間未做出貢獻，則顯示最後的貢獻日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">您曾做過貢獻的項目在過去 30 天內的頁面總瀏覽次數。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">基於您的編輯裡有多少次被回退（被其他編輯者撤銷）。回退編輯數：%d。</string>
@@ -1733,8 +1733,8 @@
   <string name="contributions_dashboard_donation_dialog_message">您選擇作為支持數百萬人所依賴資源的 2%% 的一分子。為了表達我們的謝意，已更新您的貢獻面板來表揚出您的身份為捐款者。您想查看更新嗎？</string>
   <string name="contributions_dashboard_donation_dialog_cancel">不用了，謝謝</string>
   <string name="contributions_dashboard_donation_dialog_ok">是的，讓我查看</string>
-  <string name="contributions_dashboard_entry_dialog_title">已更新您的貢獻面板</string>
-  <string name="contributions_dashboard_entry_dialog_message">貢獻面板現在顯示關於您的捐款者狀態詳細資訊。您要查看這個實驗功能嗎？</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">已更新您的貢獻面板</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">貢獻面板現在顯示關於您的捐款者狀態詳細資訊。您要查看這個實驗功能嗎？</string>
   <string name="contributions_dashboard_entry_dialog_cancel">不用了，謝謝</string>
   <string name="contributions_dashboard_entry_dialog_ok">是的，讓我查看</string>
   <string name="contributions_dashboard_badge_donor">捐款者</string>
@@ -1743,4 +1743,6 @@
   <string name="contributions_dashboard_app_icon_title">應用程式圖示</string>
   <string name="contributions_dashboard_app_icon_subtitle">捐款者益處</string>
   <string name="contributions_dashboard_logged_out_user">使用者登出</string>
+  <string name="contributions_dashboard_tab_last_donated">上一次捐款</string>
+  <string name="contributions_dashboard_tab_update_button">更新</string>
 </resources>

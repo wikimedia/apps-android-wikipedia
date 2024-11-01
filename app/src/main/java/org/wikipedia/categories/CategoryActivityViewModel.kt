@@ -1,31 +1,28 @@
 package org.wikipedia.categories
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 
-class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+class CategoryActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     var showSubcategories = false
 
     val categoryMembersFlow = Pager(PagingConfig(pageSize = 10)) {
-        CategoryMembersPagingSource(pageTitle, "page")
+        CategoryMembersPagingSource("page")
     }.flow.cachedIn(viewModelScope)
 
     val subcategoriesFlow = Pager(PagingConfig(pageSize = 10)) {
-        CategoryMembersPagingSource(pageTitle, "subcat")
+        CategoryMembersPagingSource("subcat")
     }.flow.cachedIn(viewModelScope)
 
-    class CategoryMembersPagingSource(
-            val pageTitle: PageTitle,
-            private val resultType: String
+    inner class CategoryMembersPagingSource(
+        private val resultType: String
     ) : PagingSource<String, PageTitle>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, PageTitle> {
             return try {
@@ -49,13 +46,6 @@ class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<String, PageTitle>): String? {
             return null
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return CategoryActivityViewModel(bundle) as T
         }
     }
 }

@@ -1,20 +1,18 @@
 package org.wikipedia.categories
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 
-class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+class CategoryDialogViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     val categoriesData = MutableLiveData<Resource<List<PageTitle>>>()
 
     init {
@@ -32,13 +30,6 @@ class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
                 }
             }.orEmpty()
             categoriesData.postValue(Resource.Success(titles))
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return CategoryDialogViewModel(bundle) as T
         }
     }
 }

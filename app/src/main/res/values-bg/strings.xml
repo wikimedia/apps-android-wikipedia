@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * Kareyac
 * MTongov
@@ -27,6 +26,7 @@
   <string name="nav_item_suggested_edits">Редакции</string>
   <string name="nav_item_more">Още</string>
   <string name="nav_item_search">Търсене</string>
+  <string name="nav_item_contribute">Добавете своя принос</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
   <string name="card_offline_error_retry">Повторен опит</string>
@@ -62,7 +62,7 @@
   <string name="page_edit_history_filter_by">Филтриране по</string>
   <string name="page_edit_history_filter_by_all">Всички редакции (%s)</string>
   <string name="page_edit_history_filter_by_user">Редакции от потребители (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Редакции от анонимни (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Редакции на нерегистрирани (%s)</string>
   <string name="page_edit_history_filter_by_bot">Редакции на бот (%s)</string>
   <string name="page_edit_history_metrics_content_description">Показатели от %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -101,6 +101,7 @@
   <string name="menu_page_recently_viewed">Посетени наскоро</string>
   <string name="menu_page_archive">Архивиране</string>
   <string name="menu_long_press_open_page">Отваряне</string>
+  <string name="menu_long_press_open_in_places">Отваряне в Места</string>
   <string name="menu_long_press_open_in_new_tab">Отваряне в нов раздел</string>
   <string name="menu_long_press_copy_page">Копиране адреса на препратката</string>
   <string name="menu_text_select_define">В Уикиречник</string>
@@ -814,6 +815,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Машинно генерирани предложения</string>
+  <string name="customize_toolbar_title">Персонализиране на лентата с инструменти</string>
   <string name="customize_toolbar_category_toolbar">Лента с инструменти</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_describe_articles">Описване на статии</string>
@@ -1028,6 +1030,7 @@
   <string name="app_shortcuts_random">Случайна</string>
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На този ден</string>
   <string name="more_events_text">Още на този ден</string>
   <string name="events_count_text">%1$s събития от %2$s-%3$d</string>
@@ -1314,6 +1317,7 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Списъкът за четене е внесен</string>
   <string name="reading_list_share_menu_label">Споделяне...</string>
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
+  <string name="talk_templates_new_message_dialog_cancel">Отказ</string>
   <string name="talk_templates_edit_message_dialog_save">Съхраняване</string>
   <string name="talk_templates_edit_message_dialog_delete">Изтриване</string>
   <string name="talk_templates_edit_message_updated">Съобщението е актуализирано</string>
@@ -1412,4 +1416,53 @@
   <string name="page_issues_title">Проблеми със страницата</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отваряне в системния браузър</string>
+  <string name="donate_gpay_help_problems">Имате проблеми с даряването?</string>
+  <string name="donate_gpay_help_other_ways">Други начини за дарение</string>
+  <string name="donate_gpay_help_faq">Често задавани въпроси</string>
+  <string name="donate_gpay_help_tax">Информация за данъчни облекчения</string>
+  <string name="places_title">Места</string>
+  <string name="places_permissions_denied">Необходимо е разрешение за местоположение, за да видите местоположението си на картата. Моля, опитайте отново.</string>
+  <string name="places_search_hint">Търсене на места</string>
+  <string name="places_filter_title">Филтриране по език</string>
+  <string name="places_toggle_buttons_map">Карта</string>
+  <string name="places_toggle_buttons_list">Списък</string>
+  <string name="places_survey_very_satisfied_option">Много доволен</string>
+  <string name="places_survey_very_unsatisfied_option">Много недоволен</string>
+  <string name="places_survey_dialog_cancel">Отказ</string>
+  <string name="places_empty_list">Тази зона е празна. Намалете мащаба &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
+  <string name="places_card_title">Места наблизо</string>
+  <string name="places_card_action">Повече места наблизо</string>
+  <string name="places_card_enable_location_card_message">Места е картографски начин за проучване на Уикипедия</string>
+  <string name="places_card_enable_location_card_button">Активиране на местоположението</string>
+  <string name="places_card_distance_suffix">на %s от Вас</string>
+  <string name="places_card_distance_unknown">Неизвестна отдалеченост</string>
+  <string name="donor_history_title">История на даренията</string>
+  <string name="donor_history_save_button">Съхраняване</string>
+  <string name="donor_history_update_donor_status_default">Актуализиране на дарителски статус</string>
+  <string name="donor_history_update_donor_status_donor">Дарител</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Не е дарител</string>
+  <string name="donor_history_last_donated">Последно дарение</string>
+  <string name="donor_history_last_donated_hint">Добавете дата на последното дарение</string>
+  <string name="donor_history_last_donated_date_picker_title">Избор на дата</string>
+  <string name="donor_history_last_donated_date_picker_label">Въведете дата</string>
+  <string name="donor_history_recurring_donor">Редовен дарител</string>
+  <string name="donor_history_donate_button">Дарете на Фондация Уикимедия</string>
+  <string name="donor_history_about_this_experiment">Относно този експеримент</string>
+  <string name="donor_history_updated_message_snackbar">Историята на дарителството е актуализирана</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Нямам мнение</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Оставете коментар</string>
+  <string name="contributions_dashboard_donation_dialog_title">Благодарим Ви, че подкрепяте свободното знание</string>
+  <string name="contributions_dashboard_donation_dialog_message">Вие сте част от 2%%, които избраха да подкрепят ресурса, на който разчитат милиони. За да демонстрираме нашата благодарност, таблото за управление на вашите дарения е актуализирано, за да разпознае статуса Ви на дарител. Искате ли да видите актуализацията?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Не, благодаря</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Да, покажете ми</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Таблото за управление на вашите приноси е актуализирано</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Таблото за управление на даренията вече показва подробности за вашия статус на дарител. Искате ли да прегледате тази експериментална възможност?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Не, благодаря</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Да, покажете ми</string>
+  <string name="contributions_dashboard_badge_donor">Дарител</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Станете дарител</string>
+  <string name="contributions_dashboard_badge_update">Актуализиране на дарителски статус</string>
+  <string name="contributions_dashboard_app_icon_title">Икона на приложението</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Ползи от дарителството</string>
+  <string name="contributions_dashboard_logged_out_user">Излязъл потребител</string>
 </resources>
