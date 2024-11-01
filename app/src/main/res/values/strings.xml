@@ -1819,8 +1819,8 @@
     <string name="contributions_dashboard_donation_dialog_message">You are a part of the 2%% that chose to support the resource millions rely on. To demonstrate our gratitude, your contributions dashboard has been updated to recognize your status as a donor. Would you like to see the update?</string>
     <string name="contributions_dashboard_donation_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_donation_dialog_ok">Yes, take me there</string>
-    <string name="contributions_dashboard_entry_dialog_title">Your contributions dashboard has been updated</string>
-    <string name="contributions_dashboard_entry_dialog_message">The contributions dashboard now displays details about your donor status. Want to review this experimental feature?</string>
+    <string name="contributions_dashboard_entry_dialog_title">Explore the new additions to the contributions dashboard</string>
+    <string name="contributions_dashboard_entry_dialog_message">The contributions dashboard now displays donor statuses. Want to review this experimental feature?</string>
     <string name="contributions_dashboard_entry_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_entry_dialog_ok">Yes, take me there</string>
     <string name="contributions_dashboard_badge_donor">Donor</string>

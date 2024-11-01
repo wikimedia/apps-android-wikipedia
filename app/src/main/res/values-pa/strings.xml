@@ -268,6 +268,7 @@
   <string name="edit_summary_tag_other">ਹੋਰ</string>
   <string name="edit_summary_tag_other_hint">ਹੋਰ ਤਰੀਕੇ ਜਿਹਨਾਂ ਨਾਲ਼ ਤੁਸੀਂ ਸਫ਼ੇ ਨੂੰ ਸੁਧਾਰਿਆ</string>
   <string name="edit_summary_added_short_description">ਛੋਟਾ ਵੇਰਵਾ ਜੋੜਿਆ ਗਿਆ</string>
+  <string name="edit_summary_updated_short_description">ਛੋਟਾ ਵੇਰਵਾ ਨਵਿਆਈਆ ਗਿਆ</string>
   <string name="edit_conflict_title">ਸੋਧ ਤਕਰਾਰ</string>
   <string name="edit_notices">ਸੁਨੇਹੇ ਸੋਧੋ</string>
   <string name="edit_notices_please_read">ਕਿਰਪਾ ਕਰਕੇ ਸੰਪਾਦਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪੜ੍ਹੋ</string>
@@ -626,7 +627,6 @@
   <string name="suggested_edits_image_tags_publishing">ਛਾਪਿਆ ਜਾ ਰਿਹਾ ਹੈ</string>
   <string name="suggested_edits_image_tags_add_tag">ਟੈਗ ਜੋੜੋ</string>
   <string name="suggested_edits_contributions_stat_tooltip">ਤੁਹਾਡੇ ਹੁਣ ਤੱਕ ਦੇ ਯੋਗਦਾਨਾਂ ਦੀ ਕੁੱਲ ਸੰਖਿਆ।</string>
-  <string name="suggested_edits_edit_stat_tooltip">ਤੁਹਾਡੇ ਹੁਣ ਤੱਕ ਦੇ ਸੋਧਾਂ ਦੀ ਕੁੱਲ ਗਿਣਤੀ।</string>
   <string name="suggested_edits_views_label_text">ਵੇਖੇ ਗਏ</string>
   <string name="suggested_edits_quality_excellent_text">ਸ਼ਾਨਦਾਰ</string>
   <string name="suggested_edits_quality_very_good_text">ਬਹੁਤ ਵਧੀਆ</string>
@@ -807,6 +807,7 @@
   <string name="talk_subject_duplicate">ਵਿਸ਼ੇ ਦਾ ਨਾਮ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕੋਈ ਵੱਖਰਾ ਅਜ਼ਮਾਓ।</string>
   <string name="talk_response_submitted">ਜਵਾਬ ਛਾਪਿਆ।</string>
   <string name="talk_snackbar_survey_action_text">ਸ਼ੁਰੂ ਕਰੋ</string>
+  <string name="talk_overflow_sort_date_updated">ਮਿਤੀ ਨਵਿਆਈ ਗਈ</string>
   <string name="menu_option_user_contributions">%s ਦੇ ਯੋਗਦਾਨ</string>
   <string name="talk_menu_expand_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਫੈਲਾਓ</string>
   <string name="talk_menu_collapse_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਢਾਓ</string>
@@ -859,6 +860,7 @@
   <string name="user_contrib_activity_title">%s ਦੇ ਯੋਗਦਾਨ</string>
   <string name="user_contrib_menu_label">ਯੋਗਦਾਨ</string>
   <string name="user_contrib_filter_activity_title">ਯੋਗਦਾਨਾਂ ਨੂੰ ਫਿਲਟਰ ਕਰੋ</string>
+  <string name="talk_templates_edit_message_updated">ਸੁਨੇਹਾ ਨਵਿਆਈਆ ਗਿਆ</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">ਵਰਤੋਂਕਾਰ ਜਾਣਕਾਰੀ</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">ਵਰਤੋਂਕਾਰ ਯੋਗਦਾਨ ਦੇਖੋ</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">ਵਰਤੋਂਕਾਰ ਜਾਣਕਾਰੀ</string>
@@ -889,6 +891,7 @@
   <string name="donor_history_recurring_donor">ਵਾਰ-ਵਾਰ ਦਾਨ ਕਰਨ ਵਾਲਾ</string>
   <string name="donor_history_donate_button">ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ ਨੂੰ ਦਾਨ ਕਰੋ</string>
   <string name="donor_history_about_this_experiment">ਇਸ ਤਜਰਬੇ ਬਾਰੇ</string>
+  <string name="donor_history_updated_message_snackbar">ਦਾਨੀ ਇਤਿਹਾਸ ਨਵਿਆਈਆ ਗਿਆ</string>
   <string name="contributions_dashboard_survey_dialog_cancel">ਕੋਈ ਰਾਏ ਨਹੀਂ ਏ</string>
   <string name="contributions_dashboard_survey_dialog_ok">ਸੁਝਾਅ ਸਾਂਝੇ ਕਰੋ</string>
   <string name="contributions_dashboard_donation_dialog_title">ਮੁਫ਼ਤ ਗਿਆਨ ਦਾ ਸਮਰਥਨ ਕਰਨ ਲਈ ਤੁਹਾਡਾ ਧੰਨਵਾਦ</string>

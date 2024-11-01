@@ -51,6 +51,7 @@
   <string name="nav_item_suggested_edits">Muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
   <string name="nav_item_search">Hae</string>
+  <string name="nav_item_contribute">Muokkaa</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="card_offline_error_retry">Yritä uudelleen</string>
@@ -86,7 +87,7 @@
   <string name="page_edit_history_filter_by">Suodata</string>
   <string name="page_edit_history_filter_by_all">Kaikki muokkaukset (%s)</string>
   <string name="page_edit_history_filter_by_user">Käyttäjät (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyymit (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Rekisteröitymättömien muokkaukset (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botit (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mittarit välillä %1$s %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -454,12 +455,22 @@
   <string name="theme_chooser_menu_item_short_tooltip">Mukauta työkalupalkkia</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="temp_account_not_logged_in">Et ole kirjautunut sisään</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Kun teet muokkauksen, sinulle luodaan &lt;b&gt;väliaikainen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Kirjaudu sisään&lt;/a&gt; tai  &lt;a href=\"https://#login\"&gt;Luo tunnus&lt;/a&gt; saadaksesi tulevat muokkauksesi omiin nimiisi sekä saadaksesi muita etuja.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">Muokkauksesi merkitään nimellä %1$s. IP-osoitteesi tulee näkymään ylläpitäjille.&lt;br /&gt;&lt;br /&gt;Jos &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt; tai &lt;a href=\"https://#login\"&gt;luot tunnuksen&lt;/a&gt;, muokkauksesi merkitään valitsemallesi nimelle, ja saat muita etuja.</string>
+  <string name="temp_account_anon_ip_dialog_body">Kun teet muokkauksen, IP-osoitteesi liitetään muokkauksiisi.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Kirjaudu sisään&lt;/a&gt; tai &lt;a href=\"https://#createaccount\"&gt;Luo tunnus&lt;/a&gt; saadaksesi tulevat muokkauksesi omiin nimiisi sekä saadaksesi muita etuja.</string>
+  <string name="temp_account_anon_dialog_body">Kun teet muokkauksen, sinulle luodaan &lt;b&gt;tilapäinen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Kirjaudu sisään&lt;/a&gt; tai &lt;a href=\"https://#createaccount\"&gt;Luo tunnus&lt;/a&gt; saadaksesi tulevat muokkauksesi omiin nimiisi sekä saadaksesi muita etuja.</string>
+  <string name="temp_account_temp_dialog_body">Muokkauksesi merkitään nimellä %1$s. IP-osoitteesi tulee näkymään ylläpitäjille.&lt;br /&gt;&lt;br /&gt;Jos &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt; tai &lt;a href=\"https://#createaccount\"&gt;luot tunnuksen&lt;/a&gt;, muokkauksesi merkitään valitsemallesi nimelle, ja saat muita etuja.</string>
   <string name="temp_account_dialog_ok">Selvä</string>
   <string name="temp_account_using_title">Käytät väliaikaista käyttäjätunnusta</string>
   <string name="temp_account_dialog_discard">Hylkää muutokset ja kirjaudu sisään</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Et ole kirjautunut sisään.&lt;/b&gt; Kun teet muokkauksen, sinulle luodaan &lt;b&gt;väliaikainen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Tilapäinen tunnus %1$s luotiin muokkauksesi julkaisun yhteydessä. Se vanhene %2$d päivän päästästä.</item>
+    <item quantity="other">Tilapäinen tunnus %1$s luotiin muokkauksesi julkaisun yhteydessä. Se vanhenee %2$d päivän päästä.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Tunnus vanhenee %d päivän päästä.</item>
+    <item quantity="other">Tunnus vanhenee %d päivän päästä.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Et ole kirjautunut sisään.&lt;/b&gt; Kun teet muokkauksen, IP-osoitteesi liitetään muokkauksiisi.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Et ole kirjautunut sisään.&lt;/b&gt; Kun teet muokkauksen, sinulle luodaan &lt;b&gt;tilapäinen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Käytät väliaikaista tunnusta.&lt;/b&gt; Muokkauksesi merkitään nimelle %1$s. &lt;a href=\"%2$s\"&gt;Lisätietoja&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Käytät tällä hetkellä väliaikaista tunnusta&lt;/b&gt;. Väliaikaisella tunnuksella %1$s tehtyjä muokkauksia ei siirretä pysyvälle tunnukselle, kun kirjaudut sisään. Kirjaudu sisään tai luo tunnus saadaksesi muokkauksesi omalle käyttäjänimelle sekä muita etuja.</string>
   <string name="temp_account_end_session">Lopeta istunto</string>
@@ -1683,4 +1694,5 @@
   <string name="contributions_dashboard_entry_dialog_ok">Kyllä, vie minut sinne</string>
   <string name="contributions_dashboard_badge_become_a_donor">Ryhdy lahjoittajaksi</string>
   <string name="contributions_dashboard_logged_out_user">Uloskirjautunut käyttäjä</string>
+  <string name="contributions_dashboard_tab_update_button">Päivitä</string>
 </resources>

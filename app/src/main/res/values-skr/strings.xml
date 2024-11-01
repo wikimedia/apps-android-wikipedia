@@ -718,5 +718,7 @@
   <string name="donor_history_last_donated_date_picker_label">تریخ درج کرو</string>
   <string name="contributions_dashboard_donation_dialog_cancel">کو، شکریہ</string>
   <string name="contributions_dashboard_entry_dialog_cancel">کو، شکریہ</string>
+  <string name="contributions_dashboard_badge_donor">ڈونر</string>
   <string name="contributions_dashboard_app_icon_title">ایپ آئیکان</string>
+  <string name="contributions_dashboard_tab_update_button">اپ ڈیٹ</string>
 </resources>

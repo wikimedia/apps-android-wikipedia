@@ -59,6 +59,7 @@
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
   <string name="nav_item_search">Zoeken</string>
+  <string name="nav_item_contribute">Bijdragen</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="card_offline_error_retry">Opnieuw proberen</string>
@@ -463,6 +464,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
   <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="temp_account_not_logged_in">U bent niet aangemeld</string>
+  <string name="temp_account_anon_ip_dialog_body">Zodra u een bewerking doorvoert, wordt uw IP-adres aan uw bewerkingen gekoppeld.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om naamsvermelding te krijgen voor toekomstige bewerkingen en om toegang te krijgen tot andere functies.</string>
   <string name="temp_account_anon_dialog_body">Nadat u een wijziging hebt aangebracht, wordt er een &lt;b&gt;tijdelijk account&lt;/b&gt; aangemaakt om uw privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om onder een zelfgekozen naam bij te dragen en om toegang te krijgen tot meer mogelijkheden.</string>
   <string name="temp_account_temp_dialog_body">Uw bewerking wordt toegeschreven aan %1$s. Uw IP-adres is zichtbaar voor beheerders.&lt;br /&gt;&lt;br /&gt; Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;een account aanmaakt&lt;/a&gt;, worden uw bewerkingen toegeschreven aan een door u gekozen naam en zijn er andere voordelen.</string>
   <string name="temp_account_dialog_ok">Begrepen</string>
@@ -476,6 +478,7 @@
     <item quantity="one">Account verloopt over %d dag.</item>
     <item quantity="other">Account verloopt over %d dagen.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;U bent niet ingelogd.&lt;/b&gt; Zodra u een bewerking doorvoert, wordt up IP-adres aan uw bewerkingen gekoppeld.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Je bent niet ingelogd.&lt;/b&gt; Nadat je een wijziging hebt opgeslagen, wordt er een tijdelijk account voor je aangemaakt om je privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Je gebruikt een tijdelijk account.&lt;/b&gt; Je bewerking wordt toegeschreven aan %1$s. &lt;a href=\"%2$s\"&gt;Meer informatie&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Je gebruikt momenteel een tijdelijk account.&lt;/b&gt; Bewerkingen gemaakt met het tijdelijke account %1$s zullen niet worden overgedragen naar je permanente account wanneer je inlogt. Log in of maak een account aan om onder een eigen gebruikersnaam te bewerken.</string>
@@ -1059,6 +1062,10 @@
     <item quantity="one">Bijdrage</item>
     <item quantity="other">Bijdragen</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Bewerking</item>
+    <item quantity="other">Bewerkingen</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagen</item>
@@ -1188,6 +1195,7 @@
   <string name="app_shortcuts_random">Willekeurig</string>
   <string name="app_shortcuts_continue_reading">Verder lezen</string>
   <string name="app_shortcuts_search">Zoeken</string>
+  <string name="app_shortcuts_places">Plaatsen</string>
   <string name="on_this_day_card_title">Op deze dag</string>
   <string name="more_events_text">Meer van deze dag</string>
   <string name="events_count_text">%1$s gebeurtenissen van %2$s–%3$d</string>

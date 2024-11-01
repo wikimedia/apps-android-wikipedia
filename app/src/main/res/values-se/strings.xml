@@ -288,7 +288,7 @@
   <string name="abusefilter_title_warn">Dát soaitá oalle unnán konstruktiivvalaš rievdadeapmi. Háliidat go duođaid almmuhit dan?</string>
   <string name="abusefilter_title_disallow">Dát rievdadeapmi ii sáhte almmuhuvvot. Mana ruovttoluotta ja geahččal ođđasit.</string>
   <string name="abusefilter_text_warn">Rievdadeapmi lea automáhtalaš sillis identifiserejuvvon vejolaččat destruktiivvalažžan. Dat sáhttá sisttisdoallat ovtta dahje eanet čuovvovaš áššiin:&lt;br /&gt;&lt;br /&gt;· Olles sátni čállojuvvon stuora bustávaiguin&lt;br /&gt;· Artihkkala gurren dahje ruskaboasta&lt;br /&gt;· Olgguldas liŋkkat dahje govat mat eai gula áššái&lt;br /&gt;· Geardduheaddji mearka</string>
-  <string name="abusefilter_text_disallow">Rievdadeapmi lea automáhtalaš sillis identifiserejuvvon vejolaččat destruktiivvalažžan, dahje vejolaččat billisteaddjin.&lt;br /&gt;&lt;br /&gt;Wikipedia lea encyklopediija ja dasa gullá dušše neutrála ja áššáiguoskevaš sisdoallu.</string>
+  <string name="abusefilter_text_disallow">Rievdadeapmi lea automáhtalaš sillis identifiserejuvvon vejolaččat destruktiivvalažžan, dahje vejolaččat billisteaddjin.&lt;br /&gt;&lt;br /&gt;Wikipedia lea diehtosátnegirji ja dasa gullá dušše neutrála ja áššáiguoskevaš sisdoallu.</string>
   <string name="page_similar_titles">Sullasaš siiddut</string>
   <string name="search_did_you_mean">Oaivvildit go «%s»?</string>
   <string name="search_recent_header">Easká ohcamat:</string>
