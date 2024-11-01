@@ -163,11 +163,13 @@ class DonorHistoryActivity : BaseActivity() {
 
     companion object {
 
+        private const val RESULT_GO_BACK_TO_CONTRIBUTE_TAB = "goBackToContributeTab"
         const val RESULT_DONOR_HISTORY_SAVED = 1
 
-        fun newIntent(context: Context, completedDonation: Boolean = false): Intent {
+        fun newIntent(context: Context, completedDonation: Boolean = false, goBackToContributeTab: Boolean = false): Intent {
             return Intent(context, DonorHistoryActivity::class.java)
                 .putExtra(Constants.ARG_BOOLEAN, completedDonation)
+                .putExtra(RESULT_GO_BACK_TO_CONTRIBUTE_TAB, false)
         }
     }
 }

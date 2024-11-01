@@ -59,7 +59,7 @@ class ContributionsDashboardHelper {
                 .setMessage(R.string.contributions_dashboard_donation_dialog_message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
                 .setPositiveButton(R.string.contributions_dashboard_donation_dialog_ok) { _, _ ->
-                    context.startActivity(DonorHistoryActivity.newIntent(context))
+                    context.startActivity(DonorHistoryActivity.newIntent(context, completedDonation = true, goBackToContributeTab = true))
                 }
                 .setNegativeButton(R.string.contributions_dashboard_donation_dialog_cancel, null)
                 .show()
@@ -71,7 +71,7 @@ class ContributionsDashboardHelper {
                 .setMessage(R.string.contributions_dashboard_entry_dialog_message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
                 .setPositiveButton(R.string.contributions_dashboard_entry_dialog_ok) { _, _ ->
-                    context.startActivity(DonorHistoryActivity.newIntent(context))
+                    context.startActivity(DonorHistoryActivity.newIntent(context, goBackToContributeTab = true))
                 }
                 .setNegativeButton(R.string.contributions_dashboard_entry_dialog_cancel, null)
                 .show()

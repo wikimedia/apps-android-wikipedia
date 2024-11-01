@@ -1544,7 +1544,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onUpdateDonorStatusSelected() {
-            startActivity(DonorHistoryActivity.newIntent(requireContext()))
+            startActivity(DonorHistoryActivity.newIntent(requireContext(), goBackToContributeTab = true))
         }
     }
 
