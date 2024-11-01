@@ -1209,7 +1209,7 @@
   <string name="wikitext_bold">Đậm</string>
   <string name="wikitext_italic">Nghiêng</string>
   <string name="wikitext_underline">Gạch dưới</string>
-  <string name="wikitext_strikethrough">Gạch ngang chữ</string>
+  <string name="wikitext_strikethrough">Gạch ngang</string>
   <string name="wikitext_sup">Viết lên trên</string>
   <string name="wikitext_sub">Viết xuống dưới</string>
   <string name="wikitext_large">Chữ lớn</string>
@@ -1231,7 +1231,7 @@
   <string name="insert_media_search_hint">Tìm phương tiện</string>
   <string name="insert_media_settings">Thêm chi tiết hình ảnh</string>
   <string name="insert_media_settings_uploaded_image">Hình đã tải lên</string>
-  <string name="insert_media_settings_caption">Chú thích hình ảnh</string>
+  <string name="insert_media_settings_caption">Chú thích</string>
   <string name="insert_media_settings_caption_description">Chú thích hình ảnh hiển thị trong bài viết</string>
   <string name="insert_media_settings_alternative_text">Văn bản thay thế</string>
   <string name="insert_media_settings_alternative_text_description">Mô tả cho người đọc khiếm thị</string>
@@ -1261,7 +1261,7 @@
   <string name="templates_param_optional_hint">%s (Tùy chọn)</string>
   <string name="templates_param_suggested_hint">%s (Đề xuất)</string>
   <string name="templates_learn_more_link">Tìm hiểu thêm</string>
-  <string name="templates_description_incomplete">Bản mẫu do người dùng tạo ra và có thể thiếu mô tả đầy đủ.</string>
+  <string name="templates_description_incomplete">Bản mẫu do người dùng tạo ra và có thể chưa có mô tả đầy đủ.</string>
   <string name="templates_description_empty">Bản mẫu \"%s\" vẫn chưa có mô tả.</string>
   <string name="templates_description_missing_data">Bản mẫu này bị thiếu &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;dữ liệu bản mẫu&lt;/a&gt; và các tham số của nó đã được &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;tự động tạo&lt;/a&gt;. Do đó, cả bản mẫu và các tham số của nó đều thiếu mô tả.</string>
   <string name="main_drawer_help">Trợ giúp</string>
@@ -1281,8 +1281,8 @@
   <string name="talk_new_topic_submitted">Đã đăng chủ đề.</string>
   <string name="talk_warn">Cảnh báo</string>
   <string name="talk_warn_save_dialog_title">Lưu thay đổi?</string>
-  <string name="talk_warn_save_dialog_message">Lưu dưới dạng lời nhắn mới</string>
-  <string name="talk_warn_save_dialog_existing_new_message">Lưu dưới dạng lời nhắn mới vào danh sách</string>
+  <string name="talk_warn_save_dialog_message">Lưu thành lời nhắn mới</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Lưu lời nhắn mới vào danh sách</string>
   <string name="talk_warn_save_dialog_existing_update_message">Cập nhật lời nhắn hiện có</string>
   <string name="talk_warn_save_dialog_hint">Tiêu đề lời nhắn</string>
   <string name="talk_warn_save_dialog_publish">Xuất bản</string>
@@ -1428,8 +1428,8 @@
   <string name="watchlist_filter_type_of_change_header">Kiểu thay đổi</string>
   <string name="watchlist_filter_type_of_change_page_edits">Sửa đổi trang</string>
   <string name="watchlist_filter_type_of_change_page_creations">Tạo trang</string>
-  <string name="watchlist_filter_type_of_change_category_changes">Thay đổi thể loại</string>
-  <string name="watchlist_filter_type_of_change_wikidata_edits">Chỉnh sửa Wikidata</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Sửa thể loại</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Sửa Wikidata</string>
   <string name="watchlist_filter_type_of_change_logged_actions">Tác vụ được ghi trong nhật trình</string>
   <string name="watchlist_filter_type_of_change_new_users">Thành viên mới</string>
   <string name="watchlist_filter_reset_button">Thiết lập lại</string>
@@ -1525,8 +1525,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Bạn là một phần của 2%% đã chọn hỗ trợ nguồn tài nguyên mà hàng triệu người đang dựa vào. Để thể hiện lòng biết ơn của chúng tôi, bảng điều khiển đóng góp của bạn đã được cập nhật để ghi nhận trạng thái của bạn là người quyên góp. Bạn có muốn xem bản cập nhật không?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Thôi</string>
   <string name="contributions_dashboard_donation_dialog_ok">Có, đưa tôi qua đó</string>
-  <string name="contributions_dashboard_entry_dialog_title">Bảng điều khiển đóng góp của bạn đã được cập nhật</string>
-  <string name="contributions_dashboard_entry_dialog_message">Bảng điều khiển đóng góp hiện hiển thị thông tin chi tiết về trạng thái người quyên góp của bạn. Bạn có muốn xem lại tính năng thử nghiệm này không?</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Bảng điều khiển đóng góp của bạn đã được cập nhật</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Bảng điều khiển đóng góp hiện hiển thị thông tin chi tiết về trạng thái người quyên góp của bạn. Bạn có muốn xem lại tính năng thử nghiệm này không?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Thôi</string>
   <string name="contributions_dashboard_entry_dialog_ok">Có, đưa tôi qua đó</string>
   <string name="contributions_dashboard_badge_donor">Nhà hảo tâm</string>
