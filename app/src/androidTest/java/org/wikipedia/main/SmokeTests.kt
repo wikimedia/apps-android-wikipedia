@@ -1,5 +1,6 @@
 package org.wikipedia.main
 
+import android.os.Build
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
@@ -7,14 +8,19 @@ import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
+import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.action.ViewActions.swipeLeft
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.web.assertion.WebViewAssertions
 import androidx.test.espresso.web.sugar.Web.onWebView
+import androidx.test.espresso.web.webdriver.DriverAtoms
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
@@ -23,6 +29,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
+import com.google.android.apps.common.testing.accessibility.framework.utils.contrast.Color
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
@@ -140,130 +147,130 @@ class SmokeTests {
             .perform(webClick())
 
         TestUtil.delay(3)
-//
-//        // Click through the preview to load a new article
-//        onView(allOf(withId(R.id.link_preview_toolbar)))
-//            .perform(click())
-//
-//        TestUtil.delay(3)
-//
-//        // Click on another link
-//        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='Sphere']"))
-//            .perform(webClick())
-//
-//        TestUtil.delay(3)
-//
-//        // Open it in a new tab
-//        onView(allOf(withId(R.id.link_preview_secondary_button)))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Ensure that there are now two tabs
-//        onView(allOf(withId(R.id.tabsCountText)))
-//            .check(matches(withText("2")))
-//
-//        // Go back to the original article
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Ensure the header view (with lead image) is displayed
-//        onView(allOf(withId(R.id.page_header_view)))
-//            .check(matches(isDisplayed()))
-//
-//        // Click on the lead image to launch the full-screen gallery
-//        onView(allOf(withId(R.id.view_page_header_image)))
-//            .perform(click())
-//
-//        TestUtil.delay(3)
-//
-//        // Swipe to next image
-//        onView(allOf(withId(R.id.pager))).perform(swipeLeft())
-//
-//        TestUtil.delay(2)
-//
-//        // Click the overflow menu
-//        onView(allOf(withContentDescription("More options"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click to visit image page
-//        onView(allOf(withId(R.id.title), withText("Go to image page"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Go back to gallery view
-//        pressBack()
-//
-//        // Go back to the article
-//        pressBack()
-//
-//        onWebView().forceJavascriptEnabled()
-//
-//        // Ensure the article title matches what we expect
-//        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-//                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
-//
-//        // Rotate the display to landscape
-//        device.setOrientationRight()
-//
-//        TestUtil.delay(2)
-//
-//        // Make sure the header view (with lead image) is not shown in landscape mode
-//        onView(allOf(withId(R.id.page_header_view)))
-//                .check(matches(TestUtil.isNotVisible()))
-//
-//        // Make sure the article title still matches what we expect
-//        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-//                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
-//
-//        // Rotate the device back to the original orientation
-//        device.setOrientationNatural()
-//
-//        TestUtil.delay(2)
-//
-//        device.unfreezeRotation()
-//
-//        // Bring up the theme chooser dialog
-//        onView(withId(R.id.page_theme)).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Switch off the "match system theme" option
-//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-//            onView(withId(R.id.theme_chooser_match_system_theme_switch))
-//                    .check(matches(TestUtil.isNotVisible()))
-//        } else {
-//            onView(withId(R.id.theme_chooser_match_system_theme_switch))
-//                .perform(scrollTo(), click())
-//
-//            TestUtil.delay(1)
-//        }
-//
-//        // Select the Black theme
-//        onView(withId(R.id.button_theme_black)).perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(1)
-//
-//        // Make sure the background is black
-//        onView(withId(R.id.page_actions_tab_layout)).check(matches(TestUtil.hasBackgroundColor(Color.BLACK)))
-//
-//        // Go back to the Light theme
-//        onView(withId(R.id.page_theme))
-//                .perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        onView(withId(R.id.button_theme_light)).perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
+
+        // Click through the preview to load a new article
+        onView(allOf(withId(R.id.link_preview_toolbar)))
+            .perform(click())
+
+        TestUtil.delay(3)
+
+        // Click on another link
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='Sphere']"))
+            .perform(webClick())
+
+        TestUtil.delay(3)
+
+        // Open it in a new tab
+        onView(allOf(withId(R.id.link_preview_secondary_button)))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        // Ensure that there are now two tabs
+        onView(allOf(withId(R.id.tabsCountText)))
+            .check(matches(withText("2")))
+
+        // Go back to the original article
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Ensure the header view (with lead image) is displayed
+        onView(allOf(withId(R.id.page_header_view)))
+            .check(matches(isDisplayed()))
+
+        // Click on the lead image to launch the full-screen gallery
+        onView(allOf(withId(R.id.view_page_header_image)))
+            .perform(click())
+
+        TestUtil.delay(3)
+
+        // Swipe to next image
+        onView(allOf(withId(R.id.pager))).perform(swipeLeft())
+
+        TestUtil.delay(2)
+
+        // Click the overflow menu
+        onView(allOf(withContentDescription("More options"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click to visit image page
+        onView(allOf(withId(R.id.title), withText("Go to image page"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Go back to gallery view
+        pressBack()
+
+        // Go back to the article
+        pressBack()
+
+        onWebView().forceJavascriptEnabled()
+
+        // Ensure the article title matches what we expect
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
+
+        // Rotate the display to landscape
+        device.setOrientationRight()
+
+        TestUtil.delay(2)
+
+        // Make sure the header view (with lead image) is not shown in landscape mode
+        onView(allOf(withId(R.id.page_header_view)))
+                .check(matches(TestUtil.isNotVisible()))
+
+        // Make sure the article title still matches what we expect
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
+
+        // Rotate the device back to the original orientation
+        device.setOrientationNatural()
+
+        TestUtil.delay(2)
+
+        device.unfreezeRotation()
+
+        // Bring up the theme chooser dialog
+        onView(withId(R.id.page_theme)).perform(click())
+
+        TestUtil.delay(2)
+
+        // Switch off the "match system theme" option
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            onView(withId(R.id.theme_chooser_match_system_theme_switch))
+                    .check(matches(TestUtil.isNotVisible()))
+        } else {
+            onView(withId(R.id.theme_chooser_match_system_theme_switch))
+                .perform(scrollTo(), click())
+
+            TestUtil.delay(1)
+        }
+
+        // Select the Black theme
+        onView(withId(R.id.button_theme_black)).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(1)
+
+        // Make sure the background is black
+        onView(withId(R.id.page_actions_tab_layout)).check(matches(TestUtil.hasBackgroundColor(Color.BLACK)))
+
+        // Go back to the Light theme
+        onView(withId(R.id.page_theme))
+                .perform(click())
+
+        TestUtil.delay(1)
+
+        onView(withId(R.id.button_theme_light)).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        pressBack()
 //
 //        // Click the edit pencil at the top of the article
 //        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))

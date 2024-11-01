@@ -8,17 +8,24 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.action.ViewActions.swipeLeft
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.not
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
+
+    protected fun clickWithId(@IdRes viewId: Int) {
+        onView(withId(viewId)).perform(click())
+    }
 
     protected fun clickOnDisplayedView(@IdRes viewId: Int) {
         onView(allOf(withId(viewId), isDisplayed())).perform(click())
@@ -26,6 +33,10 @@ abstract class BaseRobot {
 
     protected fun clicksOnDisplayedViewWithText(@IdRes viewId: Int, text: String) {
         onView(allOf(withId(viewId), withText(text), isDisplayed())).perform(click())
+    }
+
+    protected fun clickOnDisplayedViewWithContentDescription(description: String) {
+        onView(allOf(withContentDescription(description), isDisplayed())).perform(click())
     }
 
     protected fun typeTextInView(@IdRes viewId: Int, text: String) {
@@ -42,8 +53,16 @@ abstract class BaseRobot {
         onView(withId(viewId)).perform(scrollTo())
     }
 
+    protected fun scrollToViewAndClick(@IdRes viewId: Int) {
+        onView(withId(viewId)).perform(scrollTo(), click())
+    }
+
     protected fun checkViewExists(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(isDisplayed()))
+    }
+
+    protected fun checkViewDoesNotExist(@IdRes viewId: Int) {
+        onView(withId(viewId)).check(matches(not(isDisplayed())))
     }
 
     // View Assertions helpers
@@ -62,6 +81,10 @@ abstract class BaseRobot {
     protected fun checkWithTextIsDisplayed(@IdRes viewId: Int, text: String) {
         onView(allOf(withId(viewId), withText(text), isDisplayed()))
             .check(matches(withText(text)))
+    }
+
+    protected fun swipeLeft(@IdRes viewId: Int) {
+        onView(withId(viewId)).perform(swipeLeft())
     }
 
     protected fun goBack() {

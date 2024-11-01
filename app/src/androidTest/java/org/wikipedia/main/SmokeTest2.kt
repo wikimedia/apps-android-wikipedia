@@ -6,15 +6,15 @@ import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
-import org.wikipedia.base.TestConfig.Articles.ARTICLE_TITLE
-import org.wikipedia.base.TestConfig.Articles.SEARCH_TERM
 import org.wikipedia.robots.ArticleRobot
 import org.wikipedia.robots.OnboardingRobot
 import org.wikipedia.robots.SearchRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class SmokeTest2 : BaseTest() {
+class SmokeTest2 : BaseTest<MainActivity>(
+    MainActivity::class.java
+) {
     private val onboardingRobot = OnboardingRobot()
     private val searchRobot = SearchRobot()
     private val articleRobot = ArticleRobot()
@@ -40,7 +40,29 @@ class SmokeTest2 : BaseTest() {
 
         searchRobot.clickOnItemFromSearchList(0)
 
-        articleRobot.dismissTooltip(activity)
-        articleRobot.clickLink("3-sphere")
+        articleRobot
+            .dismissTooltip(activity)
+            .clickLink("3-sphere")
+            .previewArticle()
+            .clickLink("Sphere")
+            .openInNewTab()
+            .verifyTabCount("2")
+            .goBackToOriginalArticle()
+            .verifyHeaderViewWithLeadImage()
+            .clickLeadImage()
+            .swipeLeft()
+            .clickOverflowMenu("More options")
+            .visitImagePage()
+            .goBackToGalleryView()
+            .goBackToOriginalArticle()
+            .enableJavaScript()
+            .verifyArticleTitle(ARTICLE_TITLE)
+    }
+
+    companion object {
+        const val SEARCH_TERM = "hopf fibration"
+        const val ARTICLE_TITLE = "Hopf fibration"
+        const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
     }
 }
+
