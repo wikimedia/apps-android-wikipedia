@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import org.wikipedia.Constants
 import org.wikipedia.settings.Prefs
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import java.time.LocalDateTime
 import java.time.ZoneId
 
@@ -18,6 +19,7 @@ class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var donorHistoryModified = false
 
     fun saveDonorHistory() {
+        ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = true
         Prefs.hasDonorHistorySaved = true
         if (isDonor) {
             Prefs.isRecurringDonor = isRecurringDonor

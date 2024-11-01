@@ -17,7 +17,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityDonorHistoryBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import java.time.Instant
@@ -94,11 +93,17 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         binding.saveButton.setOnClickListener {
-            viewModel.saveDonorHistory()
-            if (viewModel.shouldGoBackToContributeTab) {
-                startActivity(MainActivity.newIntent(this).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true))
+            if (viewModel.donorHistoryModified) {
+                viewModel.saveDonorHistory()
+                if (viewModel.shouldGoBackToContributeTab) {
+                    startActivity(
+                        MainActivity.newIntent(this)
+                            .putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true)
+                    )
+                } else {
+                    finish()
+                }
             } else {
-                ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = true
                 finish()
             }
         }
