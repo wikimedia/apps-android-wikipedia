@@ -15,7 +15,9 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityDonorHistoryBinding
+import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import java.time.Instant
@@ -46,7 +48,11 @@ class DonorHistoryActivity : BaseActivity() {
                 .setMessage(getString(R.string.edit_abandon_confirm))
                 .setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
                     dialog.dismiss()
-                    finish()
+                    if (viewModel.shouldGoBackToContributeTab) {
+                        startActivity(MainActivity.newIntent(this).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true))
+                    } else {
+                        finish()
+                    }
                 }
                 .setNegativeButton(getString(R.string.edit_abandon_confirm_no)) { dialog, _ ->
                     dialog.dismiss()
@@ -89,8 +95,12 @@ class DonorHistoryActivity : BaseActivity() {
 
         binding.saveButton.setOnClickListener {
             viewModel.saveDonorHistory()
-            setResult(RESULT_DONOR_HISTORY_SAVED)
-            finish()
+            if (viewModel.shouldGoBackToContributeTab) {
+                startActivity(MainActivity.newIntent(this).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true))
+            } else {
+                ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = true
+                finish()
+            }
         }
         updateDonorStatusText()
         updateLastDonatedText()
@@ -185,13 +195,12 @@ class DonorHistoryActivity : BaseActivity() {
 
     companion object {
 
-        private const val RESULT_GO_BACK_TO_CONTRIBUTE_TAB = "goBackToContributeTab"
-        const val RESULT_DONOR_HISTORY_SAVED = 1
+        const val RESULT_GO_BACK_TO_CONTRIBUTE_TAB = "goBackToContributeTab"
 
         fun newIntent(context: Context, completedDonation: Boolean = false, goBackToContributeTab: Boolean = false): Intent {
             return Intent(context, DonorHistoryActivity::class.java)
                 .putExtra(Constants.ARG_BOOLEAN, completedDonation)
-                .putExtra(RESULT_GO_BACK_TO_CONTRIBUTE_TAB, false)
+                .putExtra(RESULT_GO_BACK_TO_CONTRIBUTE_TAB, goBackToContributeTab)
         }
     }
 }

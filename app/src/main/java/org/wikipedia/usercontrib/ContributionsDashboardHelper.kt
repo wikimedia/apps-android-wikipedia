@@ -32,6 +32,9 @@ class ContributionsDashboardHelper {
             return surveyUrls[WikipediaApp.instance.languageState.appLanguageCode].orEmpty()
         }
 
+        // Temporarily value for different access from either entry dialogs, overflow menu or the contribute tab.
+        var shouldShowDonorHistorySnackbar = false
+
         val contributionsDashboardEnabled get() = ReleaseUtil.isPreBetaRelease ||
                 (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
                         enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
