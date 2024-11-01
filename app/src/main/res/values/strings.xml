@@ -1833,7 +1833,7 @@
     <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App Icon. Would you like to update your icon now?</string>
     <string name="contributions_dashboard_donor_icon_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
-    <string-array name="contributions_dashboard_app_icon_updated">App Icon updated</string-array>
+    <string name="contributions_dashboard_app_icon_updated">App Icon updated</string>
     <!-- /Contributions Dashboard -->
 
 </resources>

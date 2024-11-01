@@ -1750,5 +1750,5 @@
   <string name="contributions_dashboard_donor_icon_dialog_message">Message for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
   <string name="contributions_dashboard_donor_icon_dialog_cancel">Negative action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">Positive action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily, which will open the Settings screen.</string>
-  <string-array name="contributions_dashboard_app_icon_updated">Message shown when user updates the app icon from settings.</string-array>
+  <string name="contributions_dashboard_app_icon_updated">Message shown when user updates the app icon from settings.</string>
 </resources>
