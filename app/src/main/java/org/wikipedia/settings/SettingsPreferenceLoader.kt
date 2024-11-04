@@ -53,7 +53,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
         findPreference(R.string.preference_key_send_feedback).onPreferenceClickListener =
             Preference.OnPreferenceClickListener {
-                FeedbackUtil.composeFeedbackEmail(
+                FeedbackUtil.composeEmail(
                     activity,
                     subject = "Android App ${BuildConfig.VERSION_NAME} Feedback",
                     body = deviceInformation()

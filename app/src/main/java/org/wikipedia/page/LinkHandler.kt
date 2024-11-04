@@ -34,7 +34,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
         var href = url
         if (href.startsWith("mailto:")) {
             val emailAddress = href.removePrefix("mailto:")
-            FeedbackUtil.composeFeedbackEmail(context, email = emailAddress, subject = "", body = "")
+            FeedbackUtil.composeEmail(context, email = emailAddress)
             return
         }
 

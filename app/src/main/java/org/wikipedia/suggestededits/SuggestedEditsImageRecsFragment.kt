@@ -334,7 +334,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             R.id.menu_report_feature -> {
                 ImageRecommendationsEvent.logAction("report_problem", "recommendedimagetoolbar",
                     getActionStringForAnalytics(), viewModel.langCode)
-                FeedbackUtil.composeFeedbackEmail(requireContext(),
+                FeedbackUtil.composeEmail(requireContext(),
                     subject = getString(R.string.email_report_image_recommendations_subject),
                     body = getString(R.string.email_report_image_recommendations_body))
                 true
