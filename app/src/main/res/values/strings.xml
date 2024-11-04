@@ -386,7 +386,7 @@
     <string name="redirected_from_snackbar">Redirected from \"%s\"</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
-    <string name="preference_title_customize_explore_feed">Explore Feed</string>
+    <string name="preference_title_customize_explore_feed">Explore feed</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
     <string name="preference_summary_customize_explore_feed">Customize the Explore feed</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
@@ -1830,10 +1830,10 @@
     <string name="contributions_dashboard_tab_last_donated">Last donated</string>
     <string name="contributions_dashboard_tab_update_button">Update</string>
     <string name="contributions_dashboard_donor_icon_dialog_title">Thank you for being a donor.</string>
-    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App Icon. Would you like to update your icon now?</string>
+    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App icon. Would you like to update your icon now?</string>
     <string name="contributions_dashboard_donor_icon_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
-    <string name="contributions_dashboard_app_icon_updated">App Icon updated</string>
+    <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
     <!-- /Contributions Dashboard -->
 
 </resources>
