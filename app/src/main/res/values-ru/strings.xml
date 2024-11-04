@@ -1742,4 +1742,6 @@
   <string name="contributions_dashboard_badge_update">Обновить статус донора</string>
   <string name="contributions_dashboard_app_icon_title">Значок приложения</string>
   <string name="contributions_dashboard_tab_update_button">Обновить</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Нет, спасибо</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, перейти в настройки</string>
 </resources>
