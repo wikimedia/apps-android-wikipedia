@@ -6,8 +6,8 @@ import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
-import org.wikipedia.robots.ArticleRobot
 import org.wikipedia.robots.OnboardingRobot
+import org.wikipedia.robots.PageRobot
 import org.wikipedia.robots.SearchRobot
 
 @LargeTest
@@ -17,7 +17,7 @@ class SmokeTest2 : BaseTest<MainActivity>(
 ) {
     private val onboardingRobot = OnboardingRobot()
     private val searchRobot = SearchRobot()
-    private val articleRobot = ArticleRobot()
+    private val pageRobot = PageRobot()
 
     @Test
     fun smokeTest2() {
@@ -40,7 +40,7 @@ class SmokeTest2 : BaseTest<MainActivity>(
 
         searchRobot.clickOnItemFromSearchList(0)
 
-        articleRobot
+        pageRobot
             .dismissTooltip(activity)
             .clickLink("3-sphere")
             .previewArticle()
@@ -65,4 +65,3 @@ class SmokeTest2 : BaseTest<MainActivity>(
         const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
     }
 }
-

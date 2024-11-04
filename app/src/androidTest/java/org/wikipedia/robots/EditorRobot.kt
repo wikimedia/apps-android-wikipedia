@@ -1,21 +1,10 @@
 package org.wikipedia.robots
 
-import androidx.test.espresso.web.sugar.Web.onWebView
-import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
-import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
-import androidx.test.espresso.web.webdriver.Locator
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
-class EditorRobot: BaseRobot() {
-    fun clickEditPencilAtTopOfArticle() = apply {
-        onWebView()
-            .withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
-            .perform(webClick())
-        delay(TestConfig.DELAY_SHORT)
-    }
-
+class EditorRobot : BaseRobot() {
     fun clickEditIntroductionMenuItem() = apply {
         clicksOnDisplayedViewWithText(viewId = R.id.title, text = "Edit introduction")
         delay(TestConfig.DELAY_LARGE)
@@ -39,11 +28,27 @@ class EditorRobot: BaseRobot() {
     }
 
     fun clickDefaultEditSummaryChoices() = apply {
-        scrollToTextAndClick("Fixed Typo")
+        scrollToTextAndClick("Fixed typo")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun goBackOutOfEditingWorkflow() = apply {
+    fun navigateUp() = apply {
         clickOnDisplayedViewWithContentDescription("Navigate up")
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun remainInEditWorkflow() = apply {
+        clicksOnDisplayedViewWithText(android.R.id.button2, "No")
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun leaveEditWorkflow() = apply {
+        clicksOnDisplayedViewWithText(android.R.id.button1, "Yes")
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun pressBack() = apply {
+        goBack()
+        delay(TestConfig.DELAY_SHORT)
     }
 }

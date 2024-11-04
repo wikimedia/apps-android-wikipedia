@@ -9,7 +9,6 @@ import androidx.test.uiautomator.UiDevice
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
-import org.wikipedia.main.MainActivity
 import java.util.concurrent.TimeUnit
 
 object TestConfig {
@@ -18,7 +17,7 @@ object TestConfig {
     const val DELAY_LARGE = 5L
 }
 
-abstract class BaseTest<T: AppCompatActivity>{
+abstract class BaseTest<T : AppCompatActivity> {
     @get:Rule
     val activityScenarioRule: ActivityScenarioRule<T>
 

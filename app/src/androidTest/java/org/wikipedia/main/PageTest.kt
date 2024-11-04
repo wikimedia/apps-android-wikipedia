@@ -11,13 +11,13 @@ import org.wikipedia.main.SmokeTest2.Companion.ARTICLE_TITLE
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
-import org.wikipedia.robots.ArticleRobot
 import org.wikipedia.robots.EditorRobot
-
+import org.wikipedia.robots.PageRobot
+import org.wikipedia.robots.ThemeRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class ArticleTest: BaseTest<PageActivity>(
+class PageTest : BaseTest<PageActivity>(
     PageActivity::class.java,
     {
         action = ACTION_LOAD_IN_CURRENT_TAB
@@ -25,13 +25,13 @@ class ArticleTest: BaseTest<PageActivity>(
         putExtra(Constants.ARG_TITLE, FakeData.historyEntry.title)
     }
 ) {
-    private val articleRobot = ArticleRobot()
+    private val pageRobot = PageRobot()
     private val editorRobot = EditorRobot()
     private val themeRobot = ThemeRobot()
 
     @Test
     fun articlePageTest() {
-        articleRobot
+        pageRobot
             .dismissTooltip(activity)
             .clickLink("3-sphere")
             .previewArticle()
@@ -49,7 +49,7 @@ class ArticleTest: BaseTest<PageActivity>(
             .enableJavaScript()
             .verifyArticleTitle(ARTICLE_TITLE)
         setDeviceOrientation(isLandscape = true)
-        articleRobot
+        pageRobot
             .verifyLeadImageIsNotVisible()
             .verifyArticleTitle(ARTICLE_TITLE)
         setDeviceOrientation(isLandscape = false)
@@ -62,9 +62,9 @@ class ArticleTest: BaseTest<PageActivity>(
             .goBackToLightTheme()
             .pressBack()
 
-        editorRobot
+        pageRobot
             .clickEditPencilAtTopOfArticle()
+        editorRobot
             .clickEditIntroductionMenuItem()
     }
 }
-

@@ -11,10 +11,12 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
 import org.wikipedia.robots.EditorRobot
+import org.wikipedia.robots.PageRobot
+import org.wikipedia.robots.ThemeRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class EditArticleTest: BaseTest<PageActivity>(
+class EditArticleTest : BaseTest<PageActivity>(
     PageActivity::class.java,
     {
         action = ACTION_LOAD_IN_CURRENT_TAB
@@ -22,14 +24,15 @@ class EditArticleTest: BaseTest<PageActivity>(
         putExtra(Constants.ARG_TITLE, FakeData.historyEntry.title)
     }
 ) {
-
     private val editorRobot = EditorRobot()
     private val themeRobot = ThemeRobot()
+    private val pageRobot = PageRobot()
 
     @Test
     fun editTest() {
-        editorRobot
+        pageRobot
             .clickEditPencilAtTopOfArticle()
+        editorRobot
             .clickEditIntroductionMenuItem()
             .dismissDialogIfShown()
         themeRobot
@@ -46,8 +49,13 @@ class EditArticleTest: BaseTest<PageActivity>(
             .tapNext()
             .tapNext()
             .clickDefaultEditSummaryChoices()
-            .goBackOutOfEditingWorkflow()
-
-
+            .navigateUp()
+            .navigateUp()
+            .navigateUp()
+            .remainInEditWorkflow()
+            .pressBack()
+            .leaveEditWorkflow()
+        pageRobot
+            .launchTabsScreen()
     }
 }

@@ -1,28 +1,29 @@
 package org.wikipedia.robots
 
 import android.app.Activity
-import android.os.Build
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.web.assertion.WebViewAssertions
 import androidx.test.espresso.web.sugar.Web.onWebView
-import androidx.test.espresso.web.webdriver.DriverAtoms
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
-import com.google.android.apps.common.testing.accessibility.framework.utils.contrast.Color
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.wikipedia.R
-import org.wikipedia.TestUtil
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
-class ArticleRobot : BaseRobot() {
+class PageRobot : BaseRobot() {
+    fun clickEditPencilAtTopOfArticle() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
+            .perform(webClick())
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun clickLink(linkTitle: String) = apply {
         clickWebLink(linkTitle)
         delay(TestConfig.DELAY_MEDIUM)
@@ -97,5 +98,10 @@ class ArticleRobot : BaseRobot() {
 
     fun enableJavaScript() = apply {
         onWebView().forceJavascriptEnabled()
+    }
+
+    fun launchTabsScreen() {
+        clickOnDisplayedView(R.id.page_toolbar_button_tabs)
+        delay(TestConfig.DELAY_MEDIUM)
     }
 }

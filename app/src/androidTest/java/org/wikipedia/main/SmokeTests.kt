@@ -347,35 +347,35 @@ class SmokeTests {
         onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
 
         TestUtil.delay(1)
-//
-//        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        // Choose to remain in the editing workflow
-//        onView(allOf(withId(android.R.id.button2), withText("No"))).perform(scrollTo(), click())
-//
-//        TestUtil.delay(1)
-//
-//        pressBack()
-//
-//        TestUtil.delay(1)
-//
-//        // Choose to leave the editing workflow
-//        onView(allOf(withId(android.R.id.button1), withText("Yes")))
-//                .perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on the Tabs button to launch the tabs screen
-//        onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
-//                .perform(click())
-//
-//        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+        TestUtil.delay(1)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+        TestUtil.delay(1)
+
+        // Choose to remain in the editing workflow
+        onView(allOf(withId(android.R.id.button2), withText("No"))).perform(scrollTo(), click())
+
+        TestUtil.delay(1)
+
+        pressBack()
+
+        TestUtil.delay(1)
+
+        // Choose to leave the editing workflow
+        onView(allOf(withId(android.R.id.button1), withText("Yes")))
+                .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        // Click on the Tabs button to launch the tabs screen
+        onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
 //
 //        // Create a new tab (which should load the Main Page)
 //        onView(allOf(withContentDescription("New tab"), isDisplayed()))
