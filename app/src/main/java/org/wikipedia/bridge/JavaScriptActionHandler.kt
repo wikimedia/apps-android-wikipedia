@@ -183,6 +183,12 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
+    fun mobileWebSetDarkMode(): String {
+        return "(function() {" +
+                "document.documentElement.classList.add('skin-theme-clientpref-night');" +
+                "})();"
+    }
+
     fun getElementAtPosition(x: Int, y: Int): String {
         return "(function() {" +
                 "  let element = document.elementFromPoint($x, $y);" +

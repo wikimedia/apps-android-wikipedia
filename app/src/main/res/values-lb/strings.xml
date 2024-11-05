@@ -21,6 +21,7 @@
   <string name="nav_item_suggested_edits">Ännerungen</string>
   <string name="nav_item_more">Méi</string>
   <string name="nav_item_search">Sichen</string>
+  <string name="nav_item_contribute">Bäidroen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
@@ -55,7 +56,7 @@
   <string name="page_edit_history_filter_by">Filteren no</string>
   <string name="page_edit_history_filter_by_all">All Ännerungen (%s)</string>
   <string name="page_edit_history_filter_by_user">Benotzer-Ännerungen (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonym Ännerungen (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Net-ugemellten Ännerungen (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot-Ännerungen (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrike vum %1$s bis de(n) %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -154,6 +155,8 @@
   <string name="logged_out_in_background_dialog">Dir gouft aus der Wikipedia ausgeloggt. Wëllt Dir Iech erëm aloggen?</string>
   <string name="logged_out_in_background_login">Aloggen</string>
   <string name="logged_out_in_background_cancel">Ofbriechen</string>
+  <string name="account_vanish_request_title">Kont opléisen</string>
+  <string name="account_vanish_request_confirm_title">Kontoopléisungswarnung</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
   <string name="history_empty_message">Markéiert dat wat Dir hei gelies hutt.</string>
   <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>
@@ -934,8 +937,8 @@
   <string name="image_recommendation_accept">Jo</string>
   <string name="image_recommendation_reject">Neen</string>
   <string name="image_recommendation_notsure">Net sécher</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Firwat net?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Är Äntwerte wäerten zukünfteg Virschléi besser maachen.</string>
+  <string name="image_recommendation_reject_title">Ofleenungsgrond</string>
+  <string name="image_recommendation_reject_subtitle">Den Ofleenungsgrond ass anonym a wäert zukünfteg Bildvirschléi besser maachen.</string>
   <string name="image_recommendation_reject_not_relevant">D\'Bild ass net relevant</string>
   <string name="image_recommendation_reject_no_info">Net genuch Informatioune fir ze decidéieren</string>
   <string name="image_recommendation_reject_low_quality">Bild huet eng niddreg Qualitéit</string>
@@ -1012,7 +1015,7 @@
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_underline">Ënnersträichen</string>
   <string name="wikitext_strikethrough">Duerchsträichen</string>
-  <string name="wikitext_sup">Exposant</string>
+  <string name="wikitext_sup">Héichgestallt</string>
   <string name="wikitext_large">Groussen Text</string>
   <string name="wikitext_small">Klengen Text</string>
   <string name="wikitext_code">Code</string>
@@ -1055,6 +1058,7 @@
   <string name="templates_insert_button">Drasetzen</string>
   <string name="templates_param_suggested_value">z.&amp;nbsp;B %s</string>
   <string name="templates_param_optional_hint">%s (Fakultativ)</string>
+  <string name="templates_learn_more_link">Méi gewuer ginn</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_drawer_login">Aloggen / bei Wikipedia matmaachen</string>
   <string name="main_tooltip_text">Salut %s, wousst Dir, datt jiddwereen op Wikipedia Ännerunge maache kann?</string>
@@ -1076,6 +1080,7 @@
   <string name="talk_warn_save_dialog_publish">Verëffentlechen</string>
   <string name="talk_warn_save_dialog_cancel">Ofbriechen</string>
   <string name="talk_warn_save_dialog_dont_save">Net späicheren</string>
+  <string name="talk_warn_saved_messages">Gespäichert Messagen</string>
   <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
   <string name="talk_page_empty_title">D\'Konversatioun fänkt hei un</string>
   <string name="talk_add_reply">Äntweren</string>
@@ -1332,6 +1337,7 @@
   <string name="patroller_saved_message_title_vandalism">Vandalismuswarnung</string>
   <string name="patroller_saved_message_title_auto_trans">Automatesch Iwwersetzung</string>
   <string name="patroller_saved_message_title_final_warning">Lescht Warnung</string>
+  <string name="talk_templates_menu_edit_title">Änneren</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
   <string name="page_issues_title">Problemer mat der Säit</string>
@@ -1366,4 +1372,6 @@
   <string name="contributions_dashboard_donation_dialog_title">Merci, datt Dir fräit Wëssen ënnerstëtzt</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Nee, merci</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Nee, merci</string>
+  <string name="contributions_dashboard_tab_update_button">Aktualiséieren</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nee, merci</string>
 </resources>

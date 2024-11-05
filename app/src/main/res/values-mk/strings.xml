@@ -37,7 +37,7 @@
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
   <string name="notification_archive_undo">Врати</string>
-  <string name="app_settings">Поставки за прилогот</string>
+  <string name="app_settings">Нагодувања за прилогот</string>
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
   <string name="image_content_description">Слика: %s</string>
@@ -594,7 +594,7 @@
   <string name="reading_list_turned_sync_off_dialog_title">Усогласувањето на списоците за читање е исклучено</string>
   <string name="reading_list_turned_sync_off_dialog_text">Усогласувањето на списоците за читање е исклучено, а зачуваните статии на уредите од кои сте се најавиле повеќе не се во резерва. Вклучете ги списоците за читање во Поставките.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ОК</string>
-  <string name="reading_list_turned_sync_off_dialog_settings">Поставки</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Нагодувања</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Да го вклучам усогласувањето на списоците за читање?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Статиите зачувани во списоци за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"#faq\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не прикажувај повеќе</string>
@@ -658,7 +658,7 @@
   <string name="reading_lists_preview_save_dialog_save">Зачувај</string>
   <string name="reading_lists_preview_saved_snackbar">Списокот а читање е зачуван</string>
   <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
-  <string name="user_option_sync_label">Поставки</string>
+  <string name="user_option_sync_label">Нагодувања</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
   <string name="notification_channel_description">Напредок на подигањето</string>
@@ -752,7 +752,7 @@
   <string name="preference_summary_notification_article_linked">Се добива кога некој ќе стави нова врска ваша до статија</string>
   <string name="preference_category_push_notifications">Доставни известувања</string>
   <string name="preference_title_customize_push_notifications">Прилагоди доставни известувања</string>
-  <string name="preference_category_display_settings">Поставки за приказ</string>
+  <string name="preference_category_display_settings">Нагодувања за приказ</string>
   <string name="preference_title_hide_read_notifications">Скриј прочитани известувања</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Википедија</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Известувања од Википедија</string>
@@ -1002,7 +1002,6 @@
   <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и да добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси досега.</string>
-  <string name="suggested_edits_edit_stat_tooltip">Вкупно ваши уредувања досега.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредивте во изминатите 30 дена.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања (поништени од друг корисник). Отповикани уредувања: %d.</string>
@@ -1705,8 +1704,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Вие сте дел од 2 ‰ кои избраа да го поддржат ресурсот на кој се потпираат милиони. За да ја искажеме нашата благодарност, вашата управувачница на дарувања е подновена како признание на вашиот статус на дарител. Дали би сакале да ја видите подновата?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Не, благодарам</string>
   <string name="contributions_dashboard_donation_dialog_ok">Да, покажи ми</string>
-  <string name="contributions_dashboard_entry_dialog_title">Вашата управувачница со придонеси е подновена</string>
-  <string name="contributions_dashboard_entry_dialog_message">Управувачницата со придонеси сега прикажува поединости за вашиот статус на дарител. Сакате да ја разгледате оваа опитна функција?</string>
+  <string name="contributions_dashboard_entry_dialog_title">Истражете ги новите додатоци во управувачницата со придонеси</string>
+  <string name="contributions_dashboard_entry_dialog_message">Управувачницата со придонеси сега го прикажува вашиот дарителски статус. Сакате да ја разгледате оваа опитна функција?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Не, благодарам</string>
   <string name="contributions_dashboard_entry_dialog_ok">Да, покажи ми</string>
   <string name="contributions_dashboard_badge_donor">Дарител</string>
@@ -1715,4 +1714,11 @@
   <string name="contributions_dashboard_app_icon_title">Икона на прилогот</string>
   <string name="contributions_dashboard_app_icon_subtitle">Погодност на дарителот</string>
   <string name="contributions_dashboard_logged_out_user">Одјавен корисник</string>
+  <string name="contributions_dashboard_tab_last_donated">Последен пат дарувал</string>
+  <string name="contributions_dashboard_tab_update_button">Поднови</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Ви благодариме што сте дарител.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Отклучивтеп привремена прилагодена икона. Можете да се префрлите на неа преку вашите нагодувања под Икона на прилогот. Дали би сакале да ја измените вашата икона сега?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, донеси ме на Нагодувањата</string>
+  <string name="contributions_dashboard_app_icon_updated">Иконата на прилогот е подновена</string>
 </resources>

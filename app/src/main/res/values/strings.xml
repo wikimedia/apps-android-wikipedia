@@ -386,7 +386,7 @@
     <string name="redirected_from_snackbar">Redirected from \"%s\"</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
-    <string name="preference_title_customize_explore_feed">Explore Feed</string>
+    <string name="preference_title_customize_explore_feed">Explore feed</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
     <string name="preference_summary_customize_explore_feed">Customize the Explore feed</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
@@ -1050,7 +1050,6 @@
     <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
     <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions so far.</string>
-    <string name="suggested_edits_edit_stat_tooltip">Your total number of edits so far.</string>
     <string name="suggested_edits_edit_streak_stat_tooltip">How many days in a row that you have made contributions. If you haven\'t contributed in a while, it shows your last contribution date.</string>
     <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items to which you have contributed in the last 30 days.</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
@@ -1818,8 +1817,8 @@
     <string name="contributions_dashboard_donation_dialog_message">You are a part of the 2%% that chose to support the resource millions rely on. To demonstrate our gratitude, your contributions dashboard has been updated to recognize your status as a donor. Would you like to see the update?</string>
     <string name="contributions_dashboard_donation_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_donation_dialog_ok">Yes, take me there</string>
-    <string name="contributions_dashboard_entry_dialog_title">Your contributions dashboard has been updated</string>
-    <string name="contributions_dashboard_entry_dialog_message">The contributions dashboard now displays details about your donor status. Want to review this experimental feature?</string>
+    <string name="contributions_dashboard_entry_dialog_title">Explore the new additions to the contributions dashboard</string>
+    <string name="contributions_dashboard_entry_dialog_message">The contributions dashboard now displays donor statuses. Want to review this experimental feature?</string>
     <string name="contributions_dashboard_entry_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_entry_dialog_ok">Yes, take me there</string>
     <string name="contributions_dashboard_badge_donor">Donor</string>
@@ -1828,7 +1827,13 @@
     <string name="contributions_dashboard_app_icon_title">App icon</string>
     <string name="contributions_dashboard_app_icon_subtitle">Donor benefit</string>
     <string name="contributions_dashboard_logged_out_user">Logged-out user</string>
+    <string name="contributions_dashboard_tab_last_donated">Last donated</string>
+    <string name="contributions_dashboard_tab_update_button">Update</string>
+    <string name="contributions_dashboard_donor_icon_dialog_title">Thank you for being a donor.</string>
+    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App icon. Would you like to update your icon now?</string>
+    <string name="contributions_dashboard_donor_icon_dialog_cancel">No, thanks</string>
+    <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
+    <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
     <!-- /Contributions Dashboard -->
-
 
 </resources>

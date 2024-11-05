@@ -430,7 +430,7 @@
   <string name="temp_account_not_logged_in">Siz daxil olmamısınız</string>
   <string name="temp_account_anon_ip_dialog_body">Redaktə etdikdən sonra IP ünvanınız redaktələrinizlə əlaqələndiriləcək.&lt;br /&gt;&lt;br /&gt; Gələcək redaktələrinizdə istinad edilmək və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaradın&lt;/a&gt;.</string>
   <string name="temp_account_anon_dialog_body">Redaktə etdikdən sonra məxfiliyinizi qorumaq üçün sizin üçün &lt;b&gt;müvəqqəti hesab&lt;/b&gt; yaradılacaq. &lt;a href=\"%1$s\"&gt;Ətraflı öyrənin&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Gələcəkdə adınıza istinad verilməsi üçün və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaradın.&lt;/a&gt;</string>
-  <string name="temp_account_temp_dialog_body">Redaktəniz %1$s ilə əlaqələndiriləcək. IP ünvanınız administratorlara görünəcək.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Daxil olsanız&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaratsanız&lt;/a&gt;, redaktələriniz digər üstünlüklərlə birlikdə seçdiyiniz ada aid ediləcək.</string>
+  <string name="temp_account_temp_dialog_body">Redaktəniz %1$s ilə əlaqələndiriləcək. IP ünvanınız administratorlara görünəcək.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Daxil olsanız&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaratsanız&lt;/a&gt;, redaktələriniz digər üstünlüklərlə birlikdə seçdiyiniz ada aid ediləcək.</string>
   <string name="temp_account_dialog_ok">Başa düşdüm</string>
   <string name="temp_account_using_title">Siz müvəqqəti hesabdan istifadə edirsiniz</string>
   <string name="temp_account_dialog_discard">Dəyişiklikləri ləğv edin və daxil olun</string>
@@ -998,7 +998,6 @@
   <string name="suggested_edits_image_captions_task_detail">Oxuculara onun mənasını və kontekstini anlamağa kömək etmək üçün şəkli təsvir edin.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Oxucuların mövzunu bir baxışda başa düşməsinə kömək etmək üçün məqaləni ümumiləşdirin.</string>
   <string name="suggested_edits_contributions_stat_tooltip">İndiyə qədər verdiyiniz töhfələrin ümumi sayı.</string>
-  <string name="suggested_edits_edit_stat_tooltip">İndiyə qədər etdiyiniz redaktələrin ümumi sayı.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Ardıcıl olaraq töhfə verdiyiniz gün sayı. Bir müddətdir töhfə verməmisinizsə, o, son töhfə tarixinizi göstərir.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Son 30 gündə töhfə verdiyiniz elementlərə gələn ümumi baxış sayı.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Töhfələrinizdən birinin neçə dəfə geri qaytarıldığına (başqa redaktor tərəfindən geri qaytarıldığına) əsaslanır. Geri qaytarılan redaktələr: %d .</string>
@@ -1696,8 +1695,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Siz milyonların etibar etdiyi resursu dəstəkləməyi seçən 2%%-in bir hissəsisiniz. Minnətdarlığımızı nümayiş etdirmək üçün töhfələr paneliniz donor statusunuzu göstərmək üçün yeniləndi. Yeniləməni görmək istəyirsiniz?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Xeyr, təşəkkürlər</string>
   <string name="contributions_dashboard_donation_dialog_ok">Bəli, məni ora apar</string>
-  <string name="contributions_dashboard_entry_dialog_title">Töhfələr paneliniz yeniləndi</string>
-  <string name="contributions_dashboard_entry_dialog_message">Töhfələr panelində indi donor statusunuz haqqında təfərrüatlar göstərilir. Bu eksperimental xüsusiyyəti nəzərdən keçirmək istəyirsiniz?</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Töhfələr paneliniz yeniləndi</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Töhfələr panelində indi donor statusunuz haqqında təfərrüatlar göstərilir. Bu eksperimental xüsusiyyəti nəzərdən keçirmək istəyirsiniz?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Xeyr, təşəkkürlər</string>
   <string name="contributions_dashboard_entry_dialog_ok">Bəli, məni ora apar</string>
   <string name="contributions_dashboard_badge_donor">Donor</string>
@@ -1706,4 +1705,6 @@
   <string name="contributions_dashboard_app_icon_title">Proqram ikonu</string>
   <string name="contributions_dashboard_app_icon_subtitle">Donorlar üçün</string>
   <string name="contributions_dashboard_logged_out_user">Çıxış etmiş istifadəçi</string>
+  <string name="contributions_dashboard_tab_last_donated">Sonuncu ianə</string>
+  <string name="contributions_dashboard_tab_update_button">Yenilə</string>
 </resources>

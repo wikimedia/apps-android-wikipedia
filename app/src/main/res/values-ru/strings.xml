@@ -1735,10 +1735,13 @@
   <string name="contributions_dashboard_survey_dialog_ok">Поделиться отзывом</string>
   <string name="contributions_dashboard_donation_dialog_title">Спасибо за поддержку бесплатных знаний</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_entry_dialog_title">Панель инструментов вашего вклада обновлена</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Панель инструментов вашего вклада обновлена</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Нет, спасибо</string>
   <string name="contributions_dashboard_badge_donor">Донор</string>
   <string name="contributions_dashboard_badge_become_a_donor">Стать донором</string>
   <string name="contributions_dashboard_badge_update">Обновить статус донора</string>
   <string name="contributions_dashboard_app_icon_title">Значок приложения</string>
+  <string name="contributions_dashboard_tab_update_button">Обновить</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Нет, спасибо</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, перейти в настройки</string>
 </resources>
