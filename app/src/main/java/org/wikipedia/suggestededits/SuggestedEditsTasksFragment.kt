@@ -104,15 +104,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == DonorHistoryActivity.RESULT_DONOR_HISTORY_SAVED) {
-            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
-                binding.tasksContainer.postDelayed({
-                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
-                    Prefs.contributionsDashboardSurveyDialogShown = true
-                }, TimeUnit.SECONDS.toMillis(10))
-            }
-        }
+        maybeShowDonorHistoryUpdatedSnackbar()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -124,7 +116,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-
+        maybeShowDonorHistoryUpdatedSnackbar()
         binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
@@ -441,6 +433,19 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (viewModel.blockMessageCommons.isNullOrEmpty()) {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
+        }
+    }
+
+    private fun maybeShowDonorHistoryUpdatedSnackbar() {
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+            ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
+            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
+                binding.tasksContainer.postDelayed({
+                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
+                    Prefs.contributionsDashboardSurveyDialogShown = true
+                }, TimeUnit.SECONDS.toMillis(10))
+            }
         }
     }
 

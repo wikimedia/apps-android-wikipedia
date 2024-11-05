@@ -451,6 +451,10 @@
             android:key="@string/preference_key_contributions_dashboard_survey_dialog_shown"
             android:title="@string/preference_key_contributions_dashboard_survey_dialog_shown" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_contributions_dashboard_entry_dialog_shown"
+            android:title="@string/preference_key_contributions_dashboard_entry_dialog_shown" />
+
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="ab_test_recommendedContent"
