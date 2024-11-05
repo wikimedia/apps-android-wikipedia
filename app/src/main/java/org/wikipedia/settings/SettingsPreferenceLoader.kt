@@ -19,6 +19,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.FeedbackUtil
 
 /** UI code for app settings used by PreferenceFragment.  */
@@ -50,14 +51,13 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
 
-        when (DonorStatus.donorStatus()) {
-            DonorStatus.DONOR -> {
-                findPreference(R.string.preference_key_app_icon).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                    ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
-                    true
-                }
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && DonorStatus.donorStatus() == DonorStatus.DONOR) {
+            findPreference(R.string.preference_key_app_icon).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
+                true
             }
-            else -> { findPreference(R.string.preference_key_app_icon).isVisible = false }
+        } else {
+            findPreference(R.string.preference_key_app_icon).isVisible = false
         }
 
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
