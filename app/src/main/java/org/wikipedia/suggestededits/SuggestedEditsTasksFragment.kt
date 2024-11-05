@@ -160,7 +160,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                 launch {
                     FlowEventBus.events.collectLatest { event ->
-                        if (event is LoggedOutEvent) {
+                        if (event is LoggedOutEvent &&
+                            (requireActivity() as MainActivity).isCurrentFragmentSelected(this@SuggestedEditsTasksFragment)) {
                             refreshContents()
                         }
                     }
