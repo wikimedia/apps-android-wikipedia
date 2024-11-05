@@ -2,6 +2,10 @@ package org.wikipedia.gallery
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.decodeFromJsonElement
+import org.wikipedia.json.JsonUtil
 
 @Suppress("unused")
 @Serializable
@@ -38,6 +42,9 @@ class ImageInfo {
 
     val mime = "*/*"
 
+    @SerialName("metadata")
+    val plainMetadata: List<MetadataItem> = emptyList()
+
     @SerialName("extmetadata")
     val metadata: ExtMetadata? = null
 
@@ -60,6 +67,16 @@ class ImageInfo {
         return derivative
     }
 
+    fun getMetadataTranslations(): List<String> {
+        plainMetadata.firstOrNull { it.name == "translations" }?.let { meta ->
+            if (meta.value is JsonArray) {
+                val translations = JsonUtil.json.decodeFromJsonElement<List<MetadataItem>>(meta.value)
+                return translations.map { it.name }
+            }
+        }
+        return emptyList()
+    }
+
     @Serializable
     class Derivative {
         val src = ""
@@ -69,5 +86,11 @@ class ImageInfo {
         val width = 0
         private val height = 0
         private val bandwidth: Long = 0
+    }
+
+    @Serializable
+    class MetadataItem {
+        val name = ""
+        val value: JsonElement? = null
     }
 }
