@@ -7,14 +7,18 @@ import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
+import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.action.ViewActions.swipeLeft
+import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isNotFocused
+import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -39,6 +43,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.R
 import org.wikipedia.TestUtil
+import org.wikipedia.TestUtil.childAtPosition
 import java.util.concurrent.TimeUnit
 
 @LargeTest
@@ -393,109 +398,109 @@ class SmokeTests {
         device.click(screenWidth / 2, screenHeight * 50 / 100)
 
         TestUtil.delay(2)
-//
-//        // Swipe down on the WebView to reload the contents
-//        onView(withId(R.id.page_contents_container))
-//                .perform(TestUtil.swipeDownWebView())
-//
-//        TestUtil.delay(5)
-//
-//        // Ensure that the title in the WebView is still what we expect
-//        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-//                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
-//
-//        // Swipe left to show the table of contents
-//        onView(allOf(withId(R.id.page_web_view)))
-//                .perform(swipeLeft())
-//
-//        // Make sure the topmost item in the table of contents is the article title
-//        onView(allOf(withId(R.id.page_toc_item_text), withText(ARTICLE_TITLE)))
-//                .check(matches(isDisplayed()))
-//
-//        // Swipe the table of contents to go all the way to the bottom
-//        onView(allOf(withId(R.id.toc_list)))
-//                .perform(swipeUp())
-//
-//        // Select the "About this article" item
-//        onView(allOf(withId(R.id.page_toc_item_text), withText("About this article")))
-//                .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Go to the Talk page for this article
-//        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='View talk page']"))
-//                .perform(webClick())
-//
-//        TestUtil.delay(4)
-//
-//        // Click on the 3rd topic
-//        onView(withId(R.id.talkRecyclerView))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-//
-//        // Give the page plenty of time to load fully
-//        TestUtil.delay(5)
-//
-//        // Go back out of the Talk interface
-//        pressBack()
-//
-//        // Get back to article screen
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Click on the Save button to add article to reading list
-//        onView(withId(R.id.page_save)).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        // Access article in a different language
-//        onView(allOf(withId(R.id.page_language), withContentDescription("Language"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.langlinks_recycler))).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(3, click()))
-//
-//        TestUtil.delay(2)
-//
-//        // Ensure that the title in the WebView is still what we expect
-//        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-//            .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE_ESPANOL)))
-//
-//        TestUtil.delay(1)
-//
-//        onView(withId(R.id.page_toolbar_button_show_overflow_menu)).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        // Navigate back to Explore feed
-//        onView(withText("Explore")).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Featured article card seen and saved to reading lists
-//        onView(allOf(withId(R.id.view_featured_article_card_content_container),
-//            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.featured.FeaturedArticleCardView")), 0), 1), isDisplayed()))
-//            .perform(scrollTo(), longClick())
-//
-//        onView(allOf(withId(R.id.title), withText("Save"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(3))
-//
-//        TestUtil.delay(2)
-//
-//        // Top read card seen and saved to reading lists
-//        onView(allOf(withId(R.id.view_list_card_list), childAtPosition(withId(R.id.view_list_card_list_container), 0)))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, longClick()))
-//
-//        onView(allOf(withId(R.id.title), withText("Save"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
+
+        // Swipe down on the WebView to reload the contents
+        onView(withId(R.id.page_contents_container))
+                .perform(TestUtil.swipeDownWebView())
+
+        TestUtil.delay(5)
+
+        // Ensure that the title in the WebView is still what we expect
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE)))
+
+        // Swipe left to show the table of contents
+        onView(allOf(withId(R.id.page_web_view)))
+                .perform(swipeLeft())
+
+        // Make sure the topmost item in the table of contents is the article title
+        onView(allOf(withId(R.id.page_toc_item_text), withText(ARTICLE_TITLE)))
+                .check(matches(isDisplayed()))
+
+        // Swipe the table of contents to go all the way to the bottom
+        onView(allOf(withId(R.id.toc_list)))
+                .perform(swipeUp())
+
+        // Select the "About this article" item
+        onView(allOf(withId(R.id.page_toc_item_text), withText("About this article")))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        // Go to the Talk page for this article
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='View talk page']"))
+                .perform(webClick())
+
+        TestUtil.delay(4)
+
+        // Click on the 3rd topic
+        onView(withId(R.id.talkRecyclerView))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+
+        // Give the page plenty of time to load fully
+        TestUtil.delay(5)
+
+        // Go back out of the Talk interface
+        pressBack()
+
+        // Get back to article screen
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Click on the Save button to add article to reading list
+        onView(withId(R.id.page_save)).perform(click())
+
+        TestUtil.delay(1)
+
+        // Access article in a different language
+        onView(allOf(withId(R.id.page_language), withContentDescription("Language"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.langlinks_recycler))).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(3, click()))
+
+        TestUtil.delay(2)
+
+        // Ensure that the title in the WebView is still what we expect
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
+            .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(ARTICLE_TITLE_ESPANOL)))
+
+        TestUtil.delay(1)
+
+        onView(withId(R.id.page_toolbar_button_show_overflow_menu)).perform(click())
+
+        TestUtil.delay(1)
+
+        // Navigate back to Explore feed
+        onView(withText("Explore")).perform(click())
+
+        TestUtil.delay(2)
+
+        // Featured article card seen and saved to reading lists
+        onView(allOf(withId(R.id.view_featured_article_card_content_container),
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.featured.FeaturedArticleCardView")), 0), 1), isDisplayed()))
+            .perform(scrollTo(), longClick())
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(3))
+
+        TestUtil.delay(2)
+
+        // Top read card seen and saved to reading lists
+        onView(allOf(withId(R.id.view_list_card_list), childAtPosition(withId(R.id.view_list_card_list_container), 0)))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, longClick()))
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
 //
 //        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(4))
 //            .perform(click())

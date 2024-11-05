@@ -11,6 +11,7 @@ import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.action.ViewActions.swipeLeft
 import androidx.test.espresso.action.ViewActions.swipeRight
+import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.RootMatchers.isDialog
@@ -35,7 +36,7 @@ import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
 
-    protected fun clickWithId(@IdRes viewId: Int) {
+    protected fun clickOnViewWithId(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(click())
     }
 
@@ -51,7 +52,16 @@ abstract class BaseRobot {
         onView(allOf(withContentDescription(description), isDisplayed())).perform(click())
     }
 
-    protected fun clickWithText(text: String) {
+    protected fun clickOnDisplayedViewWithIdAnContentDescription(
+        @IdRes viewId: Int,
+        description: String
+    ) {
+        onView(allOf(withId(viewId), withContentDescription(description), isDisplayed())).perform(
+            click()
+        )
+    }
+
+    protected fun clickOnViewWithText(text: String) {
         onView(withText(text)).perform(click())
     }
 
@@ -62,7 +72,12 @@ abstract class BaseRobot {
 
     protected fun clickOnItemInList(@IdRes listId: Int, position: Int) {
         onView(withId(listId))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click()))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    click()
+                )
+            )
     }
 
     protected fun scrollToView(@IdRes viewId: Int) {
@@ -85,13 +100,16 @@ abstract class BaseRobot {
         onView(withId(viewId)).check(matches(not(isDisplayed())))
     }
 
-    // View Assertions helpers
-    protected fun assertViewWithTextDisplayed(text: String) {
+    protected fun checkViewWithTextDisplayed(text: String) {
         onView(withText(text)).check(matches(isDisplayed()))
     }
 
-    protected fun assertViewWithIdDisplayed(@IdRes viewId: Int) {
+    protected fun checkViewWithIdDisplayed(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(isDisplayed()))
+    }
+
+    protected fun checkViewWithIdAndText(@IdRes viewId: Int, text: String) {
+        onView(allOf(withId(viewId), withText(text))).check(matches(isDisplayed()))
     }
 
     protected fun delay(seconds: Long) {
@@ -124,7 +142,12 @@ abstract class BaseRobot {
     protected fun verifyH1Title(expectedTitle: String) = apply {
         onWebView()
             .withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-            .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(expectedTitle)))
+            .check(
+                WebViewAssertions.webMatches(
+                    DriverAtoms.getText(),
+                    Matchers.`is`(expectedTitle)
+                )
+            )
     }
 
     protected fun verifyWithMatcher(@IdRes viewId: Int, matcher: Matcher<View>) {
@@ -142,6 +165,7 @@ abstract class BaseRobot {
 
     protected fun swipeDownOnTheWebView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(TestUtil.swipeDownWebView())
+        delay(TestConfig.DELAY_LARGE)
     }
 
     protected fun performIfDialogShown(
@@ -158,6 +182,10 @@ abstract class BaseRobot {
         }
     }
 
+    protected fun swipeUp(@IdRes viewId: Int) {
+        onView(allOf(withId(viewId))).perform(swipeUp())
+    }
+
     protected fun clickRecyclerViewItemAtPosition(@IdRes viewId: Int, position: Int) {
         onView(withId(viewId))
             .perform(
@@ -165,6 +193,13 @@ abstract class BaseRobot {
                     position,
                     click()
                 )
+            )
+    }
+
+    protected fun scrollToPositionInRecyclerView(@IdRes viewId: Int, position: Int) {
+        onView(withId(viewId))
+            .perform(
+                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position)
             )
     }
 }

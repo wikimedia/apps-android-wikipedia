@@ -35,7 +35,7 @@ class ThemeRobot : BaseRobot() {
     }
 
     fun goBackToLightTheme() = apply {
-        clickWithId(R.id.page_theme)
+        clickOnViewWithId(R.id.page_theme)
         delay(TestConfig.DELAY_SHORT)
         scrollToViewAndClick(R.id.button_theme_light)
         delay(TestConfig.DELAY_MEDIUM)

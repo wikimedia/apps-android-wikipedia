@@ -76,8 +76,13 @@ class PageRobot : BaseRobot() {
         checkViewDoesNotExist(R.id.page_header_view)
     }
 
-    fun swipeLeft() = apply {
+    fun swipePagerLeft() = apply {
         swipeLeft(R.id.pager)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun swipeLeftToShowTableOfContents() = apply {
+        swipeLeft(R.id.page_web_view)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -114,7 +119,56 @@ class PageRobot : BaseRobot() {
         clickRecyclerViewItemAtPosition(R.id.tabRecyclerView, position)
     }
 
-    fun swipeDownOnTheWebView() {
+    fun swipeDownOnTheWebView() = apply {
         swipeDownOnTheWebView(R.id.page_contents_container)
+    }
+
+    fun verifyTopMostItemInTableOfContentIs(text: String) = apply {
+       checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
+    }
+
+    fun swipeTableOfContentsAllTheWayToBottom() = apply {
+        swipeUp(R.id.toc_list)
+    }
+
+    fun clickAboutThisArticleText() = apply {
+        clickOnViewWithText("About this article")
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun goToTalkPage() = apply {
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='View talk page']"))
+            .perform(webClick())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickThirdTopic() = apply {
+        clickRecyclerViewItemAtPosition(R.id.talkRecyclerView, 2)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun saveArticleToReadingList() = apply {
+        clickOnViewWithId(R.id.page_save)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun openLanguageSelector() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickLanguageListedAtFourthPosition() = apply {
+        clickRecyclerViewItemAtPosition(R.id.langlinks_recycler, 3)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun openOverflowMenu() = apply {
+        clickOnViewWithId(R.id.page_toolbar_button_show_overflow_menu)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun navigateBackToExploreFeed() = apply {
+        clickOnViewWithText("Explore")
+        delay(TestConfig.DELAY_MEDIUM)
     }
 }

@@ -8,6 +8,7 @@ import org.wikipedia.Constants
 import org.wikipedia.FakeData
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.SmokeTest2.Companion.ARTICLE_TITLE
+import org.wikipedia.main.SmokeTest2.Companion.ARTICLE_TITLE_ESPANOL
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
@@ -39,7 +40,7 @@ class PageTest : BaseTest<PageActivity>(
             .goBackToOriginalArticle()
             .verifyHeaderViewWithLeadImage()
             .clickLeadImage()
-            .swipeLeft()
+            .swipePagerLeft()
             .clickOverflowMenu("More options")
             .visitImagePage()
             .goBackToGalleryView()
@@ -65,5 +66,19 @@ class PageTest : BaseTest<PageActivity>(
             .launchTabsScreen()
             .clickOnPreviewTabInTheList(1)
             .swipeDownOnTheWebView()
+            .verifyArticleTitle(ARTICLE_TITLE)
+            .swipeLeftToShowTableOfContents()
+            .verifyTopMostItemInTableOfContentIs(ARTICLE_TITLE)
+            .swipeTableOfContentsAllTheWayToBottom()
+            .clickAboutThisArticleText()
+            .goToTalkPage()
+            .clickThirdTopic()
+            .pressBack() // goes back to talk interface
+            .pressBack() // goes back to article screen
+            .saveArticleToReadingList()
+            .openLanguageSelector()
+            .clickLanguageListedAtFourthPosition()
+            .verifyArticleTitle(ARTICLE_TITLE_ESPANOL)
+            .openOverflowMenu()
     }
 }

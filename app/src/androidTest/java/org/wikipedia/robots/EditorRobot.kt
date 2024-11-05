@@ -12,7 +12,7 @@ class EditorRobot : BaseRobot() {
 
     fun dismissDialogIfShown() = apply {
         performIfDialogShown(dialogText = "Got it", action = {
-            clickWithText("Got it")
+            clickOnViewWithText("Got it")
         })
     }
 

@@ -9,6 +9,7 @@ import androidx.test.uiautomator.UiDevice
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
+import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
 object TestConfig {
@@ -27,6 +28,12 @@ abstract class BaseTest<T : AppCompatActivity> {
     constructor(activityClass: Class<T>) {
         val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
+    }
+
+    constructor(activityClass: Class<T>, isInitialOnboardingEnabled: Boolean = false) {
+        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
+        activityScenarioRule = ActivityScenarioRule(intent)
+        Prefs.isInitialOnboardingEnabled = isInitialOnboardingEnabled
     }
 
     constructor(activityClass: Class<T>, intentBuilder: Intent.() -> Unit) {

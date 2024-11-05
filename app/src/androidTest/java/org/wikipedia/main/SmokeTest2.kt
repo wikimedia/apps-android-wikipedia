@@ -60,7 +60,7 @@ class SmokeTest2 : BaseTest<MainActivity>(
             .goBackToOriginalArticle()
             .verifyHeaderViewWithLeadImage()
             .clickLeadImage()
-            .swipeLeft()
+            .swipePagerLeft()
             .clickOverflowMenu("More options")
             .visitImagePage()
             .goBackToGalleryView()
