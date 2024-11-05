@@ -598,7 +598,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Click on `More` menu
-        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
+        onView(allOf(withContentDescription("More"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
@@ -648,7 +648,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Click on `More` menu
-        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
+        onView(allOf(withContentDescription("More"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
@@ -691,7 +691,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Test `Developer settings activation process via `Settings` screen
-        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
+        onView(allOf(withContentDescription("More"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
@@ -837,7 +837,7 @@ class SmokeTests {
         TestUtil.delay(5)
 
         // Click the More menu
-        onView(allOf(withId(R.id.nav_more_container), isDisplayed())).perform(click())
+        onView(allOf(withContentDescription("More"), isDisplayed())).perform(click())
 
         TestUtil.delay(1)
 
@@ -958,7 +958,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Click on `More` menu
-        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed()))
+        onView(allOf(withContentDescription("More"), withContentDescription("More"), isDisplayed()))
             .perform(click())
 
         TestUtil.delay(1)
@@ -1205,7 +1205,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Click on `More` menu
-        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
+        onView(allOf(withContentDescription("More"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
