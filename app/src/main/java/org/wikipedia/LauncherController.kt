@@ -36,7 +36,7 @@ enum class LauncherIcon(
     ),
     DONOR(
         key = "DonorIcon",
-        background = R.color.ic_launcher_donor_benefit_background,
+        background = R.drawable.launcher_background,
         foreground = R.drawable.ic_launcher_donor_benefit_foreground,
         label = R.string.app_name
     );
