@@ -348,8 +348,8 @@
   <string name="error_response_malformed">ਸਰਵਰ ਦਾ ਜਵਾਬ ਸਹੀ ਰੂਪ ਵਿੱਚ ਨਹੀਂ ਸੀ।</string>
   <string name="error_unknown">ਇੱਕ ਅਣਪਛਾਤੀ ਗ਼ਲਤੀ ਵਾਪਰੀ।</string>
   <string name="format_error_server_message">ਸੁਨੇਹਾ: \"%s\"</string>
-  <string name="address_copied">ਪਤਾ ਗੱਤੇ \'ਤੇ ਉਤਾਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
-  <string name="text_copied">ਲਿਖਤ ਗੱਤੇ \'ਤੇ ਉਤਾਰੀ ਗਈ ਹੈ।</string>
+  <string name="address_copied">ਪਤਾ ਚੂੰਢੀ-ਤਖਤੀ \'ਤੇ ਲਿਖਿਆ ਗਿਆ ਹੈ।</string>
+  <string name="text_copied">ਲਿਖਤ ਚੂੰਢੀ-ਤਖਤੀ \'ਤੇ ਲਾਹੀ ਗਈ ਏ।</string>
   <string name="button_continue_to_article">ਲੇਖ ਪੜ੍ਹੋ</string>
   <string name="button_continue_to_talk_page">ਗੱਲਬਾਤ ਸਫ਼ਾ ਖੋਲ੍ਹੋ</string>
   <string name="button_continue_to_disambiguation">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ ਵੇਖੋ</string>
@@ -1017,6 +1017,7 @@
   <string name="talk_snackbar_survey_action_text">ਸ਼ੁਰੂ ਕਰੋ</string>
   <string name="talk_overflow_sort_date_updated">ਮਿਤੀ ਨਵਿਆਈ ਗਈ</string>
   <string name="menu_option_user_contributions">%s ਦੇ ਯੋਗਦਾਨ</string>
+  <string name="menu_option_copy_link_to_clipboard">ਕੜੀ ਦਾ ਉਤਾਰਾ ਚੂੰਢੀ-ਤਖਤੀ \'ਤੇ ਲਿਖੋ</string>
   <string name="talk_menu_expand_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਫੈਲਾਓ</string>
   <string name="talk_menu_collapse_threads">ਤੰਦੋਤਾਣੇਆਂ ਨੂੰ ਢਾਓ</string>
   <string name="menu_option_view_user_contributions">ਵਰਤੋਂਕਾਰ ਯੋਗਦਾਨ ਦੇਖੋ</string>
