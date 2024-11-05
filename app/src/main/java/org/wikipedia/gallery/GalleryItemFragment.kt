@@ -44,7 +44,6 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import kotlin.getValue
 import kotlin.math.abs
 
 class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?> {
@@ -178,8 +177,8 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         } else {
             var url = ImageUrlUtil.getUrlForPreferredSize(mediaInfo?.thumbUrl.orEmpty(), Constants.PREFERRED_GALLERY_IMAGE_SIZE)
             if (mediaInfo?.mime?.contains("svg") == true && mediaInfo?.getMetadataTranslations()?.contains(activityViewModel.wikiSite.languageCode) == true) {
-                // For SVG thumbnails, thumbnails can be rendered with language-specific translations.
-                // We just need to get the correct URL that points to the appropriate language.
+                // SVG thumbnails can be rendered with language-specific translations, so let's
+                // get the correct URL that points to the appropriate language.
                 url = ImageUrlUtil.insertLangIntoThumbUrl(url, activityViewModel.wikiSite.languageCode)
             }
             loadImage(url)
