@@ -497,4 +497,5 @@
   <string name="donor_history_save_button">Հիշել</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Ոչ, շնորհակալություն</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Ոչ, շնորհակալություն</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Ոչ, շնորհակալություն</string>
 </resources>

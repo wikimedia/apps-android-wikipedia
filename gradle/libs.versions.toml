@@ -2,7 +2,7 @@
 androidPluginAnnotationV9 = "3.0.2"
 androidSdk = "11.6.0"
 appcompat = "1.7.0"
-balloon = "1.6.9"
+balloon = "1.6.10"
 browser = "1.8.0"
 commonsLang3 = "3.17.0"
 constraintlayout = "2.2.0"
