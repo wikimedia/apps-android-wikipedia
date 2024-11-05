@@ -11,7 +11,6 @@ import org.wikipedia.main.SmokeTest2.Companion.ARTICLE_TITLE
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
-import org.wikipedia.robots.EditorRobot
 import org.wikipedia.robots.PageRobot
 import org.wikipedia.robots.ThemeRobot
 
@@ -26,7 +25,6 @@ class PageTest : BaseTest<PageActivity>(
     }
 ) {
     private val pageRobot = PageRobot()
-    private val editorRobot = EditorRobot()
     private val themeRobot = ThemeRobot()
 
     @Test
@@ -61,10 +59,11 @@ class PageTest : BaseTest<PageActivity>(
             .verifyBackgroundIsBlack()
             .goBackToLightTheme()
             .pressBack()
-
         pageRobot
-            .clickEditPencilAtTopOfArticle()
-        editorRobot
-            .clickEditIntroductionMenuItem()
+            .launchTabsScreen()
+            .createNewTabWithContentDescription(text = "New tab")
+            .launchTabsScreen()
+            .clickOnPreviewTabInTheList(1)
+            .swipeDownOnTheWebView()
     }
 }

@@ -1,5 +1,6 @@
 package org.wikipedia.base
 
+import android.view.View
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -9,6 +10,7 @@ import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.action.ViewActions.swipeLeft
+import androidx.test.espresso.action.ViewActions.swipeRight
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.RootMatchers.isDialog
@@ -23,9 +25,11 @@ import androidx.test.espresso.web.webdriver.DriverAtoms
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
+import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
+import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
@@ -103,6 +107,10 @@ abstract class BaseRobot {
         onView(withId(viewId)).perform(swipeLeft())
     }
 
+    protected fun swipeRight(@IdRes viewId: Int) {
+        onView(withId(viewId)).perform(swipeRight())
+    }
+
     protected fun goBack() {
         pressBack()
     }
@@ -119,12 +127,21 @@ abstract class BaseRobot {
             .check(WebViewAssertions.webMatches(DriverAtoms.getText(), Matchers.`is`(expectedTitle)))
     }
 
+    protected fun verifyWithMatcher(@IdRes viewId: Int, matcher: Matcher<View>) {
+        onView(withId(viewId))
+            .check(matches(matcher))
+    }
+
     protected fun isViewDisplayed(@IdRes viewId: Int): Boolean {
         var isDisplayed = false
         onView(withId(viewId)).check { view, noViewFoundException ->
             isDisplayed = noViewFoundException == null && view.isShown
         }
         return isDisplayed
+    }
+
+    protected fun swipeDownOnTheWebView(@IdRes viewId: Int) {
+        onView(withId(viewId)).perform(TestUtil.swipeDownWebView())
     }
 
     protected fun performIfDialogShown(
@@ -139,5 +156,15 @@ abstract class BaseRobot {
         } catch (e: Exception) {
             // Dialog not shown or text not found
         }
+    }
+
+    protected fun clickRecyclerViewItemAtPosition(@IdRes viewId: Int, position: Int) {
+        onView(withId(viewId))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    click()
+                )
+            )
     }
 }

@@ -100,8 +100,21 @@ class PageRobot : BaseRobot() {
         onWebView().forceJavascriptEnabled()
     }
 
-    fun launchTabsScreen() {
+    fun launchTabsScreen() = apply {
         clickOnDisplayedView(R.id.page_toolbar_button_tabs)
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun createNewTabWithContentDescription(text: String) = apply {
+        clickOnDisplayedViewWithContentDescription(text)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickOnPreviewTabInTheList(position: Int) = apply {
+        clickRecyclerViewItemAtPosition(R.id.tabRecyclerView, position)
+    }
+
+    fun swipeDownOnTheWebView() {
+        swipeDownOnTheWebView(R.id.page_contents_container)
     }
 }

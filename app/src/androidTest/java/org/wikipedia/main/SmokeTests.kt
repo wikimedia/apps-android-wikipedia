@@ -376,23 +376,23 @@ class SmokeTests {
                 .perform(click())
 
         TestUtil.delay(2)
-//
-//        // Create a new tab (which should load the Main Page)
-//        onView(allOf(withContentDescription("New tab"), isDisplayed()))
-//                .perform(click())
-//
-//        TestUtil.delay(5)
-//
-//        // Open the Tabs screen again
-//        onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
-//                .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on the previous tab in the list
-//        device.click(screenWidth / 2, screenHeight * 50 / 100)
-//
-//        TestUtil.delay(2)
+
+        // Create a new tab (which should load the Main Page)
+        onView(allOf(withContentDescription("New tab"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(5)
+
+        // Open the Tabs screen again
+        onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on the previous tab in the list
+        device.click(screenWidth / 2, screenHeight * 50 / 100)
+
+        TestUtil.delay(2)
 //
 //        // Swipe down on the WebView to reload the contents
 //        onView(withId(R.id.page_contents_container))

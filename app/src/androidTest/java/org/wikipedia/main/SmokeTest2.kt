@@ -6,24 +6,34 @@ import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
+import org.wikipedia.robots.EditorRobot
 import org.wikipedia.robots.OnboardingRobot
 import org.wikipedia.robots.PageRobot
 import org.wikipedia.robots.SearchRobot
+import org.wikipedia.robots.ThemeRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class SmokeTest2 : BaseTest<MainActivity>(
     MainActivity::class.java
 ) {
-    private val onboardingRobot = OnboardingRobot()
     private val searchRobot = SearchRobot()
     private val pageRobot = PageRobot()
+    private val onboardingRobot = OnboardingRobot()
+    private val editorRobot = EditorRobot()
+    private val themeRobot = ThemeRobot()
 
     @Test
     fun smokeTest2() {
         onboardingRobot
-            .completeOnboarding()
-            .dismissFeedCustomization()
+            .checkWelcomeScreenViewsForVisibility()
+            .verifyAppLanguageMatchesDeviceLanguage()
+            .swipeAllTheWayToEnd()
+            .swipeBackToWelcomeScreen()
+            .moveAllTheWayToEndUsingTapButton()
+            .swipeBackToWelcomeScreen()
+            .checkWelcomeScreenViewsForVisibility()
+            .skipWelcomeScreen()
 
         searchRobot
             .performSearch(SEARCH_TERM)
@@ -57,6 +67,32 @@ class SmokeTest2 : BaseTest<MainActivity>(
             .goBackToOriginalArticle()
             .enableJavaScript()
             .verifyArticleTitle(ARTICLE_TITLE)
+            .clickEditPencilAtTopOfArticle()
+        editorRobot
+            .clickEditIntroductionMenuItem()
+            .dismissDialogIfShown()
+        themeRobot
+            .clickThemeIconOnEditPage()
+            .increaseTextSize()
+            .increaseTextSize()
+            .pressBack()
+            .clickThemeIconOnEditPage()
+            .decreaseTextSize()
+            .decreaseTextSize()
+            .pressBack()
+        editorRobot
+            .typeInEditWindow()
+            .tapNext()
+            .tapNext()
+            .clickDefaultEditSummaryChoices()
+            .navigateUp()
+            .navigateUp()
+            .navigateUp()
+            .remainInEditWorkflow()
+            .pressBack()
+            .leaveEditWorkflow()
+        pageRobot
+            .launchTabsScreen()
     }
 
     companion object {
