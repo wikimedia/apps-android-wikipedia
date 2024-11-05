@@ -56,6 +56,7 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class SuggestedEditsTasksFragment : Fragment() {
@@ -190,6 +191,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onLoading() {
         binding.progressBar.isVisible = true
+        binding.suggestedEditsScrollView.isVisible = false
     }
 
     private fun onRequireLogin() {
@@ -203,6 +205,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {
+        binding.suggestedEditsScrollView.isVisible = true
         binding.swipeRefreshLayout.isRefreshing = false
         binding.progressBar.isVisible = false
         binding.tasksContainer.isVisible = false
@@ -356,11 +359,17 @@ class SuggestedEditsTasksFragment : Fragment() {
             Prefs.donationResults.lastOrNull()?.dateTime?.let {
                 val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
                     .toEpochMilli()
-                binding.donorHistoryStatus.text = DateUtils.getRelativeTimeSpanString(
+                var relativeTimeSpan = DateUtils.getRelativeTimeSpanString(
                     lastDonateMilli,
                     System.currentTimeMillis(),
-                    DateUtils.DAY_IN_MILLIS
+                    DateUtils.DAY_IN_MILLIS,
+                    DateUtils.FORMAT_NUMERIC_DATE
                 )
+                // Replace with the original dateTime string
+                if (relativeTimeSpan.contains("/")) {
+                    relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
+                }
+                binding.donorHistoryStatus.text = relativeTimeSpan
             } ?: run {
                 binding.donorHistoryStatus.text = getString(R.string.donor_history_recurring_donor)
             }
