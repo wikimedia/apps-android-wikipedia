@@ -6,7 +6,7 @@ balloon = "1.6.10"
 browser = "1.8.0"
 commonsLang3 = "3.17.0"
 constraintlayout = "2.2.0"
-coreKtx = "1.13.1"
+coreKtx = "1.15.0"
 desugar_jdk_libs = "2.1.2"
 drawerlayout = "1.2.0"
 espressoVersion = "3.6.1"
@@ -44,7 +44,7 @@ roomVersion = "2.6.1"
 swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
-workRuntimeKtx = "2.9.1"
+workRuntimeKtx = "2.10.0"
 
 [libraries]
 android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
