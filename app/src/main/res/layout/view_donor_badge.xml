@@ -20,7 +20,7 @@
         app:icon="@drawable/ic_baseline_volunteer_activism_24"
         app:iconTint="?attr/paper_color"
         app:iconSize="16dp"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <Button
         android:id="@+id/becomeADonorChip"
@@ -43,11 +43,12 @@
         style="@style/Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
         android:text="@string/contributions_dashboard_badge_update"
         android:textColor="?attr/progressive_color"
         android:visibility="gone"
         android:background="?selectableItemBackground"
         tools:text="Update donor status"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
 </merge>
