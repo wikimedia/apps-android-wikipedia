@@ -1081,11 +1081,11 @@
   <string name="places_filter_title">ਭਾਸ਼ਾ ਫਿਲਟਰ ਕਰੋ</string>
   <string name="places_toggle_buttons_map">ਨਕਸ਼ਾ</string>
   <string name="places_toggle_buttons_list">ਸੂਚੀ</string>
-  <string name="places_survey_very_satisfied_option">ਬਹੁਤ ਸੰਤੁਸ਼ਟ</string>
-  <string name="places_survey_very_unsatisfied_option">ਬਹੁਤ ਅਸੰਤੁਸ਼ਟ</string>
+  <string name="survey_dialog_option_very_satisfied">ਬਹੁਤ ਸੰਤੁਸ਼ਟ</string>
+  <string name="survey_dialog_option_very_unsatisfied">ਬਹੁਤ ਅਸੰਤੁਸ਼ਟ</string>
   <string name="places_survey_dialog_title">\'ਥਾਵਾਂ\' ਨੂੰ ਸੁਧਾਰਨ ਵਿੱਚ ਮਦਦ ਕਰੋ</string>
   <string name="places_survey_feedback_dialog_title">\"ਥਾਵਾਂ\" ਨੂੰ ਕਿਵੇਂ ਸੁਧਾਰਿਆ ਜਾ ਸਕਦਾ ਹੈ?</string>
-  <string name="places_survey_dialog_cancel">ਰੱਦ ਕਰੋ</string>
+  <string name="survey_dialog_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">ਤੁਸੀਂ ਕੀ ਚਾਹੁੰਦੇ ਹੋ ਕਿ ਅਸੀਂ ਕੀ ਬਦਲੀਏ ਜਾਂ ਸੁਧਾਰ ਕਰੀਏ?</string>
   <string name="places_empty_list">ਇਹ ਖੇਤਰ ਖਾਲੀ ਹੈ। &lt;a href=\"#\"&gt;ਨਕਸ਼ੇ \'ਤੇ&lt;/a&gt; ਜ਼ੂਮ ਆਉਟ ਕਰੋ।</string>
   <string name="recommended_content_section_you_might_like">ਤੁਹਾਨੂੰ ਪਸੰਦ ਆ ਸਕਦਾ ਹੈ</string>

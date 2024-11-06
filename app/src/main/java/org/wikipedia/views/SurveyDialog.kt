@@ -22,9 +22,9 @@ import org.wikipedia.util.FeedbackUtil
 object SurveyDialog {
 
     fun showFeedbackOptionsDialog(activity: Activity,
-                                  titleId: Int = R.string.patroller_diff_feedback_dialog_title,
-                                  messageId: Int = R.string.patroller_diff_feedback_dialog_message,
-                                  snackbarMessageId: Int = R.string.patroller_diff_feedback_submitted_snackbar,
+                                  titleId: Int = R.string.survey_dialog_title,
+                                  messageId: Int = R.string.survey_dialog_message,
+                                  snackbarMessageId: Int = R.string.survey_dialog_submitted_snackbar,
                                   invokeSource: Constants.InvokeSource,
                                   historyEntry: HistoryEntry? = null) {
         var dialog: AlertDialog? = null
@@ -43,7 +43,7 @@ object SurveyDialog {
             val clickListener = View.OnClickListener {
                 val feedbackOption = (it as TextView).text.toString()
                 dialog?.dismiss()
-                if (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
+                if (feedbackOption == activity.getString(R.string.survey_dialog_option_satisfied)) {
                     showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
                 } else {
                     showFeedbackInputDialog(activity, snackbarMessageId, invokeSource)
@@ -100,7 +100,7 @@ object SurveyDialog {
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
             .setView(feedbackView)
-            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
+            .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
                val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
                 PatrollerExperienceEvent.logAction("feedback_input_submit", "feedback_input_form",
                     PatrollerExperienceEvent.getActionDataString(feedbackText = feedbackInput))

@@ -1373,11 +1373,11 @@
   <string name="places_filter_title">ߞߊ߲ ߛߍ߲ߛߍ߲߫</string>
   <string name="places_toggle_buttons_map">ߔߊ߬ߔߘߊ</string>
   <string name="places_toggle_buttons_list">ߛߙߍߘߍ</string>
-  <string name="places_survey_very_satisfied_option">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>
-  <string name="places_survey_very_unsatisfied_option">ߒ ߡߊ߫ ߟߊߥߛߊ߬ ߝߋߝߋ߫</string>
+  <string name="survey_dialog_option_very_satisfied">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>
+  <string name="survey_dialog_option_very_unsatisfied">ߒ ߡߊ߫ ߟߊߥߛߊ߬ ߝߋߝߋ߫</string>
   <string name="places_survey_dialog_title">ߦߙߐ ߟߎ߬ ߟߊߓߘߍ߬ߦߊ ߘߍ߬ߡߍ߲߬ߠߌ߲</string>
   <string name="places_survey_feedback_dialog_title">\"ߦߙߐ ߟߎ߬\" ߦߋ߫ ߟߊߓߘߍ߬ߦߊ߬ ߟߊ߫ ߘߌ߬؟</string>
-  <string name="places_survey_dialog_cancel">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="survey_dialog_cancel">ߊ߬ ߘߐߛߊ߬</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">ߌ ߦߴߊ߬ ߝߍ߬ ߊ߲ ߧߋ߫ ߡߎ߲߬ ߠߊߓߘߍ߬ߦߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߡߊߝߊ߬ߟߋ߲߫؟</string>
   <string name="places_empty_list">ߘߌ߲߬ߞߌߙߊ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߠߋ߬ ߦߋ߫. ߊ߬ ߥߊ߲߫߫߯ߛߊ߲߫ &lt;a href=\"#\"&gt;&lt;a href=\"#\"&gt;ߔߊ߬ߔߘߊ ߞߊ߲߬&lt;/a&gt;&lt;/a&gt;.</string>
   <string name="places_card_title">ߕߙߐ߬ߝߍ߫ ߘߌ߲ߞߌߙߊ ߟߎ߬</string>

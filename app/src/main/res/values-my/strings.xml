@@ -1054,10 +1054,10 @@
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">ဆောင်းပါး တည်းဖြတ်မှုမှတ်တမ်း</string>
   <string name="patroller_tasks_overflow_learn">ပိုမို လေ့လာရန်</string>
   <string name="patroller_diff_feedback_dialog_input_hint">အကြံပေးရန်</string>
-  <string name="patroller_diff_feedback_dialog_submit">ထည့်သွင်းရန်</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
+  <string name="survey_dialog_submit">ထည့်သွင်းရန်</string>
+  <string name="survey_dialog_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
   <string name="data_opt_in_accept">လက်ခံ</string>
   <string name="data_opt_in_reject">ပယ်ချရန်</string>
   <string name="donation_campaign_go_back_button">နောက်သို့ ပြန်သွားရန်</string>
-  <string name="places_survey_dialog_cancel">မလုပ်တော့ပါ</string>
+  <string name="survey_dialog_cancel">မလုပ်တော့ပါ</string>
 </resources>
