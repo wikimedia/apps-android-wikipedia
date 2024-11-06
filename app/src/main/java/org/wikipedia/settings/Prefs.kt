@@ -738,5 +738,4 @@ object Prefs {
     var donationResults
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
-
 }

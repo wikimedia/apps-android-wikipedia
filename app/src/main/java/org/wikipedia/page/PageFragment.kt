@@ -101,7 +101,6 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -109,14 +108,12 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.PageActionOverflowView
-import org.wikipedia.views.SurveyDialog
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
-import java.util.concurrent.TimeUnit
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
