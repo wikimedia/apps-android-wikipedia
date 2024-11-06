@@ -90,6 +90,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                 }
             }
             Prefs.selectedLanguagePositionInSearch = position
+            setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
         }
     }
 

@@ -1597,16 +1597,16 @@
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
   <string name="patroller_diff_tooltip_two">Намерата ја предвидува веројатноста едно уредување да биде зачувано како добронамерно.</string>
-  <string name="patroller_diff_feedback_dialog_title">Помогнете ни да ја подобриме оваа функција</string>
-  <string name="patroller_diff_feedback_dialog_message">Дали сте задоволни со оваа функција?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна е</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна е</string>
+  <string name="survey_dialog_title">Помогнете ни да ја подобриме оваа функција</string>
+  <string name="survey_dialog_message">Дали сте задоволни со оваа функција?</string>
+  <string name="survey_dialog_option_satisfied">Задоволителна е</string>
+  <string name="survey_dialog_option_neutral">Неутрално</string>
+  <string name="survey_dialog_option_unsatisfied">Незадоволителна е</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можеме да ја подобриме функцијата?</string>
   <string name="patroller_diff_menu_edit_history_title">Историја на уредување на статијата</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Мислење</string>
-  <string name="patroller_diff_feedback_dialog_submit">Поднеси</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Мислењето е поднесено.</string>
+  <string name="survey_dialog_submit">Поднеси</string>
+  <string name="survey_dialog_submitted_snackbar">Мислењето е поднесено.</string>
   <string name="patroller_diff_feedback_tooltip">Допрете на расклопното мени за да поднесете мислење во било кое време со „Проблем со функцијата“.</string>
   <string name="patroller_saved_message_title_vandalism">Предупредување за вандализам</string>
   <string name="patroller_saved_message_title_editing_tests">Пробни уредувања</string>
@@ -1664,11 +1664,11 @@
   <string name="places_filter_title">Филтрирај јазик</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
-  <string name="places_survey_very_satisfied_option">Многу задоволен</string>
-  <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
+  <string name="survey_dialog_option_very_satisfied">Многу задоволен</string>
+  <string name="survey_dialog_option_very_unsatisfied">Многу незадоволен</string>
   <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
   <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
-  <string name="places_survey_dialog_cancel">Откажи</string>
+  <string name="survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
   <string name="places_card_title">Околни места</string>
@@ -1681,7 +1681,7 @@
   <string name="recommended_content_section_you_might_like">Можеби ќе ви се допадне</string>
   <string name="recommended_content_survey_dialog_title">Помогнете ни да ја подобриме препорачаната содржина.</string>
   <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
-  <string name="recommended_content_survey_dialog_input_hint">Дополнително мислење</string>
+  <string name="survey_dialog_input_hint">Дополнително мислење</string>
   <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
   <string name="donor_history_title">Историја на дарување</string>
   <string name="donor_history_save_button">Зачувај</string>

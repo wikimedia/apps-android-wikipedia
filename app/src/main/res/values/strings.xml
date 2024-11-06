@@ -1695,16 +1695,9 @@
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
     <string name="patroller_diff_tooltip_two">Intent predicts likelihood of an edit being saved in good-faith.</string>
-    <string name="patroller_diff_feedback_dialog_title">Help us improve this feature</string>
-    <string name="patroller_diff_feedback_dialog_message">Are you satisfied with this feature?</string>
-    <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
-    <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-    <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
     <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
     <string name="patroller_diff_menu_edit_history_title">Article edit history</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
-    <string name="patroller_diff_feedback_dialog_submit">Submit</string>
-    <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
     <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
     <string name="patroller_saved_message_title_vandalism">Vandalism warning</string>
     <string name="patroller_saved_message_title_editing_tests">Editing tests</string>
@@ -1771,12 +1764,6 @@
     <string name="places_filter_title">Filter language</string>
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
-    <string name="places_survey_very_satisfied_option">Very satisfied</string>
-    <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
-    <string name="places_survey_dialog_title">Help improve \'Places\'</string>
-    <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
-    <string name="places_survey_dialog_cancel">Cancel</string>
-    <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <string name="places_card_title">Places nearby</string>
     <string name="places_card_action">More places nearby</string>
@@ -1828,4 +1815,16 @@
     <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
     <!-- /Contributions Dashboard -->
 
+    <!-- Survey dialog -->
+    <string name="survey_dialog_title">Help us improve this feature</string>
+    <string name="survey_dialog_message">Are you satisfied with this feature?</string>
+    <string name="survey_dialog_option_satisfied">Satisfied</string>
+    <string name="survey_dialog_option_neutral">Neutral</string>
+    <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="survey_dialog_option_very_satisfied">Very satisfied</string>
+    <string name="survey_dialog_option_very_unsatisfied">Very unsatisfied</string>
+    <string name="survey_dialog_cancel">Cancel</string>
+    <string name="survey_dialog_submit">Submit</string>
+    <string name="survey_dialog_input_hint">Additional feedback</string>
+    <string name="survey_dialog_submitted_snackbar">Feedback submitted.</string>
 </resources>

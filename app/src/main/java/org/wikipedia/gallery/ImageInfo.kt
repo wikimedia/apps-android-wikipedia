@@ -54,12 +54,11 @@ class ImageInfo {
     val width = 0
     val height = 0
 
-    @Suppress("KotlinConstantConditions")
     fun getBestDerivativeForSize(widthDp: Int): Derivative? {
         var derivative: Derivative? = null
         derivatives.forEach {
             if (it.width in 1..<widthDp) {
-                if ((derivative == null || it.width > derivative!!.width) && !it.type.contains("ogg") && !it.type.contains("ogv")) {
+                if ((derivative == null || it.width > derivative.width) && !it.type.contains("ogg") && !it.type.contains("ogv")) {
                     derivative = it
                 }
             }

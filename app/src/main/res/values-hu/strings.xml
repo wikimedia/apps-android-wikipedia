@@ -1595,16 +1595,16 @@
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>
-  <string name="patroller_diff_feedback_dialog_title">Segíts a funkció fejlesztésében!</string>
-  <string name="patroller_diff_feedback_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Elégedett</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Semleges</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Elégedetlen</string>
+  <string name="survey_dialog_title">Segíts a funkció fejlesztésében!</string>
+  <string name="survey_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="survey_dialog_option_satisfied">Elégedett</string>
+  <string name="survey_dialog_option_neutral">Semleges</string>
+  <string name="survey_dialog_option_unsatisfied">Elégedetlen</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hogyan javíthatjuk a funkciót?</string>
   <string name="patroller_diff_menu_edit_history_title">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
-  <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
+  <string name="survey_dialog_submit">Elküldés</string>
+  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="patroller_diff_feedback_tooltip">Érintse meg a túlcsordulás menüt, hogy bármikor visszajelzést küldhessél a „Probléma a funkcióval” alatt.</string>
   <string name="patroller_saved_message_title_vandalism">Vandalizmus figyelmeztetés</string>
   <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
@@ -1650,11 +1650,11 @@
   <string name="places_filter_title">Nyelvi szűrés</string>
   <string name="places_toggle_buttons_map">Térkép</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_very_satisfied_option">Nagyon elégedett</string>
-  <string name="places_survey_very_unsatisfied_option">Nagyon elégedetlen</string>
+  <string name="survey_dialog_option_very_satisfied">Nagyon elégedett</string>
+  <string name="survey_dialog_option_very_unsatisfied">Nagyon elégedetlen</string>
   <string name="places_survey_dialog_title">Segítsen a „Helyek” fejlesztésében</string>
   <string name="places_survey_feedback_dialog_title">Hogyan javítható a „Helyek”?</string>
-  <string name="places_survey_dialog_cancel">Mégse</string>
+  <string name="survey_dialog_cancel">Mégse</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Mit lenne az, amin változtatnánk vagy javítanánk?</string>
   <string name="places_empty_list">Ez a terület üres. Kicsinyítés &lt;a href=\"#\"&gt;a térképen&lt;/a&gt;.</string>
   <string name="places_card_title">Helyek a közelben</string>
@@ -1665,6 +1665,6 @@
   <string name="recommended_content_section_you_might_like">Lehet, hogy tetszik</string>
   <string name="recommended_content_survey_dialog_title">Segítsen javítani az ajánlott tartalmat.</string>
   <string name="recommended_content_survey_dialog_message">Elégedett ezzel az ajánlott keresési eredménnyel?</string>
-  <string name="recommended_content_survey_dialog_input_hint">További visszajelzés</string>
+  <string name="survey_dialog_input_hint">További visszajelzés</string>
   <string name="recommended_content_survey_dialog_submitted_message">Visszajelzés elküldve. Köszönjük!</string>
 </resources>
