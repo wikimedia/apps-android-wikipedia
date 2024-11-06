@@ -12,15 +12,18 @@ import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.action.ViewActions.swipeLeft
 import androidx.test.espresso.action.ViewActions.swipeUp
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
+import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isNotFocused
 import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.espresso.web.assertion.WebViewAssertions
 import androidx.test.espresso.web.sugar.Web.onWebView
@@ -501,268 +504,268 @@ class SmokeTests {
             .perform(click())
 
         TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(4))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        goToTop()
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(6))
-//
-//        TestUtil.delay(3)
-//
-//        onView(allOf(withId(R.id.news_cardview_recycler_view), childAtPosition(withId(R.id.rtl_container), 1)))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-//
-//        TestUtil.delay(3)
-//
-//        // News card seen and news item saved to reading lists
-//        onView(allOf(withId(R.id.news_story_items_recyclerview),
-//            childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, longClick()))
-//
-//        onView(allOf(withId(R.id.title), withText("Save"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
-//
-//        TestUtil.delay(2)
-//
-//        // On this day card seen and saved to reading lists
-//        onView(allOf(withId(R.id.on_this_day_page), childAtPosition(allOf(withId(R.id.event_layout),
-//            childAtPosition(withId(R.id.on_this_day_card_view_click_container), 0)), 3), isDisplayed()))
-//            .perform(longClick())
-//
-//        onView(allOf(withId(R.id.title), withText("Save"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        goToTop()
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
-//
-//        TestUtil.delay(2)
-//
-//        // Random article card seen and saved to reading lists
-//        onView(allOf(withId(R.id.view_featured_article_card_content_container),
-//            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.random.RandomCardView")), 0), 1), isDisplayed()))
-//            .perform(scrollTo(), longClick())
-//
-//        onView(allOf(withId(R.id.title), withText("Save"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
-//
-//        TestUtil.delay(5)
-//
-//        // Main page card seen clicked
-//        onView(allOf(withId(R.id.footerActionButton), withText("View main page  "),
-//            childAtPosition(allOf(withId(R.id.card_footer), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Access the other navigation tabs - `Saved`, `Search` and `Edits`
-//        onView(allOf(withId(R.id.nav_tab_reading_lists), withContentDescription("Saved"),
-//            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 1), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(R.id.nav_tab_search), withContentDescription("Search"),
-//            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//        onView(allOf(withId(R.id.nav_tab_edits), withContentDescription("Edits"),
-//            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on `More` menu
-//        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on `Settings` option
-//        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on `Explore feed` option
-//        onView(allOf(withId(R.id.recycler_view),
-//            childAtPosition(withId(android.R.id.list_container), 0)))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withContentDescription("More options"),
-//            childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Choose the option to hide all explore feed cards
-//        onView(allOf(withId(R.id.title), withText("Hide all"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Navigate to Explore feed
-//        onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"),
-//            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(4)
-//
-//        // Assert that all cards are hidden and empty container is shown
-//        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))), isDisplayed()))
-//            .check(matches(isDisplayed()))
-//
-//        TestUtil.delay(2)
-//
-//        // Click on `More` menu
-//        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on `Settings` option
-//        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on `Explore feed` option
-//        onView(allOf(withId(R.id.recycler_view),
-//            childAtPosition(withId(android.R.id.list_container), 0)))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withContentDescription("More options"),
-//            childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Show all cards again
-//        onView(allOf(withId(R.id.title), withText("Show all"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Ensure that empty message is not shown on explore feed
-//        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))),
-//            TestUtil.isNotVisible())).check(matches(TestUtil.isNotVisible()))
-//
-//        TestUtil.delay(2)
-//
-//        // Test `Developer settings activation process via `Settings` screen
-//        onView(allOf(withId(R.id.nav_more_container), withContentDescription("More"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Open settings screen
-//        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click `About the wikipedia app` option
-//        onView(allOf(withId(R.id.recycler_view), childAtPosition(withId(android.R.id.list_container), 0)))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(14, click()))
-//
-//        TestUtil.delay(2)
-//
-//        // Click 7 times to activate developer mode
-//        for (i in 1 until 8) {
-//            onView(allOf(withId(R.id.about_logo_image),
-//                childAtPosition(childAtPosition(withId(R.id.about_container), 0), 0)))
-//                .perform(scrollTo(), click())
-//            TestUtil.delay(2)
-//        }
-//
-//        TestUtil.delay(2)
-//
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Assert that developer mode is activated
-//        onView(allOf(withId(R.id.developer_settings), withContentDescription("Developer settings"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withText("Developer settings"),
-//            withParent(allOf(withId(androidx.appcompat.R.id.action_bar),
-//                withParent(withId(androidx.appcompat.R.id.action_bar_container)))), isDisplayed()))
-//            .check(matches(withText("Developer settings")))
-//
-//        TestUtil.delay(2)
-//
-//        // Go back to Settings
-//        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Test disabling of images from settings
-//        onView(withId(androidx.preference.R.id.recycler_view))
-//            .perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
-//                (hasDescendant(withText(R.string.preference_title_show_images)), click()))
-//
-//        TestUtil.delay(2)
-//
-//        // Go to explore feed
-//        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Assert that images arent shown anymore
-//        onView(allOf(withId(R.id.articleImage), withParent(allOf(withId(R.id.articleImageContainer),
-//            withParent(withId(R.id.view_wiki_article_card)))), isDisplayed())).check(ViewAssertions.doesNotExist())
-//
-//        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(4))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        goToTop()
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(6))
+
+        TestUtil.delay(3)
+
+        onView(allOf(withId(R.id.news_cardview_recycler_view), childAtPosition(withId(R.id.rtl_container), 1)))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        TestUtil.delay(3)
+
+        // News card seen and news item saved to reading lists
+        onView(allOf(withId(R.id.news_story_items_recyclerview),
+            childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, longClick()))
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
+
+        TestUtil.delay(2)
+
+        // On this day card seen and saved to reading lists
+        onView(allOf(withId(R.id.on_this_day_page), childAtPosition(allOf(withId(R.id.event_layout),
+            childAtPosition(withId(R.id.on_this_day_card_view_click_container), 0)), 3), isDisplayed()))
+            .perform(longClick())
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        goToTop()
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
+
+        TestUtil.delay(2)
+
+        // Random article card seen and saved to reading lists
+        onView(allOf(withId(R.id.view_featured_article_card_content_container),
+            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.random.RandomCardView")), 0), 1), isDisplayed()))
+            .perform(scrollTo(), longClick())
+
+        onView(allOf(withId(R.id.title), withText("Save"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
+
+        TestUtil.delay(5)
+
+        // Main page card seen clicked
+        onView(allOf(withId(R.id.footerActionButton), withText("View main page  "),
+            childAtPosition(allOf(withId(R.id.card_footer), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Access the other navigation tabs - `Saved`, `Search` and `Edits`
+        onView(allOf(withId(R.id.nav_tab_reading_lists), withContentDescription("Saved"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 1), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.nav_tab_search), withContentDescription("Search"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+        onView(allOf(withId(R.id.nav_tab_edits), withContentDescription("Edits"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on `More` menu
+        onView(allOf(withId(R.id.nav_tab_more), withContentDescription("More"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on `Settings` option
+        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on `Explore feed` option
+        onView(allOf(withId(R.id.recycler_view),
+            childAtPosition(withId(android.R.id.list_container), 0)))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("More options"),
+            childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        // Choose the option to hide all explore feed cards
+        onView(allOf(withId(R.id.title), withText("Hide all"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Navigate to Explore feed
+        onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed())).perform(click())
+
+        TestUtil.delay(4)
+
+        // Assert that all cards are hidden and empty container is shown
+        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))), isDisplayed()))
+            .check(matches(isDisplayed()))
+
+        TestUtil.delay(2)
+
+        // Click on `More` menu
+        onView(allOf(withId(R.id.nav_tab_more), withContentDescription("More"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on `Settings` option
+        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on `Explore feed` option
+        onView(allOf(withId(R.id.recycler_view),
+            childAtPosition(withId(android.R.id.list_container), 0)))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("More options"),
+            childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        // Show all cards again
+        onView(allOf(withId(R.id.title), withText("Show all"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Ensure that empty message is not shown on explore feed
+        onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))),
+            TestUtil.isNotVisible())).check(matches(TestUtil.isNotVisible()))
+
+        TestUtil.delay(2)
+
+        // Test `Developer settings activation process via `Settings` screen
+        onView(allOf(withId(R.id.nav_tab_more), withContentDescription("More"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Open settings screen
+        onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click `About the wikipedia app` option
+        onView(allOf(withId(R.id.recycler_view), childAtPosition(withId(android.R.id.list_container), 0)))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(14, click()))
+
+        TestUtil.delay(2)
+
+        // Click 7 times to activate developer mode
+        for (i in 1 until 8) {
+            onView(allOf(withId(R.id.about_logo_image),
+                childAtPosition(childAtPosition(withId(R.id.about_container), 0), 0)))
+                .perform(scrollTo(), click())
+            TestUtil.delay(2)
+        }
+
+        TestUtil.delay(2)
+
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Assert that developer mode is activated
+        onView(allOf(withId(R.id.developer_settings), withContentDescription("Developer settings"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withText("Developer settings"),
+            withParent(allOf(withId(androidx.appcompat.R.id.action_bar),
+                withParent(withId(androidx.appcompat.R.id.action_bar_container)))), isDisplayed()))
+            .check(matches(withText("Developer settings")))
+
+        TestUtil.delay(2)
+
+        // Go back to Settings
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        // Test disabling of images from settings
+        onView(withId(androidx.preference.R.id.recycler_view))
+            .perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+                (hasDescendant(withText(R.string.preference_title_show_images)), click()))
+
+        TestUtil.delay(2)
+
+        // Go to explore feed
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Assert that images arent shown anymore
+        onView(allOf(withId(R.id.articleImage), withParent(allOf(withId(R.id.articleImageContainer),
+            withParent(withId(R.id.view_wiki_article_card)))), isDisplayed())).check(ViewAssertions.doesNotExist())
+
+        TestUtil.delay(2)
 //
 //        // Go to Saved tab
 //        onView(withId(NavTab.READING_LISTS.id)).perform(click())

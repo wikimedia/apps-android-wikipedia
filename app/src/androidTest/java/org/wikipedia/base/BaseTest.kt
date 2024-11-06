@@ -30,7 +30,7 @@ abstract class BaseTest<T : AppCompatActivity> {
         activityScenarioRule = ActivityScenarioRule(intent)
     }
 
-    constructor(activityClass: Class<T>, isInitialOnboardingEnabled: Boolean = false) {
+    constructor(activityClass: Class<T>, isInitialOnboardingEnabled: Boolean) {
         val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = isInitialOnboardingEnabled
