@@ -1713,16 +1713,16 @@
   <string name="patroller_onboarding_two_undo_content">Виберіть «Скасувати», щоб скасувати або повернути потенційно деструктивні зміни.</string>
   <string name="patroller_diff_tooltip_one">«Шкода» передбачає, що редагування завдає шкоди вікі.</string>
   <string name="patroller_diff_tooltip_two">«Намір» передбачає ймовірність добропорядних намірів при збереженні редагування.</string>
-  <string name="patroller_diff_feedback_dialog_title">Допоможіть нам покращити цю функцію</string>
-  <string name="patroller_diff_feedback_dialog_message">Ви задоволені цією функцією?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволений/а</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Нейтрально</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволений/а</string>
+  <string name="survey_dialog_title">Допоможіть нам покращити цю функцію</string>
+  <string name="survey_dialog_message">Ви задоволені цією функцією?</string>
+  <string name="survey_dialog_option_satisfied">Задоволений/а</string>
+  <string name="survey_dialog_option_neutral">Нейтрально</string>
+  <string name="survey_dialog_option_unsatisfied">Незадоволений/а</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Як ми можемо покращити функцію?</string>
   <string name="patroller_diff_menu_edit_history_title">Історія редагування статті</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Зворотний зв\'язок</string>
-  <string name="patroller_diff_feedback_dialog_submit">Надіслати</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Відгук надіслано.</string>
+  <string name="survey_dialog_submit">Надіслати</string>
+  <string name="survey_dialog_submitted_snackbar">Відгук надіслано.</string>
   <string name="patroller_diff_feedback_tooltip">Торкніться додаткового меню, щоб надіслати відгук будь-коли у розділі «Проблема з функцією».</string>
   <string name="patroller_saved_message_title_vandalism">Попередження про вандалізм</string>
   <string name="patroller_saved_message_title_editing_tests">Тестові редагування</string>
@@ -1780,11 +1780,11 @@
   <string name="places_filter_title">Фільтр за мовою</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Список</string>
-  <string name="places_survey_very_satisfied_option">Дуже задоволений/а</string>
-  <string name="places_survey_very_unsatisfied_option">Дуже незадоволений/а</string>
+  <string name="survey_dialog_option_very_satisfied">Дуже задоволений/а</string>
+  <string name="survey_dialog_option_very_unsatisfied">Дуже незадоволений/а</string>
   <string name="places_survey_dialog_title">Допоможіть покращити «Місця»</string>
   <string name="places_survey_feedback_dialog_title">Як можна покращити «Місця»?</string>
-  <string name="places_survey_dialog_cancel">Скасувати</string>
+  <string name="survey_dialog_cancel">Скасувати</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Що ви хотіли б, щоб ми змінили або покращили?</string>
   <string name="places_empty_list">Ця місцевість порожня. Зменшіть &lt;a href=\"#\"&gt;масштаб карти&lt;/a&gt;.</string>
   <string name="places_card_title">Місця поблизу</string>
@@ -1797,7 +1797,7 @@
   <string name="recommended_content_section_you_might_like">Вам може сподобатися</string>
   <string name="recommended_content_survey_dialog_title">Допоможіть покращити рекомендований вміст.</string>
   <string name="recommended_content_survey_dialog_message">Ви задоволені цим рекомендованим результатом пошуку?</string>
-  <string name="recommended_content_survey_dialog_input_hint">Додатковий відгук</string>
+  <string name="survey_dialog_input_hint">Додатковий відгук</string>
   <string name="recommended_content_survey_dialog_submitted_message">Відгук надіслано. Дякуємо!</string>
   <string name="donor_history_title">Історія пожертв</string>
   <string name="donor_history_save_button">Зберегти</string>

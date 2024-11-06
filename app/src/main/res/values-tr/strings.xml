@@ -1594,16 +1594,16 @@
   <string name="patroller_onboarding_two_undo_content">Zararlı olabilecek bir düzenlemeyi geri almak ya da geri döndürmek için \'Geri Al\'ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Hasar, bir düzenlemenin vikiye zarar verip vermeyeceğini kestirir.</string>
   <string name="patroller_diff_tooltip_two">Amaç, bir düzenlemenin iyi amaçla saklanma olasılığını kestirir.</string>
-  <string name="patroller_diff_feedback_dialog_title">Bu özelliği geliştirmemize yardımcı olun</string>
-  <string name="patroller_diff_feedback_dialog_message">Bu özellikten mutlu musunuz?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Mutlu</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Tarafsız</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Mutsuz</string>
+  <string name="survey_dialog_title">Bu özelliği geliştirmemize yardımcı olun</string>
+  <string name="survey_dialog_message">Bu özellikten mutlu musunuz?</string>
+  <string name="survey_dialog_option_satisfied">Mutlu</string>
+  <string name="survey_dialog_option_neutral">Tarafsız</string>
+  <string name="survey_dialog_option_unsatisfied">Mutsuz</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Özelliği nasıl geliştirebiliriz?</string>
   <string name="patroller_diff_menu_edit_history_title">Madde düzenleme geçmişi</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Geri bildirim</string>
-  <string name="patroller_diff_feedback_dialog_submit">Gönder</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Geri bildirim gönderildi.</string>
+  <string name="survey_dialog_submit">Gönder</string>
+  <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi.</string>
   <string name="patroller_diff_feedback_tooltip">\'Özellikle ilgili sorun\' altında istediğiniz zaman geri bildirim göndermek için taşan menüye dokunun.</string>
   <string name="patroller_saved_message_title_npov">Tarafsız bakış açısı</string>
   <string name="patroller_saved_message_title_auto_trans">Otomatik çeviri</string>
@@ -1642,11 +1642,11 @@
   <string name="places_filter_title">Dile göre filtrele</string>
   <string name="places_toggle_buttons_map">Harita</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_survey_very_satisfied_option">Çok mutlu</string>
-  <string name="places_survey_very_unsatisfied_option">Çok mutsuz</string>
+  <string name="survey_dialog_option_very_satisfied">Çok mutlu</string>
+  <string name="survey_dialog_option_very_unsatisfied">Çok mutsuz</string>
   <string name="places_survey_dialog_title">\'Yerler\'i iyileştirmeye yardımcı olun</string>
   <string name="places_survey_feedback_dialog_title">\"Yerler\" nasıl geliştirilebilir?</string>
-  <string name="places_survey_dialog_cancel">İptal</string>
+  <string name="survey_dialog_cancel">İptal</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Neyi değiştirmemizi ya da geliştirmemizi istersiniz?</string>
   <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
 </resources>
