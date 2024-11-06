@@ -1671,15 +1671,15 @@
   <string name="patroller_onboarding_two_talk_title">Обсуждение</string>
   <string name="patroller_onboarding_two_talk_content">Общайтесь с другими редакторами. Сохраняйте часто используемые сообщения на странице обсуждения или используйте шаблон.</string>
   <string name="patroller_onboarding_two_undo_title">Отменить/Откатить</string>
-  <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Доволен</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Воздержусь</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Недоволен</string>
+  <string name="survey_dialog_message">Вы довольны этой функцией?</string>
+  <string name="survey_dialog_option_satisfied">Доволен</string>
+  <string name="survey_dialog_option_neutral">Воздержусь</string>
+  <string name="survey_dialog_option_unsatisfied">Недоволен</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Как мы можем улучшить эту функцию?</string>
   <string name="patroller_diff_menu_edit_history_title">История редактирования статьи</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
-  <string name="patroller_diff_feedback_dialog_submit">Отправить</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Обратная связь отправлена.</string>
+  <string name="survey_dialog_submit">Отправить</string>
+  <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена.</string>
   <string name="patroller_saved_message_title_vandalism">Предупреждение о вандализме</string>
   <string name="patroller_saved_message_title_npov">Нейтральная точка зрения</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматический перевод</string>
@@ -1714,9 +1714,9 @@
   <string name="places_filter_title">Фильтр по языку</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
-  <string name="places_survey_very_satisfied_option">Очень доволен</string>
-  <string name="places_survey_very_unsatisfied_option">Очень неудовлетворен</string>
-  <string name="places_survey_dialog_cancel">Отмена</string>
+  <string name="survey_dialog_option_very_satisfied">Очень доволен</string>
+  <string name="survey_dialog_option_very_unsatisfied">Очень неудовлетворен</string>
+  <string name="survey_dialog_cancel">Отмена</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Что бы вы хотели, чтобы мы изменили или улучшили?</string>
   <string name="places_card_enable_location_card_button">Включить определение местоположения</string>
   <string name="donor_history_title">История донора</string>
@@ -1735,10 +1735,13 @@
   <string name="contributions_dashboard_survey_dialog_ok">Поделиться отзывом</string>
   <string name="contributions_dashboard_donation_dialog_title">Спасибо за поддержку бесплатных знаний</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_entry_dialog_title">Панель инструментов вашего вклада обновлена</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Панель инструментов вашего вклада обновлена</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Нет, спасибо</string>
   <string name="contributions_dashboard_badge_donor">Донор</string>
   <string name="contributions_dashboard_badge_become_a_donor">Стать донором</string>
   <string name="contributions_dashboard_badge_update">Обновить статус донора</string>
   <string name="contributions_dashboard_app_icon_title">Значок приложения</string>
+  <string name="contributions_dashboard_tab_update_button">Обновить</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Нет, спасибо</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, перейти в настройки</string>
 </resources>

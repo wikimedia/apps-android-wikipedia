@@ -38,6 +38,7 @@
   <string name="nav_item_suggested_edits">Szerkesztések</string>
   <string name="nav_item_more">Több</string>
   <string name="nav_item_search">Keresés</string>
+  <string name="nav_item_contribute">Közreműködés</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
   <string name="page_error_retry">Újra</string>
   <string name="card_offline_error_retry">Újra</string>
@@ -73,7 +74,7 @@
   <string name="page_edit_history_filter_by">Szűrés</string>
   <string name="page_edit_history_filter_by_all">Minden szerkesztés (%s)</string>
   <string name="page_edit_history_filter_by_user">Bejelentkezett szerkesztők (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonim szerkesztők (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Nem regisztrált szerkesztők (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botszerkesztések (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrikák %1$s és %2$s között</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -112,6 +113,7 @@
   <string name="menu_page_recently_viewed">Mostanában olvasott</string>
   <string name="menu_page_archive">Archívum</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
+  <string name="menu_long_press_open_in_places">Megnyitás a Helyekben</string>
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
   <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
   <string name="menu_text_select_define">Definiálás</string>
@@ -1160,6 +1162,7 @@
   <string name="app_shortcuts_random">Véletlen</string>
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
+  <string name="app_shortcuts_places">Helyek</string>
   <string name="on_this_day_card_title">Ezen a napon</string>
   <string name="more_events_text">Több ezen a napon</string>
   <string name="events_count_text">%1$s esemény %2$s és %3$d között</string>
@@ -1587,20 +1590,21 @@
   <string name="patroller_onboarding_two_thank_title">Köszönet</string>
   <string name="patroller_onboarding_two_thank_content">Hatékony szerkesztést láttál? Köszönd meg a felhasználó közreműködését!</string>
   <string name="patroller_onboarding_two_watch_title">Lap figyelése</string>
+  <string name="patroller_onboarding_two_watch_content">Szeretnéd nyomon követni a cikkszerkesztést? Add hozzá a figyelőlistádhoz. Tekintsd meg a \"Továbbiak\" alatt.</string>
   <string name="patroller_onboarding_two_talk_title">Vitalap</string>
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>
-  <string name="patroller_diff_feedback_dialog_title">Segíts a funkció fejlesztésében!</string>
-  <string name="patroller_diff_feedback_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Elégedett</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Semleges</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Elégedetlen</string>
+  <string name="survey_dialog_title">Segíts a funkció fejlesztésében!</string>
+  <string name="survey_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="survey_dialog_option_satisfied">Elégedett</string>
+  <string name="survey_dialog_option_neutral">Semleges</string>
+  <string name="survey_dialog_option_unsatisfied">Elégedetlen</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hogyan javíthatjuk a funkciót?</string>
   <string name="patroller_diff_menu_edit_history_title">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
-  <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
+  <string name="survey_dialog_submit">Elküldés</string>
+  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="patroller_diff_feedback_tooltip">Érintse meg a túlcsordulás menüt, hogy bármikor visszajelzést küldhessél a „Probléma a funkcióval” alatt.</string>
   <string name="patroller_saved_message_title_vandalism">Vandalizmus figyelmeztetés</string>
   <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
@@ -1646,14 +1650,21 @@
   <string name="places_filter_title">Nyelvi szűrés</string>
   <string name="places_toggle_buttons_map">Térkép</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_very_satisfied_option">Nagyon elégedett</string>
-  <string name="places_survey_very_unsatisfied_option">Nagyon elégedetlen</string>
+  <string name="survey_dialog_option_very_satisfied">Nagyon elégedett</string>
+  <string name="survey_dialog_option_very_unsatisfied">Nagyon elégedetlen</string>
   <string name="places_survey_dialog_title">Segítsen a „Helyek” fejlesztésében</string>
   <string name="places_survey_feedback_dialog_title">Hogyan javítható a „Helyek”?</string>
-  <string name="places_survey_dialog_cancel">Mégse</string>
+  <string name="survey_dialog_cancel">Mégse</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Mit lenne az, amin változtatnánk vagy javítanánk?</string>
   <string name="places_empty_list">Ez a terület üres. Kicsinyítés &lt;a href=\"#\"&gt;a térképen&lt;/a&gt;.</string>
   <string name="places_card_title">Helyek a közelben</string>
   <string name="places_card_action">További helyek a közelben</string>
   <string name="places_card_enable_location_card_button">Helymeghatározás engedélyezése</string>
+  <string name="places_card_distance_unknown">Ismeretlen távolság</string>
+  <string name="places_empty_message_snackbar">Nincsenek közeli cikkek. Próbáld kicsinyíteni és mozgatni a térképet.</string>
+  <string name="recommended_content_section_you_might_like">Lehet, hogy tetszik</string>
+  <string name="recommended_content_survey_dialog_title">Segítsen javítani az ajánlott tartalmat.</string>
+  <string name="recommended_content_survey_dialog_message">Elégedett ezzel az ajánlott keresési eredménnyel?</string>
+  <string name="survey_dialog_input_hint">További visszajelzés</string>
+  <string name="recommended_content_survey_dialog_submitted_message">Visszajelzés elküldve. Köszönjük!</string>
 </resources>

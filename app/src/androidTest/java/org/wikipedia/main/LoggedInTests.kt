@@ -34,7 +34,7 @@ class LoggedInTests {
         TestUtil.delay(2)
 
         // Click the More menu
-        onView(allOf(withId(R.id.nav_more_container), isDisplayed()))
+        onView(allOf(withContentDescription("More"), isDisplayed()))
                 .perform(click())
 
         TestUtil.delay(1)

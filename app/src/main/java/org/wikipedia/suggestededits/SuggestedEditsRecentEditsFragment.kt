@@ -182,9 +182,9 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             }
             R.id.menu_report_feature -> {
                 sendPatrollerExperienceEvent("top_menu_feedback_click", "pt_recent_changes")
-                FeedbackUtil.composeFeedbackEmail(requireContext(),
-                    getString(R.string.email_report_patroller_tasks_subject),
-                    getString(R.string.email_report_patroller_tasks_body))
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.email_report_patroller_tasks_subject),
+                    body = getString(R.string.email_report_patroller_tasks_body))
                 true
             }
             else -> false

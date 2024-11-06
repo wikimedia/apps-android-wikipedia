@@ -698,7 +698,7 @@
   <string name="patroller_tasks_overflow_learn">ٻیا سِکھو</string>
   <string name="patroller_onboarding_two_talk_title">ڳالھ مہاڑ</string>
   <string name="patroller_diff_feedback_dialog_input_hint">فیڈ بیک</string>
-  <string name="patroller_diff_feedback_dialog_submit">جمع کرواؤ</string>
+  <string name="survey_dialog_submit">جمع کرواؤ</string>
   <string name="talk_templates_menu_edit_title">لکھو</string>
   <string name="data_opt_in_accept">قبول کرو</string>
   <string name="data_opt_in_reject">مسترد کرو</string>
@@ -707,16 +707,18 @@
   <string name="places_title">جاہیں</string>
   <string name="places_toggle_buttons_map">نقشہ</string>
   <string name="places_toggle_buttons_list">تندیر</string>
-  <string name="places_survey_very_satisfied_option">ݙاڈھا تسلی بخش</string>
+  <string name="survey_dialog_option_very_satisfied">ݙاڈھا تسلی بخش</string>
   <string name="places_card_title">نیڑے جاہیں</string>
   <string name="places_card_action">نیڑے دیاں ٻیاں جاہیں</string>
   <string name="places_card_enable_location_card_button">لوکیشن فعال کرو</string>
   <string name="places_card_distance_unknown">نامعلوم فاصلہ</string>
-  <string name="recommended_content_survey_dialog_input_hint">وادھوں فیڈبیک</string>
+  <string name="survey_dialog_input_hint">وادھوں فیڈبیک</string>
   <string name="donor_history_save_button">محفوظ کرو</string>
   <string name="donor_history_last_donated_date_picker_title">تریخ چݨو</string>
   <string name="donor_history_last_donated_date_picker_label">تریخ درج کرو</string>
   <string name="contributions_dashboard_donation_dialog_cancel">کو، شکریہ</string>
   <string name="contributions_dashboard_entry_dialog_cancel">کو، شکریہ</string>
+  <string name="contributions_dashboard_badge_donor">ڈونر</string>
   <string name="contributions_dashboard_app_icon_title">ایپ آئیکان</string>
+  <string name="contributions_dashboard_tab_update_button">اپ ڈیٹ</string>
 </resources>

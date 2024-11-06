@@ -1539,15 +1539,15 @@
   <string name="patroller_onboarding_two_undo_content">Ehtimoliy notoʻgʻri tahrirni bekor qilish yoki orqaga qaytarish uchun “Bekor qilish” bandini tanlang.</string>
   <string name="patroller_diff_tooltip_one">Zarar, tahrir vikiga zarar yetkazish yoki yo‘qligini bashorat qiladi.</string>
   <string name="patroller_diff_tooltip_two">Niyat tahrirning ishonchli tarzda saqlanish ehtimolini bashorat qiladi.</string>
-  <string name="patroller_diff_feedback_dialog_title">Ushbu xususiyatni yaxshilashga yordam bering</string>
-  <string name="patroller_diff_feedback_dialog_message">Bu xususiyat sizni qoniqtirdimi?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Qoniqarli</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neytral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Qoniqarsiz</string>
+  <string name="survey_dialog_title">Ushbu xususiyatni yaxshilashga yordam bering</string>
+  <string name="survey_dialog_message">Bu xususiyat sizni qoniqtirdimi?</string>
+  <string name="survey_dialog_option_satisfied">Qoniqarli</string>
+  <string name="survey_dialog_option_neutral">Neytral</string>
+  <string name="survey_dialog_option_unsatisfied">Qoniqarsiz</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Funksiyani qanday yaxshilashimiz mumkin?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Fikr-mulohaza</string>
-  <string name="patroller_diff_feedback_dialog_submit">Joʻnatish</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Fikr-mulohaza yuborildi.</string>
+  <string name="survey_dialog_submit">Joʻnatish</string>
+  <string name="survey_dialog_submitted_snackbar">Fikr-mulohaza yuborildi.</string>
   <string name="patroller_diff_feedback_tooltip">Istalgan vaqtda “Xususiyatlar bilan bog‘liq muammo” bo‘limida fikr-mulohaza yuborish uchun menyuni bosing.</string>
   <string name="data_opt_in_accept">Qabul qilish</string>
   <string name="data_opt_in_reject">Rad etish</string>
@@ -1567,11 +1567,11 @@
   <string name="places_filter_title">Til filtri</string>
   <string name="places_toggle_buttons_map">Xarita</string>
   <string name="places_toggle_buttons_list">Roʻyxat</string>
-  <string name="places_survey_very_satisfied_option">Qoniqarli</string>
-  <string name="places_survey_very_unsatisfied_option">Qoniqarsiz</string>
+  <string name="survey_dialog_option_very_satisfied">Qoniqarli</string>
+  <string name="survey_dialog_option_very_unsatisfied">Qoniqarsiz</string>
   <string name="places_survey_dialog_title">“Joylashuvlar”ni yaxshilashga yordam bering</string>
   <string name="places_survey_feedback_dialog_title">“Joylar”ni qanday yaxshilash mumkin?</string>
-  <string name="places_survey_dialog_cancel">Bekor qilish</string>
+  <string name="survey_dialog_cancel">Bekor qilish</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Nimani oʻzgartirishimizni yoki yaxshilashimizni xohlaysiz?</string>
   <string name="places_empty_list">Maydon boʻsh. &lt;a href=\"#\"&gt;xaritadan&lt;/a&gt; kichraytiring.</string>
 </resources>

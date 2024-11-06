@@ -174,22 +174,22 @@ abstract class AppDatabase : RoomDatabase() {
                 db.execSQL("DROP TABLE pageimages")
             }
         }
-        private val MIGRATION_23_24 = object : Migration(23, 24) {
+        val MIGRATION_23_24 = object : Migration(23, 24) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("CREATE TABLE IF NOT EXISTS `Notification` (`id` INTEGER NOT NULL, `wiki` TEXT NOT NULL, `read` TEXT, `category` TEXT NOT NULL, `type` TEXT NOT NULL, `revid` INTEGER NOT NULL, `title` TEXT, `agent` TEXT, `timestamp` TEXT, `contents` TEXT, PRIMARY KEY(`id`, `wiki`))")
             }
         }
-        private val MIGRATION_24_25 = object : Migration(24, 25) {
+        val MIGRATION_24_25 = object : Migration(24, 25) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("CREATE TABLE IF NOT EXISTS `TalkTemplate` (`id` INTEGER NOT NULL, `type` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
             }
         }
-        private val MIGRATION_25_26 = object : Migration(25, 26) {
+        val MIGRATION_25_26 = object : Migration(25, 26) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE HistoryEntry ADD COLUMN description TEXT NOT NULL DEFAULT ''")
             }
         }
-        private val MIGRATION_26_27 = object : Migration(26, 27) {
+        val MIGRATION_26_27 = object : Migration(26, 27) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("CREATE TABLE IF NOT EXISTS `Tab` (`id` INTEGER NOT NULL, `backStack` TEXT NOT NULL, `backStackPosition` INTEGER NOT NULL, PRIMARY KEY(`id`))")
             }
