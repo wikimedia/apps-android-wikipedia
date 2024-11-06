@@ -1676,7 +1676,7 @@
   <string name="donate_gpay_dialog_pay_button">Doneer met Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Andere betaalmethode</string>
   <string name="donate_gpay_activity_title">Selecteer een bedrag</string>
-  <string name="donate_gpay_check_transaction_fee">Ik zal graag %s toevoegen om de transactiekosten te dekken zodat jullie 100% van mijn donatie kunnen houden.</string>
+  <string name="donate_gpay_check_transaction_fee">Ik zal graag %s toevoegen om de transactiekosten te dekken zodat jullie 100%% van mijn donatie kunnen houden.</string>
   <string name="donate_gpay_check_recurring">Maak dit een maandelijks terugkerende donatie.</string>
   <string name="donate_gpay_check_send_email">Ja, de Wikimedia Foundation mag mij af en toe een e-mail sturen.</string>
   <string name="donate_gpay_minimum_amount">Selecteer een bedrag (minimaal %s)</string>
