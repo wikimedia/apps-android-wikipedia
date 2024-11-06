@@ -510,7 +510,7 @@
     </style>
 
     <style name="TextInputLayoutErrorTextAppearance">
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
