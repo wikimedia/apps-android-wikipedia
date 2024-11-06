@@ -1548,16 +1548,16 @@
   <string name="patroller_onboarding_two_undo_title">편집 취소/일괄 되돌리기</string>
   <string name="patroller_onboarding_two_undo_content">문서 훼손 가능성이 있는 편집을 실행 취소하거나 되돌리려면 \'실행 취소\'를 선택하세요.</string>
   <string name="patroller_diff_tooltip_one">손해는 이 편집으로 위키가 훼손될 것인지 예측합니다.</string>
-  <string name="patroller_diff_feedback_dialog_title">이 기능을 개선할 수 있도록 도와주세요</string>
-  <string name="patroller_diff_feedback_dialog_message">이 기능에 만족하시나요?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">만족</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">보통</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">불만족</string>
+  <string name="survey_dialog_title">이 기능을 개선할 수 있도록 도와주세요</string>
+  <string name="survey_dialog_message">이 기능에 만족하시나요?</string>
+  <string name="survey_dialog_option_satisfied">만족</string>
+  <string name="survey_dialog_option_neutral">보통</string>
+  <string name="survey_dialog_option_unsatisfied">불만족</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">기능을 어떻게 개선할 수 있나요?</string>
   <string name="patroller_diff_menu_edit_history_title">문서 편집 역사</string>
   <string name="patroller_diff_feedback_dialog_input_hint">피드백</string>
-  <string name="patroller_diff_feedback_dialog_submit">제출</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">의견이 제출되었습니다.</string>
+  <string name="survey_dialog_submit">제출</string>
+  <string name="survey_dialog_submitted_snackbar">의견이 제출되었습니다.</string>
   <string name="patroller_saved_message_title_vandalism">문서 훼손 경고</string>
   <string name="patroller_saved_message_title_npov">중립적 시각</string>
   <string name="patroller_saved_message_title_auto_trans">자동 번역</string>
@@ -1600,11 +1600,11 @@
   <string name="places_filter_title">언어 필터링</string>
   <string name="places_toggle_buttons_map">지도</string>
   <string name="places_toggle_buttons_list">목록</string>
-  <string name="places_survey_very_satisfied_option">매우 만족</string>
-  <string name="places_survey_very_unsatisfied_option">매우 불만족</string>
+  <string name="survey_dialog_option_very_satisfied">매우 만족</string>
+  <string name="survey_dialog_option_very_unsatisfied">매우 불만족</string>
   <string name="places_survey_dialog_title">\'장소\' 개선 지원하기</string>
   <string name="places_survey_feedback_dialog_title">\"장소\"를 어떻게 개선할 수 있나요?</string>
-  <string name="places_survey_dialog_cancel">취소</string>
+  <string name="survey_dialog_cancel">취소</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">무엇을 바꾸거나 개선하기를 원하시나요?</string>
   <string name="places_empty_list">이 지역은 비어 있습니다. &lt;a href=\"#\"&gt;지도를&lt;/a&gt; 확대해 보세요.</string>
   <string name="places_card_title">주변 장소</string>
@@ -1613,7 +1613,7 @@
   <string name="places_card_distance_unknown">알 수 없는 거리</string>
   <string name="places_empty_message_snackbar">주변 장소에 관한 문서가 없습니다. 지도를 확대해서 이동해 보세요.</string>
   <string name="recommended_content_survey_dialog_message">추천 검색 결과에 만족하시나요?</string>
-  <string name="recommended_content_survey_dialog_input_hint">추가 피드백</string>
+  <string name="survey_dialog_input_hint">추가 피드백</string>
   <string name="recommended_content_survey_dialog_submitted_message">피드백을 제출했습니다. 감사합니다!</string>
   <string name="donor_history_save_button">저장</string>
   <string name="donor_history_last_donated">마지막 기부</string>

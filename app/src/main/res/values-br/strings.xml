@@ -1302,7 +1302,7 @@
   <string name="patroller_onboarding_two_watch_title">Evezhiañ</string>
   <string name="patroller_onboarding_two_talk_title">Kaozeadenn</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Roit hoc\'h ali</string>
-  <string name="patroller_diff_feedback_dialog_submit">Kas</string>
+  <string name="survey_dialog_submit">Kas</string>
   <string name="patroller_saved_message_title_npov">Sav-boent neptu</string>
   <string name="patroller_saved_message_title_auto_trans">Troidigezh emgefreek</string>
   <string name="talk_templates_menu_edit_title">Kemmañ</string>
@@ -1318,5 +1318,5 @@
   <string name="places_filter_title">Silañ dre yezh</string>
   <string name="places_toggle_buttons_map">Kartenn</string>
   <string name="places_toggle_buttons_list">Roll</string>
-  <string name="places_survey_dialog_cancel">Nullañ</string>
+  <string name="survey_dialog_cancel">Nullañ</string>
 </resources>

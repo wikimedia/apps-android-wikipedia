@@ -1436,13 +1436,13 @@
   <string name="talk_templates_menu_remove_message">संदेश हटाएँ</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">कोई नहीं</string>
   <string name="patroller_onboarding_two_talk_title">वार्ता</string>
-  <string name="patroller_diff_feedback_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">संतुष्ट</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">ना संतुष्ट ना असंतुष्ट</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">असंतुष्ट</string>
+  <string name="survey_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
+  <string name="survey_dialog_option_satisfied">संतुष्ट</string>
+  <string name="survey_dialog_option_neutral">ना संतुष्ट ना असंतुष्ट</string>
+  <string name="survey_dialog_option_unsatisfied">असंतुष्ट</string>
   <string name="patroller_diff_feedback_dialog_input_hint">फीडबैक</string>
-  <string name="patroller_diff_feedback_dialog_submit">जमा करें</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="survey_dialog_submit">जमा करें</string>
+  <string name="survey_dialog_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
   <string name="talk_templates_menu_edit_title">सम्पादन</string>
   <string name="data_opt_in_accept">स्वीकार करें</string>
   <string name="data_opt_in_reject">अस्वीकार करें</string>
@@ -1455,8 +1455,8 @@
   <string name="places_filter_title">भाषा फ़िल्टर करें</string>
   <string name="places_toggle_buttons_map">नक्शा</string>
   <string name="places_toggle_buttons_list">लिस्ट</string>
-  <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
-  <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
+  <string name="survey_dialog_option_very_satisfied">बहुत संतुष्ट</string>
+  <string name="survey_dialog_option_very_unsatisfied">बहुत असंतुष्ट</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">हमें क्या परिवर्तन या सुधार करने चाहिए?</string>
   <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
