@@ -693,31 +693,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun maybeShowRecommendedContentSurvey() {
-        if (Prefs.recommendedContentSurveyShown) {
-             return
-        }
-        historyEntry?.let {
-            val duration = if (ReleaseUtil.isDevRelease) 1L else 10L
-            binding.pageContentsContainer.postDelayed({
-                if (!isAdded) {
-                    return@postDelayed
-                }
-                if (it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_PERSONALIZED ||
-                    it.source == HistoryEntry.SOURCE_RECOMMENDED_CONTENT_GENERALIZED) {
-                    SurveyDialog.showFeedbackOptionsDialog(
-                        requireActivity(),
-                        titleId = R.string.recommended_content_survey_dialog_title,
-                        messageId = R.string.recommended_content_survey_dialog_message,
-                        snackbarMessageId = R.string.recommended_content_survey_dialog_submitted_message,
-                        invokeSource = InvokeSource.RECOMMENDED_CONTENT,
-                        historyEntry = it
-                    )
-                }
-            }, TimeUnit.SECONDS.toMillis(duration))
-        }
-    }
-
     private fun showFindReferenceInPage(referenceAnchor: String,
                                         backLinksList: List<String?>,
                                         referenceText: String) {
@@ -961,7 +936,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
-        maybeShowRecommendedContentSurvey()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.

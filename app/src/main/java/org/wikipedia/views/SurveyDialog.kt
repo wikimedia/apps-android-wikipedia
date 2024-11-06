@@ -5,16 +5,12 @@ import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.analytics.metricsplatform.ExperimentalLinkPreviewInteraction
-import org.wikipedia.analytics.metricsplatform.RecommendedContentAnalyticsHelper
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -25,8 +21,7 @@ object SurveyDialog {
                                   titleId: Int = R.string.patroller_diff_feedback_dialog_title,
                                   messageId: Int = R.string.patroller_diff_feedback_dialog_message,
                                   snackbarMessageId: Int = R.string.patroller_diff_feedback_submitted_snackbar,
-                                  invokeSource: Constants.InvokeSource,
-                                  historyEntry: HistoryEntry? = null) {
+                                  invokeSource: Constants.InvokeSource) {
         var dialog: AlertDialog? = null
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(titleId)
@@ -57,39 +52,11 @@ object SurveyDialog {
             binding.optionUnsatisfied.setOnClickListener(clickListener)
 
             PatrollerExperienceEvent.logAction("impression", "feedback_form")
-        } else if (invokeSource == Constants.InvokeSource.RECOMMENDED_CONTENT) {
-            binding.optionNeutral.isChecked = true
-            binding.feedbackInputContainer.isVisible = true
-
-            ExperimentalLinkPreviewInteraction(source = historyEntry?.source ?: HistoryEntry.SOURCE_SEARCH, RecommendedContentAnalyticsHelper.abcTest.getGroupName())
-                .logImpression(feedbackShown = true)
         }
 
         val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
             .setCancelable(false)
             .setView(binding.root)
-
-        if (invokeSource == Constants.InvokeSource.RECOMMENDED_CONTENT) {
-            binding.submitButton.setOnClickListener {
-                val feedbackInput = binding.feedbackInput.text.toString()
-
-                ExperimentalLinkPreviewInteraction(source = historyEntry?.source ?: HistoryEntry.SOURCE_SEARCH,
-                    RecommendedContentAnalyticsHelper.abcTest.getGroupName())
-                    .logNavigate(feedbackShown = true, feedbackSelect = when {
-                        binding.optionSatisfied.isChecked -> "satisfied"
-                        binding.optionUnsatisfied.isChecked -> "unsatisfied"
-                        else -> "neutral"
-                    }, feedbackText = feedbackInput)
-
-                showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
-                dialog?.dismiss()
-                Prefs.recommendedContentSurveyShown = true
-            }
-            binding.cancelButton.setOnClickListener {
-                dialog?.dismiss()
-                Prefs.recommendedContentSurveyShown = true
-            }
-        }
 
         dialog = dialogBuilder.show()
     }
