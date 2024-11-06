@@ -689,10 +689,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
+                            return@launch
                         }
-                    } ?: run {
-                        maybeShowContributionsDashboardDialog()
                     }
+                    maybeShowContributionsDashboardDialog()
                 }
             }
         }
