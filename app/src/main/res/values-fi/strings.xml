@@ -1617,16 +1617,16 @@
   <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
   <string name="patroller_diff_tooltip_one">Vahinko ennustaa mikäli muokkaus aiheuttaa vahinkoa wikille.</string>
   <string name="patroller_diff_tooltip_two">Aikomus ennustaa todennäköisyyttä sille, että muokkaus on tehty hyvässä aikomuksessa.</string>
-  <string name="patroller_diff_feedback_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
-  <string name="patroller_diff_feedback_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Tyytyväinen</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutraali</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Tyytymätön</string>
+  <string name="survey_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
+  <string name="survey_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
+  <string name="survey_dialog_option_satisfied">Tyytyväinen</string>
+  <string name="survey_dialog_option_neutral">Neutraali</string>
+  <string name="survey_dialog_option_unsatisfied">Tyytymätön</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Kuinka voimme parantaa ominaisuutta?</string>
   <string name="patroller_diff_menu_edit_history_title">Artikkelin muokkaushistoria</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Palaute</string>
-  <string name="patroller_diff_feedback_dialog_submit">Lähetä</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Palaute lähetetty.</string>
+  <string name="survey_dialog_submit">Lähetä</string>
+  <string name="survey_dialog_submitted_snackbar">Palaute lähetetty.</string>
   <string name="patroller_saved_message_title_vandalism">Varoitus vandalismista</string>
   <string name="patroller_saved_message_title_editing_tests">Muokkaustestit</string>
   <string name="patroller_saved_message_title_npov">Neutraali näkökulma</string>
@@ -1666,11 +1666,11 @@
   <string name="places_filter_title">Suodata kielen perusteella</string>
   <string name="places_toggle_buttons_map">Kartta</string>
   <string name="places_toggle_buttons_list">Luettelo</string>
-  <string name="places_survey_very_satisfied_option">Erittäin tyytyväinen</string>
-  <string name="places_survey_very_unsatisfied_option">Erittäin tyytymätön</string>
+  <string name="survey_dialog_option_very_satisfied">Erittäin tyytyväinen</string>
+  <string name="survey_dialog_option_very_unsatisfied">Erittäin tyytymätön</string>
   <string name="places_survey_dialog_title">Auta parantamaan \'Paikat\'-toimintoa</string>
   <string name="places_survey_feedback_dialog_title">Miten \"Paikat\"-toimintoa voidaan parantaa?</string>
-  <string name="places_survey_dialog_cancel">Peruuta</string>
+  <string name="survey_dialog_cancel">Peruuta</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Mitä haluaisit meidän muuttavan tai parantavan?</string>
   <string name="places_empty_list">Tämä alue on tyhjä. Loitonna &lt;a href=\"#\"&gt;karttaa&lt;/a&gt;.</string>
   <string name="places_card_title">Paikkoja lähistöllä</string>
@@ -1683,7 +1683,7 @@
   <string name="recommended_content_section_you_might_like">Saatat pitää</string>
   <string name="recommended_content_survey_dialog_title">Auta parantamaan suositeltua sisältöä.</string>
   <string name="recommended_content_survey_dialog_message">Oletko tyytyväinen tähän suositeltuun hakutulokseen?</string>
-  <string name="recommended_content_survey_dialog_input_hint">Lisää palautetta</string>
+  <string name="survey_dialog_input_hint">Lisää palautetta</string>
   <string name="recommended_content_survey_dialog_submitted_message">Palaute lähetetty. Kiitos!</string>
   <string name="donor_history_save_button">Tallenna</string>
   <string name="donor_history_last_donated_date_picker_title">Valitse päivämäärä</string>

@@ -220,8 +220,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/ߥߞߌߡߋߘߌߦߊ߫_ߟߥߊ߬ߟߌ߬ߟߊ߲/ߊ߲ߘߙߏߦߌߘ_ߢߡߢ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ߛߓߍߘߊ߮ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ</string>
   <string name="about_contributors_heading">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ߠߊ ߟߎ߬</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
@@ -245,6 +245,7 @@
   <string name="edit_redo">ߊ߬ ߞߍ߫ ߕߎ߲߯</string>
   <string name="edit_rollback">ߟߊߞߐߛߊ߬ߦߌ߬</string>
   <string name="edit_warn">ߖߊ߬ߛߙߋ߬ߡߊ߬ߟߊ</string>
+  <string name="edit_damage">ߓߐ߬ߣߐ %s</string>
   <string name="edit_intent">ߟߊ߬ߢߌߣߌ߲ %s</string>
   <string name="edit_zoom_in">ߊ߬ ߟߊߞߎ߲߬ߓߊ߬ߦߊ߫</string>
   <string name="edit_zoom_out">ߊ߬ ߟߊߡߛߐ߫</string>
@@ -939,7 +940,11 @@
   <string name="image_recommendation_onboarding_3">ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߦߋ߫ ߕߙߏ߬ߞߏ ߟߊ߫ ߞߏ߫ ߟߊߘߊ߲ߣߍ߲ ߠߋ߬ ߘߌ߫߸ ߌߟߋ ߟߋ߬ ߦߵߌ ߝߛߍ߬ߝߛߍ߬ߟߌ ߟߊߓߊ߯ߙߊ߫ ߟߊ߫ ߞߊ߬ ߝߊ߲ߞߊ߲߫ ߣߴߌ ߘߴߌ ߛߐ߲߬ ߥߟߊ߫ ߞߵߊ߬ ߟߊߕߊ߲߬ߞߌ߲߫.</string>
   <string name="image_recommendation_onboarding_4">ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߣߊ߬ ߟߊ߫ ߞߊ߬ ߝߘߊ߫ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ ߟߋ߬ ߟߊ߫، ߖߌ߬ߦߊ߬ߓߍ߫ ߛߙߊ߬ߓߊߟߌ ߘߌ߬ߢߍ߬ߒ߬ߡߊ߬ߟߌ ߟߎ߬ ߦߋ߫ ߡߊߕߐ߬ߡߐ߲߬ ߠߊ߫ ߞߵߊ߬ߟߎ߫ ߟߊߓߊ߯ߙߊ߫ ߥߞߌߔߋߘߌߦߊ ߓߟߏ߫.</string>
   <string name="image_recommendation_tooltip_1">ߞߎߡߘߊ ߣߌ߲߬ ߡߊߛߊ߬ߦߌ߫ ߞߵߊ߬ ߞߣߐߘߐ ߢߌߣߌ߲ߞߏ ߟߎ߬ ߢߊߦߋ߫</string>
+  <string name="image_recommendation_tooltip_2">ߖߌ߬ߦߊ߬ߓߍ ߟߎ߬ ߞߙߐ߬ߛߌ߫ ߊ߬ ߣߌ߫ ߞߎ߲߬ߠߊ߬ߝߏߣߌ߲ ߡߍ߲ ߝߙߊ߬ߣߍ߲߫ ߦߴߊ߬ ߟߊ߫</string>
+  <string name="image_recommendation_tooltip_3">ߝ߲ߞߊ߲ ߕߊ߬ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ ߞߍ߫ ߘߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ߠߊ ߟߎ߬ ߘߍ߬ߡߍ߲߫ ߠߊ߫ ߞߊ߬ ߞߎߡߘߊ ߢߊߦߋ߫ ߓߘߍߞߍ</string>
   <string name="image_recommendation_tooltip_next">ߢߍߕߊ</string>
+  <string name="image_recommendation_tooltip_warning">ߞߎߡߘߊ ߘߐߛߊ߬ߦߌ߫ ߞߵߊ߬ ߞߣߐߟߊ ߢߊߦߋ߫߸ ߊ߬ ߣߌ߫ ߞߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߟߊߞߙߐ߬ߛߌ߫</string>
+  <string name="image_recommendation_depleted">ߤߊߞߍߕߏ߬، ߖߌ߬ߦߊ߬ߓߍ߫ ߞߎ߲߬ߦߌ߬ߘߊ߬ߣߍ߲߫ ߜߘߍ߫ ߕߴߦߋ߲߬ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫ ߕߊ߲߬. &lt;a href=\"#\"&gt;ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ߫&lt;/a&gt; ߜߘߍ ߟߎ߬ ߘߐߜߍ߫ ߥߟߊ߫ ߞߵߌ߬ ߞߐߛߊ߬ߦߌ߫ ߞߐߝߍ߬.</string>
   <string name="suggested_edits_report_feature">ߝߙߋߞߋ ߦߋ߫ ߗߋߘߊ ߟߊ߫</string>
   <string name="suggested_edits_report_feature_subject">ߝߙߋߞߋ ߦߋ߫ ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߘߐ߫</string>
   <string name="edit_summary_added_image">ߖߌ߬ߦߊ߬ߓߍ ߓߘߊ߫ ߝߊ߬ߙߊ߫</string>
@@ -1345,6 +1350,7 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems">ߝߙߋߞߋ ߟߎ߬ ߘߌ߫ ߞߴߊ߬ ߘߐ߫</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߓߍ߲߬ߓߊߟߌ ߥߟߴߊ߬ ߝߍ߬ߡߊ ߝߊ߲߬ߓߊ ߓߍ߯ ߛߐ߬ߘߐ߲ߛ ߘߊ߲߬ߠߊ߬ߕߍ߰ߟߌ߫ ߡߊߓߍ߲߬ߣߍ߲ ߘߐ߫.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">ߊ߬ ߡߎߣߎ߲ߣߍ߲߫ ߦߋ߫ ߝߙߋߞߋߡߊ ߟߎ߫ ߟߊ߫ ߞߏߛߓߍ߫</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">ߊ߬ ߡߎߣߎ߲ߣߍ߲߫ ߦߋ߫ ߝߙߋߞߋߡߊ ߟߎ߫ ߟߊ߫ ߞߏߛߓߍ߫</string>
   <string name="data_opt_in_accept">ߊ߬ ߟߊߡߌ߬ߣߊ߫</string>
   <string name="data_opt_in_reject">ߊ߬ ߟߊߕߊ߲߬ߞߌ߫</string>
   <string name="page_issues_title">ߞߐߜߍ ߝߙߋߞߋ ߟߎ߬</string>
@@ -1367,11 +1373,11 @@
   <string name="places_filter_title">ߞߊ߲ ߛߍ߲ߛߍ߲߫</string>
   <string name="places_toggle_buttons_map">ߔߊ߬ߔߘߊ</string>
   <string name="places_toggle_buttons_list">ߛߙߍߘߍ</string>
-  <string name="places_survey_very_satisfied_option">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>
-  <string name="places_survey_very_unsatisfied_option">ߒ ߡߊ߫ ߟߊߥߛߊ߬ ߝߋߝߋ߫</string>
+  <string name="survey_dialog_option_very_satisfied">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>
+  <string name="survey_dialog_option_very_unsatisfied">ߒ ߡߊ߫ ߟߊߥߛߊ߬ ߝߋߝߋ߫</string>
   <string name="places_survey_dialog_title">ߦߙߐ ߟߎ߬ ߟߊߓߘߍ߬ߦߊ ߘߍ߬ߡߍ߲߬ߠߌ߲</string>
   <string name="places_survey_feedback_dialog_title">\"ߦߙߐ ߟߎ߬\" ߦߋ߫ ߟߊߓߘߍ߬ߦߊ߬ ߟߊ߫ ߘߌ߬؟</string>
-  <string name="places_survey_dialog_cancel">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="survey_dialog_cancel">ߊ߬ ߘߐߛߊ߬</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">ߌ ߦߴߊ߬ ߝߍ߬ ߊ߲ ߧߋ߫ ߡߎ߲߬ ߠߊߓߘߍ߬ߦߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߡߊߝߊ߬ߟߋ߲߫؟</string>
   <string name="places_empty_list">ߘߌ߲߬ߞߌߙߊ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߠߋ߬ ߦߋ߫. ߊ߬ ߥߊ߲߫߫߯ߛߊ߲߫ &lt;a href=\"#\"&gt;&lt;a href=\"#\"&gt;ߔߊ߬ߔߘߊ ߞߊ߲߬&lt;/a&gt;&lt;/a&gt;.</string>
   <string name="places_card_title">ߕߙߐ߬ߝߍ߫ ߘߌ߲ߞߌߙߊ ߟߎ߬</string>
