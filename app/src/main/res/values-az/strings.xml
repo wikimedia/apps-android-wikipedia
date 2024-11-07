@@ -1588,16 +1588,9 @@
   <string name="patroller_onboarding_two_undo_content">Potensial dağıdıcı redaktəni geri qaytarmaq \"Geri qaytar\"ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Zərər, redaktənin vikiyə ziyan vurub-vurmadığını proqnozlaşdırır.</string>
   <string name="patroller_diff_tooltip_two">Niyyət redaktənin yaxşı niyyətlə edildiyi ehtimalını proqnozlaşdırır.</string>
-  <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
-  <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
-  <string name="survey_dialog_option_satisfied">Razıyam</string>
-  <string name="survey_dialog_option_neutral">Neytral</string>
-  <string name="survey_dialog_option_unsatisfied">Razı deyiləm</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Bu xüsusiyyəti necə inkişaf etdirə bilərik?</string>
   <string name="patroller_diff_menu_edit_history_title">Məqalənin redaktə tarixçəsi</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Rəy</string>
-  <string name="survey_dialog_submit">Göndər</string>
-  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi.</string>
   <string name="patroller_diff_feedback_tooltip">İstənilən vaxt \"Xüsusiyyətlə bağlı problem\" altında rəy bildirmək üçün menyuya toxunun.</string>
   <string name="patroller_saved_message_title_vandalism">Vandalizm xəbərdarlığı</string>
   <string name="patroller_saved_message_title_editing_tests">Test redaktələri</string>
@@ -1655,12 +1648,6 @@
   <string name="places_filter_title">Dilə görə filtrlə</string>
   <string name="places_toggle_buttons_map">Xəritə</string>
   <string name="places_toggle_buttons_list">Siyahı</string>
-  <string name="survey_dialog_option_very_satisfied">Çox razıyam</string>
-  <string name="survey_dialog_option_very_unsatisfied">Çox narazıyam</string>
-  <string name="places_survey_dialog_title">\"Yerləri\" təkmilləşdirməyə kömək edin</string>
-  <string name="places_survey_feedback_dialog_title">\"Yerləri\" necə yaxşılaşdırmaq olar?</string>
-  <string name="survey_dialog_cancel">İmtina</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Nəyi dəyişdirməyimizi və ya təkmilləşdirməmizi istərdiniz?</string>
   <string name="places_empty_list">Bu sahə boşdur. &lt;a href=\"#\"&gt;Xəritədə&lt;/a&gt; böyüdün.</string>
   <string name="places_card_title">Yaxınlıqdakı yerlər</string>
   <string name="places_card_action">Yaxınlıqda daha çox yer</string>
@@ -1672,7 +1659,6 @@
   <string name="recommended_content_section_you_might_like">Xoşunuza gələ bilər</string>
   <string name="recommended_content_survey_dialog_title">Tövsiyə olunan məzmunu təkmilləşdirməyə kömək edin.</string>
   <string name="recommended_content_survey_dialog_message">Bu tövsiyə olunan axtarış nəticəsi sizi qane edirmi?</string>
-  <string name="survey_dialog_input_hint">Əlavə rəy</string>
   <string name="recommended_content_survey_dialog_submitted_message">Rəy təqdim edildi. Təşəkkürlər!</string>
   <string name="donor_history_title">Donor tarixi</string>
   <string name="donor_history_save_button">Yadda saxla</string>
@@ -1707,4 +1693,15 @@
   <string name="contributions_dashboard_logged_out_user">Çıxış etmiş istifadəçi</string>
   <string name="contributions_dashboard_tab_last_donated">Sonuncu ianə</string>
   <string name="contributions_dashboard_tab_update_button">Yenilə</string>
+  <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
+  <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
+  <string name="survey_dialog_option_satisfied">Razıyam</string>
+  <string name="survey_dialog_option_neutral">Neytral</string>
+  <string name="survey_dialog_option_unsatisfied">Razı deyiləm</string>
+  <string name="survey_dialog_option_very_satisfied">Çox razıyam</string>
+  <string name="survey_dialog_option_very_unsatisfied">Çox narazıyam</string>
+  <string name="survey_dialog_cancel">İmtina</string>
+  <string name="survey_dialog_submit">Göndər</string>
+  <string name="survey_dialog_input_hint">Əlavə rəy</string>
+  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi.</string>
 </resources>

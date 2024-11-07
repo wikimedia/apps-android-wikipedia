@@ -1593,16 +1593,9 @@
   <string name="patroller_onboarding_two_undo_title">Fortryd/Rul tilbage</string>
   <string name="patroller_onboarding_two_undo_content">Vælg \'Fortryd\' for at fortryde eller rulle en potentielt ødelæggende redigering tilbage.</string>
   <string name="patroller_diff_tooltip_one">Skader forudsiger, om en redigering forårsager skade på en wiki.</string>
-  <string name="survey_dialog_title">Hjælp os med at forbedre denne funktion</string>
-  <string name="survey_dialog_message">Er du tilfreds med denne funktion?</string>
-  <string name="survey_dialog_option_satisfied">Tilfreds</string>
-  <string name="survey_dialog_option_neutral">Neutral</string>
-  <string name="survey_dialog_option_unsatisfied">Utilfreds</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hvordan kan vi forbedre funktionen?</string>
   <string name="patroller_diff_menu_edit_history_title">Artiklens redigeringshistorik</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
-  <string name="survey_dialog_submit">Indsend</string>
-  <string name="survey_dialog_submitted_snackbar">Feedback indsendt.</string>
   <string name="patroller_saved_message_title_vandalism">Advarsel om muligt hærværk</string>
   <string name="patroller_saved_message_title_npov">Neutral synvinkel</string>
   <string name="patroller_saved_message_title_auto_trans">Automatisk oversættelse</string>
@@ -1648,12 +1641,6 @@
   <string name="places_filter_title">Filtrér efter sprog</string>
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="survey_dialog_option_very_satisfied">Meget tilfreds</string>
-  <string name="survey_dialog_option_very_unsatisfied">Meget utilfreds</string>
-  <string name="places_survey_dialog_title">Hjælp med at forbedre \'Steder\'</string>
-  <string name="places_survey_feedback_dialog_title">Hvordan kan \"Steder\" forbedres?</string>
-  <string name="survey_dialog_cancel">Annullér</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Hvad vil du gerne have, at vi ændrer eller forbedrer?</string>
   <string name="places_empty_list">Dette område er tomt. Zoom ud &lt;a href=\"#\"&gt;på kortet&lt;/a&gt;.</string>
   <string name="places_card_title">Steder i nærheden</string>
   <string name="places_card_action">Flere steder i nærheden</string>
@@ -1686,4 +1673,14 @@
   <string name="contributions_dashboard_app_icon_title">App-ikon</string>
   <string name="contributions_dashboard_app_icon_subtitle">Donor fordel</string>
   <string name="contributions_dashboard_tab_update_button">Opdatér</string>
+  <string name="survey_dialog_title">Hjælp os med at forbedre denne funktion</string>
+  <string name="survey_dialog_message">Er du tilfreds med denne funktion?</string>
+  <string name="survey_dialog_option_satisfied">Tilfreds</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="survey_dialog_option_very_satisfied">Meget tilfreds</string>
+  <string name="survey_dialog_option_very_unsatisfied">Meget utilfreds</string>
+  <string name="survey_dialog_cancel">Annullér</string>
+  <string name="survey_dialog_submit">Indsend</string>
+  <string name="survey_dialog_submitted_snackbar">Feedback indsendt.</string>
 </resources>
