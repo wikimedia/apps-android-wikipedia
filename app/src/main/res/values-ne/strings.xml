@@ -787,9 +787,9 @@
   <string name="places_title">स्थानहरू</string>
   <string name="places_toggle_buttons_map">नक्सा</string>
   <string name="places_toggle_buttons_list">सूची</string>
-  <string name="survey_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="places_card_enable_location_card_button">स्थान सक्षम पार्नुहोस्</string>
-  <string name="survey_dialog_input_hint">अतिरिक्त प्रतिक्रिया</string>
   <string name="donor_history_donate_button">विकिमिडिया फाउन्डेसनलाई दान गर्नुहोस्</string>
   <string name="contributions_dashboard_entry_dialog_cancel">पर्दैन, धन्यवाद</string>
+  <string name="survey_dialog_cancel">रद्द गर्नुहोस्</string>
+  <string name="survey_dialog_input_hint">अतिरिक्त प्रतिक्रिया</string>
 </resources>

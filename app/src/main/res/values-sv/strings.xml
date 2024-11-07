@@ -1610,16 +1610,9 @@
   <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
   <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
   <string name="patroller_diff_tooltip_two">Avsikt förutsäger sannolikheten om en redigering sparas i god tro.</string>
-  <string name="survey_dialog_title">Hjälp oss att förbättra denna funktion</string>
-  <string name="survey_dialog_message">Är du nöjd med denna funktion?</string>
-  <string name="survey_dialog_option_satisfied">Nöjd</string>
-  <string name="survey_dialog_option_neutral">Neutral</string>
-  <string name="survey_dialog_option_unsatisfied">Inte nöjd</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hur kan vi förbättra funktionen?</string>
   <string name="patroller_diff_menu_edit_history_title">Artikelns redigeringshistorik</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Återkoppling</string>
-  <string name="survey_dialog_submit">Skicka</string>
-  <string name="survey_dialog_submitted_snackbar">Återkoppling har skickats.</string>
   <string name="patroller_diff_feedback_tooltip">Tryck på överflödesmenyn för att skicka återkoppling när som helst under \"Problem med funktion\".</string>
   <string name="patroller_saved_message_title_vandalism">Vandalismvarning</string>
   <string name="patroller_saved_message_title_editing_tests">Redigeringstester</string>
@@ -1677,12 +1670,6 @@
   <string name="places_filter_title">Filtrera språk</string>
   <string name="places_toggle_buttons_map">Karta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="survey_dialog_option_very_satisfied">Mycket nöjd</string>
-  <string name="survey_dialog_option_very_unsatisfied">Mycket missnöjd</string>
-  <string name="places_survey_dialog_title">Hjälp till att förbättra \"Platser\"</string>
-  <string name="places_survey_feedback_dialog_title">Hur kan \"Platser\" förbättras?</string>
-  <string name="survey_dialog_cancel">Avbryt</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Vad vill du att vi ska förändra eller förbättra?</string>
   <string name="places_empty_list">Det här området är tomt. Zooma ut &lt;a href=\"#\"&gt;på kartan&lt;/a&gt;.</string>
   <string name="places_card_title">Närliggande platser</string>
   <string name="places_card_action">Fler närliggande platser</string>
@@ -1694,7 +1681,6 @@
   <string name="recommended_content_section_you_might_like">Du kanske gillar</string>
   <string name="recommended_content_survey_dialog_title">Hjälp till att förbättra rekommenderat innehåll.</string>
   <string name="recommended_content_survey_dialog_message">Är du nöjd med det rekommenderade sökresultatet?</string>
-  <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
   <string name="recommended_content_survey_dialog_submitted_message">Återkoppling inskickad. Tack!</string>
   <string name="donor_history_title">Donationshistorik</string>
   <string name="donor_history_save_button">Spara</string>
@@ -1729,4 +1715,15 @@
   <string name="contributions_dashboard_logged_out_user">Utloggad användare</string>
   <string name="contributions_dashboard_tab_last_donated">Donerade senast</string>
   <string name="contributions_dashboard_tab_update_button">Uppdatera</string>
+  <string name="survey_dialog_title">Hjälp oss att förbättra denna funktion</string>
+  <string name="survey_dialog_message">Är du nöjd med denna funktion?</string>
+  <string name="survey_dialog_option_satisfied">Nöjd</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Inte nöjd</string>
+  <string name="survey_dialog_option_very_satisfied">Mycket nöjd</string>
+  <string name="survey_dialog_option_very_unsatisfied">Mycket missnöjd</string>
+  <string name="survey_dialog_cancel">Avbryt</string>
+  <string name="survey_dialog_submit">Skicka</string>
+  <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
+  <string name="survey_dialog_submitted_snackbar">Återkoppling har skickats.</string>
 </resources>
