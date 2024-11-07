@@ -1373,12 +1373,6 @@
   <string name="places_filter_title">ߞߊ߲ ߛߍ߲ߛߍ߲߫</string>
   <string name="places_toggle_buttons_map">ߔߊ߬ߔߘߊ</string>
   <string name="places_toggle_buttons_list">ߛߙߍߘߍ</string>
-  <string name="survey_dialog_option_very_satisfied">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>
-  <string name="survey_dialog_option_very_unsatisfied">ߒ ߡߊ߫ ߟߊߥߛߊ߬ ߝߋߝߋ߫</string>
-  <string name="places_survey_dialog_title">ߦߙߐ ߟߎ߬ ߟߊߓߘߍ߬ߦߊ ߘߍ߬ߡߍ߲߬ߠߌ߲</string>
-  <string name="places_survey_feedback_dialog_title">\"ߦߙߐ ߟߎ߬\" ߦߋ߫ ߟߊߓߘߍ߬ߦߊ߬ ߟߊ߫ ߘߌ߬؟</string>
-  <string name="survey_dialog_cancel">ߊ߬ ߘߐߛߊ߬</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">ߌ ߦߴߊ߬ ߝߍ߬ ߊ߲ ߧߋ߫ ߡߎ߲߬ ߠߊߓߘߍ߬ߦߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߡߊߝߊ߬ߟߋ߲߫؟</string>
   <string name="places_empty_list">ߘߌ߲߬ߞߌߙߊ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߠߋ߬ ߦߋ߫. ߊ߬ ߥߊ߲߫߫߯ߛߊ߲߫ &lt;a href=\"#\"&gt;&lt;a href=\"#\"&gt;ߔߊ߬ߔߘߊ ߞߊ߲߬&lt;/a&gt;&lt;/a&gt;.</string>
   <string name="places_card_title">ߕߙߐ߬ߝߍ߫ ߘߌ߲ߞߌߙߊ ߟߎ߬</string>
   <string name="places_card_action">ߛߌ߰ߢߐ߲߰ ߘߌ߲߬ߞߌ߬ߙߊ߬ ߜߘߍ ߟߎ߫</string>
@@ -1405,4 +1399,7 @@
   <string name="contributions_dashboard_donation_dialog_message">ߌ ߦߋ߫ 2%% ߟߎ߫ ߘߏ߫ ߟߋ߬ ߘߌ߫߸ ߡߍ߲ ߠߎ߬ ߣߵߊ߬ ߞߊ߬ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߛߐ߬ߘߐ߲߬ߘߊ߫ ߞߋ߲߬ߥߟߎ ߟߎ߬ ߞߐߡߊߓߌ߲ߓߌ߲߫ ߡߍ߲ ߠߎ߬ ߛߍߥߊߣߍ߲ ߦߴߊ߬ ߟߊ߫. ߊ߲ ߧߴߊ߲ ߠߊ߫ ߞߏߢߌߡߊߟߐ߲ ߦߌ߬ߘߊ߬ ߟߴߌ ߟߊ߫، ߌ ߟߊ߫ ߦߌ߬ߘߊ߬ߥߟߊ ߓߘߊ߫ ߞߵߌ ߟߌ߬ߤߟߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߞߵߊ߬ ߞߍ߫ ߣߌ߬ߟߌߟߊ ߘߌ߫. ߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߦߋ߫؟</string>
   <string name="contributions_dashboard_donation_dialog_cancel">ߊ߬ߦߌ߫߸ ߌ ߣߌ߫ ߗߋ߫</string>
   <string name="contributions_dashboard_donation_dialog_ok">ߊ߬ߥߐ߫، ߒ ߠߊߛߋ߫ ߦߋ߲߬</string>
+  <string name="survey_dialog_option_very_satisfied">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>
+  <string name="survey_dialog_option_very_unsatisfied">ߒ ߡߊ߫ ߟߊߥߛߊ߬ ߝߋߝߋ߫</string>
+  <string name="survey_dialog_cancel">ߊ߬ ߘߐߛߊ߬</string>
 </resources>
