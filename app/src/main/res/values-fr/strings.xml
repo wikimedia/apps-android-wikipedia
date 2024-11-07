@@ -1650,16 +1650,9 @@
   <string name="patroller_onboarding_two_undo_content">Choisissez « Annuler » pour révoquer ou annuler une modification potentiellement problématique.</string>
   <string name="patroller_diff_tooltip_one">Dommage prédit si une modification cause des dommages à un wiki.</string>
   <string name="patroller_diff_tooltip_two">L’intention prédit la probabilité qu’une modification soit enregistrée de bonne foi.</string>
-  <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
-  <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
-  <string name="survey_dialog_option_satisfied">Satisfait</string>
-  <string name="survey_dialog_option_neutral">Neutre</string>
-  <string name="survey_dialog_option_unsatisfied">Insatisfait</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Comment pouvons-nous améliorer la fonctionnalité ?</string>
   <string name="patroller_diff_menu_edit_history_title">Historique des modifications de l’article</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
-  <string name="survey_dialog_submit">Soumettre</string>
-  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé.</string>
   <string name="patroller_diff_feedback_tooltip">Appuyez sur le menu de débordement pour soumettre des commentaires à tout moment sous « Problème avec la fonctionnalité ».</string>
   <string name="patroller_saved_message_title_vandalism">Avertissement de vandalisme</string>
   <string name="patroller_saved_message_title_editing_tests">Tests d\'édition</string>
@@ -1717,13 +1710,17 @@
   <string name="places_filter_title">Filtrer par langue</string>
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="survey_dialog_option_very_satisfied">Très satisfait</string>
-  <string name="survey_dialog_option_very_unsatisfied">Très insatisfait</string>
-  <string name="places_survey_dialog_title">Aider à améliorer les \'Lieux\'</string>
-  <string name="places_survey_feedback_dialog_title">Comment améliorer les « Lieux » ?</string>
-  <string name="survey_dialog_cancel">Annuler</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Que voudriez-vous que nous changions ou améliorions ?</string>
   <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>
   <string name="donor_history_update_donor_status_not_a_donor">Pas un donateur</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Non, merci.</string>
+  <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
+  <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
+  <string name="survey_dialog_option_satisfied">Satisfait</string>
+  <string name="survey_dialog_option_neutral">Neutre</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfait</string>
+  <string name="survey_dialog_option_very_satisfied">Très satisfait</string>
+  <string name="survey_dialog_option_very_unsatisfied">Très insatisfait</string>
+  <string name="survey_dialog_cancel">Annuler</string>
+  <string name="survey_dialog_submit">Soumettre</string>
+  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé.</string>
 </resources>
