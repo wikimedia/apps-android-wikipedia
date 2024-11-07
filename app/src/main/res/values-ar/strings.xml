@@ -1583,12 +1583,9 @@
   <string name="places_filter_title">فلترة حسب اللغة</string>
   <string name="places_toggle_buttons_map">خريطة</string>
   <string name="places_toggle_buttons_list">قائمة</string>
-  <string name="survey_dialog_option_very_satisfied">راض جدا</string>
-  <string name="survey_dialog_option_very_unsatisfied">غير راض جدا</string>
-  <string name="places_survey_dialog_title">ساعد في تحسين \"الأماكن\"</string>
-  <string name="places_survey_feedback_dialog_title">كيف يمكن تحسين \"المناطق\"</string>
-  <string name="survey_dialog_cancel">إلغاء</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">ما الذي تود منا تغييره أو تحسينه؟</string>
   <string name="places_empty_list">هذه المنطقة فارغة. قم بتكبير &lt;a href\n=\"#\"&gt; الخريطة.</string>
   <string name="recommended_content_survey_dialog_submitted_message">أرسلت التعليقات. شكرا لك!</string>
+  <string name="survey_dialog_option_very_satisfied">راض جدا</string>
+  <string name="survey_dialog_option_very_unsatisfied">غير راض جدا</string>
+  <string name="survey_dialog_cancel">إلغاء</string>
 </resources>

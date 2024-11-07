@@ -1626,16 +1626,9 @@
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_diff_tooltip_one">Text of the first tooltip for edit diff screen.</string>
   <string name="patroller_diff_tooltip_two">Text of the second tooltip for edit diff screen.</string>
-  <string name="survey_dialog_title">Dialog title for the feedback form in the Edit Patrol screen.</string>
-  <string name="survey_dialog_message">Dialog message for the feedback form in the Edit Patrol screen.</string>
-  <string name="survey_dialog_option_satisfied">Option for the feedback form in the Edit Patrol screen that indicates satisfied.</string>
-  <string name="survey_dialog_option_neutral">Option for the feedback form in the Edit Patrol screen that indicates neutral.</string>
-  <string name="survey_dialog_option_unsatisfied">Option for the feedback form in the Edit Patrol screen that indicates unsatisfied.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Dialog title for the feedback input in the Edit Patrol screen.</string>
   <string name="patroller_diff_menu_edit_history_title">Label text for menu option to view the article\'s edit history.</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
-  <string name="survey_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
-  <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
   <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
   <string name="patroller_saved_message_title_vandalism">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about vandalism: {{msg-wm|Wikipedia-android-strings-patroller saved message body vandalism}}</string>
   <string name="patroller_saved_message_title_editing_tests">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about editing tests: {{msg-wm|Wikipedia-android-strings-patroller saved message body editing tests}}</string>
@@ -1694,9 +1687,6 @@
   <string name="places_filter_title">Title string for places language filter screen.</string>
   <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
   <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
-  <string name="survey_dialog_option_very_satisfied">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
-  <string name="survey_dialog_option_very_unsatisfied">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
-  <string name="survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
   <string name="places_card_title">Title for the Places card on the explore feed.</string>
   <string name="places_card_action">Text for the Places card action on the explore feed</string>
@@ -1744,4 +1734,15 @@
   <string name="contributions_dashboard_donor_icon_dialog_cancel">Negative action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily.</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">Positive action for the app-icon dialog that indicates the user unlocks the functionality to change the app icon temporarily, which will open the Settings screen.</string>
   <string name="contributions_dashboard_app_icon_updated">Message shown when user updates the app icon from settings. \"App icon\" is {{msg-wm|Wikipedia-android-strings-contributions dashboard app icon title}}.</string>
+  <string name="survey_dialog_title">Title text for talk page survey</string>
+  <string name="survey_dialog_message">Dialog message for the feedback form in the Edit Patrol screen.</string>
+  <string name="survey_dialog_option_satisfied">Option for the feedback form in the Edit Patrol screen that indicates satisfied.</string>
+  <string name="survey_dialog_option_neutral">Option for the feedback form in the Edit Patrol screen that indicates neutral.</string>
+  <string name="survey_dialog_option_unsatisfied">Option for the feedback form in the Edit Patrol screen that indicates unsatisfied.</string>
+  <string name="survey_dialog_option_very_satisfied">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
+  <string name="survey_dialog_option_very_unsatisfied">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
+  <string name="survey_dialog_cancel">Negative action button text for places survey dialog</string>
+  <string name="survey_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
+  <string name="survey_dialog_input_hint">Hint label for the Recommended Content survey dialog input field.</string>
+  <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
 </resources>
