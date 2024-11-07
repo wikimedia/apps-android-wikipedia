@@ -18,7 +18,7 @@ class ExploreFeedTest : BaseTest<MainActivity>(
     private val exploreFeedRobot = ExploreFeedRobot()
 
     @Test
-    fun runExploreFeedTest() {
+    fun startExploreFeedTest() {
         exploreFeedRobot
             .scrollToPositionOnTheFeed(FEATURED_ARTICLE)
             .longClickFeaturedArticleCardContainer()

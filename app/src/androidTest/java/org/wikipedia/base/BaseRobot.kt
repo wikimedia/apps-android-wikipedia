@@ -1,5 +1,6 @@
 package org.wikipedia.base
 
+import android.app.Activity
 import android.graphics.Rect
 import android.view.View
 import androidx.annotation.IdRes
@@ -18,6 +19,7 @@ import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.RootMatchers.isDialog
+import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast
@@ -123,6 +125,11 @@ abstract class BaseRobot {
 
     protected fun checkWithTextIsDisplayed(@IdRes viewId: Int, text: String) {
         onView(allOf(withId(viewId), withText(text), isDisplayed()))
+            .check(matches(withText(text)))
+    }
+
+    protected fun checkIfViewIsDisplayingText(@IdRes viewId: Int, text: String) {
+        onView(allOf(withId(viewId), isDisplayed()))
             .check(matches(withText(text)))
     }
 
@@ -253,6 +260,11 @@ abstract class BaseRobot {
                 }
             }
         }
+    }
+
+    protected fun dismissTooltipIfAny(activity: Activity, @IdRes viewId: Int) = apply {
+        onView(allOf(withId(viewId))).inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView))))
+            .perform(click())
     }
 
     private fun scrollAndClick() = object : ViewAction {

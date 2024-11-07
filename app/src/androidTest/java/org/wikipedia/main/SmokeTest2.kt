@@ -36,7 +36,8 @@ class SmokeTest2 : BaseTest<MainActivity>(
             .skipWelcomeScreen()
 
         searchRobot
-            .performSearch(SEARCH_TERM)
+            .clickSearchContainer()
+            .typeTextInView(SEARCH_TERM)
             .verifySearchResult(ARTICLE_TITLE)
 
         setDeviceOrientation(true)

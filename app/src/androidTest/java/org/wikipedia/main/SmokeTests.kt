@@ -44,9 +44,12 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.childAtPosition
+import org.wikipedia.TestUtil.isDisplayed
+import org.wikipedia.navtab.NavTab
 import java.util.concurrent.TimeUnit
 
 @LargeTest
@@ -766,131 +769,131 @@ class SmokeTests {
             withParent(withId(R.id.view_wiki_article_card)))), isDisplayed())).check(ViewAssertions.doesNotExist())
 
         TestUtil.delay(2)
-//
-//        // Go to Saved tab
-//        onView(withId(NavTab.READING_LISTS.id)).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        // Click on first item in the list
-//        onView(withId(R.id.recycler_view))
-//            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-//
-//        // Waiting for the article to be saved to the database
-//        TestUtil.delay(5)
-//
-//        // Dismiss tooltip, if any
-//        onView(allOf(withId(R.id.buttonView)))
-//            .inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView)))).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        // Make sure one of the list item matches the title that we expect
-//        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
-//            .check(matches(withText(ARTICLE_TITLE)))
-//
-//        // Turn on airplane mode to test offline reading
-//        TestUtil.setAirplaneMode(true)
-//
-//        TestUtil.delay(2)
-//
-//        // Access article in offline mode
-//        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(5)
-//
-//        // Click on bookmark icon and open the menu
-//        onView(withId(R.id.page_save)).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Remove article from reading list
-//        onView(withText("Remove from Saved")).perform(click())
-//
-//        TestUtil.delay(5)
-//
-//        // Back to reading list screen
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Back to `Saved` tab
-//        pressBack()
-//
-//        TestUtil.delay(2)
-//
-//        // Test history clearing feature - Go to search tab
-//        onView(allOf(withId(R.id.nav_tab_search), withContentDescription("Search"),
-//            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click on `Clear history` icon
-//        onView(allOf(withId(R.id.history_delete), withContentDescription("Clear history"), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Assert deletion message
-//        onView(allOf(withId(androidx.appcompat.R.id.alertTitle), isDisplayed())).check(matches(withText("Clear browsing history")))
-//
-//        TestUtil.delay(2)
-//
-//        onView(allOf(withId(android.R.id.button2), withText("No"), isDisplayed())).perform(scrollTo(), click())
-//
-//        TestUtil.delay(2)
-//
-//        // Turn off airplane mode
-//        TestUtil.setAirplaneMode(false)
-//
-//        TestUtil.delay(5)
-//
-//        // Click the More menu
-//        onView(allOf(withId(R.id.nav_more_container), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        // Log-in the user
-//        // Click the Login menu item
-//        onView(allOf(withId(R.id.main_drawer_login_button), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Click the login button
-//        onView(allOf(withId(R.id.create_account_login_button), withText("Log in"), isDisplayed()))
-//            .perform(click())
-//
-//        TestUtil.delay(2)
-//
-//        // Set environment variables to hold correct username and password
-//        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
-//            .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
-//
-//        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
-//            .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
-//
-//        // Click the login button
-//        onView(withId(R.id.login_button)).perform(scrollTo(), click())
-//
-//        TestUtil.delay(5)
-//
-//        // Check if the list sync dialog is shown and subsequently dismiss it
-//        val listSyncDialogButton = onView(allOf(withId(android.R.id.button2), withText("No thanks"),
-//            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.buttonPanel), 0), 2)))
-//
-//        if (listSyncDialogButton.isDisplayed()) {
-//            listSyncDialogButton.perform(scrollTo(), click())
-//        }
-//
-//        TestUtil.delay(1)
-//
+
+        // Go to Saved tab
+        onView(withId(NavTab.READING_LISTS.id)).perform(click())
+
+        TestUtil.delay(1)
+
+        // Click on first item in the list
+        onView(withId(R.id.recycler_view))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        // Waiting for the article to be saved to the database
+        TestUtil.delay(5)
+
+        // Dismiss tooltip, if any
+        onView(allOf(withId(R.id.buttonView)))
+            .inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView)))).perform(click())
+
+        TestUtil.delay(1)
+
+        // Make sure one of the list item matches the title that we expect
+        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
+            .check(matches(withText(ARTICLE_TITLE)))
+
+        // Turn on airplane mode to test offline reading
+        TestUtil.setAirplaneMode(true)
+
+        TestUtil.delay(2)
+
+        // Access article in offline mode
+        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(5)
+
+        // Click on bookmark icon and open the menu
+        onView(withId(R.id.page_save)).perform(click())
+
+        TestUtil.delay(2)
+
+        // Remove article from reading list
+        onView(withText("Remove from Saved")).perform(click())
+
+        TestUtil.delay(5)
+
+        // Back to reading list screen
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Back to `Saved` tab
+        pressBack()
+
+        TestUtil.delay(2)
+
+        // Test history clearing feature - Go to search tab
+        onView(allOf(withId(R.id.nav_tab_search), withContentDescription("Search"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click on `Clear history` icon
+        onView(allOf(withId(R.id.history_delete), withContentDescription("Clear history"), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Assert deletion message
+        onView(allOf(withId(androidx.appcompat.R.id.alertTitle), isDisplayed())).check(matches(withText("Clear browsing history")))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(android.R.id.button2), withText("No"), isDisplayed())).perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        // Turn off airplane mode
+        TestUtil.setAirplaneMode(false)
+
+        TestUtil.delay(5)
+
+        // Click the More menu
+        onView(allOf(withId(R.id.nav_tab_more), isDisplayed())).perform(click())
+
+        TestUtil.delay(1)
+
+        // Log-in the user
+        // Click the Login menu item
+        onView(allOf(withId(R.id.main_drawer_login_button), isDisplayed())).perform(click())
+
+        TestUtil.delay(2)
+
+        // Click the login button
+        onView(allOf(withId(R.id.create_account_login_button), withText("Log in"), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        // Set environment variables to hold correct username and password
+        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
+            .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
+
+        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
+            .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
+
+        // Click the login button
+        onView(withId(R.id.login_button)).perform(scrollTo(), click())
+
+        TestUtil.delay(5)
+
+        // Check if the list sync dialog is shown and subsequently dismiss it
+        val listSyncDialogButton = onView(allOf(withId(android.R.id.button2), withText("No thanks"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.buttonPanel), 0), 2)))
+
+        if (listSyncDialogButton.isDisplayed()) {
+            listSyncDialogButton.perform(scrollTo(), click())
+        }
+
+        TestUtil.delay(1)
+
 //        // Click on Notifications from the app bar on Explore feed
 //        onView(allOf(withId(R.id.menu_notifications), withContentDescription("Notifications"),
 //            isDisplayed())).perform(click())
 //
 //        // Give the page plenty of time to load fully
 //        TestUtil.delay(3)
-//
+
 //        // Click on the search bar
 //        onView(withId(R.id.notifications_recycler_view))
 //            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
@@ -910,19 +913,19 @@ class SmokeTests {
 //
 //        TestUtil.delay(1)
 //
-//        onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"),
-//            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed())).perform(click())
-//
-//        TestUtil.delay(1)
-//
-//        goToTop()
-//
-//        // Access Suggested edits card
-//        // On some devices espresso doesnt scroll to >9 position directly, but scrolls in 2 steps
-//        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
-//        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
-//
-//        TestUtil.delay(2)
+        onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed())).perform(click())
+
+        TestUtil.delay(1)
+
+        goToTop()
+
+        // Access Suggested edits card
+        // On some devices espresso doesnt scroll to >9 position directly, but scrolls in 2 steps
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
+
+        TestUtil.delay(2)
 //
 //        val callToActionView = onView(allOf(withId(R.id.callToActionButton), withText("Add article description")))
 //

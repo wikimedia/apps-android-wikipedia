@@ -1,17 +1,10 @@
 package org.wikipedia.robots
 
 import android.app.Activity
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.RootMatchers.withDecorView
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
-import org.hamcrest.Matchers
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.not
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
@@ -48,8 +41,7 @@ class PageRobot : BaseRobot() {
     }
 
     fun dismissTooltip(activity: Activity) = apply {
-        onView(allOf(withId(R.id.buttonView))).inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView))))
-            .perform(click())
+        dismissTooltipIfAny(activity, viewId = R.id.buttonView)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -170,5 +162,15 @@ class PageRobot : BaseRobot() {
     fun navigateBackToExploreFeed() = apply {
         clickOnViewWithText("Explore")
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickOnBookmarkIcon() = apply {
+        clickOnViewWithId(R.id.page_save)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun removeArticleFromReadingList() = apply {
+        clickOnViewWithText("Remove from Saved")
+        delay(TestConfig.DELAY_LARGE)
     }
 }

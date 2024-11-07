@@ -22,7 +22,9 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
         binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.background_color))
         FeedbackUtil.setButtonTooltip(binding.voiceSearchButton)
 
-        binding.searchContainer.setOnClickListener { callback?.onSearchRequested(it) }
+        binding.searchContainer.setOnClickListener {
+            callback?.onSearchRequested(it)
+        }
         binding.voiceSearchButton.setOnClickListener { callback?.onVoiceSearchRequested() }
         binding.voiceSearchButton.isVisible = WikipediaApp.instance.voiceRecognitionAvailable
     }

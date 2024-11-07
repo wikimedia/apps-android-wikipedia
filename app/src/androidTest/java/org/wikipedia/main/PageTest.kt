@@ -29,7 +29,7 @@ class PageTest : BaseTest<PageActivity>(
     private val themeRobot = ThemeRobot()
 
     @Test
-    fun articlePageTest() {
+    fun startArticlePageTest() {
         pageRobot
             .dismissTooltip(activity)
             .clickLink("3-sphere")

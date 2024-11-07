@@ -29,7 +29,7 @@ class EditArticleTest : BaseTest<PageActivity>(
     private val pageRobot = PageRobot()
 
     @Test
-    fun editTest() {
+    fun startEditTest() {
         pageRobot
             .clickEditPencilAtTopOfArticle()
         editorRobot

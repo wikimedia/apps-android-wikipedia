@@ -1,5 +1,6 @@
-package org.wikipedia.robots
+package org.wikipedia.robots.screenrobots
 
+import android.app.Activity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
@@ -78,6 +79,16 @@ class HomeScreenRobot : BaseRobot() {
         // Assert that images arent shown anymore
         onView(allOf(withId(R.id.articleImage), withParent(allOf(withId(R.id.articleImageContainer),
             withParent(withId(R.id.view_wiki_article_card)))), isDisplayed())).check(ViewAssertions.doesNotExist())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun dismissTooltip(activity: Activity) = apply {
+        dismissTooltipIfAny(activity, viewId = R.id.buttonView)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickLoginMenuItem() = apply {
+        clickOnViewWithId(R.id.main_drawer_login_button)
         delay(TestConfig.DELAY_MEDIUM)
     }
 }
