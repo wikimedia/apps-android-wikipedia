@@ -1591,16 +1591,16 @@
   <string name="patroller_onboarding_two_undo_content">Elige ‘Disfacer’ pro disfacer o revocar un modification potentialmente destructive.</string>
   <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>
   <string name="patroller_diff_tooltip_two">‘Intention’ previde le probabilitate que un modification es facite in bon fide.</string>
-  <string name="patroller_diff_feedback_dialog_title">Adjuta nos a meliorar iste function</string>
-  <string name="patroller_diff_feedback_dialog_message">Es tu satisfacite de iste function?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfacite</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non satisfacite</string>
+  <string name="survey_dialog_title">Adjuta nos a meliorar iste function</string>
+  <string name="survey_dialog_message">Es tu satisfacite de iste function?</string>
+  <string name="survey_dialog_option_satisfied">Satisfacite</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Non satisfacite</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Como pote nos meliorar le function?</string>
   <string name="patroller_diff_menu_edit_history_title">Historia de modificationes del articulo</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentario</string>
-  <string name="patroller_diff_feedback_dialog_submit">Submitter</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Commentario submittite.</string>
+  <string name="survey_dialog_submit">Submitter</string>
+  <string name="survey_dialog_submitted_snackbar">Commentario submittite.</string>
   <string name="patroller_diff_feedback_tooltip">Pro inviar commentarios, tocca sur le menu de disbordamento sub ‘Problema con function’.</string>
   <string name="patroller_saved_message_title_vandalism">Advertimento de vandalismo</string>
   <string name="patroller_saved_message_title_editing_tests">Tests de modification</string>
@@ -1658,11 +1658,11 @@
   <string name="places_filter_title">Filtrar per lingua</string>
   <string name="places_toggle_buttons_map">Carta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_very_satisfied_option">Multo satisfacite</string>
-  <string name="places_survey_very_unsatisfied_option">Multo insatisfacite</string>
+  <string name="survey_dialog_option_very_satisfied">Multo satisfacite</string>
+  <string name="survey_dialog_option_very_unsatisfied">Multo insatisfacite</string>
   <string name="places_survey_dialog_title">Adjuta a meliorar ‘Locos’</string>
   <string name="places_survey_feedback_dialog_title">Como pote ‘Locos’ esser meliorate?</string>
-  <string name="places_survey_dialog_cancel">Cancellar</string>
+  <string name="survey_dialog_cancel">Cancellar</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Que vole tu que nos cambia o meliora?</string>
   <string name="places_empty_list">Iste area es vacue. Face zoom retro sur &lt;a href=\"#\"&gt;le carta&lt;/a&gt;.</string>
   <string name="places_card_title">Locos a proximitate</string>
@@ -1675,7 +1675,7 @@
   <string name="recommended_content_section_you_might_like">Poterea placer te</string>
   <string name="recommended_content_survey_dialog_title">Adjuta a meliorar le contento recommendate.</string>
   <string name="recommended_content_survey_dialog_message">Es tu satisfacite con iste resultato de recerca recommendate?</string>
-  <string name="recommended_content_survey_dialog_input_hint">Retroaction additional</string>
+  <string name="survey_dialog_input_hint">Retroaction additional</string>
   <string name="recommended_content_survey_dialog_submitted_message">Retroaction inviate. Gratias!</string>
   <string name="donor_history_title">Historia del donator</string>
   <string name="donor_history_save_button">Salveguardar</string>
@@ -1698,8 +1698,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Tu face parte del 2%% que ha eligite a appoiar le ressource al qual milliones se fide. Pro demonstrar nostre gratitude, tu tabuliero de contributiones ha essite actualisate pro recognoscer tu stato de donator. Vole tu vider le actualisation?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">No, gratias</string>
   <string name="contributions_dashboard_donation_dialog_ok">Si, porta me la</string>
-  <string name="contributions_dashboard_entry_dialog_title">Tu tabuliero de contributiones ha essite actualisate</string>
-  <string name="contributions_dashboard_entry_dialog_message">Le tabuliero de contributiones ora monstra detalios sur tu stato de donator. Vole tu revider iste function experimental?</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Tu tabuliero de contributiones ha essite actualisate</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Le tabuliero de contributiones ora monstra detalios sur tu stato de donator. Vole tu revider iste function experimental?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">No, gratias</string>
   <string name="contributions_dashboard_entry_dialog_ok">Si, porta me la</string>
   <string name="contributions_dashboard_badge_donor">Donator</string>
