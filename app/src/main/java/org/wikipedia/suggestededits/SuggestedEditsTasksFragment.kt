@@ -36,6 +36,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTI
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.donate.DonorHistoryActivity
+import org.wikipedia.donate.DonorStatus
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -55,6 +56,7 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class SuggestedEditsTasksFragment : Fragment() {
@@ -103,15 +105,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == DonorHistoryActivity.RESULT_DONOR_HISTORY_SAVED) {
-            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
-                binding.tasksContainer.postDelayed({
-                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
-                    Prefs.contributionsDashboardSurveyDialogShown = true
-                }, TimeUnit.SECONDS.toMillis(10))
-            }
-        }
+        maybeShowDonorHistoryUpdatedSnackbar()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -123,7 +117,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-
+        maybeShowDonorHistoryUpdatedSnackbar()
         binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
@@ -167,7 +161,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                 launch {
                     FlowEventBus.events.collectLatest { event ->
-                        if (event is LoggedOutEvent) {
+                        if (event is LoggedOutEvent &&
+                            (requireActivity() as MainActivity).isCurrentFragmentSelected(this@SuggestedEditsTasksFragment)) {
                             refreshContents()
                         }
                     }
@@ -196,6 +191,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onLoading() {
         binding.progressBar.isVisible = true
+        binding.suggestedEditsScrollView.isVisible = false
     }
 
     private fun onRequireLogin() {
@@ -209,6 +205,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {
+        binding.suggestedEditsScrollView.isVisible = true
         binding.swipeRefreshLayout.isRefreshing = false
         binding.progressBar.isVisible = false
         binding.tasksContainer.isVisible = false
@@ -358,17 +355,28 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUpDonorHistoryStatus() {
-        Prefs.donationResults.lastOrNull()?.dateTime?.let {
-            val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            binding.donorHistoryStatus.text = DateUtils.getRelativeTimeSpanString(
-                lastDonateMilli,
-                System.currentTimeMillis(),
-                DateUtils.DAY_IN_MILLIS
-            )
-            binding.lastDonatedChevron.isVisible = true
+        if (DonorStatus.donorStatus() == DonorStatus.DONOR) {
+            Prefs.donationResults.lastOrNull()?.dateTime?.let {
+                val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
+                    .toEpochMilli()
+                var relativeTimeSpan = DateUtils.getRelativeTimeSpanString(
+                    lastDonateMilli,
+                    System.currentTimeMillis(),
+                    DateUtils.DAY_IN_MILLIS,
+                    DateUtils.FORMAT_NUMERIC_DATE
+                )
+                // Replace with the original dateTime string
+                if (relativeTimeSpan.contains("/")) {
+                    relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
+                }
+                binding.donorHistoryStatus.text = relativeTimeSpan
+            } ?: run {
+                binding.donorHistoryStatus.text = getString(R.string.donor_history_recurring_donor)
+            }
             binding.donorHistoryStatus.isVisible = true
+            binding.lastDonatedChevron.isVisible = true
             binding.donorHistoryUpdateButton.isVisible = false
-        } ?: run {
+        } else {
             binding.donorHistoryUpdateButton.setOnClickListener {
                 requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
             }
@@ -435,6 +443,22 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (viewModel.blockMessageCommons.isNullOrEmpty()) {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
+        }
+    }
+
+    private fun maybeShowDonorHistoryUpdatedSnackbar() {
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+            ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
+            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
+                binding.tasksContainer.postDelayed({
+                    if (!isAdded) {
+                        return@postDelayed
+                    }
+                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
+                    Prefs.contributionsDashboardSurveyDialogShown = true
+                }, TimeUnit.SECONDS.toMillis(10))
+            }
         }
     }
 

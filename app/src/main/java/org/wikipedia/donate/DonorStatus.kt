@@ -9,10 +9,10 @@ enum class DonorStatus {
         fun donorStatus(): DonorStatus {
             return if (Prefs.hasDonorHistorySaved.not()) {
                 UNKNOWN
-            } else if (Prefs.donationResults.isEmpty()) {
-                NON_DONOR
-            } else {
+            } else if (Prefs.donationResults.isNotEmpty() || Prefs.isRecurringDonor) {
                 DONOR
+            } else {
+                NON_DONOR
             }
         }
     }

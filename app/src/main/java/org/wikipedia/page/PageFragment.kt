@@ -100,6 +100,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -688,8 +689,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
+                            return@launch
                         }
                     }
+                    maybeShowContributionsDashboardDialog()
                 }
             }
         }
@@ -717,6 +720,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     )
                 }
             }, TimeUnit.SECONDS.toMillis(duration))
+        }
+    }
+
+    private fun maybeShowContributionsDashboardDialog() {
+        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            ContributionsDashboardHelper.showEntryDialog(requireActivity())
+            Prefs.contributionsDashboardEntryDialogShown = true
         }
     }
 
@@ -1534,7 +1544,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onUpdateDonorStatusSelected() {
-            startActivity(DonorHistoryActivity.newIntent(requireContext()))
+            startActivity(DonorHistoryActivity.newIntent(requireContext(), goBackToContributeTab = true))
         }
     }
 

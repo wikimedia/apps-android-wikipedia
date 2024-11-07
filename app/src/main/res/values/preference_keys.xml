@@ -174,5 +174,6 @@
     <string name="preference_key_donor_history_saved">hasDonorHistorySaved</string>
     <string name="preference_key_is_recurring_donor">isRecurringDonor</string>
     <string name="preference_key_contributions_dashboard_survey_dialog_shown">contributionsDashboardSurveyDialogShown</string>
+    <string name="preference_key_contributions_dashboard_entry_dialog_shown">contributionsDashboardEntryDialogShown</string>
     <string name="preference_key_current_selected_app_icon">currentSelectedAppIcon</string>
 </resources>

@@ -18,7 +18,7 @@
         android:visibility="visible"
         android:textSize="12sp"
         app:icon="@drawable/ic_baseline_volunteer_activism_24"
-        app:iconTint="?attr/paper_color"
+        app:iconTint="@color/white"
         app:iconSize="16dp"
         tools:visibility="visible" />
 
