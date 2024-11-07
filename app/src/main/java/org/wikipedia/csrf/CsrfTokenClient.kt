@@ -29,13 +29,13 @@ object CsrfTokenClient {
                 val service = svc ?: ServiceFactory.get(site)
                 var lastError: Throwable? = null
                 for (retry in 0 until MAX_RETRIES) {
-                    if (retry > 0) {
+                    if (retry > 0 && AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
                         // Log in explicitly
                         try {
                             LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
                         } catch (e: CancellationException) {
                             throw e
-                        } catch (e: Exception) {
+                        } catch (e: Throwable) {
                             L.e(e)
                             lastError = e
                         }
@@ -52,7 +52,7 @@ object CsrfTokenClient {
                         }
                     } catch (e: CancellationException) {
                         throw e
-                    } catch (e: Exception) {
+                    } catch (e: Throwable) {
                         L.e(e)
                         lastError = e
                     }
