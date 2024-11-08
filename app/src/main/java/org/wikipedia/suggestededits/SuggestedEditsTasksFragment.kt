@@ -355,6 +355,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUpDonorHistoryStatus() {
+        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            return
+        }
         when (DonorStatus.donorStatus()) {
             DonorStatus.DONOR -> {
                 Prefs.donationResults.lastOrNull()?.dateTime?.let {
