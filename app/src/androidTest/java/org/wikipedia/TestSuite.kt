@@ -5,8 +5,6 @@ import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
 import org.wikipedia.main.loggedinuser.ContributionScreenTest
 import org.wikipedia.main.loggedinuser.NotificationScreenTest
-import org.wikipedia.main.loggedinuser.SuggestedEditCardTest
-import org.wikipedia.main.loggedinuser.WatchListTest
 import org.wikipedia.main.loggedoutuser.EditArticleTest
 import org.wikipedia.main.loggedoutuser.ExploreFeedTest
 import org.wikipedia.main.loggedoutuser.HistoryScreenTest
