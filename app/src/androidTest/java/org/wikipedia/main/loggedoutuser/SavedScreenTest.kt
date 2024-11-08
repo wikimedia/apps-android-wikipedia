@@ -1,4 +1,4 @@
-package org.wikipedia.main
+package org.wikipedia.main.loggedoutuser
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -7,7 +7,8 @@ import org.junit.runner.RunWith
 import org.wikipedia.Constants
 import org.wikipedia.FakeData
 import org.wikipedia.base.BaseTest
-import org.wikipedia.main.SmokeTest2.Companion.ARTICLE_TITLE
+import org.wikipedia.base.TestConfig.ARTICLE_TITLE
+import org.wikipedia.main.MainActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.robots.PageRobot
 import org.wikipedia.robots.SystemRobot

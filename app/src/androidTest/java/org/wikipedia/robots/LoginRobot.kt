@@ -44,4 +44,9 @@ class LoginRobot : BaseRobot() {
         checkViewExists(com.google.android.material.R.id.snackbar_text)
         delay(TestConfig.DELAY_SHORT)
     }
+
+    fun pressBack() = apply {
+        goBack()
+        delay(TestConfig.DELAY_SHORT)
+    }
 }

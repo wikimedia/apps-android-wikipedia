@@ -7,14 +7,15 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 
 object FakeData {
+    val site = WikiSite(
+        uri = Uri.parse("https://en.wikipedia.org")
+    )
     val title = PageTitle(
         _displayText = "Hopf_fibration",
         _text = "Hopf fibration",
         description = "Fiber bundle of the 3-sphere over the 2-sphere, with 1-spheres as fibers",
         thumbUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Hopf_Fibration.png/320px-Hopf_Fibration.png",
-        wikiSite = WikiSite(
-            uri = Uri.parse("https://en.wikipedia.org")
-        )
+        wikiSite = site
     )
     val inNewTab = false
     val position = 0

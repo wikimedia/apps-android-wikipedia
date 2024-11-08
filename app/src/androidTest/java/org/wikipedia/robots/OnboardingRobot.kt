@@ -50,11 +50,6 @@ class OnboardingRobot : BaseRobot() {
         verifyWithMatcher(viewId = R.id.primaryTextView, matcher = matchesDeviceLanguage())
     }
 
-    fun dismissFeedCustomization() = apply {
-        clicksOnDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     private fun matchesDeviceLanguage(): Matcher<View> {
         return object : BoundedMatcher<View, View> (View::class.java) {
             override fun describeTo(description: Description?) {

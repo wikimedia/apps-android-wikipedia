@@ -1,12 +1,13 @@
-package org.wikipedia.main
+package org.wikipedia.main.loggedoutuser
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
-import org.wikipedia.main.SmokeTest2.Companion.ARTICLE_TITLE
-import org.wikipedia.main.SmokeTest2.Companion.SEARCH_TERM
+import org.wikipedia.base.TestConfig.ARTICLE_TITLE
+import org.wikipedia.base.TestConfig.SEARCH_TERM
+import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SearchRobot
 import org.wikipedia.robots.screenrobots.HistoryScreenRobot
 import org.wikipedia.robots.screenrobots.HomeScreenRobot

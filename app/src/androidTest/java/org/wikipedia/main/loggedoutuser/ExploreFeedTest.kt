@@ -1,12 +1,13 @@
-package org.wikipedia.main
+package org.wikipedia.main.loggedoutuser
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
+import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.ExploreFeedRobot
-import org.wikipedia.robots.OnboardingRobot
+import org.wikipedia.robots.screenrobots.HomeScreenRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -14,11 +15,13 @@ class ExploreFeedTest : BaseTest<MainActivity>(
     activityClass = MainActivity::class.java,
     isInitialOnboardingEnabled = false
 ) {
-    private val onboardingRobot = OnboardingRobot()
     private val exploreFeedRobot = ExploreFeedRobot()
+    private val homeScreenRobot = HomeScreenRobot()
 
     @Test
     fun startExploreFeedTest() {
+        homeScreenRobot
+            .dismissFeedCustomization()
         exploreFeedRobot
             .scrollToPositionOnTheFeed(FEATURED_ARTICLE)
             .longClickFeaturedArticleCardContainer()
@@ -44,8 +47,8 @@ class ExploreFeedTest : BaseTest<MainActivity>(
     }
 
     companion object {
-        const val TOP_READ_ARTICLES = 4
         const val FEATURED_ARTICLE = 2
+        const val TOP_READ_ARTICLES = 4
         const val PICTURE_OF_DAY = 6
         const val NEWS_CARD = 7
         const val ON_THIS_DAY_CARD = 8

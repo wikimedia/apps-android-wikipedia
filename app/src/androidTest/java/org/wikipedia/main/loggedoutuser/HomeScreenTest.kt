@@ -1,11 +1,11 @@
-package org.wikipedia.main
+package org.wikipedia.main.loggedoutuser
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
-import org.wikipedia.robots.OnboardingRobot
+import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SettingsRobot
 import org.wikipedia.robots.screenrobots.HomeScreenRobot
 
@@ -15,15 +15,13 @@ class HomeScreenTest : BaseTest<MainActivity>(
     activityClass = MainActivity::class.java,
     isInitialOnboardingEnabled = false
 ) {
-    private val onboardingRobot = OnboardingRobot()
     private val homeScreenRobot = HomeScreenRobot()
     private val settingsRobot = SettingsRobot()
 
     @Test
     fun startHomeScreen() {
-        onboardingRobot
-            .dismissFeedCustomization()
         homeScreenRobot
+            .dismissFeedCustomization()
             .navigateToSavedPage()
             .navigateToSearchPage()
             .navigateToEdits()

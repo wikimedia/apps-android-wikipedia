@@ -10,6 +10,7 @@ import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.longClick
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -21,6 +22,7 @@ import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
+import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 import org.wikipedia.feed.view.FeedView
@@ -85,13 +87,13 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun pressBack() = apply {
         goBack()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_LARGE)
     }
 
     fun scrollToPositionOnTheFeed(position: Int) = apply {
         onView(withId(R.id.feed_view))
             .perform(scrollToPositionForFeedView(position))
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_LARGE)
     }
 
     fun scrollToPositionOnFeedAndClick(position: Int) = apply {
@@ -109,6 +111,37 @@ class ExploreFeedRobot : BaseRobot() {
         onView(allOf(withId(R.id.news_cardview_recycler_view), childAtPosition(withId(R.id.rtl_container), 1)))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickAddArticleDescription() = apply {
+        clickOnDisplayedViewWithContentDescription(description = "Add article descriptions")
+    }
+
+    fun openOverflowMenuItem() = apply {
+        clickOnViewWithId(R.id.page_toolbar_button_show_overflow_menu)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    // @TODO: flaky test due to snackbar
+    fun addOrRemoveToWatchList() = apply {
+        val isVisible = onView(withText("Watch"))
+        if (isVisible.isDisplayed()) {
+            clickOnViewWithText("Watch")
+            onView(withId(com.google.android.material.R.id.snackbar_text))
+                .check(matches(isDisplayed()))
+            changWatchListArticleExpiryFromTheSnackBar()
+        } else {
+            clickOnViewWithText("Unwatch")
+            onView(withId(com.google.android.material.R.id.snackbar_text))
+                .check(matches(isDisplayed()))
+            delay(TestConfig.DELAY_SHORT)
+        }
+    }
+
+    private fun changWatchListArticleExpiryFromTheSnackBar() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(viewId = com.google.android.material.R.id.snackbar_action, "Change")
+        clickOnViewWithId(R.id.watchlistExpiryOneMonth)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     private fun scrollToPositionForFeedView(position: Int): ViewAction {

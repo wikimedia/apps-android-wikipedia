@@ -47,6 +47,11 @@ class HomeScreenRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun navigateToNotifications() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(viewId = R.id.menu_notifications, "Notifications")
+        delay(TestConfig.DELAY_LARGE)
+    }
+
     fun navigateToMoreMenu() = apply {
         onView(allOf(withId(R.id.nav_tab_more), withContentDescription("More"), isDisplayed())).perform(click())
         delay(TestConfig.DELAY_MEDIUM)
@@ -90,5 +95,15 @@ class HomeScreenRobot : BaseRobot() {
     fun clickLoginMenuItem() = apply {
         clickOnViewWithId(R.id.main_drawer_login_button)
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun dismissFeedCustomization() = apply {
+        clicksOnDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun gotoWatchList() = apply {
+        clickOnViewWithId(R.id.main_drawer_watchlist_container)
+        delay(TestConfig.DELAY_SHORT)
     }
 }

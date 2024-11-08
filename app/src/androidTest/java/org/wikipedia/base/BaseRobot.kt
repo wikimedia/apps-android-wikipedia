@@ -38,6 +38,7 @@ import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.wikipedia.TestUtil
+import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
@@ -115,6 +116,22 @@ abstract class BaseRobot {
         onView(withId(viewId)).check(matches(isDisplayed()))
     }
 
+    protected fun isViewWithTextVisible(text: String): Boolean {
+        var isDisplayed = false
+        onView(withText(text)).check { view, noViewFoundException ->
+            isDisplayed = noViewFoundException == null && view.isShown
+        }
+        return isDisplayed
+    }
+
+    protected fun isViewWithIdDisplayed(@IdRes viewId: Int): Boolean {
+        var isDisplayed = false
+        onView(withId(viewId)).check { view, noViewFoundException ->
+            isDisplayed = noViewFoundException == null && view.isShown
+        }
+        return isDisplayed
+    }
+
     protected fun checkViewWithIdAndText(@IdRes viewId: Int, text: String) {
         onView(allOf(withId(viewId), withText(text))).check(matches(isDisplayed()))
     }
@@ -165,14 +182,6 @@ abstract class BaseRobot {
     protected fun verifyWithMatcher(@IdRes viewId: Int, matcher: Matcher<View>) {
         onView(withId(viewId))
             .check(matches(matcher))
-    }
-
-    protected fun isViewDisplayed(@IdRes viewId: Int): Boolean {
-        var isDisplayed = false
-        onView(withId(viewId)).check { view, noViewFoundException ->
-            isDisplayed = noViewFoundException == null && view.isShown
-        }
-        return isDisplayed
     }
 
     protected fun swipeDownOnTheWebView(@IdRes viewId: Int) {

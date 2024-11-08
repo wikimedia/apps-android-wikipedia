@@ -15,8 +15,4 @@ class NotificationScreenRobot : BaseRobot() {
         goBack()
         delay(TestConfig.DELAY_SHORT)
     }
-
-    fun clickAllowOnAlertDialog() = apply {
-        clickOnViewWithText("Allow")
-    }
 }
