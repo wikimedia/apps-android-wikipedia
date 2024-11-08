@@ -22,6 +22,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
@@ -276,6 +277,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         binding.donorHistoryContainer.isVisible = true
         if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            ContributionsDashboardEvent.logAction("impression", "contrib_dashboard")
             binding.donorHistoryContainer.isVisible = false
             binding.statsDivider.isVisible = false
         }
@@ -355,6 +357,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUpDonorHistoryStatus() {
+        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            return
+        }
         if (DonorStatus.donorStatus() == DonorStatus.DONOR) {
             Prefs.donationResults.lastOrNull()?.dateTime?.let {
                 val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
@@ -378,6 +383,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.donorHistoryUpdateButton.isVisible = false
         } else {
             binding.donorHistoryUpdateButton.setOnClickListener {
+                ContributionsDashboardEvent.logAction("update_click", "contrib_dashboard")
                 requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
             }
             binding.donorHistoryStatus.isVisible = false
@@ -448,6 +454,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun maybeShowDonorHistoryUpdatedSnackbar() {
         if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+            ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
             FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
             ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
             if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
