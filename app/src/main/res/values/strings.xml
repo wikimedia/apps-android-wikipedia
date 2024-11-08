@@ -1784,6 +1784,7 @@
     <string name="donor_history_last_donated_hint">Add date of last donation</string>
     <string name="donor_history_last_donated_date_picker_title">Select date</string>
     <string name="donor_history_last_donated_date_picker_label">Enter date</string>
+    <string name="donor_history_last_donated_never">Never</string>
     <string name="donor_history_recurring_donor">Recurring donor</string>
     <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
     <string name="donor_history_about_this_experiment">About this experiment</string>
