@@ -1704,6 +1704,7 @@
   <string name="donor_history_last_donated_hint">Hint of the last donated field that allows the user to add the last donation date.</string>
   <string name="donor_history_last_donated_date_picker_title">Title of the date picker dialog when user clicks on the last donated filed.</string>
   <string name="donor_history_last_donated_date_picker_label">Message of the date picker dialog when user clicks on the last donated filed.</string>
+  <string name="donor_history_last_donated_never">Label indicating that the user has never donated.</string>
   <string name="donor_history_recurring_donor">Label indicating that the user is a recurring donor.</string>
   <string name="donor_history_donate_button">Button for opening the donation dialog.</string>
   <string name="donor_history_about_this_experiment">Text for the link to see the detail about this experiment.</string>
