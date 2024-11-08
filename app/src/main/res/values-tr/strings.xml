@@ -64,6 +64,7 @@
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
   <string name="nav_item_search">Ara</string>
+  <string name="nav_item_contribute">Katkıda bulun</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="card_offline_error_retry">Tekrar dene</string>
@@ -99,7 +100,7 @@
   <string name="page_edit_history_filter_by">Şunu filtrele:</string>
   <string name="page_edit_history_filter_by_all">Tüm değişiklikler (%s)</string>
   <string name="page_edit_history_filter_by_user">Kullanıcı değişiklikleri (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anon düzenlemeleri (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Kayıtsız düzenlemeleri (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot düzenlemeleri (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s ile %2$s arası ölçümler</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -162,6 +163,7 @@
   <string name="langlinks_your_wikipedia_languages">Vikipedi dilleriniz</string>
   <string name="menu_save_changes">Değişiklikleri yayımla</string>
   <string name="edit_saved_successfully">Düzenleme yayımlandı!</string>
+  <string name="stub_article_edit_saved_successfully">Düzenleme yayınlandı! Değişikliklerin görünmesi zaman alabilir.</string>
   <string name="dialog_message_edit_failed">Düzenleme başarısız oldu!</string>
   <string name="dialog_message_edit_failed_retry">Tekrar dene</string>
   <string name="dialog_message_edit_failed_cancel">İptal</string>
@@ -280,14 +282,14 @@
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr#Resim_etiketleri</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
   <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_app_license_heading">Lisans</string>
-  <string name="about_app_license" fuzzy="true">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
+  <string name="about_app_license">Kaynak koduna &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
   <string name="edit_abandon_confirm">Sayfa değiştirildi. Değişikliklerinizi kaydetmeden çıkmak istediğinizden emin misiniz?</string>
@@ -317,6 +319,8 @@
   <string name="edit_summary_tag_links">Bağlantılar eklendi</string>
   <string name="edit_summary_tag_other">Diğer</string>
   <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
+  <string name="edit_summary_added_short_description">Kısa açıklama eklendi</string>
+  <string name="edit_summary_updated_short_description">Kısa açıklama güncellendi</string>
   <string name="edit_conflict_title">Düzenleme çakışması</string>
   <string name="edit_conflict_message">Sayfa zaten farklı bir kullanıcı tarafından değiştirilmiş ve düzenlemenizle çakışıyor. Lütfen, düzenlemelerinizi kopyalayın; geri dönün ve sayfayı yenileyip yeniden düzenlemeyi deneyin.</string>
   <string name="edit_notices">Düzenleme bildirimleri</string>
@@ -439,6 +443,7 @@
   <string name="link_preview_dialog_save_button">Sakla</string>
   <string name="link_preview_dialog_saved_button">Saklandı</string>
   <string name="link_preview_dialog_share_button">Paylaş</string>
+  <string name="link_preview_stub_placeholder_text">Bu madde bir taslaktır, yani maddede önizleme oluşturmak için yeterli içerik yoktur. Ancak bunu değiştirebilirsiniz.</string>
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
   <string name="error_user_page_does_not_exist">Vikipedi\'de bu isimde bir &lt;a href=\"%1$s\"&gt;kullanıcı sayfası&lt;/a&gt; yok. Genellikle, bu sayfa &lt;b&gt;%2$s&lt;/b&gt; tarafından oluşturulup düzenlenmelidir. Kuşku duyarsanız, \"%3$s\" sayfasının var olduğundan emin olun.</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
@@ -888,8 +893,8 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_edit_learn_more">Madde açıklamaları hakkında daha fazla bilgi edinin</string>
   <string name="description_edit_image_caption_learn_more">Görsel alt yazıları hakkında daha fazla bilgi edinin</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Makale_Açıklamaları</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_Başlıkları</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr#Makale_A%C3%A7%C4%B1klamalar%C4%B1</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr#Resim_Ba%C5%9Fl%C4%B1klar%C4%B1</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
   <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
@@ -1254,6 +1259,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Yükseklik</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Ekle</string>
+  <string name="templates_search_hint">Şablonlarda ara</string>
   <string name="templates_insert_button">Ekle</string>
   <string name="templates_param_suggested_value">ör. %s</string>
   <string name="templates_param_optional_hint">%s (İsteğe bağlı)</string>
@@ -1489,7 +1495,7 @@
   <string name="reading_list_share_menu_label">Paylaş…</string>
   <string name="reading_list_share_menu_tooltip">Bu okuma listesini başkalarıyla paylaşın</string>
   <string name="reading_list_share_message_v2">Merhaba! Vikipedi okuma listemi seninle paylaşmak istiyorum:</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Saklanan herhangi bir uyarı iletiniz yok.</string>
+  <string name="talk_templates_empty_message">Kendi iletilerinizi oluşturun veya başlamak için &lt;a href=\"#\"&gt;örnek iletileri&lt;/a&gt; kullanın.</string>
   <string name="talk_templates_new_message_title">Yeni ileti</string>
   <string name="talk_templates_new_message_subject_hint">Konu</string>
   <string name="talk_templates_new_message_compose_hint">İleti oluştur</string>
@@ -1590,20 +1596,14 @@
   <string name="patroller_onboarding_two_thank_content">Verimli bir düzenleme mi gördünüz? Katkılarından dolayı bir kullanıcıya teşekkür edin.</string>
   <string name="patroller_onboarding_two_watch_title">İzle</string>
   <string name="patroller_onboarding_two_watch_content">Madde düzenlemelerini takip etmek mi istiyorsunuz? İzleme Listenize ekleyin. \'Diğer\' altında görüntüleyin.</string>
+  <string name="patroller_onboarding_two_talk_title">Tartışma</string>
   <string name="patroller_onboarding_two_undo_title">Geri Al/Geri Döndür</string>
   <string name="patroller_onboarding_two_undo_content">Zararlı olabilecek bir düzenlemeyi geri almak ya da geri döndürmek için \'Geri Al\'ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Hasar, bir düzenlemenin vikiye zarar verip vermeyeceğini kestirir.</string>
   <string name="patroller_diff_tooltip_two">Amaç, bir düzenlemenin iyi amaçla saklanma olasılığını kestirir.</string>
-  <string name="survey_dialog_title">Bu özelliği geliştirmemize yardımcı olun</string>
-  <string name="survey_dialog_message">Bu özellikten mutlu musunuz?</string>
-  <string name="survey_dialog_option_satisfied">Mutlu</string>
-  <string name="survey_dialog_option_neutral">Tarafsız</string>
-  <string name="survey_dialog_option_unsatisfied">Mutsuz</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Özelliği nasıl geliştirebiliriz?</string>
   <string name="patroller_diff_menu_edit_history_title">Madde düzenleme geçmişi</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Geri bildirim</string>
-  <string name="survey_dialog_submit">Gönder</string>
-  <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi.</string>
   <string name="patroller_diff_feedback_tooltip">\'Özellikle ilgili sorun\' altında istediğiniz zaman geri bildirim göndermek için taşan menüye dokunun.</string>
   <string name="patroller_saved_message_title_npov">Tarafsız bakış açısı</string>
   <string name="patroller_saved_message_title_auto_trans">Otomatik çeviri</string>
@@ -1642,11 +1642,26 @@
   <string name="places_filter_title">Dile göre filtrele</string>
   <string name="places_toggle_buttons_map">Harita</string>
   <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
+  <string name="places_card_title">Yakındaki yerler</string>
+  <string name="places_card_action">Yakındaki daha fazla yer</string>
+  <string name="places_card_distance_unknown">Bilinmeyen mesafe</string>
+  <string name="recommended_content_section_you_might_like">Beğenebilirsin</string>
+  <string name="donor_history_save_button">Kaydet</string>
+  <string name="contributions_dashboard_app_icon_title">Uygulama simgesi</string>
+  <string name="contributions_dashboard_tab_update_button">Güncelle</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Geçici bir özel simgenin kilidini açtınız. Uygulama simgesi altındaki ayarlarınızdan bu simgeye geçebilirsiniz. Simgenizi şimdi güncellemek ister misiniz?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Hayır, teşekkürler</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Evet, beni Ayarlar\'a götür</string>
+  <string name="contributions_dashboard_app_icon_updated">Uygulama simgesi güncellendi</string>
+  <string name="survey_dialog_title">Bu özelliği geliştirmemize yardımcı olun</string>
+  <string name="survey_dialog_message">Bu özellikten mutlu musunuz?</string>
+  <string name="survey_dialog_option_satisfied">Mutlu</string>
+  <string name="survey_dialog_option_neutral">Tarafsız</string>
+  <string name="survey_dialog_option_unsatisfied">Mutsuz</string>
   <string name="survey_dialog_option_very_satisfied">Çok mutlu</string>
   <string name="survey_dialog_option_very_unsatisfied">Çok mutsuz</string>
-  <string name="places_survey_dialog_title">\'Yerler\'i iyileştirmeye yardımcı olun</string>
-  <string name="places_survey_feedback_dialog_title">\"Yerler\" nasıl geliştirilebilir?</string>
   <string name="survey_dialog_cancel">İptal</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Neyi değiştirmemizi ya da geliştirmemizi istersiniz?</string>
-  <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
+  <string name="survey_dialog_submit">Gönder</string>
+  <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi.</string>
 </resources>

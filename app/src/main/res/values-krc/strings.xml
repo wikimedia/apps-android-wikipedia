@@ -1575,16 +1575,9 @@
   <string name="patroller_onboarding_two_undo_content">Заранлы болургъа боллукъ тюзетиуню кери алыр неда кери къайтарыр ючюн \'Кери Ал\'ны сайлагъыз.</string>
   <string name="patroller_diff_tooltip_one">Бузулуу, тюзетиуню викиге заран берирге боллугъун белгилер.</string>
   <string name="patroller_diff_tooltip_two">Нюзюр, тюзетиуню иги нюзюр бла сакъландырыргъа боллугъун белгилер.</string>
-  <string name="survey_dialog_title">Бу функцияны маджаллашдырыр ючюн болушугъуз</string>
-  <string name="survey_dialog_message">Бу функциядан разымысы?</string>
-  <string name="survey_dialog_option_satisfied">Разыма</string>
-  <string name="survey_dialog_option_neutral">Къошулмайма</string>
-  <string name="survey_dialog_option_unsatisfied">Разы тюлме</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Функцияны къалай маджаллашдырыргъа боллукъбуз?</string>
   <string name="patroller_diff_menu_edit_history_title">Статья тюзетиу тарих</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Кери билдириу</string>
-  <string name="survey_dialog_submit">Джибер</string>
-  <string name="survey_dialog_submitted_snackbar">Кери билдириу джиберилди.</string>
   <string name="patroller_diff_feedback_tooltip">\'Функция бла байламлы проблема\' тюбюнде излеген заман кери билдириу джиберир ючюн къошакъ менюню басыгъыз.</string>
   <string name="patroller_saved_message_title_vandalism">Вандализм эсгертиу</string>
   <string name="patroller_saved_message_title_editing_tests">Тюзетиу тестле</string>
@@ -1627,11 +1620,15 @@
   <string name="places_filter_title">Фильтр тил</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Тизме</string>
+  <string name="places_empty_list">Бу юс бошду. &lt;a href=\"#\"&gt;Картаны&lt;/a&gt; узакълашдырыгъыз.</string>
+  <string name="survey_dialog_title">Бу функцияны маджаллашдырыр ючюн болушугъуз</string>
+  <string name="survey_dialog_message">Бу функциядан разымысы?</string>
+  <string name="survey_dialog_option_satisfied">Разыма</string>
+  <string name="survey_dialog_option_neutral">Къошулмайма</string>
+  <string name="survey_dialog_option_unsatisfied">Разы тюлме</string>
   <string name="survey_dialog_option_very_satisfied">Бек разыма</string>
   <string name="survey_dialog_option_very_unsatisfied">Бек разы тюлме</string>
-  <string name="places_survey_dialog_title">\'Джерле\'ни маджаллашдырыргъа болушлукъчу бол</string>
-  <string name="places_survey_feedback_dialog_title">\"Джерле\" къалай маджаллашдырылыр?</string>
   <string name="survey_dialog_cancel">Ызына ал</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Нени тюрлендиририбизни неда маджаллашдырырыбзны излейсиз?</string>
-  <string name="places_empty_list">Бу юс бошду. &lt;a href=\"#\"&gt;Картаны&lt;/a&gt; узакълашдырыгъыз.</string>
+  <string name="survey_dialog_submit">Джибер</string>
+  <string name="survey_dialog_submitted_snackbar">Кери билдириу джиберилди.</string>
 </resources>
