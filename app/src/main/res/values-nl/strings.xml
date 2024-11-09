@@ -1632,16 +1632,9 @@
   <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk schadelijke bewerking ongedaan te maken of terug te draaien.</string>
   <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>
   <string name="patroller_diff_tooltip_two">Intentie voorspelt de waarschijnlijkheid dat een bewerking te goeder trouw wordt opgeslagen.</string>
-  <string name="survey_dialog_title">Help ons deze functie te verbeteren</string>
-  <string name="survey_dialog_message">Bent u tevreden over deze functie?</string>
-  <string name="survey_dialog_option_satisfied">Tevreden</string>
-  <string name="survey_dialog_option_neutral">Neutraal</string>
-  <string name="survey_dialog_option_unsatisfied">Niet tevreden</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hoe kunnen we de functie verbeteren?</string>
   <string name="patroller_diff_menu_edit_history_title">Bewerkingsgeschiedenis artikel</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Terugkoppeling</string>
-  <string name="survey_dialog_submit">Opslaan</string>
-  <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend.</string>
   <string name="patroller_diff_feedback_tooltip">Tik op het overloopmenu om op elk gewenst moment terugkoppeling te geven onder ‘Probleem met functie’.</string>
   <string name="patroller_saved_message_title_vandalism">Waarschuwing voor vandalisme</string>
   <string name="patroller_saved_message_title_editing_tests">Bewerktests</string>
@@ -1699,12 +1692,6 @@
   <string name="places_filter_title">Filteren op taal</string>
   <string name="places_toggle_buttons_map">Kaart</string>
   <string name="places_toggle_buttons_list">Lijst</string>
-  <string name="survey_dialog_option_very_satisfied">Erg tevreden</string>
-  <string name="survey_dialog_option_very_unsatisfied">Zeer ontevreden</string>
-  <string name="places_survey_dialog_title">Help \'Plaatsen\' te verbeteren</string>
-  <string name="places_survey_feedback_dialog_title">Hoe kunnen \'Plaatsen\' worden verbeterd?</string>
-  <string name="survey_dialog_cancel">Annuleren</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Wat wil je dat we veranderen of verbeteren?</string>
   <string name="places_empty_list">Dit gebied is leeg. Zoom uit &lt;a href=\"#\"&gt;op de kaart&lt;/a&gt;.</string>
   <string name="places_card_title">Plaatsen in de buurt</string>
   <string name="places_card_action">Meer plaatsen in de buurt</string>
@@ -1713,4 +1700,14 @@
   <string name="places_card_distance_suffix">%s verderop</string>
   <string name="places_card_distance_unknown">Onbekende afstand</string>
   <string name="places_empty_message_snackbar">Er zijn geen artikelen in de buurt. Probeer uit te zoomen en de kaart te verplaatsen.</string>
+  <string name="survey_dialog_title">Help ons deze functie te verbeteren</string>
+  <string name="survey_dialog_message">Bent u tevreden over deze functie?</string>
+  <string name="survey_dialog_option_satisfied">Tevreden</string>
+  <string name="survey_dialog_option_neutral">Neutraal</string>
+  <string name="survey_dialog_option_unsatisfied">Niet tevreden</string>
+  <string name="survey_dialog_option_very_satisfied">Erg tevreden</string>
+  <string name="survey_dialog_option_very_unsatisfied">Zeer ontevreden</string>
+  <string name="survey_dialog_cancel">Annuleren</string>
+  <string name="survey_dialog_submit">Opslaan</string>
+  <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend.</string>
 </resources>

@@ -1584,16 +1584,9 @@
   <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
   <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>
   <string name="patroller_diff_tooltip_two">Был алым мөхәррирләү изге ниәт менән һаҡланыу ихтималлығын күҙаллай.</string>
-  <string name="survey_dialog_title">Был функцияны яҡшыртырға ярҙам итегеҙ</string>
-  <string name="survey_dialog_message">Был функция менән ҡәнәғәтһегеҙме?</string>
-  <string name="survey_dialog_option_satisfied">Ҡәнәғәт</string>
-  <string name="survey_dialog_option_neutral">Нейтраль</string>
-  <string name="survey_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Был функцияны нисек яҡшырта алабыҙ?</string>
   <string name="patroller_diff_menu_edit_history_title">Мәҡәләне мөхәррирләү тарихы</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Бәйләнеш</string>
-  <string name="survey_dialog_submit">Тәҡдим итергә</string>
-  <string name="survey_dialog_submitted_snackbar">Фекер ебәрелде.</string>
   <string name="patroller_diff_feedback_tooltip">«Функция проблемалары» бүлегендә теләгән ваҡытта баһалама яҙыу өсөн өҫтәмә менюға баҫығыҙ.</string>
   <string name="patroller_saved_message_title_vandalism">Вандализм тураһында иҫкәртеү</string>
   <string name="patroller_saved_message_title_npov">Нейтраль ҡараш</string>
@@ -1616,4 +1609,11 @@
   <string name="donation_campaign_donated_snackbar">Рәхмәт! Йомартлығығыҙ Википедияның һәм уның туғандаш проекттарының үҫешеүенә булышлыҡ итә.</string>
   <string name="donation_campaign_go_back_button">Кире ҡайтырға</string>
   <string name="menu_single_webview_open_external">Система браузерында асырға</string>
+  <string name="survey_dialog_title">Был функцияны яҡшыртырға ярҙам итегеҙ</string>
+  <string name="survey_dialog_message">Был функция менән ҡәнәғәтһегеҙме?</string>
+  <string name="survey_dialog_option_satisfied">Ҡәнәғәт</string>
+  <string name="survey_dialog_option_neutral">Нейтраль</string>
+  <string name="survey_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
+  <string name="survey_dialog_submit">Тәҡдим итергә</string>
+  <string name="survey_dialog_submitted_snackbar">Фекер ебәрелде.</string>
 </resources>

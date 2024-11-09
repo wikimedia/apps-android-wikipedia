@@ -355,34 +355,50 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUpDonorHistoryStatus() {
-        if (DonorStatus.donorStatus() == DonorStatus.DONOR) {
-            Prefs.donationResults.lastOrNull()?.dateTime?.let {
-                val lastDonateMilli = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
-                    .toEpochMilli()
-                var relativeTimeSpan = DateUtils.getRelativeTimeSpanString(
-                    lastDonateMilli,
-                    System.currentTimeMillis(),
-                    DateUtils.DAY_IN_MILLIS,
-                    DateUtils.FORMAT_NUMERIC_DATE
-                )
-                // Replace with the original dateTime string
-                if (relativeTimeSpan.contains("/")) {
-                    relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
+        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            return
+        }
+        when (DonorStatus.donorStatus()) {
+            DonorStatus.DONOR -> {
+                Prefs.donationResults.lastOrNull()?.dateTime?.let {
+                    val lastDonateMilli =
+                        LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
+                            .toEpochMilli()
+                    var relativeTimeSpan = DateUtils.getRelativeTimeSpanString(
+                        lastDonateMilli,
+                        System.currentTimeMillis(),
+                        DateUtils.DAY_IN_MILLIS,
+                        DateUtils.FORMAT_NUMERIC_DATE
+                    )
+                    // Replace with the original dateTime string
+                    if (relativeTimeSpan.contains("/")) {
+                        relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
+                    }
+                    binding.donorHistoryStatus.text = relativeTimeSpan
+                } ?: run {
+                    binding.donorHistoryStatus.text =
+                        getString(R.string.donor_history_recurring_donor)
                 }
-                binding.donorHistoryStatus.text = relativeTimeSpan
-            } ?: run {
-                binding.donorHistoryStatus.text = getString(R.string.donor_history_recurring_donor)
+                binding.donorHistoryStatus.isVisible = true
+                binding.lastDonatedChevron.isVisible = true
+                binding.donorHistoryUpdateButton.isVisible = false
             }
-            binding.donorHistoryStatus.isVisible = true
-            binding.lastDonatedChevron.isVisible = true
-            binding.donorHistoryUpdateButton.isVisible = false
-        } else {
-            binding.donorHistoryUpdateButton.setOnClickListener {
-                requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
+
+            DonorStatus.NON_DONOR -> {
+                binding.donorHistoryStatus.text = getString(R.string.donor_history_last_donated_never)
+                binding.donorHistoryStatus.isVisible = true
+                binding.lastDonatedChevron.isVisible = true
+                binding.donorHistoryUpdateButton.isVisible = false
             }
-            binding.donorHistoryStatus.isVisible = false
-            binding.lastDonatedChevron.isVisible = false
-            binding.donorHistoryUpdateButton.isVisible = true
+
+            DonorStatus.UNKNOWN -> {
+                binding.donorHistoryUpdateButton.setOnClickListener {
+                    requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
+                }
+                binding.donorHistoryStatus.isVisible = false
+                binding.lastDonatedChevron.isVisible = false
+                binding.donorHistoryUpdateButton.isVisible = true
+            }
         }
     }
 

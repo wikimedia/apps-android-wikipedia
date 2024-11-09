@@ -23,6 +23,8 @@
 
         <item name="bottomSheetDialogTheme">@style/App.BottomSheetDialogTheme</item>
 
+        <item name="swipeRefreshLayoutProgressSpinnerBackgroundColor">?attr/background_color</item>
+
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
         <item name="android:statusBarColor">@android:color/black</item>
 

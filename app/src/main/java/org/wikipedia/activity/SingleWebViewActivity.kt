@@ -179,7 +179,6 @@ class SingleWebViewActivity : BaseActivity() {
     private fun goBack() {
         if (intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).orEmpty() == PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE) {
             DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
-            setResult(ACTIVITY_DONOR_EXPERIENCE)
         }
         pageTitleToLoadOnBackPress?.let {
             val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
@@ -210,7 +209,6 @@ class SingleWebViewActivity : BaseActivity() {
         const val EXTRA_PAGE_CONTENT_INFO = "pageContentInfo"
         const val PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE = "donorExperience"
         const val EXTRA_IS_WEB_FORM = "isWebForm"
-        const val ACTIVITY_DONOR_EXPERIENCE = 1
 
         fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitleToLoadOnBackPress: PageTitle? = null,
                       pageContentInfo: String? = null, isWebForm: Boolean = false): Intent {

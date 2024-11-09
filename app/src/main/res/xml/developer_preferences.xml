@@ -444,6 +444,10 @@
             android:dialogMessage="Example: [{&quot;dateTime&quot;:&quot;2024-10-22T00:00:00.000&quot;}]"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_is_recurring_donor"
+            android:title="@string/preference_key_is_recurring_donor" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_donor_history_saved"
             android:title="@string/preference_key_donor_history_saved" />
 
@@ -459,10 +463,6 @@
             style="@style/IntPreference"
             android:key="ab_test_recommendedContent"
             android:title="Test group for Recommended Content \n(0=only recent searches, 1=generalized, 2=personalized)" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_recommended_content_survey_shown"
-            android:title="@string/preference_key_recommended_content_survey_shown" />
 
     </PreferenceCategory>
 
