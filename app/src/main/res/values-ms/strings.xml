@@ -1066,8 +1066,6 @@
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_significance_minor">Suntingan kecil</string>
   <string name="patroller_onboarding_two_watch_title">Pantau</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Puas hati</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Tidak puas hati</string>
   <string name="patroller_saved_message_title_vandalism">Amaran laku musnah</string>
   <string name="talk_templates_menu_edit_title">Sunting</string>
   <string name="data_opt_in_accept">Terima</string>
@@ -1075,9 +1073,11 @@
   <string name="places_title">Tempat</string>
   <string name="places_toggle_buttons_map">Peta</string>
   <string name="places_toggle_buttons_list">Senarai</string>
-  <string name="places_survey_very_satisfied_option">Sangat berpuas hati</string>
-  <string name="places_survey_very_unsatisfied_option">Sangat tidak berpuas hati</string>
-  <string name="places_survey_dialog_cancel">Batalkan</string>
   <string name="recommended_content_section_you_might_like">Anda mungkin suka</string>
-  <string name="recommended_content_survey_dialog_input_hint">Maklum balas tambahan</string>
+  <string name="survey_dialog_option_satisfied">Puas hati</string>
+  <string name="survey_dialog_option_unsatisfied">Tidak puas hati</string>
+  <string name="survey_dialog_option_very_satisfied">Sangat berpuas hati</string>
+  <string name="survey_dialog_option_very_unsatisfied">Sangat tidak berpuas hati</string>
+  <string name="survey_dialog_cancel">Batalkan</string>
+  <string name="survey_dialog_input_hint">Maklum balas tambahan</string>
 </resources>

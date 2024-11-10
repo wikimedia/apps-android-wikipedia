@@ -78,7 +78,7 @@
   <string name="page_edit_history_filter_by">לסנן לפי</string>
   <string name="page_edit_history_filter_by_all">כל העריכות (%s)</string>
   <string name="page_edit_history_filter_by_user">עריכות משתמש (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">עריכות אלמוניות (%s)</string>
+  <string name="page_edit_history_filter_by_anon">עריכות של משתמשים לא רשומים (%s)</string>
   <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -457,8 +457,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">התאמת סרגל הכלים שלך</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="temp_account_not_logged_in">לא נכנסת לחשבון</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
+  <string name="temp_account_anon_ip_dialog_body">לאחר עריכה, כתובת ה־IP שלך תשויך לעריכות שלך.&lt;br /&gt;&lt;br /&gt;יש &lt;a href=\"https://#login\"&gt;היכנס&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;ליצור חשבון&lt;/a&gt; כדי לקבל קרדיט עבור עריכות עתידיות וכדי לגשת לתכונות אחרות.</string>
+  <string name="temp_account_anon_dialog_body">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
+  <string name="temp_account_temp_dialog_body">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
   <string name="temp_account_dialog_ok">הבנתי</string>
   <string name="temp_account_using_title">זהו חשבון חולף</string>
   <string name="temp_account_dialog_discard">לזרוק את השינויים ולהיכנס לחשבון</string>
@@ -474,6 +475,7 @@
     <item quantity="many">החשבון יחלוף בעוד %d ימים.</item>
     <item quantity="other">החשבון יחלוף בעוד %d ימים</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר עריכה, כתובת ה־IP שלך תשויך לעריכות שלך.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;החשבון שלך זמני.&lt;/b&gt; העריכה שלך תיוחס לשם המשתמש %1$s. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;זהו חשבון חולף.&lt;/b&gt; עריכות שנעשו עם החשבון החולף %1$s לא יועברו לחשבון הקבוע שלך בעת הכניסה. כניסה או יצירת חשבון תאפשר לך לקבל קרדיט על עריכות עתידיות, ויש לזה גם יתרונות נוספים.</string>
@@ -1710,16 +1712,9 @@
   <string name="patroller_onboarding_two_undo_content">יש לבחור \"ביטול\" כדי לבטל או לשחזור עריכה שעשויה להיות הרסנית.</string>
   <string name="patroller_diff_tooltip_one">מדד \"נזק\" מנבא אם עריכה גורמת נזק לוויקי.</string>
   <string name="patroller_diff_tooltip_two">מדד \"כוונה\" מנבא את הסבירות שעריכה תישמר מתוך כוונה טובה.</string>
-  <string name="patroller_diff_feedback_dialog_title">באפשרותך לעזור לנו לשפר התכונה הזאת</string>
-  <string name="patroller_diff_feedback_dialog_message">מרוצה מהתכונה הזאת?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">מרוצה</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">אין דעה</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">לא מרוצה</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">איך נוכל לשפר את התכונה?</string>
   <string name="patroller_diff_menu_edit_history_title">היסטוריית העריכה של הערך</string>
   <string name="patroller_diff_feedback_dialog_input_hint">משוב</string>
-  <string name="patroller_diff_feedback_dialog_submit">שליחה</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">המשוב נשלח.</string>
   <string name="patroller_diff_feedback_tooltip">יש להקיש על התפריט הצף כדי לשלוח משוב בכל עת תחת \"בעיה עם תכונה\".</string>
   <string name="patroller_saved_message_title_vandalism">אזהרת השחתה</string>
   <string name="patroller_saved_message_title_editing_tests">ניסויי עריכה</string>
@@ -1777,12 +1772,6 @@
   <string name="places_filter_title">סינון לפי שפה</string>
   <string name="places_toggle_buttons_map">מפה</string>
   <string name="places_toggle_buttons_list">רשימה</string>
-  <string name="places_survey_very_satisfied_option">מרוצה מאוד</string>
-  <string name="places_survey_very_unsatisfied_option">מאוד לא מרוצה</string>
-  <string name="places_survey_dialog_title">עזרו לנו לשפר את \"מקומות\"</string>
-  <string name="places_survey_feedback_dialog_title">איך אפשר לשפר את \"מקומות\"?</string>
-  <string name="places_survey_dialog_cancel">ביטול</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">מה היית רוצה שנשנה או נשפר?</string>
   <string name="places_empty_list">האזור הזה ריק. נא להתרחק &lt;a href=\"#\"&gt;על המפה&lt;/a&gt; .</string>
   <string name="places_card_title">מקומות בסביבה</string>
   <string name="places_card_action">עוד מקומות בסביבה</string>
@@ -1794,7 +1783,6 @@
   <string name="recommended_content_section_you_might_like">אולי יעניין אותך</string>
   <string name="recommended_content_survey_dialog_title">סיוע בשיפור התוכן המומלץ.</string>
   <string name="recommended_content_survey_dialog_message">תוצאת החיפוש המומלצת נושאת חן בעיניך?</string>
-  <string name="recommended_content_survey_dialog_input_hint">משוב נוסף</string>
   <string name="recommended_content_survey_dialog_submitted_message">המשוב הוגש. תודה רבה!</string>
   <string name="donor_history_title">היסטוריית התרומות</string>
   <string name="donor_history_save_button">שמירה</string>
@@ -1817,14 +1805,32 @@
   <string name="contributions_dashboard_donation_dialog_message">אני מודים לך על היותך ב־2%% מהאנשים שבחרו לתמוך במשאב שמיליונים מסתמכים עליו. כדי להראות את הכרת התודה שלנו, לוח הבקרה של התרומות שלך עודכן כדי להכיר בסטטוס שלך כתורם. מעניין אותך לראות את העדכון?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">לא, תודה</string>
   <string name="contributions_dashboard_donation_dialog_ok">כן, קחו אותי לשם</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">לוח הבקרה של התרומות שלך עודכן</string>
-  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">לוח הבקרה של התרומות מציג כעת פרטים על סטטוס התורם שלך. רוצה לסקור את התכונה הניסיונית הזאת?</string>
+  <string name="contributions_dashboard_entry_dialog_title">היכרות עם התוספות החדשות ללוח הבקרה של התרומות</string>
+  <string name="contributions_dashboard_entry_dialog_message">לוח הבקרה של התרומות מציג כעת את את הסטטוס שלך בתור תורם. רוצה לסקור את התכונה הניסיונית הזאת?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">לא, תודה</string>
   <string name="contributions_dashboard_entry_dialog_ok">כן, קחו אותי לשם</string>
   <string name="contributions_dashboard_badge_donor">תורם</string>
   <string name="contributions_dashboard_badge_become_a_donor">להפוך לתורם</string>
   <string name="contributions_dashboard_badge_update">עדכון מצב תורם</string>
-  <string name="contributions_dashboard_app_icon_title">סמל יישום</string>
+  <string name="contributions_dashboard_app_icon_title">סמל היישום</string>
   <string name="contributions_dashboard_app_icon_subtitle">הטבת תורם</string>
   <string name="contributions_dashboard_logged_out_user">משתמש שלא מחובר לחשבון</string>
+  <string name="contributions_dashboard_tab_last_donated">תרומה אחרונה</string>
+  <string name="contributions_dashboard_tab_update_button">עדכון</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">תודה על התרומה שלך.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">פתחת את האפשרות להשתמש בסמל אישי זמני. אפשר לעבור לסמל הזה דרך ההגדרות שלך תחת \"סמל היישום\". האם לעדכן את הסמל שלך עכשיו?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">לא, תודה</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">כן, קחו אותי להגדרות</string>
+  <string name="contributions_dashboard_app_icon_updated">סמל היישום עודכן</string>
+  <string name="survey_dialog_title">עִזרו לנו לשפר את דפי השיחה</string>
+  <string name="survey_dialog_message">מרוצה מהתכונה הזאת?</string>
+  <string name="survey_dialog_option_satisfied">מרוצה</string>
+  <string name="survey_dialog_option_neutral">אין דעה</string>
+  <string name="survey_dialog_option_unsatisfied">לא מרוצה</string>
+  <string name="survey_dialog_option_very_satisfied">מרוצה מאוד</string>
+  <string name="survey_dialog_option_very_unsatisfied">מאוד לא מרוצה</string>
+  <string name="survey_dialog_cancel">ביטול</string>
+  <string name="survey_dialog_submit">שליחה</string>
+  <string name="survey_dialog_input_hint">משוב נוסף</string>
+  <string name="survey_dialog_submitted_snackbar">המשוב נשלח.</string>
 </resources>
