@@ -1667,10 +1667,6 @@
   <string name="places_card_distance_suffix">%s päässä</string>
   <string name="places_card_distance_unknown">Tuntematon etäisyys</string>
   <string name="places_empty_message_snackbar">Lähistöllä ei ole artikkeleita. Kokeile loitontaa ja siirtää karttaa.</string>
-  <string name="recommended_content_section_you_might_like">Saatat pitää</string>
-  <string name="recommended_content_survey_dialog_title">Auta parantamaan suositeltua sisältöä.</string>
-  <string name="recommended_content_survey_dialog_message">Oletko tyytyväinen tähän suositeltuun hakutulokseen?</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Palaute lähetetty. Kiitos!</string>
   <string name="donor_history_save_button">Tallenna</string>
   <string name="donor_history_last_donated_date_picker_title">Valitse päivämäärä</string>
   <string name="donor_history_donate_button">Lahjoita Wikimedia Foundationille</string>
