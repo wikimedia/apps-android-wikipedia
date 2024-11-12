@@ -480,6 +480,29 @@
         <item name="android:layout_height">28dp</item>
     </style>
 
+    <style name="ImageView.RoundedCorner" parent="">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="ImageView.RoundedCorner.TopLeft">
+        <item name="cornerSizeTopLeft">16dp</item>
+    </style>
+    <style name="ImageView.RoundedCorner.TopRight">
+        <item name="cornerSizeTopRight">16dp</item>
+    </style>
+    <style name="ImageView.RoundedCorner.BottomLeft">
+        <item name="cornerSizeBottomLeft">16dp</item>
+    </style>
+    <style name="ImageView.RoundedCorner.BottomRight">
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+    <style name="ImageView.RoundedCorner.All">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
         <item name="android:textColor">?destructive_color</item>
     </style>
