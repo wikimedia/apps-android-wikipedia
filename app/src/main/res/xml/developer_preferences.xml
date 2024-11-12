@@ -442,11 +442,6 @@
             android:key="@string/preference_key_donation_results"
             android:title="Donation results" />
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_recommendedContent"
-            android:title="Test group for Recommended Content \n(0=only recent searches, 1=generalized, 2=personalized)" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
