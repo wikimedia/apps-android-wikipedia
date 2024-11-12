@@ -1599,8 +1599,6 @@
   <string name="places_card_enable_location_card_button">위치 활성화</string>
   <string name="places_card_distance_unknown">알 수 없는 거리</string>
   <string name="places_empty_message_snackbar">주변 장소에 관한 문서가 없습니다. 지도를 확대해서 이동해 보세요.</string>
-  <string name="recommended_content_survey_dialog_message">추천 검색 결과에 만족하시나요?</string>
-  <string name="recommended_content_survey_dialog_submitted_message">피드백을 제출했습니다. 감사합니다!</string>
   <string name="donor_history_save_button">저장</string>
   <string name="donor_history_last_donated">마지막 기부</string>
   <string name="donor_history_last_donated_hint">마지막 기부일 추가</string>
@@ -1611,12 +1609,15 @@
   <string name="contributions_dashboard_survey_dialog_ok">피드백 공유</string>
   <string name="contributions_dashboard_donation_dialog_title">자유의 지식을 지원해 주셔서 고맙습니다</string>
   <string name="contributions_dashboard_donation_dialog_cancel">아니요, 괜찮습니다</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">기여 대시보드가 업데이트되었습니다</string>
+  <string name="contributions_dashboard_entry_dialog_title">기여 대시보드에 새로 추가된 기능을 살펴보세요</string>
   <string name="contributions_dashboard_entry_dialog_cancel">아니요, 괜찮습니다</string>
   <string name="contributions_dashboard_app_icon_title">앱 아이콘</string>
   <string name="contributions_dashboard_logged_out_user">로그아웃된 사용자</string>
   <string name="contributions_dashboard_tab_last_donated">마지막 기부</string>
   <string name="contributions_dashboard_tab_update_button">업데이트</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">아니요, 괜찮습니다</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">예, 설정으로 이동합니다</string>
+  <string name="contributions_dashboard_app_icon_updated">앱 아이콘이 업데이트되었습니다</string>
   <string name="survey_dialog_title">이 기능을 개선할 수 있도록 도와주세요</string>
   <string name="survey_dialog_message">이 기능에 만족하시나요?</string>
   <string name="survey_dialog_option_satisfied">만족</string>
