@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -14,6 +15,8 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
@@ -83,6 +86,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
+        binding.mainDrawerGameContainer.setOnClickListener {
+            // TODO: move this to the correct place
+            startActivity(OnThisDayGameActivity.newIntent(requireContext(), Constants.InvokeSource.NAV_MENU))
+            dismiss()
+        }
+
         updateState()
         return binding.root
     }
@@ -131,6 +140,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
             binding.mainDrawerContribsContainer.visibility = View.GONE
         }
+        binding.mainDrawerGameContainer.isVisible = OnThisDayGameViewModel.isGameActive
     }
 
     private fun callback(): Callback? {
