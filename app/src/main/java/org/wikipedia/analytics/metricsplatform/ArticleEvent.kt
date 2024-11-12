@@ -256,11 +256,6 @@ open class ArticleLinkPreviewInteraction : TimedMetricsEvent {
 
     @Serializable
     class ContextData(
-        @SerialName("group_assigned") val groupAssigned: String? = null,
-        @SerialName("time_spent_ms") val timeSpentMillis: Long? = null,
-        @SerialName("rec_shown") val recShown: Boolean? = null,
-        @SerialName("feedback_shown") val feedbackShown: Boolean? = null,
-        @SerialName("feedback_select") val feedbackSelect: String? = null,
-        @SerialName("feedback_text") val feedbackText: String? = null,
+        @SerialName("time_spent_ms") val timeSpentMillis: Long? = null
     )
 }
