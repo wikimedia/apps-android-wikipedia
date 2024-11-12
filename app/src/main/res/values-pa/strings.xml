@@ -1165,7 +1165,6 @@
   <string name="places_toggle_buttons_map">ਨਕਸ਼ਾ</string>
   <string name="places_toggle_buttons_list">ਸੂਚੀ</string>
   <string name="places_empty_list">ਇਹ ਖੇਤਰ ਖਾਲੀ ਹੈ। &lt;a href=\"#\"&gt;ਨਕਸ਼ੇ \'ਤੇ&lt;/a&gt; ਜ਼ੂਮ ਆਉਟ ਕਰੋ।</string>
-  <string name="recommended_content_section_you_might_like">ਤੁਹਾਨੂੰ ਪਸੰਦ ਆ ਸਕਦਾ ਹੈ</string>
   <string name="donor_history_title">ਦਾਨੀ ਦਾ ਇਤਿਹਾਸ</string>
   <string name="donor_history_save_button">ਸਾਂਭੋ</string>
   <string name="donor_history_update_donor_status_donor">ਦਾਨੀ</string>

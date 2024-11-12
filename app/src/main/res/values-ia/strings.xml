@@ -1659,10 +1659,6 @@
   <string name="places_card_distance_suffix">A %s</string>
   <string name="places_card_distance_unknown">Distantia incognite</string>
   <string name="places_empty_message_snackbar">Il non ha articulos a proximitate. Tenta facer zoom retro e displaciar le carta.</string>
-  <string name="recommended_content_section_you_might_like">Poterea placer te</string>
-  <string name="recommended_content_survey_dialog_title">Adjuta a meliorar le contento recommendate.</string>
-  <string name="recommended_content_survey_dialog_message">Es tu satisfacite con iste resultato de recerca recommendate?</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Retroaction inviate. Gratias!</string>
   <string name="donor_history_title">Historia del donator</string>
   <string name="donor_history_save_button">Salveguardar</string>
   <string name="donor_history_update_donor_status_default">Actualisar stato de donator</string>

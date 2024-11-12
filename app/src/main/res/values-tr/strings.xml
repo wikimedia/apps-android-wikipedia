@@ -1646,7 +1646,6 @@
   <string name="places_card_title">Yakındaki yerler</string>
   <string name="places_card_action">Yakındaki daha fazla yer</string>
   <string name="places_card_distance_unknown">Bilinmeyen mesafe</string>
-  <string name="recommended_content_section_you_might_like">Beğenebilirsin</string>
   <string name="donor_history_save_button">Kaydet</string>
   <string name="contributions_dashboard_app_icon_title">Uygulama simgesi</string>
   <string name="contributions_dashboard_tab_update_button">Güncelle</string>

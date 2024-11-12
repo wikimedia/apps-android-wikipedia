@@ -1126,7 +1126,7 @@
   <string name="suggested_edits_what_is_text">تقدم التعديلات المقترحة فرصًا للمساهمات الصغيرة والحيوية في ويكيبيديا.</string>
   <string name="suggested_edits_learn_more">معرفة المزيد</string>
   <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
-  <string name="suggested_edits_disabled_title">مُعطَّل</string>
+  <string name="suggested_edits_disabled_title">معطل</string>
   <string name="suggested_edits_ip_blocked_title">عنوان بروتوكول إنترنت محجوب</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
@@ -1584,7 +1584,6 @@
   <string name="places_toggle_buttons_map">خريطة</string>
   <string name="places_toggle_buttons_list">قائمة</string>
   <string name="places_empty_list">هذه المنطقة فارغة. قم بتكبير &lt;a href\n=\"#\"&gt; الخريطة.</string>
-  <string name="recommended_content_survey_dialog_submitted_message">أرسلت التعليقات. شكرا لك!</string>
   <string name="survey_dialog_option_very_satisfied">راض جدا</string>
   <string name="survey_dialog_option_very_unsatisfied">غير راض جدا</string>
   <string name="survey_dialog_cancel">إلغاء</string>
