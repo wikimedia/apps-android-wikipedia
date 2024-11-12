@@ -1719,10 +1719,6 @@
   <string name="places_card_enable_location_card_button">启用位置</string>
   <string name="places_card_distance_unknown">未知距离</string>
   <string name="places_empty_message_snackbar">附近没有条目。请尝试缩小并移动地图。</string>
-  <string name="recommended_content_section_you_might_like">您可能会喜欢</string>
-  <string name="recommended_content_survey_dialog_title">帮助改进推荐内容。</string>
-  <string name="recommended_content_survey_dialog_message">您对这个推荐搜索结果满意吗？</string>
-  <string name="recommended_content_survey_dialog_submitted_message">已提交反馈。感谢您！</string>
   <string name="donor_history_title">捐款者历史</string>
   <string name="donor_history_save_button">保存</string>
   <string name="donor_history_update_donor_status_default">更新捐款者状态</string>

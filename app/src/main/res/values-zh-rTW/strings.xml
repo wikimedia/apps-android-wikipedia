@@ -1694,10 +1694,6 @@
   <string name="places_card_distance_suffix">距離 %s</string>
   <string name="places_card_distance_unknown">未知距離</string>
   <string name="places_empty_message_snackbar">附近沒有條目。請嘗試縮小並移動地圖。</string>
-  <string name="recommended_content_section_you_might_like">您可能會喜歡</string>
-  <string name="recommended_content_survey_dialog_title">協助改善推薦內容。</string>
-  <string name="recommended_content_survey_dialog_message">您對這個推薦搜尋結果滿意嗎？</string>
-  <string name="recommended_content_survey_dialog_submitted_message">已提交回饋。感謝您！</string>
   <string name="donor_history_title">捐款者歷史</string>
   <string name="donor_history_save_button">儲存</string>
   <string name="donor_history_update_donor_status_default">更新捐款者狀態</string>
@@ -1707,6 +1703,7 @@
   <string name="donor_history_last_donated_hint">新增上次捐款日期</string>
   <string name="donor_history_last_donated_date_picker_title">選擇日期</string>
   <string name="donor_history_last_donated_date_picker_label">輸入日期</string>
+  <string name="donor_history_last_donated_never">從未</string>
   <string name="donor_history_recurring_donor">定期捐款者</string>
   <string name="donor_history_donate_button">對維基媒體基金會捐款</string>
   <string name="donor_history_about_this_experiment">關於此實驗功能</string>
