@@ -57,7 +57,6 @@ import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.Date
-import java.util.concurrent.TimeUnit
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -171,6 +170,24 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
+    private fun showDialogOrSnackBar() {
+        when (DonorStatus.donorStatus()) {
+            DonorStatus.DONOR -> {
+                if (ContributionsDashboardHelper.shouldShowThankYouDialog) {
+                    ContributionsDashboardHelper.showThankYouDialog(requireContext())
+                    ContributionsDashboardHelper.shouldShowThankYouDialog = false
+                }
+            }
+            DonorStatus.NON_DONOR -> {
+                if (ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+                    ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
+                }
+            }
+            DonorStatus.UNKNOWN -> {}
+        }
+    }
+
     fun refreshContents() {
         (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
@@ -180,6 +197,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         refreshContents()
+        showDialogOrSnackBar()
     }
 
     override fun onDestroyView() {
@@ -463,17 +481,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeShowDonorHistoryUpdatedSnackbar() {
-        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
-            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-            ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.showSurveyDialogUI) {
             if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
-                binding.tasksContainer.postDelayed({
-                    if (!isAdded) {
-                        return@postDelayed
-                    }
-                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
-                    Prefs.contributionsDashboardSurveyDialogShown = true
-                }, TimeUnit.SECONDS.toMillis(10))
+                ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
+                    showDialogOrSnackBar()
+                })
+                Prefs.contributionsDashboardSurveyDialogShown = true
+                ContributionsDashboardHelper.showSurveyDialogUI = false
             }
         }
     }

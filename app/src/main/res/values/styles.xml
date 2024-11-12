@@ -563,9 +563,24 @@
         <item name="tint">?attr/primary_color</item>
     </style>
 
+    <style name="DialogIconWithSecondaryTint" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
+        <item name="tint">?attr/secondary_color</item>
+    </style>
+
+    <style name="AlertDialogTheme.IconWithSecondaryTint" parent="AlertDialogTheme.Icon">
+        <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithSecondaryTint</item>
+    </style>
+
     <style name="AlertDialogTheme.Icon">
         <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.Material3.Title.Panel.CenterStacked</item>
         <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/centeredTitleText</item>
+    </style>
+
+    <style name="centeredTitleText" parent="MaterialAlertDialog.Material3.Title.Text.CenterStacked">
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="AlertDialogTheme.Icon.Delete">
