@@ -5,12 +5,15 @@ import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
+import org.wikipedia.analytics.metricsplatform.RabbitHolesAnalyticsHelper
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -21,7 +24,8 @@ object SurveyDialog {
                                   titleId: Int = R.string.survey_dialog_title,
                                   messageId: Int = R.string.survey_dialog_message,
                                   snackbarMessageId: Int = R.string.survey_dialog_submitted_snackbar,
-                                  invokeSource: Constants.InvokeSource) {
+                                  invokeSource: Constants.InvokeSource,
+                                  historyEntry: HistoryEntry? = null) {
         var dialog: AlertDialog? = null
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(titleId)
@@ -52,11 +56,36 @@ object SurveyDialog {
             binding.optionUnsatisfied.setOnClickListener(clickListener)
 
             PatrollerExperienceEvent.logAction("impression", "feedback_form")
+        } else if (historyEntry?.source == HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH || historyEntry?.source == HistoryEntry.SOURCE_RABBIT_HOLE_READING_LIST) {
+            binding.optionNeutral.isChecked = true
+            binding.feedbackInputContainer.isVisible = true
+
+            // TODO:
+            //  RabbitHolesEvent.submit(source = historyEntry.source, RabbitHolesAnalyticsHelper.abcTest.getGroupName(), "impression")
         }
 
         val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
             .setCancelable(false)
             .setView(binding.root)
+
+        if (historyEntry?.source == HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH || historyEntry?.source == HistoryEntry.SOURCE_RABBIT_HOLE_READING_LIST) {
+            binding.submitButton.setOnClickListener {
+                val feedbackInput = binding.feedbackInput.text.toString()
+
+                // TODO:
+                //  RabbitHolesEvent.submit(source = historyEntry.source, RabbitHolesAnalyticsHelper.abcTest.getGroupName(), "submit")
+                // binding.optionSatisfied.isChecked -> "satisfied"
+                // binding.optionUnsatisfied.isChecked -> "unsatisfied"
+                // else -> "neutral"
+                // feedbackText = feedbackInput)
+
+                showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
+                dialog?.dismiss()
+            }
+            binding.cancelButton.setOnClickListener {
+                dialog?.dismiss()
+            }
+        }
 
         dialog = dialogBuilder.show()
     }

@@ -444,8 +444,16 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="ab_test_recommendedContent"
-            android:title="Test group for Recommended Content \n(0=only recent searches, 1=generalized, 2=personalized)" />
+            android:key="ab_test_rabbitHoles"
+            android:title="Test group for Rabbit Holes \n(0=control group, 1=suggested search, 2=suggested reading list)" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_suggested_reading_list_dialog_shown"
+            android:title="@string/preference_key_suggested_reading_list_dialog_shown" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_suggested_content_survey_shown"
+            android:title="@string/preference_key_suggested_content_survey_shown" />
 
     </PreferenceCategory>
 

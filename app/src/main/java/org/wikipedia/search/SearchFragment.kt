@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -49,6 +50,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var langBtnClicked = false
     private var isSearchActive = false
     private var query: String? = null
+    private var suggestedSearchQuery: String? = null
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
@@ -102,6 +104,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
+        suggestedSearchQuery = requireActivity().intent.getStringExtra(SearchActivity.EXTRA_SUGGESTED_QUERY)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -205,7 +208,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
             requireActivity().finish()
         } else {
-            val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
+            val historyEntry = HistoryEntry(item, if (query == suggestedSearchQuery) HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH else HistoryEntry.SOURCE_SEARCH)
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
         }
@@ -302,7 +305,20 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnCloseListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
                 R.attr.secondary_color))
-        binding.searchCabView.queryHint = getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint else R.string.search_hint)
+
+        binding.searchCabView.queryHint = if (suggestedSearchQuery.isNullOrEmpty())
+            getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint
+            else R.string.search_hint) else suggestedSearchQuery
+
+        binding.searchCabView.setOnEditorActionListener(TextView.OnEditorActionListener { _, _, _ ->
+            if (suggestedSearchQuery.isNullOrEmpty()) {
+                false
+            } else {
+                query = suggestedSearchQuery
+                openSearch()
+                true
+            }
+        })
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView

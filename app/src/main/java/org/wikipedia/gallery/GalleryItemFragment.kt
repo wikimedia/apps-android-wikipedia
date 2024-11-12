@@ -243,7 +243,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         } else {
             // show the video thumbnail while the video loads...
             binding.videoThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
+            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, force = true, listener = this)
         }
         binding.videoThumbnail.setOnClickListener(videoThumbnailClickListener)
     }
@@ -251,7 +251,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private fun loadImage(url: String) {
         binding.imageView.visibility = View.INVISIBLE
         onLoading(true)
-        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
+        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, force = true, listener = this)
     }
 
     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {

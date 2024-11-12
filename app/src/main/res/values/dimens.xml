@@ -74,7 +74,7 @@
 
     <!-- Reading lists -->
     <integer name="reading_list_item_size_bytes_per_unit">1000000</integer> <!-- 1 MB -->
-    <integer name="reading_list_description_summary_view_max_lines">2</integer>
+    <integer name="reading_list_description_summary_view_max_lines">3</integer>
 
     <!-- App shortcuts -->
     <dimen name="app_shortcut_icon_size">24dp</dimen>
