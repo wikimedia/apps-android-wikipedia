@@ -1,6 +1,5 @@
 package org.wikipedia.settings
 
-import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,7 +18,9 @@ import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.databinding.DialogAppIconBinding
 import org.wikipedia.databinding.ItemAppIconBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 
 class AppIconDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogAppIconBinding? = null
@@ -32,8 +33,9 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                 LauncherController.setIcon(selectedIcon)
                 AppShortcuts.setShortcuts(requireContext())
                 updateIcons(selectedIcon)
+                dismiss()
                 FeedbackUtil.makeSnackbar(
-                    binding.root,
+                    requireActivity(),
                     "App icon changed successfully.").show()
             }
         }
@@ -87,7 +89,7 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
         fun updateItems(newList: List<LauncherIcon>) {
             list.clear()
             list.addAll(newList)
-            notifyDataSetChanged()
+            notifyItemRangeChanged(0, list.size)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppIconViewHolder {
@@ -115,11 +117,11 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                         onItemClickListener?.invoke(item)
                     }
                     val strokeColor = if (item.isSelected) {
-                        ContextCompat.getColor(binding.root.context, R.color.blue600)
-                    } else ContextCompat.getColor(binding.root.context, R.color.gray200)
+                        R.attr.progressive_color
+                    } else R.attr.border_color
                     val newStrokeWidth = if (item.isSelected) 2f else 1f
-                    this.strokeColor = ColorStateList.valueOf(strokeColor)
-                    this.strokeWidth = newStrokeWidth
+                    this.strokeColor = ResourceUtil.getThemedColorStateList(context, strokeColor)
+                    this.strokeWidth = DimenUtil.dpToPx(newStrokeWidth)
                 }
             }
         }

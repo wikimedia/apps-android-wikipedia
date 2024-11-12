@@ -10,10 +10,10 @@ object LauncherController {
     fun setIcon(icon: LauncherIcon) {
         val context = WikipediaApp.instance.applicationContext
         val packageManager = context.packageManager
-        LauncherIcon.entries.forEach { i ->
+        LauncherIcon.entries.forEach { launcherIcon ->
             packageManager.setComponentEnabledSetting(
-                i.getComponentName(context),
-                if (i == icon) PackageManager.COMPONENT_ENABLED_STATE_ENABLED else
+                launcherIcon.getComponentName(context),
+                if (launcherIcon == icon) PackageManager.COMPONENT_ENABLED_STATE_ENABLED else
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP
             )
