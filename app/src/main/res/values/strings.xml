@@ -1695,16 +1695,9 @@
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
     <string name="patroller_diff_tooltip_two">Intent predicts likelihood of an edit being saved in good-faith.</string>
-    <string name="patroller_diff_feedback_dialog_title">Help us improve this feature</string>
-    <string name="patroller_diff_feedback_dialog_message">Are you satisfied with this feature?</string>
-    <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
-    <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-    <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
     <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
     <string name="patroller_diff_menu_edit_history_title">Article edit history</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
-    <string name="patroller_diff_feedback_dialog_submit">Submit</string>
-    <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
     <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
     <string name="patroller_saved_message_title_vandalism">Vandalism warning</string>
     <string name="patroller_saved_message_title_editing_tests">Editing tests</string>
@@ -1771,12 +1764,6 @@
     <string name="places_filter_title">Filter language</string>
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
-    <string name="places_survey_very_satisfied_option">Very satisfied</string>
-    <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
-    <string name="places_survey_dialog_title">Help improve \'Places\'</string>
-    <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
-    <string name="places_survey_dialog_cancel">Cancel</string>
-    <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <string name="places_card_title">Places nearby</string>
     <string name="places_card_action">More places nearby</string>
@@ -1786,14 +1773,6 @@
     <string name="places_card_distance_unknown">Unknown distance</string>
     <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
-
-    <!-- Recommended Content -->
-    <string name="recommended_content_section_you_might_like">You might like</string>
-    <string name="recommended_content_survey_dialog_title">Help improve recommended content.</string>
-    <string name="recommended_content_survey_dialog_message">Are you satisfied with this recommended search result?</string>
-    <string name="recommended_content_survey_dialog_input_hint">Additional feedback</string>
-    <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
-    <!-- /Recommended Content -->
 
     <string name="on_this_day_game_title">WikiDate Detective</string>
     <string name="on_this_day_game_dialog_description">Limited time only: WikiDate Detective is a beta experiment that will be available for %d more days</string>
@@ -1828,6 +1807,7 @@
     <string name="on_this_day_game_share_subtitle">Topics included:</string>
     <string name="on_this_day_game_share_footer">Play for a limited time only in the Wikipedia Android app</string>
     <string name="on_this_day_game_share_back_button">Go back</string>
+
     <!-- Contributions Dashboard -->
     <string name="donor_history_title">Donor history</string>
     <string name="donor_history_save_button">Save</string>
@@ -1838,6 +1818,7 @@
     <string name="donor_history_last_donated_hint">Add date of last donation</string>
     <string name="donor_history_last_donated_date_picker_title">Select date</string>
     <string name="donor_history_last_donated_date_picker_label">Enter date</string>
+    <string name="donor_history_last_donated_never">Never</string>
     <string name="donor_history_recurring_donor">Recurring donor</string>
     <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
     <string name="donor_history_about_this_experiment">About this experiment</string>
@@ -1869,4 +1850,16 @@
     <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
     <!-- /Contributions Dashboard -->
 
+    <!-- Survey dialog -->
+    <string name="survey_dialog_title">Help us improve this feature</string>
+    <string name="survey_dialog_message">Are you satisfied with this feature?</string>
+    <string name="survey_dialog_option_satisfied">Satisfied</string>
+    <string name="survey_dialog_option_neutral">Neutral</string>
+    <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="survey_dialog_option_very_satisfied">Very satisfied</string>
+    <string name="survey_dialog_option_very_unsatisfied">Very unsatisfied</string>
+    <string name="survey_dialog_cancel">Cancel</string>
+    <string name="survey_dialog_submit">Submit</string>
+    <string name="survey_dialog_input_hint">Additional feedback</string>
+    <string name="survey_dialog_submitted_snackbar">Feedback submitted.</string>
 </resources>

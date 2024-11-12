@@ -739,10 +739,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
 
-    var recommendedContentSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_content_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_content_survey_shown, value)
-
     var isOtdGameDialogEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_dialog_enable, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_dialog_enable, value)

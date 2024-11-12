@@ -443,7 +443,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
   <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#login\"&gt;regisztrálsz&lt;/a&gt;&lt;strong&gt;[$1 bejelentkezel]&lt;/strong&gt; vagy &lt;strong&gt;[$2 felhasználói fiókot hozol létre]&lt;/strong&gt; akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
+  <string name="temp_account_anon_dialog_body">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#createaccount\"&gt;regisztrálsz&lt;/a&gt;, akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
   <string name="temp_account_dialog_ok">Értem</string>
   <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
   <string name="temp_account_dialog_discard">Változtatások elvetése és bejelentkezés</string>
@@ -1595,16 +1595,9 @@
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>
-  <string name="patroller_diff_feedback_dialog_title">Segíts a funkció fejlesztésében!</string>
-  <string name="patroller_diff_feedback_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Elégedett</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Semleges</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Elégedetlen</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hogyan javíthatjuk a funkciót?</string>
   <string name="patroller_diff_menu_edit_history_title">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
-  <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="patroller_diff_feedback_tooltip">Érintse meg a túlcsordulás menüt, hogy bármikor visszajelzést küldhessél a „Probléma a funkcióval” alatt.</string>
   <string name="patroller_saved_message_title_vandalism">Vandalizmus figyelmeztetés</string>
   <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
@@ -1650,21 +1643,21 @@
   <string name="places_filter_title">Nyelvi szűrés</string>
   <string name="places_toggle_buttons_map">Térkép</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_very_satisfied_option">Nagyon elégedett</string>
-  <string name="places_survey_very_unsatisfied_option">Nagyon elégedetlen</string>
-  <string name="places_survey_dialog_title">Segítsen a „Helyek” fejlesztésében</string>
-  <string name="places_survey_feedback_dialog_title">Hogyan javítható a „Helyek”?</string>
-  <string name="places_survey_dialog_cancel">Mégse</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Mit lenne az, amin változtatnánk vagy javítanánk?</string>
   <string name="places_empty_list">Ez a terület üres. Kicsinyítés &lt;a href=\"#\"&gt;a térképen&lt;/a&gt;.</string>
   <string name="places_card_title">Helyek a közelben</string>
   <string name="places_card_action">További helyek a közelben</string>
   <string name="places_card_enable_location_card_button">Helymeghatározás engedélyezése</string>
   <string name="places_card_distance_unknown">Ismeretlen távolság</string>
   <string name="places_empty_message_snackbar">Nincsenek közeli cikkek. Próbáld kicsinyíteni és mozgatni a térképet.</string>
-  <string name="recommended_content_section_you_might_like">Lehet, hogy tetszik</string>
-  <string name="recommended_content_survey_dialog_title">Segítsen javítani az ajánlott tartalmat.</string>
-  <string name="recommended_content_survey_dialog_message">Elégedett ezzel az ajánlott keresési eredménnyel?</string>
-  <string name="recommended_content_survey_dialog_input_hint">További visszajelzés</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Visszajelzés elküldve. Köszönjük!</string>
+  <string name="survey_dialog_title">Segíts a funkció fejlesztésében!</string>
+  <string name="survey_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="survey_dialog_option_satisfied">Elégedett</string>
+  <string name="survey_dialog_option_neutral">Semleges</string>
+  <string name="survey_dialog_option_unsatisfied">Elégedetlen</string>
+  <string name="survey_dialog_option_very_satisfied">Nagyon elégedett</string>
+  <string name="survey_dialog_option_very_unsatisfied">Nagyon elégedetlen</string>
+  <string name="survey_dialog_cancel">Mégse</string>
+  <string name="survey_dialog_submit">Elküldés</string>
+  <string name="survey_dialog_input_hint">További visszajelzés</string>
+  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve.</string>
 </resources>
