@@ -395,6 +395,7 @@
   <string name="watchlist_filter_pages">Artikkelseeid</string>
   <string name="watchlist_page_protected">Suõjjuum</string>
   <string name="watchlist_page_deleted">Jaukkuum</string>
+  <string name="preview_edit_watch_this_page">Vaalv tän seeid</string>
   <string name="action_item_categories">Kategoria</string>
   <string name="category_tab_articles">Artikkeeʹl</string>
   <string name="category_tab_subcategories">Vueʹllkategoria</string>

@@ -1598,8 +1598,7 @@
   <string name="places_card_enable_location_card_button">Abilita la posizione</string>
   <string name="places_card_distance_unknown">Distanza sconosciuta</string>
   <string name="places_empty_message_snackbar">Non ci sono voci nelle vicinanze. Prova a ridurre lo zoom e muovere la mappa.</string>
-  <string name="recommended_content_section_you_might_like">Potrebbe piacerti</string>
-  <string name="recommended_content_survey_dialog_title">Contribuisci a migliorare i contenuti consigliati.</string>
+  <string name="donor_history_last_donated_never">Mai</string>
   <string name="contributions_dashboard_entry_dialog_cancel">No, grazie</string>
   <string name="survey_dialog_title">Aiutaci a migliorare le pagine di discussione</string>
   <string name="survey_dialog_message">Sei soddisfatto di questa funzionalità?</string>

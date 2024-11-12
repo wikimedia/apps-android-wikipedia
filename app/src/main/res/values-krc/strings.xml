@@ -186,7 +186,7 @@
   <string name="create_account_email_error">Терс email адрес</string>
   <string name="create_account_username_error">Хайырланыучуну атында джараусуз символла бардыла</string>
   <string name="create_account_password_error">Пароль эм азы бла 8 символдан болургъа керекди</string>
-  <string name="create_account_generic_error">Тергеу джазыу (аккаунт) къураргъа болмайды</string>
+  <string name="create_account_generic_error">Хыйысаб (аккаунт) къураргъа болмайды</string>
   <string name="create_account_next">Эндиги</string>
   <string name="email_recommendation_dialog_title">Электрон почтасыз хыйсаб къуралсынмы?</string>
   <string name="email_recommendation_dialog_message">Электрон почтаны белгилеу амалсыз болмаса да, паролугъузну тас этсегиз, къутхарыр ючюн электрон почта керек болгъаны себебли, электрон адресни къошаргъа &lt;b&gt;бек насихат этебиз&lt;/b&gt;</string>
