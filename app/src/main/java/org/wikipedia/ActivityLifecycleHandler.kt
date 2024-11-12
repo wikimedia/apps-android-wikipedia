@@ -6,8 +6,8 @@ import android.content.ComponentCallbacks2
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.test.MainActivity
 import org.wikipedia.theme.Theme
 
 class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2 {

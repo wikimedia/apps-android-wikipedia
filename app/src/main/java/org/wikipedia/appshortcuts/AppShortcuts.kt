@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.main.MainActivity
+import org.wikipedia.test.MainActivity
 import org.wikipedia.util.log.L
 
 class AppShortcuts {

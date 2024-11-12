@@ -29,11 +29,11 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.FragmentHistoryBinding
-import org.wikipedia.main.MainActivity
-import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
+import org.wikipedia.test.MainActivity
+import org.wikipedia.test.MainFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource

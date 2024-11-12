@@ -3,16 +3,16 @@ package org.wikipedia
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
-import org.wikipedia.main.loggedinuser.ContributionScreenTest
-import org.wikipedia.main.loggedinuser.NotificationScreenTest
-import org.wikipedia.main.loggedoutuser.EditArticleTest
-import org.wikipedia.main.loggedoutuser.ExploreFeedTest
-import org.wikipedia.main.loggedoutuser.HistoryScreenTest
-import org.wikipedia.main.loggedoutuser.HomeScreenTest
-import org.wikipedia.main.loggedoutuser.OnboardingTest
-import org.wikipedia.main.loggedoutuser.PageTest
-import org.wikipedia.main.loggedoutuser.SavedScreenTest
-import org.wikipedia.robots.SettingsRobot
+import org.wikipedia.robots.feature.SettingsRobot
+import org.wikipedia.test.loggedinuser.ContributionScreenTest
+import org.wikipedia.test.loggedinuser.NotificationScreenTest
+import org.wikipedia.test.loggedoutuser.EditArticleTest
+import org.wikipedia.test.loggedoutuser.ExploreFeedTest
+import org.wikipedia.test.loggedoutuser.HistoryScreenTest
+import org.wikipedia.test.loggedoutuser.HomeScreenTest
+import org.wikipedia.test.loggedoutuser.OnboardingTest
+import org.wikipedia.test.loggedoutuser.PageTest
+import org.wikipedia.test.loggedoutuser.SavedScreenTest
 
 @RunWith(Suite::class)
 @SuiteClasses(

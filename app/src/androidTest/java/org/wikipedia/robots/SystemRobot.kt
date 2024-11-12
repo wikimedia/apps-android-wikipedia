@@ -19,10 +19,10 @@ class SystemRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun clickAllowOnSystemDialog() = apply {
+    fun clickOnSystemDialogWithText(text: String) = apply {
         try {
             val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-            val allowButton = device.findObject(UiSelector().text("Allow"))
+            val allowButton = device.findObject(UiSelector().text(text))
             if (allowButton.exists()) {
                 allowButton.click()
             }

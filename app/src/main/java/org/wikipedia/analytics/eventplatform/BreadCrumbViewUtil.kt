@@ -15,13 +15,13 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.feed.view.ListCardView
-import org.wikipedia.main.MainActivity
-import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.onboarding.InitialOnboardingFragment
 import org.wikipedia.onboarding.InitialOnboardingFragment.OnboardingPage
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.test.MainActivity
+import org.wikipedia.test.MainFragment
 
 object BreadCrumbViewUtil {
     private const val VIEW_UNNAMED = "unnamed"
