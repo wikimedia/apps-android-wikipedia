@@ -1794,7 +1794,7 @@
     <string name="contributions_dashboard_survey_dialog_cancel">No opinion</string>
     <string name="contributions_dashboard_survey_dialog_ok">Share feedback</string>
     <string name="contributions_dashboard_donation_dialog_title">Thank you for supporting free knowledge</string>
-    <string name="contributions_dashboard_donation_dialog_message">You are a part of the 2\u0025 that chose to support the resource millions rely on. To demonstrate our gratitude, your contributions dashboard has been updated to recognize your status as a donor. Would you like to see the update?</string>
+    <string name="contributions_dashboard_donation_dialog_message">You are a part of the 2% that chose to support the resource millions rely on. To demonstrate our gratitude, your contributions dashboard has been updated to recognize your status as a donor. Would you like to see the update?</string>
     <string name="contributions_dashboard_donation_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_donation_dialog_ok">Yes, take me there</string>
     <string name="contributions_dashboard_entry_dialog_title">Explore the new additions to the contributions dashboard</string>

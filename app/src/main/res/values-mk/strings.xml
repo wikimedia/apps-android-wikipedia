@@ -1684,7 +1684,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">Немам мислење</string>
   <string name="contributions_dashboard_survey_dialog_ok">Дајте мислење</string>
   <string name="contributions_dashboard_donation_dialog_title">Ви благодариме што го поддржувате слободното знаење</string>
-  <string name="contributions_dashboard_donation_dialog_message">Вие сте дел од 2\u0025 кои избраа да го поддржат ресурсот на кој се потпираат милиони. За да ја искажеме нашата благодарност, вашата управувачница на дарувања е подновена како признание на вашиот статус на дарител. Дали би сакале да ја видите подновата?</string>
+  <string name="contributions_dashboard_donation_dialog_message">Вие сте дел од 2% кои избраа да го поддржат ресурсот на кој се потпираат милиони. За да ја искажеме нашата благодарност, вашата управувачница на дарувања е подновена како признание на вашиот статус на дарител. Дали би сакале да ја видите подновата?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Не, благодарам</string>
   <string name="contributions_dashboard_donation_dialog_ok">Да, покажи ми</string>
   <string name="contributions_dashboard_entry_dialog_title">Истражете ги новите додатоци во управувачницата со придонеси</string>
