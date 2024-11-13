@@ -57,9 +57,10 @@ class ContributionsDashboardHelper {
         }
 
         fun showDonationCompletedDialog(context: Context) {
+            val message = String.format(context.getString(R.string.contributions_dashboard_donation_dialog_message))
             MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon)
                 .setTitle(R.string.contributions_dashboard_donation_dialog_title)
-                .setMessage(R.string.contributions_dashboard_donation_dialog_message)
+                .setMessage(message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
                 .setPositiveButton(R.string.contributions_dashboard_donation_dialog_ok) { _, _ ->
                     context.startActivity(DonorHistoryActivity.newIntent(context, completedDonation = true, goBackToContributeTab = true))
