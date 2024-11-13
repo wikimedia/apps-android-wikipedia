@@ -884,17 +884,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }) {
             delay(TimeUnit.SECONDS.toMillis(if (ReleaseUtil.isDevRelease) 1L else 10L))
             pageFragment.historyEntry?.let {
-                if (it.source == HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH ||
-                    it.source == HistoryEntry.SOURCE_RABBIT_HOLE_READING_LIST
-                ) {
+                if (it.source == HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH) {
                     Prefs.suggestedContentSurveyShown = true
                     SurveyDialog.showFeedbackOptionsDialog(
                         this@PageActivity,
                         titleId = R.string.rabbit_holes_survey_dialog_title,
                         messageId = R.string.rabbit_holes_survey_dialog_body,
                         snackbarMessageId = R.string.survey_dialog_submitted_snackbar,
-                        invokeSource = InvokeSource.PAGE_ACTIVITY,
-                        historyEntry = it
+                        invokeSource = InvokeSource.RABBIT_HOLE_SEARCH
                     )
                 }
             }

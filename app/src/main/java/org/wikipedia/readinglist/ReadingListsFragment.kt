@@ -29,6 +29,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -60,6 +62,7 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -71,6 +74,8 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
+import org.wikipedia.views.SurveyDialog
+import java.util.concurrent.TimeUnit
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -836,6 +841,26 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             shouldShowImportedSnackbar = false
             Prefs.receiveReadingListsData = null
             Prefs.readingListRecentReceivedId = -1L
+            maybeShowRabbitHolesSurvey()
+        }
+    }
+
+    private fun maybeShowRabbitHolesSurvey() {
+        if (Prefs.suggestedContentSurveyShown) {
+            return
+        }
+        lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            delay(TimeUnit.SECONDS.toMillis(if (ReleaseUtil.isDevRelease) 1L else 10L))
+            Prefs.suggestedContentSurveyShown = true
+            SurveyDialog.showFeedbackOptionsDialog(
+                requireActivity(),
+                titleId = R.string.rabbit_holes_survey_dialog_title,
+                messageId = R.string.rabbit_holes_survey_dialog_body,
+                snackbarMessageId = R.string.survey_dialog_submitted_snackbar,
+                invokeSource = InvokeSource.RABBIT_HOLE_READING_LIST
+            )
         }
     }
 
