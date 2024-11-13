@@ -586,25 +586,23 @@
         <item name="tint">?attr/primary_color</item>
     </style>
 
-    <style name="DialogIconWithTint.SecondaryIcon">
-        <item name="tint">?attr/secondary_color</item>
+    <style name="AlertDialogTextStyle.Centered" parent="MaterialAlertDialog.Material3.Title.Text.CenterStacked">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="AlertDialogTheme.Icon">
         <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.Material3.Title.Panel.CenterStacked</item>
         <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint</item>
-
-    </style>
-
-    <style name="AlertDialogTheme.Icon.CenteredText">
         <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTextStyle.Centered</item>
-        <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint.SecondaryIcon</item>
     </style>
 
-    <style name="AlertDialogTextStyle.Centered" parent="MaterialAlertDialog.Material3.Title.Text.CenterStacked">
-        <item name="android:textAlignment">center</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textStyle">bold</item>
+    <style name="DialogIconWithTint.SecondaryIcon">
+        <item name="tint">?attr/secondary_color</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon.Secondary">
+        <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint.SecondaryIcon</item>
     </style>
 
     <style name="AlertDialogTheme.Icon.Delete">

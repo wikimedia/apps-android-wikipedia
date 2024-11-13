@@ -47,7 +47,7 @@ class ContributionsDashboardHelper {
                         LocalDate.now() <= LocalDate.of(2024, 12, 20))
 
         fun showSurveyDialog(context: Context, onNegativeButtonClick: () -> Unit) {
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_CenteredText)
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_survey_dialog_title)
                 .setMessage(R.string.contributions_dashboard_survey_dialog_message)
                 .setIcon(R.drawable.ic_feedback)
@@ -69,7 +69,7 @@ class ContributionsDashboardHelper {
         }
 
         fun showThankYouDialog(context: Context) {
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_CenteredText)
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_donor_icon_dialog_title)
                 .setMessage(R.string.contributions_dashboard_donor_icon_dialog_message)
                 .setIcon(R.drawable.ic_heart_24)
@@ -82,7 +82,7 @@ class ContributionsDashboardHelper {
 
         fun showDonationCompletedDialog(context: Context) {
             val message = String.format(context.getString(R.string.contributions_dashboard_donation_dialog_message))
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_CenteredText)
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_donation_dialog_title)
                 .setMessage(message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
@@ -94,7 +94,7 @@ class ContributionsDashboardHelper {
         }
 
         fun showEntryDialog(context: Context) {
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_CenteredText)
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_entry_dialog_title)
                 .setMessage(R.string.contributions_dashboard_entry_dialog_message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
