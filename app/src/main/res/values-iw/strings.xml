@@ -1798,7 +1798,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">אין דעה</string>
   <string name="contributions_dashboard_survey_dialog_ok">שליחת משוב</string>
   <string name="contributions_dashboard_donation_dialog_title">תודה על תתמיכתך בידע חופשי</string>
-  <string name="contributions_dashboard_donation_dialog_message">אני מודים לך על היותך ב־&#37;2 מהאנשים שבחרו לתמוך במשאב שמיליונים מסתמכים עליו. כדי להראות את הכרת התודה שלנו, לוח הבקרה של התרומות שלך עודכן כדי להכיר בסטטוס שלך כתורם. מעניין אותך לראות את העדכון?</string>
+  <string name="contributions_dashboard_donation_dialog_message">אני מודים לך על היותך ב־2%% מהאנשים שבחרו לתמוך במשאב שמיליונים מסתמכים עליו. כדי להראות את הכרת התודה שלנו, לוח הבקרה של התרומות שלך עודכן כדי להכיר בסטטוס שלך כתורם. מעניין אותך לראות את העדכון?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">לא, תודה</string>
   <string name="contributions_dashboard_donation_dialog_ok">כן, קחו אותי לשם</string>
   <string name="contributions_dashboard_entry_dialog_title">היכרות עם התוספות החדשות ללוח הבקרה של התרומות</string>
