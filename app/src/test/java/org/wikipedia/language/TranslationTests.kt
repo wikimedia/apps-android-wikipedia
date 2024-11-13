@@ -253,7 +253,7 @@ class TranslationTests {
             "\\[\\[.*?\\]\\]",
             "\\*\\*.*?\\*\\*",
             "''.*?''",
-            "[^%]% "
+            "[^%]%[ .,;?]"
         )
         private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
 
