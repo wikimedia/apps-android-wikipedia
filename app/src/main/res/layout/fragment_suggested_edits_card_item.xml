@@ -56,12 +56,6 @@
                 android:paddingEnd="16dp">
 
                 <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="callToActionButton" />
-
-                <TextView
                     android:id="@+id/viewArticleTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

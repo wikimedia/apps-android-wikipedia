@@ -17,11 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import com.skydoves.balloon.ArrowOrientationRules
-import com.skydoves.balloon.ArrowPositionRules
-import com.skydoves.balloon.Balloon
-import com.skydoves.balloon.BalloonSizeSpec
-import com.skydoves.balloon.createBalloon
+import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity

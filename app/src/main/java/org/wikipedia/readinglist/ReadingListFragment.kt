@@ -487,8 +487,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
                     Prefs.readingListRecentReceivedId = it.id
-                    requireActivity().startActivity(
-                        MainActivity.newIntent(requireContext())
+                    requireActivity().startActivity(MainActivity.newIntent(requireContext())
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                     requireActivity().finish()
                 }
