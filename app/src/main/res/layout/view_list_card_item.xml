@@ -78,7 +78,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:shapeAppearanceOverlay="@style/ImageView.RoundedCorner.All"
+        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
         android:transitionName="@string/transition_article_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view_list_card_item_title"

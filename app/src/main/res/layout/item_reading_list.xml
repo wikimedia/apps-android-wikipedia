@@ -30,7 +30,7 @@
         android:id="@+id/item_image_1"
         style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginEnd="1dp"
-        app:shapeAppearanceOverlay="@style/ImageView.RoundedCorner.TopLeft"
+        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.TopLeft"
         app:layout_constraintEnd_toStartOf="@+id/item_image_2"
         app:layout_constraintTop_toTopOf="@id/item_title_container" />
 
@@ -38,7 +38,7 @@
         android:id="@+id/item_image_2"
         style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginEnd="16dp"
-        app:shapeAppearanceOverlay="@style/ImageView.RoundedCorner.TopRight"
+        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.TopRight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/item_title_container" />
 
@@ -46,7 +46,7 @@
         android:id="@+id/item_image_3"
         style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginTop="1dp"
-        app:shapeAppearanceOverlay="@style/ImageView.RoundedCorner.BottomLeft"
+        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.BottomLeft"
         app:layout_constraintEnd_toStartOf="@+id/item_image_4"
         app:layout_constraintStart_toStartOf="@+id/item_image_1"
         app:layout_constraintTop_toBottomOf="@+id/item_image_1" />
@@ -56,7 +56,7 @@
         style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="16dp"
-        app:shapeAppearanceOverlay="@style/ImageView.RoundedCorner.BottomRight"
+        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.BottomRight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/item_image_3"
         app:layout_constraintTop_toTopOf="@+id/item_image_3" />
@@ -67,7 +67,7 @@
         android:layout_height="72dp"
         android:background="@drawable/button_shape_add_reading_list"
         android:contentDescription="@null"
-        app:shapeAppearanceOverlay="@style/ImageView.RoundedCorner.All"
+        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
         app:tint="@color/gray500"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/item_image_2"
