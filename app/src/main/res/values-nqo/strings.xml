@@ -1398,7 +1398,7 @@
   <string name="donor_history_updated_message_snackbar">ߣߌ߬ߟߌߟߊ ߟߊ߫ ߘߐ߬ߝߐ ߓߘߊ߫ ߟߊߞߎߘߦߊ߫</string>
   <string name="contributions_dashboard_survey_dialog_title">ߘߍ߬ߡߍ߲߬ߠߌ߲ ߞߍ߫ ߞߊ߬ ߓߟߏߡߊߜߍ߲ߠߊ ߟߎ߬ ߟߊ߫ ߦߌ߬ߘߊ߬ߥߟߊ ߟߊߦߙߌߥߊ߫</string>
   <string name="contributions_dashboard_donation_dialog_title">ߌ ߣߌ߫ ߗߋ߫ ߟߐ߲ߕߊ߫ ߛߙߊ߬ߓߊߟߌ ߞߐߡߊߓߌ߲ߓߌ߲ ߠߊ߫</string>
-  <string name="contributions_dashboard_donation_dialog_message">ߌ ߦߋ߫ 2&#37; ߟߎ߫ ߘߏ߫ ߟߋ߬ ߘߌ߫߸ ߡߍ߲ ߠߎ߬ ߣߵߊ߬ ߞߊ߬ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߛߐ߬ߘߐ߲߬ߘߊ߫ ߞߋ߲߬ߥߟߎ ߟߎ߬ ߞߐߡߊߓߌ߲ߓߌ߲߫ ߡߍ߲ ߠߎ߬ ߛߍߥߊߣߍ߲ ߦߴߊ߬ ߟߊ߫. ߊ߲ ߧߴߊ߲ ߠߊ߫ ߞߏߢߌߡߊߟߐ߲ ߦߌ߬ߘߊ߬ ߟߴߌ ߟߊ߫، ߌ ߟߊ߫ ߦߌ߬ߘߊ߬ߥߟߊ ߓߘߊ߫ ߞߵߌ ߟߌ߬ߤߟߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߞߵߊ߬ ߞߍ߫ ߣߌ߬ߟߌߟߊ ߘߌ߫. ߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߦߋ߫؟</string>
+  <string name="contributions_dashboard_donation_dialog_message">ߌ ߦߋ߫ 2\u0025 ߟߎ߫ ߘߏ߫ ߟߋ߬ ߘߌ߫߸ ߡߍ߲ ߠߎ߬ ߣߵߊ߬ ߞߊ߬ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߛߐ߬ߘߐ߲߬ߘߊ߫ ߞߋ߲߬ߥߟߎ ߟߎ߬ ߞߐߡߊߓߌ߲ߓߌ߲߫ ߡߍ߲ ߠߎ߬ ߛߍߥߊߣߍ߲ ߦߴߊ߬ ߟߊ߫. ߊ߲ ߧߴߊ߲ ߠߊ߫ ߞߏߢߌߡߊߟߐ߲ ߦߌ߬ߘߊ߬ ߟߴߌ ߟߊ߫، ߌ ߟߊ߫ ߦߌ߬ߘߊ߬ߥߟߊ ߓߘߊ߫ ߞߵߌ ߟߌ߬ߤߟߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߞߵߊ߬ ߞߍ߫ ߣߌ߬ߟߌߟߊ ߘߌ߫. ߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߦߋ߫؟</string>
   <string name="contributions_dashboard_donation_dialog_cancel">ߊ߬ߦߌ߫߸ ߌ ߣߌ߫ ߗߋ߫</string>
   <string name="contributions_dashboard_donation_dialog_ok">ߊ߬ߥߐ߫، ߒ ߠߊߛߋ߫ ߦߋ߲߬</string>
   <string name="survey_dialog_option_very_satisfied">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>

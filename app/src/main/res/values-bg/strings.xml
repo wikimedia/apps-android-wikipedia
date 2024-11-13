@@ -1442,7 +1442,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">Нямам мнение</string>
   <string name="contributions_dashboard_survey_dialog_ok">Оставете коментар</string>
   <string name="contributions_dashboard_donation_dialog_title">Благодарим Ви, че подкрепяте свободното знание</string>
-  <string name="contributions_dashboard_donation_dialog_message">Вие сте част от 2&#37; , които избраха да подкрепят ресурса, на който разчитат милиони. За да демонстрираме нашата благодарност, таблото за управление на вашите дарения е актуализирано, за да разпознае статуса Ви на дарител. Искате ли да видите актуализацията?</string>
+  <string name="contributions_dashboard_donation_dialog_message">Вие сте част от 2\u0025, които избраха да подкрепят ресурса, на който разчитат милиони. За да демонстрираме нашата благодарност, таблото за управление на вашите дарения е актуализирано, за да разпознае статуса Ви на дарител. Искате ли да видите актуализацията?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Не, благодаря</string>
   <string name="contributions_dashboard_donation_dialog_ok">Да, покажете ми</string>
   <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Таблото за управление на вашите приноси е актуализирано</string>

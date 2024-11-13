@@ -1714,7 +1714,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">Negative action button text for the contributions dashboard survey dialog.</string>
   <string name="contributions_dashboard_survey_dialog_ok">Positive action button text for the contributions dashboard survey dialog.</string>
   <string name="contributions_dashboard_donation_dialog_title">Title for the donation success dialog that shows after the user completed the donation flow.</string>
-  <string name="contributions_dashboard_donation_dialog_message">Message for the donation success dialog that shows after the user completed the donation flow. Please preserve the &#37; as the encoded percent symbol and leave a space after the encoded symbol.</string>
+  <string name="contributions_dashboard_donation_dialog_message">Message for the donation success dialog that shows after the user completed the donation flow. Please preserve the \u0025 as the Unicode percent sign and leave a space after the it.</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Negative action button text for the donation success dialog that shows after the user completed the donation flow.</string>
   <string name="contributions_dashboard_donation_dialog_ok">Positive action button text for the donation success dialog that shows after the user completed the donation flow.</string>
   <string name="contributions_dashboard_entry_dialog_title">Title for the contributions dashboard entry dialog.</string>

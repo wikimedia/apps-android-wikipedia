@@ -1675,7 +1675,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">Rəy yoxdur</string>
   <string name="contributions_dashboard_survey_dialog_ok">Rəy bildir</string>
   <string name="contributions_dashboard_donation_dialog_title">Azad biliyi dəstəklədiyiniz üçün təşəkkür edirik</string>
-  <string name="contributions_dashboard_donation_dialog_message">Siz milyonların etibar etdiyi resursu dəstəkləməyi seçən 2&#37; -in bir hissəsisiniz. Minnətdarlığımızı nümayiş etdirmək üçün töhfələr paneliniz donor statusunuzu göstərmək üçün yeniləndi. Yeniləməni görmək istəyirsiniz?</string>
+  <string name="contributions_dashboard_donation_dialog_message">Siz milyonların etibar etdiyi resursu dəstəkləməyi seçən 2\u0025 -in bir hissəsisiniz. Minnətdarlığımızı nümayiş etdirmək üçün töhfələr paneliniz donor statusunuzu göstərmək üçün yeniləndi. Yeniləməni görmək istəyirsiniz?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Xeyr, təşəkkürlər</string>
   <string name="contributions_dashboard_donation_dialog_ok">Bəli, məni ora apar</string>
   <string name="contributions_dashboard_entry_dialog_title">Töhfələr panelinə edilən yeni əlavələri kəşf edin</string>
