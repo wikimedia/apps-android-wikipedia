@@ -1824,7 +1824,7 @@
     <string name="rabbit_holes_survey_dialog_title">Help improve rabbit holes</string>
     <string name="rabbit_holes_survey_dialog_body">Are you satisfied with this recommended search result?</string>
     <string name="suggested_reading_list_title">Based on your reading</string>
-    <string name="suggested_reading_list_description">Inspired by \"%s\"</string>
+    <string name="suggested_reading_list_description">Inspired by \"%1$s\" and \"%2$s\"</string>
     <string name="suggested_reading_list_later_snackbar">If you want to visit your reading list later, go to the Saved tab on the home screen.</string>
     <string name="suggested_reading_list_dialog_title">You have a new suggested reading list.</string>
     <string name="suggested_reading_list_dialog_body">This is an experimental feature. The contents are based on your recent reading history. Do you want to check out this new reading list?</string>

@@ -49,6 +49,7 @@ import org.wikipedia.analytics.metricsplatform.RabbitHolesAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityPageBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -827,9 +828,19 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         applySuggestedSearchTerm(page.displayTitle(title.wikiSite.languageCode))
                     }
                 } else if (RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3 && !Prefs.suggestedReadingListDialogShown) {
-                    val response = ServiceFactory.get(title.wikiSite).searchMoreLike("morelike:${title.prefixedText}", 10, 10)
-                    response.query?.pages?.let { pages ->
-                        applySuggestedReadingList(title, pages)
+                    val historyEntries = AppDatabase.instance.historyEntryDao().getLastHistoryEntries(title.wikiSite.languageCode, 2)
+                    if (historyEntries.size < 2) {
+                        return@launch
+                    }
+
+                    val pages = mutableListOf<MwQueryPage>()
+                    historyEntries.forEach { entry ->
+                        val response = ServiceFactory.get(title.wikiSite).searchMoreLike("morelike:${entry.apiTitle}", 5, 5)
+                        response.query?.pages?.let { pages.addAll(it) }
+                    }
+
+                    if (pages.isNotEmpty()) {
+                        applySuggestedReadingList(historyEntries[0], historyEntries[1], pages)
 
                         Prefs.suggestedReadingListDialogShown = true
                         MaterialAlertDialogBuilder(this@PageActivity)
@@ -854,12 +865,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         binding.pageToolbarButtonSearch.text = term
     }
 
-    private fun applySuggestedReadingList(basedOnTitle: PageTitle, pages: List<MwQueryPage>) {
+    private fun applySuggestedReadingList(basedOnTitle1: HistoryEntry, basedOnTitle2: HistoryEntry, pages: List<MwQueryPage>) {
         val listItems = pages.map {
             JsonUtil.json.encodeToJsonElement(
                 ReadingListsShareHelper.ExportedReadingListPage(
-                    basedOnTitle.wikiSite.languageCode,
-                    it.displayTitle(basedOnTitle.wikiSite.languageCode),
+                    basedOnTitle1.title.wikiSite.languageCode,
+                    it.displayTitle(basedOnTitle1.title.wikiSite.languageCode),
                     it.ns,
                     it.description,
                     it.thumbUrl()
@@ -867,9 +878,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             )
         }
         val readingList = ReadingListsShareHelper.ExportedReadingList(
-            list = mapOf(basedOnTitle.wikiSite.languageCode to listItems),
+            list = mapOf(basedOnTitle1.title.wikiSite.languageCode to listItems),
             name = getString(R.string.suggested_reading_list_title),
-            description = getString(R.string.suggested_reading_list_description, StringUtil.fromHtml(basedOnTitle.displayText).toString())
+            description = getString(R.string.suggested_reading_list_description,
+                StringUtil.fromHtml(basedOnTitle1.title.displayText).toString(),
+                StringUtil.fromHtml(basedOnTitle1.title.displayText).toString())
         )
         Prefs.importReadingListsDialogShown = false
         Prefs.suggestedReadingListsData = JsonUtil.encodeToString(readingList)

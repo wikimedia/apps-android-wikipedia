@@ -1741,7 +1741,7 @@
   <string name="rabbit_holes_survey_dialog_title">Title of a dialog for submitting feedback about this feature</string>
   <string name="rabbit_holes_survey_dialog_body">Text of a dialog for submitting feedback about this feature</string>
   <string name="suggested_reading_list_title">Title of a reading list of articles based on your reading history</string>
-  <string name="suggested_reading_list_description">Description of a reading list of articles, based on the title of a previous article. The %s symbol is replaced with the article title.</string>
+  <string name="suggested_reading_list_description">Description of a reading list of articles, based on the titles of a previous articles. The symbols %1$s and %2$s are replaced with the article titles.</string>
   <string name="suggested_reading_list_later_snackbar">Message shown when the user chooses to view the suggested reading list at a later time.</string>
   <string name="suggested_reading_list_dialog_title">Title of a dialog shown when a new suggested reading list has been generated.</string>
   <string name="suggested_reading_list_dialog_body">Text of a dialog shown when a new suggested reading list has been generated.</string>
