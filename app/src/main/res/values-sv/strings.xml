@@ -1696,7 +1696,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">Ingen åsikt</string>
   <string name="contributions_dashboard_survey_dialog_ok">Ge återkoppling</string>
   <string name="contributions_dashboard_donation_dialog_title">Tack för att du stödjer fri kunskap</string>
-  <string name="contributions_dashboard_donation_dialog_message">Du är en del av de 2% som väljer att stödja resursen som miljontals använder. För att demonstrera vår tacksamhet har din instrumentbräda uppdaterats för att erkänna sin status som donator. Vill du se uppdateringen?</string>
+  <string name="contributions_dashboard_donation_dialog_message">Du är en del av de 2%% som väljer att stödja resursen som miljontals använder. För att demonstrera vår tacksamhet har din instrumentbräda uppdaterats för att erkänna sin status som donator. Vill du se uppdateringen?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Nej tack</string>
   <string name="contributions_dashboard_donation_dialog_ok">Ja, ta mig dit</string>
   <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Din bidragsinstrumentbräda har uppdaterats</string>

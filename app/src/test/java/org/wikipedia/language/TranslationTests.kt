@@ -16,12 +16,6 @@ class TranslationTests {
 
         // Step 1: collect counts of parameters in en/strings.xml
         val baseMap = findMatchedParamsInXML(baseFile, POSSIBLE_PARAMS, true)
-        val baseSinglePercentMap = findMatchedParamsInXML(baseFile, SINGLE_PERCENT_REGEX, false)
-        val baseDoublePercentMap = findMatchedParamsInXML(baseFile, DOUBLE_PERCENT_REGEX, false)
-
-        baseMap.forEach { (key, list) ->
-            checkPercentSymbolEncoding(list, baseSinglePercentMap[key]!!, baseDoublePercentMap[key]!!, mismatches, "en", key)
-        }
 
         // Step 2: finding parameters in other languages
         for (dir in allFiles) {
@@ -29,14 +23,10 @@ class TranslationTests {
                 if (dir.name.contains("-")) dir.name.substring(dir.name.indexOf("-") + 1) else "en"
             val targetStringsXml = File(dir, STRINGS_XML_NAME)
             val targetMap = findMatchedParamsInXML(targetStringsXml, POSSIBLE_PARAMS, true)
-            val targetSinglePercentMap = findMatchedParamsInXML(targetStringsXml, SINGLE_PERCENT_REGEX, false)
-            val targetDoublePercentMap = findMatchedParamsInXML(targetStringsXml, DOUBLE_PERCENT_REGEX, false)
 
             // compare the counts inside the maps
             targetMap.forEach { (targetKey, targetList) ->
                 val baseList = baseMap[targetKey]
-                checkPercentSymbolEncoding(targetList, targetSinglePercentMap[targetKey]!!, targetDoublePercentMap[targetKey]!!, mismatches, lang, targetKey)
-
                 if (baseList != null && baseList != targetList) {
                     mismatches.append("Parameters mismatched in ")
                         .append(lang)
@@ -120,7 +110,6 @@ class TranslationTests {
                 // compare the counts inside the maps
                 targetMap.forEach { (targetKey, targetList) ->
                     val baseList = baseMap[targetKey]
-
                     if (baseList != null && baseList != targetList) {
                         mismatches.append("Unsupported Wikitext, Markdown, Encoding in ")
                             .append(lang)
@@ -134,24 +123,6 @@ class TranslationTests {
 
         // Step 3: check the result
         MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
-    }
-
-    private fun checkPercentSymbolEncoding(argList: List<Int>, singlePercentList: List<Int>,
-                                           doublePercentList: List<Int>, mismatches: StringBuilder, lang: String, key: String) {
-        val totalArgs = argList.sum()
-        if (totalArgs > 0 && singlePercentList[0] > 0) {
-            mismatches.append("Incorrect single percent encoding in ")
-                .append(lang)
-                .append("/")
-                .append(STRINGS_XML_NAME).append(": ")
-                .append(key).append(" \n")
-        } else if (totalArgs == 0 && doublePercentList[0] > 0) {
-            mismatches.append("Incorrect double percent encoding in ")
-                .append(lang)
-                .append("/")
-                .append(STRINGS_XML_NAME).append(": ")
-                .append(key).append(" \n")
-        }
     }
 
     private val baseFile: File
@@ -281,13 +252,8 @@ class TranslationTests {
             "\\{\\{.*?\\}\\}",
             "\\[\\[.*?\\]\\]",
             "\\*\\*.*?\\*\\*",
-            "''.*?''"
-        )
-        private val SINGLE_PERCENT_REGEX = listOf(
-            "[^%]% "
-        )
-        private val DOUBLE_PERCENT_REGEX = listOf(
-            "%+%"
+            "''.*?''",
+            "[^%]%[ .,;?]"
         )
         private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
 

@@ -1713,7 +1713,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">無意見</string>
   <string name="contributions_dashboard_survey_dialog_ok">分享意見回饋</string>
   <string name="contributions_dashboard_donation_dialog_title">感謝您對自由知識的支持</string>
-  <string name="contributions_dashboard_donation_dialog_message">您選擇作為支持數百萬人所依賴資源的 2% 的一分子。為了表達我們的謝意，已更新您的貢獻面板來表揚出您的身份為捐款者。您想查看更新嗎？</string>
+  <string name="contributions_dashboard_donation_dialog_message">您選擇作為支持數百萬人所依賴資源的 2%% 的一分子。為了表達我們的謝意，已更新您的貢獻面板來表揚出您的身份為捐款者。您想查看更新嗎？</string>
   <string name="contributions_dashboard_donation_dialog_cancel">不用了，謝謝</string>
   <string name="contributions_dashboard_donation_dialog_ok">是的，讓我查看</string>
   <string name="contributions_dashboard_entry_dialog_title">探索貢獻面板的新增內容</string>
