@@ -7,6 +7,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.donate.DonorHistoryActivity
+import org.wikipedia.donate.DonorStatus
+import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.UriUtil
@@ -36,20 +38,26 @@ class ContributionsDashboardHelper {
         // Temporarily value for different access from either entry dialogs, overflow menu or the contribute tab.
         var shouldShowDonorHistorySnackbar = false
 
+        var shouldShowThankYouDialog = false
+
+        var showSurveyDialogUI = false
+
         val contributionsDashboardEnabled get() = ReleaseUtil.isPreBetaRelease ||
                 (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
                         enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
                         LocalDate.now() <= LocalDate.of(2024, 12, 20))
 
-        fun showSurveyDialog(context: Context) {
+        fun showSurveyDialog(context: Context, onNegativeButtonClick: () -> Unit) {
             ContributionsDashboardEvent.logAction("impression", "contrib_survey")
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon)
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_survey_dialog_title)
                 .setMessage(R.string.contributions_dashboard_survey_dialog_message)
                 .setIcon(R.drawable.ic_feedback)
                 .setCancelable(false)
                 .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
                     ContributionsDashboardEvent.logAction("enter_click", "contrib_survey")
+                    // this should be called on button click due to logic in onResume
+                    setEitherShowDialogOrSnackBar()
                     UriUtil.visitInExternalBrowser(
                         context,
                         Uri.parse(getSurveyDialogUrl())
@@ -57,15 +65,31 @@ class ContributionsDashboardHelper {
                 }
                 .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel, { _, _ ->
                     ContributionsDashboardEvent.logAction("cancel_click", "contrib_survey")
-                })
+                    // this should be called on button click due to logic in onResume
+                    setEitherShowDialogOrSnackBar()
+                    onNegativeButtonClick()
+                }
+                .show()
+        }
+
+        fun showThankYouDialog(context: Context) {
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
+                .setTitle(R.string.contributions_dashboard_donor_icon_dialog_title)
+                .setMessage(R.string.contributions_dashboard_donor_icon_dialog_message)
+                .setIcon(R.drawable.ic_heart_24)
+                .setPositiveButton(R.string.contributions_dashboard_donor_icon_dialog_ok) { _, _ ->
+                    context.startActivity(SettingsActivity.newIntent(context))
+                }
+                .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel, null)
                 .show()
         }
 
         fun showDonationCompletedDialog(context: Context) {
             ContributionsDashboardEvent.logAction("impression", "contrib_donor_banner")
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon)
+            val message = String.format(context.getString(R.string.contributions_dashboard_donation_dialog_message))
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_donation_dialog_title)
-                .setMessage(R.string.contributions_dashboard_donation_dialog_message)
+                .setMessage(message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
                 .setPositiveButton(R.string.contributions_dashboard_donation_dialog_ok) { _, _ ->
                     ContributionsDashboardEvent.logAction("contrib_enter_click", "contrib_donor_banner")
@@ -79,7 +103,7 @@ class ContributionsDashboardHelper {
 
         fun showEntryDialog(context: Context) {
             ContributionsDashboardEvent.logAction("impression", "contrib_banner")
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon)
+            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_entry_dialog_title)
                 .setMessage(R.string.contributions_dashboard_entry_dialog_message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
@@ -91,6 +115,14 @@ class ContributionsDashboardHelper {
                     ContributionsDashboardEvent.logAction("contrib_cancel_click", "contrib_banner")
                 })
                 .show()
+        }
+
+        private fun setEitherShowDialogOrSnackBar() {
+            when (DonorStatus.donorStatus()) {
+                DonorStatus.DONOR -> shouldShowThankYouDialog = true
+                DonorStatus.NON_DONOR -> shouldShowDonorHistorySnackbar = true
+                DonorStatus.UNKNOWN -> {}
+            }
         }
     }
 }

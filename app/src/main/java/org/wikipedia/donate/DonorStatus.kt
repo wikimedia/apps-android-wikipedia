@@ -12,7 +12,7 @@ enum class DonorStatus {
         fun donorStatus(): DonorStatus {
             return if (Prefs.hasDonorHistorySaved.not()) {
                 UNKNOWN
-            } else if (Prefs.donationResults.isNotEmpty() || Prefs.isRecurringDonor) {
+            } else if (Prefs.isDonor) {
                 DONOR
             } else {
                 NON_DONOR

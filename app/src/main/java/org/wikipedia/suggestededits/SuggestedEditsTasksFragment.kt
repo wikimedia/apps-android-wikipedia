@@ -58,7 +58,6 @@ import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.Date
-import java.util.concurrent.TimeUnit
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -172,6 +171,24 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
+    private fun showDialogOrSnackBar() {
+        when (DonorStatus.donorStatus()) {
+            DonorStatus.DONOR -> {
+                if (ContributionsDashboardHelper.shouldShowThankYouDialog) {
+                    ContributionsDashboardHelper.showThankYouDialog(requireContext())
+                    ContributionsDashboardHelper.shouldShowThankYouDialog = false
+                }
+            }
+            DonorStatus.NON_DONOR -> {
+                if (ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+                    ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
+                }
+            }
+            DonorStatus.UNKNOWN -> {}
+        }
+    }
+
     fun refreshContents() {
         (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
@@ -181,6 +198,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         refreshContents()
+        showDialogOrSnackBar()
     }
 
     override fun onDestroyView() {
@@ -275,13 +293,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 //            }
         }
 
-        binding.donorHistoryContainer.isVisible = true
-        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
-            ContributionsDashboardEvent.logAction("impression", "contrib_dashboard")
-            binding.donorHistoryContainer.isVisible = false
-            binding.statsDivider.isVisible = false
-        }
-
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         binding.tasksContainer.isVisible = true
     }
@@ -357,6 +368,15 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUpDonorHistoryStatus() {
+        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            binding.donorHistoryContainer.isVisible = false
+            binding.statsDivider.isVisible = false
+            return
+        }
+
+        ContributionsDashboardEvent.logAction("impression", "contrib_dashboard")
+        binding.donorHistoryContainer.isVisible = true
+
         when (DonorStatus.donorStatus()) {
             DonorStatus.DONOR -> {
                 Prefs.donationResults.lastOrNull()?.dateTime?.let {
@@ -374,13 +394,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                         relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
                     }
                     binding.donorHistoryStatus.text = relativeTimeSpan
+                    binding.donorHistoryStatus.isVisible = true
+                    binding.lastDonatedChevron.isVisible = true
+                    binding.donorHistoryUpdateButton.isVisible = false
                 } ?: run {
-                    binding.donorHistoryStatus.text =
-                        getString(R.string.donor_history_recurring_donor)
+                    binding.donorHistoryStatus.isVisible = false
+                    binding.lastDonatedChevron.isVisible = false
+                    binding.donorHistoryUpdateButton.isVisible = true
                 }
-                binding.donorHistoryStatus.isVisible = true
-                binding.lastDonatedChevron.isVisible = true
-                binding.donorHistoryUpdateButton.isVisible = false
             }
 
             DonorStatus.NON_DONOR -> {
@@ -463,18 +484,14 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeShowDonorHistoryUpdatedSnackbar() {
-        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.showSurveyDialogUI) {
             ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
-            FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-            ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
             if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
-                binding.tasksContainer.postDelayed({
-                    if (!isAdded) {
-                        return@postDelayed
-                    }
-                    ContributionsDashboardHelper.showSurveyDialog(requireContext())
-                    Prefs.contributionsDashboardSurveyDialogShown = true
-                }, TimeUnit.SECONDS.toMillis(10))
+                ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
+                    showDialogOrSnackBar()
+                })
+                Prefs.contributionsDashboardSurveyDialogShown = true
+                ContributionsDashboardHelper.showSurveyDialogUI = false
             }
         }
     }

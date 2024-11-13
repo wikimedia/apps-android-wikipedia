@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Friday musa
 * Kambai Akau
 -->
 <resources>
@@ -733,4 +734,5 @@
   <string name="watchlist_page_moved">Á̱ shyei</string>
   <string name="watchlist_page_protected">Á̱ cok</string>
   <string name="watchlist_page_deleted">Á̱ ti̱n</string>
+  <string name="survey_dialog_title">Bea̱ng nzi̱t jhyuk wa̱t huni</string>
 </resources>

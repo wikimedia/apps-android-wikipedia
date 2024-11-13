@@ -132,7 +132,6 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         ImageZoomHelper.setViewZoomable(binding.imageView)
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE),
             roundedCorners = false,
-            largeRoundedSize = false,
             force = true,
             listener = null
         )

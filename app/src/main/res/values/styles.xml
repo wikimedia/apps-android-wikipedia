@@ -431,7 +431,7 @@
         <item name="android:textColor">?attr/placeholder_color</item>
         <item name="iconTint">?attr/placeholder_color</item>
     </style>
-      
+
     <style name="App.Button.Outline">
         <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:backgroundTint">?attr/paper_color</item>
@@ -507,6 +507,29 @@
         <item name="android:layout_height">28dp</item>
     </style>
 
+    <style name="RoundedCornerOverlay">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="RoundedCornerOverlay.TopLeft">
+        <item name="cornerSizeTopLeft">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.TopRight">
+        <item name="cornerSizeTopRight">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.BottomLeft">
+        <item name="cornerSizeBottomLeft">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.BottomRight">
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.All">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
         <item name="android:textColor">?destructive_color</item>
     </style>
@@ -563,9 +586,23 @@
         <item name="tint">?attr/primary_color</item>
     </style>
 
+    <style name="AlertDialogTextStyle.Centered" parent="MaterialAlertDialog.Material3.Title.Text.CenterStacked">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="AlertDialogTheme.Icon">
         <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.Material3.Title.Panel.CenterStacked</item>
         <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTextStyle.Centered</item>
+    </style>
+
+    <style name="DialogIconWithTint.SecondaryIcon">
+        <item name="tint">?attr/secondary_color</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon.Secondary">
+        <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint.SecondaryIcon</item>
     </style>
 
     <style name="AlertDialogTheme.Icon.Delete">
@@ -631,4 +668,8 @@
         <item name="colorOnSurfaceVariant">?attr/primary_color</item>
     </style>
 
+    <style name="CircularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

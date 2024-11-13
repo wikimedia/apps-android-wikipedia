@@ -100,6 +100,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                     } else {
                         getString(R.string.contributions_dashboard_logged_out_user)
                     }
+                    binding.donorBadge.disableClickForDonor()
                     binding.donorBadge.setup(object : DonorBadgeView.Callback {
                         override fun onBecomeDonorClick() {
                             ContributionsDashboardEvent.logAction("donate_start_click", "contrib_dashboard")

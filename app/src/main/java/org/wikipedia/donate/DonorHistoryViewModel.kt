@@ -12,15 +12,15 @@ class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val completedDonation = savedStateHandle.get<Boolean>(Constants.ARG_BOOLEAN) == true
     val shouldGoBackToContributeTab = savedStateHandle.get<Boolean>(DonorHistoryActivity.RESULT_GO_BACK_TO_CONTRIBUTE_TAB) == true
-    var currentDonorStatus = -1
-    var isDonor = completedDonation || (Prefs.hasDonorHistorySaved && (Prefs.donationResults.isNotEmpty() || Prefs.isRecurringDonor))
+    var currentDonorStatus = if (completedDonation) 0 else -1
+    var isDonor = completedDonation || Prefs.hasDonorHistorySaved && Prefs.isDonor
     var lastDonated = Prefs.donationResults.lastOrNull()?.dateTime
     var isRecurringDonor = Prefs.isRecurringDonor
     var donorHistoryModified = false
 
     fun saveDonorHistory() {
-        ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = true
         Prefs.hasDonorHistorySaved = true
+        ContributionsDashboardHelper.showSurveyDialogUI = true
         if (isDonor) {
             Prefs.isRecurringDonor = isRecurringDonor
             lastDonated?.let {
@@ -30,6 +30,7 @@ class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             Prefs.isRecurringDonor = false
             Prefs.donationResults = emptyList()
         }
+        Prefs.isDonor = isDonor
         donorHistoryModified = false
     }
 

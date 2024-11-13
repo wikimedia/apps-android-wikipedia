@@ -244,7 +244,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         binding.imageView.loadImage(Uri.parse(thumbUrl),
-            roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+            cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                 override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                     if (isAdded) {
                         var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.gray600))
