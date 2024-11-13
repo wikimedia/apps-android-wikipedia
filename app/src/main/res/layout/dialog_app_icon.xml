@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/app_icon_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:text="@string/contributions_dashboard_app_icon_title"
+        android:textColor="?attr/primary_color"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/app_icon_sub_title"
+        style="@style/Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textAllCaps="true"
+        android:text="@string/contributions_dashboard_app_icon_subtitle"
+        android:textColor="?attr/primary_color"
+        app:layout_constraintBaseline_toBaselineOf="@+id/app_icon_title"
+        app:layout_constraintBottom_toBottomOf="@+id/app_icon_title"
+        app:layout_constraintStart_toEndOf="@+id/app_icon_title"
+        app:layout_constraintTop_toTopOf="@+id/app_icon_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/appIconRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_icon_title"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_app_icon"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
