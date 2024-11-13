@@ -102,13 +102,11 @@ class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadg
     }
 
     private fun loadDonorInformation() {
-        if (ContributionsDashboardHelper.contributionsDashboardEnabled && AccountUtil.isLoggedIn.not()) {
-            binding.donorContainer.isVisible = false
-            return
+        if (ContributionsDashboardHelper.contributionsDashboardEnabled && AccountUtil.isLoggedIn) {
+            binding.donorContainer.isVisible = true
+            binding.donorUsername.text = AccountUtil.userName
+            binding.donorBadgeView.setup(this)
         }
-        binding.donorContainer.isVisible = true
-        binding.donorUsername.text = AccountUtil.userName
-        binding.donorBadgeView.setup(this)
     }
 
     private fun dismissPopupWindowHost() {
