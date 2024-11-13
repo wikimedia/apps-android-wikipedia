@@ -137,7 +137,7 @@ class ReadingListItemView : ConstraintLayout {
         binding.experimentLabel.backgroundTintList = ResourceUtil.getThemedColorStateList(context, if (isSingle) R.attr.background_color else R.attr.paper_color)
         binding.experimentAboutLabel.isVisible = isSuggested && isSingle
         binding.itemSaveButtonSecondary.isVisible = isSuggested && !isSingle
-        binding.backgroundShape.isVisible = isSuggested&& !isSingle
+        binding.backgroundShape.isVisible = isSuggested && !isSingle
     }
 
     fun setThumbnailVisible(visible: Boolean) {

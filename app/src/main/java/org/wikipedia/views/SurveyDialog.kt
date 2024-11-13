@@ -11,7 +11,6 @@ import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.analytics.metricsplatform.RabbitHolesAnalyticsHelper
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs

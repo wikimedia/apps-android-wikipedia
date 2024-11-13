@@ -350,7 +350,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             }
                             update()
                         }
-
                     } else {
                         val json = Prefs.receiveReadingListsData
                         if (!json.isNullOrEmpty()) {
