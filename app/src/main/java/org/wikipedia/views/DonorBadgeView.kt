@@ -23,6 +23,10 @@ class DonorBadgeView(context: Context, attrs: AttributeSet? = null) : FrameLayou
         layoutParams = ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
     }
 
+    fun disableClickForDonor() {
+        binding.donorChip.isEnabled = false
+    }
+
     fun setup(callback: Callback) {
         if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
             isVisible = false
