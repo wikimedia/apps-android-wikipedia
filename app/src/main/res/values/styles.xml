@@ -431,7 +431,7 @@
         <item name="android:textColor">?attr/placeholder_color</item>
         <item name="iconTint">?attr/placeholder_color</item>
     </style>
-      
+
     <style name="App.Button.Outline">
         <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:backgroundTint">?attr/paper_color</item>
@@ -654,4 +654,8 @@
         <item name="colorOnSurfaceVariant">?attr/primary_color</item>
     </style>
 
+    <style name="CircularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>
