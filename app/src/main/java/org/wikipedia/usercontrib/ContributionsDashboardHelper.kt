@@ -68,7 +68,7 @@ class ContributionsDashboardHelper {
                     // this should be called on button click due to logic in onResume
                     setEitherShowDialogOrSnackBar()
                     onNegativeButtonClick()
-                }
+                })
                 .show()
         }
 
