@@ -87,7 +87,7 @@
         <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
 
         <activity
-            android:name=".test.MainActivity"
+            android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
             android:exported="true">
@@ -108,11 +108,11 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
-            android:parentActivityName=".test.MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".test.MainActivity" />
+                android:value=".main.MainActivity" />
             <intent-filter
                 tools:targetApi="m"
                 android:autoVerify="true">

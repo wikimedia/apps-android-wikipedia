@@ -77,6 +77,7 @@ import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationWorker
@@ -96,7 +97,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.test.MainActivity
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
@@ -1264,7 +1264,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun goToMainTab() {
-        startActivity(MainActivity.newIntent(requireContext())
+        startActivity(
+            MainActivity.newIntent(requireContext())
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
             .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))

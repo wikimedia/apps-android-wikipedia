@@ -1,4 +1,4 @@
-package org.wikipedia.test
+package org.wikipedia.main
 
 import android.content.Context
 import android.content.Intent

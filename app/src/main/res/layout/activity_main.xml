@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".test.MainActivity">
+    tools:context=".main.MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/main_toolbar"

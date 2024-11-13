@@ -46,6 +46,7 @@ import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
+import org.wikipedia.main.MainActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
@@ -54,7 +55,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.test.MainActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -487,7 +487,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
                     Prefs.readingListRecentReceivedId = it.id
-                    requireActivity().startActivity(MainActivity.newIntent(requireContext())
+                    requireActivity().startActivity(
+                        MainActivity.newIntent(requireContext())
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                     requireActivity().finish()
                 }

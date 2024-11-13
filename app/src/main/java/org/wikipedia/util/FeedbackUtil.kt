@@ -28,6 +28,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.edithistory.EditHistoryListActivity
@@ -35,7 +36,6 @@ import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.test.MainActivity
 import org.wikipedia.util.log.L
 
 object FeedbackUtil {

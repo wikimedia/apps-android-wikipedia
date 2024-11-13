@@ -7,10 +7,10 @@ import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.base.TestConfig.ARTICLE_TITLE
 import org.wikipedia.base.TestConfig.SEARCH_TERM
+import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HistoryScreenRobot
-import org.wikipedia.test.MainActivity
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)

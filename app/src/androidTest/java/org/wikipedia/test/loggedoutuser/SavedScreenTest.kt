@@ -8,12 +8,12 @@ import org.wikipedia.Constants
 import org.wikipedia.FakeData
 import org.wikipedia.base.BaseTest
 import org.wikipedia.base.TestConfig.ARTICLE_TITLE
+import org.wikipedia.main.MainActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.SavedScreenRobot
-import org.wikipedia.test.MainActivity
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
