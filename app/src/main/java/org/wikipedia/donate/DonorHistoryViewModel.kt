@@ -19,8 +19,8 @@ class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var donorHistoryModified = false
 
     fun saveDonorHistory() {
-        ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = true
         Prefs.hasDonorHistorySaved = true
+        ContributionsDashboardHelper.showSurveyDialogUI = true
         if (isDonor) {
             Prefs.isRecurringDonor = isRecurringDonor
             lastDonated?.let {
