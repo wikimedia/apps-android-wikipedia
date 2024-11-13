@@ -93,15 +93,13 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         binding.saveButton.setOnClickListener {
-            if (viewModel.donorHistoryModified) {
-                viewModel.saveDonorHistory()
-                if (viewModel.shouldGoBackToContributeTab) {
-                    startActivity(
-                        MainActivity.newIntent(this)
-                            .putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true)
-                    )
-                    return@setOnClickListener
-                }
+            viewModel.saveDonorHistory()
+            if (viewModel.shouldGoBackToContributeTab) {
+                startActivity(
+                    MainActivity.newIntent(this)
+                        .putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true)
+                )
+                return@setOnClickListener
             }
             finish()
         }
