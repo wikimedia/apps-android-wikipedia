@@ -292,12 +292,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 //            }
         }
 
-        binding.donorHistoryContainer.isVisible = true
-        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
-            binding.donorHistoryContainer.isVisible = false
-            binding.statsDivider.isVisible = false
-        }
-
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         binding.tasksContainer.isVisible = true
     }
@@ -374,8 +368,13 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setUpDonorHistoryStatus() {
         if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            binding.donorHistoryContainer.isVisible = false
+            binding.statsDivider.isVisible = false
             return
         }
+
+        binding.donorHistoryContainer.isVisible = true
+
         when (DonorStatus.donorStatus()) {
             DonorStatus.DONOR -> {
                 Prefs.donationResults.lastOrNull()?.dateTime?.let {
