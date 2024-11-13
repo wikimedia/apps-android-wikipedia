@@ -23,6 +23,8 @@
 
         <item name="bottomSheetDialogTheme">@style/App.BottomSheetDialogTheme</item>
 
+        <item name="swipeRefreshLayoutProgressSpinnerBackgroundColor">?attr/background_color</item>
+
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
         <item name="android:statusBarColor">@android:color/black</item>
 
@@ -476,6 +478,29 @@
     <style name="ImageViewDefault.ReadingListThumbnail">
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
+    </style>
+
+    <style name="RoundedCornerOverlay">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="RoundedCornerOverlay.TopLeft">
+        <item name="cornerSizeTopLeft">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.TopRight">
+        <item name="cornerSizeTopRight">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.BottomLeft">
+        <item name="cornerSizeBottomLeft">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.BottomRight">
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.All">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
     </style>
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">

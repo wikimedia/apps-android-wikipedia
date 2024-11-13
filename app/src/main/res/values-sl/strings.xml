@@ -1652,16 +1652,9 @@
   <string name="patroller_onboarding_two_undo_content">Izberite »Razveljavi«, da razveljavite ali vrnete morebitno škodljivo urejanje.</string>
   <string name="patroller_diff_tooltip_one">Škoda napoveduje, ali urejanje škoduje vikiju.</string>
   <string name="patroller_diff_tooltip_two">Namen predvideva verjetnost, da bo urejanje shranjeno dobronamerno.</string>
-  <string name="patroller_diff_feedback_dialog_title">Pomagajte nam izboljšati to možnost</string>
-  <string name="patroller_diff_feedback_dialog_message">Ste zadovoljni s to možnostjo?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Možnost je ustrezna</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Nevtralno</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ne ustreza mi</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Kako lahko izboljšamo to možnost?</string>
   <string name="patroller_diff_menu_edit_history_title">Zgodovina urejanja članka</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
-  <string name="patroller_diff_feedback_dialog_submit">Pošlji</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Povratne informacije so poslane.</string>
   <string name="patroller_diff_feedback_tooltip">Kadsr koli lahko v razdelku »Težava z možnostjo« tapnete prekrivni meni, da pošljete povratne informacije.</string>
   <string name="patroller_saved_message_title_vandalism">Opozorilo o vandalizmu</string>
   <string name="patroller_saved_message_title_editing_tests">Peeizkušanja urejanja</string>
@@ -1695,12 +1688,6 @@
   <string name="places_filter_title">Filtriranje po jeziku</string>
   <string name="places_toggle_buttons_map">Zemljevid</string>
   <string name="places_toggle_buttons_list">Seznam</string>
-  <string name="places_survey_very_satisfied_option">Odlična izkušnja</string>
-  <string name="places_survey_very_unsatisfied_option">Zelo slaba izkušnja</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Pomagajte izboljšati »Kraje«</string>
-  <string name="places_survey_feedback_dialog_title">Kako lahko izboljšamo »Kraje«?</string>
-  <string name="places_survey_dialog_cancel">Prekliči</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Kaj bi želeli, da spremenimo ali izboljšamo?</string>
   <string name="places_empty_list">To območje je prazno. Pomanjšaj &lt;a href=\"#\"&gt;zemljevid&lt;/a&gt;.</string>
   <string name="donor_history_title">Zgodovina doniranja</string>
   <string name="donor_history_save_button">Shrani</string>
@@ -1731,4 +1718,14 @@
   <string name="contributions_dashboard_app_icon_title">Ikona aplikacije</string>
   <string name="contributions_dashboard_app_icon_subtitle">Ugodnost donatorja</string>
   <string name="contributions_dashboard_logged_out_user">Odjavljeni uporabnik</string>
+  <string name="survey_dialog_title">Pomagajte nam izboljšati to možnost</string>
+  <string name="survey_dialog_message">Ste zadovoljni s to možnostjo?</string>
+  <string name="survey_dialog_option_satisfied">Možnost je ustrezna</string>
+  <string name="survey_dialog_option_neutral">Nevtralno</string>
+  <string name="survey_dialog_option_unsatisfied">Ne ustreza mi</string>
+  <string name="survey_dialog_option_very_satisfied">Odlična izkušnja</string>
+  <string name="survey_dialog_option_very_unsatisfied">Zelo slaba izkušnja</string>
+  <string name="survey_dialog_cancel">Prekliči</string>
+  <string name="survey_dialog_submit">Pošlji</string>
+  <string name="survey_dialog_submitted_snackbar">Povratne informacije so poslane.</string>
 </resources>

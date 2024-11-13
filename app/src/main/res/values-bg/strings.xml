@@ -1402,15 +1402,8 @@
   <string name="patroller_onboarding_two_thank_title">Благодарност</string>
   <string name="patroller_onboarding_two_watch_title">Наблюдение</string>
   <string name="patroller_onboarding_two_talk_title">Беседа</string>
-  <string name="patroller_diff_feedback_dialog_title">Помогнете ни да подобрим тази възможност</string>
-  <string name="patroller_diff_feedback_dialog_message">Доволни ли сте от тази възможност?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрална</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Как можем да подобрим тази възможност?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратна връзка</string>
-  <string name="patroller_diff_feedback_dialog_submit">Изпращане</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Обратната връзка е изпратена.</string>
   <string name="data_opt_in_accept">Приемане</string>
   <string name="data_opt_in_reject">Отхвърляне</string>
   <string name="page_issues_title">Проблеми със страницата</string>
@@ -1426,9 +1419,6 @@
   <string name="places_filter_title">Филтриране по език</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Списък</string>
-  <string name="places_survey_very_satisfied_option">Много доволен</string>
-  <string name="places_survey_very_unsatisfied_option">Много недоволен</string>
-  <string name="places_survey_dialog_cancel">Отказ</string>
   <string name="places_empty_list">Тази зона е празна. Намалете мащаба &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
   <string name="places_card_title">Места наблизо</string>
   <string name="places_card_action">Повече места наблизо</string>
@@ -1465,4 +1455,14 @@
   <string name="contributions_dashboard_app_icon_title">Икона на приложението</string>
   <string name="contributions_dashboard_app_icon_subtitle">Ползи от дарителството</string>
   <string name="contributions_dashboard_logged_out_user">Излязъл потребител</string>
+  <string name="survey_dialog_title">Помогнете ни да подобрим тази възможност</string>
+  <string name="survey_dialog_message">Доволни ли сте от тази възможност?</string>
+  <string name="survey_dialog_option_satisfied">Задоволителна</string>
+  <string name="survey_dialog_option_neutral">Неутрална</string>
+  <string name="survey_dialog_option_unsatisfied">Незадоволителна</string>
+  <string name="survey_dialog_option_very_satisfied">Много доволен</string>
+  <string name="survey_dialog_option_very_unsatisfied">Много недоволен</string>
+  <string name="survey_dialog_cancel">Отказ</string>
+  <string name="survey_dialog_submit">Изпращане</string>
+  <string name="survey_dialog_submitted_snackbar">Обратната връзка е изпратена.</string>
 </resources>

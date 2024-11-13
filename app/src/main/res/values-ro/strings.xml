@@ -1348,10 +1348,6 @@
   <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil cu rea-credință</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Foarte precis în găsirea celor mai evidente editări de rea-credință.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Revenire finalizată</string>
-  <string name="patroller_diff_feedback_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Mulțumit</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutru</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nemulțumit</string>
   <string name="data_opt_in_accept">Accept</string>
   <string name="data_opt_in_reject">Refuz</string>
   <string name="email_report_image_recommendations_subject">Raport de problemă - Funcția Recomandări de imagini</string>
@@ -1364,8 +1360,10 @@
   <string name="places_filter_title">Filtrare după limbă</string>
   <string name="places_toggle_buttons_map">Hartă</string>
   <string name="places_toggle_buttons_list">Listă</string>
-  <string name="places_survey_very_satisfied_option">Foarte mulțumit</string>
-  <string name="places_survey_very_unsatisfied_option">Foarte nemulțumit</string>
-  <string name="places_survey_dialog_title">Ajută să îmbunătățim „Locuri”</string>
-  <string name="places_survey_feedback_dialog_title">Cum se poate îmbunătăți „Locuri”?</string>
+  <string name="survey_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
+  <string name="survey_dialog_option_satisfied">Mulțumit</string>
+  <string name="survey_dialog_option_neutral">Neutru</string>
+  <string name="survey_dialog_option_unsatisfied">Nemulțumit</string>
+  <string name="survey_dialog_option_very_satisfied">Foarte mulțumit</string>
+  <string name="survey_dialog_option_very_unsatisfied">Foarte nemulțumit</string>
 </resources>

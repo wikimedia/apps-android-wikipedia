@@ -256,46 +256,6 @@ open class ArticleLinkPreviewInteraction : TimedMetricsEvent {
 
     @Serializable
     class ContextData(
-        @SerialName("group_assigned") val groupAssigned: String? = null,
-        @SerialName("time_spent_ms") val timeSpentMillis: Long? = null,
-        @SerialName("rec_shown") val recShown: Boolean? = null,
-        @SerialName("feedback_shown") val feedbackShown: Boolean? = null,
-        @SerialName("feedback_select") val feedbackSelect: String? = null,
-        @SerialName("feedback_text") val feedbackText: String? = null,
+        @SerialName("time_spent_ms") val timeSpentMillis: Long? = null
     )
-}
-
-class ExperimentalLinkPreviewInteraction(
-    source: Int,
-    private val groupAssigned: String,
-    private val recommendationsShown: Boolean? = null
-) : ArticleLinkPreviewInteraction(source) {
-
-    fun logImpression(feedbackShown: Boolean? = null, feedbackSelect: String? = null,
-                      feedbackText: String? = null) {
-        submitEvent("impression", ContextData(
-            timeSpentMillis = timer.elapsedMillis,
-            groupAssigned = groupAssigned,
-            recShown = recommendationsShown,
-            feedbackShown = feedbackShown,
-            feedbackSelect = feedbackSelect,
-            feedbackText = feedbackText
-        ))
-    }
-
-    override fun logNavigate() {
-        logNavigate(null, null, null)
-    }
-
-    fun logNavigate(feedbackShown: Boolean? = null, feedbackSelect: String? = null,
-                             feedbackText: String? = null) {
-        submitEvent("navigate", ContextData(
-            timeSpentMillis = timer.elapsedMillis,
-            groupAssigned = groupAssigned,
-            recShown = recommendationsShown,
-            feedbackShown = feedbackShown,
-            feedbackSelect = feedbackSelect,
-            feedbackText = feedbackText
-        ))
-    }
 }

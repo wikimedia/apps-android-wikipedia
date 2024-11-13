@@ -114,10 +114,13 @@ object FeedbackUtil {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
-    fun composeFeedbackEmail(context: Context, subject: String, body: String = "") {
+    fun composeEmail(context: Context,
+                     emailAddress: String = context.getString(R.string.support_email),
+                     subject: String = "",
+                     body: String = "") {
         val intent = Intent()
             .setAction(Intent.ACTION_SENDTO)
-            .setData(Uri.parse("mailto:${context.getString(R.string.support_email)}?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
+            .setData(Uri.parse("mailto:$emailAddress?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
         try {
             context.startActivity(intent)
         } catch (e: Exception) {

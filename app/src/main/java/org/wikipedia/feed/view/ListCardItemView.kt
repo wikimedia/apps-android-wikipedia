@@ -113,7 +113,7 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
             binding.viewListCardItemImage.visibility = GONE
         } else {
             binding.viewListCardItemImage.visibility = VISIBLE
-            ViewUtil.loadImageWithRoundedCorners(binding.viewListCardItemImage, url, true)
+            ViewUtil.loadImageWithRoundedCorners(binding.viewListCardItemImage, url)
         }
     }
 
