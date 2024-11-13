@@ -1649,7 +1649,6 @@
   <string name="places_card_distance_suffix">%s væk</string>
   <string name="places_card_distance_unknown">ukendt afstand</string>
   <string name="places_empty_message_snackbar">Der er ingen artikler i nærheden. Prøv at zoome ud og flytte kortet.</string>
-  <string name="recommended_content_section_you_might_like">Du kan måske lide</string>
   <string name="donor_history_save_button">Gem</string>
   <string name="donor_history_update_donor_status_default">Opdater donorstatus</string>
   <string name="donor_history_update_donor_status_donor">Donor</string>

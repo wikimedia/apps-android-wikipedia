@@ -113,6 +113,7 @@
   <string name="langlinks_your_wikipedia_languages">ߌ ߟߊ߫ ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬</string>
   <string name="menu_save_changes">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߥߊ߲߬ߞߊ߬</string>
   <string name="edit_saved_successfully">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫</string>
+  <string name="stub_article_edit_saved_successfully">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫߹ ߡߝߊ߬ߟߋ߲߬ߠߌ߲ ߘߌ߫ ߥߛߎ߬ ߞߍ߫ ߞߊ߬ ߣߊ߬ ߕߴߊ߬ ߞߎ߲߬ߠߊ߬ߓߐ߫ ߟߊ߫.</string>
   <string name="dialog_message_edit_failed">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߘߊ߫ ߗߌߙߏ߲߫</string>
   <string name="dialog_message_edit_failed_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
   <string name="dialog_message_edit_failed_cancel">ߊ߬ ߘߐߛߊ߬</string>
@@ -153,6 +154,8 @@
   <string name="logged_out_in_background_dialog">ߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲ ߓߘߊ߫ ߓߐ߫ ߥߞߌ-ߔߘߋߞߎ ߟߊ߫. ߊ߬ ߞߊߘߴߌ ߦߋ߫ ߞߴߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߞߐ߫ ߓߊ߬؟</string>
   <string name="logged_out_in_background_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="logged_out_in_background_cancel">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="account_vanish_request_title">ߖߊ߬ߕߋ߬ߘߊ ߟߊߕߎߣߎ߲߫</string>
+  <string name="account_vanish_request_confirm_title">ߖߊ߬ߕߋ߬ߘߊ ߟߊߕߎߣߎ߲ߠߌ߲ ߖߊ߬ߛߙߋ߬ߡߊ߬ߟߊ</string>
   <string name="history_empty_title">ߦߌߟߡߊ߫ ߦߋߣߍ߲߫ ߞߎߘߊ߫ ߕߍ߫</string>
   <string name="history_empty_message">ߌ ߟߊ߫ ߦߊ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲ ߠߎ߬ ߟߊߓߊ߬ߕߏ߬.</string>
   <string name="history_offline_articles_toast">ߦߌߟߡߊ ߘߏ߫ ߟߎ߫ ߦߋ߫ ߘߐ߬ߝߐ ߘߐ߫ ߞߏ߬ߣߵߊ߬ߟߎ߬ ߕߴߛߋ߫ ߦߋ߫ ߟߴߌ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌ.</string>
@@ -1381,7 +1384,6 @@
   <string name="places_card_distance_suffix">ߝߏ߯ %s</string>
   <string name="places_card_distance_unknown">ߝߏ߬ߣߊ߲߬ ߡߊߟߐ߲ߓߊߟߌ</string>
   <string name="places_empty_message_snackbar">ߛߌ߰ߢߐ߲߰ ߞߎߡߘߊ߫ ߛߌ߫ ߕߴߦߋ߲߬. ߞߕߐߙߐ߲ߘߓߐߟߌ ߡߊߝߍߣߍ߲߫ ߞߊ߬ ߓߐ߫ ߔߊ߬ߔߘߊ ߞߊ߲߬.</string>
-  <string name="recommended_content_section_you_might_like">ߊ߬ ߘߌߡߊ߲߫ ߘߌ߫ ߞߴߌ ߦߋ߫</string>
   <string name="donor_history_title">ߣߟߌ߬ߟߊ ߟߊ߫ ߘߐ߬ߝߐ</string>
   <string name="donor_history_save_button">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="donor_history_update_donor_status_default">ߣߟߌ߬ߟߌ߬ߟߊ ߟߌ߬ߤߟߊ ߟߊߞߎߘߦߊ߫</string>

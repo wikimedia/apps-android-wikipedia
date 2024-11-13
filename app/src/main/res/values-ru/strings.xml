@@ -128,7 +128,7 @@
   <string name="page_edit_history_filter_by">Отфильтровать по</string>
   <string name="page_edit_history_filter_by_all">Все правки (%s)</string>
   <string name="page_edit_history_filter_by_user">Правки участников (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Анонимные правки (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Анонимные правки (%s)</string>
   <string name="page_edit_history_filter_by_bot">Правки ботов (%s)</string>
   <string name="page_edit_history_metrics_content_description">Метрики от %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -507,8 +507,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">После внесения изменений для вас будет создана &lt;b&gt;временная учетная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создайте учетную запись&lt;/a&gt; , чтобы получить признание за будущие изменения и получить доступ к другим функциям.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">Ваше изменение будет отнесено к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдете в систему&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадите учетную запись&lt;/a&gt; , ваши изменения будут связаны с выбранным вами именем, помимо других преимуществ.</string>
+  <string name="temp_account_anon_dialog_body">После внесения правки для вас будет создана &lt;b&gt;временная учётная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Узнайте об этом подробнее&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы получить признание за будущие правки и получить доступ к другим функциям.</string>
+  <string name="temp_account_temp_dialog_body">Ваша правка будет отнесена к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадите учётную запись&lt;/a&gt;, помимо других преимуществ ваши правки будут связаны с выбранным вами именем.</string>
   <string name="temp_account_dialog_ok">Понятно</string>
   <string name="temp_account_using_title">Вы используете временную учётную запись</string>
   <string name="temp_account_dialog_discard">Отменить изменения и войти в систему</string>
@@ -1463,6 +1463,7 @@
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
+  <string name="revision_diff_protected">Изменения, внесённые в данную версию, не доступны публично.</string>
   <string name="revision_undo_title">Вы уверены, что хотите отменить эту правку?</string>
   <string name="revision_undo_message">Отмена означает устранение последствий одной или нескольких правок.</string>
   <string name="revision_undo_summary_hint">Описание (необязательно)</string>
@@ -1708,7 +1709,10 @@
   <string name="places_filter_title">Фильтр по языку</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
+  <string name="places_card_title">Места поблизости</string>
+  <string name="places_card_action">Больше мест поблизости</string>
   <string name="places_card_enable_location_card_button">Включить определение местоположения</string>
+  <string name="places_card_distance_unknown">Расстояние неизвестно</string>
   <string name="donor_history_title">История донора</string>
   <string name="donor_history_save_button">Сохранить</string>
   <string name="donor_history_update_donor_status_donor">Донор</string>
@@ -1716,6 +1720,7 @@
   <string name="donor_history_last_donated">Последнее пожертвование</string>
   <string name="donor_history_last_donated_date_picker_title">Выберите дату</string>
   <string name="donor_history_last_donated_date_picker_label">Ввести дату</string>
+  <string name="donor_history_last_donated_never">Никогда</string>
   <string name="donor_history_recurring_donor">Постоянный донор</string>
   <string name="donor_history_donate_button">Пожертвовать в Фонд Викимедиа</string>
   <string name="donor_history_about_this_experiment">Об этом эксперименте</string>
@@ -1725,7 +1730,7 @@
   <string name="contributions_dashboard_survey_dialog_ok">Поделиться отзывом</string>
   <string name="contributions_dashboard_donation_dialog_title">Спасибо за поддержку бесплатных знаний</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Панель инструментов вашего вклада обновлена</string>
+  <string name="contributions_dashboard_entry_dialog_title">Изучите новые дополнения к панели вклада</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Нет, спасибо</string>
   <string name="contributions_dashboard_badge_donor">Донор</string>
   <string name="contributions_dashboard_badge_become_a_donor">Стать донором</string>
@@ -1734,6 +1739,7 @@
   <string name="contributions_dashboard_tab_update_button">Обновить</string>
   <string name="contributions_dashboard_donor_icon_dialog_cancel">Нет, спасибо</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">Да, перейти в настройки</string>
+  <string name="contributions_dashboard_app_icon_updated">Значок приложения обновлён</string>
   <string name="survey_dialog_title">Помогите нам улучшить эту функцию</string>
   <string name="survey_dialog_message">Вы довольны этой функцией?</string>
   <string name="survey_dialog_option_satisfied">Доволен</string>
@@ -1743,5 +1749,6 @@
   <string name="survey_dialog_option_very_unsatisfied">Очень неудовлетворен</string>
   <string name="survey_dialog_cancel">Отмена</string>
   <string name="survey_dialog_submit">Отправить</string>
+  <string name="survey_dialog_input_hint">Дополнительная обратная связь</string>
   <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена.</string>
 </resources>

@@ -1665,10 +1665,6 @@
   <string name="places_card_distance_suffix">на %s од вас</string>
   <string name="places_card_distance_unknown">Непозната оддалеченост</string>
   <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
-  <string name="recommended_content_section_you_might_like">Можеби ќе ви се допадне</string>
-  <string name="recommended_content_survey_dialog_title">Помогнете ни да ја подобриме препорачаната содржина.</string>
-  <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
   <string name="donor_history_title">Историја на дарување</string>
   <string name="donor_history_save_button">Зачувај</string>
   <string name="donor_history_update_donor_status_default">Поднови статус на дарител</string>
@@ -1678,6 +1674,7 @@
   <string name="donor_history_last_donated_hint">Додај датум на последно дарување</string>
   <string name="donor_history_last_donated_date_picker_title">Изберете датум</string>
   <string name="donor_history_last_donated_date_picker_label">Внесете датум</string>
+  <string name="donor_history_last_donated_never">Никогаш</string>
   <string name="donor_history_recurring_donor">Редовен дарител</string>
   <string name="donor_history_donate_button">Дарувајте на Фондацијата Викимедија</string>
   <string name="donor_history_about_this_experiment">За овој опит</string>

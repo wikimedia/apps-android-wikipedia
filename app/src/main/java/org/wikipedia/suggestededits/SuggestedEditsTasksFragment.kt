@@ -393,13 +393,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                         relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
                     }
                     binding.donorHistoryStatus.text = relativeTimeSpan
+                    binding.donorHistoryStatus.isVisible = true
+                    binding.lastDonatedChevron.isVisible = true
+                    binding.donorHistoryUpdateButton.isVisible = false
                 } ?: run {
-                    binding.donorHistoryStatus.text =
-                        getString(R.string.donor_history_recurring_donor)
+                    binding.donorHistoryStatus.isVisible = false
+                    binding.lastDonatedChevron.isVisible = false
+                    binding.donorHistoryUpdateButton.isVisible = true
                 }
-                binding.donorHistoryStatus.isVisible = true
-                binding.lastDonatedChevron.isVisible = true
-                binding.donorHistoryUpdateButton.isVisible = false
             }
 
             DonorStatus.NON_DONOR -> {
