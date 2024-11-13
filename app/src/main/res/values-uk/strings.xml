@@ -1799,7 +1799,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">Немає думки</string>
   <string name="contributions_dashboard_survey_dialog_ok">Залишити відгук</string>
   <string name="contributions_dashboard_donation_dialog_title">Дякуємо за підтримку вільних знань</string>
-  <string name="contributions_dashboard_donation_dialog_message">Ви є частиною тих 2&#37;, які вирішили підтримати ресурс, на який покладаються мільйони. Щоб продемонструвати нашу вдячність, ми оновили панель вашого внеску, щоб відзначити на ній ваш статус жертводавця. Бажаєте побачити оновлення?</string>
+  <string name="contributions_dashboard_donation_dialog_message">Ви є частиною тих 2&#37; , які вирішили підтримати ресурс, на який покладаються мільйони. Щоб продемонструвати нашу вдячність, ми оновили панель вашого внеску, щоб відзначити на ній ваш статус жертводавця. Бажаєте побачити оновлення?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Ні, дякую</string>
   <string name="contributions_dashboard_donation_dialog_ok">Так, покажіть мені</string>
   <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Панель вашого внеску оновлено</string>
