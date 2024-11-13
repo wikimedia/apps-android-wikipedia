@@ -1522,7 +1522,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">Không có ý kiến</string>
   <string name="contributions_dashboard_survey_dialog_ok">Để lại phản hồi</string>
   <string name="contributions_dashboard_donation_dialog_title">Cảm ơn bạn đã ủng hộ kho tri thức mở</string>
-  <string name="contributions_dashboard_donation_dialog_message">Bạn là một phần của 2%% đã chọn hỗ trợ nguồn tài nguyên mà hàng triệu người đang dựa vào. Để thể hiện lòng biết ơn của chúng tôi, bảng điều khiển đóng góp của bạn đã được cập nhật để ghi nhận trạng thái của bạn là người quyên góp. Bạn có muốn xem bản cập nhật không?</string>
+  <string name="contributions_dashboard_donation_dialog_message">Bạn là một phần của 2&#37; đã chọn hỗ trợ nguồn tài nguyên mà hàng triệu người đang dựa vào. Để thể hiện lòng biết ơn của chúng tôi, bảng điều khiển đóng góp của bạn đã được cập nhật để ghi nhận trạng thái của bạn là người quyên góp. Bạn có muốn xem bản cập nhật không?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Thôi</string>
   <string name="contributions_dashboard_donation_dialog_ok">Có, đưa tôi qua đó</string>
   <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Bảng điều khiển đóng góp của bạn đã được cập nhật</string>
