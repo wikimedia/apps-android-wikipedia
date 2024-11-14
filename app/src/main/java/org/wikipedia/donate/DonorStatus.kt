@@ -6,7 +6,6 @@ enum class DonorStatus {
     DONOR, NON_DONOR, UNKNOWN;
 
     companion object {
-
         fun donorStatus(): DonorStatus {
             return if (Prefs.hasDonorHistorySaved.not()) {
                 UNKNOWN
