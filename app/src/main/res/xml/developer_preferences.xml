@@ -444,6 +444,10 @@
             android:dialogMessage="Example: [{&quot;dateTime&quot;:&quot;2024-10-22T00:00:00.000&quot;}]"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_is_donor"
+            android:title="@string/preference_key_is_donor" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_is_recurring_donor"
             android:title="@string/preference_key_is_recurring_donor" />
 
