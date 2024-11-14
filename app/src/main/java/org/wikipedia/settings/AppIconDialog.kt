@@ -14,6 +14,7 @@ import com.google.android.flexbox.JustifyContent
 import org.wikipedia.LauncherController
 import org.wikipedia.LauncherIcon
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.databinding.DialogAppIconBinding
@@ -40,9 +41,8 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
                 AppShortcuts.setShortcuts(requireContext())
                 updateIcons(selectedIcon)
                 dismiss()
-                FeedbackUtil.makeSnackbar(
-                    requireActivity(),
-                    "App icon changed successfully.").show()
+                FeedbackUtil.makeSnackbar(requireActivity(),
+                    WikipediaApp.instance.getString(R.string.contributions_dashboard_app_icon_updated)).show()
             }
         }
     }

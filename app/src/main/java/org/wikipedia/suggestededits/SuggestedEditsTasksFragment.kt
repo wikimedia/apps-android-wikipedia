@@ -184,6 +184,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             }
             DonorStatus.NON_DONOR -> {
                 if (ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+                    ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
                     FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
                     ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
                 }
@@ -489,12 +490,16 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun maybeShowDonorHistoryUpdatedSnackbar() {
         if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.showSurveyDialogUI) {
-            ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
-            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
-                ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
-                    showDialogOrSnackBar()
-                })
-                Prefs.contributionsDashboardSurveyDialogShown = true
+            if (Prefs.hasDonorHistorySaved) {
+                if (!Prefs.contributionsDashboardSurveyDialogShown) {
+                    ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
+                        showDialogOrSnackBar()
+                    })
+                    Prefs.contributionsDashboardSurveyDialogShown = true
+                } else {
+                    ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
+                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+                }
                 ContributionsDashboardHelper.showSurveyDialogUI = false
             }
         }
