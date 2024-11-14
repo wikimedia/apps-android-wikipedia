@@ -719,6 +719,7 @@
   <string name="contributions_dashboard_badge_donor">ڈونر</string>
   <string name="contributions_dashboard_app_icon_title">ایپ آئیکان</string>
   <string name="contributions_dashboard_tab_update_button">اپ ڈیٹ</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">کو، شکریہ</string>
   <string name="contributions_dashboard_app_icon_updated">ایپ آئیکان اپ ڈیٹ تھی ڳیا</string>
   <string name="survey_dialog_option_very_satisfied">ݙاڈھا تسلی بخش</string>
   <string name="survey_dialog_submit">جمع کرواؤ</string>
