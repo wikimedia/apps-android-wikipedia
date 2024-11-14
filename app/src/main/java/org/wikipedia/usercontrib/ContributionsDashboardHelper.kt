@@ -34,7 +34,6 @@ class ContributionsDashboardHelper {
             return surveyUrls[WikipediaApp.instance.languageState.appLanguageCode].orEmpty()
         }
 
-        // Temporarily value for different access from either entry dialogs, overflow menu or the contribute tab.
         var shouldShowDonorHistorySnackbar = false
 
         var shouldShowThankYouDialog = false
@@ -74,7 +73,7 @@ class ContributionsDashboardHelper {
                 .setMessage(R.string.contributions_dashboard_donor_icon_dialog_message)
                 .setIcon(R.drawable.ic_heart_24)
                 .setPositiveButton(R.string.contributions_dashboard_donor_icon_dialog_ok) { _, _ ->
-                    context.startActivity(SettingsActivity.newIntent(context))
+                    context.startActivity(SettingsActivity.newIntent(context, showAppIconDialog = true))
                 }
                 .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel, null)
                 .show()
