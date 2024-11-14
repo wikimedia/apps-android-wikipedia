@@ -410,13 +410,14 @@ class SuggestedEditsTasksFragment : Fragment() {
             }
 
             DonorStatus.UNKNOWN -> {
-                binding.donorHistoryUpdateButton.setOnClickListener {
-                    requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
-                }
                 binding.donorHistoryStatus.isVisible = false
                 binding.lastDonatedChevron.isVisible = false
                 binding.donorHistoryUpdateButton.isVisible = true
             }
+        }
+
+        binding.donorHistoryUpdateButton.setOnClickListener {
+            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
         }
     }
 
