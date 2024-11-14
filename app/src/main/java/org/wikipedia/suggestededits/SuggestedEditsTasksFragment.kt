@@ -482,11 +482,15 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun maybeShowDonorHistoryUpdatedSnackbar() {
         if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.showSurveyDialogUI) {
-            if (!Prefs.contributionsDashboardSurveyDialogShown && Prefs.hasDonorHistorySaved) {
-                ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
-                    showDialogOrSnackBar()
-                })
-                Prefs.contributionsDashboardSurveyDialogShown = true
+            if (Prefs.hasDonorHistorySaved) {
+                if (!Prefs.contributionsDashboardSurveyDialogShown) {
+                    ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
+                        showDialogOrSnackBar()
+                    })
+                    Prefs.contributionsDashboardSurveyDialogShown = true
+                } else {
+                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
+                }
                 ContributionsDashboardHelper.showSurveyDialogUI = false
             }
         }
