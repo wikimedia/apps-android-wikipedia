@@ -22,6 +22,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
@@ -136,7 +137,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         binding.errorView.retryClickListener = View.OnClickListener { refreshContents() }
-        binding.errorView.loginClickListener = View.OnClickListener { requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS)) }
+        binding.errorView.loginClickListener = View.OnClickListener {
+            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard")
+            requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
+        }
 
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
@@ -180,6 +184,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             }
             DonorStatus.NON_DONOR -> {
                 if (ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
+                    ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
                     FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
                     ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
                 }
@@ -215,6 +220,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun onRequireLogin() {
         clearContents()
         binding.messageCard.setRequiredLogin {
+            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard")
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
         binding.messageCard.isVisible = true
@@ -373,6 +379,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
+        ContributionsDashboardEvent.logAction("impression", "contrib_dashboard")
         binding.donorHistoryContainer.isVisible = true
 
         when (DonorStatus.donorStatus()) {
@@ -417,6 +424,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         binding.donorHistoryUpdateButton.setOnClickListener {
+            ContributionsDashboardEvent.logAction("update_click", "contrib_dashboard")
             requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
         }
     }
@@ -490,6 +498,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     })
                     Prefs.contributionsDashboardSurveyDialogShown = true
                 } else {
+                    ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
                     FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
                 }
                 ContributionsDashboardHelper.showSurveyDialogUI = false

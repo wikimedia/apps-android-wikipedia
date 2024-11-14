@@ -1511,7 +1511,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onBecomeDonorSelected() {
-            (requireActivity() as? BaseActivity)?.launchDonateDialog()
+            (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
         }
 
         override fun onUpdateDonorStatusSelected() {
