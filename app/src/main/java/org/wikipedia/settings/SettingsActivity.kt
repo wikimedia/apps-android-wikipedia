@@ -43,8 +43,8 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
         const val ACTIVITY_RESULT_LOG_OUT = 3
 
         fun newIntent(ctx: Context, showAppIconDialog: Boolean = false): Intent {
-            return Intent(ctx, SettingsActivity::class.java).
-                    putExtra(Constants.ARG_BOOLEAN, showAppIconDialog)
+            return Intent(ctx, SettingsActivity::class.java)
+                .putExtra(Constants.ARG_BOOLEAN, showAppIconDialog)
         }
     }
 }
