@@ -1774,13 +1774,6 @@
     <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
 
-    <!-- Recommended Content -->
-    <string name="recommended_content_section_you_might_like">You might like</string>
-    <string name="recommended_content_survey_dialog_title">Help improve recommended content.</string>
-    <string name="recommended_content_survey_dialog_message">Are you satisfied with this recommended search result?</string>
-    <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
-    <!-- /Recommended Content -->
-
     <!-- Contributions Dashboard -->
     <string name="donor_history_title">Donor history</string>
     <string name="donor_history_save_button">Save</string>
@@ -1791,6 +1784,7 @@
     <string name="donor_history_last_donated_hint">Add date of last donation</string>
     <string name="donor_history_last_donated_date_picker_title">Select date</string>
     <string name="donor_history_last_donated_date_picker_label">Enter date</string>
+    <string name="donor_history_last_donated_never">Never</string>
     <string name="donor_history_recurring_donor">Recurring donor</string>
     <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
     <string name="donor_history_about_this_experiment">About this experiment</string>
@@ -1821,6 +1815,23 @@
     <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
     <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
     <!-- /Contributions Dashboard -->
+
+    <!-- Rabbit holes -->
+    <string name="recent_searches_title">Recent searches</string>
+    <string name="recent_searches_related_to_reading">Related to what you\'re reading</string>
+    <string name="rabbit_holes_experiment">Experiment</string>
+    <string name="rabbit_holes_experiment_about">About this experiment</string>
+    <string name="rabbit_holes_survey_dialog_title">Help improve rabbit holes</string>
+    <string name="rabbit_holes_survey_dialog_body">Are you satisfied with this recommended search result?</string>
+    <string name="suggested_reading_list_title">Based on your reading</string>
+    <string name="suggested_reading_list_description">Inspired by \"%s\"</string>
+    <string name="suggested_reading_list_later_snackbar">If you want to visit your reading list later, go to the Saved tab on the home screen.</string>
+    <string name="suggested_reading_list_dialog_title">You have a new suggested reading list.</string>
+    <string name="suggested_reading_list_dialog_body">This is an experimental feature. The contents are based on your recent reading history. Do you want to check out this new reading list?</string>
+    <string name="suggested_reading_list_dialog_positive">Try it now</string>
+    <string name="suggested_reading_list_dialog_negative">Maybe later</string>
+    <string name="suggested_reading_list_back_cancel">See your suggested reading list any time in the Saved tab on the home screen.</string>
+    <!-- /Rabbit holes -->
 
     <!-- Survey dialog -->
     <string name="survey_dialog_title">Help us improve this feature</string>

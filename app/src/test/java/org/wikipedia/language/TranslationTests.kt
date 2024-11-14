@@ -111,7 +111,7 @@ class TranslationTests {
                 targetMap.forEach { (targetKey, targetList) ->
                     val baseList = baseMap[targetKey]
                     if (baseList != null && baseList != targetList) {
-                        mismatches.append("Unsupported Wikitext/Markdown in ")
+                        mismatches.append("Unsupported Wikitext, Markdown, Encoding in ")
                             .append(lang)
                             .append("/")
                             .append(STRINGS_XML_NAME).append(": ")
@@ -252,7 +252,8 @@ class TranslationTests {
             "\\{\\{.*?\\}\\}",
             "\\[\\[.*?\\]\\]",
             "\\*\\*.*?\\*\\*",
-            "''.*?''"
+            "''.*?''",
+            "[^%]%[ .,;?]"
         )
         private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
 

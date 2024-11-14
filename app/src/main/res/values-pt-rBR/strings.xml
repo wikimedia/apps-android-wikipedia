@@ -1578,13 +1578,8 @@
   <string name="patroller_onboarding_two_talk_title">Discussão</string>
   <string name="patroller_onboarding_two_undo_title">Desfazer/Reverter</string>
   <string name="patroller_onboarding_two_undo_content">Escolher \'Desfazer\' para desfazer ou reverter uma edição potencialmente destrutiva.</string>
-  <string name="survey_dialog_option_satisfied">Satisfeito(a)</string>
-  <string name="survey_dialog_option_neutral">Neutro(a)</string>
-  <string name="survey_dialog_option_unsatisfied">Insatisfeito(a)</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Como podemos melhorar a funcionalidade?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentários</string>
-  <string name="survey_dialog_submit">Enviar</string>
-  <string name="survey_dialog_submitted_snackbar">Comentário enviado.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Use uma mensagem exemplo abaixo para personalizar, enviar e salvar suas mensagens.</string>
   <string name="talk_templates_menu_edit_title">Editar</string>
   <string name="data_opt_in_accept">Aceitar</string>
@@ -1603,7 +1598,12 @@
   <string name="places_filter_title">Filtrar por idioma</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
+  <string name="survey_dialog_option_satisfied">Satisfeito(a)</string>
+  <string name="survey_dialog_option_neutral">Neutro(a)</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfeito(a)</string>
   <string name="survey_dialog_option_very_satisfied">Muito satisfeito</string>
   <string name="survey_dialog_option_very_unsatisfied">Muito insatisfeito</string>
   <string name="survey_dialog_cancel">Cancelar</string>
+  <string name="survey_dialog_submit">Enviar</string>
+  <string name="survey_dialog_submitted_snackbar">Comentário enviado.</string>
 </resources>

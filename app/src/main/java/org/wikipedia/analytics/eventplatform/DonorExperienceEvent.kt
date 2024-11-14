@@ -4,7 +4,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.settings.Prefs
 
-class DonorExperienceEvent {
+open class DonorExperienceEvent {
 
     companion object {
 

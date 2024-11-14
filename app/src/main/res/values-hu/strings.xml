@@ -443,7 +443,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
   <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#login\"&gt;regisztrálsz&lt;/a&gt;&lt;strong&gt;[$1 bejelentkezel]&lt;/strong&gt; vagy &lt;strong&gt;[$2 felhasználói fiókot hozol létre]&lt;/strong&gt; akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
+  <string name="temp_account_anon_ip_dialog_body">A szerkesztéseid az IP-címedhez lesznek társítva.&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#createaccount\"&gt;regisztrálsz&lt;/a&gt;, akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
+  <string name="temp_account_anon_dialog_body">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#createaccount\"&gt;regisztrálsz&lt;/a&gt;, akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
+  <string name="temp_account_temp_dialog_body">A szerkesztésed a(z) %1$s felhasználónévhez lesz társítva. Az IP-címed az adminisztrátorok számára látható lesz.&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#createaccount\"&gt;regisztrálsz&lt;/a&gt;, akkor a szerkesztéseid egy általad választott felhasználónévhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
   <string name="temp_account_dialog_ok">Értem</string>
   <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
   <string name="temp_account_dialog_discard">Változtatások elvetése és bejelentkezés</string>
@@ -1033,6 +1035,10 @@
     <item quantity="one">Közreműködés</item>
     <item quantity="other">Közreműködés</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">szerkesztés</item>
+    <item quantity="other">szerkesztés</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d nap</item>
     <item quantity="other">%d nap</item>
@@ -1492,7 +1498,7 @@
   <string name="reading_list_share_menu_label">Megosztás…</string>
   <string name="reading_list_share_menu_tooltip">Az olvasólista megosztása másokkal</string>
   <string name="reading_list_share_message_v2">Szia! Szeretném megosztani veled a Wikipédia-olvasólistámat:</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Nincsenek mentett figyelmeztető üzeneteid.</string>
+  <string name="talk_templates_empty_message">Hozzál létre saját üzeneteket, vagy használd &lt;a href=\"#\"&gt;példaüzeneteket&lt;/a&gt; a kezdéshez.</string>
   <string name="talk_templates_new_message_title">Új üzenetek</string>
   <string name="talk_templates_new_message_subject_hint">Tárgy</string>
   <string name="talk_templates_new_message_compose_hint">Üzenet megfogalmazása</string>
@@ -1595,16 +1601,9 @@
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>
-  <string name="survey_dialog_title">Segíts a funkció fejlesztésében!</string>
-  <string name="survey_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
-  <string name="survey_dialog_option_satisfied">Elégedett</string>
-  <string name="survey_dialog_option_neutral">Semleges</string>
-  <string name="survey_dialog_option_unsatisfied">Elégedetlen</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hogyan javíthatjuk a funkciót?</string>
   <string name="patroller_diff_menu_edit_history_title">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
-  <string name="survey_dialog_submit">Elküldés</string>
-  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="patroller_diff_feedback_tooltip">Érintse meg a túlcsordulás menüt, hogy bármikor visszajelzést küldhessél a „Probléma a funkcióval” alatt.</string>
   <string name="patroller_saved_message_title_vandalism">Vandalizmus figyelmeztetés</string>
   <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
@@ -1650,21 +1649,75 @@
   <string name="places_filter_title">Nyelvi szűrés</string>
   <string name="places_toggle_buttons_map">Térkép</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="survey_dialog_option_very_satisfied">Nagyon elégedett</string>
-  <string name="survey_dialog_option_very_unsatisfied">Nagyon elégedetlen</string>
-  <string name="places_survey_dialog_title">Segítsen a „Helyek” fejlesztésében</string>
-  <string name="places_survey_feedback_dialog_title">Hogyan javítható a „Helyek”?</string>
-  <string name="survey_dialog_cancel">Mégse</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Mit lenne az, amin változtatnánk vagy javítanánk?</string>
   <string name="places_empty_list">Ez a terület üres. Kicsinyítés &lt;a href=\"#\"&gt;a térképen&lt;/a&gt;.</string>
   <string name="places_card_title">Helyek a közelben</string>
   <string name="places_card_action">További helyek a közelben</string>
   <string name="places_card_enable_location_card_button">Helymeghatározás engedélyezése</string>
+  <string name="places_card_distance_suffix">%s távol</string>
   <string name="places_card_distance_unknown">Ismeretlen távolság</string>
   <string name="places_empty_message_snackbar">Nincsenek közeli cikkek. Próbáld kicsinyíteni és mozgatni a térképet.</string>
-  <string name="recommended_content_section_you_might_like">Lehet, hogy tetszik</string>
-  <string name="recommended_content_survey_dialog_title">Segítsen javítani az ajánlott tartalmat.</string>
-  <string name="recommended_content_survey_dialog_message">Elégedett ezzel az ajánlott keresési eredménnyel?</string>
+  <string name="donor_history_title">Adományozó előzmények</string>
+  <string name="donor_history_save_button">Mentés</string>
+  <string name="donor_history_update_donor_status_default">Adományozó állapot frissítése</string>
+  <string name="donor_history_update_donor_status_donor">Adományozó</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Nem adományozó</string>
+  <string name="donor_history_last_donated">Utoljára adományozott</string>
+  <string name="donor_history_last_donated_hint">Add hozzá az utolsó adományozás dátumát</string>
+  <string name="donor_history_last_donated_date_picker_title">Válaszd ki a dátumot</string>
+  <string name="donor_history_last_donated_date_picker_label">Add meg a dátumot</string>
+  <string name="donor_history_last_donated_never">Soha</string>
+  <string name="donor_history_recurring_donor">Visszatérő adományozó</string>
+  <string name="donor_history_donate_button">Adományozz a Wikimedia Alapítványnak</string>
+  <string name="donor_history_about_this_experiment">Erről a kísérletről</string>
+  <string name="donor_history_updated_message_snackbar">Az adományozói előzmények frissítve</string>
+  <string name="contributions_dashboard_survey_dialog_title">Segíts javítani a hozzájárulások irányítópultján</string>
+  <string name="contributions_dashboard_survey_dialog_message">Az irányítópult ezen frissítése egy tesztfunkció. Szeretné, ha ezt a funkciót javítanák vagy eltávolítanák?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Nincs vélemény</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Visszajelzés megosztása</string>
+  <string name="contributions_dashboard_donation_dialog_title">Köszönjük az ingyenes tudás támogatását</string>
+  <string name="contributions_dashboard_donation_dialog_message">Tagja vagy annak a 2%%-nak, amely a milliók által támasztott erőforrás támogatását választotta. Hálánk bizonyítására a hozzájárulások irányítópultját frissítettük, hogy felismerd adományozói státuszát. Szeretnéd látni a frissítést?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Nem, köszönöm</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Igen, vigyél oda</string>
+  <string name="contributions_dashboard_entry_dialog_title">Fedezd fel a hozzájárulások irányítópultjának új kiegészítéseit</string>
+  <string name="contributions_dashboard_entry_dialog_message">A hozzájárulások irányítópultja mostantól megjeleníti az adományozói állapotokat. Szeretnéd áttekinteni ezt a kísérleti funkciót?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Nem, köszönöm</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Igen, vigyél oda</string>
+  <string name="contributions_dashboard_badge_donor">Adományozó</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Legyél adományozó</string>
+  <string name="contributions_dashboard_badge_update">Adományozó állapot frissítése</string>
+  <string name="contributions_dashboard_app_icon_title">App ikon</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Adományozói előnyök</string>
+  <string name="contributions_dashboard_logged_out_user">Kijelentkezett felhasználó</string>
+  <string name="contributions_dashboard_tab_last_donated">Utoljára adományozott</string>
+  <string name="contributions_dashboard_tab_update_button">Frissítés</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Köszönöm, hogy adományozó vagy.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Feloldottál egy ideiglenes egyéni ikont. Erre az ikonra az Alkalmazás ikon alatti beállításodban válthatsz. Szeretnéd most frissíteni az ikonodat?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nem, köszönöm</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Igen, lépj be a Beállításokba</string>
+  <string name="contributions_dashboard_app_icon_updated">Az alkalmazás ikonja frissítve</string>
+  <string name="recent_searches_title">Legutóbbi keresések</string>
+  <string name="recent_searches_related_to_reading">Az olvasottakhoz kapcsolódik</string>
+  <string name="rabbit_holes_experiment">Kísérlet</string>
+  <string name="rabbit_holes_experiment_about">Erről a kísérletről</string>
+  <string name="rabbit_holes_survey_dialog_title">Segíts javítani a nyúlüregeket</string>
+  <string name="rabbit_holes_survey_dialog_body">Elégedett ezzel az ajánlott keresési eredménnyel?</string>
+  <string name="suggested_reading_list_title">Olvasásod alapján</string>
+  <string name="suggested_reading_list_description">\"%s\" ihlette</string>
+  <string name="suggested_reading_list_later_snackbar">Ha később meg szeretnéd tekinteni az olvasási listát, lépj a kezdőképernyőn a Mentett lapra.</string>
+  <string name="suggested_reading_list_dialog_title">Új javasolt olvasmánylistád van.</string>
+  <string name="suggested_reading_list_dialog_body">Ez egy kísérleti funkció. A tartalom az legutóbbi olvasási előzményeiden alapul. Szeretnéd megnézni ezt az új olvasnivalót?</string>
+  <string name="suggested_reading_list_dialog_positive">Kipróbálom</string>
+  <string name="suggested_reading_list_dialog_negative">Talán később</string>
+  <string name="suggested_reading_list_back_cancel">A javasolt olvasnivalók listáját bármikor megtekintheted a kezdőképernyő Mentve lapján.</string>
+  <string name="survey_dialog_title">Segíts a funkció fejlesztésében!</string>
+  <string name="survey_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="survey_dialog_option_satisfied">Elégedett</string>
+  <string name="survey_dialog_option_neutral">Semleges</string>
+  <string name="survey_dialog_option_unsatisfied">Elégedetlen</string>
+  <string name="survey_dialog_option_very_satisfied">Nagyon elégedett</string>
+  <string name="survey_dialog_option_very_unsatisfied">Nagyon elégedetlen</string>
+  <string name="survey_dialog_cancel">Mégse</string>
+  <string name="survey_dialog_submit">Elküldés</string>
   <string name="survey_dialog_input_hint">További visszajelzés</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Visszajelzés elküldve. Köszönjük!</string>
+  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve.</string>
 </resources>

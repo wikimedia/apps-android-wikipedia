@@ -1652,16 +1652,9 @@
   <string name="patroller_onboarding_two_undo_content">选择“撤销”来撤销或回退可能的破坏性编辑。</string>
   <string name="patroller_diff_tooltip_one">“破坏”指标预估了一笔编辑是否对wiki造成了破坏。</string>
   <string name="patroller_diff_tooltip_two">“意图”指标预估了一笔编辑是出于善意的几率。</string>
-  <string name="survey_dialog_title">帮助我们改进此功能</string>
-  <string name="survey_dialog_message">您对该功能满意吗？</string>
-  <string name="survey_dialog_option_satisfied">满意</string>
-  <string name="survey_dialog_option_neutral">中立</string>
-  <string name="survey_dialog_option_unsatisfied">不满意</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">我们如何改进此功能？</string>
   <string name="patroller_diff_menu_edit_history_title">条目编辑历史</string>
   <string name="patroller_diff_feedback_dialog_input_hint">反馈</string>
-  <string name="survey_dialog_submit">提交</string>
-  <string name="survey_dialog_submitted_snackbar">已提交反馈。</string>
   <string name="patroller_diff_feedback_tooltip">点击溢出菜单中的“功能问题”以随时提交反馈</string>
   <string name="patroller_saved_message_title_vandalism">破坏警告</string>
   <string name="patroller_saved_message_title_editing_tests">测试编辑</string>
@@ -1719,12 +1712,6 @@
   <string name="places_filter_title">筛选语言</string>
   <string name="places_toggle_buttons_map">地图</string>
   <string name="places_toggle_buttons_list">列表</string>
-  <string name="survey_dialog_option_very_satisfied">非常满意</string>
-  <string name="survey_dialog_option_very_unsatisfied">非常不满意</string>
-  <string name="places_survey_dialog_title">帮助我们改进“地点”功能</string>
-  <string name="places_survey_feedback_dialog_title">如何改善“地点”功能？</string>
-  <string name="survey_dialog_cancel">取消</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我们改变或优化什么？</string>
   <string name="places_empty_list">此区域无内容。请缩小&lt;a href=\"#\"&gt;地图&lt;/a&gt;。</string>
   <string name="places_card_title">附近地点</string>
   <string name="places_card_action">更多附近地点</string>
@@ -1732,11 +1719,6 @@
   <string name="places_card_enable_location_card_button">启用位置</string>
   <string name="places_card_distance_unknown">未知距离</string>
   <string name="places_empty_message_snackbar">附近没有条目。请尝试缩小并移动地图。</string>
-  <string name="recommended_content_section_you_might_like">您可能会喜欢</string>
-  <string name="recommended_content_survey_dialog_title">帮助改进推荐内容。</string>
-  <string name="recommended_content_survey_dialog_message">您对这个推荐搜索结果满意吗？</string>
-  <string name="survey_dialog_input_hint">其他反馈</string>
-  <string name="recommended_content_survey_dialog_submitted_message">已提交反馈。感谢您！</string>
   <string name="donor_history_title">捐款者历史</string>
   <string name="donor_history_save_button">保存</string>
   <string name="donor_history_update_donor_status_default">更新捐款者状态</string>
@@ -1753,4 +1735,15 @@
   <string name="contributions_dashboard_survey_dialog_title">帮助改进贡献面板</string>
   <string name="contributions_dashboard_survey_dialog_cancel">无意见</string>
   <string name="contributions_dashboard_survey_dialog_ok">分享反馈</string>
+  <string name="survey_dialog_title">帮助我们改进此功能</string>
+  <string name="survey_dialog_message">您对该功能满意吗？</string>
+  <string name="survey_dialog_option_satisfied">满意</string>
+  <string name="survey_dialog_option_neutral">中立</string>
+  <string name="survey_dialog_option_unsatisfied">不满意</string>
+  <string name="survey_dialog_option_very_satisfied">非常满意</string>
+  <string name="survey_dialog_option_very_unsatisfied">非常不满意</string>
+  <string name="survey_dialog_cancel">取消</string>
+  <string name="survey_dialog_submit">提交</string>
+  <string name="survey_dialog_input_hint">其他反馈</string>
+  <string name="survey_dialog_submitted_snackbar">已提交反馈。</string>
 </resources>

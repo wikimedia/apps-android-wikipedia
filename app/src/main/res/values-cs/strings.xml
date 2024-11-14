@@ -845,6 +845,7 @@
   <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
   <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
+  <string name="feed_item_type_places">Články v okolí podle aktuální polohy</string>
   <string name="feed_empty_message">Nic není ve vašem kanále Objevit</string>
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1353,10 +1354,6 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Počet úprav: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zavřít</string>
   <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
-  <string name="survey_dialog_message">Jste s touto funkcí spokojen(a)?</string>
-  <string name="survey_dialog_option_satisfied">Spokojen(a)</string>
-  <string name="survey_dialog_option_neutral">Neutrální</string>
-  <string name="survey_dialog_option_unsatisfied">Nespokojen(a)</string>
   <string name="patroller_saved_message_title_vandalism">Varování před vandalismem</string>
   <string name="patroller_saved_message_body_vandalism">Dobrý den, {{{username}}}, chci vám oznámit, že jsem vrátil jeden nebo více vašich [{{{diffLink}}}|nedávných příspěvků], protože se nezdají být konstruktivní. Pokud si myslíte, že jsem udělal chybu nebo máte otázky, můžete zanechat zprávu na [[User talk:{{{senderUserName}}}|mé diskusní stránce]]. Vezměte prosím na vědomí, že pokračující vandalismus může vést k omezením.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Použijte vzorovou zprávu níže, kterou můžete přizpůsobit, zaslat a uložit do svých zpráv.</string>
@@ -1370,13 +1367,16 @@
   <string name="places_filter_title">Filtrovat jazyk</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Seznam</string>
-  <string name="survey_dialog_option_very_satisfied">Velmi spokojen(a)</string>
-  <string name="survey_dialog_option_very_unsatisfied">Velmi nespokojen(a)</string>
-  <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>
   <string name="places_card_title">Místa v okolí</string>
   <string name="places_card_action">Další místa v okolí</string>
   <string name="places_card_enable_location_card_message">Místa je způsob prozkoumávání Wikipedie založený na mapách</string>
   <string name="places_card_enable_location_card_button">Povolit polohu</string>
   <string name="places_card_distance_suffix">%s daleko</string>
   <string name="donor_history_save_button">Uložit</string>
+  <string name="survey_dialog_message">Jste s touto funkcí spokojen(a)?</string>
+  <string name="survey_dialog_option_satisfied">Spokojen(a)</string>
+  <string name="survey_dialog_option_neutral">Neutrální</string>
+  <string name="survey_dialog_option_unsatisfied">Nespokojen(a)</string>
+  <string name="survey_dialog_option_very_satisfied">Velmi spokojen(a)</string>
+  <string name="survey_dialog_option_very_unsatisfied">Velmi nespokojen(a)</string>
 </resources>

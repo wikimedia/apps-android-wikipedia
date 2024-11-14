@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -12,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.SwitchPreferenceCompat
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent
@@ -51,6 +53,9 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
     override fun loadPreferences() {
         preferenceLoader = SettingsPreferenceLoader(this)
         preferenceLoader.loadPreferences()
+        if (requireArguments().getBoolean(Constants.ARG_BOOLEAN, false)) {
+            preferenceLoader.showAppIconDialog()
+        }
     }
 
     override fun onResume() {
@@ -96,8 +101,10 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
     }
 
     companion object {
-        fun newInstance(): SettingsFragment {
-            return SettingsFragment()
+        fun newInstance(showAppIconDialog: Boolean = false): SettingsFragment {
+            return SettingsFragment().apply {
+                arguments = bundleOf(Constants.ARG_BOOLEAN to showAppIconDialog)
+            }
         }
     }
 }

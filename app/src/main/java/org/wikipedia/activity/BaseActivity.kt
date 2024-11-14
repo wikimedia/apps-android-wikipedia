@@ -48,6 +48,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -68,7 +69,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private val requestDonateActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
-            FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
+            if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
+                ContributionsDashboardHelper.showDonationCompletedDialog(this)
+                Prefs.contributionsDashboardEntryDialogShown = true
+            } else {
+                FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
+            }
         }
     }
 

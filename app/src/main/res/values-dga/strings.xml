@@ -1453,15 +1453,8 @@
   <string name="patroller_onboarding_two_talk_title">Yeli</string>
   <string name="patroller_onboarding_two_talk_content">Yeli yɛlɛ ne fo maale eŋ taaba. Biŋ tontona yelyeli peegyi tonaa naŋ pore duoro bee toŋ ne tɛmplɛte.</string>
   <string name="patroller_onboarding_two_undo_title">Leɛ e/leɛ puori</string>
-  <string name="survey_dialog_title">Soŋ te baa nandaa ŋa</string>
-  <string name="survey_dialog_message">A nandaa ŋa sege fo laa?</string>
-  <string name="survey_dialog_option_satisfied">Sege la</string>
-  <string name="survey_dialog_option_neutral">Ba be a kaŋazaa</string>
-  <string name="survey_dialog_option_unsatisfied">Ba sege</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Wola te ma baŋ e baa a nandaa?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">leɛ teroo</string>
-  <string name="survey_dialog_submit">Tere</string>
-  <string name="survey_dialog_submitted_snackbar">Leɛ teroo toɔlɛɛ la.</string>
   <string name="patroller_diff_feedback_tooltip">Tɔ ɔvafuloo menu eŋɛ na toɔle leɛ teroo wagere zaa a puli kyɛ \'Yelwonee ne nandaare\'.</string>
   <string name="data_opt_in_accept">Sage</string>
   <string name="data_opt_in_reject">zagere</string>
@@ -1469,4 +1462,11 @@
   <string name="donation_campaign_maybe_later_snackbar">Te na la leɛ maale teɛre fo la bieu.</string>
   <string name="donation_campaign_go_back_button">Gaa puori</string>
   <string name="menu_single_webview_open_external">Yuo sisitim broza poɔ</string>
+  <string name="survey_dialog_title">Soŋ te baa nandaa ŋa</string>
+  <string name="survey_dialog_message">A nandaa ŋa sege fo laa?</string>
+  <string name="survey_dialog_option_satisfied">Sege la</string>
+  <string name="survey_dialog_option_neutral">Ba be a kaŋazaa</string>
+  <string name="survey_dialog_option_unsatisfied">Ba sege</string>
+  <string name="survey_dialog_submit">Tere</string>
+  <string name="survey_dialog_submitted_snackbar">Leɛ teroo toɔlɛɛ la.</string>
 </resources>

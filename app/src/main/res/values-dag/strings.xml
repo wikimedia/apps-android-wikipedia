@@ -1548,16 +1548,9 @@
   <string name="patroller_onboarding_two_undo_content">Piimi \'m bi lanniŋ\' n yihi niŋsim bee n labisi yihi maliniŋ din ni tooi ti lahabali barina.</string>
   <string name="patroller_diff_tooltip_one">Barina buɣisi ti lahabali di yi niŋ ka maliniŋ ni too tahi barina na Wiki puuni.</string>
   <string name="patroller_diff_tooltip_two">Buɣisi ti lahabali shɛli din wuhiri ni maliniŋ niŋmi ni zaɣisuŋtali</string>
-  <string name="survey_dialog_title">Sɔŋmi ka ti mali lala yaɣili ŋɔ niŋ</string>
-  <string name="survey_dialog_message">A nini tiɣi li?</string>
-  <string name="survey_dialog_option_satisfied">N-nini tiɣiya</string>
-  <string name="survey_dialog_option_neutral">M bi piigi yaɣili</string>
-  <string name="survey_dialog_option_unsatisfied">N-nini bi tiɣi</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Wula ka ti tooi bo bɛrisuŋ n-tili?</string>
   <string name="patroller_diff_menu_edit_history_title">Gbanbiɛlinli maliniŋ taarihi</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Labisigu</string>
-  <string name="survey_dialog_submit">Zaŋ ti</string>
-  <string name="survey_dialog_submitted_snackbar">Labisigi zaŋya ti</string>
   <string name="patroller_diff_feedback_tooltip">Dihimi ovafuloo mɛnu maa zuɣu n-zaŋ alabisigu ti sahakam luɣuli din nyɛ \'A yɛlmuɣi ni dina\'.</string>
   <string name="patroller_saved_message_title_editing_tests">Maliniŋdi zahimbunima</string>
   <string name="patroller_saved_message_title_coi_rem">Nangban kpeeni zaŋ n-ti suhiyubu teebu</string>
@@ -1582,10 +1575,14 @@
   <string name="places_filter_title">Filter balli</string>
   <string name="places_toggle_buttons_map">nahingbaŋ</string>
   <string name="places_toggle_buttons_list">Yuya</string>
+  <string name="places_empty_list">Yaɣili ŋɔ ka shɛli. Yima &lt;a href=\"#\"&gt;on the map&lt;/a&gt;.</string>
+  <string name="survey_dialog_title">Sɔŋmi ka ti mali lala yaɣili ŋɔ niŋ</string>
+  <string name="survey_dialog_message">A nini tiɣi li?</string>
+  <string name="survey_dialog_option_satisfied">N-nini tiɣiya</string>
+  <string name="survey_dialog_option_neutral">M bi piigi yaɣili</string>
+  <string name="survey_dialog_option_unsatisfied">N-nini bi tiɣi</string>
   <string name="survey_dialog_option_very_satisfied">Tiɣi viɛnyɛla</string>
   <string name="survey_dialog_option_very_unsatisfied">Bi\'tiɣi viɛnyɛla</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Sɔŋmi lɛbigi tiŋsi</string>
-  <string name="places_survey_feedback_dialog_title">Wula ka tiŋsi (\"Places\") ni tooi lɛbigi?</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Bo ka a yu ni ti taɣi bee m-pahi?</string>
-  <string name="places_empty_list">Yaɣili ŋɔ ka shɛli. Yima &lt;a href=\"#\"&gt;on the map&lt;/a&gt;.</string>
+  <string name="survey_dialog_submit">Zaŋ ti</string>
+  <string name="survey_dialog_submitted_snackbar">Labisigi zaŋya ti</string>
 </resources>
