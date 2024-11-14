@@ -35,6 +35,8 @@ class ContributionsDashboardHelper {
             return surveyUrls[WikipediaApp.instance.languageState.appLanguageCode].orEmpty()
         }
 
+        var campaignId: String? = null
+
         // Temporarily value for different access from either entry dialogs, overflow menu or the contribute tab.
         var shouldShowDonorHistorySnackbar = false
 

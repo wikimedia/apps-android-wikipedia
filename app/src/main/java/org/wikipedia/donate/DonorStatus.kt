@@ -7,8 +7,6 @@ enum class DonorStatus {
 
     companion object {
 
-        val isDonor get() = donorStatus() == DONOR
-
         fun donorStatus(): DonorStatus {
             return if (Prefs.hasDonorHistorySaved.not()) {
                 UNKNOWN
