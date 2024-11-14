@@ -37,7 +37,6 @@ class ContributionsDashboardHelper {
 
         var campaignId: String? = null
 
-        // Temporarily value for different access from either entry dialogs, overflow menu or the contribute tab.
         var shouldShowDonorHistorySnackbar = false
 
         var shouldShowThankYouDialog = false
@@ -82,7 +81,7 @@ class ContributionsDashboardHelper {
                 .setIcon(R.drawable.ic_heart_24)
                 .setPositiveButton(R.string.contributions_dashboard_donor_icon_dialog_ok) { _, _ ->
                     ContributionsDashboardEvent.logAction("enter_click", "contrib_icon_offer")
-                    context.startActivity(SettingsActivity.newIntent(context))
+                    context.startActivity(SettingsActivity.newIntent(context, showAppIconDialog = true))
                 }
                 .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel) { _, _ ->
                     ContributionsDashboardEvent.logAction("cancel_click", "contrib_icon_offer")

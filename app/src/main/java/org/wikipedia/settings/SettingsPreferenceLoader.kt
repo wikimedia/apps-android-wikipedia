@@ -51,13 +51,11 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
 
-        if (ContributionsDashboardHelper.contributionsDashboardEnabled && DonorStatus.donorStatus() == DonorStatus.DONOR) {
-            findPreference(R.string.preference_key_app_icon).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
-                true
-            }
-        } else {
-            findPreference(R.string.preference_key_app_icon).isVisible = false
+        findPreference(R.string.preference_key_app_icon).isVisible = shouldShowAppIconPreference
+
+        findPreference(R.string.preference_key_app_icon).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            showAppIconDialog()
+            true
         }
 
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -82,6 +80,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     private fun deviceInformation(): String {
         return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
+    }
+
+    private val shouldShowAppIconPreference get() = ContributionsDashboardHelper.contributionsDashboardEnabled && DonorStatus.donorStatus() == DonorStatus.DONOR
+
+    fun showAppIconDialog() {
+        if (shouldShowAppIconPreference) {
+            ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
+        }
     }
 
     fun updateLanguagePrefSummary() {
