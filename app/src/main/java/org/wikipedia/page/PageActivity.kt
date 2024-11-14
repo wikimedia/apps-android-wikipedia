@@ -835,8 +835,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
                     val pages = mutableListOf<MwQueryPage>()
                     historyEntries.forEach { entry ->
-                        val response = ServiceFactory.get(title.wikiSite).searchMoreLike("morelike:${entry.apiTitle}", 5, 5)
-                        response.query?.pages?.let { pages.addAll(it) }
+                        val response = ServiceFactory.get(title.wikiSite).searchMoreLike("morelike:${entry.apiTitle}", 10, 10)
+                        response.query?.pages?.filter { it.title != historyEntries[0].apiTitle && it.title != historyEntries[1].apiTitle }?.take(5)?.let { pages.addAll(it) }
                     }
 
                     if (pages.isNotEmpty()) {
