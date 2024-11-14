@@ -125,7 +125,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadg
 
     override fun onBecomeDonorClick() {
         // take user to the donation flow (the Donation bottom sheet).
-        ContributionsDashboardEvent.logAction("donate_start_click", "contrib_overflow")
+        ContributionsDashboardEvent.logAction("donate_start_click", "contrib_overflow", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
         callback.onBecomeDonorSelected()
         dismissPopupWindowHost()
     }

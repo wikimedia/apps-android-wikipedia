@@ -18,6 +18,8 @@ class ContributionsDashboardHelper {
 
     companion object {
 
+        const val CAMPAIGN_ID = "contrib"
+
         private val enabledCountries = listOf(
             "FR", "NL"
         )
@@ -34,8 +36,6 @@ class ContributionsDashboardHelper {
             )
             return surveyUrls[WikipediaApp.instance.languageState.appLanguageCode].orEmpty()
         }
-
-        var campaignId: String? = null
 
         var shouldShowDonorHistorySnackbar = false
 

@@ -18,6 +18,7 @@ import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.databinding.ActivityDonorHistoryBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import java.time.Instant
@@ -25,7 +26,6 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
-import kotlin.getValue
 
 class DonorHistoryActivity : BaseActivity() {
 
@@ -89,8 +89,8 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         binding.donateButton.setOnClickListener {
-            ContributionsDashboardEvent.logAction("donate_start_click", "contrib_update")
-            launchDonateDialog()
+            ContributionsDashboardEvent.logAction("donate_start_click", "contrib_update", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
+            launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
         }
 
         binding.experimentLink.setOnClickListener {

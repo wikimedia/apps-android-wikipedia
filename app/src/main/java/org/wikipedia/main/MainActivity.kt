@@ -103,8 +103,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                     binding.donorBadge.disableClickForDonor()
                     binding.donorBadge.setup(object : DonorBadgeView.Callback {
                         override fun onBecomeDonorClick() {
-                            ContributionsDashboardEvent.logAction("donate_start_click", "contrib_dashboard")
-                            launchDonateDialog()
+                            ContributionsDashboardEvent.logAction("donate_start_click", "contrib_dashboard", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
+                            launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
                         }
                     })
                     binding.donorBadge.isVisible = DonorStatus.donorStatus() != DonorStatus.UNKNOWN
