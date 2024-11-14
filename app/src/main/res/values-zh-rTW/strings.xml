@@ -1733,6 +1733,7 @@
   <string name="contributions_dashboard_donor_icon_dialog_cancel">不用了，謝謝</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">是的，帶我到設定</string>
   <string name="contributions_dashboard_app_icon_updated">應用程式圖示已更新</string>
+  <string name="recent_searches_title">近期搜尋</string>
   <string name="survey_dialog_title">協助我們改善討論頁</string>
   <string name="survey_dialog_message">您滿意這個功能嗎？</string>
   <string name="survey_dialog_option_satisfied">滿意</string>
