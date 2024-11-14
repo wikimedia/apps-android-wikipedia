@@ -50,6 +50,8 @@ object CampaignCollection {
 
     fun addDonationResult(fromWeb: Boolean = false) {
         Prefs.donationResults = Prefs.donationResults.plus(DonationResult(dateTime = LocalDateTime.now().toString(), fromWeb = fromWeb))
+        Prefs.isDonor = true
+        Prefs.hasDonorHistorySaved = true
     }
 
     @Serializable
