@@ -12,11 +12,14 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.donate.DonorStatus
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.FeedbackUtil
 
 /** UI code for app settings used by PreferenceFragment.  */
@@ -47,6 +50,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 true
             }
         }
+
+        findPreference(R.string.preference_key_app_icon).isVisible = shouldShowAppIconPreference
+
+        findPreference(R.string.preference_key_app_icon).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            showAppIconDialog()
+            true
+        }
+
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true
@@ -69,6 +80,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     private fun deviceInformation(): String {
         return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
+    }
+
+    private val shouldShowAppIconPreference get() = ContributionsDashboardHelper.contributionsDashboardEnabled && DonorStatus.donorStatus() == DonorStatus.DONOR
+
+    fun showAppIconDialog() {
+        if (shouldShowAppIconPreference) {
+            ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
+        }
     }
 
     fun updateLanguagePrefSummary() {
