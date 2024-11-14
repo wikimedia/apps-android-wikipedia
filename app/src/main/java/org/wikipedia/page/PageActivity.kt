@@ -882,7 +882,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             name = getString(R.string.suggested_reading_list_title),
             description = getString(R.string.suggested_reading_list_description,
                 StringUtil.fromHtml(basedOnTitle1.title.displayText).toString(),
-                StringUtil.fromHtml(basedOnTitle1.title.displayText).toString())
+                StringUtil.fromHtml(basedOnTitle2.title.displayText).toString())
         )
         Prefs.importReadingListsDialogShown = false
         Prefs.suggestedReadingListsData = JsonUtil.encodeToString(readingList)
