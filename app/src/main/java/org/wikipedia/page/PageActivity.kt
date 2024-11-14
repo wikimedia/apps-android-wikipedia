@@ -880,7 +880,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         val readingList = ReadingListsShareHelper.ExportedReadingList(
             list = mapOf(basedOnTitle1.title.wikiSite.languageCode to listItems),
             name = getString(R.string.suggested_reading_list_title),
-            description = getString(R.string.suggested_reading_list_description,
+            description = getString(R.string.suggested_reading_list_description_multi,
                 StringUtil.fromHtml(basedOnTitle1.title.displayText).toString(),
                 StringUtil.fromHtml(basedOnTitle2.title.displayText).toString())
         )
