@@ -1637,6 +1637,13 @@
   <string name="contributions_dashboard_tab_update_button">Ажурирај</string>
   <string name="contributions_dashboard_donor_icon_dialog_cancel">Не, хвала</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">Да, води ме у подешавања</string>
+  <string name="recent_searches_title">Скорашње претраге</string>
+  <string name="rabbit_holes_experiment">Експериментално</string>
+  <string name="rabbit_holes_experiment_about">О овом експерименту</string>
+  <string name="suggested_reading_list_title">Засновано на Вашим читањима</string>
+  <string name="suggested_reading_list_description">Инспирисано „%s”</string>
+  <string name="suggested_reading_list_dialog_positive">Пробај сад</string>
+  <string name="suggested_reading_list_dialog_negative">Можда касније</string>
   <string name="survey_dialog_title">Помозите нам да унапредимо ову могућност</string>
   <string name="survey_dialog_message">Да ли сте задовољни са овом могућношћу?</string>
   <string name="survey_dialog_option_satisfied">Задовољавајуће</string>

@@ -845,6 +845,7 @@
   <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
   <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
+  <string name="feed_item_type_places">Články v okolí podle aktuální polohy</string>
   <string name="feed_empty_message">Nic není ve vašem kanále Objevit</string>
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
