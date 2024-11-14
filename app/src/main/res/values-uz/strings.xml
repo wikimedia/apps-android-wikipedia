@@ -968,7 +968,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Qanday qilib ketma-ket necha kun oʻz hissangizni qoʻshdingiz. Agar Siz bir muncha vaqt oʻz hissangizni qoʻshmagan boʻlsangiz, bu Sizning oxirgi hissangizni koʻrsatadi.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Soʻnggi 30 kun ichida Siz qoʻshgan narsalar boʻyicha jami sahifalarni koʻrish.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Hissalaringizdan biri necha marta qaytarilganligi (boshqa muharrir tomonidan bekor qilingan) asosida. Qayta tahrir qilingan maqolalar: %d ta</string>
-  <string name="suggested_edits_paused_message">Tavsiya etilgan tahrirlar %1$sgacha toʻxtatildi. Kechirasiz, %2$s, yaqinda qilgan baʼzi hissalaringiz qaytarildi.</string>
+  <string name="suggested_edits_paused_message">Tavsiya etilgan tahrirlar %1$sgacha toʻxtatildi. Kechirasiz, %2$s%, yaqinda qilgan baʼzi hissalaringiz qaytarildi.</string>
   <string name="suggested_edits_disabled_message">Tavsiya etilgan tahrirlar faol emas. Kechirasiz, %s, juda koʻp qoʻshgan narsalaringiz bekor qilindi.</string>
   <string name="suggested_edits_ip_blocked_message">Sizning IP-manzilingiz (yoki IP-manzillar diapazoningiz) hozirda Vikipediyani tahrirlashga toʻsiq qoʻyilganga oʻxshaydi.</string>
   <string name="suggested_edits_gate_message">Kechirasiz, %s, bu funksiyadan foydalanish uchun to‘g‘ridan-to‘g‘ri maqolaga kamida uchta tahrir qilishingiz lozim.</string>
