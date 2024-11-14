@@ -30,7 +30,7 @@
         android:paddingHorizontal="8dp"
         android:text="@string/contributions_dashboard_app_icon_subtitle"
         android:textColor="?attr/primary_color"
-        android:background="@drawable/shape_rounded_border_1dp"
+        android:background="@drawable/rounded_6dp_stroke_1dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/app_icon_title"
         app:layout_constraintBottom_toBottomOf="@+id/app_icon_title"
         app:layout_constraintStart_toEndOf="@+id/app_icon_title"
