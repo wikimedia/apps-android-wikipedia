@@ -63,24 +63,28 @@ class ContributionsDashboardHelper {
                         Uri.parse(getSurveyDialogUrl())
                     )
                 }
-                .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel, { _, _ ->
+                .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel) { _, _ ->
                     ContributionsDashboardEvent.logAction("cancel_click", "contrib_survey")
                     // this should be called on button click due to logic in onResume
                     setEitherShowDialogOrSnackBar()
                     onNegativeButtonClick()
-                })
+                }
                 .show()
         }
 
         fun showThankYouDialog(context: Context) {
+            ContributionsDashboardEvent.logAction("impression", "contrib_icon_offer")
             MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_donor_icon_dialog_title)
                 .setMessage(R.string.contributions_dashboard_donor_icon_dialog_message)
                 .setIcon(R.drawable.ic_heart_24)
                 .setPositiveButton(R.string.contributions_dashboard_donor_icon_dialog_ok) { _, _ ->
+                    ContributionsDashboardEvent.logAction("enter_click", "contrib_icon_offer")
                     context.startActivity(SettingsActivity.newIntent(context))
                 }
-                .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel, null)
+                .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel) { _, _ ->
+                    ContributionsDashboardEvent.logAction("cancel_click", "contrib_icon_offer")
+                }
                 .show()
         }
 

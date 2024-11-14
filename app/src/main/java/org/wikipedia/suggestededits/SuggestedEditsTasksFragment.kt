@@ -137,7 +137,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         binding.errorView.retryClickListener = View.OnClickListener { refreshContents() }
-        binding.errorView.loginClickListener = View.OnClickListener { requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS)) }
+        binding.errorView.loginClickListener = View.OnClickListener {
+            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
+            requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
+        }
 
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
@@ -216,6 +219,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun onRequireLogin() {
         clearContents()
         binding.messageCard.setRequiredLogin {
+            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
         binding.messageCard.isVisible = true
@@ -374,7 +378,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
-        ContributionsDashboardEvent.logAction("impression", "contrib_dashboard")
+        ContributionsDashboardEvent.logAction("impression", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
         binding.donorHistoryContainer.isVisible = true
 
         when (DonorStatus.donorStatus()) {
@@ -413,7 +417,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
             DonorStatus.UNKNOWN -> {
                 binding.donorHistoryUpdateButton.setOnClickListener {
-                ContributionsDashboardEvent.logAction("update_click", "contrib_dashboard")
+                ContributionsDashboardEvent.logAction("update_click", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
                     requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
                 }
                 binding.donorHistoryStatus.isVisible = false

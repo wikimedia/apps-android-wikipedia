@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.donate.DonorStatus
 import org.wikipedia.usercontrib.ContributionsDashboardHelper
@@ -23,6 +24,14 @@ class ContributionsDashboardEvent : DonorExperienceEvent() {
                         .orEmpty() + "donor_detected: ${DonorStatus.isDonor}",
                     wikiId
                 )
+            }
+        }
+
+        fun anonSuffix(): String {
+            return if (AccountUtil.isLoggedIn) {
+                "_anon"
+            } else {
+                ""
             }
         }
     }
