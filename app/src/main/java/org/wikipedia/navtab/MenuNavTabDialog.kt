@@ -10,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
@@ -77,9 +77,9 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
-            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
-            // TODO: verify this
-            // ContributionsDashboardEvent.logAction("donate_start_click", "more_menu")
+            // TODO: add this back after the experiment is completed.
+            // DonorExperienceEvent.logAction("donate_start_click", "more_menu")
+            ContributionsDashboardEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             callback()?.donateClick()
             dismiss()
