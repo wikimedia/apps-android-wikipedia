@@ -1,5 +1,6 @@
-package org.wikipedia.search
+package org.wikipedia.test.search
 
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
@@ -20,24 +21,29 @@ import org.junit.runner.RunWith
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.TestUtil
+import org.wikipedia.search.SearchActivity
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class SearchIntentTest {
+class SearchExternalIntentTest {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityScenarioRule<SearchActivity>(SearchActivity.newIntent(ApplicationProvider.getApplicationContext(),
-            Constants.InvokeSource.INTENT_SHARE, "barack obama"))
+    var mActivityTestRule = ActivityScenarioRule<SearchActivity>(
+            Intent(ApplicationProvider.getApplicationContext(), SearchActivity::class.java)
+                    .setAction(Intent.ACTION_SEND)
+                    .setType(Constants.PLAIN_TEXT_MIME_TYPE)
+                    .putExtra(Intent.EXTRA_TEXT, "boletus edulis")
+    )
 
     @Test
-    fun testSearchActivityWithQuery() {
+    fun testSearchActivityFromSendIntent() {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
         TestUtil.delay(5)
 
-        onView(allOf(withId(R.id.page_list_item_title), withText("Barack Obama"), isDisplayed()))
-                .check(matches(withText("Barack Obama")))
+        onView(allOf(withId(R.id.page_list_item_title), withText("Boletus edulis"), isDisplayed()))
+                .check(matches(withText("Boletus edulis")))
 
         TestUtil.delay(2)
 
@@ -47,17 +53,11 @@ class SearchIntentTest {
         Espresso.pressBack()
         TestUtil.delay(1)
 
-        onView(allOf(withId(R.id.page_list_item_title), withText("Barack Obama"), isDisplayed()))
-                .check(matches(withText("Barack Obama")))
+        onView(allOf(withId(R.id.page_list_item_title), withText("Boletus edulis"), isDisplayed()))
+                .check(matches(withText("Boletus edulis")))
 
         device.setOrientationNatural()
-        TestUtil.delay(2)
-
         device.unfreezeRotation()
-
-        TestUtil.delay(2)
-
-        TestUtil.setAirplaneMode(true)
 
         TestUtil.delay(2)
 
@@ -98,17 +98,10 @@ class SearchIntentTest {
         onView(allOf(TestUtil.childAtPosition(TestUtil.childAtPosition(withId(R.id.horizontal_scroll_languages), 0), 1), isDisplayed()))
                 .perform(ViewActions.click())
 
-        TestUtil.delay(1)
-
-        onView(allOf(withText("Retry"), isDisplayed()))
-                .check(matches(isDisplayed()))
-
-        TestUtil.setAirplaneMode(false, 5)
-
         TestUtil.delay(5)
 
-        onView(allOf(withId(R.id.page_list_item_title), withText("Обама, Барак"), isDisplayed()))
-                .check(matches(withText("Обама, Барак")))
+        onView(allOf(withId(R.id.page_list_item_title), withText("Белый гриб"), isDisplayed()))
+                .check(matches(withText("Белый гриб")))
 
         TestUtil.delay(2)
     }
