@@ -25,7 +25,7 @@ import org.wikipedia.base.TestConfig
 class ContributionScreenScreenRobot : BaseRobot() {
 
     fun isDisabled(): Boolean {
-        return onView(allOf(withId(R.id.disabledStatesView), withParent(withParent(withId(R.id.suggestedEditsScrollView))), isDisplayed())).isDisplayed()
+        return onView(allOf(withId(R.id.messageCard), withParent(withParent(withId(R.id.suggestedEditsScrollView))), isDisplayed())).isDisplayed()
     }
 
     fun clickThroughScreenStatsOnboarding() = apply {
@@ -37,7 +37,7 @@ class ContributionScreenScreenRobot : BaseRobot() {
     }
 
     fun enterContributionScreen() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(viewId = R.id.userStatsArrow, description = "My contributions")
+        clickOnDisplayedView(R.id.contributionsContainer)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
