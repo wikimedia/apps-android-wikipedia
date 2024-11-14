@@ -1600,6 +1600,10 @@
   <string name="places_empty_message_snackbar">Non ci sono voci nelle vicinanze. Prova a ridurre lo zoom e muovere la mappa.</string>
   <string name="donor_history_last_donated_never">Mai</string>
   <string name="contributions_dashboard_entry_dialog_cancel">No, grazie</string>
+  <string name="rabbit_holes_survey_dialog_title">Aiuta a migliorare le tane dei conigli</string>
+  <string name="suggested_reading_list_description">Ispirato da \"%s\"</string>
+  <string name="suggested_reading_list_dialog_title">Hai un nuovo elenco di letture suggerite.</string>
+  <string name="suggested_reading_list_dialog_negative">Forse più tardi</string>
   <string name="survey_dialog_title">Aiutaci a migliorare le pagine di discussione</string>
   <string name="survey_dialog_message">Sei soddisfatto di questa funzionalità?</string>
   <string name="survey_dialog_option_satisfied">Soddisfatto</string>
