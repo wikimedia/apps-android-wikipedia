@@ -138,7 +138,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         binding.errorView.retryClickListener = View.OnClickListener { refreshContents() }
         binding.errorView.loginClickListener = View.OnClickListener {
-            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
+            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard")
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
 
@@ -220,7 +220,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun onRequireLogin() {
         clearContents()
         binding.messageCard.setRequiredLogin {
-            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
+            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard")
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
         binding.messageCard.isVisible = true
@@ -379,7 +379,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
-        ContributionsDashboardEvent.logAction("impression", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
+        ContributionsDashboardEvent.logAction("impression", "contrib_dashboard")
         binding.donorHistoryContainer.isVisible = true
 
         when (DonorStatus.donorStatus()) {
@@ -424,7 +424,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         binding.donorHistoryUpdateButton.setOnClickListener {
-            ContributionsDashboardEvent.logAction("update_click", "contrib_dashboard${ContributionsDashboardEvent.anonSuffix()}")
+            ContributionsDashboardEvent.logAction("update_click", "contrib_dashboard")
             requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
         }
     }
