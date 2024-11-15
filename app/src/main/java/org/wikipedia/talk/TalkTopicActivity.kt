@@ -40,7 +40,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -101,7 +100,6 @@ class TalkTopicActivity : BaseActivity() {
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
         L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
 
         ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
             it.movementMethod = linkMovementMethod
