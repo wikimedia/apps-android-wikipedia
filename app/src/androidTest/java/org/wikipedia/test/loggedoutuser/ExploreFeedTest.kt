@@ -23,36 +23,36 @@ class ExploreFeedTest : BaseTest<MainActivity>(
         homeScreenRobot
             .dismissFeedCustomization()
         exploreFeedRobot
-            .scrollToPositionOnTheFeed(FEATURED_ARTICLE)
+            .scrollToCardWithTitle(FEATURED_ARTICLE)
             .longClickFeaturedArticleCardContainer()
             .clickSave()
-            .scrollToPositionOnTheFeed(TOP_READ_ARTICLES)
+            .scrollToCardWithTitle(TOP_READ_ARTICLES)
             .topReadCardCanBeSeenAndSaved()
             .clickSave()
-            .scrollToPositionOnFeedAndClick(PICTURE_OF_DAY)
+            .scrollToCardWithTitleAndClick(PICTURE_OF_DAY)
             .pressBack()
-            .scrollToPositionOnTheFeed(FEATURED_ARTICLE)
-            .scrollToPositionOnTheFeed(NEWS_CARD)
+            .scrollToCardWithTitle(FEATURED_ARTICLE)
+            .scrollToCardWithTitle(NEWS_CARD)
             .clickNewsArticle()
             .longClickNewsArticleAndSave()
             .pressBack()
-            .scrollToPositionOnTheFeed(ON_THIS_DAY_CARD)
+            .scrollToCardWithTitle(ON_THIS_DAY_CARD)
             .longClickOnThisDayCardAndSave()
-            .scrollToPositionOnTheFeed(FEATURED_ARTICLE)
-            .scrollToPositionOnTheFeed(RANDOM_CARD)
+            .scrollToCardWithTitle(FEATURED_ARTICLE)
+            .scrollToCardWithTitle(RANDOM_CARD)
             .longClickRandomArticleAndSave()
-            .scrollToPositionOnTheFeed(MAIN_PAGE)
-            .clickMainPageCard()
+            .scrollToViewMainPageAndClick()
             .pressBack()
     }
 
     companion object {
-        const val FEATURED_ARTICLE = 2
-        const val TOP_READ_ARTICLES = 4
-        const val PICTURE_OF_DAY = 6
-        const val NEWS_CARD = 7
-        const val ON_THIS_DAY_CARD = 8
-        const val RANDOM_CARD = 9
-        const val MAIN_PAGE = 10
+        const val FEATURED_ARTICLE = "Featured article"
+        const val TOP_READ_ARTICLES = "Top read"
+        const val PLACES_NEARBY = "Places nearby"
+        const val PICTURE_OF_DAY = "Picture of the day"
+        const val NEWS_CARD = "In the news"
+        const val ON_THIS_DAY_CARD = "On this day"
+        const val RANDOM_CARD = "Random article"
+        const val MAIN_PAGE = "Today on Wikipedia"
     }
 }

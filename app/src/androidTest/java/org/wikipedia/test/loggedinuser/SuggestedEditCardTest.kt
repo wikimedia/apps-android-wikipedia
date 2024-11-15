@@ -35,12 +35,12 @@ class SuggestedEditCardTest : BaseTest<MainActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         exploreFeedRobot
-            .scrollToPositionOnTheFeed(SUGGESTED_EDIT_CARD)
+            .scrollToCardWithTitle(SUGGESTED_EDIT_CARD)
             .clickAddArticleDescription()
             .pressBack()
     }
 
     companion object {
-        const val SUGGESTED_EDIT_CARD = 10
+        const val SUGGESTED_EDIT_CARD = "Suggested edits"
     }
 }

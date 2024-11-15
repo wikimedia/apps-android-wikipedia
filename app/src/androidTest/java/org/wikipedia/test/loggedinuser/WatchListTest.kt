@@ -41,7 +41,7 @@ class WatchListTest : BaseTest<MainActivity>(
             .gotoWatchList()
             .pressBack()
         exploreFeedRobot
-            .scrollToPositionOnFeedAndClick(FEATURED_ARTICLE)
+            .scrollToCardWithTitle(FEATURED_ARTICLE)
             .openOverflowMenuItem()
             .addOrRemoveToWatchList()
     }
