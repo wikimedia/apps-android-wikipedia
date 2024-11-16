@@ -34,15 +34,13 @@ import org.wikipedia.util.WhiteBackgroundTransformation
 
 object ViewUtil {
     private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
-    val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
-    val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), ROUNDED_CORNERS)
-    private val CENTER_CROP_CIRCLE = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(36f)))
+    private val CENTER_CROP_CIRCLE = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(48f)))
 
-    fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
-        loadImage(view, url, roundedCorners = true, largeRoundedSize = largeRoundedSize)
+    fun loadImageWithRoundedCorners(view: ImageView, url: String?) {
+        loadImage(view, url, roundedCorners = true)
     }
 
-    fun loadImage(view: ImageView, url: String?, circleShape: Boolean = false, roundedCorners: Boolean = false, largeRoundedSize: Boolean = false, force: Boolean = false,
+    fun loadImage(view: ImageView, url: String?, circleShape: Boolean = false, roundedCorners: Boolean = false, force: Boolean = false,
                   listener: RequestListener<Drawable?>? = null) {
         val placeholder = getPlaceholderDrawable(view.context)
         var builder = Glide.with(view)
@@ -51,7 +49,7 @@ object ViewUtil {
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .error(placeholder)
         builder = if (roundedCorners) {
-            builder.transform(if (largeRoundedSize) CENTER_CROP_LARGE_ROUNDED_CORNERS else CENTER_CROP_ROUNDED_CORNERS)
+            builder.transform(CENTER_CROP_ROUNDED_CORNERS)
         } else if (circleShape) {
             builder.transform(CENTER_CROP_CIRCLE)
         } else {

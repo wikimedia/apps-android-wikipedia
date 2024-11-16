@@ -6,10 +6,14 @@ import com.google.android.gms.wallet.IsReadyToPayRequest
 import com.google.android.gms.wallet.PaymentsClient
 import com.google.android.gms.wallet.Wallet
 import com.google.android.gms.wallet.WalletConstants
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
+import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.GeoUtil
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.Locale
@@ -19,6 +23,7 @@ internal object GooglePayComponent {
     const val PAYMENTS_API_URL = "https://payments.wikimedia.org/"
     const val PAYMENT_METHOD_NAME = "paywithgoogle"
     const val CURRENCY_FALLBACK = "USD"
+    const val TRANSACTION_FEE_PERCENTAGE = 0.04f
 
     private val CURRENCIES_THREE_DECIMAL = arrayOf("BHD", "CLF", "IQD", "KWD", "LYD", "MGA", "MRO", "OMR", "TND")
     private val CURRENCIES_NO_DECIMAL = arrayOf("CLP", "DJF", "IDR", "JPY", "KMF", "KRW", "MGA", "PYG", "VND", "XAF", "XOF", "XPF")
@@ -58,11 +63,19 @@ internal object GooglePayComponent {
     }
 
     suspend fun isGooglePayAvailable(activity: Activity): Boolean {
-        val readyToPayRequest = IsReadyToPayRequest.fromJson(googlePayBaseConfiguration.toString())
-        val paymentsClient = createPaymentsClient(activity)
-        val readyToPayTask = paymentsClient.isReadyToPay(readyToPayRequest)
-        readyToPayTask.await()
-        return readyToPayTask.result
+        var available: Boolean
+        withContext(Dispatchers.IO) {
+            val readyToPayRequest = IsReadyToPayRequest.fromJson(googlePayBaseConfiguration.toString())
+            val paymentsClient = createPaymentsClient(activity)
+            val readyToPayTask = paymentsClient.isReadyToPay(readyToPayRequest)
+            available = readyToPayTask.await()
+            if (available) {
+                DonationConfigHelper.getConfig()?.let { config ->
+                    available = config.countryCodeGooglePayEnabled.contains(GeoUtil.geoIPCountry.orEmpty())
+                }
+            }
+        }
+        return available
     }
 
     fun getDonateActivityIntent(activity: Activity, campaignId: String? = null, donateUrl: String? = null): Intent {

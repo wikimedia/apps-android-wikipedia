@@ -1,9 +1,8 @@
 package org.wikipedia.talk
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -15,7 +14,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.db.TalkPageSeen
@@ -23,12 +21,12 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.UriUtil
 
-class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
-    private val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
-    private val topicId = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_ID)!!
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
-    var currentSearchQuery = bundle.getString(TalkTopicActivity.EXTRA_SEARCH_QUERY)
-    var scrollTargetId = bundle.getString(TalkTopicActivity.EXTRA_REPLY_ID)
+class TalkTopicViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    private val topicName = savedStateHandle.get<String>(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
+    private val topicId = savedStateHandle.get<String>(TalkTopicActivity.EXTRA_TOPIC_ID)!!
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
+    var currentSearchQuery = savedStateHandle.get<String>(TalkTopicActivity.EXTRA_SEARCH_QUERY)
+    var scrollTargetId = savedStateHandle.get<String>(TalkTopicActivity.EXTRA_REPLY_ID)
 
     private val threadItems = mutableListOf<ThreadItem>()
     var topic: ThreadItem? = null
@@ -185,13 +183,6 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             if (it.isExpanded) {
                 flattenThreadLevel(it.replies, flatList)
             }
-        }
-    }
-
-    class Factory(val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return TalkTopicViewModel(bundle) as T
         }
     }
 }

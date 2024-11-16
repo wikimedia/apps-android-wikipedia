@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="ThemeDark">
+        <item name="android:isLightTheme" tools:targetApi="q">false</item>
 
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_dark</item>
 

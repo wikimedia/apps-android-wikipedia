@@ -11,9 +11,6 @@ import java.util.Locale
 
 object LanguageUtil {
     private const val MAX_SUGGESTED_LANGUAGES = 8
-    private const val HONG_KONG_COUNTRY_CODE = "HK"
-    private const val MACAU_COUNTRY_CODE = "MO"
-    private val TRADITIONAL_CHINESE_COUNTRY_CODES = listOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
 
     private val InputMethodSubtype.localeObject: Locale?
         get() {
@@ -64,25 +61,9 @@ object LanguageUtil {
             "in" -> "id" // Indonesian
             "ji" -> "yi" // Yiddish
             "yue" -> AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
-            "zh" -> chineseLanguageCodeToWikiLanguageCode(locale)
+            "zh" -> AppLanguageLookUpTable.chineseLocaleToWikiLanguageCode(locale)
             else -> locale.language
         }
-    }
-
-    private fun chineseLanguageCodeToWikiLanguageCode(locale: Locale): String {
-        when (locale.script) {
-            "Hans" -> return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE
-            "Hant" -> return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
-        }
-
-        // Guess based on country. If the guess is incorrect, the user must explicitly choose the
-        // dialect in the app settings.
-        return if (isTraditionalChinesePredominantInCountry(locale.country)) AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
-        else AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE
-    }
-
-    private fun isTraditionalChinesePredominantInCountry(country: String?): Boolean {
-        return TRADITIONAL_CHINESE_COUNTRY_CODES.contains(country)
     }
 
     val firstSelectedChineseVariant: String
@@ -92,7 +73,7 @@ object LanguageUtil {
                     isChineseVariant(it)
                 }
             return firstSelectedChineseLangCode.orEmpty()
-                .ifEmpty { AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE }
+                .ifEmpty { AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE }
         }
 
     fun isChineseVariant(langCode: String): Boolean {

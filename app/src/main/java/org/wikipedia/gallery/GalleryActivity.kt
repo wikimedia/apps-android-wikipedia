@@ -1,10 +1,12 @@
 package org.wikipedia.gallery
 
+import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -66,7 +68,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var galleryAdapter: GalleryItemAdapter
-    private val viewModel: GalleryViewModel by viewModels { GalleryViewModel.Factory(intent.extras!!) }
+    private val viewModel: GalleryViewModel by viewModels()
     private var pageChangeListener = GalleryPageChangeListener()
     private var imageEditType: ImageEditType? = null
     private var controlsShowing = true
@@ -153,7 +155,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             binding.transitionReceiver.layoutParams = params
             binding.transitionReceiver.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
-                largeRoundedSize = false, force = false, listener = null)
+                force = false, listener = null)
             val transitionMillis = 500
             binding.transitionReceiver.postDelayed({
                 if (isDestroyed) {
@@ -568,14 +570,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         val license = ImageLicense(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
 
         // determine which icon to display...
-        if (license.licenseIcon == R.drawable.ic_license_by) {
+        if (license.licenseIcon() == R.drawable.ic_license_by) {
             binding.licenseIcon.setImageResource(R.drawable.ic_license_cc)
             binding.licenseIconBy.setImageResource(R.drawable.ic_license_by)
             binding.licenseIconBy.visibility = View.VISIBLE
             binding.licenseIconSa.setImageResource(R.drawable.ic_license_sharealike)
             binding.licenseIconSa.visibility = View.VISIBLE
         } else {
-            binding.licenseIcon.setImageResource(license.licenseIcon)
+            binding.licenseIcon.setImageResource(license.licenseIcon())
             binding.licenseIconBy.visibility = View.GONE
             binding.licenseIconSa.visibility = View.GONE
         }
@@ -593,6 +595,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         // if we couldn't find a attribution string, then default to unknown
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
         binding.infoContainer.visibility = View.VISIBLE
+    }
+
+    override fun onProvideAssistContent(outContent: AssistContent) {
+        super.onProvideAssistContent(outContent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            currentItem?.mediaInfo?.commonsUrl?.let {
+                outContent.setWebUri(Uri.parse(it))
+            }
+        }
     }
 
     private inner class GalleryItemAdapter(activity: AppCompatActivity) : PositionAwareFragmentStateAdapter(activity) {

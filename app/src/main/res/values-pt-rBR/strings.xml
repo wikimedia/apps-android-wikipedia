@@ -3,7 +3,6 @@
 * !Silent
 * AVrana
 * Alvarenga
-* Amire80
 * Anaclaudiaml
 * BarbaraAckles
 * Cainamarques
@@ -100,7 +99,7 @@
   <string name="page_edit_history_filter_by">Filtrar por</string>
   <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
   <string name="page_edit_history_filter_by_user">Edições do usuário (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Edições anônimas (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edições anônimas (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -401,7 +400,6 @@
   <string name="page_view_in_browser">Ver página no navegador</string>
   <string name="tool_tip_toc_title">Acesso rápido ao índice</string>
   <string name="tool_tip_toc_text">Agora você pode deslizar para a esquerda para abrir o índice e também tocar e arrastar neste botão de rolagem para saltar rapidamente para diferentes seções de um artigo.</string>
-  <string name="tool_tip_lang_button">Agora você pode pesquisar e ler em vários idiomas da Wikipédia no aplicativo.\n\n\nToque no ícone para adicionar mais idiomas.</string>
   <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>
   <string name="format_error_server_message">Mensagem: “%s”</string>
@@ -1073,7 +1071,6 @@
     <item quantity="one">Você adicionou %d marcação</item>
     <item quantity="other">Você adicionou %d marcações</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ontem</string>
   <string name="suggested_edits_encourage_account_creation_title">Você sabia que todos podem editar a Wikipédia?</string>
   <string name="suggested_edits_encourage_account_creation_message">As edições sugeridas são uma nova maneira de editar a Wikipédia no Android. Ajuda você a fazer contribuições pequenas, mas vitais, para a Wikipédia.\nNosso objetivo é tornar a edição mais fácil e mais acessível para todos! Entre ou participe da Wikipédia para começar.</string>
@@ -1198,10 +1195,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma do Wikipedia para pesquisar e ler conteúdo.</string>
   <string name="more_language_options">mais</string>
   <string name="add_wikipedia_languages_text">Adicionar idiomas da Wikipédia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Remover uma variante chinesa dos seus idiomas do aplicativo?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Atualmente, você tem variantes de chinês tradicional e simplificado definidas nos idiomas do aplicativo. Atualize as configurações de idiomas do seu aplicativo?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar idiomas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Não, obrigado</string>
   <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1495,8 +1488,6 @@
   <string name="reading_list_share_menu_label">Compartilhar...</string>
   <string name="reading_list_share_menu_tooltip">Compartilhar esta lista de leitura com outras pessoas</string>
   <string name="reading_list_share_message_v2">Olá! Gostaria de compartilhar a minha lista de leitura da Wikipédia com você:</string>
-  <string name="reading_list_share_survey_title">Pode nos ajudar a melhorar \"Compartilhar listas de leitura\"?</string>
-  <string name="reading_list_share_survey_body">\"Compartilhar listas de leitura\" é um recurso de teste e precisamos do seu feedback para melhorá-lo ou removê-lo.</string>
   <string name="talk_templates_empty_message">Crie suas próprias mensagens ou use &lt;uma href=\"#\"&gt;mensagem de exemplo&lt;/a&gt; para iniciar.</string>
   <string name="talk_templates_new_message_title">Mensagem nova</string>
   <string name="talk_templates_new_message_subject_hint">Assunto</string>
@@ -1587,13 +1578,8 @@
   <string name="patroller_onboarding_two_talk_title">Discussão</string>
   <string name="patroller_onboarding_two_undo_title">Desfazer/Reverter</string>
   <string name="patroller_onboarding_two_undo_content">Escolher \'Desfazer\' para desfazer ou reverter uma edição potencialmente destrutiva.</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfeito(a)</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutro(a)</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfeito(a)</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Como podemos melhorar a funcionalidade?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentários</string>
-  <string name="patroller_diff_feedback_dialog_submit">Enviar</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Comentário enviado.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Use uma mensagem exemplo abaixo para personalizar, enviar e salvar suas mensagens.</string>
   <string name="talk_templates_menu_edit_title">Editar</string>
   <string name="data_opt_in_accept">Aceitar</string>
@@ -1612,7 +1598,12 @@
   <string name="places_filter_title">Filtrar por idioma</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
-  <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
-  <string name="places_survey_dialog_cancel">Cancelar</string>
+  <string name="survey_dialog_option_satisfied">Satisfeito(a)</string>
+  <string name="survey_dialog_option_neutral">Neutro(a)</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfeito(a)</string>
+  <string name="survey_dialog_option_very_satisfied">Muito satisfeito</string>
+  <string name="survey_dialog_option_very_unsatisfied">Muito insatisfeito</string>
+  <string name="survey_dialog_cancel">Cancelar</string>
+  <string name="survey_dialog_submit">Enviar</string>
+  <string name="survey_dialog_submitted_snackbar">Comentário enviado.</string>
 </resources>

@@ -270,7 +270,6 @@
   <string name="page_view_in_browser">ၼႄပၼ် ၼႃႈလိၵ်ႈ တီႈၼႂ်း တူဝ်ပိုတ်ႇႁႃ</string>
   <string name="tool_tip_toc_title">လွၵ်းသဵၼ်ႈလမ်းၼႂ်း ဢၼ်ၸႂ်ႉလႆႈၽႂ်း</string>
   <string name="tool_tip_toc_text">ယၢမ်းလဵဝ် ၸဝ်ႈၵဝ်ႇၸၢင်ႈတိလၢႆႉၽၢႆႇသၢႆႉ တွၼ်ႈတႃႇပိုတ်ႇ လွၵ်းသဵၼ်ႈလမ်းၼႂ်း သေ ၸၢင်ႈ ၸမ်ႈသေလၢၵ်ႈသႂ်ႇ တီႈၼိူဝ်ၼဵၼ်ပႅၵ်ႈၸၼ် တွၼ်ႈတႃႇၵျွၵ်းၶၢမ်ႈၸူး တွၼ်ႈၵၼ်တၢင်ႇၸိူဝ်း တီႈပွင်ႈၵႂၢမ်းၼၼ်ႉ။</string>
-  <string name="tool_tip_lang_button">ယၢမ်းလဵဝ် ၸဝ်ႈၵဝ်ႇၸၢင်ႈ ၶူၼ်ႉႁႃ လႄႈ လူတူၺ်း ဝီႇၶီႇၽီးတီးယႃး လၢႆၽႃႇသႃႇ တီႈၼႂ်း ဢႅပ်ႉၼႆႉ။\nၸမ်ႈသႂ်ႇတီႈၼိူဝ် ႁၢင်ႈႁိင်ႈသေ ထႅမ်သႂ်ႇ ၽႃႇသႃႇၵႂၢမ်းတၢင်ႇၸိူဝ်းလႄႈ။</string>
   <string name="error_response_malformed">ၶေႃႈတွပ်ႇၶိုၼ်းပၼ် ၵႃႈတီႈ သႃႇပိူဝ်ႇၼၼ်ႉ ဢမ်ႇမႅၼ်ႈလၢႆႈမၼ်းလီ။</string>
   <string name="error_unknown">လွင်ႈၽိတ်းပိူင်ႈ ဢၼ်ဢမ်ႇလၢမ်းလႆႈၼၼ်ႉ ဢွၵ်ႇပဵၼ်ဝႆႉ။</string>
   <string name="format_error_server_message">ၶၢဝ်ႇသၢၼ်: \"%s\"</string>
@@ -648,10 +647,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">တွၼ်ႈတႃႇ ၶူၼ်ႉႁႃ လႄႈ လူဢၢၼ်ႇ လမ်းၼႂ်းၼၼ်ႉ တီႈၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃးၼၼ်ႉ ၵဵပ်းသႂ်ႇဝႆႉပၼ် တီႈဢေႇသုတ်းမၼ်း တႃႇဢၼ်ၼိုင်ႈ။</string>
   <string name="more_language_options">ၼမ်လိူဝ်</string>
   <string name="add_wikipedia_languages_text">ထႅမ်သႂ်ႇ ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">တေထွၼ်ပႅတ်ႈ ပိူင်ပႅၵ်ႇ​ႄႇ ၵႃႈတီႈ ၽႃႇသႃႇၵႂၢမ်းဢႅပ်ႉၸဝ်ႈၵဝ်ႇၼၼ်ႉၼႄႇ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">ယၢမ်းလဵဝ် တီႈၽႃႇသႃႇၵႂၢမ်းဢႅပ်ႉၸဝ်ႈၵဝ်ႇၼၼ်ႉ မီးဝႆႉ ပိူင်ပႅၵ်ႇၽႃႇသႃႇၶႄႇၽိင်ႈ လႄႈ မိူင်ႈလူင် တင်းသွင်ဢၼ်။ တေဢၢပ်ႉတဵတ်ႉ ၵၢၼ်တင်ႈ ၽႃႇသႃႇၵႂၢမ်းဢႅပ်ႉ ၸဝ်ႈၵဝ်ႇၼႄႇ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">မႄးထတ်း ၽႃႇသႃႇၵႂၢမ်း</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ပႆႇၵွၼ်ႇ</string>
   <string name="remove_language_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="remove_language_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>

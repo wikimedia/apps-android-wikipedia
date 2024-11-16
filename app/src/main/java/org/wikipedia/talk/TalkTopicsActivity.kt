@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
@@ -122,6 +123,13 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                         binding.talkConditionContainer.isVisible = true
                         viewModel.undoSave(newRevisionId, undoneSubject, undoneText)
                     }
+                    .addCallback(object : Snackbar.Callback() {
+                        override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                            if (!isDestroyed) {
+                                AccountUtil.maybeShowTempAccountWelcome(this@TalkTopicsActivity)
+                            }
+                        }
+                    })
                     .show()
                 viewModel.loadTopics()
             }
@@ -178,7 +186,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             resetViews()
             viewModel.loadTopics()
         }
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
@@ -408,7 +415,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        val title = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        val title = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(StringUtil.removeHTMLTags(pageTitle.displayText))}</a>")
         ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
             it.contentDescription = title
             it.isVisible = !goToTopic

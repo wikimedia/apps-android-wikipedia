@@ -1,8 +1,7 @@
 package org.wikipedia.gallery
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
@@ -14,16 +13,14 @@ import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.wikidata.Entities
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 
-class GalleryViewModel(bundle: Bundle) : ViewModel() {
-
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)
-    val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
-    val revision = bundle.getLong(GalleryActivity.EXTRA_REVISION, 0)
-    var initialFilename = bundle.getString(GalleryActivity.EXTRA_FILENAME)
+class GalleryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)
+    val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
+    val revision = savedStateHandle[GalleryActivity.EXTRA_REVISION] ?: 0L
+    var initialFilename = savedStateHandle.get<String>(GalleryActivity.EXTRA_FILENAME)
 
     private val _uiState = MutableStateFlow(Resource<MediaList>())
     val uiState = _uiState.asStateFlow()
@@ -37,7 +34,7 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
             _uiState.value = Resource.Error(throwable)
         }) {
             pageTitle?.let {
-                val response = ServiceFactory.getRest(it.wikiSite).getMediaListSuspend(it.prefixedText, revision)
+                val response = ServiceFactory.getRest(it.wikiSite).getMediaList(it.prefixedText, revision)
                 _uiState.value = Resource.Success(response)
             }
         }
@@ -49,24 +46,17 @@ class GalleryViewModel(bundle: Bundle) : ViewModel() {
             _descriptionState.value = Resource.Error(throwable)
         }) {
             val firstEntity = async { ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitleSuspend(pageTitle.prefixedText, Constants.COMMONS_DB_NAME).first }
-            val protectionInfoResponse = async { ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfoSuspend(pageTitle.prefixedText) }
+            val protectionInfoResponse = async { ServiceFactory.get(Constants.commonsWikiSite).getProtectionWithUserInfo(pageTitle.prefixedText) }
             val isProtected = protectionInfoResponse.await().query?.isEditProtected == true
             _descriptionState.value = Resource.Success(isProtected to firstEntity.await())
         }
     }
 
     fun getCaptions(entity: Entities.Entity?): Map<String, String> {
-        return entity?.labels?.values?.associate { it.language to it.value }.orEmpty()
+        return entity?.getLabels()?.values?.associate { it.language to it.value }.orEmpty()
     }
 
     fun getDepicts(entity: Entities.Entity?): List<String> {
         return ImageTagsProvider.getDepictsClaims(entity?.getStatements().orEmpty())
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return GalleryViewModel(bundle) as T
-        }
     }
 }

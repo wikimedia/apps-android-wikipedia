@@ -42,6 +42,7 @@
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
   <string name="nav_item_search">חיפוש</string>
+  <string name="nav_item_contribute">תרומה</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="card_offline_error_retry">ניסיון חוזר</string>
@@ -77,7 +78,7 @@
   <string name="page_edit_history_filter_by">לסנן לפי</string>
   <string name="page_edit_history_filter_by_all">כל העריכות (%s)</string>
   <string name="page_edit_history_filter_by_user">עריכות משתמש (%s)</string>
-  <string name="page_edit_history_filter_by_anon">עריכות אלמוניות (%s)</string>
+  <string name="page_edit_history_filter_by_anon">עריכות של משתמשים לא רשומים (%s)</string>
   <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -120,6 +121,7 @@
   <string name="menu_page_recently_viewed">הוצגו לאחרונה</string>
   <string name="menu_page_archive">ארכיון</string>
   <string name="menu_long_press_open_page">פתיחה</string>
+  <string name="menu_long_press_open_in_places">לפתוח במקומות</string>
   <string name="menu_long_press_open_in_new_tab">לפתוח בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
   <string name="menu_text_select_define">הגדרה</string>
@@ -389,7 +391,6 @@
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_title">גישה מהירה לתוכן העניינים</string>
   <string name="tool_tip_toc_text">עכשיו אפשר להחליק ימינה כדי לפתוח את תוכן העניינים, וגם ללחוץ ולגרור על כפתור הגלילה כדי לדלג מהר לחלקים השונים של הערך.</string>
-  <string name="tool_tip_lang_button">עכשיו אפשר לחפש ולקרוא ערכים בוויקיפדיה בשפות מרובות באמצעות היישום.\n\n\nיש ללחוץ על הצלמית כדי להוסיף שפות נוספות.</string>
   <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>
   <string name="error_unknown">אירעה שגיאה בלתי־ידועה.</string>
   <string name="format_error_server_message">הודעה: \"%s\"</string>
@@ -456,26 +457,28 @@
   <string name="theme_chooser_menu_item_short_tooltip">התאמת סרגל הכלים שלך</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="temp_account_not_logged_in">לא נכנסת לחשבון</string>
-  <string name="temp_account_anon_dialog_body">לאחר ביצוע עריכה, ייווצר בשבילך חשבון זמני כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
-  <string name="temp_account_temp_dialog_body">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#login\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
+  <string name="temp_account_anon_ip_dialog_body">לאחר עריכה, כתובת ה־IP שלך תשויך לעריכות שלך.&lt;br /&gt;&lt;br /&gt;יש &lt;a href=\"https://#login\"&gt;היכנס&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;ליצור חשבון&lt;/a&gt; כדי לקבל קרדיט עבור עריכות עתידיות וכדי לגשת לתכונות אחרות.</string>
+  <string name="temp_account_anon_dialog_body">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
+  <string name="temp_account_temp_dialog_body">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
   <string name="temp_account_dialog_ok">הבנתי</string>
-  <string name="temp_account_using_title">זהו חשבון זמני</string>
+  <string name="temp_account_using_title">זהו חשבון חולף</string>
   <string name="temp_account_dialog_discard">לזרוק את השינויים ולהיכנס לחשבון</string>
   <plurals name="temp_account_created">
-    <item quantity="one">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד יום אחד.</item>
-    <item quantity="two">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד יומיים.</item>
-    <item quantity="many">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד %2$d ימים.</item>
-    <item quantity="other">החשבון הזמני %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יפוג בעוד %2$d ימים</item>
+    <item quantity="one">החשבון החולף %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יחלוף בעוד יום אחד.</item>
+    <item quantity="two">החשבון החולף %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יחלוף בעוד יומיים.</item>
+    <item quantity="many">החשבון החולף %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יחלוף בעוד %2$d ימים.</item>
+    <item quantity="other">החשבון החולף %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יחלוף בעוד %2$d ימים</item>
   </plurals>
   <plurals name="temp_account_expiry">
-    <item quantity="one">החשבון יפוג בעוד יום אחד.</item>
-    <item quantity="two">החשבון יפוג בעוד יומיים.</item>
-    <item quantity="many">החשבון יפוג בעוד %d ימים.</item>
-    <item quantity="other">החשבון יפוג בעוד %d ימים</item>
+    <item quantity="one">החשבון יחלוף בעוד יום אחד.</item>
+    <item quantity="two">החשבון יחלוף בעוד יומיים.</item>
+    <item quantity="many">החשבון יחלוף בעוד %d ימים.</item>
+    <item quantity="other">החשבון יחלוף בעוד %d ימים</item>
   </plurals>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר ביצוע עריכה, ייווצר בשבילך חשבון זמני כדי להגן על פרטיותך. &lt;a href\n=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר עריכה, כתובת ה־IP שלך תשויך לעריכות שלך.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;החשבון שלך זמני.&lt;/b&gt; העריכה שלך תיוחס לשם המשתמש %1$s. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;.</string>
-  <string name="temp_account_login_status">&lt;b&gt;זהו חשבון זמני.&lt;/b&gt; עריכות שנעשו עם החשבון הזמני %1$s לא יועברו לחשבון הקבוע שלך בעת הכניסה. כניסה או יצירת חשבון תאפשר לך לקבל קרדיט על עריכות עתידיות, ויש לזה גם יתרונות נוספים.</string>
+  <string name="temp_account_login_status">&lt;b&gt;זהו חשבון חולף.&lt;/b&gt; עריכות שנעשו עם החשבון החולף %1$s לא יועברו לחשבון הקבוע שלך בעת הכניסה. כניסה או יצירת חשבון תאפשר לך לקבל קרדיט על עריכות עתידיות, ויש לזה גם יתרונות נוספים.</string>
   <string name="temp_account_end_session">יציאה מהתחברות</string>
   <string name="temp_account_end_session_confirm">הפעולה הזאת תנתק אותך מחשבונך הזמני. האם ברצונך להמשיך?</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
@@ -908,6 +911,7 @@
   <string name="feed_item_type_main_page">עמוד ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
+  <string name="feed_item_type_places">ערכים על מקומות בסביבה, לפי המיקום הנוכחי</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
   <string name="feed_configure_onboarding_action">התאמה אישית</string>
   <string name="customize_lang_selection_dialog_ok_button_text">אישור</string>
@@ -1106,6 +1110,12 @@
     <item quantity="many">תרומות</item>
     <item quantity="other">תרומות</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">עריכה</item>
+    <item quantity="two">עריכות</item>
+    <item quantity="many">עריכות</item>
+    <item quantity="other">עריכות</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">יום אחד</item>
     <item quantity="two">יומיים</item>
@@ -1145,7 +1155,6 @@
     <item quantity="many">הוספת %d תגים</item>
     <item quantity="other">הוספת %d תגים</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="suggested_edits_encourage_account_creation_message">עריכות מוצעות היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה כדי להתחיל.</string>
@@ -1250,6 +1259,7 @@
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
+  <string name="app_shortcuts_places">מקומות</string>
   <string name="on_this_day_card_title">היום בהיסטוריה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
@@ -1284,10 +1294,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">יש להשאיר לפחות שפת ויקיפדיה אחת שבה ברצונך לחפש ולקרוא תוכן.</string>
   <string name="more_language_options">עוד</string>
   <string name="add_wikipedia_languages_text">הוספת שפות ויקיפדיה</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">להסיר הגוון אחד של סינית מהגדרות השפה של היישום?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית מפושטת בהגדרות השפה של היישום שלך. האם ברצונך לעדכן את הגדרות השפה של היישום?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">עריכת השפות</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">לא, תודה</string>
   <string name="remove_language_dialog_cancel_button_text">ביטול</string>
   <string name="remove_language_dialog_ok_button_text">אישור</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">אישור</string>
@@ -1593,8 +1599,6 @@
   <string name="reading_list_share_menu_label">שיתוף...</string>
   <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
-  <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
-  <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונה בבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
   <string name="talk_templates_empty_message">באפשרותך ליצור הודעות משלך או להשתמש ב&lt;a href=\"#\"&gt;הודעות לדוגמה&lt;/a&gt; כדי להתחיל.</string>
   <string name="talk_templates_new_message_title">הודעה חדשה</string>
   <string name="talk_templates_new_message_subject_hint">נושא</string>
@@ -1708,16 +1712,9 @@
   <string name="patroller_onboarding_two_undo_content">יש לבחור \"ביטול\" כדי לבטל או לשחזור עריכה שעשויה להיות הרסנית.</string>
   <string name="patroller_diff_tooltip_one">מדד \"נזק\" מנבא אם עריכה גורמת נזק לוויקי.</string>
   <string name="patroller_diff_tooltip_two">מדד \"כוונה\" מנבא את הסבירות שעריכה תישמר מתוך כוונה טובה.</string>
-  <string name="patroller_diff_feedback_dialog_title">באפשרותך לעזור לנו לשפר התכונה הזאת</string>
-  <string name="patroller_diff_feedback_dialog_message">מרוצה מהתכונה הזאת?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">מרוצה</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">אין דעה</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">לא מרוצה</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">איך נוכל לשפר את התכונה?</string>
   <string name="patroller_diff_menu_edit_history_title">היסטוריית העריכה של הערך</string>
   <string name="patroller_diff_feedback_dialog_input_hint">משוב</string>
-  <string name="patroller_diff_feedback_dialog_submit">שליחה</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">המשוב נשלח.</string>
   <string name="patroller_diff_feedback_tooltip">יש להקיש על התפריט הצף כדי לשלוח משוב בכל עת תחת \"בעיה עם תכונה\".</string>
   <string name="patroller_saved_message_title_vandalism">אזהרת השחתה</string>
   <string name="patroller_saved_message_title_editing_tests">ניסויי עריכה</string>
@@ -1775,13 +1772,61 @@
   <string name="places_filter_title">סינון לפי שפה</string>
   <string name="places_toggle_buttons_map">מפה</string>
   <string name="places_toggle_buttons_list">רשימה</string>
-  <string name="places_nav_tab_tooltip_message">ב\"מקומות\" אפשר לגלות ערכי ויקיפדיה סביבך</string>
-  <string name="places_article_menu_tooltip_message">יש ללחוץ על \"הצגה על מפה\" כדי לחקור את המיקום של הערך הזה</string>
-  <string name="places_survey_very_satisfied_option">מרוצה מאוד</string>
-  <string name="places_survey_very_unsatisfied_option">מאוד לא מרוצה</string>
-  <string name="places_survey_dialog_title">עזרו לנו לשפר את \"מקומות\"</string>
-  <string name="places_survey_feedback_dialog_title">איך אפשר לשפר את \"מקומות\"?</string>
-  <string name="places_survey_dialog_cancel">ביטול</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">מה היית רוצה שנשנה או נשפר?</string>
   <string name="places_empty_list">האזור הזה ריק. נא להתרחק &lt;a href=\"#\"&gt;על המפה&lt;/a&gt; .</string>
+  <string name="places_card_title">מקומות בסביבה</string>
+  <string name="places_card_action">עוד מקומות בסביבה</string>
+  <string name="places_card_enable_location_card_message">מקומות היא שיטה מבוססת־מפה לחקור את ויקיפדיה</string>
+  <string name="places_card_enable_location_card_button">להפעיל מיקום</string>
+  <string name="places_card_distance_suffix">%s מכאן</string>
+  <string name="places_card_distance_unknown">מרחק בלתי־ידוע</string>
+  <string name="places_empty_message_snackbar">אין ערכים על דברים בסביבה. נא לנסות להקטין ולהזיז את המפה.</string>
+  <string name="donor_history_title">היסטוריית התרומות</string>
+  <string name="donor_history_save_button">שמירה</string>
+  <string name="donor_history_update_donor_status_default">עדכון מצב תורם</string>
+  <string name="donor_history_update_donor_status_donor">תורם</string>
+  <string name="donor_history_update_donor_status_not_a_donor">לא תורם</string>
+  <string name="donor_history_last_donated">תרומה אחרונה</string>
+  <string name="donor_history_last_donated_hint">הוספת תאריך התרומה האחרונה</string>
+  <string name="donor_history_last_donated_date_picker_title">בחירת תאריך</string>
+  <string name="donor_history_last_donated_date_picker_label">נא להזין תאריך</string>
+  <string name="donor_history_recurring_donor">תורם חוזר</string>
+  <string name="donor_history_donate_button">תרומה לקרן ויקימדיה</string>
+  <string name="donor_history_about_this_experiment">על הניסוי הזה</string>
+  <string name="donor_history_updated_message_snackbar">היסטוריית התרומה עודכנה</string>
+  <string name="contributions_dashboard_survey_dialog_title">איך אפשר לעזור לנו לשפר את לוח הבקרה לתרומות</string>
+  <string name="contributions_dashboard_survey_dialog_message">העדכון הזה ללוח הבקרה הוא תכונה בבדיקה. האם יש דברים בתכונה הזאת שכדאי לשפר או להסיר?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">אין דעה</string>
+  <string name="contributions_dashboard_survey_dialog_ok">שליחת משוב</string>
+  <string name="contributions_dashboard_donation_dialog_title">תודה על תתמיכתך בידע חופשי</string>
+  <string name="contributions_dashboard_donation_dialog_message">אני מודים לך על היותך ב־2%% מהאנשים שבחרו לתמוך במשאב שמיליונים מסתמכים עליו. כדי להראות את הכרת התודה שלנו, לוח הבקרה של התרומות שלך עודכן כדי להכיר בסטטוס שלך כתורם. מעניין אותך לראות את העדכון?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">לא, תודה</string>
+  <string name="contributions_dashboard_donation_dialog_ok">כן, קחו אותי לשם</string>
+  <string name="contributions_dashboard_entry_dialog_title">היכרות עם התוספות החדשות ללוח הבקרה של התרומות</string>
+  <string name="contributions_dashboard_entry_dialog_message">לוח הבקרה של התרומות מציג כעת את את הסטטוס שלך בתור תורם. רוצה לסקור את התכונה הניסיונית הזאת?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">לא, תודה</string>
+  <string name="contributions_dashboard_entry_dialog_ok">כן, קחו אותי לשם</string>
+  <string name="contributions_dashboard_badge_donor">תורם</string>
+  <string name="contributions_dashboard_badge_become_a_donor">להפוך לתורם</string>
+  <string name="contributions_dashboard_badge_update">עדכון מצב תורם</string>
+  <string name="contributions_dashboard_app_icon_title">סמל היישום</string>
+  <string name="contributions_dashboard_app_icon_subtitle">הטבת תורם</string>
+  <string name="contributions_dashboard_logged_out_user">משתמש שלא מחובר לחשבון</string>
+  <string name="contributions_dashboard_tab_last_donated">תרומה אחרונה</string>
+  <string name="contributions_dashboard_tab_update_button">עדכון</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">תודה על התרומה שלך.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">פתחת את האפשרות להשתמש בסמל אישי זמני. אפשר לעבור לסמל הזה דרך ההגדרות שלך תחת \"סמל היישום\". האם לעדכן את הסמל שלך עכשיו?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">לא, תודה</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">כן, קחו אותי להגדרות</string>
+  <string name="contributions_dashboard_app_icon_updated">סמל היישום עודכן</string>
+  <string name="survey_dialog_title">עִזרו לנו לשפר את דפי השיחה</string>
+  <string name="survey_dialog_message">מרוצה מהתכונה הזאת?</string>
+  <string name="survey_dialog_option_satisfied">מרוצה</string>
+  <string name="survey_dialog_option_neutral">אין דעה</string>
+  <string name="survey_dialog_option_unsatisfied">לא מרוצה</string>
+  <string name="survey_dialog_option_very_satisfied">מרוצה מאוד</string>
+  <string name="survey_dialog_option_very_unsatisfied">מאוד לא מרוצה</string>
+  <string name="survey_dialog_cancel">ביטול</string>
+  <string name="survey_dialog_submit">שליחה</string>
+  <string name="survey_dialog_input_hint">משוב נוסף</string>
+  <string name="survey_dialog_submitted_snackbar">המשוב נשלח.</string>
 </resources>

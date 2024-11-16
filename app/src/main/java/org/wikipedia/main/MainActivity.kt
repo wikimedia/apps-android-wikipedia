@@ -8,28 +8,40 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.DonorStatus
+import org.wikipedia.feed.FeedFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.DonorBadgeView
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
     private lateinit var binding: ActivityMainBinding
 
     private var controlNavTabInFragment = false
-    private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
+    private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val fragment = fragment.currentFragment
+        if (it.resultCode == InitialOnboardingActivity.RESULT_LANGUAGE_CHANGED && fragment is FeedFragment) {
+            fragment.refresh()
+        }
+    }
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,13 +52,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
 
         setImageZoomHelper()
-        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(
-                Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
-            // Updating preference so the search multilingual tooltip
-            // is not shown again for first time users
-            Prefs.isMultilingualSearchTooltipShown = false
-
-            // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
+        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null &&
+            !intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             onboardingLauncher.launch(InitialOnboardingActivity.newIntent(this))
         }
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
@@ -70,21 +77,41 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onTabChanged(tab: NavTab) {
-        if (tab == NavTab.EDITS) {
-            ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
-            PatrollerExperienceEvent.logImpression("suggested_edits_dialog")
-        }
         if (tab == NavTab.EXPLORE) {
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
+            binding.toolbarTitle.isVisible = false
+            binding.donorBadge.isVisible = false
             controlNavTabInFragment = false
         } else {
+            binding.toolbarTitle.isVisible = true
+            binding.donorBadge.isVisible = false
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.showSearchTabTooltip = false
             }
+            var titleText = getString(tab.text)
+            if (tab == NavTab.EDITS) {
+                ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
+                PatrollerExperienceEvent.logImpression("suggested_edits_dialog")
+                if (ContributionsDashboardHelper.contributionsDashboardEnabled) {
+                    titleText = if (AccountUtil.isLoggedIn) {
+                        AccountUtil.userName
+                    } else {
+                        getString(R.string.contributions_dashboard_logged_out_user)
+                    }
+                    binding.donorBadge.disableClickForDonor()
+                    binding.donorBadge.setup(object : DonorBadgeView.Callback {
+                        override fun onBecomeDonorClick() {
+                            ContributionsDashboardEvent.logAction("donate_start_click", "contrib_dashboard", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
+                            launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
+                        }
+                    })
+                    binding.donorBadge.isVisible = DonorStatus.donorStatus() != DonorStatus.UNKNOWN
+                }
+            }
             binding.mainToolbarWordmark.visibility = View.GONE
-            binding.mainToolbar.setTitle(tab.text)
+            binding.toolbarTitle.text = titleText
             controlNavTabInFragment = true
         }
         fragment.requestUpdateToolbarElevation()

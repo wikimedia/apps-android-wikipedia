@@ -136,7 +136,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        <org.wikipedia.views.WikiSwipeRefreshLayout
             android:id="@+id/refreshView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -147,7 +147,7 @@
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"/>
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </org.wikipedia.views.WikiSwipeRefreshLayout>
 
         <TextView
             android:id="@+id/emptyMessage"

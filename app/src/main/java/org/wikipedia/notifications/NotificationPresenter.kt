@@ -1,36 +1,56 @@
 package org.wikipedia.notifications
 
-import android.app.NotificationManager
+import android.Manifest
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.*
 import android.net.Uri
+import android.os.Build
+import androidx.activity.result.ActivityResultLauncher
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 object NotificationPresenter {
+
+    private var lastPermissionRequestTime = 0L
+
+    fun maybeRequestPermission(context: Context, launcher: ActivityResultLauncher<String>) {
+        val millisSinceLastRequest = System.currentTimeMillis() - lastPermissionRequestTime
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            !Prefs.isInitialOnboardingEnabled &&
+            AccountUtil.isLoggedIn &&
+            (millisSinceLastRequest > TimeUnit.HOURS.toMillis(1) || millisSinceLastRequest < 0) &&
+            ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            lastPermissionRequestTime = System.currentTimeMillis()
+        }
+    }
 
     fun showNotification(context: Context, n: Notification, wikiSiteName: String, lang: String) {
         val notificationCategory = NotificationCategory.find(n.category)
@@ -93,6 +113,9 @@ object NotificationPresenter {
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
                          title: String, text: String, longText: CharSequence, lang: String?,
                          @DrawableRes icon: Int, @ColorRes color: Int, bodyIntent: Intent) {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
         builder.setContentIntent(PendingIntentCompat.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT, false))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())))
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
@@ -100,13 +123,14 @@ object NotificationPresenter {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
-        context.getSystemService<NotificationManager>()?.notify(id, builder.build())
+        NotificationManagerCompat.from(context).notify(id, builder.build())
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
         if (UriUtil.isDiffUrl(link.url)) {
             try {
                 addActionForDiffLink(context, builder, link, n)
+                return
             } catch (e: Exception) {
                 L.e(e)
             }

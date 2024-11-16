@@ -2,6 +2,7 @@ package org.wikipedia.views
 
 import android.app.Activity
 import android.view.View
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -9,81 +10,102 @@ import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
+import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 
 object SurveyDialog {
 
-    fun showFeedbackOptionsDialog(activity: Activity, source: Constants.InvokeSource) {
+    fun showFeedbackOptionsDialog(activity: Activity,
+                                  titleId: Int = R.string.survey_dialog_title,
+                                  messageId: Int = R.string.survey_dialog_message,
+                                  snackbarMessageId: Int = R.string.survey_dialog_submitted_snackbar,
+                                  invokeSource: Constants.InvokeSource) {
         var dialog: AlertDialog? = null
-        val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
-
-        val clickListener = View.OnClickListener {
-            val feedbackOption = (it as TextView).text.toString()
-            dialog?.dismiss()
-            if (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
-                showFeedbackSnackbarAndTooltip(activity, source)
-            } else {
-                showFeedbackInputDialog(activity, source)
+        val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
+        binding.titleText.text = activity.getString(titleId)
+        binding.messageText.text = activity.getString(messageId)
+        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.dialogContainer.postDelayed({
+                    binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                }, 200)
             }
-
-            sendAnalyticsEvent("feedback_selection", "feedback_form", source,
-                PatrollerExperienceEvent.getActionDataString(feedbackOption = feedbackOption))
         }
 
-        feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
-        sendAnalyticsEvent("impression", "feedback_form", source)
-        val dialogBuilder = MaterialAlertDialogBuilder(activity)
-            .setTitle(R.string.patroller_diff_feedback_dialog_title)
+        if (invokeSource == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
+            val clickListener = View.OnClickListener {
+                val feedbackOption = (it as TextView).text.toString()
+                dialog?.dismiss()
+                if (feedbackOption == activity.getString(R.string.survey_dialog_option_satisfied)) {
+                    showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
+                } else {
+                    showFeedbackInputDialog(activity, snackbarMessageId, invokeSource)
+                }
+
+                PatrollerExperienceEvent.logAction("feedback_selection", "feedback_form",
+                    PatrollerExperienceEvent.getActionDataString(feedbackOption = feedbackOption))
+            }
+            binding.optionSatisfied.setOnClickListener(clickListener)
+            binding.optionNeutral.setOnClickListener(clickListener)
+            binding.optionUnsatisfied.setOnClickListener(clickListener)
+
+            PatrollerExperienceEvent.logAction("impression", "feedback_form")
+        }
+
+        val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
             .setCancelable(false)
-            .setView(feedbackView)
+            .setView(binding.root)
+
         dialog = dialogBuilder.show()
     }
 
-    private fun showFeedbackInputDialog(activity: Activity, source: Constants.InvokeSource) {
-        val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
-        sendAnalyticsEvent("impression", "feedback_input_form", source)
+    private fun showFeedbackInputDialog(activity: Activity, messageId: Int, source: Constants.InvokeSource) {
+        val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_feedback_input, null)
+        PatrollerExperienceEvent.logAction("impression", "feedback_input_form")
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
             .setView(feedbackView)
-            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
+            .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
                val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
-                sendAnalyticsEvent("feedback_input_submit", "feedback_input_form", source,
+                PatrollerExperienceEvent.logAction("feedback_input_submit", "feedback_input_form",
                     PatrollerExperienceEvent.getActionDataString(feedbackText = feedbackInput))
-                showFeedbackSnackbarAndTooltip(activity, source)
+                showFeedbackSnackbarAndTooltip(activity, messageId, source)
             }
             .show()
     }
 
-    private fun showFeedbackSnackbarAndTooltip(activity: Activity, source: Constants.InvokeSource) {
-        FeedbackUtil.showMessage(activity, R.string.patroller_diff_feedback_submitted_snackbar)
-        sendAnalyticsEvent("feedback_submit_toast", "feedback_form", source)
-        activity.window.decorView.postDelayed({
-            val anchorView = activity.findViewById<View>(R.id.more_options)
-            if (!activity.isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                sendAnalyticsEvent("tooltip_impression", "feedback_form", source)
-                FeedbackUtil.getTooltip(
-                    activity,
-                    activity.getString(R.string.patroller_diff_feedback_tooltip),
-                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
-                    topOrBottomMargin = 0,
-                    aboveOrBelow = false,
-                    autoDismiss = false,
-                    showDismissButton = true
-                ).apply {
-                    showAlignBottom(anchorView)
-                    Prefs.showOneTimeRecentEditsFeedbackForm = false
-                }
+    private fun showFeedbackSnackbarAndTooltip(activity: Activity, messageId: Int, source: Constants.InvokeSource) {
+        FeedbackUtil.showMessage(activity, messageId)
+        when (source) {
+            Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS -> {
+                PatrollerExperienceEvent.logAction("feedback_submit_toast", "feedback_form")
+                activity.window.decorView.postDelayed({
+                    val anchorView = activity.findViewById<View>(R.id.more_options)
+                    if (!activity.isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+                        PatrollerExperienceEvent.logAction("tooltip_impression", "feedback_form")
+                        FeedbackUtil.getTooltip(
+                            activity,
+                            activity.getString(R.string.patroller_diff_feedback_tooltip),
+                            arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                            topOrBottomMargin = 0,
+                            aboveOrBelow = false,
+                            autoDismiss = false,
+                            showDismissButton = true
+                        ).apply {
+                            showAlignBottom(anchorView)
+                            when (source) {
+                                Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS -> {
+                                    Prefs.showOneTimeRecentEditsFeedbackForm = false
+                                }
+                                else -> { }
+                            }
+                        }
+                    }
+                }, 100)
             }
-        }, 100)
-    }
-
-    private fun sendAnalyticsEvent(action: String, activeInterface: String, source: Constants.InvokeSource, actionData: String = "") {
-        if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
-            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+            else -> {}
         }
     }
 }

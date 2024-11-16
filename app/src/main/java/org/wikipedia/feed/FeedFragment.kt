@@ -31,6 +31,7 @@ import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
@@ -39,7 +40,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 
 class FeedFragment : Fragment(), BackPressedHandler {
@@ -94,7 +94,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
         feedAdapter = FeedAdapter(coordinator, feedCallback)
         binding.feedView.adapter = feedAdapter
         binding.feedView.addOnScrollListener(feedScrollListener)
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
         binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
         coordinator.setFeedUpdateListener(object : FeedUpdateListener {
@@ -132,26 +131,13 @@ class FeedFragment : Fragment(), BackPressedHandler {
         return binding.root
     }
 
-    private fun showRemoveChineseVariantPrompt() {
-        if (app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
-            app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
-            Prefs.shouldShowRemoveChineseVariantPrompt) {
-            MaterialAlertDialogBuilder(requireActivity())
-                .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
-                .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
-                .setPositiveButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_edit) { _, _ -> showLanguagesActivity(InvokeSource.LANG_VARIANT_DIALOG) }
-                .setNegativeButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_no, null)
-                .show()
-        }
-        Prefs.shouldShowRemoveChineseVariantPrompt = false
-    }
-
     override fun onResume() {
         super.onResume()
-        showRemoveChineseVariantPrompt()
+        maybeShowRegionalLanguageVariantDialog()
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
-        // on certain devices. (TODO: investigate further)
+        // on certain devices.
+        // https://issuetracker.google.com/issues/188096921
         feedAdapter.notifyDataSetChanged()
     }
 
@@ -197,7 +183,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
         binding.emptyContainer.visibility = View.GONE
         coordinator.reset()
         feedAdapter.notifyDataSetChanged()
-        coordinator.more(app.wikiSite)
+        WikipediaApp.instance.resetWikiSite()
+        coordinator.more(WikipediaApp.instance.wikiSite)
     }
 
     fun updateHiddenCards() {
@@ -347,6 +334,32 @@ class FeedFragment : Fragment(), BackPressedHandler {
                     refresh()
                 }
                 .setNegativeButton(R.string.feed_lang_selection_dialog_cancel_button_text, null)
+                .show()
+        }
+    }
+
+    private fun maybeShowRegionalLanguageVariantDialog() {
+        val deprecatedLanguageCodes = listOf(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)
+        val primaryLanguage = WikipediaApp.instance.languageState.appLanguageCode
+        val remainingLanguages = WikipediaApp.instance.languageState.appLanguageCodes.toMutableList().apply {
+            remove(primaryLanguage)
+        }
+        if (deprecatedLanguageCodes.contains(primaryLanguage)) {
+             val dialog = RegionalLanguageVariantSelectionDialog(requireContext()).show()
+            dialog.setOnDismissListener {
+                refresh()
+            }
+        } else if (remainingLanguages.any(deprecatedLanguageCodes::contains)) {
+            MaterialAlertDialogBuilder(requireContext())
+                .setCancelable(false)
+                .setTitle(R.string.feed_language_variants_removal_secondary_dialog_title)
+                .setMessage(R.string.feed_language_variants_removal_secondary_dialog_message)
+                .setPositiveButton(R.string.feed_language_variants_removal_secondary_dialog_settings) { _, _ ->
+                    val list = RegionalLanguageVariantSelectionDialog.removeNonRegionalLanguageVariants()
+                    WikipediaApp.instance.languageState.setAppLanguageCodes(list)
+                    refresh()
+                    showLanguagesActivity(InvokeSource.FEED)
+                }
                 .show()
         }
     }

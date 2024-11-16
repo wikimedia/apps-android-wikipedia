@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Carlosedepaula
 * Julian Mendez
 * Karmwiki
@@ -22,6 +21,7 @@
   <string name="nav_item_suggested_edits">Modificationes</string>
   <string name="nav_item_more">Plus</string>
   <string name="nav_item_search">Cercar</string>
+  <string name="nav_item_contribute">Contribuer</string>
   <string name="error_network_error">Il non es possibile connecter se a Internet.</string>
   <string name="page_error_retry">Reprobar</string>
   <string name="card_offline_error_retry">Reprobar</string>
@@ -57,7 +57,7 @@
   <string name="page_edit_history_filter_by">Filtrar per</string>
   <string name="page_edit_history_filter_by_all">Tote le modificationes (%s)</string>
   <string name="page_edit_history_filter_by_user">Modificationes de usatores (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Modificationes anonyme (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modificationes non registrate (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modificationes de robots (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statisticas desde le %1$s usque al %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -96,6 +96,7 @@
   <string name="menu_page_recently_viewed">Recentemente visitate</string>
   <string name="menu_page_archive">Archivo</string>
   <string name="menu_long_press_open_page">Aperir</string>
+  <string name="menu_long_press_open_in_places">Aperir in Locos</string>
   <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
   <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
   <string name="menu_text_select_define">Definir</string>
@@ -149,7 +150,7 @@
   <string name="create_account_login">Aperir session</string>
   <string name="menu_login">Aperir session</string>
   <string name="login_activity_title">Aperir session</string>
-  <string name="login_in_progress_dialog_message">Accesso in curso…</string>
+  <string name="login_in_progress_dialog_message">Apertura de session in curso…</string>
   <string name="login_success_toast">Session aperte!</string>
   <string name="reset_password_title">Definir tu contrasigno</string>
   <string name="reset_password_description">Tu ha aperite session con un contrasigno temporari.\nPro completar le accesso, tu debe definir un nove contrasigno hic.</string>
@@ -359,7 +360,6 @@
   <string name="page_view_in_browser">Visitar iste pagina in le navigator</string>
   <string name="tool_tip_toc_title">Accesso rapide al tabula de contento</string>
   <string name="tool_tip_toc_text">Ora es possibile glissar al sinistra pro aperir le tabula de contento, e traher iste button de rolamento pro saltar rapidemente al varie sectiones de un articulo.</string>
-  <string name="tool_tip_lang_button">Ora es possibile cercar e leger in plure linguas de Wikipedia in le application.\n\n\nTocca le icone pro adder plus linguas.</string>
   <string name="error_response_malformed">Le responsa del servitor non ha essite formatate correctemente.</string>
   <string name="error_unknown">Un error incognite ha occurrite.</string>
   <string name="format_error_server_message">Message: \"%s\"</string>
@@ -424,8 +424,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalisar tu barra de utensiles</string>
   <string name="error_blocked_footer_no_blocker">Tu pote contactar un &lt;a href=\"https://ia.wikipedia.org/wiki/Wikipedia:Administratores\"&gt;administrator&lt;/a&gt; pro discuter le blocada.</string>
   <string name="temp_account_not_logged_in">Tu non ha aperite session</string>
-  <string name="temp_account_anon_dialog_body">Quando tu face un modification, un &lt;b&gt;conto temporari&lt;/b&gt; te essera create pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Lege plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Aperi session&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;crea un conto&lt;/a&gt; pro reciper credito pro futur modificationes e acceder a altere functiones.</string>
-  <string name="temp_account_temp_dialog_body">Tu modification essera attribuite a %1$s. Tu adresse IP essera visibile al administratores.&lt;br /&gt;&lt;br /&gt;Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt; oor &lt;a href=\"https://#login\"&gt;crea un conto&lt;/a&gt;, tu modificationes essera attribuite a un nomine que tu elige, inter altere beneficios.</string>
+  <string name="temp_account_anon_ip_dialog_body">Quando tu face un modification, tu adresse IP essera associate a tu modificationes.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Aperi session&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un conto&lt;/a&gt; pro reciper attribution pro futur modificationes e pro acceder a altere functionalitate.</string>
+  <string name="temp_account_anon_dialog_body">Quando tu face un modification, un &lt;b&gt;conto temporari&lt;/b&gt; te essera create pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Lege plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Aperi session&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un conto&lt;/a&gt; pro reciper credito pro futur modificationes e acceder a altere functiones.</string>
+  <string name="temp_account_temp_dialog_body">Tu modification essera attribuite a %1$s. Tu adresse IP essera visibile al administratores.&lt;br /&gt;&lt;br /&gt;Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un conto&lt;/a&gt;, tu modificationes essera attribuite a un nomine que tu elige, inter altere beneficios.</string>
   <string name="temp_account_dialog_ok">Comprendite</string>
   <string name="temp_account_using_title">Tu usa un conto temporari</string>
   <string name="temp_account_dialog_discard">Abandonar cambiamentos e aperir session</string>
@@ -437,6 +438,7 @@
     <item quantity="one">Le conto expirara in %d die.</item>
     <item quantity="other">Le conto expirara in %d dies.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Tu non ha aperite session.&lt;/b&gt; Quando tu face un modification, tu adresse IP essera associate a tu modificaiontes.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Tu non ha aperite session.&lt;/b&gt; Un vice que tu apporta un modification, un conto temporari essera create pro te pro proteger tu vita private. &lt;a href=\"%1$s\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Tu usa un conto temporari.&lt;/b&gt; Tu modification essera attribuite a %1$s. &lt;a href=\"%2$s\"&gt;Leger plus&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Tu usa in iste momento un conto temporari.&lt;/b&gt; Le modificationes apportate con le conto temporari %1$s non essera transferite a tu conto permanente quando tu aperi session. Aperi session o crea un conto pro reciper attribution a tu nomine de usator, inter altere beneficios.</string>
@@ -825,6 +827,7 @@
   <string name="feed_item_type_main_page">Pagina principal de Wikipedia con le contento selecte del die</string>
   <string name="feed_item_type_randomizer">Generar articulos aleatori a leger</string>
   <string name="feed_item_type_suggested_edits">Suggestiones pro adder contento a Wikipedia</string>
+  <string name="feed_item_type_places">Articulos a proximitate a base del localisation actual</string>
   <string name="feed_empty_message">Il ha nihil sur tu canal Explorar</string>
   <string name="feed_configure_onboarding_action">Personalisar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1018,6 +1021,10 @@
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributiones</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Modification</item>
+    <item quantity="other">Modificationes</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d die</item>
     <item quantity="other">%d dies</item>
@@ -1051,7 +1058,6 @@
     <item quantity="one">Tu ha addite %d etiquetta</item>
     <item quantity="other">Tu ha addite %d etiquettas</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Heri</string>
   <string name="suggested_edits_encourage_account_creation_title">Sapeva tu que omnes pote modificar Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Modificationes suggerite es un nove maniera de modificar Wikipedia sur Android. Te adjuta a facer contributiones micre ma vital pro Wikipedia.\nNostre objectivo es render le modification plus facile e plus accessibile pro omnes! Aperi session o crea un conto sur Wikipedia pro comenciar.</string>
@@ -1148,6 +1154,7 @@
   <string name="app_shortcuts_random">Aleatori</string>
   <string name="app_shortcuts_continue_reading">Continuar a leger</string>
   <string name="app_shortcuts_search">Cercar</string>
+  <string name="app_shortcuts_places">Locos</string>
   <string name="on_this_day_card_title">In iste die</string>
   <string name="more_events_text">Plus sur iste die</string>
   <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
@@ -1178,10 +1185,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantene al minus un lingua de Wikipedia in le qual cercar e leger contento.</string>
   <string name="more_language_options">plus</string>
   <string name="add_wikipedia_languages_text">Adder linguas de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Remover un variante chinese del linguas de tu application?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Tu ha actualmente le duo variantes chinese, traditional e simplificate, definite in le linguas de tu application. Actualisar le parametros de linguas de tu application?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modificar linguas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gratias</string>
   <string name="remove_language_dialog_cancel_button_text">Cancellar</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1481,8 +1484,6 @@
   <string name="reading_list_share_menu_label">Condivider…</string>
   <string name="reading_list_share_menu_tooltip">Condivider iste lista de lectura con alteres</string>
   <string name="reading_list_share_message_v2">Salute! Io vole condivider mi lista de lectura de Wikipedia con te:</string>
-  <string name="reading_list_share_survey_title">Poterea tu adjutar nos a meliorar \"Condivider listas de lectura\"?</string>
-  <string name="reading_list_share_survey_body">\"Condivider listas de lectura\" es un function in test e nos ha besonio de tu retroaction pro meliorar o remover lo.</string>
   <string name="talk_templates_empty_message">Crea tu proprie messages o usa le &lt;a href=\"#\"&gt;messages de exemplo&lt;/a&gt; pro comenciar.</string>
   <string name="talk_templates_new_message_title">Nove message</string>
   <string name="talk_templates_new_message_subject_hint">Subjecto</string>
@@ -1590,16 +1591,9 @@
   <string name="patroller_onboarding_two_undo_content">Elige ‘Disfacer’ pro disfacer o revocar un modification potentialmente destructive.</string>
   <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>
   <string name="patroller_diff_tooltip_two">‘Intention’ previde le probabilitate que un modification es facite in bon fide.</string>
-  <string name="patroller_diff_feedback_dialog_title">Adjuta nos a meliorar iste function</string>
-  <string name="patroller_diff_feedback_dialog_message">Es tu satisfacite de iste function?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfacite</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non satisfacite</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Como pote nos meliorar le function?</string>
   <string name="patroller_diff_menu_edit_history_title">Historia de modificationes del articulo</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentario</string>
-  <string name="patroller_diff_feedback_dialog_submit">Submitter</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Commentario submittite.</string>
   <string name="patroller_diff_feedback_tooltip">Pro inviar commentarios, tocca sur le menu de disbordamento sub ‘Problema con function’.</string>
   <string name="patroller_saved_message_title_vandalism">Advertimento de vandalismo</string>
   <string name="patroller_saved_message_title_editing_tests">Tests de modification</string>
@@ -1657,13 +1651,54 @@
   <string name="places_filter_title">Filtrar per lingua</string>
   <string name="places_toggle_buttons_map">Carta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_nav_tab_tooltip_message">Discoperi articulos de Wikipedia circa te con Locos</string>
-  <string name="places_article_menu_tooltip_message">Tocca ‘Vider sur carta’ pro explorar le loco de iste articulo</string>
-  <string name="places_survey_very_satisfied_option">Multo satisfacite</string>
-  <string name="places_survey_very_unsatisfied_option">Multo insatisfacite</string>
-  <string name="places_survey_dialog_title">Adjuta a meliorar ‘Locos’</string>
-  <string name="places_survey_feedback_dialog_title">Como pote ‘Locos’ esser meliorate?</string>
-  <string name="places_survey_dialog_cancel">Cancellar</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Que vole tu que nos cambia o meliora?</string>
   <string name="places_empty_list">Iste area es vacue. Face zoom retro sur &lt;a href=\"#\"&gt;le carta&lt;/a&gt;.</string>
+  <string name="places_card_title">Locos a proximitate</string>
+  <string name="places_card_action">Plus locos a proximitate</string>
+  <string name="places_card_enable_location_card_message">‘Locos’ es un maniera cartographic de explorar Wikipedia</string>
+  <string name="places_card_enable_location_card_button">Activar le localisation</string>
+  <string name="places_card_distance_suffix">A %s</string>
+  <string name="places_card_distance_unknown">Distantia incognite</string>
+  <string name="places_empty_message_snackbar">Il non ha articulos a proximitate. Tenta facer zoom retro e displaciar le carta.</string>
+  <string name="donor_history_title">Historia del donator</string>
+  <string name="donor_history_save_button">Salveguardar</string>
+  <string name="donor_history_update_donor_status_default">Actualisar stato de donator</string>
+  <string name="donor_history_update_donor_status_donor">Donator</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Non donator</string>
+  <string name="donor_history_last_donated">Ultime donation</string>
+  <string name="donor_history_last_donated_hint">Adder le data del ultime donation</string>
+  <string name="donor_history_last_donated_date_picker_title">Selige un data</string>
+  <string name="donor_history_last_donated_date_picker_label">Insere data</string>
+  <string name="donor_history_recurring_donor">Donator recurrente</string>
+  <string name="donor_history_donate_button">Donar al Fundation Wikimedia</string>
+  <string name="donor_history_about_this_experiment">A proposito de iste experimento</string>
+  <string name="donor_history_updated_message_snackbar">Historia del donator actualisate</string>
+  <string name="contributions_dashboard_survey_dialog_title">Adjuta a meliorar le tabuliero de contributiones</string>
+  <string name="contributions_dashboard_survey_dialog_message">Iste actualisation al tabuliero de instrumentos es un function experimental. Vole tu que iste function es meliorate o removite?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Necun opinion</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Dar tu opinion</string>
+  <string name="contributions_dashboard_donation_dialog_title">Gratias pro appoiar le cognoscentia libere</string>
+  <string name="contributions_dashboard_donation_dialog_message">Tu face parte del 2%% que ha eligite a appoiar le ressource al qual milliones se fide. Pro demonstrar nostre gratitude, tu tabuliero de contributiones ha essite actualisate pro recognoscer tu stato de donator. Vole tu vider le actualisation?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">No, gratias</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Si, porta me la</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Tu tabuliero de contributiones ha essite actualisate</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Le tabuliero de contributiones ora monstra detalios sur tu stato de donator. Vole tu revider iste function experimental?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">No, gratias</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Si, porta me la</string>
+  <string name="contributions_dashboard_badge_donor">Donator</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Devenir donator</string>
+  <string name="contributions_dashboard_badge_update">Actualisar stato de donator</string>
+  <string name="contributions_dashboard_app_icon_title">Icone del app</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Beneficio de donator</string>
+  <string name="contributions_dashboard_logged_out_user">Usator sin session</string>
+  <string name="survey_dialog_title">Adjuta nos a meliorar iste function</string>
+  <string name="survey_dialog_message">Es tu satisfacite de iste function?</string>
+  <string name="survey_dialog_option_satisfied">Satisfacite</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Non satisfacite</string>
+  <string name="survey_dialog_option_very_satisfied">Multo satisfacite</string>
+  <string name="survey_dialog_option_very_unsatisfied">Multo insatisfacite</string>
+  <string name="survey_dialog_cancel">Cancellar</string>
+  <string name="survey_dialog_submit">Submitter</string>
+  <string name="survey_dialog_input_hint">Retroaction additional</string>
+  <string name="survey_dialog_submitted_snackbar">Commentario submittite.</string>
 </resources>

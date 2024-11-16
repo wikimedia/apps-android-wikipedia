@@ -15,7 +15,7 @@ import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.drawable.toBitmap
 
 object ResourceUtil {
-    fun bitmapFromVectorDrawable(context: Context, @DrawableRes id: Int, @ColorRes tintColor: Int?): Bitmap {
+    fun bitmapFromVectorDrawable(context: Context, @DrawableRes id: Int, @ColorRes tintColor: Int? = null): Bitmap {
         val vectorDrawable = AppCompatResources.getDrawable(context, id)!!.mutate()
         if (tintColor != null) {
             vectorDrawable.setTint(ContextCompat.getColor(context, tintColor))

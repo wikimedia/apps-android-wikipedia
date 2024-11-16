@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
@@ -35,6 +36,8 @@ import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
@@ -48,13 +51,13 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
-class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback {
+class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback, LinkPreviewDialog.DismissCallback {
     private lateinit var binding: ActivityTalkReplyBinding
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
     private lateinit var messagePreviewFragment: EditPreviewFragment
 
-    val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
+    val viewModel: TalkReplyViewModel by viewModels()
     private var userMentionScrolled = false
     private var shouldWatchText = true
     private var subjectOrBodyModified = false
@@ -179,6 +182,21 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             }
         }
 
+        viewModel.pageExistsData.observe(this) {
+            if (it is Resource.Success) {
+                if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+                    binding.footerContainer.tempAccountInfoContainer.isVisible = true
+                    binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+                    binding.footerContainer.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
+                    binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getUserNameFromCookie(), getString(R.string.temp_accounts_help_url))
+                    else getString(if (viewModel.tempAccountsEnabled) R.string.temp_account_anon_edit_status else R.string.temp_account_anon_ip_edit_status, getString(R.string.temp_accounts_help_url)))
+                } else {
+                    binding.footerContainer.tempAccountInfoContainer.isVisible = false
+                }
+                maybeShowTempAccountDialog()
+            }
+        }
+
         viewModel.selectedTemplate?.let {
             binding.root.post {
                 shouldWatchText = false
@@ -214,6 +232,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun onInitialLoad() {
+        binding.footerContainer.tempAccountInfoContainer.isVisible = false
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
         binding.learnMoreButton.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
@@ -249,7 +268,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             binding.replySubjectLayout.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName.orEmpty(), viewModel.pageTitle)
+            binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName, viewModel.pageTitle)
             binding.talkScrollContainer.post {
                 if (!isDestroyed) {
                     binding.replyInputView.editText.requestFocus()
@@ -458,7 +477,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private fun getWikitextBody(): String {
         return binding.replyInputView.editText.text.toString().trim()
             .replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
-            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
+            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName)
             .replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
     }
 
@@ -504,6 +523,40 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             this.text = text
             this.movementMethod = licenseTextMovementMethod
         }
+    }
+
+    private fun maybeShowTempAccountDialog(force: Boolean = false): Boolean {
+        if (force || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
+            val dialog = MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon_NegativeInactive)
+                .setIcon(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+                .setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
+                .setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
+                else getString(if (viewModel.tempAccountsEnabled) R.string.temp_account_anon_dialog_body else R.string.temp_account_anon_ip_dialog_body, getString(R.string.temp_accounts_help_url))))
+                .setPositiveButton(getString(R.string.temp_account_dialog_ok)) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setNegativeButton(getString(R.string.create_account_login)) { dialog, _ ->
+                    launchLogin()
+                    dialog.dismiss()
+                }
+                .show()
+            dialog.window?.let {
+                it.decorView.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { link ->
+                    if (link.contains("#login") || link.contains("#createaccount")) {
+                        launchLogin(link.contains("#createaccount"))
+                    } else {
+                        UriUtil.handleExternalLink(this, Uri.parse(link))
+                    }
+                }
+            }
+            Prefs.tempAccountDialogShown = true
+            return true
+        }
+        return false
+    }
+
+    private fun launchLogin(createAccountFirst: Boolean = true) {
+        requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
     }
 
     override fun onBackPressed() {
@@ -564,6 +617,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     override fun isNewPage(): Boolean {
         return !viewModel.doesPageExist
+    }
+
+    override fun onLinkPreviewDismiss() {
+        if (!isDestroyed) {
+            binding.replyInputView.editText.postDelayed({
+                DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
+            }, 200)
+        }
     }
 
     companion object {

@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
@@ -22,7 +23,7 @@ class UserInfo : BlockInfo() {
     @SerialName("cancreateerror") private val canCreateError: List<MwServiceError>? = null
     val options: Options? = null
 
-    val error get() = canCreateError?.get(0)?.title.orEmpty()
+    val error get() = canCreateError?.get(0)?.key.orEmpty()
     val hasBlockError get() = error.contains("block")
 
     fun groups(): Set<String> {
@@ -52,5 +53,6 @@ class UserInfo : BlockInfo() {
     @Serializable
     class Options {
         @SerialName("watchdefault") val watchDefault: Int = 0
+        @SerialName("centralnotice-display-campaign-type-fundraising") val fundraisingOptIn: JsonElement? = null
     }
 }

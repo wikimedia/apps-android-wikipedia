@@ -1,8 +1,8 @@
 package org.wikipedia.talk
 
-import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -10,7 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.extensions.parcelable
+import org.wikipedia.edit.EditTags
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesRepository
@@ -18,25 +18,27 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.log.L
 
-class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
+class TalkReplyViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
 
     var talkTemplateSaved = false
     val talkTemplatesList = mutableListOf<TalkTemplate>()
 
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
-    val topic = bundle.parcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
-    val isFromDiff = bundle.getBoolean(TalkReplyActivity.EXTRA_FROM_DIFF, false)
-    val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkReplyActivity.EXTRA_SELECTED_TEMPLATE)
-    val isExampleTemplate = bundle.getBoolean(TalkReplyActivity.EXTRA_EXAMPLE_TEMPLATE, false)
-    val templateManagementMode = bundle.getBoolean(TalkReplyActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
-    val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID, -1)
-    val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID, -1)
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
+    val topic = savedStateHandle.get<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
+    val isFromDiff = savedStateHandle[TalkReplyActivity.EXTRA_FROM_DIFF] ?: false
+    val selectedTemplate = savedStateHandle.get<TalkTemplate>(TalkReplyActivity.EXTRA_SELECTED_TEMPLATE)
+    val isExampleTemplate = savedStateHandle[TalkReplyActivity.EXTRA_EXAMPLE_TEMPLATE] ?: false
+    val templateManagementMode = savedStateHandle[TalkReplyActivity.EXTRA_TEMPLATE_MANAGEMENT] ?: false
+    val fromRevisionId = savedStateHandle[TalkReplyActivity.FROM_REVISION_ID] ?: -1L
+    val toRevisionId = savedStateHandle[TalkReplyActivity.TO_REVISION_ID] ?: -1L
     val isNewTopic = topic == null && !isFromDiff
 
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
+    val pageExistsData = MutableLiveData<Resource<Boolean>>()
     var doesPageExist = false
+    var tempAccountsEnabled = true
 
     init {
         if (isFromDiff) {
@@ -52,7 +54,9 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         }) {
             ServiceFactory.get(pageTitle.wikiSite).getPageIds(pageTitle.prefixedText).let {
                 doesPageExist = (it.query?.pages?.firstOrNull()?.pageId ?: 0) > 0
+                tempAccountsEnabled = it.query?.autoCreateTempUser?.enabled == true
             }
+            pageExistsData.postValue(Resource.Success(doesPageExist))
         }
     }
 
@@ -71,9 +75,9 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
             val response = if (topic != null) {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token)
+                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, topic.id, body, token, tags = EditTags.APP_TALK_REPLY)
             } else {
-                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token)
+                ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token, tags = EditTags.APP_TALK_TOPIC)
             }
             postReplyData.postValue(Resource.Success(response.result!!.newRevId))
         }
@@ -106,13 +110,6 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
                 this.message = body
             }
             saveTemplateData.postValue(Resource.Success(talkTemplate))
-        }
-    }
-
-    class Factory(val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return TalkReplyViewModel(bundle) as T
         }
     }
 }

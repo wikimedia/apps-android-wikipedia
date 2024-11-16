@@ -282,7 +282,6 @@
   <string name="page_view_in_browser">Ver la páxina nel navegador</string>
   <string name="tool_tip_toc_title">Accesu rápidu a la tabla de conteníu</string>
   <string name="tool_tip_toc_text">Agora pués esmucir a la izquierda p\'abrir la tabla de conteníu, y tamién tocar y abasnar esti botón de desplazamientu para saltar rápido a distintes secciones d\'un artículu.</string>
-  <string name="tool_tip_lang_button">Agora puedes buscar y lleer Wikipedia en distintos idiomes na app.\n\n\nToca l\'iconu p\'añadir más idiomes.</string>
   <string name="error_response_malformed">La respuesta del sirvidor nun tenía un formatu correutu.</string>
   <string name="error_unknown">Hebo un error desconocíu.</string>
   <string name="format_error_server_message">Mensaxe: «%s»</string>
@@ -772,10 +771,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Dexa polo menos una llingua de Wikipedia pa buscar y lleer el conteníu.</string>
   <string name="more_language_options">más</string>
   <string name="add_wikipedia_languages_text">Añadir idiomes de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">¿Quitar una variante del chinu de los idiomes de l\'aplicación?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora tienes definíos tanto\'l chinu tradicional como\'l simplificáu nos idiomes de l\'aplicación. ¿Anovar la configuración llingüística de la app?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar llingües</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non, gracies</string>
   <string name="remove_language_dialog_cancel_button_text">Zarrar</string>
   <string name="remove_language_dialog_ok_button_text">Aceutar</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Aceutar</string>

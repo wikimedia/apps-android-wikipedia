@@ -3,7 +3,6 @@
 * AOla333
 * Alan ffm
 * Alchemik
-* Amire80
 * Chrumps
 * CiaPan
 * Czupirek
@@ -95,7 +94,7 @@
   <string name="page_edit_history_filter_by">Filtruj po</string>
   <string name="page_edit_history_filter_by_all">Wszystkie zmiany (%s)</string>
   <string name="page_edit_history_filter_by_user">Edycje użytkownika (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Edycje anonimowe (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edycje anonimowe (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edycje botów (%s)</string>
   <string name="page_edit_history_metrics_content_description">Dane od %1$s do %2$s</string>
   <string name="page_edit_history_empty_search_message">Spróbuj zmienić &lt;a href=\"#\"&gt;filtry&lt;/a&gt;, aby zobaczyć więcej zmian</string>
@@ -372,7 +371,6 @@
   <string name="page_view_in_browser">Otwórz stronę w przeglądarce</string>
   <string name="tool_tip_toc_title">Spis treści szybkiego dostępu</string>
   <string name="tool_tip_toc_text">Możesz teraz przesunąć palcem w lewo, aby otworzyć spis treści, a także dotknąć i przeciągnąć ten przycisk przewijania, aby szybko przejść do różnych sekcji artykułu.</string>
-  <string name="tool_tip_lang_button">Możesz teraz wyszukiwać i czytać w wielu językach w aplikacji Wikipedia. \n\n\nStuknij w ikonę, aby dodać więcej języków.</string>
   <string name="error_response_malformed">Odpowiedzi z serwera nie została prawidłowo sformatowana.</string>
   <string name="error_unknown">Wystąpił nieznany błąd.</string>
   <string name="format_error_server_message">Komunikat: „%s”</string>
@@ -968,7 +966,6 @@
   <string name="suggested_edits_contribution_article_label">Artykuł</string>
   <string name="suggested_edits_contribution_views">%s wyświetleń</string>
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
   <string name="suggested_edits_encourage_account_creation_title">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="suggested_edits_encourage_account_creation_message">Sugerowane zmiany to nowy sposób edytowania Wikipedii na Androidzie. Pomaga w niewielkim, ale istotnym wkładzie do Wikipedii.\nNaszym celem jest uczynienie edycji łatwiejszą i bardziej dostępną dla wszystkich! Zaloguj się lub dołącz do Wikipedii, aby rozpocząć.</string>
@@ -1086,10 +1083,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Zachowaj przynajmniej jeden język Wikipedii, z którego można wyszukiwać i czytać treści.</string>
   <string name="more_language_options">więcej</string>
   <string name="add_wikipedia_languages_text">Dodaj języki Wikipedii</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Usunąć wariant chiński z języków aplikacji?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Obecnie w językach aplikacji masz ustawione zarówno tradycyjne, jak i uproszczone chińskie warianty. Zaktualizować ustawienia języków aplikacji?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Edytuj języki</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, dziękuję</string>
   <string name="remove_language_dialog_cancel_button_text">Anuluj</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1310,14 +1303,8 @@
   <string name="patroller_tasks_filters_reset">Zresetuj</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Wszystkie</string>
-  <string name="patroller_diff_feedback_dialog_message">Czy jesteś zadowolony z tej funkcji?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Zadowolony</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutralny</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Niezadowolony</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Jak możemy ulepszyć tę funkcję?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Opinia</string>
-  <string name="patroller_diff_feedback_dialog_submit">Wyślij</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Opinia została przesłana.</string>
   <string name="patroller_diff_feedback_tooltip">Kliknij rozszerzone menu, aby w dowolnym momencie przesłać opinię w sekcji „Problem z funkcją”.</string>
   <string name="data_opt_in_accept">Akceptuj</string>
   <string name="data_opt_in_reject">Odrzuć</string>
@@ -1328,4 +1315,10 @@
   <string name="donation_campaign_donated_snackbar">Dziękuję, drogi darczyńco! Twoja hojność pomaga w rozwoju Wikipedii i jej siostrzanych witryn.</string>
   <string name="donation_campaign_go_back_button">Wróć</string>
   <string name="menu_single_webview_open_external">Otwórz w przeglądarce systemowej</string>
+  <string name="survey_dialog_message">Czy jesteś zadowolony z tej funkcji?</string>
+  <string name="survey_dialog_option_satisfied">Zadowolony</string>
+  <string name="survey_dialog_option_neutral">Neutralny</string>
+  <string name="survey_dialog_option_unsatisfied">Niezadowolony</string>
+  <string name="survey_dialog_submit">Wyślij</string>
+  <string name="survey_dialog_submitted_snackbar">Opinia została przesłana.</string>
 </resources>

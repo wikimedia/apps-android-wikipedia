@@ -43,7 +43,7 @@
   <string name="page_edit_history_activity_title">Cronologia: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_filter_by_all">Tutti li mudìfigghi (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Tutti li mudìfigghi (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Tutti li mudìfigghi (%s)</string>
   <string name="page_edit_history_filter_by_bot">Tutti li mudìfigghi (%s)</string>
   <string name="page_edit_history_metrics_content_description">Sthatìsthigghi da %1$s a %2$s</string>
   <string name="menu_page_other_languages">Ciambà linga</string>
@@ -243,7 +243,6 @@
   <string name="suggested_edits_contribution_date_time_label">Data / Ora</string>
   <string name="suggested_edits_contribution_image_label">Immàgina</string>
   <string name="suggested_edits_contribution_article_label">Bozi</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="description_edit_login_cancel_button_text">Annullà</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>

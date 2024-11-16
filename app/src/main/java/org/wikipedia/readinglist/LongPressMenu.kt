@@ -27,6 +27,7 @@ import org.wikipedia.util.StringUtil
 class LongPressMenu(
     private val anchorView: View,
     private val existsInAnyList: Boolean = true,
+    private val openPageInPlaces: Boolean = false,
     private var menuRes: Int = R.menu.menu_long_press,
     private val location: Location? = null,
     private val callback: Callback? = null
@@ -34,6 +35,7 @@ class LongPressMenu(
     interface Callback {
         fun onOpenLink(entry: HistoryEntry) { /* ignore by default */ }
         fun onOpenInNewTab(entry: HistoryEntry) { /* ignore by default */ }
+        fun onOpenInPlaces(entry: HistoryEntry, location: Location) { /* ignore by default */ }
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
         fun onRemoveRequest() { /* ignore by default */ }
@@ -85,6 +87,9 @@ class LongPressMenu(
                     saveItem.isVisible = it.isEmpty()
                     saveItem.isEnabled = it.isEmpty()
                 }
+                val showOpenPageInPlaces = openPageInPlaces && location != null
+                menu.menu.findItem(R.id.menu_long_press_open_in_places)?.isVisible = showOpenPageInPlaces
+                menu.menu.findItem(R.id.menu_long_press_open_page)?.isVisible = !showOpenPageInPlaces
                 menu.menu.findItem(R.id.menu_long_press_get_directions)?.isVisible = location != null
                 menu.show()
             }
@@ -125,6 +130,12 @@ class LongPressMenu(
             return when (item.itemId) {
                 R.id.menu_long_press_open_page -> {
                     entry?.let { callback?.onOpenLink(it) }
+                    true
+                }
+                R.id.menu_long_press_open_in_places -> {
+                    location?.let { location ->
+                        entry?.let { callback?.onOpenInPlaces(it, location) }
+                    }
                     true
                 }
                 R.id.menu_long_press_open_in_new_tab -> {
