@@ -487,6 +487,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
             .setSilent(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setProgress(total, progress, progress == 0)
+            .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
     }
 
     private fun getBooleanExtraFromData(inputData: Data): Bundle {
