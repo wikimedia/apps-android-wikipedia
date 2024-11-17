@@ -15,9 +15,9 @@ import org.wikipedia.util.ResourceUtil.getThemedColor
 class SearchActionProvider(context: Context,
                            private val searchHintString: String,
                            private val callback: Callback) : ActionProvider(context) {
-    interface Callback {
+    fun interface Callback {
         fun onQueryTextChange(s: String)
-        fun onQueryTextFocusChange()
+        fun onQueryTextFocusChange() {}
     }
 
     private val binding = GroupSearchBinding.inflate(LayoutInflater.from(context))

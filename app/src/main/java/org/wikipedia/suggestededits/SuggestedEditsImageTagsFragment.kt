@@ -17,10 +17,13 @@ import android.widget.Toast
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.children
 import androidx.core.widget.ImageViewCompat
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -29,40 +32,41 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditFragment
-import org.wikipedia.language.LanguageUtil
+import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import java.util.UUID
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
 
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: SuggestedEditsImageTagsViewModel by viewModels()
 
     var publishing = false
     private var publishSuccess = false
     private var page: MwQueryPage? = null
-    private val pageTitle get() = PageTitle(page!!.title, Constants.commonsWikiSite)
     private val tagList = mutableListOf<ImageTag>()
     private var wasCaptionLongClicked = false
     private var lastSearchTerm = ""
+    private val pageTitle: PageTitle? get() {
+        return page?.let {
+            return PageTitle(it.title, Constants.commonsWikiSite)
+        }
+    }
     var invokeSource = InvokeSource.SUGGESTED_EDITS
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -103,9 +107,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 Prefs.showImageZoomTooltip = false
                 FeedbackUtil.showToastOverView(binding.imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
             } else {
-                val pageTitle = pageTitle
-                pageTitle.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
-                startActivity(FilePageActivity.newIntent(requireContext(), pageTitle))
+                pageTitle?.let {
+                    it.wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
+                    startActivity(FilePageActivity.newIntent(requireContext(), it))
+                }
             }
         }
 
@@ -119,8 +124,43 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
 
         getNextItem()
-        updateContents()
         updateTagChips()
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> {
+                                page = it.data.first
+                                updateContents(it.data.first.imageInfo(), it.data.second)
+                                updateTagChips()
+                            }
+                            is Resource.Error -> setErrorState(it.throwable)
+                        }
+                    }
+                }
+                launch {
+                    viewModel.actionState.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                if (it.data != null) {
+                                    pageTitle?.let {
+                                        EditAttemptStepEvent.logSaveSuccess(it, EditAttemptStepEvent.INTERFACE_OTHER)
+                                    }
+                                }
+                                publishSuccess = true
+                                ImageRecommendationsEvent.logEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
+                                    "commons", it.data?.lastRevId ?: 0)
+                                onSuccess()
+                            }
+                            is Resource.Error -> onError(it.throwable)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun onStart() {
@@ -134,17 +174,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun getNextItem() {
-        if (page != null) {
-            return
-        }
-        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    this.page = it
-                    updateContents()
-                    updateTagChips()
-                }, { setErrorState(it) }))
+        viewModel.findNextSuggestedEditsItem(callback().getLangCode(), page)
+    }
+
+    private fun onLoading() {
+        binding.cardItemErrorView.visibility = GONE
+        binding.cardItemProgressBar.visibility = VISIBLE
+        binding.contentContainer.visibility = GONE
     }
 
     private fun setErrorState(t: Throwable) {
@@ -155,40 +191,26 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.contentContainer.visibility = GONE
     }
 
-    private fun updateContents() {
+    private fun updateContents(imageInfo: ImageInfo?, caption: String?) {
         binding.cardItemErrorView.visibility = GONE
-        binding.contentContainer.visibility = if (page != null) VISIBLE else GONE
-        binding.cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
-        if (page == null) {
-            return
-        }
-
+        binding.contentContainer.visibility = VISIBLE
+        binding.cardItemProgressBar.visibility = GONE
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
         ImageZoomHelper.setViewZoomable(binding.imageView)
-
-        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
-
-        disposables.add(
-                ServiceFactory.get(Constants.commonsWikiSite).getWikidataEntityTerms(page!!.title, LanguageUtil.convertToUselangIfNeeded(callback().getLangCode()))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { response ->
-                    val caption = response.query?.firstPage()?.entityTerms?.label?.firstOrNull()
-                    if (!caption.isNullOrEmpty()) {
-                        binding.imageCaption.text = caption
-                        binding.imageCaption.visibility = VISIBLE
-                    } else {
-                        if (page?.imageInfo()?.metadata != null) {
-                            binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
-                            binding.imageCaption.visibility = VISIBLE
-                            binding.imageView.contentDescription = binding.imageCaption.text
-                        } else {
-                            binding.imageCaption.visibility = GONE
-                        }
-                    }
-                })
-
+        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(imageInfo?.thumbUrl.orEmpty(), Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+        if (!caption.isNullOrEmpty()) {
+            binding.imageCaption.text = caption
+            binding.imageCaption.visibility = VISIBLE
+        } else {
+            if (imageInfo?.metadata != null) {
+                binding.imageCaption.text = StringUtil.fromHtml(imageInfo.metadata.imageDescription()).toString().trim()
+                binding.imageCaption.visibility = VISIBLE
+                binding.imageView.contentDescription = binding.imageCaption.text
+            } else {
+                binding.imageCaption.visibility = GONE
+            }
+        }
         updateLicenseTextShown()
         callback().updateActionButton()
     }
@@ -343,7 +365,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishing = true
         publishSuccess = false
 
-        EditAttemptStepEvent.logSaveAttempt(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+        pageTitle?.let {
+            EditAttemptStepEvent.logSaveAttempt(it, EditAttemptStepEvent.INTERFACE_OTHER)
+        }
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         binding.publishProgressCheck.visibility = GONE
@@ -351,60 +375,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
-        disposables.add(CsrfTokenClient.getToken(Constants.commonsWikiSite)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ token ->
-                    val mId = "M" + page!!.pageId
-                    var claimStr = "{\"claims\":["
-                    var commentStr = "/* add-depicts: "
-                    var first = true
-                    for (label in acceptedLabels) {
-                        if (!first) {
-                            claimStr += ","
-                        }
-                        if (!first) {
-                            commentStr += ","
-                        }
-                        first = false
-                        claimStr += "{\"mainsnak\":" +
-                                "{\"snaktype\":\"value\",\"property\":\"P180\"," +
-                                "\"datavalue\":{\"value\":" +
-                                "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
-                                "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
-                                "\"type\":\"statement\"," +
-                                "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
-                                "\"rank\":\"normal\"}"
-                        commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
-                    }
-                    claimStr += "]}"
-                    commentStr += " */" + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
-
-                    disposables.add(ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, token, claimStr, commentStr, null)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .doAfterTerminate {
-                                publishing = false
-                            }
-                            .subscribe({
-                                if (it.entity != null) {
-                                    EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
-                                }
-                                publishSuccess = true
-                                ImageRecommendationsEvent.logEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
-                                    "commons", it.entity?.lastRevId ?: 0)
-                                onSuccess()
-                            }, {
-                                onError(it)
-                            })
-                    )
-                }, {
-                    onError(it)
-                }))
+        page?.let {
+            viewModel.publishImageTags(it, acceptedLabels)
+        }
     }
 
     private fun onSuccess() {
-
+        publishing = false
         val duration = 500L
         binding.publishProgressBar.alpha = 1f
         binding.publishProgressBar.animate()
@@ -439,7 +416,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onError(caught: Throwable) {
-        EditAttemptStepEvent.logSaveFailure(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
+        pageTitle?.let {
+            EditAttemptStepEvent.logSaveFailure(it, EditAttemptStepEvent.INTERFACE_OTHER)
+        }
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }

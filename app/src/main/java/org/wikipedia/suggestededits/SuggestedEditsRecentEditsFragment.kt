@@ -157,7 +157,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     override fun onResume() {
         super.onResume()
         actionMode?.let {
-            if (SearchActionModeCallback.`is`(it)) {
+            if (SearchActionModeCallback.matches(it)) {
                 searchActionModeCallback.refreshProvider()
             }
         }
@@ -176,15 +176,15 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             }
             R.id.menu_saved_messages -> {
                 sendPatrollerExperienceEvent("list_saved_init", "pt_warning_messages")
-                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), AccountUtil.userName.orEmpty(), viewModel.wikiSite)
+                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), AccountUtil.userName, viewModel.wikiSite)
                 requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
             R.id.menu_report_feature -> {
                 sendPatrollerExperienceEvent("top_menu_feedback_click", "pt_recent_changes")
-                FeedbackUtil.composeFeedbackEmail(requireContext(),
-                    getString(R.string.email_report_patroller_tasks_subject),
-                    getString(R.string.email_report_patroller_tasks_body))
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.email_report_patroller_tasks_subject),
+                    body = getString(R.string.email_report_patroller_tasks_body))
                 true
             }
             else -> false
@@ -409,8 +409,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         override fun onItemClick(item: MwQueryResult.RecentChange) {
             sendPatrollerExperienceEvent("edit_item_click", "pt_recent_changes")
             viewModel.populateEditingSuggestionsProvider(item)
-            startActivity(SuggestionsActivity.newIntent(requireActivity(),
-                DescriptionEditActivity.Action.VANDALISM_PATROL, Constants.InvokeSource.SUGGESTED_EDITS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), DescriptionEditActivity.Action.VANDALISM_PATROL))
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {
@@ -427,13 +426,10 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(requireContext(), getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -449,7 +445,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

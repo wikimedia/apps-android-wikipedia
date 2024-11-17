@@ -23,13 +23,25 @@ class SharedPreferenceCookieManager(
     }
 
     @Synchronized
-    fun getCookieByName(name: String): String? {
+    fun getCookieValueByName(name: String): String? {
         for (domainSpec in cookieJar.keys) {
             getCookieByName(name, domainSpec)?.let {
                 return it
             }
         }
         return null
+    }
+
+    @Synchronized
+    fun getCookieExpiryByName(name: String): Long {
+        for (domainSpec in cookieJar.keys) {
+            for (cookie in cookieJar[domainSpec]!!) {
+                if (cookie.name == name) {
+                    return cookie.expiresAt
+                }
+            }
+        }
+        return 0
     }
 
     @Synchronized

@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
@@ -24,7 +23,7 @@ import org.wikipedia.dataclient.wikidata.Entities
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
-import org.wikipedia.login.LoginClient.LoginResponse
+import org.wikipedia.login.LoginResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -39,12 +38,6 @@ import retrofit2.http.Query
 interface Service {
 
     // ------- Search -------
-
-    @GET(
-        MW_API_PREFIX + "action=query&prop=pageimages&piprop=thumbnail" +
-                "&converttitles=&pilicense=any&pithumbsize=" + PREFERRED_THUMB_SIZE
-    )
-    fun getPageImages(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(
         MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
@@ -69,10 +62,10 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
-    fun prefixSearchUsers(
+    suspend fun prefixSearchUsers(
             @Query("auprefix") prefix: String,
             @Query("aulimit") maxResults: Int
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(
         MW_API_PREFIX + "action=query&generator=search&prop=imageinfo&iiprop=extmetadata|url" +
@@ -117,31 +110,25 @@ interface Service {
     suspend fun getLangLinks(@Query("titles") title: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
-    fun getDescription(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getDescription(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query")
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|autocreatetempuser")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getImageInfo(
-        @Query("titles") titles: String,
-        @Query("iiextmetadatalanguage") lang: String
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    suspend fun getImageInfoSuspend(
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|metadata|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    suspend fun getImageInfo(
         @Query("titles") titles: String,
         @Query("iiextmetadatalanguage") lang: String
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getVideoInfo(
+    @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|metadata|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
+    suspend fun getVideoInfo(
         @Query("titles") titles: String,
         @Query("viextmetadatalanguage") lang: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|entityterms&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getImageInfoWithEntityTerms(
@@ -150,14 +137,11 @@ interface Service {
             @Query("wbetlanguage") entityLang: String
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
-    fun getProtectionInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&prop=info&inprop=protection")
+    suspend fun getProtection(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
-    suspend fun getProtectionInfoSuspend(@Query("titles") titles: String): MwQueryResponse
-
-    @get:GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
-    val siteMatrix: Observable<SiteMatrix>
+    suspend fun getProtectionWithUserInfo(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     suspend fun getSiteMatrix(): SiteMatrix
@@ -170,17 +154,17 @@ interface Service {
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
     ): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
-    val siteInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
+    suspend fun getSiteInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
     suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
+    suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    fun parseText(@Query("text") text: String): Observable<MwParseResponse>
+    suspend fun parseText(@Query("text") text: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     suspend fun parseTextForMainPage(@Query("page") mainPageTitle: String): MwParseResponse
@@ -196,9 +180,15 @@ interface Service {
         @Query("gcmcontinue") continueStr: String?
     ): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    @get:Headers("Cache-Control: no-cache")
-    val randomWithImageInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&prop=pageprops|description|info&inprop=protection")
+    suspend fun getRandomPages(
+        @Query("grnlimit") count: Int = 50,
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&prop=info|description|imageinfo|revisions|globalusage&inprop=protection&gunamespace=0&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iilocalonly=1&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    suspend fun getRandomImages(
+        @Query("grnlimit") count: Int = 10,
+    ): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctype=edit|new")
@@ -213,18 +203,19 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
-    fun postSetOptions(
+    suspend fun postSetOptions(
         @Field("change") change: String,
         @Field("token") token: String
-    ): Observable<MwPostResponse>
+    ): MwPostResponse
 
-    @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
-    val streamConfigs: Observable<MwStreamConfigsResponse>
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
+    suspend fun getStreamConfigs(): MwStreamConfigsResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
             @Query("ammessages") messages: String,
-            @Query("amargs") args: String?
+            @Query("amargs") args: String?,
+            @Query("amlang") lang: String? = null
     ): MwQueryResponse
 
     @FormUrlEncoded
@@ -233,7 +224,7 @@ interface Service {
             @Field("url") url: String,
     ): ShortenUrlResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle")
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle&pilicense=any")
     suspend fun getGeoSearch(
         @Query("ggscoord", encoded = true) coordinates: String,
         @Query("ggsradius") radius: Int,
@@ -255,10 +246,8 @@ interface Service {
         @Field("currency") currency: String,
         @Field("donor_country") donorCountry: String,
         @Field("email") email: String,
-        @Field("first_name") firstName: String,
         @Field("full_name") fullName: String,
         @Field("language") language: String,
-        @Field("last_name") lastName: String,
         @Field("recurring") recurring: String,
         @Field("payment_token") paymentToken: String,
         @Field("opt_in") optIn: String,
@@ -272,17 +261,13 @@ interface Service {
 
     // ------- CSRF, Login, and Create Account -------
 
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=tokens")
-    fun getTokenObservable(@Query("type") type: String = "csrf"): Observable<MwQueryResponse>
-
     @GET(MW_API_PREFIX + "action=query&meta=tokens")
     @Headers("Cache-Control: no-cache")
     suspend fun getToken(@Query("type") type: String = "csrf"): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
-    fun postCreateAccount(
+    suspend fun postCreateAccount(
         @Field("username") user: String,
         @Field("password") pass: String,
         @Field("retype") retype: String,
@@ -291,41 +276,41 @@ interface Service {
         @Field("email") email: String?,
         @Field("captchaId") captchaId: String?,
         @Field("captchaWord") captchaWord: String?
-    ): Observable<CreateAccountResponse>
+    ): CreateAccountResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @get:Headers("Cache-Control: no-cache")
-    val loginToken: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
+    @Headers("Cache-Control: no-cache")
+    suspend fun getLoginToken(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    fun postLogIn(
+    suspend fun postLogIn(
         @Field("username") user: String?,
         @Field("password") pass: String?,
         @Field("logintoken") token: String?,
         @Field("loginreturnurl") url: String?
-    ): Observable<LoginResponse>
+    ): LoginResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    fun postLogIn(
+    suspend fun postLogIn(
         @Field("username") user: String?,
         @Field("password") pass: String?,
         @Field("retype") retypedPass: String?,
         @Field("OATHToken") twoFactorCode: String?,
         @Field("logintoken") token: String?,
         @Field("logincontinue") loginContinue: Boolean
-    ): Observable<LoginResponse>
+    ): LoginResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=logout")
-    fun postLogout(@Field("token") token: String): Observable<MwPostResponse>
+    suspend fun postLogout(@Field("token") token: String): MwPostResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
-    val authManagerInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
+    suspend fun getAuthManagerInfo(): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
-    val userInfo: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
+    suspend fun getUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
@@ -337,7 +322,7 @@ interface Service {
     suspend fun globalUserInfo(@Query("guiuser") userName: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
-    fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
+    suspend fun getUserList(@Query("ususers") userNames: String): MwQueryResponse
 
     // ------- Notifications -------
 
@@ -365,32 +350,27 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
     suspend fun unreadNotificationWikis(): MwQueryResponse
 
-    // TODO: remove "KT" if we remove the Observable one.
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
-    suspend fun unreadNotificationWikisKT(): MwQueryResponse
-
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
-    fun subscribePush(
+    suspend fun subscribePush(
         @Field("token") csrfToken: String,
         @Field("providertoken") providerToken: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=delete&provider=fcm")
-    fun unsubscribePush(
+    suspend fun unsubscribePush(
         @Field("token") csrfToken: String,
         @Field("providertoken") providerToken: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
-    fun getWikiTextForSectionWithInfo(
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&meta=siteinfo&siprop=general|autocreatetempuser&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
+    suspend fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
@@ -401,11 +381,12 @@ interface Service {
             @Field("token") token: String,
             @Field("undo") undoRevId: Long,
             @Field("undoafter") undoRevAfter: Long? = null,
+            @Field("matags") tags: String? = null
     ): Edit
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
-    fun postEditSubmit(
+    suspend fun postEditSubmit(
         @Field("title") title: String,
         @Field("section") section: String?,
         @Field("sectiontitle") newSectionTitle: String?,
@@ -419,7 +400,8 @@ interface Service {
         @Field("captchaword") captchaWord: String?,
         @Field("minor") minor: Boolean? = null,
         @Field("watchlist") watchlist: String? = null,
-    ): Observable<Edit>
+        @Field("matags") tags: String? = null
+    ): Edit
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=visualeditoredit")
@@ -439,7 +421,7 @@ interface Service {
         @Field("data-ge-task-image-recommendation") imageRecommendationJson: String? = null,
     ): Edit
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights|registrationdate")
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
@@ -459,25 +441,17 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    suspend fun getEditorTaskCounts(): MwQueryResponse
-
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")
     suspend fun postRollback(
         @Field("title") title: String,
         @Field("summary") summary: String?,
         @Field("user") user: String,
-        @Field("token") token: String
+        @Field("token") token: String,
+        @Field("matags") tags: String? = null
     ): RollbackPostResponse
 
     // ------- Wikidata -------
-
-    @GET(MW_API_PREFIX + "action=wbgetentities")
-    fun getEntitiesByTitle(
-        @Query("titles") titles: String,
-        @Query("sites") sites: String
-    ): Observable<Entities>
 
     @GET(MW_API_PREFIX + "action=wbgetentities")
     suspend fun getEntitiesByTitleSuspend(
@@ -486,56 +460,39 @@ interface Service {
     ): Entities
 
     @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
-    fun searchEntities(
+    suspend fun searchEntities(
         @Query("search") searchTerm: String,
         @Query("language") searchLang: String,
         @Query("uselang") resultLang: String
-    ): Observable<Search>
+    ): Search
 
     @GET(MW_API_PREFIX + "action=query&prop=entityterms")
-    fun getWikidataEntityTerms(
-            @Query("titles") titles: String,
-            @Query("wbetlanguage") lang: String
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
-    suspend fun getWikidataEntityTermsSuspend(
+    suspend fun getWikidataEntityTerms(
         @Query("titles") titles: String,
         @Query("wbetlanguage") lang: String
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=wbgetclaims")
-    fun getClaims(
-        @Query("entity") entity: String,
-        @Query("property") property: String?
-    ): Observable<Claims>
-
-    @GET(MW_API_PREFIX + "action=wbgetclaims")
-    suspend fun getClaimsSuspend(
+    suspend fun getClaims(
         @Query("entity") entity: String,
         @Query("property") property: String?
     ): Claims
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
-    suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
+    suspend fun getWikidataLabelsAndDescriptions(
+        @Query("ids") idList: String,
+        @Query("languages") languages: String? = null,
+        @Query("sitefilter") siteFilter: String? = null
+    ): Entities
 
-    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions")
+    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels")
     suspend fun getWikidataDescription(@Query("titles") titles: String,
                                        @Query("sites") sites: String,
                                        @Query("languages") langCode: String): Entities
 
-    @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
-    @FormUrlEncoded
-    fun postSetClaim(
-        @Field("claim") claim: String,
-        @Field("token") token: String,
-        @Field("summary") summary: String?,
-        @Field("tags") tags: String?
-    ): Observable<MwPostResponse>
-
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
-    fun postDescriptionEdit(
+    suspend fun postDescriptionEdit(
         @Field("language") language: String,
         @Field("uselang") useLang: String,
         @Field("site") site: String,
@@ -543,12 +500,13 @@ interface Service {
         @Field("value") newDescription: String,
         @Field("summary") summary: String?,
         @Field("token") token: String,
-        @Field("assert") user: String?
-    ): Observable<EntityPostResponse>
+        @Field("assert") user: String?,
+        @Field("matags") tags: String? = null
+    ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
     @FormUrlEncoded
-    fun postLabelEdit(
+    suspend fun postLabelEdit(
         @Field("language") language: String,
         @Field("uselang") useLang: String,
         @Field("site") site: String,
@@ -556,24 +514,21 @@ interface Service {
         @Field("value") newDescription: String,
         @Field("summary") summary: String?,
         @Field("token") token: String,
-        @Field("assert") user: String?
-    ): Observable<EntityPostResponse>
+        @Field("assert") user: String?,
+        @Field("matags") tags: String? = null
+    ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
     @FormUrlEncoded
-    fun postEditEntity(
+    suspend fun postEditEntity(
         @Field("id") id: String,
         @Field("token") token: String,
         @Field("data") data: String?,
         @Field("summary") summary: String?,
-        @Field("tags") tags: String?
-    ): Observable<EntityPostResponse>
+        @Field("matags") tags: String?
+    ): EntityPostResponse
 
     // ------- Watchlist -------
-
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
-    fun getWatchedInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
@@ -586,10 +541,6 @@ interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights")
     suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
-
-    @get:GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
-    @get:Headers("Cache-Control: no-cache")
-    val watchlist: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @Headers("Cache-Control: no-cache")
@@ -641,16 +592,6 @@ interface Service {
 
     @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded
-    fun postWatch(
-        @Field("unwatch") unwatch: Int?,
-        @Field("pageids") pageIds: String?,
-        @Field("titles") titles: String?,
-        @Field("expiry") expiry: String?,
-        @Field("token") token: String
-    ): Observable<WatchPostResponse>
-
-    @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
-    @FormUrlEncoded
     suspend fun watch(
             @Field("unwatch") unwatch: Int?,
             @Field("pageids") pageIds: String?,
@@ -658,10 +599,6 @@ interface Service {
             @Field("expiry") expiry: String?,
             @Field("token") token: String
     ): WatchPostResponse
-
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")
-    @get:Headers("Cache-Control: no-cache")
-    val watchToken: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")
     @Headers("Cache-Control: no-cache")
@@ -698,7 +635,8 @@ interface Service {
             @Field("token") token: String,
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
-            @Field("captchaword") captchaWord: String? = null
+            @Field("captchaword") captchaWord: String? = null,
+            @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addcomment")
@@ -710,7 +648,8 @@ interface Service {
             @Field("token") token: String,
             @Field("summary") summary: String? = null,
             @Field("captchaid") captchaId: Long? = null,
-            @Field("captchaword") captchaWord: String? = null
+            @Field("captchaword") captchaWord: String? = null,
+            @Field("matags") tags: String? = null
     ): DiscussionToolsEditResponse
 
     @GET(MW_API_PREFIX + "action=query&generator=growthtasks")
@@ -720,7 +659,7 @@ interface Service {
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
+    @GET(MW_API_PREFIX + "action=query&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random&prop=growthimagesuggestiondata|revisions|pageimages&pilicense=any&rvprop=ids|timestamp|flags|comment|user|content&rvslots=main&rvsection=0")
     suspend fun getPagesWithImageRecommendations(
         @Query("gsrlimit") count: Int
     ): MwQueryResponse
@@ -742,6 +681,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=templatedata&includeMissingTitles=&converttitles=")
     suspend fun getTemplateData(@Query("lang") langCode: String,
                                 @Query("titles") titles: String): TemplateDataResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&inprop=varianttitles")
+    suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

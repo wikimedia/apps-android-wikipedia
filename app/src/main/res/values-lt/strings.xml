@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Agne1992
-* Amire80
 * Eitvys200
 * Gediminas
 * Mantak111
@@ -65,7 +64,7 @@
   <string name="page_edit_history_filter_by">Filtruoti pagal</string>
   <string name="page_edit_history_filter_by_all">Visi pakeitimai (%s)</string>
   <string name="page_edit_history_filter_by_user">Naudotojo pakeitimai (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anoniniai pakeitimai (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anoniniai pakeitimai (%s)</string>
   <string name="page_edit_history_filter_by_bot">Robotų pakeitimai (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrika nuo %1$s iki %2$s</string>
   <string name="page_edit_history_empty_search_message">Pabandykite pakeisti &lt;a href=\"#\"&gt;filtrus&lt;/a&gt;, kad matytumėte daugiau keitimų</string>
@@ -335,7 +334,6 @@
   <string name="page_view_in_browser">Peržiūra naršyklėje</string>
   <string name="tool_tip_toc_title">Greita prieiga prie turinio</string>
   <string name="tool_tip_toc_text">Dabar galite braukti kairėn, kad atidarytumėte turinį, taip pat bakstelėkite ir vilkite šį slinkties mygtuką, kad greitai pereitumėte į skirtingas straipsnio dalis.</string>
-  <string name="tool_tip_lang_button">Dabar programėlėje galite ieškoti ir skaityti keliomis Vikipedijos kalbomis.\n\n\nBakstelėkite piktogramą, kad pridėtumėte daugiau kalbų.</string>
   <string name="error_response_malformed">Atsakas iš serverio nebuvo suformatuotas teisingai.</string>
   <string name="error_unknown">Įvyko nežinoma klaida.</string>
   <string name="format_error_server_message">Pranešimas: \"%s\"</string>
@@ -872,7 +870,6 @@
   <string name="suggested_edits_contribution_article_label">Straipsnis</string>
   <string name="suggested_edits_contribution_views">%s peržiūros</string>
   <string name="suggested_edits_contribution_seen_text">Peržiūrėta %s kartu per pastarąsias 30 dienų.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Vakar</string>
   <string name="suggested_edits_encourage_account_creation_title">Ar žinojote, kad visi gali redaguoti Vikipediją?</string>
   <string name="suggested_edits_encourage_account_creation_message">Siūlomi pakeitimai yra naujas būdas Android redaguoti Vikipediją. Tai padeda atlikti mažus, bet svarbius, Vikipedijos pakeitimus.\nMes siekiame padaryti redagavimą lengvesniu ir labiau prieinamu visiems! Prisijunkite ar užsiregistruokite prie Vikipedijos, kad pradėtumėte.</string>
@@ -972,10 +969,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Išlaikykite bent vieną Vikipedijos kalbą, kuria ieškoti ir skaityti turinį</string>
   <string name="more_language_options">daugiau</string>
   <string name="add_wikipedia_languages_text">Pridėti Vikipedijos kalbas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Pašalinti kinų variantą iš jūsų programėlės kalbų?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Šiuo metu turite tradicinės ir supaprastintos kinų kalbos variantus savo programėlės kalbose. Atnaujinti jūsų programėlės kalbų nustatymus?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Keisti kalbas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, ačiū</string>
   <string name="remove_language_dialog_cancel_button_text">Atšaukti</string>
   <string name="remove_language_dialog_ok_button_text">Gerai</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Gerai</string>
@@ -1231,8 +1224,6 @@
   <string name="reading_list_share_menu_label">Dalintis…</string>
   <string name="reading_list_share_menu_tooltip">Dalintis šiuo skaitymo sąrašu su kitais</string>
   <string name="reading_list_share_message_v2">Labas! Noriu pasidalinti savo Vikipedijos skaitymo sąrašu su tavimi:</string>
-  <string name="reading_list_share_survey_title">Ar galite mums padėti patobulinti skaitymo sąrašų dalijimąsi?</string>
-  <string name="reading_list_share_survey_body">Skaitymo sąrašų dalijimasis yra bandoma funkcijas ir mums reikia jūsų grįžtamojo ryšio, kad galėtume patobulinti ar pašalinti šią funkciją.</string>
   <string name="data_opt_in_accept">Priimti</string>
   <string name="data_opt_in_reject">Atmesti</string>
   <string name="page_issues_title">Puslapio problemos</string>

@@ -56,7 +56,7 @@ class InsertMediaActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
-    val viewModel: InsertMediaViewModel by viewModels { InsertMediaViewModel.Factory(intent.extras!!) }
+    val viewModel: InsertMediaViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -251,7 +251,7 @@ class InsertMediaActivity : BaseActivity() {
             binding.progressBar.isVisible = true
             binding.selectedImage.loadImage(
                 Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
-                roundedCorners = false, cropped = false, emptyPlaceholder = true, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+                cropped = false, emptyPlaceholder = true, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                     override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                         if (!isDestroyed) {
                             val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
@@ -328,18 +328,10 @@ class InsertMediaActivity : BaseActivity() {
     private inner class SearchCallback : SearchActionModeCallback() {
         var searchActionProvider: SearchActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchActionProvider = SearchActionProvider(this@InsertMediaActivity, searchHintString,
-                object : SearchActionProvider.Callback {
-                    override fun onQueryTextChange(s: String) {
-                        onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
-                    }
-                })
+            searchActionProvider = SearchActionProvider(this@InsertMediaActivity, getSearchHintString()) { onQueryChange(it) }
             searchActionProvider?.setQueryText(viewModel.searchQuery)
             searchActionProvider?.selectAllQueryTexts()
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
             actionMode = mode
             binding.imageInfoContainer.isVisible = false

@@ -41,8 +41,8 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         return captchaResult?.captchaId
     }
 
-    fun captchaWord(): String {
-        return binding.captchaText.editText?.text.toString()
+    fun captchaWord(): String? {
+        return if (isActive) binding.captchaText.editText?.text.toString() else null
     }
 
     fun dispose() {
@@ -57,7 +57,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
 
     fun requestNewCaptcha() {
         binding.captchaImageProgress.visibility = View.VISIBLE
-        activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+        clientJob = activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             cancelCaptcha()
             FeedbackUtil.showError(activity, throwable)
         }) {
@@ -78,7 +78,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         }
         // In case there was a captcha attempt before
         binding.captchaText.editText?.setText("")
-        ViewUtil.loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), roundedCorners = false, largeRoundedSize = false, force = true, listener = null)
+        ViewUtil.loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), roundedCorners = false, force = true, listener = null)
     }
 
     fun hideCaptcha() {

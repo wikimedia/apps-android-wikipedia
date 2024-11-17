@@ -53,7 +53,7 @@
   <string name="page_edit_history_filter_by">Filtra per</string>
   <string name="page_edit_history_filter_by_all">Tute i modifeghe (%s)</string>
   <string name="page_edit_history_filter_by_user">Modifiche de l\'utent (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Modifeghe che se sa nò el nome de quell ch\'je ha fade (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Modifeghe che se sa nò el nome de quell ch\'je ha fade (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modifiche di bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statisteghe dal %1$s al %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

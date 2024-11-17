@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,7 +29,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         parentView.findViewById<TextView>(R.id.dialog_title).setText(R.string.reading_list_move_to)
         val sourceReadingListId = requireArguments().getLong(SOURCE_READING_LIST_ID)
 
-        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, exception ->
+        lifecycleScope.launch(CoroutineExceptionHandler { _, exception ->
             L.w(exception)
         }) {
             sourceReadingList = AppDatabase.instance.readingListDao().getListById(sourceReadingListId, false)

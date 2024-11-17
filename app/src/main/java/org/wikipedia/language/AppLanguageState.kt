@@ -6,7 +6,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
-import java.util.*
+import java.util.Locale
 
 class AppLanguageState(context: Context) {
 
@@ -58,6 +58,10 @@ class AppLanguageState(context: Context) {
             }
             if (!Prefs.isShowDeveloperSettingsEnabled && !ReleaseUtil.isPreBetaRelease) {
                 codes.remove(AppLanguageLookUpTable.TEST_LANGUAGE_CODE)
+            }
+            if (!Prefs.isShowDeveloperSettingsEnabled) {
+                codes.remove(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)
+                codes.remove(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)
             }
             return codes
         }

@@ -23,6 +23,8 @@
 
         <item name="bottomSheetDialogTheme">@style/App.BottomSheetDialogTheme</item>
 
+        <item name="swipeRefreshLayoutProgressSpinnerBackgroundColor">?attr/background_color</item>
+
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
         <item name="android:statusBarColor">@android:color/black</item>
 
@@ -198,6 +200,12 @@
         <item name="lineHeight">24sp</item>
     </style>
 
+    <style name="P.Radio">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
     <style name="P.Article">
         <item name="lineHeight">28sp</item>
     </style>
@@ -260,6 +268,11 @@
         <item name="chipIconVisible">true</item>
         <item name="iconStartPadding">12dp</item>
         <item name="iconGravity">start</item>
+    </style>
+
+    <style name="Chip.Accessible.Icon.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
     </style>
 
     <style name="List">
@@ -363,16 +376,21 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
+    <style name="ListItem" parent="@android:style/TextAppearance">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
-        <item name="android:paddingTop">13dp</item>
-        <item name="android:paddingBottom">13dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
         <item name="android:textColor">?attr/primary_color</item>
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
+    </style>
+
+    <style name="OverflowMenuItem" parent="ListItem">
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
     </style>
 
     <style name="App.Button" parent="@style/Widget.Material3.Button">
@@ -412,6 +430,28 @@
     <style name="App.Button.Text.Secondary">
         <item name="android:textColor">?attr/placeholder_color</item>
         <item name="iconTint">?attr/placeholder_color</item>
+    </style>
+
+    <style name="App.Button.Outline">
+        <item name="android:textColor">?attr/progressive_color</item>
+        <item name="android:backgroundTint">?attr/paper_color</item>
+        <item name="backgroundTint">?attr/paper_color</item>
+        <item name="iconTint">?attr/inactive_color</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?attr/progressive_color</item>
+        <item name="rippleColor">?attr/placeholder_color</item>
+    </style>
+
+    <style name="App.Button.Outline.Small">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="iconSize">24dp</item>
+        <item name="iconTint">?attr/progressive_color</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">?attr/border_color</item>
     </style>
 
     <style name="ThemeColorCircularButton" parent="@style/Widget.Material3.Button.Icon">
@@ -467,12 +507,35 @@
         <item name="android:layout_height">28dp</item>
     </style>
 
+    <style name="RoundedCornerOverlay">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="RoundedCornerOverlay.TopLeft">
+        <item name="cornerSizeTopLeft">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.TopRight">
+        <item name="cornerSizeTopRight">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.BottomLeft">
+        <item name="cornerSizeBottomLeft">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.BottomRight">
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+    <style name="RoundedCornerOverlay.All">
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
         <item name="android:textColor">?destructive_color</item>
     </style>
 
     <style name="TextInputLayoutErrorTextAppearance">
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
@@ -486,11 +549,6 @@
         <item name="errorTextColor">?attr/destructive_color</item>
         <item name="boxStrokeErrorColor">?attr/destructive_color</item>
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
-    </style>
-
-    <style name="TextInputLayoutStyle.EditSection">
-        <item name="android:textColorHighlight">?attr/focus_color</item>
-        <item name="strokeColor">@android:color/transparent</item>
     </style>
 
     <style name="SpinnerTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
@@ -513,22 +571,46 @@
 
     <style name="AlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="colorSurface">?attr/paper_color</item>
+        <item name="colorOnSurface">?attr/primary_color</item>
+        <item name="colorOnSurfaceVariant">?attr/primary_color</item>
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="AlertDialogTheme.AdjustResize">
+        <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
     <style name="DialogIconWithTint" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
         <item name="tint">?attr/primary_color</item>
     </style>
 
+    <style name="AlertDialogTextStyle.Centered" parent="MaterialAlertDialog.Material3.Title.Text.CenterStacked">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="AlertDialogTheme.Icon">
         <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.Material3.Title.Panel.CenterStacked</item>
         <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTextStyle.Centered</item>
+    </style>
+
+    <style name="DialogIconWithTint.SecondaryIcon">
+        <item name="tint">?attr/secondary_color</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon.Secondary">
+        <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint.SecondaryIcon</item>
     </style>
 
     <style name="AlertDialogTheme.Icon.Delete">
         <item name="buttonBarPositiveButtonStyle">@style/DestructiveDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon.NegativeInactive">
         <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
     </style>
 
@@ -580,4 +662,14 @@
         <item name="strokeColor">?attr/paper_color</item>
     </style>
 
+    <style name="MaterialDatePickerStyle" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="android:textViewStyle">@android:style/Widget.TextView</item>
+        <item name="colorOnSurface">?attr/primary_color</item>
+        <item name="colorOnSurfaceVariant">?attr/primary_color</item>
+    </style>
+
+    <style name="CircularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

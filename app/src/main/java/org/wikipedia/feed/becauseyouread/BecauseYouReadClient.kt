@@ -3,7 +3,6 @@ package org.wikipedia.feed.becauseyouread
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -13,16 +12,18 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class BecauseYouReadClient : FeedClient {
+class BecauseYouReadClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
     private var clientJob: Job? = null
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        clientJob = CoroutineScope(Dispatchers.Main).launch(
+        clientJob = coroutineScope.launch(
             CoroutineExceptionHandler { _, caught ->
                 L.v(caught)
                 cb.success(emptyList())
@@ -38,7 +39,6 @@ class BecauseYouReadClient : FeedClient {
                 // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
                 val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                 val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
-                val relatedPages = mutableListOf<PageSummary>()
 
                 val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
                     Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
@@ -46,21 +46,18 @@ class BecauseYouReadClient : FeedClient {
                 val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
                     entry.title.extract, entry.title.thumbUrl, langCode)
 
-                moreLikeResponse.query?.pages?.forEach {
-                    if (it.title != searchTerm) {
-                        if (hasParentLanguageCode) {
-                            val pageSummary = ServiceFactory.getRest(entry.title.wikiSite).getPageSummary(entry.referrer, it.title)
-                            relatedPages.add(pageSummary)
-                        } else {
-                            relatedPages.add(PageSummary(it.displayTitle(langCode), it.title, it.description,
-                                it.extract, it.thumbUrl(), langCode))
-                        }
-                    }
+                var relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm }?.map {
+                    PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
                 }
 
-                FeedCoordinator.postCardsToCallback(cb,
-                    if (relatedPages.isEmpty()) emptyList()
-                    else listOf(toBecauseYouReadCard(relatedPages, headerPage, entry.title.wikiSite))
+                if (hasParentLanguageCode && relatedPages != null) {
+                    relatedPages = L10nUtil.getPagesForLanguageVariant(relatedPages, entry.title.wikiSite)
+                }
+
+                cb.success(
+                    relatedPages?.let {
+                        listOf(toBecauseYouReadCard(it, headerPage, entry.title.wikiSite))
+                    } ?: emptyList()
                 )
             }
         }

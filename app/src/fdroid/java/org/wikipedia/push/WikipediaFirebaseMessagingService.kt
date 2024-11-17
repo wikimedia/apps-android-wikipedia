@@ -1,6 +1,5 @@
 package org.wikipedia.push
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 
 class WikipediaFirebaseMessagingService {
@@ -13,9 +12,9 @@ class WikipediaFirebaseMessagingService {
             // stub
         }
 
-        fun unsubscribePushToken(csrfToken: String, pushToken: String): Observable<MwQueryResponse> {
+        suspend fun unsubscribePushToken(csrfToken: String, pushToken: String): MwQueryResponse {
             // stub
-            return Observable.just(MwQueryResponse())
+            return MwQueryResponse()
         }
     }
 }

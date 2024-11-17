@@ -31,9 +31,6 @@ class AboutActivity : BaseActivity() {
         binding.aboutContainer.descendants.filterIsInstance<TextView>().forEach {
             it.movementMethod = LinkMovementMethodCompat.getInstance()
         }
-        binding.sendFeedbackText.setOnClickListener {
-            FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
-        }
     }
 
     private class AboutLogoClickListener : View.OnClickListener {

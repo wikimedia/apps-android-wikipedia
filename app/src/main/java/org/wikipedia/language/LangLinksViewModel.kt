@@ -1,9 +1,8 @@
 package org.wikipedia.language
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -12,16 +11,14 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class LangLinksViewModel(bundle: Bundle) : ViewModel() {
-    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    private val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
     val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()
@@ -115,26 +112,21 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code) }
     }
 
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return LangLinksViewModel(bundle) as T
-        }
-    }
-
     companion object {
         fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
-            if (languageEntries.isEmpty()) {
-                return
-            }
             val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
             if (parentLanguageCode != null) {
                 val languageVariants = language.getLanguageVariants(parentLanguageCode)
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
+                        // Do not add zh-hant and zh-hans to the list
+                        if (listOf(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
+                                AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE).contains(languageCode)) {
+                            continue
+                        }
                         if (!title.wikiSite.languageCode.contains(languageCode)) {
-                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
-                            pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
+                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.prefixedText, WikiSite.forLanguageCode(languageCode))
+                            pageTitle.displayText = title.displayText
                             languageEntries.add(pageTitle)
                         }
                     }

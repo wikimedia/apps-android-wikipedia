@@ -18,7 +18,7 @@ class HttpStatusException : IOException {
             } else {
                 var str = "Code: $code, URL: $url"
                 serviceError?.run {
-                    str += ", title: $title, detail: $details"
+                    str += ", key: $key, message: $message"
                 }
                 str
             }

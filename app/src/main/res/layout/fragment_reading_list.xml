@@ -40,7 +40,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <org.wikipedia.views.WikiSwipeRefreshLayout
         android:id="@+id/reading_list_swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -79,6 +79,6 @@
 
         </FrameLayout>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </org.wikipedia.views.WikiSwipeRefreshLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

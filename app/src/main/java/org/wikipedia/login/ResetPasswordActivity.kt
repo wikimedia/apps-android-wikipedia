@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -16,7 +17,6 @@ import org.wikipedia.createaccount.CreateAccountActivity.Companion.validateInput
 import org.wikipedia.createaccount.CreateAccountActivity.ValidateResult
 import org.wikipedia.databinding.ActivityResetPasswordBinding
 import org.wikipedia.extensions.parcelableExtra
-import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
@@ -99,7 +99,7 @@ class ResetPasswordActivity : BaseActivity() {
         if (loginClient == null) {
             loginClient = LoginClient()
         }
-        loginClient?.login(WikipediaApp.instance.wikiSite, userName, password,
+        loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password,
                 retypedPassword, twoFactorCode, firstStepToken, loginCallback)
     }
 
