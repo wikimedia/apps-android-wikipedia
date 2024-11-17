@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <org.wikipedia.views.WikiSwipeRefreshLayout
         android:id="@+id/refreshContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,6 +21,6 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical"/>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </org.wikipedia.views.WikiSwipeRefreshLayout>
 
 </LinearLayout>

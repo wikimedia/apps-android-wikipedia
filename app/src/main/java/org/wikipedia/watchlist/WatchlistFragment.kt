@@ -80,7 +80,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.watchlistRefreshView.setOnRefreshListener { viewModel.fetchWatchlist(actionMode == null) }
         binding.watchlistErrorView.retryClickListener = View.OnClickListener { viewModel.fetchWatchlist(actionMode == null) }
 

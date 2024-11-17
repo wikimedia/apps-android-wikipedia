@@ -49,6 +49,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:transitionName="@string/transition_article_image"
+        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

@@ -288,7 +288,7 @@
   <string name="abusefilter_title_warn">Dát soaitá oalle unnán konstruktiivvalaš rievdadeapmi. Háliidat go duođaid almmuhit dan?</string>
   <string name="abusefilter_title_disallow">Dát rievdadeapmi ii sáhte almmuhuvvot. Mana ruovttoluotta ja geahččal ođđasit.</string>
   <string name="abusefilter_text_warn">Rievdadeapmi lea automáhtalaš sillis identifiserejuvvon vejolaččat destruktiivvalažžan. Dat sáhttá sisttisdoallat ovtta dahje eanet čuovvovaš áššiin:&lt;br /&gt;&lt;br /&gt;· Olles sátni čállojuvvon stuora bustávaiguin&lt;br /&gt;· Artihkkala gurren dahje ruskaboasta&lt;br /&gt;· Olgguldas liŋkkat dahje govat mat eai gula áššái&lt;br /&gt;· Geardduheaddji mearka</string>
-  <string name="abusefilter_text_disallow">Rievdadeapmi lea automáhtalaš sillis identifiserejuvvon vejolaččat destruktiivvalažžan, dahje vejolaččat billisteaddjin.&lt;br /&gt;&lt;br /&gt;Wikipedia lea encyklopediija ja dasa gullá dušše neutrála ja áššáiguoskevaš sisdoallu.</string>
+  <string name="abusefilter_text_disallow">Rievdadeapmi lea automáhtalaš sillis identifiserejuvvon vejolaččat destruktiivvalažžan, dahje vejolaččat billisteaddjin.&lt;br /&gt;&lt;br /&gt;Wikipedia lea diehtosátnegirji ja dasa gullá dušše neutrála ja áššáiguoskevaš sisdoallu.</string>
   <string name="page_similar_titles">Sullasaš siiddut</string>
   <string name="search_did_you_mean">Oaivvildit go «%s»?</string>
   <string name="search_recent_header">Easká ohcamat:</string>
@@ -1601,16 +1601,9 @@
   <string name="patroller_onboarding_two_undo_content">Vállje «Ráhkat ođđasit», ođđasit ráhkadit dahje ruovttoluotta rievdadit vejolaččat billisteaddji rievdadeami.</string>
   <string name="patroller_diff_tooltip_one">Vahát einnosta dan ahte vahágahttojuvvo go soames wiki rievdadeami dihte.</string>
   <string name="patroller_diff_tooltip_two">Ulbmil einnosta dan vejolašvuođa ahte rievdadeapmi vurkejuvvo buriid ulbmiliiguin.</string>
-  <string name="patroller_diff_feedback_dialog_title">Veahket min buoridit dán doaimma</string>
-  <string name="patroller_diff_feedback_dialog_message">Leat go duhtavaš dáinna doaimmain?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Duhtavaš</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutrála</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Duhtameahttun</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Movt sáhttit buoridit doaimma?</string>
   <string name="patroller_diff_menu_edit_history_title">Artihkalrievdadanhistorihkka</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Máhcahat</string>
-  <string name="patroller_diff_feedback_dialog_submit">Sádde</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Máhcahat sáddejuvvon.</string>
   <string name="patroller_diff_feedback_tooltip">Coahkkal badjelgolganfálu sádden dihte máhcahagaid goas ihkinassii, «Váttisvuođat doaimmain» vuolde.</string>
   <string name="patroller_saved_message_title_vandalism">Várrehus billisteami ektui</string>
   <string name="patroller_saved_message_title_npov">Neutrála geahččanguovlu</string>
@@ -1654,11 +1647,15 @@
   <string name="places_filter_title">Sille gielaid mielde</string>
   <string name="places_toggle_buttons_map">Kárta</string>
   <string name="places_toggle_buttons_list">Listu</string>
-  <string name="places_survey_very_satisfied_option">Hui duhtavaš</string>
-  <string name="places_survey_very_unsatisfied_option">Hui duhtameahttun</string>
-  <string name="places_survey_dialog_title">Veahket min buoridit «Báikkiid»</string>
-  <string name="places_survey_feedback_dialog_title">Movt sáhttá «Báikkit» buoriduvvot?</string>
-  <string name="places_survey_dialog_cancel">Gaskkalduhte</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Maid don háliidivččet mii rievdadivččiimet dahje buoridivččiimet?</string>
   <string name="places_empty_list">Dát guovlu lea guoros. Stuorit &lt;a href=\"#\"&gt;kártta&lt;/a&gt;.</string>
+  <string name="survey_dialog_title">Veahket min buoridit dán doaimma</string>
+  <string name="survey_dialog_message">Leat go duhtavaš dáinna doaimmain?</string>
+  <string name="survey_dialog_option_satisfied">Duhtavaš</string>
+  <string name="survey_dialog_option_neutral">Neutrála</string>
+  <string name="survey_dialog_option_unsatisfied">Duhtameahttun</string>
+  <string name="survey_dialog_option_very_satisfied">Hui duhtavaš</string>
+  <string name="survey_dialog_option_very_unsatisfied">Hui duhtameahttun</string>
+  <string name="survey_dialog_cancel">Gaskkalduhte</string>
+  <string name="survey_dialog_submit">Sádde</string>
+  <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon.</string>
 </resources>

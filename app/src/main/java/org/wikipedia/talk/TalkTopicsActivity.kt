@@ -187,7 +187,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             resetViews()
             viewModel.loadTopics()
         }
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
 
         invokeSource = intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
 

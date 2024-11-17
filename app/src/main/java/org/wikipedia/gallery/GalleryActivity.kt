@@ -156,7 +156,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             binding.transitionReceiver.layoutParams = params
             binding.transitionReceiver.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
-                largeRoundedSize = false, force = false, listener = null)
+                force = false, listener = null)
             val transitionMillis = 500
             binding.transitionReceiver.postDelayed({
                 if (isDestroyed) {

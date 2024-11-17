@@ -32,9 +32,9 @@ class MwServiceError(val code: String? = null,
         return data?.messages?.first { it.name == messageName }?.html
     }
 
-    override val title: String get() = code.orEmpty()
+    override val key: String get() = code.orEmpty()
 
-    override val details: String get() = StringUtil.removeStyleTags(html.orEmpty())
+    override val message: String get() = StringUtil.removeStyleTags(html.orEmpty())
 
     init {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.

@@ -36,6 +36,7 @@
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Mer</string>
   <string name="nav_item_search">Sök</string>
+  <string name="nav_item_contribute">Bidra</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="card_offline_error_retry">Försök igen</string>
@@ -71,7 +72,7 @@
   <string name="page_edit_history_filter_by">Filtrera efter</string>
   <string name="page_edit_history_filter_by_all">Alla redigeringar (%s)</string>
   <string name="page_edit_history_filter_by_user">Användarredigeringar (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyma redigeringar (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Oregistrerade redigeringar (%s)</string>
   <string name="page_edit_history_filter_by_bot">Robotredigeringar (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mätvärden från %1$s till %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -440,8 +441,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Anpassa ditt verktygsfält</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="temp_account_not_logged_in">Du är inte inloggad</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">När du har gjort en redigering kommer ett &lt;b&gt;temporärt konto&lt;/b&gt; att skapas åt dig för att skydda din integritet. &lt;a href=\"%1$s\"&gt;Läs mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logga in&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;skapa ett konto&lt;/a&gt; för att få erkännande för framtida redigeringar och åtkomst till andra funktioner.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">Din redigering kommer att tillskrivas %1$s. Din IP-adress kommer att vara synlig för administratörer.&lt;br /&gt;&lt;br /&gt; Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;skapar ett konto&lt;/a&gt; kommer dina redigeringar att tillskrivas ett valfritt namn, tillsammans med andra förmåner.</string>
+  <string name="temp_account_anon_ip_dialog_body">När du redigerar kommer din IP-adress associeras med dina redigeringar.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logga in&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;skapa ett konto&lt;/a&gt; för att tillskrivas för framtida redigeringar och för att få tillgång till andra funktioner.</string>
+  <string name="temp_account_anon_dialog_body">När du har gjort en redigering kommer ett &lt;b&gt;temporärt konto&lt;/b&gt; att skapas åt dig för att skydda din integritet. &lt;a href=\"%1$s\"&gt;Läs mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logga in&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;skapa ett konto&lt;/a&gt; för att få erkännande för framtida redigeringar och åtkomst till andra funktioner.</string>
+  <string name="temp_account_temp_dialog_body">Din redigering kommer att tillskrivas %1$s. Din IP-adress kommer att vara synlig för administratörer.&lt;br /&gt;&lt;br /&gt; Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;skapar ett konto&lt;/a&gt; kommer dina redigeringar att tillskrivas ett valfritt namn, tillsammans med andra förmåner.</string>
   <string name="temp_account_dialog_ok">Jag förstår</string>
   <string name="temp_account_using_title">Du använder ett temporärt konto</string>
   <string name="temp_account_dialog_discard">Släng ändringar och logga in</string>
@@ -453,6 +455,7 @@
     <item quantity="one">Kontot upphör om %d dag.</item>
     <item quantity="other">Kontot upphör om %d dagar.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Du är inte inloggad.&lt;/b&gt; När du redigerar kommer din IP-adress associeras med dina redigeringar.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Du är inte inloggad.&lt;/b&gt; När du har gjort en redigering skapas ett temporärt konto för att skydda din integritet. &lt;a href=\"%1$s\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Du använder ett temporärt konto.&lt;/b&gt; Din redigering kommer att tillskrivas till %1$s. &lt;a href=\"%2$s\"&gt;Läs mer&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Du använder för närvarande ett temporärt konto.&lt;/b&gt; Redigeringar som görs med det temporära kontot %1$s kommer inte att överföras till ditt permanenta konto när du loggar in. Logga in eller skapa ett konto för att få erkännande med ditt användarnamn, bland andra förmåner.</string>
@@ -1037,6 +1040,10 @@
     <item quantity="one">Bidrag</item>
     <item quantity="other">Bidrag</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Redigering</item>
+    <item quantity="other">Redigeringar</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagar</item>
@@ -1166,6 +1173,7 @@
   <string name="app_shortcuts_random">Slumpartikel</string>
   <string name="app_shortcuts_continue_reading">Fortsätt läsa</string>
   <string name="app_shortcuts_search">Sök</string>
+  <string name="app_shortcuts_places">Platser</string>
   <string name="on_this_day_card_title">Dagens datum</string>
   <string name="more_events_text">Mer på denna dag</string>
   <string name="events_count_text">%1$s händelser från %2$s–%3$d</string>
@@ -1602,16 +1610,9 @@
   <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
   <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
   <string name="patroller_diff_tooltip_two">Avsikt förutsäger sannolikheten om en redigering sparas i god tro.</string>
-  <string name="patroller_diff_feedback_dialog_title">Hjälp oss att förbättra denna funktion</string>
-  <string name="patroller_diff_feedback_dialog_message">Är du nöjd med denna funktion?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Nöjd</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Inte nöjd</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hur kan vi förbättra funktionen?</string>
   <string name="patroller_diff_menu_edit_history_title">Artikelns redigeringshistorik</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Återkoppling</string>
-  <string name="patroller_diff_feedback_dialog_submit">Skicka</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Återkoppling har skickats.</string>
   <string name="patroller_diff_feedback_tooltip">Tryck på överflödesmenyn för att skicka återkoppling när som helst under \"Problem med funktion\".</string>
   <string name="patroller_saved_message_title_vandalism">Vandalismvarning</string>
   <string name="patroller_saved_message_title_editing_tests">Redigeringstester</string>
@@ -1669,12 +1670,6 @@
   <string name="places_filter_title">Filtrera språk</string>
   <string name="places_toggle_buttons_map">Karta</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_very_satisfied_option">Mycket nöjd</string>
-  <string name="places_survey_very_unsatisfied_option">Mycket missnöjd</string>
-  <string name="places_survey_dialog_title">Hjälp till att förbättra \"Platser\"</string>
-  <string name="places_survey_feedback_dialog_title">Hur kan \"Platser\" förbättras?</string>
-  <string name="places_survey_dialog_cancel">Avbryt</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Vad vill du att vi ska förändra eller förbättra?</string>
   <string name="places_empty_list">Det här området är tomt. Zooma ut &lt;a href=\"#\"&gt;på kartan&lt;/a&gt;.</string>
   <string name="places_card_title">Närliggande platser</string>
   <string name="places_card_action">Fler närliggande platser</string>
@@ -1683,9 +1678,68 @@
   <string name="places_card_distance_suffix">%s bort</string>
   <string name="places_card_distance_unknown">Okänt avstånd</string>
   <string name="places_empty_message_snackbar">Det finns inga närliggande artiklar. Testa att zooma ut och flytta kartan.</string>
-  <string name="recommended_content_section_you_might_like">Du kanske gillar</string>
-  <string name="recommended_content_survey_dialog_title">Hjälp till att förbättra rekommenderat innehåll.</string>
-  <string name="recommended_content_survey_dialog_message">Är du nöjd med det rekommenderade sökresultatet?</string>
-  <string name="recommended_content_survey_dialog_input_hint">Ytterligare återkoppling</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Återkoppling inskickad. Tack!</string>
+  <string name="donor_history_title">Donationshistorik</string>
+  <string name="donor_history_save_button">Spara</string>
+  <string name="donor_history_update_donor_status_default">Uppdatera donationsstatus</string>
+  <string name="donor_history_update_donor_status_donor">Donera</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Inte en donator</string>
+  <string name="donor_history_last_donated">Donerade senast</string>
+  <string name="donor_history_last_donated_hint">Lägg till datum för senaste donationen</string>
+  <string name="donor_history_last_donated_date_picker_title">Valt datum</string>
+  <string name="donor_history_last_donated_date_picker_label">Ange datum</string>
+  <string name="donor_history_last_donated_never">Aldrig</string>
+  <string name="donor_history_recurring_donor">Återkommande donation</string>
+  <string name="donor_history_donate_button">Donera till Wikimedia Foundation</string>
+  <string name="donor_history_about_this_experiment">Om det här experimentet</string>
+  <string name="donor_history_updated_message_snackbar">Donationshistoriken uppdaterad</string>
+  <string name="contributions_dashboard_survey_dialog_title">Hjälp till att förbättra instrumentbrädan för bidrag</string>
+  <string name="contributions_dashboard_survey_dialog_message">Den här uppdateringen av instrumentbrädan är en testfunktion. Skulle du vilja se den här funktionen förbättrad eller borttagen?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Ingen åsikt</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Ge återkoppling</string>
+  <string name="contributions_dashboard_donation_dialog_title">Tack för att du stödjer fri kunskap</string>
+  <string name="contributions_dashboard_donation_dialog_message">Du är en del av de 2%% som väljer att stödja resursen som miljontals använder. För att demonstrera vår tacksamhet har din instrumentbräda uppdaterats för att erkänna sin status som donator. Vill du se uppdateringen?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Nej tack</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Ja, ta mig dit</string>
+  <string name="contributions_dashboard_entry_dialog_title">Utforska allt som har lagts till i bidragsinstrumentbrädan</string>
+  <string name="contributions_dashboard_entry_dialog_message">Bidragsinstrumentbrädan visar nu donationsstatus. Vill du granska denna experimentella funktion?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Nej tack</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Ja, ta mig dit</string>
+  <string name="contributions_dashboard_badge_donor">Donator</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Bli en donator</string>
+  <string name="contributions_dashboard_badge_update">Uppdatera donatorstatus</string>
+  <string name="contributions_dashboard_app_icon_title">Appikon</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Donatorfördelar</string>
+  <string name="contributions_dashboard_logged_out_user">Utloggad användare</string>
+  <string name="contributions_dashboard_tab_last_donated">Donerade senast</string>
+  <string name="contributions_dashboard_tab_update_button">Uppdatera</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Tack för att du donerar.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Du har låst upp en tillfälligt anpassad ikon. Du kan byta till den här ikonen i dina inställningar under \"Appikon\". Vill du uppdatera din ikon nu?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nej tack</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Ja, ta mig till inställningarna</string>
+  <string name="contributions_dashboard_app_icon_updated">Appikonen har uppdaterats</string>
+  <string name="recent_searches_title">Senaste sökningar</string>
+  <string name="recent_searches_related_to_reading">Relaterat till vad du läser</string>
+  <string name="rabbit_holes_experiment">Experiment</string>
+  <string name="rabbit_holes_experiment_about">Om detta experiment</string>
+  <string name="rabbit_holes_survey_dialog_title">Hjälp till att förbättra djupdykningen</string>
+  <string name="rabbit_holes_survey_dialog_body">Är du nöjd med det rekommenderade sökresultatet?</string>
+  <string name="suggested_reading_list_title">Baserat på vad du läser</string>
+  <string name="suggested_reading_list_description">Inspirerat av \"%s\"</string>
+  <string name="suggested_reading_list_later_snackbar">Gå till fliken Sparade på hemskärmen om du vill besöka din läslista senare.</string>
+  <string name="suggested_reading_list_dialog_title">Du har en ny föreslagen läslista.</string>
+  <string name="suggested_reading_list_dialog_body">Detta är en experimentell funktion. Innehållet baseras på din senaste läshistorik. Vill du kolla in den nya läslistan?</string>
+  <string name="suggested_reading_list_dialog_positive">Prova nu</string>
+  <string name="suggested_reading_list_dialog_negative">Kanske senare</string>
+  <string name="suggested_reading_list_back_cancel">Se din föreslagna läslista när som helst i fliken Sparade på startskärmen.</string>
+  <string name="survey_dialog_title">Hjälp oss att förbättra denna funktion</string>
+  <string name="survey_dialog_message">Är du nöjd med denna funktion?</string>
+  <string name="survey_dialog_option_satisfied">Nöjd</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Inte nöjd</string>
+  <string name="survey_dialog_option_very_satisfied">Mycket nöjd</string>
+  <string name="survey_dialog_option_very_unsatisfied">Mycket missnöjd</string>
+  <string name="survey_dialog_cancel">Avbryt</string>
+  <string name="survey_dialog_submit">Skicka</string>
+  <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
+  <string name="survey_dialog_submitted_snackbar">Återkoppling har skickats.</string>
 </resources>

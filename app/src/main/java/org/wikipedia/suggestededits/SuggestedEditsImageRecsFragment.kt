@@ -244,7 +244,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         binding.imageView.loadImage(Uri.parse(thumbUrl),
-            roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+            cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                 override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                     if (isAdded) {
                         var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.gray600))
@@ -334,9 +334,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             R.id.menu_report_feature -> {
                 ImageRecommendationsEvent.logAction("report_problem", "recommendedimagetoolbar",
                     getActionStringForAnalytics(), viewModel.langCode)
-                FeedbackUtil.composeFeedbackEmail(requireContext(),
-                    getString(R.string.email_report_image_recommendations_subject),
-                    getString(R.string.email_report_image_recommendations_body))
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.email_report_image_recommendations_subject),
+                    body = getString(R.string.email_report_image_recommendations_body))
                 true
             }
             else -> false

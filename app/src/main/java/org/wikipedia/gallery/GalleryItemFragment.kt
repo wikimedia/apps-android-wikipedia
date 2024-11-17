@@ -20,6 +20,7 @@ import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -56,6 +57,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private val binding get() = _binding!!
 
     private val viewModel: GalleryItemViewModel by viewModels()
+    private val activityViewModel: GalleryViewModel by activityViewModels()
 
     private var mediaController: MediaController? = null
 
@@ -173,7 +175,13 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         if (isVideo) {
             loadVideo()
         } else {
-            loadImage(ImageUrlUtil.getUrlForPreferredSize(mediaInfo?.thumbUrl.orEmpty(), Constants.PREFERRED_GALLERY_IMAGE_SIZE))
+            var url = ImageUrlUtil.getUrlForPreferredSize(mediaInfo?.thumbUrl.orEmpty(), Constants.PREFERRED_GALLERY_IMAGE_SIZE)
+            if (mediaInfo?.mime?.contains("svg") == true && mediaInfo?.getMetadataTranslations()?.contains(activityViewModel.wikiSite.languageCode) == true) {
+                // SVG thumbnails can be rendered with language-specific translations, so let's
+                // get the correct URL that points to the appropriate language.
+                url = ImageUrlUtil.insertLangIntoThumbUrl(url, activityViewModel.wikiSite.languageCode)
+            }
+            loadImage(url)
         }
         onLoading(false)
         requireActivity().invalidateOptionsMenu()
@@ -235,7 +243,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         } else {
             // show the video thumbnail while the video loads...
             binding.videoThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
+            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, force = true, listener = this)
         }
         binding.videoThumbnail.setOnClickListener(videoThumbnailClickListener)
     }
@@ -243,7 +251,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private fun loadImage(url: String) {
         binding.imageView.visibility = View.INVISIBLE
         onLoading(true)
-        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
+        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, force = true, listener = this)
     }
 
     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {

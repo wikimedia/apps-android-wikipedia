@@ -386,7 +386,7 @@
     <string name="redirected_from_snackbar">Redirected from \"%s\"</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
-    <string name="preference_title_customize_explore_feed">Explore Feed</string>
+    <string name="preference_title_customize_explore_feed">Explore feed</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
     <string name="preference_summary_customize_explore_feed">Customize the Explore feed</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
@@ -1695,16 +1695,9 @@
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
     <string name="patroller_diff_tooltip_two">Intent predicts likelihood of an edit being saved in good-faith.</string>
-    <string name="patroller_diff_feedback_dialog_title">Help us improve this feature</string>
-    <string name="patroller_diff_feedback_dialog_message">Are you satisfied with this feature?</string>
-    <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
-    <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-    <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
     <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
     <string name="patroller_diff_menu_edit_history_title">Article edit history</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
-    <string name="patroller_diff_feedback_dialog_submit">Submit</string>
-    <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
     <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
     <string name="patroller_saved_message_title_vandalism">Vandalism warning</string>
     <string name="patroller_saved_message_title_editing_tests">Editing tests</string>
@@ -1771,12 +1764,6 @@
     <string name="places_filter_title">Filter language</string>
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
-    <string name="places_survey_very_satisfied_option">Very satisfied</string>
-    <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
-    <string name="places_survey_dialog_title">Help improve \'Places\'</string>
-    <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
-    <string name="places_survey_dialog_cancel">Cancel</string>
-    <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <string name="places_card_title">Places nearby</string>
     <string name="places_card_action">More places nearby</string>
@@ -1786,14 +1773,6 @@
     <string name="places_card_distance_unknown">Unknown distance</string>
     <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
-
-    <!-- Recommended Content -->
-    <string name="recommended_content_section_you_might_like">You might like</string>
-    <string name="recommended_content_survey_dialog_title">Help improve recommended content.</string>
-    <string name="recommended_content_survey_dialog_message">Are you satisfied with this recommended search result?</string>
-    <string name="recommended_content_survey_dialog_input_hint">Additional feedback</string>
-    <string name="recommended_content_survey_dialog_submitted_message">Feedback submitted. Thank you!</string>
-    <!-- /Recommended Content -->
 
     <!-- Contributions Dashboard -->
     <string name="donor_history_title">Donor history</string>
@@ -1805,6 +1784,7 @@
     <string name="donor_history_last_donated_hint">Add date of last donation</string>
     <string name="donor_history_last_donated_date_picker_title">Select date</string>
     <string name="donor_history_last_donated_date_picker_label">Enter date</string>
+    <string name="donor_history_last_donated_never">Never</string>
     <string name="donor_history_recurring_donor">Recurring donor</string>
     <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
     <string name="donor_history_about_this_experiment">About this experiment</string>
@@ -1817,8 +1797,8 @@
     <string name="contributions_dashboard_donation_dialog_message">You are a part of the 2%% that chose to support the resource millions rely on. To demonstrate our gratitude, your contributions dashboard has been updated to recognize your status as a donor. Would you like to see the update?</string>
     <string name="contributions_dashboard_donation_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_donation_dialog_ok">Yes, take me there</string>
-    <string name="contributions_dashboard_entry_dialog_title">Your contributions dashboard has been updated</string>
-    <string name="contributions_dashboard_entry_dialog_message">The contributions dashboard now displays details about your donor status. Want to review this experimental feature?</string>
+    <string name="contributions_dashboard_entry_dialog_title">Explore the new additions to the contributions dashboard</string>
+    <string name="contributions_dashboard_entry_dialog_message">The contributions dashboard now displays donor statuses. Want to review this experimental feature?</string>
     <string name="contributions_dashboard_entry_dialog_cancel">No, thanks</string>
     <string name="contributions_dashboard_entry_dialog_ok">Yes, take me there</string>
     <string name="contributions_dashboard_badge_donor">Donor</string>
@@ -1829,7 +1809,40 @@
     <string name="contributions_dashboard_logged_out_user">Logged-out user</string>
     <string name="contributions_dashboard_tab_last_donated">Last donated</string>
     <string name="contributions_dashboard_tab_update_button">Update</string>
+    <string name="contributions_dashboard_donor_icon_dialog_title">Thank you for being a donor.</string>
+    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App icon. Would you like to update your icon now?</string>
+    <string name="contributions_dashboard_donor_icon_dialog_cancel">No, thanks</string>
+    <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
+    <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
     <!-- /Contributions Dashboard -->
 
+    <!-- Rabbit holes -->
+    <string name="recent_searches_title">Recent searches</string>
+    <string name="recent_searches_related_to_reading">Related to what you\'re reading</string>
+    <string name="rabbit_holes_experiment">Experiment</string>
+    <string name="rabbit_holes_experiment_about">About this experiment</string>
+    <string name="rabbit_holes_survey_dialog_title">Help improve rabbit holes</string>
+    <string name="rabbit_holes_survey_dialog_body">Are you satisfied with this recommended search result?</string>
+    <string name="suggested_reading_list_title">Based on your reading</string>
+    <string name="suggested_reading_list_description">Inspired by \"%s\"</string>
+    <string name="suggested_reading_list_later_snackbar">If you want to visit your reading list later, go to the Saved tab on the home screen.</string>
+    <string name="suggested_reading_list_dialog_title">You have a new suggested reading list.</string>
+    <string name="suggested_reading_list_dialog_body">This is an experimental feature. The contents are based on your recent reading history. Do you want to check out this new reading list?</string>
+    <string name="suggested_reading_list_dialog_positive">Try it now</string>
+    <string name="suggested_reading_list_dialog_negative">Maybe later</string>
+    <string name="suggested_reading_list_back_cancel">See your suggested reading list any time in the Saved tab on the home screen.</string>
+    <!-- /Rabbit holes -->
 
+    <!-- Survey dialog -->
+    <string name="survey_dialog_title">Help us improve this feature</string>
+    <string name="survey_dialog_message">Are you satisfied with this feature?</string>
+    <string name="survey_dialog_option_satisfied">Satisfied</string>
+    <string name="survey_dialog_option_neutral">Neutral</string>
+    <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="survey_dialog_option_very_satisfied">Very satisfied</string>
+    <string name="survey_dialog_option_very_unsatisfied">Very unsatisfied</string>
+    <string name="survey_dialog_cancel">Cancel</string>
+    <string name="survey_dialog_submit">Submit</string>
+    <string name="survey_dialog_input_hint">Additional feedback</string>
+    <string name="survey_dialog_submitted_snackbar">Feedback submitted.</string>
 </resources>
