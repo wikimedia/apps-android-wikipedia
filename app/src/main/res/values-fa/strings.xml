@@ -7,7 +7,6 @@
 * Alifakoor
 * Alireza Ivaz
 * Alirezaaa
-* Amire80
 * Amirsara
 * Arash.pt
 * Arian Ar
@@ -1540,15 +1539,9 @@
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
   <string name="patroller_onboarding_two_talk_title">بحث</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
-  <string name="patroller_diff_feedback_dialog_message">آیا از این ویژگی راضی هستید؟</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">راضی</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">خنثی</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">ناراضی</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">چگونه می‌توانیم ویژگی را بهبود ببخشیم؟</string>
   <string name="patroller_diff_menu_edit_history_title">تاریخچهٔ ویرایش مقاله</string>
   <string name="patroller_diff_feedback_dialog_input_hint">بازخورد</string>
-  <string name="patroller_diff_feedback_dialog_submit">ارسال</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">بازخورد ارسال شد.</string>
   <string name="patroller_saved_message_title_vandalism">هشدار خرابکاری</string>
   <string name="patroller_saved_message_title_editing_tests">ویرایش‌های آزمایشی</string>
   <string name="patroller_saved_message_title_npov">دیدگاه بی‌طرفانه</string>
@@ -1569,7 +1562,6 @@
   <string name="data_opt_in_reject">رد</string>
   <string name="places_toggle_buttons_map">نقشه</string>
   <string name="places_toggle_buttons_list">فهرست</string>
-  <string name="places_survey_dialog_cancel">لغو</string>
   <string name="places_card_title">مکان‌های نزدیک</string>
   <string name="places_card_action">مکان‌های نزدیک بیشتر</string>
   <string name="places_card_enable_location_card_message">مکان‌ها یک روش مبتنی بر نقشه برای گشت و گذار در ویکی‌پدیا است</string>
@@ -1577,4 +1569,11 @@
   <string name="places_card_distance_suffix">فاصله %s</string>
   <string name="places_card_distance_unknown">فاصلهٔ نامعلوم</string>
   <string name="places_empty_message_snackbar">مقاله‌ای در این نزدیکی‌ها موجود نیست. کوچک‌نمایی و حرکت دادن نقشه را بیازمایید.</string>
+  <string name="survey_dialog_message">آیا از این ویژگی راضی هستید؟</string>
+  <string name="survey_dialog_option_satisfied">راضی</string>
+  <string name="survey_dialog_option_neutral">خنثی</string>
+  <string name="survey_dialog_option_unsatisfied">ناراضی</string>
+  <string name="survey_dialog_cancel">لغو</string>
+  <string name="survey_dialog_submit">ارسال</string>
+  <string name="survey_dialog_submitted_snackbar">بازخورد ارسال شد.</string>
 </resources>

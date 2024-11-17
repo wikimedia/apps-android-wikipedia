@@ -4,7 +4,6 @@
 * Agam Riyandana
 * Ahdan
 * Akmaie Ajam
-* Amire80
 * Andikbuyung
 * Arifin.wijaya
 * ArlandGa
@@ -1521,15 +1520,8 @@
   <string name="patroller_onboarding_two_undo_content">Pilih \'Batalkan\' untuk membatalkan atau mengembalikan penyuntingan yang berpotensi merusak.</string>
   <string name="patroller_diff_tooltip_one">Kerusakan memperkirakan jika suatu suntingan menyebabkan kerusakan pada wiki.</string>
   <string name="patroller_diff_tooltip_two">Niat memprediksi kemungkinan suntingan disimpan dengan itikad baik</string>
-  <string name="patroller_diff_feedback_dialog_title">Bantu kami meningkatkan fitur ini</string>
-  <string name="patroller_diff_feedback_dialog_message">Apakah Anda puas dengan fitur ini?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Puas</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Netral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Tidak puas</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Bagaimana kami dapat meningkatkan fitur ini?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Umpan balik</string>
-  <string name="patroller_diff_feedback_dialog_submit">Kirim</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Umpan balik dikirimkan.</string>
   <string name="patroller_diff_feedback_tooltip">Ketuk menu luapan untuk mengirimkan masukan kapan saja di \'Masalah dengan fitur\'.</string>
   <string name="patroller_saved_message_title_vandalism">Peringatan vandalisme</string>
   <string name="patroller_saved_message_title_editing_tests">Ujicoba penyuntingan</string>
@@ -1569,11 +1561,15 @@
   <string name="places_filter_title">Saring bahasa</string>
   <string name="places_toggle_buttons_map">Peta</string>
   <string name="places_toggle_buttons_list">Daftar</string>
-  <string name="places_survey_very_satisfied_option">Sangat puas</string>
-  <string name="places_survey_very_unsatisfied_option">Sangat tidak puas</string>
-  <string name="places_survey_dialog_title">Bantu memperbaiki \'Tempat\'</string>
-  <string name="places_survey_feedback_dialog_title">Bagaimana \"Tempat\" sebaiknya diperbaiki?</string>
-  <string name="places_survey_dialog_cancel">Batal</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Apa yang Anda ingin kami ubah atau tingkatkan?</string>
   <string name="places_empty_list">Daerah ini kosong. Perkecil &lt;a href=\"#\"&gt;peta&lt;/a&gt; .</string>
+  <string name="survey_dialog_title">Bantu kami meningkatkan fitur ini</string>
+  <string name="survey_dialog_message">Apakah Anda puas dengan fitur ini?</string>
+  <string name="survey_dialog_option_satisfied">Puas</string>
+  <string name="survey_dialog_option_neutral">Netral</string>
+  <string name="survey_dialog_option_unsatisfied">Tidak puas</string>
+  <string name="survey_dialog_option_very_satisfied">Sangat puas</string>
+  <string name="survey_dialog_option_very_unsatisfied">Sangat tidak puas</string>
+  <string name="survey_dialog_cancel">Batal</string>
+  <string name="survey_dialog_submit">Kirim</string>
+  <string name="survey_dialog_submitted_snackbar">Umpan balik dikirimkan.</string>
 </resources>

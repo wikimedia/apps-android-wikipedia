@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Athena in Wonderland
 * B3rnas
 * Caiofernandes
@@ -1564,15 +1563,8 @@
   <string name="patroller_onboarding_two_undo_content">Escolher \'Desfazer\' para desfazer ou reverter uma edição potencialmente destrutiva.</string>
   <string name="patroller_diff_tooltip_one">\"Danos\" prevê se uma edição causa dano a uma wiki.</string>
   <string name="patroller_diff_tooltip_two">\"Intenção\" prevê a probabilidade de uma edição ser gravada em boa-fé.</string>
-  <string name="patroller_diff_feedback_dialog_title">Ajude-nos a melhorar esta funcionalidade</string>
-  <string name="patroller_diff_feedback_dialog_message">Está satisfeito(a) com esta funcionalidade?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfeito(a)</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutro(a)</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfeito(a)</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Como podemos melhorar a funcionalidade?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentários</string>
-  <string name="patroller_diff_feedback_dialog_submit">Enviar</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Comentário enviado.</string>
   <string name="patroller_diff_feedback_tooltip">Prima o menu de transbordamento para enviar comentários a qualquer altura em \"Problema com a funcionalidade\".</string>
   <string name="data_opt_in_accept">Aceitar</string>
   <string name="data_opt_in_reject">Rejeitar</string>
@@ -1592,10 +1584,14 @@
   <string name="places_filter_title">Filtrar por língua</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
-  <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
-  <string name="places_survey_dialog_title">Ajudar a melhorar «Lugares»</string>
-  <string name="places_survey_feedback_dialog_title">Como pode a funcionalidade \"Lugares\" ser melhorada?</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">O que gostaria que mudássemos ou melhorássemos?</string>
   <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>
+  <string name="survey_dialog_title">Ajude-nos a melhorar esta funcionalidade</string>
+  <string name="survey_dialog_message">Está satisfeito(a) com esta funcionalidade?</string>
+  <string name="survey_dialog_option_satisfied">Satisfeito(a)</string>
+  <string name="survey_dialog_option_neutral">Neutro(a)</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfeito(a)</string>
+  <string name="survey_dialog_option_very_satisfied">Muito satisfeito</string>
+  <string name="survey_dialog_option_very_unsatisfied">Muito insatisfeito</string>
+  <string name="survey_dialog_submit">Enviar</string>
+  <string name="survey_dialog_submitted_snackbar">Comentário enviado.</string>
 </resources>

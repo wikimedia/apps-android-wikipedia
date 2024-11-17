@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * AnB
 * Chameleon222
 * Citadell
@@ -1602,16 +1601,9 @@
   <string name="patroller_onboarding_two_undo_content">Velg «Gjør om» for å omgjøre eller tilbakestille en potensielt ødeleggende redigering.</string>
   <string name="patroller_diff_tooltip_one">Skade forutsier om en redigering forårsaker skade på en wiki.</string>
   <string name="patroller_diff_tooltip_two">Hensikt forutsier sannsynligheten for at en redigering lagres med gode hensikter.</string>
-  <string name="patroller_diff_feedback_dialog_title">Hjelp oss å forbedre denne funksjonen</string>
-  <string name="patroller_diff_feedback_dialog_message">Er du fornøyd med denne funksjonen?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Fornøyd</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Nøytral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Misfornøyd</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hvordan kan vi forbedre funksjonen?</string>
   <string name="patroller_diff_menu_edit_history_title">Redigeringshistorikk</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Tilbakemelding</string>
-  <string name="patroller_diff_feedback_dialog_submit">Send</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Tilbakemelding sendt.</string>
   <string name="patroller_diff_feedback_tooltip">Trykk på overflytsmenyen for å sende inn tilbakemeldinger når som helst under «Problem med funksjon».</string>
   <string name="patroller_saved_message_title_vandalism">Advarsel om vandalisme</string>
   <string name="patroller_saved_message_title_npov">Nøytralt synspunkt</string>
@@ -1657,11 +1649,15 @@
   <string name="places_filter_title">Filtrer etter språk</string>
   <string name="places_toggle_buttons_map">Kart</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_survey_very_satisfied_option">Veldig fornøyd</string>
-  <string name="places_survey_very_unsatisfied_option">Veldig misfornøyd</string>
-  <string name="places_survey_dialog_title">Hjelp til med å forbedre «Steder»</string>
-  <string name="places_survey_feedback_dialog_title">Hvordan kan «Steder» forbedres?</string>
-  <string name="places_survey_dialog_cancel">Avbryt</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Hva ønsker du at vi endrer eller forbedrer?</string>
   <string name="places_empty_list">Dette området er tomt. Zoom ut &lt;a href=\"#\"&gt;på kartet&lt;/a&gt;.</string>
+  <string name="survey_dialog_title">Hjelp oss å forbedre denne funksjonen</string>
+  <string name="survey_dialog_message">Er du fornøyd med denne funksjonen?</string>
+  <string name="survey_dialog_option_satisfied">Fornøyd</string>
+  <string name="survey_dialog_option_neutral">Nøytral</string>
+  <string name="survey_dialog_option_unsatisfied">Misfornøyd</string>
+  <string name="survey_dialog_option_very_satisfied">Veldig fornøyd</string>
+  <string name="survey_dialog_option_very_unsatisfied">Veldig misfornøyd</string>
+  <string name="survey_dialog_cancel">Avbryt</string>
+  <string name="survey_dialog_submit">Send</string>
+  <string name="survey_dialog_submitted_snackbar">Tilbakemelding sendt.</string>
 </resources>

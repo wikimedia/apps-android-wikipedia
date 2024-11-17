@@ -4,7 +4,6 @@
 * A2y4
 * Aefgh39622
 * Afaz
-* Amire80
 * Bonfire12
 * Buntschann
 * Chqaz
@@ -1162,6 +1161,7 @@
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">データとプライバシー</string>
+  <string name="onboarding_data_privacy_text">私たちはフリーな知識運動に参加するために個人情報を提供する必要はないと考えています。このアプリで収集される利用データは匿名です。詳細は&lt;a href=\"#privacy\"&gt;プライバシーポリシー&lt;/a&gt;および&lt;a href=\"#termsOfUse\"&gt;利用規約&lt;/a&gt;をご覧ください。</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました:</string>
@@ -1170,6 +1170,7 @@
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>
+  <string name="app_shortcuts_places">場所</string>
   <string name="on_this_day_card_title">今日は何の日</string>
   <string name="more_events_text">この日に起こったその他の出来事</string>
   <string name="events_count_text">%2$sから%3$dまでに起こった%1$s件の出来事</string>
@@ -1589,18 +1590,29 @@
   <string name="patroller_onboarding_two_watch_title">ウォッチ</string>
   <string name="patroller_onboarding_two_talk_title">トーク</string>
   <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
-  <string name="patroller_diff_feedback_dialog_title">この機能の改善にご協力ください</string>
-  <string name="patroller_diff_feedback_dialog_message">この機能に満足していますか?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">満足した</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">満足していない</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">どうすれば機能を改善できるでしょうか?</string>
   <string name="patroller_diff_menu_edit_history_title">記事の編集履歴</string>
   <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
-  <string name="patroller_diff_feedback_dialog_submit">送信</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
+  <string name="patroller_saved_message_title_vandalism">荒らし警告</string>
+  <string name="patroller_saved_message_title_editing_tests">編集テスト</string>
+  <string name="patroller_saved_message_title_npov">中立的な視点</string>
   <string name="patroller_saved_message_title_auto_trans">自動翻訳</string>
+  <string name="patroller_saved_message_title_coi_rem">利益相反の注意喚起</string>
   <string name="patroller_saved_message_title_final_warning">最終警告</string>
+  <string name="patroller_saved_message_title_copy_vio">著作権侵害の警告</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">編集の要約を残す</string>
+  <string name="patroller_saved_message_title_do_not_censor">検閲をしない</string>
+  <string name="patroller_saved_message_title_art_imp">記事の改善提案</string>
+  <string name="patroller_saved_message_body_vandalism">こんにちは{{{username}}}さん、あなたの[{{{diffLink}}}|最近の投稿]のひとつまたはいくつかが建設的ではないように思われるため、差し戻したことをお知らせしたいと思います。私が間違っていると思われる場合や質問がある場合は、[[User talk:{{{senderUserName}}}|私のトークページ]]にメッセージを残してください。荒らしを継続すると制限が課される可能性がありますのでご注意ください。</string>
+  <string name="patroller_saved_message_body_editing_tests">こんにちは{{{username}}}さん、ウィキペディアに注目し、編集方法を学ぶことに興味を持っていただいたことを嬉しく思います。編集テストはうまくいっていますが、このプロジェクトの目標は、誰もが活用できる信頼性が高く完成された百科事典を作ることであることを覚えておく必要があります。あなたの編集はコンテンツに影響を与えたため、除去されました。\nウィキペディアの編集方法を学びたい場合は、[[Wikipedia:サンドボックス|サンドボックス]]が自由に使えます。特定の記事についてのコメントの場合、記事のトークページが適切な場所です。</string>
+  <string name="patroller_saved_message_body_npov">こんにちは{{{username}}}さん、あなたが行った投稿の一部はこのウィキペディアで従う必要がある[[Wikipedia:NPOV|中立的な観点]]の方針を満たしていません。このため、一部の内容が修正または除去されました。偏った観点を示す段落や節を修正し、百科事典で求められるより中立で客観的な文章に置き換えてください。</string>
+  <string name="patroller_saved_message_body_auto_trans">こんにちは{{{username}}}さん、あなたが行った投稿の一部は機械翻訳の可能性があるため、修正またはテンプレートが付与されました。記事が改善されない場合、削除される可能性があります。\n\nこの情報をすべて見て、なおも質問がある場合は、[[User talk:{{{senderUserName}}}|私のトークページ]]に遠慮なくメッセージを残してください。この小さな出来事に落ち込まないでください。あなたの貢献はウィキペディアにとって非常に重要です。</string>
+  <string name="patroller_saved_message_body_final_warning">あなたは複数の破壊的編集を行ったため、これは最終警告となります。ウィキペディアを再び荒らした場合には、編集が禁止されます。</string>
+  <string name="patroller_saved_message_body_copy_vio">あなたの最近の編集には著作権で保護されている素材が許可なく含まれているようです。除去されないためには、すべてのコンテンツがこのウィキペディアの[[Wikipedia:著作権|著作権]]の方針に従っていることを確認してください。</string>
+  <string name="patroller_saved_message_body_edit_summary">こんにちは{{{username}}}さん、編集の要約を残さずにウィキペディアからコンテンツを除去されたように見受けられます。ウィキペディアにコンテンツを追加または除去するときには、常に編集の要約を残してください。</string>
+  <string name="patroller_saved_message_body_do_not_censor">こんにちは{{{username}}}さん、記事のトークページで議論することなくコンテンツを除去したように見受けられます。ウィキペディアでは検閲をせず、物議を醸すためにコンテンツを除去すべきではありません。情報が不正確であると思われる場合は、記事のトークページで合意を形成してください。</string>
+  <string name="talk_warn_learn_more_label">メッセージプレースホルダーについてもっと知る</string>
+  <string name="talk_warn_saved_messages_usage_instruction">以下のメッセージ例を使用して、自分のメッセージをカスタマイズ、送信および保存します</string>
   <string name="talk_templates_menu_edit_title">編集</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
@@ -1631,17 +1643,24 @@
   <string name="places_filter_title">言語を絞り込む</string>
   <string name="places_toggle_buttons_map">地図</string>
   <string name="places_toggle_buttons_list">一覧</string>
-  <string name="places_survey_very_satisfied_option">非常に満足</string>
-  <string name="places_survey_very_unsatisfied_option">非常に不満</string>
-  <string name="places_survey_dialog_title">「場所」の改善にご協力ください</string>
-  <string name="places_survey_feedback_dialog_title">「場所」をどのように改善できますか？</string>
-  <string name="places_survey_dialog_cancel">キャンセル</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">何を変更または改善してほしいですか？</string>
   <string name="places_empty_list">このエリアには何もありません。&lt;a href=\"#\"&gt;地図上&lt;/a&gt;でズームアウトしてください。</string>
+  <string name="places_card_title">近くの場所</string>
+  <string name="places_card_distance_unknown">不明な距離</string>
+  <string name="places_empty_message_snackbar">付近の記事はありません。地図をズームアウトして移動してみてください。</string>
   <string name="contributions_dashboard_entry_dialog_cancel">いいえ、結構です</string>
   <string name="contributions_dashboard_badge_donor">寄付者</string>
   <string name="contributions_dashboard_badge_become_a_donor">寄付者になる</string>
   <string name="contributions_dashboard_badge_update">寄付者の状態を更新</string>
   <string name="contributions_dashboard_app_icon_title">アプリアイコン</string>
   <string name="contributions_dashboard_app_icon_subtitle">寄付者のメリット</string>
+  <string name="survey_dialog_title">この機能の改善にご協力ください</string>
+  <string name="survey_dialog_message">この機能に満足していますか?</string>
+  <string name="survey_dialog_option_satisfied">満足した</string>
+  <string name="survey_dialog_option_neutral">中立</string>
+  <string name="survey_dialog_option_unsatisfied">満足していない</string>
+  <string name="survey_dialog_option_very_satisfied">非常に満足</string>
+  <string name="survey_dialog_option_very_unsatisfied">非常に不満</string>
+  <string name="survey_dialog_cancel">キャンセル</string>
+  <string name="survey_dialog_submit">送信</string>
+  <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。</string>
 </resources>

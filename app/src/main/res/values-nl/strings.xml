@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Aranka
 * Ciell
+* Cooltey
 * Danieldegroot2
 * Dbrant
 * Dnlweijers
@@ -60,6 +60,7 @@
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
   <string name="nav_item_search">Zoeken</string>
+  <string name="nav_item_contribute">Bijdragen</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="card_offline_error_retry">Opnieuw proberen</string>
@@ -464,6 +465,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
   <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="temp_account_not_logged_in">U bent niet aangemeld</string>
+  <string name="temp_account_anon_ip_dialog_body">Zodra u een bewerking doorvoert, wordt uw IP-adres aan uw bewerkingen gekoppeld.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om naamsvermelding te krijgen voor toekomstige bewerkingen en om toegang te krijgen tot andere functies.</string>
   <string name="temp_account_anon_dialog_body">Nadat u een wijziging hebt aangebracht, wordt er een &lt;b&gt;tijdelijk account&lt;/b&gt; aangemaakt om uw privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Meld u aan&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;maak een account aan&lt;/a&gt; om onder een zelfgekozen naam bij te dragen en om toegang te krijgen tot meer mogelijkheden.</string>
   <string name="temp_account_temp_dialog_body">Uw bewerking wordt toegeschreven aan %1$s. Uw IP-adres is zichtbaar voor beheerders.&lt;br /&gt;&lt;br /&gt; Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; of &lt;a href=\"https://#createaccount\"&gt;een account aanmaakt&lt;/a&gt;, worden uw bewerkingen toegeschreven aan een door u gekozen naam en zijn er andere voordelen.</string>
   <string name="temp_account_dialog_ok">Begrepen</string>
@@ -477,6 +479,7 @@
     <item quantity="one">Account verloopt over %d dag.</item>
     <item quantity="other">Account verloopt over %d dagen.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;U bent niet ingelogd.&lt;/b&gt; Zodra u een bewerking doorvoert, wordt up IP-adres aan uw bewerkingen gekoppeld.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Je bent niet ingelogd.&lt;/b&gt; Nadat je een wijziging hebt opgeslagen, wordt er een tijdelijk account voor je aangemaakt om je privacy te beschermen. &lt;a href=\"%1$s\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Je gebruikt een tijdelijk account.&lt;/b&gt; Je bewerking wordt toegeschreven aan %1$s. &lt;a href=\"%2$s\"&gt;Meer informatie&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Je gebruikt momenteel een tijdelijk account.&lt;/b&gt; Bewerkingen gemaakt met het tijdelijke account %1$s zullen niet worden overgedragen naar je permanente account wanneer je inlogt. Log in of maak een account aan om onder een eigen gebruikersnaam te bewerken.</string>
@@ -1060,6 +1063,10 @@
     <item quantity="one">Bijdrage</item>
     <item quantity="other">Bijdragen</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Bewerking</item>
+    <item quantity="other">Bewerkingen</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagen</item>
@@ -1189,6 +1196,7 @@
   <string name="app_shortcuts_random">Willekeurig</string>
   <string name="app_shortcuts_continue_reading">Verder lezen</string>
   <string name="app_shortcuts_search">Zoeken</string>
+  <string name="app_shortcuts_places">Plaatsen</string>
   <string name="on_this_day_card_title">Op deze dag</string>
   <string name="more_events_text">Meer van deze dag</string>
   <string name="events_count_text">%1$s gebeurtenissen van %2$s–%3$d</string>
@@ -1625,16 +1633,9 @@
   <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk schadelijke bewerking ongedaan te maken of terug te draaien.</string>
   <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>
   <string name="patroller_diff_tooltip_two">Intentie voorspelt de waarschijnlijkheid dat een bewerking te goeder trouw wordt opgeslagen.</string>
-  <string name="patroller_diff_feedback_dialog_title">Help ons deze functie te verbeteren</string>
-  <string name="patroller_diff_feedback_dialog_message">Bent u tevreden over deze functie?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Tevreden</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutraal</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Niet tevreden</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hoe kunnen we de functie verbeteren?</string>
   <string name="patroller_diff_menu_edit_history_title">Bewerkingsgeschiedenis artikel</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Terugkoppeling</string>
-  <string name="patroller_diff_feedback_dialog_submit">Opslaan</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Terugkoppeling ingediend.</string>
   <string name="patroller_diff_feedback_tooltip">Tik op het overloopmenu om op elk gewenst moment terugkoppeling te geven onder ‘Probleem met functie’.</string>
   <string name="patroller_saved_message_title_vandalism">Waarschuwing voor vandalisme</string>
   <string name="patroller_saved_message_title_editing_tests">Bewerktests</string>
@@ -1676,7 +1677,7 @@
   <string name="donate_gpay_dialog_pay_button">Doneer met Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Andere betaalmethode</string>
   <string name="donate_gpay_activity_title">Selecteer een bedrag</string>
-  <string name="donate_gpay_check_transaction_fee">Ik zal graag %s toevoegen om de transactiekosten te dekken zodat jullie 100% van mijn donatie kunnen houden.</string>
+  <string name="donate_gpay_check_transaction_fee">Ik zal graag %s toevoegen om de transactiekosten te dekken zodat jullie 100%% van mijn donatie kunnen houden.</string>
   <string name="donate_gpay_check_recurring">Maak dit een maandelijks terugkerende donatie.</string>
   <string name="donate_gpay_check_send_email">Ja, de Wikimedia Foundation mag mij af en toe een e-mail sturen.</string>
   <string name="donate_gpay_minimum_amount">Selecteer een bedrag (minimaal %s)</string>
@@ -1692,12 +1693,6 @@
   <string name="places_filter_title">Filteren op taal</string>
   <string name="places_toggle_buttons_map">Kaart</string>
   <string name="places_toggle_buttons_list">Lijst</string>
-  <string name="places_survey_very_satisfied_option">Erg tevreden</string>
-  <string name="places_survey_very_unsatisfied_option">Zeer ontevreden</string>
-  <string name="places_survey_dialog_title">Help \'Plaatsen\' te verbeteren</string>
-  <string name="places_survey_feedback_dialog_title">Hoe kunnen \'Plaatsen\' worden verbeterd?</string>
-  <string name="places_survey_dialog_cancel">Annuleren</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Wat wil je dat we veranderen of verbeteren?</string>
   <string name="places_empty_list">Dit gebied is leeg. Zoom uit &lt;a href=\"#\"&gt;op de kaart&lt;/a&gt;.</string>
   <string name="places_card_title">Plaatsen in de buurt</string>
   <string name="places_card_action">Meer plaatsen in de buurt</string>
@@ -1706,4 +1701,51 @@
   <string name="places_card_distance_suffix">%s verderop</string>
   <string name="places_card_distance_unknown">Onbekende afstand</string>
   <string name="places_empty_message_snackbar">Er zijn geen artikelen in de buurt. Probeer uit te zoomen en de kaart te verplaatsen.</string>
+  <string name="donor_history_title">Donateurgeschiedenis</string>
+  <string name="donor_history_save_button">Opslaan</string>
+  <string name="donor_history_update_donor_status_default">Donateurstatus bijwerken</string>
+  <string name="donor_history_update_donor_status_donor">Donateur</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Geen donateur</string>
+  <string name="donor_history_last_donated">Voor het laatst gedoneerd</string>
+  <string name="donor_history_last_donated_hint">Datum van laatste donatie toevoegen</string>
+  <string name="donor_history_last_donated_never">Nooit</string>
+  <string name="donor_history_recurring_donor">Terugkerende donateur</string>
+  <string name="donor_history_donate_button">Doneer aan de Wikimedia Foundation</string>
+  <string name="donor_history_about_this_experiment">Over dit experiment</string>
+  <string name="donor_history_updated_message_snackbar">Donateurgeschiedenis bijgewerkt</string>
+  <string name="contributions_dashboard_survey_dialog_title">Help het bijdragedashboard te verbeteren</string>
+  <string name="contributions_dashboard_survey_dialog_message">Deze update van het dashboard is een testfunctie. Wil je dat deze functie wordt verbeterd of verwijderd?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Geen mening</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Feedback delen</string>
+  <string name="contributions_dashboard_donation_dialog_title">Bedankt voor je steun aan gratis kennis</string>
+  <string name="contributions_dashboard_donation_dialog_message">Je maakt deel uit van de 2%% die ervoor heeft gekozen om de bron te steunen waar miljoenen mensen op vertrouwen. Je bijdragendashboard is bijgewerkt om je status als donateur te erkennen. Wil je deze experimentele functie-update zien?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Nee, bedankt</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Ja, breng me erheen</string>
+  <string name="contributions_dashboard_entry_dialog_title">Ontdek de nieuwe toevoegingen aan het bijdragedashboard</string>
+  <string name="contributions_dashboard_entry_dialog_message">Het bijdrageedashboard toont nu donateurstatussen. Wil je deze experimentele functie bekijken?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Nee, bedankt</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Ja, breng me erheen</string>
+  <string name="contributions_dashboard_badge_donor">Donateur</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Donateur worden</string>
+  <string name="contributions_dashboard_badge_update">Donateurstatus bijwerken</string>
+  <string name="contributions_dashboard_app_icon_title">App-icoon</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Donateurvoordeel</string>
+  <string name="contributions_dashboard_logged_out_user">Uitgelogde gebruiker</string>
+  <string name="contributions_dashboard_tab_last_donated">Voor het laatst gedoneerd</string>
+  <string name="contributions_dashboard_tab_update_button">Bijwerken</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Bedankt dat je donateur bent.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Je hebt een tijdelijk aangepast pictogram ontgrendeld. Je kunt overschakelen naar dit pictogram via je instellingen onder App-icoon. Wil je je pictogram nu bijwerken?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nee, Bedankt</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Ja, breng me naar Instellingen</string>
+  <string name="contributions_dashboard_app_icon_updated">App-pictogram bijgewerkt</string>
+  <string name="survey_dialog_title">Help ons deze functie te verbeteren</string>
+  <string name="survey_dialog_message">Bent u tevreden over deze functie?</string>
+  <string name="survey_dialog_option_satisfied">Tevreden</string>
+  <string name="survey_dialog_option_neutral">Neutraal</string>
+  <string name="survey_dialog_option_unsatisfied">Niet tevreden</string>
+  <string name="survey_dialog_option_very_satisfied">Erg tevreden</string>
+  <string name="survey_dialog_option_very_unsatisfied">Zeer ontevreden</string>
+  <string name="survey_dialog_cancel">Annuleren</string>
+  <string name="survey_dialog_submit">Opslaan</string>
+  <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend.</string>
 </resources>

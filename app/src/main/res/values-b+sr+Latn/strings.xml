@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Patriccck
 * Srđan
 -->
@@ -1488,15 +1487,8 @@
   <string name="patroller_onboarding_two_watch_content">Da li želite da pratite izmene članka? Dodajte ga na svoj spisak nadgledanja. Pogledajte ga pod \'Više\'.</string>
   <string name="patroller_onboarding_two_undo_title">Poništi/vrati</string>
   <string name="patroller_onboarding_two_undo_content">Odaberite \'Poništi\' da bi ste poništili ili vratili potencionalnu destruktivnu izmenu.</string>
-  <string name="patroller_diff_feedback_dialog_title">Pomozite nam da unapredimo ovu mogućnost</string>
-  <string name="patroller_diff_feedback_dialog_message">Da li ste zadovoljni sa ovom mogućnošću?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Zadovoljavajuće</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutralno</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nezadovoljavajuće</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Kako možemo da unapredimo mogućnost?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
-  <string name="patroller_diff_feedback_dialog_submit">Pošalji</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Povratne informacije poslate.</string>
   <string name="data_opt_in_accept">Prihvatam</string>
   <string name="data_opt_in_reject">Odbaci</string>
   <string name="page_issues_title">Problemi stranice</string>
@@ -1509,4 +1501,11 @@
   <string name="donation_campaign_donated_snackbar">Hvala, dragi donatore! Vaša velikodušnost pomaže da Vikipedija i njeni sestrinski sajtovi budu uspešni.</string>
   <string name="donation_campaign_go_back_button">Nazad</string>
   <string name="menu_single_webview_open_external">Otvori u pregledaču</string>
+  <string name="survey_dialog_title">Pomozite nam da unapredimo ovu mogućnost</string>
+  <string name="survey_dialog_message">Da li ste zadovoljni sa ovom mogućnošću?</string>
+  <string name="survey_dialog_option_satisfied">Zadovoljavajuće</string>
+  <string name="survey_dialog_option_neutral">Neutralno</string>
+  <string name="survey_dialog_option_unsatisfied">Nezadovoljavajuće</string>
+  <string name="survey_dialog_submit">Pošalji</string>
+  <string name="survey_dialog_submitted_snackbar">Povratne informacije poslate.</string>
 </resources>

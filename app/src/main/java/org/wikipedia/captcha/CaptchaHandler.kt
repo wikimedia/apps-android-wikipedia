@@ -78,7 +78,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         }
         // In case there was a captcha attempt before
         binding.captchaText.editText?.setText("")
-        ViewUtil.loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), roundedCorners = false, largeRoundedSize = false, force = true, listener = null)
+        ViewUtil.loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), roundedCorners = false, force = true, listener = null)
     }
 
     fun hideCaptcha() {

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Anders Feder
 * Christian List
 * Dargelf
@@ -19,6 +18,7 @@
 * Rho
 * Saederup92
 * Sarrus
+* Steenth
 * Tinamalmgren
 * Yuvipanda
 -->
@@ -37,6 +37,7 @@
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_more">Mere</string>
   <string name="nav_item_search">Søg</string>
+  <string name="nav_item_contribute">Bidrag</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>
   <string name="page_error_retry">Prøv igen</string>
   <string name="card_offline_error_retry">Prøv igen</string>
@@ -72,7 +73,7 @@
   <string name="page_edit_history_filter_by">Filtrer efter</string>
   <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_user">Brugerredigeringer (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyme redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Uregistrede redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot redigeringer (%s)</string>
   <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -164,8 +165,8 @@
   <string name="reading_lists_sync_login">Log på</string>
   <string name="create_account_login">Log på</string>
   <string name="menu_login">Log på</string>
-  <string name="login_activity_title">Log ind</string>
-  <string name="login_in_progress_dialog_message">Logger dig på…</string>
+  <string name="login_activity_title">Log på</string>
+  <string name="login_in_progress_dialog_message">Logger dig på...</string>
   <string name="login_success_toast">Du er nu logget ind!</string>
   <string name="reset_password_title">Sæt din adgangskode</string>
   <string name="reset_password_description">Du loggede på med en midlertidig kode. For at afslutte indlogning, angiv venligst din nye adgangskode her.</string>
@@ -231,7 +232,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto »%s«?</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til en tredjepartstjeneste automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
-  <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
+  <string name="editing_error_spamblacklist">Henvisninger til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
   <string name="history_filter_list_hint">Filtrer historik</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
@@ -283,13 +284,13 @@
   <string name="edit_intent">Hensigt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
-    <item quantity="other"> %s bytes</item>
+    <item quantity="other">%s bytes</item>
   </plurals>
   <string name="edit_zoom_in">Zoom in</string>
   <string name="edit_zoom_out">Zoom ud</string>
   <string name="edit_summary_tag_typo">Rettet stavefejl</string>
   <string name="edit_summary_tag_grammar">Rettet grammatik</string>
-  <string name="edit_summary_tag_links">Tilføjet links</string>
+  <string name="edit_summary_tag_links">Tilføjet henvisninger</string>
   <string name="edit_summary_tag_other">Andet</string>
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
   <string name="edit_summary_added_short_description">Tilføjede kort beskrivelse</string>
@@ -331,7 +332,7 @@
   <string name="widget_description_search">Den hurtigste måde at søge på Wikipedia</string>
   <string name="widget_description_featured_page">De bedste artikler, Wikipedia har at tilbyde</string>
   <string name="wiktionary_no_definitions_found">Ingen definitioner fundet.</string>
-  <string name="alpha_update_notification_title">Ny alpha opdatering tilgængelig</string>
+  <string name="alpha_update_notification_title">Ny alfa opdatering tilgængelig</string>
   <string name="alpha_update_notification_text">Tryk for at hente</string>
   <string name="dialog_close_description">Luk</string>
   <string name="preference_title_show_images">Vis billeder</string>
@@ -440,8 +441,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Tilpas din værktøjslinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
   <string name="temp_account_not_logged_in">Du er ikke logget ind</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Når du har foretaget en redigering, vil der blive oprettet en &lt;b&gt;midlertidig konto&lt;/b&gt; til dig for at beskytte dit privatliv. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Lær mere&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opret en konto&lt;/a&gt; for at få kredit for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">Din redigering vil blive tilskrevet %1$s. Din IP-adresse vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opretter en konto&lt;/a&gt;, vil dine redigeringer blive tilskrevet et navn, du vælger, blandt andre fordele.</string>
+  <string name="temp_account_anon_ip_dialog_body">Når du laver en redigering, vil din IP-adresse blive knyttet til dine redigeringer.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;opret en konto&lt;/a&gt; for at få tilskrivning for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
+  <string name="temp_account_anon_dialog_body">Når du har lavet en redigering, oprettes en &lt;b&gt;midlertidig konto&lt;/b&gt; til dig for at beskytte dit privatliv. &lt;a href=\"%1$s\"&gt;Lær mere&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;opret en konto&lt;/a&gt; for at få tilskrivning for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
+  <string name="temp_account_temp_dialog_body">Din redigering vil blive tilskrevet %1$s. Din IP-adresse vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt; Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;opretter en konto&lt;/a&gt; , vil dine redigeringer blive tilskrevet et navn, du vælger, blandt andre fordele.</string>
   <string name="temp_account_dialog_ok">Forstået</string>
   <string name="temp_account_using_title">Du bruger en midlertidig konto</string>
   <string name="temp_account_dialog_discard">Kassér ændringer og log ind</string>
@@ -453,6 +455,7 @@
     <item quantity="one">Konto udløber om %d dag.</item>
     <item quantity="other">Konto udløber om %d dage.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Du er ikke logget ind.&lt;/b&gt; Når du har foretaget en redigering, vil din IP-adresse blive knyttet til dine redigeringer.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Du er ikke logget ind.&lt;/b&gt; Når du har foretaget en redigering, oprettes en midlertidig konto til dig for at beskytte dit privatliv. &lt;a href=\"%1$s\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Du bruger en midlertidig konto.&lt;/b&gt; Din redigering vil blive tilskrevet til %1$s. &lt;a href=\"%2$s\"&gt;Lær mere&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Du bruger i øjeblikket en midlertidig konto.&lt;/b&gt; Redigeringer foretaget med den midlertidige konto %1$s vil ikke blive overført til din permanente konto, når du logger ind. Log ind eller opret en konto for at få kredittering til dit brugernavn, blandt andre fordele.</string>
@@ -557,10 +560,10 @@
     <item quantity="other">%d lister slettet</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">Standardlisten ( %s ) kan ikke slettes</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s slettet. Standardlisten ( %2$s ) kan ikke slettes.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s slettet. Standardlisten (%2$s) kan ikke slettes.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Lister slettet. Standardlisten ( %s ) kan ikke slettes.</string>
   <string name="single_list_json_file_name">%s (Wikipedia læseliste).json</string>
-  <string name="multiple_lists_json_file_name">Wikipedia læselister ( %s og mere).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia læselister (%s og mere).json</string>
   <string name="reading_list_items_deleted">%d artikler fjernet fra liste</string>
   <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Fortryd</string>
@@ -624,7 +627,7 @@
   <string name="reading_lists_menu_import_list">Importer liste</string>
   <string name="reading_lists_menu_sort_by">Sorter efter</string>
   <string name="reading_lists_refresh_sync_option">Opdater synkronisering</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log ind/tilmeld dig</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log på/tilmeld dig</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikel vil nu være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil nu være tilgængelige lokalt.</item>
@@ -1007,16 +1010,16 @@
   <string name="suggested_edits_image_tags_exit_dialog_message">De ikke-publicerede tags vil ikke blive gemt</string>
   <string name="suggested_edits_image_zoom_tooltip">Knib for at zoome på dette billede.</string>
   <string name="suggested_edits_encouragement_message">%s , tak for dine redigeringer. Nedenfor kan du finde flere måder at bidrage til Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hej %s&lt;/b&gt; , herunder kan du finde nogle hurtige og nemme måder at hjælpe med at forbedre Wikipedia. Du vil se den forskel, du gør, så snart du går i gang. God redigering!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hej %s&lt;/b&gt;, herunder kan du finde nogle hurtige og nemme måder at hjælpe med at forbedre Wikipedia. Du vil se den forskel, du gør, så snart du går i gang. God redigering!</string>
   <string name="suggested_edits_image_captions_task_detail">Beskriv et billede for at hjælpe læsere med at forstå dets betydning og kontekst.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Opsummér en artikel for at hjælpe læsere med at forstå emnet på et øjeblik.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Dit samlede antal bidrag indtil videre.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Viser hvor mange dage i træk du har bidraget. Hvis du ikke har bidraget i et stykke tid, vises din sidste bidragsdato.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Samlet antal sidevisninger af emner, som du har bidraget til inden for de sidste 30 dage.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baseret på, hvor mange gange et af dine bidrag blev tilbageført (tilbageført af en anden redaktør). Tilbageførte redigeringer: %d.</string>
-  <string name="suggested_edits_paused_message">Foreslåede redigeringer er sat på pause indtil %1$s . Beklager %2$s, men nogle af dine seneste bidrag er blevet tilbageført.</string>
+  <string name="suggested_edits_paused_message">Foreslåede redigeringer er sat på pause indtil %1$s. Beklager %2$s, men nogle af dine seneste bidrag er blevet tilbageført.</string>
   <string name="suggested_edits_disabled_message">Foreslåede redigeringer er deaktiveret. Beklager %s, for mange af dine seneste bidrag er blevet tilbageført.</string>
-  <string name="suggested_edits_ip_blocked_message">Det ser ud til, at din IP-adresse (eller række af IP-adresser) i øjeblikket er blokeret fra at redigere Wikipedia.</string>
+  <string name="suggested_edits_ip_blocked_message">Det ser ud til, at din IP-adresse (eller interval af IP-adresser) i øjeblikket er blokeret fra at redigere Wikipedia.</string>
   <string name="suggested_edits_gate_message">Beklager %s, du skal foretage mindst tre redigeringer direkte i en artikel for at bruge denne funktion.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og tricks til redigering</string>
   <string name="suggested_edits_help_page_link_text">Hjælpeside for foreslåede redigeringer</string>
@@ -1035,6 +1038,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Bidrag</item>
     <item quantity="other">Bidrag</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Redigering</item>
+    <item quantity="other">Redigeringer</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dag</item>
@@ -1128,7 +1135,7 @@
   <string name="image_recommendation_tooltip_warning">Gennemgå venligst artiklen for bedre at forstå emnet og inspicere billedet</string>
   <string name="image_recommendation_depleted">Beklager, der er ikke flere foreslåede billeder tilgængelige på nuværende tidspunkt. Udforsk venligst andre &lt;a href=\"#\"&gt;foreslåede redigeringer&lt;/a&gt; eller vend tilbage senere.</string>
   <string name="suggested_edits_report_feature">Problem med funktionen</string>
-  <string name="suggested_edits_report_feature_subject">Problem med Foreslåede redigeringer</string>
+  <string name="suggested_edits_report_feature_subject">Problem med foreslåede redigeringer</string>
   <string name="edit_summary_added_image">Tilføjede billede</string>
   <string name="edit_summary_added_caption">Tilføjede billedtekst</string>
   <string name="edit_summary_added_image_and_caption">Tilføjede billede og billedtekst</string>
@@ -1162,9 +1169,10 @@
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
   <string name="onboarding_multilingual_add_language_text">Tilføj eller rediger sprog</string>
   <string name="onboarding_welcome_title_v2">Den frie encyklopædi\n…på mere end 300 sprog</string>
-  <string name="app_shortcuts_random">Vilkårlig</string>
+  <string name="app_shortcuts_random">Tilfældig</string>
   <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
   <string name="app_shortcuts_search">Søg</string>
+  <string name="app_shortcuts_places">Steder</string>
   <string name="on_this_day_card_title">På denne dag</string>
   <string name="more_events_text">Mere om denne dag</string>
   <string name="events_count_text">%1$s hændelser fra %2$s – %3$d</string>
@@ -1284,7 +1292,7 @@
   <string name="talk_warn_save_dialog_existing_new_message">Gem som en ny besked på listen</string>
   <string name="talk_warn_save_dialog_existing_update_message">Opdater eksisterende besked</string>
   <string name="talk_warn_save_dialog_hint">Beskedens titel</string>
-  <string name="talk_warn_save_dialog_publish">Udgiv</string>
+  <string name="talk_warn_save_dialog_publish">Offentliggør</string>
   <string name="talk_warn_save_dialog_cancel">Annullér</string>
   <string name="talk_warn_save_dialog_dont_save">Gem ikke</string>
   <string name="talk_warn_submitted">Besked offentliggjort på brugerens brugerdiskussionsside</string>
@@ -1292,7 +1300,7 @@
   <string name="talk_warn_saved_messages">Gemte beskeder</string>
   <string name="talk_page_empty">Diskussionssiden er tom.</string>
   <string name="talk_page_empty_title">Samtalen begynder her</string>
-  <string name="talk_page_empty_content">Talesider er, hvor folk diskuterer, hvordan man gør Wikipedia-indhold bedst muligt. Start med at tilføje et nyt diskussionsemne for at forbinde og samarbejde med et fællesskab af Wikipedianere.</string>
+  <string name="talk_page_empty_content">Diskussionssider er, hvor folk diskuterer, hvordan man gør Wikipedia-indhold bedst muligt. Start med at tilføje et nyt diskussionsemne for at forbinde og samarbejde med et fællesskab af Wikipedianere.</string>
   <string name="talk_add_reply">Svar</string>
   <string name="talk_no_subject">(Intet emne)</string>
   <string name="talk_reply_subject">Emne</string>
@@ -1347,6 +1355,7 @@
   <string name="menu_option_user_contributions">%s\'s bidrag</string>
   <string name="menu_option_edit_source">Rediger kilde</string>
   <string name="menu_option_user_page">%s brugerside</string>
+  <string name="menu_option_find_in_talk_page_topic">Find i diskussionsside-emne</string>
   <string name="menu_option_copy_link_to_clipboard">Kopier link til udklipsholder</string>
   <string name="talk_menu_copy_text">Kopier tekst</string>
   <string name="talk_menu_expand_threads">Udvid tråde</string>
@@ -1366,7 +1375,7 @@
   <string name="menu_option_view_user_talk">Vis diskussionsside</string>
   <string name="menu_option_view_user_contributions">Vis brugers bidrag</string>
   <string name="revision_diff_compare">Sammenlign revisioner</string>
-  <string name="revision_diff_compare_title">Sammenlign revisioner: %s</string>
+  <string name="revision_diff_compare_title">Sammenlign sideversioner: %s</string>
   <string name="revision_diff_from">Fra:</string>
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Linje %d</string>
@@ -1384,7 +1393,7 @@
   <string name="revision_rollback_dialog_title">Er du sikker på, at du vil rulle ændringerne tilbage?</string>
   <string name="revision_rollback_success">Redigeringer tilbagerullet.</string>
   <string name="revision_compare_button">Sammenlign</string>
-  <string name="revision_compare_two_only">Kun to revisioner kan vælges.</string>
+  <string name="revision_compare_two_only">Kun to sideversioner kan vælges.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og dens diskussionsside er blevet tilføjet til din overvågningsliste %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ændr</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
@@ -1430,8 +1439,10 @@
   <string name="watchlist_filter_user_status_newcomers">Nybegyndere</string>
   <string name="watchlist_filter_user_status_learners">Let øvede</string>
   <string name="watchlist_filter_user_status_experienced">Erfarne brugere</string>
+  <string name="watchlist_filter_contribution_authorship_header">Bidragets forfatter</string>
   <string name="watchlist_filter_contribution_authorship_own">Ændringer foretaget af dig</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Ændringer foretaget af andre</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatiserede bidrag</string>
   <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Menneske (ikke bot)</string>
   <string name="watchlist_filter_significance_header">Betydning</string>
@@ -1439,6 +1450,7 @@
   <string name="watchlist_filter_significance_edits">Ikke-mindre ændringer</string>
   <string name="watchlist_filter_latest_revisions_header">Seneste revisioner</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">Seneste revidering</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Ikke den seneste revision</string>
   <string name="watchlist_filter_type_of_change_header">Ændringstype</string>
   <string name="watchlist_filter_type_of_change_page_edits">Sideredigeringer</string>
   <string name="watchlist_filter_type_of_change_page_creations">Sideoprettelser</string>
@@ -1466,24 +1478,31 @@
   <string name="category_tab_subcategories">Underkategorier</string>
   <string name="category_empty">Ingen artikler fundet i denne kategori</string>
   <string name="subcategory_empty">Ingen underkategorier fundet i denne kategori.</string>
+  <string name="search_namespaces">Navnerum</string>
   <string name="revision_initial_none">Ingen (dette er den første revision)</string>
   <string name="user_contrib_activity_title">Bidrag af %s</string>
   <string name="archive_empty">Ingen arkiverede sider fundet.</string>
+  <string name="user_contrib_filter_ns">Filtrer efter navneområde</string>
+  <string name="user_contrib_filter_all">Alle navnerum</string>
+  <string name="user_contrib_filter_ns_header">Navnerumfilter</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_current">nuværende</string>
   <string name="media_playback_error">Fejl ved afspilning af medie.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
+  <string name="user_contrib_filter_activity_title">Filtrer bidrag</string>
   <string name="action_item_view_on_map">Vis på et kort</string>
   <string name="action_item_view_on_map_unavailable">Geografiske koordinater er ikke tilgængelige for denne side</string>
   <string name="shareable_reading_lists_import_dialog_title">Importér delt læseliste</string>
   <string name="shareable_reading_lists_import_dialog_content">Hvordan vil du navngive den liste, der er blevet delt med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">En læseliste er blevet delt med dig</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Vi har bemærket, at en læseliste er blevet delt med dig. For at se denne liste i appen skal du gå tilbage til den oprindelige besked og trykke på linket igen.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Forstået</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Læseliste importeret</string>
   <string name="reading_list_share_menu_label">Del...</string>
   <string name="reading_list_share_menu_tooltip">Del din læseliste med andre</string>
   <string name="reading_list_share_message_v2">Hej! Jeg vil gerne dele min Wikipedia-læseliste med dig:</string>
+  <string name="talk_templates_empty_message">Opret dine egne beskeder eller brug &lt;a href=\"#\"&gt;eksempelbeskeder&lt;/a&gt; for at komme i gang.</string>
   <string name="talk_templates_new_message_title">Ny besked</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv besked</string>
@@ -1493,7 +1512,7 @@
   <string name="talk_templates_new_message_dialog_hint">Beskedens titel</string>
   <string name="talk_templates_new_message_dialog_save">Gem</string>
   <string name="talk_templates_new_message_dialog_cancel">Annullér</string>
-  <string name="talk_templates_new_message_dialog_exists">Skabelonen \" %s \" findes allerede.</string>
+  <string name="talk_templates_new_message_dialog_exists">Skabelonen \"%s\" findes allerede.</string>
   <string name="talk_templates_new_message_saved">Beskeden er blevet gemt</string>
   <string name="talk_templates_edit_message_dialog_title">Rediger besked</string>
   <string name="talk_templates_edit_message_dialog_save">Gem</string>
@@ -1536,7 +1555,7 @@
   <string name="patroller_tasks_filters_user_status_experienced_desc">Registrerede brugere med mere end 500 redigeringer og 30 dages aktivitet.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Seneste revisioner</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Seneste revision</string>
-  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste revision</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste sideversion</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserede bidrag</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Menneske (ikke bot)</string>
@@ -1571,15 +1590,12 @@
   <string name="patroller_onboarding_two_thank_title">Tak</string>
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Tak en bruger for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåg</string>
-  <string name="patroller_diff_feedback_dialog_message">Er du tilfreds med denne funktion?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Tilfreds</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="patroller_onboarding_two_undo_title">Fortryd/Rul tilbage</string>
+  <string name="patroller_onboarding_two_undo_content">Vælg \'Fortryd\' for at fortryde eller rulle en potentielt ødelæggende redigering tilbage.</string>
+  <string name="patroller_diff_tooltip_one">Skader forudsiger, om en redigering forårsager skade på en wiki.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hvordan kan vi forbedre funktionen?</string>
   <string name="patroller_diff_menu_edit_history_title">Artiklens redigeringshistorik</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
-  <string name="patroller_diff_feedback_dialog_submit">Indsend</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Feedback indsendt.</string>
   <string name="patroller_saved_message_title_vandalism">Advarsel om muligt hærværk</string>
   <string name="patroller_saved_message_title_npov">Neutral synvinkel</string>
   <string name="patroller_saved_message_title_auto_trans">Automatisk oversættelse</string>
@@ -1625,11 +1641,45 @@
   <string name="places_filter_title">Filtrér efter sprog</string>
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_survey_very_satisfied_option">Meget tilfreds</string>
-  <string name="places_survey_very_unsatisfied_option">Meget utilfreds</string>
-  <string name="places_survey_dialog_title">Hjælp med at forbedre \'Steder\'</string>
-  <string name="places_survey_feedback_dialog_title">Hvordan kan \"Steder\" forbedres?</string>
-  <string name="places_survey_dialog_cancel">Annullér</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Hvad vil du gerne have, at vi ændrer eller forbedrer?</string>
   <string name="places_empty_list">Dette område er tomt. Zoom ud &lt;a href=\"#\"&gt;på kortet&lt;/a&gt;.</string>
+  <string name="places_card_title">Steder i nærheden</string>
+  <string name="places_card_action">Flere steder i nærheden</string>
+  <string name="places_card_enable_location_card_message">Steder er en kortbaseret måde at udforske Wikipedia på</string>
+  <string name="places_card_enable_location_card_button">Aktivér placering</string>
+  <string name="places_card_distance_suffix">%s væk</string>
+  <string name="places_card_distance_unknown">ukendt afstand</string>
+  <string name="places_empty_message_snackbar">Der er ingen artikler i nærheden. Prøv at zoome ud og flytte kortet.</string>
+  <string name="donor_history_save_button">Gem</string>
+  <string name="donor_history_update_donor_status_default">Opdater donorstatus</string>
+  <string name="donor_history_update_donor_status_donor">Donor</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Ikke en donor</string>
+  <string name="donor_history_last_donated">Sidst doneret</string>
+  <string name="donor_history_last_donated_hint">Tilføj dato for sidste donation</string>
+  <string name="donor_history_last_donated_date_picker_title">Vælg en dato</string>
+  <string name="donor_history_last_donated_date_picker_label">Indtast dato</string>
+  <string name="donor_history_recurring_donor">Tilbagevendende donor</string>
+  <string name="donor_history_donate_button">Donèr til Wikimedia Foundation</string>
+  <string name="donor_history_about_this_experiment">Om dette eksperiment</string>
+  <string name="donor_history_updated_message_snackbar">Donorhistorik opdateret</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Nej tak</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Ja, tag mig derhen</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Dit dashboard for bidrag er blevet opdateret</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Nej tak</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Ja, tag mig derhen</string>
+  <string name="contributions_dashboard_badge_donor">Donor</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Bliv donor</string>
+  <string name="contributions_dashboard_badge_update">Opdater donorstatus</string>
+  <string name="contributions_dashboard_app_icon_title">App-ikon</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Donor fordel</string>
+  <string name="contributions_dashboard_tab_update_button">Opdatér</string>
+  <string name="survey_dialog_title">Hjælp os med at forbedre denne funktion</string>
+  <string name="survey_dialog_message">Er du tilfreds med denne funktion?</string>
+  <string name="survey_dialog_option_satisfied">Tilfreds</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="survey_dialog_option_very_satisfied">Meget tilfreds</string>
+  <string name="survey_dialog_option_very_unsatisfied">Meget utilfreds</string>
+  <string name="survey_dialog_cancel">Annullér</string>
+  <string name="survey_dialog_submit">Indsend</string>
+  <string name="survey_dialog_submitted_snackbar">Feedback indsendt.</string>
 </resources>

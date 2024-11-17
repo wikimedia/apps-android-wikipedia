@@ -430,7 +430,7 @@
   <string name="temp_account_not_logged_in">Siz daxil olmamısınız</string>
   <string name="temp_account_anon_ip_dialog_body">Redaktə etdikdən sonra IP ünvanınız redaktələrinizlə əlaqələndiriləcək.&lt;br /&gt;&lt;br /&gt; Gələcək redaktələrinizdə istinad edilmək və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaradın&lt;/a&gt;.</string>
   <string name="temp_account_anon_dialog_body">Redaktə etdikdən sonra məxfiliyinizi qorumaq üçün sizin üçün &lt;b&gt;müvəqqəti hesab&lt;/b&gt; yaradılacaq. &lt;a href=\"%1$s\"&gt;Ətraflı öyrənin&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Gələcəkdə adınıza istinad verilməsi üçün və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaradın.&lt;/a&gt;</string>
-  <string name="temp_account_temp_dialog_body">Redaktəniz %1$s ilə əlaqələndiriləcək. IP ünvanınız administratorlara görünəcək.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Daxil olsanız&lt;/a&gt; və ya &lt;a href=\"https://#login\"&gt;hesab yaratsanız&lt;/a&gt;, redaktələriniz digər üstünlüklərlə birlikdə seçdiyiniz ada aid ediləcək.</string>
+  <string name="temp_account_temp_dialog_body">Redaktəniz %1$s ilə əlaqələndiriləcək. IP ünvanınız administratorlara görünəcək.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Daxil olsanız&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaratsanız&lt;/a&gt;, redaktələriniz digər üstünlüklərlə birlikdə seçdiyiniz ada aid ediləcək.</string>
   <string name="temp_account_dialog_ok">Başa düşdüm</string>
   <string name="temp_account_using_title">Siz müvəqqəti hesabdan istifadə edirsiniz</string>
   <string name="temp_account_dialog_discard">Dəyişiklikləri ləğv edin və daxil olun</string>
@@ -998,7 +998,6 @@
   <string name="suggested_edits_image_captions_task_detail">Oxuculara onun mənasını və kontekstini anlamağa kömək etmək üçün şəkli təsvir edin.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Oxucuların mövzunu bir baxışda başa düşməsinə kömək etmək üçün məqaləni ümumiləşdirin.</string>
   <string name="suggested_edits_contributions_stat_tooltip">İndiyə qədər verdiyiniz töhfələrin ümumi sayı.</string>
-  <string name="suggested_edits_edit_stat_tooltip">İndiyə qədər etdiyiniz redaktələrin ümumi sayı.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Ardıcıl olaraq töhfə verdiyiniz gün sayı. Bir müddətdir töhfə verməmisinizsə, o, son töhfə tarixinizi göstərir.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Son 30 gündə töhfə verdiyiniz elementlərə gələn ümumi baxış sayı.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Töhfələrinizdən birinin neçə dəfə geri qaytarıldığına (başqa redaktor tərəfindən geri qaytarıldığına) əsaslanır. Geri qaytarılan redaktələr: %d .</string>
@@ -1589,16 +1588,9 @@
   <string name="patroller_onboarding_two_undo_content">Potensial dağıdıcı redaktəni geri qaytarmaq \"Geri qaytar\"ı seçin.</string>
   <string name="patroller_diff_tooltip_one">Zərər, redaktənin vikiyə ziyan vurub-vurmadığını proqnozlaşdırır.</string>
   <string name="patroller_diff_tooltip_two">Niyyət redaktənin yaxşı niyyətlə edildiyi ehtimalını proqnozlaşdırır.</string>
-  <string name="patroller_diff_feedback_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
-  <string name="patroller_diff_feedback_dialog_message">Bu funksiya sizi qane edirmi?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Razıyam</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neytral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Razı deyiləm</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Bu xüsusiyyəti necə inkişaf etdirə bilərik?</string>
   <string name="patroller_diff_menu_edit_history_title">Məqalənin redaktə tarixçəsi</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Rəy</string>
-  <string name="patroller_diff_feedback_dialog_submit">Göndər</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Rəy təqdim edildi.</string>
   <string name="patroller_diff_feedback_tooltip">İstənilən vaxt \"Xüsusiyyətlə bağlı problem\" altında rəy bildirmək üçün menyuya toxunun.</string>
   <string name="patroller_saved_message_title_vandalism">Vandalizm xəbərdarlığı</string>
   <string name="patroller_saved_message_title_editing_tests">Test redaktələri</string>
@@ -1656,12 +1648,6 @@
   <string name="places_filter_title">Dilə görə filtrlə</string>
   <string name="places_toggle_buttons_map">Xəritə</string>
   <string name="places_toggle_buttons_list">Siyahı</string>
-  <string name="places_survey_very_satisfied_option">Çox razıyam</string>
-  <string name="places_survey_very_unsatisfied_option">Çox narazıyam</string>
-  <string name="places_survey_dialog_title">\"Yerləri\" təkmilləşdirməyə kömək edin</string>
-  <string name="places_survey_feedback_dialog_title">\"Yerləri\" necə yaxşılaşdırmaq olar?</string>
-  <string name="places_survey_dialog_cancel">İmtina</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Nəyi dəyişdirməyimizi və ya təkmilləşdirməmizi istərdiniz?</string>
   <string name="places_empty_list">Bu sahə boşdur. &lt;a href=\"#\"&gt;Xəritədə&lt;/a&gt; böyüdün.</string>
   <string name="places_card_title">Yaxınlıqdakı yerlər</string>
   <string name="places_card_action">Yaxınlıqda daha çox yer</string>
@@ -1670,11 +1656,6 @@
   <string name="places_card_distance_suffix">%s uzaqda</string>
   <string name="places_card_distance_unknown">Naməlum məsafə</string>
   <string name="places_empty_message_snackbar">Yaxınlıqda məqalə yoxdur. Xəritəni böyütməyi və hərəkət etdirməyi yoxlayın.</string>
-  <string name="recommended_content_section_you_might_like">Xoşunuza gələ bilər</string>
-  <string name="recommended_content_survey_dialog_title">Tövsiyə olunan məzmunu təkmilləşdirməyə kömək edin.</string>
-  <string name="recommended_content_survey_dialog_message">Bu tövsiyə olunan axtarış nəticəsi sizi qane edirmi?</string>
-  <string name="recommended_content_survey_dialog_input_hint">Əlavə rəy</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Rəy təqdim edildi. Təşəkkürlər!</string>
   <string name="donor_history_title">Donor tarixi</string>
   <string name="donor_history_save_button">Yadda saxla</string>
   <string name="donor_history_update_donor_status_default">Donor statusunu yenilə</string>
@@ -1684,6 +1665,7 @@
   <string name="donor_history_last_donated_hint">Son ianə tarixini əlavə et</string>
   <string name="donor_history_last_donated_date_picker_title">Tarix seç</string>
   <string name="donor_history_last_donated_date_picker_label">Tarixi daxil et</string>
+  <string name="donor_history_last_donated_never">Heç vaxt</string>
   <string name="donor_history_recurring_donor">Təkrarlanan donor</string>
   <string name="donor_history_donate_button">Vikimedia Fonduna ianə et</string>
   <string name="donor_history_about_this_experiment">Bu təcrübə haqqında</string>
@@ -1696,8 +1678,8 @@
   <string name="contributions_dashboard_donation_dialog_message">Siz milyonların etibar etdiyi resursu dəstəkləməyi seçən 2%%-in bir hissəsisiniz. Minnətdarlığımızı nümayiş etdirmək üçün töhfələr paneliniz donor statusunuzu göstərmək üçün yeniləndi. Yeniləməni görmək istəyirsiniz?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Xeyr, təşəkkürlər</string>
   <string name="contributions_dashboard_donation_dialog_ok">Bəli, məni ora apar</string>
-  <string name="contributions_dashboard_entry_dialog_title">Töhfələr paneliniz yeniləndi</string>
-  <string name="contributions_dashboard_entry_dialog_message">Töhfələr panelində indi donor statusunuz haqqında təfərrüatlar göstərilir. Bu eksperimental xüsusiyyəti nəzərdən keçirmək istəyirsiniz?</string>
+  <string name="contributions_dashboard_entry_dialog_title">Töhfələr panelinə edilən yeni əlavələri kəşf edin</string>
+  <string name="contributions_dashboard_entry_dialog_message">Töhfələr panelində indi donor statusunuz göstərilir. Bu eksperimental xüsusiyyəti nəzərdən keçirmək istəyirsiniz?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Xeyr, təşəkkürlər</string>
   <string name="contributions_dashboard_entry_dialog_ok">Bəli, məni ora apar</string>
   <string name="contributions_dashboard_badge_donor">Donor</string>
@@ -1706,4 +1688,22 @@
   <string name="contributions_dashboard_app_icon_title">Proqram ikonu</string>
   <string name="contributions_dashboard_app_icon_subtitle">Donorlar üçün</string>
   <string name="contributions_dashboard_logged_out_user">Çıxış etmiş istifadəçi</string>
+  <string name="contributions_dashboard_tab_last_donated">Sonuncu ianə</string>
+  <string name="contributions_dashboard_tab_update_button">Yenilə</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Donor olduğunuz üçün təşəkkür edirik.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Siz müvəqqəti fərdi ikonun kilidini açdınız. Siz Tətbiq ikonun altındakı parametrlər vasitəsilə buna keçə bilərsiniz. İkonu indi yeniləmək istəyirsiniz?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Xeyr, təşəkkürlər</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Bəli, məni Parametrlərə apar</string>
+  <string name="contributions_dashboard_app_icon_updated">Tətbiq ikonu yeniləndi</string>
+  <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
+  <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
+  <string name="survey_dialog_option_satisfied">Razıyam</string>
+  <string name="survey_dialog_option_neutral">Neytral</string>
+  <string name="survey_dialog_option_unsatisfied">Razı deyiləm</string>
+  <string name="survey_dialog_option_very_satisfied">Çox razıyam</string>
+  <string name="survey_dialog_option_very_unsatisfied">Çox narazıyam</string>
+  <string name="survey_dialog_cancel">İmtina</string>
+  <string name="survey_dialog_submit">Göndər</string>
+  <string name="survey_dialog_input_hint">Əlavə rəy</string>
+  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi.</string>
 </resources>

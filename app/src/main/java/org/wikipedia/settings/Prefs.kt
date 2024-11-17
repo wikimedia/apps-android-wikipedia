@@ -6,6 +6,7 @@ import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
+import org.wikipedia.LauncherIcon
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SessionData
@@ -743,7 +744,27 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
 
-    var recommendedContentSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_content_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_content_survey_shown, value)
+    var hasDonorHistorySaved
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donor_history_saved, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donor_history_saved, value)
+
+    var isDonor
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_donor, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_donor, value)
+
+    var isRecurringDonor
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)
+
+    var contributionsDashboardSurveyDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_contributions_dashboard_survey_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_contributions_dashboard_survey_dialog_shown, value)
+
+    var contributionsDashboardEntryDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_contributions_dashboard_entry_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_contributions_dashboard_entry_dialog_shown, value)
+
+    var currentSelectedAppIcon
+        get() = PrefsIoUtil.getString(R.string.preference_key_current_selected_app_icon, LauncherIcon.DEFAULT.key)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_current_selected_app_icon, value)
 }

@@ -31,7 +31,7 @@ class PollNotificationWorker(
             }
             Result.success()
         } catch (t: Throwable) {
-            if (t is MwException && t.error.title == "login-required") {
+            if (t is MwException && t.error.key == "login-required") {
                 // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
                 // and should automatically log us out if the credentials are no longer valid.
                 CsrfTokenClient.getToken(WikipediaApp.instance.wikiSite)
