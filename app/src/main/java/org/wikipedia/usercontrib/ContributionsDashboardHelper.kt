@@ -101,7 +101,7 @@ class ContributionsDashboardHelper {
                     context.startActivity(DonorHistoryActivity.newIntent(context, completedDonation = true, goBackToContributeTab = true))
                 }
                 .setNegativeButton(R.string.contributions_dashboard_donation_dialog_cancel, { _, _ ->
-                    ContributionsDashboardEvent.logAction("contrib_enter_click", "contrib_cancel_click")
+                    ContributionsDashboardEvent.logAction("contrib_cancel_click", "contrib_donor_banner")
                 })
                 .show()
         }
