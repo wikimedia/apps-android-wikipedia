@@ -62,24 +62,36 @@
             app:layout_constraintTop_toTopOf="@id/editHistoryTitle"
             tools:text="12:00" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/userNameText"
-            style="@style/App.Button.Secondary"
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/userNameAndDiffFlow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:ellipsize="end"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            app:icon="@drawable/ic_user_avatar"
-            app:iconPadding="8dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintStart_toStartOf="@id/editHistoryTitle"
             app:layout_constraintTop_toBottomOf="@id/editHistoryTitle"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:flow_horizontalGap="12dp"
+            app:flow_verticalGap="8dp"
+            app:flow_wrapMode="chain"
+            app:flow_horizontalAlign="start"
+            app:flow_horizontalBias="0"
+            app:flow_horizontalStyle="packed"
+            app:constraint_referenced_ids="userNameText,diffText"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/userNameText"
+            style="@style/App.Button.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:maxWidth="220dp"
+            app:icon="@drawable/ic_user_avatar"
+            app:iconPadding="8dp"
             tools:text="Username" />
 
         <TextView
@@ -87,9 +99,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@id/userNameText"
-            app:layout_constraintBaseline_toBaselineOf="@id/userNameText"
             tools:text="+123" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

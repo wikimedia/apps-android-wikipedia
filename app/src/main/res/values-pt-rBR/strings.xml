@@ -4,6 +4,7 @@
 * AVrana
 * Alvarenga
 * Anaclaudiaml
+* Aquila Leite
 * BarbaraAckles
 * Cainamarques
 * Caçador de Palavras
@@ -58,14 +59,15 @@
   <string name="page_tabs_back">Voltar</string>
   <string name="nav_item_forward">Avançar</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
-  <string name="search_hint_voice_search">Pesquisa por entrada de voz</string>
+  <string name="search_hint_voice_search">Busca por voz</string>
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar minhas listas</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
   <string name="nav_item_search">Pesquisar</string>
+  <string name="nav_item_contribute">Contribuir</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
-  <string name="page_error_retry">Atualizar</string>
+  <string name="page_error_retry">Tentar novamente</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
   <string name="storage_access_error_retry">Tentar novamente</string>
   <string name="article_load_error_retry">Tentar novamente</string>
@@ -86,20 +88,20 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
-  <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
+  <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação e fechará todas as guias abertas. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
   <string name="dialog_message_clear_history_no">Não</string>
   <string name="share_via">Compartilhar via</string>
   <string name="image_share_via">Compartilhar via</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
-  <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
+  <string name="page_edit_history_activity_title">Histórico de revisão: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resumo de edição vazio</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Pesquisar ou filtrar edições</string>
-  <string name="page_edit_history_filter_by">Filtrar por</string>
+  <string name="page_edit_history_filter_by">Filtrar por:</string>
   <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
   <string name="page_edit_history_filter_by_user">Edições do usuário (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edições anônimas (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edições não registradas (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -122,7 +124,7 @@
   <string name="menu_page_view_edit_history">Ver histórico de edições</string>
   <string name="menu_page_edit_history">Histórico de edições</string>
   <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
-  <string name="menu_page_watched">Vigiada</string>
+  <string name="menu_page_watched">Vigilantes</string>
   <string name="edit_section_find_in_page">Encontrar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -464,8 +466,26 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalize sua barra de ferramentas</string>
   <string name="error_blocked_footer_no_blocker">Você pode entrar em contato com um &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="temp_account_not_logged_in">Não tem entrado</string>
+  <string name="temp_account_anon_ip_dialog_body">Quando você fizer uma edição, seu endereço IP será associado às suas edições.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Faça login&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;crie uma conta&lt;/a&gt; para receber crédito por edições futuras e acessar outros recursos.</string>
+  <string name="temp_account_anon_dialog_body">Quando você fizer uma edição, uma &lt;b&gt;conta temporária&lt;/b&gt; será criada para proteger sua privacidade. &lt;a href=\"%1$s\"&gt;Saiba mais&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Faça login&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;crie uma conta&lt;/a&gt; para receber crédito por edições futuras e acessar outros recursos.</string>
+  <string name="temp_account_temp_dialog_body">Sua edição será atribuída a %1$s. Seu endereço IP ficará visível para os administradores.&lt;br /&gt;&lt;br /&gt;Se você &lt;a href=\"https://#login\"&gt;fizer login&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;criar uma conta&lt;/a&gt;, suas edições serão atribuídas a um nome que você escolher, entre outros benefícios.</string>
   <string name="temp_account_dialog_ok">Entendi</string>
   <string name="temp_account_using_title">Você está usando uma conta temporária</string>
+  <string name="temp_account_dialog_discard">Descartar alterações e fazer login</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">A conta temporária %1$s foi criada após sua edição ser publicada. Ela expirará em %2$d dia.</item>
+    <item quantity="other">A conta temporária %1$s foi criada após sua edição ser publicada. Ela expirará em %2$d dias.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">A conta expirará em %d dia.</item>
+    <item quantity="other">A conta expirará em %d dias.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Você não está logado.&lt;/b&gt; Assim que você fizer uma edição, seu endereço IP será associado às suas edições.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Você não está logado.&lt;/b&gt; Assim que você fizer uma edição, uma conta temporária será criada para proteger sua privacidade. &lt;a href=\"%1$s\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Você está usando uma conta temporária.&lt;/b&gt; Sua edição será atribuída a %1$s. &lt;a href=\"%2$s\"&gt;Saiba mais&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Você está atualmente usando uma conta temporária.&lt;/b&gt; As edições feitas com a conta temporária %1$s não serão transferidas para sua conta permanente quando você fizer login. Faça login ou crie uma conta para receber crédito para o seu nome de usuário, entre outros benefícios.</string>
+  <string name="temp_account_end_session">Encerrar sessão</string>
+  <string name="temp_account_end_session_confirm">Isso fará você sair da sua conta temporária. Deseja continuar?</string>
   <string name="crash_report_activity_title">Erro no aplicativo</string>
   <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>

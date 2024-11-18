@@ -1132,6 +1132,7 @@
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На данашњи дан</string>
   <string name="more_events_text">Више на овај дан</string>
   <string name="events_count_text">%1$s догађаја %2$s–%3$d</string>
