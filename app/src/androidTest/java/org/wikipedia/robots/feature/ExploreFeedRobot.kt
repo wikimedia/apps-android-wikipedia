@@ -7,6 +7,9 @@ import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -27,7 +30,7 @@ import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
-import org.wikipedia.test.loggedoutuser.ExploreFeedTest.Companion.MAIN_PAGE
+import org.wikipedia.test.loggedoutuser.ExploreFeedTest.Companion.TODAY_ON_WIKIPEDIA_MAIN_PAGE
 
 class ExploreFeedRobot : BaseRobot() {
     fun longClickFeaturedArticleCardContainer() = apply {
@@ -133,6 +136,10 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_LARGE)
     }
 
+    fun navigateUp() = apply {
+        clickOnDisplayedViewWithContentDescription("Navigate up")
+    }
+
     fun topReadCardCanBeSeenAndSaved() = apply {
         onView(
             allOf(
@@ -141,6 +148,16 @@ class ExploreFeedRobot : BaseRobot() {
             )
         )
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, longClick()))
+    }
+
+    fun clickBecauseYouReadArticle() = apply {
+        onView(
+            allOf(
+                withId(R.id.view_list_card_list),
+                childAtPosition(withId(R.id.view_list_card_list_container), 0)
+            )
+        )
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
     }
 
     fun clickNewsArticle() = apply {
@@ -161,6 +178,25 @@ class ExploreFeedRobot : BaseRobot() {
     fun openOverflowMenuItem() = apply {
         clickOnViewWithId(R.id.page_toolbar_button_show_overflow_menu)
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickPictureOfTheDay() = apply {
+        clickOnViewWithId(R.id.view_featured_image_card_content_container)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickTodayOnWikipedia() = apply {
+        scrollTest(
+            title = TODAY_ON_WIKIPEDIA_MAIN_PAGE,
+            verticalOffset = 200
+        )
+         clickOnViewWithIdAndContainsString(R.id.footerActionButton, text = "View main page")
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun clickOnFeaturedArticle() = apply {
+        clickOnViewWithId(viewId = R.id.view_featured_article_card_content_container)
+        Thread.sleep(30000)
     }
 
     // @TODO: flaky test due to snackbar
@@ -188,36 +224,30 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun scrollToViewMainPageAndClick() = apply {
-        scrollToCardWithTitleAndClick(title = MAIN_PAGE, viewId = R.id.footerActionButton)
-    }
-
-    fun scrollToCardWithTitleAndClick(title: String, @IdRes viewId: Int = R.id.view_card_header_title) = apply {
-        onView(withId(R.id.feed_view))
-            .perform(
-                scrollTo<RecyclerView.ViewHolder>(
-                    hasDescendant(
-                        scrollToCardViewWithTitle(title, viewId)
-                    )
-                ),
-                click()
-            )
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun scrollToCardWithTitle(title: String, @IdRes viewId: Int = R.id.view_card_header_title) = apply {
-        onView(withId(R.id.feed_view))
-            .perform(
-                scrollTo<RecyclerView.ViewHolder>(
-                    hasDescendant(
-                        scrollToCardViewWithTitle(title, viewId)
+    fun scrollToCardWithTitle(title: String, @IdRes viewId: Int = R.id.view_card_header_title) =
+        apply {
+            onView(withId(R.id.feed_view))
+                .perform(
+                    scrollTo<RecyclerView.ViewHolder>(
+                        hasDescendant(
+                            scrollToCardViewWithTitle(title, viewId)
+                        )
                     )
                 )
-            )
-        delay(TestConfig.DELAY_MEDIUM)
+                .perform()
+            delay(TestConfig.DELAY_MEDIUM)
+        }
+
+    fun swipeToRefresh() = apply {
+        onView(withId(R.id.swipe_refresh_layout))
+            .perform(ViewActions.swipeDown())
+        delay(TestConfig.DELAY_SWIPE_TO_REFRESH)
     }
 
-    private fun scrollToCardViewWithTitle(title: String, @IdRes viewId: Int = R.id.view_card_header_title): Matcher<View> {
+    private fun scrollToCardViewWithTitle(
+        title: String,
+        @IdRes textViewId: Int = R.id.view_card_header_title,
+    ): Matcher<View> {
         var currentOccurrence = 0
         return object : BoundedMatcher<View, View>(View::class.java) {
             override fun describeTo(description: Description?) {
@@ -225,7 +255,7 @@ class ExploreFeedRobot : BaseRobot() {
             }
 
             override fun matchesSafely(item: View?): Boolean {
-                val titleView = item?.findViewById<TextView>(viewId)
+                val titleView = item?.findViewById<TextView>(textViewId)
                 if (titleView?.text?.toString() == title) {
                     if (currentOccurrence == 0) {
                         currentOccurrence++
@@ -236,5 +266,53 @@ class ExploreFeedRobot : BaseRobot() {
                 return false
             }
         }
+    }
+
+    private fun scrollTest(
+        recyclerViewId: Int = R.id.feed_view,
+        title: String,
+        textViewId: Int = R.id.view_card_header_title,
+        verticalOffset: Int = 0
+    ) {
+        var currentOccurrence = 0
+
+        onView(withId(recyclerViewId))
+            .perform(
+                scrollTo<RecyclerView.ViewHolder>(
+                    hasDescendant(
+                        object : BoundedMatcher<View, View>(View::class.java) {
+                            override fun describeTo(description: Description?) {
+                                description?.appendText("Scroll to Card View with title: $title")
+                            }
+
+                            override fun matchesSafely(item: View?): Boolean {
+                                val titleView = item?.findViewById<TextView>(textViewId)
+                                if (titleView?.text?.toString() == title) {
+                                    if (currentOccurrence == 0) {
+                                        currentOccurrence++
+                                        return true
+                                    }
+                                    currentOccurrence++
+                                }
+                                return false
+                            }
+                        }
+                    )
+                )
+            ).also { view ->
+                if (verticalOffset != 0) {
+                    view.perform(object : ViewAction {
+                        override fun getConstraints(): Matcher<View> =
+                            Matchers.any(View::class.java)
+
+                        override fun getDescription(): String = "Scroll"
+
+                        override fun perform(uiController: UiController, view: View) {
+                            (view as RecyclerView).scrollBy(0, verticalOffset)
+                            uiController.loopMainThreadUntilIdle()
+                        }
+                    })
+                }
+            }
     }
 }

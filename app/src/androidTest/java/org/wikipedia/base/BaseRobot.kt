@@ -3,6 +3,7 @@ package org.wikipedia.base
 import android.app.Activity
 import android.graphics.Rect
 import android.view.View
+import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -18,6 +19,7 @@ import androidx.test.espresso.action.ViewActions.swipeRight
 import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
@@ -33,16 +35,23 @@ import androidx.test.espresso.web.webdriver.DriverAtoms
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
+import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.wikipedia.TestUtil
-import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
+
+    protected fun clickOnViewWithIdAndContainsString(@IdRes viewId: Int, text: String) {
+        onView(allOf(
+            withId(viewId),
+            hasText(text),
+        )).perform(click())
+    }
 
     protected fun clickOnViewWithId(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(click())
@@ -296,6 +305,16 @@ abstract class BaseRobot {
 
             view.performClick()
             uiController.loopMainThreadForAtLeast(1000)
+        }
+    }
+
+    private fun hasText(text: String) = object : BoundedMatcher<View, TextView>(TextView::class.java) {
+        override fun describeTo(description: Description?) {
+            description?.appendText("contains text $text")
+        }
+
+        override fun matchesSafely(item: TextView): Boolean {
+            return item.text.toString().contains(text, ignoreCase = true)
         }
     }
 }
