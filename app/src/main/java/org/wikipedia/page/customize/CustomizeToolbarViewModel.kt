@@ -88,7 +88,7 @@ class CustomizeToolbarViewModel : ViewModel() {
             // Add swapped item to list
             list.add(pair.first.size)
             // Add to "Menu" order list and remove the last item of toolbar
-            pair.second.add(0, pair.first.removeLast())
+            pair.second.add(0, pair.first.removeAt(pair.first.lastIndex))
         }
         return list
     }
