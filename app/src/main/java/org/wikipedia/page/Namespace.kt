@@ -4,8 +4,11 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getByCode
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.model.EnumCode
-import org.wikipedia.staticdata.*
-import java.util.*
+import org.wikipedia.staticdata.FileAliasData
+import org.wikipedia.staticdata.SpecialAliasData
+import org.wikipedia.staticdata.TalkAliasData
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.staticdata.UserTalkAliasData
 
 /** An enumeration describing the different possible namespace codes. Do not attempt to use this
  * class to preserve URL path information such as Talk: or User: or localization.
@@ -190,7 +193,7 @@ enum class Namespace(private val code: Int) : EnumCode {
             return if (UserTalkAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 USER_TALK
-            } else MAIN
+            } else entries.firstOrNull { it.name.equals(name, true) } ?: MAIN
         }
 
         @JvmStatic

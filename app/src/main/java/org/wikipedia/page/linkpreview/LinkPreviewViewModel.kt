@@ -14,7 +14,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
@@ -49,10 +48,7 @@ class LinkPreviewViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val summary = response.body()!!
             // Rebuild our PageTitle, since it may have been redirected or normalized.
             val oldFragment = pageTitle.fragment
-            pageTitle = PageTitle(
-                    summary.apiTitle, pageTitle.wikiSite, summary.thumbnailUrl,
-                    summary.description, summary.displayTitle
-            )
+            pageTitle = summary.getPageTitle(pageTitle.wikiSite)
 
             // check if our URL was redirected, which might include a URL fragment that leads
             // to a specific section in the target article.
