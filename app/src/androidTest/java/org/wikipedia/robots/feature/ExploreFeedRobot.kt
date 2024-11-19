@@ -11,14 +11,12 @@ import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Description
@@ -30,58 +28,10 @@ import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
-import org.wikipedia.test.loggedoutuser.ExploreFeedTest.Companion.TODAY_ON_WIKIPEDIA_MAIN_PAGE
+import org.wikipedia.test.loggedoutuser.ExploreFeedTest.Companion.SUGGESTED_EDITS
 
 class ExploreFeedRobot : BaseRobot() {
-    fun longClickFeaturedArticleCardContainer() = apply {
-        makeViewVisibleAndLongClick(
-            viewId = R.id.view_featured_article_card_content_container,
-            parentViewId = R.id.feed_view
-        )
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun clickSave() = apply {
-        try {
-            onView(
-                allOf(
-                    withId(R.id.title),
-                    withText("Save"),
-                    childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0),
-                    isDisplayed()
-                )
-            )
-                .perform(click())
-        } catch (e: NoMatchingViewException) {
-            Log.d("Test", "Save button not found or not visible")
-            goBack()
-        }
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun longClickNewsArticleAndSave() = apply {
-        // News card seen and news item saved to reading lists
-        onView(
-            allOf(
-                withId(R.id.news_story_items_recyclerview),
-                childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)
-            )
-        )
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, longClick()))
-        onView(
-            allOf(
-                withId(R.id.title),
-                withText("Save"),
-                childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0),
-                isDisplayed()
-            )
-        )
-            .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun longClickOnThisDayCardAndSave() = apply {
-        // On this day card seen and saved to reading lists
+    fun clickOnThisDayCard() = apply {
         onView(
             allOf(
                 withId(R.id.on_this_day_page), childAtPosition(
@@ -92,43 +42,23 @@ class ExploreFeedRobot : BaseRobot() {
                 ), isDisplayed()
             )
         )
-            .perform(longClick())
-        onView(
-            allOf(
-                withId(R.id.title),
-                withText("Save"),
-                childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0),
-                isDisplayed()
-            )
-        )
             .perform(click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun longClickRandomArticleAndSave() = apply {
+    fun clickRandomArticle() = apply {
         // Random article card seen and saved to reading lists
-        onView(
-            allOf(
-                withId(R.id.view_featured_article_card_content_container),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(Matchers.`is`("org.wikipedia.feed.random.RandomCardView")),
-                        0
-                    ), 1
-                ), isDisplayed()
-            )
+        makeViewVisibleAndClick(
+            viewId = R.id.view_featured_article_card_content_container,
+            parentViewId = R.id.feed_view
         )
-            .perform(longClick())
-        onView(
-            allOf(
-                withId(R.id.title),
-                withText("Save"),
-                childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0),
-                isDisplayed()
-            )
-        )
-            .perform(click())
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun dismissContributionDialog() = apply {
+        performIfDialogShown("No, thanks", action = {
+            clickOnViewWithText("No, thanks")
+        })
     }
 
     fun pressBack() = apply {
@@ -140,14 +70,20 @@ class ExploreFeedRobot : BaseRobot() {
         clickOnDisplayedViewWithContentDescription("Navigate up")
     }
 
-    fun topReadCardCanBeSeenAndSaved() = apply {
-        onView(
-            allOf(
-                withId(R.id.view_list_card_list),
-                childAtPosition(withId(R.id.view_list_card_list_container), 0)
-            )
-        )
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, longClick()))
+    fun clickTopReadArticle() = apply {
+        try {
+            onView(
+                allOf(
+                    withId(R.id.view_list_card_list),
+                    childAtPosition(withId(R.id.view_list_card_list_container), 0)
+                )
+            ).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+                .perform()
+            pressBack()
+            delay(TestConfig.DELAY_MEDIUM)
+        } catch (e: NoMatchingViewException) {
+            Log.e("clickError", "")
+        }
     }
 
     fun clickBecauseYouReadArticle() = apply {
@@ -186,17 +122,34 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun clickTodayOnWikipedia() = apply {
-        scrollTest(
-            title = TODAY_ON_WIKIPEDIA_MAIN_PAGE,
-            verticalOffset = 200
-        )
-         clickOnViewWithIdAndContainsString(R.id.footerActionButton, text = "View main page")
+        clickOnViewWithIdAndContainsString(R.id.footerActionButton, text = "View main page")
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun clickOnFeaturedArticle() = apply {
-        clickOnViewWithId(viewId = R.id.view_featured_article_card_content_container)
-        Thread.sleep(30000)
+        makeViewVisibleAndClick(
+            viewId = R.id.view_featured_article_card_content_container,
+            parentViewId = R.id.feed_view
+        )
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun stayOnFeaturedArticleFor(milliseconds: Long) = apply {
+        makeViewVisibleAndClick(
+            viewId = R.id.view_featured_article_card_content_container,
+            parentViewId = R.id.feed_view
+        )
+        Thread.sleep(milliseconds)
+    }
+
+    fun scrollToSuggestedEditsIfVisible() = apply {
+        try {
+            scrollToRecyclerView(title = SUGGESTED_EDITS)
+            clickAddArticleDescription()
+            pressBack()
+        } catch (e: Exception) {
+            Log.e("ScrollError:", "Suggested edits not visible or espresso cannot find it.")
+        }
     }
 
     // @TODO: flaky test due to snackbar
@@ -268,12 +221,12 @@ class ExploreFeedRobot : BaseRobot() {
         }
     }
 
-    private fun scrollTest(
+    fun scrollToRecyclerView(
         recyclerViewId: Int = R.id.feed_view,
         title: String,
         textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 0
-    ) {
+        verticalOffset: Int = 200
+    ) = apply {
         var currentOccurrence = 0
 
         onView(withId(recyclerViewId))

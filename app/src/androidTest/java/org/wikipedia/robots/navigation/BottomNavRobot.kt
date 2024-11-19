@@ -10,6 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 
 class BottomNavRobot : BaseRobot() {
     fun navigateToExploreFeed() = apply {
@@ -46,7 +47,8 @@ class BottomNavRobot : BaseRobot() {
     fun navigateToEdits() = apply {
         onView(
             allOf(
-                withId(R.id.nav_tab_edits), withContentDescription("Edits"),
+                withId(R.id.nav_tab_edits), withContentDescription(if (ContributionsDashboardHelper.contributionsDashboardEnabled) R.string.nav_item_contribute
+                else R.string.nav_item_suggested_edits),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed()
             )
         ).perform(click())

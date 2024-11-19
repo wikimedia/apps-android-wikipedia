@@ -2,6 +2,7 @@ package org.wikipedia.base
 
 import android.app.Activity
 import android.graphics.Rect
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.IdRes
@@ -50,7 +51,7 @@ abstract class BaseRobot {
         onView(allOf(
             withId(viewId),
             hasText(text),
-        )).perform(click())
+        )).perform(scrollAndClick())
     }
 
     protected fun clickOnViewWithId(@IdRes viewId: Int) {
@@ -209,6 +210,7 @@ abstract class BaseRobot {
             action()
         } catch (e: Exception) {
             // Dialog not shown or text not found
+            Log.e("error", "")
         }
     }
 
@@ -283,6 +285,11 @@ abstract class BaseRobot {
     protected fun dismissTooltipIfAny(activity: Activity, @IdRes viewId: Int) = apply {
         onView(allOf(withId(viewId))).inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView))))
             .perform(click())
+    }
+
+    protected fun makeViewVisibleAndClick(@IdRes viewId: Int, @IdRes parentViewId: Int) {
+        onView(allOf(withId(viewId), isDescendantOfA(withId(parentViewId))))
+            .perform(scrollAndClick())
     }
 
     private fun scrollAndClick() = object : ViewAction {
