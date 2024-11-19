@@ -43,7 +43,7 @@ class ExploreFeedTest : BaseTest<MainActivity>(
             .scrollToRecyclerView(title = FEATURED_ARTICLE)
             .clickOnFeaturedArticle()
             .pressBack()
-            .scrollToRecyclerView(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
+            .scrollToRecyclerView(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
             .clickTodayOnWikipedia()
             .dismissContributionDialog()
             .pressBack()
