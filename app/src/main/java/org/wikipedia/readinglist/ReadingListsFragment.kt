@@ -38,6 +38,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.ABTest
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.metricsplatform.RabbitHolesAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
@@ -169,6 +170,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
+
+        if (RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3) {
+            RabbitHolesEvent.submit("impression", "reading_list")
+        }
+
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()

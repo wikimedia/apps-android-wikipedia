@@ -11,6 +11,7 @@ import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -57,8 +58,7 @@ object SurveyDialog {
             binding.optionNeutral.isChecked = true
             binding.feedbackInputContainer.isVisible = true
 
-            // TODO:
-            //  RabbitHolesEvent.submit(source = historyEntry.source, RabbitHolesAnalyticsHelper.abcTest.getGroupName(), "impression")
+            RabbitHolesEvent.submit("impression", "feedback_survey")
         }
 
         val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
@@ -69,12 +69,11 @@ object SurveyDialog {
             binding.submitButton.setOnClickListener {
                 val feedbackInput = binding.feedbackInput.text.toString()
 
-                // TODO:
-                //  RabbitHolesEvent.submit(source = historyEntry.source, RabbitHolesAnalyticsHelper.abcTest.getGroupName(), "submit")
-                // binding.optionSatisfied.isChecked -> "satisfied"
-                // binding.optionUnsatisfied.isChecked -> "unsatisfied"
-                // else -> "neutral"
-                // feedbackText = feedbackInput)
+                RabbitHolesEvent.submit("submit_click", "feedback_survey",
+                    feedbackSelect = if (binding.optionSatisfied.isChecked) "satisfied"
+                    else if (binding.optionUnsatisfied.isChecked) "unsatisfied"
+                    else "neutral",
+                    feedbackText = feedbackInput)
 
                 showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
                 dialog?.dismiss()

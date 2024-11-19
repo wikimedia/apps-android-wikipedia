@@ -44,6 +44,7 @@ import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.RabbitHolesAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
@@ -193,6 +194,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private val requestSuggestedReadingListLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_CANCELED) {
+            RabbitHolesEvent.submit("impression", "reading_list_warn")
             FeedbackUtil.showMessage(this, R.string.suggested_reading_list_back_cancel)
         }
     }
@@ -844,15 +846,19 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         applySuggestedReadingList(historyEntries[0], historyEntries[1], pages)
 
                         Prefs.suggestedReadingListDialogShown = true
+                        RabbitHolesEvent.submit("impression", "reading_list_prompt")
+
                         MaterialAlertDialogBuilder(this@PageActivity)
                             .setTitle(R.string.suggested_reading_list_dialog_title)
                             .setMessage(R.string.suggested_reading_list_dialog_body)
                             .setPositiveButton(R.string.suggested_reading_list_dialog_positive) { _, _ ->
+                                RabbitHolesEvent.submit("enter_click", "reading_list_prompt")
                                 requestSuggestedReadingListLauncher.launch(ReadingListActivity.newIntent(this@PageActivity, true, suggestedList = true))
                             }
-                            .setNegativeButton(R.string.suggested_reading_list_dialog_negative, { _, _ ->
+                            .setNegativeButton(R.string.suggested_reading_list_dialog_negative) { _, _ ->
+                                RabbitHolesEvent.submit("ignore_click", "reading_list_prompt")
                                 FeedbackUtil.showMessage(this@PageActivity, R.string.suggested_reading_list_later_snackbar)
-                            })
+                            }
                             .show()
                     }
                 }

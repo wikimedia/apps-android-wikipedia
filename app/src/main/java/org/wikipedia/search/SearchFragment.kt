@@ -24,6 +24,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
@@ -208,6 +209,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
             requireActivity().finish()
         } else {
+
+            RabbitHolesEvent.submit("navigate", "search",
+                source = if (query == suggestedSearchQuery) "suggested" else "standard")
+
             val historyEntry = HistoryEntry(item, if (query == suggestedSearchQuery) HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH else HistoryEntry.SOURCE_SEARCH)
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))

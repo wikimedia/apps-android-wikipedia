@@ -39,6 +39,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -136,6 +137,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     }
                 }
             }
+        }
+
+        if (isSuggested) {
+            RabbitHolesEvent.submit("impression", "reading_list")
         }
 
         return binding.root
@@ -502,8 +507,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
             })
 
+            if (isSuggested) {
+                RabbitHolesEvent.submit("save_start_click", "reading_list")
+            }
+
             previewSaveDialog = MaterialAlertDialogBuilder(requireContext())
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
+                    RabbitHolesEvent.submit("save_click", "reading_list")
+
                     it.pages.clear()
                     it.pages.addAll(savedPages)
                     it.listTitle = readingListTitle
@@ -849,6 +860,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             if (isTagType(actionMode)) {
                 toggleSelectPage(item)
             } else if (item != null) {
+                if (isSuggested) {
+                    RabbitHolesEvent.submit("navigate", "reading_list")
+                }
+
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, if (isSuggested) HistoryEntry.SOURCE_RABBIT_HOLE_READING_LIST else HistoryEntry.SOURCE_READING_LIST)
                 item.touch()

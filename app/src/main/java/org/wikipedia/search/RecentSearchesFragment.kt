@@ -19,6 +19,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -159,6 +160,10 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
+            RabbitHolesEvent.submit("recent_search_click", "search",
+                source = if (this is SuggestedSearchItemViewHolder) "suggested" else "standard",
+                recShown = !suggestedSearchTerm.isNullOrEmpty())
+
             callback?.switchToSearch((v as TextView).text.toString())
         }
 
