@@ -4,14 +4,20 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import org.wikipedia.R
+import org.wikipedia.util.ResourceUtil
 
-class SwipeRefreshLayoutWithScroll constructor(context: Context, attrs: AttributeSet?) : SwipeRefreshLayout(context, attrs) {
+open class WikiSwipeRefreshLayout(context: Context, attrs: AttributeSet?) : SwipeRefreshLayout(context, attrs) {
 
     var scrollableChild: View? = null
 
+    init {
+        setColorSchemeResources(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
+    }
+
     override fun canChildScrollUp(): Boolean {
         return if (scrollableChild == null) {
-            false
+            super.canChildScrollUp()
         } else scrollableChild!!.scrollY > 0
     }
 }

@@ -181,7 +181,7 @@
   <string name="create_account_next">Weider</string>
   <string name="email_recommendation_dialog_title">Benotzerkont ouni E-Mail-Adress uleeën?</string>
   <string name="email_recommendation_message">Recommandéiert wëll eng E-Mail-Adress gebraucht gëtt fir e Benotzerkont ze restauréieren.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Ouni E-mail-Adress virufueren</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Ouni E-Mail-Adress virufueren</string>
   <string name="email_recommendation_dialog_create_with_email_action">Eng E-Mail-Adress derbäisetzen</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
   <string name="create_account_name_unavailable">De Benotzernumm \"%s\" ass net verfügbar. Wgl. wielt een anere Benotzernumm.</string>
