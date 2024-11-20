@@ -57,6 +57,17 @@ data class WikiSite(
         authority = authority.replace(".m.", ".")
         languageCode = UriUtil.getLanguageVariantFromUri(tempUri).ifEmpty { authorityToLanguageCode(authority) }
 
+        // For language variant wikis, automatically switch to the preferred variant if possible.
+        val urlParentLanguageCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(languageCode)
+        if (urlParentLanguageCode != null) {
+            val firstSelectedVariant = LanguageUtil.firstSelectedChineseVariant
+            WikipediaApp.instance.languageState.getDefaultLanguageCode(firstSelectedVariant)?.let { langCode ->
+                if (langCode == urlParentLanguageCode) {
+                    languageCode = firstSelectedVariant
+                }
+            }
+        }
+
         // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
         if (languageCode == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
             languageCode = LanguageUtil.firstSelectedChineseVariant
