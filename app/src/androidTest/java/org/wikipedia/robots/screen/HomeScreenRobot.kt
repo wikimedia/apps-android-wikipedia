@@ -15,6 +15,12 @@ import org.wikipedia.base.TestConfig
 
 class HomeScreenRobot : BaseRobot() {
 
+    fun clickSearchContainer() = apply {
+        // Click the Search box
+        clickOnDisplayedView(R.id.search_container)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun navigateToNotifications() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(viewId = R.id.menu_notifications, "Notifications")
         delay(TestConfig.DELAY_LARGE)

@@ -17,8 +17,10 @@ object TestConfig {
     const val DELAY_MEDIUM = 2L
     const val DELAY_LARGE = 5L
     const val SEARCH_TERM = "hopf fibration"
+    const val SEARCH_TERM2 = "world cup"
     const val ARTICLE_TITLE = "Hopf fibration"
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
+    const val ARTICLE_TITLE_WORLD_CUP = "World cup"
 }
 
 abstract class BaseTest<T : AppCompatActivity> {
