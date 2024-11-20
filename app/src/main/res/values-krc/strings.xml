@@ -19,6 +19,7 @@
   <string name="nav_item_suggested_edits">Тюрлениуле</string>
   <string name="nav_item_more">Энтда</string>
   <string name="nav_item_search">Изле</string>
+  <string name="nav_item_contribute">Къошум</string>
   <string name="error_network_error">Интернетге байланалмайды</string>
   <string name="page_error_retry">Джангыдан сына</string>
   <string name="card_offline_error_retry">Джангыдан сына</string>
@@ -54,7 +55,7 @@
   <string name="page_edit_history_filter_by">Буну фильтр эт:</string>
   <string name="page_edit_history_filter_by_all">Бютеу тюзетиуле (%s)</string>
   <string name="page_edit_history_filter_by_user">Хайрланыучу тюзетиуле (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Аноним тюзетиуле (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Регистрациясыз тюзетиуле (%s)</string>
   <string name="page_edit_history_filter_by_bot">Бот тюзетиуле (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s бла %2$s арасындагъы ёлчемле</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -185,7 +186,7 @@
   <string name="create_account_email_error">Терс email адрес</string>
   <string name="create_account_username_error">Хайырланыучуну атында джараусуз символла бардыла</string>
   <string name="create_account_password_error">Пароль эм азы бла 8 символдан болургъа керекди</string>
-  <string name="create_account_generic_error">Тергеу джазыу (аккаунт) къураргъа болмайды</string>
+  <string name="create_account_generic_error">Хыйысаб (аккаунт) къураргъа болмайды</string>
   <string name="create_account_next">Эндиги</string>
   <string name="email_recommendation_dialog_title">Электрон почтасыз хыйсаб къуралсынмы?</string>
   <string name="email_recommendation_dialog_message">Электрон почтаны белгилеу амалсыз болмаса да, паролугъузну тас этсегиз, къутхарыр ючюн электрон почта керек болгъаны себебли, электрон адресни къошаргъа &lt;b&gt;бек насихат этебиз&lt;/b&gt;</string>
@@ -421,8 +422,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Адыр панелигизни джарашдырыгъыз</string>
   <string name="error_blocked_footer_no_blocker">Блокну сюзер ючюн &lt;a href=\"https://krc.wikipedia.org/wiki/Википедия:Администраторла\"&gt;администратор&lt;/a&gt; бла байлам къурургъа боллукъсуз.</string>
   <string name="temp_account_not_logged_in">Системагъа кирмегенсиз</string>
-  <string name="temp_account_anon_dialog_body">Ташалыгъызны къоруулар ючюн, тюзетиу этгенлей &lt;b&gt;болджаллы хыйсаб&lt;/b&gt; къураллыкъды. &lt;a href=\"%1$s\"&gt;Аслам бил&lt;/a&gt;.Келликде тюзетиуде эмда башха онгчулукъла бла хайырланырча &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Кир&lt;/a&gt; неда &lt;a href=\"https://#login\"&gt;Хыйсаб къура&lt;/a&gt;.</string>
-  <string name="temp_account_temp_dialog_body">Тюзетиуюгюз %1$s джаздырыллыкъды. IP-адресигиз администраторлагъа кёрюнюрча боллукъду.&lt;br /&gt;&lt;br /&gt;Сиз &lt;a href=\"https://#login\"&gt;кирсегиз&lt;/a&gt; неда &lt;a href=\"https://#login \"&gt;хыйысаб къурасагъыз&lt;/a&gt;, башха онгчулукъла бла бирге, тюзетиулеригиз, сайлагъан атыгъызгъа джаздырыллыкъды.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Ташалыгъызны къоруулар ючюн, тюзетиу этгенлей &lt;b&gt;болджаллы хыйсаб&lt;/b&gt; къураллыкъды. &lt;a href=\"%1$s\"&gt;Аслам бил&lt;/a&gt;.Келликде тюзетиуде эмда башха онгчулукъла бла хайырланырча &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Кир&lt;/a&gt; неда &lt;a href=\"https://#login\"&gt;Хыйсаб къура&lt;/a&gt;.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Тюзетиуюгюз %1$s джаздырыллыкъды. IP-адресигиз администраторлагъа кёрюнюрча боллукъду.&lt;br /&gt;&lt;br /&gt;Сиз &lt;a href=\"https://#login\"&gt;кирсегиз&lt;/a&gt; неда &lt;a href=\"https://#login \"&gt;хыйысаб къурасагъыз&lt;/a&gt;, башха онгчулукъла бла бирге, тюзетиулеригиз, сайлагъан атыгъызгъа джаздырыллыкъды.</string>
   <string name="temp_account_dialog_ok">Англашынды</string>
   <string name="temp_account_using_title">Сиз заманлы хыйсабны хайырланасыз</string>
   <string name="temp_account_dialog_discard">Тюрлениулени кери ал эмда системагъа кир</string>
@@ -795,7 +796,7 @@
   <string name="menu_feed_overflow_label">Аслам сайлам</string>
   <string name="feed_featured_image_share_subject">Викигёзенни сайланнган суратлары</string>
   <string name="feed">Аула</string>
-  <string name="home">Баш бет</string>
+  <string name="home">Тамал бет</string>
   <string name="view_static_card_icon_content_description">Картчыкъны белгичиги</string>
   <string name="view_card_news_title">Джангылыкълада</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -1467,8 +1468,6 @@
   <string name="reading_list_share_menu_label">Ортагъа салыргъа...</string>
   <string name="reading_list_share_menu_tooltip">Бу окъургъа тизмени башхала бла арагъа сал</string>
   <string name="reading_list_share_message_v2">Салам! Мен кесими окъургъа тизмеми сизге джаяргъа излей эдим:</string>
-  <string name="reading_list_share_survey_title">Окъургъа тизмени джайыу функцияны маджаллашдырыр ючюн болушлукъ эталлыкъмысыз?</string>
-  <string name="reading_list_share_survey_body">\"Окъургъа тизмелени джайыу\"  — тест функцияды, аны маджаллашдырырча неда кетерирча, бизге сизни багъаларыгъыз керекди.</string>
   <string name="talk_templates_empty_message">Ишлеб башлар ючюн, кесигизни энчи билдириулеригизни къурагъыз неда &lt;a href=\"#\"&gt;билдириу юлгюле&lt;/a&gt; къурагъыз.</string>
   <string name="talk_templates_new_message_title">Джангы билдириу</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
@@ -1576,16 +1575,9 @@
   <string name="patroller_onboarding_two_undo_content">Заранлы болургъа боллукъ тюзетиуню кери алыр неда кери къайтарыр ючюн \'Кери Ал\'ны сайлагъыз.</string>
   <string name="patroller_diff_tooltip_one">Бузулуу, тюзетиуню викиге заран берирге боллугъун белгилер.</string>
   <string name="patroller_diff_tooltip_two">Нюзюр, тюзетиуню иги нюзюр бла сакъландырыргъа боллугъун белгилер.</string>
-  <string name="patroller_diff_feedback_dialog_title">Бу функцияны маджаллашдырыр ючюн болушугъуз</string>
-  <string name="patroller_diff_feedback_dialog_message">Бу функциядан разымысы?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Разыма</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Къошулмайма</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Разы тюлме</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Функцияны къалай маджаллашдырыргъа боллукъбуз?</string>
   <string name="patroller_diff_menu_edit_history_title">Статья тюзетиу тарих</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Кери билдириу</string>
-  <string name="patroller_diff_feedback_dialog_submit">Джибер</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Кери билдириу джиберилди.</string>
   <string name="patroller_diff_feedback_tooltip">\'Функция бла байламлы проблема\' тюбюнде излеген заман кери билдириу джиберир ючюн къошакъ менюню басыгъыз.</string>
   <string name="patroller_saved_message_title_vandalism">Вандализм эсгертиу</string>
   <string name="patroller_saved_message_title_editing_tests">Тюзетиу тестле</string>
@@ -1628,11 +1620,15 @@
   <string name="places_filter_title">Фильтр тил</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Тизме</string>
-  <string name="places_survey_very_satisfied_option">Бек разыма</string>
-  <string name="places_survey_very_unsatisfied_option">Бек разы тюлме</string>
-  <string name="places_survey_dialog_title">\'Джерле\'ни маджаллашдырыргъа болушлукъчу бол</string>
-  <string name="places_survey_feedback_dialog_title">\"Джерле\" къалай маджаллашдырылыр?</string>
-  <string name="places_survey_dialog_cancel">Ызына ал</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Нени тюрлендиририбизни неда маджаллашдырырыбзны излейсиз?</string>
   <string name="places_empty_list">Бу юс бошду. &lt;a href=\"#\"&gt;Картаны&lt;/a&gt; узакълашдырыгъыз.</string>
+  <string name="survey_dialog_title">Бу функцияны маджаллашдырыр ючюн болушугъуз</string>
+  <string name="survey_dialog_message">Бу функциядан разымысы?</string>
+  <string name="survey_dialog_option_satisfied">Разыма</string>
+  <string name="survey_dialog_option_neutral">Къошулмайма</string>
+  <string name="survey_dialog_option_unsatisfied">Разы тюлме</string>
+  <string name="survey_dialog_option_very_satisfied">Бек разыма</string>
+  <string name="survey_dialog_option_very_unsatisfied">Бек разы тюлме</string>
+  <string name="survey_dialog_cancel">Ызына ал</string>
+  <string name="survey_dialog_submit">Джибер</string>
+  <string name="survey_dialog_submitted_snackbar">Кери билдириу джиберилди.</string>
 </resources>

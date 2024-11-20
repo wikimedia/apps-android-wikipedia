@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * Duke of Wikipädia
 * Karapananguasú Kururú Teremembé
@@ -56,7 +55,7 @@
   <string name="page_edit_history_filter_by">Uyumuá yepé rupí</string>
   <string name="page_edit_history_filter_by_all">Pãnhé murupiawa (%s)</string>
   <string name="page_edit_history_filter_by_user">Puruçara murupiawa’etá (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Murupiawa puruçara kanhẽmu rupí (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Murupiawa puruçara kanhẽmu rupí (%s)</string>
   <string name="page_edit_history_filter_by_bot">Murupiawa irupĩtuwa rupí (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mumarawa %1$s çuiwara té %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">

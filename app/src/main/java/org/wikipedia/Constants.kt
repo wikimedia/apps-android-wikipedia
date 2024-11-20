@@ -22,6 +22,7 @@ object Constants {
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"
+    const val INTENT_APP_SHORTCUT_PLACES = "appShortcutPlaces"
     const val INTENT_EXTRA_ACTION = "intentAction"
     const val INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList"
     const val INTENT_EXTRA_GO_TO_MAIN_TAB = "goToMainTab"
@@ -106,7 +107,6 @@ object Constants {
         USER_CONTRIB_ACTIVITY("userContribActivity"),
         EDIT_ADD_IMAGE("editAddImage"),
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
-        RECOMMENDED_CONTENT("recommendedContent"),
     }
 
     enum class ImageEditType(name: String) {

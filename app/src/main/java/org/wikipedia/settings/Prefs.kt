@@ -5,12 +5,14 @@ import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
+import org.wikipedia.LauncherIcon
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.DonationResult
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
@@ -616,6 +618,14 @@ object Prefs {
     val useUrlShortenerForSharing
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_url_shorten, false)
 
+    var tempAccountWelcomeShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_welcome_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_welcome_shown, value)
+
+    var tempAccountDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_dialog_shown, value)
+
     var readingListShareTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
@@ -726,7 +736,31 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_test_env, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_test_env, value)
 
-    var recommendedContentSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_content_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_content_survey_shown, value)
+    var donationResults
+        get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
+
+    var hasDonorHistorySaved
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donor_history_saved, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donor_history_saved, value)
+
+    var isDonor
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_donor, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_donor, value)
+
+    var isRecurringDonor
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)
+
+    var contributionsDashboardSurveyDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_contributions_dashboard_survey_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_contributions_dashboard_survey_dialog_shown, value)
+
+    var contributionsDashboardEntryDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_contributions_dashboard_entry_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_contributions_dashboard_entry_dialog_shown, value)
+
+    var currentSelectedAppIcon
+        get() = PrefsIoUtil.getString(R.string.preference_key_current_selected_app_icon, LauncherIcon.DEFAULT.key)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_current_selected_app_icon, value)
 }

@@ -68,7 +68,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var galleryAdapter: GalleryItemAdapter
-    private val viewModel: GalleryViewModel by viewModels { GalleryViewModel.Factory(intent.extras!!) }
+    private val viewModel: GalleryViewModel by viewModels()
     private var pageChangeListener = GalleryPageChangeListener()
     private var imageEditType: ImageEditType? = null
     private var controlsShowing = true
@@ -155,7 +155,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             binding.transitionReceiver.layoutParams = params
             binding.transitionReceiver.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
-                largeRoundedSize = false, force = false, listener = null)
+                force = false, listener = null)
             val transitionMillis = 500
             binding.transitionReceiver.postDelayed({
                 if (isDestroyed) {

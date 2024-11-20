@@ -325,6 +325,7 @@
   <string name="file_page_add_image_caption_button">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="file_page_edit_button_content_description">Muuʹtt %s</string>
   <string name="description_edit_login_cancel_button_text">Jõõsk</string>
+  <string name="onboarding_continue">Jueʹtǩ</string>
   <string name="onboarding_multilingual_add_language_text">Lââʹzzet leʹbe muuʹtt ǩiõlid</string>
   <string name="app_shortcuts_random">Håʹt mii</string>
   <string name="app_shortcuts_search">Ooʒʒ</string>
@@ -347,6 +348,7 @@
   <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Snimldõõǥǥâž</string>
   <string name="insert_media_insert_button">Lââʹzzet</string>
+  <string name="templates_param_optional_hint">%s (vaʹlljeemnallšem)</string>
   <string name="templates_learn_more_link">Lââʹssteâđ</string>
   <string name="main_tooltip_text">Tiõrv %s! Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
   <string name="main_tooltip_text_v2">Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
@@ -393,6 +395,7 @@
   <string name="watchlist_filter_pages">Artikkelseeid</string>
   <string name="watchlist_page_protected">Suõjjuum</string>
   <string name="watchlist_page_deleted">Jaukkuum</string>
+  <string name="preview_edit_watch_this_page">Vaalv tän seeid</string>
   <string name="action_item_categories">Kategoria</string>
   <string name="category_tab_articles">Artikkeeʹl</string>
   <string name="category_tab_subcategories">Vueʹllkategoria</string>

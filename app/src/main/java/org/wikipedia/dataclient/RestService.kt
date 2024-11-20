@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient
 
-import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
@@ -17,7 +16,6 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch
-import org.wikipedia.suggestededits.provider.SuggestedEditItem
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -32,39 +30,16 @@ import retrofit2.http.Query
 
 interface RestService {
 
-    /**
-     * Gets a page summary for a given title -- for link previews
-     *
-     * @param title the page title to be used including prefix
-     */
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
-    fun getSummaryResponse(
+    suspend fun getSummaryResponse(
         @Path("title") title: String,
-        @Header("Referer") referrerUrl: String?,
-        @Header("Cache-Control") cacheControl: String?,
-        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
-        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<PageSummary>>
-
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
-    suspend fun getSummaryResponseSuspend(
-        @Path("title") title: String,
-        @Header("Referer") referrerUrl: String?,
-        @Header("Cache-Control") cacheControl: String?,
-        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
-        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
+        @Header("Referer") referrerUrl: String? = null,
+        @Header("Cache-Control") cacheControl: String? = null,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
     ): Response<PageSummary>
-
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
-    fun getSummary(
-        @Header("Referer") referrerUrl: String?,
-        @Path("title") title: String
-    ): Observable<PageSummary>
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
@@ -86,26 +61,20 @@ interface RestService {
     suspend fun getRandom(): PageSummary
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaList(
-        @Path("title") title: String,
-        @Path("revision") revision: Long
-    ): Observable<MediaList>
-
-    @GET("page/media-list/{title}/{revision}")
-    suspend fun getMediaListSuspend(
+    suspend fun getMediaList(
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): MediaList
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaListResponse(
+    suspend fun getMediaListResponse(
         @Path("title") title: String?,
         @Path("revision") revision: Long,
         @Header("Cache-Control") cacheControl: String?,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<MediaList>>
+    ): Response<MediaList>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     suspend fun getOnThisDay(@Path("mm") month: Int,
@@ -200,25 +169,6 @@ interface RestService {
         @Path("id") listId: Long, @Path("entry_id") entryId: Long,
         @Query("csrf_token") token: String?
     ): Call<Unit>
-
-    // ------- Recommendations -------
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/caption/addition/{lang}")
-    suspend fun getImagesWithoutCaptions(@Path("lang") lang: String): List<SuggestedEditItem>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/caption/translation/from/{fromLang}/to/{toLang}")
-    suspend fun getImagesWithTranslatableCaptions(@Path("fromLang") fromLang: String,
-                                                  @Path("toLang") toLang: String): List<SuggestedEditItem>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/description/addition/{lang}")
-    suspend fun getArticlesWithoutDescriptions(@Path("lang") lang: String): List<SuggestedEditItem>
-
-    @Headers("Cache-Control: no-cache")
-    @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
-    suspend fun getArticlesWithTranslatableDescriptions(@Path("fromLang") fromLang: String,
-                                                        @Path("toLang") toLang: String): List<SuggestedEditItem>
 
     //  ------- Talk pages -------
     @Headers("Cache-Control: no-cache")

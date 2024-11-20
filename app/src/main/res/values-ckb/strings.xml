@@ -64,7 +64,7 @@
   <string name="page_edit_history_filter_by">بیپاڵێوە بە</string>
   <string name="page_edit_history_filter_by_all">ھەموو دەستکارییەکان (%s)</string>
   <string name="page_edit_history_filter_by_user">دەستکارییەکانی یەکارھێنەر (%s)</string>
-  <string name="page_edit_history_filter_by_anon">دەستکارییەکانی بەکارھێنەری نەزانراو (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">دەستکارییەکانی بەکارھێنەری نەزانراو (%s)</string>
   <string name="page_edit_history_filter_by_bot">دەستکارییەکانی بۆت (%s)</string>
   <string name="page_edit_history_metrics_content_description">پێوانەکان لە %1$s بۆ %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1275,8 +1275,6 @@
   <string name="reading_list_share_menu_label">ھاوبەشکردن…</string>
   <string name="reading_list_share_menu_tooltip">ئەم پێڕستی خوێندنەوەیە لەگەڵ کەسانی تردا ھاوبەش بکە</string>
   <string name="reading_list_share_message_v2">سڵاو! حەز دەکەم پێڕستی خوێندنەوەی ویکیپیدیاکەمت لەگەڵدا ھاوبەش بکەم:</string>
-  <string name="reading_list_share_survey_title">دەتوانیت یارمەتیمان بدەیت بۆ باشترکردنی «پێڕستی خوێندنەوە هاوبەشەکان»؟</string>
-  <string name="reading_list_share_survey_body">«پێڕستی خوێندنەوەی ھاوبەش» تایبەتمەندییەکی تاقیکارییە و ئێمە پێویستمان بە ڕاوبۆچوونی ئێوەیە بۆ باشترکردنی یان لابردنی.</string>
   <string name="data_opt_in_accept">پەسەندکردن</string>
   <string name="data_opt_in_reject">ڕەتکردنەوە</string>
   <string name="page_issues_title">کێشەکانی پەڕە</string>

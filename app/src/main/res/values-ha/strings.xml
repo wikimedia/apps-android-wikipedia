@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Bashir Gwanki
 * Bello Na'im
 * Dbrant
@@ -61,7 +60,7 @@
   <string name="page_edit_history_filter_by">Wanda ya tace</string>
   <string name="page_edit_history_filter_by_all">Dukkanin gyararrakin (%s)</string>
   <string name="page_edit_history_filter_by_user">Gyare-gyaren edita (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Gyare-gyaren wanda bai yi rijista ba (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Gyare-gyaren wanda bai yi rijista ba (%s)</string>
   <string name="page_edit_history_filter_by_bot">Gyare-gyaren saƙaƙo (%s)</string>
   <string name="page_edit_history_metrics_content_description">Tebura daga %1$s zuwa %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1429,8 +1428,6 @@
   <string name="reading_list_share_menu_label">Rabawa...</string>
   <string name="reading_list_share_menu_tooltip">Raba wannan jerin karatun tare da wasu</string>
   <string name="reading_list_share_message_v2">Ya kasance! Ina so in raba jerin karatun Wikipedia tare da ku:</string>
-  <string name="reading_list_share_survey_title">Shin za ku iya taimaka mana mu inganta \"Listunan karatu na raba\"?</string>
-  <string name="reading_list_share_survey_body">\"Listing Reading Sharing\" fasalin gwaji ne kuma muna buƙatar ra\'ayoyinku don ingantawa ko cire shi.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Ba ku da saƙonnin gargadi da aka adana.</string>
   <string name="talk_templates_new_message_title">Sabon saƙo</string>
   <string name="talk_templates_new_message_subject_hint">Batu</string>
@@ -1534,15 +1531,8 @@
   <string name="patroller_onboarding_two_undo_content">Zaɓi \'Undo\' don warwarewa ko juyawa wani gyare-gyare mai lalacewa.</string>
   <string name="patroller_diff_tooltip_one">Lalacewar tana hasashen idan gyare-gyare yana haifar da lalacewa ga wiki.</string>
   <string name="patroller_diff_tooltip_two">Manufar ta yi hasashen yiwuwar gyara da za a adana cikin aminci.</string>
-  <string name="patroller_diff_feedback_dialog_title">Taimaka mana inganta wannan fasalin</string>
-  <string name="patroller_diff_feedback_dialog_message">Shin kun gamsu da wannan fasalin?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">An gamsu da su</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Ba tare da la\'akari ba</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ba a gamsu ba</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Ta yaya za mu iya inganta fasalin?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Bayani</string>
-  <string name="patroller_diff_feedback_dialog_submit">Miƙa</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Ra\'ayoyin da aka gabatar.</string>
   <string name="patroller_diff_feedback_tooltip">Sanya menu mai yawa don gabatar da ra\'ayoyi a kowane lokaci a ƙarƙashin \'Matsala tare da fasalin\'.</string>
   <string name="data_opt_in_accept">Karba</string>
   <string name="data_opt_in_reject">Mayar</string>
@@ -1562,4 +1552,11 @@
   <string name="places_filter_title">Harshen tacewa</string>
   <string name="places_toggle_buttons_map">Taswira</string>
   <string name="places_toggle_buttons_list">jeri</string>
+  <string name="survey_dialog_title">Taimaka mana inganta wannan fasalin</string>
+  <string name="survey_dialog_message">Shin kun gamsu da wannan fasalin?</string>
+  <string name="survey_dialog_option_satisfied">An gamsu da su</string>
+  <string name="survey_dialog_option_neutral">Ba tare da la\'akari ba</string>
+  <string name="survey_dialog_option_unsatisfied">Ba a gamsu ba</string>
+  <string name="survey_dialog_submit">Miƙa</string>
+  <string name="survey_dialog_submitted_snackbar">Ra\'ayoyin da aka gabatar.</string>
 </resources>

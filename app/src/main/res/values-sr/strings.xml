@@ -2,7 +2,6 @@
 <!-- Authors:
 * Acamicamacaraca
 * Aktron
-* Amire80
 * BadDog
 * Bjankuloski06
 * Dbrant
@@ -70,7 +69,7 @@
   <string name="page_edit_history_filter_by">Филтрирај по</string>
   <string name="page_edit_history_filter_by_all">Све измене (%s)</string>
   <string name="page_edit_history_filter_by_user">Корисничке измене (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимне измене (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Нерегистроване измене (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ботовске измене (%s)</string>
   <string name="page_edit_history_metrics_content_description">Од %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -109,6 +108,7 @@
   <string name="menu_page_recently_viewed">Недавно прегледано</string>
   <string name="menu_page_archive">Архива</string>
   <string name="menu_long_press_open_page">Отвори</string>
+  <string name="menu_long_press_open_in_places">Отвори у Местима</string>
   <string name="menu_long_press_open_in_new_tab">Отвори у новој картици</string>
   <string name="menu_long_press_copy_page">Копирај адресу линка</string>
   <string name="menu_text_select_define">Дефиниши</string>
@@ -432,8 +432,9 @@
   <string name="error_blocked_expiry">Истек блокаде: %s</string>
   <string name="error_blocked_id">ID блокаде: %s</string>
   <string name="temp_account_not_logged_in">Нисте пријављени</string>
-  <string name="temp_account_anon_dialog_body">Када начините измену &lt;b&gt;привремени налог&lt;/b&gt; ће бити направљен ради заштите Ваше приватности. &lt;a href=\"%1$s\"&gt;Сазнајте више&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Пријавите се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;отворите налог&lt;/a&gt; тиме ће ваши доприноси бити приписивани корисничком имену које одаберете и стећи ћете многе погодности.</string>
-  <string name="temp_account_temp_dialog_body">Ваше измене ће бити приписане %1$s. Ваша IP адреса ће бити видљива администраторима.&lt;br /&gt;&lt;br /&gt;Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;отворите налог&lt;/a&gt;, Ваше измене ће бити приписане имену које изаберете, између осталога.</string>
+  <string name="temp_account_anon_ip_dialog_body">Када начините измену Ваша измена ће бити приписана Вашој IP адреси.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Пријавите се&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;отворите налог&lt;/a&gt; да Вам се припишу будуће измене и приступите другим могућностима.</string>
+  <string name="temp_account_anon_dialog_body">Када начините измену &lt;b&gt;привремени налог&lt;/b&gt; ће бити направљен ради заштите Ваше приватности. &lt;a href=\"%1$s\"&gt;Сазнајте више&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Пријавите се&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;отворите налог&lt;/a&gt; тиме ће ваши доприноси бити приписивани корисничком имену које одаберете и стећи ћете многе погодности.</string>
+  <string name="temp_account_temp_dialog_body">Ваше измене ће бити приписане %1$s. Ваша IP адреса ће бити видљива администраторима.&lt;br /&gt;&lt;br /&gt;Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;отворите налог&lt;/a&gt;, Ваше измене ће бити приписане имену које изаберете, између осталога.</string>
   <string name="temp_account_dialog_ok">Разумео</string>
   <string name="temp_account_using_title">Користите привремени налог</string>
   <string name="temp_account_dialog_discard">Одбаци измене и пријави ме</string>
@@ -441,6 +442,7 @@
     <item quantity="one">Налог ће истећи за %d дан.</item>
     <item quantity="other">Налог ће истећи за %d дана.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Нисте пријављени.&lt;/b&gt; Када начините измену Ваша измена ће бити приписана Вашој IP адреси.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Нисте пријављени.&lt;/b&gt; Чим начините измену, привремени налог ће бити направљен ради заштите Ваше приватности. &lt;a href=\"%1$s\"&gt;Сазнајте више&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Користите привремени налог.&lt;/b&gt; Ваше измене ће бити приписане %1$s. &lt;a href=\"%2$s\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Тренутно користите привремени налог.&lt;/b&gt; Измене начињене привременим налогм %1$s неће бити пренете Ваше сталном налогу када се пријавите. Пријавите се или отворите налог да би Ваше измене биле приписиване Вашем корисничком имену између осталога.</string>
@@ -1130,6 +1132,7 @@
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На данашњи дан</string>
   <string name="more_events_text">Више на овај дан</string>
   <string name="events_count_text">%1$s догађаја %2$s–%3$d</string>
@@ -1456,8 +1459,6 @@
   <string name="reading_list_share_menu_label">Дели…</string>
   <string name="reading_list_share_menu_tooltip">Поделите ову листу за читање са другима</string>
   <string name="reading_list_share_message_v2">Здраво! Желим да поделим моју листу за читање на Википедији са вама:</string>
-  <string name="reading_list_share_survey_title">Да ли можете да нам помогнете у унапређивању \"дељења листи за читање\"?</string>
-  <string name="reading_list_share_survey_body">\"Дељење листи за читање\" је тестна могућност и потребне су вам ваше повратне информације да би смо је унапредили или уклонили.</string>
   <string name="talk_templates_empty_message">Напишите своју поруку или користите &lt;a href=\"#\"&gt;примере порука&lt;/a&gt; да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порука</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
@@ -1565,16 +1566,9 @@
   <string name="patroller_onboarding_two_undo_content">Одаберите \'Поништи\' да би сте поништили или вратили потенционалну деструктивну измену.</string>
   <string name="patroller_diff_tooltip_one">Процена штетности измене.</string>
   <string name="patroller_diff_tooltip_two">Процена добронамерности измене.</string>
-  <string name="patroller_diff_feedback_dialog_title">Помозите нам да унапредимо ову могућност</string>
-  <string name="patroller_diff_feedback_dialog_message">Да ли сте задовољни са овом могућношћу?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задовољавајуће</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадовољавајуће</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можемо да унапредимо могућност?</string>
   <string name="patroller_diff_menu_edit_history_title">Историја</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Повратне информације</string>
-  <string name="patroller_diff_feedback_dialog_submit">Пошаљи</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Повратне информације послате.</string>
   <string name="patroller_saved_message_title_vandalism">Немојте вандализовати</string>
   <string name="patroller_saved_message_title_npov">Неутрална тачка гледишта</string>
   <string name="patroller_saved_message_title_auto_trans">Аутоматски превод</string>
@@ -1602,6 +1596,7 @@
   <string name="donate_gpay_dialog_pay_button">Донирајте путем Google Pay-а</string>
   <string name="donate_gpay_dialog_other_button">Други начини донирања</string>
   <string name="donate_gpay_activity_title">Изаберите износ</string>
+  <string name="donate_gpay_check_transaction_fee">Платићу и провизију (%s), да би добили цео износ моје донације.</string>
   <string name="donate_gpay_check_recurring">Донирај аутоматски сваког месеца.</string>
   <string name="donate_gpay_check_send_email">Да, нека ми Задужбина Викимедија периодично шаље имејлове.</string>
   <string name="donate_gpay_minimum_amount">Изаберите износ (најмање %s)</string>
@@ -1616,8 +1611,48 @@
   <string name="places_filter_title">Филтрирај по језику</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>
-  <string name="places_survey_very_satisfied_option">Веома задовољан</string>
-  <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
-  <string name="places_survey_dialog_cancel">Откажи</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Шта бисте желели да променимо или унапредимо?</string>
+  <string name="places_card_title">Места у близини</string>
+  <string name="places_card_action">Још места у близини</string>
+  <string name="places_card_enable_location_card_button">Омогући локацију</string>
+  <string name="places_card_distance_suffix">%s удаљено</string>
+  <string name="places_card_distance_unknown">Непозната удаљеност</string>
+  <string name="donor_history_title">Историја донирања</string>
+  <string name="donor_history_save_button">Сачувај</string>
+  <string name="donor_history_update_donor_status_donor">Донатор</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Није донатор</string>
+  <string name="donor_history_last_donated">Последња донација</string>
+  <string name="donor_history_last_donated_date_picker_title">Изаберите датум</string>
+  <string name="donor_history_last_donated_date_picker_label">Унесите датум</string>
+  <string name="donor_history_last_donated_never">Никада</string>
+  <string name="donor_history_recurring_donor">Редовни донатор</string>
+  <string name="donor_history_donate_button">Донирајте Задужбини Викимедије</string>
+  <string name="donor_history_about_this_experiment">О овом експерименту</string>
+  <string name="donor_history_updated_message_snackbar">Историја донирања ажурирана</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Дајте своје мишљење</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Не, хвала</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Да, води ме тамо</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Не, хвала</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Да, води ме тамо</string>
+  <string name="contributions_dashboard_badge_donor">Донатор</string>
+  <string name="contributions_dashboard_tab_last_donated">Последња донација</string>
+  <string name="contributions_dashboard_tab_update_button">Ажурирај</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Не, хвала</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, води ме у подешавања</string>
+  <string name="recent_searches_title">Скорашње претраге</string>
+  <string name="rabbit_holes_experiment">Експериментално</string>
+  <string name="rabbit_holes_experiment_about">О овом експерименту</string>
+  <string name="suggested_reading_list_title">Засновано на Вашим читањима</string>
+  <string name="suggested_reading_list_description">Инспирисано „%s”</string>
+  <string name="suggested_reading_list_dialog_positive">Пробај сад</string>
+  <string name="suggested_reading_list_dialog_negative">Можда касније</string>
+  <string name="survey_dialog_title">Помозите нам да унапредимо ову могућност</string>
+  <string name="survey_dialog_message">Да ли сте задовољни са овом могућношћу?</string>
+  <string name="survey_dialog_option_satisfied">Задовољавајуће</string>
+  <string name="survey_dialog_option_neutral">Неутрално</string>
+  <string name="survey_dialog_option_unsatisfied">Незадовољавајуће</string>
+  <string name="survey_dialog_option_very_satisfied">Веома задовољан</string>
+  <string name="survey_dialog_option_very_unsatisfied">Веома незадовољан</string>
+  <string name="survey_dialog_cancel">Откажи</string>
+  <string name="survey_dialog_submit">Пошаљи</string>
+  <string name="survey_dialog_submitted_snackbar">Повратне информације послате.</string>
 </resources>

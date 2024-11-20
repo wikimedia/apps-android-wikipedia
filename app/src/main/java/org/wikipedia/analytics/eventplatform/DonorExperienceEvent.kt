@@ -1,9 +1,10 @@
 package org.wikipedia.analytics.eventplatform
 
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.settings.Prefs
 
-class DonorExperienceEvent {
+open class DonorExperienceEvent {
 
     companion object {
 
@@ -16,7 +17,7 @@ class DonorExperienceEvent {
             submit(
                 action,
                 activeInterface,
-                campaignId?.let { "campaign_id: $it, " }.orEmpty() + "banner_opt_in: ${Prefs.donationBannerOptIn}",
+                campaignId?.let { "campaign_id: ${CampaignCollection.getFormattedCampaignId(it)}, " }.orEmpty() + "banner_opt_in: ${Prefs.donationBannerOptIn}",
                 wikiId
             )
         }

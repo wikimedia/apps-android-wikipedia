@@ -5,13 +5,13 @@
 * Agent
 * Agusbou2015
 * Amaia
-* Amire80
 * Anarhistička Maca
 * Angoca
 * AnupamM
 * Asierog
 * Athena in Wonderland
 * Atzerritik
+* Biancailin
 * Bruno44101
 * Canaan9801
 * Chopan050
@@ -68,6 +68,7 @@
 * Mouse21
 * Mynor Archila
 * No se
+* Osvaldorino
 * PPenloglou-WMF
 * Pantareje
 * Papouten
@@ -109,6 +110,7 @@
   <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>
   <string name="nav_item_search">Buscar</string>
+  <string name="nav_item_contribute">Contribuir</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -183,6 +185,7 @@
   <string name="menu_page_recently_viewed">Visto recientemente</string>
   <string name="menu_page_archive">Archivo</string>
   <string name="menu_long_press_open_page">Abrir</string>
+  <string name="menu_long_press_open_in_places">Abierto en lugares</string>
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
   <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
   <string name="menu_text_select_define">\nDefinir</string>
@@ -512,7 +515,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalice su barra de herramientas</string>
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="temp_account_not_logged_in">No has iniciado sesión</string>
-  <string name="temp_account_anon_dialog_body">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicie sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;cree una cuenta&lt;/a&gt; para obtener crédito para futuras ediciones y acceder a otras funciones.</string>
+  <string name="temp_account_anon_ip_dialog_body">Una vez que realice una edición, su dirección IP se asociará con sus ediciones.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicie sesión&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;cree una cuenta&lt;/a&gt; para obtener crédito por futuras ediciones y acceder a otras funciones.</string>
+  <string name="temp_account_anon_dialog_body">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"%1$s\"&gt;Aprenda más&lt;/a&gt;. &lt;a href=\"https://#login\"&gt;Ingrese&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crear una cuenta&lt;/a&gt; para obtener crédito por futuras ediciones y para acceder a otras características.&lt;br/&gt;&lt;br/&gt;</string>
   <string name="temp_account_temp_dialog_body">Tu edición se atribuirá a %1$s . Su dirección IP será visible para los administradores.&lt;br /&gt;&lt;br /&gt; Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;creas una cuenta&lt;/a&gt; , tus ediciones se atribuirán al nombre que elijas, entre otros beneficios.</string>
   <string name="temp_account_dialog_ok">Conseguido</string>
   <string name="temp_account_using_title">Estás usando una cuenta temporal</string>
@@ -525,6 +529,7 @@
     <item quantity="one">La cuenta caducará en %d días.</item>
     <item quantity="other">La cuenta caducará en %d días.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;No has iniciado sesión.&lt;/b&gt; Una vez que realices una edición, tu dirección IP se asociará con tus ediciones.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;No estás conectado.&lt;/b&gt; Una vez que realice una edición, se creará una cuenta temporal para proteger su privacidad. &lt;a href=\"%1$s\"&gt;Aprenda más&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Estás usando una cuenta temporal.&lt;/b&gt; Su edición se atribuirá a %1$s. &lt;a href=\"%2$s\"&gt;Aprenda más&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Actualmente estás utilizando una cuenta temporal.&lt;/b&gt; Las ediciones realizadas con la cuenta temporal %1$s no se transferirán a su cuenta permanente cuando inicie sesión. Inicie sesión o cree una cuenta para obtener crédito para su nombre de usuario, entre otros beneficios.</string>
@@ -718,9 +723,16 @@
   <string name="reading_list_activity_title">Lista de lectura: %s</string>
   <string name="reading_list_notification_title">Lista(s) de lectura exportadas</string>
   <string name="reading_list_notification_text">%d Las listas de lectura se han exportado como \'reading_lists export.json\' a su carpeta de descargas.</string>
+  <string name="reading_list_notification_detailed_text">Las listas de lectura se han exportado a \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Exportar</string>
   <string name="reading_lists_import_file_picker_title">Elija el archivo a importar</string>
   <string name="reading_lists_import_failure_message">La importación de listas de lectura fracaso</string>
+  <string name="reading_lists_export_select_lists_message">Seleccione la o las listas para exportar</string>
+  <string name="reading_lists_export_completed_message">Lista(s) de lectura exportadas</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Error en la exportación de la lista de lectura</item>
+    <item quantity="other">Error en la exportación de listas de lectura</item>
+  </plurals>
   <string name="reading_lists_preview_header_title">Lista compartida</string>
   <string name="reading_lists_preview_save_button">Guardar</string>
   <string name="reading_lists_preview_save_dialog_title">Guardar lista</string>
@@ -854,6 +866,7 @@
   <string name="notifications_all_wikis_text">Todas las wikis</string>
   <string name="notifications_all_types_text">Todos los tipos</string>
   <string name="notifications_menu_user_talk_page">Página de discusión de %s</string>
+  <string name="notifications_offline_disable_message">La función no está disponible sin conexión.</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artículo aleatorio</string>
@@ -901,6 +914,7 @@
   <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_item_type_suggested_edits">Sugerencias para añadir contenido a Wikipedia</string>
+  <string name="feed_item_type_places">Artículos cercanos basados en la ubicación actual</string>
   <string name="feed_empty_message">No hay nada en el suministro Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Aceptar</string>
@@ -910,8 +924,10 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
+  <string name="feed_language_variants_removal_dialog_title">Seleccione una variante de idioma regional para una mejor experiencia de lectura</string>
   <string name="feed_language_variants_removal_dialog_save">Guardar</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Por favor actualiza sus idiomas secundarios</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Ir a configuraciones</string>
   <string name="top_read_activity_title">Los más leídos el %s</string>
   <string name="tabs_activity_title">Pestañas</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
@@ -1320,6 +1336,7 @@
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
   <string name="talk_new_topic_submitted">Tema posted.</string>
+  <string name="talk_warn">Advertir</string>
   <string name="talk_warn_save_dialog_title">¿Guardar cambios?</string>
   <string name="talk_warn_save_dialog_publish">Publicar</string>
   <string name="talk_warn_save_dialog_cancel">Cancelar</string>
@@ -1340,6 +1357,7 @@
   <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Podrías ayudarnos a mejorar la aplicación participando en una encuesta?</string>
   <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="talk_share_talk_page">Wikipedia - discusiones en página de discusión</string>
+  <string name="talk_search_hint">Buscar mensajes</string>
   <string name="talk_search_topics_hint">Buscar temas</string>
   <string name="talk_search_find_in_talk_topics_hint">Buscar en el tema de página de discusión</string>
   <string name="talk_overflow_sort_by">Ordenar por</string>
@@ -1399,9 +1417,10 @@
   <string name="revision_diff_paragraph_added">Párrafo añadido</string>
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
   <string name="revision_undo_title">¿Confirmas que quieres deshacer esta edición?</string>
-  <string name="revision_undo_message" fuzzy="true">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
+  <string name="revision_undo_message">Deshacer significa revertir los efectos de una o más ediciones.</string>
   <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
+  <string name="revision_rollback_success">Ediciones revertidas.</string>
   <string name="revision_compare_button">Comparar</string>
   <string name="revision_compare_two_only">Solo se pueden seleccionar dos revisiones.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
@@ -1419,6 +1438,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 meses</string>
   <string name="watchlist_expiry_dialog_six_months">6 meses</string>
   <string name="watchlist_empty">No tienes ningún artículo en tu lista de seguimiento.</string>
+  <string name="watchlist_search">Buscar en la lista de seguimiento</string>
   <string name="watchlist_filter_all">Todos</string>
   <string name="watchlist_filter_talk">Discusión</string>
   <string name="watchlist_filter_pages">Páginas</string>
@@ -1427,6 +1447,7 @@
   <string name="watchlist_page_protected">Protegido</string>
   <string name="watchlist_page_deleted">Borrado</string>
   <string name="watchlist_filter_title">Filtro de lista de seguimiento</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Todo</string>
   <string name="watchlist_filter_watchlist_activity_header">Actividad de la lista de seguimiento</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Puede haber problemas</string>
@@ -1434,6 +1455,8 @@
   <string name="watchlist_filter_user_intent_header">Intento de predicción del usuario</string>
   <string name="watchlist_filter_user_intent_may_problems">Pueden ser de mala fe</string>
   <string name="watchlist_filter_user_intent_likely_problems">Posible mala fe</string>
+  <string name="watchlist_filter_user_status_unregistered">No registrado</string>
+  <string name="watchlist_filter_user_status_registered">Registrado</string>
   <string name="watchlist_filter_user_status_newcomers">Novatos</string>
   <string name="watchlist_filter_user_status_learners">Aprendices</string>
   <string name="watchlist_filter_user_status_experienced">Usuarios experimentados</string>
@@ -1442,9 +1465,17 @@
   <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Humano (no robot)</string>
   <string name="watchlist_filter_significance_header">Significatividad</string>
+  <string name="watchlist_filter_significance_minor">Ediciones menores</string>
+  <string name="watchlist_filter_significance_edits">Ediciones no menores</string>
+  <string name="watchlist_filter_latest_revisions_header">Últimas revisiones</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Revisión más reciente</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">No la revisión más reciente</string>
   <string name="watchlist_filter_type_of_change_header">Tipo de cambio</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Ediciones de páginas</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Creaciones de páginas</string>
   <string name="watchlist_filter_type_of_change_category_changes">Cambios de categoría</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Ediciones de Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Acciones registradas</string>
   <string name="watchlist_filter_type_of_change_new_users">Cuentas de usuario nuevas</string>
   <string name="watchlist_filter_reset_button">Restablecer</string>
   <string name="watchlist_search_bar_hint">Buscar en la lista de seguimiento o filtrarla</string>
@@ -1472,14 +1503,17 @@
   <string name="action_item_view_on_map">Ver en mapa</string>
   <string name="action_item_view_on_map_unavailable">No hay coordenadas geográficas disponibles para esta página</string>
   <string name="shareable_reading_lists_new_indicator">*nuevo*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Entendido</string>
   <string name="reading_list_share_menu_label">Compartir…</string>
   <string name="reading_list_share_menu_tooltip">Compartir esta lista de lectura con otros</string>
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
-  <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
-  <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
   <string name="talk_templates_empty_message">Cree sus propios mensajes de o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
   <string name="talk_templates_new_message_save">Guardar</string>
   <string name="talk_templates_new_message_dialog_title">Guardar cambios</string>
+  <string name="talk_templates_new_message_dialog_save">Guardar</string>
+  <string name="talk_templates_new_message_dialog_cancel">Cancelar</string>
+  <string name="talk_templates_edit_message_dialog_title">Editar mensaje</string>
+  <string name="talk_templates_edit_message_dialog_save">Guardar</string>
   <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Se ha eliminado el mensaje</item>
@@ -1520,7 +1554,6 @@
   <string name="patroller_onboarding_two_talk_title">Discusión</string>
   <string name="patroller_onboarding_two_talk_content">Comunicarse con otros editores. Guarde los mensajes de la página de discusión de uso común o use una plantilla.</string>
   <string name="patroller_diff_menu_edit_history_title">Historial de edición del artículo</string>
-  <string name="patroller_diff_feedback_dialog_submit">Enviar</string>
   <string name="patroller_saved_message_title_vandalism">Advertencia de vandalismo</string>
   <string name="patroller_saved_message_title_editing_tests">Pestañas de edición</string>
   <string name="patroller_saved_message_title_npov">Punto de vista neutral</string>
@@ -1570,7 +1603,9 @@
   <string name="places_permissions_denied">Se requiere permiso de Ubicación para ver tu ubicación en el mapa.  Por favor, inténtalo de nuevo.</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="places_survey_dialog_cancel">Cancelar</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">¿Qué quieres que cambiemos o mejoremos?</string>
   <string name="places_empty_list">Esta área está vacía. Alejar &lt;a href=\"#\"&gt;el mapa&lt;/a&gt; .</string>
+  <string name="places_card_action">Más lugares cercanos</string>
+  <string name="survey_dialog_title">Ayúndannos a mejorar las Páginas de Discusión.</string>
+  <string name="survey_dialog_cancel">Cancelar</string>
+  <string name="survey_dialog_submit">Enviar</string>
 </resources>

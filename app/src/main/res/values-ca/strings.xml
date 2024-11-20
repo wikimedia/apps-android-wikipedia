@@ -14,6 +14,7 @@
 * Jlrb+
 * Joan manel
 * Kippelboy
+* Lluis Cat
 * Lluis tgn
 * Macofe
 * McDutchie
@@ -79,7 +80,7 @@
   <string name="page_edit_history_filter_by">Filtra per</string>
   <string name="page_edit_history_filter_by_all">Totes les edicions (%s)</string>
   <string name="page_edit_history_filter_by_user">Edicions de l\'usuari (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Edicions anònimes (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edicions anònimes (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edicions de bots (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -436,9 +437,9 @@
   <string name="error_blocked_start">Inici del blocatge: %s</string>
   <string name="error_blocked_expiry">Venciment del blocatge: %s</string>
   <string name="error_blocked_id">ID del blocatge: %s</string>
-  <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="error_blocked_footer">Podeu contactar amb &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalitza la barra d\'eines</string>
-  <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt; administrador o una administradora&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="error_blocked_footer_no_blocker">Podeu contactar amb un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt; administrador o una administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="temp_account_dialog_ok">D\'acord</string>
   <string name="temp_account_using_title">Esteu utilitzant un compte temporal</string>
   <string name="temp_account_dialog_discard">Descarta els canvis i inicia sessió</string>
@@ -835,6 +836,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Carrega’n més</string>
+  <string name="feed_language_variants_removal_dialog_save">Desa</string>
   <string name="top_read_activity_title">Els més llegits el %s</string>
   <string name="tabs_activity_title">Pestanyes</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
@@ -1464,8 +1466,6 @@
   <string name="reading_list_share_menu_label">Comparteix…</string>
   <string name="reading_list_share_menu_tooltip">Comparteix la llista de lectura amb altres</string>
   <string name="reading_list_share_message_v2">Hola! Voldria compartir-vos la meva llista de lectura de la Viquipèdia:</string>
-  <string name="reading_list_share_survey_title">Ens podeu ajudar a millorar la funcionalitat de «Comparteix llistes de lectura»?</string>
-  <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>
   <string name="talk_templates_empty_message" fuzzy="true">No teniu cap missatge d\'avís desat.</string>
   <string name="talk_templates_new_message_title">Missatge nou</string>
   <string name="talk_templates_new_message_subject_hint">Assumpte</string>
@@ -1554,15 +1554,8 @@
   <string name="patroller_onboarding_one_title">Contribuïu a la supervisió i aprovació de les edicions de la Viquipèdia.</string>
   <string name="patroller_onboarding_two_thank_title">Agraeix</string>
   <string name="patroller_onboarding_two_watch_title">Vigila</string>
-  <string name="patroller_diff_feedback_dialog_title">Ajudeu-nos a millorar aquesta funcionalitat</string>
-  <string name="patroller_diff_feedback_dialog_message">Esteu satisfet amb aquesta funcionalitat?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfet</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfet</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Com podem millorar la funcionalitat?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentaris</string>
-  <string name="patroller_diff_feedback_dialog_submit">Tramet</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">S\'han tramès els comentaris.</string>
   <string name="talk_templates_menu_edit_title">Edita</string>
   <string name="data_opt_in_accept">Accepta</string>
   <string name="data_opt_in_reject">Rebutja</string>
@@ -1586,5 +1579,12 @@
   <string name="places_filter_title">Filtra per llengua</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Llista</string>
-  <string name="places_survey_dialog_cancel">Cancel·la</string>
+  <string name="survey_dialog_title">Ajudeu-nos a millorar aquesta funcionalitat</string>
+  <string name="survey_dialog_message">Esteu satisfet amb aquesta funcionalitat?</string>
+  <string name="survey_dialog_option_satisfied">Satisfet</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfet</string>
+  <string name="survey_dialog_cancel">Cancel·la</string>
+  <string name="survey_dialog_submit">Tramet</string>
+  <string name="survey_dialog_submitted_snackbar">S\'han tramès els comentaris.</string>
 </resources>

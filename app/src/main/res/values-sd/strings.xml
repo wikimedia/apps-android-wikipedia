@@ -60,7 +60,7 @@
   <string name="page_edit_history_filter_by">جي لحاظ سان ڇاڻيو</string>
   <string name="page_edit_history_filter_by_all">سڀ سنوارون (%s)</string>
   <string name="page_edit_history_filter_by_user">واپرائيندڙ جون سنوارون (%s)</string>
-  <string name="page_edit_history_filter_by_anon">اڻڄاتل سنوارون (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">اڻڄاتل سنوارون (%s)</string>
   <string name="page_edit_history_filter_by_bot">بوٽ سنوارون (%s)</string>
   <string name="page_edit_history_metrics_content_description">ميٽرڪس %1$s کان %2$s تائين</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1366,8 +1366,6 @@
   <string name="reading_list_share_menu_label">ونڊيو...</string>
   <string name="reading_list_share_menu_tooltip">ھيءَ پڙھڻ جي فھرست ٻين سان ونڊيو</string>
   <string name="reading_list_share_message_v2">سلام! آئون توھان سان پنھنجي وڪيپيڊيا جي پڙھڻ جي فھرست ونڊڻ چاھيندس:</string>
-  <string name="reading_list_share_survey_title">ڇا توھان \"پڙھڻ جون فھرستون ونڊيو\" ۾ اسان جي مدد ڪري سگهو ٿا؟</string>
-  <string name="reading_list_share_survey_body">\"پڙھڻ جون فھرستون ونڊيو\" ھڪ آزمائشي خصوصيت آھي ۽ ان کي بھتر ڪرڻ يا ھٽائڻ لاءِ اسان کي توھان جي موٽ جي ضرورت آھي.</string>
   <string name="talk_templates_new_message_title">نئون نياپو</string>
   <string name="talk_templates_new_message_subject_hint">موضوع</string>
   <string name="talk_templates_new_message_compose_hint">نياپو لکو</string>
@@ -1454,16 +1452,9 @@
   <string name="patroller_onboarding_two_talk_title">بحث</string>
   <string name="patroller_onboarding_two_talk_content">ٻين سنواريندڙن سان لھ چڙھ ۾ اچو. عام طور تي استعمال ٿيندڙ بحث صفحي جا پيغام سانڍيو يا ڪو سانچو استعمال ڪريو.</string>
   <string name="patroller_onboarding_two_undo_title">اڻڪريو/واپس موٽايو</string>
-  <string name="patroller_diff_feedback_dialog_title">ھن خصوصيت کي بھتر ڪرڻ ۾ اسان جي مدد ڪريو</string>
-  <string name="patroller_diff_feedback_dialog_message">ڇا توھان ھن خصوصيت سان مطمئن آھيو؟</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">مطمئن</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">اڻڌريو</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">غير مطمئن</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">اسان خصوصيت کي ڪيئن بھتر ڪري سگهون ٿا؟</string>
   <string name="patroller_diff_menu_edit_history_title">مضمون جي سنوار سوانح</string>
   <string name="patroller_diff_feedback_dialog_input_hint">موٽ</string>
-  <string name="patroller_diff_feedback_dialog_submit">اماڻيو</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">موٽ اماڻجي وئي.</string>
   <string name="patroller_saved_message_title_vandalism">تخريبڪاري جو چِتاءُ</string>
   <string name="patroller_saved_message_title_editing_tests">سنوارڻ جون ٽيسٽون</string>
   <string name="patroller_saved_message_title_npov">اڻڌريو نقطۂ نظر</string>
@@ -1498,11 +1489,15 @@
   <string name="places_filter_title">ٻولي ڇاڻيو</string>
   <string name="places_toggle_buttons_map">نقشو</string>
   <string name="places_toggle_buttons_list">فھرست</string>
-  <string name="places_survey_very_satisfied_option">ڏاڍو مطمئن</string>
-  <string name="places_survey_very_unsatisfied_option">ڏاڍو غير مطمئن</string>
-  <string name="places_survey_dialog_title">\'ماڳ\' کي بھتر ڪرڻ ۾ مدد ڪريو</string>
-  <string name="places_survey_feedback_dialog_title">\"ماڳ\" کي ڪيئن بھتر ڪري سگهجي ٿو؟</string>
-  <string name="places_survey_dialog_cancel">رد ڪريو</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">توھان ڇا ٿا چاھيو جنھن کي اسان تبديل يا بھتر ڪريون؟</string>
   <string name="places_empty_list">هي علائقو خالي آهي. &lt;a href=\"#\"&gt;نقشي تي&lt;/a&gt; وڏو ڪريو.</string>
+  <string name="survey_dialog_title">ھن خصوصيت کي بھتر ڪرڻ ۾ اسان جي مدد ڪريو</string>
+  <string name="survey_dialog_message">ڇا توھان ھن خصوصيت سان مطمئن آھيو؟</string>
+  <string name="survey_dialog_option_satisfied">مطمئن</string>
+  <string name="survey_dialog_option_neutral">اڻڌريو</string>
+  <string name="survey_dialog_option_unsatisfied">غير مطمئن</string>
+  <string name="survey_dialog_option_very_satisfied">ڏاڍو مطمئن</string>
+  <string name="survey_dialog_option_very_unsatisfied">ڏاڍو غير مطمئن</string>
+  <string name="survey_dialog_cancel">رد ڪريو</string>
+  <string name="survey_dialog_submit">اماڻيو</string>
+  <string name="survey_dialog_submitted_snackbar">موٽ اماڻجي وئي.</string>
 </resources>

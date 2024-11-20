@@ -7,7 +7,6 @@
 * Alifakoor
 * Alireza Ivaz
 * Alirezaaa
-* Amire80
 * Amirsara
 * Arash.pt
 * Arian Ar
@@ -101,7 +100,7 @@
   <string name="page_edit_history_filter_by">پالایش بر اساس</string>
   <string name="page_edit_history_filter_by_all">تمام ویرایش‌ها (%s)</string>
   <string name="page_edit_history_filter_by_user">ویرایش‌های کاربر (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ویرایش‌های ناشناس (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">ویرایش‌های ناشناس (%s)</string>
   <string name="page_edit_history_filter_by_bot">ویرایش‌های ربات (%s)</string>
   <string name="page_edit_history_metrics_content_description">معیارها از %1$s تا %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -459,8 +458,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">نوار ابزار خود را سفارشی‌سازی کنید</string>
   <string name="error_blocked_footer_no_blocker">برای گفتگو پیرامون قطع دسترسی می‌توانید با یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; تماس بگیرید.</string>
   <string name="temp_account_not_logged_in">شما به سامانه وارد نشده‌اید</string>
-  <string name="temp_account_anon_dialog_body">هرگاه ویرایشی انجام دهید، یک &lt;b&gt;حساب موقت&lt;/b&gt; برای شما ایجاد خواهد شد تا از حریم خصوصی شما حفاظت شود. &lt;a href=\"%1$s\"&gt;بیشتر بدانید&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;برای این که ویرایش‌های آتی به خودتان منتسب شوند و به سایر ویژگی‌ها دسترسی داشته باشید، &lt;a href=\"https://#login\"&gt;وارد سامانه شوید&lt;/a&gt; یا &lt;a href=\"https://#login\"&gt;یک حساب کاربری بسازید&lt;/a&gt;.</string>
-  <string name="temp_account_temp_dialog_body">ویرایش شما به %1$s منتسب خواهد شد. نشانی آی‌پی شما برای مدیران قابل مشاهده خواهد بود.&lt;br /&gt;&lt;br /&gt;اگر &lt;a href=\"https://#login\"&gt;وارد سامانه شوید&lt;/a&gt; یا &lt;a href=\"https://#login\"&gt;حساب بسازید&lt;/a&gt;، ویرایش‌های شما به نامی که خودتان انتخاب می‌کنید منتسب خواهند شد و از مزایای دیگری نیز بهره‌مند خواهید شد.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">هرگاه ویرایشی انجام دهید، یک &lt;b&gt;حساب موقت&lt;/b&gt; برای شما ایجاد خواهد شد تا از حریم خصوصی شما حفاظت شود. &lt;a href=\"%1$s\"&gt;بیشتر بدانید&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;برای این که ویرایش‌های آتی به خودتان منتسب شوند و به سایر ویژگی‌ها دسترسی داشته باشید، &lt;a href=\"https://#login\"&gt;وارد سامانه شوید&lt;/a&gt; یا &lt;a href=\"https://#login\"&gt;یک حساب کاربری بسازید&lt;/a&gt;.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">ویرایش شما به %1$s منتسب خواهد شد. نشانی آی‌پی شما برای مدیران قابل مشاهده خواهد بود.&lt;br /&gt;&lt;br /&gt;اگر &lt;a href=\"https://#login\"&gt;وارد سامانه شوید&lt;/a&gt; یا &lt;a href=\"https://#login\"&gt;حساب بسازید&lt;/a&gt;، ویرایش‌های شما به نامی که خودتان انتخاب می‌کنید منتسب خواهند شد و از مزایای دیگری نیز بهره‌مند خواهید شد.</string>
   <string name="temp_account_dialog_ok">متوجه شدم</string>
   <string name="temp_account_using_title">شما در حال استفاده از یک حساب موقت هستید</string>
   <string name="temp_account_dialog_discard">دور ریختن تغییرات و ورود به حساب</string>
@@ -1465,8 +1464,6 @@
   <string name="reading_list_share_menu_label">اشتراک‌گذاری...</string>
   <string name="reading_list_share_menu_tooltip">این فهرست مطالعه را با دیگران به اشتراک بگذارید</string>
   <string name="reading_list_share_message_v2">سلام! من می‌خواهم فهرست مطالعه ویکی‌پدیایم را با شما به اشتراک بگذارم:</string>
-  <string name="reading_list_share_survey_title">آیا می‌توانید به ما در بهبود \"اشتراک‌گذاری فهرست‌های مطالعه\" کمک کنید؟</string>
-  <string name="reading_list_share_survey_body">اشتراک‌گذاری و برون‌بری فهرست‌های مطالعه یک ویژگی آزمایشی است و ما برای بهبود یا حذف آن به بازخوردهای شما نیاز داریم.</string>
   <string name="talk_templates_new_message_title">پیام جدید</string>
   <string name="talk_templates_new_message_subject_hint">عنوان</string>
   <string name="talk_templates_new_message_compose_hint">نوشتن پیام</string>
@@ -1542,15 +1539,9 @@
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
   <string name="patroller_onboarding_two_talk_title">بحث</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
-  <string name="patroller_diff_feedback_dialog_message">آیا از این ویژگی راضی هستید؟</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">راضی</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">خنثی</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">ناراضی</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">چگونه می‌توانیم ویژگی را بهبود ببخشیم؟</string>
   <string name="patroller_diff_menu_edit_history_title">تاریخچهٔ ویرایش مقاله</string>
   <string name="patroller_diff_feedback_dialog_input_hint">بازخورد</string>
-  <string name="patroller_diff_feedback_dialog_submit">ارسال</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">بازخورد ارسال شد.</string>
   <string name="patroller_saved_message_title_vandalism">هشدار خرابکاری</string>
   <string name="patroller_saved_message_title_editing_tests">ویرایش‌های آزمایشی</string>
   <string name="patroller_saved_message_title_npov">دیدگاه بی‌طرفانه</string>
@@ -1571,7 +1562,6 @@
   <string name="data_opt_in_reject">رد</string>
   <string name="places_toggle_buttons_map">نقشه</string>
   <string name="places_toggle_buttons_list">فهرست</string>
-  <string name="places_survey_dialog_cancel">لغو</string>
   <string name="places_card_title">مکان‌های نزدیک</string>
   <string name="places_card_action">مکان‌های نزدیک بیشتر</string>
   <string name="places_card_enable_location_card_message">مکان‌ها یک روش مبتنی بر نقشه برای گشت و گذار در ویکی‌پدیا است</string>
@@ -1579,4 +1569,11 @@
   <string name="places_card_distance_suffix">فاصله %s</string>
   <string name="places_card_distance_unknown">فاصلهٔ نامعلوم</string>
   <string name="places_empty_message_snackbar">مقاله‌ای در این نزدیکی‌ها موجود نیست. کوچک‌نمایی و حرکت دادن نقشه را بیازمایید.</string>
+  <string name="survey_dialog_message">آیا از این ویژگی راضی هستید؟</string>
+  <string name="survey_dialog_option_satisfied">راضی</string>
+  <string name="survey_dialog_option_neutral">خنثی</string>
+  <string name="survey_dialog_option_unsatisfied">ناراضی</string>
+  <string name="survey_dialog_cancel">لغو</string>
+  <string name="survey_dialog_submit">ارسال</string>
+  <string name="survey_dialog_submitted_snackbar">بازخورد ارسال شد.</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Artsiom91
 * Chadyka
 * Da voli
@@ -73,7 +72,7 @@
   <string name="page_edit_history_filter_by">Адфільтраваць па</string>
   <string name="page_edit_history_filter_by_all">Усе праўкі (%s)</string>
   <string name="page_edit_history_filter_by_user">Праўкі ўдзельніка (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Ананімныя праўкі (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Ананімныя праўкі (%s)</string>
   <string name="page_edit_history_filter_by_bot">Праўкі ботаў (%s)</string>
   <string name="page_edit_history_metrics_content_description">Метрыкі ад %1$s да %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -450,8 +449,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Наладзьце панэль інструментаў</string>
   <string name="error_blocked_footer_no_blocker">Вы можаце звязацца з &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакаванне.</string>
   <string name="temp_account_not_logged_in">Вы не ўвайшлі ў сістэму</string>
-  <string name="temp_account_anon_dialog_body">Пасля ўнясення змяненняў для вас будзе створаны &lt;b&gt;часовы ўліковы запіс&lt;/b&gt; для абароны вашай канфідэнцыяльнасці. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Даведайцеся больш&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Увайдзіце ў сістэму&lt;/a&gt; або &lt;a href=\"https://#login\"&gt;стварыце ўліковы запіс&lt;/a&gt;, каб вашыя будучыя праўкі былі ўлічаныя і атрымаць доступ да іншых функцый.</string>
-  <string name="temp_account_temp_dialog_body">Вашае змяненне будзе аднесена да %1$s . Ваш IP-адрас будзе бачным для адміністратараў.&lt;br /&gt;&lt;br /&gt; Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сістэму/a&gt; або &lt;a href=\"https://#login\"&gt;створыце ўліковы запіс&lt;/a&gt;, вашыя змяненні будуць спалучынімі з абраным вамі імем, апроч іншых пераваг.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Пасля ўнясення змяненняў для вас будзе створаны &lt;b&gt;часовы ўліковы запіс&lt;/b&gt; для абароны вашай канфідэнцыяльнасці. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Даведайцеся больш&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Увайдзіце ў сістэму&lt;/a&gt; або &lt;a href=\"https://#login\"&gt;стварыце ўліковы запіс&lt;/a&gt;, каб вашыя будучыя праўкі былі ўлічаныя і атрымаць доступ да іншых функцый.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Вашае змяненне будзе аднесена да %1$s . Ваш IP-адрас будзе бачным для адміністратараў.&lt;br /&gt;&lt;br /&gt; Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сістэму/a&gt; або &lt;a href=\"https://#login\"&gt;створыце ўліковы запіс&lt;/a&gt;, вашыя змяненні будуць спалучынімі з абраным вамі імем, апроч іншых пераваг.</string>
   <string name="temp_account_dialog_ok">Зразумела</string>
   <string name="temp_account_using_title">Вы выкарыстоўваеце часовы ўліковы запіс</string>
   <string name="temp_account_dialog_discard">Скасаваць змяненні і ўвайсці ў сістэму</string>
@@ -1581,8 +1580,6 @@
   <string name="reading_list_share_menu_label">Падзяліцца...</string>
   <string name="reading_list_share_menu_tooltip">Падзяліцца гэтым спісам для чытання з іншымі</string>
   <string name="reading_list_share_message_v2">Прывітанне! Я хацеў бы падзяліцца з вамі сваім спісам для чытання ў Вікіпедыі:</string>
-  <string name="reading_list_share_survey_title">Ці не маглі б вы дапамагчы нам палепшыць \"Падзяліцца спісам для чытання\"?</string>
-  <string name="reading_list_share_survey_body">\"Падзяліцца спісам для чытання\" – гэта тэставая функцыя, і нам патрабуюцца вашыя водгукі, каб палепшыць або выдаліць яе.</string>
   <string name="talk_templates_empty_message">Стварыце свае паведамленні або скарыстайцеся &lt;a href=\"#\"&gt;узорнымі паведамленнямі&lt;/a&gt;, каб пачаць.</string>
   <string name="talk_templates_new_message_title">Новае паведамленне</string>
   <string name="talk_templates_new_message_subject_hint">Тэма</string>
@@ -1696,16 +1693,9 @@
   <string name="patroller_onboarding_two_undo_content">Выберыце \"Адкаціць\" для скасавання або адкату патэнцыйна разбуральнай праўкі.</string>
   <string name="patroller_diff_tooltip_one">\"Пашкоджанне\" прадказвае, калі праўка прычыняе шкоду ў вікі.</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае верагоднасць добрасумленнага захавання праўкі.</string>
-  <string name="patroller_diff_feedback_dialog_title">Дапамажыце нам палепшыць гэту функцыю</string>
-  <string name="patroller_diff_feedback_dialog_message">Вы задаволены гэтай функцыяй?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задаволены</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Абыякавы</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадаволены</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Як мы можам палепшыць функцыю?</string>
   <string name="patroller_diff_menu_edit_history_title">Гісторыя праўкі артыкула</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Зваротная сувязь</string>
-  <string name="patroller_diff_feedback_dialog_submit">Адправіць</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Водгук адпраўлены.</string>
   <string name="patroller_diff_feedback_tooltip">Націсніце на дадатковае меню, каб у любы час адправіць водгук у раздзеле \"Праблема з функцыяй\".</string>
   <string name="patroller_saved_message_title_vandalism">Папярэджанне аб вандалізме</string>
   <string name="patroller_saved_message_title_editing_tests">Праўленне тэстаў</string>
@@ -1763,12 +1753,6 @@
   <string name="places_filter_title">Фільтраваць па мовам</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Спіс</string>
-  <string name="places_survey_very_satisfied_option">Вельмі задаволены</string>
-  <string name="places_survey_very_unsatisfied_option">Вельмі незадаволены</string>
-  <string name="places_survey_dialog_title">Дапамажыце палепшыць \"Месцы\"</string>
-  <string name="places_survey_feedback_dialog_title">Як можна палепшыць \"Месцы\"?</string>
-  <string name="places_survey_dialog_cancel">Скасаваць</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Што б вы хацелі змяніць або палепшыць?</string>
   <string name="places_empty_list">Гэтая зона пустая. Паменшыць &lt;a href=\"#\"&gt;маштаб мапы&lt;/a&gt; .</string>
   <string name="places_card_title">Месцы побач</string>
   <string name="places_card_action">Больш месцаў побач</string>
@@ -1777,4 +1761,14 @@
   <string name="places_card_distance_suffix">адсюль %s</string>
   <string name="places_card_distance_unknown">Невядомая адлегласць</string>
   <string name="places_empty_message_snackbar">Мясцовых артыкулаў няма. Паспрабуйце змяніць маштаб або перасунуць мапу.</string>
+  <string name="survey_dialog_title">Дапамажыце нам палепшыць гэту функцыю</string>
+  <string name="survey_dialog_message">Вы задаволены гэтай функцыяй?</string>
+  <string name="survey_dialog_option_satisfied">Задаволены</string>
+  <string name="survey_dialog_option_neutral">Абыякавы</string>
+  <string name="survey_dialog_option_unsatisfied">Незадаволены</string>
+  <string name="survey_dialog_option_very_satisfied">Вельмі задаволены</string>
+  <string name="survey_dialog_option_very_unsatisfied">Вельмі незадаволены</string>
+  <string name="survey_dialog_cancel">Скасаваць</string>
+  <string name="survey_dialog_submit">Адправіць</string>
+  <string name="survey_dialog_submitted_snackbar">Водгук адпраўлены.</string>
 </resources>

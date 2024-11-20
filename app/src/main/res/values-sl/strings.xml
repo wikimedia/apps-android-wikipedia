@@ -60,7 +60,7 @@
   <string name="page_edit_history_filter_by">Filtriraj po</string>
   <string name="page_edit_history_filter_by_all">Vseh urejanjih (%s)</string>
   <string name="page_edit_history_filter_by_user">Urejanjih uporabnikov (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonimnih urejanjih (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonimnih urejanjih (%s)</string>
   <string name="page_edit_history_filter_by_bot">Urejanjih botov (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrike od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1539,8 +1539,6 @@
   <string name="reading_list_share_menu_label">Deli ...</string>
   <string name="reading_list_share_menu_tooltip">Delite ta bralni seznam z drugimi</string>
   <string name="reading_list_share_message_v2">Zdravo! S tabo želim deliti svoj bralni seznam Wikipedije:</string>
-  <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati možnost »Deli bralne sezname«?</string>
-  <string name="reading_list_share_survey_body">»Deli bralne sezname« je preizkusna možnost in potrebujemo vaše povratne informacije, da jo izboljšamo ali odstranimo.</string>
   <string name="talk_templates_empty_message">Za začetek ustvarite lastna sporočila ali uporabite &lt;a href=\"#\"&gt;zglede sporočil&lt;/a&gt;.</string>
   <string name="talk_templates_new_message_title">Novo sporočilo</string>
   <string name="talk_templates_new_message_subject_hint">Tema</string>
@@ -1654,16 +1652,9 @@
   <string name="patroller_onboarding_two_undo_content">Izberite »Razveljavi«, da razveljavite ali vrnete morebitno škodljivo urejanje.</string>
   <string name="patroller_diff_tooltip_one">Škoda napoveduje, ali urejanje škoduje vikiju.</string>
   <string name="patroller_diff_tooltip_two">Namen predvideva verjetnost, da bo urejanje shranjeno dobronamerno.</string>
-  <string name="patroller_diff_feedback_dialog_title">Pomagajte nam izboljšati to možnost</string>
-  <string name="patroller_diff_feedback_dialog_message">Ste zadovoljni s to možnostjo?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Možnost je ustrezna</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Nevtralno</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ne ustreza mi</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Kako lahko izboljšamo to možnost?</string>
   <string name="patroller_diff_menu_edit_history_title">Zgodovina urejanja članka</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
-  <string name="patroller_diff_feedback_dialog_submit">Pošlji</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Povratne informacije so poslane.</string>
   <string name="patroller_diff_feedback_tooltip">Kadsr koli lahko v razdelku »Težava z možnostjo« tapnete prekrivni meni, da pošljete povratne informacije.</string>
   <string name="patroller_saved_message_title_vandalism">Opozorilo o vandalizmu</string>
   <string name="patroller_saved_message_title_editing_tests">Peeizkušanja urejanja</string>
@@ -1697,11 +1688,44 @@
   <string name="places_filter_title">Filtriranje po jeziku</string>
   <string name="places_toggle_buttons_map">Zemljevid</string>
   <string name="places_toggle_buttons_list">Seznam</string>
-  <string name="places_survey_very_satisfied_option">Odlična izkušnja</string>
-  <string name="places_survey_very_unsatisfied_option">Zelo slaba izkušnja</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Pomagajte izboljšati »Kraje«</string>
-  <string name="places_survey_feedback_dialog_title">Kako lahko izboljšamo »Kraje«?</string>
-  <string name="places_survey_dialog_cancel">Prekliči</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Kaj bi želeli, da spremenimo ali izboljšamo?</string>
   <string name="places_empty_list">To območje je prazno. Pomanjšaj &lt;a href=\"#\"&gt;zemljevid&lt;/a&gt;.</string>
+  <string name="donor_history_title">Zgodovina doniranja</string>
+  <string name="donor_history_save_button">Shrani</string>
+  <string name="donor_history_update_donor_status_default">Posodobi status donatorja</string>
+  <string name="donor_history_update_donor_status_donor">Donator</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Ni donator</string>
+  <string name="donor_history_last_donated">Zadnja donacija</string>
+  <string name="donor_history_last_donated_hint">Dodajte datum zadnje donacije</string>
+  <string name="donor_history_last_donated_date_picker_title">Izberite datum</string>
+  <string name="donor_history_last_donated_date_picker_label">Vnesite datum</string>
+  <string name="donor_history_recurring_donor">Redni donatot</string>
+  <string name="donor_history_donate_button">Donirajte fundaciji Wikimedia</string>
+  <string name="donor_history_about_this_experiment">O tem eksperimentu</string>
+  <string name="donor_history_updated_message_snackbar">Zgodovina doniranja je posodobljena</string>
+  <string name="contributions_dashboard_survey_dialog_title">Pomagajte izboljšati nadzorno ploščo  prispevkov</string>
+  <string name="contributions_dashboard_survey_dialog_message">Ta posodobitev nadzorne plošče je preizkusna možnost. Ali želite, da se ta možnost izboljša ali odstrani?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Brez mnenja</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Pustite povratno informacijo</string>
+  <string name="contributions_dashboard_donation_dialog_title">Hvala, ker podpirate prosto znanje</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Da, premesti me tja</string>
+  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Vaša nadzorna plošča prispevkov je posodobljena</string>
+  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Nadzorna plošča prispevkov zdaj prikazuje podrobnosti o vašem statusu donatorja. Želite oceniti to poskusno možnost?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Ne, hvala</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Da, premesti me tja.</string>
+  <string name="contributions_dashboard_badge_donor">Donator</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Postanite donator</string>
+  <string name="contributions_dashboard_badge_update">Posodobi status donatorja</string>
+  <string name="contributions_dashboard_app_icon_title">Ikona aplikacije</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Ugodnost donatorja</string>
+  <string name="contributions_dashboard_logged_out_user">Odjavljeni uporabnik</string>
+  <string name="survey_dialog_title">Pomagajte nam izboljšati to možnost</string>
+  <string name="survey_dialog_message">Ste zadovoljni s to možnostjo?</string>
+  <string name="survey_dialog_option_satisfied">Možnost je ustrezna</string>
+  <string name="survey_dialog_option_neutral">Nevtralno</string>
+  <string name="survey_dialog_option_unsatisfied">Ne ustreza mi</string>
+  <string name="survey_dialog_option_very_satisfied">Odlična izkušnja</string>
+  <string name="survey_dialog_option_very_unsatisfied">Zelo slaba izkušnja</string>
+  <string name="survey_dialog_cancel">Prekliči</string>
+  <string name="survey_dialog_submit">Pošlji</string>
+  <string name="survey_dialog_submitted_snackbar">Povratne informacije so poslane.</string>
 </resources>

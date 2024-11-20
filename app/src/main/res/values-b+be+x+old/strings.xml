@@ -56,7 +56,7 @@
   <string name="page_edit_history_filter_by">Фільтраваць паводле</string>
   <string name="page_edit_history_filter_by_all">Усе рэдагаваньні (%s)</string>
   <string name="page_edit_history_filter_by_user">Рэдагаваньні ўдзельніка (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Ананімныя рэдагаваньні (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Ананімныя рэдагаваньні (%s)</string>
   <string name="page_edit_history_filter_by_bot">Рэдагаваньні робатаў (%s)</string>
   <string name="page_edit_history_metrics_content_description">Мэтрыкі ад %1$s да %2$s</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>

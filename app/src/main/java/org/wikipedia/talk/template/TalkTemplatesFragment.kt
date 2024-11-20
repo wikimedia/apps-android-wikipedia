@@ -51,7 +51,7 @@ import org.wikipedia.views.ViewUtil
 class TalkTemplatesFragment : Fragment() {
     private var _binding: FragmentTalkTemplatesBinding? = null
 
-    private val viewModel: TalkTemplatesViewModel by viewModels { TalkTemplatesViewModel.Factory(requireArguments()) }
+    private val viewModel: TalkTemplatesViewModel by viewModels()
     private val binding get() = _binding!!
 
     private lateinit var itemTouchHelper: ItemTouchHelper
@@ -240,10 +240,8 @@ class TalkTemplatesFragment : Fragment() {
     private fun onSuccess() {
         setRecyclerView()
         showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
-        binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
-        binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
         if (binding.talkTemplatesEmptyContainer.isVisible) {
             PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
         }

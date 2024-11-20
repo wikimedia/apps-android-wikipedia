@@ -60,7 +60,7 @@
   <string name="page_edit_history_comment_placeholder">တည်းဖြတ်မှု အကျဉ်းချုပ်ကို ဗလာပြုလုပ်ရန်</string>
   <string name="page_edit_history_filter_by_all">တည်းဖြတ်မှုများအားလုံး (%s)</string>
   <string name="page_edit_history_filter_by_user">အသုံးပြုသူ တည်းဖြတ်မှုများ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">အမည်မသိ တည်းဖြတ်မှုများ (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">အမည်မသိ တည်းဖြတ်မှုများ (%s)</string>
   <string name="page_edit_history_filter_by_bot">ဘော့ တည်ဖြတ်မှုများ (%s)</string>
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
@@ -1054,10 +1054,10 @@
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">ဆောင်းပါး တည်းဖြတ်မှုမှတ်တမ်း</string>
   <string name="patroller_tasks_overflow_learn">ပိုမို လေ့လာရန်</string>
   <string name="patroller_diff_feedback_dialog_input_hint">အကြံပေးရန်</string>
-  <string name="patroller_diff_feedback_dialog_submit">ထည့်သွင်းရန်</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
   <string name="data_opt_in_accept">လက်ခံ</string>
   <string name="data_opt_in_reject">ပယ်ချရန်</string>
   <string name="donation_campaign_go_back_button">နောက်သို့ ပြန်သွားရန်</string>
-  <string name="places_survey_dialog_cancel">မလုပ်တော့ပါ</string>
+  <string name="survey_dialog_cancel">မလုပ်တော့ပါ</string>
+  <string name="survey_dialog_submit">ထည့်သွင်းရန်</string>
+  <string name="survey_dialog_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
 </resources>

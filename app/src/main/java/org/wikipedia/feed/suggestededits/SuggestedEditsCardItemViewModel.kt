@@ -1,8 +1,7 @@
 package org.wikipedia.feed.suggestededits
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,10 +20,9 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
-
-    val age = bundle.getInt(SuggestedEditsCardItemFragment.EXTRA_AGE)
-    var cardActionType = bundle.getSerializable(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE) as DescriptionEditActivity.Action
+class SuggestedEditsCardItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val age = savedStateHandle[SuggestedEditsCardItemFragment.EXTRA_AGE] ?: 0
+    var cardActionType = savedStateHandle.get<DescriptionEditActivity.Action>(SuggestedEditsCardItemFragment.EXTRA_ACTION_TYPE)!!
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var imageTagPage: MwQueryPage? = null
@@ -85,8 +83,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun addDescription(langFromCode: String): PageSummaryForEdit {
         val pageSummary = EditingSuggestionsProvider.getNextArticleWithMissingDescription(
-            WikiSite.forLanguageCode(langFromCode),
-            SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
+            WikiSite.forLanguageCode(langFromCode))
 
         return PageSummaryForEdit(
             pageSummary.apiTitle,
@@ -102,8 +99,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
 
     private suspend fun translateDescription(langFromCode: String, targetLanguage: String): Pair<PageSummaryForEdit, PageSummaryForEdit> {
         val pair = EditingSuggestionsProvider.getNextArticleWithMissingDescription(
-            WikiSite.forLanguageCode(langFromCode),
-            targetLanguage, SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
+            WikiSite.forLanguageCode(langFromCode), targetLanguage)
         val source = pair.first
         val target = pair.second
 
@@ -131,7 +127,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun addCaption(langFromCode: String): PageSummaryForEdit? {
         val title = EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode,
             SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
-        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(title, langFromCode)
+        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(title, langFromCode)
         val page = imageInfoResponse.query?.firstPage()
         return page?.imageInfo()?.let {
             return@let PageSummaryForEdit(
@@ -159,7 +155,7 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
             SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT
         )
         val fileCaption = pair.first
-        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfoSuspend(pair.second, langFromCode)
+        val imageInfoResponse = ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(pair.second, langFromCode)
         val page = imageInfoResponse.query?.firstPage()
         return page?.imageInfo()?.let {
             val sourceSummaryForEdit = PageSummaryForEdit(
@@ -199,12 +195,5 @@ class SuggestedEditsCardItemViewModel(bundle: Bundle) : ViewModel() {
     private suspend fun addImageTags(): MwQueryPage {
         return EditingSuggestionsProvider
             .getNextImageWithMissingTags(SuggestedEditsCardItemFragment.MAX_RETRY_LIMIT)
-    }
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return SuggestedEditsCardItemViewModel(bundle) as T
-        }
     }
 }

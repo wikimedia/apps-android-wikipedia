@@ -306,6 +306,14 @@
             android:key="@string/preference_key_show_sequential_recent_edits_diff_tooltip"
             android:title="@string/preference_key_show_sequential_recent_edits_diff_tooltip" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_temp_account_welcome_shown"
+            android:title="@string/preference_key_temp_account_welcome_shown" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_temp_account_dialog_shown"
+            android:title="@string/preference_key_temp_account_dialog_shown" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">
@@ -429,14 +437,31 @@
             android:key="@string/preference_key_donation_test_env"
             android:title="Donation test environment" />
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_recommendedContent"
-            android:title="Test group for Recommended Content \n(0=only recent searches, 1=generalized, 2=personalized)" />
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_donation_results"
+            android:title="Donation results"
+            android:dialogMessage="Example: [{&quot;dateTime&quot;:&quot;2024-10-22T00:00:00.000&quot;}]"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_recommended_content_survey_shown"
-            android:title="@string/preference_key_recommended_content_survey_shown" />
+            android:key="@string/preference_key_is_donor"
+            android:title="@string/preference_key_is_donor" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_is_recurring_donor"
+            android:title="@string/preference_key_is_recurring_donor" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_donor_history_saved"
+            android:title="@string/preference_key_donor_history_saved" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_contributions_dashboard_survey_dialog_shown"
+            android:title="@string/preference_key_contributions_dashboard_survey_dialog_shown" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_contributions_dashboard_entry_dialog_shown"
+            android:title="@string/preference_key_contributions_dashboard_entry_dialog_shown" />
 
     </PreferenceCategory>
 

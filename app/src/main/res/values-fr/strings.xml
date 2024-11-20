@@ -2,7 +2,6 @@
 <!-- Authors:
 * Aaribaud
 * Alno
-* Amire80
 * Bbernrd
 * BlueCamille
 * Blurby
@@ -43,6 +42,7 @@
 * Léon973
 * MSClaudiu
 * Macofe
+* Mahabarata
 * Mazighafalkun
 * McDutchie
 * Melimeli
@@ -84,6 +84,7 @@
   <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_more">Plus</string>
   <string name="nav_item_search">Rechercher</string>
+  <string name="nav_item_contribute">Contribuer</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="card_offline_error_retry">Réessayer</string>
@@ -119,7 +120,7 @@
   <string name="page_edit_history_filter_by">Filtrer par</string>
   <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
   <string name="page_edit_history_filter_by_user">Modifications par utilisateur (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Modifications anonyme (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modifications anonymes (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modifications par robot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -158,6 +159,7 @@
   <string name="menu_page_recently_viewed">Consulté récemment</string>
   <string name="menu_page_archive">Archiver</string>
   <string name="menu_long_press_open_page">Ouvrir</string>
+  <string name="menu_long_press_open_in_places">Ouvrir dans Lieux</string>
   <string name="menu_long_press_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
   <string name="menu_long_press_copy_page">Copier l’adresse du lien</string>
   <string name="menu_text_select_define">Définition</string>
@@ -487,8 +489,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
-  <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour vous permettre de protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#login\"&gt;créez un compte&lt;/a&gt; pour obtenir un crédit pour les modifications futures et accéder à d\'autres fonctionnalités.</string>
-  <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible par les administrateurs.&lt;br /&gt;&lt;br /&gt;Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#login\"&gt;créez un compte&lt;/a&gt;, vos modifications seront attribuées à un pseudonyme que vous choisirez, parmi d\'autres avantages.</string>
+  <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour vous permettre de protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour obtenir un crédit pour les modifications futures et accéder à d\'autres fonctionnalités.</string>
+  <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible par les administrateurs.&lt;br /&gt;&lt;br /&gt;Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt;, vos modifications seront attribuées à un pseudonyme que vous choisirez, parmi d\'autres avantages.</string>
   <string name="temp_account_dialog_ok">Compris !</string>
   <string name="temp_account_using_title">Vous utilisez un compte temporaire</string>
   <string name="temp_account_dialog_discard">Annuler les modifications et se connecter</string>
@@ -1542,8 +1544,6 @@
   <string name="reading_list_share_menu_label">Partager...</string>
   <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres personnes</string>
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
-  <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
-  <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
   <string name="talk_templates_empty_message">Créez vos propres messages ou utilisez &lt;a href=\"#\"&gt;message d\'exemple&lt;/a&gt; pour commencer.</string>
   <string name="talk_templates_new_message_title">Nouveau message</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
@@ -1651,16 +1651,9 @@
   <string name="patroller_onboarding_two_undo_content">Choisissez « Annuler » pour révoquer ou annuler une modification potentiellement problématique.</string>
   <string name="patroller_diff_tooltip_one">Dommage prédit si une modification cause des dommages à un wiki.</string>
   <string name="patroller_diff_tooltip_two">L’intention prédit la probabilité qu’une modification soit enregistrée de bonne foi.</string>
-  <string name="patroller_diff_feedback_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
-  <string name="patroller_diff_feedback_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Comment pouvons-nous améliorer la fonctionnalité ?</string>
   <string name="patroller_diff_menu_edit_history_title">Historique des modifications de l’article</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
-  <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
   <string name="patroller_diff_feedback_tooltip">Appuyez sur le menu de débordement pour soumettre des commentaires à tout moment sous « Problème avec la fonctionnalité ».</string>
   <string name="patroller_saved_message_title_vandalism">Avertissement de vandalisme</string>
   <string name="patroller_saved_message_title_editing_tests">Tests d\'édition</string>
@@ -1718,11 +1711,52 @@
   <string name="places_filter_title">Filtrer par langue</string>
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_survey_very_satisfied_option">Très satisfait</string>
-  <string name="places_survey_very_unsatisfied_option">Très insatisfait</string>
-  <string name="places_survey_dialog_title">Aider à améliorer les \'Lieux\'</string>
-  <string name="places_survey_feedback_dialog_title">Comment améliorer les « Lieux » ?</string>
-  <string name="places_survey_dialog_cancel">Annuler</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Que voudriez-vous que nous changions ou améliorions ?</string>
   <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>
+  <string name="donor_history_title">Historique du donateur</string>
+  <string name="donor_history_save_button">Sauvegarder</string>
+  <string name="donor_history_update_donor_status_default">Mettre à jour le statut de donateur</string>
+  <string name="donor_history_update_donor_status_donor">Donateur</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Non donateur</string>
+  <string name="donor_history_last_donated">Dernier don</string>
+  <string name="donor_history_last_donated_hint">Ajouter la date du dernier don</string>
+  <string name="donor_history_last_donated_never">Jamais</string>
+  <string name="donor_history_recurring_donor">Donateur récurrent</string>
+  <string name="donor_history_donate_button">Faire un don à la Fondation Wikimédia</string>
+  <string name="donor_history_about_this_experiment">À propos de cette expérimentation</string>
+  <string name="donor_history_updated_message_snackbar">Historique du donateur mis à jour</string>
+  <string name="contributions_dashboard_survey_dialog_title">Aidez-nous à améliorer le tableau de bord des contributions</string>
+  <string name="contributions_dashboard_survey_dialog_message">Cette mise à jour du tableau de bord est une fonctionnalité en cours de test. Souhaitez-vous que cette fonctionnalité soit améliorée ou supprimée ?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Pas d\'avis</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Partager votre avis</string>
+  <string name="contributions_dashboard_donation_dialog_title">Merci de soutenir la connaissance libre</string>
+  <string name="contributions_dashboard_donation_dialog_message">Vous faites partie des 2%% de personnes qui ont choisi de soutenir la ressource dont dépendent des millions de personnes. Votre tableau de bord des contributions a été mis à jour et reconnaît désormais votre statut de donateur. Souhaitez-vous voir cette mise à jour expérimentale ?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Non, merci</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Oui, je souhaite m\'y rendre</string>
+  <string name="contributions_dashboard_entry_dialog_title">Découvrez les nouveautés du tableau de bord des contributions</string>
+  <string name="contributions_dashboard_entry_dialog_message">Le tableau de bord des contributions affiche désormais le statut des donateurs. Voulez-vous évaluer cette fonctionnalité expérimentale ?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Non, merci</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Oui, je souhaite le faire</string>
+  <string name="contributions_dashboard_badge_donor">Donateur</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Devenir donateur</string>
+  <string name="contributions_dashboard_badge_update">Mettre à jour le statut de donateur</string>
+  <string name="contributions_dashboard_app_icon_title">Icône de l\'application</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Avantage du donateur</string>
+  <string name="contributions_dashboard_logged_out_user">Utilisateur déconnecté</string>
+  <string name="contributions_dashboard_tab_last_donated">Dernier don</string>
+  <string name="contributions_dashboard_tab_update_button">Mettre à jour</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Merci d\'être un donateur.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Vous avez débloqué une icône personnalisée temporaire. Vous pouvez sélectionner cette icône dans vos paramètres, sous « Icône de l\'application ». Souhaitez-vous mettre à jour votre icône maintenant ?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Non, merci</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Oui, aller dans Paramètres</string>
+  <string name="contributions_dashboard_app_icon_updated">Icône de l\'application mise à jour</string>
+  <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
+  <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
+  <string name="survey_dialog_option_satisfied">Satisfait</string>
+  <string name="survey_dialog_option_neutral">Neutre</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfait</string>
+  <string name="survey_dialog_option_very_satisfied">Très satisfait</string>
+  <string name="survey_dialog_option_very_unsatisfied">Très insatisfait</string>
+  <string name="survey_dialog_cancel">Annuler</string>
+  <string name="survey_dialog_submit">Soumettre</string>
+  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé.</string>
 </resources>

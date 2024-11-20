@@ -62,7 +62,7 @@
   <string name="page_edit_history_filter_by">Silañ dre</string>
   <string name="page_edit_history_filter_by_all">An holl kemmoù (%s)</string>
   <string name="page_edit_history_filter_by_user">Kemmoù implijerien (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Kemmoù tud dizanv (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Kemmoù tud dizanv (%s)</string>
   <string name="page_edit_history_filter_by_bot">Kemmoù robotoù (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d c\'hemm abaoe %2$s</item>
@@ -1302,7 +1302,6 @@
   <string name="patroller_onboarding_two_watch_title">Evezhiañ</string>
   <string name="patroller_onboarding_two_talk_title">Kaozeadenn</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Roit hoc\'h ali</string>
-  <string name="patroller_diff_feedback_dialog_submit">Kas</string>
   <string name="patroller_saved_message_title_npov">Sav-boent neptu</string>
   <string name="patroller_saved_message_title_auto_trans">Troidigezh emgefreek</string>
   <string name="talk_templates_menu_edit_title">Kemmañ</string>
@@ -1318,5 +1317,6 @@
   <string name="places_filter_title">Silañ dre yezh</string>
   <string name="places_toggle_buttons_map">Kartenn</string>
   <string name="places_toggle_buttons_list">Roll</string>
-  <string name="places_survey_dialog_cancel">Nullañ</string>
+  <string name="survey_dialog_cancel">Nullañ</string>
+  <string name="survey_dialog_submit">Kas</string>
 </resources>

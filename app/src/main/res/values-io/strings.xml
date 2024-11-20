@@ -58,7 +58,7 @@
   <string name="page_edit_history_filter_by">Filtrar segun</string>
   <string name="page_edit_history_filter_by_all">Omna redakturi (%s)</string>
   <string name="page_edit_history_filter_by_user">Redakturi dal uzero (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonima redakturi (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonima redakturi (%s)</string>
   <string name="page_edit_history_filter_by_bot">Redakturi da \'\'bot\'\'-i (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statistiki de %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -226,7 +226,7 @@
   <string name="settings_item_preferences">Ajusti</string>
   <string name="settings_activity_title">Ajusti</string>
   <string name="about_description">Pri l\'apo (app) di Wikipedio</string>
-  <string name="privacy_policy_description">Agado pri privateso</string>
+  <string name="privacy_policy_description">Politiki pri privateso</string>
   <string name="terms_of_use_description">Uzo-termini</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
@@ -1174,5 +1174,4 @@
   <string name="user_contrib_current">nuna</string>
   <string name="reading_list_share_menu_label">Partigez...</string>
   <string name="reading_list_share_menu_tooltip">Partigez ca texto kun altri</string>
-  <string name="reading_list_share_survey_title" fuzzy="true">Ka vu povos helpar ni plubonigar ca temo?</string>
 </resources>

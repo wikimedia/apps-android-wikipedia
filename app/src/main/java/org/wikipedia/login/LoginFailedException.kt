@@ -1,3 +1,3 @@
 package org.wikipedia.login
 
-class LoginFailedException(message: String?) : Throwable(message)
+class LoginFailedException(message: String?) : Exception(message)

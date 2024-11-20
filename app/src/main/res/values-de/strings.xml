@@ -99,7 +99,7 @@
   <string name="page_edit_history_filter_by">Filtern nach</string>
   <string name="page_edit_history_filter_by_all">Alle Bearbeitungen (%s)</string>
   <string name="page_edit_history_filter_by_user">Benutzer-Bearbeitungen (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anonyme Bearbeitungen (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyme Bearbeitungen (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot-Bearbeitungen (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -468,8 +468,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Werkzeugleiste anpassen</string>
   <string name="error_blocked_footer_no_blocker">Du kannst einen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
   <string name="temp_account_not_logged_in">Du bist nicht angemeldet</string>
-  <string name="temp_account_anon_dialog_body">Sobald du eine Bearbeitung tätigst, wird ein &lt;b&gt;Temporäres Konto&lt;/b&gt; erstellt, um deinen Datenschutz zu gewährleisten. &lt;a href=\"%1$s\"&gt;Mehr erfahren&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Melde dich an&lt;/a&gt; oder &lt;a href=\"https://#login\"&gt;erstelle ein Konto&lt;/a&gt;, damit zukünftige Bearbeitungen dir zugeschrieben werden können und du auf andere Funktionen zugreifen kannst.</string>
-  <string name="temp_account_temp_dialog_body">Deine Bearbeitung wird %1$s zugeschrieben. Deine IP-Adresse ist für Administratoren sichtbar.&lt;br /&gt;&lt;br /&gt;Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt; oder &lt;a href=\"https://#login\"&gt;ein Konto erstellst&lt;/a&gt;, erhältst du einen von dir gewählten Namen sowie weitere Vorteile.</string>
+  <string name="temp_account_anon_dialog_body" fuzzy="true">Sobald du eine Bearbeitung tätigst, wird ein &lt;b&gt;Temporäres Konto&lt;/b&gt; erstellt, um deinen Datenschutz zu gewährleisten. &lt;a href=\"%1$s\"&gt;Mehr erfahren&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Melde dich an&lt;/a&gt; oder &lt;a href=\"https://#login\"&gt;erstelle ein Konto&lt;/a&gt;, damit zukünftige Bearbeitungen dir zugeschrieben werden können und du auf andere Funktionen zugreifen kannst.</string>
+  <string name="temp_account_temp_dialog_body" fuzzy="true">Deine Bearbeitung wird %1$s zugeschrieben. Deine IP-Adresse ist für Administratoren sichtbar.&lt;br /&gt;&lt;br /&gt;Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt; oder &lt;a href=\"https://#login\"&gt;ein Konto erstellst&lt;/a&gt;, erhältst du einen von dir gewählten Namen sowie weitere Vorteile.</string>
   <string name="temp_account_dialog_ok">Verstanden</string>
   <string name="temp_account_using_title">Du verwendest ein vorläufiges Konto</string>
   <string name="temp_account_dialog_discard">Änderungen verwerfen und anmelden</string>
@@ -1523,8 +1523,6 @@
   <string name="reading_list_share_menu_label">Teilen…</string>
   <string name="reading_list_share_menu_tooltip">Diese Leseliste mit anderen teilen</string>
   <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit dir teilen:</string>
-  <string name="reading_list_share_survey_title">Kannst du uns helfen, „Leselisten teilen“ zu verbessern?</string>
-  <string name="reading_list_share_survey_body">„Leselisten teilen“ ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
   <string name="talk_templates_empty_message">Erstelle deine eigenen Nachrichten oder verwende &lt;a href=\"#\"&gt;Beispielnachrichten&lt;/a&gt; für den Anfang.</string>
   <string name="talk_templates_new_message_title">Neue Nachricht</string>
   <string name="talk_templates_new_message_subject_hint">Betreff</string>
@@ -1628,16 +1626,9 @@
   <string name="patroller_onboarding_two_undo_content">Wähle \'Rückgängig\', um eine möglicherweise schädliche Bearbeitung rückgängig zu machen oder zurückzusetzen.</string>
   <string name="patroller_diff_tooltip_one">Schaden sagt voraus, ob eine Bearbeitung einem Wiki Schaden zufügt.</string>
   <string name="patroller_diff_tooltip_two">Absicht sagt die Wahrscheinlichkeit voraus, dass eine Bearbeitung in guter Absicht getätigt wird.</string>
-  <string name="patroller_diff_feedback_dialog_title">Hilf uns, diese Funktion zu verbessern</string>
-  <string name="patroller_diff_feedback_dialog_message">Bist du mit dieser Funktion zufrieden?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Zufrieden</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unzufrieden</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Wie können wir die Funktion verbessern?</string>
   <string name="patroller_diff_menu_edit_history_title">Versionsgeschichte des Artikels</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
-  <string name="patroller_diff_feedback_dialog_submit">Speichern</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Feedback gesendet.</string>
   <string name="patroller_saved_message_title_vandalism">Warnung vor Vandalismus</string>
   <string name="patroller_saved_message_title_editing_tests">Testbearbeitungen</string>
   <string name="patroller_saved_message_title_npov">Neutraler Standpunkt</string>
@@ -1674,11 +1665,15 @@
   <string name="places_filter_title">Sprache filtern</string>
   <string name="places_toggle_buttons_map">Karte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_survey_very_satisfied_option">Sehr zufrieden</string>
-  <string name="places_survey_very_unsatisfied_option">Sehr unzufrieden</string>
-  <string name="places_survey_dialog_title">Hilf mit, „Orte“ zu verbessern</string>
-  <string name="places_survey_feedback_dialog_title">Wie kann „Orte“ verbessert werden?</string>
-  <string name="places_survey_dialog_cancel">Abbrechen</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Was sollen wir ändern oder verbessern?</string>
   <string name="places_empty_list">Dieser Bereich ist leer. Verkleinere &lt;a href=\"#\"&gt;die Karte&lt;/a&gt;.</string>
+  <string name="survey_dialog_title">Hilf uns, die Diskussions-Seiten zu verbessern</string>
+  <string name="survey_dialog_message">Bist du mit dieser Funktion zufrieden?</string>
+  <string name="survey_dialog_option_satisfied">Zufrieden</string>
+  <string name="survey_dialog_option_neutral">Neutral</string>
+  <string name="survey_dialog_option_unsatisfied">Unzufrieden</string>
+  <string name="survey_dialog_option_very_satisfied">Sehr zufrieden</string>
+  <string name="survey_dialog_option_very_unsatisfied">Sehr unzufrieden</string>
+  <string name="survey_dialog_cancel">Abbrechen</string>
+  <string name="survey_dialog_submit">Speichern</string>
+  <string name="survey_dialog_submitted_snackbar">Feedback gesendet.</string>
 </resources>

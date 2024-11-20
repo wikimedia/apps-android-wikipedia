@@ -28,8 +28,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -108,7 +106,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         setUpScrollListener()
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.swipeRefreshLayout.isEnabled = false
@@ -549,10 +546,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val title = ReadingListPage.toPageTitle(it)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
-                Completable.fromAction {
-                    AppDatabase.instance.readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
-                    AppDatabase.instance.readingListPageDao().updateReadingListPage(it)
-                }.subscribeOn(Schedulers.io()).subscribe()
+                ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }
@@ -791,7 +785,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if (AccountUtil.isLoggedIn && !Prefs.isReadingListSyncEnabled &&
+        if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                 Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
@@ -802,7 +796,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.isReadingListSyncReminderEnabled = false
             }, false)
             binding.onboardingView.isVisible = true
-        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+        } else if ((!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -842,7 +836,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         fun refreshSync(fragment: Fragment, swipeRefreshLayout: SwipeRefreshLayout) {
-            if (!AccountUtil.isLoggedIn) {
+            if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
                 ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(fragment.requireActivity())
                 swipeRefreshLayout.isRefreshing = false
             } else {

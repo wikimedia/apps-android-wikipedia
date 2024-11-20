@@ -22,6 +22,7 @@
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="nav_item_search">Пребарај</string>
+  <string name="nav_item_contribute">Учествувајте</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -36,7 +37,7 @@
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
   <string name="notification_archive_undo">Врати</string>
-  <string name="app_settings">Поставки за прилогот</string>
+  <string name="app_settings">Нагодувања за прилогот</string>
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
   <string name="image_content_description">Слика: %s</string>
@@ -57,7 +58,7 @@
   <string name="page_edit_history_filter_by">Филтрирај по</string>
   <string name="page_edit_history_filter_by_all">Сите уредувања (%s)</string>
   <string name="page_edit_history_filter_by_user">Кориснички уредувања (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимни уредувања (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Уредувања на непријавени (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ботовски уредувања (%s)</string>
   <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -426,8 +427,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Прилагодете си го алатникот</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="temp_account_not_logged_in">Не сте најавени</string>
-  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;Создајте сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
-  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
+  <string name="temp_account_anon_ip_dialog_body">Штом ќе направите уредување, вашата IP-адреса ќе биде поврзана со уредувањата што ги правите.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\n\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
   <string name="temp_account_dialog_ok">Јасно</string>
   <string name="temp_account_using_title">Користите привремена сметка</string>
   <string name="temp_account_dialog_discard">Отфрли промени и најави ме</string>
@@ -439,6 +441,7 @@
     <item quantity="one">Сметката ќе истече за %d ден.</item>
     <item quantity="other">Сметката ќе истече за %d дена.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Штом ќе направите уредување, вашата IP-адреса ќе биде поврзана со уредувања што ги правите.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Откако ќе направите уредување, ќе ви биде создадена привремена сметка за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Користите привремена сметка.&lt;/b&gt; Вашето уредување му е припишано на %1$s. &lt;a href=\"%2$s\"&gt;Дознајте повеќе&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Моменталално користите приврмена сметка.&lt;/b&gt; Уредувањата направени од привремената сметка %1$s нема да се префрлат во трајната сметка кога ќе се најавите. Најавете се или направете сметка за уредувањата да му се припишуваат на вашето корисничко име, меѓу други поволности.</string>
@@ -591,7 +594,7 @@
   <string name="reading_list_turned_sync_off_dialog_title">Усогласувањето на списоците за читање е исклучено</string>
   <string name="reading_list_turned_sync_off_dialog_text">Усогласувањето на списоците за читање е исклучено, а зачуваните статии на уредите од кои сте се најавиле повеќе не се во резерва. Вклучете ги списоците за читање во Поставките.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ОК</string>
-  <string name="reading_list_turned_sync_off_dialog_settings">Поставки</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Нагодувања</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Да го вклучам усогласувањето на списоците за читање?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Статиите зачувани во списоци за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"#faq\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не прикажувај повеќе</string>
@@ -655,7 +658,7 @@
   <string name="reading_lists_preview_save_dialog_save">Зачувај</string>
   <string name="reading_lists_preview_saved_snackbar">Списокот а читање е зачуван</string>
   <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
-  <string name="user_option_sync_label">Поставки</string>
+  <string name="user_option_sync_label">Нагодувања</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
   <string name="notification_channel_description">Напредок на подигањето</string>
@@ -749,7 +752,7 @@
   <string name="preference_summary_notification_article_linked">Се добива кога некој ќе стави нова врска ваша до статија</string>
   <string name="preference_category_push_notifications">Доставни известувања</string>
   <string name="preference_title_customize_push_notifications">Прилагоди доставни известувања</string>
-  <string name="preference_category_display_settings">Поставки за приказ</string>
+  <string name="preference_category_display_settings">Нагодувања за приказ</string>
   <string name="preference_title_hide_read_notifications">Скриј прочитани известувања</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Википедија</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Известувања од Википедија</string>
@@ -1024,6 +1027,10 @@
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Уредување</item>
+    <item quantity="other">Уредувања</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дена</item>
@@ -1153,6 +1160,7 @@
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На денешен ден</string>
   <string name="more_events_text">Повеќе на овој ден</string>
   <string name="events_count_text">%1$s настани од %2$s–%3$d</string>
@@ -1482,8 +1490,6 @@
   <string name="reading_list_share_menu_label">Сподели…</string>
   <string name="reading_list_share_menu_tooltip">Споделете го списоков за читање со други</string>
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
-  <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
-  <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="talk_templates_empty_message">Создавајте ваши пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>
@@ -1591,16 +1597,9 @@
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
   <string name="patroller_diff_tooltip_two">Намерата ја предвидува веројатноста едно уредување да биде зачувано како добронамерно.</string>
-  <string name="patroller_diff_feedback_dialog_title">Помогнете ни да ја подобриме оваа функција</string>
-  <string name="patroller_diff_feedback_dialog_message">Дали сте задоволни со оваа функција?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна е</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна е</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можеме да ја подобриме функцијата?</string>
   <string name="patroller_diff_menu_edit_history_title">Историја на уредување на статијата</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Мислење</string>
-  <string name="patroller_diff_feedback_dialog_submit">Поднеси</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Мислењето е поднесено.</string>
   <string name="patroller_diff_feedback_tooltip">Допрете на расклопното мени за да поднесете мислење во било кое време со „Проблем со функцијата“.</string>
   <string name="patroller_saved_message_title_vandalism">Предупредување за вандализам</string>
   <string name="patroller_saved_message_title_editing_tests">Пробни уредувања</string>
@@ -1658,12 +1657,6 @@
   <string name="places_filter_title">Филтрирај јазик</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
-  <string name="places_survey_very_satisfied_option">Многу задоволен</string>
-  <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
-  <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
-  <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
-  <string name="places_survey_dialog_cancel">Откажи</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
   <string name="places_card_title">Околни места</string>
   <string name="places_card_action">Повеќе места во близина</string>
@@ -1672,9 +1665,68 @@
   <string name="places_card_distance_suffix">на %s од вас</string>
   <string name="places_card_distance_unknown">Непозната оддалеченост</string>
   <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
-  <string name="recommended_content_section_you_might_like">Можеби ќе ви се допадне</string>
-  <string name="recommended_content_survey_dialog_title">Помогнете ни да ја подобриме препорачаната содржина.</string>
-  <string name="recommended_content_survey_dialog_message">Дали сте задоволни со овој предлог во пребараното?</string>
-  <string name="recommended_content_survey_dialog_input_hint">Дополнително мислење</string>
-  <string name="recommended_content_survey_dialog_submitted_message">Мислењето е поднеснео. Ви благодариме!</string>
+  <string name="donor_history_title">Историја на дарување</string>
+  <string name="donor_history_save_button">Зачувај</string>
+  <string name="donor_history_update_donor_status_default">Поднови статус на дарител</string>
+  <string name="donor_history_update_donor_status_donor">Дарител</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Не е дарител</string>
+  <string name="donor_history_last_donated">Последен пат дарувал</string>
+  <string name="donor_history_last_donated_hint">Додај датум на последно дарување</string>
+  <string name="donor_history_last_donated_date_picker_title">Изберете датум</string>
+  <string name="donor_history_last_donated_date_picker_label">Внесете датум</string>
+  <string name="donor_history_last_donated_never">Никогаш</string>
+  <string name="donor_history_recurring_donor">Редовен дарител</string>
+  <string name="donor_history_donate_button">Дарувајте на Фондацијата Викимедија</string>
+  <string name="donor_history_about_this_experiment">За овој опит</string>
+  <string name="donor_history_updated_message_snackbar">Историјата на дарување е подновена</string>
+  <string name="contributions_dashboard_survey_dialog_title">Помогнете ни да ја подобриме управувачница на придонеси</string>
+  <string name="contributions_dashboard_survey_dialog_message">Оваа поднова на управувачницата е пробна функција. Дали би сакале оваа функција да се подобри или да се отстрани?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Немам мислење</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Дајте мислење</string>
+  <string name="contributions_dashboard_donation_dialog_title">Ви благодариме што го поддржувате слободното знаење</string>
+  <string name="contributions_dashboard_donation_dialog_message">Вие сте дел од 2 ‰ кои избраа да го поддржат ресурсот на кој се потпираат милиони. За да ја искажеме нашата благодарност, вашата управувачница на дарувања е подновена како признание на вашиот статус на дарител. Дали би сакале да ја видите подновата?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Да, покажи ми</string>
+  <string name="contributions_dashboard_entry_dialog_title">Истражете ги новите додатоци во управувачницата со придонеси</string>
+  <string name="contributions_dashboard_entry_dialog_message">Управувачницата со придонеси сега го прикажува вашиот дарителски статус. Сакате да ја разгледате оваа опитна функција?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Да, покажи ми</string>
+  <string name="contributions_dashboard_badge_donor">Дарител</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Станете дарител</string>
+  <string name="contributions_dashboard_badge_update">Поднови дарителски статус</string>
+  <string name="contributions_dashboard_app_icon_title">Икона на прилогот</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Погодност на дарителот</string>
+  <string name="contributions_dashboard_logged_out_user">Одјавен корисник</string>
+  <string name="contributions_dashboard_tab_last_donated">Последен пат дарувал</string>
+  <string name="contributions_dashboard_tab_update_button">Поднови</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Ви благодариме што сте дарител.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Отклучивтеп привремена прилагодена икона. Можете да се префрлите на неа преку вашите нагодувања под Икона на прилогот. Дали би сакале да ја измените вашата икона сега?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Не, благодарам</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, донеси ме на Нагодувањата</string>
+  <string name="contributions_dashboard_app_icon_updated">Иконата на прилогот е подновена</string>
+  <string name="recent_searches_title">Скорешни пребарувања</string>
+  <string name="recent_searches_related_to_reading">Поврзано со она што го читате</string>
+  <string name="rabbit_holes_experiment">Пробно</string>
+  <string name="rabbit_holes_experiment_about">За оваа проба</string>
+  <string name="rabbit_holes_survey_dialog_title">Помогнете ни да ги подобрием зајачките дупки</string>
+  <string name="rabbit_holes_survey_dialog_body">Дали сте задоволни со овој предлог во пребараното?</string>
+  <string name="suggested_reading_list_title">Според тоа што го читате</string>
+  <string name="suggested_reading_list_description">Поттикнато од „%s“</string>
+  <string name="suggested_reading_list_later_snackbar">Ако сакате да се навратите подоцна на вашиот список за читање, одете на јазичето „Зачувано“ на почетниот екран.</string>
+  <string name="suggested_reading_list_dialog_title">Имате нов список со предложени читања.</string>
+  <string name="suggested_reading_list_dialog_body">Ова е опитна функција. Содржините се засноваат на вашата скорешна историја на читање. Дали сакате да ги погледате овој нов список за читање?</string>
+  <string name="suggested_reading_list_dialog_positive">Пробајте го сега</string>
+  <string name="suggested_reading_list_dialog_negative">Можеби подоцна</string>
+  <string name="suggested_reading_list_back_cancel">Погледајте го список на предложени читање во секое време во јазичето „Зачувано“ на почетниот екран.</string>
+  <string name="survey_dialog_title">Помогнете ни да и подобриме Разговорните страници</string>
+  <string name="survey_dialog_message">Дали сте задоволни со оваа функција?</string>
+  <string name="survey_dialog_option_satisfied">Задоволителна е</string>
+  <string name="survey_dialog_option_neutral">Неутрално</string>
+  <string name="survey_dialog_option_unsatisfied">Незадоволителна е</string>
+  <string name="survey_dialog_option_very_satisfied">Многу задоволен</string>
+  <string name="survey_dialog_option_very_unsatisfied">Многу незадоволен</string>
+  <string name="survey_dialog_cancel">Откажи</string>
+  <string name="survey_dialog_submit">Поднеси</string>
+  <string name="survey_dialog_input_hint">Дополнително мислење</string>
+  <string name="survey_dialog_submitted_snackbar">Мислењето е поднесено.</string>
 </resources>

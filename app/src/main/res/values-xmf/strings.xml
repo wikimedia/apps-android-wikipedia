@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * MuratTheTurkish
 * Narazeni
@@ -407,6 +406,8 @@
   <string name="view_because_you_read_card_title">თიშ გეშა, ნამჷ-და თქვა კითხულენთ</string>
   <string name="view_random_card_title">ჩვაგაფი</string>
   <string name="home">დუდხასჷლა</string>
+  <string name="view_featured_article_card_title">გიშნაგორა სტატია</string>
+  <string name="feed_item_type_featured_article">დღაშ გიშნაგორა სტატია ვიკიპედიას</string>
   <string name="description_edit_success_did_you_know">გიჩქუდესო ნამჷ-და?</string>
   <string name="description_edit_tutorial_button_label_start_editing">რედაქტირაფაშ დოჭყაფა</string>
   <string name="suggested_edits_add_description_button">ეჭარუაშ გეძინა</string>

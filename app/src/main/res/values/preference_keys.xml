@@ -7,6 +7,7 @@
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
+    <string name="preference_key_app_icon">AppIcon</string>
     <string name="preference_key_previous_color_theme">previousColorTheme</string>
     <string name="preference_key_font_family">fontFamily</string>
     <string name="preference_key_app_channel">channel</string>
@@ -130,6 +131,8 @@
     <string name="preference_key_customize_toolbar_order">customizeToolbarOrder</string>
     <string name="preference_key_customize_toolbar_menu_order">customizeToolbarMenuOrder</string>
     <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
+    <string name="preference_key_temp_account_welcome_shown">tempAccountWelcomeShown</string>
+    <string name="preference_key_temp_account_dialog_shown">tempAccountDialogShown</string>
     <string name="preference_key_talk_topics_sort_mode">talkTopicsSortMode</string>
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
@@ -162,9 +165,15 @@
     <string name="preference_key_places_last_location_and_zoom_level">placesLastLocationAndZoomLevel</string>
     <string name="preference_key_recent_used_templates">recentUsedTemplates</string>
     <string name="preference_key_donation_test_env">donationTestEnv</string>
+    <string name="preference_key_donation_results">donationResults</string>
     <string name="preference_key_payment_methods_last_query_time">paymentMethodsLastQueryTime</string>
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
-    <string name="preference_key_recommended_content_survey_shown">recommendedContentSurveyShown</string>
+    <string name="preference_key_donor_history_saved">hasDonorHistorySaved</string>
+    <string name="preference_key_is_recurring_donor">isRecurringDonor</string>
+    <string name="preference_key_is_donor">isDonor</string>
+    <string name="preference_key_contributions_dashboard_survey_dialog_shown">contributionsDashboardSurveyDialogShown</string>
+    <string name="preference_key_contributions_dashboard_entry_dialog_shown">contributionsDashboardEntryDialogShown</string>
+    <string name="preference_key_current_selected_app_icon">currentSelectedAppIcon</string>
 </resources>

@@ -68,7 +68,7 @@
   <string name="page_edit_history_filter_by">Tapis mengikut</string>
   <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Suntingan awanama (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Suntingan awanama (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik daripada %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -105,6 +105,7 @@
   <string name="menu_page_recently_viewed">Baru dilihat</string>
   <string name="menu_page_archive">Arkib</string>
   <string name="menu_long_press_open_page">Buka</string>
+  <string name="menu_long_press_open_in_places">Buka di Tempat</string>
   <string name="menu_long_press_open_in_new_tab">Buka dalam tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pautan</string>
   <string name="menu_text_select_define">Takrifkan</string>
@@ -270,6 +271,7 @@
   <string name="edit_undo">Nyahbuat</string>
   <string name="edit_redo">Buat semula</string>
   <string name="edit_rollback">Undur</string>
+  <string name="edit_warn">Ingatkan</string>
   <string name="edit_zoom_in">Zum dekat</string>
   <string name="edit_zoom_out">Zum jauh</string>
   <string name="edit_summary_tag_typo">Memperbaiki ejaan</string>
@@ -308,6 +310,7 @@
   <string name="widget_name_featured_page">Laman pilihan Wikipedia</string>
   <string name="widget_title_featured_page">Laman pilihan hari ini:</string>
   <string name="widget_name_search">Pencarian Wikipedia</string>
+  <string name="widget_description_search">Cara terpantas untuk mencari Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Tiada takrifan dijumpai.</string>
   <string name="alpha_update_notification_title">Terdapat kemaskinian alfa baru</string>
   <string name="alpha_update_notification_text">Ketik untuk muat turun</string>
@@ -367,6 +370,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Rencana tidak boleh dimuatkan semasa di luar talian.</string>
   <string name="page_offline_notice_add_to_reading_list">Petunjuk: Menambah rencana ke senarai bacaan dan ia akan dimuat turun apabila anda kembali dalam talian.</string>
   <string name="page_offline_notice_last_date">Anda membaca versi luar talian artikel ini disimpan pada %s.</string>
+  <string name="redirected_from_snackbar">Dilencongkan daripada \"%s\"</string>
   <string name="button_get_directions">Tunjuk jalan</string>
   <string name="error_no_maps_app">Tidak dapat menemui sebarang aplikasi yang boleh menunjukkan jalan.</string>
   <string name="preference_title_customize_explore_feed">Teroka Suapan</string>
@@ -570,6 +574,7 @@
   <string name="reading_lists_import_failure_message">Gagal mengimport senarai bacaan</string>
   <string name="reading_lists_export_select_lists_message">Pilih senarai untuk dieksport</string>
   <string name="reading_lists_preview_save_button">Simpan</string>
+  <string name="reading_lists_preview_save_dialog_title">Simpan senarai</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Tajuk</string>
   <string name="reading_lists_preview_save_dialog_cancel">Batalkan</string>
   <string name="reading_lists_preview_save_dialog_save">Simpan</string>
@@ -718,6 +723,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="feed_accessibility_card_load_more_button">Muatkan lagi</string>
+  <string name="feed_language_variants_removal_dialog_save">Simpan</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Pergi ke Tetapan</string>
   <string name="top_read_activity_title">Bacaan tersohor pada %s</string>
   <string name="description_edit_text_hint">Huraian rencana</string>
   <string name="description_edit_article_description_label">Rencana</string>
@@ -836,7 +843,7 @@
   <string name="suggested_edits_ip_blocked_title">IP disekat</string>
   <string name="suggested_edits_last_edited">Kali terakhir disunting</string>
   <string name="suggested_edits_last_edited_never">Tidak pernah</string>
-  <string name="suggested_edits_task_new" fuzzy="true">baru</string>
+  <string name="suggested_edits_task_new">Baru</string>
   <string name="suggested_edits_contributions_screen_title">Sumbangan %s</string>
   <string name="suggested_edits_contribution_language_label">Bahasa</string>
   <string name="suggested_edits_contribution_date_time_label">Tarikh / Masa</string>
@@ -963,6 +970,7 @@
   <string name="talk_new_topic">Topik baru</string>
   <string name="talk_warn_save_dialog_title">Simpan perubahan?</string>
   <string name="talk_warn_save_dialog_message">Simpan sebagai pesanan baru</string>
+  <string name="talk_warn_save_dialog_hint">Tajuk pesanan</string>
   <string name="talk_warn_save_dialog_publish">Terbitkan</string>
   <string name="talk_warn_save_dialog_cancel">Batalkan</string>
   <string name="talk_warn_save_dialog_dont_save">Jangan simpan</string>
@@ -1036,7 +1044,39 @@
   <string name="category_tab_subcategories">Subkategori</string>
   <string name="category_empty">Tiada rencana dijumpai dalam kategori ini.</string>
   <string name="subcategory_empty">Tiada subkategori dijumoai dalam kategori ini.</string>
+  <string name="search_namespaces">Ruang nama</string>
+  <string name="namespace_article">Rencana</string>
+  <string name="user_contrib_menu_label">Sumbangan</string>
+  <string name="shareable_reading_lists_new_indicator">*baru*</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Faham</string>
+  <string name="reading_list_share_menu_label">Kongsi…</string>
+  <string name="talk_templates_new_message_save">Simpan</string>
+  <string name="talk_templates_new_message_dialog_title">Simpan perubahan</string>
+  <string name="talk_templates_new_message_dialog_save">Simpan</string>
+  <string name="talk_templates_new_message_dialog_cancel">Batalkan</string>
+  <string name="talk_templates_edit_message_dialog_save">Simpan</string>
+  <string name="talk_templates_edit_message_dialog_delete">Hapuskan</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Tiada</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Maklumat pengguna</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Lihat sumbangan pengguna</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Tutup</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Semua</string>
+  <string name="patroller_tasks_filters_user_status_header">Pendaftaran dan pengalaman pengguna</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_significance_minor">Suntingan kecil</string>
+  <string name="patroller_onboarding_two_watch_title">Pantau</string>
+  <string name="patroller_saved_message_title_vandalism">Amaran laku musnah</string>
+  <string name="talk_templates_menu_edit_title">Sunting</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
+  <string name="places_title">Tempat</string>
+  <string name="places_toggle_buttons_map">Peta</string>
+  <string name="places_toggle_buttons_list">Senarai</string>
+  <string name="survey_dialog_option_satisfied">Puas hati</string>
+  <string name="survey_dialog_option_unsatisfied">Tidak puas hati</string>
+  <string name="survey_dialog_option_very_satisfied">Sangat berpuas hati</string>
+  <string name="survey_dialog_option_very_unsatisfied">Sangat tidak berpuas hati</string>
+  <string name="survey_dialog_cancel">Batalkan</string>
+  <string name="survey_dialog_input_hint">Maklum balas tambahan</string>
 </resources>
