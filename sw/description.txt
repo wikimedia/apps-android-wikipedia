@@ -26,11 +26,9 @@ Tuma maoni yako kuhusu apu! Kwa menu,bonyeza "Settings", kisha" About the wikipe
 
 Msimbo ni 100% chanzo huria. Kama una uzoefu na Java na SDK ya Android, basi tunasubiri kwa hamu michango yako! https://github.com/wikimedia/apps-android-wikipedia
 
-Kwa kutumia programu hii, unakubali usafirishaji wa moja kwa moja wa ripoti za tashwishi kwa mtoa huduma wa tatu. Kama ungependa kulemaza kipengele hii, tafadhali bonyeza "Settinngs" halafu uzime kibanio cha "Send crash reports"chini ya sehemu ya Faragha. Maelezo ya ruhusa zinazohitajika na programu: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Maelezo ya ruhusa zinazohitajika na programu: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Sera ya faragha: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Sera ya faragha ya watoa huduma wengine wa ripoti ya kuacha kufanya kazi:https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Masharti za kutumika: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

@@ -26,11 +26,9 @@ Pošlete nám svoji zpětnou vazbu ohledně této aplikace! V nabídce stisknět
 
 Kód je 100% svobodný, pokud máte zkušenosti s Javou a Androidovým SDK, zapojte se do vývoje! https://github.com/wikimedia/apps-android-wikipedia
 
-Užíváním této aplikace souhlasíte s automatickým přenosem záznamů spadnutí poskytovateli služeb třetí strany. Pokud chcete tuto funkci zakázat, jděte do "Nastavení" a vypněte "Odesílat zprávy o využití" pod sekcí "Soukromí". Vysvětlení oprávnění, které aplikace vyžaduje: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Vysvětlení oprávnění, které aplikace vyžaduje: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Zásady ochrany osobních údajů: https://foundation.wikimedia.org/wiki/Privacy_policy
-
-Zásady ochrany osobních údajů služby poskytující sběr informací o spadnutí: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Podmínky používání: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

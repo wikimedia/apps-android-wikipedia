@@ -26,11 +26,9 @@ Bidali guri aplikazioari buruzko iruzkinak! Menuan sakatu "Ezarpenak", gero "Wik
 
 Kodea %100 irekia da, Javarekin eta Android SDK-rekin esperientzia baduzu, zure ekarpenen zai gaude! https://github.com/wikimedia/apps-android-wikipedia
 
-Aplikazio hau erabiltzean, kraskatze txostenak hirugarrengo bati automatikoki bidaltzea onartzen duzu. Ezaugarri hau desgaitu nahi baduzu, sakatu "Ezarpenak", gero desaktibatu "Bidali kraskatze txostenak" pribatutasun atalean. Aplikazioak behar dituen baimenen azalpena: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Aplikazioak behar dituen baimenen azalpena: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Pribatutasun politika: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Kraskatze txostena jasotzen duen hirugarrengoaren pribatutasun politika: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Erabilera baldintzak: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

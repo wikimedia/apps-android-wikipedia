@@ -26,11 +26,9 @@ Sendu okkur umsögn um forritið! Þú getur ýtt á "Stillingar" í valmyndinni
 
 Kóðinn er 100% opinn. Ef þú ert með reynslu af Java og Android SDK, þá væntum við mikils af framlagi þínu! https://github.com/wikimedia/apps-android-wikipedia
 
-Með því að nota þetta forrit, samþykkir þú sjálfvirka sendingu villuskýrslna til utanaðkomandi þjónustuaðila. Ef þú vilt gera þennan eiginleika óvirkann, ýttu þá á "Stillingar," taktu síðan hakið úr "Senda villuskýrslur" í hlutanum "Gagnaleynd". Útskýringar á heimildunum sem þetta forrit þarfnast eru hér: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Útskýringar á heimildunum sem þetta forrit þarfnast eru hér: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Meðferð persónuupplýsinga: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Stefna varðandi meðferð persónuupplýsinga frá utanaðkomandi aðila sem sér um villuskýrslur: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Notkunarskilmálar: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

@@ -26,11 +26,9 @@ Send us your feedback about the app! In the menu, press "Settings", then "About 
 
 The code is 100% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
 
-By using this app, you agree to the automatic transmission of crash reports to a third-party service provider. If you would like to disable this feature, please press "Settings," then toggle off "Send crash reports" under the Privacy section. Explanation of permissions needed by the app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Explanation of permissions needed by the app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Crash report third-party service provider privacy policy: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

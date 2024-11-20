@@ -26,11 +26,9 @@ Kirimkan tanggapan Anda tentang aplikasi ini! Di menu, tekan "Pengaturan", lalu 
 
 Kodenya 100% sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, maka kami menantikan kontribusi Anda! https://github.com/wikimedia/apps-android-wikipedia
 
-Dengan menggunakan aplikasi ini, Anda menyetujui transmisi otomatis laporan kerusakan ke penyedia layanan pihak ketiga. Jika Anda ingin menonaktifkan fitur ini, silakan tekan "Pengaturan", lalu matikan "Kirim laporan kerusakan" di bagian Privasi. Penjelasan izin yang diperlukan oleh aplikasi: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Penjelasan izin yang diperlukan oleh aplikasi: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Kebijakan Privasi: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Laporan kerusakan kebijakan privasi penyedia layanan pihak ketiga: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 TOS: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

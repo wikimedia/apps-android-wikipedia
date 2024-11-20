@@ -26,11 +26,9 @@ Envia'ns els teus comentaris sobre l'aplicació! Al menú, prem "Configuració",
 
 El codi és 100% de codi obert. Si tens experiència amb Java i l'SDK d'Android, esperem les teves contribucions! https://github.com/wikimedia/apps-android-wikipedia
 
-En utilitzar aquesta aplicació, acceptes la transmissió automàtica d'informes de fallada a un proveïdor de serveis de tercers. Si voleu desactivar aquesta característica, premeu «Configuració» i desactiveu «Enviar informes de fallada» a la secció Privadesa. Explicació dels permisos necessaris per a l'aplicació: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Explicació dels permisos necessaris per a l'aplicació: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Política de privacitat: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Informe de fallada política de privacitat del proveïdor de serveis de tercers: https://www.microsoft.com/ca-us/privacystatement/OnlineServices/Default.aspx
 
 Condicions d'ús: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

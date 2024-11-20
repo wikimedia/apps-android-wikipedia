@@ -24,11 +24,9 @@ Wikipedia Zero - Access Wikipedia για Android δωρεάν από τις χρ
 
 Ο κώδικας είναι 100% ανοικτής πηγής. Αν έχετε εμπειρία με την Java και το Android SDK, τότε ανυπομονούμε για τις συνεισφορές σας! https://github.com/wikimedia/apps-android-wikipedia
 
-Με τη χρήση αυτής της εφαρμογής, συμφωνείτε με την αυτόματη διαβίβαση εκθέσεων συντριβής σε έναν πάροχο υπηρεσιών τρίτων. Εάν θέλετε να απενεργοποιήσετε αυτό το χαρακτηριστικό, παρακαλούμε πατήστε "Settings", στη συνέχεια, ξεκινήστε "Send crash Report" στο τμήμα απορρήτου. Επέκταση των δικαιωμάτων που απαιτούνται από την εφαρμογή: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Επέκταση των δικαιωμάτων που απαιτούνται από την εφαρμογή: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Πολιτική ιδιωτικότητας: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Έκθεση για την προστασία της ιδιωτικής ζωής τρίτων παρόχων υπηρεσιών: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Όροι χρήσης: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

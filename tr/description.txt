@@ -26,11 +26,9 @@ Uygulama ile ilgili geri dönüşlerinizi bize gönderin! Menüde "Ayarlar", ard
 
 Kod %100 açık kaynaklıdır. Java ve Android SDK ile tecrübeniz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
 
-Bu uygulamayı kullanarak, kilitlenme raporlarının bir üçüncü taraf hizmet sağlayıcısına otomatik olarak iletilmesini kabul edersiniz. Bu özelliği devre dışı bırakmak isterseniz, lütfen "Ayarlar" a basın, ardından Gizlilik bölümündeki "Kilitlenme raporları gönder" seçeneğini işaretleyin. Uygulamanın ihtiyaç duyduğu izinlerin açıklaması: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Uygulamanın ihtiyaç duyduğu izinlerin açıklaması: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Gizlilik politikası: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Çökme raporu üçüncü taraf hizmet sağlayıcısı gizlilik politikası: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Kullanım Şartları: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

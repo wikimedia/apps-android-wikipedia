@@ -26,11 +26,9 @@ Trimiteți-ne comentariile dumneavoastră despre aplicație! În meniu, apăsaț
 
 Codul este 100% open source. Dacă aveți experiență cu Java și Android SDK, așteptăm cu nerăbdare contribuțiile dumneavoastră! https://github.com/wikimedia/apps-android-wikipedia
 
-Prin utilizarea acestei aplicații, sunteți de acord cu transmiterea automată a rapoartelor de accident către un furnizor de servicii terț. Dacă doriți să dezactivați această funcție, apăsați "Settings" (Setări), apoi dezactivați "Send crash reports" (Trimitere rapoarte de accident) în secțiunea Privacy (Confidențialitate). Explicarea permisiunilor de care are nevoie aplicația: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Explicarea permisiunilor de care are nevoie aplicația: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Politica de confidențialitate: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Politica de confidențialitate a furnizorului de servicii terță parte al raportului de accident: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

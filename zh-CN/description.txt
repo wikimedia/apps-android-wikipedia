@@ -26,11 +26,9 @@ Android 版维基百科官方应用，可用于查找、发现和浏览维基百
 
 代码 100% 开源。如果您有 Java 和 Android SDK 开发经验，我们期待您的参与！https://github.com/wikimedia/apps-android-wikipedia
 
-使用该应用，表示同意自动发送崩溃报告至第三方服务提供商。如需禁用该功能，请选择“设置”，关闭“常规”下的“发送崩溃报告”选项。有关该应用所需权限的说明，请访问：https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+有关该应用所需权限的说明，请访问：https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 隐私政策：https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-崩溃报告第三方服务提供商隐私政策：https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 使用条款：https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

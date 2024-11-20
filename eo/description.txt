@@ -26,11 +26,9 @@ Sendu vian opinion pri la aplikaĵo! En la menuo, elektu “agordoj”, sekve �
 
 La kodo estas malferma en 100%. Se vi spertas pri Ĝavo kaj Android SDK, ni atendas viajn kontribuojn! https://github.com/wikimedia/apps-android-wikipedia
 
-Uzante tiun ĉi aplikaĵo, vi konsentas pri aŭtomata transsendo de raportoj pri paneoj al ekstera servo. Se vi volas malaktivigi tiun funkcion, premu “agordoj”-n, sekve malmarku “sendi raportojn pri paneoj”-n en la sekcio “privateco”. Permesoj uzataj de la aplikaĵo estas klarigitaj ĉe: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Permesoj uzataj de la aplikaĵo estas klarigitaj ĉe: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Privateca politiko: https://meta.wikimedia.org/wiki/Privacy_policy/eo
-
-Privateca politiko de ekstera servo por pane-raportoj: https://privacy.microsoft.com/en-us/privacystatement
 
 Kondiĉoj de uzado: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

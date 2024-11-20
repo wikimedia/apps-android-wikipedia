@@ -26,11 +26,9 @@ Sag uns deine Meinung zur App! Im Menü „Einstellungen“, dann „Über die W
 
 Der Code ist völlig quelloffen. Falls du Erfahrungen mit Java und dem Android-SDK hast, dann unterstütze uns! https://github.com/wikimedia/apps-android-wikipedia
 
-Bei Nutzung dieser App stimmst du der automatischen Übermittlung von Absturzberichten an ein ausgelagertes Dienstleistungsunternehmen zu. Falls du das nicht möchtest, kann die Funktion unter „Einstellungen“ > „Absturzberichte senden“ deaktiviert werden. Erklärung der von der App benötigten Berechtigungen unter: https://www.mediawiki.org/wiki/Wkimedia_Apps/Android_FAQ#Security_and_Permissions
+Erklärung der von der App benötigten Berechtigungen unter: https://www.mediawiki.org/wiki/Wkimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Datenschutzrichtlinien: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Datenschutzrichtlinie des Dienstanbieters zur Absturzberichterfassung: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

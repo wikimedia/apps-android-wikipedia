@@ -26,11 +26,9 @@ Envie-nos seus comentários sobre a app! No menu, pressione em "Configurações"
 
 O código é 100% fonte aberta. Se tem experiência com Java e Android SDK, estamos ansiosos pelas suas contribuições! https://github.com/wikimedia/apps-android-wikipedia
 
-Ao usar esta aplicação, concorda com a transmissão automática de relatórios de crache para um provedor de serviços de terceiros. Se pretender desativar esta funcionalidade, por favor, pressione em "Definições", e desative "Enviar relatórios de crache" na secção de privacidade. Explicação das permissões necessárias pela aplicação: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Explicação das permissões necessárias pela aplicação: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Política de privacidade: https://wikimediafoundation.org/privacy-policy/
-
-Política de privacidade do provedor de serviços de terceiros para relatórios de crache: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Termos de Utilização: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

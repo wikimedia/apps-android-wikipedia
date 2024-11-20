@@ -26,11 +26,9 @@
 
 コードは100%オープンソースです。JavaとAndroid SDKの経験があれば、私たちはあなたの貢献を楽しみにしています！ https://github.com/wikimedia/apps-android-wikipedia
 
-このアプリを使用することによって、あなたは、サードパーティのサービスプロバイダーにクラッシュレポートの自動送信することに同意します。この機能を無効にしたい場合は、「設定」を押して、全般セクション下の「クラッシュレポートを送信」をオフしてください。アプリで必要なアクセス許可の説明: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+アプリで必要なアクセス許可の説明: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 プライバシーポリシー: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-クラッシュレポートサードパーティサービスプロバイダーのプライバシーポリシー: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 利用規約: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

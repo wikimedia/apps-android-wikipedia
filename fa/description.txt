@@ -26,11 +26,9 @@
 
 این کد بطور ۱۰۰٪ منبع باز است. اگر هر تجربه‌ای برای کار کردن با جاوا یا آندروید SDK دارید٬ ما حتما منتظر کمک‌های شما هستیم!‌ https://github.com/wikimedia/apps-android-wikipedia
 
-با استفاده از این اپلیکیشن شما این اجازه را می‌دهید که بطور خودکار گزارشات خرابی به شخص ثالث ارائه دهنده سرویس ارسال شود. اگر علاقه دارید این امکان متوقف شود لطفا به "تنظیمات" بروید و سپس "ارسال گزارش خرابی" را خاموش کنید. توضیح مجوزهای مورد نیاز برنامه: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+توضیح مجوزهای مورد نیاز برنامه: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 سیاست محرمانگی: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-قوانین شخص ثالث ارائه دهنده سرویس برای گزارش خرابی‌ها : https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 شرایط استفاده: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

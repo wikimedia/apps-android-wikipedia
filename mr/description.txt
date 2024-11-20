@@ -26,7 +26,7 @@
 
 कोड 100% मुक्त स्रोत आहे. तुम्हाला Java आणि Android SDK चा अनुभव असल्यास, आम्ही तुमच्या योगदानाची अपेक्षा करतो! https://github.com/wikimedia/apps-android-wikipedia
 
-हे ॲप वापरून, तुम्ही तृतीय-पक्ष सेवा प्रदात्याकडे क्रॅश अहवाल स्वयंचलितपणे प्रसारित करण्यास सहमती देता. तुम्ही हे वैशिष्ट्य अक्षम करू इच्छित असल्यास, कृपया "सेटिंग्ज" दाबा, त्यानंतर गोपनीयता विभागाखाली "क्रॅश अहवाल पाठवा" टॉगल करा. ॲपसाठी आवश्यक असलेल्या परवानग्यांचे स्पष्टीकरण: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+ॲपसाठी आवश्यक असलेल्या परवानग्यांचे स्पष्टीकरण: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 गोपनीयता धोरण: https://m.wikimediafoundation.org/wiki/Privacy_policy
 

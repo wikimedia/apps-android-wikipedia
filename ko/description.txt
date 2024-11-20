@@ -26,11 +26,9 @@
 
 코드는 100% 오픈 소스입니다. Java와 Android SDK를 다룬 경험이 있다면, 우리는 여러분의 기여를 기대합니다! https://github.com/wikimedia/apps-android-wikipedia
 
-이 앱을 사용함으로서, 여러분은 충돌 보고서를 제3의 서비스 제공자로 자동으로 전송하는 데 동의합니다. 이 기능을 비활성화하는 것을 원하신다면, "설정,"을 누르고 나서 개인정보 문단 아래의 "충돌 보고서 보내기"를 끄기로 전환하세요. 앱에 필요한 권한의 설명: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+앱에 필요한 권한의 설명: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 개인정보보호정책: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-충돌 보고서 제3의 서비스 제공자 개인정보처리방침: https://www.microsoft.com/ko-kr/privacystatement/OnlineServices/Default.aspx
 
 이용 약관: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
