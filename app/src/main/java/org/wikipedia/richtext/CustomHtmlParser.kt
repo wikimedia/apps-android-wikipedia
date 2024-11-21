@@ -266,6 +266,13 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                 .replace("&#8207;", "\u200F")
                 .replace("&amp;", "&")
 
+            // Replace the <sub> and <sup> HTML tags which overflow in the TextView
+
+            sourceStr = sourceStr.replace("<sub>", "<small>")
+                .replace("</sub>", "</small>")
+                .replace("<sup>", "^")
+                .replace("</sup>", "")
+
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?
             // This would become something like "<inject/>$sourceStr".parseAsHtml(...)
