@@ -22,6 +22,10 @@ object TestConfig {
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
 }
 
+data class DataInjector(
+    val isInitialOnboardingEnabled: Boolean = false
+)
+
 abstract class BaseTest<T : AppCompatActivity> {
     @get:Rule
     val activityScenarioRule: ActivityScenarioRule<T>
@@ -34,16 +38,10 @@ abstract class BaseTest<T : AppCompatActivity> {
         activityScenarioRule = ActivityScenarioRule(intent)
     }
 
-    constructor(activityClass: Class<T>, isInitialOnboardingEnabled: Boolean) {
+    constructor(activityClass: Class<T>, dataInjector: DataInjector) {
         val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
-        Prefs.isInitialOnboardingEnabled = isInitialOnboardingEnabled
-    }
-
-    constructor(activityClass: Class<T>, intentBuilder: Intent.() -> Unit) {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
-            .apply(intentBuilder)
-        activityScenarioRule = ActivityScenarioRule(intent)
+        Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
     }
 
     @Before
