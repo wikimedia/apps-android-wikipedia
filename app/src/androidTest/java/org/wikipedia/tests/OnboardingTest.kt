@@ -6,6 +6,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.OnboardingRobot
 
 @LargeTest
@@ -14,6 +15,7 @@ class OnboardingTest : BaseTest<MainActivity>(
     activityClass = MainActivity::class.java
 ) {
     private val onboardingRobot = OnboardingRobot()
+    private val systemRobot = SystemRobot()
 
     @Test
     fun startOnboardingTest() {
@@ -26,5 +28,7 @@ class OnboardingTest : BaseTest<MainActivity>(
             .swipeBackToWelcomeScreen()
             .checkWelcomeScreenViewsForVisibility()
             .skipWelcomeScreen()
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
     }
 }
