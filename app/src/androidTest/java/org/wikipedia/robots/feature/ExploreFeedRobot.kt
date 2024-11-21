@@ -28,7 +28,7 @@ import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
-import org.wikipedia.test.loggedoutuser.ExploreFeedTest.Companion.SUGGESTED_EDITS
+import org.wikipedia.tests.ExploreFeedTest.Companion.SUGGESTED_EDITS
 
 class ExploreFeedRobot : BaseRobot() {
     fun clickOnThisDayCard() = apply {
