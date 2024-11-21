@@ -5,6 +5,7 @@ import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
+import org.wikipedia.base.DataInjector
 import org.wikipedia.base.TestConfig.ARTICLE_TITLE
 import org.wikipedia.base.TestConfig.SEARCH_TERM
 import org.wikipedia.main.MainActivity
@@ -19,7 +20,7 @@ import org.wikipedia.robots.screen.HomeScreenRobot
 @RunWith(AndroidJUnit4::class)
 class ExploreFeedTest : BaseTest<MainActivity>(
     activityClass = MainActivity::class.java,
-    isInitialOnboardingEnabled = false
+    dataInjector = DataInjector()
 ) {
     private val exploreFeedRobot = ExploreFeedRobot()
     private val systemRobot = SystemRobot()
