@@ -119,15 +119,15 @@
         android:id="@+id/experimentLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_12dp_accent90_fill"
-        android:backgroundTint="?attr/paper_color"
+        android:background="@drawable/experiment_chip_background"
         android:paddingHorizontal="12dp"
         android:paddingVertical="2dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
         android:text="@string/rabbit_holes_experiment"
-        android:textColor="?attr/secondary_color"
+        android:textColor="?attr/primary_color"
+        android:fontFamily="sans-serif-medium"
         android:visibility="gone"
         tools:visibility="visible"/>
 

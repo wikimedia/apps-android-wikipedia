@@ -496,7 +496,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             val savedPages = it.pages.toMutableList()
             var readingListTitle = getString(R.string.reading_list_name_sample)
 
-            view.setContentType(it, savedPages, object : ReadingListPreviewSaveDialogView.Callback {
+            view.setContentType(it, savedPages, if (isSuggested) getString(R.string.suggested_reading_list_title) else null, object : ReadingListPreviewSaveDialogView.Callback {
                 override fun onError() {
                     previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = false
                 }

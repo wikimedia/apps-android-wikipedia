@@ -23,6 +23,7 @@
     <string name="donate_email">donate@wikimedia.org</string>
     <string name="donor_privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Donor_privacy_policy</string>
     <string name="contributions_dashboard_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Private_Donor_Recognition_Experiment#Summary</string>
+    <string name="rabbit_holes_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

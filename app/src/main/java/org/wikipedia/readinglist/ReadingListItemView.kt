@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.*
 import androidx.annotation.StyleRes
@@ -115,6 +116,10 @@ class ReadingListItemView : ConstraintLayout {
             saveClickListener?.onClick(it)
         }
 
+        binding.experimentAboutLabel.setOnClickListener {
+            UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.rabbit_holes_wiki_url)))
+        }
+
         FeedbackUtil.setButtonTooltip(binding.itemShareButton, binding.itemOverflowMenu)
     }
 
@@ -134,7 +139,6 @@ class ReadingListItemView : ConstraintLayout {
         this.isSuggested = isSuggested
         this.isSingle = isSingle
         binding.experimentLabel.isVisible = isSuggested
-        binding.experimentLabel.backgroundTintList = ResourceUtil.getThemedColorStateList(context, if (isSingle) R.attr.background_color else R.attr.paper_color)
         binding.experimentAboutLabel.isVisible = isSuggested && isSingle
         binding.itemSaveButtonSecondary.isVisible = isSuggested && !isSingle
         binding.backgroundShape.isVisible = isSuggested && !isSingle
