@@ -30,9 +30,9 @@ class ContributionsDashboardHelper {
 
         private fun getSurveyDialogUrl(): String {
             val surveyUrls = mapOf(
-                "fr" to "https://docs.google.com/forms/d/1EfPNslpWWQd1WQoA3IkFRKhWy02BTaBgTer1uCKiIHU/edit",
-                "nl" to "https://docs.google.com/forms/d/15GXIEfQTujFtXNU5NqfDyr9lxxET6fP0hk_p_Xz-NOk/edit",
-                "en" to "https://docs.google.com/forms/d/1wIJWp75MMyp2e51kSaPH9ctByUzbyhazEOaJTxQhKqs/edit"
+                "fr" to "https://docs.google.com/forms/d/1EfPNslpWWQd1WQoA3IkFRKhWy02BTaBgTer1uCKiIHU/viewform",
+                "nl" to "https://docs.google.com/forms/d/15GXIEfQTujFtXNU5NqfDyr9lxxET6fP0hk_p_Xz-NOk/viewform",
+                "en" to "https://docs.google.com/forms/d/1wIJWp75MMyp2e51kSaPH9ctByUzbyhazEOaJTxQhKqs/viewform"
             )
             return surveyUrls[WikipediaApp.instance.languageState.appLanguageCode].orEmpty()
         }
