@@ -34,6 +34,7 @@
   <string name="nav_item_suggested_edits">Измене</string>
   <string name="nav_item_more">Више</string>
   <string name="nav_item_search">Претрага</string>
+  <string name="nav_item_contribute">Допринесите</string>
   <string name="error_network_error">Не могу се повезати на интернет.</string>
   <string name="page_error_retry">Покушај поново</string>
   <string name="card_offline_error_retry">Покушај поново</string>

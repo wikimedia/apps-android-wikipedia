@@ -1,4 +1,4 @@
-package org.wikipedia.test.loggedinuser
+package org.wikipedia.tests
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -7,26 +7,25 @@ import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
+import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.LoginRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
-import org.wikipedia.robots.screen.HomeScreenRobot
-import org.wikipedia.robots.screen.NotificationScreenRobot
+import org.wikipedia.tests.ExploreFeedTest.Companion.FEATURED_ARTICLE
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class NotificationScreenTest : BaseTest<MainActivity>(
+class WatchListTest : BaseTest<MainActivity>(
     activityClass = MainActivity::class.java,
     isInitialOnboardingEnabled = false
 ) {
 
-    private val homeScreenRobot = HomeScreenRobot()
     private val loginRobot = LoginRobot()
-    private val notificationScreenRobot = NotificationScreenRobot()
     private val systemRobot = SystemRobot()
+    private val exploreFeedRobot = ExploreFeedRobot()
     private val bottomNavRobot = BottomNavRobot()
 
     @Test
-    fun startNotificationTest() {
+    fun startWatchListTest() {
         bottomNavRobot
             .navigateToMoreMenu()
             .clickLoginMenuItem()
@@ -37,11 +36,13 @@ class NotificationScreenTest : BaseTest<MainActivity>(
             .loginUser()
         systemRobot
             .clickOnSystemDialogWithText("Allow")
-        homeScreenRobot
-            .navigateToNotifications()
-        notificationScreenRobot
-            .clickSearchBar()
+        bottomNavRobot
+            .navigateToMoreMenu()
+            .gotoWatchList()
             .pressBack()
-            .pressBack()
+        exploreFeedRobot
+            .scrollToCardWithTitle(FEATURED_ARTICLE)
+            .openOverflowMenuItem()
+            .addOrRemoveToWatchList()
     }
 }

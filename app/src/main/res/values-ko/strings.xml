@@ -841,6 +841,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
+  <string name="feed_language_variants_removal_dialog_title">향상된 읽기 경험을 위해 지역 언어 종류를 선택하세요</string>
   <string name="feed_language_variants_removal_dialog_message">현재 기본 위키백과 언어로 지원되지 않는 일반 중국어 언어 유형을 사용하고 있습니다</string>
   <string name="feed_language_variants_removal_dialog_save">저장</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">2차 언어를 업데이트해 주십시오</string>
@@ -1635,9 +1636,11 @@
   <string name="contributions_dashboard_survey_dialog_ok">피드백 공유</string>
   <string name="contributions_dashboard_donation_dialog_title">자유의 지식을 지원해 주셔서 고맙습니다</string>
   <string name="contributions_dashboard_donation_dialog_cancel">아니요, 괜찮습니다</string>
+  <string name="contributions_dashboard_donation_dialog_ok">예, 이동합니다</string>
   <string name="contributions_dashboard_entry_dialog_title">기여 대시보드에 새로 추가된 기능을 살펴보세요</string>
   <string name="contributions_dashboard_entry_dialog_message">기여 대시보드에 기부자 상태가 표시됩니다. 이 실험 기능을 평가하시겠습니까?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">아니요, 괜찮습니다</string>
+  <string name="contributions_dashboard_entry_dialog_ok">예, 이동합니다</string>
   <string name="contributions_dashboard_badge_donor">기부자</string>
   <string name="contributions_dashboard_badge_become_a_donor">기부자가 되기</string>
   <string name="contributions_dashboard_badge_update">기부자 상태 업데이트</string>
@@ -1656,6 +1659,7 @@
   <string name="rabbit_holes_experiment_about">이 실험 기능 정보</string>
   <string name="rabbit_holes_survey_dialog_body">검색 결과 제안에 만족하십니까?</string>
   <string name="suggested_reading_list_description">\"%s\"에서 영감을 받음</string>
+  <string name="suggested_reading_list_dialog_title">새로운 추천 읽기 목록이 있습니다.</string>
   <string name="suggested_reading_list_dialog_positive">지금 사용해보기</string>
   <string name="suggested_reading_list_dialog_negative">나중에</string>
   <string name="survey_dialog_title">이 기능을 개선할 수 있도록 도와주세요</string>
