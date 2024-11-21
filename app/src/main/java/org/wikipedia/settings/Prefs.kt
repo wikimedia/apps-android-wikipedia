@@ -437,6 +437,10 @@ object Prefs {
     val overrideSuggestedEditCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_edits, 0)
 
+    var overrideSuggestedEditContribution
+        get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_contribution, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_suggested_edits_override_contribution, value)
+
     val overrideSuggestedRevertCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_reverts, 0)
 

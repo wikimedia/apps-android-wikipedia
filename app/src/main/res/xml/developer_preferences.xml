@@ -388,6 +388,11 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_override_contribution"
+            android:title="@string/preference_key_suggested_edits_override_contribution" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
             android:key="@string/preference_key_suggested_edits_override_reverts"
             android:title="@string/preference_key_suggested_edits_override_reverts" />
 
