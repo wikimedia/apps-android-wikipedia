@@ -1,4 +1,4 @@
-package org.wikipedia.test.loggedoutuser
+package org.wikipedia.tests
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
