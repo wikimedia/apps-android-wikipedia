@@ -273,7 +273,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         // automatically trigger the showing of the corresponding search results.
         if (!query.isNullOrBlank()) {
             binding.searchCabView.setQuery(query, false)
-            binding.searchCabView.selectAllQueryTexts()
+            if (suggestedSearchQuery.isNullOrEmpty()) {
+                binding.searchCabView.selectAllQueryTexts()
+            }
         }
     }
 

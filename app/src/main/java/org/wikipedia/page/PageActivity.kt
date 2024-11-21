@@ -599,6 +599,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
      * foreground tab.
      */
     private fun loadPage(pageTitle: PageTitle?, entry: HistoryEntry?, position: TabPosition) {
+
+        binding.pageToolbarButtonSearch.setText(R.string.search_hint)
+
         if (isDestroyed || pageTitle == null || entry == null) {
             return
         }

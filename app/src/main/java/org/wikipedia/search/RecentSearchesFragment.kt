@@ -181,7 +181,7 @@ class RecentSearchesFragment : Fragment() {
         override fun bindItem(position: Int) {
             (itemView as TextView).apply {
                 setOnClickListener(this@SuggestedSearchItemViewHolder)
-                setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.addition_color))
+                setBackgroundResource(R.drawable.shape_suggested_search_term)
                 setTypeface(null, Typeface.NORMAL)
                 text = suggestedSearchTerm
             }
