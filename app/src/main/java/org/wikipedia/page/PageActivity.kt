@@ -835,6 +835,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     }
                 } else if (RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3 && !Prefs.suggestedReadingListDialogShown) {
                     val historyEntries = AppDatabase.instance.historyEntryDao().getLastHistoryEntries(title.wikiSite.languageCode, 2)
+                        .filter { it.displayTitle != MainPageNameData.valueFor(title.wikiSite.languageCode) }
                     if (historyEntries.size < 2) {
                         return@launch
                     }
