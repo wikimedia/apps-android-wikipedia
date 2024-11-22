@@ -902,9 +902,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun maybeShowRabbitHolesSurvey() {
-        if (Prefs.suggestedContentSurveyShown) {
-            return
-        }
         lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
             L.e(t)
         }) {

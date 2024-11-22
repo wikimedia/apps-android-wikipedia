@@ -344,26 +344,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     FeedbackUtil.showError(requireActivity(), throwable)
                     requireActivity().finish()
                 }) {
-                    if (isSuggested) {
-                        val json = Prefs.suggestedReadingListsData
-                        if (!json.isNullOrEmpty()) {
-                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = false)
-                            readingList?.let {
-                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
-                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                            }
-                            update()
+                    val json = Prefs.suggestedReadingListsData
+                    if (!json.isNullOrEmpty()) {
+                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = !isSuggested)
+                        readingList?.let {
+                            ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
+                            binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                         }
-                    } else {
-                        val json = Prefs.receiveReadingListsData
-                        if (!json.isNullOrEmpty()) {
-                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = true)
-                            readingList?.let {
-                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
-                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                            }
-                            update()
-                        }
+                        update()
                     }
                 }
             } else {
