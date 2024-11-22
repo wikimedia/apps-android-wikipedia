@@ -9,6 +9,7 @@ import androidx.test.uiautomator.UiDevice
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
+import org.wikipedia.TestLogRule
 import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
@@ -26,6 +27,9 @@ data class DataInjector(
 )
 
 abstract class BaseTest<T : AppCompatActivity> {
+    @get:Rule
+    val testLogRule = TestLogRule()
+
     @get:Rule
     val activityScenarioRule: ActivityScenarioRule<T>
 
