@@ -858,14 +858,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             L.e(t)
         }) {
             delay(TimeUnit.SECONDS.toMillis(if (ReleaseUtil.isDevRelease) 1L else 10L))
-            Prefs.suggestedContentSurveyShown = true
-            SurveyDialog.showFeedbackOptionsDialog(
-                requireActivity(),
-                titleId = R.string.rabbit_holes_survey_dialog_title,
-                messageId = R.string.rabbit_holes_survey_dialog_body,
-                snackbarMessageId = R.string.survey_dialog_submitted_snackbar,
-                invokeSource = InvokeSource.RABBIT_HOLE_READING_LIST
-            )
+            if (!Prefs.suggestedContentSurveyShown) {
+                Prefs.suggestedContentSurveyShown = true
+                SurveyDialog.showFeedbackOptionsDialog(
+                    requireActivity(),
+                    titleId = R.string.rabbit_holes_survey_dialog_title,
+                    messageId = R.string.rabbit_holes_survey_dialog_body,
+                    snackbarMessageId = R.string.survey_dialog_submitted_snackbar,
+                    invokeSource = InvokeSource.RABBIT_HOLE_READING_LIST
+                )
+            }
         }
     }
 

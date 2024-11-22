@@ -910,7 +910,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }) {
             delay(TimeUnit.SECONDS.toMillis(if (ReleaseUtil.isDevRelease) 1L else 10L))
             pageFragment.historyEntry?.let {
-                if (it.source == HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH) {
+                if (!Prefs.suggestedContentSurveyShown && it.source == HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH) {
                     Prefs.suggestedContentSurveyShown = true
                     SurveyDialog.showFeedbackOptionsDialog(
                         this@PageActivity,
