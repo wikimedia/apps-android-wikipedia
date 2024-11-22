@@ -77,6 +77,9 @@ class RecentSearchesFragment : Fragment() {
         val itemTouchHelper = ItemTouchHelper(touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.recentSearchesRecycler)
         setButtonTooltip(binding.recentSearchesDeleteButton)
+
+        RabbitHolesEvent.submit("impression", "search")
+
         return binding.root
     }
 
@@ -161,8 +164,7 @@ class RecentSearchesFragment : Fragment() {
 
         override fun onClick(v: View) {
             RabbitHolesEvent.submit("recent_search_click", "search",
-                source = if (this is SuggestedSearchItemViewHolder) "suggested" else "standard",
-                recShown = !suggestedSearchTerm.isNullOrEmpty())
+                source = if (this is SuggestedSearchItemViewHolder) "suggested" else "default")
 
             callback?.switchToSearch((v as TextView).text.toString())
         }

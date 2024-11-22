@@ -211,7 +211,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         } else {
 
             RabbitHolesEvent.submit("navigate", "search",
-                source = if (query == suggestedSearchQuery) "suggested" else "standard")
+                source = if (query == suggestedSearchQuery) "suggested" else "default")
 
             val historyEntry = HistoryEntry(item, if (query == suggestedSearchQuery) HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH else HistoryEntry.SOURCE_SEARCH)
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
