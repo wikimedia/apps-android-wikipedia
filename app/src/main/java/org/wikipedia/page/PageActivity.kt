@@ -829,9 +829,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }) {
             pageFragment.title?.let { title ->
                 if (RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_2) {
-                    val response = ServiceFactory.get(title.wikiSite).searchMoreLike("morelike:${title.prefixedText}", 3, 3)
-                    response.query?.pages?.firstOrNull()?.let { page ->
-                        applySuggestedSearchTerm(page.displayTitle(title.wikiSite.languageCode))
+                    if (title.displayText != MainPageNameData.valueFor(title.wikiSite.languageCode)) {
+                        val response = ServiceFactory.get(title.wikiSite).searchMoreLike("morelike:${title.prefixedText}", 3, 3)
+                        response.query?.pages?.firstOrNull()?.let { page ->
+                            applySuggestedSearchTerm(page.displayTitle(title.wikiSite.languageCode))
+                        }
                     }
                 } else if (RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3 && !Prefs.suggestedReadingListDialogShown) {
                     val historyEntries = AppDatabase.instance.historyEntryDao().getLastHistoryEntries(title.wikiSite.languageCode, 2)
