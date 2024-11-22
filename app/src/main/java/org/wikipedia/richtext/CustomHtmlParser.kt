@@ -10,10 +10,14 @@ import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
+import android.text.ParcelableSpan
 import android.text.Spannable
 import android.text.Spanned
 import android.text.style.LeadingMarginSpan
 import android.text.style.ParagraphStyle
+import android.text.style.RelativeSizeSpan
+import android.text.style.SubscriptSpan
+import android.text.style.SuperscriptSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.widget.TextView
@@ -194,6 +198,25 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                 }
             } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
                 handleListTag(output)
+            } else if ((tag == "sub" || tag == "sup") && output != null) {
+                if (opening) {
+                    val span = if (tag == "sub") SubscriptSpan() else SuperscriptSpan()
+                    output.setSpan(span, output.length, output.length, Spannable.SPAN_MARK_MARK)
+                    output.setSpan(RelativeSizeSpan(0.5f), output.length, output.length, Spannable.SPAN_MARK_MARK)
+                } else {
+                    val spans = output.getSpans<ParcelableSpan>(0, output.length)
+                    val span = spans.lastOrNull {
+                        (it is SubscriptSpan && tag == "sub") ||
+                                (it is SuperscriptSpan && tag == "sup")
+                    }
+                    if (span != null) {
+                        val start = output.getSpanStart(span)
+                        val end = output.length
+                        output.removeSpan(span)
+                        output.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        output.setSpan(RelativeSizeSpan(0.5f), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    }
+                }
             }
             return false
         }
@@ -265,13 +288,6 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
             sourceStr = sourceStr.replace("&#8206;", "\u200E")
                 .replace("&#8207;", "\u200F")
                 .replace("&amp;", "&")
-
-            // Replace the <sub> and <sup> HTML tags which overflow in the TextView
-
-            sourceStr = sourceStr.replace("<sub>", "<small>")
-                .replace("</sub>", "</small>")
-                .replace("<sup>", "^")
-                .replace("</sup>", "")
 
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?
