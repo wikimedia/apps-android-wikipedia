@@ -15,6 +15,10 @@ object RabbitHolesEvent {
         feedbackText: String? = null,
         wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
     ) {
+        if (!RabbitHolesAnalyticsHelper.rabbitHolesEnabled) {
+            return
+        }
+
         EventPlatformClient.submit(
             AppInteractionEvent(
                 action,
