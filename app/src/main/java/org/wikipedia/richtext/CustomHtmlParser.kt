@@ -266,6 +266,10 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                 .replace("&#8207;", "\u200F")
                 .replace("&amp;", "&")
 
+            // Add <small> tag in the <sub> or <sup> tags to make the text 3 times smaller
+            sourceStr = sourceStr.replace("<sub>", "<sub><small><small><small>").replace("</sub>", "</small></small></small></sub>")
+                .replace("<sup>", "<sup><small><small><small>").replace("</sup>", "</small></small></small></sup>")
+
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?
             // This would become something like "<inject/>$sourceStr".parseAsHtml(...)
