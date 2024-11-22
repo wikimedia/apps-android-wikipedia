@@ -213,11 +213,11 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_search_recent, parent, false)
             return if (viewType == LIST_TYPE_HEADING) {
-                SuggestedSearchHeadingViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_search_recent, parent, false))
+                SuggestedSearchHeadingViewHolder(view)
             } else {
-                SuggestedSearchItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_search_recent, parent, false)
-                )
+                SuggestedSearchItemViewHolder(view)
             }
         }
 

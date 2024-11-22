@@ -141,6 +141,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         if (isSuggested) {
             RabbitHolesEvent.submit("impression", "reading_list")
+            binding.readingListSwipeRefresh.isEnabled = false
         }
 
         return binding.root
@@ -645,7 +646,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     actionMode == null && appBarLayout.totalScrollRange + verticalOffset > appBarLayout.totalScrollRange / 2)
             (requireActivity() as ReadingListActivity).updateNavigationBarColor()
             // prevent swiping when collapsing the view
-            binding.readingListSwipeRefresh.isEnabled = verticalOffset == 0
+            binding.readingListSwipeRefresh.isEnabled = (verticalOffset == 0 && !isSuggested)
         }
     }
 

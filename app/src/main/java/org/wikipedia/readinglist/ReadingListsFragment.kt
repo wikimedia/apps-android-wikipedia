@@ -417,7 +417,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private inner class SuggestedReadingListAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
         override fun getItemCount(): Int {
-            return if (suggestedReadingList != null && !selectMode) 1 else 0
+            return if (suggestedReadingList != null && !selectMode && actionMode == null) 1 else 0
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
@@ -687,6 +687,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), androidx.appcompat.R.attr.colorError)
             deleteItem.isEnabled = false
             MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
+            suggestedReadingListAdapter.notifyDataSetChanged()
             return true
         }
 
@@ -794,6 +795,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (isAdded) {
                 (requireParentFragment() as MainFragment).setBottomNavVisible(false)
             }
+            suggestedReadingListAdapter.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
