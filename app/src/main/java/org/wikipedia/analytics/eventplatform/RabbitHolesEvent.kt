@@ -30,7 +30,7 @@ object RabbitHolesEvent {
                 )).orEmpty(),
                 WikipediaApp.instance.languageState.appLanguageCode,
                 wikiId,
-                "rabbit_holes"
+                "app_rabbit_holes"
             )
         )
     }

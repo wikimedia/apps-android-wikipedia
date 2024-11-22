@@ -134,7 +134,7 @@ class RecentSearchesFragment : Fragment() {
         val searches: List<RecentSearch> = AppDatabase.instance.recentSearchDao().getRecentSearches()
 
         recentSearchList.clear()
-        recentSearchList.addAll(searches)
+        recentSearchList.addAll(if (suggestedSearchTerm.isNullOrEmpty()) searches else searches.filter { it.text != suggestedSearchTerm })
 
         val searchesEmpty = recentSearchList.isEmpty() && suggestedSearchTerm.isNullOrEmpty()
         binding.namespacesRecycler.adapter = NamespaceAdapter()
