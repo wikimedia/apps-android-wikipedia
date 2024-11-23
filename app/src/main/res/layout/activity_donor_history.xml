@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color"
+    android:fitsSystemWindows="true"
     tools:context=".donate.DonorHistoryActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
