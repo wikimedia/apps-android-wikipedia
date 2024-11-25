@@ -7,8 +7,6 @@ import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.NoMatchingViewException
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -21,7 +19,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
@@ -197,6 +194,20 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_SWIPE_TO_REFRESH)
     }
 
+    fun scrollToItem(
+        recyclerViewId: Int = R.id.feed_view,
+        title: String,
+        textViewId: Int = R.id.view_card_header_title,
+        verticalOffset: Int = 200
+    ) = apply {
+        scrollToRecyclerView(
+            recyclerViewId,
+            title,
+            textViewId,
+            verticalOffset
+        )
+    }
+
     private fun scrollToCardViewWithTitle(
         title: String,
         @IdRes textViewId: Int = R.id.view_card_header_title,
@@ -219,53 +230,5 @@ class ExploreFeedRobot : BaseRobot() {
                 return false
             }
         }
-    }
-
-    fun scrollToRecyclerView(
-        recyclerViewId: Int = R.id.feed_view,
-        title: String,
-        textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200
-    ) = apply {
-        var currentOccurrence = 0
-
-        onView(withId(recyclerViewId))
-            .perform(
-                scrollTo<RecyclerView.ViewHolder>(
-                    hasDescendant(
-                        object : BoundedMatcher<View, View>(View::class.java) {
-                            override fun describeTo(description: Description?) {
-                                description?.appendText("Scroll to Card View with title: $title")
-                            }
-
-                            override fun matchesSafely(item: View?): Boolean {
-                                val titleView = item?.findViewById<TextView>(textViewId)
-                                if (titleView?.text?.toString() == title) {
-                                    if (currentOccurrence == 0) {
-                                        currentOccurrence++
-                                        return true
-                                    }
-                                    currentOccurrence++
-                                }
-                                return false
-                            }
-                        }
-                    )
-                )
-            ).also { view ->
-                if (verticalOffset != 0) {
-                    view.perform(object : ViewAction {
-                        override fun getConstraints(): Matcher<View> =
-                            Matchers.any(View::class.java)
-
-                        override fun getDescription(): String = "Scroll"
-
-                        override fun perform(uiController: UiController, view: View) {
-                            (view as RecyclerView).scrollBy(0, verticalOffset)
-                            uiController.loopMainThreadUntilIdle()
-                        }
-                    })
-                }
-            }
     }
 }
