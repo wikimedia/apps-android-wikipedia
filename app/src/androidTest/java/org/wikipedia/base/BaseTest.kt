@@ -1,5 +1,6 @@
 package org.wikipedia.base
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.test.espresso.IdlingPolicies
@@ -27,7 +28,10 @@ data class DataInjector(
     val overrideEditsContribution: Int? = null
 )
 
-abstract class BaseTest<T : AppCompatActivity> {
+abstract class BaseTest<T : AppCompatActivity>(
+    activityClass: Class<T>,
+    dataInjector: DataInjector = DataInjector()
+) {
     @get:Rule
     val testLogRule = TestLogRule()
 
@@ -36,14 +40,10 @@ abstract class BaseTest<T : AppCompatActivity> {
 
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
+    protected var context: Context = InstrumentationRegistry.getInstrumentation().targetContext
 
-    constructor(activityClass: Class<T>) {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
-        activityScenarioRule = ActivityScenarioRule(intent)
-    }
-
-    constructor(activityClass: Class<T>, dataInjector: DataInjector) {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
+    init {
+        val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
         dataInjector.overrideEditsContribution?.let {

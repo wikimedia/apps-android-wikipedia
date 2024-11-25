@@ -3,6 +3,7 @@ package org.wikipedia.base
 import android.app.Activity
 import android.graphics.Rect
 import android.view.View
+import android.widget.TextView
 import android.widget.HorizontalScrollView
 import android.widget.ListView
 import android.widget.ScrollView
@@ -23,8 +24,10 @@ import androidx.test.espresso.action.ViewActions.swipeRight
 import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
+import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -39,10 +42,12 @@ import androidx.test.espresso.web.webdriver.DriverAtoms
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
+import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
+import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
@@ -290,6 +295,53 @@ abstract class BaseRobot {
 
     protected fun scrollToViewInsideNestedScrollView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(NestedScrollViewExtension())
+    }
+
+    fun scrollToRecyclerView(
+        recyclerViewId: Int = R.id.feed_view,
+        title: String,
+        textViewId: Int = R.id.view_card_header_title,
+        verticalOffset: Int = 200
+    ) = apply {
+        var currentOccurrence = 0
+        onView(withId(recyclerViewId))
+            .perform(
+                RecyclerViewActions.scrollTo<RecyclerView.ViewHolder>(
+                    hasDescendant(
+                        object : BoundedMatcher<View, View>(View::class.java) {
+                            override fun describeTo(description: Description?) {
+                                description?.appendText("Scroll to Card View with title: $title")
+                            }
+
+                            override fun matchesSafely(item: View?): Boolean {
+                                val titleView = item?.findViewById<TextView>(textViewId)
+                                if (titleView?.text?.toString() == title) {
+                                    if (currentOccurrence == 0) {
+                                        currentOccurrence++
+                                        return true
+                                    }
+                                    currentOccurrence++
+                                }
+                                return false
+                            }
+                        }
+                    )
+                )
+            ).also { view ->
+                if (verticalOffset != 0) {
+                    view.perform(object : ViewAction {
+                        override fun getConstraints(): Matcher<View> =
+                            Matchers.any(View::class.java)
+
+                        override fun getDescription(): String = "Scroll"
+
+                        override fun perform(uiController: UiController, view: View) {
+                            (view as RecyclerView).scrollBy(0, verticalOffset)
+                            uiController.loopMainThreadUntilIdle()
+                        }
+                    })
+                }
+            }
     }
 
     private fun scrollAndClick() = object : ViewAction {

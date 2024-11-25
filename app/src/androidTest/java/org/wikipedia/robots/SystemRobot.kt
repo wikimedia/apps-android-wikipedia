@@ -1,5 +1,6 @@
 package org.wikipedia.robots
 
+import android.content.Context
 import android.util.Log
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
@@ -29,5 +30,15 @@ class SystemRobot : BaseRobot() {
         } catch (e: Exception) {
             Log.d("dialog", "Dialog did not appear or couldn't be clicked.")
         }
+    }
+
+    fun enableDarkMode(context: Context) = apply {
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        device.executeShellCommand("cmd uimode night yes")
+    }
+
+    fun disableDarkMode(context: Context) = apply {
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        device.executeShellCommand("cmd uimode night no")
     }
 }
