@@ -26,7 +26,10 @@ data class DataInjector(
     val isInitialOnboardingEnabled: Boolean = false
 )
 
-abstract class BaseTest<T : AppCompatActivity> {
+abstract class BaseTest<T : AppCompatActivity>(
+    activityClass: Class<T>,
+    dataInjector: DataInjector = DataInjector()
+) {
     @get:Rule
     val testLogRule = TestLogRule()
 
@@ -36,12 +39,7 @@ abstract class BaseTest<T : AppCompatActivity> {
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
 
-    constructor(activityClass: Class<T>) {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
-        activityScenarioRule = ActivityScenarioRule(intent)
-    }
-
-    constructor(activityClass: Class<T>, dataInjector: DataInjector) {
+    init {
         val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
