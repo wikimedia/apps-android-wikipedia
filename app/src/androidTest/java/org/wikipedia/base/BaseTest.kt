@@ -1,5 +1,6 @@
 package org.wikipedia.base
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.test.espresso.IdlingPolicies
@@ -38,9 +39,10 @@ abstract class BaseTest<T : AppCompatActivity>(
 
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
+    protected var context: Context = InstrumentationRegistry.getInstrumentation().targetContext
 
     init {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
+        val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
     }

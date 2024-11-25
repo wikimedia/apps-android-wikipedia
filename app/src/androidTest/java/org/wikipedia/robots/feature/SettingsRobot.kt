@@ -1,7 +1,9 @@
 package org.wikipedia.robots.feature
 
+import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -93,11 +95,21 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun scrollToShowImagesOnSettings() = apply {
+    fun clickLanguages() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_language, click())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickShowImagesOnSettings() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    private fun scrollToSettingsPreferenceItem(@IdRes preferenceTitle: Int, viewAction: ViewAction) = apply {
         onView(withId(androidx.preference.R.id.recycler_view))
             .perform(
                 RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
-                (hasDescendant(withText(R.string.preference_title_show_images)), click()))
+                    (hasDescendant(withText(preferenceTitle)), viewAction))
         delay(TestConfig.DELAY_MEDIUM)
     }
 
