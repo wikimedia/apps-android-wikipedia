@@ -116,6 +116,10 @@ abstract class BaseRobot {
         onView(withText(text)).check(matches(isDisplayed()))
     }
 
+    protected fun checkTextDoesNotExist(text: String) {
+        onView(withText(text)).check(matches(not(isDisplayed())))
+    }
+
     protected fun checkViewWithIdDisplayed(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(isDisplayed()))
     }

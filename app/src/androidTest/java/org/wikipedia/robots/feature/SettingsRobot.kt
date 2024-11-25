@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import android.content.Context
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -100,9 +101,24 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun clickExploreFeed() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_customize_explore_feed, click())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun clickShowImagesOnSettings() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun verifyExploreFeedIsEmpty(context: Context) = apply {
+        checkViewWithTextDisplayed(text = context.getString(R.string.feed_empty_message))
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun verifyExploreFeedIsNotEmpty(context: Context) = apply {
+        checkTextDoesNotExist(context.getString(R.string.feed_empty_message))
+        delay(TestConfig.DELAY_SHORT)
     }
 
     private fun scrollToSettingsPreferenceItem(@IdRes preferenceTitle: Int, viewAction: ViewAction) = apply {
