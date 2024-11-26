@@ -1,9 +1,11 @@
 package org.wikipedia.robots.feature
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
+import androidx.test.espresso.web.webdriver.DriverAtoms.webScrollIntoView
 import androidx.test.espresso.web.webdriver.Locator
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
@@ -116,7 +118,7 @@ class PageRobot : BaseRobot() {
     }
 
     fun verifyTopMostItemInTableOfContentIs(text: String) = apply {
-       checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
+        checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
     }
 
     fun swipeTableOfContentsAllTheWayToBottom() = apply {
@@ -183,5 +185,32 @@ class PageRobot : BaseRobot() {
         performIfDialogShown("No, thanks", action = {
             clickOnViewWithText("No, thanks")
         })
+    }
+
+    fun scrollToCollapsingTables() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
+            .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    @SuppressLint("CheckResult")
+    fun verifyTableIsCollapsed() = apply {
+        // checking if this class name exists
+        // tried multiple methods but was not able to check the style for the collapsed/expanded
+        // state of the table so instead using this className which is used when table is
+        // collapsed
+        onWebView()
+            .withElement(findElement(Locator.CLASS_NAME, "pcs-collapse-table-expanded"))
+    }
+
+    @SuppressLint("CheckResult")
+    fun verifyTableIsExpanded() = apply {
+        // checking if this class name exists
+        // tried multiple methods but was not able to check the style for the collapsed/expanded
+        // state of the table so instead using this className which is used when table is
+        // expanded
+        onWebView()
+            .withElement(findElement(Locator.CLASS_NAME, "pcs-collapse-table-collapsed"))
     }
 }

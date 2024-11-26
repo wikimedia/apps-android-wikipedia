@@ -111,6 +111,11 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun toggleCollapseTables() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_collapse_tables, click())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun clickShowImagesOnSettings() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
         delay(TestConfig.DELAY_MEDIUM)
