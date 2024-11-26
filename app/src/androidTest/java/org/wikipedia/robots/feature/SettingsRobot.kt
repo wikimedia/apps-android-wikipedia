@@ -116,6 +116,11 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun clickAppTheme() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_app_theme, click())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun clickShowImagesOnSettings() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
         delay(TestConfig.DELAY_MEDIUM)
@@ -131,16 +136,16 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
+    fun pressBack() = apply {
+        goBack()
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     private fun scrollToSettingsPreferenceItem(@IdRes preferenceTitle: Int, viewAction: ViewAction) = apply {
         onView(withId(androidx.preference.R.id.recycler_view))
             .perform(
                 RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
                     (hasDescendant(withText(preferenceTitle)), viewAction))
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun pressBack() = apply {
-        goBack()
         delay(TestConfig.DELAY_MEDIUM)
     }
 }

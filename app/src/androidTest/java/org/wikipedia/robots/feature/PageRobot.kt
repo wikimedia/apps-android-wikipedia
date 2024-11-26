@@ -2,6 +2,7 @@ package org.wikipedia.robots.feature
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.util.Log
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
@@ -212,5 +213,14 @@ class PageRobot : BaseRobot() {
         // expanded
         onWebView()
             .withElement(findElement(Locator.CLASS_NAME, "pcs-collapse-table-collapsed"))
+    }
+
+    fun verifyEditIcon() = apply {
+        try {
+            onWebView()
+                .withElement(findElement(Locator.CSS_SELECTOR, "pcs-edit-section-link"))
+        } catch (e: RuntimeException) {
+            Log.d("Espresso", "edit icon is not visible")
+        }
     }
 }

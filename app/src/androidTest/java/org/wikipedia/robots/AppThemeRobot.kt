@@ -10,7 +10,7 @@ import org.wikipedia.TestUtil
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
-class ThemeRobot : BaseRobot() {
+class AppThemeRobot : BaseRobot() {
     fun toggleTheme() = apply {
         clickOnDisplayedView(R.id.page_theme)
         delay(TestConfig.DELAY_MEDIUM)
@@ -54,6 +54,26 @@ class ThemeRobot : BaseRobot() {
     fun decreaseTextSize() = apply {
         scrollToViewAndClick(R.id.buttonDecreaseTextSize)
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun applySerif() = apply {
+        scrollToViewAndClick(R.id.button_font_family_serif)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun applySansSerif() = apply {
+        scrollToViewAndClick(R.id.button_font_family_sans_serif)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun toggleReadingFocusMode() = apply {
+        scrollToViewAndClick(R.id.theme_chooser_reading_focus_mode_switch)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun backToHomeScreen() = apply {
+        pressBack()
+        pressBack()
     }
 
     fun pressBack() = apply {
