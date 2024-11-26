@@ -173,4 +173,15 @@ class PageRobot : BaseRobot() {
         clickOnViewWithText("Remove from Saved")
         delay(TestConfig.DELAY_LARGE)
     }
+
+    fun verifyPreviewDialogAppears() = apply {
+        checkViewExists(R.id.link_preview_title)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun dismissContributionDialog() = apply {
+        performIfDialogShown("No, thanks", action = {
+            clickOnViewWithText("No, thanks")
+        })
+    }
 }
