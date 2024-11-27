@@ -142,11 +142,6 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun saveArticleToReadingList() = apply {
-        clickOnViewWithId(R.id.page_save)
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     fun openLanguageSelector() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
         delay(TestConfig.DELAY_MEDIUM)

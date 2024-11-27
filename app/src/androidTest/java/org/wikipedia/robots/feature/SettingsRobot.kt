@@ -126,6 +126,11 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun toggleDownloadReadingList() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_download_reading_list_articles, click())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun verifyExploreFeedIsEmpty(context: Context) = apply {
         checkViewWithTextDisplayed(text = context.getString(R.string.feed_empty_message))
         delay(TestConfig.DELAY_SHORT)
