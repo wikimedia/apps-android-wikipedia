@@ -27,6 +27,7 @@ class SystemRobot : BaseRobot() {
             if (allowButton.exists()) {
                 allowButton.click()
             }
+            delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.d("dialog", "Dialog did not appear or couldn't be clicked.")
         }
@@ -35,10 +36,12 @@ class SystemRobot : BaseRobot() {
     fun enableDarkMode(context: Context) = apply {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.executeShellCommand("cmd uimode night yes")
+        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun disableDarkMode(context: Context) = apply {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.executeShellCommand("cmd uimode night no")
+        delay(TestConfig.DELAY_MEDIUM)
     }
 }

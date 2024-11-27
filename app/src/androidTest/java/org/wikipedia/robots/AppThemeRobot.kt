@@ -71,6 +71,31 @@ class AppThemeRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun applySepiaTheme() = apply {
+        scrollToViewAndClick(R.id.button_theme_sepia)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun applyLightTheme() = apply {
+        scrollToViewAndClick(R.id.button_theme_light)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun applyDarkTheme() = apply {
+        scrollToViewAndClick(R.id.button_theme_dark)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun applyBlackTheme() = apply {
+        scrollToViewAndClick(R.id.button_theme_black)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun toggleMatchSystemTheme() = apply {
+        scrollToViewAndClick(R.id.theme_chooser_match_system_theme_switch)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun backToHomeScreen() = apply {
         pressBack()
         pressBack()
