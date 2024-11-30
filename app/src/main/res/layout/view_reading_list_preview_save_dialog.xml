@@ -9,18 +9,20 @@
     <TextView
         style="@style/H2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
+        android:textColor="?attr/primary_color"
         android:textAlignment="textStart"
         android:text="@string/reading_lists_preview_save_dialog_title" />
 
     <TextView
         style="@style/P"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:textColor="?attr/secondary_color"
         android:textAlignment="textStart"
         android:text="@string/reading_lists_preview_save_dialog_text" />
 
