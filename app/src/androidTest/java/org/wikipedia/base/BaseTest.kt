@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.test.espresso.IdlingPolicies
+import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
@@ -49,6 +50,7 @@ abstract class BaseTest<T : AppCompatActivity>(
 
     @Before
     open fun setup() {
+        Intents.init()
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         IdlingPolicies.setMasterPolicyTimeout(20, TimeUnit.SECONDS)
         activityScenarioRule.scenario.onActivity {
@@ -63,6 +65,6 @@ abstract class BaseTest<T : AppCompatActivity>(
 
     @After
     open fun tearDown() {
-        // @TODO
+        Intents.release()
     }
 }

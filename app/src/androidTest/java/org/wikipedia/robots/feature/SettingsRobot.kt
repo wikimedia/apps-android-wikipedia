@@ -62,9 +62,7 @@ class SettingsRobot : BaseRobot() {
     }
 
     fun clickAboutWikipediaAppOptionItem() = apply {
-        // Click `About the wikipedia app` option
-        onView(allOf(withId(R.id.recycler_view), childAtPosition(withId(android.R.id.list_container), 0)))
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(14, click()))
+        scrollToSettingsPreferenceItem(R.string.about_description, click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
