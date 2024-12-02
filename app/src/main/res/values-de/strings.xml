@@ -1675,5 +1675,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Sehr unzufrieden</string>
   <string name="survey_dialog_cancel">Abbrechen</string>
   <string name="survey_dialog_submit">Speichern</string>
-  <string name="survey_dialog_submitted_snackbar">Feedback gesendet.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Feedback gesendet.</string>
 </resources>

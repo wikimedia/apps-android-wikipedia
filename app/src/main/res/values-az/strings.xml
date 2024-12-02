@@ -1705,5 +1705,5 @@
   <string name="survey_dialog_cancel">İmtina</string>
   <string name="survey_dialog_submit">Göndər</string>
   <string name="survey_dialog_input_hint">Əlavə rəy</string>
-  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Rəy təqdim edildi.</string>
 </resources>
