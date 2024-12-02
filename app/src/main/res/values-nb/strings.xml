@@ -1659,5 +1659,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Veldig misfornøyd</string>
   <string name="survey_dialog_cancel">Avbryt</string>
   <string name="survey_dialog_submit">Send</string>
-  <string name="survey_dialog_submitted_snackbar">Tilbakemelding sendt.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Tilbakemelding sendt.</string>
 </resources>

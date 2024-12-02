@@ -220,8 +220,8 @@
   <string name="logged_out_in_background_dialog">ウィキペディアからログアウトしました。もう一度ログインしますか?</string>
   <string name="logged_out_in_background_login">ログイン</string>
   <string name="logged_out_in_background_cancel">キャンセル</string>
-  <string name="account_vanish_request_title">アカウントを削除</string>
-  <string name="account_vanish_request_confirm_title">アカウント削除の警告</string>
+  <string name="account_vanish_request_title">アカウントを抹消</string>
+  <string name="account_vanish_request_confirm_title">アカウント抹消の警告</string>
   <string name="history_empty_title">履歴はまだありません!</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="history_offline_articles_toast">インターネット未接続のときには、履歴にある記事は表示できない場合があります。</string>
@@ -1708,5 +1708,5 @@
   <string name="survey_dialog_cancel">キャンセル</string>
   <string name="survey_dialog_submit">送信</string>
   <string name="survey_dialog_input_hint">追加のフィードバック</string>
-  <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。</string>
+  <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
 </resources>
