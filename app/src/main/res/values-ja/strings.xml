@@ -220,8 +220,8 @@
   <string name="logged_out_in_background_dialog">ウィキペディアからログアウトしました。もう一度ログインしますか?</string>
   <string name="logged_out_in_background_login">ログイン</string>
   <string name="logged_out_in_background_cancel">キャンセル</string>
-  <string name="account_vanish_request_title">アカウントを削除</string>
-  <string name="account_vanish_request_confirm_title">アカウント削除の警告</string>
+  <string name="account_vanish_request_title">アカウントを抹消</string>
+  <string name="account_vanish_request_confirm_title">アカウント抹消の警告</string>
   <string name="history_empty_title">履歴はまだありません!</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="history_offline_articles_toast">インターネット未接続のときには、履歴にある記事は表示できない場合があります。</string>
@@ -476,8 +476,14 @@
   <string name="theme_chooser_menu_item_short_tooltip">ツールバーをカスタマイズする</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
   <string name="temp_account_not_logged_in">ログインしていません</string>
+  <string name="temp_account_anon_ip_dialog_body">編集を行うと、IPアドレスが編集に紐付けられます。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
+  <string name="temp_account_anon_dialog_body">編集を行うと、プライバシー保護のために&lt;b&gt;臨時アカウント&lt;/b&gt;が作成されます。 &lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
+  <string name="temp_account_temp_dialog_body">あなたの編集は %1$s に帰属します。管理者はあなたのIPアドレスを見れます。&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; した場合、自分が選択した名前に編集を帰属させるといった利点があります。</string>
   <string name="temp_account_dialog_ok">わかりました</string>
   <string name="temp_account_using_title">あなたは臨時アカウントを使用しています</string>
+  <string name="temp_account_dialog_discard">変更を破棄してログインする</string>
+  <string name="temp_account_end_session">セッションを終了</string>
+  <string name="temp_account_end_session_confirm">これにより、臨時アカウントからログアウトします。続行しますか？</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -852,6 +858,7 @@
   <string name="feed_item_type_main_page">ウィキペディアのメインページ。今日の選り抜き記事や画像を表示</string>
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
   <string name="feed_item_type_suggested_edits">ウィキペディアへの内容追加のご提案</string>
+  <string name="feed_item_type_places">現在の位置に基づく近隣の記事</string>
   <string name="feed_empty_message">あなたの探索フィードには何もありません。</string>
   <string name="feed_configure_onboarding_action">カスタマイズ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -862,6 +869,7 @@
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
   <string name="feed_accessibility_card_load_more_button">さらに読み込む</string>
   <string name="feed_language_variants_removal_dialog_save">保存</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">第二言語を更新してください</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">設定に移動</string>
   <string name="top_read_activity_title">%sのよく読まれている記事</string>
   <string name="tabs_activity_title">タブ</string>
@@ -1265,6 +1273,9 @@
   <string name="templates_param_suggested_value">例: %s</string>
   <string name="templates_param_optional_hint">%s (省略可能)</string>
   <string name="templates_learn_more_link">詳細</string>
+  <string name="templates_description_incomplete">テンプレートは利用者が生成したものであり、完全な説明ではない可能性があります。</string>
+  <string name="templates_description_empty">「%s」テンプレートには、まだ説明がありません。</string>
+  <string name="templates_description_missing_data">このテンプレートは &lt;a href=\"%1$s\"&gt;テンプレートデータ&lt;/a&gt; が欠落しており、パラメータが &lt;a href=\"%2$s\"&gt;自動生成&lt;/a&gt; されています。結果として、テンプレートおよびそのパラメータの説明が欠けています。</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
   <string name="main_tooltip_text">%sさん、ウィキペディアは誰でも編集できることをご存知でしたか?</string>
@@ -1634,6 +1645,7 @@
   <string name="donate_gpay_check_transaction_fee">寄付の100%%が確実に届くよう、手数料として%sを追加してお支払いします。</string>
   <string name="donate_gpay_check_recurring">毎月、この金額を定期的に寄付します。</string>
   <string name="donate_gpay_check_send_email">はい、ウィキメディア財団はごく稀に私にメールを送ることができます。</string>
+  <string name="donate_gpay_help_problems">寄付の際に何か問題がありましたか?</string>
   <string name="donate_gpay_help_other_ways">その他の寄付方法</string>
   <string name="donate_gpay_help_faq">よくある質問</string>
   <string name="donate_gpay_help_tax">税金の控除について</string>
@@ -1645,14 +1657,47 @@
   <string name="places_toggle_buttons_list">一覧</string>
   <string name="places_empty_list">このエリアには何もありません。&lt;a href=\"#\"&gt;地図上&lt;/a&gt;でズームアウトしてください。</string>
   <string name="places_card_title">近くの場所</string>
+  <string name="places_card_action">近くの場所をもっと見る</string>
+  <string name="places_card_enable_location_card_message">場所は地図ベースでウィキペディアを探索する方法です</string>
+  <string name="places_card_enable_location_card_button">位置情報を有効にする</string>
+  <string name="places_card_distance_suffix">距離 %s</string>
   <string name="places_card_distance_unknown">不明な距離</string>
   <string name="places_empty_message_snackbar">付近の記事はありません。地図をズームアウトして移動してみてください。</string>
+  <string name="donor_history_title">寄付者の履歴</string>
+  <string name="donor_history_save_button">保存</string>
+  <string name="donor_history_update_donor_status_default">寄付者の状態を更新</string>
+  <string name="donor_history_update_donor_status_donor">寄付者</string>
+  <string name="donor_history_update_donor_status_not_a_donor">寄付者ではない</string>
+  <string name="donor_history_last_donated">最近の寄付</string>
+  <string name="donor_history_last_donated_hint">最近の寄付の日付を追加</string>
+  <string name="donor_history_last_donated_date_picker_title">日付を選択</string>
+  <string name="donor_history_last_donated_date_picker_label">日付を入力</string>
+  <string name="donor_history_last_donated_never">なし</string>
+  <string name="donor_history_recurring_donor">定期寄付者</string>
+  <string name="donor_history_donate_button">ウィキメディア財団に寄付する</string>
+  <string name="donor_history_updated_message_snackbar">寄付者の履歴が更新されました</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">意見なし</string>
+  <string name="contributions_dashboard_survey_dialog_ok">フィードバックを共有する</string>
+  <string name="contributions_dashboard_donation_dialog_title">フリーな知識を支えていただき、ありがとうございます</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">いいえ、結構です</string>
+  <string name="contributions_dashboard_donation_dialog_ok">はい、進みます</string>
   <string name="contributions_dashboard_entry_dialog_cancel">いいえ、結構です</string>
+  <string name="contributions_dashboard_entry_dialog_ok">はい、進みます</string>
   <string name="contributions_dashboard_badge_donor">寄付者</string>
   <string name="contributions_dashboard_badge_become_a_donor">寄付者になる</string>
   <string name="contributions_dashboard_badge_update">寄付者の状態を更新</string>
   <string name="contributions_dashboard_app_icon_title">アプリアイコン</string>
   <string name="contributions_dashboard_app_icon_subtitle">寄付者のメリット</string>
+  <string name="contributions_dashboard_logged_out_user">ログアウト利用者</string>
+  <string name="contributions_dashboard_tab_last_donated">最近の寄付</string>
+  <string name="contributions_dashboard_tab_update_button">更新</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">寄付していただきありがとうございます。</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">いいえ、結構です</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">はい、設定に進みます</string>
+  <string name="contributions_dashboard_app_icon_updated">アプリアイコンを更新しました</string>
+  <string name="recent_searches_title">最近の検索</string>
+  <string name="suggested_reading_list_dialog_positive">今すぐ試す</string>
+  <string name="suggested_reading_list_dialog_negative">あとで</string>
   <string name="survey_dialog_title">この機能の改善にご協力ください</string>
   <string name="survey_dialog_message">この機能に満足していますか?</string>
   <string name="survey_dialog_option_satisfied">満足した</string>
@@ -1662,5 +1707,6 @@
   <string name="survey_dialog_option_very_unsatisfied">非常に不満</string>
   <string name="survey_dialog_cancel">キャンセル</string>
   <string name="survey_dialog_submit">送信</string>
-  <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。</string>
+  <string name="survey_dialog_input_hint">追加のフィードバック</string>
+  <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
 </resources>

@@ -1657,5 +1657,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Hui duhtameahttun</string>
   <string name="survey_dialog_cancel">Gaskkalduhte</string>
   <string name="survey_dialog_submit">Sádde</string>
-  <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon.</string>
+  <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon. Giitu!</string>
 </resources>

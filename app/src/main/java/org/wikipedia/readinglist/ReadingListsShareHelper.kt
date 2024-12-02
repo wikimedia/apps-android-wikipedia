@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonPrimitive
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -69,15 +70,24 @@ object ReadingListsShareHelper {
         pageIdMap.keys.forEach { key -> projectUrlMap[key] = pageIdMap[key]!!.values.map { JsonPrimitive(it) } }
 
         // TODO: for now we're not transmitting the free-form Name and Description of a reading list.
-        val exportedReadingLists = ExportedReadingLists(projectUrlMap) // , readingList.title, readingList.description)
-        return Base64.encodeToString(JsonUtil.encodeToString(exportedReadingLists)!!.toByteArray(), Base64.NO_WRAP)
+        val exportedReadingList = ExportedReadingList(projectUrlMap) // , readingList.title, readingList.description)
+        return Base64.encodeToString(JsonUtil.encodeToString(exportedReadingList)!!.toByteArray(), Base64.NO_WRAP)
     }
 
     @Suppress("unused")
     @Serializable
-    class ExportedReadingLists(
-        val list: Map<String, Collection<JsonPrimitive>>,
+    class ExportedReadingList(
+        val list: Map<String, Collection<JsonElement>> = emptyMap(),
         val name: String? = null,
         val description: String? = null
+    )
+
+    @Serializable
+    class ExportedReadingListPage(
+        val lang: String,
+        val title: String,
+        val ns: Int,
+        val description: String? = null,
+        val thumbUrl: String? = null
     )
 }

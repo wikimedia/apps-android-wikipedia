@@ -13,6 +13,7 @@
 * Maksim L.
 * Mechanizatar
 * MuratTheTurkish
+* Pavel200071
 * Plaga med
 * SimondR
 * Tomato Cream
@@ -37,6 +38,7 @@
   <string name="nav_item_suggested_edits">Праўкі</string>
   <string name="nav_item_more">Болей</string>
   <string name="nav_item_search">Знайсці</string>
+  <string name="nav_item_contribute">Удзельнічаць</string>
   <string name="error_network_error">Не атрымліваецца падключыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паўтарыць</string>
   <string name="card_offline_error_retry">Паўтарыць</string>
@@ -72,7 +74,7 @@
   <string name="page_edit_history_filter_by">Адфільтраваць па</string>
   <string name="page_edit_history_filter_by_all">Усе праўкі (%s)</string>
   <string name="page_edit_history_filter_by_user">Праўкі ўдзельніка (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Ананімныя праўкі (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Ананімныя праўкі (%s)</string>
   <string name="page_edit_history_filter_by_bot">Праўкі ботаў (%s)</string>
   <string name="page_edit_history_metrics_content_description">Метрыкі ад %1$s да %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -425,7 +427,7 @@
   <string name="link_preview_dialog_save_button">Захаваць</string>
   <string name="link_preview_dialog_saved_button">Захавана</string>
   <string name="link_preview_dialog_share_button">Падзяліцца</string>
-  <string name="link_preview_stub_placeholder_text">Гэты артыкул з’яўляецца незавершаным, што значыць, што ў ім недастаткова змесціва для папярэдняга прагляду. Аднак вы можаце гэта змяніць.</string>
+  <string name="link_preview_stub_placeholder_text">Артыкул не завершаны, то бок у ім недастаткова зместу для папярэдняга прагляду. Аднак, вы можаце гэта змяніць.</string>
   <string name="error_page_does_not_exist">Няма такой старонкі</string>
   <string name="error_user_page_does_not_exist">Вікіпедыя не мае &lt;a href=\"%1$s\"&gt;старонкі карыстальніка&lt;/a&gt; з такой дакладнай назвай. Увогуле, гэтая старонка павінна быць створана і адрэдагавана &lt;b&gt;%2$s&lt;/b&gt;. Калі вы сумняваецеся, пераканайцеся, што \"%3$s\" існуе.</string>
   <string name="view_wiki_error_message_offline">Немагчыма падкючыцца да Інтэрнэту</string>
@@ -449,8 +451,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Наладзьце панэль інструментаў</string>
   <string name="error_blocked_footer_no_blocker">Вы можаце звязацца з &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакаванне.</string>
   <string name="temp_account_not_logged_in">Вы не ўвайшлі ў сістэму</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Пасля ўнясення змяненняў для вас будзе створаны &lt;b&gt;часовы ўліковы запіс&lt;/b&gt; для абароны вашай канфідэнцыяльнасці. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Даведайцеся больш&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Увайдзіце ў сістэму&lt;/a&gt; або &lt;a href=\"https://#login\"&gt;стварыце ўліковы запіс&lt;/a&gt;, каб вашыя будучыя праўкі былі ўлічаныя і атрымаць доступ да іншых функцый.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">Вашае змяненне будзе аднесена да %1$s . Ваш IP-адрас будзе бачным для адміністратараў.&lt;br /&gt;&lt;br /&gt; Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сістэму/a&gt; або &lt;a href=\"https://#login\"&gt;створыце ўліковы запіс&lt;/a&gt;, вашыя змяненні будуць спалучынімі з абраным вамі імем, апроч іншых пераваг.</string>
+  <string name="temp_account_anon_dialog_body">Як толькі вы зробіце змены, для вас будзе створаны Часовы ўліковы запіс, каб абараніць вашу канфідэнцыяльнасць. &lt;a href= \"%1$s \" &gt; Даведайцеся больш &lt; / a&gt;.&lt; br /&gt;&lt;br / &gt; &lt; a href=\"https://#login\" &gt; Увайдзіце ў сістэму &lt; / a&gt; АБО &lt; a href=\"https://#createaccount\" &gt; стварыце ўліковы запіс &lt; / a&gt;, каб атрымаць крэдыт на будучыя праўкі і доступ да іншых функцый.</string>
+  <string name="temp_account_temp_dialog_body">Ваша праўка будзе прыпісана да %1$s. Ваш IP-адрас будзе бачны адміністратарам.&lt;br /&gt;&lt;br /&gt;Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сістэму&lt;/a&gt; або &lt;a href=\"https://#createaccount\"&gt;створыце ўліковы запіс&lt;/a&gt;, сярод іншых пераваг, вашы праўкі будуць прыпісаны да выбранага вамі імя.</string>
   <string name="temp_account_dialog_ok">Зразумела</string>
   <string name="temp_account_using_title">Вы выкарыстоўваеце часовы ўліковы запіс</string>
   <string name="temp_account_dialog_discard">Скасаваць змяненні і ўвайсці ў сістэму</string>
@@ -1770,5 +1772,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Вельмі незадаволены</string>
   <string name="survey_dialog_cancel">Скасаваць</string>
   <string name="survey_dialog_submit">Адправіць</string>
-  <string name="survey_dialog_submitted_snackbar">Водгук адпраўлены.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Водгук адпраўлены.</string>
 </resources>

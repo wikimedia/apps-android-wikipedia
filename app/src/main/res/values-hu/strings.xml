@@ -449,11 +449,18 @@
   <string name="temp_account_dialog_ok">Értem</string>
   <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
   <string name="temp_account_dialog_discard">Változtatások elvetése és bejelentkezés</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">A szerkesztésed közzététele után létrejött neked egy ideiglenes fiók %1$s néven. A fiók %2$d nap múlva jár le.</item>
+    <item quantity="other">A szerkesztésed közzététele után létrejött neked egy ideiglenes fiók %1$s néven. A fiók %2$d nap múlva jár le.</item>
+  </plurals>
   <plurals name="temp_account_expiry">
     <item quantity="one">A felhasználói fiókod %d nap múlva lejár.</item>
     <item quantity="other">A felhasználói fiókod %d nap múlva lejár.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Nem vagy bejelentkezve.&lt;/b&gt; Ha így szerkesztesz, az IP-címed látható lesz a laptörténetben.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Nem vagy bejelentkezve.&lt;/b&gt; Amikor először szerkesztesz, a személyes adataid védelme érdekében egy ideiglenes fiók jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Ideiglenes fiókot használsz.&lt;/b&gt; A szerkesztésed a(z) %1$s névhez lesz társítva (&lt;a href=\"%2$s\"&gt;további információk&lt;/a&gt;).</string>
+  <string name="temp_account_login_status">&lt;b&gt;Jelenleg ideiglenes fiókot használsz.&lt;/b&gt; Az ideiglenes fiókkal (%1$s) végzett szerkesztések nem lesznek átemelve a végleges fiókodba, ha bejelentkezel. Jelentkezz be vagy regisztrálj, hogy a szerkesztéseid egy általad választott felhasználónévhez legyenek társítva, egyéb hasznos funkciók mellett.</string>
   <string name="temp_account_end_session">Munkamenet befejezése</string>
   <string name="temp_account_end_session_confirm">Ezzel kijelentkezel ideiglenes fiókodból. Akarod folytatni?</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
@@ -1652,6 +1659,7 @@
   <string name="places_empty_list">Ez a terület üres. Kicsinyítés &lt;a href=\"#\"&gt;a térképen&lt;/a&gt;.</string>
   <string name="places_card_title">Helyek a közelben</string>
   <string name="places_card_action">További helyek a közelben</string>
+  <string name="places_card_enable_location_card_message">A Helyek egy térképalapú módja a Wikipédia felfedezésének</string>
   <string name="places_card_enable_location_card_button">Helymeghatározás engedélyezése</string>
   <string name="places_card_distance_suffix">%s távol</string>
   <string name="places_card_distance_unknown">Ismeretlen távolság</string>
@@ -1719,5 +1727,5 @@
   <string name="survey_dialog_cancel">Mégse</string>
   <string name="survey_dialog_submit">Elküldés</string>
   <string name="survey_dialog_input_hint">További visszajelzés</string>
-  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve.</string>
+  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve. Köszönjük!</string>
 </resources>

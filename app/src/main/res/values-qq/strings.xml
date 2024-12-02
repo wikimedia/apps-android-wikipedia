@@ -1738,11 +1738,12 @@
   <string name="recent_searches_related_to_reading">Title shown above a list of recommended search terms</string>
   <string name="rabbit_holes_experiment">Label indicating that this feature is an experiment</string>
   <string name="rabbit_holes_experiment_about">Button label for seeing more information about the current experiment</string>
-  <string name="rabbit_holes_survey_dialog_title">Title of a dialog for submitting feedback about this feature</string>
+  <string name="rabbit_holes_survey_dialog_title">Title of a dialog for submitting feedback about this feature. \"Rabbit hole\" refers to the [[:w:en:Wiki rabbit hole|Wiki rabbit hole]] phenomenon and the Android app feature, which is based on it and described at https://phabricator.wikimedia.org/T378612 .</string>
   <string name="rabbit_holes_survey_dialog_body">Text of a dialog for submitting feedback about this feature</string>
   <string name="suggested_reading_list_title">Title of a reading list of articles based on your reading history</string>
-  <string name="suggested_reading_list_description">Description of a reading list of articles, based on the title of a previous article. The %s symbol is replaced with the article title.</string>
-  <string name="suggested_reading_list_later_snackbar">Message shown when the user chooses to view the suggested reading list at a later time.</string>
+  <string name="suggested_reading_list_description">Description of a reading list of articles, based on the titles of a previous articles. The symbol %s is replaced with the article title.</string>
+  <string name="suggested_reading_list_description_multi">Description of a reading list of articles, based on the titles of a previous articles. The symbols %1$s and %2$s are replaced with the article titles.</string>
+  <string name="suggested_reading_list_later_snackbar">Message shown when the user chooses to view the suggested reading list at a later time. \"Saved\" is {{msg-wm|Wikipedia-android-strings-nav item saved}}</string>
   <string name="suggested_reading_list_dialog_title">Title of a dialog shown when a new suggested reading list has been generated.</string>
   <string name="suggested_reading_list_dialog_body">Text of a dialog shown when a new suggested reading list has been generated.</string>
   <string name="suggested_reading_list_dialog_positive">Button label to see the suggested reading list that was generated.</string>

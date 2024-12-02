@@ -1,13 +1,16 @@
 package org.wikipedia.search
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +19,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -43,6 +47,7 @@ class RecentSearchesFragment : Fragment() {
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable -> L.e(throwable) }
     var callback: Callback? = null
     val recentSearchList = mutableListOf<RecentSearch>()
+    private var suggestedSearchTerm: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -62,12 +67,19 @@ class RecentSearchesFragment : Fragment() {
         binding.addLanguagesButton.setOnClickListener { onAddLangButtonClick() }
         binding.recentSearchesRecycler.layoutManager = LinearLayoutManager(requireActivity())
         binding.namespacesRecycler.layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.HORIZONTAL, false)
-        binding.recentSearchesRecycler.adapter = RecentSearchAdapter()
+
+        suggestedSearchTerm = requireActivity().intent.getStringExtra(SearchActivity.EXTRA_SUGGESTED_QUERY)
+        binding.recentSearchesRecycler.adapter = if (suggestedSearchTerm.isNullOrEmpty()) RecentSearchAdapter() else ConcatAdapter(SuggestedSearchAdapter(), RecentSearchAdapter())
+        binding.recentSearchesHeaderContainer.isVisible = suggestedSearchTerm.isNullOrEmpty()
+
         val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.recentSearchesRecycler)
         setButtonTooltip(binding.recentSearchesDeleteButton)
+
+        RabbitHolesEvent.submit("impression", "search")
+
         return binding.root
     }
 
@@ -110,7 +122,6 @@ class RecentSearchesFragment : Fragment() {
     }
 
     suspend fun updateList() {
-        val searches: List<RecentSearch>
         val nsMap: Map<String, MwQueryResult.Namespace>
         val langCode = callback?.getLangCode().orEmpty()
 
@@ -123,30 +134,38 @@ class RecentSearchesFragment : Fragment() {
             }
         }
 
-        searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
+        val searches: List<RecentSearch> = AppDatabase.instance.recentSearchDao().getRecentSearches()
 
         recentSearchList.clear()
-        recentSearchList.addAll(searches)
+        recentSearchList.addAll(if (suggestedSearchTerm.isNullOrEmpty()) searches else searches.filter { it.text != suggestedSearchTerm })
 
+        val searchesEmpty = recentSearchList.isEmpty() && suggestedSearchTerm.isNullOrEmpty()
         binding.namespacesRecycler.adapter = NamespaceAdapter()
-        binding.recentSearchesRecycler.adapter?.notifyDataSetChanged()
-
-        val searchesEmpty = recentSearchList.isEmpty()
+        if (binding.recentSearchesRecycler.adapter is ConcatAdapter) {
+            (binding.recentSearchesRecycler.adapter as ConcatAdapter).adapters.forEach {
+                it.notifyDataSetChanged()
+            }
+        } else {
+            binding.recentSearchesRecycler.adapter?.notifyDataSetChanged()
+        }
         binding.searchEmptyContainer.isInvisible = !searchesEmpty
         updateSearchEmptyView(searchesEmpty)
         binding.recentSearches.isInvisible = searchesEmpty
     }
 
-    private inner class RecentSearchItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
+    private open inner class RecentSearchItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
         private lateinit var recentSearch: RecentSearch
 
-        fun bindItem(position: Int) {
+        open fun bindItem(position: Int) {
             recentSearch = recentSearchList[position]
             itemView.setOnClickListener(this)
             (itemView as TextView).text = recentSearch.text
         }
 
         override fun onClick(v: View) {
+            RabbitHolesEvent.submit("recent_search_click", "search",
+                source = if (this is SuggestedSearchItemViewHolder) "suggested" else "default")
+
             callback?.switchToSearch((v as TextView).text.toString())
         }
 
@@ -158,6 +177,57 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun isSwipeable(): Boolean { return true }
+    }
+
+    private inner class SuggestedSearchItemViewHolder(itemView: View) : RecentSearchItemViewHolder(itemView) {
+        override fun bindItem(position: Int) {
+            (itemView as TextView).apply {
+                setOnClickListener(this@SuggestedSearchItemViewHolder)
+                setBackgroundResource(R.drawable.shape_suggested_search_term)
+                setTypeface(null, Typeface.NORMAL)
+                text = suggestedSearchTerm
+            }
+        }
+
+        override fun isSwipeable(): Boolean { return false }
+    }
+
+    private inner class SuggestedSearchHeadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(position: Int) {
+            (itemView as TextView).apply {
+                setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+                setTypeface(null, Typeface.BOLD)
+                text = if (position == 0) getString(R.string.recent_searches_related_to_reading) else getString(R.string.recent_searches_title)
+            }
+        }
+    }
+
+    private inner class SuggestedSearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        override fun getItemCount(): Int {
+            // 1) "Suggested search" heading, 2) Suggested query, 3) "Recent searches" heading
+            return if (recentSearchList.isEmpty()) 2 else 3
+        }
+
+        override fun getItemViewType(position: Int): Int {
+            return if (position == 1) LIST_TYPE_ITEM else LIST_TYPE_HEADING
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_search_recent, parent, false)
+            return if (viewType == LIST_TYPE_HEADING) {
+                SuggestedSearchHeadingViewHolder(view)
+            } else {
+                SuggestedSearchItemViewHolder(view)
+            }
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            if (holder is SuggestedSearchItemViewHolder) {
+                holder.bindItem(pos)
+            } else if (holder is SuggestedSearchHeadingViewHolder) {
+                holder.bindItem(pos)
+            }
+        }
     }
 
     private inner class RecentSearchAdapter : RecyclerView.Adapter<RecentSearchItemViewHolder>() {
@@ -202,5 +272,10 @@ class RecentSearchesFragment : Fragment() {
         override fun onBindViewHolder(holder: NamespaceItemViewHolder, pos: Int) {
             holder.bindItem(namespaceHints.getOrNull(pos - 1))
         }
+    }
+
+    companion object {
+        const val LIST_TYPE_HEADING = 0
+        const val LIST_TYPE_ITEM = 1
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Cooltey
+* Dbrant
 * Malikxan
 * Ochilov
 * Patriccck
@@ -1570,5 +1571,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Qoniqarsiz</string>
   <string name="survey_dialog_cancel">Bekor qilish</string>
   <string name="survey_dialog_submit">Joʻnatish</string>
-  <string name="survey_dialog_submitted_snackbar">Fikr-mulohaza yuborildi.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Fikr-mulohaza yuborildi.</string>
 </resources>
