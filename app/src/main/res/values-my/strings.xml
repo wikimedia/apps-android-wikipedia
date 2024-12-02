@@ -1059,5 +1059,5 @@
   <string name="donation_campaign_go_back_button">နောက်သို့ ပြန်သွားရန်</string>
   <string name="survey_dialog_cancel">မလုပ်တော့ပါ</string>
   <string name="survey_dialog_submit">ထည့်သွင်းရန်</string>
-  <string name="survey_dialog_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
 </resources>
