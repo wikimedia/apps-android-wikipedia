@@ -1377,5 +1377,5 @@
   <string name="survey_dialog_option_unsatisfied">Niezadowolony</string>
   <string name="survey_dialog_cancel">Anuluj</string>
   <string name="survey_dialog_submit">Wyślij</string>
-  <string name="survey_dialog_submitted_snackbar">Opinia została przesłana.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Opinia została przesłana.</string>
 </resources>

@@ -1613,5 +1613,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Molto insoddisfatto</string>
   <string name="survey_dialog_cancel">Annulla</string>
   <string name="survey_dialog_submit">Invia</string>
-  <string name="survey_dialog_submitted_snackbar">Commento inviato</string>
+  <string name="survey_dialog_submitted_snackbar">Commento inviato. Grazie!</string>
 </resources>

@@ -1727,5 +1727,5 @@
   <string name="survey_dialog_cancel">Mégse</string>
   <string name="survey_dialog_submit">Elküldés</string>
   <string name="survey_dialog_input_hint">További visszajelzés</string>
-  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve.</string>
+  <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve. Köszönjük!</string>
 </resources>

@@ -1821,5 +1821,5 @@
   <string name="survey_dialog_cancel">Скасувати</string>
   <string name="survey_dialog_submit">Надіслати</string>
   <string name="survey_dialog_input_hint">Додатковий відгук</string>
-  <string name="survey_dialog_submitted_snackbar">Відгук надіслано.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Відгук надіслано.</string>
 </resources>

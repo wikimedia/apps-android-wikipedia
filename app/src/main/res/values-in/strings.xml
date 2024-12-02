@@ -56,6 +56,7 @@
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="nav_item_search">Cari</string>
+  <string name="nav_item_contribute">Berkontribusi</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="card_offline_error_retry">Coba lagi</string>
@@ -91,7 +92,7 @@
   <string name="page_edit_history_filter_by">Saring berdasarkan</string>
   <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Suntingan anonim (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Suntingan pengguna tidak terdaftar (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik dari %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -1571,5 +1572,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Sangat tidak puas</string>
   <string name="survey_dialog_cancel">Batal</string>
   <string name="survey_dialog_submit">Kirim</string>
-  <string name="survey_dialog_submitted_snackbar">Umpan balik dikirimkan.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Umpan balik dikirimkan.</string>
 </resources>
