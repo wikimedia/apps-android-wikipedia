@@ -6,12 +6,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
-import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
-import org.wikipedia.robots.screen.HomeScreenRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -20,9 +18,7 @@ class LinkPreviewTest : BaseTest<MainActivity>(
 ) {
     private val bottomNavRobot = BottomNavRobot()
     private val settingsRobot = SettingsRobot()
-    private val systemRobot = SystemRobot()
     private val searchRobot = SearchRobot()
-    private val homeScreenRobot = HomeScreenRobot()
     private val pageRobot = PageRobot()
 
     @Test

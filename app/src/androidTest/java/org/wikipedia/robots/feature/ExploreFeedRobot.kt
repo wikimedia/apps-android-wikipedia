@@ -1,7 +1,9 @@
 package org.wikipedia.robots.feature
 
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.test.espresso.Espresso.onView
@@ -12,11 +14,14 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import com.google.android.material.imageview.ShapeableImageView
+import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
@@ -122,6 +127,25 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
+    fun scrollToItem(
+        recyclerViewId: Int = R.id.feed_view,
+        title: String,
+        textViewId: Int = R.id.view_card_header_title,
+        verticalOffset: Int = 200
+    ) = apply {
+        scrollToRecyclerView(
+            recyclerViewId,
+            title,
+            textViewId,
+            verticalOffset
+        )
+    }
+
+    fun verifyFeaturedArticleImageIsNotVisible() = apply {
+        checkViewDoesNotExist(viewId = R.id.articleImage)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     // @TODO: flaky test due to snackbar
     fun addOrRemoveToWatchList() = apply {
         val isVisible = onView(withText("Watch"))
@@ -163,6 +187,40 @@ class ExploreFeedRobot : BaseRobot() {
 
                 layoutManager.scrollToPositionWithOffset(position, 0)
                 uiController.loopMainThreadForAtLeast(500)
+            }
+        }
+    }
+
+    fun verifyTopReadArticleIsGreyedOut() = apply {
+        delay(TestConfig.DELAY_MEDIUM)
+        onView(withId(R.id.view_list_card_list))
+            .check(matches(hasViewAtPosition(1, R.id.view_list_card_item_image, R.color.gray200)))
+    }
+
+    private fun hasViewAtPosition(position: Int, targetViewId: Int, expectedColorRes: Int): Matcher<View> {
+        return object : BoundedMatcher<View, View>(View::class.java) {
+            override fun describeTo(description: Description) {
+                description.appendText("at position $position")
+            }
+
+            override fun matchesSafely(view: View): Boolean {
+                if (view !is RecyclerView) return false
+
+                val viewHolder = view.findViewHolderForAdapterPosition(position) ?: return false
+
+                val targetView = viewHolder.itemView.findViewById<View>(targetViewId) as? ShapeableImageView
+                    ?: return false
+
+                val expectedColor = ContextCompat.getColor(view.context, expectedColorRes)
+                val actualColor = when {
+                    targetView.drawable != null -> {
+                        val colorDrawable = targetView.drawable as? ColorDrawable
+                        colorDrawable?.color ?: return false
+                    }
+                    else -> return false
+                }
+
+                return expectedColor == actualColor
             }
         }
     }

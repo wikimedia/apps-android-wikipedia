@@ -121,13 +121,13 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun clickShowImagesOnSettings() = apply {
-        scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
+    fun toggleDownloadReadingList() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_download_reading_list_articles, click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun toggleDownloadReadingList() = apply {
-        scrollToSettingsPreferenceItem(R.string.preference_title_download_reading_list_articles, click())
+    fun toggleShowImages() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
