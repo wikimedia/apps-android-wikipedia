@@ -1769,6 +1769,7 @@
   <string name="rabbit_holes_survey_dialog_body">您对这个推荐搜索结果满意吗？</string>
   <string name="suggested_reading_list_title">根据您的阅览历史</string>
   <string name="suggested_reading_list_description">灵感来自“ %s ”</string>
+  <string name="suggested_reading_list_description_multi">受到%1$s和%2$s的启发</string>
   <string name="suggested_reading_list_later_snackbar">如果您想稍后访问您的阅览列表，请转到主屏幕上的“已保存”选项卡。</string>
   <string name="suggested_reading_list_dialog_title">您有一份新的推荐阅览列表。</string>
   <string name="suggested_reading_list_dialog_body">这是一项实验性功能。内容基于您最近的阅览历史。您想查看这个新的阅读列表吗？</string>
@@ -1785,5 +1786,5 @@
   <string name="survey_dialog_cancel">取消</string>
   <string name="survey_dialog_submit">提交</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
-  <string name="survey_dialog_submitted_snackbar">已提交反馈。</string>
+  <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
 </resources>
