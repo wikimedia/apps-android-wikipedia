@@ -3,6 +3,7 @@ package org.wikipedia.places
 import android.content.Context
 import android.content.Intent
 import android.location.Location
+import android.os.Bundle
 import org.wikipedia.Constants
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.extensions.parcelableExtra
@@ -10,7 +11,7 @@ import org.wikipedia.page.PageTitle
 
 class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
 
-    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         disableFitsSystemWindows()
     }
