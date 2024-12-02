@@ -1,6 +1,7 @@
 package org.wikipedia.activity
 
 import android.os.Bundle
+import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import org.wikipedia.R
@@ -28,5 +29,9 @@ abstract class SingleFragmentActivity<T : Fragment> : BaseActivity() {
 
     protected open fun inflateAndSetContentView() {
         setContentView(R.layout.activity_single_fragment)
+    }
+
+    fun disableFitsSystemWindows() {
+        findViewById<FrameLayout>(R.id.fragment_container).fitsSystemWindows = false
     }
 }

@@ -16,6 +16,7 @@ class NewsActivity : SingleFragmentActivity<NewsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        disableFitsSystemWindows()
         window.statusBarColor = Color.TRANSPARENT
     }
 

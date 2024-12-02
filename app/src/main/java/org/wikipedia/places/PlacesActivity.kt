@@ -9,6 +9,12 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 
 class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
+
+    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+        super.onCreate(savedInstanceState)
+        disableFitsSystemWindows()
+    }
+
     public override fun createFragment(): PlacesFragment {
         return PlacesFragment.newInstance(intent.parcelableExtra(Constants.ARG_TITLE), intent.parcelableExtra(EXTRA_LOCATION))
     }
