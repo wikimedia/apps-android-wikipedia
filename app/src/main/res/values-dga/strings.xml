@@ -1468,5 +1468,5 @@
   <string name="survey_dialog_option_neutral">Ba be a kaŋazaa</string>
   <string name="survey_dialog_option_unsatisfied">Ba sege</string>
   <string name="survey_dialog_submit">Tere</string>
-  <string name="survey_dialog_submitted_snackbar">Leɛ teroo toɔlɛɛ la.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Leɛ teroo toɔlɛɛ la.</string>
 </resources>

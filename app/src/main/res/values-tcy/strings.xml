@@ -64,7 +64,7 @@
   <string name="page_edit_history_filter_by">ಅರಿಪೆದ ಐಡಿ</string>
   <string name="page_edit_history_filter_by_all">ಮಾಂತ ಸಂಪಾದನೆಲು (%s)</string>
   <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರೆರೆನ ಸಂಪಾದಿ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ನೊಂದಾವಣೆ ಮಲ್ಪಂದಿನ ಸಂಪಾದನೆಲು (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ನೊಂದಾಯಿಸಂದಿನ ಸಂಪಾದನೆಲು (%s)</string>
   <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದಿಲು (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$sಡ್ದ್ %2$s ಮುಟ್ಟದ ಸಂಪಾದಿ ಇತಿಹಾಸೊ</string>
   <plurals name="page_edit_history_article_edits_since_year">

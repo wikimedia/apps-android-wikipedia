@@ -1615,5 +1615,5 @@
   <string name="survey_dialog_option_neutral">Нейтраль</string>
   <string name="survey_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
   <string name="survey_dialog_submit">Тәҡдим итергә</string>
-  <string name="survey_dialog_submitted_snackbar">Фекер ебәрелде.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Фекер ебәрелде.</string>
 </resources>

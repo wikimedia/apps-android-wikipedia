@@ -1575,5 +1575,5 @@
   <string name="survey_dialog_option_unsatisfied">ناراضی</string>
   <string name="survey_dialog_cancel">لغو</string>
   <string name="survey_dialog_submit">ارسال</string>
-  <string name="survey_dialog_submitted_snackbar">بازخورد ارسال شد.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">بازخورد ارسال شد.</string>
 </resources>
