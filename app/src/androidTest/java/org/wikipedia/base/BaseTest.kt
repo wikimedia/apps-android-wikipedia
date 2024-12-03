@@ -24,7 +24,8 @@ object TestConfig {
 }
 
 data class DataInjector(
-    val isInitialOnboardingEnabled: Boolean = false
+    val isInitialOnboardingEnabled: Boolean = false,
+    val overrideEditsContribution: Int? = null
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -45,6 +46,9 @@ abstract class BaseTest<T : AppCompatActivity>(
         val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
+        dataInjector.overrideEditsContribution?.let {
+            Prefs.overrideSuggestedEditContribution = it
+        }
     }
 
     @Before
