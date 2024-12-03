@@ -1741,5 +1741,5 @@
   <string name="survey_dialog_cancel">Avbryt</string>
   <string name="survey_dialog_submit">Skicka</string>
   <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
-  <string name="survey_dialog_submitted_snackbar">Återkoppling har skickats.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Återkoppling har skickats.</string>
 </resources>

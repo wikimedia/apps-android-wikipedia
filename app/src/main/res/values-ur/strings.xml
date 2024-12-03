@@ -704,5 +704,5 @@
   <string name="survey_dialog_option_very_satisfied">بہت مطمئن</string>
   <string name="survey_dialog_option_very_unsatisfied">بہت غیر مطمئن</string>
   <string name="survey_dialog_submit">جمع کریں</string>
-  <string name="survey_dialog_submitted_snackbar">رائے دی گئ۔ شکریہ!</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">رائے دی گئ۔ شکریہ!</string>
 </resources>

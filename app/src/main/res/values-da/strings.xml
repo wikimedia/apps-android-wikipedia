@@ -1681,5 +1681,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Meget utilfreds</string>
   <string name="survey_dialog_cancel">Annullér</string>
   <string name="survey_dialog_submit">Indsend</string>
-  <string name="survey_dialog_submitted_snackbar">Feedback indsendt.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Feedback indsendt.</string>
 </resources>

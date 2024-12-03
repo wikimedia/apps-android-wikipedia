@@ -1774,6 +1774,7 @@
   <string name="rabbit_holes_survey_dialog_body">Êtes-vous satisfait de ce résultat de recherche recommandé ?</string>
   <string name="suggested_reading_list_title">Établie à partir de vos consultations antérieures</string>
   <string name="suggested_reading_list_description">Suggérée à cause de votre lecture de \"%s\"</string>
+  <string name="suggested_reading_list_description_multi">Inspirée par %1$s et %2$s</string>
   <string name="suggested_reading_list_later_snackbar">Si vous souhaitez consulter votre liste de lecture ultérieurement, accédez à l’onglet Enregistré sur l’écran d’accueil.</string>
   <string name="suggested_reading_list_dialog_title">Vous avez une nouvelle liste de lectures suggérées.</string>
   <string name="suggested_reading_list_dialog_body">Il s\'agit d\'une fonctionnalité expérimentale. Le contenu est basé sur votre historique de lecture récent. Voulez-vous découvrir cette nouvelle liste de lecture ?</string>
@@ -1790,5 +1791,5 @@
   <string name="survey_dialog_cancel">Annuler</string>
   <string name="survey_dialog_submit">Soumettre</string>
   <string name="survey_dialog_input_hint">Commentaires supplémentaires</string>
-  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé.</string>
+  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé. Merci !</string>
 </resources>
