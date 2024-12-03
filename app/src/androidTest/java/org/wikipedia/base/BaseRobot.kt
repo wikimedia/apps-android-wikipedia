@@ -43,7 +43,6 @@ import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.wikipedia.R
 import org.wikipedia.TestUtil
-import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
@@ -349,5 +348,32 @@ abstract class BaseRobot {
             view.performClick()
             uiController.loopMainThreadForAtLeast(1000)
         }
+    }
+
+    protected fun verifyTextViewColor(
+        @IdRes textViewId: Int,
+        colorResOrAttr: Int,
+        isAttr: Boolean = false
+    ) {
+        onView(withId(textViewId))
+            .check(matches(ColorMatchers.withTextColor(colorResOrAttr, isAttr)))
+    }
+
+    protected fun verifyBackgroundColor(
+        @IdRes viewId: Int,
+        colorResOrAttr: Int,
+        isAttr: Boolean = false
+    ) {
+        onView(withId(viewId))
+            .check((matches(ColorMatchers.withBackgroundColor(colorResOrAttr, isAttr))))
+    }
+
+    protected fun verifyTintColor(
+        @IdRes viewId: Int,
+        colorResOrAttr: Int,
+        isAttr: Boolean = false
+    ) {
+        onView(withId(viewId))
+            .check((matches(ColorMatchers.withTintColor(colorResOrAttr, isAttr))))
     }
 }
