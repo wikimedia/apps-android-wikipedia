@@ -1,5 +1,6 @@
 package org.wikipedia.base
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.test.espresso.IdlingPolicies
@@ -9,6 +10,7 @@ import androidx.test.uiautomator.UiDevice
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
+import org.wikipedia.TestLogRule
 import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
@@ -21,28 +23,32 @@ object TestConfig {
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
 }
 
-abstract class BaseTest<T : AppCompatActivity> {
+data class DataInjector(
+    val isInitialOnboardingEnabled: Boolean = false,
+    val overrideEditsContribution: Int? = null
+)
+
+abstract class BaseTest<T : AppCompatActivity>(
+    activityClass: Class<T>,
+    dataInjector: DataInjector = DataInjector()
+) {
+    @get:Rule
+    val testLogRule = TestLogRule()
+
     @get:Rule
     val activityScenarioRule: ActivityScenarioRule<T>
 
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
+    protected var context: Context = InstrumentationRegistry.getInstrumentation().targetContext
 
-    constructor(activityClass: Class<T>) {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
+    init {
+        val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
-    }
-
-    constructor(activityClass: Class<T>, isInitialOnboardingEnabled: Boolean) {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
-        activityScenarioRule = ActivityScenarioRule(intent)
-        Prefs.isInitialOnboardingEnabled = isInitialOnboardingEnabled
-    }
-
-    constructor(activityClass: Class<T>, intentBuilder: Intent.() -> Unit) {
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, activityClass)
-            .apply(intentBuilder)
-        activityScenarioRule = ActivityScenarioRule(intent)
+        Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
+        dataInjector.overrideEditsContribution?.let {
+            Prefs.overrideSuggestedEditContribution = it
+        }
     }
 
     @Before
