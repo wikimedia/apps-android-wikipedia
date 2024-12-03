@@ -58,6 +58,12 @@ class ExploreFeedRobot : BaseRobot() {
         })
     }
 
+    fun dismissBigEnglishCampaignDialog() = apply {
+        performIfDialogShown("Maybe later", action = {
+            clickOnViewWithText("Maybe later")
+        })
+    }
+
     fun pressBack() = apply {
         goBack()
         delay(TestConfig.DELAY_LARGE)

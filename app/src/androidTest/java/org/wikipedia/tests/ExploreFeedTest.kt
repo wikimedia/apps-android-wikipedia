@@ -46,6 +46,7 @@ class ExploreFeedTest : BaseTest<MainActivity>(
             .pressBack()
             .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
             .clickTodayOnWikipedia()
+            .dismissBigEnglishCampaignDialog()
             .dismissContributionDialog()
             .pressBack()
             .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
