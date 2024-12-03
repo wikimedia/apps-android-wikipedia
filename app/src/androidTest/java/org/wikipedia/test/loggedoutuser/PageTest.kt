@@ -47,7 +47,7 @@ class PageTest : BaseTest<PageActivity>(
             .goBackToOriginalArticle()
             .enableJavaScript()
             .verifyArticleTitle(ARTICLE_TITLE)
-            .assertEditPencilVisible()
+            .assertEditPencilVisibility(true)
         setDeviceOrientation(isLandscape = true)
         pageRobot
             .verifyLeadImageIsNotVisible()
