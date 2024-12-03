@@ -3,13 +3,18 @@ package org.wikipedia.base
 import android.app.Activity
 import android.graphics.Rect
 import android.view.View
+import android.widget.HorizontalScrollView
+import android.widget.ListView
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.annotation.IdRes
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
@@ -22,6 +27,7 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -43,7 +49,6 @@ import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.wikipedia.R
 import org.wikipedia.TestUtil
-import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
@@ -281,6 +286,17 @@ abstract class BaseRobot {
             .perform(click())
     }
 
+    protected fun scrollToRecyclerViewInsideNestedScrollView(@IdRes recyclerViewId: Int, position: Int, viewAction: ViewAction) {
+        onView(withId(recyclerViewId))
+            .perform(NestedScrollViewExtension())
+        onView(withId(recyclerViewId))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(position, viewAction))
+    }
+
+    protected fun scrollToViewInsideNestedScrollView(@IdRes viewId: Int) {
+        onView(withId(viewId)).perform(NestedScrollViewExtension())
+    }
+
     fun scrollToRecyclerView(
         recyclerViewId: Int = R.id.feed_view,
         title: String,
@@ -349,5 +365,17 @@ abstract class BaseRobot {
             view.performClick()
             uiController.loopMainThreadForAtLeast(1000)
         }
+    }
+}
+
+class NestedScrollViewExtension(scrollToAction: ViewAction = ViewActions.scrollTo()) : ViewAction by scrollToAction {
+    override fun getConstraints(): Matcher<View> {
+        return Matchers.allOf(
+            ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
+            ViewMatchers.isDescendantOfA(Matchers.anyOf(
+                ViewMatchers.isAssignableFrom(NestedScrollView::class.java),
+                ViewMatchers.isAssignableFrom(ScrollView::class.java),
+                ViewMatchers.isAssignableFrom(HorizontalScrollView::class.java),
+                ViewMatchers.isAssignableFrom(ListView::class.java))))
     }
 }
