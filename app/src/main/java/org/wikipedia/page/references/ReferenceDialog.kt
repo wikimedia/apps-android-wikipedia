@@ -119,27 +119,27 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         private fun setContent(html: String) {
-                val wikiSite = callback()?.linkHandler?.wikiSite ?: WikipediaApp.instance.wikiSite
-                val colorHex = ResourceUtil.colorToCssString(
-                    ResourceUtil.getThemedColor(
-                        requireContext(),
-                        android.R.attr.textColorPrimary
-                    )
+            val wikiSite = callback()?.linkHandler?.wikiSite ?: WikipediaApp.instance.wikiSite
+            val colorHex = ResourceUtil.colorToCssString(
+                ResourceUtil.getThemedColor(
+                    requireContext(),
+                    android.R.attr.textColorPrimary
                 )
-                val dir = if (L10nUtil.isLangRTL(wikiSite.languageCode)) "rtl" else "ltr"
-                binding.referenceTextWebView.setBackgroundColor(Color.TRANSPARENT)
-                binding.referenceTextWebView.webViewClient = object : OkHttpWebViewClient() {
-                    override val model get() = blankModel
-                    override val linkHandler get() = callback()?.linkHandler!!
-                    override val linkHandlerOverride get() = true
-                }
-                binding.referenceTextWebView.loadDataWithBaseURL(
-                    wikiSite.uri.buildUpon().toString(),
-                    "${JavaScriptActionHandler.getCssStyles(wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$html</div>",
-                    "text/html",
-                    "UTF-8",
-                    null
-                )
+            )
+            val dir = if (L10nUtil.isLangRTL(wikiSite.languageCode)) "rtl" else "ltr"
+            binding.referenceTextWebView.setBackgroundColor(Color.TRANSPARENT)
+            binding.referenceTextWebView.webViewClient = object : OkHttpWebViewClient() {
+                override val model get() = blankModel
+                override val linkHandler get() = callback()?.linkHandler!!
+                override val linkHandlerOverride get() = true
+            }
+            binding.referenceTextWebView.loadDataWithBaseURL(
+                wikiSite.uri.buildUpon().toString(),
+                "${JavaScriptActionHandler.getCssStyles(wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$html</div>",
+                "text/html",
+                "UTF-8",
+                null
+            )
         }
     }
 
