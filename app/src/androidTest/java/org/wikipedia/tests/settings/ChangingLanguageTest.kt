@@ -28,6 +28,8 @@ class ChangingLanguageTest : BaseTest<MainActivity>(
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()

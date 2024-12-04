@@ -1,6 +1,7 @@
 package org.wikipedia.robots.screen
 
 import android.app.Activity
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -50,7 +51,11 @@ class HomeScreenRobot : BaseRobot() {
     }
 
     fun dismissFeedCustomization() = apply {
-        clicksOnDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
-        delay(TestConfig.DELAY_SHORT)
+        try {
+            clicksOnDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: Exception) {
+            Log.d("HomeScreenRobot", "no view because the device has no internet")
+        }
     }
 }

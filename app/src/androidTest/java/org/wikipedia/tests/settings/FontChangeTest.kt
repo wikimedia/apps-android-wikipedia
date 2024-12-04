@@ -10,6 +10,7 @@ import org.junit.runner.RunWith
 import org.wikipedia.R
 import org.wikipedia.base.BaseTest
 import org.wikipedia.robots.AppThemeRobot
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.theme.ThemeFittingRoomFragment
 
@@ -19,9 +20,12 @@ class FontChangeTest : BaseTest<ThemeFittingRoomActivity>(
  activityClass = ThemeFittingRoomActivity::class.java
 ) {
     private val appThemeRobot = AppThemeRobot()
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         appThemeRobot
             .applySerif()
 

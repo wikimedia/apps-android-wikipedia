@@ -7,11 +7,9 @@ import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
-import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
-import org.wikipedia.robots.screen.LanguageListRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -21,12 +19,14 @@ class CustomizeExploreFeedTest : BaseTest<MainActivity>(
     private val homeScreenRobot = HomeScreenRobot()
     private val bottomNavRobot = BottomNavRobot()
     private val settingsRobot = SettingsRobot()
-    private val languageListRobot = LanguageListRobot()
-    private val searchRobot = SearchRobot()
     private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
+        systemRobot
+            .disableDarkMode(context)
         homeScreenRobot
             .dismissFeedCustomization()
         bottomNavRobot

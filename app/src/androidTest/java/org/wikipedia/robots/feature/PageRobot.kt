@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import android.util.Log
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
@@ -16,9 +15,6 @@ import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class PageRobot : BaseRobot() {
-    fun assertEditPencilVisibility(isVisible: Boolean) = apply {
-        assertElementVisibility("a[data-id='0'].pcs-edit-section-link", isVisible)
-    }
 
     fun clickEditPencilAtTopOfArticle() = apply {
         onWebView()
@@ -189,12 +185,6 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun dismissContributionDialog() = apply {
-        performIfDialogShown("No, thanks", action = {
-            clickOnViewWithText("No, thanks")
-        })
-    }
-
     fun scrollToCollapsingTables() = apply {
         onWebView()
             .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
@@ -222,12 +212,11 @@ class PageRobot : BaseRobot() {
             .withElement(findElement(Locator.CLASS_NAME, "pcs-collapse-table-collapsed"))
     }
 
-    fun verifyEditIcon() = apply {
-        try {
-            onWebView()
-                .withElement(findElement(Locator.CSS_SELECTOR, "pcs-edit-section-link"))
-        } catch (e: RuntimeException) {
-            Log.d("Espresso", "edit icon is not visible")
-        }
+    fun assertEditPencilVisibility(isVisible: Boolean) = apply {
+        assertElementVisibility("a[data-id='0'].pcs-edit-section-link", isVisible)
+    }
+
+    fun assertCollapsingTableIsVisible(isVisible: Boolean) = apply {
+        assertElementVisibility(".pcs-collapse-table-content", isVisible)
     }
 }

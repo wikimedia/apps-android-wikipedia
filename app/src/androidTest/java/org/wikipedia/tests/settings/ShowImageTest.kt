@@ -13,7 +13,7 @@ import org.wikipedia.robots.screen.HomeScreenRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class ShowImage : BaseTest<MainActivity>(
+class ShowImageTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
     private val bottomNavRobot = BottomNavRobot()

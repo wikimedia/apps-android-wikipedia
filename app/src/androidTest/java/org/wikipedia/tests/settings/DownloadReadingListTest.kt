@@ -4,6 +4,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.ReadingListRobot
@@ -24,6 +25,7 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
     private val searchRobot = SearchRobot()
     private val pageRobot = PageRobot()
     private val readingListRobot = ReadingListRobot()
+    private val dialogRobot = DialogRobot()
 
     @Test
     fun runTest() {
@@ -54,20 +56,18 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
             .pressBack()
             .navigateUp()
             .clickNoThanks(context)
-
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()
-
         settingsRobot
             .toggleDownloadReadingList()
             .pressBack()
-
         searchRobot
             .tapSearchView()
             .typeTextInView("orange")
             .clickOnItemFromSearchList(0)
-        pageRobot
+        dialogRobot
+            .dismissBigEnglishDialog()
             .dismissContributionDialog()
         readingListRobot
             .saveArticleToReadingList()

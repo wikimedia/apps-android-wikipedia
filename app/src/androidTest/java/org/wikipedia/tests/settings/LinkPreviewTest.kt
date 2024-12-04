@@ -6,6 +6,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.DialogRobot
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.SettingsRobot
@@ -20,9 +22,13 @@ class LinkPreviewTest : BaseTest<MainActivity>(
     private val settingsRobot = SettingsRobot()
     private val searchRobot = SearchRobot()
     private val pageRobot = PageRobot()
+    private val systemRobot = SystemRobot()
+    private val dialogRobot = DialogRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         bottomNavRobot
             .navigateToSearchPage()
         searchRobot
@@ -47,8 +53,10 @@ class LinkPreviewTest : BaseTest<MainActivity>(
             .tapSearchView()
             .typeTextInView("apple")
             .clickOnItemFromSearchList(0)
-        pageRobot
+        dialogRobot
+            .dismissBigEnglishDialog()
             .dismissContributionDialog()
+        pageRobot
             .clickLink(linkTitle = "Fruit")
             .verifyArticleTitle("Fruit")
     }

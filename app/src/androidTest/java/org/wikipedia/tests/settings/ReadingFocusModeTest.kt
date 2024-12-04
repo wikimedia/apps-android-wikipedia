@@ -7,6 +7,7 @@ import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.AppThemeRobot
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.SettingsRobot
@@ -17,15 +18,17 @@ import org.wikipedia.robots.navigation.BottomNavRobot
 class ReadingFocusModeTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
-
     private val bottomNavRobot = BottomNavRobot()
     private val settingsRobot = SettingsRobot()
     private val appThemeRobot = AppThemeRobot()
     private val searchRobot = SearchRobot()
     private val pageRobot = PageRobot()
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()
@@ -40,12 +43,12 @@ class ReadingFocusModeTest : BaseTest<MainActivity>(
             .clickOnItemFromSearchList(0)
         pageRobot
             .dismissTooltip(activity)
-            .verifyEditIcon()
+            .assertEditPencilVisibility(isVisible = false)
         appThemeRobot
             .toggleTheme()
             .toggleReadingFocusMode()
             .pressBack()
         pageRobot
-            .verifyEditIcon()
+            .assertEditPencilVisibility(isVisible = true)
     }
 }

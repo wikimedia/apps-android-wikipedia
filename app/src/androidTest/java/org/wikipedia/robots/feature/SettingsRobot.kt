@@ -1,12 +1,14 @@
 package org.wikipedia.robots.feature
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
@@ -17,6 +19,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
+import org.junit.Assert.assertTrue
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.BaseRobot
@@ -130,8 +133,23 @@ class SettingsRobot : BaseRobot() {
     }
 
     fun verifyExploreFeedIsEmpty(context: Context) = apply {
-        checkViewWithTextDisplayed(text = context.getString(R.string.feed_empty_message))
-        delay(TestConfig.DELAY_SHORT)
+        try {
+            checkViewWithTextDisplayed(text = context.getString(R.string.feed_empty_message))
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: AssertionError) {
+            Log.d("SettingsRobot: ", "Assertion error due to offline mode")
+            // checks offline card is visible
+            checkViewWithTextDisplayed(context.getString(R.string.view_offline_card_text))
+            // test the feed is empty
+            onView(withId(R.id.feed_view))
+                .check { view, noViewFoundException ->
+                    val expectedCount = 2
+                    val recyclerView = view as RecyclerView
+                    val itemCount = recyclerView.adapter?.itemCount ?: 0
+                    assertTrue("ExpectedCount: $expectedCount, Actual: $itemCount", itemCount == expectedCount)
+                }
+            onView(withText("Featured article")).check(doesNotExist())
+        }
     }
 
     fun verifyExploreFeedIsNotEmpty(context: Context) = apply {
