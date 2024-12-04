@@ -7,6 +7,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import kotlinx.datetime.Instant
 import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -22,7 +23,8 @@ class PollNotificationWorker(
     override suspend fun doWork(): Result {
         return try {
             val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).lastUnreadNotification()
-            val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.utcIso8601 }.orEmpty()
+            val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.instant() }
+                ?: Instant.fromEpochMilliseconds(0)
             if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                 Prefs.remoteNotificationsSeenTime = lastNotificationTime
                 retrieveNotifications()

@@ -58,7 +58,7 @@ class NotificationViewModel : ViewModel() {
             }
         }
         // Sort them by descending date...
-        notificationList.sortByDescending { it.date() }
+        notificationList.sortByDescending { it.instant() }
 
         // Filtered the tab selection
         val tabSelectedList = notificationList
