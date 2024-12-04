@@ -163,7 +163,7 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            RabbitHolesEvent.submit("recent_search_click", "search",
+            RabbitHolesEvent.submit(if (this is SuggestedSearchItemViewHolder) "suggestion_click" else "recent_search_click", "search",
                 source = if (this is SuggestedSearchItemViewHolder) "suggested" else "default")
 
             callback?.switchToSearch((v as TextView).text.toString())

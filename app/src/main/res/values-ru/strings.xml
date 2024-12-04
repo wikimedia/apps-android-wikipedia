@@ -1750,5 +1750,5 @@
   <string name="survey_dialog_cancel">Отмена</string>
   <string name="survey_dialog_submit">Отправить</string>
   <string name="survey_dialog_input_hint">Дополнительная обратная связь</string>
-  <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Обратная связь отправлена.</string>
 </resources>

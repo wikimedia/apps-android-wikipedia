@@ -23,6 +23,8 @@ class OnboardingTest : BaseTest<MainActivity>(
     fun startOnboardingTest() {
         onboardingRobot
             .checkWelcomeScreenViewsForVisibility()
+            .checkPrimaryTextViewColor()
+            .checkSecondaryTextViewColor()
             .verifyAppLanguageMatchesDeviceLanguage()
             .swipeAllTheWayToEnd()
             .swipeBackToWelcomeScreen()

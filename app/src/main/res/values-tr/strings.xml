@@ -1662,5 +1662,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Çok mutsuz</string>
   <string name="survey_dialog_cancel">İptal</string>
   <string name="survey_dialog_submit">Gönder</string>
-  <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Geri bildirim gönderildi.</string>
 </resources>
