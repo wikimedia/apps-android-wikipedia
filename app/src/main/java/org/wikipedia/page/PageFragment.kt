@@ -963,7 +963,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
         openInNewTab(title, entry, foregroundTabPosition)
-        pageFragmentLoadState.loadFromBackStack()
     }
 
     fun openFromExistingTab(title: PageTitle, entry: HistoryEntry) {
