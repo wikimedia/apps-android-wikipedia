@@ -1,6 +1,7 @@
 package org.wikipedia.page.references
 
 import android.app.Dialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +13,18 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import org.jsoup.Jsoup
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.FragmentReferencesPagerBinding
 import org.wikipedia.databinding.ViewReferencePagerItemBinding
+import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkHandler
-import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageViewModel
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import java.util.Locale
 
@@ -32,6 +37,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
 
     private var _binding: FragmentReferencesPagerBinding? = null
     private val binding get() = _binding!!
+    private val blankModel = PageViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentReferencesPagerBinding.inflate(inflater, container, false)
@@ -88,16 +94,13 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    private inner class ViewHolder constructor(val binding: ViewReferencePagerItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.referenceText.movementMethod = LinkMovementMethodExt(callback()?.linkHandler)
-        }
+    private inner class ViewHolder(val binding: ViewReferencePagerItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindItem(idText: CharSequence?, reference: PageReferences.Reference) {
             binding.referenceId.text = idText
             binding.root.post {
                 if (isAdded) {
-                    val contents = StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(reference.html)))
+                    val contents = reference.html
                     if (contents.isEmpty()) {
                         // Inspect html for links without anchor text
                         val links = Jsoup.parse(reference.html).select("a[href]").map { it.attr("href") }
@@ -105,18 +108,42 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
                         for (i in links.indices) {
                             tags = tags.plus("<a href='${links[i]}'>[${i + 1}]</a>")
                         }
-                        binding.referenceText.text = StringUtil.fromHtml(tags)
+                        setContent(tags)
                         binding.referenceExtLink.isVisible = tags.isNotEmpty()
                         return@post
                     }
                     binding.referenceExtLink.isVisible = false
-                    binding.referenceText.text = contents
+                    setContent(contents)
                 }
             }
         }
+
+        private fun setContent(html: String) {
+                val wikiSite = callback()?.linkHandler?.wikiSite ?: WikipediaApp.instance.wikiSite
+                val colorHex = ResourceUtil.colorToCssString(
+                    ResourceUtil.getThemedColor(
+                        requireContext(),
+                        android.R.attr.textColorPrimary
+                    )
+                )
+                val dir = if (L10nUtil.isLangRTL(wikiSite.languageCode)) "rtl" else "ltr"
+                binding.referenceTextWebView.setBackgroundColor(Color.TRANSPARENT)
+                binding.referenceTextWebView.webViewClient = object: OkHttpWebViewClient() {
+                    override val model get() = blankModel
+                    override val linkHandler get() = callback()?.linkHandler!!
+                    override val linkHandlerOverride get() = true
+                }
+                binding.referenceTextWebView.loadDataWithBaseURL(
+                    wikiSite.uri.buildUpon().toString(),
+                    "${JavaScriptActionHandler.getCssStyles(wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$html</div>",
+                    "text/html",
+                    "UTF-8",
+                    null
+                )
+        }
     }
 
-    private inner class ReferencesAdapter constructor(val references: List<PageReferences.Reference>) : RecyclerView.Adapter<ViewHolder>() {
+    private inner class ReferencesAdapter(val references: List<PageReferences.Reference>) : RecyclerView.Adapter<ViewHolder>() {
         override fun getItemCount(): Int {
             return references.size
         }

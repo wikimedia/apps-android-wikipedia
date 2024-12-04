@@ -390,6 +390,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
             override val linkHandler get() = this@PageFragment.linkHandler
 
+            override val linkHandlerOverride get() = this@PageFragment.model.shouldLoadAsMobileWeb
+
             override fun onPageFinished(view: WebView, url: String) {
                 bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
                     if (!isAdded) {
