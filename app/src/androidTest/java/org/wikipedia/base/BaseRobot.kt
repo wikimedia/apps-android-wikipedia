@@ -373,7 +373,7 @@ abstract class BaseRobot {
         isAttr: Boolean = false
     ) {
         onView(withId(textViewId))
-            .check(matches(ColorMatchers.withTextColor(colorResOrAttr, isAttr)))
+            .check(ColorAssertions.hasColor(colorResOrAttr, isAttr, ColorAssertions.ColorType.TextColor))
     }
 
     protected fun verifyBackgroundColor(
@@ -382,7 +382,7 @@ abstract class BaseRobot {
         isAttr: Boolean = false
     ) {
         onView(withId(viewId))
-            .check((matches(ColorMatchers.withBackgroundColor(colorResOrAttr, isAttr))))
+            .check(ColorAssertions.hasColor(colorResOrAttr, isAttr, ColorAssertions.ColorType.BackgroundColor))
     }
 
     protected fun verifyTintColor(
