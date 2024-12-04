@@ -1,15 +1,22 @@
 package org.wikipedia.robots.feature
 
 import android.app.Activity
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
 import org.wikipedia.R
+import org.wikipedia.base.AssertJavascriptAction
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class PageRobot : BaseRobot() {
+    fun assertEditPencilVisibility(isVisible: Boolean) = apply {
+        assertElementVisibility("a[data-id='0'].pcs-edit-section-link", isVisible)
+    }
+
     fun clickEditPencilAtTopOfArticle() = apply {
         onWebView()
             .withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
@@ -172,5 +179,10 @@ class PageRobot : BaseRobot() {
     fun removeArticleFromReadingList() = apply {
         clickOnViewWithText("Remove from Saved")
         delay(TestConfig.DELAY_LARGE)
+    }
+
+    private fun assertElementVisibility(elementSelector: String, isVisible: Boolean) {
+        onView(withId(R.id.page_web_view))
+            .perform(AssertJavascriptAction("(function() { return document.querySelector(\"$elementSelector\").checkVisibility() })();", isVisible.toString()))
     }
 }

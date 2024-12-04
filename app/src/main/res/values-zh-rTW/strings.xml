@@ -1744,5 +1744,5 @@
   <string name="survey_dialog_cancel">取消</string>
   <string name="survey_dialog_submit">提交</string>
   <string name="survey_dialog_input_hint">額外回饋</string>
-  <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。</string>
+  <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。謝謝！</string>
 </resources>
