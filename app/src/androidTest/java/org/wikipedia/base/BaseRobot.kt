@@ -407,6 +407,16 @@ abstract class BaseRobot {
         onView(withId(viewId))
             .check((matches(ColorMatchers.withTintColor(colorResOrAttr, isAttr))))
     }
+
+    private fun hasText(text: String) = object : BoundedMatcher<View, TextView>(TextView::class.java) {
+        override fun describeTo(description: Description?) {
+            description?.appendText("contains text $text")
+        }
+
+        override fun matchesSafely(item: TextView): Boolean {
+            return item.text.toString().contains(text, ignoreCase = true)
+        }
+    }
 }
 
 class NestedScrollViewExtension(scrollToAction: ViewAction = ViewActions.scrollTo()) : ViewAction by scrollToAction {
@@ -418,15 +428,5 @@ class NestedScrollViewExtension(scrollToAction: ViewAction = ViewActions.scrollT
                 ViewMatchers.isAssignableFrom(ScrollView::class.java),
                 ViewMatchers.isAssignableFrom(HorizontalScrollView::class.java),
                 ViewMatchers.isAssignableFrom(ListView::class.java))))
-    }
-
-    private fun hasText(text: String) = object : BoundedMatcher<View, TextView>(TextView::class.java) {
-        override fun describeTo(description: Description?) {
-            description?.appendText("contains text $text")
-        }
-
-        override fun matchesSafely(item: TextView): Boolean {
-            return item.text.toString().contains(text, ignoreCase = true)
-        }
     }
 }

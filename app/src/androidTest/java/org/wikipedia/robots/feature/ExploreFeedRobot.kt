@@ -9,7 +9,6 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
@@ -20,12 +19,13 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
+import org.wikipedia.Constants
+import org.wikipedia.Constants.SUGGESTED_EDITS
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
-import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.base.BaseRobot
+import org.wikipedia.base.ColorAssertions
 import org.wikipedia.base.TestConfig
-import org.wikipedia.tests.ExploreFeedTest.Companion.SUGGESTED_EDITS
 
 class ExploreFeedRobot : BaseRobot() {
     fun clickOnThisDayCard() = apply {
@@ -155,22 +155,6 @@ class ExploreFeedRobot : BaseRobot() {
         }
     }
 
-    // @TODO: flaky test due to snackbar
-    fun addOrRemoveToWatchList() = apply {
-        val isVisible = onView(withText("Watch"))
-        if (isVisible.isDisplayed()) {
-            clickOnViewWithText("Watch")
-            onView(withId(com.google.android.material.R.id.snackbar_text))
-                .check(matches(isDisplayed()))
-            changWatchListArticleExpiryFromTheSnackBar()
-        } else {
-            clickOnViewWithText("Unwatch")
-            onView(withId(com.google.android.material.R.id.snackbar_text))
-                .check(matches(isDisplayed()))
-            delay(TestConfig.DELAY_SHORT)
-        }
-    }
-
     private fun changWatchListArticleExpiryFromTheSnackBar() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(
             viewId = com.google.android.material.R.id.snackbar_action,
@@ -212,6 +196,20 @@ class ExploreFeedRobot : BaseRobot() {
             textViewId,
             verticalOffset
         )
+    }
+
+    fun assertFeaturedArticleTitleColor() = apply {
+        onView(allOf(
+            withId(R.id.view_card_header_title),
+            withText(Constants.FEATURED_ARTICLE)
+        )).check(ColorAssertions.hasColor(R.attr.primary_color, isAttr = true, ColorAssertions.ColorType.TextColor))
+    }
+
+    fun assertTopReadTitleColor() = apply {
+        onView(allOf(
+            withId(R.id.view_card_header_title),
+            withText(Constants.TOP_READ_ARTICLES)
+        )).check(ColorAssertions.hasColor(R.attr.primary_color, isAttr = true, ColorAssertions.ColorType.TextColor))
     }
 
     private fun scrollToCardViewWithTitle(
