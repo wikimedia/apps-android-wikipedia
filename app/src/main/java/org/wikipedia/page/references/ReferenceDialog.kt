@@ -128,7 +128,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
                 )
                 val dir = if (L10nUtil.isLangRTL(wikiSite.languageCode)) "rtl" else "ltr"
                 binding.referenceTextWebView.setBackgroundColor(Color.TRANSPARENT)
-                binding.referenceTextWebView.webViewClient = object: OkHttpWebViewClient() {
+                binding.referenceTextWebView.webViewClient = object : OkHttpWebViewClient() {
                     override val model get() = blankModel
                     override val linkHandler get() = callback()?.linkHandler!!
                     override val linkHandlerOverride get() = true
