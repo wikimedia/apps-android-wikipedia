@@ -30,9 +30,14 @@ class OnboardingTest : BaseTest<MainActivity>(
             .swipeBackToWelcomeScreen()
             .moveAllTheWayToEndUsingTapButton()
             .swipeBackToWelcomeScreen()
-            .checkWelcomeScreenViewsForVisibility()
-            .skipWelcomeScreen()
-        systemRobot
-            .clickOnSystemDialogWithText("Allow")
+    systemRobot
+        .enableDarkMode(context)
+    onboardingRobot
+        .checkWelcomeScreenViewsForVisibility()
+        .checkPrimaryTextViewColor()
+        .checkSecondaryTextViewColor()
+        .skipWelcomeScreen()
+    systemRobot
+        .clickOnSystemDialogWithText("Allow")
     }
 }
