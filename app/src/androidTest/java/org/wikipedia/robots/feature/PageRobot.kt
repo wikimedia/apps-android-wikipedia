@@ -38,13 +38,9 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun openInNewTab() = apply {
+    fun openPreviewLinkInNewTab() = apply {
         clickOnDisplayedView(R.id.link_preview_secondary_button)
         delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun verifyTabCount(count: String) = apply {
-        checkWithTextIsDisplayed(R.id.tabsCountText, count)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
@@ -102,16 +98,6 @@ class PageRobot : BaseRobot() {
 
     fun enableJavaScript() = apply {
         onWebView().forceJavascriptEnabled()
-    }
-
-    fun launchTabsScreen() = apply {
-        clickOnDisplayedView(R.id.page_toolbar_button_tabs)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun createNewTabWithContentDescription(text: String) = apply {
-        clickOnDisplayedViewWithContentDescription(text)
-        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickOnPreviewTabInTheList(position: Int) = apply {
@@ -179,6 +165,11 @@ class PageRobot : BaseRobot() {
     fun removeArticleFromReadingList() = apply {
         clickOnViewWithText("Remove from Saved")
         delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun navigateUp() = apply {
+        clickOnDisplayedViewWithContentDescription("Navigate up")
+        delay(TestConfig.DELAY_SHORT)
     }
 
     private fun assertElementVisibility(elementSelector: String, isVisible: Boolean) {
