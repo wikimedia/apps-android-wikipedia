@@ -38,8 +38,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
 
-    private var isLoading = false
-
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
@@ -116,10 +114,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     private fun pageLoad() {
-        if (isLoading) {
-            return
-        }
-        isLoading = true
         model.title?.let { title ->
             fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e("Page details network error: ", throwable)
@@ -179,7 +173,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                     checkAnonNotifications(title)
                 }
-                isLoading = false
             }
         }
     }
