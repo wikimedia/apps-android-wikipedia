@@ -44,7 +44,7 @@ roomVersion = "2.6.1"
 swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
-workRuntimeKtx = "2.9.1"
+workRuntimeKtx = "2.10.0"
 
 [libraries]
 android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
