@@ -25,9 +25,10 @@ abstract class OkHttpWebViewClient : WebViewClient() {
 
     abstract val model: PageViewModel
     abstract val linkHandler: LinkHandler
+    abstract val linkHandlerOverride: Boolean
 
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-        if (model.shouldLoadAsMobileWeb) {
+        if (linkHandlerOverride) {
             // If the page was loaded as Mobile Web, then pass all link clicks through
             // to our own link handler.
             linkHandler.onUrlClick(UriUtil.decodeURL(url), null, "")

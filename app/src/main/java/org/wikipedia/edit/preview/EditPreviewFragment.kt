@@ -102,6 +102,8 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
             override val linkHandler get() = this@EditPreviewFragment.linkHandler
 
+            override val linkHandlerOverride get() = this@EditPreviewFragment.model.shouldLoadAsMobileWeb
+
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
                 if (!isAdded) {
