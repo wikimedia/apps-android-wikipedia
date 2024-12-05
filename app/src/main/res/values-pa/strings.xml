@@ -117,6 +117,7 @@
   <string name="map_view_link_text">ਨਕਸ਼ੇ ਤੇ ਵੇਖੋ</string>
   <string name="other_languages_indication_text">ਹੋਰ ਭਾਸ਼ਾ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="language_count_link_text">%d ਹੋਰਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਉਪਲਬਧ ਹੈ</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
   <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="edit_anon_warning">ਸੋਧਾਂ ਨੂੰ ਤੁਹਾਡੀ ਜੰਤਰ ਦੇ IP ਪਤੇ ਨਾਲ ਜੋੜਿਆ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ, ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ ਵਧੇਰੇ ਨਿੱਜਤਾ ਹੋਵੇਗੀ।</string>
@@ -237,13 +238,15 @@
   <string name="privacy_policy_description">ਪਰਦਾ ਨੀਤੀ</string>
   <string name="terms_of_use_description">ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
   <string name="about_wikipedia_url">https://pa.wikipedia.org/wiki/ਵਿਕੀਪੀਡੀਆ:ਬਾਰੇ</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;ਟੀਮ ਸਫ਼ਾ&lt;/a&gt;</string>
@@ -273,6 +276,8 @@
     <item quantity="one">%s ਬਾਈਟ</item>
     <item quantity="other">%s ਬਾਈਟਾਂ</item>
   </plurals>
+  <string name="edit_zoom_in">ਅੰਦਰ ਨੂੰ ਜ਼ੂਮ ਕਰੋ</string>
+  <string name="edit_zoom_out">ਬਾਹਰ ਨੂੰ ਜ਼ੂਮ ਕਰੋ</string>
   <string name="edit_summary_tag_typo">ਹਿੱਜੇ ਸਹੀ ਕੀਤੇ</string>
   <string name="edit_summary_tag_grammar">ਵਿਆਕਰਨ ਸਹੀ ਕੀਤੀ</string>
   <string name="edit_summary_tag_links">ਕੜੀਆਂ ਜੋੜੀਆਂ</string>
@@ -438,6 +443,7 @@
   <string name="article_menu_bar_save_button">ਸਾਂਭੋ</string>
   <string name="article_menu_bar_language_button">ਭਾਸ਼ਾ</string>
   <string name="article_menu_bar_search_button">ਖੋਜੋ</string>
+  <string name="article_menu_bar_theme_button">ਥੀਮ</string>
   <string name="article_menu_bar_contents_button">ਸਮੱਗਰੀ</string>
   <string name="article_header_edit_hint">ਸੋਧੋ…</string>
   <string name="article_header_edit_description">ਲੇਖ ਦਾ ਵੇਰਵਾ ਸੋਧੋ</string>
@@ -608,6 +614,8 @@
   <string name="reading_lists_preview_saved_snackbar_action">ਵੇਖੋ</string>
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
   <string name="notification_reverted_title">ਸੋਧਾਂ ਵਾਪਸ ਕੀਤਿਆਂ</string>
+  <string name="notification_channel_title">ਲੇਖ ਡਾਊਨਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ</string>
+  <string name="notification_channel_description">ਡਾਊਨਲੋਡ ਪ੍ਰਗਤੀ</string>
   <string name="notification_syncing_pause_button">ਰੋਕੋ</string>
   <string name="notification_syncing_resume_button">ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ</string>
   <string name="notification_syncing_cancel_button">ਰੱਦ ਕਰੋ</string>
@@ -685,6 +693,8 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">ਵਿਕੀਪੀਡੀਆ ਤੋਂ ਸੂਚਨਾਵਾਂ</string>
   <string name="notifications_channel_group_other_title">ਹੋਰ</string>
   <string name="notifications_channel_group_other_description">ਐਪ ਤੋਂ ਹੋਰ ਸੂਚਨਾਵਾਂ</string>
+  <string name="notifications_filter_label">ਫਿਲਟਰ ਸੂਚਨਾਵਾਂ</string>
+  <string name="notifications_filter_icon_content_description">ਫਿਲਟਰ ਸੂਚਨਾਵਾਂ</string>
   <string name="notifications_filter_update_app_languages">ਐਪ ਭਾਸ਼ਾਵਾਂ ਨੂੰ ਨਵਿਆਓ</string>
   <string name="notifications_empty_search_message">ਹੋਰ ਸੂਚਨਾਵਾਂ ਦੇਖਣ ਲਈ %s ਨੂੰ ਹਟਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="notifications_tab_filter_all">ਸਾਰੇ</string>
@@ -1269,7 +1279,9 @@
   <string name="action_item_categories">ਸ਼੍ਰੇਣੀਆਂ</string>
   <string name="page_no_categories">ਇਹ ਸਫ਼ਾ ਕਿਸੇ ਵੀ ਸ਼੍ਰੇਣੀ ਨਾਲ ਨਹੀਂ ਜੁੜਿਆ ਹੈ।</string>
   <string name="category_tab_articles">ਲੇਖ</string>
+  <string name="category_tab_subcategories">ਉਪਸ਼੍ਰੇਣੀਆਂ</string>
   <string name="category_empty">ਇਸ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਕੋਈ ਲੇਖ ਨਹੀਂ ਮਿਲਿਆ।</string>
+  <string name="subcategory_empty">ਇਸ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਕੋਈ ਉਪ-ਸ਼੍ਰੇਣੀਆਂ ਨਹੀਂ ਮਿਲੀਆਂ।</string>
   <string name="search_namespaces">ਨਾਂ-ਥਾਂ</string>
   <string name="revision_initial_none">ਕੋਈ ਨਹੀਂ (ਇਹ ਪਹਿਲੀ ਸੋਧ ਹੈ)</string>
   <string name="user_contrib_activity_title">%s ਦੇ ਯੋਗਦਾਨ</string>
@@ -1332,6 +1344,7 @@
   <string name="patroller_tasks_filters_reset">ਮੁੜ-ਬਣਾਓ</string>
   <string name="patroller_tasks_filters_wiki_filter_header">ਵਿਕੀ</string>
   <string name="patroller_tasks_filters_all_text">ਸਾਰੇ</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">ਅਣਰਜਿਸਟਰਡ</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">ਸੋਧਕ ਜੋ ਦਾਖਲ ਨਹੀਂ ਹਨ।</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">ਦਾਖਲ ਹੋਏ ਸੋਧਕ।</string>
   <string name="patroller_tasks_filters_user_status_newcomers">ਨਵੇਂ ਆਏ</string>

@@ -1825,6 +1825,8 @@
   <string name="rabbit_holes_experiment_about">על הניסוי הזה</string>
   <string name="rabbit_holes_survey_dialog_title">עזרו לנו לשפר את \"מחילת הארנב\"</string>
   <string name="rabbit_holes_survey_dialog_body">האם תוצאת החיפוש המומלצת מוצאת חן בעיניך?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">עזרו לנו לשפר את רשימות הקריאה המומלצת</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">האם רשימת הקריאה המומלצת נושאת חן בעיניך?</string>
   <string name="suggested_reading_list_title">על סמך מה שקראת</string>
   <string name="suggested_reading_list_description">בהשראת \"%s\"</string>
   <string name="suggested_reading_list_description_multi">בהשראת %1$s וגם %2$s</string>

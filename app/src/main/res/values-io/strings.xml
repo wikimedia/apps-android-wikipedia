@@ -501,7 +501,7 @@
   <string name="reading_list_menu_select">Selektar</string>
   <string name="reading_list_menu_unselect">Desselektar</string>
   <string name="reading_list_export_write_permission_rationale">On bezonas permiso por skribar, por enmagazinigar la lektebla listo en tua lokala aparato.</string>
-  <string name="reading_list_menu_rename">Rinomizar/deskripto</string>
+  <string name="reading_list_menu_rename">Modifikar nomo/deskripto</string>
   <string name="reading_list_action_menu_remove_from_offline">Eliminar de la konservo \'offline\'</string>
   <string name="reading_list_action_menu_save_for_offline">Disponigar \'offline\'</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Efacar omna artikli \'offline\'</string>

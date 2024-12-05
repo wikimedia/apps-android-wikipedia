@@ -12,7 +12,7 @@ import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogUndoEditBinding
 import org.wikipedia.util.ResourceUtil
 
-class UndoEditDialog constructor(
+class UndoEditDialog(
     private val editHistoryInteractionEvent: EditHistoryInteractionEvent?,
     context: Context,
     source: Constants.InvokeSource?,
