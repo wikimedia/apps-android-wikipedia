@@ -215,7 +215,6 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
         }
     }
 
-    @Suppress("KotlinConstantConditions")
     fun undoEdit(title: PageTitle, user: String, comment: String, revisionId: Long, revisionIdAfter: Long) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             undoEditResponse.postValue(Resource.Error(throwable))
