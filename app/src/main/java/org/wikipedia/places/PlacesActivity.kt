@@ -3,12 +3,19 @@ package org.wikipedia.places
 import android.content.Context
 import android.content.Intent
 import android.location.Location
+import android.os.Bundle
 import org.wikipedia.Constants
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 
 class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        disableFitsSystemWindows()
+    }
+
     public override fun createFragment(): PlacesFragment {
         return PlacesFragment.newInstance(intent.parcelableExtra(Constants.ARG_TITLE), intent.parcelableExtra(EXTRA_LOCATION))
     }

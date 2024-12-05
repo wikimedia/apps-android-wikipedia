@@ -2,6 +2,7 @@
 <!-- Authors:
 * Ajeje Brazorf
 * Dbrant
+* GianAntonucci
 * Statix64
 -->
 <resources>
@@ -282,7 +283,7 @@
   <string name="notifications_swipe_action_read">Leggi</string>
   <string name="notifications_menu_user_talk_page">Pàggina di discussioni di %s</string>
   <string name="view_main_page_card_title">Oi supra Wikipedia</string>
-  <string name="view_main_page_card_action">Talìa la pàggina principali</string>
+  <string name="view_main_page_card_action">Talìa a pàggina mastra</string>
   <string name="view_featured_image_card_title">Mmàggini dû jornu</string>
   <string name="view_featured_image_card_download">Scàrrica</string>
   <string name="view_featured_image_card_share">Cunnividi</string>

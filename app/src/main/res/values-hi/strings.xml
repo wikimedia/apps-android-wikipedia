@@ -1462,5 +1462,5 @@
   <string name="survey_dialog_option_very_satisfied">बहुत संतुष्ट</string>
   <string name="survey_dialog_option_very_unsatisfied">बहुत असंतुष्ट</string>
   <string name="survey_dialog_submit">जमा करें</string>
-  <string name="survey_dialog_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">फीडबैक जमा किया गया. धन्यवाद!</string>
 </resources>
