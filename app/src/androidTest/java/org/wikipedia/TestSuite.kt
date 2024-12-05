@@ -9,6 +9,7 @@ import org.wikipedia.tests.SuggestedEditScreenTest
 @RunWith(Suite::class)
 @SuiteClasses(
     OnboardingTest::class,
-    SuggestedEditScreenTest::class
+    SuggestedEditScreenTest::class,
+    ExploreFeedTestSuite::class,
 )
 class TestSuite

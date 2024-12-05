@@ -2,6 +2,7 @@ package org.wikipedia.base
 
 import android.app.Activity
 import android.graphics.Rect
+import android.util.Log
 import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.ListView
@@ -53,6 +54,13 @@ import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
+
+    protected fun clickOnViewWithIdAndContainsString(@IdRes viewId: Int, text: String) {
+        onView(allOf(
+            withId(viewId),
+            hasText(text),
+        )).perform(scrollAndClick())
+    }
 
     protected fun clickOnViewWithId(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(click())
@@ -210,6 +218,7 @@ abstract class BaseRobot {
             action()
         } catch (e: Exception) {
             // Dialog not shown or text not found
+            Log.e("error", "")
         }
     }
 
@@ -295,6 +304,11 @@ abstract class BaseRobot {
 
     protected fun scrollToViewInsideNestedScrollView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(NestedScrollViewExtension())
+    }
+
+    protected fun makeViewVisibleAndClick(@IdRes viewId: Int, @IdRes parentViewId: Int) {
+        onView(allOf(withId(viewId), isDescendantOfA(withId(parentViewId))))
+            .perform(scrollAndClick())
     }
 
     fun scrollToRecyclerView(
@@ -392,6 +406,16 @@ abstract class BaseRobot {
     ) {
         onView(withId(viewId))
             .check((matches(ColorMatchers.withTintColor(colorResOrAttr, isAttr))))
+    }
+
+    private fun hasText(text: String) = object : BoundedMatcher<View, TextView>(TextView::class.java) {
+        override fun describeTo(description: Description?) {
+            description?.appendText("contains text $text")
+        }
+
+        override fun matchesSafely(item: TextView): Boolean {
+            return item.text.toString().contains(text, ignoreCase = true)
+        }
     }
 }
 

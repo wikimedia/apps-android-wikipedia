@@ -18,6 +18,7 @@ object TestConfig {
     const val DELAY_SHORT = 1L
     const val DELAY_MEDIUM = 2L
     const val DELAY_LARGE = 5L
+    const val DELAY_SWIPE_TO_REFRESH = 8L
     const val SEARCH_TERM = "hopf fibration"
     const val ARTICLE_TITLE = "Hopf fibration"
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
