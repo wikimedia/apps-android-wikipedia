@@ -1,9 +1,7 @@
 package org.wikipedia.robots.feature
 
-import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.test.espresso.Espresso.onView
@@ -14,14 +12,12 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.google.android.material.imageview.ShapeableImageView
-import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
@@ -29,6 +25,7 @@ import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.base.BaseRobot
+import org.wikipedia.base.ColorAssertions
 import org.wikipedia.base.TestConfig
 import org.wikipedia.feed.view.FeedView
 
@@ -194,34 +191,17 @@ class ExploreFeedRobot : BaseRobot() {
     fun verifyTopReadArticleIsGreyedOut() = apply {
         delay(TestConfig.DELAY_MEDIUM)
         onView(withId(R.id.view_list_card_list))
-            .check(matches(hasViewAtPosition(1, R.id.view_list_card_item_image, R.color.gray200)))
-    }
-
-    private fun hasViewAtPosition(position: Int, targetViewId: Int, expectedColorRes: Int): Matcher<View> {
-        return object : BoundedMatcher<View, View>(View::class.java) {
-            override fun describeTo(description: Description) {
-                description.appendText("at position $position")
+            .check { view, _ ->
+                val recyclerView = view as RecyclerView
+                val viewHolder = recyclerView.findViewHolderForAdapterPosition(0)
+                    ?: throw AssertionError("No viewHolder found at position 0")
+                val imageView = viewHolder.itemView.findViewById<ShapeableImageView>(R.id.view_list_card_item_image)
+                    ?: throw AssertionError("No ImageView found with id view_list_card_item_image")
+                ColorAssertions.hasColor(
+                    colorResOrAttr = R.attr.border_color,
+                    isAttr = true,
+                    colorType = ColorAssertions.ColorType.ShapeableImageViewColor
+                ).check(imageView, null)
             }
-
-            override fun matchesSafely(view: View): Boolean {
-                if (view !is RecyclerView) return false
-
-                val viewHolder = view.findViewHolderForAdapterPosition(position) ?: return false
-
-                val targetView = viewHolder.itemView.findViewById<View>(targetViewId) as? ShapeableImageView
-                    ?: return false
-
-                val expectedColor = ContextCompat.getColor(view.context, expectedColorRes)
-                val actualColor = when {
-                    targetView.drawable != null -> {
-                        val colorDrawable = targetView.drawable as? ColorDrawable
-                        colorDrawable?.color ?: return false
-                    }
-                    else -> return false
-                }
-
-                return expectedColor == actualColor
-            }
-        }
     }
 }

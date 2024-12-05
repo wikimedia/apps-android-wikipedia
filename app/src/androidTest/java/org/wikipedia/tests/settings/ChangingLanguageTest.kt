@@ -38,13 +38,18 @@ class ChangingLanguageTest : BaseTest<MainActivity>(
         settingsRobot
             .clickLanguages()
         languageListRobot
+            .assertAddLanguageTextColor()
             .addNewLanguage()
             .scrollToLanguageAndClick(HEBREW)
+        systemRobot
+            .disableDarkMode(context)
+        languageListRobot
             .addNewLanguage()
             .openSearchLanguage()
         searchRobot
             .typeTextInView(JAPANESE)
         languageListRobot
+            .assertJapaneseLanguageTextColor()
             .scrollToLanguageAndClick(JAPANESE)
             .pressBack()
             .pressBack()
@@ -57,6 +62,7 @@ class ChangingLanguageTest : BaseTest<MainActivity>(
             .checkLanguageAvailability(HEBREW)
             .clickLanguage(HEBREW)
             .typeTextInView(searchTerm)
+            .checkSearchListItemHasRTLDirection()
         setDeviceOrientation(isLandscape = false)
     }
 }

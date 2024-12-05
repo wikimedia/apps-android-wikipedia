@@ -24,6 +24,7 @@ import androidx.test.espresso.action.ViewActions.swipeRight
 import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
@@ -47,6 +48,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
+import org.hamcrest.TypeSafeMatcher
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.waitOnId
@@ -396,6 +398,39 @@ abstract class BaseRobot {
     ) {
         onView(withId(viewId))
             .check((matches(ColorMatchers.withTintColor(colorResOrAttr, isAttr))))
+    }
+
+    protected fun checkRTLDirectionOfAView(@IdRes viewId: Int) {
+        onView(withId(viewId),)
+            .check(matches(isLayoutDirectionRTL()))
+    }
+
+    protected fun checkRTLDirectionOfRecyclerViewItem(@IdRes recyclerViewId: Int) {
+        onView(withId(recyclerViewId))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(0))
+            .check(matches(atPosition(0, isLayoutDirectionRTL())))
+    }
+
+    private fun atPosition(position: Int, matcher: Matcher<View>) = object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
+        override fun describeTo(description: Description) {
+            description.appendText("has item at position $position")
+        }
+
+        override fun matchesSafely(recylerView: RecyclerView): Boolean {
+            val viewHolder = recylerView.findViewHolderForAdapterPosition(position)
+                ?: return false
+            return matcher.matches(viewHolder.itemView)
+        }
+    }
+
+    private fun isLayoutDirectionRTL() = object : TypeSafeMatcher<View>() {
+        override fun describeTo(description: Description) {
+            description.appendText("with layout direction RTL")
+        }
+
+        override fun matchesSafely(view: View): Boolean {
+            return view.layoutDirection == View.LAYOUT_DIRECTION_RTL
+        }
     }
 }
 

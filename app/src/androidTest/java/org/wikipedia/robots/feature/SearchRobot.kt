@@ -49,6 +49,10 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun checkSearchListItemHasRTLDirection() = apply {
+        checkRTLDirectionOfRecyclerViewItem(R.id.search_results_list)
+    }
+
     fun pressBack() = apply {
         goBack()
         delay(TestConfig.DELAY_SHORT)

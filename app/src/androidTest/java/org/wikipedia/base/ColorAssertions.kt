@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.test.espresso.ViewAssertion
+import com.google.android.material.imageview.ShapeableImageView
 import org.junit.Assert.assertTrue
 
 object ColorAssertions {
@@ -15,12 +16,13 @@ object ColorAssertions {
         data object TextColor : ColorType()
         data object BackgroundColor : ColorType()
         data object Tint : ColorType()
+        data object ShapeableImageViewColor : ColorType()
     }
 
     fun hasColor(
         colorResOrAttr: Int,
-        isAttr: Boolean = false,
-        colorType: ColorType
+        isAttr: Boolean = true,
+        colorType: ColorType = ColorType.TextColor
     ) = ViewAssertion { view, noViewFoundExecption ->
         val context = view.context
         val expectedColor = resolveColor(context, colorResOrAttr, isAttr)
@@ -28,6 +30,11 @@ object ColorAssertions {
             ColorType.BackgroundColor -> (view.background as ColorDrawable).color
             ColorType.TextColor -> (view as TextView).currentTextColor
             ColorType.Tint -> ImageViewCompat.getImageTintList(view as ImageView)?.defaultColor
+            ColorType.ShapeableImageViewColor -> {
+                val targetView = (view as ShapeableImageView)
+                val colorDrawable = targetView.drawable as? ColorDrawable
+                colorDrawable?.color
+            }
         }
 
         assertTrue(
