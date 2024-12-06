@@ -2,6 +2,8 @@ package org.wikipedia.robots
 
 import android.content.Context
 import android.util.Log
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
@@ -34,12 +36,28 @@ class SystemRobot : BaseRobot() {
     }
 
     fun enableDarkMode(context: Context) = apply {
-        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-        device.executeShellCommand("cmd uimode night yes")
+        try {
+            val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+            device.waitForIdle()
+            device.executeShellCommand("cmd uimode night yes")
+            TestUtil.delay(3)
+            device.waitForIdle()
+            onView(isRoot()).perform(TestUtil.waitOnId(1000))
+        } catch (e: Exception) {
+            Log.e("SystemRobot", "Error while enabling dark mode", e)
+        }
     }
 
     fun disableDarkMode(context: Context) = apply {
-        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-        device.executeShellCommand("cmd uimode night no")
+        try {
+            val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+            device.waitForIdle()
+            device.executeShellCommand("cmd uimode night no")
+            TestUtil.delay(3)
+            device.waitForIdle()
+            onView(isRoot()).perform(TestUtil.waitOnId(1000))
+        } catch (e: Exception) {
+            Log.e("SystemRobot", "Error while disabling dark mode", e)
+        }
     }
 }
