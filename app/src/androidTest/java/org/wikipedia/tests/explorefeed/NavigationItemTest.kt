@@ -6,6 +6,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 
 @LargeTest
@@ -14,9 +15,12 @@ class NavigationItemTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
     private val bottomNavRobot = BottomNavRobot()
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         // Checking the navigation menu items
         bottomNavRobot
             .navigateToSavedPage()
