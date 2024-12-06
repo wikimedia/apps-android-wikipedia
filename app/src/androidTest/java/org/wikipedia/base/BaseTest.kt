@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.test.espresso.IdlingPolicies
+import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
@@ -18,6 +19,7 @@ object TestConfig {
     const val DELAY_SHORT = 1L
     const val DELAY_MEDIUM = 2L
     const val DELAY_LARGE = 5L
+    const val DELAY_SWIPE_TO_REFRESH = 8L
     const val SEARCH_TERM = "hopf fibration"
     const val ARTICLE_TITLE = "Hopf fibration"
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
@@ -53,6 +55,7 @@ abstract class BaseTest<T : AppCompatActivity>(
 
     @Before
     open fun setup() {
+        Intents.init()
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         IdlingPolicies.setMasterPolicyTimeout(20, TimeUnit.SECONDS)
         activityScenarioRule.scenario.onActivity {
@@ -67,6 +70,6 @@ abstract class BaseTest<T : AppCompatActivity>(
 
     @After
     open fun tearDown() {
-        // @TODO
+        Intents.release()
     }
 }

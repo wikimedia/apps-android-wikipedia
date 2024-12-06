@@ -47,6 +47,8 @@ class BottomNavRobot : BaseRobot() {
     fun navigateToSuggestedEdits() = apply {
         onView(
             allOf(
+                withId(R.id.nav_tab_edits), withContentDescription(if (ContributionsDashboardHelper.contributionsDashboardEnabled) R.string.nav_item_contribute
+                else R.string.nav_item_suggested_edits),
                 withId(R.id.nav_tab_edits), withContentDescription(getNavTabEditsIdRes()),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed()
             )

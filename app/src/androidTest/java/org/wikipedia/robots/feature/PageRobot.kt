@@ -1,11 +1,13 @@
 package org.wikipedia.robots.feature
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
+import androidx.test.espresso.web.webdriver.DriverAtoms.webScrollIntoView
 import androidx.test.espresso.web.webdriver.Locator
 import org.wikipedia.R
 import org.wikipedia.base.AssertJavascriptAction
@@ -13,9 +15,6 @@ import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class PageRobot : BaseRobot() {
-    fun assertEditPencilVisibility(isVisible: Boolean) = apply {
-        assertElementVisibility("a[data-id='0'].pcs-edit-section-link", isVisible)
-    }
 
     fun clickEditPencilAtTopOfArticle() = apply {
         onWebView()
@@ -109,7 +108,7 @@ class PageRobot : BaseRobot() {
     }
 
     fun verifyTopMostItemInTableOfContentIs(text: String) = apply {
-       checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
+        checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
     }
 
     fun swipeTableOfContentsAllTheWayToBottom() = apply {
@@ -130,11 +129,6 @@ class PageRobot : BaseRobot() {
     fun clickThirdTopic() = apply {
         clickRecyclerViewItemAtPosition(R.id.talkRecyclerView, 2)
         delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun saveArticleToReadingList() = apply {
-        clickOnViewWithId(R.id.page_save)
-        delay(TestConfig.DELAY_SHORT)
     }
 
     fun openLanguageSelector() = apply {
@@ -175,5 +169,45 @@ class PageRobot : BaseRobot() {
     private fun assertElementVisibility(elementSelector: String, isVisible: Boolean) {
         onView(withId(R.id.page_web_view))
             .perform(AssertJavascriptAction("(function() { return document.querySelector(\"$elementSelector\").checkVisibility() })();", isVisible.toString()))
+    }
+
+    fun verifyPreviewDialogAppears() = apply {
+        checkViewExists(R.id.link_preview_title)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun scrollToCollapsingTables() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
+            .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    @SuppressLint("CheckResult")
+    fun verifyTableIsCollapsed() = apply {
+        // checking if this class name exists
+        // tried multiple methods but was not able to check the style for the collapsed/expanded
+        // state of the table so instead using this className which is used when table is
+        // collapsed
+        onWebView()
+            .withElement(findElement(Locator.CLASS_NAME, "pcs-collapse-table-expanded"))
+    }
+
+    @SuppressLint("CheckResult")
+    fun verifyTableIsExpanded() = apply {
+        // checking if this class name exists
+        // tried multiple methods but was not able to check the style for the collapsed/expanded
+        // state of the table so instead using this className which is used when table is
+        // expanded
+        onWebView()
+            .withElement(findElement(Locator.CLASS_NAME, "pcs-collapse-table-collapsed"))
+    }
+
+    fun assertEditPencilVisibility(isVisible: Boolean) = apply {
+        assertElementVisibility("a[data-id='0'].pcs-edit-section-link", isVisible)
+    }
+
+    fun assertCollapsingTableIsVisible(isVisible: Boolean) = apply {
+        assertElementVisibility(".pcs-collapse-table-content", isVisible)
     }
 }
