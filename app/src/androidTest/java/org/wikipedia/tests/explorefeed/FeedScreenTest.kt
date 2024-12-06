@@ -13,9 +13,9 @@ import org.wikipedia.Constants.TODAY_ON_WIKIPEDIA_MAIN_PAGE
 import org.wikipedia.Constants.TOP_READ_ARTICLES
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.ExploreFeedRobot
-import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
 
 @LargeTest
@@ -27,7 +27,7 @@ class FeedScreenTest : BaseTest<MainActivity>(
     private val exploreFeedRobot = ExploreFeedRobot()
     private val systemRobot = SystemRobot()
     private val homeScreenRobot = HomeScreenRobot()
-    private val navRobot = BottomNavRobot()
+    private val dialogRobot = DialogRobot()
 
     @Test
     fun runTest() {
@@ -47,8 +47,10 @@ class FeedScreenTest : BaseTest<MainActivity>(
             .pressBack()
             .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
             .clickTodayOnWikipedia()
-            .dismissBigEnglishCampaignDialog()
+        dialogRobot
+            .dismissBigEnglishDialog()
             .dismissContributionDialog()
+        exploreFeedRobot
             .pressBack()
         systemRobot
             .enableDarkMode(context)

@@ -16,6 +16,7 @@ import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import com.google.android.material.imageview.ShapeableImageView
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
@@ -50,18 +51,6 @@ class ExploreFeedRobot : BaseRobot() {
             parentViewId = R.id.feed_view
         )
         delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun dismissContributionDialog() = apply {
-        performIfDialogShown("No, thanks", action = {
-            clickOnViewWithText("No, thanks")
-        })
-    }
-
-    fun dismissBigEnglishCampaignDialog() = apply {
-        performIfDialogShown("Maybe later", action = {
-            clickOnViewWithText("Maybe later")
-        })
     }
 
     fun pressBack() = apply {
@@ -117,6 +106,11 @@ class ExploreFeedRobot : BaseRobot() {
     fun openOverflowMenuItem() = apply {
         clickOnViewWithId(R.id.page_toolbar_button_show_overflow_menu)
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun verifyFeaturedArticleImageIsNotVisible() = apply {
+        checkViewDoesNotExist(viewId = R.id.articleImage)
+        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickPictureOfTheDay() = apply {
@@ -234,5 +228,22 @@ class ExploreFeedRobot : BaseRobot() {
                 return false
             }
         }
+    }
+
+    fun verifyTopReadArticleIsGreyedOut() = apply {
+        delay(TestConfig.DELAY_MEDIUM)
+        onView(withId(R.id.view_list_card_list))
+            .check { view, _ ->
+                val recyclerView = view as RecyclerView
+                val viewHolder = recyclerView.findViewHolderForAdapterPosition(0)
+                    ?: throw AssertionError("No viewHolder found at position 0")
+                val imageView = viewHolder.itemView.findViewById<ShapeableImageView>(R.id.view_list_card_item_image)
+                    ?: throw AssertionError("No ImageView found with id view_list_card_item_image")
+                ColorAssertions.hasColor(
+                    colorResOrAttr = R.attr.border_color,
+                    isAttr = true,
+                    colorType = ColorAssertions.ColorType.ShapeableImageViewColor
+                ).check(imageView, null)
+            }
     }
 }

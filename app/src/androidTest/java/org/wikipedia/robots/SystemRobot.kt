@@ -29,6 +29,7 @@ class SystemRobot : BaseRobot() {
             if (allowButton.exists()) {
                 allowButton.click()
             }
+            delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.d("dialog", "Dialog did not appear or couldn't be clicked.")
         }

@@ -11,6 +11,18 @@ import org.wikipedia.base.TestConfig
 
 class SearchRobot : BaseRobot() {
 
+    fun tapSearchView() = apply {
+        // Click the Search box
+        clickOnViewWithText("Search Wikipedia")
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickSearchContainer() = apply {
+        // Click the Search box
+        clickOnDisplayedView(R.id.search_container)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun typeTextInView(searchTerm: String) = apply {
         // Type in our search term
         typeTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)
@@ -46,6 +58,19 @@ class SearchRobot : BaseRobot() {
 
     fun navigateUp() = apply {
         clickOnDisplayedViewWithContentDescription("Navigate up")
+    }
+
+    fun checkLanguageAvailability(language: String) = apply {
+        checkViewWithIdAndText(viewId = R.id.language_label, text = language)
+    }
+
+    fun clickLanguage(language: String) = apply {
+        clicksOnDisplayedViewWithText(viewId = R.id.language_label, text = language)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun checkSearchListItemHasRTLDirection() = apply {
+        checkRTLDirectionOfRecyclerViewItem(R.id.search_results_list)
     }
 
     fun pressBack() = apply {
