@@ -134,6 +134,7 @@ object JavaScriptActionHandler {
         val showTalkLink = model.page!!.title.namespace() !== Namespace.TALK
         val showMapLink = model.page!!.pageProperties.geo != null
         val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
+        val langCode = model.title?.wikiSite?.languageCode ?: WikipediaApp.instance.appOrSystemLanguageCode
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
@@ -154,6 +155,7 @@ object JavaScriptActionHandler {
                 "   readMore: { " +
                 "       itemCount: 3," +
                 "       readMoreLazy: true," +
+                "       langCode: \"$langCode\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
@@ -164,12 +166,14 @@ object JavaScriptActionHandler {
             return ""
         }
         val baseURL = model.title?.wikiSite!!.scheme() + "://" + model.title?.wikiSite!!.uri.authority!!.trimEnd('/')
+        val langCode = model.title?.wikiSite?.languageCode ?: WikipediaApp.instance.appOrSystemLanguageCode
         return "pcs.c1.Footer.appendReadMore({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: \"$baseURL\"," +
+                "       apiBaseURL: \"$baseURL\"," +
+                "       langCode: \"$langCode\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
