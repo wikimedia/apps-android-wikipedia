@@ -1,7 +1,9 @@
 package org.wikipedia.robots.screen
 
 import android.app.Activity
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -56,7 +58,11 @@ class HomeScreenRobot : BaseRobot() {
     }
 
     fun dismissFeedCustomization() = apply {
-        clicksOnDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
-        delay(TestConfig.DELAY_SHORT)
+        try {
+            clicksOnDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: NoMatchingViewException) {
+            Log.e("DismissFeedError", e.toString())
+        }
     }
 }

@@ -23,14 +23,21 @@ class OnboardingTest : BaseTest<MainActivity>(
     fun startOnboardingTest() {
         onboardingRobot
             .checkWelcomeScreenViewsForVisibility()
+            .checkPrimaryTextViewColor()
+            .checkSecondaryTextViewColor()
             .verifyAppLanguageMatchesDeviceLanguage()
             .swipeAllTheWayToEnd()
             .swipeBackToWelcomeScreen()
             .moveAllTheWayToEndUsingTapButton()
             .swipeBackToWelcomeScreen()
-            .checkWelcomeScreenViewsForVisibility()
-            .skipWelcomeScreen()
-        systemRobot
-            .clickOnSystemDialogWithText("Allow")
+    systemRobot
+        .enableDarkMode(context)
+    onboardingRobot
+        .checkWelcomeScreenViewsForVisibility()
+        .checkPrimaryTextViewColor()
+        .checkSecondaryTextViewColor()
+        .skipWelcomeScreen()
+    systemRobot
+        .clickOnSystemDialogWithText("Allow")
     }
 }

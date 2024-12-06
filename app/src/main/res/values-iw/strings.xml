@@ -1789,6 +1789,7 @@
   <string name="donor_history_last_donated_hint">הוספת תאריך התרומה האחרונה</string>
   <string name="donor_history_last_donated_date_picker_title">בחירת תאריך</string>
   <string name="donor_history_last_donated_date_picker_label">נא להזין תאריך</string>
+  <string name="donor_history_last_donated_never">לעולם לא</string>
   <string name="donor_history_recurring_donor">תורם חוזר</string>
   <string name="donor_history_donate_button">תרומה לקרן ויקימדיה</string>
   <string name="donor_history_about_this_experiment">על הניסוי הזה</string>
@@ -1818,6 +1819,23 @@
   <string name="contributions_dashboard_donor_icon_dialog_cancel">לא, תודה</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">כן, קחו אותי להגדרות</string>
   <string name="contributions_dashboard_app_icon_updated">סמל היישום עודכן</string>
+  <string name="recent_searches_title">חיפושים אחרונים</string>
+  <string name="recent_searches_related_to_reading">קשור למה שקראת</string>
+  <string name="rabbit_holes_experiment">ניסיוני</string>
+  <string name="rabbit_holes_experiment_about">על הניסוי הזה</string>
+  <string name="rabbit_holes_survey_dialog_title">עזרו לנו לשפר את \"מחילת הארנב\"</string>
+  <string name="rabbit_holes_survey_dialog_body">האם תוצאת החיפוש המומלצת מוצאת חן בעיניך?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">עזרו לנו לשפר את רשימות הקריאה המומלצת</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">האם רשימת הקריאה המומלצת נושאת חן בעיניך?</string>
+  <string name="suggested_reading_list_title">על סמך מה שקראת</string>
+  <string name="suggested_reading_list_description">בהשראת \"%s\"</string>
+  <string name="suggested_reading_list_description_multi">בהשראת %1$s וגם %2$s</string>
+  <string name="suggested_reading_list_later_snackbar">כדי לבקר ברשימת הקריאה שלך מאוחר יותר, יש לעבור ללשונית \"שמורים\" במסך הבית.</string>
+  <string name="suggested_reading_list_dialog_title">יש לך רשימת קריאה מוצעת חדשה.</string>
+  <string name="suggested_reading_list_dialog_body">זוהי אפשרות ניסיונית. התוכן מבוסס על היסטוריית הקריאה האחרונה שלך. האם לבדוק את רשימת הקריאה החדשה הזאת?</string>
+  <string name="suggested_reading_list_dialog_positive">לנסות את זה עכשיו</string>
+  <string name="suggested_reading_list_dialog_negative">אולי מאוחר יותר</string>
+  <string name="suggested_reading_list_back_cancel">ר\' את רשימת הקריאה המוצעת שלך בכל עת בלשונית \"שמורים\" במסך הבית.</string>
   <string name="survey_dialog_title">עִזרו לנו לשפר את דפי השיחה</string>
   <string name="survey_dialog_message">מרוצה מהתכונה הזאת?</string>
   <string name="survey_dialog_option_satisfied">מרוצה</string>
@@ -1828,5 +1846,5 @@
   <string name="survey_dialog_cancel">ביטול</string>
   <string name="survey_dialog_submit">שליחה</string>
   <string name="survey_dialog_input_hint">משוב נוסף</string>
-  <string name="survey_dialog_submitted_snackbar">המשוב נשלח.</string>
+  <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
 </resources>

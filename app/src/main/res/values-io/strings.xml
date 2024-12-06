@@ -23,6 +23,7 @@
   <string name="nav_item_suggested_edits">Redakturi</string>
   <string name="nav_item_more">Pluse</string>
   <string name="nav_item_search">Serchez</string>
+  <string name="nav_item_contribute">Kontributez</string>
   <string name="error_network_error">Ne povas konektar kun la Internet</string>
   <string name="page_error_retry">Riprobar</string>
   <string name="card_offline_error_retry">Riprobar</string>
@@ -58,7 +59,7 @@
   <string name="page_edit_history_filter_by">Filtrar segun</string>
   <string name="page_edit_history_filter_by_all">Omna redakturi (%s)</string>
   <string name="page_edit_history_filter_by_user">Redakturi dal uzero (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonima redakturi (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Redakturi nerejistrita (%s)</string>
   <string name="page_edit_history_filter_by_bot">Redakturi da \'\'bot\'\'-i (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statistiki de %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -97,6 +98,7 @@
   <string name="menu_page_recently_viewed">Recente vidita</string>
   <string name="menu_page_archive">Arkivo</string>
   <string name="menu_long_press_open_page">Apertar</string>
+  <string name="menu_long_press_open_in_places">Apertar en Loki</string>
   <string name="menu_long_press_open_in_new_tab">Apertar en nova etiketo</string>
   <string name="menu_long_press_copy_page">Kopiar ligilo-adreso</string>
   <string name="menu_text_select_define">Definar</string>
@@ -110,8 +112,8 @@
   <string name="map_view_link_text">Vidar an mapo</string>
   <string name="other_languages_indication_text">Lektar en altra linguo.</string>
   <string name="language_count_link_text">Disponebla per %d altra lingui</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Nur la IP-adreso de vua komputero aparos, ne vua nomo. Se vu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, vu havos plusa privateso.</string>
+  <string name="edit_save_action_license_logged_in">Publikiganta to, vu tacite aceptos &lt;a href=\"%1$s\"&gt;l\'Uzo-termini&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Publikiganta to, vu tacite aceptos &lt;a href=\"%1$s\"&gt;l\'Uzo-termini&lt;/a&gt;, do vu nerevokeble liberigos vua kontributadi sub permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. La kontributadi atribuesos al IP-adreso di vua komputero. Se vu &lt;a href=\"https://#login\"&gt;eniros facanta \'\'login\'\'&lt;/a&gt;, vu havos plusa privateso.</string>
   <string name="edit_anon_warning">Vua IP-adreso mencionesos en vua redakturi. Se vu &lt;a href=\"https://#login\"&gt;facos \'\'log in\'\'&lt;/a&gt; vu havos plusa privateso.</string>
   <string name="preference_title_language">Lingui de la Wikipedio</string>
   <string name="langlinks_filter_hint">Serchar</string>
@@ -121,6 +123,7 @@
   <string name="langlinks_your_wikipedia_languages">Lingui de vua Wikipedio</string>
   <string name="menu_save_changes">Publikigar chanji</string>
   <string name="edit_saved_successfully">Modifiko publikigita!</string>
+  <string name="stub_article_edit_saved_successfully">Redakturi publikigita! La modifikuri aparos pos kelka tempo.</string>
   <string name="dialog_message_edit_failed">Modifiko faliis!</string>
   <string name="dialog_message_edit_failed_retry">Riprobar</string>
   <string name="dialog_message_edit_failed_cancel">Nuligar</string>
@@ -163,6 +166,9 @@
   <string name="logged_out_in_background_dialog">Vu ekiris de Wikipedio. Ka vu itere deziras enirar?</string>
   <string name="logged_out_in_background_login">Enirar</string>
   <string name="logged_out_in_background_cancel">Anular</string>
+  <string name="account_vanish_request_title">Efacar konto</string>
+  <string name="account_vanish_request_confirm_title">Avizo pri efaco di konto</string>
+  <string name="account_vanish_request_confirm">Efaco di konto esas &lt;b&gt;lasta resurso&lt;/b&gt; e devas uzesar &lt;b&gt;nur se vu fakte deziras ne pluse redaktar permanante&lt;/b&gt;, ed anke celar la maxim multa kam posibla de vua pasinta asocii.&lt;br/&gt;&lt;br/&gt;Efaco di konto che Wikipedia facesas modifikanta la nomo di vua konto, por ke altrei ne povas agnoskar vua kontributadi, en procedo nomizita Angle \'\'vanishing\'\' (\"desaparo\"). &lt;b&gt;\'\'Vanishing\'\' ne grantas kompleta anonimeso, o removo di kontributadi ad omna projeti&lt;/b&gt;.</string>
   <string name="history_empty_title">Nula artiklo vidita recente</string>
   <string name="history_empty_message">Hike tu povas vidar la kozi quin tu lektabis.</string>
   <string name="history_offline_articles_toast">Kelka artikli en la historio povas ne esar videbla \'\'offline\'\'.</string>
@@ -232,15 +238,15 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteki uzita</string>
   <string name="about_contributors_heading">Kontributeri</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagino dil esquado&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradukeri</string>
   <string name="about_translators_translatewiki">Ica \'app\' tradukesis da voluntara tradukeri en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenco</string>
-  <string name="about_app_license" fuzzy="true">Fonto-kodexo disponebla che &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license">Fonto-kodexo disponebla che &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenco Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, kontenaji esas disponebla sub &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ca pagino modifikesis. Ka tu fakte deziras ekirar sen salvar tua modifikuri?</string>
@@ -256,6 +262,9 @@
   <string name="edit_undo">Desfacez</string>
   <string name="edit_redo">Rifacez</string>
   <string name="edit_rollback">Retrorulez</string>
+  <string name="edit_warn">Avizo</string>
+  <string name="edit_damage">Domajo %s</string>
+  <string name="edit_intent">Intenco %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bicoko*</item>
     <item quantity="other">%s bicoki*</item>
@@ -267,6 +276,8 @@
   <string name="edit_summary_tag_links">Ligili inkluzita</string>
   <string name="edit_summary_tag_other">Altra</string>
   <string name="edit_summary_tag_other_hint">Altra plubonigi facita en la pagino</string>
+  <string name="edit_summary_added_short_description">Adjuntita kurta deskriptado</string>
+  <string name="edit_summary_updated_short_description">Kurta deskriptado aktualigita</string>
   <string name="edit_conflict_title">Konflikto di redakti.</string>
   <string name="edit_conflict_message">Ica pagino ja modifikesis da altra diferanta uzero, e to konfliktas kun vua redakto. Voluntez kopiar vua redakti, retroirez e rimontrez la pagino. Pose probez itere redaktar.</string>
   <string name="edit_notices">Redakto-notici</string>
@@ -382,6 +393,11 @@
   <string name="multi_select_items_selected">%d selektita</string>
   <string name="error_message_generic">Eventis eroro</string>
   <string name="view_link_preview_error_button_dismiss">Eskartar</string>
+  <string name="link_preview_dialog_read_button">Lektar</string>
+  <string name="link_preview_dialog_save_button">Konservar</string>
+  <string name="link_preview_dialog_saved_button">Konservita</string>
+  <string name="link_preview_dialog_share_button">Partigar</string>
+  <string name="link_preview_stub_placeholder_text">Ca artiklo esas shablono. To signifikas ke ne existas suficanta kontenajo en ol por produktar previdado. Tamen, vu povas modifikar to.</string>
   <string name="error_page_does_not_exist">Ica pagino ne existas</string>
   <string name="error_user_page_does_not_exist">Wikipedia ne havas &lt;a href=\"%1$s\"&gt;uzero-pagino&lt;/a&gt; kun ca nomo. Ordinare, ca pagino mustos kreesar e redaktesar da &lt;b&gt;%2$s&lt;/b&gt;. Se vu havas dubi, voluntez verifikar se \"%3$s\" existas.</string>
   <string name="view_wiki_error_message_offline">Ne povas konektar a la interreto</string>
@@ -404,6 +420,21 @@
   <string name="error_blocked_footer">Vu povas kontaktar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; od altra &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrero&lt;/a&gt; por diskutar la blokuso.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Ajustez vua utensilo-stango</string>
   <string name="error_blocked_footer_no_blocker">Vu povas kontaktar ul &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administranto&lt;/a&gt; por diskutar pri la blokuso.</string>
+  <string name="temp_account_not_logged_in">Vu ne esas konektita</string>
+  <string name="temp_account_dialog_ok">Me komprenis</string>
+  <string name="temp_account_using_title">Vu esas uzanta provizora konto</string>
+  <string name="temp_account_dialog_discard">Eliminez modifikuri, ed enirez</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Tempala konto %1$s kreesis pos ke vua redakturo publikigesis. Ol extingesos en %2$d dio.</item>
+    <item quantity="other">Tempala konto %1$s kreesis pos ke vua redakturi publikigesis. Ol extingesos en %2$d dii.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">La konto extingesos en %d dio.</item>
+    <item quantity="other">La konto extingesos en %d dii.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Vu ne eniris&lt;/b&gt; Kande vu facos redakaturo, vua IP-adreso asociesos kun vua redakturi.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Vu ne eniris&lt;/b&gt; Kande vu facos redakaturo, tempala konto kreesos por protektar vua privateso. &lt;a href=\"%1$s\"&gt;Savez pluse&lt;/a&gt;</string>
+  <string name="temp_account_end_session">Finar sesiono</string>
   <string name="crash_report_activity_title">Eroro che \'\'app\'\'</string>
   <string name="crash_report_relaunch_or_quit">Pardonez, l\'\'\'app\'\' de Wikipedio faliis, e klozesis automatale.\n\nKa vu deziras rikomencar, or finar ol?</string>
   <string name="crash_report_relaunch">Rikomencar</string>
@@ -466,7 +497,11 @@
   <string name="reading_list_sort_by_created">Organizar segun dato di kreado (unesme la maxim recenta)</string>
   <string name="reading_list_sort_by_created_desc">Organizar segun dato di kreado (unesme la maxim antiqua)</string>
   <string name="reading_list_menu_delete">Efacar la listo</string>
-  <string name="reading_list_menu_rename">Rinomizar/deskripto</string>
+  <string name="reading_list_menu_export">Exportacar listo</string>
+  <string name="reading_list_menu_select">Selektar</string>
+  <string name="reading_list_menu_unselect">Desselektar</string>
+  <string name="reading_list_export_write_permission_rationale">On bezonas permiso por skribar, por enmagazinigar la lektebla listo en tua lokala aparato.</string>
+  <string name="reading_list_menu_rename">Modifikar nomo/deskripto</string>
   <string name="reading_list_action_menu_remove_from_offline">Eliminar de la konservo \'offline\'</string>
   <string name="reading_list_action_menu_save_for_offline">Disponigar \'offline\'</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Efacar omna artikli \'offline\'</string>
@@ -486,6 +521,14 @@
     <item quantity="one">%d artiklo efacita de %s</item>
     <item quantity="other">%d artikli efacita de %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d listo efacita</item>
+    <item quantity="other">%d listi efacita</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">La listo \'default\' (%s) ne povas efacesar</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s efacita. La listo \'default\' (%2$s) ne povas efacesar.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listi efacita. La listo \'default\' (%s) ne povas efacesar.</string>
+  <string name="single_list_json_file_name">%s (lektebla listo de Wikipedia).json</string>
   <string name="reading_list_items_deleted">%d artikli efacesis de la listo</string>
   <string name="reading_lists_item_deleted">%s efacesis de la listi</string>
   <string name="reading_list_item_delete_undo">Desfacar</string>
@@ -561,7 +604,16 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Nuligar</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Nuligar</string>
   <string name="reading_list_split_dialog_ok_button_text">O.K.</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Efacar</string>
   <string name="reading_list_activity_title">Listo di lektado: %s</string>
+  <string name="reading_list_notification_title">Lektebla listo/listi exportacita</string>
+  <string name="reading_lists_action_menu_export_lists">Exportacar</string>
+  <string name="reading_lists_preview_save_button">Konservar</string>
+  <string name="reading_lists_preview_save_dialog_title">Konservar listo</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titulo</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Nuligar</string>
+  <string name="reading_lists_preview_save_dialog_save">Konservar</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Vidar</string>
   <string name="user_option_sync_label">Preferaji</string>
   <string name="notification_reverted_title">Redakturo desfacita</string>
   <string name="notification_channel_title">Deskarganta arkivi</string>
@@ -683,8 +735,8 @@
   <string name="notifications_menu_uncheck_all">Desmarkizar omna detali</string>
   <string name="notifications_wiki_filter_header">filtrilo dil wiki</string>
   <string name="notifications_type_filter_header">Tipo di filtrilo</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Omna \"wiki\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Omna \"tipi\"</string>
+  <string name="notifications_all_wikis_text">Omna wiki</string>
+  <string name="notifications_all_types_text">Omna tipi</string>
   <string name="notifications_menu_user_talk_page">diskuto-pagino di %s\'s</string>
   <string name="notifications_offline_disable_message">Ca funciono ne esas disponebla \'\'offline\'\'.</string>
   <string name="view_because_you_read_card_title">Pro ke vu lektis</string>
@@ -734,6 +786,7 @@
   <string name="feed_item_type_main_page">Frontispico de Wikipedio montranta kontenajo selektita hodie</string>
   <string name="feed_item_type_randomizer">Krear hazard-artikli por lektar</string>
   <string name="feed_item_type_suggested_edits">Sugesti por adjuntar kontenajo a Wikipedio</string>
+  <string name="feed_item_type_places">Artikli vicina, segun la nuna lokizo</string>
   <string name="feed_empty_message">Existas nulo en vua \'\'feed\'\' Explorar</string>
   <string name="feed_configure_onboarding_action">Ajustar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">O.K.</string>
@@ -743,6 +796,10 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Anular</string>
   <string name="feed_accessibility_card_text">Vu atingis l\'infra parto de ca \'\'feed\'\'.</string>
   <string name="feed_accessibility_card_load_more_button">Montrez pluse</string>
+  <string name="feed_language_variants_removal_dialog_title">Selektez regionala varianto dil idiomo, por plufaciligar la lektado</string>
+  <string name="feed_language_variants_removal_dialog_message">Vu nun uzas, kom vua primara idiomo, generala varianto de Chiniana linguo qua ne suportesas da Wikipedio</string>
+  <string name="feed_language_variants_removal_dialog_save">Konservar</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Voluntez aktualigar vua sekundara idiomi</string>
   <string name="top_read_activity_title">La maxim lektita che %s</string>
   <string name="tabs_activity_title">Separili</string>
   <string name="description_edit_text_hint">Deskripto dil artilko</string>
@@ -807,6 +864,7 @@
   <string name="suggested_edits_describe_articles">Deskriptar artikli</string>
   <string name="suggested_edits_caption_images">Pozar tituli en imaji</string>
   <string name="suggested_edits_tag_images">Pozar etiketi en imaji</string>
+  <string name="suggested_edits_edit_patrol_review">Revizar</string>
   <string name="suggested_edits_review_description">Revizar deskripto dil artiklo</string>
   <string name="suggested_edits_add_description_button">Adjuntar deskripto</string>
   <string name="suggested_edits_edit_description_button">Modifikar deskripto</string>

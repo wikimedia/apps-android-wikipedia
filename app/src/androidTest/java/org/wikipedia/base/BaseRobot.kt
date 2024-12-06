@@ -2,14 +2,21 @@ package org.wikipedia.base
 
 import android.app.Activity
 import android.graphics.Rect
+import android.util.Log
 import android.view.View
+import android.widget.HorizontalScrollView
+import android.widget.ListView
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.annotation.IdRes
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
+import androidx.test.espresso.ViewAssertion
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.longClick
@@ -23,6 +30,7 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -44,11 +52,17 @@ import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.wikipedia.R
 import org.wikipedia.TestUtil
-import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
+
+    protected fun clickOnViewWithIdAndContainsString(@IdRes viewId: Int, text: String) {
+        onView(allOf(
+            withId(viewId),
+            hasText(text),
+        )).perform(scrollAndClick())
+    }
 
     protected fun clickOnViewWithId(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(click())
@@ -216,6 +230,7 @@ abstract class BaseRobot {
             action()
         } catch (e: Exception) {
             // Dialog not shown or text not found
+            Log.e("error", "")
         }
     }
 
@@ -292,6 +307,22 @@ abstract class BaseRobot {
             .perform(click())
     }
 
+    protected fun scrollToRecyclerViewInsideNestedScrollView(@IdRes recyclerViewId: Int, position: Int, viewAction: ViewAction) {
+        onView(withId(recyclerViewId))
+            .perform(NestedScrollViewExtension())
+        onView(withId(recyclerViewId))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(position, viewAction))
+    }
+
+    protected fun scrollToViewInsideNestedScrollView(@IdRes viewId: Int) {
+        onView(withId(viewId)).perform(NestedScrollViewExtension())
+    }
+
+    protected fun makeViewVisibleAndClick(@IdRes viewId: Int, @IdRes parentViewId: Int) {
+        onView(allOf(withId(viewId), isDescendantOfA(withId(parentViewId))))
+            .perform(scrollAndClick())
+    }
+
     fun scrollToRecyclerView(
         recyclerViewId: Int = R.id.feed_view,
         title: String,
@@ -360,5 +391,106 @@ abstract class BaseRobot {
             view.performClick()
             uiController.loopMainThreadForAtLeast(1000)
         }
+    }
+
+    protected fun verifyTextViewColor(
+        @IdRes textViewId: Int,
+        colorResOrAttr: Int,
+        isAttr: Boolean = false
+    ) {
+        onView(withId(textViewId))
+            .check(ColorAssertions.hasColor(colorResOrAttr, isAttr, ColorAssertions.ColorType.TextColor))
+    }
+
+    protected fun verifyBackgroundColor(
+        @IdRes viewId: Int,
+        colorResOrAttr: Int,
+        isAttr: Boolean = false
+    ) {
+        onView(withId(viewId))
+            .check(ColorAssertions.hasColor(colorResOrAttr, isAttr, ColorAssertions.ColorType.BackgroundColor))
+    }
+
+    protected fun verifyTintColor(
+        @IdRes viewId: Int,
+        colorResOrAttr: Int,
+        isAttr: Boolean = false
+    ) {
+        onView(withId(viewId))
+            .check((matches(ColorMatchers.withTintColor(colorResOrAttr, isAttr))))
+    }
+
+    protected fun clickOnSpecificItemInList(@IdRes listId: Int, @IdRes itemId: Int, position: Int) {
+        onView(withId(listId))
+            .perform(
+                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position),
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    clickChildViewWithId(itemId)
+                )
+            )
+    }
+
+    protected fun assertColorForChildItemInAList(
+        @IdRes listId: Int,
+        @IdRes childItemId: Int,
+        colorResOrAttr: Int,
+        position: Int,
+        isAttr: Boolean = true,
+        colorType: ColorAssertions.ColorType = ColorAssertions.ColorType.TextColor
+    ) {
+        onView(withId(listId))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
+            .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
+                ColorAssertions.hasColor(colorResOrAttr, isAttr, colorType)
+                    .check(view, null)
+            }))
+    }
+
+    private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {
+        override fun getConstraints() = null
+
+        override fun getDescription() = "Click on a child view with specified id."
+
+        override fun perform(uiController: UiController, view: View) {
+            val v = view.findViewById<View>(id)
+            v?.performClick()
+        }
+    }
+
+    private fun matchesAtPosition(position: Int, @IdRes targetViewId: Int, assertion: (View) -> Unit): ViewAssertion {
+        return ViewAssertion { view, noViewFoundException ->
+            if (view !is RecyclerView) {
+                throw IllegalStateException("The asserted view is not RecyclerView")
+            }
+
+            val itemView = view.findViewHolderForAdapterPosition(position)?.itemView
+                ?: throw IllegalStateException("No view with id: $targetViewId")
+            val targetView = itemView.findViewById<View>(targetViewId)
+                ?: throw IllegalStateException("No view with id: $targetViewId")
+            assertion(targetView)
+        }
+    }
+
+    private fun hasText(text: String) = object : BoundedMatcher<View, TextView>(TextView::class.java) {
+        override fun describeTo(description: Description?) {
+            description?.appendText("contains text $text")
+        }
+
+        override fun matchesSafely(item: TextView): Boolean {
+            return item.text.toString().contains(text, ignoreCase = true)
+        }
+    }
+}
+
+class NestedScrollViewExtension(scrollToAction: ViewAction = ViewActions.scrollTo()) : ViewAction by scrollToAction {
+    override fun getConstraints(): Matcher<View> {
+        return Matchers.allOf(
+            ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
+            ViewMatchers.isDescendantOfA(Matchers.anyOf(
+                ViewMatchers.isAssignableFrom(NestedScrollView::class.java),
+                ViewMatchers.isAssignableFrom(ScrollView::class.java),
+                ViewMatchers.isAssignableFrom(HorizontalScrollView::class.java),
+                ViewMatchers.isAssignableFrom(ListView::class.java))))
     }
 }

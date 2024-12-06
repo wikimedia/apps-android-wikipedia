@@ -18,6 +18,7 @@ object TestConfig {
     const val DELAY_SHORT = 1L
     const val DELAY_MEDIUM = 2L
     const val DELAY_LARGE = 5L
+    const val DELAY_SWIPE_TO_REFRESH = 8L
     const val SEARCH_TERM = "hopf fibration"
     const val SEARCH_TERM2 = "world cup"
     const val ARTICLE_TITLE = "Hopf fibration"
@@ -26,7 +27,8 @@ object TestConfig {
 }
 
 data class DataInjector(
-    val isInitialOnboardingEnabled: Boolean = false
+    val isInitialOnboardingEnabled: Boolean = false,
+    val overrideEditsContribution: Int? = null
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -47,6 +49,9 @@ abstract class BaseTest<T : AppCompatActivity>(
         val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
+        dataInjector.overrideEditsContribution?.let {
+            Prefs.overrideSuggestedEditContribution = it
+        }
     }
 
     @Before

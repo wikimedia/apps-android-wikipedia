@@ -1700,5 +1700,5 @@
   <string name="survey_dialog_cancel">Cancellar</string>
   <string name="survey_dialog_submit">Submitter</string>
   <string name="survey_dialog_input_hint">Retroaction additional</string>
-  <string name="survey_dialog_submitted_snackbar">Commentario submittite.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Commentario submittite.</string>
 </resources>

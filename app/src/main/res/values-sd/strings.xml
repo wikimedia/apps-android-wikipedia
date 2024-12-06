@@ -1499,5 +1499,5 @@
   <string name="survey_dialog_option_very_unsatisfied">ڏاڍو غير مطمئن</string>
   <string name="survey_dialog_cancel">رد ڪريو</string>
   <string name="survey_dialog_submit">اماڻيو</string>
-  <string name="survey_dialog_submitted_snackbar">موٽ اماڻجي وئي.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">موٽ اماڻجي وئي.</string>
 </resources>

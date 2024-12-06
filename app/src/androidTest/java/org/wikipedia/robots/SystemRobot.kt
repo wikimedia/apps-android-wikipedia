@@ -30,6 +30,7 @@ class SystemRobot : BaseRobot() {
         } catch (e: Exception) {
             Log.d("dialog", "Dialog did not appear or couldn't be clicked.")
         }
+        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun enableDarkMode(context: Context) = apply {
