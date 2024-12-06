@@ -165,14 +165,14 @@ object JavaScriptActionHandler {
         if (model.page == null) {
             return ""
         }
-        val baseURL = model.title?.wikiSite!!.scheme() + "://" + model.title?.wikiSite!!.uri.authority!!.trimEnd('/')
+        val apiBaseURL = model.title?.wikiSite!!.scheme() + "://" + model.title?.wikiSite!!.uri.authority!!.trimEnd('/')
         val langCode = model.title?.wikiSite?.languageCode ?: WikipediaApp.instance.appOrSystemLanguageCode
         return "pcs.c1.Footer.appendReadMore({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       apiBaseURL: \"$baseURL\"," +
+                "       apiBaseURL: \"$apiBaseURL\"," +
                 "       langCode: \"$langCode\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
