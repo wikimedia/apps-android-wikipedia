@@ -10,6 +10,17 @@ import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class OnboardingRobot : BaseRobot() {
+
+    fun checkPrimaryTextViewColor() = apply {
+        verifyTextViewColor(textViewId = R.id.primaryTextView, colorResOrAttr = R.attr.primary_color, isAttr = true)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun checkSecondaryTextViewColor() = apply {
+        verifyTextViewColor(textViewId = R.id.secondaryTextView, colorResOrAttr = R.attr.secondary_color, isAttr = true)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun moveAllTheWayToEndUsingTapButton() = apply {
         repeat(3) {
             clickOnDisplayedView(R.id.fragment_onboarding_forward_button)

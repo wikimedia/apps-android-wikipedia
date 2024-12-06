@@ -26,6 +26,11 @@ class SavedScreenRobot : BaseRobot() {
         delay(TestConfig.DELAY_LARGE)
     }
 
+    fun dismissSyncReadingList() = apply {
+        clickOnViewWithId(R.id.negativeButton)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun pressBack() = apply {
         goBack()
         delay(TestConfig.DELAY_SHORT)
