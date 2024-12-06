@@ -117,4 +117,22 @@ class SearchRobot : BaseRobot() {
         longClickOnItemInList(R.id.history_list, position)
         delay(TestConfig.DELAY_LARGE)
     }
+
+    fun assertColorOfTitleInTheSearchList(position: Int) = apply {
+        assertColorForChildItemInAList(
+            listId = R.id.search_results_list,
+            childItemId = R.id.page_list_item_title,
+            position = position,
+            colorResOrAttr = R.attr.primary_color,
+        )
+    }
+
+    fun assertColorOfTitleInTheHistoryList(position: Int) = apply {
+        assertColorForChildItemInAList(
+            listId = R.id.history_list,
+            childItemId = R.id.page_list_item_title,
+            position = position,
+            colorResOrAttr = R.attr.primary_color,
+        )
+    }
 }

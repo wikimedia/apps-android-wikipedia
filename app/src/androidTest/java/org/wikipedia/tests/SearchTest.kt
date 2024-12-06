@@ -11,6 +11,7 @@ import org.wikipedia.base.TestConfig.ARTICLE_TITLE_WORLD_CUP
 import org.wikipedia.base.TestConfig.SEARCH_TERM
 import org.wikipedia.base.TestConfig.SEARCH_TERM2
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
@@ -25,6 +26,7 @@ class SearchTest : BaseTest<MainActivity>(
     private val homeScreenRobot = HomeScreenRobot()
     private val searchRobot = SearchRobot()
     private val bottomNavRobot = BottomNavRobot()
+    private val dialogRobot = DialogRobot()
 
     @Test
     fun startSearchTest() {
@@ -33,6 +35,8 @@ class SearchTest : BaseTest<MainActivity>(
         searchRobot
             .typeTextInView(SEARCH_TERM)
             .verifySearchResult(ARTICLE_TITLE)
+            .assertColorOfTitleInTheSearchList(position = 0)
+            .assertColorOfTitleInTheSearchList(position = 1)
             .clickOnItemFromSearchList(0)
             .pressBack()
             .navigateUp()
@@ -45,13 +49,16 @@ class SearchTest : BaseTest<MainActivity>(
             .verifySearchResult(ARTICLE_TITLE_WORLD_CUP)
             .clickOnItemFromSearchList(0)
         setDeviceOrientation(isLandscape = false)
+        dialogRobot
+            .dismissBigEnglishDialog()
+            .dismissContributionDialog()
         searchRobot
-            .dismissDialogIfShown()
             .backToHistoryScreen()
             .verifyHistoryArticle(ARTICLE_TITLE_WORLD_CUP)
             .clickFilterHistoryButton()
             .typeTextInView(SEARCH_TERM2)
             .verifyHistoryArticle(ARTICLE_TITLE_WORLD_CUP)
+            .assertColorOfTitleInTheHistoryList(position = 1)
             .pressBack()
             .pressBack()
             .clickOnItemFromHistoryList(2)
