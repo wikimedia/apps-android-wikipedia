@@ -37,12 +37,12 @@ class SystemRobot : BaseRobot() {
     fun enableDarkMode(context: Context) = apply {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.executeShellCommand("cmd uimode night yes")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun disableDarkMode(context: Context) = apply {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.executeShellCommand("cmd uimode night no")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 }

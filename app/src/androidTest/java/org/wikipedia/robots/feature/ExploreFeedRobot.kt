@@ -108,38 +108,11 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun scrollToItem(
-        recyclerViewId: Int = R.id.feed_view,
-        title: String,
-        textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200
-    ) = apply {
-        scrollToRecyclerView(
-            recyclerViewId,
-            title,
-            textViewId,
-            verticalOffset
-        )
-    }
-
     fun verifyFeaturedArticleImageIsNotVisible() = apply {
         checkViewDoesNotExist(viewId = R.id.articleImage)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    // @TODO: flaky test due to snackbar
-    fun addOrRemoveToWatchList() = apply {
-        val isVisible = onView(withText("Watch"))
-        if (isVisible.isDisplayed()) {
-            clickOnViewWithText("Watch")
-            onView(withId(com.google.android.material.R.id.snackbar_text))
-                .check(matches(isDisplayed()))
-            changWatchListArticleExpiryFromTheSnackBar()
-        } else {
-            clickOnViewWithText("Unwatch")
-            onView(withId(com.google.android.material.R.id.snackbar_text))
-                .check(matches(isDisplayed()))
-            delay(TestConfig.DELAY_SHORT)
     fun clickPictureOfTheDay() = apply {
         clickOnViewWithId(R.id.view_featured_image_card_content_container)
         delay(TestConfig.DELAY_SHORT)
