@@ -318,10 +318,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
-            // If the number of lists has changed, just invalidate everything, as a
-            // simple way to get the bottom item margin to apply to the correct item.
-            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
-                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
@@ -329,6 +325,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     (lists[0] as ReadingList).pages.isEmpty()) {
                 lists.removeAt(0)
             }
+
+            // If the number of lists has changed, just invalidate everything, as a
+            // simple way to get the bottom item margin to apply to the correct item.
+            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
+                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             lifecycleScope.launch {
                 suggestedReadingList = null
