@@ -148,26 +148,6 @@ class ExploreFeedRobot : BaseRobot() {
         } catch (e: Exception) {
             Log.e("ScrollError:", "Suggested edits not visible or espresso cannot find it.")
         }
-    fun scrollToItem(
-        recyclerViewId: Int = R.id.feed_view,
-        title: String,
-        textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200
-    ) = apply {
-        scrollToRecyclerView(
-            recyclerViewId,
-            title,
-            textViewId,
-            verticalOffset
-        )
-    }
-
-    fun clickOnFeaturedArticle() = apply {
-        makeViewVisibleAndClick(
-            viewId = R.id.view_featured_article_card_content_container,
-            parentViewId = R.id.feed_view
-        )
-        delay(TestConfig.DELAY_MEDIUM)
     }
 
     private fun changWatchListArticleExpiryFromTheSnackBar() = apply {
