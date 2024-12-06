@@ -10,6 +10,8 @@ import org.wikipedia.tests.SuggestedEditScreenTest
 @SuiteClasses(
     OnboardingTest::class,
     SuggestedEditScreenTest::class,
+    ExploreFeedTestSuite::class,
+    SuggestedEditScreenTest::class,
     SettingsTestSuite::class
 )
 class TestSuite
