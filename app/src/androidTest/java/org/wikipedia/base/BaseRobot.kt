@@ -15,6 +15,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
@@ -406,6 +407,58 @@ abstract class BaseRobot {
     ) {
         onView(withId(viewId))
             .check((matches(ColorMatchers.withTintColor(colorResOrAttr, isAttr))))
+    }
+
+    protected fun clickOnSpecificItemInList(@IdRes listId: Int, @IdRes itemId: Int, position: Int) {
+        onView(withId(listId))
+            .perform(
+                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position),
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    clickChildViewWithId(itemId)
+                )
+            )
+    }
+
+    protected fun assertColorForChildItemInAList(
+        @IdRes listId: Int,
+        @IdRes childItemId: Int,
+        colorResOrAttr: Int,
+        position: Int,
+        isAttr: Boolean = true,
+        colorType: ColorAssertions.ColorType = ColorAssertions.ColorType.TextColor
+    ) {
+        onView(withId(listId))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
+            .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
+                ColorAssertions.hasColor(colorResOrAttr, isAttr, colorType)
+                    .check(view, null)
+            }))
+    }
+
+    private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {
+        override fun getConstraints() = null
+
+        override fun getDescription() = "Click on a child view with specified id."
+
+        override fun perform(uiController: UiController, view: View) {
+            val v = view.findViewById<View>(id)
+            v?.performClick()
+        }
+    }
+
+    private fun matchesAtPosition(position: Int, @IdRes targetViewId: Int, assertion: (View) -> Unit): ViewAssertion {
+        return ViewAssertion { view, noViewFoundException ->
+            if (view !is RecyclerView) {
+                throw IllegalStateException("The asserted view is not RecyclerView")
+            }
+
+            val itemView = view.findViewHolderForAdapterPosition(position)?.itemView
+                ?: throw IllegalStateException("No view with id: $targetViewId")
+            val targetView = itemView.findViewById<View>(targetViewId)
+                ?: throw IllegalStateException("No view with id: $targetViewId")
+            assertion(targetView)
+        }
     }
 
     private fun hasText(text: String) = object : BoundedMatcher<View, TextView>(TextView::class.java) {
