@@ -10,7 +10,6 @@ import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class SearchRobot : BaseRobot() {
-
     fun tapSearchView() = apply {
         // Click the Search box
         clickOnViewWithText("Search Wikipedia")
