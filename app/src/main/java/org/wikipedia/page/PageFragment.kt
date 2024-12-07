@@ -24,7 +24,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -188,7 +187,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val title get() = model.title
     val page get() = model.page
     val historyEntry get() = model.curEntry
-    val containerView get() = binding.pageContentsContainer
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
@@ -906,11 +904,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 callback()?.onPageLoadMainPageInForegroundTab()
             }
         }
-    }
-
-    fun updateInsets(insets: Insets) {
-        val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + insets.top + REFRESH_SPINNER_ADDITIONAL_OFFSET
-        binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
     }
 
     fun onPageMetadataLoaded(redirectedFrom: String? = null) {
