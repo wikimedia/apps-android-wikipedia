@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.AttributeSet
 import androidx.annotation.DrawableRes
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -16,11 +15,12 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.material.imageview.ShapeableImageView
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CenterCropWithFaceTransformation
 import org.wikipedia.util.WhiteBackgroundTransformation
 
-class FaceAndColorDetectImageView : AppCompatImageView {
+class FaceAndColorDetectImageView : ShapeableImageView {
 
     interface OnImageLoadListener {
         fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int)
@@ -37,7 +37,7 @@ class FaceAndColorDetectImageView : AppCompatImageView {
         return path.endsWith(".jpg", true) || path.endsWith(".jpeg", true)
     }
 
-    fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, emptyPlaceholder: Boolean = false, listener: OnImageLoadListener? = null) {
+    fun loadImage(uri: Uri?, cropped: Boolean = true, emptyPlaceholder: Boolean = false, listener: OnImageLoadListener? = null) {
         val placeholder = ViewUtil.getPlaceholderDrawable(context)
         if (!Prefs.isImageDownloadEnabled || uri == null) {
             setImageDrawable(placeholder)
@@ -67,9 +67,9 @@ class FaceAndColorDetectImageView : AppCompatImageView {
         }
         builder = if (cropped) {
             if (shouldDetectFace(uri)) {
-                builder.transform(if (roundedCorners) FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS else FACE_DETECT_TRANSFORM)
+                builder.transform(FACE_DETECT_TRANSFORM)
             } else {
-                builder.transform(if (roundedCorners) ViewUtil.CENTER_CROP_LARGE_ROUNDED_CORNERS else CENTER_CROP_WHITE_BACKGROUND)
+                builder.transform(CENTER_CROP_WHITE_BACKGROUND)
             }
         } else {
             builder.transform(WhiteBackgroundTransformation())
@@ -83,7 +83,6 @@ class FaceAndColorDetectImageView : AppCompatImageView {
 
     companion object {
         private val FACE_DETECT_TRANSFORM by lazy { CenterCropWithFaceTransformation() }
-        private val FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS by lazy { MultiTransformation(FACE_DETECT_TRANSFORM, ViewUtil.ROUNDED_CORNERS) }
         private val CENTER_CROP_WHITE_BACKGROUND by lazy { MultiTransformation(CenterCrop(), WhiteBackgroundTransformation()) }
     }
 }

@@ -48,7 +48,7 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;چھوٹی&lt;/b&gt; %s</string>
   <string name="page_edit_history_filter_by_all">ساریاں سودھاں (%s)</string>
   <string name="page_edit_history_filter_by_user">ورتنوالے دیاں سودھاں (%s)</string>
-  <string name="page_edit_history_filter_by_anon">انام سودھاں (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">انام سودھاں (%s)</string>
   <string name="page_edit_history_filter_by_bot">بوٹ دیاں سودھاں (%s)</string>
   <string name="menu_page_show_tabs">ٹیب ویکھو</string>
   <string name="menu_page_other_languages">بولی بدلو</string>
@@ -256,7 +256,7 @@
   <string name="reading_list_menu_delete">سوچی مٹاؤ</string>
   <string name="reading_list_name_hint">سوچی دا ناں</string>
   <string name="reading_list_description_hint">ورتا (چوݨواں)</string>
-  <string name="reading_list_item_deleted">%s نوں سوچی \'چوں ہٹائیا گیا</string>
+  <string name="reading_list_item_deleted">%s نوں لسٹ چوں ہٹایا گیا</string>
   <string name="reading_list_item_delete_undo">اݨکیتا کرو</string>
   <string name="reading_list_deleted">%s مٹائیا گیا</string>
   <string name="saved_list_empty_title">کوئی پڑھت سوچی نہیں ہے</string>
@@ -301,7 +301,7 @@
   <string name="description_edit_save">سانبھو</string>
   <string name="description_edit_read">پڑھو</string>
   <string name="description_edit_cancel_hint">رد کرو</string>
-  <string name="description_edit_help_about_wikidata">وِکیڈیٹا بارے</string>
+  <string name="description_edit_help_about_wikidata">وکیڈیٹے بارے</string>
   <string name="description_edit_success_done">مکنمل</string>
   <string name="description_edit_success_did_you_know">کیہ تسیں جاݨدے اے؟</string>
   <string name="customize_toolbar_category_menu">مینو</string>

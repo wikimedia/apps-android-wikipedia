@@ -2,8 +2,10 @@
 <!-- Authors:
 * Amara-Amaziɣ
 * Brahim-essaidi
+* Dbrant
 * Hakim1bal
 * Mohamed Belarhzali
+* Reda Tris
 * ⵕⴰⵊⵉ
 -->
 <resources>
@@ -37,6 +39,9 @@
   <string name="notification_archive_undo">ⵙⵔ</string>
   <string name="app_settings">ⵜⵉⵙⵖⴰⵍ ⵏ ⵜⵙⵏⵙⵉ</string>
   <string name="history_list_title">ⴰⵎⵣⵔⵓⵢ</string>
+  <string name="page_content_description">ⵜⴰⵙⵏⴰ: %s</string>
+  <string name="wikimedia_commons">ⵡⵉⴽⵉⵎⵉⴷⵢⴰ ⴽⴰⵎⵏⵥ</string>
+  <string name="wikidata">ⵡⵉⴽⵉⵙⴼⴽⴰ</string>
   <string name="dialog_title_clear_history">ⵙⴼⴹ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵜⴰⵔⴰ</string>
   <string name="dialog_message_clear_history">ⴰⵢⴰ ⵔⴰⴷ ⵉⴽⴽⵉⵙ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵜⴰⵔⴰ ⵏⵏⴽ ⴰⴽⴽⵯ, ⵉⵔⴳⵍ ⵉⵙⴽⵙⴰⵍ ⵉⵎⵉⵔⴰⵏⵏ ⵕⵥⵎⵏⵉⵏ. ⵉⵙ ⵏⵉⵜ ⵜⵅⵙⴷ ⴰⴷ ⵜⴳⴷ ⴰⵢⴰ?</string>
   <string name="dialog_message_clear_history_yes">ⵢⴰⵀ</string>
@@ -44,12 +49,17 @@
   <string name="share_via">ⴱⴹⵓ ⵙ</string>
   <string name="image_share_via">ⴱⴹⵓ ⵙ</string>
   <string name="search_redirect_from">ⵓⵖⵓⵍ ⵙⴳ %s</string>
+  <string name="page_edit_history_activity_title">ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵣⵣⵔⴰⵢ: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;ⵎⵥⵢ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_filter_by_user">ⵉⵙⵏⴼⵍⵏ ⵏ ⵓⵏⵙⵙⵎⵔⵙ (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ⵉⵙⵏⴼⵍⵏ ⵏ ⵓⴱⵓⵜ (%s)</string>
   <string name="menu_page_show_tabs">ⵙⴽⵏ ⵉⵙⴽⵙⴰⵍ</string>
   <string name="menu_page_other_languages">ⵙⵏⴼⵍ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="menu_page_find_in_page">ⴰⴼ ⴳ ⵓⵎⴳⵔⴰⴷ</string>
   <string name="menu_page_add_to_watchlist">ⵔⵏⵓ ⵉ ⵜⴰⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵕ</string>
   <string name="menu_page_view_talk">ⵙⴽⵏ ⵜⴰⵙⵏⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ</string>
   <string name="menu_page_view_edit_history">ⵙⴽⵏ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
+  <string name="menu_page_edit_history">ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
   <string name="menu_page_remove_from_watchlist">ⴽⴽⵉⵙ ⵙⴳ ⵜⵍⴳⴰⵎⵜ ⵏ ⵓⴹⴼⴼⵓⵕ</string>
   <string name="edit_section_find_in_page">ⴰⴼ ⴳ ⵜⵙⵏⴰ</string>
   <string name="menu_page_add_to_list">ⵔⵏⵓ ⵖⵕ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
@@ -74,8 +84,8 @@
   <string name="map_view_link_text">ⵙⴽⵏ ⴳ ⵜⴽⴰⵕⴹⴰ</string>
   <string name="other_languages_indication_text">ⵖⵔ ⵙ ⵛⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵢⴰⴹⵏ</string>
   <string name="language_count_link_text">ⵉⵍⵍⴰ ⵙ %d ⵜⵓⵜⵍⴰⵢⵉⵏ ⵢⴰⴹⵏⵉⵏ</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">ⵙ ⵓⴼⵙⴰⵔ, ⵜⵎⵙⴰⵙⴰⴷ ⵖⴼ &lt;a href=\"%1$s\"&gt;ⵜⴼⴰⴷⵉⵡⵉⵏ ⵏ ⵓⵙⵙⵎⵔⵙ&lt;/a&gt;, ⴷ ⵔⴰⴷ ⴰⴱⴷⴰ ⵉⵍⵉⵏⵜ ⵜⵓⵎⵓⵜⵉⵏ ⵏⵏⴽ ⴷⴷⴰⵡ ⵜⵓⵔⴰⴳⵜ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">ⵙ ⵓⴼⵙⴰⵔ, ⵜⵎⵙⴰⵙⴰⴷ ⵖⴼ &lt;a href=\"%1$s\"&gt;ⵜⴼⴰⴷⵉⵡⵉⵏ ⵏ ⵓⵙⵙⵎⵔⵙ&lt;/a&gt;, ⴷ ⴰⴷ ⴰⴱⴷⴰ ⵉⵍⵉⵏⵜⵏ ⵜⵓⵎⵓⵜⵉⵏ ⵏⵏⴽ ⴷⴷⴰⵡ ⵜⵓⵔⴰⴳⵜ &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. ⵉⵙⵏⴼⵍ ⵔⴰⴷ ⴹⴼⵕⵏ ⴰⵏⵙⴰ ⵏ ⵓⴱⵔⵓⵟⵓⴽⵓⵍ ⵏ ⵡⴰⵏⵜⵉⵔⵏⵉⵜ ⵏ ⵡⴰⵍⵍⴰⵍ ⵏⵏⴽ. ⵎⴽ &lt;a href=\"https://#login\"&gt;ⵜⴽⵛⵎⴷ&lt;/a&gt;, ⵔⴰⴷ ⵖⵓⵔⴽ ⵜⵉⵍⵉ ⵜⵉⵏⵏⵓⵜⵍⴰ ⵓⴳⴳⵯⴰⵔ.</string>
+  <string name="edit_save_action_license_logged_in">ⵙ ⵓⴼⵙⴰⵔ, ⵜⵎⵙⴰⵙⴰⴷ ⵖⴼ &lt;a href=\"%1$s\"&gt;ⵜⴼⴰⴷⵉⵡⵉⵏ ⵏ ⵓⵙⵙⵎⵔⵙ&lt;/a&gt;, ⴷ ⵔⴰⴷ ⴰⴱⴷⴰ ⵉⵍⵉⵏⵜ ⵜⵓⵎⵓⵜⵉⵏ ⵏⵏⴽ ⴷⴷⴰⵡ ⵜⵓⵔⴰⴳⵜ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">ⵙ ⵓⴼⵙⴰⵔ, ⵜⵎⵙⴰⵙⴰⴷ ⵖⴼ &lt;a href=\"%1$s\"&gt;ⵜⴼⴰⴷⵉⵡⵉⵏ ⵏ ⵓⵙⵙⵎⵔⵙ&lt;/a&gt;, ⴷ ⴰⴷ ⴰⴱⴷⴰ ⵉⵍⵉⵏⵜⵏ ⵜⵓⵎⵓⵜⵉⵏ ⵏⵏⴽ ⴷⴷⴰⵡ ⵜⵓⵔⴰⴳⵜ &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. ⵉⵙⵏⴼⵍ ⵔⴰⴷ ⴹⴼⵕⵏ ⴰⵏⵙⴰ ⵏ ⵓⴱⵔⵓⵟⵓⴽⵓⵍ ⵏ ⵡⴰⵏⵜⵉⵔⵏⵉⵜ ⵏ ⵡⴰⵍⵍⴰⵍ ⵏⵏⴽ. ⵎⴽ &lt;a href=\"https://#login\"&gt;ⵜⴽⵛⵎⴷ&lt;/a&gt;, ⵔⴰⴷ ⵖⵓⵔⴽ ⵜⵉⵍⵉ ⵜⵉⵏⵏⵓⵜⵍⴰ ⵓⴳⴳⵯⴰⵔ.</string>
   <string name="preference_title_language">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
   <string name="langlinks_filter_hint">ⵔⵣⵓ</string>
   <string name="langlinks_empty">ⵓⵔ ⵜⵍⵍⵉ ⵜⴰⵙⵏⴰ ⴰⴷ ⵙ ⵜⵓⵜⵍⴰⵢⵉⵏ ⵢⴰⴹⵏⵉⵏ.</string>
@@ -111,6 +121,7 @@
   <string name="login_activity_title">ⴽⵛⵎ</string>
   <string name="login_in_progress_dialog_message">ⵙⴽⵛⴰⵎ...</string>
   <string name="login_success_toast">ⵜⴽⵛⵎⴷ!</string>
+  <string name="reset_password_title">ⵙⵙⴽⵛⵎ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⴽ</string>
   <string name="reset_password_hint">ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵜⴰⵎⴰⵢⵏⵓⵜ</string>
   <string name="reset_password_button">ⵃⴹⵓ, ⵜⴽⵛⵎⴷ</string>
   <string name="preference_title_logout">ⴼⴼⵖ</string>
@@ -128,9 +139,9 @@
   <string name="create_account_username_hint">ⵉⵙⵎ ⵏ ⵓⵙⵎⵔⴰⵙ</string>
   <string name="login_dont_have_account">ⵓⵔ ⵖⵓⵔⴽ ⵉⵍⵍⵉ ⵓⵎⵉⴹⴰⵏ?</string>
   <string name="login_join_wikipedia">ⵍⴽⵎ ⵉ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
-  <string name="login_forgot_password">ⵜⴻⵜⵜⵓⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⵎ/ⴽ?</string>
+  <string name="login_forgot_password">ⵜⴻⵜⵜⵓⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ ⵏⵏⴽ/ⵎ?</string>
   <string name="create_account_already_have">ⵉⵙ ⵉⵍⵍⴰ ⵖⵓⵔⴽ ⵓⵎⵉⴹⴰⵏ?</string>
-  <string name="create_account_activity_title">ⵙⵏⴼⵍⵓⵍ ⴰⵎⵉⴹⴰⵏ</string>
+  <string name="create_account_activity_title">ⵙⵏⵓⵍⴼⵓ ⴽⵔⴰ ⵏ ⵓⵎⵉⴹⴰⵏ</string>
   <string name="dialog_create_account_checking_progress">ⴰⵙⵖⵥⵏ</string>
   <string name="create_account_email_hint">ⵉⵎⴰⵢⵍ (ⵓⴷⵖⵉⵔ)</string>
   <string name="create_account_password_repeat_hint">ⵔⴰⵔ ⴷ ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ</string>
@@ -138,7 +149,7 @@
   <string name="create_account_email_error">ⴰⵏⵙⴰ ⵏ ⵉⵎⴰⵢⵍ ⵓⵔ ⵉⵏⵉⵎ</string>
   <string name="create_account_next">ⵓⴹⴼⵉⵕ</string>
   <string name="email_recommendation_dialog_create_with_email_action">ⵔⵏⵓ ⴰⵏⵙⴰ ⵏ ⵉⵎⴰⵢⵍ</string>
-  <string name="create_account_button">ⵙⵏⴼⵍⵓⵍ ⴰⵎⵉⴹⴰⵏ</string>
+  <string name="create_account_button">ⵙⵏⵓⵍⴼⵓ ⴰⵎⵉⴹⴰⵏ</string>
   <string name="create_account_ip_block_details">ⵉⴼⵔⵓⵔⵉⵜⵏ</string>
   <string name="preferences_general_heading">ⴰⵎⴰⵜⴰⵢ</string>
   <string name="preferences_account_heading">ⴰⵎⵉⴹⴰⵏ</string>
@@ -157,8 +168,9 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+  <string name="about_libraries_heading">ⵜⵉⵙⴷⵍⵉⵙⵉⵏ ⵉⵜⵜⵓⵙⵎⵔⴰⵙⵏ</string>
   <string name="about_contributors_heading">ⵉⵏⴰⵎⵓⵜⵏ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ⵉⵎⵙⵙⵓⵖⵍⵏ</string>
@@ -221,7 +233,7 @@
   <string name="color_theme_test_title">ⴰⴹⵕⵉⵚ ⴰⵎⴷⵢⴰ</string>
   <string name="preference_title_app_theme">ⴰⵙⴳⵓⵎ ⵏ ⵜⵙⵏⵙⵉ</string>
   <string name="reading_list_save_to">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
-  <string name="reading_list_create_new">ⵙⵏⴼⵍⵓⵍ ⴰⵎⴰⵢⵎⵓ</string>
+  <string name="reading_list_create_new">ⵙⵏⵓⵍⴼⵓ ⴰⵎⴰⵢⵎⵓ</string>
   <string name="reading_list_menu_delete">ⴽⴽⵙ ⵜⴰⵍⴳⴰⵎⵜ</string>
   <string name="reading_list_menu_rename">ⵙⵏⴼⵍ ⵉⵙⵎ/ⴰⴳⵍⴰⵎ</string>
   <string name="reading_list_select_item">ⵙⵜⵢ</string>
@@ -296,13 +308,12 @@
   <string name="this_year">ⴰⵙⵙⴳⴳⵯⴰⵙ ⴰⴷ</string>
   <string name="languages_list_activity_title">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="languages_list_all_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵎⴰⵕⵕⴰ</string>
-  <string name="wikipedia_languages_your_languages_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏⵏⴽ</string>
+  <string name="wikipedia_languages_your_languages_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏⵏⴽ/ⵎ</string>
   <string name="wikipedia_languages_add_language_text">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="wikipedia_languages_remove_text">ⴽⴽⵙ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="wikipedia_languages_remove_action_mode_title">ⴽⴽⵙ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="more_language_options">ⵓⴳⴳⴰⵔ</string>
   <string name="add_wikipedia_languages_text">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ⵓⵀⵓ, ⵜⴰⵏⵎⵎⵉⵔⵜ</string>
   <string name="remove_language_dialog_cancel_button_text">ⵙⵔ</string>
   <string name="remove_language_dialog_ok_button_text">ⵡⴰⵅⵅⴰ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ⵡⴰⵅⵅⴰ</string>

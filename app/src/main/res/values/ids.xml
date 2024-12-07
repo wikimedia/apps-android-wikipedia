@@ -4,6 +4,7 @@
     <item name="nav_tab_reading_lists" type="id" />
     <item name="nav_tab_search" type="id" />
     <item name="nav_tab_edits" type="id" />
+    <item name="nav_tab_more" type="id" />
     <item name="page_save" type="id" />
     <item name="page_language" type="id" />
     <item name="page_find_in_article" type="id" />

@@ -25,6 +25,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -75,7 +76,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private var revision: Long = 0
-    private val viewModel: LinkPreviewViewModel by viewModels { LinkPreviewViewModel.Factory(requireArguments()) }
+    private val viewModel: LinkPreviewViewModel by viewModels()
 
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
         return@OnMenuItemClickListener when (item.itemId) {
@@ -138,7 +139,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
         }
         requestGalleryLauncher.launch(GalleryActivity.newIntent(requireContext(), viewModel.pageTitle,
-            imageName, viewModel.pageTitle.wikiSite, revision, GalleryActivity.SOURCE_LINK_PREVIEW), options)
+            imageName, viewModel.pageTitle.wikiSite, revision), options)
     }
 
     private val requestGalleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -204,7 +205,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         popupMenu.inflate(R.menu.menu_link_preview)
         popupMenu.menu.findItem(R.id.menu_link_preview_add_to_list).isVisible = !viewModel.fromPlaces
         popupMenu.menu.findItem(R.id.menu_link_preview_share_page).isVisible = !viewModel.fromPlaces
-        popupMenu.menu.findItem(R.id.menu_link_preview_watch).isVisible = viewModel.fromPlaces
+        popupMenu.menu.findItem(R.id.menu_link_preview_watch).isVisible = viewModel.fromPlaces && AccountUtil.isLoggedIn
         popupMenu.menu.findItem(R.id.menu_link_preview_watch).title = getString(if (viewModel.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         popupMenu.menu.findItem(R.id.menu_link_preview_open_in_new_tab).isVisible = viewModel.fromPlaces
         popupMenu.menu.findItem(R.id.menu_link_preview_view_on_map).isVisible = !viewModel.fromPlaces && viewModel.location != null
@@ -398,7 +399,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             )
         )
         val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
-        val editVisibility = contents.extract.isNullOrBlank() && viewModel.pageTitle.namespace() == Namespace.MAIN
+        val editVisibility = contents.extract.isNullOrBlank() && contents.ns?.id == Namespace.MAIN.code()
         binding.linkPreviewEditButton.isVisible = editVisibility
         binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
         val extract = if (editVisibility) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract

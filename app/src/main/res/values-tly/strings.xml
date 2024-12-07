@@ -54,7 +54,7 @@
   <string name="page_edit_history_filter_by">Cešidin karde de</string>
   <string name="page_edit_history_filter_by_all">Həmmə ovaxtətijon (%s)</string>
   <string name="page_edit_history_filter_by_user">Ce ištirokəkon ovaxtətijon (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Noməlumə ovaxtə cijon (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Noməlumə ovaxtə cijon (%s)</string>
   <string name="page_edit_history_filter_by_bot">Boton ovaxtə cijon (%s)</string>
   <string name="page_edit_history_metrics_content_description">Pamjəjon ce %1$s tosə %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -366,7 +366,7 @@
   <string name="article_menu_bar_contents_button">Myndəričot</string>
   <string name="article_header_edit_hint">Sərost kardej...</string>
   <string name="article_header_edit_description">Səhifə nom-nyšoni ovaxte</string>
-  <string name="article_header_edit_lead_section">Vəsə sərost kardej</string>
+  <string name="article_header_edit_lead_section">Sərlovhə sərost kardej</string>
   <string name="color_theme_select">Myžor</string>
   <string name="color_theme_light">Rušin</string>
   <string name="color_theme_dark">Gyrd tojki</string>
@@ -611,7 +611,7 @@
   <string name="menu_feed_card_edit_card_languages">Zyvonon kərti sərost karde</string>
   <string name="menu_feed_overflow_label">Hənijən səbəro</string>
   <string name="feed_featured_image_share_subject">Ce Vikimənbə ən cokə šikilon</string>
-  <string name="home">Vəsə</string>
+  <string name="home">Sərlovhə</string>
   <string name="view_static_card_icon_content_description">Kərti nyšonə</string>
   <string name="view_card_news_title">Xəbonədə</string>
   <string name="view_continue_reading_card_subtitle_today">ımruj</string>
@@ -730,7 +730,6 @@
   <string name="suggested_edits_contribution_type_label">Tohfə tispir</string>
   <string name="suggested_edits_contribution_image_label">Šikil</string>
   <string name="suggested_edits_contribution_article_label">Məǧolon</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Zinə</string>
   <string name="suggested_edits_contribution_type_image_tag">Šikili teg</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Məlumot kame</string>
@@ -740,7 +739,7 @@
   <string name="image_recommendation_accept">Bəle</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Cətine vote</string>
-  <string name="image_recommendation_reject_title">Buci ne?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Buci ne?</string>
   <string name="image_recommendation_reject_other">Čo</string>
   <string name="image_recommendation_reject_submit">Vyǧandej</string>
   <string name="image_recommendation_tooltip_next">Dumotono šə</string>
@@ -777,9 +776,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Həmmə zyvonon mole əbyni</string>
   <string name="more_language_options">hənijən zyvonon</string>
   <string name="add_wikipedia_languages_text">Ce Vikipedia zyvonon əlovə kardej</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Cini zyvon ce zyvonon sijohiku mole?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Zyvonon sərost kardej</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, səǧbi</string>
   <string name="remove_language_dialog_cancel_button_text">Ohaštej</string>
   <string name="remove_language_dialog_ok_button_text">COK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">COK</string>
@@ -1011,7 +1007,6 @@
   <string name="patroller_tasks_overflow_learn">Ve omute</string>
   <string name="patroller_onboarding_two_thank_title">Sepas</string>
   <string name="patroller_onboarding_two_watch_title">Rymuz kardej</string>
-  <string name="patroller_onboarding_two_warn_title">Cocašin</string>
   <string name="data_opt_in_accept">Ǧəbul kardej</string>
   <string name="data_opt_in_reject">Ohaštej</string>
   <string name="page_issues_title">Səhifə problemon</string>

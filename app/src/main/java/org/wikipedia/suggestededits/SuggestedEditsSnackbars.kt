@@ -2,9 +2,9 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import com.google.android.material.snackbar.Snackbar
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.util.FeedbackUtil
 
@@ -61,10 +61,19 @@ object SuggestedEditsSnackbars {
         if (action != null && getSessionCount(activity, action) < MAX_SHOW_PER_SESSION) {
             FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar))
                     .setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
-                        activity.startActivity(SuggestionsActivity.newIntent(activity, action, Constants.InvokeSource.SNACKBAR_ACTION))
+                        activity.startActivity(SuggestionsActivity.newIntent(activity, action))
                     }
+                    .addCallback(object : Snackbar.Callback() {
+                        override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                            if (!activity.isDestroyed) {
+                                AccountUtil.maybeShowTempAccountWelcome(activity)
+                            }
+                        }
+                    })
                     .show()
             incrementSessionMap(activity, action)
+        } else {
+            AccountUtil.maybeShowTempAccountWelcome(activity)
         }
     }
 

@@ -34,10 +34,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.float
@@ -50,6 +46,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
@@ -76,6 +73,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
@@ -102,6 +100,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -139,7 +138,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageCloseActionMode()
         fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
         fun onPageRequestLangLinks(title: PageTitle)
-        fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?)
+        fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
@@ -149,7 +148,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val binding get() = _binding!!
 
     private val activeTimer = ActiveTimer()
-    private val disposables = CompositeDisposable()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
@@ -198,7 +196,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
         initWebViewListeners()
-        binding.pageRefreshContainer.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
         val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET
@@ -234,6 +231,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
+        webView.addOnScrollChangeListener { _, scrollY, _ ->
+            if (scrollY > (DimenUtil.roundedDpToPx(webView.contentHeight.toFloat()) - (DimenUtil.displayHeightPx * 2)) &&
+                !model.isReadMoreLoaded) {
+                bridge.execute(JavaScriptActionHandler.appendReadMode(model))
+                model.isReadMoreLoaded = true
+            }
+        }
+
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
@@ -263,7 +268,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.cleanup()
         sidePanelHandler.log()
         leadImagesHandler.dispose()
-        disposables.clear()
         webView.clearAllListeners()
         (webView.parent as ViewGroup).removeView(webView)
         Prefs.isSuggestedEditsHighestPriorityEnabled = false
@@ -397,6 +401,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     // tells us the page is finished loading. In such a case, we must infer that the
                     // page has now loaded and trigger the remaining logic ourselves.
                     if ("true" != pcsExists) {
+                        if (WikipediaApp.instance.currentTheme.isDark) {
+                            // TODO: remove when mobile web supports automatic dark mode through
+                            // the `prefers-color-scheme` media query.
+                            bridge.execute(JavaScriptActionHandler.mobileWebSetDarkMode())
+                        }
                         onPageSetupEvent()
                         bridge.onMetadataReady()
                         bridge.onPcsReady()
@@ -404,10 +413,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
                     }
                 }
-            }
-
-            override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {
-                onPageLoadError(RuntimeException(description))
             }
 
             override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
@@ -450,6 +455,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
                 sidePanelHandler.setupForNewPage(page)
                 sidePanelHandler.setEnabled(true)
+                model.isReadMoreLoaded = false
             }
         }
         bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->
@@ -458,6 +464,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             model.page?.let { page ->
                 page.pageProperties.protection = JsonUtil.decodeFromString(value)
+                updateQuickActionsAndMenuOptions()
             }
         }
     }
@@ -627,7 +634,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, GalleryActivity.SOURCE_NON_LEAD_IMAGE, options)
+                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, false, options)
                     }
                 }
             }
@@ -674,15 +681,23 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
                     availableCampaign?.let {
                         if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logImpression("article_banner",
-                                it.id, pageTitle.wikiSite.languageCode)
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
+                            return@launch
                         }
                     }
+                    maybeShowContributionsDashboardDialog()
                 }
             }
+        }
+    }
+
+    private fun maybeShowContributionsDashboardDialog() {
+        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            ContributionsDashboardHelper.showEntryDialog(requireActivity())
+            Prefs.contributionsDashboardEntryDialogShown = true
         }
     }
 
@@ -915,12 +930,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         model.readingListPage?.let { page ->
             model.title?.let { title ->
-                disposables.add(Completable.fromAction {
-                    page.thumbUrl.equals(title.thumbUrl, true)
+                lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+                    L.e(t)
+                }) {
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
                         AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
                     }
-                }.subscribeOn(Schedulers.io()).subscribe())
+                }
             }
         }
         if (!errorState) {
@@ -1018,7 +1034,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun updateFontSize() {
-        webView.settings.defaultFontSize = app.getFontSize(requireActivity().window).toInt()
+        webView.settings.defaultFontSize = app.getFontSize().toInt()
     }
 
     fun updateQuickActionsAndMenuOptions() {
@@ -1027,19 +1043,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         binding.pageActionsTabLayout.forEach { it as MaterialTextView
             val pageActionItem = PageActionItem.find(it.id)
-            val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
+            var enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
             when (pageActionItem) {
                 PageActionItem.ADD_TO_WATCHLIST -> {
                     it.setText(if (model.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
                     it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0)
-                    it.isEnabled = enabled && AccountUtil.isLoggedIn
-                    it.alpha = if (it.isEnabled) 1f else 0.5f
+                    enabled = enabled && AccountUtil.isLoggedIn
                 }
                 PageActionItem.SAVE -> {
                     it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
                 }
                 PageActionItem.EDIT_ARTICLE -> {
-                    it.setCompoundDrawablesRelativeWithIntrinsicBounds(0, PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0)
+                    it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0)
                 }
                 PageActionItem.VIEW_ON_MAP -> {
                     val geoAvailable = model.page?.pageProperties?.geo != null
@@ -1047,11 +1062,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     it.setTextColor(tintColor)
                     TextViewCompat.setCompoundDrawableTintList(it, tintColor)
                 }
-                else -> {
-                    it.isEnabled = enabled
-                    it.alpha = if (enabled) 1f else 0.5f
-                }
+                else -> { }
             }
+            it.isEnabled = enabled
+            it.alpha = if (enabled) 1f else 0.5f
         }
         sidePanelHandler.setEnabled(false)
         requireActivity().invalidateOptionsMenu()
@@ -1059,15 +1073,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
-            disposables.add(
-                Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate {
-                        updateQuickActionsAndMenuOptions()
-                        requireActivity().invalidateOptionsMenu()
-                    }
-                    .subscribe())
+            lifecycleScope.launch {
+                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+                updateQuickActionsAndMenuOptions()
+                requireActivity().invalidateOptionsMenu()
+            }
         }
     }
 
@@ -1236,29 +1246,23 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun updateWatchlist() {
         title?.let {
-            disposables.add(ServiceFactory.get(it.wikiSite).watchToken
-                .subscribeOn(Schedulers.io())
-                .flatMap { response ->
-                    val watchToken = response.query?.watchToken()
-                    if (watchToken.isNullOrEmpty()) {
-                        throw RuntimeException("Received empty watch token.")
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.d(throwable)
+            }) {
+                val token = ServiceFactory.get(it.wikiSite).getWatchToken().query?.watchToken() ?: throw RuntimeException("Received empty watch token.")
+                val watch = ServiceFactory.get(it.wikiSite).watch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, token)
+                watch.getFirst()?.let { firstWatch ->
+                    if (model.isWatched) {
+                        WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
+                    } else {
+                        WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
                     }
-                    ServiceFactory.get(it.wikiSite).postWatch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, watchToken)
+                    model.isWatched = firstWatch.watched
+                    updateWatchlistExpiry(WatchlistExpiry.NEVER)
+                    showWatchlistSnackbar()
                 }
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate { updateQuickActionsAndMenuOptions() }
-                .subscribe({ watchPostResponse ->
-                    watchPostResponse.getFirst()?.let { watch ->
-                        if (model.isWatched) {
-                            WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
-                        } else {
-                            WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
-                        }
-                        model.isWatched = watch.watched
-                        updateWatchlistExpiry(WatchlistExpiry.NEVER)
-                        showWatchlistSnackbar()
-                    }
-                }) { caught -> L.d(caught) })
+                updateQuickActionsAndMenuOptions()
+            }
         }
     }
 
@@ -1270,11 +1274,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         PageActionOverflowView(requireContext()).show(anchor, pageActionItemCallback, currentTab, model)
     }
 
-    fun goToMainTab() {
-        startActivity(MainActivity.newIntent(requireContext())
+    fun goToMainActivity(tab: NavTab, tabExtra: String) {
+        startActivity(MainActivity.newIntent(requireActivity())
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
+            .putExtra(tabExtra, tab.code()))
         requireActivity().finish()
     }
 
@@ -1464,7 +1468,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onExploreSelected() {
-            goToMainTab()
+            goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
             articleInteractionEvent?.logExploreClick()
             metricsPlatformArticleEventToolbarInteraction.logExploreClick()
         }
@@ -1499,6 +1503,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
+        }
+
+        override fun onDonorSelected() {
+            goToMainActivity(tab = NavTab.EDITS, tabExtra = Constants.INTENT_EXTRA_GO_TO_SE_TAB)
+        }
+
+        override fun onBecomeDonorSelected() {
+            (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
+        }
+
+        override fun onUpdateDonorStatusSelected() {
+            startActivity(DonorHistoryActivity.newIntent(requireContext(), goBackToContributeTab = true))
         }
     }
 

@@ -21,7 +21,7 @@ jobs:
       run: ./gradlew clean assembleAlphaRelease
     - name: List
       run: ls -alR ./app/build/outputs/apk/
-    - uses: r0adkll/sign-android-release@v1
+    - uses: kevin-david/zipalign-sign-android-release@v2
       name: Sign APK
       id: build_signed
       with:
@@ -31,7 +31,7 @@ jobs:
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
       env:
-        # override default build-tools version (29.0.3) -- optional
+        # override default build-tools version (33.0.0) -- optional
         BUILD_TOOLS_VERSION: "34.0.0"
     - uses: actions/upload-artifact@v4
       name: Upload APK artifact

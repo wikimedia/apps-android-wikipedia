@@ -2,14 +2,14 @@ package org.wikipedia.feed.announcement
 
 import android.content.Context
 import androidx.annotation.VisibleForTesting
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.settings.Prefs
@@ -18,25 +18,27 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.Date
 
-class AnnouncementClient : FeedClient {
+class AnnouncementClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
 
-    private val disposables = CompositeDisposable()
+    private var clientJob: Job? = null
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        disposables.add(ServiceFactory.getRest(wiki).announcements
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ list ->
-                FeedCoordinator.postCardsToCallback(cb, buildCards(list.items))
-            }) { throwable ->
-                L.v(throwable)
-                cb.error(throwable)
-            })
+        clientJob = coroutineScope.launch(
+            CoroutineExceptionHandler { _, caught ->
+                L.v(caught)
+                cb.error(caught)
+            }
+        ) {
+            val announcementsResponse = ServiceFactory.getRest(wiki).getAnnouncements()
+            cb.success(buildCards(announcementsResponse.items))
+        }
     }
 
     override fun cancel() {
-        disposables.clear()
+        clientJob?.cancel()
     }
 
     companion object {

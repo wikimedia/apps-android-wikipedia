@@ -37,10 +37,8 @@ class Campaign(
     @Serializable
     class Action(
         val title: String = "",
-        @SerialName("url") val rawUrl: String? = null
-    ) {
-        val url get() = rawUrl?.replace("\$platform;", "Android")
-    }
+        val url: String? = null
+    )
 
     @Serializable
     class PlatformParams

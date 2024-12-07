@@ -1,53 +1,58 @@
 package org.wikipedia.feed.random
 
 import android.content.Context
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.launch
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.FeedContentType
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.log.L
 
-class RandomClient : FeedClient {
+class RandomClient(
+    private val coroutineScope: CoroutineScope
+) : FeedClient {
 
-    private val disposables = CompositeDisposable()
+    private var clientJob: Job? = null
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        disposables.add(
-            Observable.fromIterable(FeedContentType.aggregatedLanguages)
-                .flatMap({ lang -> getRandomSummaryObservable(lang) }, { first, second -> Pair(first, second) })
-                .observeOn(AndroidSchedulers.mainThread())
-                .toList()
-                .subscribe({ pairs ->
-                    val list = pairs.map { RandomCard(it.second, age, WikiSite.forLanguageCode(it.first)) }
-                    FeedCoordinator.postCardsToCallback(cb, list)
-                }) { t ->
-                    L.v(t)
-                    cb.error(t)
-                })
-    }
-
-    private fun getRandomSummaryObservable(lang: String): Observable<PageSummary> {
-        return ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
-            .randomSummary
-            .subscribeOn(Schedulers.io())
-            .onErrorResumeNext { throwable ->
-                Observable.fromCallable {
-                    val page = AppDatabase.instance.readingListPageDao().getRandomPage() ?: throw throwable as Exception
-                    ReadingListPage.toPageSummary(page)
-                }
+        clientJob = coroutineScope.launch(
+            CoroutineExceptionHandler { _, caught ->
+                L.v(caught)
+                cb.error(caught)
             }
+        ) {
+            val deferredSummaries = WikipediaApp.instance.languageState.appLanguageCodes
+                .filter { !FeedContentType.RANDOM.langCodesDisabled.contains(it) }
+                .map { lang ->
+                    async {
+                        val wikiSite = WikiSite.forLanguageCode(lang)
+                        val randomSummary = try {
+                            ServiceFactory.getRest(wikiSite).getRandomSummary()
+                        } catch (e: Exception) {
+                            AppDatabase.instance.readingListPageDao().getRandomPage(lang)?.let {
+                                ReadingListPage.toPageSummary(it)
+                            }
+                        }
+                        randomSummary?.let {
+                            RandomCard(it, age, wikiSite)
+                        }
+                    }
+                }
+
+            cb.success(deferredSummaries.awaitAll().filterNotNull())
+        }
     }
 
     override fun cancel() {
-        disposables.clear()
+        clientJob?.cancel()
     }
 }

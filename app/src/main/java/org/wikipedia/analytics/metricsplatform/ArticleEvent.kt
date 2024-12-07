@@ -1,7 +1,10 @@
 package org.wikipedia.analytics.metricsplatform
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikimedia.metrics_platform.context.PageData
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -24,7 +27,7 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
     fun logDone() {
         submitEvent(
             "android.product_metrics.find_in_page_interaction",
-            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.1.0",
+            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.1.1",
             "find_in_page_interaction",
             mapOf(
                 "find_text" to findText,
@@ -187,7 +190,7 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
         }
         submitEvent(
             "android.product_metrics.article_toc_interaction",
-            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.1.0",
+            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.1.1",
             "article_toc_interaction",
             mapOf(
                 "num_opens" to numOpens,
@@ -201,9 +204,14 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
     }
 }
 
-class ArticleLinkPreviewInteraction : TimedMetricsEvent {
+open class ArticleLinkPreviewInteraction : TimedMetricsEvent {
     private val pageData: PageData?
-    private val source: Int
+    var source: Int
+
+    constructor(source: Int) {
+        this.source = source
+        this.pageData = null
+    }
 
     constructor(fragment: PageFragment, source: Int) {
         this.source = source
@@ -221,18 +229,18 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
     }
 
     fun logLinkClick() {
-        submitEvent("linkclick")
+        submitEvent("linkclick", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
-    fun logNavigate() {
-        submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled")
+    open fun logNavigate() {
+        submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
     fun logCancel() {
-        submitEvent("cancel")
+        submitEvent("cancel", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
-    private fun submitEvent(action: String) {
+    protected fun submitEvent(action: String, contextData: ContextData) {
         submitEvent(
             "android.product_metrics.article_link_preview_interaction",
             "article_link_preview_interaction",
@@ -240,9 +248,14 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
                 action,
                 null,
                 source.toString(),
-                "time_spent_ms.${timer.elapsedMillis}",
+                JsonUtil.encodeToString(contextData)
             ),
             pageData
         )
     }
+
+    @Serializable
+    class ContextData(
+        @SerialName("time_spent_ms") val timeSpentMillis: Long? = null
+    )
 }

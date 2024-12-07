@@ -51,7 +51,7 @@ import org.wikipedia.views.ViewUtil
 class TalkTemplatesFragment : Fragment() {
     private var _binding: FragmentTalkTemplatesBinding? = null
 
-    private val viewModel: TalkTemplatesViewModel by viewModels { TalkTemplatesViewModel.Factory(requireArguments()) }
+    private val viewModel: TalkTemplatesViewModel by viewModels()
     private val binding get() = _binding!!
 
     private lateinit var itemTouchHelper: ItemTouchHelper
@@ -82,11 +82,11 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     private val requestNewTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        binding.talkTemplatesTabLayout.getTabAt(0)?.select()
         if (result.resultCode == RESULT_OK || result.resultCode == RESULT_BACK_FROM_TOPIC) {
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
             if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
+                binding.talkTemplatesTabLayout.getTabAt(0)?.select()
                 FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
             }
         } else if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
@@ -97,10 +97,10 @@ class TalkTemplatesFragment : Fragment() {
 
     private val requestEditTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK || result.resultCode == RESULT_BACK_FROM_TOPIC) {
-            binding.talkTemplatesTabLayout.getTabAt(0)?.select()
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("update_message_toast", "pt_templates")
             if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
+                binding.talkTemplatesTabLayout.getTabAt(0)?.select()
                 FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
             }
         } else if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
@@ -240,10 +240,8 @@ class TalkTemplatesFragment : Fragment() {
     private fun onSuccess() {
         setRecyclerView()
         showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
-        binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
-        binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
         if (binding.talkTemplatesEmptyContainer.isVisible) {
             PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
         }

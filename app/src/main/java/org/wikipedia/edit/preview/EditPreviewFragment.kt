@@ -30,6 +30,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -40,6 +41,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     interface Callback {
         fun getParentPageTitle(): PageTitle
         fun showProgressBar(visible: Boolean)
+        fun isNewPage(): Boolean
     }
 
     private var _binding: FragmentPreviewEditBinding? = null
@@ -80,8 +82,12 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     fun showPreview(title: PageTitle, wikiText: String) {
         DeviceUtil.hideSoftKeyboard(requireActivity())
         callback().showProgressBar(true)
-        val url = ServiceFactory.getRestBasePath(model.title!!.wikiSite) +
-                RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
+
+        // Workaround for T363781
+        // The preview endpoint requires the target page to exist, so if it doesn't exist yet,
+        // we will base the preview on the Main Page of the wiki.
+        val url = ServiceFactory.getRestBasePath(model.title!!.wikiSite) + RestService.PAGE_HTML_PREVIEW_ENDPOINT +
+                UriUtil.encodeURL(if (callback().isNewPage()) MainPageNameData.valueFor(title.wikiSite.languageCode) else title.prefixedText)
         val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
         binding.editPreviewWebview.postUrl(url, postData.toByteArray())
         binding.editPreviewContainer.isVisible = true

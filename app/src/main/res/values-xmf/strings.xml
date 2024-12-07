@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * MuratTheTurkish
 * Narazeni
@@ -291,7 +290,6 @@
   <string name="tool_tip_bookmark_icon_title">ოკითხირე ერკებულშა გეძინა</string>
   <string name="page_view_in_browser">ხასჷლაშ ძირაფა ბრაუზერს</string>
   <string name="tool_tip_toc_title">დინორეშ ბიწორი ხემიოლი</string>
-  <string name="tool_tip_lang_button">ანწი თქვა შეილებჷნა აპლიკაციას დოგორათ დო წეკითხათ ვიკიპედია შხვადოშხვა ნინაშა.\n\n\nშხვა ნინეფიშ გიოძინალო ქეგუწკანტეთ ხარხუნტას.</string>
   <string name="error_response_malformed">სერვერშე გამაქ ჩილათირო დეფორმატირჷ.</string>
   <string name="error_unknown">მეგორაფილი რე უჩინებუ ჩილათაშა.</string>
   <string name="format_error_server_message">გინაფა: „%s“</string>
@@ -408,6 +406,8 @@
   <string name="view_because_you_read_card_title">თიშ გეშა, ნამჷ-და თქვა კითხულენთ</string>
   <string name="view_random_card_title">ჩვაგაფი</string>
   <string name="home">დუდხასჷლა</string>
+  <string name="view_featured_article_card_title">გიშნაგორა სტატია</string>
+  <string name="feed_item_type_featured_article">დღაშ გიშნაგორა სტატია ვიკიპედიას</string>
   <string name="description_edit_success_did_you_know">გიჩქუდესო ნამჷ-და?</string>
   <string name="description_edit_tutorial_button_label_start_editing">რედაქტირაფაშ დოჭყაფა</string>
   <string name="suggested_edits_add_description_button">ეჭარუაშ გეძინა</string>
@@ -453,7 +453,7 @@
   <string name="image_recommendation_accept">ქო</string>
   <string name="image_recommendation_reject">ვარი</string>
   <string name="image_recommendation_notsure">ვამაფუ გინოჭყვადილჷ</string>
-  <string name="image_recommendation_reject_title">მუშენ ვარ?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">მუშენ ვარ?</string>
   <string name="image_recommendation_reject_no_info">ვა რე დასაბაღუ ინფორმაცია გინაჭყვიდირალო</string>
   <string name="image_recommendation_reject_offensive">სურათი კუჩხიშ გემადგჷმუ რე</string>
   <string name="image_recommendation_reject_low_quality">სურათი დაბალი ხარისხიშ რე</string>

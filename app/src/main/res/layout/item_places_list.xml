@@ -58,7 +58,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:contentDescription="@null"
-        android:src="@drawable/ic_wikipedia_w"
+        android:src="@drawable/ic_w_logo_circle"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"

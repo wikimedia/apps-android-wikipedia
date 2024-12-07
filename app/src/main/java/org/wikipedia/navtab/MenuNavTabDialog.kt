@@ -4,20 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import org.wikipedia.BuildConfig
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.util.CustomTabsUtil
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 
@@ -29,6 +29,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun settingsClick()
         fun watchlistClick()
         fun contribsClick()
+        fun donateClick(campaignId: String? = null)
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -39,7 +40,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
-            if (AccountUtil.isLoggedIn) {
+            if (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
                 callback()?.usernameClick()
             } else {
                 callback()?.loginClick()
@@ -78,10 +79,14 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
-            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
-            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.donate_url,
-                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
+            if (ContributionsDashboardHelper.contributionsDashboardEnabled) {
+                ContributionsDashboardEvent.logAction("donate_start_click", "more_menu", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
+                callback()?.donateClick(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
+            } else {
+                DonorExperienceEvent.logAction("donate_start_click", "more_menu")
+                callback()?.donateClick()
+            }
             dismiss()
         }
 
@@ -101,18 +106,31 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun updateState() {
         if (AccountUtil.isLoggedIn) {
-            binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_baseline_person_24)
-            ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.secondary_color))
-            binding.mainDrawerAccountName.text = AccountUtil.userName
-            binding.mainDrawerAccountName.visibility = View.VISIBLE
-            binding.mainDrawerLoginButton.visibility = View.GONE
+            if (AccountUtil.isTemporaryAccount) {
+                binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
+                ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.progressive_color))
+                binding.tempAccountName.text = AccountUtil.userName
+                binding.mainDrawerAccountName.isVisible = false
+                binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
+                binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
+                binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.progressive_color))
+                binding.mainDrawerLoginButton.isVisible = true
+            } else {
+                binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_baseline_person_24)
+                ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.secondary_color))
+                binding.mainDrawerAccountName.text = AccountUtil.userName
+                binding.mainDrawerAccountName.isVisible = true
+                binding.mainDrawerLoginButton.isVisible = false
+            }
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
-            binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
+            binding.mainDrawerTempAccountContainer.isVisible = AccountUtil.isTemporaryAccount
+            binding.mainDrawerWatchlistContainer.isVisible = !AccountUtil.isTemporaryAccount
             binding.mainDrawerContribsContainer.visibility = View.VISIBLE
         } else {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.progressive_color))
             binding.mainDrawerAccountName.visibility = View.GONE
+            binding.mainDrawerTempAccountContainer.isVisible = false
             binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
             binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
             binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.progressive_color))

@@ -5,9 +5,11 @@ import android.content.Context
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.Campaign
 import org.wikipedia.settings.Prefs
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
 import java.time.Duration
@@ -21,11 +23,10 @@ class CampaignDialog internal constructor(private val context: Context, val camp
 
     init {
         val campaignView = CampaignDialogView(context)
-        campaignView.campaignAssets = campaign.assets[WikipediaApp.instance.appOrSystemLanguageCode]
         campaignView.callback = this
         val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
         campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true
-        campaignView.setupViews()
+        campaignView.setupViews(campaign.id, campaign.assets[WikipediaApp.instance.appOrSystemLanguageCode])
         setView(campaignView)
     }
 
@@ -45,13 +46,23 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     override fun onPositiveAction(url: String) {
         DonorExperienceEvent.logAction("donate_start_click", "article_banner", campaignId = campaign.id)
         val customTabUrl = Prefs.announcementCustomTabTestUrl.orEmpty().ifEmpty { url }
-        CustomTabsUtil.openInCustomTab(context, customTabUrl)
-        dismissDialog()
+        if (context is BaseActivity) {
+            context.launchDonateDialog(campaign.id, customTabUrl)
+            dismissDialog(false)
+        } else {
+            CustomTabsUtil.openInCustomTab(context, customTabUrl)
+            dismissDialog()
+        }
     }
 
     override fun onNegativeAction() {
         DonorExperienceEvent.logAction("already_donated_click", "article_banner", campaignId = campaign.id)
-        FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_donated_snackbar)
+        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
+            ContributionsDashboardHelper.showDonationCompletedDialog(context)
+            Prefs.contributionsDashboardEntryDialogShown = true
+        } else {
+            FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_donated_snackbar)
+        }
         dismissDialog()
     }
 

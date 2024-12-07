@@ -3,7 +3,6 @@ package org.wikipedia.feed.onboarding
 import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
@@ -13,7 +12,7 @@ import org.wikipedia.util.UriUtil
 class OnboardingClient : FeedClient {
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
-        FeedCoordinator.postCardsToCallback(cb, listOfNotNull(getCards(context).getOrNull(age)))
+        cb.success(listOfNotNull(getCards(context).getOrNull(age)))
     }
 
     private fun getCards(context: Context): List<Card> {

@@ -11,9 +11,10 @@ import org.wikipedia.json.JsonUtil
 
 object DonationConfigHelper {
 
-    private const val CONFIG_VERSION = 1
+    const val DONATE_WIKI_URL = "https://donate.wikimedia.org/"
 
-    private const val CONFIG_URL = "https://donate.wikimedia.org/wiki/MediaWiki:AppsDonationConfig.json?action=raw"
+    private const val CONFIG_VERSION = 1
+    private const val CONFIG_URL = DONATE_WIKI_URL + "wiki/MediaWiki:AppsDonationConfig.json?action=raw"
 
     suspend fun getConfig(): DonationConfig? {
         val campaignList = mutableListOf<DonationConfig>()

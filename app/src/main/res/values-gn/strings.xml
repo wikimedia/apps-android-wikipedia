@@ -53,7 +53,7 @@
   <string name="page_edit_history_filter_by">Embogua:</string>
   <string name="page_edit_history_filter_by_all">Opaite ñemoambue (%s)</string>
   <string name="page_edit_history_filter_by_user">Puruhára ñemoambuekuéra (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Ñemoambue ijapohára rera\'ỹva (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Ñemoambue ijapohára rera\'ỹva (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot ñemoambuekuéra (%s)</string>
   <string name="page_edit_history_metrics_content_description">Ojeipapa %1$s guive %2$s peve</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -320,7 +320,7 @@
   <string name="image_recommendation_accept">Upéicha</string>
   <string name="image_recommendation_reject">Nahániri</string>
   <string name="image_recommendation_notsure">Ndaikuaái</string>
-  <string name="image_recommendation_reject_title">Mba\'ére piko?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Mba\'ére piko?</string>
   <string name="image_recommendation_reject_dont_know">Ndaikuaái ko mba\'e</string>
   <string name="image_recommendation_reject_other">Ambuéva</string>
   <string name="image_recommendation_reject_submit">Emondo</string>
@@ -346,7 +346,6 @@
   </plurals>
   <string name="more_language_options">ehechave</string>
   <string name="add_wikipedia_languages_text">Emoĩve Vikipetã ñe\'ẽ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nahániri</string>
   <string name="remove_language_dialog_cancel_button_text">Eheja</string>
   <string name="remove_language_dialog_ok_button_text">Oĩma</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Oĩma</string>

@@ -27,7 +27,7 @@ class DescriptionEditBottomBarView constructor(context: Context, attrs: Attribut
 
     fun setSummary(summaryForEdit: PageSummaryForEdit) {
         setConditionalLayoutDirection(this, summaryForEdit.lang)
-        binding.viewArticleTitle.text = StringUtil.fromHtml(StringUtil.removeNamespace(summaryForEdit.displayTitle!!))
+        binding.viewArticleTitle.text = StringUtil.fromHtml(StringUtil.removeNamespace(summaryForEdit.displayTitle))
         if (summaryForEdit.thumbnailUrl.isNullOrEmpty()) {
             binding.viewImageThumbnail.visibility = GONE
         } else {
