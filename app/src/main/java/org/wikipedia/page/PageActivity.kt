@@ -269,9 +269,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         // Navigation setup
         binding.navigationDrawer.setScrimColor(Color.TRANSPARENT)
         binding.containerWithNavTrigger.callback = this
-        ViewCompat.setOnApplyWindowInsetsListener(binding.navigationDrawer) { drawerView, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navigationDrawer) { view, insets ->
             val insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            drawerView.updateLayoutParams<MarginLayoutParams> {
+            view.updateLayoutParams<MarginLayoutParams> {
                 topMargin = insets.top
                 leftMargin = insets.left
                 bottomMargin = insets.bottom
