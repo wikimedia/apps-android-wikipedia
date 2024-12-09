@@ -4,8 +4,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.TestConstants
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
@@ -33,13 +33,13 @@ class ArticleTabTest : BaseTest<MainActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         exploreFeedRobot
-            .scrollToItem(title = Constants.FEATURED_ARTICLE)
+            .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
             .clickOnFeaturedArticle()
         pageRobot
             .dismissTooltip(activity)
             .navigateUp()
         exploreFeedRobot
-            .scrollToItem(title = Constants.FEATURED_ARTICLE)
+            .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
             .clickOnFeaturedArticle()
         dialogRobot
             .dismissBigEnglishDialog()
@@ -51,7 +51,7 @@ class ArticleTabTest : BaseTest<MainActivity>(
 
         searchRobot
             .tapSearchView()
-            .typeTextInView(Constants.SEARCH_TERM)
+            .typeTextInView(TestConstants.SEARCH_TERM)
             .clickOnItemFromSearchList(0)
         tabsRobot
             .launchTabsScreen()
@@ -59,7 +59,7 @@ class ArticleTabTest : BaseTest<MainActivity>(
             .createNewTabWithContentDescription(context.getString(R.string.menu_new_tab))
         searchRobot
             .tapSearchView()
-            .typeTextInView(Constants.SEARCH_TERM2)
+            .typeTextInView(TestConstants.SEARCH_TERM2)
             .clickOnItemFromSearchList(0)
         tabsRobot
             .launchTabsScreen()

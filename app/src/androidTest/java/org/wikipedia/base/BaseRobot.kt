@@ -49,6 +49,7 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.containsString
 import org.hamcrest.Matchers.not
 import org.hamcrest.TypeSafeMatcher
 import org.wikipedia.R
@@ -166,6 +167,11 @@ abstract class BaseRobot {
 
     protected fun checkViewWithIdDisplayed(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(isDisplayed()))
+    }
+
+    protected fun checkPartialString(text: String) {
+        onView(withText(containsString(text)))
+            .check(matches(isDisplayed()))
     }
 
     protected fun isViewWithTextVisible(text: String): Boolean {

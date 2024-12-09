@@ -131,11 +131,6 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun openLanguageSelector() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun clickLanguageListedAtFourthPosition() = apply {
         clickRecyclerViewItemAtPosition(R.id.langlinks_recycler, 3)
         delay(TestConfig.DELAY_MEDIUM)
@@ -148,11 +143,6 @@ class PageRobot : BaseRobot() {
 
     fun navigateBackToExploreFeed() = apply {
         clickOnViewWithText("Explore")
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun clickOnBookmarkIcon() = apply {
-        clickOnViewWithId(R.id.page_save)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -209,5 +199,28 @@ class PageRobot : BaseRobot() {
 
     fun assertCollapsingTableIsVisible(isVisible: Boolean) = apply {
         assertElementVisibility(".pcs-collapse-table-content", isVisible)
+    }
+
+    fun saveArticleToReadingList() = apply {
+        clickOnViewWithId(R.id.page_save)
+    }
+
+    fun confirmArticleSaved(text: String) = apply {
+        checkPartialString(text)
+    }
+
+    fun openLanguageSelector() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun selectSpanishLanguage() = apply {
+        val language = "Spanish"
+        scrollToRecyclerView(
+            recyclerViewId = R.id.langlinks_recycler,
+            title = language,
+            textViewId = R.id.non_localized_language_name
+        )
+        clickOnViewWithText(language)
     }
 }
