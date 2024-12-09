@@ -1767,6 +1767,8 @@
   <string name="rabbit_holes_experiment_about">关于此实验功能</string>
   <string name="rabbit_holes_survey_dialog_title">帮助改善兔子洞</string>
   <string name="rabbit_holes_survey_dialog_body">您对这个推荐搜索结果满意吗？</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">帮助改进推荐阅读列表</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">您对这份推荐阅读清单满意吗？</string>
   <string name="suggested_reading_list_title">根据您的阅览历史</string>
   <string name="suggested_reading_list_description">灵感来自“ %s ”</string>
   <string name="suggested_reading_list_description_multi">受到%1$s和%2$s的启发</string>
