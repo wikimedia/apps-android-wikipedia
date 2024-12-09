@@ -1,6 +1,6 @@
 package org.wikipedia
 
-object Constants {
+object TestConstants {
     const val FEATURED_ARTICLE = "Featured article"
     const val TODAY_ON_WIKIPEDIA_MAIN_PAGE = "Today on Wikipedia"
     const val TOP_READ_ARTICLES = "Top read"

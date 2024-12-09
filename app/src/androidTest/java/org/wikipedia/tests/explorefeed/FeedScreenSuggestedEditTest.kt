@@ -28,6 +28,8 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
         // Following test requires login
         // 1. Notification click
         // 2. Suggested Edit Visibility
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
 
         // Logging user
         bottomNavRobot
