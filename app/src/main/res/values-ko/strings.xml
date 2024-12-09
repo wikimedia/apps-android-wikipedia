@@ -1688,6 +1688,8 @@
   <string name="rabbit_holes_experiment_about">이 실험 기능 정보</string>
   <string name="rabbit_holes_survey_dialog_title">토끼 구멍을 개선하는 데 도움이 됩니다.</string>
   <string name="rabbit_holes_survey_dialog_body">검색 결과 제안에 만족하십니까?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">추천 읽기 목록 개선에 도움을 주세요</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">추천 읽기 목록에 만족하시나요?</string>
   <string name="suggested_reading_list_title">당신의 읽음에 따라</string>
   <string name="suggested_reading_list_description">\"%s\"에서 영감을 받음</string>
   <string name="suggested_reading_list_dialog_title">새로운 추천 읽기 목록이 있습니다.</string>
