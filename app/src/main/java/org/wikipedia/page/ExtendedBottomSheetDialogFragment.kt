@@ -30,7 +30,7 @@ open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
     override fun onStart() {
         super.onStart()
         dialog?.window?.let {
-            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.warning_color))
+            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
             ViewCompat.setOnApplyWindowInsetsListener(it.decorView) { view, insets ->
                 val insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
                 view.updatePadding(bottom = insets.bottom)
