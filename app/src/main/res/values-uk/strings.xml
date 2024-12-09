@@ -1790,6 +1790,7 @@
   <string name="donor_history_last_donated_hint">Додайте дату останньої пожертви</string>
   <string name="donor_history_last_donated_date_picker_title">Вибрати дату</string>
   <string name="donor_history_last_donated_date_picker_label">Ввести дату</string>
+  <string name="donor_history_last_donated_never">Ніколи</string>
   <string name="donor_history_recurring_donor">Повторний жертводавець</string>
   <string name="donor_history_donate_button">Пожертвувати Фонду Вікімедіа</string>
   <string name="donor_history_about_this_experiment">Про цей експеримент</string>
@@ -1802,15 +1803,40 @@
   <string name="contributions_dashboard_donation_dialog_message">Ви є частиною тих 2%%, які вирішили підтримати ресурс, на який покладаються мільйони. Щоб продемонструвати нашу вдячність, ми оновили панель вашого внеску, щоб відзначити на ній ваш статус жертводавця. Бажаєте побачити оновлення?</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Ні, дякую</string>
   <string name="contributions_dashboard_donation_dialog_ok">Так, покажіть мені</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Панель вашого внеску оновлено</string>
-  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Панель внеску тепер показує інформацію про ваш статус жертводавця. Хочете переглянути цю експериментальну функцію?</string>
+  <string name="contributions_dashboard_entry_dialog_title">Ознайомтеся з новими доповненнями до інформаційної панелі внеску</string>
+  <string name="contributions_dashboard_entry_dialog_message">Панель внеску тепер показує ваш статус жертводавця. Хочете переглянути цю експериментальну функцію?</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Ні, дякую</string>
   <string name="contributions_dashboard_entry_dialog_ok">Так, покажіть мені</string>
   <string name="contributions_dashboard_badge_donor">Жертводавець</string>
   <string name="contributions_dashboard_badge_become_a_donor">Стати жертводавцем</string>
   <string name="contributions_dashboard_badge_update">Оновити статус пожертводавця</string>
   <string name="contributions_dashboard_app_icon_title">Іконка програми</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Донорська вигода</string>
   <string name="contributions_dashboard_logged_out_user">Незалогінений користувач</string>
+  <string name="contributions_dashboard_tab_last_donated">Остання пожертва</string>
+  <string name="contributions_dashboard_tab_update_button">Оновити</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Дякуємо за ваші пожертви.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Ви розблокували тимчасову спеціальну піктограму. Ви можете перемкнутися на цю піктограму в налаштуваннях під значком програми. Хочете оновити свій значок зараз?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Ні, дякую</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Так, перейти до налаштувань</string>
+  <string name="contributions_dashboard_app_icon_updated">Іконку програми оновлено</string>
+  <string name="recent_searches_title">Недавні пошукові запити</string>
+  <string name="recent_searches_related_to_reading">Пов’язані з тим, що ви читаєте</string>
+  <string name="rabbit_holes_experiment">Експеримент</string>
+  <string name="rabbit_holes_experiment_about">Про цей експеримент</string>
+  <string name="rabbit_holes_survey_dialog_title">Допоможіть покращити кролячі нори</string>
+  <string name="rabbit_holes_survey_dialog_body">Ви задоволені цим рекомендованим результатом пошуку?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Допоможіть покращити списки рекомендованого читання</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Ви задоволені цим списом рекомендованого читання?</string>
+  <string name="suggested_reading_list_title">На основі вашого читання</string>
+  <string name="suggested_reading_list_description">На основі «%s»</string>
+  <string name="suggested_reading_list_description_multi">На основі %1$s і %2$s</string>
+  <string name="suggested_reading_list_later_snackbar">Якщо ви захочете відвідати свій список читання пізніше, перейдіть на вкладку «Збережені» на головному екрані.</string>
+  <string name="suggested_reading_list_dialog_title">У вас є новий запропонований список читання.</string>
+  <string name="suggested_reading_list_dialog_body">Це експериментальна функція. Вміст базується на вашій недавній історії читання. Хочете переглянути цей новий список читання?</string>
+  <string name="suggested_reading_list_dialog_positive">Спробувати зараз</string>
+  <string name="suggested_reading_list_dialog_negative">Можливо, пізніше</string>
+  <string name="suggested_reading_list_back_cancel">Переглядайте пропонований список читання будь-коли на вкладці «Збережені» на головному екрані.</string>
   <string name="survey_dialog_title">Допоможіть нам покращити Talk Pages</string>
   <string name="survey_dialog_message">Ви задоволені цією функцією?</string>
   <string name="survey_dialog_option_satisfied">Задоволений/а</string>
@@ -1821,5 +1847,5 @@
   <string name="survey_dialog_cancel">Скасувати</string>
   <string name="survey_dialog_submit">Надіслати</string>
   <string name="survey_dialog_input_hint">Додатковий відгук</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Відгук надіслано.</string>
+  <string name="survey_dialog_submitted_snackbar">Відгук надіслано. Дякуємо!</string>
 </resources>
