@@ -37,13 +37,9 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun openInNewTab() = apply {
+    fun openPreviewLinkInNewTab() = apply {
         clickOnDisplayedView(R.id.link_preview_secondary_button)
         delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun verifyTabCount(count: String) = apply {
-        checkWithTextIsDisplayed(R.id.tabsCountText, count)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
@@ -103,16 +99,6 @@ class PageRobot : BaseRobot() {
         onWebView().forceJavascriptEnabled()
     }
 
-    fun launchTabsScreen() = apply {
-        clickOnDisplayedView(R.id.page_toolbar_button_tabs)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun createNewTabWithContentDescription(text: String) = apply {
-        clickOnDisplayedViewWithContentDescription(text)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun clickOnPreviewTabInTheList(position: Int) = apply {
         clickRecyclerViewItemAtPosition(R.id.tabRecyclerView, position)
     }
@@ -145,11 +131,6 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun openLanguageSelector() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun clickLanguageListedAtFourthPosition() = apply {
         clickRecyclerViewItemAtPosition(R.id.langlinks_recycler, 3)
         delay(TestConfig.DELAY_MEDIUM)
@@ -165,14 +146,14 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun clickOnBookmarkIcon() = apply {
-        clickOnViewWithId(R.id.page_save)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun removeArticleFromReadingList() = apply {
         clickOnViewWithText("Remove from Saved")
         delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun navigateUp() = apply {
+        clickOnDisplayedViewWithContentDescription("Navigate up")
+        delay(TestConfig.DELAY_SHORT)
     }
 
     private fun assertElementVisibility(elementSelector: String, isVisible: Boolean) {
@@ -218,5 +199,28 @@ class PageRobot : BaseRobot() {
 
     fun assertCollapsingTableIsVisible(isVisible: Boolean) = apply {
         assertElementVisibility(".pcs-collapse-table-content", isVisible)
+    }
+
+    fun saveArticleToReadingList() = apply {
+        clickOnViewWithId(R.id.page_save)
+    }
+
+    fun confirmArticleSaved(text: String) = apply {
+        checkPartialString(text)
+    }
+
+    fun openLanguageSelector() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun selectSpanishLanguage() = apply {
+        val language = "Spanish"
+        scrollToRecyclerView(
+            recyclerViewId = R.id.langlinks_recycler,
+            title = language,
+            textViewId = R.id.non_localized_language_name
+        )
+        clickOnViewWithText(language)
     }
 }

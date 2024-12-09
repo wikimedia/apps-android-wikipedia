@@ -10,4 +10,6 @@ object TestConstants {
     const val ON_THIS_DAY_CARD = "On this day"
     const val RANDOM_CARD = "Random article"
     const val SUGGESTED_EDITS = "Suggested edits"
+    const val SEARCH_TERM = "apple"
+    const val SEARCH_TERM2 = "orange"
 }

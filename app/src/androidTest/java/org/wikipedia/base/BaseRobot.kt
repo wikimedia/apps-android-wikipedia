@@ -49,6 +49,7 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.containsString
 import org.hamcrest.Matchers.not
 import org.hamcrest.TypeSafeMatcher
 import org.wikipedia.R
@@ -109,6 +110,33 @@ abstract class BaseRobot {
             )
     }
 
+    protected fun clickOnSpecificItemInList(@IdRes listId: Int, @IdRes itemId: Int, position: Int) {
+        onView(withId(listId))
+            .perform(
+                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position),
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    clickChildViewWithId(itemId)
+                )
+            )
+    }
+
+    protected fun assertColorForChildItemInAList(
+        @IdRes listId: Int,
+        @IdRes childItemId: Int,
+        colorResOrAttr: Int,
+        position: Int,
+        isAttr: Boolean = true,
+        colorType: ColorAssertions.ColorType = ColorAssertions.ColorType.TextColor
+    ) {
+        onView(withId(listId))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
+            .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
+                ColorAssertions.hasColor(colorResOrAttr, isAttr, colorType)
+                    .check(view, null)
+            }))
+    }
+
     protected fun scrollToView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(scrollTo())
     }
@@ -139,6 +167,11 @@ abstract class BaseRobot {
 
     protected fun checkViewWithIdDisplayed(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(isDisplayed()))
+    }
+
+    protected fun checkPartialString(text: String) {
+        onView(withText(containsString(text)))
+            .check(matches(isDisplayed()))
     }
 
     protected fun isViewWithTextVisible(text: String): Boolean {
@@ -446,33 +479,6 @@ abstract class BaseRobot {
         override fun matchesSafely(view: View): Boolean {
             return view.layoutDirection == View.LAYOUT_DIRECTION_RTL
         }
-    }
-
-    protected fun clickOnSpecificItemInList(@IdRes listId: Int, @IdRes itemId: Int, position: Int) {
-        onView(withId(listId))
-            .perform(
-                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position),
-                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                    position,
-                    clickChildViewWithId(itemId)
-                )
-            )
-    }
-
-    protected fun assertColorForChildItemInAList(
-        @IdRes listId: Int,
-        @IdRes childItemId: Int,
-        colorResOrAttr: Int,
-        position: Int,
-        isAttr: Boolean = true,
-        colorType: ColorAssertions.ColorType = ColorAssertions.ColorType.TextColor
-    ) {
-        onView(withId(listId))
-            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
-            .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
-                ColorAssertions.hasColor(colorResOrAttr, isAttr, colorType)
-                    .check(view, null)
-            }))
     }
 
     private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {
