@@ -27,7 +27,8 @@ object TestConfig {
 
 data class DataInjector(
     val isInitialOnboardingEnabled: Boolean = false,
-    val overrideEditsContribution: Int? = null
+    val overrideEditsContribution: Int? = null,
+    val intentBuilder: (Intent.() -> Unit)? = null
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -38,7 +39,7 @@ abstract class BaseTest<T : AppCompatActivity>(
     val testLogRule = TestLogRule()
 
     @get:Rule
-    val activityScenarioRule: ActivityScenarioRule<T>
+    var activityScenarioRule: ActivityScenarioRule<T>
 
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
@@ -50,6 +51,10 @@ abstract class BaseTest<T : AppCompatActivity>(
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
+        }
+        dataInjector.intentBuilder?.let {
+            val newIntent = Intent(context, activityClass).apply(it)
+            activityScenarioRule = ActivityScenarioRule(newIntent)
         }
     }
 
