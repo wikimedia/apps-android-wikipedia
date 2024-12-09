@@ -11,7 +11,7 @@
     android:paddingBottom="16dp">
 
     <org.wikipedia.views.AppTextView
-        android:id="@+id/reference_id"
+        android:id="@+id/referenceId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="24dp"
@@ -20,21 +20,15 @@
         android:textSize="16sp"
         tools:text="1" />
 
-    <org.wikipedia.views.AppTextView
-        android:id="@+id/reference_text"
+    <WebView
+        android:id="@+id/referenceTextWebView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginStart="8dp"
-        android:lineSpacingMultiplier="1.4"
-        android:textColor="?android:textColorPrimary"
-        android:textIsSelectable="true"
-        android:textSize="16sp"
-        android:textDirection="locale"
-        tools:text="Reference text" />
+        android:layout_marginHorizontal="8dp" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/reference_ext_link"
+        android:id="@+id/referenceExtLink"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"

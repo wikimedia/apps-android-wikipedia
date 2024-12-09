@@ -71,6 +71,7 @@ class SingleWebViewActivity : BaseActivity() {
         binding.webView.webViewClient = object : OkHttpWebViewClient() {
             override val model get() = blankModel
             override val linkHandler get() = blankLinkHandler
+            override val linkHandlerOverride get() = false
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 if (isWebForm && !request?.url.toString().startsWith(targetUrl)) {
