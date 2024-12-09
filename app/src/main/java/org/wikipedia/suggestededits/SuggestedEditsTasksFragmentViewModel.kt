@@ -13,6 +13,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.UserContribution
+import org.wikipedia.settings.Prefs
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ThrowableUtil
@@ -131,6 +132,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             revertSeverity = UserContribStats.getRevertSeverity()
 
             totalPageviews = UserContribStats.getPageViews(homeSiteResponse.query!!.userContributions, wikidataResponse.query!!.userContributions)
+
+            if (Prefs.overrideSuggestedEditContribution > 0) {
+                totalContributions = Prefs.overrideSuggestedEditContribution
+            }
 
             _uiState.value = Resource.Success(Unit)
         }
