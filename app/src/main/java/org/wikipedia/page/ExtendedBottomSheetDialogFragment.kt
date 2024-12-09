@@ -5,6 +5,9 @@ import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.annotation.StyleRes
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.wikipedia.R
@@ -28,6 +31,11 @@ open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
         super.onStart()
         dialog?.window?.let {
             DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+            ViewCompat.setOnApplyWindowInsetsListener(it.decorView) { view, insets ->
+                val insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                view.updatePadding(bottom = insets.bottom)
+                WindowInsetsCompat.CONSUMED
+            }
         }
     }
 
