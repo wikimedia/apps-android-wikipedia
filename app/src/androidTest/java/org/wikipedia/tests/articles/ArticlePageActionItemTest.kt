@@ -13,6 +13,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
 import org.wikipedia.robots.feature.PageRobot
+import org.wikipedia.robots.feature.SearchRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -26,17 +27,29 @@ class ArticlePageActionItemTest : BaseTest<PageActivity>(
         }
     )
 ) {
-
+    private val FIND_IN_ARTICLE_TEXT = "Hopf"
     private val pageRobot = PageRobot()
+    private val searchRobot = SearchRobot()
 
     @Test
     fun runTest() {
         pageRobot
             .saveArticleToReadingList()
             .confirmArticleSaved("Saved")
-            .openLanguageSelector()
+            .openLanguageSelector(context)
             .selectSpanishLanguage()
             .verifyArticleTitle(ARTICLE_TITLE_ESPANOL)
+            .openFindInArticle(context)
+        searchRobot
+            .typeTextInView(FIND_IN_ARTICLE_TEXT)
+            .pressBack()
+        pageRobot
+            .openTableOfContents(context)
+            .swipeTableOfContentsAllTheWayToBottom()
+            .pressBack()
+            .swipeLeftToShowTableOfContents()
+            .swipeTableOfContentsAllTheWayToBottom()
+            .pressBack()
+            .openThemeSelector(context)
     }
 }
-

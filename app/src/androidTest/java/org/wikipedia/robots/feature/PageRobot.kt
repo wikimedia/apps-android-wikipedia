@@ -2,6 +2,7 @@ package org.wikipedia.robots.feature
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.web.sugar.Web.onWebView
@@ -209,9 +210,20 @@ class PageRobot : BaseRobot() {
         checkPartialString(text)
     }
 
-    fun openLanguageSelector() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
-        delay(TestConfig.DELAY_MEDIUM)
+    fun openLanguageSelector(context: Context) = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, context.getString(R.string.article_menu_bar_language_button))
+    }
+
+    fun openFindInArticle(context: Context) = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
+    }
+
+    fun openThemeSelector(context: Context) = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_theme, context.getString(R.string.article_menu_bar_theme_button))
+    }
+
+    fun openTableOfContents(context: Context) = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
     }
 
     fun selectSpanishLanguage() = apply {
