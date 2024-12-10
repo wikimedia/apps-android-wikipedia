@@ -19,7 +19,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +30,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
@@ -140,7 +140,7 @@ class EditHistoryListActivity : BaseActivity() {
                 }
                 launch {
                     viewModel.editHistoryFlow.collectLatest {
-                        editHistoryListAdapter.submitData(it)
+                        editHistoryListAdapter.submitData(lifecycleScope, it)
                     }
                 }
             }
@@ -301,7 +301,7 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryListAdapter :
-            PagingDataAdapter<EditHistoryListViewModel.EditHistoryItemModel, RecyclerView.ViewHolder>(EditHistoryDiffCallback()) {
+            PagingDataAdapterPatched<EditHistoryListViewModel.EditHistoryItemModel, RecyclerView.ViewHolder>(EditHistoryDiffCallback()) {
         override fun getItemViewType(position: Int): Int {
             return if (getItem(position) is EditHistoryListViewModel.EditHistorySeparator) {
                 VIEW_TYPE_SEPARATOR
