@@ -19,8 +19,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.paging.PagingData
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +30,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.databinding.ActivityUserContribBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
@@ -77,7 +76,7 @@ class UserContribListActivity : BaseActivity() {
             viewModel.loadStats()
             setupAdapters()
             viewModel.clearCache()
-            userContribListAdapter.reload()
+            userContribListAdapter.refresh()
             userContribSearchBarAdapter.notifyItemChanged(0)
         }
     }
@@ -96,7 +95,7 @@ class UserContribListActivity : BaseActivity() {
 
         binding.refreshContainer.setOnRefreshListener {
             viewModel.clearCache()
-            userContribListAdapter.reload()
+            userContribListAdapter.refresh()
         }
 
         binding.userContribRecycler.layoutManager = LinearLayoutManager(this)
@@ -133,7 +132,7 @@ class UserContribListActivity : BaseActivity() {
                 }
                 launch {
                     viewModel.userContribFlow.collectLatest {
-                        userContribListAdapter.submitData(it)
+                        userContribListAdapter.submitData(lifecycleScope, it)
                     }
                 }
             }
@@ -231,13 +230,7 @@ class UserContribListActivity : BaseActivity() {
     }
 
     private inner class UserContribListAdapter :
-            PagingDataAdapter<UserContribListViewModel.UserContribItemModel, RecyclerView.ViewHolder>(UserContribDiffCallback()) {
-
-        fun reload() {
-            submitData(lifecycle, PagingData.empty())
-            viewModel.userContribSource?.invalidate()
-        }
-
+            PagingDataAdapterPatched<UserContribListViewModel.UserContribItemModel, RecyclerView.ViewHolder>(UserContribDiffCallback()) {
         override fun getItemViewType(position: Int): Int {
             return if (getItem(position) is UserContribListViewModel.UserContribSeparator) {
                 VIEW_TYPE_SEPARATOR
@@ -395,14 +388,14 @@ class UserContribListActivity : BaseActivity() {
         override fun onQueryChange(s: String) {
             viewModel.currentQuery = s
             setupAdapters()
-            userContribListAdapter.reload()
+            userContribListAdapter.refresh()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.currentQuery = ""
-            userContribListAdapter.reload()
+            userContribListAdapter.refresh()
             viewModel.actionModeActive = false
             setupAdapters()
         }
