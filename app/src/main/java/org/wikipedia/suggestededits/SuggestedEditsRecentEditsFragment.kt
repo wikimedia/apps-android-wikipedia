@@ -23,8 +23,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.paging.PagingData
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +33,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsRecentEditsBinding
@@ -77,7 +76,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             viewModel.langCode = Prefs.recentEditsWikiCode
             setupAdapters()
             viewModel.clearCache()
-            recentEditsListAdapter.reload()
+            recentEditsListAdapter.refresh()
             recentEditsSearchBarAdapter.notifyItemChanged(0)
         }
     }
@@ -101,12 +100,12 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
 
         binding.refreshContainer.setOnRefreshListener {
             viewModel.clearCache()
-            recentEditsListAdapter.reload()
+            recentEditsListAdapter.refresh()
         }
 
         binding.refreshContainer.setOnRefreshListener {
             viewModel.clearCache()
-            recentEditsListAdapter.reload()
+            recentEditsListAdapter.refresh()
         }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -138,7 +137,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                 }
                 launch {
                     viewModel.recentEditsFlow.collectLatest {
-                        recentEditsListAdapter.submitData(it)
+                        recentEditsListAdapter.submitData(lifecycleScope, it)
                     }
                 }
             }
@@ -292,13 +291,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     }
 
     private inner class RecentEditsListAdapter :
-        PagingDataAdapter<SuggestedEditsRecentEditsViewModel.RecentEditsItemModel, RecyclerView.ViewHolder>(RecentEditsDiffCallback()) {
-
-        fun reload() {
-            submitData(lifecycle, PagingData.empty())
-            viewModel.recentEditsSource?.invalidate()
-        }
-
+        PagingDataAdapterPatched<SuggestedEditsRecentEditsViewModel.RecentEditsItemModel, RecyclerView.ViewHolder>(RecentEditsDiffCallback()) {
         override fun getItemViewType(position: Int): Int {
             return if (getItem(position) is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator) {
                 VIEW_TYPE_SEPARATOR
@@ -459,14 +452,14 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         override fun onQueryChange(s: String) {
             viewModel.currentQuery = s
             setupAdapters()
-            recentEditsListAdapter.reload()
+            recentEditsListAdapter.refresh()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.currentQuery = ""
-            recentEditsListAdapter.reload()
+            recentEditsListAdapter.refresh()
             viewModel.actionModeActive = false
             setupAdapters()
         }

@@ -19,8 +19,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.paging.PagingData
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +30,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
@@ -103,7 +102,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
             viewModel.clearCache()
-            editHistoryListAdapter.reload()
+            editHistoryListAdapter.refresh()
         }
 
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
@@ -141,7 +140,7 @@ class EditHistoryListActivity : BaseActivity() {
                 }
                 launch {
                     viewModel.editHistoryFlow.collectLatest {
-                        editHistoryListAdapter.submitData(it)
+                        editHistoryListAdapter.submitData(lifecycleScope, it)
                     }
                 }
             }
@@ -229,7 +228,7 @@ class EditHistoryListActivity : BaseActivity() {
             EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsValue.data) {
                 editHistoryInteractionEvent?.logFilterSelection(Prefs.editHistoryFilterType.ifEmpty { EditCount.EDIT_TYPE_ALL })
                 setupAdapters()
-                editHistoryListAdapter.reload()
+                editHistoryListAdapter.refresh()
                 editHistorySearchBarAdapter.notifyItemChanged(0)
                 actionMode?.let {
                     searchActionModeCallback.updateFilterIconAndText()
@@ -302,13 +301,7 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryListAdapter :
-            PagingDataAdapter<EditHistoryListViewModel.EditHistoryItemModel, RecyclerView.ViewHolder>(EditHistoryDiffCallback()) {
-
-        fun reload() {
-            submitData(lifecycle, PagingData.empty())
-            viewModel.editHistorySource?.invalidate()
-        }
-
+            PagingDataAdapterPatched<EditHistoryListViewModel.EditHistoryItemModel, RecyclerView.ViewHolder>(EditHistoryDiffCallback()) {
         override fun getItemViewType(position: Int): Int {
             return if (getItem(position) is EditHistoryListViewModel.EditHistorySeparator) {
                 VIEW_TYPE_SEPARATOR
@@ -514,14 +507,14 @@ class EditHistoryListActivity : BaseActivity() {
         override fun onQueryChange(s: String) {
             viewModel.currentQuery = s
             setupAdapters()
-            editHistoryListAdapter.reload()
+            editHistoryListAdapter.refresh()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
             viewModel.currentQuery = ""
-            editHistoryListAdapter.reload()
+            editHistoryListAdapter.refresh()
             viewModel.actionModeActive = false
             setupAdapters()
         }
