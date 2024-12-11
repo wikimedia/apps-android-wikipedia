@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.test.espresso.IdlingPolicies
+import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
@@ -28,7 +29,8 @@ object TestConfig {
 
 data class DataInjector(
     val isInitialOnboardingEnabled: Boolean = false,
-    val overrideEditsContribution: Int? = null
+    val overrideEditsContribution: Int? = null,
+    val intentBuilder: (Intent.() -> Unit)? = null
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -39,7 +41,7 @@ abstract class BaseTest<T : AppCompatActivity>(
     val testLogRule = TestLogRule()
 
     @get:Rule
-    val activityScenarioRule: ActivityScenarioRule<T>
+    var activityScenarioRule: ActivityScenarioRule<T>
 
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
@@ -52,10 +54,15 @@ abstract class BaseTest<T : AppCompatActivity>(
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }
+        dataInjector.intentBuilder?.let {
+            val newIntent = Intent(context, activityClass).apply(it)
+            activityScenarioRule = ActivityScenarioRule(newIntent)
+        }
     }
 
     @Before
     open fun setup() {
+        Intents.init()
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         IdlingPolicies.setMasterPolicyTimeout(20, TimeUnit.SECONDS)
         activityScenarioRule.scenario.onActivity {
@@ -70,6 +77,6 @@ abstract class BaseTest<T : AppCompatActivity>(
 
     @After
     open fun tearDown() {
-        // @TODO
+        Intents.release()
     }
 }

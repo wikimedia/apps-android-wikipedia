@@ -4,8 +4,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.Constants.BECAUSE_YOU_READ
-import org.wikipedia.Constants.FEATURED_ARTICLE
+import org.wikipedia.TestConstants.BECAUSE_YOU_READ
+import org.wikipedia.TestConstants.FEATURED_ARTICLE
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot

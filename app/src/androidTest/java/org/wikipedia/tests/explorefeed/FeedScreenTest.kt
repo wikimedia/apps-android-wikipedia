@@ -4,18 +4,18 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.Constants.FEATURED_ARTICLE
-import org.wikipedia.Constants.NEWS_CARD
-import org.wikipedia.Constants.ON_THIS_DAY_CARD
-import org.wikipedia.Constants.PICTURE_OF_DAY
-import org.wikipedia.Constants.RANDOM_CARD
-import org.wikipedia.Constants.TODAY_ON_WIKIPEDIA_MAIN_PAGE
-import org.wikipedia.Constants.TOP_READ_ARTICLES
+import org.wikipedia.TestConstants.FEATURED_ARTICLE
+import org.wikipedia.TestConstants.NEWS_CARD
+import org.wikipedia.TestConstants.ON_THIS_DAY_CARD
+import org.wikipedia.TestConstants.PICTURE_OF_DAY
+import org.wikipedia.TestConstants.RANDOM_CARD
+import org.wikipedia.TestConstants.TODAY_ON_WIKIPEDIA_MAIN_PAGE
+import org.wikipedia.TestConstants.TOP_READ_ARTICLES
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.ExploreFeedRobot
-import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
 
 @LargeTest
@@ -27,7 +27,7 @@ class FeedScreenTest : BaseTest<MainActivity>(
     private val exploreFeedRobot = ExploreFeedRobot()
     private val systemRobot = SystemRobot()
     private val homeScreenRobot = HomeScreenRobot()
-    private val navRobot = BottomNavRobot()
+    private val dialogRobot = DialogRobot()
 
     @Test
     fun runTest() {
@@ -47,8 +47,10 @@ class FeedScreenTest : BaseTest<MainActivity>(
             .pressBack()
             .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
             .clickTodayOnWikipedia()
-            .dismissBigEnglishCampaignDialog()
+        dialogRobot
+            .dismissBigEnglishDialog()
             .dismissContributionDialog()
+        exploreFeedRobot
             .pressBack()
         systemRobot
             .enableDarkMode(context)

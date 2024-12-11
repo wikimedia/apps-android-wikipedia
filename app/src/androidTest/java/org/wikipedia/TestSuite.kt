@@ -12,6 +12,8 @@ import org.wikipedia.tests.SuggestedEditScreenTest
     OnboardingTest::class,
     SuggestedEditScreenTest::class,
     ExploreFeedTestSuite::class,
-    SearchTest::class
+    SearchTest::class,
+    SuggestedEditScreenTest::class,
+    SettingsTestSuite::class
 )
 class TestSuite
