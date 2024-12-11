@@ -37,13 +37,11 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     var currentQuery = ""
     var actionModeActive = false
 
-    var editHistorySource: EditHistoryPagingSource? = null
     private val cachedRevisions = mutableListOf<MwQueryPage.Revision>()
     private var cachedContinueKey: String? = null
 
     val editHistoryFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
-        editHistorySource = EditHistoryPagingSource(pageTitle)
-        editHistorySource!!
+        EditHistoryPagingSource(pageTitle)
     }).flow.map { pagingData ->
         val anonEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_ANONYMOUS
         val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
