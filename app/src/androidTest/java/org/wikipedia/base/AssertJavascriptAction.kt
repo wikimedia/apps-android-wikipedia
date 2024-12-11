@@ -46,7 +46,8 @@ class AssertJavascriptAction(val script: String, val expectedResult: String) : V
 
     override fun onReceiveValue(value: String) {
         evaluateFinished.set(true)
-        if (value != expectedResult) {
+        val cleanValue = value.trim('"')
+        if (cleanValue != expectedResult) {
             throw exception
                 .withCause(RuntimeException("Expected: $expectedResult, but got: $value"))
                 .build()

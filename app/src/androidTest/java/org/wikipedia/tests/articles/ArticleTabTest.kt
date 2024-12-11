@@ -21,7 +21,7 @@ class ArticleTabTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
 
-    private val pageRobot = PageRobot()
+    private val pageRobot = PageRobot(context)
     private val tabsRobot = TabsRobot()
     private val systemRobot = SystemRobot()
     private val exploreFeedRobot = ExploreFeedRobot()

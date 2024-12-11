@@ -15,7 +15,7 @@ import org.wikipedia.base.AssertJavascriptAction
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
-class PageRobot : BaseRobot() {
+class PageRobot(private val context: Context) : BaseRobot() {
 
     fun clickEditPencilAtTopOfArticle() = apply {
         onWebView()
@@ -162,6 +162,20 @@ class PageRobot : BaseRobot() {
             .perform(AssertJavascriptAction("(function() { return document.querySelector(\"$elementSelector\").checkVisibility() })();", isVisible.toString()))
     }
 
+    private fun assertEditIconProtection(elementSelector: String, expectedLabel: String) {
+        onView(withId(R.id.page_web_view))
+            .perform(AssertJavascriptAction(
+                script = """
+                    (function checkEdit() {
+                        const element = document.querySelector("$elementSelector")
+                        const ariaLabel = element.getAttribute('aria-labelledby')
+                        return ariaLabel === 'pcs-edit-section-aria-protected' ? 'protected' : 'normal'
+                    })();
+                """.trimIndent(),
+                expectedResult = expectedLabel
+            ))
+    }
+
     fun verifyPreviewDialogAppears() = apply {
         checkViewExists(R.id.link_preview_title)
         delay(TestConfig.DELAY_SHORT)
@@ -202,6 +216,14 @@ class PageRobot : BaseRobot() {
         assertElementVisibility(".pcs-collapse-table-content", isVisible)
     }
 
+    fun assertEditButtonProtection(isProtected: Boolean = false) = apply {
+        if (isProtected) {
+            assertEditIconProtection(".pcs-edit-section-link", "protected")
+            return@apply
+        }
+        assertEditIconProtection(".pcs-edit-section-link", "normal")
+    }
+
     fun saveArticleToReadingList() = apply {
         clickOnViewWithId(R.id.page_save)
     }
@@ -210,19 +232,19 @@ class PageRobot : BaseRobot() {
         checkPartialString(text)
     }
 
-    fun openLanguageSelector(context: Context) = apply {
+    fun openLanguageSelector() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, context.getString(R.string.article_menu_bar_language_button))
     }
 
-    fun openFindInArticle(context: Context) = apply {
+    fun openFindInArticle() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
     }
 
-    fun openThemeSelector(context: Context) = apply {
+    fun openThemeSelector() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(R.id.page_theme, context.getString(R.string.article_menu_bar_theme_button))
     }
 
-    fun openTableOfContents(context: Context) = apply {
+    fun openTableOfContents() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
     }
 

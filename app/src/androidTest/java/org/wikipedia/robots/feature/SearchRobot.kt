@@ -47,8 +47,8 @@ class SearchRobot : BaseRobot() {
     }
 
     fun clickOnItemFromSearchList(position: Int) = apply {
-        clickOnItemInList(R.id.search_results_list, 0)
-        delay(TestConfig.DELAY_LARGE)
+        clickOnItemInList(R.id.search_results_list, position)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyRecentSearchesAppears() = apply {
