@@ -3,13 +3,20 @@ package org.wikipedia.robots.feature
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.intent.Intents.intended
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasData
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.DriverAtoms.webScrollIntoView
 import androidx.test.espresso.web.webdriver.Locator
+import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.base.AssertJavascriptAction
 import org.wikipedia.base.BaseRobot
@@ -114,6 +121,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun swipeTableOfContentsAllTheWayToBottom() = apply {
         swipeUp(R.id.toc_list)
+        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickAboutThisArticleText() = apply {
@@ -188,6 +196,13 @@ class PageRobot(private val context: Context) : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun clickToExpandQuickFactsTable() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
+            .perform(webClick())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     @SuppressLint("CheckResult")
     fun verifyTableIsCollapsed() = apply {
         // checking if this class name exists
@@ -256,5 +271,42 @@ class PageRobot(private val context: Context) : BaseRobot() {
             textViewId = R.id.non_localized_language_name
         )
         clickOnViewWithText(language)
+    }
+
+    fun scrollToAboutThisArticle() = apply {
+        onWebView()
+            .withElement(findElement(Locator.ID, "pcs-footer-container-menu-heading"))
+            .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun goToViewEditHistory() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, "a[title='View edit history']"))
+            .perform(webClick())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun scrollToLegalSection() = apply {
+        onWebView()
+            .withElement(findElement(Locator.ID, "pcs-footer-container-legal"))
+            .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickLegalLink() = apply {
+        try {
+            onWebView()
+                .withElement(findElement(Locator.CSS_SELECTOR, ".external"))
+                .perform(webClick())
+            intended(
+                allOf(
+                    hasAction(Intent.ACTION_VIEW),
+                    hasData(Uri.parse("https://creativecommons.org/licenses/by-sa/4.0/"))
+                )
+            )
+        } catch (e: Exception) {
+            Log.e("PageRobot: ", "Link failed")
+        }
     }
 }
