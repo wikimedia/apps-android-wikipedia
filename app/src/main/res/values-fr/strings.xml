@@ -1772,6 +1772,8 @@
   <string name="rabbit_holes_experiment_about">À propos de cette expérimentation</string>
   <string name="rabbit_holes_survey_dialog_title">Aidez-nous à améliorer les \"contenus sans fin\" (rabbit holes)</string>
   <string name="rabbit_holes_survey_dialog_body">Êtes-vous satisfait de ce résultat de recherche recommandé ?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Aidez-nous à améliorer les listes de lectures recommandées</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Êtes-vous satisfait de cette liste de lectures recommandées ?</string>
   <string name="suggested_reading_list_title">Établie à partir de vos consultations antérieures</string>
   <string name="suggested_reading_list_description">Suggérée à cause de votre lecture de \"%s\"</string>
   <string name="suggested_reading_list_description_multi">Inspirée par %1$s et %2$s</string>
