@@ -324,4 +324,9 @@ class PageRobot(private val context: Context) : BaseRobot() {
             .perform(clickXY(800, 500))
         delay(TestConfig.DELAY_SHORT)
     }
+
+    fun clickOverFlowMenuToolbar() = apply {
+        clickOnViewWithId(viewId = R.id.page_toolbar_button_show_overflow_menu)
+        delay(TestConfig.DELAY_SHORT)
+    }
 }
