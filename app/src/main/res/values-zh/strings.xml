@@ -280,7 +280,7 @@
   <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
   <string name="preference_title_download_reading_list_articles">下载阅读列表的条目</string>
   <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账号，在不同设备上同步阅读列表</string>
-  <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科帐户“%s”，在不同设备上同步阅读列表</string>
+  <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科账号“%s”，在不同设备上同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表？</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表吗？</string>
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
