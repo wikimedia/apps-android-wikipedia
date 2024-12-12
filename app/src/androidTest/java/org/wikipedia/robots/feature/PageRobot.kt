@@ -40,7 +40,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
         verifyH1Title(expectedTitle)
     }
 
-    fun previewArticle() = apply {
+    fun verifyPreviewArticleDialogAppears() = apply {
         clickOnDisplayedView(R.id.link_preview_toolbar)
         delay(TestConfig.DELAY_MEDIUM)
     }
@@ -300,6 +300,21 @@ class PageRobot(private val context: Context) : BaseRobot() {
         onWebView()
             .withElement(findElement(Locator.ID, "pcs-footer-container-legal"))
             .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun scrollToAdministrativeDivisionOfIndiaArticle() = apply {
+        onWebView()
+            .withElement(findElement(Locator.ID, "Administrative_divisions"))
+            .perform(webClick())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun scrollToAndhraPradeshOnIndiaArticle() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, "a[title='Andhra Pradesh']"))
+            .perform(webScrollIntoView())
+            .perform(webClick())
         delay(TestConfig.DELAY_MEDIUM)
     }
 

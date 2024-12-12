@@ -505,6 +505,22 @@ abstract class BaseRobot {
             .perform(click())
     }
 
+    protected fun waitForAsyncLoading(): ViewAction {
+        return object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return isDisplayed()
+            }
+
+            override fun getDescription(): String {
+                return "wait for async loading"
+            }
+
+            override fun perform(uiController: UiController, view: View?) {
+                uiController.loopMainThreadForAtLeast(2000)
+            }
+        }
+    }
+
     private fun atPosition(position: Int, matcher: Matcher<View>) = object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
         override fun describeTo(description: Description) {
             description.appendText("has item at position $position")

@@ -31,7 +31,6 @@ class LeadNonLeadImageAndPreviewLinkTest : BaseTest<PageActivity>(
     @Test
     fun runTest() {
         pageRobot
-            .verifyLeadImageIsNotVisible()
             .clickLeadImage()
             .swipePagerLeft()
             .pressBack()

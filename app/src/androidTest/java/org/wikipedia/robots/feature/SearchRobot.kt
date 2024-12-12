@@ -16,6 +16,11 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
+    fun clickSearchFromPageView() = apply {
+        clickOnViewWithId(viewId = R.id.page_toolbar_button_search)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun clickSearchContainer() = apply {
         // Click the Search box
         clickOnDisplayedView(R.id.search_container)
