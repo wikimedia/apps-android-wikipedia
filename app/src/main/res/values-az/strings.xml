@@ -1334,7 +1334,7 @@
   <string name="menu_option_share_talk_page">Müzakirə səhifəsini paylaş</string>
   <string name="menu_option_share_edit">Redaktəni paylaş</string>
   <string name="menu_option_user_contributions">%s istifadəçisinin töhfələri</string>
-  <string name="menu_option_edit_source">Mənbə kodunu redaktə et</string>
+  <string name="menu_option_edit_source">Vikimətni redaktə et</string>
   <string name="menu_option_user_page">%s istifadəçi səhifəsi</string>
   <string name="menu_option_find_in_talk_page_topic">Müzakirə səhifəsi mövzusu axtar</string>
   <string name="menu_option_copy_link_to_clipboard">Linki mübadilə buferinə kopyala</string>
