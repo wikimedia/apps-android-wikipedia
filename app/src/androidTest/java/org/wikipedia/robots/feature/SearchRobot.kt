@@ -22,12 +22,6 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun tapSearchView() = apply {
-        // Click the Search box
-        clickOnViewWithText("Search Wikipedia")
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     fun clickSearchContainer() = apply {
         // Click the Search box
         clickOnDisplayedView(R.id.search_container)
