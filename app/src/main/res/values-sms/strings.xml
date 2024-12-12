@@ -270,6 +270,7 @@
   <string name="description_edit_cancel_hint">Jõõsk</string>
   <string name="description_edit_help_about_wikidata">Teâđ Wikidata pirr</string>
   <string name="description_edit_image_caption_learn_more">Looǥǥ lââʹzz kartt- da snimldõkteeʹkstin</string>
+  <string name="description_edit_suggested_description_button_text">Čuäʹjet eʹtǩǩuum deskriiptid</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kartt-teeʹkst õlmstõʹtteš!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Kartt- leʹbe snimldõkteeʹkst õlmstõʹtteš! (%s)</string>
   <string name="description_edit_success_did_you_know">Tiõʹttiǩ-a ton, što...?</string>
@@ -282,6 +283,7 @@
   <string name="suggested_edits_add_translation_button">Lââʹzzet jåårǥlõõzz</string>
   <string name="suggested_edits_add_caption_button">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="suggested_edits_edit_caption_button">Muuʹtt kartt- leʹbe snimldõkteeʹkst</string>
+  <string name="suggested_edits_task_add_description_title">Lââʹzzet artikeeʹl deskriiptid</string>
   <string name="suggested_edits_task_image_caption_title">Lââʹzzet kartt- leʹbe snimldõkteeʹkstid</string>
   <string name="suggested_edits_task_translate_caption_description">Jåårǥlââʹtt kartt- da snimldõkteeʹkstid jeeʹres ǩiõlid</string>
   <string name="suggested_edits_task_multilingual_positive">Lââʹzzet ǩiõlid</string>
@@ -321,6 +323,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Jåhtta</string>
   <string name="suggested_edits_encourage_account_creation_title">Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
   <string name="suggested_edits_contribution_type_image_tag">Karttǩeâlǥal</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Eʹtǩǩuum deskriipt</string>
   <string name="file_page_activity_title">Teâttõsseidd</string>
   <string name="file_page_add_image_caption_button">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="file_page_edit_button_content_description">Muuʹtt %s</string>

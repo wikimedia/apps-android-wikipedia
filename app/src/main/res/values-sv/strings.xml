@@ -1723,8 +1723,11 @@
   <string name="rabbit_holes_experiment_about">Om detta experiment</string>
   <string name="rabbit_holes_survey_dialog_title">Hjälp till att förbättra djupdykningen</string>
   <string name="rabbit_holes_survey_dialog_body">Är du nöjd med det rekommenderade sökresultatet?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Hjälp till att förbättra rekommenderade läslistor</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Är du nöjd med denna rekommenderade läslista?</string>
   <string name="suggested_reading_list_title">Baserat på vad du läser</string>
   <string name="suggested_reading_list_description">Inspirerat av \"%s\"</string>
+  <string name="suggested_reading_list_description_multi">Inspirerad av %1$s och %2$s</string>
   <string name="suggested_reading_list_later_snackbar">Gå till fliken Sparade på hemskärmen om du vill besöka din läslista senare.</string>
   <string name="suggested_reading_list_dialog_title">Du har en ny föreslagen läslista.</string>
   <string name="suggested_reading_list_dialog_body">Detta är en experimentell funktion. Innehållet baseras på din senaste läshistorik. Vill du kolla in den nya läslistan?</string>
@@ -1741,5 +1744,5 @@
   <string name="survey_dialog_cancel">Avbryt</string>
   <string name="survey_dialog_submit">Skicka</string>
   <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Återkoppling har skickats.</string>
+  <string name="survey_dialog_submitted_snackbar">Återkopplingen har skickats in. Tack!</string>
 </resources>

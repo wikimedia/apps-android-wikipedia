@@ -36,10 +36,7 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
             .navigateToMoreMenu()
             .clickLoginMenuItem()
         loginRobot
-            .clickLoginButton()
-            .setLoginUserNameFromBuildConfig()
-            .setPasswordFromBuildConfig()
-            .loginUser()
+            .logInUser()
         // After log in, notification dialog appears
         systemRobot
             .clickOnSystemDialogWithText(text = "Allow")

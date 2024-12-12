@@ -34,10 +34,7 @@ class SuggestedEditScreenTest : BaseTest<MainActivity>(
             .navigateToMoreMenu()
             .clickLoginMenuItem()
         loginRobot
-            .clickLoginButton()
-            .setLoginUserNameFromBuildConfig()
-            .setPasswordFromBuildConfig()
-            .loginUser()
+            .logInUser()
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         navRobot
