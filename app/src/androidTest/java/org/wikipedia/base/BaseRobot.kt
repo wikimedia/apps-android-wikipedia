@@ -2,7 +2,9 @@ package org.wikipedia.base
 
 import android.app.Activity
 import android.graphics.Rect
+import android.os.SystemClock
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.ListView
@@ -11,6 +13,7 @@ import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.UiController
@@ -49,6 +52,7 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.anything
 import org.hamcrest.Matchers.containsString
 import org.hamcrest.Matchers.not
 import org.hamcrest.TypeSafeMatcher
@@ -457,6 +461,48 @@ abstract class BaseRobot {
         onView(withId(recyclerViewId))
             .perform(scrollToPosition<RecyclerView.ViewHolder>(0))
             .check(matches(atPosition(0, isLayoutDirectionRTL())))
+    }
+
+    protected fun clickXY(x: Int, y: Int): ViewAction {
+        return object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return isDisplayed()
+            }
+
+            override fun getDescription(): String {
+                return "Click at coordinates: $x, $y"
+            }
+
+            override fun perform(uiController: UiController, view: View) {
+                uiController.injectMotionEvent(
+                    MotionEvent.obtain(
+                    SystemClock.uptimeMillis(),
+                    SystemClock.uptimeMillis(),
+                    MotionEvent.ACTION_DOWN,
+                    x.toFloat(),
+                    y.toFloat(),
+                    0
+                ))
+
+                uiController.injectMotionEvent(
+                    MotionEvent.obtain(
+                    SystemClock.uptimeMillis(),
+                    SystemClock.uptimeMillis(),
+                    MotionEvent.ACTION_UP,
+                    x.toFloat(),
+                    y.toFloat(),
+                    0
+                ))
+            }
+        }
+    }
+
+    protected fun clickOnListView(@IdRes viewId: Int, @IdRes childView: Int, position: Int) = apply {
+        onData(anything())
+            .inAdapterView(withId(viewId))
+            .atPosition(position)
+            .onChildView(withId(childView))
+            .perform(click())
     }
 
     private fun atPosition(position: Int, matcher: Matcher<View>) = object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {

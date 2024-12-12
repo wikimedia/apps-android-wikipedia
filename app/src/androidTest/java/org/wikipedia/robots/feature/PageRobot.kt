@@ -119,12 +119,20 @@ class PageRobot(private val context: Context) : BaseRobot() {
         checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
     }
 
+    fun clickOnTOCItem(position: Int) = apply {
+        clickOnListView(
+            viewId = R.id.toc_list,
+            childView = R.id.page_toc_item_text,
+            position = position
+        )
+    }
+
     fun swipeTableOfContentsAllTheWayToBottom() = apply {
         swipeUp(R.id.toc_list)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun clickAboutThisArticleText() = apply {
+    fun clickAboutThisArticleTextInTOC() = apply {
         clickOnViewWithText("About this article")
         delay(TestConfig.DELAY_MEDIUM)
     }
@@ -261,6 +269,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun openTableOfContents() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun selectSpanishLanguage() = apply {
@@ -308,5 +317,11 @@ class PageRobot(private val context: Context) : BaseRobot() {
         } catch (e: Exception) {
             Log.e("PageRobot: ", "Link failed")
         }
+    }
+
+    fun clickOutside() = apply {
+        onView(withId(R.id.navigation_drawer))
+            .perform(clickXY(800, 500))
+        delay(TestConfig.DELAY_SHORT)
     }
 }
