@@ -12,7 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -257,7 +260,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onResume() {
         super.onResume()
-        val containerView = requireDialog().findViewById<ViewGroup>(R.id.container)
+
+        val containerView = requireDialog().findViewById<ViewGroup>(android.R.id.content)
         if (overlayView == null && containerView != null) {
             LinkPreviewOverlayView(requireContext()).let {
                 overlayView = it
@@ -285,6 +289,12 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     it.showTertiaryButton(false)
                 }
                 containerView.addView(it)
+
+                ViewCompat.setOnApplyWindowInsetsListener(it) { view, insets ->
+                    val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                    view.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = systemWindowInsets.bottom }
+                    insets
+                }
             }
         }
     }
