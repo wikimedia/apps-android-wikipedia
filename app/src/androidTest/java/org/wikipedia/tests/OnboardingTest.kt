@@ -9,6 +9,7 @@ import org.wikipedia.base.DataInjector
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.OnboardingRobot
+import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -21,10 +22,12 @@ class OnboardingTest : BaseTest<MainActivity>(
 
     @Test
     fun startOnboardingTest() {
+        systemRobot
+            .disableDarkMode(context)
         onboardingRobot
             .checkWelcomeScreenViewsForVisibility()
-            .checkPrimaryTextViewColor()
-            .checkSecondaryTextViewColor()
+            .checkPrimaryTextViewColor(Theme.LIGHT)
+            .checkSecondaryTextViewColor(Theme.LIGHT)
             .verifyAppLanguageMatchesDeviceLanguage()
             .swipeAllTheWayToEnd()
             .swipeBackToWelcomeScreen()
@@ -34,8 +37,8 @@ class OnboardingTest : BaseTest<MainActivity>(
         .enableDarkMode(context)
     onboardingRobot
         .checkWelcomeScreenViewsForVisibility()
-        .checkPrimaryTextViewColor()
-        .checkSecondaryTextViewColor()
+        .checkPrimaryTextViewColor(Theme.DARK)
+        .checkSecondaryTextViewColor(Theme.DARK)
         .skipWelcomeScreen()
     systemRobot
         .clickOnSystemDialogWithText("Allow")

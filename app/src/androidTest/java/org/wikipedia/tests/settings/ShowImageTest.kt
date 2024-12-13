@@ -6,10 +6,12 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
+import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -20,9 +22,12 @@ class ShowImageTest : BaseTest<MainActivity>(
     private val settingsRobot = SettingsRobot()
     private val exploreFeedRobot = ExploreFeedRobot()
     private val homeScreenRobot = HomeScreenRobot()
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .disableDarkMode(context)
         homeScreenRobot
             .dismissFeedCustomization()
         bottomNavRobot
@@ -35,6 +40,6 @@ class ShowImageTest : BaseTest<MainActivity>(
             .scrollToItem(title = "Featured article")
             .verifyFeaturedArticleImageIsNotVisible()
             .scrollToItem(title = "Top read", verticalOffset = 200)
-            .verifyTopReadArticleIsGreyedOut()
+            .verifyTopReadArticleIsGreyedOut(theme = Theme.LIGHT)
     }
 }
