@@ -22,6 +22,7 @@ import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
+import androidx.test.espresso.action.ViewActions.doubleClick
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.action.ViewActions.swipeLeft
@@ -62,7 +63,6 @@ import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
-
     protected fun clickOnViewWithIdAndContainsString(@IdRes viewId: Int, text: String) {
         onView(allOf(
             withId(viewId),
@@ -123,6 +123,15 @@ abstract class BaseRobot {
                     clickChildViewWithId(itemId)
                 )
             )
+    }
+
+    protected fun doubleClickOnViewWithId(@IdRes viewId: Int) {
+        onView(
+            allOf(
+                withId(viewId),
+                isDisplayed()
+            )
+        ).perform(doubleClick())
     }
 
     protected fun assertColorForChildItemInAList(
