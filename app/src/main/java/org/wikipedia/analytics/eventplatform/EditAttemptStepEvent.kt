@@ -45,7 +45,7 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
                 WikipediaApp.instance.appInstallID, "", editorInterface,
                 INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0, getUserIdForWikiSite(pageTitle.wikiSite),
-                AccountUtil.isLoggedIn, AccountUtil.isTemporaryAccount, 1, pageTitle.prefixedText,
+                !AccountUtil.isLoggedIn, AccountUtil.isTemporaryAccount, 1, pageTitle.prefixedText,
                 pageTitle.namespace().code())))
         }
 
