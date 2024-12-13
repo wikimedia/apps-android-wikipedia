@@ -1656,5 +1656,6 @@
   <string name="survey_dialog_option_very_unsatisfied">Веома незадовољан</string>
   <string name="survey_dialog_cancel">Откажи</string>
   <string name="survey_dialog_submit">Пошаљи</string>
+  <string name="survey_dialog_input_hint">Додатне повратне информације</string>
   <string name="survey_dialog_submitted_snackbar">Повратне информације послате.</string>
 </resources>

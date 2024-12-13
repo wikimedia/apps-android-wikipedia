@@ -1746,6 +1746,8 @@
   <string name="rabbit_holes_experiment_about">Over dit experiment</string>
   <string name="rabbit_holes_survey_dialog_title">Help mee met het verbeteren van de “rabbit holes”</string>
   <string name="rabbit_holes_survey_dialog_body">Bent u tevreden met dit aanbevolen zoekresultaat?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Help mee de aanbevolen leeslijsten te verbeteren</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Bent u tevreden met deze aanbevolen leeslijst?</string>
   <string name="suggested_reading_list_title">Gebaseerd op wat u hebt gelezen</string>
   <string name="suggested_reading_list_description">Geïnspireerd door “%s”</string>
   <string name="suggested_reading_list_description_multi">Geïnspireerd door %1$s en %2$s</string>
