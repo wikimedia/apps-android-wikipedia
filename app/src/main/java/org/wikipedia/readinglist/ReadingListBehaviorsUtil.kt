@@ -377,7 +377,8 @@ object ReadingListBehaviorsUtil {
 
     fun searchListsAndPages(coroutineScope: CoroutineScope, searchQuery: String?, callback: SearchCallback) {
         coroutineScope.launch(exceptionHandler) {
-            val list = withContext(Dispatchers.IO) { applySearchQuery(searchQuery, AppDatabase.instance.readingListDao().getAllLists()) }
+            allReadingLists = withContext(Dispatchers.IO) { AppDatabase.instance.readingListDao().getAllLists() }
+            val list = withContext(Dispatchers.IO) { applySearchQuery(searchQuery, allReadingLists) }
             if (searchQuery.isNullOrEmpty()) {
                 ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
             }

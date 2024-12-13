@@ -318,10 +318,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
-            // If the number of lists has changed, just invalidate everything, as a
-            // simple way to get the bottom item margin to apply to the correct item.
-            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
-                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
@@ -329,6 +325,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     (lists[0] as ReadingList).pages.isEmpty()) {
                 lists.removeAt(0)
             }
+
+            // If the number of lists has changed, just invalidate everything, as a
+            // simple way to get the bottom item margin to apply to the correct item.
+            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
+                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             lifecycleScope.launch {
                 suggestedReadingList = null
@@ -864,8 +865,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.suggestedContentSurveyShown = true
                 SurveyDialog.showFeedbackOptionsDialog(
                     requireActivity(),
-                    titleId = R.string.rabbit_holes_survey_dialog_title,
-                    messageId = R.string.rabbit_holes_survey_dialog_body,
+                    titleId = R.string.rabbit_holes_reading_list_survey_dialog_title,
+                    messageId = R.string.rabbit_holes_reading_list_survey_dialog_body,
                     snackbarMessageId = R.string.survey_dialog_submitted_snackbar,
                     invokeSource = InvokeSource.RABBIT_HOLE_READING_LIST
                 )

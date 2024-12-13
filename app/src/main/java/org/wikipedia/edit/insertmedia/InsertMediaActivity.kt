@@ -18,7 +18,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
-import androidx.paging.PagingDataAdapter
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
@@ -30,6 +29,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
@@ -83,7 +83,7 @@ class InsertMediaActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.insertMediaFlow.collectLatest {
-                        insertMediaAdapter?.submitData(it)
+                        insertMediaAdapter?.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
@@ -296,7 +296,7 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private inner class InsertMediaAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
+    private inner class InsertMediaAdapter : PagingDataAdapterPatched<PageTitle, RecyclerView.ViewHolder>(InsertMediaDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): InsertMediaItemHolder {
             return InsertMediaItemHolder(ItemInsertMediaBinding.inflate(layoutInflater))
         }

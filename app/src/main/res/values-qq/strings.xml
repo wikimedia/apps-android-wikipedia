@@ -1742,6 +1742,8 @@
   <string name="rabbit_holes_experiment_about">Button label for seeing more information about the current experiment</string>
   <string name="rabbit_holes_survey_dialog_title">Title of a dialog for submitting feedback about this feature. \"Rabbit hole\" refers to the [[:w:en:Wiki rabbit hole|Wiki rabbit hole]] phenomenon and the Android app feature, which is based on it and described at https://phabricator.wikimedia.org/T378612 .</string>
   <string name="rabbit_holes_survey_dialog_body">Text of a dialog for submitting feedback about this feature</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Title of a dialog for submitting feedback about the feature of recommended reading lists.</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Text of a dialog for submitting feedback about the feature of recommended reading lists.</string>
   <string name="suggested_reading_list_title">Title of a reading list of articles based on your reading history</string>
   <string name="suggested_reading_list_description">Description of a reading list of articles, based on the titles of a previous articles. The symbol %s is replaced with the article title.</string>
   <string name="suggested_reading_list_description_multi">Description of a reading list of articles, based on the titles of a previous articles. The symbols %1$s and %2$s are replaced with the article titles.</string>

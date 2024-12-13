@@ -14,7 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +23,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.databinding.ActivityArchivedTalkPagesBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkMovementMethodExt
@@ -64,7 +64,7 @@ class ArchivedTalkPagesActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.archivedTalkPagesFlow.collectLatest {
-                        archivedTalkPagesAdapter.submitData(it)
+                        archivedTalkPagesAdapter.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
@@ -126,7 +126,7 @@ class ArchivedTalkPagesActivity : BaseActivity() {
         }
     }
 
-    private inner class ArchivedTalkPagesAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(ArchivedTalkPagesDiffCallback()) {
+    private inner class ArchivedTalkPagesAdapter : PagingDataAdapterPatched<PageTitle, RecyclerView.ViewHolder>(ArchivedTalkPagesDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ArchivedTalkPageItemHolder {
             val view = PageItemView<PageTitle>(this@ArchivedTalkPagesActivity)
             view.callback = itemCallback
