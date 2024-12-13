@@ -17,7 +17,7 @@ class OnboardingClient : FeedClient {
 
     private fun getCards(context: Context): List<Card> {
         val cards = ArrayList<Card>()
-        val card: OnboardingCard
+        var card: OnboardingCard
 
         // NOTE: When adding new onboarding cards, please add them to the *beginning* of the list.
 
@@ -41,6 +41,20 @@ class OnboardingClient : FeedClient {
         if (card.shouldShow() && Prefs.exploreFeedVisitCount <= SHOW_CUSTOMIZE_ONBOARDING_CARD_COUNT) {
             cards.add(card)
         }
+
+        card = YIROnboardingCard(
+            Announcement(id = "yir2024Card",
+                text = context.getString(R.string.year_in_review_text),
+                imageUrl = "https://upload.wikimedia.org/wikipedia/commons/2/21/WYiR_Block_1.gif",
+                action = Announcement.Action(context.getString(R.string.year_in_review_action_positive), "TODO"),
+                negativeText = context.getString(R.string.view_announcement_card_negative_action),
+                imageAspectRatio = 4.0 / 3.0
+            )
+        )
+        if (card.shouldShow()) {
+            cards.add(card)
+        }
+
         return cards
     }
 
