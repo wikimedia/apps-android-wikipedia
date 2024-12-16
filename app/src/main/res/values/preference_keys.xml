@@ -102,6 +102,7 @@
     <string name="preference_key_suggested_edits_pause_reverts">suggestedEditsPauseReverts</string>
     <string name="preference_key_suggested_edits_override_counts">suggestedEditsOverrideCounts</string>
     <string name="preference_key_suggested_edits_override_edits">suggestedEditsOverrideEdits</string>
+    <string name="preference_key_suggested_edits_override_contribution">suggestedEditsOverrideContribution</string>
     <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
     <string name="preference_key_suggested_edits_reactivation_pass_stage_one">suggestedEditsReactivationPassStageOne</string>
     <string name="preference_key_suggested_edits_reactivation_test">suggestedEditsReactivationTest</string>
