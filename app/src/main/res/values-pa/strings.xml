@@ -199,13 +199,13 @@
   <string name="create_account_generic_error">ਖਾਤਾ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ</string>
   <string name="create_account_next">ਅਗਲਾ</string>
   <string name="email_recommendation_dialog_title">ਬਿਨਾਂ ਈਮੇਲ ਪਤੇ ਦੇ ਖਾਤਾ ਬਣਾਉਣਾ ਹੈ?</string>
-  <string name="email_recommendation_dialog_message">ਹਾਲਾਂਕਿ ਈਮੇਲ ਪਤਾ ਵਿਕਲਪਿਕ ਹੈ, ਇਸਦੀ &lt;b&gt;ਜ਼ੋਰਦਾਰ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ&lt;/b&gt; ਹੈ, ਕਿਉਂਕਿ ਜੇਕਰ ਤੁਸੀਂ ਕਦੇ ਆਪਣਾ ਪਛਾਣ-ਸ਼ਬਦ ਗੁਆ ਦਿੰਦੇ ਹੋ ਤਾਂ ਖਾਤਾ ਮੁੜ-ਪ੍ਰਾਪਤੀ ਲਈ ਇੱਕ ਈਮੇਲ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।</string>
+  <string name="email_recommendation_dialog_message">ਹਾਲਾਂਕਿ ਈਮੇਲ ਪਤਾ ਚੋਣਵਾਂ ਹੈ, ਇਸਦੀ &lt;b&gt;ਜ਼ੋਰਦਾਰ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ&lt;/b&gt; ਹੈ, ਕਿਉਂਕਿ ਜੇਕਰ ਤੁਸੀਂ ਕਦੇ ਆਪਣਾ ਪਛਾਣ-ਸ਼ਬਦ ਗੁਆ ਦਿੰਦੇ ਹੋ ਤਾਂ ਖਾਤਾ ਮੁੜ-ਪ੍ਰਾਪਤੀ ਲਈ ਇੱਕ ਈਮੇਲ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।</string>
   <string name="email_recommendation_message">ਸਿਫ਼ਾਰਿਸ਼ ਕੀਤੀ ਗਈ ਕਿਉਂਕਿ ਖਾਤਾ ਮੁੜ-ਪ੍ਰਾਪਤੀ ਲਈ ਈਮੇਲ ਦੀ ਲੋੜ ਹੈ।</string>
   <string name="email_recommendation_dialog_create_without_email_action">ਬਿਨਾਂ ਈਮੇਲ ਦੇ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="email_recommendation_dialog_create_with_email_action">ਇੱਕ ਈਮੇਲ ਪਤਾ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>
   <string name="create_account_name_unavailable">ਵਰਤੋਂਕਾਰ ਨਾਮ \"%s\" ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਕੋਈ ਵੱਖਰਾ ਨਾਮ ਚੁਣੋ।</string>
-  <string name="create_account_ip_block_message">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡਾ ਆਈਪੀ ਪਤਾ ਵਰਤਮਾਨ ਵਿੱਚ ਨਵੇਂ ਖਾਤੇ ਬਣਾਉਣ ਤੋਂ ਬਲੌਕ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
+  <string name="create_account_ip_block_message">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡਾ ਆਈਪੀ ਪਤਾ ਇਸ ਵੇਲੇ ਵਿੱਚ ਨਵੇਂ ਖਾਤੇ ਬਣਾਉਣ ਤੋਂ ਰੋਕ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:ਮੇਰੇ_ਉੱਤੇ_ਪਾਬੰਦੀ_ਲਾਈ_ਹੈ</string>
   <string name="create_account_ip_block_details">ਵੇਰਵਾ</string>
   <string name="preferences_general_heading">ਆਮ</string>
@@ -1118,7 +1118,7 @@
   <string name="templates_search_hint">ਫਰਮੇ ਲੱਭੋ</string>
   <string name="templates_insert_button">ਜੋੜੋ</string>
   <string name="templates_param_suggested_value">ਜਿਵੇਂ ਕਿ %s</string>
-  <string name="templates_param_optional_hint">%s (ਇਖਤਿਆਰੀ)</string>
+  <string name="templates_param_optional_hint">%s (ਚੋਣਵਾਂ)</string>
   <string name="templates_param_suggested_hint">%s (ਸੁਝਾਏ ਗਏ)</string>
   <string name="templates_learn_more_link">ਹੋਰ ਜਾਣੋ</string>
   <string name="templates_description_incomplete">ਫਰਮੇ ਵਰਤੋਂਕਾਰਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤੇ ਜਾਂਦੇ ਹਨ ਅਤੇ ਪੂਰੇ ਵੇਰਵੇ ਦੀ ਘਾਟ ਹੋ ਸਕਦੀ ਹੈ।</string>
@@ -1232,7 +1232,7 @@
   <string name="revision_diff_paragraph_removed">ਪੈਰਾ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="revision_diff_protected">ਇਸ ਸੋਧ ਵਿੱਚ ਕੀਤੀਆਂ ਗਈਆਂ ਤਬਦੀਲੀਆਂ ਜਨਤਕ ਤੌਰ \'ਤੇ ਪਹੁੰਚਯੋਗ ਨਹੀਂ ਹਨ।</string>
   <string name="revision_undo_title">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ ਉੱਤੇ ਇਸ ਸੋਧ ਨੂੰ ਵਾਪਸ ਲੈਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
-  <string name="revision_undo_summary_hint">ਸੰਖੇਪ (ਇਖਤਿਆਰੀ)</string>
+  <string name="revision_undo_summary_hint">ਸੰਖੇਪ (ਚੋਣਵਾਂ)</string>
   <string name="revision_undo_reason">ਵਾਪਸੀ ਦਾ ਕਾਰਨ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="revision_undo_success">ਸੋਧ ਨੂੰ ਰੱਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਸੀ।</string>
   <string name="revision_rollback_dialog_title">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਸੋਧਾਂ ਵਾਪਸ ਲੈਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
