@@ -1762,4 +1762,6 @@
   <string name="survey_dialog_submit">Positive action button text for the survey dialog</string>
   <string name="survey_dialog_input_hint">Hint label for the survey dialog input field.</string>
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
+  <string name="year_in_review_action_positive">Button label that takes the user to the new Year-in-review feature.</string>
+  <string name="year_in_review_text">Text of a dialog box that tells the user about the new Year-in-review feature.</string>
 </resources>
