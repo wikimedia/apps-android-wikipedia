@@ -27,6 +27,7 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
+import org.wikipedia.extensions.serializable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageActivity
@@ -102,7 +103,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        invokeSource = requireArguments().serializable(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
         query = requireArguments().getString(ARG_QUERY)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
         suggestedSearchQuery = requireActivity().intent.getStringExtra(SearchActivity.EXTRA_SUGGESTED_QUERY)
