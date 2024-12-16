@@ -22,10 +22,10 @@ class WidgetFeaturedPageWorker(
         return try {
             val app = WikipediaApp.instance
             val mainPageTitle = PageTitle(MainPageNameData.valueFor(app.appOrSystemLanguageCode), app.wikiSite)
-            val date = DateUtil.getUtcRequestDateFor(0)
+            val (year, month, day) = DateUtil.getYearMonthAndDayForAge(0)
 
             val result = ServiceFactory.getRest(WikipediaApp.instance.wikiSite)
-                .getFeedFeatured(date.year, date.month, date.day)
+                .getFeedFeatured(year, month, day)
 
             // TODO: don't use PageSummary.
             val summary = if (result.tfa != null) {
