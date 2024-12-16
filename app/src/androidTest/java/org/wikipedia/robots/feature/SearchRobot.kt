@@ -56,6 +56,11 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
+    fun longClickOnItemFromSearchList(position: Int) = apply {
+        longClickOnItemInList(R.id.search_results_list, position)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun verifyRecentSearchesAppears() = apply {
         checkViewWithTextDisplayed("Recent searches:")
     }
@@ -75,6 +80,11 @@ class SearchRobot : BaseRobot() {
 
     fun checkSearchListItemHasRTLDirection() = apply {
         checkRTLDirectionOfRecyclerViewItem(R.id.search_results_list)
+    }
+
+    fun clickSave() = apply {
+        clickOnViewWithText("Save")
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun pressBack() = apply {

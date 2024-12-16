@@ -20,4 +20,12 @@ class DialogRobot : BaseRobot() {
             Log.d("DialogRobot: ", "No Big English dialog shown.")
         }
     }
+
+    fun dismissShareReadingListDialog() = apply {
+        try {
+            clickOnViewWithText(text = "Got it")
+        } catch (e: Exception) {
+            Log.d("DialogRobot: ", "No share reading list dialog shown.")
+        }
+    }
 }
