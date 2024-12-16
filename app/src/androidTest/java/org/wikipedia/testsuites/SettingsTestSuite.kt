@@ -1,4 +1,4 @@
-package org.wikipedia
+package org.wikipedia.testsuites
 
 import DownloadReadingListTest
 import org.junit.runner.RunWith

@@ -204,12 +204,16 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             val error = errorForAction.first()
             throw MwException(error)
         }
-        val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getSiteInfo()
 
-        // TODO: need to revisit this logic
-        val languageCode = if (siteInfoResponse.query?.siteInfo?.lang != null &&
-            siteInfoResponse.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) siteInfoResponse.query?.siteInfo?.lang.orEmpty()
-        else pageTitle.wikiSite.languageCode
+        var languageCode = pageTitle.wikiSite.languageCode
+        if (action != DescriptionEditActivity.Action.ADD_CAPTION &&
+            action != DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+            ServiceFactory.get(pageTitle.wikiSite).getSiteInfo().query?.siteInfo?.lang?.let {
+                if (it.isNotEmpty() && it != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
+                    languageCode = it
+                }
+            }
+        }
 
         return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
             action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {

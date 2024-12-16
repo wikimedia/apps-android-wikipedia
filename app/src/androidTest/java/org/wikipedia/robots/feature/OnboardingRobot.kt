@@ -8,16 +8,21 @@ import org.hamcrest.Matcher
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.TestThemeColorType
+import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.theme.Theme
 
 class OnboardingRobot : BaseRobot() {
 
-    fun checkPrimaryTextViewColor() = apply {
-        verifyTextViewColor(textViewId = R.id.primaryTextView, colorResOrAttr = R.attr.primary_color, isAttr = true)
+    fun checkPrimaryTextViewColor(theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme = theme, colorType = TestThemeColorType.PRIMARY)
+        verifyTextViewColor(textViewId = R.id.primaryTextView, colorResId = color)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun checkSecondaryTextViewColor() = apply {
-        verifyTextViewColor(textViewId = R.id.secondaryTextView, colorResOrAttr = R.attr.secondary_color, isAttr = true)
+    fun checkSecondaryTextViewColor(theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme = theme, colorType = TestThemeColorType.SECONDARY)
+        verifyTextViewColor(textViewId = R.id.secondaryTextView, colorResId = color)
         delay(TestConfig.DELAY_MEDIUM)
     }
 

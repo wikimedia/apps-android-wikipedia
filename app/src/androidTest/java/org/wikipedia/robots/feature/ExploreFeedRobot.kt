@@ -27,6 +27,9 @@ import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.ColorAssertions
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.TestThemeColorType
+import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.theme.Theme
 
 class ExploreFeedRobot : BaseRobot() {
     fun clickOnThisDayCard() = apply {
@@ -192,18 +195,20 @@ class ExploreFeedRobot : BaseRobot() {
         )
     }
 
-    fun assertFeaturedArticleTitleColor() = apply {
+    fun assertFeaturedArticleTitleColor(theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, colorType = TestThemeColorType.PRIMARY)
         onView(allOf(
             withId(R.id.view_card_header_title),
             withText(TestConstants.FEATURED_ARTICLE)
-        )).check(ColorAssertions.hasColor(R.attr.primary_color, isAttr = true, ColorAssertions.ColorType.TextColor))
+        )).check(ColorAssertions.hasColor(color, ColorAssertions.ColorType.TextColor))
     }
 
-    fun assertTopReadTitleColor() = apply {
+    fun assertTopReadTitleColor(theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, colorType = TestThemeColorType.PRIMARY)
         onView(allOf(
             withId(R.id.view_card_header_title),
             withText(TestConstants.TOP_READ_ARTICLES)
-        )).check(ColorAssertions.hasColor(R.attr.primary_color, isAttr = true, ColorAssertions.ColorType.TextColor))
+        )).check(ColorAssertions.hasColor(color, ColorAssertions.ColorType.TextColor))
     }
 
     fun longClickFeaturedArticleCardContainer() = apply {
@@ -240,7 +245,7 @@ class ExploreFeedRobot : BaseRobot() {
         }
     }
 
-    fun verifyTopReadArticleIsGreyedOut() = apply {
+    fun verifyTopReadArticleIsGreyedOut(theme: Theme) = apply {
         delay(TestConfig.DELAY_MEDIUM)
         onView(withId(R.id.view_list_card_list))
             .check { view, _ ->
@@ -249,9 +254,9 @@ class ExploreFeedRobot : BaseRobot() {
                     ?: throw AssertionError("No viewHolder found at position 0")
                 val imageView = viewHolder.itemView.findViewById<ShapeableImageView>(R.id.view_list_card_item_image)
                     ?: throw AssertionError("No ImageView found with id view_list_card_item_image")
+                val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.BORDER)
                 ColorAssertions.hasColor(
-                    colorResOrAttr = R.attr.border_color,
-                    isAttr = true,
+                    colorResId = color,
                     colorType = ColorAssertions.ColorType.ShapeableImageViewColor
                 ).check(imageView, null)
             }
