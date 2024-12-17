@@ -12,6 +12,7 @@ import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.SearchRobot
+import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.SavedScreenRobot
 
@@ -26,18 +27,29 @@ class SavedArticleTest : BaseTest<MainActivity>(
     private val bottomNavRobot = BottomNavRobot()
     private val savedScreenRobot = SavedScreenRobot()
     private val dialogRobot = DialogRobot()
+    private val settingsRobot = SettingsRobot()
 
     @Test
     fun runTest() {
+        setDeviceOrientation(isLandscape = false)
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         searchRobot
             .tapSearchView()
             .typeTextInView(TestConstants.SEARCH_TERM)
             .longClickOnItemFromSearchList(0)
-            .clickSave()
-            .pressBack()
-            .pressBack()
+            .clickSave(action = { isSaved ->
+                if (isSaved) {
+                    searchRobot
+                        .pressBack()
+                        .pressBack()
+                } else {
+                    searchRobot
+                        .pressBack()
+                        .pressBack()
+                        .pressBack()
+                }
+            })
         exploreFeedRobot
             .scrollToItem(title = FEATURED_ARTICLE)
             .longClickFeaturedArticleCardContainer()

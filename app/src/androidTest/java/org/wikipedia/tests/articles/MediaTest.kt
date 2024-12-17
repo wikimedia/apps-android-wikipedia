@@ -37,9 +37,6 @@ class MediaTest : BaseTest<MainActivity>(
         pageRobot
             .clickLeadImage()
             .swipePagerLeft()
-        mediaRobot
-            .pinchZoomAction(context, device)
-        pageRobot
             .swipePagerLeft()
         mediaRobot
             .doubleTapToZoomOut()
@@ -52,6 +49,7 @@ class MediaTest : BaseTest<MainActivity>(
             .clickShareButton()
             .clickCC()
             .verifyCCisClicked()
+            .pinchZoomAction(context, device)
             .tapHamburger(context)
             .goToImagePage(context)
             .verifyImagePageIsVisible()

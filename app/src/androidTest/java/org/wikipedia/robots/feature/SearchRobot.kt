@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -87,9 +88,15 @@ class SearchRobot : BaseRobot() {
         checkRTLDirectionOfRecyclerViewItem(R.id.search_results_list)
     }
 
-    fun clickSave() = apply {
-        clickOnViewWithText("Save")
-        delay(TestConfig.DELAY_SHORT)
+    fun clickSave(action: ((isSaved: Boolean) -> Unit)? = null) = apply {
+        try {
+            clickOnViewWithText("Save")
+            delay(TestConfig.DELAY_SHORT)
+            action?.invoke(true)
+        } catch (e: Exception) {
+            Log.e("SearchRobotError:", "Already saved.")
+            action?.invoke(false)
+        }
     }
 
     fun pressBack() = apply {

@@ -34,6 +34,7 @@ class ArticlePageActionItemTest : BaseTest<PageActivity>(
     @Test
     fun runTest() {
         pageRobot
+            .dismissTooltip(activity)
             .saveArticleToReadingList()
             .confirmArticleSaved("Saved")
             .openLanguageSelector()

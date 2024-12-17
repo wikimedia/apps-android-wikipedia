@@ -146,7 +146,6 @@ abstract class BaseRobot {
         ).perform(doubleClick())
     }
 
-
     protected fun scrollToView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(scrollTo())
     }

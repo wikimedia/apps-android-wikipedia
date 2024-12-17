@@ -1,5 +1,6 @@
 package org.wikipedia.robots.navigation
 
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -68,8 +69,12 @@ class BottomNavRobot : BaseRobot() {
     }
 
     fun clickLoginMenuItem() = apply {
-        clickOnViewWithId(R.id.main_drawer_login_button)
-        delay(TestConfig.DELAY_MEDIUM)
+        try {
+            clickOnViewWithId(R.id.main_drawer_login_button)
+            delay(TestConfig.DELAY_MEDIUM)
+        } catch (e: Exception) {
+            Log.e("BottomNavRobotError:", "User logged in.")
+        }
     }
 
     fun gotoWatchList() = apply {

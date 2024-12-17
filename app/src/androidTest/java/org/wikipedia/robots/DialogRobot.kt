@@ -28,4 +28,13 @@ class DialogRobot : BaseRobot() {
             Log.d("DialogRobot: ", "No share reading list dialog shown.")
         }
     }
+
+    fun clickLogOutUser() = apply {
+        try {
+            clickOnViewWithText(text = "Log out")
+        } catch (e: Exception) {
+            Log.d("DialogRobot: ", "Cannot click Log out.")
+            goBack()
+        }
+    }
 }

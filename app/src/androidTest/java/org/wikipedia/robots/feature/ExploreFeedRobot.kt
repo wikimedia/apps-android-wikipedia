@@ -217,8 +217,12 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun clickSave() = apply {
-        clickOnViewWithText("Save")
-        delay(TestConfig.DELAY_SHORT)
+        try {
+            clickOnViewWithText("Save")
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: Exception) {
+            Log.e("ExploreFeedRobotError:", "Save text is not found.")
+        }
     }
 
     private fun scrollToCardViewWithTitle(

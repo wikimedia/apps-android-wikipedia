@@ -31,9 +31,9 @@ class MediaRobot : BaseRobot() {
 
     fun pinchZoomAction(context: Context, uiDevice: UiDevice) = apply {
         val imageView = uiDevice.findObject(UiSelector().resourceId("${context.packageName}:id/imageView"))
-        imageView.pinchIn(75, 20)
-        imageView.pinchOut(75, 20)
-        imageView.dragTo(500, 700, 20)
+        imageView.pinchIn(60, 20)
+        imageView.pinchOut(60, 20)
+        imageView.dragTo(400, 600, 20)
     }
 
     fun doubleTapToZoomOut() = apply {
