@@ -30,6 +30,8 @@ class MediaTest : BaseTest<MainActivity>(
             .tapSearchView()
             .typeTextInView(TestConstants.SPECIAL_ARTICLE_VORTEX_SHEDDING)
             .clickOnItemFromSearchList(0)
+        pageRobot
+            .dismissTooltip(activity)
         mediaRobot
             .verifyLeadImageHasGif()
         pageRobot

@@ -3,6 +3,9 @@ package org.wikipedia.robots.feature
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.TestThemeColorType
+import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.theme.Theme
 
 class TabsRobot : BaseRobot() {
     fun removeTab(position: Int) = apply {
@@ -27,12 +30,13 @@ class TabsRobot : BaseRobot() {
         checkWithTextIsDisplayed(R.id.tabsCountText, count.toString())
     }
 
-    fun assertColorOfTabsTitle(position: Int) = apply {
+    fun assertColorOfTabsTitle(position: Int, theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
         assertColorForChildItemInAList(
             listId = R.id.tabRecyclerView,
             childItemId = R.id.tabArticleTitle,
-            colorResOrAttr = R.attr.primary_color,
-            position = position
+            position = position,
+            colorResId = color
         )
     }
 }

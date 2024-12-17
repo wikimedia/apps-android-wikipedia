@@ -14,6 +14,7 @@ import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.TabsRobot
+import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -46,7 +47,7 @@ class ArticleTabTest : BaseTest<MainActivity>(
             .dismissContributionDialog()
         tabsRobot
             .launchTabsScreen()
-            .assertColorOfTabsTitle(0)
+            .assertColorOfTabsTitle(0, Theme.LIGHT)
             .createNewTabWithContentDescription(context.getString(R.string.menu_new_tab))
 
         searchRobot
@@ -55,7 +56,7 @@ class ArticleTabTest : BaseTest<MainActivity>(
             .clickOnItemFromSearchList(0)
         tabsRobot
             .launchTabsScreen()
-            .assertColorOfTabsTitle(1)
+            .assertColorOfTabsTitle(1, Theme.LIGHT)
             .createNewTabWithContentDescription(context.getString(R.string.menu_new_tab))
         searchRobot
             .tapSearchView()
@@ -63,7 +64,7 @@ class ArticleTabTest : BaseTest<MainActivity>(
             .clickOnItemFromSearchList(0)
         tabsRobot
             .launchTabsScreen()
-            .assertColorOfTabsTitle(2)
+            .assertColorOfTabsTitle(2, Theme.LIGHT)
             .verifyTabCount(3)
             .removeTab(0)
             .verifyTabCount(2)

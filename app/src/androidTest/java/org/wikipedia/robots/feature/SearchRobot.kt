@@ -27,6 +27,11 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
+    fun clickSearchInsideSearchFragment() = apply {
+        clickOnViewWithId(R.id.search_cab_view)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun typeTextInView(searchTerm: String) = apply {
         // Type in our search term
         typeTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)

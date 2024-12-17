@@ -8,6 +8,9 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.TestThemeColorType
+import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.theme.Theme
 
 class PageActionItemRobot : BaseRobot() {
 
@@ -48,11 +51,11 @@ class PageActionItemRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun assertViewOnMapIsGreyed() = apply {
+    fun assertViewOnMapIsGreyed(theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.INACTIVE)
         verifyTextViewColor(
             textViewId = R.id.page_view_on_map,
-            colorResOrAttr = R.attr.inactive_color,
-            isAttr = true
+            colorResId = color,
         )
         delay(TestConfig.DELAY_SHORT)
     }

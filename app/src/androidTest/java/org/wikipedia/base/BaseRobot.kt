@@ -146,21 +146,6 @@ abstract class BaseRobot {
         ).perform(doubleClick())
     }
 
-    protected fun assertColorForChildItemInAList(
-        @IdRes listId: Int,
-        @IdRes childItemId: Int,
-        colorResOrAttr: Int,
-        position: Int,
-        isAttr: Boolean = true,
-        colorType: ColorAssertions.ColorType = ColorAssertions.ColorType.TextColor
-    ) {
-        onView(withId(listId))
-            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
-            .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
-                ColorAssertions.hasColor(colorResOrAttr, isAttr, colorType)
-                    .check(view, null)
-            }))
-    }
 
     protected fun scrollToView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(scrollTo())
@@ -265,6 +250,14 @@ abstract class BaseRobot {
     protected fun verifyWithMatcher(@IdRes viewId: Int, matcher: Matcher<View>) {
         onView(withId(viewId))
             .check(matches(matcher))
+    }
+
+    protected fun verifyMessageOfSnackbar(text: String) {
+        onView(
+            allOf(
+                withId(com.google.android.material.R.id.snackbar_text),
+                withText(text)
+            )).check(matches(isDisplayed()))
     }
 
     protected fun swipeDownOnTheWebView(@IdRes viewId: Int) {
@@ -574,6 +567,15 @@ abstract class BaseRobot {
             .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
                 ColorAssertions.hasColor(colorResId, colorType)
                     .check(view, null)
+            }))
+    }
+
+    protected fun checkImageIsVisibleInsideARecyclerView(@IdRes listId: Int,
+                                                         @IdRes childItemId: Int,
+                                                         position: Int) {
+        onView(withId(listId))
+            .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
+                matches(isDisplayed())
             }))
     }
 

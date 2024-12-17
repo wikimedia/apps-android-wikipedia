@@ -13,6 +13,7 @@ import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
+import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -73,7 +74,7 @@ class OverflowMenuTest : BaseTest<MainActivity>(
         pageRobot
             .clickOverFlowMenuToolbar()
         pageActionItemRobot
-            .assertViewOnMapIsGreyed()
+            .assertViewOnMapIsGreyed(Theme.LIGHT)
         pageActionItemRobot
             .clickNewTab()
             .pressBack()

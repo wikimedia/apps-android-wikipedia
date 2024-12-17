@@ -5,24 +5,21 @@ import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.TestConstants
-import org.wikipedia.TestConstants.FEATURED_ARTICLE
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
-import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.SavedScreenRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class SavedArticleTest : BaseTest<MainActivity>(
+class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
     private val searchRobot = SearchRobot()
     private val systemRobot = SystemRobot()
-    private val exploreFeedRobot = ExploreFeedRobot()
     private val bottomNavRobot = BottomNavRobot()
     private val savedScreenRobot = SavedScreenRobot()
     private val dialogRobot = DialogRobot()
@@ -36,36 +33,38 @@ class SavedArticleTest : BaseTest<MainActivity>(
             .typeTextInView(TestConstants.SEARCH_TERM)
             .longClickOnItemFromSearchList(0)
             .clickSave()
-            .pressBack()
-            .pressBack()
-        exploreFeedRobot
-            .scrollToItem(title = FEATURED_ARTICLE)
-            .longClickFeaturedArticleCardContainer()
+            .clickSearchInsideSearchFragment()
+            .typeTextInView(TestConstants.SEARCH_TERM2)
+            .longClickOnItemFromSearchList(0)
             .clickSave()
-        setDeviceOrientation(isLandscape = true)
+            .pressBack()
+            .pressBack()
         bottomNavRobot
             .navigateToSavedPage()
-        savedScreenRobot
-            .clickFilterList()
-        searchRobot
-            .typeTextInView(TestConstants.SEARCH_TERM)
-            .pressBack()
-            .pressBack()
-        setDeviceOrientation(isLandscape = false)
         savedScreenRobot
             .clickItemOnTheList(0)
         dialogRobot
             .dismissShareReadingListDialog()
         savedScreenRobot
-            .clickFilterList()
-        searchRobot
-            .typeTextInView(TestConstants.SEARCH_TERM)
+            .verifySavedArticle("Apple")
+            .verifySavedArticle("Orange")
+            .clickItemOnReadingList(1)
+            .dismissTooltip(activity)
+        systemRobot
+            .turnOnAirplaneMode()
         savedScreenRobot
-            .clickItemOnReadingList(0)
             .pressBack()
             .pressBack()
-            .pressBack()
-            .swipeToDelete(2)
-            .verifySavedArticleIsRemoved(TestConstants.SEARCH_TERM)
+        bottomNavRobot
+            .navigateToExploreFeed()
+            .navigateToSavedPage()
+        savedScreenRobot
+            .clickItemOnTheList(0)
+            .verifyImageIsVisible(1)
+            .verifyImageIsVisible(2)
+            .clickItemOnReadingList(1)
+            .verifyPageIsOffline(context)
+        systemRobot
+            .turnOffAirplaneMode()
     }
 }

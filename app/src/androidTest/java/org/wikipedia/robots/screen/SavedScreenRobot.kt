@@ -1,11 +1,15 @@
 package org.wikipedia.robots.screen
 
 import android.app.Activity
+import android.content.Context
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
@@ -62,6 +66,32 @@ class SavedScreenRobot : BaseRobot() {
                 withText(title)
             )
         ).check(doesNotExist())
+    }
+
+    fun verifySavedArticle(title: String) = apply {
+        onView(
+            allOf(
+                withId(R.id.page_list_item_title),
+                withText(title)
+            )
+        ).check(matches(isDisplayed()))
+    }
+
+    fun verifyImageIsVisible(position: Int) = apply {
+        checkImageIsVisibleInsideARecyclerView(
+            listId = R.id.reading_list_recycler_view,
+            childItemId = R.id.page_list_item_image,
+            position = position
+        )
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun verifyPageIsOffline(context: Context) = apply {
+        try {
+            verifyMessageOfSnackbar(context.getString(R.string.page_offline_notice_last_date))
+        } catch (e: Exception) {
+            Log.e("SavedScreenRobotError:", "Snackbar is not visible.")
+        }
     }
 
     fun clickFilterList() = apply {
