@@ -46,7 +46,7 @@ class OnboardingClient : FeedClient {
             Announcement(id = "yir2024Card",
                 text = context.getString(R.string.year_in_review_text),
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/2/21/WYiR_Block_1.gif",
-                action = Announcement.Action(context.getString(R.string.year_in_review_action_positive), "TODO"),
+                action = Announcement.Action(context.getString(R.string.year_in_review_action_positive), "https://wikimediafoundation.org/wikipedia-year-in-review-2024/"),
                 negativeText = context.getString(R.string.view_announcement_card_negative_action),
                 imageAspectRatio = 4.0 / 3.0
             )
