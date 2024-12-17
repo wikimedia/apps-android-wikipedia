@@ -11,6 +11,7 @@ import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.LanguageListRobot
+import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -38,7 +39,7 @@ class ChangingLanguageTest : BaseTest<MainActivity>(
         settingsRobot
             .clickLanguages()
         languageListRobot
-            .assertAddLanguageTextColor()
+            .assertAddLanguageTextColor(theme = Theme.DARK)
             .addNewLanguage()
             .scrollToLanguageAndClick(HEBREW)
         systemRobot
@@ -49,7 +50,7 @@ class ChangingLanguageTest : BaseTest<MainActivity>(
         searchRobot
             .typeTextInView(JAPANESE)
         languageListRobot
-            .assertJapaneseLanguageTextColor()
+            .assertJapaneseLanguageTextColor(theme = Theme.LIGHT)
             .scrollToLanguageAndClick(JAPANESE)
             .pressBack()
             .pressBack()

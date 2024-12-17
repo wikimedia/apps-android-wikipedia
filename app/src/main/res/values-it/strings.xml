@@ -1756,6 +1756,8 @@
   <string name="rabbit_holes_experiment_about">Informazioni su questo esperimento</string>
   <string name="rabbit_holes_survey_dialog_title">Aiuta a migliorare le tane dei conigli</string>
   <string name="rabbit_holes_survey_dialog_body">Sei soddisfatto di questo risultato di ricerca consigliato?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Aiutaci a migliorare gli elenchi di letture consigliate</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Sei soddisfatto di questo elenco di letture consigliate?</string>
   <string name="suggested_reading_list_title">In base alla tua lettura</string>
   <string name="suggested_reading_list_description">Ispirato da \"%s\"</string>
   <string name="suggested_reading_list_description_multi">Ispirato da %1$s e %2$s</string>

@@ -17,6 +17,7 @@ import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
+import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -34,6 +35,7 @@ class FeedScreenTest : BaseTest<MainActivity>(
         // sometimes notification dialog may appear
         systemRobot
             .clickOnSystemDialogWithText("Allow")
+            .disableDarkMode(context)
 
         // dismisses the onboarding card
         homeScreenRobot
@@ -42,7 +44,7 @@ class FeedScreenTest : BaseTest<MainActivity>(
         // Feed Test flow
         exploreFeedRobot
             .scrollToItem(title = FEATURED_ARTICLE)
-            .assertFeaturedArticleTitleColor()
+            .assertFeaturedArticleTitleColor(theme = Theme.LIGHT)
             .clickOnFeaturedArticle()
             .pressBack()
             .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
@@ -57,7 +59,7 @@ class FeedScreenTest : BaseTest<MainActivity>(
         exploreFeedRobot
             .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
             .scrollToItem(title = TOP_READ_ARTICLES, verticalOffset = 400)
-            .assertTopReadTitleColor()
+            .assertTopReadTitleColor(theme = Theme.DARK)
             .clickTopReadArticle()
             .scrollToItem(title = PICTURE_OF_DAY)
             .clickPictureOfTheDay()

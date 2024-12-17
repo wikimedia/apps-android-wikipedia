@@ -8,6 +8,9 @@ import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.ColorAssertions
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.TestThemeColorType
+import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.theme.Theme
 
 class LanguageListRobot : BaseRobot() {
 
@@ -21,7 +24,8 @@ class LanguageListRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun assertAddLanguageTextColor() = apply {
+    fun assertAddLanguageTextColor(theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PROGRESSIVE)
         scrollToRecyclerView(
             recyclerViewId = R.id.wikipedia_languages_recycler,
             title = "Add language",
@@ -30,7 +34,7 @@ class LanguageListRobot : BaseRobot() {
         onView(allOf(
             withId(R.id.wiki_language_title),
             withText("Add language")
-        )).check(ColorAssertions.hasColor(R.attr.progressive_color))
+        )).check(ColorAssertions.hasColor(color))
     }
 
     fun openSearchLanguage() = apply {
@@ -48,13 +52,14 @@ class LanguageListRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun assertJapaneseLanguageTextColor() = apply {
+    fun assertJapaneseLanguageTextColor(theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.SECONDARY)
         onView(
             allOf(
                 withId(R.id.language_subtitle),
                 withText("Japanese")
             )
-        ).check(ColorAssertions.hasColor(R.attr.secondary_color))
+        ).check(ColorAssertions.hasColor(color))
     }
 
     fun pressBack() = apply {

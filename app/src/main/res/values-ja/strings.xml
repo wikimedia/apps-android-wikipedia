@@ -222,6 +222,7 @@
   <string name="logged_out_in_background_cancel">キャンセル</string>
   <string name="account_vanish_request_title">アカウントを抹消</string>
   <string name="account_vanish_request_confirm_title">アカウント抹消の警告</string>
+  <string name="account_vanish_request_confirm">抹消は&lt;b&gt;最後の手段&lt;/b&gt;であり、&lt;b&gt;編集を永久に停止したい場合&lt;/b&gt;かつ過去の関連付けをできるだけ隠したい場合にのみ使用すべきです。&lt;br/&gt;&lt;br/&gt;ウィキペディアでのアカウント削除は、アカウント抹消と呼ばれるプロセスで、アカウント名を変更して他の人があなたの投稿を認識できないようにすることによって行われます。&lt;b&gt;抹消は完全な匿名性を保証したり、プロジェクトへの投稿記録を除去するものではありません&lt;/b&gt;。</string>
   <string name="history_empty_title">履歴はまだありません!</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="history_offline_articles_toast">インターネット未接続のときには、履歴にある記事は表示できない場合があります。</string>
@@ -482,6 +483,10 @@
   <string name="temp_account_dialog_ok">わかりました</string>
   <string name="temp_account_using_title">あなたは臨時アカウントを使用しています</string>
   <string name="temp_account_dialog_discard">変更を破棄してログインする</string>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのIPアドレスと編集が紐付けられます。</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために臨時アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;臨時アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
+  <string name="temp_account_login_status">&lt;b&gt;現在、臨時アカウントを使用しています。&lt;/b&gt;臨時アカウント %1$s で行った編集はログインしたときに永続アカウントに引き継がれません。ログインまたはアカウントを作成すると利用者名のクレジットを得るなどの利点があります。</string>
   <string name="temp_account_end_session">セッションを終了</string>
   <string name="temp_account_end_session_confirm">これにより、臨時アカウントからログアウトします。続行しますか？</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>

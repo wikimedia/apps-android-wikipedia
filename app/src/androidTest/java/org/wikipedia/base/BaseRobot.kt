@@ -8,6 +8,7 @@ import android.widget.HorizontalScrollView
 import android.widget.ListView
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -401,20 +402,18 @@ abstract class BaseRobot {
 
     protected fun verifyTextViewColor(
         @IdRes textViewId: Int,
-        colorResOrAttr: Int,
-        isAttr: Boolean = false
+        @ColorRes colorResId: Int
     ) {
         onView(withId(textViewId))
-            .check(ColorAssertions.hasColor(colorResOrAttr, isAttr, ColorAssertions.ColorType.TextColor))
+            .check(ColorAssertions.hasColor(colorResId, ColorAssertions.ColorType.TextColor))
     }
 
     protected fun verifyBackgroundColor(
         @IdRes viewId: Int,
-        colorResOrAttr: Int,
-        isAttr: Boolean = false
+        @ColorRes colorResId: Int
     ) {
         onView(withId(viewId))
-            .check(ColorAssertions.hasColor(colorResOrAttr, isAttr, ColorAssertions.ColorType.BackgroundColor))
+            .check(ColorAssertions.hasColor(colorResId, ColorAssertions.ColorType.BackgroundColor))
     }
 
     protected fun verifyTintColor(
@@ -473,15 +472,14 @@ abstract class BaseRobot {
     protected fun assertColorForChildItemInAList(
         @IdRes listId: Int,
         @IdRes childItemId: Int,
-        colorResOrAttr: Int,
+        @ColorRes colorResId: Int,
         position: Int,
-        isAttr: Boolean = true,
         colorType: ColorAssertions.ColorType = ColorAssertions.ColorType.TextColor
     ) {
         onView(withId(listId))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
             .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
-                ColorAssertions.hasColor(colorResOrAttr, isAttr, colorType)
+                ColorAssertions.hasColor(colorResId, colorType)
                     .check(view, null)
             }))
     }
