@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
@@ -355,5 +356,11 @@ class PageRobot(private val context: Context) : BaseRobot() {
     fun clickOverFlowMenuToolbar() = apply {
         clickOnViewWithId(viewId = R.id.page_toolbar_button_show_overflow_menu)
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun scrollToNonLeadImage() = apply {
+        onView(withId(R.id.page_web_view))
+            .perform(scrollToImageInWebView(1))
+            .perform(click())
     }
 }

@@ -31,7 +31,11 @@ class LeadNonLeadImageAndPreviewLinkTest : BaseTest<PageActivity>(
     @Test
     fun runTest() {
         pageRobot
+            .dismissTooltip(activity)
             .clickLeadImage()
+            .swipePagerLeft()
+            .pressBack()
+            .scrollToNonLeadImage()
             .swipePagerLeft()
             .pressBack()
             .clickLink("3-sphere")

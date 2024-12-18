@@ -578,6 +578,21 @@ abstract class BaseRobot {
             }))
     }
 
+    protected fun scrollToImageInWebView(imageIndex: Int): ViewAction {
+        val scrollScript = """
+            (function findContentImages() {
+                const contentImages = Array.from(document.querySelectorAll('img'))
+                    .filter(img => img.complete && img.naturalWidth > 100 && img.naturalHeight > 100)
+                if (contentImages.length > $imageIndex) {
+                    contentImages[$imageIndex].scrollIntoView({ behavior: 'smooth', block: 'center' })
+                    return 'success'
+                }
+                return 'image not found'
+            })()
+        """.trimIndent()
+        return ExecuteJavascriptAction(scrollScript)
+    }
+
     private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {
         override fun getConstraints() = null
 
