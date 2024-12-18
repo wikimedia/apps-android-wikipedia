@@ -8,22 +8,21 @@ import org.wikipedia.TestConstants
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
+import org.wikipedia.robots.feature.LicenseRobot
 import org.wikipedia.robots.feature.MediaRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
-import org.wikipedia.robots.screen.HomeScreenRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class SpecialArticleTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
-
-    private val homeScreenRobot = HomeScreenRobot()
     private val searchRobot = SearchRobot()
     private val systemRobot = SystemRobot()
     private val mediaRobot = MediaRobot()
     private val pageRobot = PageRobot(context)
+    private val licenseRobot = LicenseRobot()
 
     @Test
     fun runTest() {
@@ -41,9 +40,21 @@ class SpecialArticleTest : BaseTest<MainActivity>(
             .clickOnItemFromSearchList(0)
         pageRobot
             .clickLeadImage()
+        licenseRobot
+            .verifyImageIsCopyrighted()
+        pageRobot
             .swipePagerLeft()
+        licenseRobot
+            .verifyImageHasCCLicense()
+        pageRobot
             .swipePagerLeft()
+        licenseRobot
+            .verifyImageHasCCLicense()
+        pageRobot
             .swipePagerLeft()
+        licenseRobot
+            .verifyImageHasCCLicense()
+        pageRobot
             .pressBack()
         searchRobot
             .clickSearchFromPageView()
@@ -51,9 +62,21 @@ class SpecialArticleTest : BaseTest<MainActivity>(
             .clickOnItemFromSearchList(0)
         pageRobot
             .clickLeadImage()
+        licenseRobot
+                .verifyImageHasPdLicense()
+        pageRobot
             .swipePagerLeft()
+        licenseRobot
+            .verifyImageHasPdLicense()
+        pageRobot
             .swipePagerLeft()
+        licenseRobot
+            .verifyImageHasCCLicense()
+        pageRobot
             .swipePagerLeft()
+        licenseRobot
+            .verifyImageHasPdLicense()
+        pageRobot
             .pressBack()
         searchRobot
             .clickSearchFromPageView()

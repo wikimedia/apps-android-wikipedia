@@ -63,6 +63,9 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
             .verifyImageIsVisible(1)
             .verifyImageIsVisible(2)
             .clickItemOnReadingList(1)
+        dialogRobot
+            .dismissBigEnglishDialog()
+        savedScreenRobot
             .verifyPageIsOffline(context)
         systemRobot
             .turnOffAirplaneMode()
