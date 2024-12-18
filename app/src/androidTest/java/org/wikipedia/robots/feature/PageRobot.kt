@@ -7,10 +7,13 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasData
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
@@ -249,6 +252,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun saveArticleToReadingList() = apply {
         clickOnViewWithId(R.id.page_save)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun confirmArticleSaved(text: String) = apply {
@@ -261,6 +265,14 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun openFindInArticle() = apply {
         clickOnDisplayedViewWithIdAnContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
+    }
+
+    fun verifyFindInArticleCount(count: String) = apply {
+        onView(allOf(
+            withId(R.id.find_in_page_match),
+            withText("1/$count")
+        )).check(matches(isDisplayed()))
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun openThemeSelector() = apply {

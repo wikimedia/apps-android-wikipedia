@@ -34,7 +34,6 @@ class ArticlePageActionItemTest : BaseTest<PageActivity>(
     @Test
     fun runTest() {
         pageRobot
-            .dismissTooltip(activity)
             .saveArticleToReadingList()
             .confirmArticleSaved("Saved")
             .openLanguageSelector()
@@ -43,6 +42,8 @@ class ArticlePageActionItemTest : BaseTest<PageActivity>(
             .openFindInArticle()
         searchRobot
             .typeTextInView(FIND_IN_ARTICLE_TEXT)
+        pageRobot
+            .verifyFindInArticleCount("23")
             .pressBack()
         pageRobot
             .openTableOfContents()
