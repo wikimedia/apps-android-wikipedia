@@ -22,7 +22,7 @@ class ReadingFocusModeTest : BaseTest<MainActivity>(
     private val settingsRobot = SettingsRobot()
     private val appThemeRobot = AppThemeRobot()
     private val searchRobot = SearchRobot()
-    private val pageRobot = PageRobot()
+    private val pageRobot = PageRobot(context)
     private val systemRobot = SystemRobot()
 
     @Test

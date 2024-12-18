@@ -23,7 +23,7 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
     private val systemRobot = SystemRobot()
     private val savedScreenRobot = SavedScreenRobot()
     private val searchRobot = SearchRobot()
-    private val pageRobot = PageRobot()
+    private val pageRobot = PageRobot(context)
     private val readingListRobot = ReadingListRobot()
     private val dialogRobot = DialogRobot()
 
