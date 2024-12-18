@@ -32,19 +32,28 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
             .tapSearchView()
             .typeTextInView(TestConstants.SEARCH_TERM)
             .longClickOnItemFromSearchList(0)
-            .clickSave()
+            .clickSave(action = { isSaved ->
+                if (!isSaved) {
+                    searchRobot
+                        .pressBack()
+                }
+            })
             .clickSearchInsideSearchFragment()
             .typeTextInView(TestConstants.SEARCH_TERM2)
             .longClickOnItemFromSearchList(0)
-            .clickSave()
+            .clickSave(action = { isSaved ->
+                if (!isSaved) {
+                    searchRobot
+                        .pressBack()
+                }
+            })
             .pressBack()
             .pressBack()
         bottomNavRobot
             .navigateToSavedPage()
         savedScreenRobot
             .clickItemOnTheList(0)
-        dialogRobot
-            .dismissShareReadingListDialog()
+            .dismissTooltip(activity)
         savedScreenRobot
             .verifySavedArticle("Apple")
             .verifySavedArticle("Orange")

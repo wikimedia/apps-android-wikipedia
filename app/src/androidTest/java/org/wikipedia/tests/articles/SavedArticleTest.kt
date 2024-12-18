@@ -66,8 +66,7 @@ class SavedArticleTest : BaseTest<MainActivity>(
         setDeviceOrientation(isLandscape = false)
         savedScreenRobot
             .clickItemOnTheList(0)
-        dialogRobot
-            .dismissShareReadingListDialog()
+            .dismissTooltip(activity)
         savedScreenRobot
             .clickFilterList()
         searchRobot

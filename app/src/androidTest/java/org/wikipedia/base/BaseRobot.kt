@@ -51,6 +51,10 @@ import androidx.test.espresso.web.webdriver.DriverAtoms
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.By
+import androidx.test.uiautomator.UiDevice
+import androidx.test.uiautomator.Until
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
@@ -264,18 +268,22 @@ abstract class BaseRobot {
         delay(TestConfig.DELAY_LARGE)
     }
 
-    protected fun performIfDialogShown(
+    protected fun clickIfDialogShown(
         dialogText: String,
-        action: () -> Unit
+        errorString: String
     ) {
-        try {
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        val dialogExists = device.wait(
+            Until.findObject(By.text(dialogText)),
+            1000
+        ) != null
+
+        if (dialogExists) {
             onView(withText(dialogText))
                 .inRoot(isDialog())
-                .check(matches(isDisplayed()))
-            action()
-        } catch (e: Exception) {
-            // Dialog not shown or text not found
-            Log.e("error", "")
+                .perform(click())
+        } else {
+            Log.d("BaseRobot", "error: $errorString")
         }
     }
 

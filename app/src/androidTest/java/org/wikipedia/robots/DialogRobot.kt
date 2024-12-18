@@ -1,40 +1,18 @@
 package org.wikipedia.robots
 
-import android.util.Log
 import org.wikipedia.base.BaseRobot
 
 class DialogRobot : BaseRobot() {
 
     fun dismissContributionDialog() = apply {
-        try {
-            clickOnViewWithText(text = "No, thanks")
-        } catch (e: Exception) {
-            Log.d("DialogRobot: ", "No Contribution dialog shown.")
-        }
+        clickIfDialogShown("No thanks", errorString = "No Contribution dialog shown.")
     }
 
     fun dismissBigEnglishDialog() = apply {
-        try {
-            clickOnViewWithText(text = "Maybe later")
-        } catch (e: Exception) {
-            Log.d("DialogRobot: ", "No Big English dialog shown.")
-        }
-    }
-
-    fun dismissShareReadingListDialog() = apply {
-        try {
-            clickOnViewWithText(text = "Got it")
-        } catch (e: Exception) {
-            Log.d("DialogRobot: ", "No share reading list dialog shown.")
-        }
+        clickIfDialogShown("Maybe later", errorString = "No Big English dialog shown.")
     }
 
     fun clickLogOutUser() = apply {
-        try {
-            clickOnViewWithText(text = "Log out")
-        } catch (e: Exception) {
-            Log.d("DialogRobot: ", "Cannot click Log out.")
-            goBack()
-        }
+        clickIfDialogShown("Log out", errorString = "Cannot click Log out.")
     }
 }
