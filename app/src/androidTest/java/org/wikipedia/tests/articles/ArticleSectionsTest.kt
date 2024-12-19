@@ -25,8 +25,6 @@ class ArticleSectionsTest : BaseTest<MainActivity>(
             .tapSearchView()
             .typeTextInView(SEARCH_TERM)
             .clickOnItemFromSearchList(0)
-        pageRobot
-            .dismissTooltip(activity)
         setDeviceOrientation(isLandscape = true)
         pageRobot
             .scrollToCollapsingTables()

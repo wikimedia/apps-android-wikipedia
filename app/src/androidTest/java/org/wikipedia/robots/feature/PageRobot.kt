@@ -64,6 +64,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun clickLeadImage() = apply {
+        delay(TestConfig.DELAY_SHORT)
         clickOnDisplayedView(R.id.view_page_header_image)
         delay(TestConfig.DELAY_MEDIUM)
     }
@@ -252,6 +253,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun saveArticleToReadingList() = apply {
+        delay(TestConfig.DELAY_SHORT)
         clickOnViewWithId(R.id.page_save)
         delay(TestConfig.DELAY_SHORT)
     }
@@ -362,5 +364,12 @@ class PageRobot(private val context: Context) : BaseRobot() {
         onView(withId(R.id.page_web_view))
             .perform(scrollToImageInWebView(1))
             .perform(click())
+    }
+
+    fun isGalleryActivityOffline(context: Context, action: () -> Unit) = apply {
+        performActionIfSnackbarVisible(
+            text = context.getString(R.string.gallery_not_available_offline_snackbar),
+            action = action
+        )
     }
 }

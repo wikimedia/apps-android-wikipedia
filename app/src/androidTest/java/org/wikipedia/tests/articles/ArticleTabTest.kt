@@ -37,7 +37,6 @@ class ArticleTabTest : BaseTest<MainActivity>(
             .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
             .clickOnFeaturedArticle()
         pageRobot
-            .dismissTooltip(activity)
             .navigateUp()
         exploreFeedRobot
             .scrollToItem(title = TestConstants.FEATURED_ARTICLE)

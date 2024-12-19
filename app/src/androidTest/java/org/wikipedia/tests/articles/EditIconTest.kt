@@ -37,13 +37,12 @@ class EditIconTest : BaseTest<MainActivity>(
             .clickOnSystemDialogWithText("Allow")
         searchRobot
             .tapSearchView()
-            .typeTextInView(SEARCH_TERM)
-            .clickOnItemFromSearchList(0)
-        pageRobot
-            .dismissTooltip(activity)
-            .assertEditButtonProtection(isProtected = false)
-            .pressBack()
-        assertEditIconProtection(SEARCH_TERM_AVATAR)
+        assertEditIconProtection(SEARCH_TERM, isProtected = false)
+        assertEditIconProtection(SEARCH_TERM_AVATAR, action = {
+            dialogRobot
+                .dismissBigEnglishDialog()
+                .dismissContributionDialog()
+        })
         assertEditIconProtection(SEARCH_TERM_VLADIMIR_PUTIN)
         assertEditIconProtection(SEARCH_TERM_KIM_JUNG_UN)
         assertEditIconProtection(SEARCH_TERM_JOE_BIDEN)
@@ -54,13 +53,15 @@ class EditIconTest : BaseTest<MainActivity>(
         assertEditIconProtection(SEARCH_TERM_HILLARY_CLINTON)
     }
 
-    private fun assertEditIconProtection(searchTerm: String, isProtected: Boolean = true) {
+    private fun assertEditIconProtection(
+        searchTerm: String,
+        isProtected: Boolean = true,
+        action: (() -> Unit)? = null
+        ) {
         searchRobot
             .typeTextInView(searchTerm)
             .clickOnItemFromSearchList(0)
-        dialogRobot
-            .dismissBigEnglishDialog()
-            .dismissContributionDialog()
+        action?.invoke()
         pageRobot
             .assertEditButtonProtection(isProtected)
             .pressBack()

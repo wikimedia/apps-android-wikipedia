@@ -8,11 +8,9 @@ import org.wikipedia.TestConstants
 import org.wikipedia.TestConstants.FEATURED_ARTICLE
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
-import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.SearchRobot
-import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.SavedScreenRobot
 
@@ -26,8 +24,6 @@ class SavedArticleTest : BaseTest<MainActivity>(
     private val exploreFeedRobot = ExploreFeedRobot()
     private val bottomNavRobot = BottomNavRobot()
     private val savedScreenRobot = SavedScreenRobot()
-    private val dialogRobot = DialogRobot()
-    private val settingsRobot = SettingsRobot()
 
     @Test
     fun runTest() {
@@ -66,7 +62,6 @@ class SavedArticleTest : BaseTest<MainActivity>(
         setDeviceOrientation(isLandscape = false)
         savedScreenRobot
             .clickItemOnTheList(0)
-            .dismissTooltip(activity)
         savedScreenRobot
             .clickFilterList()
         searchRobot

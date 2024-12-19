@@ -47,8 +47,6 @@ class OverflowMenuTest : BaseTest<MainActivity>(
             .clickOnItemFromSearchList(0)
         dialogRobot
             .dismissBigEnglishDialog()
-        homeScreenRobot
-            .dismissTooltip(activity)
         pageRobot
             .clickOverFlowMenuToolbar()
         pageActionItemRobot

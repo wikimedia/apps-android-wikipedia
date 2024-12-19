@@ -42,7 +42,6 @@ class ReadingFocusModeTest : BaseTest<MainActivity>(
             .typeTextInView("apple")
             .clickOnItemFromSearchList(0)
         pageRobot
-            .dismissTooltip(activity)
             .assertEditPencilVisibility(isVisible = false)
         appThemeRobot
             .toggleTheme()

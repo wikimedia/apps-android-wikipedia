@@ -53,12 +53,10 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
             .navigateToSavedPage()
         savedScreenRobot
             .clickItemOnTheList(0)
-            .dismissTooltip(activity)
         savedScreenRobot
             .verifySavedArticle("Apple")
             .verifySavedArticle("Orange")
             .clickItemOnReadingList(1)
-            .dismissTooltip(activity)
         systemRobot
             .turnOnAirplaneMode()
         savedScreenRobot

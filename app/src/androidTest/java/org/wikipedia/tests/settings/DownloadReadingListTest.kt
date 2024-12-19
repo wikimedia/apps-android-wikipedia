@@ -41,9 +41,6 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
             .tapSearchView()
             .typeTextInView("apple")
             .clickOnItemFromSearchList(0)
-        pageRobot
-            .dismissTooltip(activity)
-
         readingListRobot
             .saveArticleToReadingList()
             .addToReadingList(context)

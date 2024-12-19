@@ -40,8 +40,6 @@ class TableOfContentsTest : BaseTest<PageActivity>(
         dialogRobot
             .dismissBigEnglishDialog()
         setDeviceOrientation(isLandscape = false)
-        homeScreenRobot
-            .dismissTooltip(activity)
         tocTest()
         setDeviceOrientation(isLandscape = true)
         tocTest()

@@ -35,9 +35,12 @@ class LeadNonLeadImageAndPreviewLinkTest : BaseTest<PageActivity>(
             .swipePagerLeft()
             .pressBack()
             .scrollToNonLeadImage()
-            .swipePagerLeft()
-            .pressBack()
-            .clickLink("3-sphere")
-            .verifyPreviewDialogAppears()
+            .isGalleryActivityOffline(context, action = {
+                pageRobot
+                    .swipePagerLeft()
+                    .pressBack()
+                    .clickLink("3-sphere")
+                    .verifyPreviewDialogAppears()
+            })
     }
 }

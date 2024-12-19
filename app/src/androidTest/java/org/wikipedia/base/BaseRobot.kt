@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
@@ -51,10 +52,6 @@ import androidx.test.espresso.web.webdriver.DriverAtoms
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.Locator
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.uiautomator.By
-import androidx.test.uiautomator.UiDevice
-import androidx.test.uiautomator.Until
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
@@ -272,18 +269,15 @@ abstract class BaseRobot {
         dialogText: String,
         errorString: String
     ) {
-        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-        val dialogExists = device.wait(
-            Until.findObject(By.text(dialogText)),
-            1000
-        ) != null
-
-        if (dialogExists) {
+        try {
             onView(withText(dialogText))
+                .perform(waitForAsyncLoading())
                 .inRoot(isDialog())
                 .perform(click())
-        } else {
-            Log.d("BaseRobot", "error: $errorString")
+        } catch (e: NoMatchingViewException) {
+            Log.e("BaseRobot", "$errorString")
+        } catch (e: Exception) {
+            Log.e("BaseRobot", "Unexpected Error: ${e.message}")
         }
     }
 
@@ -599,6 +593,25 @@ abstract class BaseRobot {
             })()
         """.trimIndent()
         return ExecuteJavascriptAction(scrollScript)
+    }
+
+    protected fun performActionIfSnackbarVisible(
+        text: String,
+        action: () -> Unit
+    ) = apply {
+        try {
+            onView(
+                allOf(
+                    withId(com.google.android.material.R.id.snackbar_text),
+                    withText(text)
+                )
+            ).check(matches(isDisplayed()))
+            action.invoke()
+        } catch (e: NoMatchingViewException) {
+            Log.e("BaseRobot", "No snackbar visible, skipping action")
+        } catch (e: Exception) {
+            Log.e("BaseRobot", "Unexpected error: ${e.message}")
+        }
     }
 
     private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {
