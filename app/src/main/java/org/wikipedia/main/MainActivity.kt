@@ -2,7 +2,6 @@ package org.wikipedia.main
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
@@ -18,12 +17,10 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityMainBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonorStatus
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
-import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DimenUtil
@@ -159,18 +156,18 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     private fun handleIntent(intent: Intent) {
-        if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
-            // TODO: handle special cases of non-article content, e.g. shared reading lists.
-            intent.data?.let {
-                if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
-                    // Pass it right along to PageActivity
-                    val uri = Uri.parse(it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://"))
-                    startActivity(Intent(this, PageActivity::class.java)
-                            .setAction(Intent.ACTION_VIEW)
-                            .setData(uri))
-                }
-            }
-        }
+//        if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
+//            // TODO: handle special cases of non-article content, e.g. shared reading lists.
+//            intent.data?.let {
+//                if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
+//                    // Pass it right along to PageActivity
+//                    val uri = Uri.parse(it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://"))
+//                    startActivity(Intent(this, PageActivity::class.java)
+//                            .setAction(Intent.ACTION_VIEW)
+//                            .setData(uri))
+//                }
+//            }
+//        }
     }
 
     fun isCurrentFragmentSelected(f: Fragment): Boolean {
