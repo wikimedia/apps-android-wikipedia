@@ -10,6 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.usercontrib.ContributionsDashboardHelper
 
 class BottomNavRobot : BaseRobot() {
     fun navigateToExploreFeed() = apply {
@@ -43,14 +44,16 @@ class BottomNavRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun navigateToEdits() = apply {
+    fun navigateToSuggestedEdits() = apply {
         onView(
             allOf(
-                withId(R.id.nav_tab_edits), withContentDescription("Edits"),
+                withId(R.id.nav_tab_edits), withContentDescription(if (ContributionsDashboardHelper.contributionsDashboardEnabled) R.string.nav_item_contribute
+                else R.string.nav_item_suggested_edits),
+                withId(R.id.nav_tab_edits), withContentDescription(getNavTabEditsIdRes()),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed()
             )
         ).perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_LARGE)
     }
 
     fun navigateToMoreMenu() = apply {
@@ -77,5 +80,10 @@ class BottomNavRobot : BaseRobot() {
     fun pressBack() = apply {
         goBack()
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    private fun getNavTabEditsIdRes(): Int {
+        return if (ContributionsDashboardHelper.contributionsDashboardEnabled) R.string.nav_item_contribute
+        else R.string.nav_item_suggested_edits
     }
 }
