@@ -2,6 +2,7 @@ package org.wikipedia.robots.feature
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -112,8 +113,12 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun clickNoThanks(context: Context) = apply {
-        clickOnViewWithText(context.getString(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks))
-        delay(TestConfig.DELAY_MEDIUM)
+        try {
+            clickOnViewWithText(context.getString(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks))
+            delay(TestConfig.DELAY_MEDIUM)
+        } catch (e: Exception) {
+            Log.e("ReadingListRobot: ", "${e.message}")
+        }
     }
 
     fun clickCreateList() = apply {
@@ -122,7 +127,7 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun pressBack() = apply {
-        goBack()
         delay(TestConfig.DELAY_MEDIUM)
+        goBack()
     }
 }

@@ -28,6 +28,7 @@ class ShowImageTest : BaseTest<MainActivity>(
     fun runTest() {
         systemRobot
             .disableDarkMode(context)
+            .clickOnSystemDialogWithText("Allow")
         homeScreenRobot
             .dismissFeedCustomization()
         bottomNavRobot
@@ -39,7 +40,7 @@ class ShowImageTest : BaseTest<MainActivity>(
             .pressBack()
             .scrollToItem(title = "Featured article")
             .verifyFeaturedArticleImageIsNotVisible()
-            .scrollToItem(title = "Top read", verticalOffset = 200)
+            .scrollToItem(title = "Top read", verticalOffset = 350)
             .verifyTopReadArticleIsGreyedOut(theme = Theme.LIGHT)
     }
 }

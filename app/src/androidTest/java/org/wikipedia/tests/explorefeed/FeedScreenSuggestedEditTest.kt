@@ -30,23 +30,33 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
         // 2. Suggested Edit Visibility
         systemRobot
             .clickOnSystemDialogWithText("Allow")
-
-        // Logging user
-        bottomNavRobot
-            .navigateToMoreMenu()
-            .clickLoginMenuItem()
         loginRobot
-            .logInUser()
-        // After log in, notification dialog appears
-        systemRobot
-            .clickOnSystemDialogWithText(text = "Allow")
-
-        homeScreenRobot
-            .navigateToNotifications()
-            .pressBack()
-
-        // Final Feed View Test which appears after user logs in and user has to be online
-        exploreFeedRobot
-            .scrollToSuggestedEditsIfVisible()
+            .loginState(
+                loggedIn = {
+                    homeScreenRobot
+                        .navigateToNotifications()
+                        .pressBack()
+                    // Final Feed View Test which appears after user logs in and user has to be online
+                    exploreFeedRobot
+                        .scrollToSuggestedEditsIfVisible()
+                },
+                loggedOut = {
+                    // Navigating to Login Menu
+                    bottomNavRobot
+                        .navigateToMoreMenu()
+                        .clickLoginMenuItem()
+                    loginRobot
+                        .logInUser()
+                    // After log in, notification dialog appears
+                    systemRobot
+                        .clickOnSystemDialogWithText(text = "Allow")
+                    homeScreenRobot
+                        .navigateToNotifications()
+                        .pressBack()
+                    // Final Feed View Test which appears after user logs in and user has to be online
+                    exploreFeedRobot
+                        .scrollToSuggestedEditsIfVisible()
+                }
+            )
     }
 }
