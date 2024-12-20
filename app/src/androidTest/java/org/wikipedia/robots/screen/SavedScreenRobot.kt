@@ -1,6 +1,7 @@
 package org.wikipedia.robots.screen
 
 import android.app.Activity
+import android.util.Log
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
@@ -27,8 +28,12 @@ class SavedScreenRobot : BaseRobot() {
     }
 
     fun dismissSyncReadingList() = apply {
-        clickOnViewWithId(R.id.negativeButton)
-        delay(TestConfig.DELAY_SHORT)
+        try {
+            clickOnViewWithId(R.id.negativeButton)
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: Exception) {
+            Log.e("SavedScreenRobot: ", "${e.message}")
+        }
     }
 
     fun pressBack() = apply {
