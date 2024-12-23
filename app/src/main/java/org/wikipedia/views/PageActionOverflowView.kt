@@ -15,7 +15,6 @@ import androidx.core.widget.PopupWindowCompat
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
@@ -125,14 +124,12 @@ class PageActionOverflowView(context: Context) : FrameLayout(context), DonorBadg
 
     override fun onBecomeDonorClick() {
         // take user to the donation flow (the Donation bottom sheet).
-        ContributionsDashboardEvent.logAction("donate_start_click", "contrib_overflow", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
         callback.onBecomeDonorSelected()
         dismissPopupWindowHost()
     }
 
     override fun onUpdateDonorStatusClick() {
         // take user to the donor history screen
-        ContributionsDashboardEvent.logAction("update_click", "contrib_overflow")
         callback.onUpdateDonorStatusSelected()
         dismissPopupWindowHost()
     }

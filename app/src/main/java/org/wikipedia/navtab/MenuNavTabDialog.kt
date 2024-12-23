@@ -10,14 +10,12 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 
@@ -80,13 +78,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.mainDrawerDonateContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
-            if (ContributionsDashboardHelper.contributionsDashboardEnabled) {
-                ContributionsDashboardEvent.logAction("donate_start_click", "more_menu", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
-                callback()?.donateClick(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
-            } else {
-                DonorExperienceEvent.logAction("donate_start_click", "more_menu")
-                callback()?.donateClick()
-            }
+            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
+            callback()?.donateClick()
             dismiss()
         }
 
