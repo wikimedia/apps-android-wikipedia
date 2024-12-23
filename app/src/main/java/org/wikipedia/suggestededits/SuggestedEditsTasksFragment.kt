@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
-import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.donate.DonorStatus
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.login.LoginActivity
@@ -56,7 +54,6 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.Date
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -119,10 +116,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         maybeShowDonorHistoryUpdatedSnackbar()
         binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
-        }
-
-        binding.donorHistoryContainer.setOnClickListener {
-            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -231,8 +224,6 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.suggestedEditsScrollView.scrollTo(0, 0)
         }
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-
-        setUpDonorHistoryStatus()
     }
 
     private fun showError(t: Throwable) {
@@ -360,61 +351,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
-    }
-
-    private fun setUpDonorHistoryStatus() {
-        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
-            binding.donorHistoryContainer.isVisible = false
-            binding.statsDivider.isVisible = false
-            return
-        }
-
-        binding.donorHistoryContainer.isVisible = true
-
-        when (DonorStatus.donorStatus()) {
-            DonorStatus.DONOR -> {
-                Prefs.donationResults.lastOrNull()?.dateTime?.let {
-                    val lastDonateMilli =
-                        LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
-                            .toEpochMilli()
-                    var relativeTimeSpan = DateUtils.getRelativeTimeSpanString(
-                        lastDonateMilli,
-                        System.currentTimeMillis(),
-                        DateUtils.DAY_IN_MILLIS,
-                        DateUtils.FORMAT_NUMERIC_DATE
-                    )
-                    // Replace with the original dateTime string
-                    if (relativeTimeSpan.contains("/")) {
-                        relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
-                    }
-                    binding.donorHistoryStatus.text = relativeTimeSpan
-                    binding.donorHistoryStatus.isVisible = true
-                    binding.lastDonatedChevron.isVisible = true
-                    binding.donorHistoryUpdateButton.isVisible = false
-                } ?: run {
-                    binding.donorHistoryStatus.isVisible = false
-                    binding.lastDonatedChevron.isVisible = false
-                    binding.donorHistoryUpdateButton.isVisible = true
-                }
-            }
-
-            DonorStatus.NON_DONOR -> {
-                binding.donorHistoryStatus.text = getString(R.string.donor_history_last_donated_never)
-                binding.donorHistoryStatus.isVisible = true
-                binding.lastDonatedChevron.isVisible = true
-                binding.donorHistoryUpdateButton.isVisible = false
-            }
-
-            DonorStatus.UNKNOWN -> {
-                binding.donorHistoryStatus.isVisible = false
-                binding.lastDonatedChevron.isVisible = false
-                binding.donorHistoryUpdateButton.isVisible = true
-            }
-        }
-
-        binding.donorHistoryUpdateButton.setOnClickListener {
-            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
-        }
     }
 
     private fun setUpTasks() {

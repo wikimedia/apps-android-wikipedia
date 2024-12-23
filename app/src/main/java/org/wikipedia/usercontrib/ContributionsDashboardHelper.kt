@@ -5,7 +5,6 @@ import android.net.Uri
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.donate.DonorStatus
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
@@ -72,9 +71,7 @@ class ContributionsDashboardHelper {
                 .setTitle(R.string.contributions_dashboard_donation_dialog_title)
                 .setMessage(message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
-                .setPositiveButton(R.string.contributions_dashboard_donation_dialog_ok) { _, _ ->
-                    context.startActivity(DonorHistoryActivity.newIntent(context, completedDonation = true, goBackToContributeTab = true))
-                }
+                .setPositiveButton(R.string.contributions_dashboard_donation_dialog_ok) { _, _ -> }
                 .setNegativeButton(R.string.contributions_dashboard_donation_dialog_cancel, { _, _ -> })
                 .show()
         }
@@ -84,9 +81,7 @@ class ContributionsDashboardHelper {
                 .setTitle(R.string.contributions_dashboard_entry_dialog_title)
                 .setMessage(R.string.contributions_dashboard_entry_dialog_message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
-                .setPositiveButton(R.string.contributions_dashboard_entry_dialog_ok) { _, _ ->
-                    context.startActivity(DonorHistoryActivity.newIntent(context, goBackToContributeTab = true))
-                }
+                .setPositiveButton(R.string.contributions_dashboard_entry_dialog_ok) { _, _ -> }
                 .setNegativeButton(R.string.contributions_dashboard_entry_dialog_cancel, { _, _ -> })
                 .show()
         }

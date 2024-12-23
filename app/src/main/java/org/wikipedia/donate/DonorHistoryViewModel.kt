@@ -11,7 +11,6 @@ import java.time.ZoneId
 class DonorHistoryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val completedDonation = savedStateHandle.get<Boolean>(Constants.ARG_BOOLEAN) == true
-    val shouldGoBackToContributeTab = savedStateHandle.get<Boolean>(DonorHistoryActivity.RESULT_GO_BACK_TO_CONTRIBUTE_TAB) == true
     var currentDonorStatus = if (completedDonation) 0 else -1
     var isDonor = completedDonation || Prefs.hasDonorHistorySaved && Prefs.isDonor
     var lastDonated = Prefs.donationResults.lastOrNull()?.dateTime
