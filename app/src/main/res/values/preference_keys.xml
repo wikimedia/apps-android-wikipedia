@@ -7,7 +7,6 @@
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
-    <string name="preference_key_app_icon">AppIcon</string>
     <string name="preference_key_previous_color_theme">previousColorTheme</string>
     <string name="preference_key_font_family">fontFamily</string>
     <string name="preference_key_app_channel">channel</string>
@@ -179,5 +178,4 @@
     <string name="preference_key_is_donor">isDonor</string>
     <string name="preference_key_contributions_dashboard_survey_dialog_shown">contributionsDashboardSurveyDialogShown</string>
     <string name="preference_key_contributions_dashboard_entry_dialog_shown">contributionsDashboardEntryDialogShown</string>
-    <string name="preference_key_current_selected_app_icon">currentSelectedAppIcon</string>
 </resources>

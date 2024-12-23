@@ -173,12 +173,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun showDialogOrSnackBar() {
         when (DonorStatus.donorStatus()) {
-            DonorStatus.DONOR -> {
-                if (ContributionsDashboardHelper.shouldShowThankYouDialog) {
-                    ContributionsDashboardHelper.showThankYouDialog(requireContext())
-                    ContributionsDashboardHelper.shouldShowThankYouDialog = false
-                }
-            }
+            DonorStatus.DONOR -> {}
             DonorStatus.NON_DONOR -> {
                 if (ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
                     FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)

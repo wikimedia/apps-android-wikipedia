@@ -7,7 +7,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.donate.DonorStatus
-import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.UriUtil
@@ -38,8 +37,6 @@ class ContributionsDashboardHelper {
 
         var shouldShowDonorHistorySnackbar = false
 
-        var shouldShowThankYouDialog = false
-
         var showSurveyDialogUI = false
 
         val contributionsDashboardEnabled get() = ReleaseUtil.isPreBetaRelease ||
@@ -66,18 +63,6 @@ class ContributionsDashboardHelper {
                     setEitherShowDialogOrSnackBar()
                     onNegativeButtonClick()
                 }
-                .show()
-        }
-
-        fun showThankYouDialog(context: Context) {
-            MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
-                .setTitle(R.string.contributions_dashboard_donor_icon_dialog_title)
-                .setMessage(R.string.contributions_dashboard_donor_icon_dialog_message)
-                .setIcon(R.drawable.ic_heart_24)
-                .setPositiveButton(R.string.contributions_dashboard_donor_icon_dialog_ok) { _, _ ->
-                    context.startActivity(SettingsActivity.newIntent(context, showAppIconDialog = true))
-                }
-                .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel) { _, _ -> }
                 .show()
         }
 
@@ -108,7 +93,7 @@ class ContributionsDashboardHelper {
 
         private fun setEitherShowDialogOrSnackBar() {
             when (DonorStatus.donorStatus()) {
-                DonorStatus.DONOR -> shouldShowThankYouDialog = true
+                DonorStatus.DONOR -> {}
                 DonorStatus.NON_DONOR -> shouldShowDonorHistorySnackbar = true
                 DonorStatus.UNKNOWN -> {}
             }
