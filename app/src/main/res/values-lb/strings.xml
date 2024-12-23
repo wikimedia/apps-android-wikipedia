@@ -1178,10 +1178,10 @@
   <string name="watchlist_details_prev_edit">Vireg Ännerung</string>
   <string name="thank_label">Merci soen</string>
   <string name="view_user_page">Benotzersäit weisen</string>
-  <string name="thank_dialog_title_text">\'Merci\' ëffentlech schécken</string>
+  <string name="thank_dialog_title_text">„Merci“ ëffentlech schécken</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
-  <string name="thank_success_message">Äre \'Merci\' gouf dem %s geschéckt 👍</string>
+  <string name="thank_success_message">Äre „Merci“ gouf dem %s geschéckt 👍</string>
   <string name="menu_option_view_user_profile">Benotzersäit weisen</string>
   <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
   <string name="menu_option_view_user_contributions">Benotzerkontributioune weisen</string>

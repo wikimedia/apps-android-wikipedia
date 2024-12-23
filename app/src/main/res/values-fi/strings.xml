@@ -1677,6 +1677,8 @@
   <string name="contributions_dashboard_badge_become_a_donor">Ryhdy lahjoittajaksi</string>
   <string name="contributions_dashboard_logged_out_user">Uloskirjautunut käyttäjä</string>
   <string name="contributions_dashboard_tab_update_button">Päivitä</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Ei kiitos</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Kyllä, siirry asetuksiin</string>
   <string name="suggested_reading_list_dialog_positive">Kokeile nyt</string>
   <string name="suggested_reading_list_dialog_negative">Ehkä myöhemmin</string>
   <string name="survey_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
