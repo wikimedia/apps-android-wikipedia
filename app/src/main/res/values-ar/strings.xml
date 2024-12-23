@@ -1753,7 +1753,7 @@
   <string name="contributions_dashboard_survey_dialog_cancel">لا رأي</string>
   <string name="contributions_dashboard_survey_dialog_ok">شارك بتعليقاتك</string>
   <string name="contributions_dashboard_donation_dialog_title">شكرًا لدعمك المعرفة الحرة</string>
-  <string name="contributions_dashboard_donation_dialog_message">أنت جزء من نسبة 2% التي اختارت دعم الموارد التي يعتمد عليها الملايين. ولإظهار امتناننا، تم تحديث لوحة معلومات مساهماتك للتعرف على حالتك كمتبرع. هل ترغب في الاطلاع على التحديث؟</string>
+  <string name="contributions_dashboard_donation_dialog_message">أنت جزء من نسبة 2%% التي اختارت دعم الموارد التي يعتمد عليها الملايين. ولإظهار امتناننا، تم تحديث لوحة معلومات مساهماتك للتعرف على حالتك كمتبرع. هل ترغب في الاطلاع على التحديث؟</string>
   <string name="contributions_dashboard_donation_dialog_cancel">لا، شكرًا</string>
   <string name="contributions_dashboard_donation_dialog_ok">نعم خذني هناك</string>
   <string name="contributions_dashboard_entry_dialog_title">استكشف الإضافات الجديدة إلى لوحة معلومات المساهمات</string>
