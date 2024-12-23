@@ -5,7 +5,6 @@ import android.net.Uri
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.donate.DonorStatus
 import org.wikipedia.settings.SettingsActivity
@@ -49,14 +48,12 @@ class ContributionsDashboardHelper {
                         LocalDate.now() <= LocalDate.of(2024, 12, 20))
 
         fun showSurveyDialog(context: Context, onNegativeButtonClick: () -> Unit) {
-            ContributionsDashboardEvent.logAction("impression", "contrib_survey")
             MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_survey_dialog_title)
                 .setMessage(R.string.contributions_dashboard_survey_dialog_message)
                 .setIcon(R.drawable.ic_feedback)
                 .setCancelable(false)
                 .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
-                    ContributionsDashboardEvent.logAction("enter_click", "contrib_survey")
                     // this should be called on button click due to logic in onResume
                     setEitherShowDialogOrSnackBar()
                     UriUtil.visitInExternalBrowser(
@@ -65,7 +62,6 @@ class ContributionsDashboardHelper {
                     )
                 }
                 .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel) { _, _ ->
-                    ContributionsDashboardEvent.logAction("cancel_click", "contrib_survey")
                     // this should be called on button click due to logic in onResume
                     setEitherShowDialogOrSnackBar()
                     onNegativeButtonClick()
@@ -74,51 +70,39 @@ class ContributionsDashboardHelper {
         }
 
         fun showThankYouDialog(context: Context) {
-            ContributionsDashboardEvent.logAction("impression", "contrib_icon_offer")
             MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_donor_icon_dialog_title)
                 .setMessage(R.string.contributions_dashboard_donor_icon_dialog_message)
                 .setIcon(R.drawable.ic_heart_24)
                 .setPositiveButton(R.string.contributions_dashboard_donor_icon_dialog_ok) { _, _ ->
-                    ContributionsDashboardEvent.logAction("enter_click", "contrib_icon_offer")
                     context.startActivity(SettingsActivity.newIntent(context, showAppIconDialog = true))
                 }
-                .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel) { _, _ ->
-                    ContributionsDashboardEvent.logAction("cancel_click", "contrib_icon_offer")
-                }
+                .setNegativeButton(R.string.contributions_dashboard_donor_icon_dialog_cancel) { _, _ -> }
                 .show()
         }
 
         fun showDonationCompletedDialog(context: Context) {
-            ContributionsDashboardEvent.logAction("impression", "contrib_donor_banner")
             val message = String.format(context.getString(R.string.contributions_dashboard_donation_dialog_message))
             MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_donation_dialog_title)
                 .setMessage(message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
                 .setPositiveButton(R.string.contributions_dashboard_donation_dialog_ok) { _, _ ->
-                    ContributionsDashboardEvent.logAction("contrib_enter_click", "contrib_donor_banner")
                     context.startActivity(DonorHistoryActivity.newIntent(context, completedDonation = true, goBackToContributeTab = true))
                 }
-                .setNegativeButton(R.string.contributions_dashboard_donation_dialog_cancel, { _, _ ->
-                    ContributionsDashboardEvent.logAction("contrib_cancel_click", "contrib_donor_banner")
-                })
+                .setNegativeButton(R.string.contributions_dashboard_donation_dialog_cancel, { _, _ -> })
                 .show()
         }
 
         fun showEntryDialog(context: Context) {
-            ContributionsDashboardEvent.logAction("impression", "contrib_banner")
             MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Icon_Secondary)
                 .setTitle(R.string.contributions_dashboard_entry_dialog_title)
                 .setMessage(R.string.contributions_dashboard_entry_dialog_message)
                 .setIcon(R.drawable.outline_volunteer_activism_24)
                 .setPositiveButton(R.string.contributions_dashboard_entry_dialog_ok) { _, _ ->
-                    ContributionsDashboardEvent.logAction("contrib_enter_click", "contrib_banner")
                     context.startActivity(DonorHistoryActivity.newIntent(context, goBackToContributeTab = true))
                 }
-                .setNegativeButton(R.string.contributions_dashboard_entry_dialog_cancel, { _, _ ->
-                    ContributionsDashboardEvent.logAction("contrib_cancel_click", "contrib_banner")
-                })
+                .setNegativeButton(R.string.contributions_dashboard_entry_dialog_cancel, { _, _ -> })
                 .show()
         }
 

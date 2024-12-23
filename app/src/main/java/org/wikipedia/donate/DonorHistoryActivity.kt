@@ -14,7 +14,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.databinding.ActivityDonorHistoryBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
@@ -47,7 +46,6 @@ class DonorHistoryActivity : BaseActivity() {
             MaterialAlertDialogBuilder(this)
                 .setMessage(getString(R.string.edit_abandon_confirm))
                 .setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
-                    ContributionsDashboardEvent.logAction("cancel_click", "contrib_update")
                     dialog.dismiss()
                     if (viewModel.shouldGoBackToContributeTab) {
                         startActivity(MainActivity.newIntent(this).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true))
@@ -56,7 +54,6 @@ class DonorHistoryActivity : BaseActivity() {
                     }
                 }
                 .setNegativeButton(getString(R.string.edit_abandon_confirm_no)) { dialog, _ ->
-                    ContributionsDashboardEvent.logAction("restart_click", "contrib_update")
                     dialog.dismiss()
                 }
                 .show()
@@ -70,7 +67,6 @@ class DonorHistoryActivity : BaseActivity() {
         binding.donationInfoContainer.isVisible = viewModel.isDonor
 
         binding.donorStatus.setOnClickListener {
-            ContributionsDashboardEvent.logAction("update_click", "contrib_update")
             showDonorStatusDialog()
         }
 
@@ -89,17 +85,14 @@ class DonorHistoryActivity : BaseActivity() {
         }
 
         binding.donateButton.setOnClickListener {
-            ContributionsDashboardEvent.logAction("donate_start_click", "contrib_update", campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
             launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
         }
 
         binding.experimentLink.setOnClickListener {
-            ContributionsDashboardEvent.logAction("about_click", "contrib_update")
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.contributions_dashboard_wiki_url)))
         }
 
         binding.saveButton.setOnClickListener {
-            ContributionsDashboardEvent.logAction("save_click", "contrib_update")
             viewModel.saveDonorHistory()
             if (viewModel.shouldGoBackToContributeTab) {
                 startActivity(

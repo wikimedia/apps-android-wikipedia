@@ -15,7 +15,6 @@ import org.wikipedia.LauncherController
 import org.wikipedia.LauncherIcon
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.databinding.DialogAppIconBinding
 import org.wikipedia.databinding.ItemAppIconBinding
@@ -31,11 +30,6 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
     private val appIconAdapter: AppIconAdapter by lazy {
         AppIconAdapter().apply {
             onItemClickListener { selectedIcon ->
-                if (selectedIcon == LauncherIcon.DEFAULT) {
-                    ContributionsDashboardEvent.logAction("default_icon_select", "contrib_icon_set")
-                } else {
-                    ContributionsDashboardEvent.logAction("contrib_icon_select", "contrib_icon_set")
-                }
                 Prefs.currentSelectedAppIcon = selectedIcon.key
                 LauncherController.setIcon(selectedIcon)
                 AppShortcuts.setShortcuts(requireContext())
@@ -58,7 +52,6 @@ class AppIconDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ContributionsDashboardEvent.logAction("impression", "contrib_icon_set")
         setupRecyclerView()
     }
 
