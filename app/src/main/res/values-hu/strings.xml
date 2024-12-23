@@ -76,7 +76,7 @@
   <string name="page_edit_history_filter_by_user">Bejelentkezett szerkesztők (%s)</string>
   <string name="page_edit_history_filter_by_anon">Nem regisztrált szerkesztők (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botszerkesztések (%s)</string>
-  <string name="page_edit_history_metrics_content_description">Metrikák %1$s és %2$s között</string>
+  <string name="page_edit_history_metrics_content_description">%1$s és %2$s közötti statisztika</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d szerkesztés %2$s óta</item>
     <item quantity="other">%1$d szerkesztés %2$s óta</item>
@@ -1535,7 +1535,7 @@
   <string name="talk_templates_example_messages_tab_title">Példaüzenetek</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Címkék: %s</string>
-  <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Nincs</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Szerkesztőlap megtekintése</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Vitalap megtekintése</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Felhasználói adatok</string>
@@ -1546,7 +1546,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Szerkesztésszám:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Bezárás</string>
   <string name="patroller_tasks_filters_title">Szűrők</string>
-  <string name="patroller_tasks_filters_reset">Visszaállítás</string>
+  <string name="patroller_tasks_filters_reset">Alaphelyzet</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Mind</string>
   <string name="patroller_tasks_filters_user_status_header">Felhasználói regisztráció és tapasztalat</string>
@@ -1560,7 +1560,7 @@
   <string name="patroller_tasks_filters_user_status_learners_desc">Regisztrált szerkesztők „újonc” és „tapasztalt szerkesztő” közé eső tapasztalattal.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Tapasztalt szerkesztők</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Regisztrált szerkesztők több mint 30 nap aktivitással és 500 szerkesztéssel.</string>
-  <string name="patroller_tasks_filters_latest_revisions_header">Aktuális változat</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Legutóbbi változatok</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Legutóbbi változat</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Régebbi változatok</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatikus szerkesztések</string>
@@ -1599,15 +1599,19 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
   <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>
   <string name="patroller_tasks_overflow_learn">Tudj meg többet!</string>
+  <string name="patroller_onboarding_one_title">Járulj hozzá a Wikipédia szerkesztéseinek felügyeletéhez és jóváhagyásához.</string>
   <string name="patroller_onboarding_one_content">Javítsd a Wikipédia-tartalom minőségét azáltal, hogy aktívan átnézed a legutóbbi szerkesztések hírcsatornáját, és útmutatást, minőség-ellenőrzést és bátorítást nyújt a többi szerkesztőnek.</string>
+  <string name="patroller_onboarding_two_title">Adj visszajelzést, kövesd figyelemmel a szerkesztéseket, és végezz műveleteket a változtatások képernyőjéről</string>
   <string name="patroller_onboarding_two_thank_title">Köszönet</string>
   <string name="patroller_onboarding_two_thank_content">Hatékony szerkesztést láttál? Köszönd meg a felhasználó közreműködését!</string>
   <string name="patroller_onboarding_two_watch_title">Lap figyelése</string>
   <string name="patroller_onboarding_two_watch_content">Szeretnéd nyomon követni a cikkszerkesztést? Add hozzá a figyelőlistádhoz. Tekintsd meg a \"Továbbiak\" alatt.</string>
   <string name="patroller_onboarding_two_talk_title">Vitalap</string>
+  <string name="patroller_onboarding_two_talk_content">Kommunikálj más szerkesztőkkel. Mentsd el a gyakran használd vitalapi üzeneteidet, vagy használj sablonokat.</string>
   <string name="patroller_onboarding_two_undo_title">Visszavonás/visszaállítás</string>
   <string name="patroller_onboarding_two_undo_content">A potenciálisan romboló hatású szerkesztés visszavonásához vagy visszaállításához válassza a „Visszavonás” lehetőséget.</string>
   <string name="patroller_diff_tooltip_one">A sérülés előrejelzi, ha egy szerkesztés kárt okoz a wikin.</string>
+  <string name="patroller_diff_tooltip_two">A szándék annak valószínűségét jósolja meg, hogy a szerkesztést építő szándékkal mentették el.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hogyan javíthatjuk a funkciót?</string>
   <string name="patroller_diff_menu_edit_history_title">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
@@ -1622,6 +1626,7 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Hagyjál szerkesztési összefoglalót</string>
   <string name="patroller_saved_message_title_do_not_censor">Ne cenzúrázz</string>
   <string name="patroller_saved_message_title_art_imp">Szócikk javítási javaslat</string>
+  <string name="patroller_saved_message_body_edit_summary">Kedves {{{username}}}, úgy tűnik, szerkesztési összefoglaló nélkül távolítottál el tartalmat a Wikipédiáról. Kérlek, mindig hagyj szerkesztési összefoglalót, amikor hozzáadsz vagy eltávolítasz tartalmat a Wikipédián.</string>
   <string name="talk_templates_menu_edit_title">Szerkesztés</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
@@ -1711,6 +1716,7 @@
   <string name="rabbit_holes_survey_dialog_body">Elégedett ezzel az ajánlott keresési eredménnyel?</string>
   <string name="suggested_reading_list_title">Olvasásod alapján</string>
   <string name="suggested_reading_list_description">\"%s\" ihlette</string>
+  <string name="suggested_reading_list_description_multi">Ihlette: %1$s és %2$s</string>
   <string name="suggested_reading_list_later_snackbar">Ha később meg szeretnéd tekinteni az olvasási listát, lépj a kezdőképernyőn a Mentett lapra.</string>
   <string name="suggested_reading_list_dialog_title">Új javasolt olvasmánylistád van.</string>
   <string name="suggested_reading_list_dialog_body">Ez egy kísérleti funkció. A tartalom az legutóbbi olvasási előzményeiden alapul. Szeretnéd megnézni ezt az új olvasnivalót?</string>
