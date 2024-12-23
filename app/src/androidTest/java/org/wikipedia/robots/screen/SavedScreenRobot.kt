@@ -44,8 +44,12 @@ class SavedScreenRobot : BaseRobot() {
     }
 
     fun dismissSyncReadingList() = apply {
-        clickOnViewWithId(R.id.negativeButton)
-        delay(TestConfig.DELAY_SHORT)
+        try {
+            clickOnViewWithId(R.id.negativeButton)
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: Exception) {
+            Log.e("SavedScreenRobot: ", "${e.message}")
+        }
     }
 
     fun swipeToDelete(position: Int) = apply {

@@ -335,7 +335,7 @@
   <string name="page_view_in_browser">Säit am Browser weisen</string>
   <string name="tool_tip_toc_title">Inhaltsverzeechnes-Schnellzougrëff</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
-  <string name="error_unknown">En onbekannte Feeler ass geschitt.</string>
+  <string name="error_unknown">Et ass en onbekannte Feller geschitt.</string>
   <string name="format_error_server_message">Message: \"%s\"</string>
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
@@ -369,6 +369,7 @@
   <string name="link_preview_dialog_save_button">Späicheren</string>
   <string name="link_preview_dialog_saved_button">Gespäichert</string>
   <string name="link_preview_dialog_share_button">Deelen</string>
+  <string name="link_preview_stub_placeholder_text">Dësen Artikel ass eng Skizz, d.&amp;nbsp;h. et gëtt net genuch Contenu am Artikel, deen hei kéint ugewise ginn. Dir kënnt dat awer änneren.</string>
   <string name="error_page_does_not_exist">Dës Säit gëtt et net</string>
   <string name="error_user_page_does_not_exist">D\'Wikipedia huet keng &lt;a href=\"%1$s\"&gt;Benotzersäit&lt;/a&gt; mat exakt dësem Numm. Am Allgemenge sollt dës Säit vum &lt;b&gt;%2$s&lt;/b&gt; ugeluecht a geännert ginn. Am Zweiwelsfall iwwerpréift, ob \"%3$s\" existéiert.</string>
   <string name="view_wiki_error_message_offline">Kann net mam Internet verbannen</string>
@@ -1177,10 +1178,10 @@
   <string name="watchlist_details_prev_edit">Vireg Ännerung</string>
   <string name="thank_label">Merci soen</string>
   <string name="view_user_page">Benotzersäit weisen</string>
-  <string name="thank_dialog_title_text">\'Merci\' ëffentlech schécken</string>
+  <string name="thank_dialog_title_text">„Merci“ ëffentlech schécken</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
-  <string name="thank_success_message">Äre \'Merci\' gouf dem %s geschéckt 👍</string>
+  <string name="thank_success_message">Äre „Merci“ gouf dem %s geschéckt 👍</string>
   <string name="menu_option_view_user_profile">Benotzersäit weisen</string>
   <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
   <string name="menu_option_view_user_contributions">Benotzerkontributioune weisen</string>

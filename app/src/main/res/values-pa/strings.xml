@@ -1274,7 +1274,7 @@
   <string name="watchlist_filter_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="watchlist_filter_automated_contributions_bot">ਬੋਟ</string>
   <string name="watchlist_filter_automated_contributions_human">ਮਨੁੱਖ (ਬੋਟ ਨਹੀਂ)</string>
-  <string name="watchlist_filter_significance_header">ਮਹੱਤਵ</string>
+  <string name="watchlist_filter_significance_header">ਮਹੱਤਤਾ</string>
   <string name="watchlist_filter_significance_minor">ਛੋਟੀਆਂ ਸੋਧਾਂ</string>
   <string name="watchlist_filter_significance_edits">ਗੈਰ-ਮਾਮੂਲੀ ਸੋਧਾਂ</string>
   <string name="watchlist_filter_latest_revisions_header">ਤਾਜ਼ਾ ਦੁਹਰਾਅ</string>
@@ -1374,7 +1374,7 @@
   <string name="patroller_tasks_filters_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">ਬੋਟ</string>
   <string name="patroller_tasks_filters_automated_contributions_human">ਮਨੁੱਖ (ਬੋਟ ਨਹੀਂ)</string>
-  <string name="patroller_tasks_filters_significance_header">ਮਹੱਤਵ</string>
+  <string name="patroller_tasks_filters_significance_header">ਮਹੱਤਤਾ</string>
   <string name="patroller_tasks_filters_significance_minor">ਛੋਟੀਆਂ ਸੋਧਾਂ</string>
   <string name="patroller_tasks_filters_significance_edits">ਗੈਰ-ਮਾਮੂਲੀ ਸੋਧਾਂ</string>
   <string name="patroller_tasks_filters_contribution_quality_header">ਯੋਗਦਾਨ ਗੁਣਵੱਤਾ ਦੀ ਭਵਿੱਖਬਾਣੀ</string>
