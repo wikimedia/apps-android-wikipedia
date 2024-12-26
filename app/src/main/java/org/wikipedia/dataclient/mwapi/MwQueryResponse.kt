@@ -4,24 +4,35 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-open class MwQueryResponse : MwResponse() {
-
-    val batchcomplete = true
-
-    @SerialName("continue")
-    val continuation: Continuation? = null
-
-    var query: MwQueryResult? = null
+data class MwQueryResponse(
+    val error: MwServiceError? = null,
+    val warnings: Warnings? = null,
+    val batchcomplete: Boolean = false,
+    val continue_: Continue? = null,
+    val query: MwQueryResult? = null
+) {
+    @Serializable
+    data class Warnings(
+        val main: Warning? = null,
+        val revisions: Warning? = null,
+        val query: Warning? = null
+    )
 
     @Serializable
-    class Continuation {
-        val sroffset: Int? = null
-        val gsroffset: Int? = null
-        val gpsoffset: Int? = null
-        @SerialName("continue") val continuation: String? = null
-        @SerialName("uccontinue") val ucContinuation: String? = null
-        @SerialName("rccontinue") val rcContinuation: String? = null
-        @SerialName("rvcontinue") val rvContinuation: String? = null
-        @SerialName("gcmcontinue") val gcmContinuation: String? = null
-    }
+    data class Warning(
+        val warnings: String? = null,
+        @SerialName("*") val text: String? = null
+    )
+
+    @Serializable
+    data class Continue(
+        val sroffset: Int = 0,
+        val gsroffset: Int = 0,
+        val gpsoffset: Int = 0,
+        val continue_: String = "",
+        val grncontinue: String = "",
+        val gcmcontinue: String = "",
+        val rvcontinue: String = "",
+        val gsrcontinue: String = ""
+    )
 }

@@ -20,6 +20,7 @@ import org.wikipedia.util.log.L
 import java.time.Instant
 import java.util.concurrent.Semaphore
 import kotlin.math.abs
+import java.io.IOException
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -48,6 +49,10 @@ object EditingSuggestionsProvider {
     private var revertCandidateLastTimeStamp = Instant.now()
 
     private const val MAX_RETRY_LIMIT: Long = 20
+
+    private var articlesWithImageRecommendationsContinuation: String? = null
+    private const val BACKOFF_MULTIPLIER = 1.5
+    private const val MAX_BACKOFF_DELAY = 10000L // 10 seconds
 
     suspend fun getNextArticleWithMissingDescription(wiki: WikiSite, retryLimit: Long = MAX_RETRY_LIMIT): PageSummary {
         var pageSummary: PageSummary
@@ -307,6 +312,7 @@ object EditingSuggestionsProvider {
                 if (articlesWithImageRecommendationsCacheLang != lang) {
                     // evict the cache if the language has changed.
                     articlesWithImageRecommendationsCache.clear()
+                    articlesWithImageRecommendationsContinuation = null
                 }
                 articlesWithImageRecommendationsCacheLang = lang
 
@@ -317,18 +323,37 @@ object EditingSuggestionsProvider {
                 articlesWithImageRecommendationsLastMillis = System.currentTimeMillis()
 
                 var tries = 0
+                var backoffDelay = 1000L // Start with 1 second delay
                 do {
                     if (articlesWithImageRecommendationsCache.isEmpty()) {
-                        val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
-                            .getPagesWithImageRecommendations(10)
-                        // TODO: make use of continuation parameter?
-                        response.query?.pages?.forEach { page ->
-                            if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
-                                articlesWithImageRecommendationsCache.addFirst(page)
+                        try {
+                            val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
+                                .getPagesWithImageRecommendations(20, articlesWithImageRecommendationsContinuation)
+                            
+                            // Store the continuation token for next request
+                            articlesWithImageRecommendationsContinuation = response.continue_?.gsrcontinue
+
+                            response.query?.pages?.forEach { page ->
+                                if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
+                                    articlesWithImageRecommendationsCache.addFirst(page)
+                                }
+                            }
+                        } catch (e: Exception) {
+                            L.e(e)
+                            if (tries < retryLimit) {
+                                // Implement exponential backoff
+                                Thread.sleep(backoffDelay)
+                                backoffDelay = (backoffDelay * BACKOFF_MULTIPLIER).toLong().coerceAtMost(MAX_BACKOFF_DELAY)
+                            } else {
+                                throw e
                             }
                         }
                     }
                 } while (tries++ < retryLimit && articlesWithImageRecommendationsCache.isEmpty())
+
+                if (articlesWithImageRecommendationsCache.isEmpty()) {
+                    throw IOException("Unable to fetch image recommendations after $retryLimit attempts")
+                }
 
                 page = articlesWithImageRecommendationsCache.removeFirst()
             } finally {

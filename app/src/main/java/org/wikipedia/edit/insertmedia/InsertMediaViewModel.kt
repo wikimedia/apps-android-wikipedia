@@ -55,7 +55,7 @@ class InsertMediaViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                         }
                         pageTitle
                     }
-                    LoadResult.Page(results, null, response.continuation?.gsroffset)
+                    LoadResult.Page(results, null, response.continue_?.gsroffset)
                 } ?: run {
                     LoadResult.Page(emptyList(), null, null)
                 }

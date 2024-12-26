@@ -104,7 +104,7 @@ class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                 val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
                 val contribs = response.query?.userContributions!!
 
-                cachedContinueKey = response.continuation?.ucContinuation
+                cachedContinueKey = response.continue_?.gcmcontinue
                 cachedContribs.addAll(contribs)
 
                 LoadResult.Page(contribs, null, cachedContinueKey)

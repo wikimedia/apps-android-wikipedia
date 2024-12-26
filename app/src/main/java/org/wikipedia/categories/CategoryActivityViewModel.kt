@@ -38,7 +38,7 @@ class CategoryActivityViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                         it.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
                     }
                 }
-                LoadResult.Page(titles, null, response.continuation?.gcmContinuation)
+                LoadResult.Page(titles, null, response.continue_?.gcmcontinue)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }

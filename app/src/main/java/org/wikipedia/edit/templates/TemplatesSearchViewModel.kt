@@ -56,7 +56,7 @@ class TemplatesSearchViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
                         pageTitle.displayText = it.displayTitle(wikiSite.languageCode)
                         pageTitle
                     }
-                    LoadResult.Page(results, null, response.continuation?.gsroffset)
+                    LoadResult.Page(results, null, response.continue_?.gsroffset)
                 } ?: run {
                     LoadResult.Page(emptyList(), null, null)
                 }

@@ -83,7 +83,7 @@ class SearchResultsViewModel : ViewModel() {
                 if (resultList.size < params.loadSize) {
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.loadSize, params.key)
-                    continuation = response.continuation?.gsroffset
+                    continuation = response.continue_?.gsroffset
 
                     resultList.addAll(response.query?.pages?.let { list ->
                         (if (invokeSource == Constants.InvokeSource.PLACES)
@@ -92,7 +92,7 @@ class SearchResultsViewModel : ViewModel() {
                     } ?: emptyList())
                 }
 
-                if (resultList.isEmpty() && response?.continuation == null) {
+                if (resultList.isEmpty() && response?.continue_ == null) {
                     countsPerLanguageCode.clear()
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                         var countResultSize = 0

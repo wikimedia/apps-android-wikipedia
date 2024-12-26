@@ -166,7 +166,7 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
 
                 val revisions = response.query!!.pages?.first()?.revisions!!
 
-                cachedContinueKey = response.continuation?.rvContinuation
+                cachedContinueKey = response.continue_?.rvcontinue
                 cachedRevisions.addAll(revisions)
 
                 LoadResult.Page(revisions, null, cachedContinueKey)

@@ -135,7 +135,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             // Filtering User experiences and registration.
             val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, userInfoCache)).sortedByDescending { it.parsedDateTime }
 
-            return Triple(finalRecentChanges, allRecentChanges, response.continuation?.rcContinuation)
+            return Triple(finalRecentChanges, allRecentChanges, response.continue_?.rvcontinue)
         }
 
         fun filtersCount(): Int {
