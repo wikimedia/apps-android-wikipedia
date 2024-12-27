@@ -82,6 +82,7 @@ class LoginActivity : BaseActivity() {
             Prefs.isSuggestedEditsHighestPriorityEnabled = true
         }
 
+        changeLoginScreen()
         if (AccountUtil.isTemporaryAccount) {
             binding.footerContainer.tempAccountInfoContainer.isVisible = true
             binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(getString(R.string.temp_account_login_status, AccountUtil.userName))
@@ -233,6 +234,28 @@ class LoginActivity : BaseActivity() {
     private fun showError(caught: Throwable) {
         binding.viewLoginError.setError(caught)
         binding.viewLoginError.visibility = View.VISIBLE
+    }
+
+    private fun changeLoginScreen(){
+        if(loginSource.equals("INTERNET")){
+            binding.viewProgressBar.visibility = View.GONE
+        }
+        else if(loginSource.equals("COOl")){
+            binding.viewProgressBar.visibility = View.VISIBLE
+        }
+        else if(loginSource.equals("OKAY OKAY")){
+            binding.viewProgressBar.visibility = View.VISIBLE
+        }
+        else if(loginSource.equals("OKKKKKS")){
+            binding.viewProgressBar.visibility = View.VISIBLE
+        }
+        else if(loginSource == SOURCE_SUGGESTED_EDITS){
+            //do nothing
+        }
+        else {
+            //do nothing
+        }
+
     }
 
     companion object {
