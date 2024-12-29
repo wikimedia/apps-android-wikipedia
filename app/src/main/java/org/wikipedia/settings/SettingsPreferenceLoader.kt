@@ -76,6 +76,10 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             loadPreferences(R.xml.preferences_account)
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
+
+        if (shouldShowDeleteLocalDonationHistoryPreference) {
+            deleteLocalDonationHistory()
+        }
     }
 
     private fun deviceInformation(): String {
@@ -90,6 +94,20 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
     }
 
+    private val shouldShowDeleteLocalDonationHistoryPreference get() = Prefs.donationResults.isNotEmpty()
+
+    private fun deleteLocalDonationHistory() {
+        findPreference(R.string.preference_key_delete_local_donation_history).let {
+            it.isVisible = true
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
+                Prefs.donationResults = emptyList()
+                FeedbackUtil.showMessage(activity, R.string.donor_history_deleted_message_snackbar)
+                preference.isVisible = false
+                true
+            }
+        }
+    }
+    
     fun updateLanguagePrefSummary() {
         // TODO: resolve RTL vs LTR with multiple languages (e.g. list contains English and Hebrew)
         findPreference(R.string.preference_key_language).summary = WikipediaApp.instance.languageState.appLanguageLocalizedNames
