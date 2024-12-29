@@ -420,6 +420,7 @@
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
+    <string name="preference_title_delete_local_donation_history">Delete local donation history</string>
     <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
@@ -1755,6 +1756,7 @@
     <string name="donate_gpay_help_other_ways">Other ways to give</string>
     <string name="donate_gpay_help_faq">Frequently asked questions</string>
     <string name="donate_gpay_help_tax">Tax deductibility information</string>
+    <string name="donor_history_deleted_message_snackbar">Donor history deleted</string>
     <!-- Donor experience -->
 
     <!-- Places -->
