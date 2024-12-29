@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
@@ -25,10 +26,14 @@ class LoginRobot : BaseRobot() {
     }
 
     fun logInUser() = apply {
-        clickLoginButton()
-        setLoginUserNameFromBuildConfig()
-        setPasswordFromBuildConfig()
-        loginUser()
+        try {
+            clickLoginButton()
+            setLoginUserNameFromBuildConfig()
+            setPasswordFromBuildConfig()
+            loginUser()
+        } catch (e: Exception) {
+            Log.e("LoginRobotError:", "User already logged in.")
+        }
     }
 
     private fun clickLoginButton() = apply {

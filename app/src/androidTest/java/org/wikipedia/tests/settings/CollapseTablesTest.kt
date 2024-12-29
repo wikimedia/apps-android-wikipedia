@@ -22,7 +22,7 @@ class CollapseTablesTest : BaseTest<MainActivity>(
     private val bottomNavRobot = BottomNavRobot()
     private val settingsRobot = SettingsRobot()
     private val searchRobot = SearchRobot()
-    private val pageRobot = PageRobot()
+    private val pageRobot = PageRobot(context)
     private val systemRobot = SystemRobot()
     private val dialogRobot = DialogRobot()
 
@@ -37,7 +37,6 @@ class CollapseTablesTest : BaseTest<MainActivity>(
             .typeTextInView("apple")
             .clickOnItemFromSearchList(0)
         pageRobot
-            .dismissTooltip(activity)
             .scrollToCollapsingTables()
             .assertCollapsingTableIsVisible(isVisible = false)
             .pressBack()
