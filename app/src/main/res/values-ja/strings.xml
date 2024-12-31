@@ -222,6 +222,7 @@
   <string name="logged_out_in_background_cancel">キャンセル</string>
   <string name="account_vanish_request_title">アカウントを抹消</string>
   <string name="account_vanish_request_confirm_title">アカウント抹消の警告</string>
+  <string name="account_vanish_request_confirm">抹消は&lt;b&gt;最後の手段&lt;/b&gt;であり、&lt;b&gt;編集を永久に停止したい場合&lt;/b&gt;かつ過去の関連付けをできるだけ隠したい場合にのみ使用すべきです。&lt;br/&gt;&lt;br/&gt;ウィキペディアでのアカウント削除は、アカウント抹消と呼ばれるプロセスで、アカウント名を変更して他の人があなたの投稿を認識できないようにすることによって行われます。&lt;b&gt;抹消は完全な匿名性を保証したり、プロジェクトへの投稿記録を除去するものではありません&lt;/b&gt;。</string>
   <string name="history_empty_title">履歴はまだありません!</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="history_offline_articles_toast">インターネット未接続のときには、履歴にある記事は表示できない場合があります。</string>
@@ -369,7 +370,7 @@
   <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
-  <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能です</string>
+  <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">画像を表示</string>
@@ -482,6 +483,10 @@
   <string name="temp_account_dialog_ok">わかりました</string>
   <string name="temp_account_using_title">あなたは臨時アカウントを使用しています</string>
   <string name="temp_account_dialog_discard">変更を破棄してログインする</string>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのIPアドレスと編集が紐付けられます。</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために臨時アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;臨時アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
+  <string name="temp_account_login_status">&lt;b&gt;現在、臨時アカウントを使用しています。&lt;/b&gt;臨時アカウント %1$s で行った編集はログインしたときに永続アカウントに引き継がれません。ログインまたはアカウントを作成すると利用者名のクレジットを得るなどの利点があります。</string>
   <string name="temp_account_end_session">セッションを終了</string>
   <string name="temp_account_end_session_confirm">これにより、臨時アカウントからログアウトします。続行しますか？</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
@@ -728,7 +733,7 @@
   <string name="notifications_search">通知を検索</string>
   <string name="notifications_view_unread">未読を見る</string>
   <string name="notifications_view_archived">アーカイブ済みを表示</string>
-  <string name="notifications_prefs">通知の設定</string>
+  <string name="notifications_prefs">通知の個人設定</string>
   <string name="notifications_archive">既読にしてアーカイブ</string>
   <plurals name="notification_archive_message">
     <item quantity="one">通知をアーカイブしました</item>
@@ -739,7 +744,7 @@
   <string name="notifications_poll_enable_negative">今はしない</string>
   <string name="notifications_empty_message">通知をすべて読みました!</string>
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
-  <string name="notification_preferences_title">通知の設定</string>
+  <string name="notification_preferences_title">通知の個人設定</string>
   <string name="notifications_mark_unread">未読にする</string>
   <string name="notifications_mark_all_as_read">すべて既読にする</string>
   <string name="notifications_direct_reply_action">返信</string>

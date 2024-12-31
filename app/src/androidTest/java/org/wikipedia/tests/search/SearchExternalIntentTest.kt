@@ -1,4 +1,4 @@
-package org.wikipedia.test.search
+package org.wikipedia.tests.search
 
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
@@ -30,10 +30,10 @@ class SearchExternalIntentTest {
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule<SearchActivity>(
-            Intent(ApplicationProvider.getApplicationContext(), SearchActivity::class.java)
-                    .setAction(Intent.ACTION_SEND)
-                    .setType(Constants.PLAIN_TEXT_MIME_TYPE)
-                    .putExtra(Intent.EXTRA_TEXT, "boletus edulis")
+        Intent(ApplicationProvider.getApplicationContext(), SearchActivity::class.java)
+            .setAction(Intent.ACTION_SEND)
+            .setType(Constants.PLAIN_TEXT_MIME_TYPE)
+            .putExtra(Intent.EXTRA_TEXT, "boletus edulis")
     )
 
     @Test
@@ -43,7 +43,7 @@ class SearchExternalIntentTest {
         TestUtil.delay(5)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Boletus edulis"), isDisplayed()))
-                .check(matches(withText("Boletus edulis")))
+            .check(matches(withText("Boletus edulis")))
 
         TestUtil.delay(2)
 
@@ -54,7 +54,7 @@ class SearchExternalIntentTest {
         TestUtil.delay(1)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Boletus edulis"), isDisplayed()))
-                .check(matches(withText("Boletus edulis")))
+            .check(matches(withText("Boletus edulis")))
 
         device.setOrientationNatural()
         device.unfreezeRotation()
@@ -62,32 +62,32 @@ class SearchExternalIntentTest {
         TestUtil.delay(2)
 
         onView(allOf(withId(R.id.search_lang_button), isDisplayed()))
-                .check(matches(withText("EN")))
+            .check(matches(withText("EN")))
 
         TestUtil.delay(1)
 
         onView(allOf(withId(R.id.search_lang_button_container), isDisplayed()))
-                .perform(ViewActions.click())
+            .perform(ViewActions.click())
 
         TestUtil.delay(1)
 
         onView(withId(R.id.wikipedia_languages_recycler))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, ViewActions.click()))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, ViewActions.click()))
 
         TestUtil.delay(1)
 
         onView(allOf(withId(R.id.menu_search_language), isDisplayed()))
-                .perform(ViewActions.click())
+            .perform(ViewActions.click())
 
         TestUtil.delay(1)
 
         onView(allOf(withId(androidx.appcompat.R.id.search_src_text), isDisplayed()))
-                .perform(ViewActions.replaceText("rus"), ViewActions.closeSoftKeyboard())
+            .perform(ViewActions.replaceText("rus"), ViewActions.closeSoftKeyboard())
 
         TestUtil.delay(1)
 
         onView(withId(R.id.languages_list_recycler))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
 
         TestUtil.delay(1)
 
@@ -96,12 +96,12 @@ class SearchExternalIntentTest {
         TestUtil.delay(1)
 
         onView(allOf(TestUtil.childAtPosition(TestUtil.childAtPosition(withId(R.id.horizontal_scroll_languages), 0), 1), isDisplayed()))
-                .perform(ViewActions.click())
+            .perform(ViewActions.click())
 
         TestUtil.delay(5)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Белый гриб"), isDisplayed()))
-                .check(matches(withText("Белый гриб")))
+            .check(matches(withText("Белый гриб")))
 
         TestUtil.delay(2)
     }

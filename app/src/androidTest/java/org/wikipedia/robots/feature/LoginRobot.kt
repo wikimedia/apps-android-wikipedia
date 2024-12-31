@@ -10,17 +10,33 @@ import org.hamcrest.Matchers.allOf
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class LoginRobot : BaseRobot() {
 
-    fun clickLoginButton() = apply {
+    fun loginState(
+        loggedIn: () -> Unit,
+        loggedOut: () -> Unit
+    ) = apply {
+        if (AccountUtil.isLoggedIn) loggedIn.invoke()
+        else loggedOut.invoke()
+    }
+
+    fun logInUser() = apply {
+        clickLoginButton()
+        setLoginUserNameFromBuildConfig()
+        setPasswordFromBuildConfig()
+        loginUser()
+    }
+
+    private fun clickLoginButton() = apply {
         clicksOnDisplayedViewWithText(viewId = R.id.create_account_login_button, text = "Log in")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun setLoginUserNameFromBuildConfig() = apply {
+    private fun setLoginUserNameFromBuildConfig() = apply {
         onView(
             allOf(
                 TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(
@@ -30,12 +46,12 @@ class LoginRobot : BaseRobot() {
             .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
     }
 
-    fun setPasswordFromBuildConfig() = apply {
+    private fun setPasswordFromBuildConfig() = apply {
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
             .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
     }
 
-    fun loginUser() = apply {
+    private fun loginUser() = apply {
         scrollToViewAndClick(R.id.login_button)
         delay(TestConfig.DELAY_LARGE)
     }
