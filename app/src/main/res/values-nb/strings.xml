@@ -6,6 +6,7 @@
 * Danmichaelo
 * Dbrant
 * EdoAug
+* Elisabeth Carrera (WMNO)
 * Gabriel Kielland
 * Jeblad
 * JohSan65
@@ -38,6 +39,7 @@
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_more">Mer</string>
   <string name="nav_item_search">Søk</string>
+  <string name="nav_item_contribute">Bidra</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="card_offline_error_retry">Prøv igjen</string>
