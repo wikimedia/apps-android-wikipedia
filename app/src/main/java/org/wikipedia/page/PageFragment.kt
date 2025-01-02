@@ -45,7 +45,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
@@ -1495,17 +1494,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
-        }
-
-        override fun onDonorSelected() {
-            goToMainActivity(tab = NavTab.EDITS, tabExtra = Constants.INTENT_EXTRA_GO_TO_SE_TAB)
-        }
-
-        override fun onBecomeDonorSelected() {
-            (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
-        }
-
-        override fun onUpdateDonorStatusSelected() {
         }
     }
 
