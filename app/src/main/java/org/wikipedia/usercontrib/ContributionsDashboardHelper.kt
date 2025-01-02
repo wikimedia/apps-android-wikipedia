@@ -5,7 +5,6 @@ import android.net.Uri
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.donate.DonorStatus
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.UriUtil
@@ -34,8 +33,6 @@ class ContributionsDashboardHelper {
             return surveyUrls[WikipediaApp.instance.languageState.appLanguageCode].orEmpty()
         }
 
-        var shouldShowDonorHistorySnackbar = false
-
         var showSurveyDialogUI = false
 
         val contributionsDashboardEnabled get() = ReleaseUtil.isPreBetaRelease ||
@@ -51,7 +48,6 @@ class ContributionsDashboardHelper {
                 .setCancelable(false)
                 .setPositiveButton(R.string.contributions_dashboard_survey_dialog_ok) { _, _ ->
                     // this should be called on button click due to logic in onResume
-                    setEitherShowDialogOrSnackBar()
                     UriUtil.visitInExternalBrowser(
                         context,
                         Uri.parse(getSurveyDialogUrl())
@@ -59,7 +55,6 @@ class ContributionsDashboardHelper {
                 }
                 .setNegativeButton(R.string.contributions_dashboard_survey_dialog_cancel) { _, _ ->
                     // this should be called on button click due to logic in onResume
-                    setEitherShowDialogOrSnackBar()
                     onNegativeButtonClick()
                 }
                 .show()
@@ -84,14 +79,6 @@ class ContributionsDashboardHelper {
                 .setPositiveButton(R.string.contributions_dashboard_entry_dialog_ok) { _, _ -> }
                 .setNegativeButton(R.string.contributions_dashboard_entry_dialog_cancel, { _, _ -> })
                 .show()
-        }
-
-        private fun setEitherShowDialogOrSnackBar() {
-            when (DonorStatus.donorStatus()) {
-                DonorStatus.DONOR -> {}
-                DonorStatus.NON_DONOR -> shouldShowDonorHistorySnackbar = true
-                DonorStatus.UNKNOWN -> {}
-            }
         }
     }
 }

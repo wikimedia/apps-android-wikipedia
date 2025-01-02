@@ -34,7 +34,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
-import org.wikipedia.donate.DonorStatus
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -100,10 +99,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        maybeShowDonorHistoryUpdatedSnackbar()
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -113,7 +108,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-        maybeShowDonorHistoryUpdatedSnackbar()
         binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
@@ -164,19 +158,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    private fun showDialogOrSnackBar() {
-        when (DonorStatus.donorStatus()) {
-            DonorStatus.DONOR -> {}
-            DonorStatus.NON_DONOR -> {
-                if (ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
-                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-                    ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
-                }
-            }
-            DonorStatus.UNKNOWN -> {}
-        }
-    }
-
     fun refreshContents() {
         (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
@@ -186,7 +167,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         refreshContents()
-        showDialogOrSnackBar()
     }
 
     override fun onDestroyView() {
@@ -410,22 +390,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (viewModel.blockMessageCommons.isNullOrEmpty()) {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
-        }
-    }
-
-    private fun maybeShowDonorHistoryUpdatedSnackbar() {
-        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.showSurveyDialogUI) {
-            if (Prefs.hasDonorHistorySaved) {
-                if (!Prefs.contributionsDashboardSurveyDialogShown) {
-                    ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
-                        showDialogOrSnackBar()
-                    })
-                    Prefs.contributionsDashboardSurveyDialogShown = true
-                } else {
-                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-                }
-                ContributionsDashboardHelper.showSurveyDialogUI = false
-            }
         }
     }
 
