@@ -718,6 +718,8 @@
     <item quantity="one">Name of the notification channel of syncing one reading list</item>
     <item quantity="other">Name of the notification channel of syncing two or more reading lists</item>
   </plurals>
+  <string name="notification_syncing_reading_list_initial_title">Title for notification when syncing reading lists begins.</string>
+  <string name="notification_syncing_reading_list_initial_description">Text of notification when syncing reading lists begins.</string>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Title for notification when the syncing one reading list process begins. The \"%1$d\" symbol corresponds to the amount of lists.</item>
     <item quantity="other">Title for notification when the syncing two or more reading lists process begins. The \"%1$d\" symbol corresponds to the amount of lists.</item>
