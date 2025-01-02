@@ -40,7 +40,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
@@ -249,14 +248,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else {
             binding.contributionsContainer.isVisible = true
             binding.statsDivider.isVisible = true
-            val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
-                R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
-            binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
+            binding.editsCountStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
             binding.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
-            // TODO: add the sequential tooltips back after the experiment code is removed.
-//            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-//                 showOneTimeSequentialUserStatsTooltips()
-//            }
+            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
+                 showOneTimeSequentialUserStatsTooltips()
+            }
         }
 
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))

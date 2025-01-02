@@ -14,7 +14,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedFragment
@@ -22,7 +21,6 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -83,20 +81,12 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.showSearchTabTooltip = false
             }
-            var titleText = getString(tab.text)
             if (tab == NavTab.EDITS) {
                 ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
                 PatrollerExperienceEvent.logImpression("suggested_edits_dialog")
-                if (ContributionsDashboardHelper.contributionsDashboardEnabled) {
-                    titleText = if (AccountUtil.isLoggedIn) {
-                        AccountUtil.userName
-                    } else {
-                        getString(R.string.contributions_dashboard_logged_out_user)
-                    }
-                }
             }
             binding.mainToolbarWordmark.visibility = View.GONE
-            binding.mainToolbar.setTitle(titleText)
+            binding.mainToolbar.setTitle(tab.text)
             controlNavTabInFragment = true
         }
         fragment.requestUpdateToolbarElevation()
