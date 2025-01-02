@@ -1632,6 +1632,7 @@
   <string name="donate_gpay_help_faq">자주 묻는 질문</string>
   <string name="donate_gpay_help_tax">세금 공제 정보</string>
   <string name="places_title">장소</string>
+  <string name="places_permissions_denied">지도에서 내 위치를 보려면 위치 권한이 필요합니다. 다시 시도해 주십시오.</string>
   <string name="places_search_hint">장소 검색</string>
   <string name="places_filter_title">언어 필터링</string>
   <string name="places_toggle_buttons_map">지도</string>

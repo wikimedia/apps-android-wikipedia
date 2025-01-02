@@ -41,6 +41,7 @@
 * Sonic N800
 * Tala Ali
 * Ulhvulgv
+* Wrai
 * Youssef
 * أيوب
 * أَحمد
@@ -499,6 +500,22 @@
   <string name="temp_account_dialog_ok">عُلِم</string>
   <string name="temp_account_using_title">أنت تستخدم حساباً مؤقتاً</string>
   <string name="temp_account_dialog_discard">تجاهل التغييرات وتسجيل الدخول</string>
+  <plurals name="temp_account_created">
+    <item quantity="zero">لا حساب مؤقت تم إنشاؤه</item>
+    <item quantity="one">تم إنشاء الحساب المؤقت %1$s بعد نشر تعديلك. وسوف ينتهي صلاحيته خلال %2$d يوم.</item>
+    <item quantity="two">تم إنشاء الحسابين المؤقتين %1$s بعد نشر تعديلك. وسوف ينتهي صلاحيته خلال %2$d يوم.</item>
+    <item quantity="few">تم إنشاء الحسابات المؤقتة القليلة %1$s بعد نشر تعديلك. وسوف تنتهي صلاحيتها خلال %2$d يوم.</item>
+    <item quantity="many">تم إنشاء الحسابات المؤقتة %1$s بعد نشر تعديلك. وسوف تنتهي صلاحيتها خلال %2$d يوم.</item>
+    <item quantity="other">تم إنشاء الحساب المؤقت %1$s بعد نشر تعديلك. وسوف ينتهي صلاحيته خلال %2$d يوم.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="zero">لا حساب انتهت صلاحيته</item>
+    <item quantity="one">سوف تنتهي صلاحية الحساب خلال %d يوم.</item>
+    <item quantity="two">حساان انتهت صلاحيتهما</item>
+    <item quantity="few">حسابات قليلة انتهت صلاحيتها</item>
+    <item quantity="many">حسابات كثيرة انتهت صلاحيتها</item>
+    <item quantity="other">سوف تنتهي صلاحية الحساب خلال %d يوم.</item>
+  </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;أنت لستُ مُسجلًا.&lt;/b&gt; بمجرد إصدارها، سيتم ربط عنوان IP الخاص بك مع التحريرات الخاصة بك.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;لم تقم بتسجيل الدخول.&lt;/b&gt; بمجرد إجراء تعديل، سيتم إنشاء حساب مؤقت لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;أنت تستخدم حسابًا مؤقتًا.&lt;/b&gt; سيتم نسب تعديلك إلى %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt; .</string>
@@ -732,6 +749,22 @@
   <string name="reading_lists_import_failure_message">فشل استيراد قوائم القراءة</string>
   <string name="reading_lists_export_select_lists_message">حدد القائمة (القوائم) للتصدير</string>
   <string name="reading_lists_export_completed_message">تم تصدير قائمة (قوائم) القراءة</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="zero">لا قوائم قراءة تم تصديرها</item>
+    <item quantity="one">فشل تصدير قائمة القراءة</item>
+    <item quantity="two">فشل تصدير قائمتي القراءة</item>
+    <item quantity="few">فشل تصدير قوائم القراءة</item>
+    <item quantity="many">فشل تصدير قوائم القراءة</item>
+    <item quantity="other">فشل تصدير قوائم القراءة</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="zero">لا قوائم قراءة تم استيرادها</item>
+    <item quantity="one">قائمة القراءة المستوردة</item>
+    <item quantity="two">قائمتا قراءة تم استيرادهما</item>
+    <item quantity="few">قوائم قراءة قليلة تم استيرادها</item>
+    <item quantity="many">قوائم قراءة كثيرة تم استيرادها</item>
+    <item quantity="other">قوائم القراءة تم استيرادها</item>
+  </plurals>
   <string name="reading_lists_preview_header_title">قائمة مشتركة</string>
   <string name="reading_lists_preview_save_button">حفظ</string>
   <string name="reading_lists_preview_save_dialog_title">حفظ القائمة</string>
@@ -829,6 +862,22 @@
   <string name="notifications_direct_reply_error">لا يمكن الرد تلقائيا.</string>
   <string name="notifications_mark_all_as_read_message">%d تم وضع علامة مقروءة</string>
   <string name="notifications_mark_all_as_unread_message">%d تم وضع علامة غير مقروءة</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="zero">لا علامة تم وضعها على أنه مقروء</item>
+    <item quantity="one">1 تم وضع علامة على أنه مقروء</item>
+    <item quantity="two">تم وضع علامتين على أنه مقروء</item>
+    <item quantity="few">تم وضع علامة على أنه مقروء</item>
+    <item quantity="many">تم وع علامة على أنه مقروء</item>
+    <item quantity="other">%d تم وضع علامة على أنه مقروء</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="zero">لم يتم وضع علامة على أنه غير مقروء</item>
+    <item quantity="one">1 تم وضع علامة عليه كغير مقروء</item>
+    <item quantity="two">تم وضضع علامتين على أنه غير مقروء</item>
+    <item quantity="few">تم وضع علامة على أنه غير مقروء</item>
+    <item quantity="many">تم وضع علامة على أنه غير مقروء</item>
+    <item quantity="other">%d تم وضع علامة عليه كغير مقروء</item>
+  </plurals>
   <string name="watchlist_title">قائمة المراقبة</string>
   <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
   <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
@@ -865,6 +914,14 @@
   <string name="notifications_filter_icon_content_description">تصفية الإخطارات</string>
   <string name="notifications_filter_update_app_languages">تحديث لغات التطبيق</string>
   <string name="notifications_empty_search_message">حاول إزالة %s لكي ترى إخطارات اكثر</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="zero">لا مرشح</item>
+    <item quantity="one">%d مرشح</item>
+    <item quantity="two">مرشحان</item>
+    <item quantity="few">مرشحات قليلة</item>
+    <item quantity="many">مرشحات كثيرة</item>
+    <item quantity="other">%d مرشحات</item>
+  </plurals>
   <string name="notifications_select_all_filters">حدد كل عوامل التصفية</string>
   <string name="notifications_tab_filter_all">الكل</string>
   <string name="notifications_tab_filter_mentions">الإشارات</string>
@@ -1136,6 +1193,14 @@
     <item quantity="many">مساهمات</item>
     <item quantity="other">مساهمة</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="zero">لا تعديلات</item>
+    <item quantity="one">تحرير</item>
+    <item quantity="two">تعديلان</item>
+    <item quantity="few">تعديلات قليلة</item>
+    <item quantity="many">تعديلات كثيرة</item>
+    <item quantity="other">تعديلات</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="zero">و لا يوم</item>
     <item quantity="one">يوم واحدة</item>
@@ -1164,7 +1229,23 @@
   <string name="suggested_edits_contribution_image_label">صورة</string>
   <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_views">%s مشاهدة</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="zero">لم تشاهد في آخر 30 يوما</item>
+    <item quantity="one">تمت مشاهدته مرة واحدة في الثلاثين يومًا الماضية.</item>
+    <item quantity="two">تمت مشاهدته مرتين في آخر 30 يوما</item>
+    <item quantity="few">تمت مشاهدته قليلا في آخر 30 مرة</item>
+    <item quantity="many">تمت مشاهدته كثيرا في آخر 30 يوما</item>
+    <item quantity="other">تمت مشاهدته %s مرة في الثلاثين يومًا الماضية.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">شوهدت %s مرة في آخر 30 يوماً</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="zero">أنت لم تضف أي وسم</item>
+    <item quantity="one">لقد أضفت %d وسم</item>
+    <item quantity="two">أنت أضفت وسمين</item>
+    <item quantity="few">أنت أضفت وسوما قليلة</item>
+    <item quantity="many">أنت أضفت وسوما كثيرة</item>
+    <item quantity="other">لقد أضفت %d وسم</item>
+  </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
   <string name="suggested_edits_encourage_account_creation_title">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="suggested_edits_encourage_account_creation_message">التعديلات المقترحة هي طريقة جديدة لتحرير ويكيبيديا على الأندرويد. تُساعدك على إجراء مساهمات صغيرة ولكنها حيوية في ويكيبيديا.\nهدفنا هو جعل التحرير أسهل وأكثر مرونة للجميع! سجّل الدخول أو انضم لويكيبيديا للبدء.</string>
@@ -1180,6 +1261,38 @@
   <string name="suggested_edits_do_not_understand_suggestion">لا أفهم المُهمة</string>
   <string name="suggested_edits_report_suggestion">الإبلاغ عن</string>
   <string name="suggested_edits_suggestion_report_submitted">تم إرسال التقرير</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="zero">لا وسوم</item>
+    <item quantity="one">وسم %1$s</item>
+    <item quantity="two">وسمان</item>
+    <item quantity="few">وسوم قليلة</item>
+    <item quantity="many">وسوم كثيرة</item>
+    <item quantity="other">وسوم %1$s</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="zero">لا حروف</item>
+    <item quantity="one">%1$s حرف</item>
+    <item quantity="two">حرفان</item>
+    <item quantity="few">حروف قليلة</item>
+    <item quantity="many">حروف كثيرة</item>
+    <item quantity="other">%1$s حرف</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="zero">أنت لم تزل أي حرف</item>
+    <item quantity="one">لقد قمت بإزالة %d حرف</item>
+    <item quantity="two">أنت أزلت حرفين</item>
+    <item quantity="few">أنت أزلت حروفا قليلة</item>
+    <item quantity="many">أنت أزلت حروفا كثيرة</item>
+    <item quantity="other">لقد قمت بإزالة %d حرف</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="zero">أنت لم تضف أي حرف</item>
+    <item quantity="one">لقد أضفت %d حرفًا</item>
+    <item quantity="two">أنت أضفت حرفين</item>
+    <item quantity="few">أنت أضفت حروفا قليلة</item>
+    <item quantity="many">أنت أضفت حروفا كثيرة</item>
+    <item quantity="other">لقد أضفت %d حرفًا</item>
+  </plurals>
   <string name="suggested_edits_image_recommendations_task_title">صور المقالة:</string>
   <string name="suggested_edits_image_recommendations_task_detail">أضف الصور المقترحة إلى مقالات ويكيبيديا لتحسين الفهم.</string>
   <string name="image_recommendation_task_instruction">هل ستصيف هذه الصورة إلى المقالة؟</string>
@@ -1407,6 +1520,22 @@
   <string name="talk_overflow_sort_topic_name">اسم الموضوع</string>
   <string name="talk_new_topic_exit_dialog_title">هل أنت متأكد أنك تريد الخروج؟</string>
   <string name="talk_new_topic_exit_dialog_message">لن يتم حفظ الموضوع و نص المحتوى.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="zero">لا ردود</item>
+    <item quantity="one">إظهار الرد</item>
+    <item quantity="two">إظهار الردين</item>
+    <item quantity="few">إظهار الردود</item>
+    <item quantity="many">إظهار الردود</item>
+    <item quantity="other">إظهار الردود ( %d )</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="zero">لا ردود</item>
+    <item quantity="one">إخفاء الرد</item>
+    <item quantity="two">إخفاء الردين</item>
+    <item quantity="few">إخفاء الردود</item>
+    <item quantity="many">إخفاء الردود</item>
+    <item quantity="other">إخفاء الردود ( %d )</item>
+  </plurals>
   <string name="talk_thread_subscribed_to">تم الاشتراك في \"%s\"</string>
   <string name="talk_thread_unsubscribed_from">إلغاء الاشتراك \"%s\"</string>
   <string name="talk_list_item_overflow_subscribe">اشترك</string>
@@ -1535,6 +1664,14 @@
   <string name="watchlist_search_bar_hint">بحث أو تصفية قائمة المراقبة</string>
   <string name="watchlist_search_bar_filter_hint">مرشح قائمة المراقبة</string>
   <string name="watchlist_empty_search_message">لا توجد نتائج ، حاول إزالة %s لرؤية المزيد.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="zero">لا مرشحات</item>
+    <item quantity="one">%d مرشح</item>
+    <item quantity="two">مرشحان</item>
+    <item quantity="few">مرشحات قليلة</item>
+    <item quantity="many">مرشحات كثيرة</item>
+    <item quantity="other"> %d مرشحات</item>
+  </plurals>
   <string name="preview_edit_title">معاينة التعديل</string>
   <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
   <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
@@ -1588,6 +1725,22 @@
   <string name="talk_templates_edit_message_dialog_delete">حذف</string>
   <string name="talk_templates_edit_message_updated">تم تحديث الرسالة</string>
   <string name="talk_templates_menu_remove_message">إزالة الرسالة</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="zero">لا رسائل لحذفها من القائمة</item>
+    <item quantity="one">هل أنت متأكد أنك تريد حذف الرسالة من القائمة؟</item>
+    <item quantity="two">هل أنت متأكد أنك تريد حذف الرسالتين من القائمة؟</item>
+    <item quantity="few">هل أنت متأكد أنك تريد حذف الرسائل القليلة من القائمة؟</item>
+    <item quantity="many">هل أنت متأكد أنك تريد حف الرسائل الكثيرة من القائمة؟</item>
+    <item quantity="other">هل أنت متأكد أنك تريد حذف الرسائل من القائمة؟</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="zero">لا رسائل تم حذفها</item>
+    <item quantity="one">تم حذف الرسالة</item>
+    <item quantity="two">تم حف الرسالتين</item>
+    <item quantity="few">تم حذف الرسائل القليلة</item>
+    <item quantity="many">تم حف الرسائل الكثيرة</item>
+    <item quantity="other">تم حذف الرسائل</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">لا يمكن أن يكون العنوان فارغا.</string>
   <string name="talk_templates_your_messages_tab_title">رسائلك</string>
   <string name="talk_templates_example_messages_tab_title">أمثلة لرسائل</string>
@@ -1646,6 +1799,14 @@
   <string name="patroller_tasks_filters_user_intent_bad">من المحتمل جدا سوء النية</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">دقيقة للغاية في العثور على أكثر التعديلات سوءا.</string>
   <string name="patroller_tasks_filters_empty_search_message">حاول إزالة %s لرؤية المزيد من التعديلات</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="zero">لا مرشح</item>
+    <item quantity="one">%d مرشح</item>
+    <item quantity="two">مرشحان</item>
+    <item quantity="few">مرشحات قليلة</item>
+    <item quantity="many">مرشحات كثيرة</item>
+    <item quantity="other"> %d مرشحات</item>
+  </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">تاريخ تعديل الصفحة</string>
   <string name="patroller_tasks_patrol_edit_undo_success">رجوع كامل</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">هل أنت متأكد أنك تريد الاسترجاع؟</string>
