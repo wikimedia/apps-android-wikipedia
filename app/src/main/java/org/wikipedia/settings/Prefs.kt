@@ -766,12 +766,4 @@ object Prefs {
     var isRecurringDonor
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)
-
-    var contributionsDashboardSurveyDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_contributions_dashboard_survey_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_contributions_dashboard_survey_dialog_shown, value)
-
-    var contributionsDashboardEntryDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_contributions_dashboard_entry_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_contributions_dashboard_entry_dialog_shown, value)
 }
