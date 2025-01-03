@@ -235,6 +235,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
     }
 
+    fun isUrlAGif(): Boolean = leadImageUrl?.endsWith(".gif") == true
+
     fun dispose() {
         handlerJob?.cancel()
         callToActionSourceSummary = null
