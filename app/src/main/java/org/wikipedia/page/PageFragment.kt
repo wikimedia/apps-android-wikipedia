@@ -300,6 +300,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         updateQuickActionsAndMenuOptions()
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
+        if (leadImagesHandler.isUrlAGif()) {
+            leadImagesHandler.loadLeadImage()
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
