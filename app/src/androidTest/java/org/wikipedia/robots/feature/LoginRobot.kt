@@ -10,10 +10,19 @@ import org.hamcrest.Matchers.allOf
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class LoginRobot : BaseRobot() {
+
+    fun loginState(
+        loggedIn: () -> Unit,
+        loggedOut: () -> Unit
+    ) = apply {
+        if (AccountUtil.isLoggedIn) loggedIn.invoke()
+        else loggedOut.invoke()
+    }
 
     fun logInUser() = apply {
         clickLoginButton()

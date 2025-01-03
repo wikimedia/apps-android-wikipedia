@@ -1127,7 +1127,7 @@
   <string name="suggested_edits_image_recommendations_task_title">條目圖片</string>
   <string name="suggested_edits_image_recommendations_task_detail">將建議的圖片加到維基百科條目來加強理解。</string>
   <string name="image_recommendation_task_instruction">您要將此圖片加到條目裡嗎？</string>
-  <string name="image_recommendation_tutorial">教程</string>
+  <string name="image_recommendation_tutorial">教學</string>
   <string name="image_recommendation_accept">是</string>
   <string name="image_recommendation_reject">否</string>
   <string name="image_recommendation_notsure">不確定</string>

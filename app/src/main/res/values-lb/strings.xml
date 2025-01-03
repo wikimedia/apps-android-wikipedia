@@ -736,6 +736,7 @@
   <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_card_title">Exzellenten Artikel</string>
   <string name="view_static_card_save_button_label">Späicheren</string>
+  <string name="feed_configure_activity_title">De Feed upassen</string>
   <string name="feed_configure_menu_reset">Standard- Ausgesinn restauréieren</string>
   <string name="feed_configure_menu_select_all">All weisen</string>
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
@@ -1178,10 +1179,10 @@
   <string name="watchlist_details_prev_edit">Vireg Ännerung</string>
   <string name="thank_label">Merci soen</string>
   <string name="view_user_page">Benotzersäit weisen</string>
-  <string name="thank_dialog_title_text">\'Merci\' ëffentlech schécken</string>
+  <string name="thank_dialog_title_text">„Merci“ ëffentlech schécken</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
-  <string name="thank_success_message">Äre \'Merci\' gouf dem %s geschéckt 👍</string>
+  <string name="thank_success_message">Äre „Merci“ gouf dem %s geschéckt 👍</string>
   <string name="menu_option_view_user_profile">Benotzersäit weisen</string>
   <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
   <string name="menu_option_view_user_contributions">Benotzerkontributioune weisen</string>

@@ -26,7 +26,7 @@ class AppThemeTest : BaseTest<ThemeFittingRoomActivity>(
     fun runTest() {
         systemRobot
             .disableDarkMode(context)
-
+            .clickOnSystemDialogWithText("Allow")
         testLightMode()
         systemRobot
             .enableDarkMode(context)

@@ -48,7 +48,7 @@
   <string name="history_list_title">ਅਤੀਤ</string>
   <string name="image_content_description">ਤਸਵੀਰ: %s</string>
   <string name="page_content_description">ਸਫ਼ਾ: %s</string>
-  <string name="wikimedia_commons">ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼</string>
+  <string name="wikimedia_commons">ਵਿਕੀਮੀਡੀਆ ਭਾਈਚਾਰਾ</string>
   <string name="wikidata">ਵਿਕੀਡਾਟਾ</string>
   <string name="dialog_title_clear_history"> ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="dialog_message_clear_history">ਇਹ ਤੁਹਾਡਾ ਸਾਰਾ ਬ੍ਰਾਉਜ਼ਿੰਗ ਇਤਿਹਾਸ ਸਾਫ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਵੇਲੇ ਖੁੱਲੇ ਹੋਏ ਕੋਈ ਵੀ ਤੈਬ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ?</string>
@@ -378,7 +378,7 @@
   <string name="redirected_from_snackbar">\"%s\" ਤੋਂ ਮੋੜਿਆ ਗਿਆ</string>
   <string name="button_get_directions">ਨਿਰਦੇਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ</string>
   <string name="error_no_maps_app">ਦਿਸ਼ਾਵਾਂ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਈ ਕੋਈ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
-  <string name="preference_title_show_link_previews">ਕੜੀ ਦੀ ਝਲਕ ਵਿਖਾਉ</string>
+  <string name="preference_title_show_link_previews">ਕੜੀ ਦੀ ਝਲਕ ਵਿਖਾਓ</string>
   <string name="preference_summary_show_link_previews">ਜਦੋਂ ਕੜੀ ਨੂੰ ਦਬਾਇਆ ਜਾਵੇ ਤਾਂ ਲੇਖ ਦੀ ਥੋੜ੍ਹੀ ਜਿਹੀ ਝਲਕ ਦਿਖਾਈ ਜਾਵੇ।</string>
   <string name="preference_title_collapse_tables">ਸਾਰਣੀ ਢਾਓ</string>
   <string name="preference_summary_collapse_tables">ਲੇਖਾਂ ਵਿੱਚ ਸਾਰਣੀ ਨੂੰ ਸਵੈਚਲਿਤ ਢਾਓ, ਜਿਵੇਂ ਕਿ ਜਾਣਕਾਰੀ ਬਕਸੇ, ਹਵਾਲੇ ਅਤੇ ਨੋਟਸ।</string>
@@ -1274,7 +1274,7 @@
   <string name="watchlist_filter_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="watchlist_filter_automated_contributions_bot">ਬੋਟ</string>
   <string name="watchlist_filter_automated_contributions_human">ਮਨੁੱਖ (ਬੋਟ ਨਹੀਂ)</string>
-  <string name="watchlist_filter_significance_header">ਮਹੱਤਵ</string>
+  <string name="watchlist_filter_significance_header">ਮਹੱਤਤਾ</string>
   <string name="watchlist_filter_significance_minor">ਛੋਟੀਆਂ ਸੋਧਾਂ</string>
   <string name="watchlist_filter_significance_edits">ਗੈਰ-ਮਾਮੂਲੀ ਸੋਧਾਂ</string>
   <string name="watchlist_filter_latest_revisions_header">ਤਾਜ਼ਾ ਦੁਹਰਾਅ</string>
@@ -1374,7 +1374,7 @@
   <string name="patroller_tasks_filters_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">ਬੋਟ</string>
   <string name="patroller_tasks_filters_automated_contributions_human">ਮਨੁੱਖ (ਬੋਟ ਨਹੀਂ)</string>
-  <string name="patroller_tasks_filters_significance_header">ਮਹੱਤਵ</string>
+  <string name="patroller_tasks_filters_significance_header">ਮਹੱਤਤਾ</string>
   <string name="patroller_tasks_filters_significance_minor">ਛੋਟੀਆਂ ਸੋਧਾਂ</string>
   <string name="patroller_tasks_filters_significance_edits">ਗੈਰ-ਮਾਮੂਲੀ ਸੋਧਾਂ</string>
   <string name="patroller_tasks_filters_contribution_quality_header">ਯੋਗਦਾਨ ਗੁਣਵੱਤਾ ਦੀ ਭਵਿੱਖਬਾਣੀ</string>
