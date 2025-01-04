@@ -9,7 +9,6 @@ import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 
 enum class NavTab constructor(
     @StringRes val text: Int,
@@ -33,8 +32,7 @@ enum class NavTab constructor(
         }
     },
     EDITS(
-        if (ContributionsDashboardHelper.contributionsDashboardEnabled) R.string.nav_item_contribute
-        else R.string.nav_item_suggested_edits, R.id.nav_tab_edits, R.drawable.selector_nav_edits
+        R.string.nav_item_suggested_edits, R.id.nav_tab_edits, R.drawable.selector_nav_edits
     ) {
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
