@@ -180,4 +180,5 @@
     <string name="preference_key_contributions_dashboard_survey_dialog_shown">contributionsDashboardSurveyDialogShown</string>
     <string name="preference_key_contributions_dashboard_entry_dialog_shown">contributionsDashboardEntryDialogShown</string>
     <string name="preference_key_current_selected_app_icon">currentSelectedAppIcon</string>
+    <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
 </resources>
