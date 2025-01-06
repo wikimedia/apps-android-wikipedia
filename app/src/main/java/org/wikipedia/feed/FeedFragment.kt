@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +43,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.theme.ThemeTest
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 
@@ -85,50 +90,58 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        coordinator.more(app.wikiSite)
+        //coordinator.more(app.wikiSite)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentFeedBinding.inflate(inflater, container, false)
-        feedAdapter = FeedAdapter(coordinator, feedCallback)
-        binding.feedView.adapter = feedAdapter
-        binding.feedView.addOnScrollListener(feedScrollListener)
-        binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
-        binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
-        coordinator.setFeedUpdateListener(object : FeedUpdateListener {
-            override fun insert(card: Card, pos: Int) {
-                if (isAdded) {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    feedAdapter.notifyItemInserted(pos)
-                }
+//        _binding = FragmentFeedBinding.inflate(inflater, container, false)
+//        feedAdapter = FeedAdapter(coordinator, feedCallback)
+//        binding.feedView.adapter = feedAdapter
+//        binding.feedView.addOnScrollListener(feedScrollListener)
+//        binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
+//        binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
+//        coordinator.setFeedUpdateListener(object : FeedUpdateListener {
+//            override fun insert(card: Card, pos: Int) {
+//                if (isAdded) {
+//                    binding.swipeRefreshLayout.isRefreshing = false
+//                    feedAdapter.notifyItemInserted(pos)
+//                }
+//            }
+//
+//            override fun remove(card: Card, pos: Int) {
+//                if (isAdded) {
+//                    binding.swipeRefreshLayout.isRefreshing = false
+//                    feedAdapter.notifyItemRemoved(pos)
+//                }
+//            }
+//
+//            override fun finished(shouldUpdatePreviousCard: Boolean) {
+//                if (!isAdded) {
+//                    return
+//                }
+//                if (feedAdapter.itemCount < 2) {
+//                    binding.emptyContainer.visibility = View.VISIBLE
+//                } else {
+//                    binding.emptyContainer.visibility = View.GONE
+//                    if (shouldUpdatePreviousCard) {
+//                        feedAdapter.notifyItemChanged(feedAdapter.itemCount - 1)
+//                    }
+//                }
+//            }
+//        })
+//        callback?.updateToolbarElevation(shouldElevateToolbar())
+//        ReadingListSyncAdapter.manualSync()
+//        Prefs.incrementExploreFeedVisitCount()
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                ThemeTest(
+                    modifier = Modifier
+                        .fillMaxSize()
+                )
             }
-
-            override fun remove(card: Card, pos: Int) {
-                if (isAdded) {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    feedAdapter.notifyItemRemoved(pos)
-                }
-            }
-
-            override fun finished(shouldUpdatePreviousCard: Boolean) {
-                if (!isAdded) {
-                    return
-                }
-                if (feedAdapter.itemCount < 2) {
-                    binding.emptyContainer.visibility = View.VISIBLE
-                } else {
-                    binding.emptyContainer.visibility = View.GONE
-                    if (shouldUpdatePreviousCard) {
-                        feedAdapter.notifyItemChanged(feedAdapter.itemCount - 1)
-                    }
-                }
-            }
-        })
-        callback?.updateToolbarElevation(shouldElevateToolbar())
-        ReadingListSyncAdapter.manualSync()
-        Prefs.incrementExploreFeedVisitCount()
-        return binding.root
+        }
     }
 
     override fun onResume() {
@@ -138,15 +151,15 @@ class FeedFragment : Fragment(), BackPressedHandler {
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices.
         // https://issuetracker.google.com/issues/188096921
-        feedAdapter.notifyDataSetChanged()
+        //feedAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {
-        coordinator.setFeedUpdateListener(null)
-        binding.swipeRefreshLayout.setOnRefreshListener(null)
-        binding.feedView.removeOnScrollListener(feedScrollListener)
-        binding.feedView.adapter = null
-        _binding = null
+//        coordinator.setFeedUpdateListener(null)
+//        binding.swipeRefreshLayout.setOnRefreshListener(null)
+//        binding.feedView.removeOnScrollListener(feedScrollListener)
+//        binding.feedView.adapter = null
+//        _binding = null
         super.onDestroyView()
     }
 
