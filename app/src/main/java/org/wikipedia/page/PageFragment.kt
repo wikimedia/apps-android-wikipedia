@@ -103,6 +103,7 @@ import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -298,11 +299,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
-        articleInteractionEvent?.resume()
-        metricsPlatformArticleEventToolbarInteraction.resume()
-        if (leadImagesHandler.isUrlAGif()) {
+        if (ImageUrlUtil.isGif(page?.pageProperties?.leadImageUrl)) {
             leadImagesHandler.loadLeadImage()
         }
+        articleInteractionEvent?.resume()
+        metricsPlatformArticleEventToolbarInteraction.resume()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
