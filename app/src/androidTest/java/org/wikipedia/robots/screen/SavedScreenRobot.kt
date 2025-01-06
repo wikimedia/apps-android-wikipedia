@@ -1,6 +1,7 @@
 package org.wikipedia.robots.screen
 
 import android.app.Activity
+import android.util.Log
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
@@ -24,6 +25,15 @@ class SavedScreenRobot : BaseRobot() {
     fun openArticleWithTitle(text: String) = apply {
         clicksOnDisplayedViewWithText(viewId = R.id.page_list_item_title, text)
         delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun dismissSyncReadingList() = apply {
+        try {
+            clickOnViewWithId(R.id.negativeButton)
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: Exception) {
+            Log.e("SavedScreenRobot: ", "${e.message}")
+        }
     }
 
     fun pressBack() = apply {

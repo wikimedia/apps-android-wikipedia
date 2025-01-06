@@ -1,4 +1,4 @@
-package org.wikipedia.test.search
+package org.wikipedia.tests.search
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
@@ -42,7 +42,7 @@ class SearchIntentTest {
         TestUtil.delay(5)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Barack Obama"), isDisplayed()))
-                .check(matches(withText("Barack Obama")))
+            .check(matches(withText("Barack Obama")))
 
         TestUtil.delay(2)
 
@@ -53,7 +53,7 @@ class SearchIntentTest {
         TestUtil.delay(1)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Barack Obama"), isDisplayed()))
-                .check(matches(withText("Barack Obama")))
+            .check(matches(withText("Barack Obama")))
 
         device.setOrientationNatural()
         TestUtil.delay(2)
@@ -67,32 +67,32 @@ class SearchIntentTest {
         TestUtil.delay(2)
 
         onView(allOf(withId(R.id.search_lang_button), isDisplayed()))
-                .check(matches(withText("EN")))
+            .check(matches(withText("EN")))
 
         TestUtil.delay(1)
 
         onView(allOf(withId(R.id.search_lang_button_container), isDisplayed()))
-                .perform(ViewActions.click())
+            .perform(ViewActions.click())
 
         TestUtil.delay(1)
 
         onView(withId(R.id.wikipedia_languages_recycler))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, ViewActions.click()))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, ViewActions.click()))
 
         TestUtil.delay(1)
 
         onView(allOf(withId(R.id.menu_search_language), isDisplayed()))
-                .perform(ViewActions.click())
+            .perform(ViewActions.click())
 
         TestUtil.delay(1)
 
         onView(allOf(withId(androidx.appcompat.R.id.search_src_text), isDisplayed()))
-                .perform(ViewActions.replaceText("rus"), ViewActions.closeSoftKeyboard())
+            .perform(ViewActions.replaceText("rus"), ViewActions.closeSoftKeyboard())
 
         TestUtil.delay(1)
 
         onView(withId(R.id.languages_list_recycler))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
 
         TestUtil.delay(1)
 
@@ -101,19 +101,19 @@ class SearchIntentTest {
         TestUtil.delay(1)
 
         onView(allOf(TestUtil.childAtPosition(TestUtil.childAtPosition(withId(R.id.horizontal_scroll_languages), 0), 1), isDisplayed()))
-                .perform(ViewActions.click())
+            .perform(ViewActions.click())
 
         TestUtil.delay(1)
 
         onView(allOf(withText("Retry"), isDisplayed()))
-                .check(matches(isDisplayed()))
+            .check(matches(isDisplayed()))
 
         TestUtil.setAirplaneMode(false, 5)
 
         TestUtil.delay(5)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Обама, Барак"), isDisplayed()))
-                .check(matches(withText("Обама, Барак")))
+            .check(matches(withText("Обама, Барак")))
 
         TestUtil.delay(2)
     }
