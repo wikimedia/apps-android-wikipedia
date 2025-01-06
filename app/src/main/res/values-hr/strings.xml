@@ -117,7 +117,7 @@
   <string name="search_reading_lists_no_results">Nisu pronađeni rezultati na popisima za čitanje</string>
   <string name="search_history_no_results">Nisu pronađeni rezultati u povijesti</string>
   <string name="edit_section_captcha_message">Da biste se zaštitili od neželjenih poruka, molimo unesite riječi koje se pokazuju ispod</string>
-  <string name="edit_section_captcha_request_an_account_message">Ne vidite sliku? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zatražite račun&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Ne vidite sliku? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Zatražite račun&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ponovite riječi iznad</string>
   <string name="title_captcha">Unesite CAPTCHA</string>
   <string name="edit_section_captcha_reload">Za ponovno učitavanje dodirnite CAPTCHA</string>
@@ -177,7 +177,7 @@
   <string name="create_account_button">Otvori suradnički račun</string>
   <string name="create_account_name_unavailable">Suradničko ime \"%s\" nije dostupno. Molimo izaberite drugo ime.</string>
   <string name="create_account_ip_block_message">Žao nam je, Vašoj internetskoj adresi trenutačno je zabranjeno stvaranje novih računa.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="preferences_account_heading">Račun</string>
@@ -210,10 +210,10 @@
   <string name="about_description">O aplikaciji \"Wikipedia\"</string>
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uvjeti uporabe</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hr</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>

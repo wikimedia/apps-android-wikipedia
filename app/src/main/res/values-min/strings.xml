@@ -81,7 +81,7 @@
   <string name="search_reading_lists_no_results">Hasil indak basobok dalam daftar baco</string>
   <string name="search_history_no_results">Hasil indak basobok dalam riwayaik</string>
   <string name="edit_section_captcha_message">Untuak mambantu malinduangi dari spam otomatis, masuakan kato-kato nan muncua di bawah ko</string>
-  <string name="edit_section_captcha_request_an_account_message">Indak dapek mancaliak gambar? &lt;a href=\"https://min.wikipedia.org/wiki/Wikipedia:Mohon_buekkan_akun\"&gt;Mohon buekkan akun&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Indak dapek mancaliak gambar? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Mohon_buekkan_akun\"&gt;Mohon buekkan akun&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulangi kato-kato dari ateh</string>
   <string name="title_captcha">Masuakkan CAPTCHA</string>
   <string name="edit_section_captcha_reload">Katuak CAPTCHA untuak mamuek ulang</string>
@@ -141,7 +141,7 @@
   <string name="create_account_button">Buek akun</string>
   <string name="create_account_name_unavailable">Namo pangguno \"%s\" indak tasadio. Silakan piliah namo nan babeda.</string>
   <string name="create_account_ip_block_message">Maaf, alamaik IP Sanak maso ko disakek dari mambuek akun baru.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Rincian</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Patanyoan nan acok ditanyokan</string>
@@ -166,10 +166,10 @@
   <string name="about_description">Tantang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kabijakan privasi</string>
   <string name="terms_of_use_description">Katantuan Panggunoan</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://min.m.wikipedia.org/wiki/Wikipedia:Tantang_Wikipedia</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://minecraft.wiki/wiki/Wikipedia:Tantang_Wikipedia</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/min#Baco_sacaro_luriang_jo_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/min</string>
-  <string name="android_app_request_an_account_url">https://min.wikipedia.org/wiki/Wikipedia:Mohon_buekkan_akun</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Mohon_buekkan_akun</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.id</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_translators_heading">Panajamah</string>

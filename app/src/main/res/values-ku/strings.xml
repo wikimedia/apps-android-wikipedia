@@ -135,7 +135,7 @@
   <string name="search_reading_lists_no_results">Di lîsteyên xwendinê de tu encam nehat dîtin</string>
   <string name="search_history_no_results">Di raboriyê de tu encam nehat dîtin</string>
   <string name="edit_section_captcha_message">Ji bo ku ji spamên otomatîk xwe biparêzî, ji kerema xwe van peyvên ku li jêr têne xuyan binivîse</string>
-  <string name="edit_section_captcha_request_an_account_message">Qe nikarî rismê bibînî? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Daxwaza hesabekî bike&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Qe nikarî rismê bibînî? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Daxwaza hesabekî bike&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Peyvên ji jor tekrar bike</string>
   <string name="title_captcha">CAPTCHAyê binivîse</string>
   <string name="edit_section_captcha_reload">Ji bo ku cardin bar bibe bitikîne ser CAPTCHA</string>
@@ -196,7 +196,7 @@
   <string name="create_account_button">Hesabekî çêke</string>
   <string name="create_account_name_unavailable">Navê bikarhêneriyê ya \"%s\" ne berdest e. Xêra xwe navekî din bibijêre.</string>
   <string name="create_account_ip_block_message">Bibore, adrêsa te ya IPyê aniha ji bo çêkirina hesabên bû blokkirî ye.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Dêtay</string>
   <string name="preferences_general_heading">Giştî</string>
   <string name="preferences_account_heading">Hesab</string>
@@ -230,10 +230,10 @@
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
-  <string name="about_wikipedia_url">https://ku.wikipedia.org/wiki/Wîkîpediya:Derbarê_Wîkîpediyayê_de</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wîkîpediya:Derbarê_Wîkîpediyayê_de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitêbxaneyên bikarhatî</string>
@@ -242,7 +242,7 @@
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye wergerandin.</string>
   <string name="about_app_license_heading">Destûr</string>
-  <string name="about_app_license" fuzzy="true">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
+  <string name="about_app_license" fuzzy="true">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
   <string name="about_wmf">Berhemeke &lt;a href=\"https://wikimediafoundation.org/\"&gt;Weqfa Wîkîmedyayê&lt;/a&gt;</string>
   <string name="about_activity_title">Derbarê</string>
   <string name="edit_abandon_confirm">Ev rûpel hat guhartin. Bi rastî dixwazî bêyî tomarkirina guhartinên xwe derkevî?</string>
@@ -403,9 +403,9 @@
   <string name="error_blocked_start">Destpêkirina astengiyê: %s</string>
   <string name="error_blocked_expiry">Bidawîhatina astengiyê: %s</string>
   <string name="error_blocked_id">IDya astengkirinê: %s</string>
-  <string name="error_blocked_footer">Tu dikarî bi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; an &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;admînê&lt;/a&gt; re têkiliyê deynî di derbarê astengiyê de.</string>
+  <string name="error_blocked_footer">Tu dikarî bi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; an &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;admînê&lt;/a&gt; re têkiliyê deynî di derbarê astengiyê de.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Darika xwe ya alavan xisûsî bike</string>
-  <string name="error_blocked_footer_no_blocker">Tu dikarî bi &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;admîn&lt;/a&gt;ekî re têkiliyê deynî ji bo gotûbêjkirina astengiyê.</string>
+  <string name="error_blocked_footer_no_blocker">Tu dikarî bi &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;admîn&lt;/a&gt;ekî re têkiliyê deynî ji bo gotûbêjkirina astengiyê.</string>
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
   <string name="crash_report_relaunch_or_quit">Bibore, çewtiyekê rû da û sepana Wîkîpediyayê hate girtin.\n\nTu dixwazî ji serî ve dest pê bikî an bigirî?</string>
   <string name="crash_report_relaunch">Cardin dest pê bike</string>

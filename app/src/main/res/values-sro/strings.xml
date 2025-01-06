@@ -123,7 +123,7 @@
   <string name="search_reading_lists_no_results">Nisciunu arresultau agatau me is listas de ligidura</string>
   <string name="search_history_no_results">Nisciunu arresultau agatau in sa cronologia</string>
   <string name="edit_section_captcha_message">Po agiudai a amparai de su spam automàticu, po prexeri inserta is fueddus chi aparessint asuta</string>
-  <string name="edit_section_captcha_request_an_account_message">Non podit biri sa màgina? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Pedi unu contu&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Non podit biri sa màgina? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Pedi unu contu&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Arrapiti is fueddus de artu</string>
   <string name="title_captcha">Inserta su CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca su CAPTCHA po torrai a carrigai</string>
@@ -184,7 +184,7 @@
   <string name="create_account_button">Crea unu contu</string>
   <string name="create_account_name_unavailable">Su nòmini umperadori \"%s\" no est fasiu. Po prexeri, scèbera unu nòmini diferenti.</string>
   <string name="create_account_ip_block_message">Scusasì, s\'indiritzu IP tuu imoi est siddau e non podis criai contus nous.</string>
-  <string name="create_account_ip_block_help_url">https://it.m.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
   <string name="create_account_ip_block_details">Minudas</string>
   <string name="preferences_general_heading">Generali</string>
   <string name="preferences_account_heading">Contu</string>
@@ -217,7 +217,7 @@
   <string name="terms_of_use_description">Conditzionis de imperu</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
-  <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>

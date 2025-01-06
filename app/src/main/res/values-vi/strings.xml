@@ -158,7 +158,7 @@
   <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách đọc</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
-  <string name="edit_section_captcha_request_an_account_message">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Yêu cầu tạo tài khoản&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Không đọc được các chữ trong hình này? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Yêu cầu tạo tài khoản&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
   <string name="title_captcha">Nhập CAPTCHA</string>
   <string name="edit_section_captcha_reload">Chạm vào CAPTCHA để tải lại</string>
@@ -222,7 +222,7 @@
   <string name="create_account_button">Mở tài khoản</string>
   <string name="create_account_name_unavailable">Tên người dùng “%s” không sẵn có. Xin hãy chọn một cái tên khác.</string>
   <string name="create_account_ip_block_message">Đáng tiếc, địa chỉ IP của bạn hiện đang được cấm không được mở tài khoản mới.</string>
-  <string name="create_account_ip_block_help_url">https://vi.wikipedia.org/wiki/Trợ_giúp:Tôi_đã_bị_cấm</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Trợ_giúp:Tôi_đã_bị_cấm</string>
   <string name="create_account_ip_block_details">Chi tiết</string>
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="preferences_account_heading">Tài khoản</string>
@@ -256,12 +256,12 @@
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
   <string name="privacy_policy_description">Quy định về quyền riêng tư</string>
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
-  <string name="about_wikipedia_url">https://vi.wikipedia.org/wiki/Wikipedia:Giới_thiệu</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Giới_thiệu</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/vi?uselang=vi</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/vi</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
-  <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.vi</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
@@ -442,9 +442,9 @@
   <string name="error_blocked_start">Ngày bắt đầu cấm: %s</string>
   <string name="error_blocked_expiry">Ngày hạn tác vụ cấm: %s</string>
   <string name="error_blocked_id">Số tác vụ cấm: %s</string>
-  <string name="error_blocked_footer">Bạn có thể liên hệ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; hoặc &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Bảo quản viên\"&gt;bảo quản viên&lt;/a&gt; khác để thảo luận về cấm.</string>
+  <string name="error_blocked_footer">Bạn có thể liên hệ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; hoặc &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Bảo quản viên\"&gt;bảo quản viên&lt;/a&gt; khác để thảo luận về cấm.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tùy chỉnh thanh công cụ của bạn</string>
-  <string name="error_blocked_footer_no_blocker">Bạn có thể liên hệ một &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Bảo quản viên\"&gt;bảo quản viên&lt;/a&gt; để thảo luận về cấm.</string>
+  <string name="error_blocked_footer_no_blocker">Bạn có thể liên hệ một &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Bảo quản viên\"&gt;bảo quản viên&lt;/a&gt; để thảo luận về cấm.</string>
   <string name="temp_account_not_logged_in">Bạn chưa đăng nhập</string>
   <string name="temp_account_anon_ip_dialog_body">Sau khi bạn thực hiện sửa đổi, địa chỉ IP của bạn sẽ được dùng để liên kết với các sửa đổi của bạn.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Đăng nhập&lt;/a&gt; hoặc &lt;a href=\"https://#createaccount\"&gt;tạo tài khoản&lt;/a&gt; để được ghi công các sửa đổi khác trong tương lai và truy cập vào các tính năng khác.</string>
   <string name="temp_account_anon_dialog_body">Sau khi bạn thực hiện sửa đổi, một &lt;b&gt;tài khoản tạm thời&lt;/b&gt; sẽ được tạo cho bạn nhằm bảo vệ quyền riêng tư. &lt;a href=\"%1$s\"&gt;Tìm hiểu thêm&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Đăng nhập&lt;/a&gt; hoặc &lt;a href=\"https://#createaccount\"&gt;tạo tài khoản&lt;/a&gt; để được ghi công các sửa đổi khác trong tương lai và truy cập vào các tính năng khác.</string>
@@ -1309,7 +1309,7 @@
   <string name="talk_snackbar_survey_action_text">Bắt đầu</string>
   <string name="talk_share_discussion_subject">Wikipedia – thảo luận về chủ đề “%s” tại trang thảo luận</string>
   <string name="talk_share_talk_page">Wikipedia – thảo luận tại trang thảo luận</string>
-  <string name="talk_edit_disclaimer">Đây là trang thảo luận. Vui lòng tôn trọng các quy định thảo luận và nhớ ký tên vào bài viết của bạn bằng cách nhập bốn dấu ngã: ~~~~ khi xuất bản bằng wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Trang_thảo_luận\"&gt;Wikipedia:Trang thảo luận&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Đây là trang thảo luận. Vui lòng tôn trọng các quy định thảo luận và nhớ ký tên vào bài viết của bạn bằng cách nhập bốn dấu ngã: ~~~~ khi xuất bản bằng wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Trang_thảo_luận\"&gt;Wikipedia:Trang thảo luận&lt;/a&gt;</string>
   <string name="talk_search_hint">Tìm kiếm lời nhắn</string>
   <string name="talk_search_topics_hint">Tìm kiếm chủ đề</string>
   <string name="talk_search_find_in_talk_topics_hint">Tìm trong chủ đề trang thảo luận</string>

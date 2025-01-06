@@ -190,7 +190,7 @@
   <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
-  <string name="edit_section_captcha_request_an_account_message">画像が見られませんか? &lt;a href=\"https://ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成\"&gt;アカウント作成の申請&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">画像が見られませんか? &lt;a href=\"https://minecraft.wiki/wiki/Help:ログイン#アカウントの作成\"&gt;アカウント作成の申請&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
@@ -254,7 +254,7 @@
   <string name="create_account_button">アカウント作成</string>
   <string name="create_account_name_unavailable">利用者名「%s」は利用できません。別の名前を指定してください。</string>
   <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
-  <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/ヘルプ:あなたが投稿ブロックされたら</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/ヘルプ:あなたが投稿ブロックされたら</string>
   <string name="create_account_ip_block_details">詳細</string>
   <string name="preferences_general_heading">全般</string>
   <string name="preferences_account_heading">アカウント</string>
@@ -288,12 +288,12 @@
   <string name="about_description">ウィキペディアアプリについて</string>
   <string name="privacy_policy_description">プライバシーポリシー</string>
   <string name="terms_of_use_description">利用規約</string>
-  <string name="about_wikipedia_url">https://ja.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:ウィキペディアについて</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
+  <string name="android_app_request_an_account_url">//minecraft.wiki/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja</string>
@@ -473,9 +473,9 @@
   <string name="error_blocked_start">ブロックの開始日：%s</string>
   <string name="error_blocked_expiry">ブロックの終了日：%s</string>
   <string name="error_blocked_id">ブロックID：%s</string>
-  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;&lt;/a&gt;または別の&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;管理者&lt;/ aに連絡できます。 &gt;ブロックについて話し合う。%1$s</string>
+  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;&lt;/a&gt;または別の&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;管理者&lt;/ aに連絡できます。 &gt;ブロックについて話し合う。%1$s</string>
   <string name="theme_chooser_menu_item_short_tooltip">ツールバーをカスタマイズする</string>
-  <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
+  <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
   <string name="temp_account_not_logged_in">ログインしていません</string>
   <string name="temp_account_anon_ip_dialog_body">編集を行うと、IPアドレスが編集に紐付けられます。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
   <string name="temp_account_anon_dialog_body">編集を行うと、プライバシー保護のために&lt;b&gt;臨時アカウント&lt;/b&gt;が作成されます。 &lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
@@ -1326,7 +1326,7 @@
   <string name="talk_snackbar_survey_action_text">始める</string>
   <string name="talk_share_discussion_subject">ウィキペディア - トークページのトピック「 %s 」に関する議論</string>
   <string name="talk_share_talk_page">ウィキペディア - トークページでの議論</string>
-  <string name="talk_edit_disclaimer">トークページです。トークページのガイドラインを尊重し、ウィキテキストを使用して投稿する場合は文末に ~~~~と入力し必ず署名をしてください。&lt;br&gt;&lt;br&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:トークページのガイドライン&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">トークページです。トークページのガイドラインを尊重し、ウィキテキストを使用して投稿する場合は文末に ~~~~と入力し必ず署名をしてください。&lt;br&gt;&lt;br&gt; &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:トークページのガイドライン&lt;/a&gt;</string>
   <string name="talk_search_hint">メッセージを検索する</string>
   <string name="talk_search_topics_hint">トピックを検索</string>
   <string name="talk_search_find_in_talk_topics_hint">トークページのトピックを探す</string>

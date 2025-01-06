@@ -134,7 +134,7 @@
   <string name="search_reading_lists_no_results">Цхьаккха корадинзар дешарá долча листамашка</string>
   <string name="search_history_no_results">Цхьаккха а хӀама корадинзар тархьара чу</string>
   <string name="edit_section_captcha_message">Ши-шегӀа хулача спамах тхо лоралургдолаш лохе гойташ дола дешаш Ӏочуязде</string>
-  <string name="edit_section_captcha_request_an_account_message">Гаций хьона CAPTCHA сурташ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ДӀаéха аккаунт&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Гаций хьона CAPTCHA сурташ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ДӀаéха аккаунт&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ӏоязде лакхе гойташ дола дешаш</string>
   <string name="title_captcha">Ӏочузъе CAPTCHA</string>
   <string name="edit_section_captcha_reload">ӀотӀатоӀабе CAPTCHA йолча из кердайоаккхаргйолаш</string>
@@ -195,7 +195,7 @@
   <string name="create_account_button">Аккаунт хьакхолла</string>
   <string name="create_account_name_unavailable">Доакъашхочун цӀи \"%s\" мукъа яц. Дехар да, кхыйола цӀи Ӏочуязъе.</string>
   <string name="create_account_ip_block_message">Бехк ма баккхалахь, хьа IP-цӀай блок теха латт керда дагара йоазонаш (аккаунташ) хьакхоллалургдоацаш.</string>
-  <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Википедия:Блокировки</string>
   <string name="create_account_ip_block_details">Цунах лаьца ма дарра</string>
   <string name="preferences_general_heading">Юкъара</string>
   <string name="preferences_account_heading">Аккаунт</string>
@@ -229,12 +229,12 @@
   <string name="about_description">«Википеди» приложенех лаьца</string>
   <string name="privacy_policy_description">КъайлагӀарча хӀамай политика</string>
   <string name="terms_of_use_description">Пайда эцара бехкамаш</string>
-  <string name="about_wikipedia_url">https://inh.wikipedia.org/wiki/Википеди:Сурт_оттадар</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википеди:Сурт_оттадар</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/inh</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайн_дешар_а_дараш_а</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/inh</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -413,9 +413,9 @@
   <string name="error_blocked_start">Блок тохар доладеннад: %s</string>
   <string name="error_blocked_expiry">Блок тохар чакхдоал: %s</string>
   <string name="error_blocked_id">Блок тохара идентификаци: %s</string>
-  <string name="error_blocked_footer">Хьа аьттув ба &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яхачунца е кхыча &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
+  <string name="error_blocked_footer">Хьа аьттув ба &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яхачунца е кхыча &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Хьай кечалий панель нийсъе</string>
-  <string name="error_blocked_footer_no_blocker">Хьа аьттув ба &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
+  <string name="error_blocked_footer_no_blocker">Хьа аьттув ба &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
   <string name="crash_report_activity_title">Приложенен гӀалат</string>
   <string name="crash_report_relaunch_or_quit">Бехк ма баккхалахь, Википеден приложене чу гӀалат нийсделар, из бахьан долаш дӀакъовлаялар из.\n\nЮха хьаелла безам ба хьа из е аравала?</string>
   <string name="crash_report_relaunch">Юха хеца</string>
@@ -1208,7 +1208,7 @@
   <string name="talk_snackbar_survey_action_text">ДӀадоладе</string>
   <string name="talk_share_discussion_subject">Википеди — къамаьл да укх тема чу: «%s»</string>
   <string name="talk_share_talk_page">Википеди — къамаьла оагӀув</string>
-  <string name="talk_edit_disclaimer">Ер къамаьла оагӀув я. Дехар да, къамаьла оагӀон бокъонаш лелае, иштта, нагахьа санна викитекстаца Ӏайха цхьа хӀама яздаьдале, йистеваьлча(-яьлча), хьай текста кӀалха кулга язде йиъ тильдаца: ~~~~ .&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Википеди:Къамаьла оагӀон бокъонаш&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Ер къамаьла оагӀув я. Дехар да, къамаьла оагӀон бокъонаш лелае, иштта, нагахьа санна викитекстаца Ӏайха цхьа хӀама яздаьдале, йистеваьлча(-яьлча), хьай текста кӀалха кулга язде йиъ тильдаца: ~~~~ .&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Википеди:Къамаьла оагӀон бокъонаш&lt;/a&gt;</string>
   <string name="talk_search_hint">Хоамаш лахар</string>
   <string name="talk_search_topics_hint">Лахара темаш</string>
   <string name="talk_search_find_in_talk_topics_hint">Къамаьла оагӀона тӀа тема лаха</string>

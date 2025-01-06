@@ -247,7 +247,7 @@
   <string name="empty_tab_title">نویں ٹیب</string>
   <string name="menu_save_all_tabs">ساریاں ٹیباں محفوظ کرو</string>
   <string name="error_blocked_id">بلاک آئی ڈی: %s</string>
-  <string name="error_blocked_footer">بلاک بحث کرݨ کیتے تساں &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; or another &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ایڈمن&lt;/a&gt; نال رابطہ کر سڳدے ہو۔</string>
+  <string name="error_blocked_footer">بلاک بحث کرݨ کیتے تساں &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; or another &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;ایڈمن&lt;/a&gt; نال رابطہ کر سڳدے ہو۔</string>
   <string name="temp_account_dialog_ok">سمجھ آڳئی</string>
   <string name="crash_report_relaunch">ول شروع کرو</string>
   <string name="crash_report_quit">نکلو</string>

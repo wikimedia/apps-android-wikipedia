@@ -149,7 +149,7 @@
   <string name="search_reading_lists_no_results">Inga resultat hittades i läslistor</string>
   <string name="search_history_no_results">Inga resultat hittades i historik</string>
   <string name="edit_section_captcha_message">För att skydda mot automatiserad reklam, var god skriv in orden som visas nedan</string>
-  <string name="edit_section_captcha_request_an_account_message">Kan du inte se bilden? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Begär ett konto&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Kan du inte se bilden? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Begär ett konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Upprepa orden ovan</string>
   <string name="title_captcha">Ange captcha</string>
   <string name="edit_section_captcha_reload">Tryck på captcha för att uppdatera</string>
@@ -213,7 +213,7 @@
   <string name="create_account_button">Skapa konto</string>
   <string name="create_account_name_unavailable">Användarnamnet \"%s\" är inte tillgängligt. Var god välj ett annat namn.</string>
   <string name="create_account_ip_block_message">Tyvärr, din IP-adress har för tillfället blockerats från att skapa nya konton.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Allmänt</string>
   <string name="preferences_account_heading">Konto</string>
@@ -247,12 +247,12 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Integritetspolicy</string>
   <string name="terms_of_use_description">Användarvillkor</string>
-  <string name="about_wikipedia_url">https://sv.wikipedia.org/wiki/Wikipedia:Om</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/sv</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/index.php?title=Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv</string>
@@ -437,9 +437,9 @@
   <string name="error_blocked_start">Blockeringens början: %s</string>
   <string name="error_blocked_expiry">Blockeringens slut: %s</string>
   <string name="error_blocked_id">Blockerings-ID: %s</string>
-  <string name="error_blocked_footer">Du kan kontakta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
+  <string name="error_blocked_footer">Du kan kontakta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annan &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Anpassa ditt verktygsfält</string>
-  <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
+  <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="temp_account_not_logged_in">Du är inte inloggad</string>
   <string name="temp_account_anon_ip_dialog_body">När du redigerar kommer din IP-adress associeras med dina redigeringar.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logga in&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;skapa ett konto&lt;/a&gt; för att tillskrivas för framtida redigeringar och för att få tillgång till andra funktioner.</string>
   <string name="temp_account_anon_dialog_body">När du har gjort en redigering kommer ett &lt;b&gt;temporärt konto&lt;/b&gt; att skapas åt dig för att skydda din integritet. &lt;a href=\"%1$s\"&gt;Läs mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logga in&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;skapa ett konto&lt;/a&gt; för att få erkännande för framtida redigeringar och åtkomst till andra funktioner.</string>
@@ -1317,7 +1317,7 @@
   <string name="talk_snackbar_survey_action_text">Kom igång</string>
   <string name="talk_share_discussion_subject">Wikipedia - diskussion på diskussionssidans ämne \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskussioner på diskussionssida</string>
-  <string name="talk_edit_disclaimer">Detta är en diskussionssida. Var god respektera riktlinjerna för diskussionssidor och kom ihåg att signera dina inlägg genom att skriva fyra tildetecken: ~~~~ när du skriver med wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sv.wikipedia.org/wiki/Wikipedia:Diskussionssidor\"&gt;Wikipedia:Diskussionssidor&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Detta är en diskussionssida. Var god respektera riktlinjerna för diskussionssidor och kom ihåg att signera dina inlägg genom att skriva fyra tildetecken: ~~~~ när du skriver med wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Diskussionssidor\"&gt;Wikipedia:Diskussionssidor&lt;/a&gt;</string>
   <string name="talk_search_hint">Sök efter meddelanden</string>
   <string name="talk_search_topics_hint">Sök efter ämnen</string>
   <string name="talk_search_find_in_talk_topics_hint">Hitta i diskussionssideämnen</string>

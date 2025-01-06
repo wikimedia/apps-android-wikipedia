@@ -138,7 +138,7 @@
   <string name="search_reading_lists_no_results">ಓದುನ ಪಟ್ಟಿಲೆಡ್ ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="search_history_no_results">ಇತಿಹಾಸೊಡು ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="edit_section_captcha_message">ಅಟೊಮೇಟೆಡ್ ಸ್ಪ್ಯಾಮ್ ಉಂಡಾಪಿನೆನ್ ಉಂತಾಯೆರೆ ಬೋಡಾದ್, ದಯಮಲ್ತ್‌ದ್ ತಿರ್ತ್ ತೋಜುನ ಪಠ್ಯೊನು ಬರೆಲೆ.</string>
-  <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರೊನ್ ತುಯರ ಅಪುಜಾ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ಮುಲ್ಪ ತೂಲೆ&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರೊನ್ ತುಯರ ಅಪುಜಾ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ಮುಲ್ಪ ತೂಲೆ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ಮಿತ್ತ ಪದೊನ್ ಮುಲ್ಪ ಬರೆಲೆ</string>
   <string name="title_captcha">CAPTCHAನ್ ಬರೆಲೆ</string>
   <string name="edit_section_captcha_reload">ಕುಡ ಲೋಡ್ ಮಲ್ಪೆರೆ CAPTCHA ನ್ ಒತ್ತುಲೆ</string>
@@ -201,7 +201,7 @@
   <string name="create_account_button">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="create_account_name_unavailable">ಸದಸ್ಯತ್ವೊದ ಪುದರ್  \"%s\" ಲಭ್ಯ ಇಜ್ಜಿ. ದಯಮಾಲ್ತ್ ಬೇತೆ ಪುದಾರ್ ಆಯ್ಕೆ ಮಾಲ್ಪುಲೆ.</string>
   <string name="create_account_ip_block_message">ಕ್ಷಮೆ ಉಪ್ಪಾಡ್, ಪೊಸ ಖಾತೆನ್ ಸೃಷ್ಟಿ ಮಾಲ್ಪುಯಾರ ಇರೆನ IP ವಿಲಾಸೊನ್ ಇತ್ತೆ ನಿರ್ಬಂಧ ಮಾಲ್ತೆರ್.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ವಿವರೊ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯೊ</string>
   <string name="preferences_account_heading">ಖಾತೆ</string>
@@ -228,16 +228,16 @@
   <string name="about_description">ವಿಕಿಪೀಡಿಯ ಆಪ್ ತಾ ಬಗೆಟ್</string>
   <string name="privacy_policy_description">ಖಾಸಗಿ ಕಾರ್ಯೊನೀತಿ</string>
   <string name="terms_of_use_description">ಗಳಸುನಾ ನಿಬಂದೊಲು</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">ಗ್ರಂಥಾಲಯಟ್ ಬಲಕೆ ಅಪುಂಡು</string>
   <string name="about_contributors_heading">ಕಾನಿಕೆ ಕೊರ್ನಾರ್</string>
   <string name="about_translators_heading">ಅನುವಾದಕೆರ್</string>
   <string name="about_translators_translatewiki">This app was translated by the volunteer translators at &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ಪರವಾನಿಗೆ</string>
-  <string name="about_app_license" fuzzy="true">Source code available on &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Source code available on &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">A product of the &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">ಎಂಕ್ಲೆನ ಬಗ್ಗೆ</string>
   <string name="edit_abandon_confirm_yes">ಅಂದ್</string>

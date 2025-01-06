@@ -56,7 +56,7 @@
             style="@style/DataStringPreference"
             android:key="@string/preference_key_mediawiki_base_uri"
             android:title="@string/preference_key_mediawiki_base_uri"
-            android:dialogMessage="Prod (default if blank): https://wikipedia.org
+            android:dialogMessage="Prod (default if blank): https://minecraft.wiki
             \nDev: http://host:8080
             \nBeta cluster: https://wikipedia.beta.wmflabs.org" />
 

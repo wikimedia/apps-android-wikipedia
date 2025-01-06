@@ -128,7 +128,7 @@
   <string name="search_reading_lists_no_results">Hasil kaga\' ketemu di daptar bacaan</string>
   <string name="search_history_no_results">Hasil kaga\' ketemu di riwayat</string>
   <string name="edit_section_captcha_message">Bakal nglindungin deri sampahan otomatis, masupin dah kata-kata nyang nongol di bawah ni</string>
-  <string name="edit_section_captcha_request_an_account_message">Kaga\' bisa ngiat gambar? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Minta\' bikinin rèkening&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Kaga\' bisa ngiat gambar? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Minta\' bikinin rèkening&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulangin kata-kata di atas</string>
   <string name="title_captcha">Masupin CAPTCHA</string>
   <string name="edit_section_captcha_reload">Teken CAPTCHA bakal munggah ulang</string>
@@ -189,7 +189,7 @@
   <string name="create_account_button">Keja rèkening</string>
   <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang béda.</string>
   <string name="create_account_ip_block_message">Maap, lu punya aderès IP sekarang ni lagi digibang deri pengejaan rèkening baru.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Tètèk bengèk</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="preferences_account_heading">Rèkening</string>
@@ -223,10 +223,10 @@
   <string name="about_description">Pasal aplikasi Wikipédi</string>
   <string name="privacy_policy_description">Belèd keresiaan</string>
   <string name="terms_of_use_description">Ketentuan pemakéan</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipédi:Pasal</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipédi:Pasal</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_luar_jala_èn_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Pertanyaan_Sering_Android</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipédi:Bikinin_rèkening</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipédi:Bikinin_rèkening</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Tenger_gambar</string>
   <string name="about_libraries_heading">Miswar nyang dipaké</string>
@@ -400,9 +400,9 @@
   <string name="error_blocked_start">Mulain penggibangan: %s</string>
   <string name="error_blocked_expiry">Bonto penggibangan: %s</string>
   <string name="error_blocked_id">ID Penggibangan: %s</string>
-  <string name="error_blocked_footer">Lu bisa ubungin &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;merbot&lt;/a&gt; nyang laèn bakal ngeguntengin pasal tu penggibangan.</string>
+  <string name="error_blocked_footer">Lu bisa ubungin &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;merbot&lt;/a&gt; nyang laèn bakal ngeguntengin pasal tu penggibangan.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Cèngliin lu punya palang peranti</string>
-  <string name="error_blocked_footer_no_blocker">Lu bisa ubungin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;merbot&lt;/a&gt; bakal ngobrolin pasal penggibangan.</string>
+  <string name="error_blocked_footer_no_blocker">Lu bisa ubungin &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;merbot&lt;/a&gt; bakal ngobrolin pasal penggibangan.</string>
   <string name="crash_report_activity_title">Aplikasi ngablu</string>
   <string name="crash_report_relaunch_or_quit">Kita mohon maap, ni aplikasi Wikipédi ngablu èn diberentiin.\n\nApa lu pèngèn mulain lagi apa kuar aja?</string>
   <string name="crash_report_relaunch">Mulain lagi</string>
@@ -1230,7 +1230,7 @@
   <string name="talk_snackbar_survey_action_text">Mulain</string>
   <string name="talk_share_discussion_subject">Wikipédi - perhadring di halaman kongko pasal \"%s\"</string>
   <string name="talk_share_talk_page">Wikipédi - perhadring di halaman kongko</string>
-  <string name="talk_edit_disclaimer">Ni – halaman obrongan. Tulung hormatin pedoman halaman kongko, èn jangan ampé lali nèken lu punya ceplokan tibang ngetik empat tenger gelombang: ~~~~ pas nyeplokin paké wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipédi:Pedoman halaman kongko&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Ni – halaman obrongan. Tulung hormatin pedoman halaman kongko, èn jangan ampé lali nèken lu punya ceplokan tibang ngetik empat tenger gelombang: ~~~~ pas nyeplokin paké wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipédi:Pedoman halaman kongko&lt;/a&gt;</string>
   <string name="talk_search_hint">Cari pesen</string>
   <string name="talk_search_topics_hint">Cari topik</string>
   <string name="talk_search_find_in_talk_topics_hint">Temuin di topik halaman kongko</string>

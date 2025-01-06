@@ -190,7 +190,7 @@
   <string name="search_reading_lists_no_results">لا نتائج في قوائم القراءة</string>
   <string name="search_history_no_results">لا نتائج في التاريخ</string>
   <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، فضلاً أدخل الكلمات التي تظهر أدناه</string>
-  <string name="edit_section_captcha_request_an_account_message">لا تستطيع رؤية الصورة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابًا&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">لا تستطيع رؤية الصورة؟ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابًا&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
   <string name="title_captcha">أدخل كلمة التحقق</string>
   <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
@@ -254,7 +254,7 @@
   <string name="create_account_button">أنشئ حسابًا</string>
   <string name="create_account_name_unavailable">اسم المستخدم \"%s\" غير متوفر; يُرجَى اختيار اسم مختلف.</string>
   <string name="create_account_ip_block_message">عذرًا، تم منع عنوان الآيبي الخاص بك حاليًا من إنشاء حسابات جديدة.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">التفاصيل</string>
   <string name="preferences_general_heading">عام</string>
   <string name="preferences_account_heading">الحساب</string>
@@ -288,12 +288,12 @@
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
-  <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ويكيبيديا:عن</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/ar</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/ar</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ar</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ar</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -490,9 +490,9 @@
   <string name="error_blocked_start">بداية المنع: %s</string>
   <string name="error_blocked_expiry">انتهاء صلاحية المنع: %s</string>
   <string name="error_blocked_id">معرف المنع: %s</string>
-  <string name="error_blocked_footer">يمكنك الاتصال بـ&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; أو أي &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;إداري&lt;/a&gt; آخر لمناقشة المنع.</string>
+  <string name="error_blocked_footer">يمكنك الاتصال بـ&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; أو أي &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;إداري&lt;/a&gt; آخر لمناقشة المنع.</string>
   <string name="theme_chooser_menu_item_short_tooltip">تخصيص شريط الأدوات الخاص بك</string>
-  <string name="error_blocked_footer_no_blocker">يمكنك التواصل مع أحد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;الإداريين&lt;/a&gt; لمناقشة المنع.</string>
+  <string name="error_blocked_footer_no_blocker">يمكنك التواصل مع أحد &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;الإداريين&lt;/a&gt; لمناقشة المنع.</string>
   <string name="temp_account_not_logged_in">أنت غير مسجل الدخول</string>
   <string name="temp_account_anon_ip_dialog_body">بمجرد إجراء تعديل، سيتم ربط عنوان IP الخاص بك بتعديلاتك.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;قم بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; للحصول على رصيد للتعديلات المستقبلية وللوصول إلى ميزات أخرى.</string>
   <string name="temp_account_anon_dialog_body">بمجرد إجراء تعديل، سيتم إنشاء &lt;b&gt;حساب مؤقت&lt;/b&gt; لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;قم بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; للحصول على رصيد للتعديلات المستقبلية وللوصول إلى ميزات أخرى.</string>
@@ -1510,7 +1510,7 @@
   <string name="talk_snackbar_survey_action_text">ابدأ</string>
   <string name="talk_share_discussion_subject">ويكيبيديا - نقاش في صفحة نقاش موضوع %s</string>
   <string name="talk_share_talk_page">ويكيبيديا - نقاشات في صفحة نقاش</string>
-  <string name="talk_edit_disclaimer">هذه صفحة نقاش. فضلًا التزم بإرشادات صفحات النقاش، وتذكر أن توقّع مشاركاتك بكتابة أربع علامات مدّة: ~~~~ عند النشر باستخدام نص ويكي.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:إرشادات_صفحة_النقاش\"&gt;ويكيبيديا:إرشادات صفحة النقاش&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">هذه صفحة نقاش. فضلًا التزم بإرشادات صفحات النقاش، وتذكر أن توقّع مشاركاتك بكتابة أربع علامات مدّة: ~~~~ عند النشر باستخدام نص ويكي.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/ويكيبيديا:إرشادات_صفحة_النقاش\"&gt;ويكيبيديا:إرشادات صفحة النقاش&lt;/a&gt;</string>
   <string name="talk_search_hint">ابحث في الرسائل</string>
   <string name="talk_search_topics_hint">البحث عن المواضيع</string>
   <string name="talk_search_find_in_talk_topics_hint">تجد في موضوع صفحة الحديث</string>

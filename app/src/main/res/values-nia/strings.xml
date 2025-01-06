@@ -127,7 +127,7 @@
   <string name="search_reading_lists_no_results">Lö musöndra ba gangolita nibaso</string>
   <string name="search_history_no_results">Lö nisöndra ba waö-waö</string>
   <string name="edit_section_captcha_message">Ena\'ö toba\'agö spam otomatis, sura wehede soroma ba da\'a tou</string>
-  <string name="edit_section_captcha_request_an_account_message">Lö ö\'ila gambara? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Andrö enau tefazökhi akun&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Lö ö\'ila gambara? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Andrö enau tefazökhi akun&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Fuli sura wehede moroi yaŵa</string>
   <string name="title_captcha">Sura CAPTCHA</string>
   <string name="edit_section_captcha_reload">Höndrögö CAPTCHA ena\'ö tebohouni</string>
@@ -185,7 +185,7 @@
   <string name="create_account_button">Fazökhi akun</string>
   <string name="create_account_name_unavailable">Töi zangoguna \"%s\" no lahalö niha. Alui döi tanö bö\'ö.</string>
   <string name="create_account_ip_block_message">No toba\'agö alamat IP-mö ba wamazökhi akun si bohou.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detil</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="preferences_account_heading">Akun</string>
@@ -219,17 +219,17 @@
   <string name="about_description">Sanandrösa ba aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Goi-goi wangoguna\'ö</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/nia</string>
-  <string name="android_app_request_an_account_url">https://nia.wikipedia.org/wiki/Wikipedia:Mangandrö_wamazökhi_akun</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Mangandrö_wamazökhi_akun</string>
   <string name="about_libraries_heading">Pustaka ni\'oguna\'ö</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Nga\'örö tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Sangali</string>
   <string name="about_translators_translatewiki">No la\'ali aplikasi andre ira relawan ba &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license" fuzzy="true">Umbu kode so ba &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ba ba &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; barö &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Na lö famataro tanö bö\'ö, fefu konten tefa\'anö barö &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Umbu kode so ba &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ba ba &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; barö &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Na lö famataro tanö bö\'ö, fefu konten tefa\'anö barö &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produk &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sanandrösa</string>
   <string name="edit_abandon_confirm">Nga\'örö andre no mubulö\'ö. Hadia edöna ötibo\'ö fefu ia?</string>

@@ -686,11 +686,11 @@ interface Service {
     suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
     companion object {
-        const val WIKIPEDIA_URL = "https://wikipedia.org/"
+        const val WIKIPEDIA_URL = "https://minecraft.wiki/"
         const val WIKIDATA_URL = "https://www.wikidata.org/"
         const val COMMONS_URL = "https://commons.wikimedia.org/"
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"
-        const val MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
+        const val MW_API_PREFIX = "api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
         const val PREFERRED_THUMB_SIZE = 320
 
         // Maximum cache time for site-specific data, and other things not likely to change very often.

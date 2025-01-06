@@ -9,10 +9,10 @@ import java.util.*
 
 /** An enumeration describing the different possible namespace codes. Do not attempt to use this
  * class to preserve URL path information such as Talk: or User: or localization.
- * @see [Wikipedia:Namespace](https://en.wikipedia.org/wiki/Wikipedia:Namespace)
+ * @see [Wikipedia:Namespace](https://minecraft.wiki/wiki/Wikipedia:Namespace)
  * @see [Extension default namespaces](https://www.mediawiki.org/wiki/Extension_default_namespaces)
  * @see [Manual:Namespace](https://www.mediawiki.org/wiki/Manual:Namespace.Built-in_namespaces)
- * @see [Namespaces reported by API](https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces|namespacealiases)
+ * @see [Namespaces reported by API](https://minecraft.wiki/api.php?action=query&meta=siteinfo&siprop=namespaces|namespacealiases)
  */
 @Suppress("unused")
 enum class Namespace(private val code: Int) : EnumCode {

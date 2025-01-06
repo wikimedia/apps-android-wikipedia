@@ -209,7 +209,7 @@
   <string name="search_reading_lists_no_results">Не найдено результатов в списках для чтения</string>
   <string name="search_history_no_results">Не найдено результатов в истории</string>
   <string name="edit_section_captcha_message">Для того, что бы помочь нам защититься от автоматизированного спама, пожалуйста, введите слова, которые показаны ниже</string>
-  <string name="edit_section_captcha_request_an_account_message">Не видите изображений капчи? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Запросите учётную запись&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Не видите изображений капчи? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Запросите учётную запись&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Повторите слова, показанные выше</string>
   <string name="title_captcha">Введите CAPTCHA</string>
   <string name="edit_section_captcha_reload">Коснитесь CAPTCHA для её обновления</string>
@@ -273,7 +273,7 @@
   <string name="create_account_button">Создать учётную запись</string>
   <string name="create_account_name_unavailable">Имя участника \"%s\" недоступно. Пожалуйста, укажите иное имя.</string>
   <string name="create_account_ip_block_message">Извините, ваш IP-адрес заблокирован от создания новых учётных записей.</string>
-  <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Википедия:Блокировки</string>
   <string name="create_account_ip_block_details">Подробности</string>
   <string name="preferences_general_heading">Общие</string>
   <string name="preferences_account_heading">Учётная запись</string>
@@ -307,12 +307,12 @@
   <string name="about_description">О приложении «Википедия»</string>
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
-  <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Википедия:Описание</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википедия:Описание</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/ru</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru</string>
@@ -503,9 +503,9 @@
   <string name="error_blocked_start">Начало блокировки: %s</string>
   <string name="error_blocked_expiry">Окончание блокировки: %s</string>
   <string name="error_blocked_id">Идентификатор блокировки: %s</string>
-  <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
+  <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
-  <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
+  <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
   <string name="temp_account_anon_dialog_body">После внесения правки для вас будет создана &lt;b&gt;временная учётная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Узнайте об этом подробнее&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы получить признание за будущие правки и получить доступ к другим функциям.</string>
   <string name="temp_account_temp_dialog_body">Ваша правка будет отнесена к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадите учётную запись&lt;/a&gt;, помимо других преимуществ ваши правки будут связаны с выбранным вами именем.</string>
@@ -1398,7 +1398,7 @@
   <string name="talk_snackbar_survey_action_text">Начать</string>
   <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
   <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
-  <string name="talk_edit_disclaimer">Это страница обсуждения. Пожалуйста, соблюдайте правила ведения обсуждений и не забывайте подписывать свои сообщения, набирая четыре тильды: ~~~~ при публикации с использованием вики-текста.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Правила обсуждений\"&gt;Википедия:Правила обсуждений&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Это страница обсуждения. Пожалуйста, соблюдайте правила ведения обсуждений и не забывайте подписывать свои сообщения, набирая четыре тильды: ~~~~ при публикации с использованием вики-текста.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Правила обсуждений\"&gt;Википедия:Правила обсуждений&lt;/a&gt;</string>
   <string name="talk_search_hint">Искать сообщения</string>
   <string name="talk_search_topics_hint">Искать в темах</string>
   <string name="talk_search_find_in_talk_topics_hint">Поиск темы на странице обсуждения</string>

@@ -134,7 +134,7 @@
   <string name="search_reading_lists_no_results">Вуламалли списокра нимӗн те тупӑнмарӗ</string>
   <string name="search_history_no_results">Историре нимӗн те тупӑнмарӗ</string>
   <string name="edit_section_captcha_message">Пире спамран хӳтӗленме пулӑшмашкӑн аяларах кӑтартнӑ сӑмахсене ҫырса кӗртӗр.</string>
-  <string name="edit_section_captcha_request_an_account_message">Капча ӳкерчӗкне курмастӑр-и? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Аккаунт хатӗрлесе пама ыйтӑр&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Капча ӳкерчӗкне курмастӑр-и? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Аккаунт хатӗрлесе пама ыйтӑр&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ҫӳлерех кӑтартнӑ сӑмахсене ҫырӑр</string>
   <string name="title_captcha">CAPTCHA кӗртӗр</string>
   <string name="edit_section_captcha_reload">CAPTCHA ҫӗнетме ӑна тӗкӗнӗр</string>
@@ -188,7 +188,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Эл. почта кӑтартмасӑр мала кай</string>
   <string name="email_recommendation_dialog_create_with_email_action">Эл. почтӑн адресне хуш</string>
   <string name="create_account_button">Аккаунт хатӗрле</string>
-  <string name="create_account_ip_block_help_url">https://cv.wikipedia.org/wiki/Википеди:Блокланисем</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Википеди:Блокланисем</string>
   <string name="create_account_ip_block_details">Анлӑрах</string>
   <string name="preferences_general_heading">Тӗп</string>
   <string name="preferences_account_heading">Аккаунт</string>
@@ -206,10 +206,10 @@
   <string name="about_description">«Википеди» приложени ҫинчен</string>
   <string name="privacy_policy_description">Конфиденциальность йĕркисем</string>
   <string name="terms_of_use_description">Усӑ курмалли условисем</string>
-  <string name="about_wikipedia_url">https://cv.wikipedia.org/wiki/Википеди:Википеди_çинчен</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википеди:Википеди_çинчен</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнра_вуласси_тата_даннӑйсем</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cv</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cv</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Усӑ курнӑ библиотекӑсем</string>

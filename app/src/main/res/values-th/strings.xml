@@ -133,7 +133,7 @@
   <string name="search_reading_lists_no_results">ไม่พบผลลัพธ์ในรายการอ่าน</string>
   <string name="search_history_no_results">ไม่พบผลลัพธ์ในประวัติ</string>
   <string name="edit_section_captcha_message">กรุณากรอกข้อความที่ปรากฏด้านล่าง เพื่อป้องกันสแปมที่ทำงานอัตโนมัติ</string>
-  <string name="edit_section_captcha_request_an_account_message">ไม่เห็นภาพหรือไม่? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;\nขอบัญชี&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ไม่เห็นภาพหรือไม่? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;\nขอบัญชี&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">กรอกคำที่เห็นด้านบน</string>
   <string name="title_captcha">กรอก CAPTCHA</string>
   <string name="edit_section_captcha_reload">แตะ CAPTCHA เพื่อโหลดใหม่</string>
@@ -194,7 +194,7 @@
   <string name="create_account_button">สร้างบัญชี</string>
   <string name="create_account_name_unavailable">ไม่สามารถใช้ชื่อผู้ใช้ \"%s\" ได้ กรุณาเลือกชื่ออื่น</string>
   <string name="create_account_ip_block_message">ขออภัย เลขที่อยู่ไอพีของคุณถูกระงับการสร้างบัญชีใหม่ในขณะนี้</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">รายละเอียด</string>
   <string name="preferences_general_heading">ทั่วไป</string>
   <string name="preferences_account_heading">บัญชี</string>
@@ -227,10 +227,10 @@
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อกำหนดการใช้งาน</string>
-  <string name="about_wikipedia_url">https://th.wikipedia.org/wiki/วิกิพีเดีย:เกี่ยวกับ</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/วิกิพีเดีย:เกี่ยวกับ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
@@ -241,7 +241,7 @@
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_translators_translatewiki">แอปนี้แปลโดยผู้แปลอาสาสมัครจาก &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
-  <string name="about_app_license" fuzzy="true">ซอร์สโค้ดอยู่ที่ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; และ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ภายใต้ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; เนื้อหาถูกเผยแพร่ภายใต้ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; เว้นแต่จะระบุเป็นอย่างอื่น</string>
+  <string name="about_app_license" fuzzy="true">ซอร์สโค้ดอยู่ที่ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; และ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ภายใต้ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; เนื้อหาถูกเผยแพร่ภายใต้ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; เว้นแต่จะระบุเป็นอย่างอื่น</string>
   <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
   <string name="edit_abandon_confirm">หน้านี้ถูกแก้ไขแล้ว คุณแน่ใจหรือไม่ว่าต้องการออกโดยไม่บันทึกการเปลี่ยนแปลง?</string>
@@ -393,8 +393,8 @@
   <string name="error_blocked_start">เวลาเริ่มต้นการบล็อก: %s</string>
   <string name="error_blocked_expiry">เวลาหมดอายุการบล็อก: %s</string>
   <string name="error_blocked_id">ID การบล็อก: %s</string>
-  <string name="error_blocked_footer">คุณสามารถติดต่อ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; หรือ&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ผู้ดูแลระบบ&lt;/a&gt;คนอื่นเพื่อพูดคุยเกี่ยวกับการบล็อกได้</string>
-  <string name="error_blocked_footer_no_blocker">คุณสามารถติดต่อ&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ผู้ดูแลระบบ&lt;/a&gt;เพื่อพูดคุยเกี่ยวกับการบล็อกได้</string>
+  <string name="error_blocked_footer">คุณสามารถติดต่อ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; หรือ&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;ผู้ดูแลระบบ&lt;/a&gt;คนอื่นเพื่อพูดคุยเกี่ยวกับการบล็อกได้</string>
+  <string name="error_blocked_footer_no_blocker">คุณสามารถติดต่อ&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;ผู้ดูแลระบบ&lt;/a&gt;เพื่อพูดคุยเกี่ยวกับการบล็อกได้</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_relaunch_or_quit">เราขออภัย แอปวิกิพีเดียพบปัญหาและสิ้นสุดการทำงาน\n\nคุณต้องการเริ่มการทำงานใหม่หรือออกจากแอป</string>
   <string name="crash_report_relaunch">เริ่มการทำงานใหม่</string>

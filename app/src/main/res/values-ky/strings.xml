@@ -112,7 +112,7 @@
   <string name="about_description">«Уикипедия» тиркемеси жөнүндө</string>
   <string name="privacy_policy_description">Купуялык саясаты</string>
   <string name="terms_of_use_description">Колдонуу шарттары</string>
-  <string name="about_wikipedia_url">https://ky.wikipedia.org/wiki/Уикипедия:тууралуу</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Уикипедия:тууралуу</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Купуялуулук_саясаты</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading" fuzzy="true">колдонулган китепканалар</string>

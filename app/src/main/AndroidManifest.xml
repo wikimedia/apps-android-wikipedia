@@ -147,9 +147,9 @@
                      so http and https apply to all prefixes-->
                 <data android:scheme="http" />
                 <data android:scheme="https" />
-                <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" />
-                <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" />
-                <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" />
+                <data android:host="*.minecraft.wiki" android:pathPrefix="/wiki/" />
+                <data android:host="*.minecraft.wiki" android:pathPattern="/zh.*" />
+                <data android:host="*.minecraft.wiki" android:pathPattern="/sr.*" />
             </intent-filter>
         </activity>
         <activity

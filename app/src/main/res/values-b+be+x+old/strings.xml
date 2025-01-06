@@ -112,7 +112,7 @@
   <string name="search_reading_lists_no_results">У сьпісах чытаньня вынікаў ня знойдзена</string>
   <string name="search_history_no_results">У гісторыі вынікаў ня знойдзена</string>
   <string name="edit_section_captcha_message">Каб найлепшым чынам дапамагчы нам абараніцца ад аўтаматычнага спаму, калі ласка, увядзіце словы, якія паданыя ніжэй</string>
-  <string name="edit_section_captcha_request_an_account_message">На бачыце выявы? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Падайце запыт на ўліковы рахунак&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">На бачыце выявы? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Падайце запыт на ўліковы рахунак&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Паўтарыце словы зьверху</string>
   <string name="title_captcha">Увядзіце сымбалі з малюнку</string>
   <string name="edit_section_captcha_reload">Націсьніце малюнак для абнаўленьня</string>
@@ -188,7 +188,7 @@
   <string name="about_description">Пра дастасаваньне Вікіпэдыя</string>
   <string name="privacy_policy_description">Правілы адносна прыватнасьці</string>
   <string name="terms_of_use_description">Умовы выкарыстаньня</string>
-  <string name="about_wikipedia_url">https://be-tarask.wikipedia.org/wiki/Вікіпэдыя:Пра_Вікіпэдыю</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Вікіпэдыя:Пра_Вікіпэдыю</string>
   <string name="about_libraries_heading">Выкарастаныя бібліятэкі</string>
   <string name="about_contributors_heading">Аўтары</string>
   <string name="about_translators_heading">Перакладчыкі</string>

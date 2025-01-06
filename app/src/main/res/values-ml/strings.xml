@@ -114,7 +114,7 @@
   <string name="search_reading_lists_no_results">വായിക്കുന്ന പട്ടികയിൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
   <string name="search_history_no_results">ചരിത്രത്തിൽ ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
   <string name="edit_section_captcha_message">സ്വയം പ്രവർത്തിക്കുന്ന പാഴെഴുത്ത് സംവിധാനങ്ങളിൽ നിന്നുമുള്ള സംരക്ഷണത്തിനായി, താഴെ പ്രത്യക്ഷപ്പെടുന്ന വാക്കുകൾ എഴുതി നൽകുക</string>
-  <string name="edit_section_captcha_request_an_account_message">ചിത്രം കാണാൻ കഴിയുന്നില്ലേ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ഒരു അക്കൗണ്ടിന് വേണ്ടി അഭ്യർത്ഥിക്കുക&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ചിത്രം കാണാൻ കഴിയുന്നില്ലേ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ഒരു അക്കൗണ്ടിന് വേണ്ടി അഭ്യർത്ഥിക്കുക&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">മുകളിലെ വാക്കുകൾ ആവർത്തിക്കുക</string>
   <string name="title_captcha">കാപ്ച നൽകുക</string>
   <string name="edit_section_captcha_reload">കാപ്ച വീണ്ടും എടുക്കാനായി ടാപ് ചെയ്യുക</string>
@@ -195,7 +195,7 @@
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
   <string name="privacy_policy_description">സ്വകാര്യതാനയം</string>
   <string name="terms_of_use_description">ഉപയോഗനിബന്ധനകൾ</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://ml.m.wikipedia.org/wiki/വിക്കിപീഡിയ:വിവരണം</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://minecraft.wiki/wiki/വിക്കിപീഡിയ:വിവരണം</string>
   <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
   <string name="about_contributors_heading">സംഭാവന ചെയ്തവർ</string>
   <string name="about_translators_heading">വിവർത്തകർ</string>

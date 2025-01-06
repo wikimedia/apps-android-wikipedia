@@ -135,7 +135,7 @@
   <string name="search_reading_lists_no_results">Не најдов ништо во списоците за читање</string>
   <string name="search_history_no_results">Не најдов ништо во историјата</string>
   <string name="edit_section_captcha_message">За да се заштитиме од автоматизиран спам, внесете ги долуприкажаните зборови</string>
-  <string name="edit_section_captcha_request_an_account_message">Не ја гледате сликата? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Побарајте сметка&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Не ја гледате сликата? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Побарајте сметка&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Повторете ги гореприкажаните зборови</string>
   <string name="title_captcha">Внесете го одговорот на сликичката</string>
   <string name="edit_section_captcha_reload">Допрете за да ја превчитате сликичката</string>
@@ -199,7 +199,7 @@
   <string name="create_account_button">Направи сметка</string>
   <string name="create_account_name_unavailable">Корисничкото име „%s“ е недостапно. Изберете друго.</string>
   <string name="create_account_ip_block_message">За жал, вашата IP-адреса во мигов е спречена да создава нови сметки.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Подробно</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="preferences_account_heading">Сметка</string>
@@ -233,12 +233,12 @@
   <string name="about_description">За прилогот „Википедија“</string>
   <string name="privacy_policy_description">Заштита на личните податоци</string>
   <string name="terms_of_use_description">Услови на употреба</string>
-  <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/mk?uselang=mk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -423,9 +423,9 @@
   <string name="error_blocked_start">Почеток на блокот: %s</string>
   <string name="error_blocked_expiry">Истек на блокот: %s</string>
   <string name="error_blocked_id">Назнака на блокот: %s</string>
-  <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
+  <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://minecraft.wiki/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Прилагодете си го алатникот</string>
-  <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
+  <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://minecraft.wiki/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="temp_account_not_logged_in">Не сте најавени</string>
   <string name="temp_account_anon_ip_dialog_body">Штом ќе направите уредување, вашата IP-адреса ќе биде поврзана со уредувањата што ги правите.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
   <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\n\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
@@ -1304,7 +1304,7 @@
   <string name="talk_snackbar_survey_action_text">Започни</string>
   <string name="talk_share_discussion_subject">Википедија — разговор на темата „%s“ на разговорна страница</string>
   <string name="talk_share_talk_page">Википедија — разговори на разговорна страница</string>
-  <string name="talk_edit_disclaimer">Ова е разговорна страница. Почитувајте ги напатствијата и не заборавајте да се потпишувате со четири тилди: ~~~~ кога пишувате со викитекст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Напатствија за разговорни страници&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Ова е разговорна страница. Почитувајте ги напатствијата и не заборавајте да се потпишувате со четири тилди: ~~~~ кога пишувате со викитекст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Напатствија за разговорни страници&lt;/a&gt;</string>
   <string name="talk_search_hint">Пребарај пораки</string>
   <string name="talk_search_topics_hint">Поребарајте теми</string>
   <string name="talk_search_find_in_talk_topics_hint">Најди во разговорната тема</string>

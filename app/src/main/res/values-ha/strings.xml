@@ -135,7 +135,7 @@
   <string name="search_reading_lists_no_results">Babu sakamako a jerin na karantawa</string>
   <string name="search_history_no_results">Babu sakamako a tarihi</string>
   <string name="edit_section_captcha_message">Domin taimakawa wajen kare spam, daure ka saka kalmomin da suka baiyana a ƙasa</string>
-  <string name="edit_section_captcha_request_an_account_message">Baka ga hoton ba?&lt;a href=\"https://ha.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;&lt;/a&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Nemi a buɗe asusu&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Baka ga hoton ba?&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;&lt;/a&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Nemi a buɗe asusu&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Maimaita kalmomi daga sama</string>
   <string name="title_captcha">Sanya CAPTCHA</string>
   <string name="edit_section_captcha_reload">Danna CAPTCHA ɗora</string>
@@ -196,7 +196,7 @@
   <string name="create_account_button">Ƙirƙiri asusu</string>
   <string name="create_account_name_unavailable">Sunan mai amfani \"%s\" bai yi daidai ba. Daure a zaɓi mabambancin sunan mai amfani.</string>
   <string name="create_account_ip_block_message">Yi haƙuri an kulle adireshin ka na IP daga ƙirƙirar asusu.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Bayanai</string>
   <string name="preferences_general_heading">Gaba ɗaya</string>
   <string name="preferences_account_heading">Asusu</string>
@@ -230,10 +230,10 @@
   <string name="about_description">Game da Wikipedia app</string>
   <string name="privacy_policy_description">Manufofin kariya</string>
   <string name="terms_of_use_description">Sharuɗɗan amfani</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Laburaren da aka yi amfani da su</string>
@@ -411,9 +411,9 @@
   <string name="error_blocked_start">Farawar toshewa: %s</string>
   <string name="error_blocked_expiry">Ƙarshen toshewa: %s</string>
   <string name="error_blocked_id">An kulle ID: %s</string>
-  <string name="error_blocked_footer">Kana iya tuntubar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;ko wani&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt; mai gudanarwa&lt;/a&gt; domin a tattauna kullewar.</string>
+  <string name="error_blocked_footer">Kana iya tuntubar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;ko wani&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt; mai gudanarwa&lt;/a&gt; domin a tattauna kullewar.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Keɓance kayan aikin ka</string>
-  <string name="error_blocked_footer_no_blocker">Kana iya tuntuba a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;mai gudanarwa&lt;/a&gt; domin tattaunawa game da kullewar.</string>
+  <string name="error_blocked_footer_no_blocker">Kana iya tuntuba a &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;mai gudanarwa&lt;/a&gt; domin tattaunawa game da kullewar.</string>
   <string name="crash_report_activity_title">Kuskuren aikace-aikace</string>
   <string name="crash_report_relaunch_or_quit">Yi haƙuri, Manhajar Wikipedia ta sami matsala kuma an ƙare.\n\nKana so ka sake farawa ko dainawa?</string>
   <string name="crash_report_relaunch">Fara sake</string>
@@ -1242,7 +1242,7 @@
   <string name="talk_snackbar_survey_action_text">fara yanzu</string>
   <string name="talk_share_discussion_subject">Wikipedia - tattaunawa a kan batun shafin tattaunawa \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - tattaunawa a shafin tattaunawa</string>
-  <string name="talk_edit_disclaimer">Wannan shafin magana ne. Da fatan Allah ku girmama jagororin shafin magana, kuma ku tuna ku sanya hannu kan sakonni ta hanyar buga takardu huɗu: ~~~~ lokacin da aka aika ta amfani da wikitext. &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Jagororin shafi na magana&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;</string>
+  <string name="talk_edit_disclaimer">Wannan shafin magana ne. Da fatan Allah ku girmama jagororin shafin magana, kuma ku tuna ku sanya hannu kan sakonni ta hanyar buga takardu huɗu: ~~~~ lokacin da aka aika ta amfani da wikitext. &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Jagororin shafi na magana&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;</string>
   <string name="talk_search_hint">Saƙonnin bincike</string>
   <string name="talk_search_topics_hint">Bincika batutuwa</string>
   <string name="talk_search_find_in_talk_topics_hint">Bincika a cikin batun tattaunawa</string>

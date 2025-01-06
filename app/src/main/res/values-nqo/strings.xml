@@ -126,7 +126,7 @@
   <string name="search_reading_lists_no_results">ߞߐߝߟߌ߫ ߡߊ߫ ߛߐ߬ߘߐ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫.</string>
   <string name="search_history_no_results">ߞߐߝߟߌ߫ ߡߊ߫ ߛߐ߬ߘߐ߲߬ ߘߐ߬ߝߐ ߘߐ߫</string>
   <string name="edit_section_captcha_message">ߖߐ߲߬ߛߊ߫ ߞߊ߬ ߞߍߒߖߘߍߦߋߟߌ߫ ߞߏ߲ߘߏ ߡߊߘߍ߬ߡߍ߸ ߞߎߡߊߘߋ߲ ߡߍ߲ ߓߐߣߍ߲߫ ߘߎ߰ߟߊߘߐ߫ ߣߌ߲߬߸ ߏ߬ ߟߊߘߏ߲߬ ߖߊ߰ߣߌ߲߬.</string>
-  <string name="edit_section_captcha_request_an_account_message">ߌ ߕߍ߫ ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߟߊ߫؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ߖߊ߬ߕߋ߬ߘߊ ߘߏ߫ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߫&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ߌ ߕߍ߫ ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߟߊ߫؟ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ߖߊ߬ߕߋ߬ߘߊ ߘߏ߫ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߫&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ߞߎߡߊߘߋ߲ ߡߊߛߊ߬ߦߌ߬ ߛߊ߲ߝߍ߬</string>
   <string name="title_captcha">CAPTCHA ߟߊߘߏ߲߬</string>
   <string name="edit_section_captcha_reload">CAPTCHA ߛߐ߲߬ߞߌ߲߫ ߞߊ߬ ߞߎߘߊ ߟߊߣߊ߬</string>
@@ -187,7 +187,7 @@
   <string name="create_account_button">ߖߊ߬ߕߋ߬ߘߊ ߘߏ߫ ߟߊߞߊ߬</string>
   <string name="create_account_name_unavailable">ߟߊ߬ߓߊ߰ߙߊ߬ ߕߐ߮  \"%s\" ߕߍ߫ ߦߋ߲߬. ߕߐ߯ ߜߘߍ߫ ߛߎߥߊ߲ߘߌ߫ ߖߊ߰ߣߌ߲߬.</string>
   <string name="create_account_ip_block_message">ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߊ߬ߟߌ߬ߣߍ߲ ߠߋ߬ ߖߊ߬ߕߋ߬ߘߊ߬ ߞߎ߬ߘߊ߬ ߛߌ߲ߘߌ ߡߊ߬.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ߝߊߙߊ߲ߝߊ߯ߛߟߌ</string>
   <string name="preferences_general_heading">ߝߘߏ߬ߓߊ߬ߡߊ</string>
   <string name="preferences_account_heading">ߖߊ߬ߕߋ߬ߘߊ</string>
@@ -219,10 +219,10 @@
   <string name="about_description">ߞߊ߬ ߓߍ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬</string>
   <string name="privacy_policy_description">ߘߎ߲߬ߘߎ߬ߡߊ߬ ߤߊߞߍ</string>
   <string name="terms_of_use_description">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ</string>
-  <string name="about_wikipedia_url">https://nqo.wikipedia.org/wiki/ߥߞߌ-ߔߘߋߞߎ</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ߥߞߌ-ߔߘߋߞߎ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/ߥߞߌߡߋߘߌߦߊ߫_ߟߥߊ߬ߟߌ߬ߟߊ߲/ߊ߲ߘߙߏߦߌߘ_ߢߡߢ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ߛߓߍߘߊ߮ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ</string>
@@ -231,7 +231,7 @@
   <string name="about_translators_heading">ߘߟߊߡߌߘߊߟߊ߲</string>
   <string name="about_translators_translatewiki">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߓߐߒߖߘߍߘߐ߫ ߘߟߊߡߌߘߟߊ ߟߎ߬ ߟߋ߬ ߓߟߏ߫ ߦߊ߲߬ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ߕߌ߰ߦߊ</string>
-  <string name="about_app_license" fuzzy="true">ߘߏߝߙߍߕߍ ߛߎ߲ ߦߋ߫ ߦߊ߲߬ ߠߋ߬  &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ߊ߬ ߣߌ߫  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ߊ߬ ߣߌ߫ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ߟߋ߬ ߟߊ߫ ߖߊ߬ߡߊߙߌ ߞߣߐ߫. ߝߏ߫ ߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬߸ ߞߣߐߘߐ ߦߋ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ߟߊ߫ ߖߊ߬ߡߊߙߌ ߟߋ߬ ߞߣߐ߫.</string>
+  <string name="about_app_license" fuzzy="true">ߘߏߝߙߍߕߍ ߛߎ߲ ߦߋ߫ ߦߊ߲߬ ߠߋ߬  &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ߊ߬ ߣߌ߫  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ߊ߬ ߣߌ߫ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ߟߋ߬ ߟߊ߫ ߖߊ߬ߡߊߙߌ ߞߣߐ߫. ߝߏ߫ ߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬߸ ߞߣߐߘߐ ߦߋ߫ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ߟߊ߫ ߖߊ߬ߡߊߙߌ ߟߋ߬ ߞߣߐ߫.</string>
   <string name="about_wmf"> ߥߟߏߒߘߐ ߣߌ߲߬ ߦߋ߫ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; ߕߊ ߟߋ߬ ߘߌ߫</string>
   <string name="about_activity_title">ߡߊ߬ߘߎ߮</string>
   <string name="edit_abandon_confirm">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߬ ߠߊ߫. ߌ ߟߊ߫ ߣߴߊ߬ ߟߊ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߓߐ߫ ߞߵߊ߬ ߕߘߍ߬ ߌ ߡߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߞߎ߲߬ߘߎ߫؟</string>
@@ -393,9 +393,9 @@
   <string name="error_blocked_start">ߓߊ߬ߟߌ߬ߟߌ ߘߊߡߌߣߊ: %s</string>
   <string name="error_blocked_expiry">ߓߊ߬ߟߌ߬ߟߌ ߛߕߊ ߝߊ߫ ߕߎߡߊ: %s</string>
   <string name="error_blocked_id">ߓߊ߬ߟߌ߬ߟߌ ߡߊ߬ߛߙߋ: %s</string>
-  <string name="error_blocked_footer">ߌ ߘߌ߫ ߛߋ߫ ߓߌ߬ߟߊ߬ߢߐ߲߰ߡߊ ߢߌߣߌ߲߫ ߠߊ߫ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ߝߍ߬ ߥߟߊ߫ ߡߐ߰ ߜߘߍ߫ ߝߍ߬&lt;a href=\"https://nqo.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt; ߞߊ߬ ߘߊߘߐߖߊߥߏ ߞߍ߫ ߓߊ߬ߟߌ߬ߟߌ ߞߊ߲߬.</string>
+  <string name="error_blocked_footer">ߌ ߘߌ߫ ߛߋ߫ ߓߌ߬ߟߊ߬ߢߐ߲߰ߡߊ ߢߌߣߌ߲߫ ߠߊ߫ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ߝߍ߬ ߥߟߊ߫ ߡߐ߰ ߜߘߍ߫ ߝߍ߬&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt; ߞߊ߬ ߘߊߘߐߖߊߥߏ ߞߍ߫ ߓߊ߬ߟߌ߬ߟߌ ߞߊ߲߬.</string>
   <string name="theme_chooser_menu_item_short_tooltip">ߌ ߟߊ߫ ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
-  <string name="error_blocked_footer_no_blocker">ߌ ߘߌ߫ ߛߋ߫ ߓߌ߬ߟߊ߬ߢߐ߲߰ߡߊ ߢߌߣߌ߲߫ ߠߊ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ߟߥߊ߬ߟߌ߬ߟߊ&lt;/a&gt; ߘߏ߫ ߝߍ߬ ߞߊ߬ ߘߊߘߐߖߊߥߏ ߞߍ߫ ߓߊ߬ߟߌ߬ߟߌ ߞߊ߲߬.</string>
+  <string name="error_blocked_footer_no_blocker">ߌ ߘߌ߫ ߛߋ߫ ߓߌ߬ߟߊ߬ߢߐ߲߰ߡߊ ߢߌߣߌ߲߫ ߠߊ߫ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;ߟߥߊ߬ߟߌ߬ߟߊ&lt;/a&gt; ߘߏ߫ ߝߍ߬ ߞߊ߬ ߘߊߘߐߖߊߥߏ ߞߍ߫ ߓߊ߬ߟߌ߬ߟߌ ߞߊ߲߬.</string>
   <string name="temp_account_not_logged_in">ߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߫ ߕߍ߫</string>
   <string name="temp_account_dialog_ok">ߒ ߓߘߴߊ߬ ߢߊߦߋ߫</string>
   <string name="temp_account_using_title">ߌ ߦߋ߫ ߥߊ߯ߕߌ߫ ߟߕߊߡߌ߲߫ ߖߊߕߋߘߊ ߟߋ߬ ߟߊߓߊ߯ߙߊ ߞߊ߲߬ ߣߌ߲߬</string>

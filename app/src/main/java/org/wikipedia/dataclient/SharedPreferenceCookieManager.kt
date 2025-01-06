@@ -112,8 +112,8 @@ class SharedPreferenceCookieManager(
             if (domain.endsWith(domainSpec)) {
                 buildCookieList(cookieList, cookiesForDomainSpec, null)
             } else if (domainSpec.endsWith(WikiSite.BASE_DOMAIN)) {
-                // For sites outside the wikipedia.org domain, transfer the centralauth cookies
-                // from wikipedia.org unconditionally.
+                // For sites outside the minecraft.wiki domain, transfer the centralauth cookies
+                // from minecraft.wiki unconditionally.
                 buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX)
             }
         }

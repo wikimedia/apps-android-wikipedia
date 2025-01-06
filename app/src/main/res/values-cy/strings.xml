@@ -118,7 +118,7 @@
   <string name="search_reading_lists_no_results">Ni chafwyd canlyniadau yn y rhestr ddarllen</string>
   <string name="search_history_no_results">Ni chafwyd canlyniadau yn yr hanes</string>
   <string name="edit_section_captcha_message">I helpu i ddiogelu rhag sbam awtomataidd, rhowch y geiriau sy\' n ymddangos isod</string>
-  <string name="edit_section_captcha_request_an_account_message">Methu gweld y ddelwedd yma? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Gwnewch gais am gyfrif&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Methu gweld y ddelwedd yma? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Gwnewch gais am gyfrif&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ailadrodd geiriau oddi uchod</string>
   <string name="title_captcha">Teipiwch y captcha</string>
   <string name="edit_section_captcha_reload">Tapiwch captcha i ail-lwytho</string>
@@ -197,7 +197,7 @@
   <string name="about_description">Ynglyn ag ap Wicipedia</string>
   <string name="privacy_policy_description">Polisi preifatrwydd</string>
   <string name="terms_of_use_description">Termau Defnyddiwr</string>
-  <string name="about_wikipedia_url">https://cy.wikipedia.org/wiki/Wicipedia:Ynglŷn_â_Wicipedia</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wicipedia:Ynglŷn_â_Wicipedia</string>
   <string name="about_libraries_heading">Y llyfrgelloedd a ddefnyddir</string>
   <string name="about_contributors_heading">Cyfrannwyr</string>
   <string name="about_translators_heading">Cyfieithwyr</string>

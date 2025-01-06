@@ -124,7 +124,7 @@
   <string name="search_reading_lists_no_results">စာဖတ်စာရင်းမှ ရလဒ်များ မရှိပါ</string>
   <string name="search_history_no_results">ရာဇဝင်ထဲတွင် ရလဒ် မတွေ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေးလ်များရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
-  <string name="edit_section_captcha_request_an_account_message">ရုပ်ပုံကို မတွေ့ရပါသလား? &lt;a href=\"https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်\"&gt;ပိုမိုလေ့လာရန်a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ရုပ်ပုံကို မတွေ့ရပါသလား? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်\"&gt;ပိုမိုလေ့လာရန်a&gt;</string>
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ကိုထိပြီးအသစ်ထပ်ယူပါ</string>
@@ -185,7 +185,7 @@
   <string name="create_account_button">အကောင့် ဖန်တီးရန်</string>
   <string name="create_account_name_unavailable">အသုံးပြုသူအမည် %s သည် မရနိုင်ပါ။ ကျေးဇူးပြု၍ ကွဲပြားသော နာမည်တစ်ခု ရွေးချယ်ပါ။</string>
   <string name="create_account_ip_block_message">သင်၏ အိုင်ပီလိပ်စာကို အကောင့်ဖန်တီးခြင်းမှ လက်ရှိ ပိတ်ပင်တားဆီးထားပါသည်။</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/အကူအညီ:ကျွန်ုပ်ကို_ပိတ်ပင်ထားတယ်</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/အကူအညီ:ကျွန်ုပ်ကို_ပိတ်ပင်ထားတယ်</string>
   <string name="create_account_ip_block_details">အသေးစိတ်</string>
   <string name="preferences_general_heading">အထွေထွေ</string>
   <string name="preferences_account_heading">အကောင့်</string>
@@ -218,12 +218,12 @@
   <string name="about_description">ဝီကီပီးဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
-  <string name="about_wikipedia_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကြောင်း</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ဝီကီပီးဒီးယား:အကြောင်း</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/my</string>
-  <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/ဝီကီပီးဒီးယား:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/my</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">အသုံးပြုထားသော စာကြည့်တိုက်များ</string>
@@ -232,7 +232,7 @@
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_translators_translatewiki">ဤအက်ပ်ကို &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ရှိ စေတနာ့ဝန်ထမ်း ဘာသာပြန်သူများက ဘာသာပြန်ပေးထားသည်။</string>
   <string name="about_app_license_heading">လိုင်စင်</string>
-  <string name="about_app_license" fuzzy="true">ရင်းမြစ်ကုဒ်ကို &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; နှင့် &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; တို့တွင် &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။ သီးခြားဖော်ပြထားခြင်း မရှိပါက &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။</string>
+  <string name="about_app_license" fuzzy="true">ရင်းမြစ်ကုဒ်ကို &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; နှင့် &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; တို့တွင် &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။ သီးခြားဖော်ပြထားခြင်း မရှိပါက &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ဝီကီမီဒီယာ ဖောင်ဒေးရှင်း&lt;/a&gt; ၏ ထုတ်ကုန်တစ်ခု</string>
   <string name="about_activity_title">အကြောင်း</string>
   <string name="edit_abandon_confirm">ဤစာမျက်နှာသည် ပြောင်းလဲထားသည်။ သင့်ပြောင်းလဲမှုများအား မသိမ်းဆည်းဘဲ ထွက်ရန် သေချာပါသလား?</string>
@@ -386,8 +386,8 @@
   <string name="error_blocked_start">စတင်ပိတ်ပင်မှု- %s</string>
   <string name="error_blocked_expiry">ပိတ်ပင်မှုသက်တမ်းကုန်ချိန်- %s</string>
   <string name="error_blocked_id">ပိတ်ပင်မှုအိုင်ဒီ- %s</string>
-  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ကို ဆက်သွယ်နိုင်သည် သို့မဟုတ် ပိတ်ပင်မှုအကြောင်းဆွေးနွေးရန် အခြား&lt;a href=\"https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:Administrators\"&gt;စီမံခန့်ခွဲသူ&lt;/a&gt;ကိုဆက်သွယ်နိုင်ပါသည်။</string>
-  <string name="error_blocked_footer_no_blocker">ပိတ်ပင်မှုအကြောင်းဆွေးနွေးရန် &lt;a href=\"https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:Administrators\"&gt;စီမံခန့်ခွဲသူ&lt;/a&gt;ကိုဆက်သွယ်နိုင်ပါသည်။</string>
+  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ကို ဆက်သွယ်နိုင်သည် သို့မဟုတ် ပိတ်ပင်မှုအကြောင်းဆွေးနွေးရန် အခြား&lt;a href=\"https://minecraft.wiki/wiki/ဝီကီပီးဒီးယား:Administrators\"&gt;စီမံခန့်ခွဲသူ&lt;/a&gt;ကိုဆက်သွယ်နိုင်ပါသည်။</string>
+  <string name="error_blocked_footer_no_blocker">ပိတ်ပင်မှုအကြောင်းဆွေးနွေးရန် &lt;a href=\"https://minecraft.wiki/wiki/ဝီကီပီးဒီးယား:Administrators\"&gt;စီမံခန့်ခွဲသူ&lt;/a&gt;ကိုဆက်သွယ်နိုင်ပါသည်။</string>
   <string name="crash_report_activity_title">အပလီကေးရှင်း အမှား</string>
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>

@@ -131,7 +131,7 @@
   <string name="search_reading_lists_no_results">Labaar sia kae zin\'ikanɛ ka fʋ karim la</string>
   <string name="search_history_no_results">Labaar sia kae labakʋda la nii</string>
   <string name="edit_section_captcha_message">Fʋ ya\'a na sʋŋi gu\'uf yi \"automated spam\" pʋʋgin, sɔm opian\'abanɛ bɛ teŋir la</string>
-  <string name="edit_section_captcha_request_an_account_message">Mam pʋ nyɛ footo la? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia: Bu\'osim akaʋnt yɛla&gt;Bu\'osim akaʋnt yɛla&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Mam pʋ nyɛ footo la? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia: Bu\'osim akaʋnt yɛla&gt;Bu\'osim akaʋnt yɛla&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Lɛn maligim sɔb pian\'abanɛ bɛ agɔl la</string>
   <string name="title_captcha">Kpɛn\'ɛsim CAPTCHA</string>
   <string name="edit_section_captcha_reload">Diim CAPTCHA ka di maligim pin\'il</string>
@@ -192,7 +192,7 @@
   <string name="create_account_button">Yɔ\'ɔgim akaunt</string>
   <string name="create_account_name_unavailable">Tʋntʋn la yʋ\'ʋr \"%s\" ka\'asigɛ. M bɛlimnɛ tiakim gaŋ yʋ\'ʋsi\'a.</string>
   <string name="create_account_ip_block_message">Gaafara, Ba gu\'u fʋ IP addɛrɛs lanɛ ye di kʋ nyaŋi yɔ\'ɔg akaʋnt paalaa.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Sʋŋim:Ba gu\'umnɛ.</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Sʋŋim:Ba gu\'umnɛ.</string>
   <string name="create_account_ip_block_details">Wiesʋg</string>
   <string name="preferences_general_heading">Li wʋsa</string>
   <string name="preferences_account_heading">Akaʋnt</string>
@@ -224,10 +224,10 @@
   <string name="about_description">Wikipiidia app la yɛla</string>
   <string name="privacy_policy_description">Su\'adim gban\'ar</string>
   <string name="terms_of_use_description">Tʋʋma suor dɔlisʋg</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gbana buoris banɛ zaŋi tʋm</string>
@@ -386,9 +386,9 @@
   <string name="error_blocked_start">Kparib pin\'ilʋg: %s</string>
   <string name="error_blocked_expiry">Fʋ kparib la naad nɛ: %s</string>
   <string name="error_blocked_id">Kparib la zanbin: %s</string>
-  <string name="error_blocked_footer">Fʋ na tʋn\'e paae &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bɛɛ sɔ\' ya\'as &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;kpɛɛm&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
+  <string name="error_blocked_footer">Fʋ na tʋn\'e paae &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bɛɛ sɔ\' ya\'as &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;kpɛɛm&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tiakimb toolbar la</string>
-  <string name="error_blocked_footer_no_blocker">Fʋ tʋn\'e paae &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
+  <string name="error_blocked_footer_no_blocker">Fʋ tʋn\'e paae &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
   <string name="crash_report_activity_title">Fʋ buosʋg la paam gbɛlʋŋ</string>
   <string name="crash_report_relaunch_or_quit">Ti tum taal, Wikipedia app la nyɛnɛ gbɛlʋŋ si\'a ka ba gu\'oe di.\n\nFʋ na bɔɔd ye fʋ pin\'il ya\'as bɛɛ fʋ basɛ?</string>
   <string name="crash_report_relaunch">Maligim pin\'il</string>

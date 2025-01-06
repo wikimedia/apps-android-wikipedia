@@ -89,7 +89,7 @@
   <string name="search_reading_lists_no_results">Ааҕыы испииһэгэр туох да көстүбэтэ</string>
   <string name="search_history_no_results">Устуоруйатыгар туох да көстүбэтэ</string>
   <string name="edit_section_captcha_message">Аптамаатынан ыытыллар спаамтан көмүскэнэбит, бука диэн, аллара көстөр тыллары ук</string>
-  <string name="edit_section_captcha_request_an_account_message">Капча ойуута көстүбэт дуо? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Бэлиэ-аатта көрдөө&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Капча ойуута көстүбэт дуо? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Бэлиэ-аатта көрдөө&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Үөһэ көстөр тыллары хатылаа</string>
   <string name="title_captcha">Капчаны киллэр</string>
   <string name="edit_section_captcha_reload">Капчаны таарыйан саҥардан биэриэххин сөп</string>
@@ -149,7 +149,7 @@
   <string name="create_account_button">Бэлиэтэнии</string>
   <string name="create_account_name_unavailable">Маннык аат \"%s\" сатаммат. Бука диэн, атын аатта тал.</string>
   <string name="create_account_ip_block_message">Баалаама, Эн IP-гыттан саҥа бэлиэ-ааты оҥорор бобуллубут эбит.</string>
-  <string name="create_account_ip_block_help_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Хаачччахтааһын сиэрэ</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Бикипиэдьийэ:Хаачччахтааһын сиэрэ</string>
   <string name="create_account_ip_block_details">Сиһилии</string>
   <string name="preferences_general_heading">Сүнньүнэн</string>
   <string name="wikipedia_app_faq">Бикипиэдьийэ баайылын туһунан ыйытыылар</string>
@@ -179,10 +179,10 @@
   <string name="about_description">Бикипиэдьийэ дьибилгэтин туһунан</string>
   <string name="privacy_policy_description">Бүк охсунуу</string>
   <string name="terms_of_use_description">Туһаныы сиэрэ</string>
-  <string name="about_wikipedia_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Бикипиэдьийэ:Туһунан</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
@@ -190,7 +190,7 @@
   <string name="about_translators_heading">Тылбаасчыттар</string>
   <string name="about_translators_translatewiki">Бу дьибилгэти баҕалаах дьон манна тылбаастаабыттара - &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиссиэнсийэ</string>
-  <string name="about_app_license" fuzzy="true">Төрүт куод манна баар &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; уонна манна &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt;, лиссиэнсийэтэ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Атын ыйыллыбатах буоллаҕына иһинээҕитэ бу лиссиэнсийэ усулуобуйатынан тарҕанар: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Төрүт куод манна баар &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; уонна манна &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt;, лиссиэнсийэтэ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Атын ыйыллыбатах буоллаҕына иһинээҕитэ бу лиссиэнсийэ усулуобуйатынан тарҕанар: &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt; Викимедиа Пуондата&lt;/a&gt; оҥорон таһаарыыта</string>
   <string name="about_activity_title">Бу туһунан</string>
   <string name="edit_abandon_confirm">Сирэйи уларыппыккын быһыылаах. Ону бигэргэппэккэ тахсаары гыммыккын. Уларыппаккын дуо?</string>

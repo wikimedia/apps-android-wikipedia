@@ -115,7 +115,7 @@
   <string name="settings_activity_title">Танзимот</string>
   <string name="about_description">Дар бораи афзунаи Википедия</string>
   <string name="terms_of_use_description">Шартҳои истифода</string>
-  <string name="about_wikipedia_url">https://tg.wikipedia.org/wiki/Википедиа:Ошноӣ_бо_донишнома</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википедиа:Ошноӣ_бо_донишнома</string>
   <string name="about_libraries_heading" fuzzy="true">китобхонаҳои истифодашуда</string>
   <string name="about_translators_heading">Тарҷумонҳо</string>
   <string name="about_translators_translatewiki">Ин афзуна тавассути тарҷумонҳо ихтиёриҳо дар &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; тарҷума шудааст.</string>

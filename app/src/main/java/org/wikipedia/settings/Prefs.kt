@@ -169,7 +169,7 @@ object Prefs {
 
     val eventPlatformIntakeUriOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_intake_base_uri, "")!!
-
+    
     fun getLastRunTime(task: String): Long {
         return PrefsIoUtil.getLong(getLastRunTimeKey(task), 0)
     }

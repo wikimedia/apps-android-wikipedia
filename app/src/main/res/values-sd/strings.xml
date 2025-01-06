@@ -137,7 +137,7 @@
   <string name="search_reading_lists_no_results">پڙھڻ جي فھرستن ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_history_no_results">سوانح ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="edit_section_captcha_message">پاڻمرادو اسپام کان بچڻ ۾ مدد لاءِ، مھرباني ڪري ھيٺ ظاھر ٿيندڙ لفظ داخل ڪريو</string>
-  <string name="edit_section_captcha_request_an_account_message">تصوير نظر نہ پئي اچي؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;کاتي جي درخواست ڏيو&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">تصوير نظر نہ پئي اچي؟ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;کاتي جي درخواست ڏيو&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">مٿي ڏنل لفظ داخل ڪيو</string>
   <string name="title_captcha">ڪيپچا داخل ڪريو</string>
   <string name="edit_section_captcha_reload">ٻيھر ڏسڻ لاءِ ڪيپچا تي ٽيپ ڪريو</string>
@@ -200,7 +200,7 @@
   <string name="create_account_button">کاتو کوليو</string>
   <string name="create_account_name_unavailable">واپرائيندڙ جو نالو \"%s\" موجود ناهي. مھرباني ڪري مختلف نالو چونڊيو.</string>
   <string name="create_account_ip_block_message">معاف ڪجو، اوهان جي آئپي تان نوان کاتا کولڻ تي بندش وڌل آهي.</string>
-  <string name="create_account_ip_block_help_url">https://sd.wikipedia.org/wiki/مدد:مون_تي_بندش_وڌي_وئي</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/مدد:مون_تي_بندش_وڌي_وئي</string>
   <string name="create_account_ip_block_details">تفصيل</string>
   <string name="preferences_general_heading">عام</string>
   <string name="preferences_account_heading">کاتو</string>
@@ -230,10 +230,10 @@
   <string name="about_description">وڪيپيڊيا ايپ بابت</string>
   <string name="privacy_policy_description">نويڪلائي نِيَمَ</string>
   <string name="terms_of_use_description">استعمال جا شرط</string>
-  <string name="about_wikipedia_url">https://sd.wikipedia.org/wiki/Wikipedia:بابت</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:بابت</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
-  <string name="android_app_request_an_account_url">https://sd.wikipedia.org/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل لائبريريون</string>
@@ -415,7 +415,7 @@
   <string name="error_blocked_expiry">بندش جو خاتمو: %s</string>
   <string name="error_blocked_id">بندش آئڊي: %s</string>
   <string name="theme_chooser_menu_item_short_tooltip">پنھنجي اوزارپٽي مرضي مطابق بڻايو</string>
-  <string name="error_blocked_footer_no_blocker">توھان ڪنھن &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;منتظم&lt;/a&gt; سان رابطو ڪري بندش بابت ڳالھائي سگهو ٿا.</string>
+  <string name="error_blocked_footer_no_blocker">توھان ڪنھن &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;منتظم&lt;/a&gt; سان رابطو ڪري بندش بابت ڳالھائي سگهو ٿا.</string>
   <string name="temp_account_not_logged_in">توھان داخل ٿيل نہ آھيو</string>
   <string name="temp_account_dialog_ok">سمجهي ويس</string>
   <string name="temp_account_using_title">توهان هڪ عارضي کاتو استعمال ڪري رهيا آهيو</string>

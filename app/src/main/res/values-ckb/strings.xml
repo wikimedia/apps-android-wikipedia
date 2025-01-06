@@ -139,7 +139,7 @@
   <string name="search_reading_lists_no_results">ھیچ ئەنجامێک نەدۆزرایەوە لە پێڕستەکانی خوێندنەوە</string>
   <string name="search_history_no_results">ھیچ ئەنجامێک نەدۆزرایەوە لە مێژوو</string>
   <string name="edit_section_captcha_message">بۆ پارێزراوبوون لە دژی سپامە خۆکارەکان، تکایە ئەو وشانە داخل بکە کە لە خوارەوە دەرکەوتوون</string>
-  <string name="edit_section_captcha_request_an_account_message">ناتوانی وێنەکە ببینیت؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ناتوانی وێنەکە ببینیت؟ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">وشەکانی سەرەوە دووپات بکەرەوە</string>
   <string name="title_captcha">CAPTCHA تۆماربکە</string>
   <string name="edit_section_captcha_reload">کرتە لەسەر CAPTCHA بکە بۆ نوێکردنەوە</string>
@@ -200,7 +200,7 @@
   <string name="create_account_button">دروستکردنی ھەژمار</string>
   <string name="create_account_name_unavailable">ناوی بەکارھێنەرەکە \"%s\" بەردەست نییە. تکایە ناوێکی جیاواز ھەڵبژێرە.</string>
   <string name="create_account_ip_block_message">ببورە، ناونیشانی ئای پیەکەت ئێستا بەربەستکرا لە دروستکردنی ھەژماری نوێ.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/یارمەتی:من بەربەستکراوم</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/یارمەتی:من بەربەستکراوم</string>
   <string name="create_account_ip_block_details">وردەکارییەکان</string>
   <string name="preferences_general_heading">گشتی</string>
   <string name="preferences_account_heading">هەژمار</string>
@@ -234,12 +234,12 @@
   <string name="about_description">دەربارەی نەرمەواڵەی ویکیپیدیا</string>
   <string name="privacy_policy_description">سیاسەتی تایبەتێتی</string>
   <string name="terms_of_use_description">مەرجەکانی بەکارھێنان</string>
-  <string name="about_wikipedia_url">https://ckb.wikipedia.org/wiki/ویکیپیدیا:سەبارەت</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ویکیپیدیا:سەبارەت</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/سیاسەتی تایبەتێتی</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتێبخانە بەکارھاتووەکان</string>
@@ -248,7 +248,7 @@
   <string name="about_translators_heading">وەرگێڕەکان</string>
   <string name="about_translators_translatewiki">ئەم نەرمەواڵەیە وەرگێڕدراوە لەلایەن وەرگێڕە خۆبەخشەکان لە &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">مۆڵەت</string>
-  <string name="about_app_license" fuzzy="true">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;گێرت&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گیتھەب&lt;/a&gt; لەژێر &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;مۆڵەتنامەی Apache 2.0&lt;/a&gt;. بە پێچەوانەوە، ناوەڕۆک لەژێر &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;مۆڵەتنامەی Creative Commons Attribution-ShareAlike &lt;/a&gt; بەردەستە.</string>
+  <string name="about_app_license" fuzzy="true">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;گێرت&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گیتھەب&lt;/a&gt; لەژێر &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;مۆڵەتنامەی Apache 2.0&lt;/a&gt;. بە پێچەوانەوە، ناوەڕۆک لەژێر &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;مۆڵەتنامەی Creative Commons Attribution-ShareAlike &lt;/a&gt; بەردەستە.</string>
   <string name="about_wmf">بەرھەمی &lt;a href=\"https://wikimediafoundation.org/\"&gt;دامەزراوەی ویکیمیدیا&lt;/a&gt;</string>
   <string name="about_activity_title">دەربارە</string>
   <string name="edit_abandon_confirm">پەڕەکە گۆڕدراوە. دڵنیای کە دەتەوێت بچیە دەرەوە بەبێ پاشەکەوتکردنی گۆڕانکارییەکان؟</string>
@@ -410,9 +410,9 @@
   <string name="error_blocked_start">دەستپێکی بەربەستکردن: %s</string>
   <string name="error_blocked_expiry">بەسەرچوونی بەربەستکردن: %s</string>
   <string name="error_blocked_id">پێناسی بەربەستکردن: %s</string>
-  <string name="error_blocked_footer">دەتوانیت پەیوەندی بە &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;ەوە یان &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;بەڕێوەبەر&lt;/a&gt;ێکی ترەوە بکەیت بۆ وتووێژکردن لەسەر بەربەستکردنەکە.</string>
+  <string name="error_blocked_footer">دەتوانیت پەیوەندی بە &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;ەوە یان &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;بەڕێوەبەر&lt;/a&gt;ێکی ترەوە بکەیت بۆ وتووێژکردن لەسەر بەربەستکردنەکە.</string>
   <string name="theme_chooser_menu_item_short_tooltip">تووڵامرازەکەت ساز بکە</string>
-  <string name="error_blocked_footer_no_blocker">دەتوانیت پەیوەندی بە &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;بەڕێوەبەر&lt;/a&gt;ێکەوە بکەیت بۆ وتووێژکردن لەسەر بەربەستکردنەکە.</string>
+  <string name="error_blocked_footer_no_blocker">دەتوانیت پەیوەندی بە &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;بەڕێوەبەر&lt;/a&gt;ێکەوە بکەیت بۆ وتووێژکردن لەسەر بەربەستکردنەکە.</string>
   <string name="crash_report_activity_title">ھەڵەی نەرمەواڵە</string>
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
   <string name="crash_report_relaunch">دەستپێکردنەوە</string>

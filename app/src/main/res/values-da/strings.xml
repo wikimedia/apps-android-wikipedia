@@ -150,7 +150,7 @@
   <string name="search_reading_lists_no_results">Ingen resultater fundet i læselister</string>
   <string name="search_history_no_results">Ingen resultater fundet i historik</string>
   <string name="edit_section_captcha_message">For at beskytte mod automatiseret spam, indtast de ord, der vises nedenfor</string>
-  <string name="edit_section_captcha_request_an_account_message">Kan du ikke se billeder? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Anmod om en konto&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Kan du ikke se billeder? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Anmod om en konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Gentag ordene ovenfor</string>
   <string name="title_captcha">Indtast CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tryk på CAPTCHA for at genindlæse</string>
@@ -214,7 +214,7 @@
   <string name="create_account_button">Opret konto</string>
   <string name="create_account_name_unavailable">Brugernavnet »%s« er ikke tilgængelig. Vælg venligst et andet navn.</string>
   <string name="create_account_ip_block_message">Beklager, din IP-adresse er på nuværende tidspunkt blokeret fra at oprette nye kontoer.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="preferences_account_heading">Konto</string>
@@ -248,12 +248,12 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
-  <string name="about_wikipedia_url">https://da.wikipedia.org/wiki/Hjælp:Om</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Hjælp:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -437,9 +437,9 @@
   <string name="error_blocked_start">Start af blokering: %s</string>
   <string name="error_blocked_expiry">Udløb af blokering: %s</string>
   <string name="error_blocked_id">Blokerings-id: %s</string>
-  <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en anden &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
+  <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en anden &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tilpas din værktøjslinje</string>
-  <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
+  <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
   <string name="temp_account_not_logged_in">Du er ikke logget ind</string>
   <string name="temp_account_anon_ip_dialog_body">Når du laver en redigering, vil din IP-adresse blive knyttet til dine redigeringer.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;opret en konto&lt;/a&gt; for at få tilskrivning for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
   <string name="temp_account_anon_dialog_body">Når du har lavet en redigering, oprettes en &lt;b&gt;midlertidig konto&lt;/b&gt; til dig for at beskytte dit privatliv. &lt;a href=\"%1$s\"&gt;Lær mere&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Log ind&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;opret en konto&lt;/a&gt; for at få tilskrivning for fremtidige redigeringer og for at få adgang til andre funktioner.</string>
@@ -1316,7 +1316,7 @@
   <string name="talk_snackbar_survey_action_text">Kom igang</string>
   <string name="talk_share_discussion_subject">Wikipedia - diskussion om emnet \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskussioner på diskussionsside</string>
-  <string name="talk_edit_disclaimer">Dette er en diskussionsside. Respekter venligst retningslinjerne for diskussionssiden, og husk at underskrive dine indlæg ved at skrive fire tilder: ~~~~ når du poster ved hjælp af wikitext.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Retningslinjer for diskussionssider&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Dette er en diskussionsside. Respekter venligst retningslinjerne for diskussionssiden, og husk at underskrive dine indlæg ved at skrive fire tilder: ~~~~ når du poster ved hjælp af wikitext.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Retningslinjer for diskussionssider&lt;/a&gt;</string>
   <string name="talk_search_hint">Søg i beskeder</string>
   <string name="talk_search_topics_hint">Søg efter emner</string>
   <string name="talk_search_find_in_talk_topics_hint">Find i diskussionsside-emne</string>

@@ -133,7 +133,7 @@
   <string name="search_reading_lists_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲစရင် လိက်ဗွဟ်</string>
   <string name="search_history_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲလိက်မဗှ်လဝ်တုဲ</string>
   <string name="edit_section_captcha_message">တၞဟ်န မဂွံဆဵုဒၞာ အရာမပထုဲပလီုတုဲ၊ ပဂုန်တုဲ တက်စုတ် မလိက် မဗမံက်လဝ်ဏအ် ဗွဲသၟဝ်ဂှ်ညိ၊၊</string>
-  <string name="edit_section_captcha_request_an_account_message">ဗီုရုပ်ဂှ် ဟွံဂွံဆဵုကေတ်ဟာ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;အာတ်မိက်ဒၟံင် အကံက်မွဲရ၊၊&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ဗီုရုပ်ဂှ် ဟွံဂွံဆဵုကေတ်ဟာ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;အာတ်မိက်ဒၟံင် အကံက်မွဲရ၊၊&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ကလေင်တက်စုတ် အတိုင်မလိက် ဗွဲလတူဂှ်</string>
   <string name="title_captcha">ဍဵု CAPTCHA</string>
   <string name="edit_section_captcha_reload">ဍဵု CAPTCHA သွက်ဂွံ ကလေင်ပၠောပ်</string>
@@ -194,7 +194,7 @@
   <string name="create_account_button">ခၞံကၠောန် အကံက်</string>
   <string name="create_account_name_unavailable">ယၟုအသုင်စောဲ %s ဂှ် ဟွံလုပ်အဝေါင်၊၊ ပဂုန်တုဲ ရုဲစှ် ယၟုတၞဟ်ညိ၊၊</string>
   <string name="create_account_ip_block_message">သၠးအခေါင်၊ IP address မၞး ပြဟ်ဟ်ဏအ် ဒးဒုင်ကၟာတ်လဝ် သွက်ဂွံ ခၞံကၠောန် အကံက်တၟိ၊၊</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ဗွဲမစုင်လေင်</string>
   <string name="preferences_general_heading">နာနာ</string>
   <string name="preferences_account_heading">အကံက်</string>
@@ -227,10 +227,10 @@
   <string name="about_description">ပရူ app ဝဳကဳပဳဒဳယာ</string>
   <string name="privacy_policy_description">ပဝ်လသဳ မဆေင်ကဵု အခေါင်အရာပူဂဵု</string>
   <string name="terms_of_use_description">Terms of use</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">တိုက်ဗွဟ်လိက် မသုင်စောဲလဝ်</string>
@@ -395,8 +395,8 @@
   <string name="error_blocked_start">စကၟာတ်လဒဵု%s</string>
   <string name="error_blocked_expiry">အယုက်ဒးဒုၚ်ကၟာတ် ပေၚ်အိုတ်%s</string>
   <string name="error_blocked_id">အာၚ်ဒဳ ဒးဒုၚ်ကၟာတ်%s</string>
-  <string name="error_blocked_footer">ဆက်စၠောံကဵု &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; တအ်မာန်ရ ဟွံသေၚ်မ္ဂး ပရောပရာဒးဒုၚ်ကၟာတ်တအ် သဳကၠဳကီု ဟွံသေၚ်မ္ဂး &lt;a href=\"https://mnw.wikipedia.org/wiki/ဝဳကဳပဳဒဳယာ:Administrators\"&gt;ကဵုညးမပ္ကၚ်ရၚ်ဝဳကဳပဳဒဳယာ&lt;/a&gt;တအ် ဆက်စၠောံမာန်ရ။</string>
-  <string name="error_blocked_footer_no_blocker">ယဝ်ခါရမိက်ဂွံသဳကၠဳ ပရောပရာဒးဒုၚ်ကၟာတ်တအ်မ္ဂး&lt;a href=\"https://mnw.wikipedia.org/wiki/ဝဳကဳပဳဒဳယာ:Administrators\"&gt;ဆက်စၠောံကဵု&lt;/a&gt;ညးမပ္ကၚ်ရၚ်ဝဳကဳပဳဒဳယာတအ်မာန်ရ</string>
+  <string name="error_blocked_footer">ဆက်စၠောံကဵု &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; တအ်မာန်ရ ဟွံသေၚ်မ္ဂး ပရောပရာဒးဒုၚ်ကၟာတ်တအ် သဳကၠဳကီု ဟွံသေၚ်မ္ဂး &lt;a href=\"https://minecraft.wiki/wiki/ဝဳကဳပဳဒဳယာ:Administrators\"&gt;ကဵုညးမပ္ကၚ်ရၚ်ဝဳကဳပဳဒဳယာ&lt;/a&gt;တအ် ဆက်စၠောံမာန်ရ။</string>
+  <string name="error_blocked_footer_no_blocker">ယဝ်ခါရမိက်ဂွံသဳကၠဳ ပရောပရာဒးဒုၚ်ကၟာတ်တအ်မ္ဂး&lt;a href=\"https://minecraft.wiki/wiki/ဝဳကဳပဳဒဳယာ:Administrators\"&gt;ဆက်စၠောံကဵု&lt;/a&gt;ညးမပ္ကၚ်ရၚ်ဝဳကဳပဳဒဳယာတအ်မာန်ရ</string>
   <string name="crash_report_activity_title">ပရေင်အာတ်မိက် ဗၠေတ်</string>
   <string name="crash_report_relaunch_or_quit">မၞး မိက်ဂွံ ကလေင်စဟာ ဟွံသေင်တှ်ေ တိတ်ဟာ？</string>
   <string name="crash_report_relaunch">ကလေင်စ</string>

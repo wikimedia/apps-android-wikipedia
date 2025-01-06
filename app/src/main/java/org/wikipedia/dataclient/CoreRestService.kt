@@ -41,6 +41,6 @@ interface CoreRestService {
     ): GrowthUserImpact
 
     companion object {
-        const val CORE_REST_API_PREFIX = "w/rest.php/"
+        const val CORE_REST_API_PREFIX = "rest.php/"
     }
 }

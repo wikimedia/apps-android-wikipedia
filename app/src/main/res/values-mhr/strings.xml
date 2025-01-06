@@ -129,7 +129,7 @@
   <string name="search_reading_lists_no_results">Лудашлан спискылаште лектышым мумо огыл</string>
   <string name="search_history_no_results">Историйыште лектышым мумо огыл</string>
   <string name="edit_section_captcha_message">Автоматизированный спам деч аралалташлан, поро лийза, ӱлнӧ ончыктымо мут-влакым пуртыза</string>
-  <string name="edit_section_captcha_request_an_account_message">Капчан сӱретшым  ода уж? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Аккаунтым йодса&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Капчан сӱретшым  ода уж? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Аккаунтым йодса&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Кӱшнӧ ончыктымо мут-влакым уэштаре</string>
   <string name="title_captcha">CAPTCHA-м пурто</string>
   <string name="edit_section_captcha_reload">CAPTCHA-м уэмдаш манын, тудым логал</string>
@@ -193,7 +193,7 @@
   <string name="create_account_button">Аккаунтым ышташ</string>
   <string name="create_account_name_unavailable">«%s» ушнышо лӱм лийын кертдыме. Порылий, вес лӱмым ончыкто.</string>
   <string name="create_account_ip_block_message">Вуеш ит нал, у ушнышо лӱмым ышташлан тыйын IP-адресетым петырыме.</string>
-  <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Полыш: Мый_чарыме_лийынам</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Полыш: Мый_чарыме_лийынам</string>
   <string name="create_account_ip_block_details">Кумданрак</string>
   <string name="preferences_general_heading">Чумыр</string>
   <string name="preferences_account_heading">Аккаунт</string>
@@ -226,10 +226,10 @@
   <string name="about_description">«Википедий» приложений нерген</string>
   <string name="privacy_policy_description">Шолыплык политике</string>
   <string name="terms_of_use_description">Кучылтмо келшык</string>
-  <string name="about_wikipedia_url">https://mhr.wikipedia.org/wiki/Википедий:Палемдымаш</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википедий:Палемдымаш</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr#Офлайныште_лудмаш_да_данный</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mhr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>

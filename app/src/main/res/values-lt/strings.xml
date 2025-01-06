@@ -131,7 +131,7 @@
   <string name="search_reading_lists_no_results">Nerasta rezultatų skaitymo sąrašuose</string>
   <string name="search_history_no_results">Istorijoje rezultatų nerasta</string>
   <string name="edit_section_captcha_message">Siekiant apsisaugoti nuo automatinio šlamšto, prašome įvesti žodžius, esančius žemiau</string>
-  <string name="edit_section_captcha_request_an_account_message">Nematote paveikslėlio? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Prašykite paskyros&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Nematote paveikslėlio? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Prašykite paskyros&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Pakartoti žodžius iš viršaus</string>
   <string name="title_captcha">Įveskite saugos kodą</string>
   <string name="edit_section_captcha_reload">Bakstelėkite CAPTCHA, kad atnaujinti</string>
@@ -192,7 +192,7 @@
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="create_account_name_unavailable">Naudotojo vardas „%s“ negalimas. Prašome pasirinkti kitą vardą.</string>
   <string name="create_account_ip_block_message">Atsiprašome, jūsų IP adresas yra užblokuotas nuo naujų paskyrų kūrimo.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Informacija</string>
   <string name="preferences_general_heading">Bendras</string>
   <string name="preferences_account_heading">Paskyra</string>
@@ -226,7 +226,7 @@
   <string name="about_description">Apie Vikipedijos programėlę</string>
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
-  <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Vikipedija:Projekto_aprašymas</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
@@ -385,9 +385,9 @@
   <string name="error_blocked_start">Blokavimo pradžia: %s</string>
   <string name="error_blocked_expiry">Blokavimo pabaiga: %s</string>
   <string name="error_blocked_id">Blokavimo ID: %s</string>
-  <string name="error_blocked_footer">Norėdami aptarti blokavimą, galite susisiekti su &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; arba kitu &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratoriumi&lt;/a&gt;.</string>
+  <string name="error_blocked_footer">Norėdami aptarti blokavimą, galite susisiekti su &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; arba kitu &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administratoriumi&lt;/a&gt;.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tinkinkite savo įrankių juostą</string>
-  <string name="error_blocked_footer_no_blocker">Galite susieksti su &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratoriumi&lt;/a&gt;, kad aptartumėte blokavimą.</string>
+  <string name="error_blocked_footer_no_blocker">Galite susieksti su &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administratoriumi&lt;/a&gt;, kad aptartumėte blokavimą.</string>
   <string name="crash_report_activity_title">Aplikacijos klaida</string>
   <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.\n\nNorėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>
@@ -1058,7 +1058,7 @@
   <string name="talk_snackbar_survey_action_text">Pradėkite</string>
   <string name="talk_share_discussion_subject">Vikipedija - diskusija aptarimo puslapio temoje „%s“</string>
   <string name="talk_share_talk_page">Vikipedija - diskusija aptarimo puslapyje</string>
-  <string name="talk_edit_disclaimer">Tai aptarimo puslapis. Prašome gerbti aptarimų puslapių gaires ir prisiminkite pasirašyti savo įrašus naudojant: ~~~~, kai rašote naudojant vikitekstą.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://lt.wikipedia.org/wiki/Vikipedija:Aptarimai\"&gt;Vikipedija:Aptarimai&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Tai aptarimo puslapis. Prašome gerbti aptarimų puslapių gaires ir prisiminkite pasirašyti savo įrašus naudojant: ~~~~, kai rašote naudojant vikitekstą.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Vikipedija:Aptarimai\"&gt;Vikipedija:Aptarimai&lt;/a&gt;</string>
   <string name="talk_search_hint">Pranešimų paieška</string>
   <string name="talk_search_topics_hint">Temų paieška</string>
   <string name="talk_search_find_in_talk_topics_hint">Rasti aptarimo puslapio temoje</string>

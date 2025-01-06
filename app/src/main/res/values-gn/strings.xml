@@ -124,7 +124,7 @@
   <string name="search_reading_list_no_results">Ndojejuhúi mba\'eve kóvapeː \" %s \"</string>
   <string name="search_history_no_results">Ndaipóri mba\'e ojehekáva tembiasakuépe</string>
   <string name="edit_section_captcha_message">Oipytyvõ hag̃ua oñeñangareko hag̃ua spam automatizado-gui, emoinge umi ñe\'ẽ ojehechaukáva iguýpe</string>
-  <string name="edit_section_captcha_request_an_account_message">Ndaikatúi piko rehecha pe ta\'anga? &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario\"&gt;Ejerure nde kuatiarã&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Ndaikatúi piko rehecha pe ta\'anga? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Crear_una_cuenta_de_usuario\"&gt;Ejerure nde kuatiarã&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ehai jey ñe\'ẽ yvatépe oĩva</string>
   <string name="title_captcha">Ehai ko CAPTCHA</string>
   <string name="edit_section_captcha_reload">Epoko CAPTCHA rehe oiko jey hag̃ua</string>
@@ -188,10 +188,10 @@
   <string name="about_description">Vikipetã app rehegua</string>
   <string name="privacy_policy_description">Mba\'e ñemiguáva rekorã</string>
   <string name="terms_of_use_description">Ñe\'ẽme\'ẽ Jepururã</string>
-  <string name="about_wikipedia_url">https://gn.wikipedia.org/wiki/Vikipetã:Rehegua</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Vikipetã:Rehegua</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
-  <string name="android_app_request_an_account_url">https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
   <string name="edit_abandon_confirm_yes">Upéicha</string>

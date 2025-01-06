@@ -126,7 +126,7 @@
   <string name="search_reading_lists_no_results">Ne yepé çuaxara uwaçẽmu\'ana mũgetaçawa kamakaçawa upé.</string>
   <string name="search_history_no_results">Ne yepé çuaxara uwaçẽmu\'ana marãduwapawa upé</string>
   <string name="edit_section_captcha_message">Upitimũ arã spam irupĩtuwa ruaxara, ayãnã e-mupinima nhẽẽgawa’etá iwira</string>
-  <string name="edit_section_captcha_request_an_account_message">Remurú remaã kuá çãgawa çerá? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;E-munhã yepé puruçara mainãgawa&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Remurú remaã kuá çãgawa çerá? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;E-munhã yepé puruçara mainãgawa&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">E-mupinima ne yuí nhẽẽgawa ararupí</string>
   <string name="title_captcha">E-mupinima CAPTCHA</string>
   <string name="edit_section_captcha_reload">E-kamirika CAPTCHA umukuiriwara arã</string>
@@ -187,7 +187,7 @@
   <string name="create_account_button">Umunhã yepé puruçara mainãgawa</string>
   <string name="create_account_name_unavailable">Puruçara rera \"%s\" ĩti imutara. E-purawaka yepé rera amũ rupí, ayãnã.</string>
   <string name="create_account_ip_block_message">Yaçaã reté, ne IP ikurẽdawa uikú sikĩdawa umunhã arã puruçara mainãgawa piçaçú.</string>
-  <string name="create_account_ip_block_help_url">https://pt.wikipedia.org/wiki/Pitimũgawa:Xe_sikĩdawa</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Pitimũgawa:Xe_sikĩdawa</string>
   <string name="create_account_ip_block_details">Yawá reçé píri</string>
   <string name="preferences_general_heading">Apuãnawara</string>
   <string name="preferences_account_heading">Puruçara mainãgawa</string>
@@ -209,12 +209,12 @@
   <string name="about_description">Wikipediya mburipawa reçé</string>
   <string name="privacy_policy_description">Mirapuraçawa politika</string>
   <string name="terms_of_use_description">Puruçawa rekô\'etá</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Yawá reçé</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Yawá reçé</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/yrl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/yrl</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/yrl</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
   <string name="about_contributors_heading">Pitimũgara\'etá</string>

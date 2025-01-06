@@ -137,7 +137,7 @@
   <string name="search_reading_lists_no_results">Eai bohtosat lohkanlisttuin dan ohcamii</string>
   <string name="search_history_no_results">Eai bohtosat ohcanhistorjjás dan ohcamii</string>
   <string name="edit_section_captcha_message">Eastadan dihte automáhtalaš ruskapoastta, čále mat dáid sániid mat vuollelis leat</string>
-  <string name="edit_section_captcha_request_an_account_message">It oainne gova? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt; Bivdde geavaheaddjidovddaldaga &lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">It oainne gova? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt; Bivdde geavaheaddjidovddaldaga &lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Gearddut sániid dás badjelis</string>
   <string name="title_captcha">Deavdde CAPTCHA</string>
   <string name="edit_section_captcha_reload">Deaddel CAPTCHA vai ođđasit luđe</string>
@@ -234,7 +234,7 @@
   <string name="about_description">Lassedieđut Wikipedia-heivehusa birra</string>
   <string name="privacy_policy_description">Diehtosuodjalanvuohki</string>
   <string name="terms_of_use_description">Geavahaneavttut</string>
-  <string name="about_wikipedia_url">https://se.wikipedia.org/wiki/Wikipedia:Birra</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Birra</string>
   <string name="about_libraries_heading">Girjerádju geavahuvvon</string>
   <string name="about_contributors_heading">Čálusveahkit</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
@@ -414,9 +414,9 @@
   <string name="error_blocked_start">Hehtten álggii: %s</string>
   <string name="error_blocked_expiry">Hehttema doaibmanáigi nohká: %s</string>
   <string name="error_blocked_id">Hehtten-ID: %s</string>
-  <string name="error_blocked_footer">Sáhtát váldit oktavuođa geavaheaddjái &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; dahje eará &lt;a href=\"https://se.wikipedia.org/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
+  <string name="error_blocked_footer">Sáhtát váldit oktavuođa geavaheaddjái &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; dahje eará &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Heivet reaidoholgga</string>
-  <string name="error_blocked_footer_no_blocker">Sáhtát váldit oktavuođa ovttain &lt;a href=\"https://se.wikipedia.org/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
+  <string name="error_blocked_footer_no_blocker">Sáhtát váldit oktavuođa ovttain &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
   <string name="temp_account_not_logged_in">It leat čálihuvvon sisa</string>
   <string name="temp_account_anon_dialog_body" fuzzy="true">Go dagat rievdademiid, de ásahuvvo &lt;b&gt;gaskaboddosaš geavaheaddjidovddaldat&lt;/b&gt; dutnje, iežat persovdnasuodjalusa dihte. &lt;a href=\"%1$s\"&gt;Oahpa eambbo&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Čálit sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásat geavaheaddjidovddaldaga&lt;/a&gt; oažžun dihte boahttevaš rievdademiid ektui krediteremiid, ja beassanlobi eará doaimmaide.</string>
   <string name="temp_account_temp_dialog_body" fuzzy="true">Du rievdadeapmi šaddá %1$s nammii. Du IP-čujuhus boahtá lea oidnosis hálddašeddjiide.&lt;br /&gt;&lt;br /&gt;Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásahat geavaheaddjidovddaldaga&lt;/a&gt;, de du rievdadeamit biddjojuvvojit ovtta nammii man don válljet, oktan eará ovdamuniin.</string>
@@ -1304,7 +1304,7 @@
   <string name="talk_snackbar_survey_action_text">Boađe johtui</string>
   <string name="talk_share_discussion_subject">Wikipedia – ságastallan «%s» ságastallansiiddus</string>
   <string name="talk_share_talk_page">Wikipedia – ságastallan ságastallansiiddus</string>
-  <string name="talk_edit_disclaimer">Dát lea ságastallansiidu. Čuovo digaštallannjuolggadusaid, ja muitte vuolláičállit iežat sáhkavuoru dainna lágiin ahte čálát njeallje tilde: ~~~~ go postet wikiteavsttain.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Njuolggadusat ságastallansiidduin&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Dát lea ságastallansiidu. Čuovo digaštallannjuolggadusaid, ja muitte vuolláičállit iežat sáhkavuoru dainna lágiin ahte čálát njeallje tilde: ~~~~ go postet wikiteavsttain.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Njuolggadusat ságastallansiidduin&lt;/a&gt;</string>
   <string name="talk_search_hint">Oza dieđáhusain</string>
   <string name="talk_search_topics_hint">Oza fáttáin</string>
   <string name="talk_search_find_in_talk_topics_hint">Oza ságastallansiiddufáttáid</string>

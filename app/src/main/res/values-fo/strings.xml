@@ -62,7 +62,7 @@
   <string name="page_protected_can_not_edit_title">Henda síðan er vard</string>
   <string name="settings_activity_title" fuzzy="true">Innstillingar</string>
   <string name="about_description">Um Wikipedia-appina</string>
-  <string name="about_wikipedia_url">https://fo.wikipedia.org/wiki/Wikipedia:Um</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Um</string>
   <string name="about_contributors_heading" fuzzy="true">høvundar</string>
   <string name="about_wmf" fuzzy="true">Ein app frá &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Um</string>

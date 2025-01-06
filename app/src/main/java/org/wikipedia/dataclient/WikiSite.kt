@@ -17,12 +17,12 @@ import org.wikipedia.util.UriUtil
  *
  *
  * <lh>Name: scheme / authority / language code</lh>
- *  * English Wikipedia: HTTPS / en.wikipedia.org / en
- *  * Chinese Wikipedia: HTTPS / zh.wikipedia.org / zh-hans or zh-hant
+ *  * English Wikipedia: HTTPS / minecraft.wiki / en
+ *  * Chinese Wikipedia: HTTPS / minecraft.wiki / zh-hans or zh-hant
  *  * Meta-Wiki: HTTPS / meta.wikimedia.org / (none)
- *  * Test Wikipedia: HTTPS / test.wikipedia.org / test
- *  * Võro Wikipedia: HTTPS / fiu-vro.wikipedia.org / fiu-vro
- *  * Simple English Wikipedia: HTTPS / simple.wikipedia.org / simple
+ *  * Test Wikipedia: HTTPS / minecraft.wiki / test
+ *  * Võro Wikipedia: HTTPS / minecraft.wiki / fiu-vro
+ *  * Simple English Wikipedia: HTTPS / minecraft.wiki / simple
  *  * Simple English Wikipedia (beta cluster mirror): HTTP / simple.wikipedia.beta.wmflabs.org / simple
  *  * Development: HTTP / 192.168.1.11:8080 / (none)
  *
@@ -30,10 +30,10 @@ import org.wikipedia.util.UriUtil
  * **As shown above, the language code or mapping is part of the authority:**
  *
  * <lh>Validity: authority / language code</lh>
- *  * Correct: "test.wikipedia.org" / "test"
- *  * Correct: "wikipedia.org", ""
- *  * Correct: "no.wikipedia.org", "nb"
- *  * Incorrect: "wikipedia.org", "test"
+ *  * Correct: "minecraft.wiki" / "test"
+ *  * Correct: "minecraft.wiki", ""
+ *  * Correct: "minecraft.wiki", "nb"
+ *  * Incorrect: "minecraft.wiki", "test"
  *
  */
 @Serializable
@@ -57,7 +57,7 @@ data class WikiSite(
         authority = authority.replace(".m.", ".")
         languageCode = UriUtil.getLanguageVariantFromUri(tempUri).ifEmpty { authorityToLanguageCode(authority) }
 
-        // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
+        // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in minecraft.wiki
         if (languageCode == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
             languageCode = LanguageUtil.firstSelectedChineseVariant
         }
@@ -68,7 +68,7 @@ data class WikiSite(
             languageCode = WikipediaApp.instance.appOrSystemLanguageCode
         }
 
-        // Use default subdomain in authority to prevent error when requesting endpoints. e.g. zh-tw.wikipedia.org
+        // Use default subdomain in authority to prevent error when requesting endpoints. e.g. minecraft.wiki
         if (authority.contains(BASE_DOMAIN) && subdomain().isNotEmpty()) {
             authority = subdomain() + "." + BASE_DOMAIN
         }
@@ -100,8 +100,8 @@ data class WikiSite(
     }
 
     fun path(segment: String): String {
-        return "/w/$segment"
-    }
+        return "/$segment"
+    } //test1replace
 
     fun url(): String {
         return uri.toString()
@@ -123,7 +123,7 @@ data class WikiSite(
 
     companion object {
         const val DEFAULT_SCHEME = "https"
-        const val BASE_DOMAIN = "wikipedia.org"
+        const val BASE_DOMAIN = "minecraft.wiki"
         private var DEFAULT_BASE_URL: String? = null
 
         fun supportedAuthority(authority: String): Boolean {
@@ -161,8 +161,8 @@ data class WikiSite(
                 parts.size == minLengthForSubdomain && parts[0] == "m"
             ) {
                 // ""
-                // wikipedia.org
-                // m.wikipedia.org
+                // minecraft.wiki
+                // minecraft.wiki
                 ""
             } else parts[0]
         }

@@ -129,7 +129,7 @@
   <string name="search_reading_lists_no_results">Handə sijohijonədə nətičon pəjdo nybin</string>
   <string name="search_history_no_results">Tarixədə nətičon pəjdo nybin</string>
   <string name="edit_section_captcha_message">Bo əmə dastək bej ce avtomatik spamiku noǧo doj yštəni, zəhmət nybu, žintono nišon kardə byə syxanon bynyvyštən</string>
-  <string name="edit_section_captcha_request_an_account_message">Kapcə šikili vindənijon? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Byparsən akkaunti&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Kapcə šikili vindənijon? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Byparsən akkaunti&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Pentonədə nišon kardə byə syxanon sənibəton bykən</string>
   <string name="title_captcha">CAPTCHA bynyvyštən</string>
   <string name="edit_section_captcha_reload">Bə CAPTCHA dast byžənən əj nujə kardejro</string>
@@ -206,10 +206,10 @@
   <string name="about_description">Ce Vikipedia čynəvə barədə</string>
   <string name="privacy_policy_description">Məxfiyəti siyosət</string>
   <string name="terms_of_use_description">Oko doj šərton</string>
-  <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Vikipedia:Nom-nyšon</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Vikipedia:Nom-nyšon</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Oko doə byə kitobxonon</string>
@@ -352,9 +352,9 @@
   <string name="error_blocked_start">Dəbaste bino: %s</string>
   <string name="error_blocked_expiry">Dəbaste oxoj: %s</string>
   <string name="error_blocked_id">Dəbaste ID: %s</string>
-  <string name="error_blocked_footer">Šymə bəzynejon əloǧə gəte de &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ja de čo &lt;a href=\"https://ru.wikipedia.org/wiki/Vikipedia:Mudiron\"&gt;mudiri&lt;/a&gt; dəbaste barədə no-pegət karde.</string>
+  <string name="error_blocked_footer">Šymə bəzynejon əloǧə gəte de &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ja de čo &lt;a href=\"https://minecraft.wiki/wiki/Vikipedia:Mudiron\"&gt;mudiri&lt;/a&gt; dəbaste barədə no-pegət karde.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Yštə diləgon paneli cəmisə bynən</string>
-  <string name="error_blocked_footer_no_blocker">Šymə bəzynejon əloǧə gəte de &lt;a href=\"https://en.wikipedia.org/wiki/Vikipedia:Mudiron\"&gt;mudiri&lt;/a&gt; dəbaste barədə no-pegət karde.</string>
+  <string name="error_blocked_footer_no_blocker">Šymə bəzynejon əloǧə gəte de &lt;a href=\"https://minecraft.wiki/wiki/Vikipedia:Mudiron\"&gt;mudiri&lt;/a&gt; dəbaste barədə no-pegət karde.</string>
   <string name="crash_report_activity_title">Čynəvə xəto</string>
   <string name="crash_report_relaunch_or_quit">Bybaxšən əmma Vikipedia čynəvədə xəto beše ijən bə cəj gornə əv dəbastə be.\n\nŠymə pidəjone əj sənibəton pekarde ja beše?</string>
   <string name="crash_report_relaunch">Ižənən pekarde</string>

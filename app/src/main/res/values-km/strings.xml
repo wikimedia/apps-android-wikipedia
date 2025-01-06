@@ -73,7 +73,7 @@
   <string name="search_reading_lists_no_results">រកមិនឃើញលទ្ធផលក្នុងបញ្ជីអំណាន</string>
   <string name="search_history_no_results">រកមិនឃើញលទ្ធផលក្នុងប្រវត្តិ</string>
   <string name="edit_section_captcha_message">ដើម្បីការពារពីស្ប៉ាមស្វ័យប្រវត្តិ សូមវាយបញ្ចូលពាក្យដែលបង្ហាញខាងក្រោម</string>
-  <string name="edit_section_captcha_request_an_account_message">មិនឃើញរូបភាពឬ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ស្នើសុំគណនីមួយ&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">មិនឃើញរូបភាពឬ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ស្នើសុំគណនីមួយ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">សរសេរតាមពាក្យខាងលើ</string>
   <string name="title_captcha">វាយបញ្ចូល CAPTCHA</string>
   <string name="edit_section_captcha_reload">ចុច CAPTCHA ដើម្បីផ្ទុកឡើងវិញ</string>
@@ -140,7 +140,7 @@
   <string name="about_description">អំពីកម្មវិធីវិគីភីឌា</string>
   <string name="privacy_policy_description">គោលការណ៍នៃ​ភាពឯកជន</string>
   <string name="terms_of_use_description">លក្ខខណ្ឌប្រើប្រាស់</string>
-  <string name="about_wikipedia_url">https://km.wikipedia.org/wiki/វិគីភីឌា:អំពីវិគីភីឌា</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/វិគីភីឌា:អំពីវិគីភីឌា</string>
   <string name="about_libraries_heading">បណ្ណាល័យដែលបានប្រើ</string>
   <string name="about_contributors_heading">អ្នករួមចំណែក</string>
   <string name="about_translators_heading">អ្នកបកប្រែ</string>

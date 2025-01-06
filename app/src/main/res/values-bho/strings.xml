@@ -84,7 +84,7 @@
   <string name="search_reading_lists_no_results">रीडिंग लिस्ट सभ में कवनों रिजल्ट ना मिलल</string>
   <string name="search_history_no_results">इतिहास में कवनों रिजल्ट ना मिलल</string>
   <string name="edit_section_captcha_message">ऑटोमेटिक स्पैम से सुरक्षा खातिर, नीचे लउकत शब्द डालीं</string>
-  <string name="edit_section_captcha_request_an_account_message">फोटो नइखे लउकत? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;खाता खाती अनुरोध करीं&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">फोटो नइखे लउकत? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;खाता खाती अनुरोध करीं&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ऊपर के शब्द के दोबारा डालीं</string>
   <string name="title_captcha">कैप्चा डालीं</string>
   <string name="edit_section_captcha_reload">कैप्चा के दोबारा लोड करे खातिर टैप करीं</string>
@@ -144,7 +144,7 @@
   <string name="create_account_button">खाता खोली</string>
   <string name="create_account_name_unavailable">प्रयोगकर्ता नाँव %s उपलब्ध नइखे। कौनों दूसर नाँव बीछीं।</string>
   <string name="create_account_ip_block_message">माफ करीं, आपके आइपी पता एह समय नया खाता बनावे खातिर ब्लाक (रोकल) बाटे।</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">डिटेल जानकारी</string>
   <string name="preferences_general_heading">जनरल</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप अक्सर पूछल जाए वाला सवाल</string>
@@ -174,17 +174,17 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग के शर्त</string>
-  <string name="about_wikipedia_url">https://bh.wikipedia.org/wiki/विकिपीडिया:के_बारे_में</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/विकिपीडिया:के_बारे_में</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://bh.wikipedia.org/wiki/विकिपीडिया:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/विकिपीडिया:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">इस्तेमाल कइल गइल लाइब्रेरी</string>
   <string name="about_contributors_heading">योगदान</string>
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">एह एप के अनुवाद वालंटियर अनुवादक द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर कइल गइल।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
-  <string name="about_app_license" fuzzy="true">&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; आ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;अपाचे 2.0 लाइसेंस&lt;/a&gt; के तहत सोर्स कोड मौजूद बा। अगर अलग से इंगित न होखे, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; के तहत उपलब्ध बा।</string>
+  <string name="about_app_license" fuzzy="true">&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; आ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;अपाचे 2.0 लाइसेंस&lt;/a&gt; के तहत सोर्स कोड मौजूद बा। अगर अलग से इंगित न होखे, सामग्री &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; के तहत उपलब्ध बा।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया फाउंडेशन&lt;/a&gt; के एगो प्रोडक्ट</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पन्ना में बदलाव भइल बा। आप निश्चित बानी की आप बिना बदलाव सहेजले बाहर निकलल चाहत बानी?</string>

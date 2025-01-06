@@ -197,7 +197,7 @@
   <string name="search_reading_lists_no_results">Aucun résultat trouvé dans les listes de lecture</string>
   <string name="search_history_no_results">Aucun résultat trouvé dans l’historique</string>
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel automatisé, veuillez saisir les mots qui apparaissent ci-dessous</string>
-  <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Demander un compte&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Demander un compte&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Saisir le CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tapez le CAPTCHA pour le recharger</string>
@@ -261,7 +261,7 @@
   <string name="create_account_button">Créer un compte</string>
   <string name="create_account_name_unavailable">Le nom d\'utilisateur « %s » n’est pas disponible. Veuillez choisir un autre nom.</string>
   <string name="create_account_ip_block_message">Désolé, votre adresse IP est actuellement bloquée pour créer de nouveaux comptes.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Détails</string>
   <string name="preferences_general_heading">Général</string>
   <string name="preferences_account_heading">Compte</string>
@@ -295,12 +295,12 @@
   <string name="about_description">À propos de l’application Wikipédia</string>
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>
-  <string name="about_wikipedia_url">https://fr.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipédia:À_propos_de_Wikipédia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/fr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fr</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr</string>
@@ -485,9 +485,9 @@
   <string name="error_blocked_start">Début du blocage : %s</string>
   <string name="error_blocked_expiry">Expiration du blocage : %s</string>
   <string name="error_blocked_id">Identifiant du blocage : %s</string>
-  <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter le blocage.</string>
+  <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://minecraft.wiki/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter le blocage.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
-  <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
+  <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://minecraft.wiki/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
   <string name="temp_account_anon_ip_dialog_body">Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour mieux associer vos modifications futures et pour accéder à d\'autres fonctionnalités.</string>
   <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour vous permettre de protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour obtenir un crédit pour les modifications futures et accéder à d\'autres fonctionnalités.</string>
@@ -1366,7 +1366,7 @@
   <string name="talk_snackbar_survey_action_text">Démarrer</string>
   <string name="talk_share_discussion_subject">Wikipédia — discussion sur le sujet « %s » de la page de discussion</string>
   <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
-  <string name="talk_edit_disclaimer">Ceci est une page de discussion. Veuillez respecter les lignes directrices relatives aux pages de discussion et vous souvenir de signer vos envois en tapant quatre tildes : ~~~~ en postant du wikitexte.&lt;br /&gt; &lt;br /&gt; &lt;a href=\"https://fr.wikipedia.org/wiki/Aide:Discussion#Recommandations_et_pratiques\"&gt;Aide:Discussion § Recommandations et pratiques&lt;/a&gt; sur Wikipédia</string>
+  <string name="talk_edit_disclaimer">Ceci est une page de discussion. Veuillez respecter les lignes directrices relatives aux pages de discussion et vous souvenir de signer vos envois en tapant quatre tildes : ~~~~ en postant du wikitexte.&lt;br /&gt; &lt;br /&gt; &lt;a href=\"https://minecraft.wiki/wiki/Aide:Discussion#Recommandations_et_pratiques\"&gt;Aide:Discussion § Recommandations et pratiques&lt;/a&gt; sur Wikipédia</string>
   <string name="talk_search_hint">Recherche dans les messages</string>
   <string name="talk_search_topics_hint">Rechercher des sujets</string>
   <string name="talk_search_find_in_talk_topics_hint">Trouver dans le sujet de la page de discussion</string>

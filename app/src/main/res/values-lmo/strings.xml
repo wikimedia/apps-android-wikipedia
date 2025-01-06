@@ -126,7 +126,7 @@
   <string name="search_reading_lists_no_results">Nissun risultad trovad in di elench de lettura</string>
   <string name="search_history_no_results">Nissun risultad trovad in la cronologia</string>
   <string name="edit_section_captcha_message">Per ajutà a scombat el ruf automatich, per piasè met dent i parolle che gh\'è chì de sota.</string>
-  <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ripet i parolle de l\'alt</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuv</string>
@@ -187,7 +187,7 @@
   <string name="create_account_button">Crea un cunt</string>
   <string name="create_account_name_unavailable">\"%s\" come nom de l\'utent a l\'è minga disponibil. Per piesè, catenn foeura un\'alter.</string>
   <string name="create_account_ip_block_message">El ne rincress, el to adress IP, adsedess, a l\'è blocad e te podet creà no di noeuv cunt.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">General</string>
   <string name="preferences_account_heading">Cunt</string>
@@ -221,10 +221,10 @@
   <string name="about_description">Informazzion sora l\'app de Wikipedia</string>
   <string name="privacy_policy_description">Politega de la \'\'riservatezza\'\'</string>
   <string name="terms_of_use_description">Condizzion de utilizazzion</string>
-  <string name="about_wikipedia_url">https://lmo.wikipedia.org/wiki/Wikipedia:A proposit de wikipedia</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:A proposit de wikipedia</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/lmo</string>
-  <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Jut:Come_registràss</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Jut:Come_registràss</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie doprade</string>
@@ -233,7 +233,7 @@
   <string name="about_translators_heading">Tradutor</string>
   <string name="about_translators_translatewiki">Questa applicazzion chì l\'è stada tradotta de tradutor volontari in su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license" fuzzy="true">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodot de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazzion</string>
   <string name="edit_abandon_confirm">La pagina l\'è stada modificada. Te see sicur che te voeuret sortì senza salvà i cambiament?</string>

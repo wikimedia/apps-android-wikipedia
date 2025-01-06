@@ -87,7 +87,7 @@
   <string name="search_reading_lists_no_results">Ora nemu apa-apa ing pratélan wacan</string>
   <string name="search_history_no_results">Ora nemu apa-apa ing sajarah</string>
   <string name="edit_section_captcha_message">Saperlu ngreksa saka spam otomatis, tulisaké tembung-tembung kang katon ing sor iki</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Ora bisa ndeleng gambaré? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Ora bisa ndeleng gambaré? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Balènana tembung-tembung ing dhuwur</string>
   <string name="title_captcha">Lebokaké CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>
@@ -145,7 +145,7 @@
   <string name="create_account_button">Gawé akun</string>
   <string name="create_account_name_unavailable">Jeneng naraguna \"%s\" ora ana. Jajal anggonen jeneng liyané.</string>
   <string name="create_account_ip_block_message">Nyuwun pangapura, alamat IP-mu saiki kapenggak saka nggawé akun anyar.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Rerincèn</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pitakon-Kerep Wikipédia</string>
@@ -175,7 +175,7 @@
   <string name="about_description">Babagan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Pranatan bab priangga</string>
   <string name="terms_of_use_description">Bebakuning Pangguna</string>
-  <string name="about_wikipedia_url">https://jv.wikipedia.org/wiki/Wikipedia:Bab</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Bab</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -186,7 +186,7 @@
   <string name="about_translators_heading">Pamertal</string>
   <string name="about_translators_translatewiki">Aplikasi iki dipertal déning pamertal sukarila ing &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisènsi</string>
-  <string name="about_app_license" fuzzy="true">Kodhe sumber cumepak ing &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; lan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; kanthi pangayoman &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Yèn ora ana liyané sing diterangaké, tegesé isiné iki cumepak ing pangayomané &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Atribusi-DumSaèmper Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kodhe sumber cumepak ing &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; lan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; kanthi pangayoman &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Yèn ora ana liyané sing diterangaké, tegesé isiné iki cumepak ing pangayomané &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Atribusi-DumSaèmper Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Wetoné &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Ngenani</string>
   <string name="edit_abandon_confirm">Kaca iki wis kadandani. Apa kowé yakin arep metu tanpa nyimpen owah-owahanmu?</string>

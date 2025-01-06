@@ -128,7 +128,7 @@
   <string name="search_reading_lists_no_results">చదివే జాబితాలో ఫలితాలేమీ కనబడలేదు</string>
   <string name="search_history_no_results">చరిత్రలో ఫలితాలేమీ కనబడలేదు</string>
   <string name="edit_section_captcha_message">స్వయంచాలక స్పామ్ నుండి రక్షణకు, దయచేసి ఈ క్రింద కనిపించే పదాలును నమోదుచేయండి</string>
-  <string name="edit_section_captcha_request_an_account_message">బొమ్మ కనంబడ్డం లేదా? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ఖాతా కోసం అభ్యర్థించండి&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">బొమ్మ కనంబడ్డం లేదా? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ఖాతా కోసం అభ్యర్థించండి&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">పైన నుండి పదాలు పునరావృతం చేయండి</string>
   <string name="title_captcha">కాప్చాని నమొదు చెయ్యండి</string>
   <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్చాని నొక్కండి</string>
@@ -189,7 +189,7 @@
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="create_account_name_unavailable">వాడుకరి పేరు \"%s\" అందుబాటులో లేదు. వేరే పేరును ఎంచుకోండి.</string>
   <string name="create_account_ip_block_message">సారీ, ప్రస్తుతం మీ ఐపీ చిరునామా నుండి కొత్త ఖాతాలను సృష్టించకుండా నిరోధించారు.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">వివరాలు</string>
   <string name="preferences_general_heading">సాధారణం</string>
   <string name="preferences_account_heading">ఖాతా</string>
@@ -222,12 +222,12 @@
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
-  <string name="about_wikipedia_url">https://te.wikipedia.org/wiki/వికీపీడియా:గురించి</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/వికీపీడియా:గురించి</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/te</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data/te</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
-  <string name="android_app_request_an_account_url">https://te.wikipedia.org/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
@@ -236,7 +236,7 @@
   <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_app_license_heading">లైసెన్సు</string>
-  <string name="about_app_license" fuzzy="true">సోర్సు కోడు &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; వద్ద &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది. ప్రత్యేకించి చెప్పకపోతే, కంటెంటు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది.</string>
+  <string name="about_app_license" fuzzy="true">సోర్సు కోడు &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; వద్ద &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది. ప్రత్యేకించి చెప్పకపోతే, కంటెంటు &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;వికీమీడియా ఫౌండేషను&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
   <string name="edit_abandon_confirm">ఈ పేజీలో మార్పులు చేసారు. మీరు చేసిన మార్పులను భద్రపరచకుండానే వెళ్ళిపోవాలని నిశ్చయించుకున్నారా?</string>
@@ -392,8 +392,8 @@
   <string name="error_blocked_start">నిరోధం మొదలయ్యేది: %s</string>
   <string name="error_blocked_expiry">నిరోధం ముగిసేది: %s</string>
   <string name="error_blocked_id">నిరోధం ఐడీ: %s</string>
-  <string name="error_blocked_footer">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ను గానీ, మరో &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; గానీ సంప్రదించవచ్చు.</string>
-  <string name="error_blocked_footer_no_blocker">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; సంప్రదించవచ్చు.</string>
+  <string name="error_blocked_footer">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ను గానీ, మరో &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; గానీ సంప్రదించవచ్చు.</string>
+  <string name="error_blocked_footer_no_blocker">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; సంప్రదించవచ్చు.</string>
   <string name="crash_report_activity_title">అప్లికేషను లోపం</string>
   <string name="crash_report_relaunch_or_quit">క్షమించాలి, వికీపీడియా యాప్‌కు ఏదో లోపం ఎదురవడంతో, అది అంతమై పోయింది.\n\nమళ్ళీ మొదలెడతారా లేక వెళ్ళిపోతారా?</string>
   <string name="crash_report_relaunch">మొదలు పెట్టు</string>
@@ -1053,7 +1053,7 @@
   <string name="talk_snackbar_survey_action_text">మొదలు పెట్టండి</string>
   <string name="talk_share_discussion_subject">వికీపీడియా - చర్చ పేజీలో చర్చ టాపిక్కు \"%s\"</string>
   <string name="talk_share_talk_page">వికీపీడియా - చర్చ పేజీలో చర్చలు</string>
-  <string name="talk_edit_disclaimer">ఇదొక చర్చ పేజీ. చర్చ పేజీ మార్గదర్శకాలను గౌరవించండి. వికీటెక్స్టు ద్వారా రాసి సమర్పించేటపుడు, మీ పోస్టు లో నాలుగు టిల్డెలతో సంతకం చెయ్యండి, ఇలా: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;వికీపీడియా:చర్చ పేజీలను ఉపయోగించడం ఎలా&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">ఇదొక చర్చ పేజీ. చర్చ పేజీ మార్గదర్శకాలను గౌరవించండి. వికీటెక్స్టు ద్వారా రాసి సమర్పించేటపుడు, మీ పోస్టు లో నాలుగు టిల్డెలతో సంతకం చెయ్యండి, ఇలా: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;వికీపీడియా:చర్చ పేజీలను ఉపయోగించడం ఎలా&lt;/a&gt;</string>
   <string name="talk_search_hint">సందేశాల్లో వెతకండి</string>
   <string name="talk_overflow_sort_by">ఇలా పేర్చు:</string>
   <string name="talk_overflow_sort_date_published">ప్రచురించిన తేదీ</string>

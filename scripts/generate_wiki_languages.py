@@ -8,13 +8,13 @@ import json
 import requests
 
 
-QUERY_SITEMATRIX = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
+QUERY_SITEMATRIX = 'https://www.mediawiki.org/api.php?action=sitematrix' \
     '&format=json&formatversion=2&smtype=language&smstate=all'
 
-QUERY_LANGLIST = 'https://www.mediawiki.org/w/api.php?action=query&format=json' \
+QUERY_LANGLIST = 'https://www.mediawiki.org/api.php?action=query&format=json' \
     '&meta=siteinfo&formatversion=2&siprop=languages%7Clanguagevariants&siinlanguagecode='
 
-QUERY_ALLUSERS = '/w/api.php?action=query&format=json&formatversion=2&list=allusers' \
+QUERY_ALLUSERS = '/api.php?action=query&format=json&formatversion=2&list=allusers' \
     '&aulimit=50&auactiveusers=1&auwitheditsonly=1'
 
 lang_keys = []

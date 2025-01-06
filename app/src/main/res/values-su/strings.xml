@@ -127,7 +127,7 @@
   <string name="search_reading_lists_no_results">Taya hasil nu kapanggih dina daptar bacaan</string>
   <string name="search_history_no_results">Taya hasil nu kapanggih dina jujutan</string>
   <string name="edit_section_captcha_message">Pikeun nulungan nangtayung tina spam otomatis, asupkeun kekecapan nu bijil di handap</string>
-  <string name="edit_section_captcha_request_an_account_message">Teu ningali gambarna? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Rekés akun&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Teu ningali gambarna? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Rekés akun&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulang deui kecap ti luhur</string>
   <string name="title_captcha">Asupkeun CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toél CAPTCHA pikeun muat ulang</string>
@@ -188,7 +188,7 @@
   <string name="create_account_button">Jieun akun</string>
   <string name="create_account_name_unavailable">Sandiasma \"%s\" teu bisa dipaké. Mangga pilih sandiasma lianna.</string>
   <string name="create_account_ip_block_message">Hampura, alamat IP anjeun kiwari keur dipeungpeuk pikeun nyieun akun anyar.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Wincikan</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="preferences_account_heading">Akun</string>
@@ -221,7 +221,7 @@
   <string name="about_description">Ngeunaan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Kawijakan privasi</string>
   <string name="terms_of_use_description">Katangtuan pamakéan</string>
-  <string name="about_wikipedia_url">https://su.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Ngeunaan</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_libraries_heading">Pabukon nu dipaké</string>
@@ -229,7 +229,7 @@
   <string name="about_translators_heading">Panarjamah</string>
   <string name="about_translators_translatewiki">Ieu aplikasi ditarjamahkeun ku rélawan dina &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisénsi</string>
-  <string name="about_app_license" fuzzy="true">Kodeu sumber nyangkaruk di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gérrit&lt;/a&gt; jeung &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di handapeun &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisénsi Apache 2.0&lt;/a&gt;. Eusi nyangkaruk na handapeun &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisénsi Atribusi-BabagiSarupa Creative Commons&lt;/a&gt; iwal mun dikedalkeun lian.</string>
+  <string name="about_app_license" fuzzy="true">Kodeu sumber nyangkaruk di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gérrit&lt;/a&gt; jeung &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di handapeun &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisénsi Apache 2.0&lt;/a&gt;. Eusi nyangkaruk na handapeun &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisénsi Atribusi-BabagiSarupa Creative Commons&lt;/a&gt; iwal mun dikedalkeun lian.</string>
   <string name="about_wmf" fuzzy="true">Hiji prodak ti &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Ngeunaan</string>
   <string name="edit_abandon_confirm">Ieu kaca geus dirobah. Anjeun rék kaluar tanpa nyimpen parobahan?</string>

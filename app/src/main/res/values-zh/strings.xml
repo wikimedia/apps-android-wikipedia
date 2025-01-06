@@ -203,7 +203,7 @@
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
   <string name="edit_section_captcha_message">为了防止自动化垃圾信息，请输入下方显示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E8%B4%A6%E5%8F%B7%E8%AF%B7%E6%B1%82\"&gt;申请账号&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:%E8%B4%A6%E5%8F%B7%E8%AF%B7%E6%B1%82\"&gt;申请账号&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">请输入上方的文字</string>
   <string name="title_captcha">输入验证码</string>
   <string name="edit_section_captcha_reload">点按验证码重新加载</string>
@@ -267,7 +267,7 @@
   <string name="create_account_button">创建账号</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
   <string name="create_account_ip_block_message">对不起，您的IP地址目前受到封禁，不能创建新账号。</string>
-  <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">通用</string>
   <string name="preferences_account_heading">账号</string>
@@ -301,12 +301,12 @@
   <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
-  <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
-  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh</string>
@@ -491,9 +491,9 @@
   <string name="error_blocked_start">该区块的开头：%s</string>
   <string name="error_blocked_expiry">该区块已过期：%s</string>
   <string name="error_blocked_id">屏蔽ID：%s</string>
-  <string name="error_blocked_footer">您可以联系&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或另一&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论此封禁。</string>
+  <string name="error_blocked_footer">您可以联系&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或另一&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论此封禁。</string>
   <string name="theme_chooser_menu_item_short_tooltip">自定义您的工具栏</string>
-  <string name="error_blocked_footer_no_blocker">您可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理员&lt;/a&gt;来讨论此封禁。</string>
+  <string name="error_blocked_footer_no_blocker">您可以联系&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;管理员&lt;/a&gt;来讨论此封禁。</string>
   <string name="temp_account_not_logged_in">您尚未登录</string>
   <string name="temp_account_anon_ip_dialog_body">一旦您作出编辑，您的IP地址将与您的编辑相关联。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
   <string name="temp_account_anon_dialog_body">一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;请&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;创建账号&lt;/a&gt;以将之后的编辑内容署名，并体验其他功能。</string>
@@ -1363,7 +1363,7 @@
   <string name="talk_snackbar_survey_action_text">开始吧</string>
   <string name="talk_share_discussion_subject">维基百科 - 讨论页上“%s”主题的讨论</string>
   <string name="talk_share_talk_page">维基百科 - 讨论页上的讨论</string>
-  <string name="talk_edit_disclaimer">这是一个讨论页。请遵守讨论页指引，并记得在使用 wikitext 发布内容时通过输入四个波浪线：~~~~，来在您发布的内容里产生您的签名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;维基百科:讨论页指引&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">这是一个讨论页。请遵守讨论页指引，并记得在使用 wikitext 发布内容时通过输入四个波浪线：~~~~，来在您发布的内容里产生您的签名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:討論頁指引\"&gt;维基百科:讨论页指引&lt;/a&gt;</string>
   <string name="talk_search_hint">搜索消息</string>
   <string name="talk_search_topics_hint">搜索话题</string>
   <string name="talk_search_find_in_talk_topics_hint">在讨论页主题中查找</string>

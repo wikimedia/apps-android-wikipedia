@@ -100,7 +100,7 @@
   <string name="search_reading_lists_no_results">Ulac igmaḍ di tebdarin n tɣuri</string>
   <string name="search_history_no_results">Ulac igmaḍ deg umazray</string>
   <string name="edit_section_captcha_message">Akken ad tmuddeḍ afus n ummestane mgal ispamen, sekcem awalen ara d-ibanen daw-a</string>
-  <string name="edit_section_captcha_request_an_account_message">D awezɣi uwali n tugna ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Suter amiḍan&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">D awezɣi uwali n tugna ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Suter amiḍan&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ales awalen n daw-a</string>
   <string name="title_captcha">Sekcem CAPTCHA</string>
   <string name="edit_section_captcha_reload">Sekcem CAPTCHA ad talseḍ asali</string>
@@ -160,7 +160,7 @@
   <string name="create_account_button">Rnu amiḍan</string>
   <string name="create_account_name_unavailable">Isem n useqdac \"%s\" ur yelli ara. Ttxil fren wayeḍ.</string>
   <string name="create_account_ip_block_message">Suref-aɣ, tansa-k(m) IP ha-tt-an tewḥel i usnulfu n yimiḍanen imaynuten.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ttfaṣil</string>
   <string name="preferences_general_heading">Amatu</string>
   <string name="preferences_account_heading">Amiḍan</string>
@@ -193,10 +193,10 @@
   <string name="about_description">Ɣef usnas Wikipedia</string>
   <string name="privacy_policy_description">Tasertit n tbaḍnit</string>
   <string name="terms_of_use_description">Tiwtilin n useqdec</string>
-  <string name="about_wikipedia_url">https://kab.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Timkaṛḍiyin yettwasqedcen</string>
@@ -205,7 +205,7 @@
   <string name="about_translators_heading">Imsuqal</string>
   <string name="about_translators_translatewiki">Asnas-agi suqlen-t imsuqal iwiziwen n &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Turagt</string>
-  <string name="about_app_license" fuzzy="true">Tangalt aɣbalu yella di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; akked &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; daw n  &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;turagt Apache 2.0&lt;/a&gt;. Ala ma yettwammel akken-nniḍen, agbur yella daw n &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;turagt Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Tangalt aɣbalu yella di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; akked &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; daw n  &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;turagt Apache 2.0&lt;/a&gt;. Ala ma yettwammel akken-nniḍen, agbur yella daw n &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;turagt Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Afaris n &lt;a href=\"https://wikimediafoundation.org/\"&gt;tesbeddit Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Ɣef</string>
   <string name="edit_abandon_confirm">Asebter-agi yettusnifel. Tebɣid ad teffɣeḍ war ma teskelseḍ asnifel-ik?</string>

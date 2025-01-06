@@ -188,7 +188,7 @@
   <string name="create_account_button">Benotzerkont uleeën</string>
   <string name="create_account_name_unavailable">De Benotzernumm \"%s\" ass net verfügbar. Wgl. wielt een anere Benotzernumm.</string>
   <string name="create_account_ip_block_message">Pardon, Är IP-Adress ass momentan gespaart fir d\'Uleeë vun neie Benotzerkonten.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detailer</string>
   <string name="preferences_general_heading">Allgemeng</string>
   <string name="preferences_account_heading">Benotzerkont</string>
@@ -219,7 +219,7 @@
   <string name="about_description">Iwwer d\'Wikipedia App</string>
   <string name="privacy_policy_description">Dateschutzrichtlinnen</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
-  <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -386,8 +386,8 @@
   <string name="error_blocked_start">Ufank vun der Spär: %s</string>
   <string name="error_blocked_expiry">Enn vun der Spär: %s</string>
   <string name="error_blocked_id">Spär-ID: %s</string>
-  <string name="error_blocked_footer">Dir kënnt &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder een aneren &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéiere fir iwwer d\'Spär ze diskutéieren.</string>
-  <string name="error_blocked_footer_no_blocker">Dir kënnt een &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéieren fir iwwer d\'Spär ze diskutéieren.</string>
+  <string name="error_blocked_footer">Dir kënnt &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder een aneren &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéiere fir iwwer d\'Spär ze diskutéieren.</string>
+  <string name="error_blocked_footer_no_blocker">Dir kënnt een &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéieren fir iwwer d\'Spär ze diskutéieren.</string>
   <string name="temp_account_not_logged_in">Dir sidd net ageloggt</string>
   <string name="temp_account_dialog_ok">Verstanen</string>
   <string name="temp_account_using_title">Dir benotzt en temporäre Kont</string>

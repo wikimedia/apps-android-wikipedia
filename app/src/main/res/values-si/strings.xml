@@ -134,8 +134,8 @@
   <string name="settings_activity_title">සැකසුම්</string>
   <string name="privacy_policy_description">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
   <string name="terms_of_use_description">භාවිතයේ කොන්දේසි</string>
-  <string name="about_wikipedia_url">https://si.wikipedia.org/wiki/විකිපීඩියා:පිළිබඳ</string>
-  <string name="android_app_request_an_account_url">https://si.wikipedia.org/wiki/විකිපීඩියා:Request_an_account</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/විකිපීඩියා:පිළිබඳ</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/විකිපීඩියා:Request_an_account</string>
   <string name="about_contributors_heading" fuzzy="true">දායකයින්</string>
   <string name="about_translators_heading" fuzzy="true">පරිවර්තකයෝ</string>
   <string name="about_activity_title">පිළිබඳ</string>

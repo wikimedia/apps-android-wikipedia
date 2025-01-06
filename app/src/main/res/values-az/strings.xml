@@ -141,7 +141,7 @@
   <string name="search_reading_lists_no_results">Oxuma siyahısında heç bir nəticə tapılmadı</string>
   <string name="search_history_no_results">Tarixçədə heç bir nəticə tapılmadı</string>
   <string name="edit_section_captcha_message">Avtomatik spamdan qorumağa kömək etmək üçün, aşağıda göstərilən sözləri daxil edin</string>
-  <string name="edit_section_captcha_request_an_account_message">Şəkili görə bilmirsiniz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Hesab üçün müraciət edin&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Şəkili görə bilmirsiniz? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Hesab üçün müraciət edin&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Yuxarıdakı sözləri təkrarlayın</string>
   <string name="title_captcha">CAPTCHA daxil edin</string>
   <string name="edit_section_captcha_reload">Yenidən yükləmək üçün CAPTCHA-ya dokunun</string>
@@ -205,7 +205,7 @@
   <string name="create_account_button">Hesab yarat</string>
   <string name="create_account_name_unavailable">\"%s\" istifadəçi adı mövcud deyil. Müxtəlif bir ad seçin.</string>
   <string name="create_account_ip_block_message">Üzr istəyirik, hazırda IP ünvanınız yeni hesab yaratmaqdan bloklanıb.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detallar</string>
   <string name="preferences_general_heading">Ümumi</string>
   <string name="preferences_account_heading">Hesab</string>
@@ -239,10 +239,10 @@
   <string name="about_description">Vikipediya proqramı haqqında</string>
   <string name="privacy_policy_description">Məxfilik siyasəti</string>
   <string name="terms_of_use_description">İstifadə şərtləri</string>
-  <string name="about_wikipedia_url">https://az.m.wikipedia.org/wiki/Vikipediya:Haqqında</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Vikipediya:Haqqında</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
@@ -425,9 +425,9 @@
   <string name="error_blocked_start">Blokun başlaması: %s</string>
   <string name="error_blocked_expiry">Blokun bitməsi: %s</string>
   <string name="error_blocked_id">Blok nömrəsi: %s</string>
-  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ilə əlaqə saxlaya bilə və digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
+  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ilə əlaqə saxlaya bilə və digər &lt;a href=\"https://minecraft.wiki/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Alətlər panelinizi fərdiləşdirin</string>
-  <string name="error_blocked_footer_no_blocker">Digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
+  <string name="error_blocked_footer_no_blocker">Digər &lt;a href=\"https://minecraft.wiki/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
   <string name="temp_account_not_logged_in">Siz daxil olmamısınız</string>
   <string name="temp_account_anon_ip_dialog_body">Redaktə etdikdən sonra IP ünvanınız redaktələrinizlə əlaqələndiriləcək.&lt;br /&gt;&lt;br /&gt; Gələcək redaktələrinizdə istinad edilmək və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaradın&lt;/a&gt;.</string>
   <string name="temp_account_anon_dialog_body">Redaktə etdikdən sonra məxfiliyinizi qorumaq üçün sizin üçün &lt;b&gt;müvəqqəti hesab&lt;/b&gt; yaradılacaq. &lt;a href=\"%1$s\"&gt;Ətraflı öyrənin&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Gələcəkdə adınıza istinad verilməsi üçün və digər funksiyaları istifadə edə bilmək üçün &lt;a href=\"https://#login\"&gt;daxil olun&lt;/a&gt; və ya &lt;a href=\"https://#createaccount\"&gt;hesab yaradın.&lt;/a&gt;</string>

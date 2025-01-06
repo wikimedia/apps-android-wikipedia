@@ -93,7 +93,7 @@ class UriUtilTest {
     companion object {
         /**
          * Inspired by
-         * curl -s https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json&siprop=general | jq .query.general.legaltitlechars
+         * curl -s https://en.wikipedia.org/api.php?action=query&meta=siteinfo&format=json&siprop=general | jq .query.general.legaltitlechars
          */
         private const val TITLE = " %!\"$&'()*,\\-.\\/0-9:;=?@A-Z\\\\^_`a-z~\\x80-\\xFF+"
 

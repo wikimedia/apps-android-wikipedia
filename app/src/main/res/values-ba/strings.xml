@@ -146,7 +146,7 @@
   <string name="search_reading_lists_no_results">Уҡыу исемлектәрендә һөҙөмтәләр табылманы</string>
   <string name="search_history_no_results">Тарихта һөҙөмтәләр табылманы</string>
   <string name="edit_section_captcha_message">Автоматлаштырылған спамдан һаҡланыу өсөн түбәндәге һүҙҙе яҙығыҙ.</string>
-  <string name="edit_section_captcha_request_an_account_message">Һүрәтте күрмәйһегеҙме? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Иҫәп яҙмаһын һорарға&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Һүрәтте күрмәйһегеҙме? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Иҫәп яҙмаһын һорарға&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Өҫтәге һүҙҙе ҡабатлағыҙ</string>
   <string name="title_captcha">CAPTCHA индерегеҙ</string>
   <string name="edit_section_captcha_reload">Яңыртыу өсөн CAPTCHA-ға ҡағылығыҙ</string>
@@ -210,7 +210,7 @@
   <string name="create_account_button">Иҫәп яҙмаһын булдырырға</string>
   <string name="create_account_name_unavailable">Ҡатнашыусы \"%s\" исеме уҡылмай. Зинһар, башҡа исем һайлағыҙ.</string>
   <string name="create_account_ip_block_message">Ғәфү итегеҙ, һеҙҙең IP-адрес яңы иҫәп яҙмалары булдырыуҙан бикләнгән.</string>
-  <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Бикләүҙәр</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Википедия:Бикләүҙәр</string>
   <string name="create_account_ip_block_details">Ентеклерәк</string>
   <string name="preferences_general_heading">Дөйөм</string>
   <string name="preferences_account_heading">Иҫәп яҙмаһы</string>
@@ -244,10 +244,10 @@
   <string name="about_description">«Википедия» ҡушымтаһы тураһында</string>
   <string name="privacy_policy_description">Сер һаҡлау сәйәсәте</string>
   <string name="terms_of_use_description">Ҡулланыу шарттары</string>
-  <string name="about_wikipedia_url">https://ba.wikipedia.org/wiki/Википедия:Тасуирлама</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википедия:Тасуирлама</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba#Һүрәт_тегтары</string>
   <string name="about_libraries_heading">Файҙаланылған китапханалар</string>
@@ -434,9 +434,9 @@
   <string name="error_blocked_start">Бикләү башлана: %s</string>
   <string name="error_blocked_expiry">Бикләү тамамлана: %s</string>
   <string name="error_blocked_id">Бикләү идентификаторы: %s</string>
-  <string name="error_blocked_footer">Һеҙ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; йәки башҡа &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;хаким&lt;/a&gt; менән бикләү тураһында һөйләшә алаһығыҙ.</string>
+  <string name="error_blocked_footer">Һеҙ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; йәки башҡа &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Администраторы\"&gt;хаким&lt;/a&gt; менән бикләү тураһында һөйләшә алаһығыҙ.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Ҡоралдар панелын көйләгеҙ</string>
-  <string name="error_blocked_footer_no_blocker">Һеҙ &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;хаким&lt;/a&gt; менән бикләү сәбәптәре тураһында һөйләшә алаһығыҙ</string>
+  <string name="error_blocked_footer_no_blocker">Һеҙ &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Администраторы\"&gt;хаким&lt;/a&gt; менән бикләү сәбәптәре тураһында һөйләшә алаһығыҙ</string>
   <string name="temp_account_not_logged_in">Һеҙ системаға инмәнегеҙ</string>
   <string name="temp_account_anon_dialog_body" fuzzy="true">Бер үҙгәртеү индергәс, һеҙҙең өсөн шәхси мәғлүмәтегеҙҙе яҡлау маҡсатында &lt;b&gt;ваҡытлыса аккаунт&lt;/b&gt; булдырыласаҡ. [Тулыраҡ мәғлүмәт](%1$s).&lt;br /&gt;&lt;br /&gt;Киләсәктәге үҙгәртеүҙәр өсөн кредит алыу һәм башҡа мөмкинлектәргә инеү өсөн [Системаға инегеҙ](https://#login) йәки [Аккаунт булдырығыҙ](https://#login).</string>
   <string name="temp_account_temp_dialog_body" fuzzy="true">Һеҙҙең үҙгәртеү %1$s исеме аҫтында күрһәтеләсәк. Һеҙҙең IP-адресығыҙ администраторҙар өсөн күренерлек буласаҡ.&lt;br /&gt;&lt;br /&gt;Әгәр һеҙ &lt;a href=\"https://#login\"&gt;инеп&lt;/a&gt; йәки &lt;a href=\"https://#login\"&gt;яңы аккаунт булдырһағыҙ&lt;/a&gt;, һеҙҙең үҙгәртеүҙәрегеҙ һеҙ һайлаған исем аҫтында күрһәтеләсәк, башҡа өҫтөнлөктәр менән бер рәттән.</string>
@@ -1298,7 +1298,7 @@
   <string name="talk_snackbar_survey_action_text">Башларға</string>
   <string name="talk_share_discussion_subject">Википедия - фекер алышыу темаһы \"%s\"</string>
   <string name="talk_share_talk_page">Википедия - фекер алышыу бите</string>
-  <string name="talk_edit_disclaimer">Был - фекер алышыу бите. Зинһар, фекер алышыу бите ҡағиҙәләрен үтәгеҙ, һәм хәбәрегеҙ һуңында ҡултамғаны дүрт тильда - ~~~~ менән ҡуйырға онотмағыҙ.\n&lt;br&gt;&lt;br&gt; &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Фекер алышыу ҡағиҙәләре\"&gt;Википедия:Фекер алышыу ҡағиҙәләре&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Был - фекер алышыу бите. Зинһар, фекер алышыу бите ҡағиҙәләрен үтәгеҙ, һәм хәбәрегеҙ һуңында ҡултамғаны дүрт тильда - ~~~~ менән ҡуйырға онотмағыҙ.\n&lt;br&gt;&lt;br&gt; &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Фекер алышыу ҡағиҙәләре\"&gt;Википедия:Фекер алышыу ҡағиҙәләре&lt;/a&gt;</string>
   <string name="talk_search_hint">Хәбәрҙәрҙе эҙләргә</string>
   <string name="talk_search_topics_hint">Темаларҙа эҙләргә</string>
   <string name="talk_search_find_in_talk_topics_hint">Фекер алышу битендә теманы эҙләү</string>

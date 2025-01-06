@@ -141,7 +141,7 @@
   <string name="search_reading_lists_no_results">ಓದುವ ಪಟ್ಟಿಗಳಲ್ಲಿ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳು ಸಿಗಲಿಲ್ಲ</string>
   <string name="search_history_no_results">ಇತಿಹಾಸದಲ್ಲಿ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳು ಸಿಗಲಿಲ್ಲ</string>
   <string name="edit_section_captcha_message">ಸ್ವಯಂಚಾಲಿತ ಸ್ಪ್ಯಾಮ್‌ನಿಂದ ರಕ್ಷಿಸುವ ಸಲುವಾಗಿ ದಯವಿಟ್ಟು ಕೆಳಗೆ ಕಾಣುವ ಪದಗಳನ್ನು ನಮೂದಿಸಿ</string>
-  <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರ ಕಾಣುತ್ತಿಲ್ಲವೇ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ಖಾತೆಗಾಗಿ ಕೋರಿಕೆ ಸಲ್ಲಿಸಿ&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರ ಕಾಣುತ್ತಿಲ್ಲವೇ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ಖಾತೆಗಾಗಿ ಕೋರಿಕೆ ಸಲ್ಲಿಸಿ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ಮೇಲಿನ ಪದಗಳನ್ನು ಪುನರಾವರ್ತಿಸಿ</string>
   <string name="title_captcha">CAPTCHA ನಮೂದಿಸಿ</string>
   <string name="edit_section_captcha_reload">ಕ್ಯಾಪ್ಚಾ ಪುನರ್ ಕಾಣಿಸಲು ತಟ್ಟಿರಿ.</string>
@@ -204,7 +204,7 @@
   <string name="create_account_button">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="create_account_name_unavailable">ಬಳಕೆದಾರ ಹೆಸರು \"%s\" ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಬೇರೆ ಹೆಸರನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.</string>
   <string name="create_account_ip_block_message">ಕ್ಷಮಿಸಿ, ಪ್ರಸ್ತುತ ನಿಮ್ಮ ಐಪಿ ವಿಳಾಸವು ಹೊಸ ಖಾತೆಯನ್ನು ರಚಿಸುವುದರಿಂದ ನಿರ್ಬಂಧಿತವಾಗಿದೆ.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ವಿವರಗಳು</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
   <string name="preferences_account_heading">ಖಾತೆ</string>
@@ -226,10 +226,10 @@
   <string name="about_description">ವಿಕಿಪೀಡಿಯ ಆ್ಯಪ್ ಕುರಿತು</string>
   <string name="privacy_policy_description">ಗೌಪ್ಯತಾ ನೀತಿ</string>
   <string name="terms_of_use_description">ಬಳಕೆಯನ್ನು ನಿಬಂಧನೆಗಳು</string>
-  <string name="about_wikipedia_url">https://kn.wikipedia.org/wiki/ವಿಕಿಪೀಡಿಯ:ನಮ್ಮ_ಬಗ್ಗೆ</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ವಿಕಿಪೀಡಿಯ:ನಮ್ಮ_ಬಗ್ಗೆ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">ಕೊಡುಗೆದಾರರು</string>

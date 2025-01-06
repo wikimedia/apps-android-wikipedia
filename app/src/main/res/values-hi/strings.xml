@@ -162,7 +162,7 @@
   <string name="search_reading_lists_no_results">पठन सूची में कोई परिणाम नहीं मिला</string>
   <string name="search_history_no_results">इतिहास में कोई परिणाम नहीं मिला</string>
   <string name="edit_section_captcha_message">स्वचालित स्पैम से बचने के लिए कृपया नीचे दिखाए गए शब्दों को लिखें</string>
-  <string name="edit_section_captcha_request_an_account_message">चित्र नहीं दिख रहा? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;एक खाते का अनुरोध करें&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">चित्र नहीं दिख रहा? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;एक खाते का अनुरोध करें&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ऊपर से शब्दों को दोहराएँ</string>
   <string name="title_captcha">CAPTCHA दर्ज करें</string>
   <string name="edit_section_captcha_reload">पुनः लोड करने के लिए CAPTCHA पर टैप करें</string>
@@ -223,7 +223,7 @@
   <string name="create_account_button">खाता बनायें</string>
   <string name="create_account_name_unavailable">सदस्य नाम %s उपलब्ध नहीं है। कृपया कोई अलग नाम चुनें।</string>
   <string name="create_account_ip_block_message">क्षमा करें, आपका आई पी एड्रेस वर्तमान में नये खाते बनने के लिए प्रतिबंधित है।</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">विवरण</string>
   <string name="preferences_general_heading">सामान्य</string>
   <string name="preferences_account_heading">खाता</string>
@@ -257,10 +257,10 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
-  <string name="about_wikipedia_url">https://hi.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
@@ -269,7 +269,7 @@
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
-  <string name="about_app_license" fuzzy="true">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
+  <string name="about_app_license" fuzzy="true">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया संस्थान&lt;/a&gt; का एक उत्पाद</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
@@ -435,9 +435,9 @@
   <string name="error_blocked_start">प्रतिबंध की शुरुआत: %s</string>
   <string name="error_blocked_expiry">प्रतिबंध की समाप्ति: %s</string>
   <string name="error_blocked_id">ब्लॉक आईडी: %s</string>
-  <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://minecraft.wiki/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="theme_chooser_menu_item_short_tooltip">अपने टूलबार में परिवर्तन करें</string>
-  <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://minecraft.wiki/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="temp_account_dialog_ok">समझ गया</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
@@ -1249,7 +1249,7 @@
   <string name="talk_snackbar_survey_action_text">शुरूआत करें</string>
   <string name="talk_share_discussion_subject">विकिपीडिया - वार्ता पृष्ठ विषय \"%s\" पर चर्चा</string>
   <string name="talk_share_talk_page">विकिपीडिया - वार्ता पृष्ठ पर चर्चा</string>
-  <string name="talk_edit_disclaimer">यह एक वार्ता पृष्ठ है। कृपया वार्ता पृष्ठ दिशानिर्देशों का सम्मान करें, और विकीटेक्स्ट का उपयोग करके पोस्ट करते समय चार टिल्ड टाइप करके अपनी पोस्ट पर हस्ताक्षर करना याद रखें: ~~~~।&lt;br&gt;&lt;br&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;विकिपीडिया: वार्ता पृष्ठ दिशानिर्देश&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">यह एक वार्ता पृष्ठ है। कृपया वार्ता पृष्ठ दिशानिर्देशों का सम्मान करें, और विकीटेक्स्ट का उपयोग करके पोस्ट करते समय चार टिल्ड टाइप करके अपनी पोस्ट पर हस्ताक्षर करना याद रखें: ~~~~।&lt;br&gt;&lt;br&gt; &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;विकिपीडिया: वार्ता पृष्ठ दिशानिर्देश&lt;/a&gt;</string>
   <string name="talk_search_hint">संदेश खोजें</string>
   <string name="talk_search_topics_hint">विषय खोजें</string>
   <string name="talk_search_find_in_talk_topics_hint">वार्ता पृष्ठ विषय में खोजें</string>

@@ -131,7 +131,7 @@
   <string name="search_reading_lists_no_results">Bonzaa kyebe a kannoo yoeŋ</string>
   <string name="search_history_no_results">Bonzaa kyebe a dabaŋkroŋ poɔŋ</string>
   <string name="edit_section_captcha_message">Ka foŋ na soŋ gu yi masɛgye ba boɔre naŋ maŋ e a meŋɛ, sɔroo ŋmɛ a yelbie na naŋ sãã a puliŋ eŋ</string>
-  <string name="edit_section_captcha_request_an_account_message">Fo koŋ baŋ nyɛ a enfuo? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Fo koŋ baŋ nyɛ a enfuo? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">La maaleŋ sɛge a sɛgebie a yi a sazu</string>
   <string name="title_captcha">Eŋ CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tɔ CAPTCHA a la piili</string>
@@ -192,7 +192,7 @@
   <string name="create_account_button">Maale fo akawnte</string>
   <string name="create_account_name_unavailable">A tonton yuori \"%s\" ba kyibe. Gaafera leɛ de yo zaala.</string>
   <string name="create_account_ip_block_message">Gaafera, ba ŋmaa la fo IP adrɛɛsi ŋa a yi akawnte paale maaloo eŋaŋ.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Yɛlɛ</string>
   <string name="preferences_general_heading">Boŋ zaa</string>
   <string name="preferences_account_heading">Akawnte</string>
@@ -226,10 +226,10 @@
   <string name="about_description">A Wikipiideɛ app yɛlɛ</string>
   <string name="privacy_policy_description">Gondo yɛlwaanoo</string>
   <string name="terms_of_use_description">Sagebo yelsɛgeree</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Yɛlɛ</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Yɛlɛ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gama binziiri toŋ</string>
@@ -403,9 +403,9 @@
   <string name="error_blocked_start">piili fo pagebo: %s</string>
   <string name="error_blocked_expiry">Pagebo baaroo: %s</string>
   <string name="error_blocked_id">Page ID: %s</string>
-  <string name="error_blocked_footer">Fo na baŋ boɔŋ la&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bee a kaŋa&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; a di dɛmo te kyaare a pagebo yɛlɛ.</string>
+  <string name="error_blocked_footer">Fo na baŋ boɔŋ la&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bee a kaŋa&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; a di dɛmo te kyaare a pagebo yɛlɛ.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Maale a tuulbaa fo boɔbo</string>
-  <string name="error_blocked_footer_no_blocker">Fo na toɔŋ boɔŋ a&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; a di dɛmo te kyaare a pagebo yɛlɛ.</string>
+  <string name="error_blocked_footer_no_blocker">Fo na toɔŋ boɔŋ a&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; a di dɛmo te kyaare a pagebo yɛlɛ.</string>
   <string name="crash_report_activity_title">Gbɛ ŋme be la fo yɛlɛ boɔbo ŋa poɔ</string>
   <string name="crash_report_relaunch_or_quit">Fo na boɔra ka fo leɛo gaa piili bee a bare?</string>
   <string name="crash_report_relaunch">Leɛ te piili</string>
@@ -1196,7 +1196,7 @@
   <string name="talk_snackbar_survey_action_text">De piiloŋ</string>
   <string name="talk_share_discussion_subject">Wikipiideɛ - dɛmɛ diibu yelyaga peegyi yelzu eŋɛ \"%s\"</string>
   <string name="talk_share_talk_page">Wikipiideɛ - dɛmɛ diibu yelyaga peegyi eŋɛ</string>
-  <string name="talk_edit_disclaimer">ŋa e la yelyaga peegyi. Sɔroo eŋ a yelyaga peegyi guubo sobie, ane ta yinni na goligoli fo posi ka fõõ ŋmɛ a bondesɛgere: ~~~~ ka fõõ wa pooso ne wikisɛgere.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">ŋa e la yelyaga peegyi. Sɔroo eŋ a yelyaga peegyi guubo sobie, ane ta yinni na goligoli fo posi ka fõõ ŋmɛ a bondesɛgere: ~~~~ ka fõõ wa pooso ne wikisɛgere.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
   <string name="talk_search_hint">Wɛre masɛgyere</string>
   <string name="talk_search_topics_hint">Wɛre yelzure</string>
   <string name="talk_search_find_in_talk_topics_hint">Nyɛ o la yeli peegyi yelzu poɔ</string>

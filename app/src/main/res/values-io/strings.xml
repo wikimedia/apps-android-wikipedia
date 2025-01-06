@@ -136,7 +136,7 @@
   <string name="search_reading_lists_no_results">Nula rezulti trovita en la lektebla listi</string>
   <string name="search_history_no_results">Nula rezulti trovita en la \'historio\' di retnavigado</string>
   <string name="edit_section_captcha_message">Por preventar l\'automatala \'spam\', kopiez la vorti quin vu vidas infre</string>
-  <string name="edit_section_captcha_request_an_account_message">Ka l\'imajo ne povas videsar? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Demandez konto&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Ka l\'imajo ne povas videsar? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Demandez konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Kopiez la vorti lektebla adsupre</string>
   <string name="title_captcha">Skribez per CAPTCHA</string>
   <string name="edit_section_captcha_reload">Frapez CAPTCHA por richarjar</string>
@@ -200,7 +200,7 @@
   <string name="create_account_button">Krear konto</string>
   <string name="create_account_name_unavailable">La nomo dil uzero \"%s\" ne esas disponebla. Voluntez selektar altra diferanta nomo.</string>
   <string name="create_account_ip_block_message">Pardonez, vua IP-adreso esas nun blokusita, e ne povas krear nova konti.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">Ordinara preferaji</string>
   <string name="preferences_account_heading">Konto</string>
@@ -234,10 +234,10 @@
   <string name="about_description">Pri l\'apo (app) di Wikipedio</string>
   <string name="privacy_policy_description">Politiki pri privateso</string>
   <string name="terms_of_use_description">Uzo-termini</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteki uzita</string>
@@ -417,9 +417,9 @@
   <string name="error_blocked_start">Komenco di bloko: %s</string>
   <string name="error_blocked_expiry">La blukuso finos ye: %s</string>
   <string name="error_blocked_id">ID dil blokuso: %s</string>
-  <string name="error_blocked_footer">Vu povas kontaktar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; od altra &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrero&lt;/a&gt; por diskutar la blokuso.</string>
+  <string name="error_blocked_footer">Vu povas kontaktar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; od altra &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrero&lt;/a&gt; por diskutar la blokuso.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Ajustez vua utensilo-stango</string>
-  <string name="error_blocked_footer_no_blocker">Vu povas kontaktar ul &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administranto&lt;/a&gt; por diskutar pri la blokuso.</string>
+  <string name="error_blocked_footer_no_blocker">Vu povas kontaktar ul &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administranto&lt;/a&gt; por diskutar pri la blokuso.</string>
   <string name="temp_account_not_logged_in">Vu ne esas konektita</string>
   <string name="temp_account_dialog_ok">Me komprenis</string>
   <string name="temp_account_using_title">Vu esas uzanta provizora konto</string>

@@ -130,7 +130,7 @@
   <string name="about_description">Par Vikipēdijas lietotni</string>
   <string name="privacy_policy_description">Privātuma politika</string>
   <string name="terms_of_use_description">Lietošanas noteikumi</string>
-  <string name="about_wikipedia_url">https://lv.wikipedia.org/wiki/Vikipēdija:Par</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Vikipēdija:Par</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lv</string>
   <string name="about_libraries_heading">Izmantotās bibliotēkas</string>

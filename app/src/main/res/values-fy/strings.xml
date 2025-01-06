@@ -94,7 +94,7 @@
   <string name="search_reading_lists_no_results">Gjin treffers fûn yn \'e lêslisten</string>
   <string name="search_history_no_results">Gjin treffers fûn yn \'e skiednis</string>
   <string name="edit_section_captcha_message">Typ de wurden dy\'t hjirûnder ferskine, as befeiliging tsjin automatisearre spam</string>
-  <string name="edit_section_captcha_request_an_account_message">Plaatsje net te sjen? &lt;a href=\"https://fy.wikipedia.org/wiki/Wikipedy:Gasteboek\"&gt;Freegje in akkount&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Plaatsje net te sjen? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedy:Gasteboek\"&gt;Freegje in akkount&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Nim boppesteande wurden oer</string>
   <string name="title_captcha">CAPTCHA yntype</string>
   <string name="edit_section_captcha_reload">CAPTCHA oantikje foar werladen</string>
@@ -154,7 +154,7 @@
   <string name="create_account_button">Akkount oanmeitsje</string>
   <string name="create_account_name_unavailable">De meidochnamme \"%s\" is net beskikber. Graach in oare namme kieze.</string>
   <string name="create_account_ip_block_message">Spitich, jo YP-adres is op it stuit útsletten nije akkounts oan te meitsjen.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Bysûnderheden</string>
   <string name="preferences_general_heading">Algemien</string>
   <string name="wikipedia_app_faq">Faak stelde fragen Wikipedy-app</string>
@@ -187,10 +187,10 @@
   <string name="about_description">Oer de Wikipedy-app</string>
   <string name="privacy_policy_description">Privacybelied</string>
   <string name="terms_of_use_description">Gebrûksbetingsten</string>
-  <string name="about_wikipedia_url">https://fy.wikipedia.org/wiki/Wikipedy:Wat_is_Wikipedia</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedy:Wat_is_Wikipedia</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://fy.wikipedia.org/wiki/Wikipedy:Gasteboek</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedy:Gasteboek</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fy</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fy</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
@@ -201,7 +201,7 @@
   <string name="about_translators_heading">Oersetters</string>
   <string name="about_translators_translatewiki">Dizze app is ferfryske troch de frijwillige oersetters fan &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisinsje</string>
-  <string name="about_app_license" fuzzy="true">Boarnekoade beskikber op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ûnder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-Lisinsje&lt;/a&gt;. At net oars oanjûn wurdt, is de ynhâld beskikber ûnder de lisinsje &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nammefermelding-Lyk diele&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Boarnekoade beskikber op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ûnder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-Lisinsje&lt;/a&gt;. At net oars oanjûn wurdt, is de ynhâld beskikber ûnder de lisinsje &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nammefermelding-Lyk diele&lt;/a&gt;.</string>
   <string name="about_wmf">In produkt fan \'e &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Oer</string>
   <string name="edit_abandon_confirm">De side is wizige. Wolle jo wier ôfslute sûnder jo feroarings te bewarjen?</string>

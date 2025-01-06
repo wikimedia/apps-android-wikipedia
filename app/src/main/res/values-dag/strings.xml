@@ -135,7 +135,7 @@
   <string name="search_reading_lists_no_results">shɛhira shɛli kani karimbu yaɣili maa puuni</string>
   <string name="search_history_no_results">shehira shɛli laŋ ka dinpungari maa puuni</string>
   <string name="edit_section_captcha_message">din yɛn sɔŋ taɣi ka chɛ pɔhim zuɣu gabbu, dimi suɣulo ka kpɛhi bachinima din do gbunni ŋɔ</string>
-  <string name="edit_section_captcha_request_an_account_message">anfooni maa ku tooi nya? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">anfooni maa ku tooi nya? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">labi kpɛhi bachinima din do zuɣusaa ŋɔ</string>
   <string name="title_captcha">kpɛhimi CAPTCHA</string>
   <string name="edit_section_captcha_reload">dihimi CAPTCHA maa zuɣu n-labi niŋ</string>
@@ -198,7 +198,7 @@
   <string name="create_account_button">Yoomi akawnti.</string>
   <string name="create_account_name_unavailable">lala yuli ŋɔ \"%s\" pala dinni tooi niŋ. Taɣimi yu\'shɛli.</string>
   <string name="create_account_ip_block_message">mbaya, a IP adrɛɛs maa na nyɛla bɛ ni zaŋ bɛ nuu pa sheli zuɣu ka di ku tooi yoogi akawnt</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">di bayana</string>
   <string name="preferences_general_heading">zaɣyalinli</string>
   <string name="preferences_account_heading">Akawnt</string>
@@ -232,10 +232,10 @@
   <string name="about_description">dinjɛndi zaŋkpa Wikipedia app polo</string>
   <string name="privacy_policy_description">Ashili zalikpana</string>
   <string name="terms_of_use_description">Zaŋ tum tuma zalisi</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">bachinima kahigibu kundinima din zaŋ tum tuma</string>
@@ -418,9 +418,9 @@
   <string name="error_blocked_start">Kparibu piligu: %s</string>
   <string name="error_blocked_expiry">Kparibu naabu: %s</string>
   <string name="error_blocked_id">kparibu maa namba: %s</string>
-  <string name="error_blocked_footer">A ni tooi nya &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bee ŋun bɔŋɔ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka yi tɔɣisi a kparibu maa yɛltɔɣa.</string>
+  <string name="error_blocked_footer">A ni tooi nya &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bee ŋun bɔŋɔ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka yi tɔɣisi a kparibu maa yɛltɔɣa.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Malimi a tuulbaa zali a ni borili shɛm</string>
-  <string name="error_blocked_footer_no_blocker">A ni tooi nya &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka yi tɔɣisi a kparibu maa yɛltɔɣa.</string>
+  <string name="error_blocked_footer_no_blocker">A ni tooi nya &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka yi tɔɣisi a kparibu maa yɛltɔɣa.</string>
   <string name="temp_account_not_logged_in">A bi kpɛ</string>
   <string name="temp_account_anon_dialog_body" fuzzy="true">Di yi niŋ ka a niŋ maliniŋ, &lt;b&gt;saha bela akaunti&lt;/b&gt; nyɛla din yɛn nam n zaŋ ti a ka di gbubi a daashili. &lt;a href=\"%1$s\"&gt;Bɔhimi m pahi&lt;/a&gt;. &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Log in&lt;/a&gt; or &lt;a href=\"https://#login\"&gt;Nammi akaunti&lt;/a&gt; zaŋ n-ti sɔhi biɛɣu ni mali niŋ ni din yɛn che ka a tooi nya nahingbaŋ shɛŋa.</string>
   <string name="temp_account_dialog_ok">Nya li</string>
@@ -1261,7 +1261,7 @@
   <string name="talk_snackbar_survey_action_text">Piligima</string>
   <string name="talk_share_discussion_subject">Wikipedia - saawara zaŋ chaŋ yɛltɔɣikpani din be yɛltɔɣa paagi ni \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - alizama saawara gbaabu dundɔŋni</string>
-  <string name="talk_edit_disclaimer">Dimbɔŋɔ nyɛla yɛltɔɣa dundɔŋ. Dimsuɣulo di tuya ni a ti yɛltɔɣa paagi ŋɔ zuɣu zalisi jilima ka dolli, tɛɛmi n-gori a lahabali gbunni ni tildinima dibaanahi ~~~~ a yi yɛn zaŋ wikitext n zaŋ a lahabali ti &lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Dimbɔŋɔ nyɛla yɛltɔɣa dundɔŋ. Dimsuɣulo di tuya ni a ti yɛltɔɣa paagi ŋɔ zuɣu zalisi jilima ka dolli, tɛɛmi n-gori a lahabali gbunni ni tildinima dibaanahi ~~~~ a yi yɛn zaŋ wikitext n zaŋ a lahabali ti &lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
   <string name="talk_search_hint">vihimi lahabaya puuni</string>
   <string name="talk_search_topics_hint">vihimi yɛltɔɣikpana</string>
   <string name="talk_search_find_in_talk_topics_hint">Vihibo yɛltɔɣikpani saawara dundɔŋni</string>

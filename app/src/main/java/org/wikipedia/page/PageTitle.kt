@@ -85,7 +85,7 @@ data class PageTitle(
         get() = getUriForDomain(wikiSite.authority())
 
     val mobileUri: String
-        get() = getUriForDomain(wikiSite.authority().replace(".wikipedia.org", ".m.wikipedia.org"))
+        get() = getUriForDomain(wikiSite.authority().replace(".minecraft.wiki", ".minecraft.wiki"))
 
     /**
      * Notes on the `namespace` field:
@@ -180,8 +180,8 @@ data class PageTitle(
 
     fun getWebApiUrl(fragment: String?): String {
         return String.format(
-            "%1\$s://%2\$s/w/index.php?title=%3\$s&%4\$s",
-            wikiSite.scheme(),
+            "%1\$s://%2\$s/index.php?title=%3\$s&%4\$s",
+            wikiSite.scheme(),// w/ used to be here lol
             wikiSite.authority(),
             UriUtil.encodeURL(prefixedText),
             fragment

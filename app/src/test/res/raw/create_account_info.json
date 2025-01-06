@@ -29,7 +29,7 @@
             },
             "captchaInfo": {
               "type": "null",
-              "value": "/w/index.php?title=Special:Captcha/image&wpCaptchaId=272460457",
+              "value": "/index.php?title=Special:Captcha/image&wpCaptchaId=272460457",
               "label": "To edit this page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):",
               "help": "Description of the CAPTCHA.",
               "optional": false,

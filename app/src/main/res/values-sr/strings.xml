@@ -147,7 +147,7 @@
   <string name="search_reading_lists_no_results">Нису пронађени резултати на листама за читање</string>
   <string name="search_history_no_results">Нису пронађени резултати у историји</string>
   <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог непожељног садржаја, унесите речи које су приказане испод</string>
-  <string name="edit_section_captcha_request_an_account_message">Не видите слику? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Затражите налог&lt;/a&gt;.</string>
+  <string name="edit_section_captcha_request_an_account_message">Не видите слику? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Затражите налог&lt;/a&gt;.</string>
   <string name="edit_section_captcha_hint">Поновите речи изнад</string>
   <string name="title_captcha">Унесите CAPTCHA текст</string>
   <string name="edit_section_captcha_reload">Додирните CAPTCHA слику да бисте је поново учитали</string>
@@ -211,7 +211,7 @@
   <string name="create_account_button">Отвори налог</string>
   <string name="create_account_name_unavailable">Корисничко име „%s” је недоступно. Изаберите друго.</string>
   <string name="create_account_ip_block_message">Отварање нових налога са ваше IP адресе је тренутно блокирано.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Детаљи</string>
   <string name="preferences_general_heading">Опште</string>
   <string name="preferences_account_heading">Налог</string>
@@ -244,12 +244,12 @@
   <string name="about_description">О апликацији Википедија</string>
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
-  <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Википедија:О_нама</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википедија:О_нама</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
@@ -1275,7 +1275,7 @@
   <string name="talk_snackbar_survey_action_text">Започните</string>
   <string name="talk_share_discussion_subject">Википедија - дискусија на теми странице за разговор \"%s\"</string>
   <string name="talk_share_talk_page">Википедија — дискусије на страници за разговор</string>
-  <string name="talk_edit_disclaimer">Ово је страница за разговор. Поштујте правила странице за разговор, и не заборавите да потпишете своје објаве куцајући четири тилде: ~~~~ када објављујете користећи викитекст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Ово је страница за разговор. Поштујте правила странице за разговор, и не заборавите да потпишете своје објаве куцајући четири тилде: ~~~~ када објављујете користећи викитекст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
   <string name="talk_search_hint">Претрага порука</string>
   <string name="talk_search_topics_hint">Претражи теме</string>
   <string name="talk_search_find_in_talk_topics_hint">Пронађи у теми на страници за разговор</string>

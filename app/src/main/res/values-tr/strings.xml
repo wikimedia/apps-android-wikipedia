@@ -176,7 +176,7 @@
   <string name="search_reading_lists_no_results">Okuma listelerinde sonuç bulunamadı</string>
   <string name="search_history_no_results">Geçmişte sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için aşağıda görünen kelimeleri yazınız.</string>
-  <string name="edit_section_captcha_request_an_account_message">Resmi göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap talep edin&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Resmi göremiyor musunuz? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap talep edin&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
   <string name="title_captcha">CAPTCHA\'yı girin</string>
   <string name="edit_section_captcha_reload">Yeniden yüklemek için CAPTCHA\'ya dokunun</string>
@@ -239,7 +239,7 @@
   <string name="create_account_button">Hesap oluştur</string>
   <string name="create_account_name_unavailable">\"%s\" kullanıcı adı mevcut değil. Lütfen, farklı bir kullanıcı adı seçin.</string>
   <string name="create_account_ip_block_message">Maalesef, IP adresinizin şu anda yeni hesap oluşturması engellendi.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ayrıntılar</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="preferences_account_heading">Hesap</string>
@@ -273,12 +273,12 @@
   <string name="about_description">Vikipedi uygulaması hakkında</string>
   <string name="privacy_policy_description">Gizlilik politikası</string>
   <string name="terms_of_use_description">Kullanım şartları</string>
-  <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr</string>
@@ -463,9 +463,9 @@
   <string name="error_blocked_start">Engel başlangıcı: %s</string>
   <string name="error_blocked_expiry">Engel bitişi: %s</string>
   <string name="error_blocked_id">Engel kimliği: %s</string>
-  <string name="error_blocked_footer">Engellemeyi görüşmek için &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ya da başka bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
+  <string name="error_blocked_footer">Engellemeyi görüşmek için &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ya da başka bir &lt;a href=\"https://minecraft.wiki/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Araç çubuğunuzu özelleştirin</string>
-  <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
+  <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://minecraft.wiki/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="temp_account_not_logged_in">Oturum açmadınız</string>
   <string name="temp_account_dialog_ok">Anladım</string>
   <string name="temp_account_using_title">Geçici bir hesap kullanıyorsunuz</string>
@@ -1309,7 +1309,7 @@
   <string name="talk_snackbar_survey_action_text">Başla</string>
   <string name="talk_share_discussion_subject">Vikipedi - tartışma sayfasındaki \"%s\" hakkındaki tartışma</string>
   <string name="talk_share_talk_page">Vikipedi - tartışma sayfasındaki tartışmalar</string>
-  <string name="talk_edit_disclaimer">Bu bir tartışma sayfasıdır. Lütfen, tartışma sayfası yönergelerine uyun ve gönderilerinizi dört tilde yazarak imzalamayı unutmayın: vikimetni kullanırken gönderinin sonuna ~~~~ ekleyin.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Tartışma_sayfası\"&gt;Vikipedi:Tartışma sayfası&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Bu bir tartışma sayfasıdır. Lütfen, tartışma sayfası yönergelerine uyun ve gönderilerinizi dört tilde yazarak imzalamayı unutmayın: vikimetni kullanırken gönderinin sonuna ~~~~ ekleyin.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Vikipedi:Tartışma_sayfası\"&gt;Vikipedi:Tartışma sayfası&lt;/a&gt;</string>
   <string name="talk_search_hint">Mesajları ara</string>
   <string name="talk_search_topics_hint">Konu ara</string>
   <string name="talk_search_find_in_talk_topics_hint">Tartışma sayfasında konu bul</string>

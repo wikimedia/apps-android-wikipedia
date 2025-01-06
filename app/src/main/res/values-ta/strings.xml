@@ -125,7 +125,7 @@
   <string name="search_reading_lists_no_results">வாசிப்பு பட்டியலில் முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="search_history_no_results">வரலாற்றில் வாசிப்பு முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
   <string name="edit_section_captcha_message">தானியங்கு எரிதத்தை எதிர்த்து காக்க, கீழ்வரும் சொற்களை உள்ளிடவும்</string>
-  <string name="edit_section_captcha_request_an_account_message">படத்தை காண இயலவில்லையா? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;கணக்கை கோருக&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">படத்தை காண இயலவில்லையா? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;கணக்கை கோருக&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">மேலுள்ள சொற்களை மீண்டும் உள்ளிடவும்</string>
   <string name="title_captcha">CAPTCHAவை உள்ளிடவும்</string>
   <string name="edit_section_captcha_reload">மறுஏற்றம் செய்ய கேப்ட்சாவை தட்டவும்</string>
@@ -183,7 +183,7 @@
   <string name="create_account_button">கணக்கை உருவாக்குக</string>
   <string name="create_account_name_unavailable">பயனர் பெயர் \"%s\" ஏற்கனவே பயன்பாட்டில் உள்ளது. வேறொரு பெயரைத் தெரிவு செய்க.</string>
   <string name="create_account_ip_block_message">வருந்துகிறோம், உமது ஐ.பி. முகவரி மூலம் புதிய கணக்குகளை உருவாக்குவது தற்போது தடை செய்யப்பட்டுள்ளது.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">விவரங்கள்</string>
   <string name="preferences_general_heading">பொதுவான</string>
   <string name="preferences_account_heading">கணக்கு</string>
@@ -214,12 +214,12 @@
   <string name="about_description">விக்கிப்பீடியா நிரலைப் பற்றி</string>
   <string name="privacy_policy_description">தனியுரிமைக் கொள்கை</string>
   <string name="terms_of_use_description">பயன்பாட்டு விதிமுறைகள்</string>
-  <string name="about_wikipedia_url">https://ta.wikipedia.org/wiki/விக்கிப்பீடியா:விபரம்</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/விக்கிப்பீடியா:விபரம்</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/ta</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/ta</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">பயன்படுத்தும் நிரலகங்கள்</string>
@@ -227,7 +227,7 @@
   <string name="about_translators_heading">மொழிபெயர்ப்பாளர்கள்</string>
   <string name="about_translators_translatewiki">இந்த நிரல் &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-இல் உள்ள தன்னார்வ மொழிபெயர்ப்பாளர்களால் மொழிபெயர்க்கப்பட்டது.</string>
   <string name="about_app_license_heading">உரிமம்</string>
-  <string name="about_app_license" fuzzy="true">மூலக்குறியீடு &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; மற்றும் &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-ல் &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;-ன் கீழ் கிடைக்கும். குறிப்பிடப்படவில்லையெனில்,  &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;-ன் கீழ் கிடைக்கும்.</string>
+  <string name="about_app_license" fuzzy="true">மூலக்குறியீடு &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; மற்றும் &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-ல் &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;-ன் கீழ் கிடைக்கும். குறிப்பிடப்படவில்லையெனில்,  &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;-ன் கீழ் கிடைக்கும்.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;விக்கிமீடியா நிறுவனத்தின்&lt;/a&gt; உருவாக்கம்</string>
   <string name="about_activity_title">நிரலைப் பற்றி</string>
   <string name="edit_abandon_confirm">இந்தப் பக்கத்தில் மாற்றங்கள் உள்ளன. உறுதியாக உங்கள் மாற்றங்களை பதிப்பிடாமல் வெளியேற விரும்புகிறீர்களா?</string>

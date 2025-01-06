@@ -544,7 +544,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     companion object {
         private const val MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS = 3
-        private const val MIN_CONTRIBUTIONS_GATE_URL = "https://en.wikipedia.org/wiki/Help:Introduction_to_editing_with_Wiki_Markup/1"
+        private const val MIN_CONTRIBUTIONS_GATE_URL = "https://minecraft.wiki/wiki/Help:Introduction_to_editing_with_Wiki_Markup/1"
 
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()

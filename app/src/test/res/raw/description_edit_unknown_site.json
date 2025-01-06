@@ -5,6 +5,6 @@
       "text": "Unrecognized value for parameter 'site': testwiki"
     }
   ],
-  "docref": "See https://www.wikidata.org/w/api.php for API usage",
+  "docref": "See https://www.wikidata.org/api.php for API usage",
   "servedby": "mw1196"
 }

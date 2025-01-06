@@ -161,7 +161,7 @@
   <string name="search_reading_lists_no_results">읽기 목록에 결과가 없습니다</string>
   <string name="search_history_no_results">역사에 결과가 없습니다</string>
   <string name="edit_section_captcha_message">자동화된 스팸으로부터 보호하기 위해, 아래에 나타나는 낱말을 입력해 주세요</string>
-  <string name="edit_section_captcha_request_an_account_message">그림이 보이지 않습니까? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;계정 요청하기&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">그림이 보이지 않습니까? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;계정 요청하기&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">위의 낱말을 한 번 더 입력하세요</string>
   <string name="title_captcha">캡차를 입력하세요</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
@@ -225,7 +225,7 @@
   <string name="create_account_button">계정 만들기</string>
   <string name="create_account_name_unavailable">\"%s\" 사용자 이름을 사용할 수 없습니다. 다른 이름을 선택해 주십시오.</string>
   <string name="create_account_ip_block_message">죄송하지만, 당신의 IP 주소가 현재 새로운 계정을 생성하지 못하도록 차단되어 있습니다.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">자세한 사항</string>
   <string name="preferences_general_heading">일반</string>
   <string name="preferences_account_heading">계정</string>
@@ -259,10 +259,10 @@
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인정보보호정책</string>
   <string name="terms_of_use_description">이용 약관</string>
-  <string name="about_wikipedia_url">https://ko.wikipedia.org/wiki/위키백과:소개</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -446,9 +446,9 @@
   <string name="error_blocked_start">차단일: %s</string>
   <string name="error_blocked_expiry">차단 해제일: %s</string>
   <string name="error_blocked_id">차단 ID: %s</string>
-  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
+  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="theme_chooser_menu_item_short_tooltip">도구 모음 사용자 지정</string>
-  <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
+  <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="temp_account_not_logged_in">로그인하고 있지 않습니다</string>
   <string name="temp_account_anon_ip_dialog_body">편집을 하면 IP 주소가 편집에 연결됩니다.&lt;br /&gt;&lt;br /&gt;향후 편집에 대한 신뢰를 얻고 다른 기능에 접근하려면 &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하거나 &lt;a href=\"https://#createaccount\"&gt;계정을 만드세요&lt;/a&gt;.</string>
   <string name="temp_account_anon_dialog_body">편집을 하면 개인 정보 보호를 위해 &lt;b&gt;임시 계정&lt;/b&gt;이 생성됩니다. &lt;a href=\"%1$s\"&gt;더 알아보기&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;향후 편집에 대한 신뢰를 얻고 다른 기능에 접근하려면 &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하거나 &lt;a href=\"https://#createaccount\"&gt;계정을 만드세요&lt;/a&gt;.</string>
@@ -1298,7 +1298,7 @@
   <string name="talk_snackbar_survey_action_text">시작하기</string>
   <string name="talk_share_discussion_subject">위키백과 - 토론 문서 주제 \"%s\"의 토론</string>
   <string name="talk_share_talk_page">위키백과 - 토론 문서의 토론</string>
-  <string name="talk_edit_disclaimer">이것은 토론 문서입니다. 문서 지침을 준수해 주시고 4개의 물결표를 입력하여 게시글에 꼭 서명해 주세요: 위키텍스트를 사용하여 게시할 때 ~~~~를 입력합니다.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ko.wikipedia.org/wiki/위키백과:토론_문서_지침\"&gt;위키백과:토론 문서 지침&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">이것은 토론 문서입니다. 문서 지침을 준수해 주시고 4개의 물결표를 입력하여 게시글에 꼭 서명해 주세요: 위키텍스트를 사용하여 게시할 때 ~~~~를 입력합니다.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/위키백과:토론_문서_지침\"&gt;위키백과:토론 문서 지침&lt;/a&gt;</string>
   <string name="talk_search_hint">메시지 검색</string>
   <string name="talk_search_topics_hint">주제 검색</string>
   <string name="talk_search_find_in_talk_topics_hint">토론 문서 주제에서 찾기</string>

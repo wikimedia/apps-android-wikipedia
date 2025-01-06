@@ -115,7 +115,7 @@
   <string name="about_description">Euver de Wikipedia-app</string>
   <string name="privacy_policy_description">Privaatbeleid</string>
   <string name="terms_of_use_description">Algemein veurwaerd</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_libraries_heading">Gebroekde biebs</string>

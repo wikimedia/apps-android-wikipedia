@@ -36,7 +36,7 @@ class ImagePreviewViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 .getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang).query?.firstPage()
 
             if (firstPage?.imageInfo() == null) {
-                // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
+                // If file page originally comes from *.minecraft.wiki (i.e. movie posters), it will not have imageInfo and pageId.
                 firstPage = ServiceFactory.get(pageSummaryForEdit.pageTitle.wikiSite)
                     .getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang).query?.firstPage()
             } else {

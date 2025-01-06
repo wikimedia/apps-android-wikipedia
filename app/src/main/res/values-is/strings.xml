@@ -132,7 +132,7 @@
   <string name="search_reading_lists_no_results">Engar niðurstöður fundust í leslistum</string>
   <string name="search_history_no_results">Engar niðurstöður fundust í ferilskrá</string>
   <string name="edit_section_captcha_message">Sem hjálp við að berjast á móti sjálfvirkum ruslpóstsendingum, skaltu setja inn orðin sem birtast hér fyrir neðan</string>
-  <string name="edit_section_captcha_request_an_account_message">Getur þú ekki séð myndina? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Óska eftir aðgangi&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Getur þú ekki séð myndina? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Óska eftir aðgangi&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Endurtaktu orðin að ofan</string>
   <string name="title_captcha">Settu inn CAPTCHA</string>
   <string name="edit_section_captcha_reload">Banka á CAPTCHA til að endurhlaða</string>
@@ -193,7 +193,7 @@
   <string name="create_account_button">Stofna aðgang</string>
   <string name="create_account_name_unavailable">Notandanafnið \"%s\" er ekki tiltækt. Veldu eitthvað annað nafn.</string>
   <string name="create_account_ip_block_message">Því miður, þetta IP-vistfang er útilokað frá því á búa til notendaaðganga.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Nánar</string>
   <string name="preferences_general_heading">Almennt</string>
   <string name="preferences_account_heading">Notandaaðgangur</string>
@@ -227,12 +227,12 @@
   <string name="about_description">Um Wikipedia-appið</string>
   <string name="privacy_policy_description">Meðferð persónuupplýsinga</string>
   <string name="terms_of_use_description">Notkunarskilmálar</string>
-  <string name="about_wikipedia_url">https://is.wikipedia.org/wiki/Wikipedia:Um_verkefnið</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Um_verkefnið</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.is</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.is</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
@@ -405,9 +405,9 @@
   <string name="error_blocked_start">Upphaf banns: %s</string>
   <string name="error_blocked_expiry">Bann rennur út: %s</string>
   <string name="error_blocked_id">Auðkenni banns: %s</string>
-  <string name="error_blocked_footer">Þú getur haft samband við &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eða annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
+  <string name="error_blocked_footer">Þú getur haft samband við &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eða annan &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Sérsníddu verkfærastikuna þína</string>
-  <string name="error_blocked_footer_no_blocker">Þú getur haft samband við &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
+  <string name="error_blocked_footer_no_blocker">Þú getur haft samband við &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;stjórnanda&lt;/a&gt; til að ræða bannið.</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
@@ -1223,7 +1223,7 @@
   <string name="talk_snackbar_survey_action_text">Komast í gang</string>
   <string name="talk_share_discussion_subject">Wikipedia - umræður á spjallsíðu efnisins \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - umræður á spjallsíðu</string>
-  <string name="talk_edit_disclaimer">Þetta er spjallsíða. Vinsamlegast virtu leiðbeiningarnar fyrir spjallsíðuna og mundu að undirrita færslurnar þínar með því að skrifa fjórar tildur: ~~~~ á eftir færslum með wikitexta.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Leiðbeiningar fyrir spjallsíður&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Þetta er spjallsíða. Vinsamlegast virtu leiðbeiningarnar fyrir spjallsíðuna og mundu að undirrita færslurnar þínar með því að skrifa fjórar tildur: ~~~~ á eftir færslum með wikitexta.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Leiðbeiningar fyrir spjallsíður&lt;/a&gt;</string>
   <string name="talk_search_hint">Leita í skilaboðum</string>
   <string name="talk_search_topics_hint">Leitarefni</string>
   <string name="talk_search_find_in_talk_topics_hint">Finna í efni á spjallsíðu</string>

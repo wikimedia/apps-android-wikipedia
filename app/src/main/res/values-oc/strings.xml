@@ -102,7 +102,7 @@
   <string name="search_reading_lists_no_results">Ges de resultat trobat dins lei listas de lectura</string>
   <string name="search_history_no_results">Ges de resultat trobat dins l\'istoric</string>
   <string name="edit_section_captcha_message">Per ajudar a la proteccion contra lo spam, mercé d\'entrar los mots qu\'apareisson çaijós</string>
-  <string name="edit_section_captcha_request_an_account_message">Podètz pas veire aquel image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Podètz pas veire aquel image ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repetir los mots çaisús</string>
   <string name="title_captcha">Entrar lo captcha</string>
   <string name="edit_section_captcha_reload">Picar lo captcha per recargar</string>

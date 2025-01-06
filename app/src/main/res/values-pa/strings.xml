@@ -142,7 +142,7 @@
   <string name="search_reading_lists_no_results">ਰੀਡਿੰਗ ਸੂਚੀਆਂ ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
   <string name="search_history_no_results">ਅਤੀਤ ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
   <string name="edit_section_captcha_message">ਆਪੇ ਚੱਲਦੇ ਊਲ-ਜਲੂਲ ਤੋਂ ਬਚਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਵਾਸਤੇ ਹੇਠਾਂ ਵਿਖ ਰਹੇ ਸ਼ਬਦ ਭਰੋ ਜੀ।</string>
-  <string name="edit_section_captcha_request_an_account_message">ਕੀ ਤੁਸੀਂ ਚਿੱਤਰ ਨਹੀਂ ਵੇਖ ਸਕਦੇ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ਖਾਤੇ ਲਈ ਬੇਨਤੀ ਕਰੋ&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ਕੀ ਤੁਸੀਂ ਚਿੱਤਰ ਨਹੀਂ ਵੇਖ ਸਕਦੇ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ਖਾਤੇ ਲਈ ਬੇਨਤੀ ਕਰੋ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ਉੱਤੇ ਦਿੱਤੇ ਸ਼ਬਦਾਂ ਨੂੰ ਦੁਹਰਾਉ</string>
   <string name="title_captcha">ਕੈਪਚਾ ਭਰੋ</string>
   <string name="edit_section_captcha_reload">ਮੁੜ ਲਿਆਉਣ ਵਾਸਤੇ ਕੈਪਚਾ ਟਕੋਰੋ</string>
@@ -206,7 +206,7 @@
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>
   <string name="create_account_name_unavailable">ਵਰਤੋਂਕਾਰ ਨਾਮ \"%s\" ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਕੋਈ ਵੱਖਰਾ ਨਾਮ ਚੁਣੋ।</string>
   <string name="create_account_ip_block_message">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡਾ ਆਈਪੀ ਪਤਾ ਇਸ ਵੇਲੇ ਵਿੱਚ ਨਵੇਂ ਖਾਤੇ ਬਣਾਉਣ ਤੋਂ ਰੋਕ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:ਮੇਰੇ_ਉੱਤੇ_ਪਾਬੰਦੀ_ਲਾਈ_ਹੈ</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:ਮੇਰੇ_ਉੱਤੇ_ਪਾਬੰਦੀ_ਲਾਈ_ਹੈ</string>
   <string name="create_account_ip_block_details">ਵੇਰਵਾ</string>
   <string name="preferences_general_heading">ਆਮ</string>
   <string name="preferences_account_heading">ਖਾਤਾ</string>
@@ -239,12 +239,12 @@
   <string name="about_description">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਬਤ</string>
   <string name="privacy_policy_description">ਪਰਦਾ ਨੀਤੀ</string>
   <string name="terms_of_use_description">ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
-  <string name="about_wikipedia_url">https://pa.wikipedia.org/wiki/ਵਿਕੀਪੀਡੀਆ:ਬਾਰੇ</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ਵਿਕੀਪੀਡੀਆ:ਬਾਰੇ</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -416,8 +416,8 @@
   <string name="error_blocked_start">ਪਾਬੰਦੀ ਦੀ ਸ਼ੁਰੂਆਤ: %s</string>
   <string name="error_blocked_expiry">ਪਾਬੰਦੀ ਦੀ ਮਿਆਦ ਪੁੱਗਣੀ: %s</string>
   <string name="error_blocked_id">ਪਾਬੰਦੀ ਦੀ ਸ਼ਿਨਾਖਤ (ID): %s</string>
-  <string name="error_blocked_footer">ਤੁਸੀਂ ਪਾਬੰਦੀਆਂ ਬਾਰੇ ਚਰਚਾ ਕਰਨ ਲਈ&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ਜਾਂ ਕਿਸੇ ਹੋਰ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ਪ੍ਰਬੰਧਕ&lt;/a&gt; ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ।</string>
-  <string name="error_blocked_footer_no_blocker">ਤੁਸੀਂ ਪਾਬੰਦੀਆਂ ਬਾਰੇ ਚਰਚਾ ਕਰਨ ਲਈ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ਪ੍ਰਬੰਧਕ&lt;/a&gt; ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ।</string>
+  <string name="error_blocked_footer">ਤੁਸੀਂ ਪਾਬੰਦੀਆਂ ਬਾਰੇ ਚਰਚਾ ਕਰਨ ਲਈ&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ਜਾਂ ਕਿਸੇ ਹੋਰ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;ਪ੍ਰਬੰਧਕ&lt;/a&gt; ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ।</string>
+  <string name="error_blocked_footer_no_blocker">ਤੁਸੀਂ ਪਾਬੰਦੀਆਂ ਬਾਰੇ ਚਰਚਾ ਕਰਨ ਲਈ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;ਪ੍ਰਬੰਧਕ&lt;/a&gt; ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ।</string>
   <string name="temp_account_not_logged_in">ਤੁਸੀਂ ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ</string>
   <string name="temp_account_anon_ip_dialog_body">ਇੱਕ ਵਾਰ ਜਦੋਂ ਤੁਸੀਂ ਕੋਈ ਸੋਧ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡਾ IP ਪਤਾ ਤੁਹਾਡੇ ਸੋਧਾਂ ਨਾਲ ਜੁੜ ਜਾਵੇਗਾ। ਭਵਿੱਖ ਦਿਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਪ੍ਰਾਪਤ ਕਰਨ ਅਤੇ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੋਵੋ&lt;/a&gt; ਜਾਂ &lt;a href=\"https://#createaccount\"&gt;ਖਾਤਾ ਬਣਾਓ&lt;/a&gt;।</string>
   <string name="temp_account_anon_dialog_body">ਇੱਕ ਵਾਰ ਜਦੋਂ ਤੁਸੀਂ ਸੋਧ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੀ ਨਿੱਜਤਾ ਦੀ ਰੱਖਿਆ ਲਈ ਤੁਹਾਡੇ ਲਈ ਇੱਕ &lt;b&gt;ਅਸਥਾਈ ਖਾਤਾ&lt;/b&gt; ਬਣਾਇਆ ਜਾਵੇਗਾ। &lt;a href=\"%1$s\"&gt; ਹੋਰ ਜਾਣੋ &lt;/a&gt;। ਭਵਿੱਖ ਦਿਆਂ ਸੋਧਾਂ ਦਾ ਸਿਹਰਾ ਪ੍ਰਾਪਤ ਕਰਨ ਅਤੇ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਲਈ &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੋਵੋ&lt;/a&gt; ਜਾਂ &lt;a href=\"https://#createaccount\"&gt;ਖਾਤਾ ਬਣਾਓ&lt;/a&gt;।</string>

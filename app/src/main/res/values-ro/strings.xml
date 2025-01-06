@@ -143,7 +143,7 @@
   <string name="search_reading_lists_no_results">Nu au fost găsite rezultate în lista de citire</string>
   <string name="search_history_no_results">Nu au fost găsite rezultate în istoric</string>
   <string name="edit_section_captcha_message">Pentru a ajuta la protejarea împotriva spamului automat, vă rugăm să introduceți cuvintele care apar mai jos</string>
-  <string name="edit_section_captcha_request_an_account_message">Nu poți vedea imaginea? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Solicită un cont&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Nu poți vedea imaginea? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Solicită un cont&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repetați cuvintele de mai sus</string>
   <string name="title_captcha">Introducere CAPTCHA</string>
   <string name="edit_section_captcha_reload">Atingeți CAPTCHA pentru a reîncărca</string>
@@ -204,7 +204,7 @@
   <string name="create_account_button">Creare cont</string>
   <string name="create_account_name_unavailable">Acest nume de utilizator \"%s\" nu este disponibil. Vă rugăm să alegeți un nume diferit.</string>
   <string name="create_account_ip_block_message">Ne pare rău, adresa dumneavoastră de IP este în prezent blocată de la crearea de conturi noi.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalii</string>
   <string name="preferences_general_heading">General</string>
   <string name="preferences_account_heading">Cont</string>
@@ -238,12 +238,12 @@
   <string name="about_description">Despre aplicația Wikipedia</string>
   <string name="privacy_policy_description">Politica de confidențialitate</string>
   <string name="terms_of_use_description">Termeni de utilizare</string>
-  <string name="about_wikipedia_url">https://ro.wikipedia.org/wiki/Wikipedia:Despre_Wikipedia</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Despre_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ro</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
@@ -254,7 +254,7 @@
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licență</string>
-  <string name="about_app_license" fuzzy="true">Codul sursă disponibil pe &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codul sursă disponibil pe &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
   <string name="edit_abandon_confirm">Pagina a fost modificată. Sigur doriți să ieșiți fără a vă salva modificările?</string>
@@ -424,9 +424,9 @@
   <string name="error_blocked_start">Începutul blocării: %s</string>
   <string name="error_blocked_expiry">Expirarea blocării: %s</string>
   <string name="error_blocked_id">ID Blocare: %s</string>
-  <string name="error_blocked_footer">Puteţi contacta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; sau alt &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
+  <string name="error_blocked_footer">Puteţi contacta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; sau alt &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalizați-vă bara de instrumente</string>
-  <string name="error_blocked_footer_no_blocker">Puteţi contacta un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
+  <string name="error_blocked_footer_no_blocker">Puteţi contacta un &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
@@ -1198,7 +1198,7 @@
   <string name="talk_snackbar_survey_action_text">Începeți</string>
   <string name="talk_share_discussion_subject">Wikipedia - discuție la subiectul „%s” de pe pagină de discuție</string>
   <string name="talk_share_talk_page">Wikipedia - discuții pe pagina de discuție</string>
-  <string name="talk_edit_disclaimer">Aceasta este o pagină de discuție. Vă rugăm să respectați regulile paginii de discuție și nu uitați să vă semnați postările introducând patru tilde: ~~~~ când postați folosind wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Instrucțiuni privind pagina de discuții&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Aceasta este o pagină de discuție. Vă rugăm să respectați regulile paginii de discuție și nu uitați să vă semnați postările introducând patru tilde: ~~~~ când postați folosind wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Instrucțiuni privind pagina de discuții&lt;/a&gt;</string>
   <string name="talk_search_hint">Căutați mesaje</string>
   <string name="talk_search_topics_hint">Caută subiecte</string>
   <string name="talk_search_find_in_talk_topics_hint">Găsiți în subiectul paginii de discuție</string>

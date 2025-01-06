@@ -136,7 +136,7 @@
   <string name="search_reading_lists_no_results">Уку исемлекләрендә берни дә табылмаган</string>
   <string name="search_history_no_results">Тарихта берни дә табылмаган</string>
   <string name="edit_section_captcha_message">Автомат спамнан саклану өчен, түбәндәге сүзләрне кертегез.</string>
-  <string name="edit_section_captcha_request_an_account_message">Сурәт күренмиме? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Хисап язмасын соратырга&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Сурәт күренмиме? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Хисап язмасын соратырга&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Өстә күрсәтелгән сүзләрне кабатлагыз</string>
   <string name="title_captcha">CAPTCHAны кертегез</string>
   <string name="edit_section_captcha_reload">Яңадан йөкләү өчен CAPTCHAга басыгыз.</string>
@@ -199,7 +199,7 @@
   <string name="create_account_button">Хисап язмасын булдырырга</string>
   <string name="create_account_name_unavailable">\"%s\" кулланучының исеме укылмый. Зинһар, башка исем сайлагыз.</string>
   <string name="create_account_ip_block_message">Гафу итегез, хәзерге вакытта сезнең IP-адресыгыз яңа хисап язмалары булдыру өчен блокланган.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:Мин блокланган</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:Мин блокланган</string>
   <string name="create_account_ip_block_details">Тулырак</string>
   <string name="preferences_general_heading">Гомуми</string>
   <string name="preferences_account_heading">Хисап язмасы</string>
@@ -233,10 +233,10 @@
   <string name="about_description">Википедия кушымтасы турында</string>
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
-  <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Википедия:Turında</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tt</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
@@ -419,9 +419,9 @@
   <string name="error_blocked_start">Блокның башы: %s</string>
   <string name="error_blocked_expiry">Блокның гамәлдә булу вакыты: %s</string>
   <string name="error_blocked_id">Блоклау идентификаторы: %s</string>
-  <string name="error_blocked_footer">Сез блоклау турында фикер алышу өчен &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яки башка &lt;a href=\"https://en.wikipedia.org/wiki/Википедия: идарәчеләр\"&gt;идарәче&lt;/a&gt; белән  элемтәгә керә аласыз.</string>
+  <string name="error_blocked_footer">Сез блоклау турында фикер алышу өчен &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яки башка &lt;a href=\"https://minecraft.wiki/wiki/Википедия: идарәчеләр\"&gt;идарәче&lt;/a&gt; белән  элемтәгә керә аласыз.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Үзегезнең кораллар панелен көйләгез</string>
-  <string name="error_blocked_footer_no_blocker">Сез блоклау турында фикер алышу өчен &lt;a href=\"https://en.wikipedia.org/wiki\n/Википедия:идарәчеләр\"&gt;идарәче&lt;/a&gt; белән элемтәгә керә аласыз.</string>
+  <string name="error_blocked_footer_no_blocker">Сез блоклау турында фикер алышу өчен &lt;a href=\"https://minecraft.wiki/wiki\n/Википедия:идарәчеләр\"&gt;идарәче&lt;/a&gt; белән элемтәгә керә аласыз.</string>
   <string name="temp_account_not_logged_in">Сез системага кермәгәнсез</string>
   <string name="temp_account_dialog_ok">Аңлашыла</string>
   <string name="temp_account_using_title">Сез вакытлы хисапъязманы кулланасыз</string>
@@ -1273,7 +1273,7 @@
   <string name="talk_snackbar_survey_action_text">Башларга</string>
   <string name="talk_share_discussion_subject">Википедия — «%s» темасы буенча фикер алышу</string>
   <string name="talk_share_talk_page">Википедия — фикер алышу бите</string>
-  <string name="talk_edit_disclaimer">Бу фикер алышу бите. Зинһар өчен, фикер алышу битендә кагыйдәләрне үтәгез һәм дүрт тильда җыеп үз постларыгызга язма өстәргә оынтмагыз: ~~~~ бастырып чыгарганда вики-текст кулланып. &lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Википедия: фикер алышу бите буенча тәкъдимнәр&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Бу фикер алышу бите. Зинһар өчен, фикер алышу битендә кагыйдәләрне үтәгез һәм дүрт тильда җыеп үз постларыгызга язма өстәргә оынтмагыз: ~~~~ бастырып чыгарганда вики-текст кулланып. &lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Википедия: фикер алышу бите буенча тәкъдимнәр&lt;/a&gt;</string>
   <string name="talk_search_hint">Хәбәрләрне эзләү</string>
   <string name="talk_search_topics_hint">Эзләү темалары</string>
   <string name="talk_search_find_in_talk_topics_hint">Фикер алышу битендә теманы табыгыз</string>

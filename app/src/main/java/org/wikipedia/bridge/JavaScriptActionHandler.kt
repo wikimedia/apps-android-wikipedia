@@ -25,7 +25,7 @@ object JavaScriptActionHandler {
 
     fun getCssStyles(wikiSite: WikiSite): String {
         val baseCSS = "<link rel=\"stylesheet\" href=\"https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base\">"
-        val siteCSS = "<link rel=\"stylesheet\" href=\"https://${wikiSite.subdomain()}.wikipedia.org/api/rest_v1/data/css/mobile/site\">"
+        val siteCSS = "<link rel=\"stylesheet\" href=\"https://${wikiSite.subdomain()}.minecraft.wiki/api/rest_v1/data/css/mobile/site\">"
         val extraCSS = if (WikipediaApp.instance.currentTheme.isDark) "<style>img.mwe-math-fallback-image-inline { -webkit-filter: invert(1); } </style>" else ""
         return baseCSS + siteCSS + extraCSS
     }

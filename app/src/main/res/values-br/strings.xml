@@ -142,7 +142,7 @@
   <string name="search_reading_lists_no_results">Disoc\'h ebet kavet er rolloù lenn</string>
   <string name="search_history_no_results">Disoc\'h ebet kavet en istor</string>
   <string name="edit_section_captcha_message">Evit reiñ sikour d\'ar gwareziñ a-enep ar posteloù strobus emgefre, bizskrivit ar gerioù a zeu war wel amañ dindan</string>
-  <string name="edit_section_captcha_request_an_account_message">Ne c\'haller ket gwelet ar skeudenn ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Goulenn ur gont&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Ne c\'haller ket gwelet ar skeudenn ? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Goulenn ur gont&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Advizskrivañ ar gerioù amañ a-us</string>
   <string name="title_captcha">Ebarzhiñ ar c\'haptcha</string>
   <string name="edit_section_captcha_reload">Bizskrivañ ar c\'haptcha evit pellgargañ</string>
@@ -203,7 +203,7 @@
   <string name="create_account_button">Krouiñ ur gont</string>
   <string name="create_account_name_unavailable">Ne c\'haller ket kaout an anv-implijer %s. Dibabit un anv all, mar plij.</string>
   <string name="create_account_ip_block_message">Ho tigarez, stanket eo ho chomlec\'h IP er mare-mañ evit krouiñ kontoù nevez.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Munudoù</string>
   <string name="preferences_general_heading">Hollek</string>
   <string name="preferences_account_heading">Kont</string>
@@ -236,12 +236,12 @@
   <string name="about_description">Diwar-benn an arload Wikipedia</string>
   <string name="privacy_policy_description">Reolennoù prevezded</string>
   <string name="terms_of_use_description">Termenoù implijout</string>
-  <string name="about_wikipedia_url">https://br.wikipedia.org/wiki/Wikipedia:Diwar-benn</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Diwar-benn</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Levraouegoù implijet</string>

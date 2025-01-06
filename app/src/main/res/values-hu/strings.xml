@@ -151,7 +151,7 @@
   <string name="search_reading_lists_no_results">Nincs találat az olvasólistákban</string>
   <string name="search_history_no_results">Nincs találat az előzményekben</string>
   <string name="edit_section_captcha_message">Az automatikus spam elleni védekezés érdekében írd be az alább megjelenő szavakat</string>
-  <string name="edit_section_captcha_request_an_account_message">Nem látod a képet? &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése\"&gt;Kérj egy fiókot&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Nem látod a képet? &lt;a href=\"https://minecraft.wiki/wiki/Wikipédia:Felhasználói_fiók_kérése\"&gt;Kérj egy fiókot&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
   <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>
@@ -215,7 +215,7 @@
   <string name="create_account_button">Regisztráció</string>
   <string name="create_account_name_unavailable">A(z) „%s” felhasználói név nem érhető el. Válassz másikat.</string>
   <string name="create_account_ip_block_message">Sajnáljuk, de az IP-címedről jelenleg nem lehet regisztrálni.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Részletek</string>
   <string name="preferences_general_heading">Általános</string>
   <string name="preferences_account_heading">Fiók</string>
@@ -249,12 +249,12 @@
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
-  <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipédia:Rólunk</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/hu</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
   <string name="terms_of_use_url">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
-  <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu</string>
@@ -439,9 +439,9 @@
   <string name="error_blocked_start">A blokk kezdete: %s</string>
   <string name="error_blocked_expiry">A blokk lejárata: %s</string>
   <string name="error_blocked_id">Blokkolási azonosító: %s</string>
-  <string name="error_blocked_footer">Kapcsolatba léphetsz a blokkolás végrehajtójával (&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;) vagy egy másik &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
+  <string name="error_blocked_footer">Kapcsolatba léphetsz a blokkolás végrehajtójával (&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;) vagy egy másik &lt;a href=\"https://minecraft.wiki/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
-  <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
+  <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://minecraft.wiki/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
   <string name="temp_account_anon_ip_dialog_body">A szerkesztéseid az IP-címedhez lesznek társítva.&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#createaccount\"&gt;regisztrálsz&lt;/a&gt;, akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
   <string name="temp_account_anon_dialog_body">Amikor először szerkesztesz, a személyes adataid védelme érdekében egy &lt;b&gt;ideiglenes fiók&lt;/b&gt; jön létre neked (&lt;a href=\"%1$s\"&gt;további információk&lt;/a&gt;).&lt;br /&gt;&lt;br /&gt;Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt; vagy &lt;a href=\"https://#createaccount\"&gt;regisztrálsz&lt;/a&gt;, akkor a szerkesztéseid a felhasználónevedhez lesznek társítva, egyéb hasznos funkciók mellett.</string>
@@ -1319,7 +1319,7 @@
   <string name="talk_snackbar_survey_action_text">Kezdjük el</string>
   <string name="talk_share_discussion_subject">Wikipédia - vita a vitalap \"%s\" témájáról</string>
   <string name="talk_share_talk_page">Wikipédia – beszélgetések a vitalapon</string>
-  <string name="talk_edit_disclaimer">Ez egy vitalap. Kérjük, tartsd be a vitalapra vonatkozó irányelveket, és ne felejtse el aláírni a bejegyzéseit négy hullámvonal begépelésével: ~~~~, amikor wikiszöveg használatával tesz közzé.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://hu.wikipedia.org/wiki/Wikip%C3%A9dia:Vitalapok_haszn%C3%A1lata\"&gt;Wikipédia:Vitalapok használata&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Ez egy vitalap. Kérjük, tartsd be a vitalapra vonatkozó irányelveket, és ne felejtse el aláírni a bejegyzéseit négy hullámvonal begépelésével: ~~~~, amikor wikiszöveg használatával tesz közzé.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://minecraft.wiki/wiki/Wikip%C3%A9dia:Vitalapok_haszn%C3%A1lata\"&gt;Wikipédia:Vitalapok használata&lt;/a&gt;</string>
   <string name="talk_search_hint">Üzenetek keresése</string>
   <string name="talk_search_topics_hint">Témák keresése</string>
   <string name="talk_search_find_in_talk_topics_hint">Keresés vitalapi témákban</string>

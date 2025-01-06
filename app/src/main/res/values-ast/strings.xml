@@ -87,7 +87,7 @@
   <string name="search_reading_lists_no_results">Nun s\'alcontraron resultaos nes llistes de llectura</string>
   <string name="search_history_no_results">Nun s\'alcontraron resultaos nel historial</string>
   <string name="edit_section_captcha_message">P\'ayudar a protexenos del spam automatizáu, por favor, escribe les pallabres qu\'apaecen abaxo</string>
-  <string name="edit_section_captcha_request_an_account_message">¿Nun puedes ver la imaxe? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Pidir una cuenta&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">¿Nun puedes ver la imaxe? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Pidir una cuenta&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Repite les pallabres d\'arriba</string>
   <string name="title_captcha">Escribe\'l CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca nel CAPTCHA pa recargar</string>
@@ -147,7 +147,7 @@
   <string name="create_account_button">Crear una cuenta</string>
   <string name="create_account_name_unavailable">El nome d\'usuariu «%s» nun ta disponible. Escueyi un nome distintu.</string>
   <string name="create_account_ip_block_message">Sentímoslo, anguaño la to direición IP ta bloquiada pa crear cuentes nueves.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">Xeneral</string>
   <string name="wikipedia_app_faq">EMF de la App Wikipedia</string>
@@ -177,12 +177,12 @@
   <string name="about_description">Tocante a l\'aplicación Wikipedia</string>
   <string name="privacy_policy_description">Política d\'intimidá</string>
   <string name="terms_of_use_description">Condiciones d\'usu</string>
-  <string name="about_wikipedia_url">https://ast.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ast</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bbiblioteques utilizaes</string>
@@ -191,7 +191,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación traduxéronla traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicencia</string>
-  <string name="about_app_license" fuzzy="true">El códigu fonte ta disponible\'n &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baxo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicencia Apache 2.0&lt;/a&gt;. Si nun s\'especifica lo contrario, el conteníu ta disponible baxo una &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Llicencia Creative Commons Reconocimientu-CompartirIgual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">El códigu fonte ta disponible\'n &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baxo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicencia Apache 2.0&lt;/a&gt;. Si nun s\'especifica lo contrario, el conteníu ta disponible baxo una &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Llicencia Creative Commons Reconocimientu-CompartirIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Un productu de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Tocante a</string>
   <string name="edit_abandon_confirm">Cambióse la páxina. ¿Seguro que quies salir ensin guardar los cambios?</string>

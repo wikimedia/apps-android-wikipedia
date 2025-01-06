@@ -107,7 +107,7 @@
   <string name="search_reading_lists_no_results">Níor aimsíodh torthaí i liostaí léitheoireachta</string>
   <string name="search_history_no_results">Níor aimsíodh torthaí i stair</string>
   <string name="edit_section_captcha_message">Mar chosaint i gcoinne turscair uathoibrithe, iontráil na focail atá le feiceáil thíos</string>
-  <string name="edit_section_captcha_request_an_account_message">Nach féidir leat an íomhá a fhéachaint? &lt;a href=\"https://ga.wikipedia.org/wiki/Vicipéid:Déan iarratas ar cuntas\"&gt;Déan iarratas ar cuntas&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Nach féidir leat an íomhá a fhéachaint? &lt;a href=\"https://minecraft.wiki/wiki/Vicipéid:Déan iarratas ar cuntas\"&gt;Déan iarratas ar cuntas&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Athiontráil na focail a chonaic tú thuas</string>
   <string name="title_captcha">Iontráil CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tapáil ar CAPTCHA le athlódáil</string>
@@ -166,7 +166,7 @@
   <string name="create_account_button">Cruthaigh cuntas</string>
   <string name="create_account_name_unavailable">Níl an t-ainm úsáideora \"%s\" ar fáil. Déan rogha d\'ainm eile.</string>
   <string name="create_account_ip_block_message">Tá brón orainn, bactar ar do sheoladh IP cuntais nua a chruthú faoi láthair.</string>
-  <string name="create_account_ip_block_help_url">\nhttps://ga.wikipedia.org/wiki/Cabhair:Bacadh mé</string>
+  <string name="create_account_ip_block_help_url">\nhttps://minecraft.wiki/wiki/Cabhair:Bacadh mé</string>
   <string name="create_account_ip_block_details">Sonraí</string>
   <string name="preferences_general_heading">Ginearálta</string>
   <string name="preferences_account_heading">Cuntas</string>
@@ -198,10 +198,10 @@
   <string name="about_description">Maidir leis an aip Vicipéide</string>
   <string name="privacy_policy_description">Polasaí príobháideachais</string>
   <string name="terms_of_use_description">Coinníollacha úsáide</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://ga.wikipedia.org/wiki/Vicipéid:Dean_iarratas_ar_cuntas</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Vicipéid:Dean_iarratas_ar_cuntas</string>
   <string name="about_libraries_heading">Leabharlanna a úsáidtear</string>
   <string name="about_contributors_heading">Rannchuiditheoirí</string>
   <string name="about_translators_heading">Aistritheoirí</string>

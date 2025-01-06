@@ -44,7 +44,7 @@ class FilePageViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // set image caption to pageTitle description
             pageTitle.description = firstPage?.entityTerms?.label?.firstOrNull()
             if (firstPage?.imageInfo() == null) {
-                // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
+                // If file page originally comes from *.minecraft.wiki (i.e. movie posters), it will not have imageInfo and pageId.
                 firstPage = ServiceFactory.get(pageTitle.wikiSite)
                     .getImageInfo(
                         pageTitle.prefixedText,

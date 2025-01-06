@@ -101,7 +101,7 @@
   <string name="search_reading_lists_no_results">ოკითხირე ერკებულშ შედეგეფქ ვეგორინჷ</string>
   <string name="search_history_no_results">ისტორიას შედეგეფქ ვეგორინჷ</string>
   <string name="edit_section_captcha_message">ავტომატურ სპამშე ოთხილარო, ქორთხინთ გემშიონით გიმე მოჩამილი ზიტყვეფი</string>
-  <string name="edit_section_captcha_request_an_account_message">სურათის ვარწყეთო? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ქჷმითხით ანგარიში&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">სურათის ვარწყეთო? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;ქჷმითხით ანგარიში&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">გამაჟირით ჟილე მოჩამილი ზიტყვეფი</string>
   <string name="title_captcha">გემშიონით CAPTCHA</string>
   <string name="edit_section_captcha_reload">ქეგუნჭირით CAPTCHA-შ გჷნახარგალო</string>
@@ -161,7 +161,7 @@
   <string name="create_account_button">ანგარიშიშ გონწყუმა</string>
   <string name="create_account_name_unavailable">მახვარებუშ ჯოხო \"%s\" ხემიოლი ვა რე. ქორთხინთ გეგშაგორით შხვა ჯოხო.</string>
   <string name="create_account_ip_block_message">მორდება, თქანი IP მიოწურაფუ ობორჯეთ ბლოკილი რე ახალი ანგარიშიშ გაჭყაფალო.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">დეტალეფი</string>
   <string name="preferences_general_heading">თარი</string>
   <string name="preferences_account_heading">ანგარიში</string>
@@ -187,10 +187,10 @@
   <string name="about_description">ვიკიპედიაშ აპლიკაციაშ გეშა</string>
   <string name="privacy_policy_description">კონფიდენციალურობაშ პოლიტიკა</string>
   <string name="terms_of_use_description">გჷმორინაფაშ წესეფი</string>
-  <string name="about_wikipedia_url">https://xmf.wikipedia.org/wiki/ვიკიპედია:შენი</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ვიკიპედია:შენი</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf#ოფლაინს_კითხირი_დო_მუნაჩემეფი</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">გჷმორინაფილი ბიბლიოთეკეფი</string>
   <string name="about_contributors_heading">ავტორეფი</string>
   <string name="about_translators_heading">მათანგალეფი</string>
@@ -329,7 +329,7 @@
   <string name="error_blocked_start">ბლოკუაშ დოჭყაფა: %s</string>
   <string name="error_blocked_expiry">ბლოკუაშ ვადაშ თება: %s</string>
   <string name="error_blocked_id">ბლოკუაშ ID: %s</string>
-  <string name="error_blocked_footer_no_blocker">თქვა შეილებჷნა მიკართათ &lt;a href=\"https://ru.wikipedia.org/wiki/ვიკიპედია:ადმინისტრატორეფი\"&gt;ადმინისტრატირეფს&lt;/a&gt; ბლოკუაშ გასხუნალო.</string>
+  <string name="error_blocked_footer_no_blocker">თქვა შეილებჷნა მიკართათ &lt;a href=\"https://minecraft.wiki/wiki/ვიკიპედია:ადმინისტრატორეფი\"&gt;ადმინისტრატირეფს&lt;/a&gt; ბლოკუაშ გასხუნალო.</string>
   <string name="crash_report_activity_title">აპლიკაციაშ ჩილათა</string>
   <string name="crash_report_relaunch">დუდშე დოჭყაფა</string>
   <string name="crash_report_quit">გიშულა</string>

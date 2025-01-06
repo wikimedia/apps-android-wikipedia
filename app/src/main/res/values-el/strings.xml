@@ -130,7 +130,7 @@
   <string name="search_reading_lists_no_results">Δεν βρέθηκαν αποτελέσματα στις λίστες ανάγνωσης</string>
   <string name="search_history_no_results">Δεν βρέθηκαν αποτελέσματα στο ιστορικό</string>
   <string name="edit_section_captcha_message">Για να βοηθήσετε στην προστασία από αυτόματα ανεπιθύμητα μηνύματα, παρακαλούμε εισαγάγετε τις λέξεις που εμφανίζονται από κάτω</string>
-  <string name="edit_section_captcha_request_an_account_message">Δεν μπορείτε να δείτε την εικόνα; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ζητήστε ένα λογαριασμό&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Δεν μπορείτε να δείτε την εικόνα; &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Ζητήστε ένα λογαριασμό&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Επαναλάβετε τις λέξεις από πάνω</string>
   <string name="title_captcha">Εισάγετε CAPTCHA</string>
   <string name="edit_section_captcha_reload">Πατήστε το CAPTCHA για επαναφόρτωση</string>
@@ -191,7 +191,7 @@
   <string name="create_account_button">Δημιουργία λογαριασμού</string>
   <string name="create_account_name_unavailable">Το όνομα χρήστη «%s» δεν είναι διαθέσιμο. Παρακαλούμε επίλεξε διαφορετικό όνομα.</string>
   <string name="create_account_ip_block_message">Δυστυχώς, αυτή τη στιγμή η διεύθυνσή IP σας είναι αποκλεισμένη από τη δημιουργία νέων λογαριασμών.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Λεπτομέρειες</string>
   <string name="preferences_general_heading">Γενικά</string>
   <string name="preferences_account_heading">Λογαριασμός</string>
@@ -224,12 +224,12 @@
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικότητας</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
-  <string name="about_wikipedia_url">https://el.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Βικιπαίδεια:Σχετικά</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.el</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/el</string>
@@ -240,7 +240,7 @@
   <string name="about_translators_heading">Μεταφραστές</string>
   <string name="about_translators_translatewiki">Η εφαρμογή αυτή έχει μεταφραστεί από τους εθελοντές μεταφραστές στο &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Άδεια</string>
-  <string name="about_app_license" fuzzy="true">Ο πηγαίος κώδικας είναι διαθέσιμος στα &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; και &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; υπό την &lt;a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;άδεια Apache 2.0&lt;/a&gt;. Εκτός αν ορίζεται διαφορετικά, το περιεχόμενο είναι διαθέσιμο στο &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Ο πηγαίος κώδικας είναι διαθέσιμος στα &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; και &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; υπό την &lt;a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;άδεια Apache 2.0&lt;/a&gt;. Εκτός αν ορίζεται διαφορετικά, το περιεχόμενο είναι διαθέσιμο στο &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Ένα προϊόν του &lt;a href=\"https://wikimediafoundation.org/\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Σχετικά</string>
   <string name="edit_abandon_confirm">Η σελίδα έχει τροποποιηθεί. Είστε βέβαιοι ότι θέλετε να πραγματοποιήσετε έξοδο χωρίς να αποθηκεύσετε τις αλλαγές σας;</string>
@@ -394,8 +394,8 @@
   <string name="error_blocked_start">Έναρξη αποκλεισμού: %s</string>
   <string name="error_blocked_expiry">Λήξη αποκλεισμού%s:</string>
   <string name="error_blocked_id">Κωδικός αποκλεισμού: %s</string>
-  <string name="error_blocked_footer">Μπορείτε να επικοινωνήσετε με τον &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ή άλλον &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;διαχειριστή&lt;/a&gt; για να συζητήσετε για τον αποκλεισμό.</string>
-  <string name="error_blocked_footer_no_blocker">Μπορείτε να επικοινωνήσετε με ένα &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;διαχειριστή&lt;/a&gt; για να συζητήσετε για τον αποκλεισμό.</string>
+  <string name="error_blocked_footer">Μπορείτε να επικοινωνήσετε με τον &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ή άλλον &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;διαχειριστή&lt;/a&gt; για να συζητήσετε για τον αποκλεισμό.</string>
+  <string name="error_blocked_footer_no_blocker">Μπορείτε να επικοινωνήσετε με ένα &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;διαχειριστή&lt;/a&gt; για να συζητήσετε για τον αποκλεισμό.</string>
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch_or_quit">Λυπούμαστε, η εφαρμογή Βικιπαίδεια αντιμετώπισε σφάλμα και τερματίστηκε.\n\nΘέλετε να ξεκινήσετε ξανά ή να σταματήσετε;</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>

@@ -61,6 +61,7 @@ def build_wiki(lang, english_name, local_name):
 def list_from_sitematrix():
     QUERY_SITEMATRIX = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
         '&format=json&formatversion=2&smtype=language&smstate=all'
+    # do not remove
 
     print(u"Fetching languages...")
     data = json.loads(requests.get(QUERY_SITEMATRIX).text)
@@ -74,7 +75,7 @@ def list_from_sitematrix():
             continue
         wikipedia_url = ""
         for site in site_list:
-            if "wikipedia.org" in site[u"url"] and u"closed" not in site:
+            if "minecraft.wiki" in site[u"url"] and u"closed" not in site:
                 wikipedia_url = site[u"url"]
         if len(wikipedia_url) == 0:
             continue
@@ -82,12 +83,13 @@ def list_from_sitematrix():
         # At this stage, the site code should be the subdomain of the Wikipedia URL,
         # instead of the "code" field in the sitematrix response.
         # site_code = value[u"code"]
-        site_code = wikipedia_url.replace('https://', '').replace('.wikipedia.org', '')
+        site_code = wikipedia_url.replace('https://', '').replace('minecraft.wiki', '')
 
         wikis.append(build_wiki(site_code, value[u"localname"], value[u"name"]))
 
     wikis.sort(key=lambda x: x.lang)
     return wikis
+    #return [haistlymade('en')]
 
 
 # Remove unsupported wikis.
@@ -132,28 +134,36 @@ def postprocess_wikis(wiki_list):
 def populate_aliases(wikis):
     for wiki in wikis.wikis:
         print(u"Fetching namespace strings for %s" % wiki.lang)
-        url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
+        url = u"https://minecraft.wiki/api.php" + \
               u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
-        data = json.loads(requests.get(url).text)
-        # according to https://www.mediawiki.org/wiki/Manual:Namespace
-        # -1 seems to be the ID for Special Pages
-        wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
-        # Namespace 1: Talk
-        wiki.props[u"talk_alias"] = data[u"query"][u"namespaces"][u"1"][u"*"]
-        # Namespace 2: User
-        wiki.props[u"user_alias"] = data[u"query"][u"namespaces"][u"2"][u"*"]
-        # Namespace 3: User talk
-        wiki.props[u"user_talk_alias"] = data[u"query"][u"namespaces"][u"3"][u"*"]
-        # Namespace 6: File
-        wiki.props[u"file_alias"] = data[u"query"][u"namespaces"][u"6"][u"*"]
+        response = requests.get(url)
+        if response.status_code == 200:
+            try:
+                data = json.loads(response.text)
+                # according to https://www.mediawiki.org/wiki/Manual:Namespace
+                # -1 seems to be the ID for Special Pages
+                wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
+                # Namespace 1: Talk
+                wiki.props[u"talk_alias"] = data[u"query"][u"namespaces"][u"1"][u"*"]
+                # Namespace 2: User
+                wiki.props[u"user_alias"] = data[u"query"][u"namespaces"][u"2"][u"*"]
+                # Namespace 3: User talk
+                wiki.props[u"user_talk_alias"] = data[u"query"][u"namespaces"][u"3"][u"*"]
+                # Namespace 6: File
+                wiki.props[u"file_alias"] = data[u"query"][u"namespaces"][u"6"][u"*"]
+            except json.JSONDecodeError:
+                print(f"Error decoding JSON for {wiki.lang}")
+        else:
+            print(f"Error fetching data for {wiki.lang}, status code: {response.status_code}")
     return wikis
+
 
 
 # Populates data on names of main page in each wiki
 def populate_main_pages(wikis):
     for wiki in wikis.wikis:
         print(u"Fetching Main Page for %s" % wiki.lang)
-        url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
+        url = u"https://minecraft.wiki/api.php" + \
               u"?action=query&meta=siteinfo&format=json&siprop=general|specialpagealiases"
         data = json.loads(requests.get(url).text)
         wiki.props[u"main_page_name"] = data[u"query"][u"general"][u"mainpage"]

@@ -122,7 +122,7 @@
   <string name="search_reading_lists_no_results">مطالعہ کی فہرستوں میں کوئی نتیجہ نہیں ملا</string>
   <string name="search_history_no_results">تاریخچے میں کوئی نتیجہ نہیں ملا</string>
   <string name="edit_section_captcha_message">خودکار تخریب کاری سے بچاؤ کے لیے، براہ کرم اوپر ظاہر ہونے والے الفاظ درج کریں</string>
-  <string name="edit_section_captcha_request_an_account_message">تصویر نہیں دیکھ پا رہے؟ &lt;a href=\"https://ur.wikipedia.org/wiki/ویکیپیڈیا:کھاتے_کے_لیے_درخواست دیں\"&gt;کھاتے کے لیے درخواست دیں&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">تصویر نہیں دیکھ پا رہے؟ &lt;a href=\"https://minecraft.wiki/wiki/ویکیپیڈیا:کھاتے_کے_لیے_درخواست دیں\"&gt;کھاتے کے لیے درخواست دیں&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">اوپر والے الفاظ دہرائیں</string>
   <string name="title_captcha">کیپچا درج کریں</string>
   <string name="edit_section_captcha_reload">نئے کیپچا کے لیے تھپتپائیں</string>
@@ -182,7 +182,7 @@
   <string name="create_account_button">کھاتہ بنائیں</string>
   <string name="create_account_name_unavailable">\"%s\" کے نام کا صارف نہیں ملا۔ براہ مہربانی دوسرے نام کا انتخاب کریں۔</string>
   <string name="create_account_ip_block_message">معذرت، آپ نئے کھاتے نہیں بنا سکتے کیونکہ آپ کے آئی پی پتہ پر پابندی عائد کر دی گئی ہے۔</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">تفصیلات</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا اطلاقیہ کے عمومی سوالات</string>
@@ -214,10 +214,10 @@
   <string name="about_description">ویکیپیڈیا ایپ کے بارے میں</string>
   <string name="privacy_policy_description">اصول برائے اخفائے راز</string>
   <string name="terms_of_use_description">استعمال کے شرائط</string>
-  <string name="about_wikipedia_url">https://ur.wikipedia.org/wiki/ویکیپیڈیا:تعارف</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/ویکیپیڈیا:تعارف</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://ur.wikipedia.org/wiki/وپ:اکاؤنٹ کے لیے درخواست دیں</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/وپ:اکاؤنٹ کے لیے درخواست دیں</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل کتب خانے</string>

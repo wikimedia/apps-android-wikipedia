@@ -136,7 +136,7 @@
   <string name="search_reading_lists_no_results">O‘qish ro‘yxatida natija topilmadi</string>
   <string name="search_history_no_results">Tarixda hech qanday natija topilmadi</string>
   <string name="edit_section_captcha_message">Avtomatlashtirilgan spamdan himoyalanish uchun quyida keltirilgan so‘zlarni kiriting</string>
-  <string name="edit_section_captcha_request_an_account_message">Rasmni ko‘rmayapsizmi? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Akkauntni so‘ramoq&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Rasmni ko‘rmayapsizmi? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Akkauntni so‘ramoq&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Tepadagi so‘zlarni takrorlang</string>
   <string name="title_captcha">CAPTCHAni kiriting</string>
   <string name="edit_section_captcha_reload">CAPTCHAni qayta yuklash uchun bosing</string>
@@ -197,7 +197,7 @@
   <string name="create_account_button">Akkaunt tuzmoq</string>
   <string name="create_account_name_unavailable">\"%s\" foydalanuvchi nomi mavjud emas. Boshqa ismni tanlang.</string>
   <string name="create_account_ip_block_message">Kechirasiz, Sizning IP-manzilingizda hozirda akkaunt tuzib bo‘lmaydi.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Tafsilotlar</string>
   <string name="preferences_general_heading">Umumiy</string>
   <string name="preferences_account_heading">Akkaunt</string>
@@ -231,12 +231,12 @@
   <string name="about_description">«Vikipediya» ilovasi haqida</string>
   <string name="privacy_policy_description">Maxfiylik siyosati</string>
   <string name="terms_of_use_description">Foydalanish shartlari</string>
-  <string name="about_wikipedia_url">https://uz.wikipedia.org/wiki/Vikipediya</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Vikipediya</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -417,9 +417,9 @@
   <string name="error_blocked_start">Bloklashni boshlash: %s</string>
   <string name="error_blocked_expiry">Bloklash muddati: %s</string>
   <string name="error_blocked_id">Bloklashning ID kodi: %s</string>
-  <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
+  <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Panelni moslang</string>
-  <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
+  <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
   <string name="crash_report_activity_title">Ilova xatoligi</string>
   <string name="crash_report_relaunch_or_quit">Kechirasiz, Vikipediya ilovasida xatolik yuz berdi va u bekor qilindi.\n\nBoshlashni xohlaysizmi yoki ishdan chiqishni xohlaysizmi?</string>
   <string name="crash_report_relaunch">Boshlandi</string>
@@ -1251,7 +1251,7 @@
   <string name="talk_snackbar_survey_action_text">Boshladik</string>
   <string name="talk_share_discussion_subject">Vikipediya - munozara sahifasidagi \"%s\" mavzusidagi muhokama</string>
   <string name="talk_share_talk_page">Vikipediya - munozaralar sahifasi</string>
-  <string name="talk_edit_disclaimer">Bu munozara sahifasi. Iltimos, munozara sahifasi yoʻriqnomalarini hurmat qiling va toʻrtta tilda belgisini terish orqali postlaringizga imzo qoʻyishni unutmang: vikimatn yordamida joylashda ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Bu munozara sahifasi. Iltimos, munozara sahifasi yoʻriqnomalarini hurmat qiling va toʻrtta tilda belgisini terish orqali postlaringizga imzo qoʻyishni unutmang: vikimatn yordamida joylashda ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
   <string name="talk_search_hint">Xabarni izlash</string>
   <string name="talk_search_topics_hint">Mavzularni qidirmoq</string>
   <string name="talk_search_find_in_talk_topics_hint">Muhokama sahifasida mavzuni izlamoq</string>

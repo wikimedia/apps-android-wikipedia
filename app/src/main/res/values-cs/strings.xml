@@ -164,7 +164,7 @@
   <string name="search_reading_lists_no_results">V seznamech k přečtení nebyly nalezeny žádné výsledky</string>
   <string name="search_history_no_results">Nebyly nalezeny žádné výsledky v historii</string>
   <string name="edit_section_captcha_message">V zájmu ochrany před automatickým spamováním vás prosíme o opsání slov, která vidíte níže</string>
-  <string name="edit_section_captcha_request_an_account_message">Nevidíte obrázek? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Požádejte o účet&lt;/a&gt; (anglicky)</string>
+  <string name="edit_section_captcha_request_an_account_message">Nevidíte obrázek? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Požádejte o účet&lt;/a&gt; (anglicky)</string>
   <string name="edit_section_captcha_hint">Zopakujte výše uvedená slova</string>
   <string name="title_captcha">Zadejte CAPTCHA</string>
   <string name="edit_section_captcha_reload">Klepnutím načtete CAPTCHA znovu</string>
@@ -227,7 +227,7 @@
   <string name="create_account_button">Vytvořit účet</string>
   <string name="create_account_name_unavailable">Uživatelské jméno „%s“ není k dispozici. Zvolte si prosím jiné.</string>
   <string name="create_account_ip_block_message">Je nám líto, pro vaši IP adresu je v současné době zablokováno vytváření nových účtů.</string>
-  <string name="create_account_ip_block_help_url">https://cs.wikipedia.org/wiki/Wikipedie:Blokování</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Wikipedie:Blokování</string>
   <string name="create_account_ip_block_details">Detaily</string>
   <string name="preferences_general_heading">Obecné</string>
   <string name="preferences_account_heading">Účet</string>
@@ -261,12 +261,12 @@
   <string name="about_description">O aplikaci Wikipedie</string>
   <string name="privacy_policy_description">Ochrana osobních údajů</string>
   <string name="terms_of_use_description">Podmínky užití</string>
-  <string name="about_wikipedia_url">https://cs.m.wikipedia.org/wiki/Nápověda:Úvod</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Nápověda:Úvod</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Offline_čtení_a_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/cs</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/cs</string>

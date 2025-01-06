@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name_prod">Wikipedia</string>
-    <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
-    <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
+    <string name="app_name_prod">Minecraft Wiki</string>
+    <string name="app_name_beta" tools:ignore="UnusedResources">Minecraft Wiki Beta</string>
+    <string name="app_name_alpha" tools:ignore="UnusedResources">Minecraft Wiki Alpha</string>
 
     <string name="wikimedia">Wikimedia</string>
 
     <string name="nav_item_back">Back</string>
     <string name="page_tabs_back">Back</string>
     <string name="nav_item_forward">Forward</string>
-    <string name="search_hint">Search Wikipedia</string>
+    <string name="search_hint">Search Minecraft Wiki</string>
     <string name="search_hint_voice_search">Voice input search</string>
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
@@ -120,12 +120,12 @@
     <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 4.0</a> license.]]></string>
     <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 4.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="edit_anon_warning"><![CDATA[Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
-    <string name="preference_title_language">Wikipedia languages</string>
+    <string name="preference_title_language">Minecraft Wiki languages</string>
     <string name="langlinks_filter_hint">Search</string>
     <string name="langlinks_empty">This page is not available in other languages.</string>
     <string name="langlinks_no_match">No languages found</string>
     <string name="langlinks_activity_title">Other languages</string>
-    <string name="langlinks_your_wikipedia_languages">Your Wikipedia languages</string>
+    <string name="langlinks_your_wikipedia_languages">Your Minecraft Wiki languages (these don\'t work)</string>
     <string name="menu_save_changes">Publish changes</string>
     <string name="edit_saved_successfully">Edit published!</string>
     <string name="stub_article_edit_saved_successfully">Edit published! Changes may take time to appear.</string>
@@ -141,11 +141,11 @@
     <string name="search_reading_lists_no_results">No results found in reading lists</string>
     <string name="search_history_no_results">No results found in history</string>
     <string name="edit_section_captcha_message">To help protect against automated spam, please enter the words that appear below</string>
-    <string name="edit_section_captcha_request_an_account_message"><![CDATA[Can\'t see the image? <a href="https://en.wikipedia.org/wiki/Wikipedia:Request_an_account">Request an account</a>]]></string>
+    <string name="edit_section_captcha_request_an_account_message"><![CDATA[Can\'t see the image? <a href="https://minecraft.wiki/wiki/Minecraft Wiki:Request_an_account">Request an account</a>]]></string>
     <string name="edit_section_captcha_hint">Repeat words from above</string>
     <string name="title_captcha">Enter CAPTCHA</string>
     <string name="edit_section_captcha_reload">Tap CAPTCHA to reload</string>
-    <string name="nav_item_login">Log in to Wikipedia</string>
+    <string name="nav_item_login">Log in to Minecraft Wiki</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
     <string name="account_creation_password_hint">Password</string>
@@ -168,22 +168,22 @@
     <string name="logout_prompt">This will log you out on all devices where you are currently logged in. Do you want to continue?</string>
     <string name="logout_dialog_cancel_button_text">Cancel</string>
     <string name="logged_out_in_background_title">Logged out</string>
-    <string name="logged_out_in_background_dialog">You have been logged out of Wikipedia. Would you like to log in again?</string>
+    <string name="logged_out_in_background_dialog">You have been logged out of Minecraft Wiki. Would you like to log in again?</string>
     <string name="logged_out_in_background_login">Log in</string>
     <string name="logged_out_in_background_cancel">Cancel</string>
     <string name="account_vanish_request_title">Vanish account</string>
     <string name="account_vanish_request_confirm_title">Vanish account warning</string>
-    <string name="account_vanish_request_confirm"><![CDATA[Vanishing is a <b>last resort</b> and should <b>only be used when you wish to stop editing forever</b> and also to hide as many of your past associations as possible.<br/><br/>Account deletion on Wikipedia is done by changing your account name to make it so others cannot recognize your contributions in a process called account vanishing. <b>Vanishing does not guarantee complete anonymity or remove contributions to the projects</b>.]]></string>
+    <string name="account_vanish_request_confirm"><![CDATA[Vanishing is a <b>last resort</b> and should <b>only be used when you wish to stop editing forever</b> and also to hide as many of your past associations as possible.<br/><br/>Account deletion on Minecraft Wiki is done by changing your account name to make it so others cannot recognize your contributions in a process called account vanishing. <b>Vanishing does not guarantee complete anonymity or remove contributions to the projects</b>.]]></string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
     <string name="search_empty_message">Search and read the free encyclopedia in your language</string>
-    <string name="search_empty_message_multilingual_upgrade">Search Wikipedia in more languages</string>
+    <string name="search_empty_message_multilingual_upgrade">Search Minecraft Wiki in more languages</string>
     <string name="delete_selected_items">Delete selected items</string>
-    <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
+    <string name="wp_stylized"><![CDATA[<big>Minecraft</big> Wiki]]></string>
     <string name="create_account_username_hint">Username</string>
     <string name="login_dont_have_account">Don\'t have an account?</string>
-    <string name="login_join_wikipedia">Join Wikipedia</string>
+    <string name="login_join_wikipedia">Join Minecraft Wiki</string>
     <string name="login_forgot_password">Forgot your password?</string>
     <string name="create_account_already_have">Already have an account?</string>
     <string name="create_account_activity_title">Create an account</string>
@@ -205,11 +205,11 @@
     <string name="create_account_button">Create account</string>
     <string name="create_account_name_unavailable">The user name \"%s\" is not available. Please choose a different name.</string>
     <string name="create_account_ip_block_message">Sorry, your IP address is currently blocked from creating new accounts.</string>
-    <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+    <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
     <string name="create_account_ip_block_details">Details</string>
     <string name="preferences_general_heading">General</string>
     <string name="preferences_account_heading">Account</string>
-    <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
+    <string name="wikipedia_app_faq">Minecraft Wiki App FAQ</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="preferences_heading_syncing">Syncing</string>
@@ -217,8 +217,8 @@
     <string name="preferences_heading_experimental">Experimental</string>
     <string name="preference_title_sync_reading_lists_from_account">Reading list syncing</string>
     <string name="preference_title_download_reading_list_articles">Download reading list articles</string>
-    <string name="preference_summary_sync_reading_lists">Sync reading lists across different devices by saving them to your Wikipedia account</string>
-    <string name="preference_summary_sync_reading_lists_from_account">Sync reading lists across different devices by saving them to your Wikipedia account \"%s\"</string>
+    <string name="preference_summary_sync_reading_lists">Sync reading lists across different devices by saving them to your Minecraft Wiki account</string>
+    <string name="preference_summary_sync_reading_lists_from_account">Sync reading lists across different devices by saving them to your Minecraft Wiki account \"%s\"</string>
     <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remove synced reading lists from \"%s\"?</string>
     <string name="preference_dialog_of_turning_off_reading_list_sync_text">This will completely delete all previously synced reading lists from remote storage. Remove all synced lists from your account \"%s\"?</string>
     <string name="preference_title_auto_upload_crash_reports">Send crash reports</string>
@@ -236,15 +236,15 @@
     <string name="page_watchlist_overflow_menu_onboarding_tooltip_text"><![CDATA[Keep track of what\'s happening to articles you are interested in. Tap the overflow menu and select <b>Add to Watchlist</b> to see changes to an article.]]></string>
     <string name="settings_item_preferences">Settings</string>
     <string name="settings_activity_title">Settings</string>
-    <string name="about_description">About the Wikipedia app</string>
+    <string name="about_description">About the Minecraft Wiki app</string>
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
-    <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+    <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Minecraft Wiki:About</string>
     <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
     <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
     <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
     <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-    <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+    <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Minecraft Wiki:Request_an_account</string>
     <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
     <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -302,7 +302,7 @@
     <string name="abusefilter_title_warn">This may be an unconstructive edit. Are you sure you want to publish it?</string>
     <string name="abusefilter_title_disallow">You cannot publish this edit. Please go back and change it.</string>
     <string name="abusefilter_text_warn"><![CDATA[An automated filter has identified this edit as potentially unconstructive. It may contain one or more of the following:<br /><br />· Typing in all caps<br />· Blanking articles or spamming<br />· Irrelevant external links or images<br />· Repeating characters]]></string>
-    <string name="abusefilter_text_disallow"><![CDATA[An automated filter has identified this edit as potentially unconstructive, or potential vandalism.<br /><br />Wikipedia is an encyclopedia and only neutral, notable content belongs here.]]></string>
+    <string name="abusefilter_text_disallow"><![CDATA[An automated filter has identified this edit as potentially unconstructive, or potential vandalism.<br /><br />Minecraft Wiki is neutral, only notable content belongs here.]]></string>
     <string name="page_similar_titles">Similar pages</string>
     <string name="search_did_you_mean">Did you mean \"%s\"?</string>
     <string name="search_recent_header">Recent searches:</string>
@@ -319,11 +319,11 @@
     <string name="table_infobox">Quick facts</string>
     <string name="table_other">More information</string>
     <string name="table_close">Close</string>
-    <string name="widget_name_featured_page">Wikipedia featured page</string>
+    <string name="widget_name_featured_page">Today\'s featured page</string>
     <string name="widget_title_featured_page">Today\'s featured page:</string>
-    <string name="widget_name_search">Wikipedia search</string>
-    <string name="widget_description_search">The fastest way to search Wikipedia</string>
-    <string name="widget_description_featured_page">The best articles Wikipedia has to offer</string>
+    <string name="widget_name_search">Minecraft Wiki search</string>
+    <string name="widget_description_search">The fastest way to search Minecraft Wiki</string>
+    <string name="widget_description_featured_page">The best articles Minecraft Wiki has to offer</string>
     <string name="wiktionary_no_definitions_found">No definitions found.</string>
     <string name="alpha_update_notification_title">New alpha update available</string>
     <string name="alpha_update_notification_text">Tap to download</string>
@@ -412,9 +412,9 @@
     <string name="link_preview_dialog_share_button">Share</string>
     <string name="link_preview_stub_placeholder_text">This article is a stub, which means there isn\'t enough content in the article to generate a preview. However, you can change that.</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
-    <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
+    <string name="error_user_page_does_not_exist"><![CDATA[Minecraft Wiki does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
-    <string name="view_wiki_error_message_timeout">Cannot connect to Wikipedia. Check your network connection, or try again later</string>
+    <string name="view_wiki_error_message_timeout">Cannot connect to Minecraft Wiki. Check your network connection, or try again later</string>
     <string name="reference_title">Reference %s</string>
     <string name="reference_list_title">References</string>
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
@@ -431,9 +431,9 @@
     <string name="error_blocked_start">Start of block: %s</string>
     <string name="error_blocked_expiry">Expiration of block: %s</string>
     <string name="error_blocked_id">Block ID: %s</string>
-    <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+    <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://minecraft.wiki/wiki/Minecraft Wiki:Administrators">administrator</a> to discuss the block.]]></string>
     <string name="theme_chooser_menu_item_short_tooltip">Customize your toolbar</string>
-    <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+    <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://minecraft.wiki/wiki/Minecraft Wiki:Administrators">administrator</a> to discuss the block.]]></string>
 
     <string name="temp_account_not_logged_in">You are not logged in</string>
     <string name="temp_account_anon_ip_dialog_body"><![CDATA[Once you make an edit, your IP address will be associated with your edits.<br /><br /><a href="https://#login">Log in</a> or <a href="https://#createaccount">create an account</a> to get credit for future edits and to access other features.]]></string>
@@ -459,7 +459,7 @@
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
-    <string name="crash_report_relaunch_or_quit">We\'re sorry, the Wikipedia app has experienced an error and was terminated.\n\nWould you like to start over or quit?</string>
+    <string name="crash_report_relaunch_or_quit">We\'re sorry, the Minecraft Wiki app has experienced an error and was terminated.\n\nWould you like to start over or quit?</string>
     <string name="crash_report_relaunch">Start over</string>
     <string name="crash_report_quit">Quit</string>
     <!-- /Crash reporter -->
@@ -568,8 +568,8 @@
     <string name="reading_lists_default_list_delete_message">The default list (%s) can\'t be deleted</string>
     <string name="reading_lists_default_plus_one_list_delete_message">%1$s deleted. The default list (%2$s) can\'t be deleted.</string>
     <string name="reading_lists_default_plus_many_lists_delete_message">Lists deleted. The default list (%s) can\'t be deleted.</string>
-    <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
-    <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s and more).json</string>
+    <string name="single_list_json_file_name">%s (Minecraft Wiki reading list).json</string>
+    <string name="multiple_lists_json_file_name">Minecraft Wiki reading lists (%s and more).json</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
@@ -589,12 +589,12 @@
     <string name="reading_list_confirm_remove_article_from_offline_title">Article appears in multiple lists</string>
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all reading lists:</string>
     <string name="reading_lists_sync_reminder_title">Turn on reading list syncing?</string>
-    <string name="reading_lists_sync_reminder_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
-    <string name="reading_lists_login_reminder_text_with_link"><![CDATA[Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
+    <string name="reading_lists_sync_reminder_text"><![CDATA[Articles saved to reading lists can now be synced to your Minecraft Wiki account. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
+    <string name="reading_lists_login_reminder_text_with_link"><![CDATA[Reading lists can now be synced across devices. Log in to your Minecraft Wiki account and allow your lists to be saved. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
     <string name="reading_lists_sync_reminder_action">Enable syncing</string>
     <string name="reading_list_login_reminder_title">Sync reading lists</string>
-    <string name="reading_lists_login_reminder_text">Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.</string>
-    <string name="reading_lists_login_button">Log in / join Wikipedia</string>
+    <string name="reading_lists_login_reminder_text">Reading lists can now be synced across devices. Log in to your Minecraft Wiki account and allow your lists to be saved.</string>
+    <string name="reading_lists_login_button">Log in / join Minecraft Wiki</string>
     <string name="reading_lists_ignore_button">Not now</string>
     <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
     <string name="reading_lists_confirm_remote_delete_no">No</string>
@@ -616,7 +616,7 @@
     <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
     <string name="reading_list_turned_sync_off_dialog_settings">Settings</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_title">Turn on reading list sync?</string>
-    <string name="reading_list_prompt_turned_sync_on_dialog_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="#faq">Learn more</a>]]></string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_text"><![CDATA[Articles saved to reading lists can now be synced to your Minecraft Wiki account. <a href="#faq">Learn more</a>]]></string>
     <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don’t show me this again</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Enable syncing</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No thanks</string>
@@ -718,7 +718,7 @@
         <item quantity="one">%1$d list left</item>
         <item quantity="other">%1$d lists left</item>
     </plurals>
-    <string name="notification_echo_channel_description">Wikipedia notifications</string>
+    <string name="notification_echo_channel_description">Minecraft Wiki notifications</string>
     <string name="notifications_activity_title">Notifications</string>
     <string name="notifications_activity_title_archived">Notifications (archived)</string>
     <string name="notifications_search">Search notifications</string>
@@ -780,8 +780,8 @@
     <string name="preference_title_customize_push_notifications">Customize push notifications</string>
     <string name="preference_category_display_settings">Display settings</string>
     <string name="preference_title_hide_read_notifications">Hide read notifications</string>
-    <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
-    <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Wikipedia</string>
+    <string name="notifications_channel_group_wikipedia_notifications_title">Minecraft Wiki</string>
+    <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Minecraft Wiki</string>
     <string name="notifications_channel_group_other_title">Other</string>
     <string name="notifications_channel_group_other_description">Other notifications from the app</string>
     <string name="notifications_filter_label">Filter notifications</string>
@@ -822,7 +822,7 @@
     <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
     <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
     <string name="view_next_random_article">Load another random article</string>
-    <string name="view_main_page_card_title">Today on Wikipedia</string>
+    <string name="view_main_page_card_title">Today on Minecraft Wiki</string>
     <string name="view_main_page_card_action">View main page</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
     <string name="view_featured_image_card_download">Download</string>
@@ -851,16 +851,16 @@
     <string name="feed_configure_menu_reset">Restore default view</string>
     <string name="feed_configure_menu_select_all">Show all</string>
     <string name="feed_configure_menu_deselect_all">Hide all</string>
-    <string name="feed_configure_language_warning">Note that not all card types are available in all Wikipedia languages. Edit your selected languages in Settings.</string>
+    <string name="feed_configure_language_warning">Note that not all card types are available in all Minecraft Wiki languages. Edit your selected languages in Settings.</string>
     <string name="feed_item_type_news">Articles about current events</string>
     <string name="feed_item_type_on_this_day">Events in history on this day</string>
     <string name="feed_item_type_because_you_read">Suggestions based on a recently read article from your history</string>
-    <string name="feed_item_type_featured_article">Daily featured article on Wikipedia</string>
+    <string name="feed_item_type_featured_article">Daily featured article on Minecraft Wiki</string>
     <string name="feed_item_type_trending">Daily most-viewed articles</string>
     <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
-    <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
+    <string name="feed_item_type_main_page">Main page of Minecraft Wiki with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
-    <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
+    <string name="feed_item_type_suggested_edits">Suggestions to add content to Minecraft Wiki</string>
     <string name="feed_item_type_places">Nearby articles based on the current location</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
     <string name="feed_configure_onboarding_action">Customize</string>
@@ -872,7 +872,7 @@
     <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
     <string name="feed_accessibility_card_load_more_button">Load more</string>
     <string name="feed_language_variants_removal_dialog_title">Select a regional language variant for an improved reading experience</string>
-    <string name="feed_language_variants_removal_dialog_message">You are currently using an unsupported generic Chinese language variant as your primary Wikipedia language</string>
+    <string name="feed_language_variants_removal_dialog_message">You are currently using an unsupported generic Chinese language variant as your primary Minecraft Wiki language</string>
     <string name="feed_language_variants_removal_dialog_save">Save</string>
     <string name="feed_language_variants_removal_secondary_dialog_title">Please update your secondary languages</string>
     <string name="feed_language_variants_removal_secondary_dialog_message">You are currently using an unsupported generic Chinese language variant as a secondary language. Please go to your settings to select a new secondary language or to confirm your language list.</string>
@@ -905,7 +905,7 @@
     <string name="description_edit_help_about_wikidata">About Wikidata</string>
     <string name="description_edit_help_wikidata_guide">Wikidata guide for writing descriptions</string>
     <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-    <string name="description_edit_anon_limit">Thanks for your continued interest in editing article descriptions! To make additional edits, please log in to your Wikipedia account.</string>
+    <string name="description_edit_anon_limit">Thanks for your continued interest in editing article descriptions! To make additional edits, please log in to your Minecraft Wiki account.</string>
     <string name="description_edit_license_notice"><![CDATA[By changing the article description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="description_edit_helper_text_lowercase_warning">usually begin with a lowercase letter</string>
     <string name="description_edit_voice_input_description">Voice input</string>
@@ -933,7 +933,7 @@
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
     <string name="description_edit_success_saved_image_tags_snackbar">Image tag(s) published!</string>
     <string name="description_edit_success_se_general_feed_link_snackbar">Enjoyed that? Help us add more.</string>
-    <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
+    <string name="description_edit_success_encouragement">You just made Minecraft Wiki better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
     <string name="description_edit_success_article_edit_hint">You can also edit articles within this app. Try fixing typos and small sentences by clicking on the ^1 icon next time</string>
@@ -988,7 +988,7 @@
     <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
     <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
-    <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
+    <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Minecraft Wiki language.</string>
     <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve edited %d image captions</string>
     <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve edited %d article descriptions (verified)</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
@@ -1017,7 +1017,7 @@
     <string name="suggested_edits_image_preview_dialog_licensing">Licensing</string>
     <string name="suggested_edits_image_preview_dialog_more_info">More Info</string>
     <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
-    <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">File page on Wikipedia</string>
+    <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">File page on Minecraft Wiki</string>
     <string name="suggested_edits_article_cta_image_tags">Add image tags</string>
     <string name="suggested_edits_article_cta_image_caption">Add image caption</string>
     <string name="suggested_edits_article_cta_image_caption_in_language">Add image caption (%s)</string>
@@ -1034,7 +1034,7 @@
     <string name="suggested_edits_image_tags_publishing">Publishing</string>
     <string name="suggested_edits_image_tags_published">Published</string>
     <string name="suggested_edits_image_tags_onboarding_title">Tagging images makes them easier to find.</string>
-    <string name="suggested_edits_image_tags_onboarding_text">By adding image tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.</string>
+    <string name="suggested_edits_image_tags_onboarding_text">By adding image tags, you will help make images easier to search for on Commons, the free license image repository that Minecraft Wiki uses for images in its articles.</string>
     <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
     <string name="suggested_edits_image_tags_task_detail">Add custom tags to an image to make it easier to find.</string>
     <string name="suggested_edits_image_tags_choose">Add or choose matching tags</string>
@@ -1045,8 +1045,8 @@
     <string name="suggested_edits_image_tags_add_tag">Add tag</string>
     <string name="suggested_edits_image_tags_exit_dialog_message">The unpublished tags will not be saved</string>
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>
-    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
-    <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Wikipedia. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
+    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Minecraft Wiki.</string>
+    <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Minecraft Wiki. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
     <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
     <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions so far.</string>
@@ -1055,7 +1055,7 @@
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
     <string name="suggested_edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
     <string name="suggested_edits_disabled_message">Suggested edits is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>
-    <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia.</string>
+    <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Minecraft Wiki.</string>
     <string name="suggested_edits_gate_message">Sorry, %s, you must make at least three edits directly in an article to use this feature.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
@@ -1084,7 +1084,7 @@
         <item quantity="other">%d days</item>
     </plurals>
     <string name="suggested_edits_what_is_title">What is Suggested edits?</string>
-    <string name="suggested_edits_what_is_text">Suggested edits presents opportunities for small but vital contributions to Wikipedia.</string>
+    <string name="suggested_edits_what_is_text">Suggested edits presents opportunities for small but vital contributions to Minecraft Wiki.</string>
     <string name="suggested_edits_learn_more">Learn more</string>
     <string name="suggested_edits_paused_title">Paused</string>
     <string name="suggested_edits_disabled_title">Disabled</string>
@@ -1094,8 +1094,8 @@
     <string name="suggested_edits_task_new">New</string>
     <string name="suggested_edits_cc0_notice"><![CDATA[By publishing, you agree to the <a href="%1$s">terms of use</a> and to irrevocably release this contribution under the <a href="%2$s">CC0 license</a>.]]></string>
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
-    <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
-    <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
+    <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Minecraft Wiki! Why not continue where you left off?</string>
+    <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Minecraft Wiki? Check out these editing suggestions.</string>
     <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
     <string name="suggested_edits_contribution_language_label">Language</string>
     <string name="suggested_edits_contribution_date_time_label">Date / Time</string>
@@ -1114,11 +1114,11 @@
     </plurals>
     <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
     <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
-    <string name="suggested_edits_encourage_account_creation_title">Did you know that everyone can edit Wikipedia?</string>
-    <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
-    <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
+    <string name="suggested_edits_encourage_account_creation_title">Did you know that everyone can edit Minecraft Wiki?</string>
+    <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Minecraft Wiki on Android. It helps you make small but vital contributions to Minecraft Wiki.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Minecraft Wiki to get started.</string>
+    <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Minecraft Wiki</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
-    <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
+    <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Minecraft Wiki</string>
     <string name="suggested_card_more_edits">More suggested edits</string>
     <string name="suggested_edits_article_descriptions_dialog_title">Suggested descriptions</string>
     <string name="suggested_edits_descriptions_report_dialog_title">What would you like to report?</string>
@@ -1145,7 +1145,7 @@
         <item quantity="other">You added %d characters</item>
     </plurals>
     <string name="suggested_edits_image_recommendations_task_title">Article images</string>
-    <string name="suggested_edits_image_recommendations_task_detail">Add suggested images to Wikipedia articles to enhance understanding.</string>
+    <string name="suggested_edits_image_recommendations_task_detail">Add suggested images to Minecraft Wiki articles to enhance understanding.</string>
     <string name="image_recommendation_task_instruction">Would you add this image to the article?</string>
     <string name="image_recommendation_tutorial">Tutorial</string>
     <string name="image_recommendation_accept">Yes</string>
@@ -1162,9 +1162,9 @@
     <string name="image_recommendation_reject_submit">Submit</string>
     <string name="image_recommendation_tooltip_main">Add missing images to articles in Suggested Edits</string>
     <string name="image_recommendation_onboarding_1">Pictures help people understand, but many articles don\'t have them.</string>
-    <string name="image_recommendation_onboarding_2">You will decide if a suggested image should be placed in a Wikipedia article.</string>
+    <string name="image_recommendation_onboarding_2">You will decide if a suggested image should be placed in a Minecraft Wiki article.</string>
     <string name="image_recommendation_onboarding_3">Suggestions are machine generated and you will use your judgment to decide whether to accept or reject them.</string>
-    <string name="image_recommendation_onboarding_4">Images are from Wikimedia Commons, a collection of freely licensed images used by Wikipedia.</string>
+    <string name="image_recommendation_onboarding_4">Images are from Wikimedia Commons, a collection of freely licensed images used by Minecraft Wiki.</string>
     <string name="image_recommendation_tooltip_1">Review this article to understand its topic</string>
     <string name="image_recommendation_tooltip_2">Inspect the image and its associated information</string>
     <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
@@ -1187,7 +1187,7 @@
     <!-- /File page -->
 
     <!-- Description editing revert help -->
-    <string name="description_edit_revert_subtitle">Thanks for editing Wikipedia!</string>
+    <string name="description_edit_revert_subtitle">Thanks for editing Minecraft Wiki!</string>
     <string name="description_edit_revert_intro">We know you tried your best, but one of the reviewers had a concern. Possible reasons your edit was reverted include:</string>
     <string name="description_edit_revert_reason1"><![CDATA[your contribution didn\'t follow one of the <a href="%1$s">guidelines</a>.]]></string>
     <string name="description_edit_revert_reason2">your contribution looked like an experiment or vandalism.</string>
@@ -1208,9 +1208,9 @@
     <string name="onboarding_get_started">Get started</string>
     <string name="onboarding_maybe_later">Maybe later</string>
     <string name="onboarding_explore_title">New ways to explore</string>
-    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
+    <string name="onboarding_explore_text"><![CDATA[Dive down the Minecraft Wiki rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
+    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Minecraft Wiki account to sync your reading lists. <a href="#login">Join Minecraft Wiki</a>]]></string>
     <string name="onboarding_data_privacy_title">Data &amp; Privacy</string>
     <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
@@ -1247,7 +1247,7 @@
     <string name="languages_list_activity_title">Add a language</string>
     <string name="languages_list_suggested_text">Suggested</string>
     <string name="languages_list_all_text">All languages</string>
-    <string name="wikipedia_languages_title">Wikipedia languages</string>
+    <string name="wikipedia_languages_title">Minecraft Wiki languages</string>
     <string name="wikipedia_languages_your_languages_text">Your languages</string>
     <string name="wikipedia_languages_add_language_text">Add language</string>
     <string name="wikipedia_languages_remove_text">Remove language</string>
@@ -1256,11 +1256,11 @@
         <item quantity="one">Remove selected language?</item>
         <item quantity="other">Remove selected languages?</item>
     </plurals>
-    <string name="wikipedia_languages_remove_dialog_content">You will only see content on the Explore feed and quick search filters for remaining Wikipedia languages.</string>
+    <string name="wikipedia_languages_remove_dialog_content">You will only see content on the Explore feed and quick search filters for remaining Minecraft Wiki languages.</string>
     <string name="wikipedia_languages_remove_warning_dialog_title">Can\'t remove all languages</string>
-    <string name="wikipedia_languages_remove_warning_dialog_content">Keep at least one Wikipedia language from which to search and read content.</string>
+    <string name="wikipedia_languages_remove_warning_dialog_content">Keep at least one Minecraft Wiki language from which to search and read content.</string>
     <string name="more_language_options">more</string>
-    <string name="add_wikipedia_languages_text">Add Wikipedia languages</string>
+    <string name="add_wikipedia_languages_text">Add Minecraft Wiki languages</string>
     <string name="remove_language_dialog_cancel_button_text">Cancel</string>
     <string name="remove_language_dialog_ok_button_text">OK</string>
     <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1345,9 +1345,9 @@
     <!-- /Templates -->
 
     <string name="main_drawer_help">Help</string>
-    <string name="main_drawer_login">Log in / join Wikipedia</string>
-    <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>
-    <string name="main_tooltip_text_v2">Did you know that everyone can edit Wikipedia?</string>
+    <string name="main_drawer_login">Log in / join Minecraft Wiki</string>
+    <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Minecraft Wiki?</string>
+    <string name="main_tooltip_text_v2">Did you know that everyone can edit Minecraft Wiki?</string>
     <string name="main_tooltip_action_button">Get started</string>
     <string name="main_tooltip_watchlist_title">Watchlist</string>
     <string name="main_tooltip_watchlist_text"><![CDATA[Find articles and pages you previously added to your watchlist in the More menu under <b>Watchlist</b>.]]></string>
@@ -1374,7 +1374,7 @@
     <string name="talk_warn_saved_messages">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
-    <string name="talk_page_empty_content">Talk pages are where people discuss how to make Wikipedia content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
+    <string name="talk_page_empty_content">Talk pages are where people discuss how to make Minecraft Wiki content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
     <string name="talk_add_reply">Reply</string>
     <string name="talk_no_subject">(No subject)</string>
     <string name="talk_reply_subject">Subject</string>
@@ -1388,9 +1388,9 @@
     <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
     <string name="talk_snackbar_survey_text">Thanks for using talk pages. Could you help us improve the app by participating in a survey?</string>
     <string name="talk_snackbar_survey_action_text">Get started</string>
-    <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
-    <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
-    <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
+    <string name="talk_share_discussion_subject">Minecraft Wiki - discussion on talk page topic \"%s\"</string>
+    <string name="talk_share_talk_page">Minecraft Wiki - discussions on talk page</string>
+    <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://minecraft.wiki/wiki/Minecraft Wiki:Talk_page_guidelines">Minecraft Wiki:Talk page guidelines</a>]]></string>
     <string name="talk_search_hint">Search messages</string>
     <string name="talk_search_topics_hint">Search topics</string>
     <string name="talk_search_find_in_talk_topics_hint">Find in talk page topic</string>
@@ -1421,7 +1421,7 @@
     <string name="talk_list_item_swipe_mark_as_read">Read</string>
     <string name="talk_list_item_swipe_mark_as_unread">Unread</string>
     <string name="talk_login_to_subscribe_dialog_title">Log in to subscribe to topics</string>
-    <string name="talk_login_to_subscribe_dialog_content">Topic subscriptions will allow you to receive notifications about new comments in this topic. Please create an account or log into your Wikipedia account to subscribe to a topic.</string>
+    <string name="talk_login_to_subscribe_dialog_content">Topic subscriptions will allow you to receive notifications about new comments in this topic. Please create an account or log into your Minecraft Wiki account to subscribe to a topic.</string>
     <string name="talk_archived_title">Talk archive: %s</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
@@ -1441,7 +1441,7 @@
     <string name="thank_label">Thank</string>
     <string name="view_user_page">View user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
-    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
+    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Minecraft Wiki. \'Thanks\' cannot be undone and are publicly viewable</string>
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
@@ -1584,7 +1584,7 @@
     <string name="shareable_reading_lists_new_imported_snackbar">Reading list imported</string>
     <string name="reading_list_share_menu_label">Share…</string>
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
-    <string name="reading_list_share_message_v2">Hi! I\'d like to share my Wikipedia reading list with you:</string>
+    <string name="reading_list_share_message_v2">Hi! I\'d like to share my Minecraft Wiki reading list with you:</string>
     <!-- /Shareable reading lists -->
 
     <!-- Patroller task -->
@@ -1682,8 +1682,8 @@
     <string name="patroller_tasks_patrol_edit_snackbar_view">View</string>
     <string name="patroller_tasks_overflow_report">Problem with feature</string>
     <string name="patroller_tasks_overflow_learn">Learn more</string>
-    <string name="patroller_onboarding_one_title">Contribute to the oversight and approval of Wikipedia edits.</string>
-    <string name="patroller_onboarding_one_content">Enhance the quality of Wikipedia content by actively reviewing a feed of recent edits and providing guidance, quality control, and encouragement to other editors.</string>
+    <string name="patroller_onboarding_one_title">Contribute to the oversight and approval of Minecraft Wiki edits.</string>
+    <string name="patroller_onboarding_one_content">Enhance the quality of Minecraft Wiki content by actively reviewing a feed of recent edits and providing guidance, quality control, and encouragement to other editors.</string>
     <string name="patroller_onboarding_two_title">Offer feedback, monitor edits, and take actions on the diff screen</string>
     <string name="patroller_onboarding_two_thank_title">Thank</string>
     <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
@@ -1710,18 +1710,18 @@
     <string name="patroller_saved_message_title_do_not_censor">Do not censor</string>
     <string name="patroller_saved_message_title_art_imp">Article improvement suggestion</string>
     <string name="patroller_saved_message_body_vandalism">Hi {{{username}}}, I want to let you know I\'ve reverted one or more of your [{{{diffLink}}}|recent contributions] because they do not seem constructive. If you think I made a mistake or have questions, you can leave a message on [[User talk:{{{senderUserName}}}|my talk page]]. Please note that continued vandalism may lead to restrictions.</string>
-    <string name="patroller_saved_message_body_editing_tests">Hi {{{username}}}, I am delighted that Wikipedia has caught your attention and that you have been interested in learning how to edit on it. The editing test you did worked; However, you should keep in mind that the goal of this project is to develop a reliable and complete encyclopedia that everyone can consult. Your edit affected the content, so it has been removed.\nIf you want to learn how to edit Wikipedia, the [[Wikipedia:Sandbox|sandbox]] is at your disposal. If your comments were specific to an article, the correct place is that article\'s talk page.</string>
-    <string name="patroller_saved_message_body_npov">Hello {{{username}}}, some contributions you have made do not meet the neutrality required to comply with this Wikipedia\'s [[Wikipedia:NPOV|neutral point of view]] policy. For this reason, some content has been modified or removed. Please modify the paragraphs or sections that show a partial point of view, replacing them with a more neutral and objective text in line with what is expected in an encyclopedia.</string>
-    <string name="patroller_saved_message_body_auto_trans">Hello {{{username}}}, some contributions you have made are possibly machine translations, which is why they have been modified or marked with the template. If no improvements are made to the article, it may be deleted.\n\nIf, despite all this information, you still have any questions, feel free to leave a message on [[User talk:{{{senderUserName}}}|my talk page]]. Don\'t be discouraged by this little incident. Your contributions are very important to Wikipedia.</string>
-    <string name="patroller_saved_message_body_coi_rem">Hello {{{username}}}, I appreciate your collaboration on Wikipedia; However, I noticed you are in a [[Wikipedia:Conflict_of_interest|conflict of interest]]. A conflict of interest is the incompatibility between Wikipedia\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\n\nAll contributions in the main space are subject to the policies of content criteria of this Wikipedia ([[Wikipedia:What_Wikipedia_is_not|what Wikipedia is not]]), encyclopedic quality ([[Wikipedia:Verifiability|verifiability]] and [[Wikipedia:No_original_research|no original research]]), editorial method ([[Wikipedia:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Wikipedia:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\n\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.</string>
-    <string name="patroller_saved_message_body_final_warning">Because you made multiple destructive edits, this will serve as your final warning. Should you vandalize Wikipedia again, you will be banned from editing.</string>
-    <string name="patroller_saved_message_body_copy_vio">Your recent edit appears to include copyrighted material without permission. Please ensure all content complies with this Wikipedia\'s [[Wikipedia:Copyrights|copyright]] policies to avoid removal.</string>
-    <string name="patroller_saved_message_body_edit_summary">Hi {{{username}}}, it appears you removed content from Wikipedia without leaving an edit summary. Please leave an edit summary whenever you add or remove content to Wikipedia.</string>
-    <string name="patroller_saved_message_body_do_not_censor">Hi {{{username}}}, it appears you removed content without discussing it on the article talk page. Please note that Wikipedia is not censored, and content should not be removed because it is controversial. If you believe the information is inaccurate, please reach a consensus on the article talk page.</string>
+    <string name="patroller_saved_message_body_editing_tests">Hi {{{username}}}, I am delighted that Minecraft Wiki has caught your attention and that you have been interested in learning how to edit on it. The editing test you did worked; However, you should keep in mind that the goal of this project is to develop a reliable and complete encyclopedia that everyone can consult. Your edit affected the content, so it has been removed.\nIf you want to learn how to edit Minecraft Wiki, the [[Minecraft Wiki:Sandbox|sandbox]] is at your disposal. If your comments were specific to an article, the correct place is that article\'s talk page.</string>
+    <string name="patroller_saved_message_body_npov">Hello {{{username}}}, some contributions you have made do not meet the neutrality required to comply with this Minecraft Wiki\'s [[Minecraft Wiki:NPOV|neutral point of view]] policy. For this reason, some content has been modified or removed. Please modify the paragraphs or sections that show a partial point of view, replacing them with a more neutral and objective text in line with what is expected in an encyclopedia.</string>
+    <string name="patroller_saved_message_body_auto_trans">Hello {{{username}}}, some contributions you have made are possibly machine translations, which is why they have been modified or marked with the template. If no improvements are made to the article, it may be deleted.\n\nIf, despite all this information, you still have any questions, feel free to leave a message on [[User talk:{{{senderUserName}}}|my talk page]]. Don\'t be discouraged by this little incident. Your contributions are very important to Minecraft Wiki.</string>
+    <string name="patroller_saved_message_body_coi_rem">Hello {{{username}}}, I appreciate your collaboration on Minecraft Wiki; However, I noticed you are in a [[Minecraft Wiki:Conflict_of_interest|conflict of interest]]. A conflict of interest is the incompatibility between Minecraft Wiki\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\n\nAll contributions in the main space are subject to the policies of content criteria of this Minecraft Wiki ([[Minecraft Wiki:What_Wikipedia_is_not|what Minecraft Wiki is not]]), encyclopedic quality ([[Minecraft Wiki:Verifiability|verifiability]] and [[Minecraft Wiki:No_original_research|no original research]]), editorial method ([[Minecraft Wiki:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Minecraft Wiki:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\n\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.</string>
+    <string name="patroller_saved_message_body_final_warning">Because you made multiple destructive edits, this will serve as your final warning. Should you vandalize Minecraft Wiki again, you will be banned from editing.</string>
+    <string name="patroller_saved_message_body_copy_vio">Your recent edit appears to include copyrighted material without permission. Please ensure all content complies with this Minecraft Wiki\'s [[Minecraft Wiki:Copyrights|copyright]] policies to avoid removal.</string>
+    <string name="patroller_saved_message_body_edit_summary">Hi {{{username}}}, it appears you removed content from Minecraft Wiki without leaving an edit summary. Please leave an edit summary whenever you add or remove content to Minecraft Wiki.</string>
+    <string name="patroller_saved_message_body_do_not_censor">Hi {{{username}}}, it appears you removed content without discussing it on the article talk page. Please note that Minecraft Wiki is not censored, and content should not be removed because it is controversial. If you believe the information is inaccurate, please reach a consensus on the article talk page.</string>
     <string name="talk_warn_learn_more_label">Learn about message placeholders</string>
     <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
     <string name="talk_warn_saved_messages_usage_instruction">Use an example message below to customize, send and save to your messages.</string>
-    <string name="patroller_saved_message_body_art_imp">Hello {{{username}}}. Your article is a great start! To make it even better, consider adding more references to reliable sources. This helps verify the information and improves the article\'s quality. Check out this Wikipedia\'s guidelines on [[Wikipedia:Reliable_sources|reliable sources]] for more details.</string>
+    <string name="patroller_saved_message_body_art_imp">Hello {{{username}}}. Your article is a great start! To make it even better, consider adding more references to reliable sources. This helps verify the information and improves the article\'s quality. Check out this Minecraft Wiki\'s guidelines on [[Minecraft Wiki:Reliable_sources|reliable sources]] for more details.</string>
     <string name="talk_templates_menu_edit_title">Edit</string>
 
     <!-- /Patroller task -->
@@ -1737,7 +1737,7 @@
 
     <!-- Donor experience -->
     <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
-    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Minecraft Wiki and its sister sites thriving.</string>
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
     <string name="donate_gpay_dialog_title">Donate with Google Pay?</string>
@@ -1750,7 +1750,7 @@
     <string name="donate_gpay_check_send_email">Yes, the Wikimedia Foundation can send me an occasional email.</string>
     <string name="donate_gpay_minimum_amount">Please select an amount (minimum %s)</string>
     <string name="donate_gpay_maximum_amount">We cannot accept donations greater than %s through our app. Please contact our major gifts staff at benefactors@wikimedia.org.</string>
-    <string name="donate_gpay_success_message"><![CDATA[<b>Thank you!</b> Your generosity to Wikipedia means so much to us.]]></string>
+    <string name="donate_gpay_success_message"><![CDATA[<b>Thank you!</b> Your generosity to Minecraft Wiki means so much to us.]]></string>
     <string name="donate_gpay_help_problems">Problems donating?</string>
     <string name="donate_gpay_help_other_ways">Other ways to give</string>
     <string name="donate_gpay_help_faq">Frequently asked questions</string>
@@ -1767,7 +1767,7 @@
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <string name="places_card_title">Places nearby</string>
     <string name="places_card_action">More places nearby</string>
-    <string name="places_card_enable_location_card_message">Places is a map-based way to explore Wikipedia</string>
+    <string name="places_card_enable_location_card_message">Places is a map-based way to explore Minecraft Wiki</string>
     <string name="places_card_enable_location_card_button">Enable location</string>
     <string name="places_card_distance_suffix">%s away</string>
     <string name="places_card_distance_unknown">Unknown distance</string>

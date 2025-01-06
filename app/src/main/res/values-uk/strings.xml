@@ -159,7 +159,7 @@
   <string name="search_reading_lists_no_results">Не знайдено результатів у читальних списках</string>
   <string name="search_history_no_results">Не знайдено результатів в історії</string>
   <string name="edit_section_captcha_message">Щоб допомогти нам захиститися від спаму, будь ласка, введіть слова, які вказано нижче</string>
-  <string name="edit_section_captcha_request_an_account_message">Не бачите зображення? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Зробіть запит на створення облікового запису&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Не бачите зображення? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Зробіть запит на створення облікового запису&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Повторіть слова зверху</string>
   <string name="title_captcha">Введіть символи із малюнку</string>
   <string name="edit_section_captcha_reload">Натисніть малюнок для оновлення</string>
@@ -223,7 +223,7 @@
   <string name="create_account_button">Створити обліковий запис</string>
   <string name="create_account_name_unavailable">Ім\'я користувача «%s» недоступне. Будь ласка, вкажіть інше.</string>
   <string name="create_account_ip_block_message">Вибачте, вашій IP-адресі наразі заборонено створювати нові облікові записи.</string>
-  <string name="create_account_ip_block_help_url">https://uk.wikipedia.org/wiki/Вікіпедія:Правила_блокувань</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Вікіпедія:Правила_блокувань</string>
   <string name="create_account_ip_block_details">Деталі</string>
   <string name="preferences_general_heading">Загальні</string>
   <string name="preferences_account_heading">Обліковий запис</string>
@@ -257,12 +257,12 @@
   <string name="about_description">Про додаток Вікіпедії</string>
   <string name="privacy_policy_description">Політика конфіденційності</string>
   <string name="terms_of_use_description">Умови використання</string>
-  <string name="about_wikipedia_url">https://uk.wikipedia.org/wiki/Вікіпедія:Про</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Вікіпедія:Про</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/uk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/uk</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/uk</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk</string>
@@ -453,9 +453,9 @@
   <string name="error_blocked_start">Початок блокування: %s</string>
   <string name="error_blocked_expiry">Кінець блокування: %s</string>
   <string name="error_blocked_id">Ідентифікатор блокування: %s</string>
-  <string name="error_blocked_footer">Ви можете зв\'язатися із &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або іншим &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
+  <string name="error_blocked_footer">Ви можете зв\'язатися із &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або іншим &lt;a href=\"https://minecraft.wiki/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Налаштувати панель інструментів</string>
-  <string name="error_blocked_footer_no_blocker">Ви можете зв\'язатися з &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
+  <string name="error_blocked_footer_no_blocker">Ви можете зв\'язатися з &lt;a href=\"https://minecraft.wiki/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
   <string name="temp_account_not_logged_in">Ви не ввійшли в систему</string>
   <string name="temp_account_anon_ip_dialog_body">Після внесення змін ваша IP-адреса буде пов\'язана з вашими змінами.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Увійдіть&lt;/a&gt; або &lt;a href=\"https://#createaccount\"&gt;створіть обліковий запис&lt;/a&gt;, щоб зберегти за собою авторство майбутніх редагування та отримати доступ до інших функцій.</string>
   <string name="temp_account_anon_dialog_body">Щойно ви внесете зміни, для вас буде створено &lt;b&gt;тимчасовий обліковий запис&lt;/b&gt; для захисту вашої конфіденційності. &lt;a href=\"%1$s\"&gt;Дізнатися більше&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Увійдіть&lt;/a&gt; або &lt;a href=\"https://#createaccount\"&gt;створіть обліковий запис&lt;/a&gt;, щоб робити майбутні редагування під власноруч обраним іменем та отримати доступ до інших функцій.</string>
@@ -1408,7 +1408,7 @@
   <string name="talk_snackbar_survey_action_text">Розпочати</string>
   <string name="talk_share_discussion_subject">Вікіпедія — обговорення на сторінці обговорення «%s»</string>
   <string name="talk_share_talk_page">Вікіпедія — обговорення на сторінці обговорення</string>
-  <string name="talk_edit_disclaimer">Це сторінка обговорення. Будь ласка, дотримуйтесь інструкцій щодо сторінки обговорення та не забудьте підписувати свої повідомлення, вводячи чотири тильди: ~~~~ під час публікації з використанням вікітексту.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Вікіпедія:Рекомендації щодо сторінок обговорення&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Це сторінка обговорення. Будь ласка, дотримуйтесь інструкцій щодо сторінки обговорення та не забудьте підписувати свої повідомлення, вводячи чотири тильди: ~~~~ під час публікації з використанням вікітексту.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Talk_page_guidelines\"&gt;Вікіпедія:Рекомендації щодо сторінок обговорення&lt;/a&gt;</string>
   <string name="talk_search_hint">Пошук повідомлень</string>
   <string name="talk_search_topics_hint">Шукати в темах</string>
   <string name="talk_search_find_in_talk_topics_hint">Знайти тему на сторінці обговорення</string>

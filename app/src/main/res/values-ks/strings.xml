@@ -130,7 +130,7 @@
   <string name="search_reading_lists_no_results">پرنٕچہِ فٕہرستن منٛز آونہٕ کٕہٲنی تہِ نٕتیٖجہٕ لبنٕہ</string>
   <string name="search_history_no_results">توٲریٖخہِ منٛز آو نہٕ لبنہٕ کانہہ تہِ نٕتیٖجہٕ</string>
   <string name="edit_section_captcha_message">خود کار تخریب کٲری بچاؤ کھأترٕ، مہربٲنی کرِتھ کٕریٚو درٕج ہؠرِ کَنہِ دِنہٕ آمٕتی الفاظ</string>
-  <string name="edit_section_captcha_request_an_account_message">تصویٖر چھنہٕ ہؠکان وُچھتٕھی؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">تصویٖر چھنہٕ ہؠکان وُچھتٕھی؟ &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ہؠرِ دِنہٕ آمٕتی الفاظ دۄہرٲوِیوٗک</string>
   <string name="title_captcha">کیپچا کٕرو دَرٕج</string>
   <string name="edit_section_captcha_reload">ٹُھک کٕریٚو بیاکھ کیپچا وُچھنہٕ کھٲترٕ</string>
@@ -190,7 +190,7 @@
   <string name="create_account_button">کھاتہٕ بَنٲیو</string>
   <string name="create_account_name_unavailable">صٲرِف ناو \"%s\" چھنہٕ دٔستیاب. مہربٲنی کٔرِتھ چُنِیوٚ مُختلف ناو.</string>
   <string name="create_account_ip_block_message">معٲفی، IP پَتَہ چھُ بنٛد کرنہٕ آمُت نٕوئ کھاتہٕ بناونہٕ موٗجوٗب.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">تَفصیٖل</string>
   <string name="preferences_general_heading">عام</string>
   <string name="preferences_account_heading">کھاتہٕ</string>
@@ -212,12 +212,12 @@
   <string name="about_description">وِکیٖپیٖڈیا ایپلیکیشنہٕ مُتعلِق</string>
   <string name="privacy_policy_description">رازدٲری اصوٗل</string>
   <string name="terms_of_use_description">اِستِمالٕک شَرٕط</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia: مُتلق</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia: مُتلق</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/رازدأری اصوٗل</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/استعمالٕکی شرٲئطہٕ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia: کھاتہٕ کھٲترٕ درخواست</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia: کھاتہٕ کھٲترٕ درخواست</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>

@@ -105,7 +105,7 @@
   <string name="create_account_button">Baen akun baru</string>
   <string name="create_account_name_unavailable">Gorar pamake \"%s\" inda adong. Pili amuma gorar na marbeda.</string>
   <string name="create_account_ip_block_message">Santabi, alamat IP mu madung iblokir mambaen akun nabaru.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Singkop</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Parsapaan na dodas isapaan</string>
@@ -134,7 +134,7 @@
   <string name="about_description">Tontang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kabijakan privasi</string>
   <string name="terms_of_use_description">Katontuan panggunaan</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://id.m.wikipedia.org/wiki/Wikipedia:Parihal</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://minecraft.wiki/wiki/Wikipedia:Parihal</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm#Baca_sacara_luring_dot_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm</string>
   <string name="about_libraries_heading">Pustaha na ipake</string>
@@ -142,7 +142,7 @@
   <string name="about_translators_heading">Panerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi on madung itarjamahkon ni panerjemah sukarela i &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license" fuzzy="true">Kode sumber tarsadio i &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dot &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; i toru &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tarsadio i toru &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-MarbagiSerupa Creative Commons&lt;/a&gt; kacuali inyatoon lain.</string>
+  <string name="about_app_license" fuzzy="true">Kode sumber tarsadio i &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dot &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; i toru &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tarsadio i toru &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-MarbagiSerupa Creative Commons&lt;/a&gt; kacuali inyatoon lain.</string>
   <string name="feed_configure_menu_select_all">Patidaon sude</string>
   <string name="feed_configure_menu_deselect_all">Pajopi sude</string>
   <string name="feed_configure_language_warning">Roaon molo inda sude mocoman kartu tarsadio i sude saro Wikipedia. Edit saro na ipili Muyu i Pangaturan.</string>

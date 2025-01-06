@@ -132,7 +132,7 @@
   <string name="search_reading_lists_no_results">Окъуу тизмегизде эсебле табылмадыла</string>
   <string name="search_history_no_results">Тарихде эсебле табылмадыла</string>
   <string name="edit_section_captcha_message">Автоат халда спамлагъа къаршчы къоруунланыргъа болушлукъ берир ючюн, энишгеде кёрюннген сёзлени джазыгъыз.</string>
-  <string name="edit_section_captcha_request_an_account_message">Суратны кёралмаймысыз? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Хыйсаб излем этигиз&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Суратны кёралмаймысыз? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Хыйсаб излем этигиз&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ёргедеги сёзлени къайтарыгъыз</string>
   <string name="title_captcha">CAPTCHA киргизтигиз</string>
   <string name="edit_section_captcha_reload">Джангыдан джюклер ючюн CAPTCHA басыгъыз</string>
@@ -196,7 +196,7 @@
   <string name="create_account_button">Хыйсаб къура</string>
   <string name="create_account_name_unavailable">\"%s\" хайырланыучу ат джокъду. Тилейбиз, башха хайырланыучу ат сайлагъыз.</string>
   <string name="create_account_ip_block_message">Кечериксиз, IP-адресигиз джангы хыйсабла къурамазча блокдады.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Толу ачыкълаула</string>
   <string name="preferences_general_heading">Баш</string>
   <string name="preferences_account_heading">Хыйсаб</string>
@@ -230,12 +230,12 @@
   <string name="about_description">Википедия программаны юсюнден</string>
   <string name="privacy_policy_description">Ташалыкъ политика</string>
   <string name="terms_of_use_description">Хайырланыу шартла</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Юсюнден</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Wikipedia:Юсюнден</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/krc</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/krc</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/krc</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.krc</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.krc</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -418,9 +418,9 @@
   <string name="error_blocked_start">Блокну башланыуу: %s</string>
   <string name="error_blocked_expiry">Блокну бошалыуу: %s</string>
   <string name="error_blocked_id">Блокну идентификатор: %s</string>
-  <string name="error_blocked_footer">Блкну сюзерючюн &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; неда башха &lt;a href=\"https://krc.wikipedia.org/wiki/Википедия:Администраторла\"&gt;администратор\n&lt;/a&gt; бла байлам къурургъа боллукъсуз.</string>
+  <string name="error_blocked_footer">Блкну сюзерючюн &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; неда башха &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Администраторла\"&gt;администратор\n&lt;/a&gt; бла байлам къурургъа боллукъсуз.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Адыр панелигизни джарашдырыгъыз</string>
-  <string name="error_blocked_footer_no_blocker">Блокну сюзер ючюн &lt;a href=\"https://krc.wikipedia.org/wiki/Википедия:Администраторла\"&gt;администратор&lt;/a&gt; бла байлам къурургъа боллукъсуз.</string>
+  <string name="error_blocked_footer_no_blocker">Блокну сюзер ючюн &lt;a href=\"https://minecraft.wiki/wiki/Википедия:Администраторла\"&gt;администратор&lt;/a&gt; бла байлам къурургъа боллукъсуз.</string>
   <string name="temp_account_not_logged_in">Системагъа кирмегенсиз</string>
   <string name="temp_account_anon_dialog_body" fuzzy="true">Ташалыгъызны къоруулар ючюн, тюзетиу этгенлей &lt;b&gt;болджаллы хыйсаб&lt;/b&gt; къураллыкъды. &lt;a href=\"%1$s\"&gt;Аслам бил&lt;/a&gt;.Келликде тюзетиуде эмда башха онгчулукъла бла хайырланырча &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Кир&lt;/a&gt; неда &lt;a href=\"https://#login\"&gt;Хыйсаб къура&lt;/a&gt;.</string>
   <string name="temp_account_temp_dialog_body" fuzzy="true">Тюзетиуюгюз %1$s джаздырыллыкъды. IP-адресигиз администраторлагъа кёрюнюрча боллукъду.&lt;br /&gt;&lt;br /&gt;Сиз &lt;a href=\"https://#login\"&gt;кирсегиз&lt;/a&gt; неда &lt;a href=\"https://#login \"&gt;хыйысаб къурасагъыз&lt;/a&gt;, башха онгчулукъла бла бирге, тюзетиулеригиз, сайлагъан атыгъызгъа джаздырыллыкъды.</string>
@@ -1282,7 +1282,7 @@
   <string name="talk_snackbar_survey_action_text">Башла</string>
   <string name="talk_share_discussion_subject">Википедия - сюзюу бетдеги \"%s\" темада сюзюу</string>
   <string name="talk_share_talk_page">Википедия - сюзюу бетдеги сюзюуле</string>
-  <string name="talk_edit_disclaimer">Бу сюзюу бетди. Тилейбиз, сюзюу бетни джорукъларына сыйыныгъыз эмда джибергенлеригизни тёрт тильда джазыб, къол салыргъа унутмагъыз: викитекстни хайырланыб, джибергенигигзни ахырына ~~~~ къошугъуз.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://krc.wikipedia.org/wiki/Vikipedi:Сюзюу бет\"&gt;Википедия: Сюзюу бет&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Бу сюзюу бетди. Тилейбиз, сюзюу бетни джорукъларына сыйыныгъыз эмда джибергенлеригизни тёрт тильда джазыб, къол салыргъа унутмагъыз: викитекстни хайырланыб, джибергенигигзни ахырына ~~~~ къошугъуз.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Vikipedi:Сюзюу бет\"&gt;Википедия: Сюзюу бет&lt;/a&gt;</string>
   <string name="talk_search_hint">Бирлдириулени изле</string>
   <string name="talk_search_topics_hint">Темаланы изле</string>
   <string name="talk_search_find_in_talk_topics_hint">Сюзюу бетде теманы таб</string>

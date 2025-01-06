@@ -155,7 +155,7 @@
   <string name="search_reading_lists_no_results">Не знойдзена вынікаў у спісах для чытання</string>
   <string name="search_history_no_results">Не знойдзена вынікаў у гісторыі</string>
   <string name="edit_section_captcha_message">Для абароны ад аўтаматычнага спаму, калі ласка, увядзіце словы, якія з’явяцца ніжэй</string>
-  <string name="edit_section_captcha_request_an_account_message">Не бачыце выявы? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Запытайце ўліковы запіс&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Не бачыце выявы? &lt;a href=\"https://minecraft.wiki/wiki/Wikipedia:Request_an_account\"&gt;Запытайце ўліковы запіс&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Паўтарыце словы, паказаныя вышэй</string>
   <string name="title_captcha">Увядзіце сімвалы з выяў</string>
   <string name="edit_section_captcha_reload">Націсніце на выявы, каб перазагрузіць</string>
@@ -219,7 +219,7 @@
   <string name="create_account_button">Стварыць уліковы запіс</string>
   <string name="create_account_name_unavailable">Імя ўдзельніка «%s» недаступнае. Выберыце іншае імя.</string>
   <string name="create_account_ip_block_message">На жаль, ваш IP-адрас зараз заблакаваны для стварэння новых уліковых запісаў.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://minecraft.wiki/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Падрабязнасці</string>
   <string name="preferences_general_heading">Агульныя</string>
   <string name="preferences_account_heading">Уліковы запіс</string>
@@ -253,10 +253,10 @@
   <string name="about_description">Пра праграму Вікіпедыя</string>
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
-  <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
+  <string name="about_wikipedia_url">https://minecraft.wiki/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://minecraft.wiki/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
@@ -447,9 +447,9 @@
   <string name="error_blocked_start">Пачатак блакавання: %s</string>
   <string name="error_blocked_expiry">Сканчэнне блакавання: %s</string>
   <string name="error_blocked_id">Ідэнтыфікатар блакавання: %s</string>
-  <string name="error_blocked_footer">Вы можаце звязацца з &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або з іншым &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакаванне.</string>
+  <string name="error_blocked_footer">Вы можаце звязацца з &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або з іншым &lt;a href=\"https://minecraft.wiki/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакаванне.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Наладзьце панэль інструментаў</string>
-  <string name="error_blocked_footer_no_blocker">Вы можаце звязацца з &lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакаванне.</string>
+  <string name="error_blocked_footer_no_blocker">Вы можаце звязацца з &lt;a href=\"https://minecraft.wiki/wiki/Вікіпедыя: Адміністратары\"&gt;адміністратарам&lt;/a&gt;, каб абмеркаваць блакаванне.</string>
   <string name="temp_account_not_logged_in">Вы не ўвайшлі ў сістэму</string>
   <string name="temp_account_anon_dialog_body">Як толькі вы зробіце змены, для вас будзе створаны Часовы ўліковы запіс, каб абараніць вашу канфідэнцыяльнасць. &lt;a href= \"%1$s \" &gt; Даведайцеся больш &lt; / a&gt;.&lt; br /&gt;&lt;br / &gt; &lt; a href=\"https://#login\" &gt; Увайдзіце ў сістэму &lt; / a&gt; АБО &lt; a href=\"https://#createaccount\" &gt; стварыце ўліковы запіс &lt; / a&gt;, каб атрымаць крэдыт на будучыя праўкі і доступ да іншых функцый.</string>
   <string name="temp_account_temp_dialog_body">Ваша праўка будзе прыпісана да %1$s. Ваш IP-адрас будзе бачны адміністратарам.&lt;br /&gt;&lt;br /&gt;Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сістэму&lt;/a&gt; або &lt;a href=\"https://#createaccount\"&gt;створыце ўліковы запіс&lt;/a&gt;, сярод іншых пераваг, вашы праўкі будуць прыпісаны да выбранага вамі імя.</string>
@@ -1390,7 +1390,7 @@
   <string name="talk_snackbar_survey_action_text">Пачаць</string>
   <string name="talk_share_discussion_subject">Вікіпедыя — размова ў тэме «%s»</string>
   <string name="talk_share_talk_page">Вікіпедыя — старонка размоў</string>
-  <string name="talk_edit_disclaimer">Гэта старонка размоў. Калі ласка, трымайцеся правіл вядзення размоў і не забывайцеся падпісваць свае паведамленні чатырма тыльдамі ~~~~ , калі карыстаецеся вікіразметкай.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://be.wikipedia.org/wiki/Вікіпедыя:Старонкі размоў\"&gt;Вікіпедыя:Старонкі размоў&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Гэта старонка размоў. Калі ласка, трымайцеся правіл вядзення размоў і не забывайцеся падпісваць свае паведамленні чатырма тыльдамі ~~~~ , калі карыстаецеся вікіразметкай.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://minecraft.wiki/wiki/Вікіпедыя:Старонкі размоў\"&gt;Вікіпедыя:Старонкі размоў&lt;/a&gt;</string>
   <string name="talk_search_hint">Пошук паведамленняў</string>
   <string name="talk_search_topics_hint">Шукаць тэмы</string>
   <string name="talk_search_find_in_talk_topics_hint">Знайсці тэму на старонцы размоў</string>
