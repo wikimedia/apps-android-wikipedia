@@ -23,12 +23,14 @@ object TestConfig {
     const val SEARCH_TERM = "hopf fibration"
     const val ARTICLE_TITLE = "Hopf fibration"
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
+    const val TEST_WIKI_URL_APPLE = "https://en.wikipedia.org/wiki/Apple"
 }
 
 data class DataInjector(
     val isInitialOnboardingEnabled: Boolean = false,
     val overrideEditsContribution: Int? = null,
-    val intentBuilder: (Intent.() -> Unit)? = null
+    val intentBuilder: (Intent.() -> Unit)? = null,
+    val showOneTimeCustomizeToolbarTooltip: Boolean = false,
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -49,6 +51,7 @@ abstract class BaseTest<T : AppCompatActivity>(
         val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
+        Prefs.showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }
