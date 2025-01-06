@@ -754,16 +754,4 @@ object Prefs {
     var donationResults
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
-
-    var hasDonorHistorySaved
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donor_history_saved, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donor_history_saved, value)
-
-    var isDonor
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_donor, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_donor, value)
-
-    var isRecurringDonor
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_recurring_donor, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_recurring_donor, value)
 }
