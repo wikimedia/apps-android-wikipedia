@@ -74,7 +74,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (tab == NavTab.EXPLORE) {
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
-            binding.mainToolbar.title = ""
             controlNavTabInFragment = false
         } else {
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
