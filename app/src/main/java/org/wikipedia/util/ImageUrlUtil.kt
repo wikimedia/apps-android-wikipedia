@@ -1,7 +1,5 @@
 package org.wikipedia.util
 
-import java.net.URL
-
 object ImageUrlUtil {
 
     private val WIDTH_IN_IMAGE_URL_REGEX = """/(page\d+-)?(\d+)(px-)""".toPattern()
@@ -25,11 +23,6 @@ object ImageUrlUtil {
     }
 
     fun isGif(url: String?): Boolean {
-        try {
-            URL(url)
-            return url?.lowercase()?.endsWith(".gif") == true
-        } catch (e: Exception) {
-            return false
-        }
+        return url?.lowercase()?.endsWith(".gif") == true
     }
 }
