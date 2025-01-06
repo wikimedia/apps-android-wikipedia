@@ -84,15 +84,18 @@ class SuggestedEditsCardItemFragment : Fragment() {
             if (it.resultCode == RESULT_OK) {
                 if (isAdded) {
                     val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
+                        // Note: at this point, the fragment may have already been replaced by a different one (because
+                        // we call showCardContent() down below), so we can't use requireActivity() here, and instead
+                        // should use the context from the snackbar view.
                         if (viewModel.cardActionType === ADD_IMAGE_TAGS) {
-                            startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(viewModel.imageTagPage?.title, WikiSite(WikipediaApp.instance.appOrSystemLanguageCode))))
+                            it.context.startActivity(FilePageActivity.newIntent(it.context, PageTitle(viewModel.imageTagPage?.title, WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode))))
                             return@OpenPageListener
                         }
                         val pageTitle = viewModel.sourceSummaryForEdit!!.pageTitle
                         if (viewModel.cardActionType === ADD_CAPTION || viewModel.cardActionType === TRANSLATE_CAPTION) {
-                            startActivity(GalleryActivity.newIntent(requireActivity(), pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0))
+                            it.context.startActivity(GalleryActivity.newIntent(it.context, pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0))
                         } else {
-                            startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
+                            it.context.startActivity(PageActivity.newIntentForNewTab(it.context, HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
                         }
                     }
                     SuggestedEditsSnackbars.show(requireActivity(), viewModel.cardActionType, true, viewModel.targetSummaryForEdit?.lang, true, openPageListener)
