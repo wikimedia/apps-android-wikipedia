@@ -215,5 +215,5 @@ object JavaScriptActionHandler {
 
     @Serializable
     class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
-                       val src: String = "", val centerCrop: Boolean = false)
+                       val src: String = "")
 }
