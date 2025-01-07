@@ -24,7 +24,7 @@ data class WikipediaColor(
 )
 
 val LocalWikipediaColor = staticCompositionLocalOf {
-    WikipediaTheme(
+    WikipediaThemeInfo(
         colors = WikipediaColor(
             primaryColor = Color.Unspecified,
             paperColor = Color.Unspecified,
