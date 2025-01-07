@@ -1,15 +1,15 @@
 package org.wikipedia.theme
 
-import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 
 enum class WikipediaThemeType {
-    LIGHT, DARK, BLACK, SEPIA
+    SYSTEM, LIGHT, DARK, BLACK, SEPIA
 }
 
 object WikipediaTheme {
-    fun lightColors() = WikipediaColorScheme(
+    fun lightColors() = WikipediaColorSystem(
         paperColor = WikipediaColors.White,
         backgroundColor = WikipediaColors.Gray100,
         borderColor = WikipediaColors.Gray200,
@@ -27,7 +27,7 @@ object WikipediaTheme {
         overlayColor = WikipediaColors.Black_30
     )
 
-    fun darkColors() = WikipediaColorScheme(
+    fun darkColors() = WikipediaColorSystem(
         paperColor = WikipediaColors.Gray700,
         backgroundColor = WikipediaColors.Gray675,
         borderColor = WikipediaColors.Gray650,
@@ -45,7 +45,7 @@ object WikipediaTheme {
         overlayColor = WikipediaColors.Black_70
     )
 
-    fun blackColors() = WikipediaColorScheme(
+    fun blackColors() = WikipediaColorSystem(
         paperColor = WikipediaColors.Black,
         backgroundColor = WikipediaColors.Gray700,
         borderColor = WikipediaColors.Gray675,
@@ -63,7 +63,7 @@ object WikipediaTheme {
         overlayColor = WikipediaColors.Black_70
     )
 
-    fun sepiaColors() = WikipediaColorScheme(
+    fun sepiaColors() = WikipediaColorSystem(
         paperColor = WikipediaColors.Beige100,
         backgroundColor = WikipediaColors.Beige300,
         borderColor = WikipediaColors.Beige400,
@@ -84,57 +84,21 @@ object WikipediaTheme {
 
 @Composable
 fun MainTheme(
-    wikipediaThemeType: WikipediaThemeType,
+    wikipediaThemeType: WikipediaThemeType = WikipediaThemeType.SYSTEM,
     content: @Composable () -> Unit
 ) {
-    val appColors = when (wikipediaThemeType) {
+    val wikipediaColorSystem = when (wikipediaThemeType) {
         WikipediaThemeType.LIGHT -> WikipediaTheme.lightColors()
         WikipediaThemeType.DARK -> WikipediaTheme.darkColors()
         WikipediaThemeType.BLACK -> WikipediaTheme.blackColors()
         WikipediaThemeType.SEPIA -> WikipediaTheme.sepiaColors()
+        WikipediaThemeType.SYSTEM -> if (isSystemInDarkTheme()) WikipediaTheme.darkColors() else
+            WikipediaTheme.lightColors()
     }
 
-    val colorScheme = ColorScheme(
-        primary = appColors.progressiveColor,
-        onPrimary = appColors.primaryColor,
-        primaryContainer = appColors.paperColor,
-        onPrimaryContainer = appColors.primaryColor,
-        inversePrimary = appColors.progressiveColor,
-        secondary = appColors.secondaryColor,
-        onSecondary = appColors.primaryColor,
-        secondaryContainer = appColors.secondaryColor,
-        onSecondaryContainer = appColors.secondaryColor,
-        tertiary = appColors.inactiveColor,
-        onTertiary = appColors.secondaryColor,
-        tertiaryContainer = appColors.paperColor,
-        onTertiaryContainer = appColors.placeholderColor,
-        background = appColors.backgroundColor,
-        onBackground = appColors.primaryColor,
-        surface = appColors.paperColor,
-        onSurface = appColors.primaryColor,
-        surfaceVariant = appColors.paperColor,
-        onSurfaceVariant = appColors.primaryColor,
-        surfaceTint = appColors.primaryColor,
-        inverseSurface = appColors.borderColor,
-        inverseOnSurface = appColors.primaryColor,
-        error = appColors.destructiveColor,
-        onError = appColors.destructiveColor,
-        errorContainer = appColors.destructiveColor,
-        onErrorContainer = appColors.destructiveColor,
-        outline = appColors.borderColor,
-        outlineVariant = appColors.borderColor,
-        scrim = appColors.overlayColor,
-        surfaceBright = appColors.primaryColor,
-        surfaceDim = appColors.primaryColor,
-        surfaceContainer = appColors.primaryColor,
-        surfaceContainerHigh = appColors.primaryColor,
-        surfaceContainerHighest = appColors.primaryColor,
-        surfaceContainerLow = appColors.primaryColor,
-        surfaceContainerLowest = appColors.primaryColor
-    )
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        content = content
-    )
+    CompositionLocalProvider(
+        LocalWikipediaColorSystem provides wikipediaColorSystem
+    ) {
+        content()
+    }
 }
