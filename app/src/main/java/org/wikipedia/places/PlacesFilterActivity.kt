@@ -126,7 +126,7 @@ class PlacesFilterActivity : BaseActivity() {
         }
 
         fun bindItem(languageCode: String) {
-            itemViewBinding.placesFilterTitle.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
+            itemViewBinding.placesFilterTitle.text = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode)
             itemViewBinding.placesFilterLangCode.setLangCode(languageCode)
             itemViewBinding.placesFilterRadio.isVisible = languageCode == Prefs.placesWikiCode
             itemViewBinding.root.setOnClickListener {

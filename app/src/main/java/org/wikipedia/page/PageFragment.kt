@@ -100,6 +100,7 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -295,6 +296,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
+        if (ImageUrlUtil.isGif(page?.pageProperties?.leadImageUrl)) {
+            leadImagesHandler.loadLeadImage()
+        }
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
     }
