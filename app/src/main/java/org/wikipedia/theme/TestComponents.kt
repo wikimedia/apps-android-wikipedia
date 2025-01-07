@@ -1,17 +1,22 @@
 package org.wikipedia.theme
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerColors
 import androidx.compose.material3.DatePickerDefaults
 import androidx.compose.material3.DatePickerDialog
+import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.window.DialogProperties
@@ -132,14 +138,18 @@ fun ThemedDatePicker(
     onDismissRequest: () -> Unit,
     confirmButton: @Composable () -> Unit,
     modifier: Modifier = Modifier,
+    datePickerState: DatePickerState = rememberDatePickerState(),
     dismissButton: @Composable (() -> Unit)? = null,
     shape: Shape = DatePickerDefaults.shape,
     tonalElevation: Dp = DatePickerDefaults.TonalElevation,
     colors: DatePickerColors = DatePickerDefaults.colors(
-        containerColor = NewTheme.colors.progressiveColor
+        containerColor = NewTheme.colors.paperColor,
+        titleContentColor = NewTheme.colors.destructiveColor,
+        headlineContentColor = NewTheme.colors.warningColor,
+        dayContentColor = NewTheme.colors.progressiveColor,
+        weekdayContentColor = NewTheme.colors.progressiveColor
     ),
-    properties: DialogProperties = DialogProperties(usePlatformDefaultWidth = false),
-    content: @Composable ColumnScope.() -> Unit
+    properties: DialogProperties = DialogProperties(usePlatformDefaultWidth = false)
 ) {
     DatePickerDialog(
         onDismissRequest = onDismissRequest,
@@ -150,6 +160,11 @@ fun ThemedDatePicker(
         tonalElevation = tonalElevation,
         colors = colors,
         properties = properties,
-        content = content
+        content = {
+            DatePicker(
+                state = datePickerState,
+                colors = colors
+            )
+        }
     )
 }

@@ -34,7 +34,6 @@ import org.wikipedia.R
 @Composable
 fun ThemeTest(modifier: Modifier = Modifier) {
     var currentTheme by remember { mutableStateOf(WikipediaThemeType.SYSTEM) }
-    val datePickerState = rememberDatePickerState()
     var showDatePicker by remember { mutableStateOf(false) }
     val scrollableState = rememberScrollState()
     MainTheme(
@@ -121,9 +120,6 @@ fun ThemeTest(modifier: Modifier = Modifier) {
                                 showDatePicker = false
                             },
                             confirmButton = {},
-                            content = {
-                                DatePicker(state = datePickerState)
-                            }
                         )
                     }
                 }
