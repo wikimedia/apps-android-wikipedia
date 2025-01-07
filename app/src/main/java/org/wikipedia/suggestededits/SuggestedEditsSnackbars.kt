@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits
 
 import android.app.Activity
+import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -11,7 +12,7 @@ import org.wikipedia.util.FeedbackUtil
 object SuggestedEditsSnackbars {
 
     fun interface OpenPageListener {
-        fun open()
+        fun open(actionView: View)
     }
 
     private const val MAX_SHOW_PER_SESSION = 2
@@ -39,7 +40,7 @@ object SuggestedEditsSnackbars {
                                 })
                     })
             if (enableViewAction && listener != null) {
-                snackbar.setAction(R.string.suggested_edits_article_cta_snackbar_action) { listener.open() }
+                snackbar.setAction(R.string.suggested_edits_article_cta_snackbar_action) { listener.open(it) }
             }
 
             snackbar.addCallback(object : Snackbar.Callback() {
