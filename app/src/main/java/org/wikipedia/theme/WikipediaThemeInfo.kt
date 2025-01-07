@@ -33,7 +33,7 @@ fun MainTheme(
 }
 
 object WikipediaTheme {
-    val theme: WikipediaColor
+    val colors: WikipediaColor
     @Composable
     get() = LocalWikipediaColor.current
 }

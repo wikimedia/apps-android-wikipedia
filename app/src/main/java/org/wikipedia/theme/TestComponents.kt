@@ -69,7 +69,7 @@ fun ThemeButtons(
                 content = {
                     Text(
                         currentButton.title,
-                        color = if (currentButton.isSelected) NewTheme.colors.primaryColor else NewTheme.colors.paperColor,
+                        color = if (currentButton.isSelected) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.paperColor,
 
                         )
                 },
@@ -90,8 +90,8 @@ fun ThemedButton(
         modifier = modifier,
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (isSelected) NewTheme.colors.progressiveColor else NewTheme.colors.warningColor,
-            contentColor = NewTheme.colors.primaryColor
+            containerColor = if (isSelected) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.warningColor,
+            contentColor = WikipediaTheme.colors.primaryColor
         )
     ) {
         content()
@@ -121,8 +121,8 @@ fun ThemedElevatedCard(
         modifier = modifier,
         onClick = { onClick?.invoke() },
         colors = CardDefaults.elevatedCardColors(
-            containerColor = NewTheme.colors.paperColor,
-            contentColor = NewTheme.colors.primaryColor
+            containerColor = WikipediaTheme.colors.paperColor,
+            contentColor = WikipediaTheme.colors.primaryColor
         ),
         content = {
             content()
@@ -133,7 +133,7 @@ fun ThemedElevatedCard(
 @Composable
 fun ThemedText(
     text: String,
-    color: Color = NewTheme.colors.primaryColor,
+    color: Color = WikipediaTheme.colors.primaryColor,
     modifier: Modifier = Modifier,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontWeight: FontWeight? = null,
@@ -157,11 +157,11 @@ fun ThemedDatePicker(
     shape: Shape = DatePickerDefaults.shape,
     tonalElevation: Dp = DatePickerDefaults.TonalElevation,
     colors: DatePickerColors = DatePickerDefaults.colors(
-        containerColor = NewTheme.colors.paperColor,
-        titleContentColor = NewTheme.colors.destructiveColor,
-        headlineContentColor = NewTheme.colors.warningColor,
-        dayContentColor = NewTheme.colors.progressiveColor,
-        weekdayContentColor = NewTheme.colors.progressiveColor,
+        containerColor = WikipediaTheme.colors.paperColor,
+        titleContentColor = WikipediaTheme.colors.destructiveColor,
+        headlineContentColor = WikipediaTheme.colors.warningColor,
+        dayContentColor = WikipediaTheme.colors.progressiveColor,
+        weekdayContentColor = WikipediaTheme.colors.progressiveColor,
     ),
     properties: DialogProperties = DialogProperties(usePlatformDefaultWidth = false)
 ) {
