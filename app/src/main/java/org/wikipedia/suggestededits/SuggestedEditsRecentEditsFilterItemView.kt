@@ -53,7 +53,7 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
         } else {
             titleText = when (filter.filterCode) {
                 context.getString(R.string.notifications_all_wikis_text) -> filter.filterCode
-                else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(filter.filterCode).orEmpty()
+                else -> WikipediaApp.instance.languageState.getAppLanguageLocalizedName(filter.filterCode).orEmpty()
             }
         }
 
