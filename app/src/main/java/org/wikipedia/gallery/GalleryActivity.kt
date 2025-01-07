@@ -154,8 +154,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             params.gravity = Gravity.CENTER
             binding.transitionReceiver.layoutParams = params
             binding.transitionReceiver.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
-                force = false, listener = null)
+            ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src)
             val transitionMillis = 500
             binding.transitionReceiver.postDelayed({
                 if (isDestroyed) {

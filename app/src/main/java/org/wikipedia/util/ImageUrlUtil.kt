@@ -21,4 +21,8 @@ object ImageUrlUtil {
             original
         }
     }
+
+    fun isGif(url: String?): Boolean {
+        return url?.lowercase()?.endsWith(".gif") == true
+    }
 }

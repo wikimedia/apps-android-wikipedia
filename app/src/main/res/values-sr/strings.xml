@@ -413,6 +413,7 @@
   <string name="link_preview_dialog_save_button">Сачувај</string>
   <string name="link_preview_dialog_saved_button">Сачувано</string>
   <string name="link_preview_dialog_share_button">Дели</string>
+  <string name="link_preview_stub_placeholder_text">Овај чланак је клица, што значи да нема довољно садржаја у чланку да се генерише преглед. Али то можете да промените.</string>
   <string name="error_page_does_not_exist">Ова страница не постоји</string>
   <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничку страницу&lt;/a&gt; са баш овим именом. Генерално, ову страницу треба да направи или уређује &lt;b&gt;%2$s&lt;/b&gt;. Уколико сте у недоумици, проверите да ли \"%3$s\" постоји.</string>
   <string name="view_wiki_error_message_offline">Није могуће повезати се са интернетом</string>
@@ -1630,11 +1631,14 @@
   <string name="donor_history_about_this_experiment">О овом експерименту</string>
   <string name="donor_history_updated_message_snackbar">Историја донирања ажурирана</string>
   <string name="contributions_dashboard_survey_dialog_ok">Дајте своје мишљење</string>
+  <string name="contributions_dashboard_donation_dialog_title">Хвала вам на Вашој подршци слободном знању</string>
   <string name="contributions_dashboard_donation_dialog_cancel">Не, хвала</string>
   <string name="contributions_dashboard_donation_dialog_ok">Да, води ме тамо</string>
   <string name="contributions_dashboard_entry_dialog_cancel">Не, хвала</string>
   <string name="contributions_dashboard_entry_dialog_ok">Да, води ме тамо</string>
   <string name="contributions_dashboard_badge_donor">Донатор</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Постани донатор</string>
+  <string name="contributions_dashboard_logged_out_user">Одјављен корисник</string>
   <string name="contributions_dashboard_tab_last_donated">Последња донација</string>
   <string name="contributions_dashboard_tab_update_button">Ажурирај</string>
   <string name="contributions_dashboard_donor_icon_dialog_cancel">Не, хвала</string>
