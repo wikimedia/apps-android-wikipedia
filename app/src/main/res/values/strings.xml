@@ -1816,26 +1816,6 @@
     <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
     <!-- /Contributions Dashboard -->
 
-    <!-- Rabbit holes -->
-    <string name="recent_searches_title">Recent searches</string>
-    <string name="recent_searches_related_to_reading">Related to what you\'re reading</string>
-    <string name="rabbit_holes_experiment">Experiment</string>
-    <string name="rabbit_holes_experiment_about">About this experiment</string>
-    <string name="rabbit_holes_survey_dialog_title">Help improve rabbit holes</string>
-    <string name="rabbit_holes_survey_dialog_body">Are you satisfied with this recommended search result?</string>
-    <string name="rabbit_holes_reading_list_survey_dialog_title">Help improve recommended reading lists</string>
-    <string name="rabbit_holes_reading_list_survey_dialog_body">Are you satisfied with this recommended reading list?</string>
-    <string name="suggested_reading_list_title">Based on your reading</string>
-    <string name="suggested_reading_list_description">Inspired by \"%s\"</string>
-    <string name="suggested_reading_list_description_multi">Inspired by %1$s and %2$s</string>
-    <string name="suggested_reading_list_later_snackbar">If you want to visit your reading list later, go to the Saved tab on the home screen.</string>
-    <string name="suggested_reading_list_dialog_title">You have a new suggested reading list.</string>
-    <string name="suggested_reading_list_dialog_body">This is an experimental feature. The contents are based on your recent reading history. Do you want to check out this new reading list?</string>
-    <string name="suggested_reading_list_dialog_positive">Try it now</string>
-    <string name="suggested_reading_list_dialog_negative">Maybe later</string>
-    <string name="suggested_reading_list_back_cancel">See your suggested reading list any time in the Saved tab on the home screen.</string>
-    <!-- /Rabbit holes -->
-
     <!-- Survey dialog -->
     <string name="survey_dialog_title">Help us improve this feature</string>
     <string name="survey_dialog_message">Are you satisfied with this feature?</string>

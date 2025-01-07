@@ -5,13 +5,11 @@ import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -54,34 +52,11 @@ object SurveyDialog {
             binding.optionUnsatisfied.setOnClickListener(clickListener)
 
             PatrollerExperienceEvent.logAction("impression", "feedback_form")
-        } else if (invokeSource == Constants.InvokeSource.RABBIT_HOLE_SEARCH || invokeSource == Constants.InvokeSource.RABBIT_HOLE_READING_LIST) {
-            binding.optionNeutral.isChecked = true
-            binding.feedbackInputContainer.isVisible = true
-
-            RabbitHolesEvent.submit("impression", "feedback_survey")
         }
 
         val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
             .setCancelable(false)
             .setView(binding.root)
-
-        if (invokeSource == Constants.InvokeSource.RABBIT_HOLE_SEARCH || invokeSource == Constants.InvokeSource.RABBIT_HOLE_READING_LIST) {
-            binding.submitButton.setOnClickListener {
-                val feedbackInput = binding.feedbackInput.text.toString()
-
-                RabbitHolesEvent.submit("submit_click", "feedback_survey",
-                    feedbackSelect = if (binding.optionSatisfied.isChecked) "satisfied"
-                    else if (binding.optionUnsatisfied.isChecked) "unsatisfied"
-                    else "neutral",
-                    feedbackText = feedbackInput)
-
-                showFeedbackSnackbarAndTooltip(activity, snackbarMessageId, invokeSource)
-                dialog?.dismiss()
-            }
-            binding.cancelButton.setOnClickListener {
-                dialog?.dismiss()
-            }
-        }
 
         dialog = dialogBuilder.show()
     }

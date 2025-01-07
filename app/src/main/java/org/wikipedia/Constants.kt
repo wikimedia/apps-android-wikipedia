@@ -106,9 +106,7 @@ object Constants {
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
         EDIT_ADD_IMAGE("editAddImage"),
-        SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
-        RABBIT_HOLE_SEARCH("rabbitHoleSearch"),
-        RABBIT_HOLE_READING_LIST("rabbitHoleReadingList")
+        SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits")
     }
 
     enum class ImageEditType(name: String) {
