@@ -21,7 +21,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.FragmentFeedBinding
-import org.wikipedia.feed.FeedCoordinatorBase.FeedUpdateListener
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView
 import org.wikipedia.feed.configure.LanguageItemAdapter
@@ -39,8 +38,6 @@ import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
-import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
-import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeTest
@@ -90,7 +87,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //coordinator.more(app.wikiSite)
+        // coordinator.more(app.wikiSite)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -151,7 +148,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices.
         // https://issuetracker.google.com/issues/188096921
-        //feedAdapter.notifyDataSetChanged()
+        // feedAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

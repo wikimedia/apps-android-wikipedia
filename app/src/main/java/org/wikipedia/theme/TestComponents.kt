@@ -1,10 +1,7 @@
 package org.wikipedia.theme
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
@@ -18,18 +15,21 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.window.DialogProperties
+
+data class TestButton(
+    val title: String,
+    val themeType: WikipediaThemeType,
+    var isSelected: Boolean = false
+)
 
 @Composable
 fun ThemeButtons(
@@ -39,29 +39,42 @@ fun ThemeButtons(
     onBlackThemeClick: () -> Unit,
     onSepiaThemeClick: () -> Unit
 ) {
+    val buttons = remember {
+        mutableStateListOf(
+            TestButton("Light", themeType = WikipediaThemeType.LIGHT, isSelected = true),
+            TestButton("Dark", themeType = WikipediaThemeType.DARK),
+            TestButton("Black", themeType = WikipediaThemeType.BLACK),
+            TestButton("Sepia", themeType = WikipediaThemeType.SEPIA)
+        )
+    }
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.SpaceAround
     ) {
-        ThemedButton(
-            onClick = onLightThemeClick
-        ) {
-            Text("Light")
-        }
-        ThemedButton(
-            onClick = onDarkThemeClick
-        ) {
-            Text("Dark")
-        }
-        ThemedButton(
-            onClick = onBlackThemeClick
-        ) {
-            Text("Black")
-        }
-        ThemedButton(
-            onClick = onSepiaThemeClick
-        ) {
-            Text("Sepia")
+        buttons.forEach { currentButton ->
+            ThemedButton(
+                onClick = {
+                    when (currentButton.themeType) {
+                        WikipediaThemeType.SYSTEM -> {}
+                        WikipediaThemeType.LIGHT -> onLightThemeClick()
+                        WikipediaThemeType.DARK -> onDarkThemeClick()
+                        WikipediaThemeType.BLACK -> onBlackThemeClick()
+                        WikipediaThemeType.SEPIA -> onSepiaThemeClick()
+                    }
+                    buttons.forEach {
+                        it.isSelected = false
+                    }
+                    currentButton.isSelected = true
+                },
+                content = {
+                    Text(
+                        currentButton.title,
+                        color = if (currentButton.isSelected) NewTheme.colors.primaryColor else NewTheme.colors.paperColor,
+
+                        )
+                },
+                isSelected = currentButton.isSelected
+            )
         }
     }
 }
@@ -70,13 +83,14 @@ fun ThemeButtons(
 fun ThemedButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
+    isSelected: Boolean = false,
 ) {
     Button(
         modifier = modifier,
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = NewTheme.colors.progressiveColor,
+            containerColor = if (isSelected) NewTheme.colors.progressiveColor else NewTheme.colors.warningColor,
             contentColor = NewTheme.colors.primaryColor
         )
     ) {
@@ -147,7 +161,7 @@ fun ThemedDatePicker(
         titleContentColor = NewTheme.colors.destructiveColor,
         headlineContentColor = NewTheme.colors.warningColor,
         dayContentColor = NewTheme.colors.progressiveColor,
-        weekdayContentColor = NewTheme.colors.progressiveColor
+        weekdayContentColor = NewTheme.colors.progressiveColor,
     ),
     properties: DialogProperties = DialogProperties(usePlatformDefaultWidth = false)
 ) {

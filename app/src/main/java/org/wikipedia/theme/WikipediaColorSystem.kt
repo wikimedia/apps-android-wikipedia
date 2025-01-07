@@ -42,4 +42,3 @@ val LocalWikipediaColorSystem = staticCompositionLocalOf {
         overlayColor = Color.Unspecified,
     )
 }
-
