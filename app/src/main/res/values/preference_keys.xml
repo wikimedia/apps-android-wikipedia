@@ -173,7 +173,4 @@
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
-    <string name="preference_key_donor_history_saved">hasDonorHistorySaved</string>
-    <string name="preference_key_is_recurring_donor">isRecurringDonor</string>
-    <string name="preference_key_is_donor">isDonor</string>
 </resources>
