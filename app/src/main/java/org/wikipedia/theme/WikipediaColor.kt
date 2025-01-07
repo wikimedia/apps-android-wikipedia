@@ -24,24 +24,22 @@ data class WikipediaColor(
 )
 
 val LocalWikipediaColor = staticCompositionLocalOf {
-    WikipediaThemeInfo(
-        colors = WikipediaColor(
-            primaryColor = Color.Unspecified,
-            paperColor = Color.Unspecified,
-            backgroundColor = Color.Unspecified,
-            inactiveColor = Color.Unspecified,
-            placeholderColor = Color.Unspecified,
-            secondaryColor = Color.Unspecified,
-            borderColor = Color.Unspecified,
-            progressiveColor = Color.Unspecified,
-            successColor = Color.Unspecified,
-            destructiveColor = Color.Unspecified,
-            warningColor = Color.Unspecified,
-            highlightColor = Color.Unspecified,
-            focusColor = Color.Unspecified,
-            additionColor = Color.Unspecified,
-            overlayColor = Color.Unspecified,
-        )
+    WikipediaColor(
+        primaryColor = Color.Unspecified,
+        paperColor = Color.Unspecified,
+        backgroundColor = Color.Unspecified,
+        inactiveColor = Color.Unspecified,
+        placeholderColor = Color.Unspecified,
+        secondaryColor = Color.Unspecified,
+        borderColor = Color.Unspecified,
+        progressiveColor = Color.Unspecified,
+        successColor = Color.Unspecified,
+        destructiveColor = Color.Unspecified,
+        warningColor = Color.Unspecified,
+        highlightColor = Color.Unspecified,
+        focusColor = Color.Unspecified,
+        additionColor = Color.Unspecified,
+        overlayColor = Color.Unspecified,
     )
 }
 

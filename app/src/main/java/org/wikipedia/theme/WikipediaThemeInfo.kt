@@ -8,39 +8,21 @@ enum class WikipediaThemeType {
     SYSTEM, LIGHT, DARK, BLACK, SEPIA
 }
 
-// @TODO: add typography, shapes, dimensions
-data class WikipediaThemeInfo(
-    val colors: WikipediaColor
-)
-
 @Composable
 fun MainTheme(
     wikipediaThemeType: WikipediaThemeType = WikipediaThemeType.SYSTEM,
     content: @Composable () -> Unit
 ) {
     val wikipediaColorSystem = when (wikipediaThemeType) {
-        WikipediaThemeType.LIGHT -> WikipediaThemeInfo(
-            colors = lightColors
-        )
+        WikipediaThemeType.LIGHT -> lightColors
 
-        WikipediaThemeType.DARK -> WikipediaThemeInfo(
-            colors = darkColors
-        )
+        WikipediaThemeType.DARK -> darkColors
 
-        WikipediaThemeType.BLACK -> WikipediaThemeInfo(
-            colors = blackColors
-        )
+        WikipediaThemeType.BLACK -> blackColors
 
-        WikipediaThemeType.SEPIA -> WikipediaThemeInfo(
-            colors = sepiaColors
-        )
+        WikipediaThemeType.SEPIA -> sepiaColors
 
-        WikipediaThemeType.SYSTEM -> if (isSystemInDarkTheme()) WikipediaThemeInfo(
-            colors = darkColors
-        ) else
-            WikipediaThemeInfo(
-                colors = lightColors
-            )
+        WikipediaThemeType.SYSTEM -> if (isSystemInDarkTheme()) darkColors else lightColors
     }
 
     CompositionLocalProvider(
@@ -51,7 +33,7 @@ fun MainTheme(
 }
 
 object WikipediaTheme {
-    val theme: WikipediaThemeInfo
+    val theme: WikipediaColor
     @Composable
     get() = LocalWikipediaColor.current
 }
