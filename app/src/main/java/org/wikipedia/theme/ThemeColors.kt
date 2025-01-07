@@ -2,7 +2,7 @@ package org.wikipedia.theme
 
 import androidx.compose.ui.graphics.Color
 
-object WikipediaColors {
+object ThemeColors {
     val White = Color(0xFFFFFFFF)
 
     val Black = Color(0xFF000000)
