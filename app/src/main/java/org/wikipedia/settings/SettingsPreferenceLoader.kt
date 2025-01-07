@@ -82,9 +82,19 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_delete_local_donation_history).let {
             it.isVisible = true
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
-                Prefs.donationResults = emptyList()
-                FeedbackUtil.showMessage(activity, R.string.donor_history_deleted_message_snackbar)
-                preference.isVisible = false
+                MaterialAlertDialogBuilder(activity)
+                    .setTitle(activity.getString(R.string.dialog_confirm_delete_donor_history_title))
+                    .setMessage(activity.getString(R.string.dialog_confirm_delete_donor_history_message))
+                    .setPositiveButton(R.string.dialog_confirm_delete_donor_history_delete) { _, _ ->
+                        Prefs.donationResults = emptyList()
+                        FeedbackUtil.showMessage(
+                            activity,
+                            R.string.donor_history_deleted_message_snackbar
+                        )
+                        preference.isVisible = false
+                    }
+                    .setNegativeButton(R.string.dialog_confirm_delete_donor_history_cancel, null)
+                    .show()
                 true
             }
         }

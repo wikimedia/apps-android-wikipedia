@@ -135,6 +135,10 @@
     <string name="dialog_message_leaving_edit">Your changes have not been published yet. Are you sure you want to leave this page?</string>
     <string name="dialog_message_leaving_edit_leave">Leave</string>
     <string name="dialog_message_leaving_edit_stay">Stay</string>
+    <string name="dialog_confirm_delete_donor_history_title">Confirm deletion</string>
+    <string name="dialog_confirm_delete_donor_history_message">This will only apply to donations made from this device.</string>
+    <string name="dialog_confirm_delete_donor_history_delete">Delete</string>
+    <string name="dialog_confirm_delete_donor_history_cancel">Cancel</string>
     <string name="menu_show_toc">Table of Contents</string>
     <string name="search_no_results_found">No results found</string>
     <string name="search_reading_list_no_results">No results found in \"%s\"</string>
