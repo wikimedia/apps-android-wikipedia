@@ -15,13 +15,9 @@ fun MainTheme(
 ) {
     val wikipediaColorSystem = when (wikipediaThemeType) {
         WikipediaThemeType.LIGHT -> lightColors
-
         WikipediaThemeType.DARK -> darkColors
-
         WikipediaThemeType.BLACK -> blackColors
-
         WikipediaThemeType.SEPIA -> sepiaColors
-
         WikipediaThemeType.SYSTEM -> if (isSystemInDarkTheme()) darkColors else lightColors
     }
 
@@ -33,7 +29,7 @@ fun MainTheme(
 }
 
 object WikipediaTheme {
-    val theme: WikipediaColor
-    @Composable
-    get() = LocalWikipediaColor.current
+    val colors: WikipediaColor
+        @Composable
+        get() = LocalWikipediaColor.current
 }
