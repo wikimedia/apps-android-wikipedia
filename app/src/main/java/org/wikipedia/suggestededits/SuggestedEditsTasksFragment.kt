@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +21,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.ContributionsDashboardEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
@@ -36,15 +34,12 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
-import org.wikipedia.donate.DonorHistoryActivity
-import org.wikipedia.donate.DonorStatus
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
@@ -57,7 +52,6 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.Date
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -79,10 +73,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             return@Runnable
         }
         val balloon = FeedbackUtil.getTooltip(requireContext(), binding.editsCountStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(binding.editsCountStatsView.getTitleView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getTitleView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getTitleView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getTitleView())
+        balloon.showAlignBottom(binding.editsCountStatsView.getDescriptionView())
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
         BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.editsCountStatsView)
     }
@@ -104,10 +98,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    private val requestUpdateDonorHistory = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        maybeShowDonorHistoryUpdatedSnackbar()
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -117,13 +107,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-        maybeShowDonorHistoryUpdatedSnackbar()
         binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
-        }
-
-        binding.donorHistoryContainer.setOnClickListener {
-            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
         }
 
         binding.learnMoreCard.setOnClickListener {
@@ -137,7 +122,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         binding.errorView.retryClickListener = View.OnClickListener { refreshContents() }
         binding.errorView.loginClickListener = View.OnClickListener {
-            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard")
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
 
@@ -173,25 +157,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    private fun showDialogOrSnackBar() {
-        when (DonorStatus.donorStatus()) {
-            DonorStatus.DONOR -> {
-                if (ContributionsDashboardHelper.shouldShowThankYouDialog) {
-                    ContributionsDashboardHelper.showThankYouDialog(requireContext())
-                    ContributionsDashboardHelper.shouldShowThankYouDialog = false
-                }
-            }
-            DonorStatus.NON_DONOR -> {
-                if (ContributionsDashboardHelper.shouldShowDonorHistorySnackbar) {
-                    ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
-                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-                    ContributionsDashboardHelper.shouldShowDonorHistorySnackbar = false
-                }
-            }
-            DonorStatus.UNKNOWN -> {}
-        }
-    }
-
     fun refreshContents() {
         (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
@@ -201,7 +166,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         refreshContents()
-        showDialogOrSnackBar()
     }
 
     override fun onDestroyView() {
@@ -219,7 +183,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun onRequireLogin() {
         clearContents()
         binding.messageCard.setRequiredLogin {
-            ContributionsDashboardEvent.logAction("login_click", "contrib_dashboard")
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
         binding.messageCard.isVisible = true
@@ -240,8 +203,6 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.suggestedEditsScrollView.scrollTo(0, 0)
         }
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-
-        setUpDonorHistoryStatus()
     }
 
     private fun showError(t: Throwable) {
@@ -287,14 +248,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else {
             binding.contributionsContainer.isVisible = true
             binding.statsDivider.isVisible = true
-            val contributionsStatsViewPluralRes = if (ContributionsDashboardHelper.contributionsDashboardEnabled)
-                R.plurals.suggested_edits_edit_frequency else R.plurals.suggested_edits_contribution
-            binding.editsCountStatsView.setTitle(resources.getQuantityString(contributionsStatsViewPluralRes, viewModel.totalContributions))
+            binding.editsCountStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
             binding.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
-            // TODO: add the sequential tooltips back after the experiment code is removed.
-//            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-//                 showOneTimeSequentialUserStatsTooltips()
-//            }
+            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
+                 showOneTimeSequentialUserStatsTooltips()
+            }
         }
 
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
@@ -332,6 +290,10 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
+        if (WikipediaApp.instance.appOrSystemLanguageCode == "test") {
+            return false
+        }
+
         val pauseEndDate = UserContribStats.maybePauseAndGetEndDate()
 
         if (viewModel.totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
@@ -369,63 +331,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
-    }
-
-    private fun setUpDonorHistoryStatus() {
-        if (!ContributionsDashboardHelper.contributionsDashboardEnabled) {
-            binding.donorHistoryContainer.isVisible = false
-            binding.statsDivider.isVisible = false
-            return
-        }
-
-        ContributionsDashboardEvent.logAction("impression", "contrib_dashboard")
-        binding.donorHistoryContainer.isVisible = true
-
-        when (DonorStatus.donorStatus()) {
-            DonorStatus.DONOR -> {
-                Prefs.donationResults.lastOrNull()?.dateTime?.let {
-                    val lastDonateMilli =
-                        LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant()
-                            .toEpochMilli()
-                    var relativeTimeSpan = DateUtils.getRelativeTimeSpanString(
-                        lastDonateMilli,
-                        System.currentTimeMillis(),
-                        DateUtils.DAY_IN_MILLIS,
-                        DateUtils.FORMAT_NUMERIC_DATE
-                    )
-                    // Replace with the original dateTime string
-                    if (relativeTimeSpan.contains("/")) {
-                        relativeTimeSpan = DateUtil.getMDYDateString(Date(lastDonateMilli))
-                    }
-                    binding.donorHistoryStatus.text = relativeTimeSpan
-                    binding.donorHistoryStatus.isVisible = true
-                    binding.lastDonatedChevron.isVisible = true
-                    binding.donorHistoryUpdateButton.isVisible = false
-                } ?: run {
-                    binding.donorHistoryStatus.isVisible = false
-                    binding.lastDonatedChevron.isVisible = false
-                    binding.donorHistoryUpdateButton.isVisible = true
-                }
-            }
-
-            DonorStatus.NON_DONOR -> {
-                binding.donorHistoryStatus.text = getString(R.string.donor_history_last_donated_never)
-                binding.donorHistoryStatus.isVisible = true
-                binding.lastDonatedChevron.isVisible = true
-                binding.donorHistoryUpdateButton.isVisible = false
-            }
-
-            DonorStatus.UNKNOWN -> {
-                binding.donorHistoryStatus.isVisible = false
-                binding.lastDonatedChevron.isVisible = false
-                binding.donorHistoryUpdateButton.isVisible = true
-            }
-        }
-
-        binding.donorHistoryUpdateButton.setOnClickListener {
-            ContributionsDashboardEvent.logAction("update_click", "contrib_dashboard")
-            requestUpdateDonorHistory.launch(DonorHistoryActivity.newIntent(requireContext()))
-        }
     }
 
     private fun setUpTasks() {
@@ -485,23 +390,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (viewModel.blockMessageCommons.isNullOrEmpty()) {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
-        }
-    }
-
-    private fun maybeShowDonorHistoryUpdatedSnackbar() {
-        if (ContributionsDashboardHelper.contributionsDashboardEnabled && ContributionsDashboardHelper.showSurveyDialogUI) {
-            if (Prefs.hasDonorHistorySaved) {
-                if (!Prefs.contributionsDashboardSurveyDialogShown) {
-                    ContributionsDashboardHelper.showSurveyDialog(requireContext(), onNegativeButtonClick = {
-                        showDialogOrSnackBar()
-                    })
-                    Prefs.contributionsDashboardSurveyDialogShown = true
-                } else {
-                    ContributionsDashboardEvent.logAction("impression", "contrib_confirm")
-                    FeedbackUtil.showMessage(this, R.string.donor_history_updated_message_snackbar)
-                }
-                ContributionsDashboardHelper.showSurveyDialogUI = false
-            }
         }
     }
 
