@@ -9,6 +9,7 @@ import android.content.pm.ActivityInfo
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -20,9 +21,11 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
+import androidx.core.view.updatePadding
 import androidx.core.widget.TextViewCompat
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
@@ -39,6 +42,7 @@ import java.time.MonthDay
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import java.util.Locale
 
 class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
@@ -64,6 +68,31 @@ class OnThisDayGameActivity : BaseActivity() {
 
         binding.questionCard1.setOnClickListener {
             // viewModel.submitCurrentResponse(it)
+        }
+
+        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
+            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
+            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+
+            binding.appBarLayout.updatePadding(top = newStatusBarInsets.top)
+
+            var params = binding.currentQuestionContainer.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+
+            params = binding.fragmentOverlayContainer.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+
+            params = binding.dateText.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = DimenUtil.roundedDpToPx(20f) + newStatusBarInsets.top + newNavBarInsets.top
+
+            windowInsets
         }
 
         viewModel.gameState.observe(this) {
@@ -108,12 +137,18 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun updateOnLoading() {
         binding.errorView.isVisible = false
+        binding.progressText.isVisible = false
+        binding.scoreText.isVisible = false
+        binding.dateText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
         binding.progressBar.isVisible = true
     }
 
     private fun updateOnError(t: Throwable) {
         binding.progressBar.isVisible = false
+        binding.progressText.isVisible = false
+        binding.scoreText.isVisible = false
+        binding.dateText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
         binding.errorView.isVisible = true
         binding.errorView.setError(t)
@@ -123,25 +158,49 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
-        val event = gameState.currentQuestionState.event
+        binding.progressText.isVisible = true
+        binding.scoreText.isVisible = true
+        binding.dateText.isVisible = true
 
-        binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event.year, viewModel.currentMonth, viewModel.currentDay))
+        MonthDay.of(viewModel.currentMonth, viewModel.currentDay).let {
+            binding.dateText.text = it.format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")))
+        }
 
-        binding.questionText1.text = event.text
+        binding.progressText.text = getString(R.string.on_this_day_game_progress, gameState.currentQuestionIndex + 1, gameState.totalQuestions)
+        binding.scoreText.text = getString(R.string.on_this_day_game_score, gameState.answerState.count { it })
 
-        val thumbnailUrl = event.pages.firstOrNull()?.thumbnailUrl
-        if (thumbnailUrl.isNullOrEmpty()) {
+        val event1 = gameState.currentQuestionState.event1
+        val event2 = gameState.currentQuestionState.event2
+
+        binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
+        binding.questionText1.text = event1.text
+
+        val thumbnailUrl1 = event1.pages.firstOrNull()?.thumbnailUrl
+        if (thumbnailUrl1.isNullOrEmpty()) {
             binding.questionThumbnail1.isVisible = false
         } else {
             binding.questionThumbnail1.isVisible = true
             Glide.with(this)
-                .load(thumbnailUrl)
+                .load(thumbnailUrl1)
                 .centerCrop()
                 .into(binding.questionThumbnail1)
         }
 
-        //binding.submitButton.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
-        //binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions) R.string.on_this_day_game_finish else R.string.on_this_day_game_submit)
+        binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
+        binding.questionText2.text = event2.text
+
+        val thumbnailUrl2 = event2.pages.firstOrNull()?.thumbnailUrl
+        if (thumbnailUrl2.isNullOrEmpty()) {
+            binding.questionThumbnail2.isVisible = false
+        } else {
+            binding.questionThumbnail2.isVisible = true
+            Glide.with(this)
+                .load(thumbnailUrl2)
+                .centerCrop()
+                .into(binding.questionThumbnail2)
+        }
+
+
 
         binding.currentQuestionContainer.isVisible = true
     }
