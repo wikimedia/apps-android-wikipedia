@@ -15,6 +15,7 @@ import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
+import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -35,8 +36,8 @@ class SearchTest : BaseTest<MainActivity>(
         searchRobot
             .typeTextInView(SEARCH_TERM)
             .verifySearchResult(ARTICLE_TITLE)
-            .assertColorOfTitleInTheSearchList(position = 0)
-            .assertColorOfTitleInTheSearchList(position = 1)
+            .assertColorOfTitleInTheSearchList(position = 0, theme = Theme.LIGHT)
+            .assertColorOfTitleInTheSearchList(position = 1, theme = Theme.LIGHT)
             .clickOnItemFromSearchList(0)
             .pressBack()
             .navigateUp()
@@ -58,7 +59,7 @@ class SearchTest : BaseTest<MainActivity>(
             .clickFilterHistoryButton()
             .typeTextInView(SEARCH_TERM2)
             .verifyHistoryArticle(ARTICLE_TITLE_WORLD_CUP)
-            .assertColorOfTitleInTheHistoryList(position = 1)
+            .assertColorOfTitleInTheHistoryList(position = 1, theme = Theme.LIGHT)
             .pressBack()
             .pressBack()
             .clickOnItemFromHistoryList(2)

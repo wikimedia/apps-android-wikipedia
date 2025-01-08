@@ -14,6 +14,9 @@ import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.TestThemeColorType
+import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.theme.Theme
 
 class SearchRobot : BaseRobot() {
     fun tapSearchView() = apply {
@@ -135,21 +138,23 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_LARGE)
     }
 
-    fun assertColorOfTitleInTheSearchList(position: Int) = apply {
+    fun assertColorOfTitleInTheSearchList(position: Int, theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
         assertColorForChildItemInAList(
             listId = R.id.search_results_list,
             childItemId = R.id.page_list_item_title,
             position = position,
-            colorResOrAttr = R.attr.primary_color,
+            colorResId = color
         )
     }
 
-    fun assertColorOfTitleInTheHistoryList(position: Int) = apply {
+    fun assertColorOfTitleInTheHistoryList(position: Int, theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
         assertColorForChildItemInAList(
             listId = R.id.history_list,
             childItemId = R.id.page_list_item_title,
             position = position,
-            colorResOrAttr = R.attr.primary_color,
+            colorResId = color
         )
     }
 }
