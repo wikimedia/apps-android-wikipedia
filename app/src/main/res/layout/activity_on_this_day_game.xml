@@ -12,43 +12,42 @@
         android:layout_height="wrap_content"
         android:background="?attr/progressive_color">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/ToolbarStyle.Small"
-        android:background="?attr/progressive_color"
-        app:titleTextColor="?attr/paper_color"
-        app:navigationIconTint="?attr/paper_color"
-        app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp">
-
-        <FrameLayout
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/progressive_color"
+            app:titleTextColor="?attr/paper_color"
+            app:navigationIconTint="?attr/paper_color"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp">
 
-            <TextView
-                android:id="@+id/progressText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                style="@style/P"
-                android:text="@string/on_this_day_game_progress"
-                android:textColor="?attr/paper_color"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/scoreText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:layout_marginEnd="16dp"
-                style="@style/P"
-                android:text="@string/on_this_day_game_score"
-                android:textColor="?attr/paper_color"/>
+                <TextView
+                    android:id="@+id/progressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    style="@style/P"
+                    android:text="@string/on_this_day_game_progress"
+                    android:textColor="?attr/paper_color"/>
 
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/scoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="16dp"
+                    style="@style/P"
+                    android:text="@string/on_this_day_game_score"
+                    android:textColor="?attr/paper_color"/>
 
-    </com.google.android.material.appbar.MaterialToolbar>
+            </FrameLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -261,7 +260,6 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentOverlayContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"/>
+        android:layout_height="match_parent"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

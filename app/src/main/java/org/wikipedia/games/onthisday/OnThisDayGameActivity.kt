@@ -83,12 +83,6 @@ class OnThisDayGameActivity : BaseActivity() {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
-            params = binding.fragmentOverlayContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
-            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
-
             params = binding.dateText.layoutParams as ViewGroup.MarginLayoutParams
             params.topMargin = DimenUtil.roundedDpToPx(20f) + newStatusBarInsets.top + newNavBarInsets.top
 
