@@ -73,10 +73,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             return@Runnable
         }
         val balloon = FeedbackUtil.getTooltip(requireContext(), binding.editsCountStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(binding.editsCountStatsView.getTitleView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getTitleView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getTitleView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getTitleView())
+        balloon.showAlignBottom(binding.editsCountStatsView.getDescriptionView())
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
         BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.editsCountStatsView)
     }
@@ -290,6 +290,10 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
+        if (WikipediaApp.instance.appOrSystemLanguageCode == "test") {
+            return false
+        }
+
         val pauseEndDate = UserContribStats.maybePauseAndGetEndDate()
 
         if (viewModel.totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
