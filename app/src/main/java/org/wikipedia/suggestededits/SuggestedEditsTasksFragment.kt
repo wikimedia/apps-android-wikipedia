@@ -292,6 +292,10 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
+        if (WikipediaApp.instance.appOrSystemLanguageCode == "test") {
+            return false
+        }
+
         val pauseEndDate = UserContribStats.maybePauseAndGetEndDate()
 
         if (viewModel.totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
