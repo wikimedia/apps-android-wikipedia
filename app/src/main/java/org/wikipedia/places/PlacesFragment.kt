@@ -817,7 +817,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }
             page.pageTitle.thumbUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it, circleShape = true)
+                ViewUtil.loadImage(binding.listItemThumbnail, it)
             }
         }
 
