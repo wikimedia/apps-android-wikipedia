@@ -370,7 +370,7 @@
   <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
-  <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能です</string>
+  <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">画像を表示</string>
@@ -733,7 +733,7 @@
   <string name="notifications_search">通知を検索</string>
   <string name="notifications_view_unread">未読を見る</string>
   <string name="notifications_view_archived">アーカイブ済みを表示</string>
-  <string name="notifications_prefs">通知の設定</string>
+  <string name="notifications_prefs">通知の個人設定</string>
   <string name="notifications_archive">既読にしてアーカイブ</string>
   <plurals name="notification_archive_message">
     <item quantity="one">通知をアーカイブしました</item>
@@ -744,7 +744,7 @@
   <string name="notifications_poll_enable_negative">今はしない</string>
   <string name="notifications_empty_message">通知をすべて読みました!</string>
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
-  <string name="notification_preferences_title">通知の設定</string>
+  <string name="notification_preferences_title">通知の個人設定</string>
   <string name="notifications_mark_unread">未読にする</string>
   <string name="notifications_mark_all_as_read">すべて既読にする</string>
   <string name="notifications_direct_reply_action">返信</string>

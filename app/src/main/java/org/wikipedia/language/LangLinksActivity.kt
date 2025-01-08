@@ -210,7 +210,7 @@ class LangLinksActivity : BaseActivity() {
             languageEntries.clear()
             for (entry in originalLanguageEntries) {
                 val languageCode = entry.wikiSite.languageCode
-                val canonicalName = app.languageState.getAppLanguageCanonicalName(languageCode).orEmpty()
+                val canonicalName = viewModel.getCanonicalName(languageCode) ?: app.languageState.getAppLanguageCanonicalName(languageCode).orEmpty()
                 val localizedName = app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty()
                 if (canonicalName.contains(filterText, true) || localizedName.contains(filterText, true)) {
                     languageEntries.add(entry)

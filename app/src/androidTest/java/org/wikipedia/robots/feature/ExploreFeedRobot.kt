@@ -240,7 +240,7 @@ class ExploreFeedRobot : BaseRobot() {
         onView(withId(R.id.view_list_card_list))
             .check { view, _ ->
                 val recyclerView = view as RecyclerView
-                val viewHolder = recyclerView.findViewHolderForAdapterPosition(0)
+                val viewHolder = recyclerView.findViewHolderForAdapterPosition(1)
                     ?: throw AssertionError("No viewHolder found at position 0")
                 val imageView = viewHolder.itemView.findViewById<ShapeableImageView>(R.id.view_list_card_item_image)
                     ?: throw AssertionError("No ImageView found with id view_list_card_item_image")
