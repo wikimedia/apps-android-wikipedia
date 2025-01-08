@@ -122,11 +122,11 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         } else {
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(goToNext = true))
 
-            val isCorrect = currentState.currentQuestionState.event.year == selectedYear
+            val isCorrect = currentState.currentQuestionState.event1.year == selectedYear
             currentState = currentState.copy(
                 answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) },
                 articles = currentState.articles.toMutableList().apply {
-                    addAll(currentState.currentQuestionState.event.pages.take(2) ?: emptyList())
+                    addAll(currentState.currentQuestionState.event1.pages.take(2) ?: emptyList())
                 }
             )
 
@@ -150,61 +150,14 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
         val random = Random(month * 100 + day)
+        val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
 
-        val eventList = events.toMutableList()
+        val eventList = events.filter {
+            it.year > 0 && it.year <= currentDate.year && !it.text.matches(yearRegex)
+        }.toMutableList()
         eventList.shuffle(random)
-        var event = eventList[0]
-        repeat(index + 1) {
-            event = eventList[index % eventList.size]
-            while (true) {
-                eventList.remove(event)
-                if (eventList.isEmpty())
-                    break
-                val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
-                if (event.year > 0 && event.year <= currentDate.year && !event.text.matches(yearRegex)) {
-                    break
-                }
-                event = eventList[index % eventList.size]
-            }
-        }
 
-        val yearChoices = mutableListOf<Int>()
-        var curYear = event.year
-        var minYear = event.year
-        var maxYear = event.year
-        yearChoices.add(event.year)
-
-        repeat(3) {
-            var diff = random.nextInt() % 10
-            if (diff == 0) diff = 1
-
-            val diffAdd = when (event.year) {
-                in 0..1000 -> 100
-                in 1001..1500 -> 75
-                in 1501..1800 -> 50
-                in 1801..1900 -> 20
-                in 1901..2000 -> 10
-                in 2001..currentDate.year -> 0
-                else -> 0
-            }
-            diff += (if (diff > 0) diffAdd else -diffAdd)
-
-            if (diff > 0) {
-                if (maxYear + diff > currentDate.year) {
-                    minYear -= diff
-                    curYear = minYear
-                } else {
-                    maxYear += diff
-                    curYear = maxYear
-                }
-            } else {
-                minYear += diff
-                curYear = minYear
-            }
-            yearChoices.add(curYear)
-        }
-
-        return QuestionState(event, yearChoices.shuffled(), month, day)
+        return QuestionState(eventList[0], eventList[1], month, day)
     }
 
     private fun persistState() {
@@ -230,8 +183,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     @Serializable
     data class QuestionState(
-        val event: OnThisDay.Event,
-        val yearChoices: List<Int>,
+        val event1: OnThisDay.Event,
+        val event2: OnThisDay.Event,
         val month: Int = 0,
         val day: Int = 0,
         val yearSelected: Int? = null,

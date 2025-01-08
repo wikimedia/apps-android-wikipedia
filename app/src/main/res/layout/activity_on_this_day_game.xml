@@ -6,27 +6,77 @@
     android:layout_height="match_parent"
     android:background="?attr/paper_color">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/progressive_color">
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         style="@style/ToolbarStyle.Small"
+        android:background="?attr/progressive_color"
+        app:titleTextColor="?attr/paper_color"
+        app:navigationIconTint="?attr/paper_color"
         app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp" />
+        app:contentInsetEnd="0dp">
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/progressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                style="@style/P"
+                android:text="@string/on_this_day_game_progress"
+                android:textColor="?attr/paper_color"/>
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="16dp"
+                style="@style/P"
+                android:text="@string/on_this_day_game_score"
+                android:textColor="?attr/paper_color"/>
+
+        </FrameLayout>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:indeterminate="true" />
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/game_date_background_neutral"
+        android:textColor="?attr/primary_color"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="3dp"
+        tools:text="Lorem ipsum"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/currentQuestionContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="24dp"
+        android:paddingVertical="8dp"
         android:clipToPadding="false"
         android:layout_marginTop="?attr/actionBarSize">
 
@@ -112,8 +162,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/P"
-                    android:textColor="?attr/primary_color"
-                    tools:text="Lorem ipsum"/>
+                    android:text="@string/on_this_day_game_title"
+                    android:textColor="?attr/primary_color"/>
 
                 <TextView
                     android:id="@+id/pointsText"
@@ -121,8 +171,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     style="@style/P"
-                    android:textColor="?attr/secondary_color"
-                    tools:text="Lorem ipsum"/>
+                    android:text="@string/on_this_day_game_point"
+                    android:textColor="?attr/secondary_color"/>
 
             </LinearLayout>
 
@@ -136,11 +186,11 @@
                 android:focusable="true"
                 android:gravity="center_vertical"
                 style="@style/P"
+                android:text="@string/on_this_day_game_next"
                 android:textColor="?attr/primary_color"
                 app:drawableEndCompat="@drawable/ic_arrow_forward_black_24dp"
                 app:drawableTint="?attr/primary_color"
-                android:drawablePadding="8dp"
-                tools:text="Next question"/>
+                android:drawablePadding="8dp" />
 
         </FrameLayout>
 
