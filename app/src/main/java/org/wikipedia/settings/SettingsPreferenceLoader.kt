@@ -47,6 +47,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 true
             }
         }
+
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true

@@ -28,7 +28,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -107,6 +106,7 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -191,7 +191,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val title get() = model.title
     val page get() = model.page
     val historyEntry get() = model.curEntry
-    val containerView get() = binding.pageContentsContainer
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
@@ -199,7 +198,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
         initWebViewListeners()
-        binding.pageRefreshContainer.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
         val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET
@@ -304,6 +302,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
+        if (ImageUrlUtil.isGif(page?.pageProperties?.leadImageUrl)) {
+            leadImagesHandler.loadLeadImage()
+        }
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
     }
@@ -922,11 +923,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun updateInsets(insets: Insets) {
-        val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + insets.top + REFRESH_SPINNER_ADDITIONAL_OFFSET
-        binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
-    }
-
     fun onPageMetadataLoaded(redirectedFrom: String? = null) {
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
@@ -1290,11 +1286,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         PageActionOverflowView(requireContext()).show(anchor, pageActionItemCallback, currentTab, model)
     }
 
-    fun goToMainTab() {
-        startActivity(MainActivity.newIntent(requireContext())
+    fun goToMainActivity(tab: NavTab, tabExtra: String) {
+        startActivity(MainActivity.newIntent(requireActivity())
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
+            .putExtra(tabExtra, tab.code()))
         requireActivity().finish()
     }
 
@@ -1484,7 +1480,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onExploreSelected() {
-            goToMainTab()
+            goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
             articleInteractionEvent?.logExploreClick()
             metricsPlatformArticleEventToolbarInteraction.logExploreClick()
         }

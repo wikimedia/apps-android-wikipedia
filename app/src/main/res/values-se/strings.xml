@@ -215,7 +215,7 @@
   <string name="preference_summary_sync_reading_lists">Synkronisere lohkanlisttuid iešguđet ovttadagaid gaskka, go vurket daid iežat Wikipedia dovddaldahkii</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synkronisere lohkanlisttuid iešguđet ovttadagaid gaskka, go vurket daid iežat Wikipedia dovddaldahkii \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sihko synkroniserejuvvon lohkanlisttuid \"%s:is\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dát ollasit sihkku visot ovdal synkroniserejuvvon lohkanlisttuid gáiddusvuorkkás. Jávkat visot synkroniserejuvvon listtuid iežat dovddaldagas \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dát sihkku ollásit visot ovdal synkroniserejuvvon lohkanlisttuid gáiddusvuorkkás. Jávkat visot synkroniserejuvvon listtuid iežat dovddaldagas \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Sádde háhkáseami raporttaid</string>
   <string name="preference_summary_auto_upload_crash_reports">Suova áppa automáhtalaččat sáddet háhkáseamiraporttaid goalmmátlađasbálvalussii, nu ahte sáhttit dáid dárkkistit ja divvut meattáhusaid johtileappot.</string>
   <string name="editing_error_spamblacklist">Liŋkkat hehttejuvvon domenaide (%s) gávdnojedje. Sihko mat daid ja geahččal ođđasit.</string>
@@ -1657,5 +1657,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Hui duhtameahttun</string>
   <string name="survey_dialog_cancel">Gaskkalduhte</string>
   <string name="survey_dialog_submit">Sádde</string>
-  <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon.</string>
+  <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon. Giitu!</string>
 </resources>

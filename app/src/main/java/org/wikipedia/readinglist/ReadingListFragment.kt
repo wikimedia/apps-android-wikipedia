@@ -39,6 +39,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -78,6 +79,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private lateinit var headerView: ReadingListItemView
     private var previewSaveDialog: AlertDialog? = null
     private var isPreview: Boolean = false
+
+    private var isSuggested: Boolean = false
+    private var isSuggestedSave: Boolean = false
+
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
     private var actionMode: ActionMode? = null
@@ -103,7 +108,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, true)
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
+
         isPreview = requireArguments().getBoolean(ReadingListActivity.EXTRA_READING_LIST_PREVIEW, false)
+        isSuggested = requireActivity().intent.getBooleanExtra(ReadingListActivity.EXTRA_READING_LIST_SUGGESTED, false)
+        isSuggestedSave = requireActivity().intent.getBooleanExtra(ReadingListActivity.EXTRA_READING_LIST_SUGGESTED_SAVE, false)
+
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
@@ -128,6 +137,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     }
                 }
             }
+        }
+
+        if (isSuggested) {
+            RabbitHolesEvent.submit("impression", "reading_list")
+            binding.readingListSwipeRefresh.isEnabled = false
         }
 
         return binding.root
@@ -261,8 +275,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setOverflowViewVisibility(View.VISIBLE)
         headerView.setPreviewMode(isPreview)
 
-        if (isPreview) {
-            headerView.previewSaveButton.setOnClickListener {
+        if (isPreview || isSuggested) {
+            headerView.saveClickListener = View.OnClickListener {
                 previewSaveDialog()
             }
             return
@@ -292,7 +306,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun setSwipeRefreshView() {
-        binding.readingListSwipeRefresh.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.readingListSwipeRefresh.isEnabled = false
@@ -304,7 +317,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun update(readingList: ReadingList? = this.readingList) {
         readingList?.let {
             binding.readingListEmptyText.visibility = if (it.pages.isEmpty()) View.VISIBLE else View.GONE
-            headerView.setReadingList(it, ReadingListItemView.Description.DETAIL)
+            headerView.setReadingList(it, ReadingListItemView.Description.DETAIL, isSuggested = isSuggested, isSingle = true)
             binding.readingListHeader.setReadingList(it)
             ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC))
             setSearchQuery()
@@ -316,20 +329,25 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 FeedbackUtil.makeSnackbar(requireActivity(), message).show()
                 articleLimitMessageShown = true
             }
+
+            if (isSuggested && isSuggestedSave) {
+                isSuggestedSave = false
+                previewSaveDialog()
+            }
         }
     }
 
     private fun updateReadingListData() {
         if (isPreview) {
             if (readingList == null) {
-                val encodedJson = Prefs.receiveReadingListsData
-                if (!encodedJson.isNullOrEmpty()) {
-                    lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                        L.e(throwable)
-                        FeedbackUtil.showError(requireActivity(), throwable)
-                        requireActivity().finish()
-                    }) {
-                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
+                lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                    L.e(throwable)
+                    FeedbackUtil.showError(requireActivity(), throwable)
+                    requireActivity().finish()
+                }) {
+                    val json = Prefs.suggestedReadingListsData
+                    if (!json.isNullOrEmpty()) {
+                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = !isSuggested)
                         readingList?.let {
                             ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
                             binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
@@ -467,7 +485,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             val savedPages = it.pages.toMutableList()
             var readingListTitle = getString(R.string.reading_list_name_sample)
 
-            view.setContentType(it, savedPages, object : ReadingListPreviewSaveDialogView.Callback {
+            view.setContentType(it, savedPages, if (isSuggested) getString(R.string.suggested_reading_list_title) else null, object : ReadingListPreviewSaveDialogView.Callback {
                 override fun onError() {
                     previewSaveDialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = false
                 }
@@ -478,8 +496,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
             })
 
+            if (isSuggested) {
+                RabbitHolesEvent.submit("save_start_click", "reading_list")
+            }
+
             previewSaveDialog = MaterialAlertDialogBuilder(requireContext())
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
+                    RabbitHolesEvent.submit("save_click", "reading_list")
+
                     it.pages.clear()
                     it.pages.addAll(savedPages)
                     it.listTitle = readingListTitle
@@ -487,6 +511,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
                     Prefs.readingListRecentReceivedId = it.id
+
+                    if (isSuggested) {
+                        Prefs.suggestedReadingListsData = null
+                    }
+
                     requireActivity().startActivity(MainActivity.newIntent(requireContext())
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                     requireActivity().finish()
@@ -617,11 +646,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     actionMode == null && appBarLayout.totalScrollRange + verticalOffset > appBarLayout.totalScrollRange / 2)
             (requireActivity() as ReadingListActivity).updateNavigationBarColor()
             // prevent swiping when collapsing the view
-            binding.readingListSwipeRefresh.isEnabled = verticalOffset == 0
+            binding.readingListSwipeRefresh.isEnabled = (verticalOffset == 0 && !isSuggested)
         }
     }
 
-    private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
+    private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
             view.setPreviewMode(isPreview)
@@ -631,7 +660,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         override val view get() = itemView as ReadingListItemView
     }
 
-    private inner class ReadingListPageItemHolder constructor(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView), SwipeableItemTouchHelperCallback.Callback {
+    private inner class ReadingListPageItemHolder(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView), SwipeableItemTouchHelperCallback.Callback {
         private lateinit var page: ReadingListPage
         fun bindItem(page: ReadingListPage) {
             this.page = page
@@ -820,8 +849,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             if (isTagType(actionMode)) {
                 toggleSelectPage(item)
             } else if (item != null) {
+                if (isSuggested) {
+                    RabbitHolesEvent.submit("navigate", "reading_list")
+                }
+
                 val title = ReadingListPage.toPageTitle(item)
-                val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
+                val entry = HistoryEntry(title, if (isSuggested) HistoryEntry.SOURCE_RABBIT_HOLE_READING_LIST else HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
                 ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))

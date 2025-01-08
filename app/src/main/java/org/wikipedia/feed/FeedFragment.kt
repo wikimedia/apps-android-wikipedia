@@ -40,7 +40,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 
 class FeedFragment : Fragment(), BackPressedHandler {
@@ -95,7 +94,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
         feedAdapter = FeedAdapter(coordinator, feedCallback)
         binding.feedView.adapter = feedAdapter
         binding.feedView.addOnScrollListener(feedScrollListener)
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
         binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
         coordinator.setFeedUpdateListener(object : FeedUpdateListener {

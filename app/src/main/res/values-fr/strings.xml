@@ -159,6 +159,7 @@
   <string name="menu_page_recently_viewed">Consulté récemment</string>
   <string name="menu_page_archive">Archiver</string>
   <string name="menu_long_press_open_page">Ouvrir</string>
+  <string name="menu_long_press_open_in_places">Ouvrir dans Lieux</string>
   <string name="menu_long_press_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
   <string name="menu_long_press_copy_page">Copier l’adresse du lien</string>
   <string name="menu_text_select_define">Définition</string>
@@ -450,7 +451,7 @@
   <string name="error_voice_search_not_available">Désolé, la reconnaissance vocale n’est pas disponible.</string>
   <string name="location_service_disabled">Les services de géolocalisation sont désactivés.</string>
   <string name="enable_location_service">Activer</string>
-  <string name="location_permissions_enable_prompt">Activer les droits de géolocalisation pour voir les endroits proches de vous.</string>
+  <string name="location_permissions_enable_prompt">Activer les droits de géolocalisation pour voir les lieux proches de vous.</string>
   <string name="location_permissions_enable_action">Activer</string>
   <string name="error_webview_updating">Le Système WebView Android est actuellement en cours de mise à jour. Veuillez réessayer ultérieurement.</string>
   <plurals name="multi_items_selected">
@@ -488,6 +489,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
+  <string name="temp_account_anon_ip_dialog_body">Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour mieux associer vos modifications futures et pour accéder à d\'autres fonctionnalités.</string>
   <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour vous permettre de protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour obtenir un crédit pour les modifications futures et accéder à d\'autres fonctionnalités.</string>
   <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible par les administrateurs.&lt;br /&gt;&lt;br /&gt;Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt;, vos modifications seront attribuées à un pseudonyme que vous choisirez, parmi d\'autres avantages.</string>
   <string name="temp_account_dialog_ok">Compris !</string>
@@ -501,6 +503,7 @@
     <item quantity="one">Le compte expirera dans %d jour.</item>
     <item quantity="other">Le compte expirera dans %d jours.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Vous n\'êtes pas connecté&lt;/b&gt;. Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Vous n\'êtes pas connecté.&lt;/b&gt; Une fois que vous aurez fait une modification, un compte temporaire vous sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Vous utilisez un compte temporaire.&lt;/b&gt; Votre modification sera attribuée à %1$s. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Vous utilisez actuellement un compte temporaire.&lt;/b&gt; Les modifications effectuées avec le compte temporaire %1$s ne seront pas transférées sur votre compte permanent lorsque vous vous connecterez. Entrez ou créez un compte pour obtenir un crédit à votre nom d\'utilisateur, parmi d\'autres avantages.</string>
@@ -662,7 +665,7 @@
   <string name="default_reading_list_name">Enregistré</string>
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <string name="no_user_lists_title">Organiser des articles dans des listes</string>
-  <string name="no_user_lists_msg">Créer des listes d’endroits à visiter, des sujets favoris et beaucoup plus</string>
+  <string name="no_user_lists_msg">Créer des listes de lieux à visiter, de sujets favoris et beaucoup plus</string>
   <string name="reading_list_saved_list_rename">%1$s (créé par l’utilisateur)</string>
   <string name="split_reading_list_message">Les listes de lecture sont limitées à %d articles par liste. Les listes existantes qui en avait trop ont été scindées en plusieurs listes.</string>
   <string name="reading_list_move_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
@@ -890,6 +893,7 @@
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
+  <string name="feed_item_type_places">Articles à proximité en fonction de votre emplacement actuel</string>
   <string name="feed_empty_message">Il n’y a rien dans votre flux d\'exploration</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -1085,6 +1089,10 @@
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Modification</item>
+    <item quantity="other">Modifications</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d jour</item>
     <item quantity="other">%d jours</item>
@@ -1201,7 +1209,7 @@
   <string name="onboarding_get_started">C’est parti</string>
   <string name="onboarding_maybe_later">Peut-être plus tard</string>
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
-  <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — s\'il s’agit d’apprendre des événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Plongez dans le contenu sans fin de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — s\'il s’agit d’apprendre des événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
@@ -1214,6 +1222,7 @@
   <string name="app_shortcuts_random">Au hasard</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
+  <string name="app_shortcuts_places">Lieux</string>
   <string name="on_this_day_card_title">Ce jour-là</string>
   <string name="more_events_text">Davantage sur ce jour-là</string>
   <string name="events_count_text">%1$s événements en %2$s–%3$d</string>
@@ -1711,8 +1720,69 @@
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Pas un donateur</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Non, merci.</string>
+  <string name="places_card_title">Lieux à proximité</string>
+  <string name="places_card_action">Plus de lieux à proximité</string>
+  <string name="places_card_enable_location_card_message">Lieux est un moyen d\'explorer Wikipédia à partir d\'une carte</string>
+  <string name="places_card_enable_location_card_button">Activer la localisation</string>
+  <string name="places_card_distance_suffix">situé à %s</string>
+  <string name="places_card_distance_unknown">Distance inconnue</string>
+  <string name="places_empty_message_snackbar">Il n\'y a pas d\'articles à proximité. Essayez de dézoomer ou de déplacer la carte.</string>
+  <string name="donor_history_title">Historique du donateur</string>
+  <string name="donor_history_save_button">Sauvegarder</string>
+  <string name="donor_history_update_donor_status_default">Mettre à jour le statut de donateur</string>
+  <string name="donor_history_update_donor_status_donor">Donateur</string>
+  <string name="donor_history_update_donor_status_not_a_donor">Non donateur</string>
+  <string name="donor_history_last_donated">Dernier don</string>
+  <string name="donor_history_last_donated_hint">Ajouter la date du dernier don</string>
+  <string name="donor_history_last_donated_date_picker_title">Sélectionner une date</string>
+  <string name="donor_history_last_donated_date_picker_label">Entrer une date</string>
+  <string name="donor_history_last_donated_never">Jamais</string>
+  <string name="donor_history_recurring_donor">Donateur récurrent</string>
+  <string name="donor_history_donate_button">Faire un don à la Fondation Wikimédia</string>
+  <string name="donor_history_about_this_experiment">À propos de cette expérimentation</string>
+  <string name="donor_history_updated_message_snackbar">Historique du donateur mis à jour</string>
+  <string name="contributions_dashboard_survey_dialog_title">Aidez-nous à améliorer le tableau de bord des contributions</string>
+  <string name="contributions_dashboard_survey_dialog_message">Cette mise à jour du tableau de bord est une fonctionnalité en cours de test. Souhaitez-vous que cette fonctionnalité soit améliorée ou supprimée ?</string>
+  <string name="contributions_dashboard_survey_dialog_cancel">Pas d\'avis</string>
+  <string name="contributions_dashboard_survey_dialog_ok">Partager votre avis</string>
+  <string name="contributions_dashboard_donation_dialog_title">Merci de soutenir la connaissance libre</string>
+  <string name="contributions_dashboard_donation_dialog_message">Vous faites partie des 2%% de personnes qui ont choisi de soutenir la ressource dont dépendent des millions de personnes. Votre tableau de bord des contributions a été mis à jour et reconnaît désormais votre statut de donateur. Souhaitez-vous voir cette mise à jour expérimentale ?</string>
+  <string name="contributions_dashboard_donation_dialog_cancel">Non, merci</string>
+  <string name="contributions_dashboard_donation_dialog_ok">Oui, je souhaite m\'y rendre</string>
+  <string name="contributions_dashboard_entry_dialog_title">Découvrez les nouveautés du tableau de bord des contributions</string>
+  <string name="contributions_dashboard_entry_dialog_message">Le tableau de bord des contributions affiche désormais le statut des donateurs. Voulez-vous évaluer cette fonctionnalité expérimentale ?</string>
+  <string name="contributions_dashboard_entry_dialog_cancel">Non, merci</string>
+  <string name="contributions_dashboard_entry_dialog_ok">Oui, je souhaite le faire</string>
+  <string name="contributions_dashboard_badge_donor">Donateur</string>
+  <string name="contributions_dashboard_badge_become_a_donor">Devenir donateur</string>
+  <string name="contributions_dashboard_badge_update">Mettre à jour le statut de donateur</string>
+  <string name="contributions_dashboard_app_icon_title">Icône de l\'application</string>
+  <string name="contributions_dashboard_app_icon_subtitle">Avantage du donateur</string>
+  <string name="contributions_dashboard_logged_out_user">Utilisateur déconnecté</string>
+  <string name="contributions_dashboard_tab_last_donated">Dernier don</string>
+  <string name="contributions_dashboard_tab_update_button">Mettre à jour</string>
+  <string name="contributions_dashboard_donor_icon_dialog_title">Merci d\'être un donateur.</string>
+  <string name="contributions_dashboard_donor_icon_dialog_message">Vous avez débloqué une icône personnalisée temporaire. Vous pouvez sélectionner cette icône dans vos paramètres, sous « Icône de l\'application ». Souhaitez-vous mettre à jour votre icône maintenant ?</string>
+  <string name="contributions_dashboard_donor_icon_dialog_cancel">Non, merci</string>
+  <string name="contributions_dashboard_donor_icon_dialog_ok">Oui, aller dans Paramètres</string>
+  <string name="contributions_dashboard_app_icon_updated">Icône de l\'application mise à jour</string>
+  <string name="recent_searches_title">Recherches récentes</string>
+  <string name="recent_searches_related_to_reading">En rapport avec ce que vous lisez</string>
+  <string name="rabbit_holes_experiment">Expérimental</string>
+  <string name="rabbit_holes_experiment_about">À propos de cette expérimentation</string>
+  <string name="rabbit_holes_survey_dialog_title">Aidez-nous à améliorer les \"contenus sans fin\" (rabbit holes)</string>
+  <string name="rabbit_holes_survey_dialog_body">Êtes-vous satisfait de ce résultat de recherche recommandé ?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Aidez-nous à améliorer les listes de lectures recommandées</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Êtes-vous satisfait de cette liste de lectures recommandées ?</string>
+  <string name="suggested_reading_list_title">Établie à partir de vos consultations antérieures</string>
+  <string name="suggested_reading_list_description">Suggérée à cause de votre lecture de \"%s\"</string>
+  <string name="suggested_reading_list_description_multi">Inspirée par %1$s et %2$s</string>
+  <string name="suggested_reading_list_later_snackbar">Si vous souhaitez consulter votre liste de lecture ultérieurement, accédez à l’onglet Enregistré sur l’écran d’accueil.</string>
+  <string name="suggested_reading_list_dialog_title">Vous avez une nouvelle liste de lectures suggérées.</string>
+  <string name="suggested_reading_list_dialog_body">Il s\'agit d\'une fonctionnalité expérimentale. Le contenu est basé sur votre historique de lecture récent. Voulez-vous découvrir cette nouvelle liste de lecture ?</string>
+  <string name="suggested_reading_list_dialog_positive">Essayez-le maintenant</string>
+  <string name="suggested_reading_list_dialog_negative">Peut-être plus tard</string>
+  <string name="suggested_reading_list_back_cancel">Consultez votre liste de lectures suggérées à tout moment dans l’onglet Enregistré sur l’écran d’accueil.</string>
   <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
   <string name="survey_dialog_option_satisfied">Satisfait</string>
@@ -1722,5 +1792,6 @@
   <string name="survey_dialog_option_very_unsatisfied">Très insatisfait</string>
   <string name="survey_dialog_cancel">Annuler</string>
   <string name="survey_dialog_submit">Soumettre</string>
-  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé.</string>
+  <string name="survey_dialog_input_hint">Commentaires supplémentaires</string>
+  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé. Merci !</string>
 </resources>

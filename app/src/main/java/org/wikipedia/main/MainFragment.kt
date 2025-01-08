@@ -468,8 +468,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun donateClick() {
-        (requireActivity() as? BaseActivity)?.launchDonateDialog()
+    override fun donateClick(campaignId: String?) {
+        (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = campaignId)
     }
 
     fun setBottomNavVisible(visible: Boolean) {

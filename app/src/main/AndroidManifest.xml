@@ -88,6 +88,7 @@
 
         <activity
             android:name=".main.MainActivity"
+            android:icon="@mipmap/launcher"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
             android:exported="true">

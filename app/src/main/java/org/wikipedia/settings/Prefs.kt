@@ -436,6 +436,10 @@ object Prefs {
     val overrideSuggestedEditCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_edits, 0)
 
+    var overrideSuggestedEditContribution
+        get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_contribution, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_suggested_edits_override_contribution, value)
+
     val overrideSuggestedRevertCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_override_reverts, 0)
 
@@ -597,6 +601,18 @@ object Prefs {
     var receiveReadingListsData
         get() = PrefsIoUtil.getString(R.string.preference_key_receive_reading_lists_data, null)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_receive_reading_lists_data, value)
+
+    var suggestedReadingListsData
+        get() = PrefsIoUtil.getString(R.string.preference_key_suggested_reading_lists_data, null)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_suggested_reading_lists_data, value)
+
+    var suggestedReadingListDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_reading_list_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_suggested_reading_list_dialog_shown, value)
+
+    var suggestedContentSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_content_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_suggested_content_survey_shown, value)
 
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)

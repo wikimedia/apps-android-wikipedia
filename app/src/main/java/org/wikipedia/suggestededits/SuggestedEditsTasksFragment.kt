@@ -5,11 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
@@ -18,6 +15,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -27,6 +25,7 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
@@ -35,8 +34,10 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMEND
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.usercontrib.UserContribListActivity
@@ -46,7 +47,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
@@ -72,13 +72,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!isAdded) {
             return@Runnable
         }
-        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.editsCountStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
+        balloon.showAlignBottom(binding.editsCountStatsView.getDescriptionView())
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
             .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
-        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
+        BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.editsCountStatsView)
     }
 
     private val requestAddLanguage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -107,8 +107,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-
-        binding.userStatsViewsGroup.addOnClickListener {
+        binding.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
 
@@ -119,11 +118,12 @@ class SuggestedEditsTasksFragment : Fragment() {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         binding.errorView.retryClickListener = View.OnClickListener { refreshContents() }
-        binding.errorView.loginClickListener = View.OnClickListener { requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS)) }
+        binding.errorView.loginClickListener = View.OnClickListener {
+            requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
+        }
 
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
@@ -134,26 +134,31 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.uiState.collect {
-                    when (it) {
-                        is Resource.Loading -> onLoading()
-                        is Resource.Success -> setFinalUIState()
-                        is SuggestedEditsTasksFragmentViewModel.RequireLogin -> onRequireLogin()
-                        is Resource.Error -> showError(it.throwable)
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> setFinalUIState()
+                            is SuggestedEditsTasksFragmentViewModel.RequireLogin -> onRequireLogin()
+                            is Resource.Error -> showError(it.throwable)
+                        }
+                    }
+                }
+
+                launch {
+                    FlowEventBus.events.collectLatest { event ->
+                        if (event is LoggedOutEvent &&
+                            (requireActivity() as MainActivity).isCurrentFragmentSelected(this@SuggestedEditsTasksFragment)) {
+                            refreshContents()
+                        }
                     }
                 }
             }
         }
     }
 
-    private fun Group.addOnClickListener(listener: View.OnClickListener) {
-        referencedIds.forEach { id ->
-            binding.userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
-        }
-        binding.userStatsClickTarget.setOnClickListener(listener)
-    }
-
     fun refreshContents() {
+        (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
         requireActivity().invalidateOptionsMenu()
         viewModel.fetchData()
     }
@@ -172,22 +177,28 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onLoading() {
         binding.progressBar.isVisible = true
+        binding.suggestedEditsScrollView.isVisible = false
     }
 
     private fun onRequireLogin() {
         clearContents()
-        binding.disabledStatesView.setRequiredLogin {
+        binding.messageCard.setRequiredLogin {
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
-        binding.disabledStatesView.isVisible = true
+        binding.messageCard.isVisible = true
+        binding.contributionsContainer.isVisible = false
+        binding.statsDivider.isVisible = false
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {
+        binding.suggestedEditsScrollView.isVisible = true
         binding.swipeRefreshLayout.isRefreshing = false
         binding.progressBar.isVisible = false
         binding.tasksContainer.isVisible = false
         binding.errorView.isVisible = false
-        binding.disabledStatesView.isVisible = false
+        binding.messageCard.isVisible = false
+        binding.contributionsContainer.isVisible = false
+        binding.statsDivider.isVisible = false
         if (shouldScrollToTop) {
             binding.suggestedEditsScrollView.scrollTo(0, 0)
         }
@@ -218,33 +229,29 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
         setUserStatsViewsAndTooltips()
 
-        binding.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
+        binding.pageViewStatsView.setDescription(viewModel.totalPageviews.toString())
 
         if (viewModel.latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+            binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_last_edited))
+            binding.editStreakStatsView.setDescription(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
         } else {
-            binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+            binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+            binding.editStreakStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
                 viewModel.latestEditStreak, viewModel.latestEditStreak))
-            binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         }
 
         if (viewModel.totalContributions == 0) {
-            binding.userStatsClickTarget.isEnabled = false
-            binding.userStatsViewsGroup.visibility = GONE
-            binding.onboardingImageView.visibility = VISIBLE
-            binding.onboardingTextView.visibility = VISIBLE
-            binding.onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
+            binding.contributionsContainer.isVisible = false
+            binding.statsDivider.isVisible = false
+            binding.messageCard.isVisible = true
+            binding.messageCard.setOnboarding(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
         } else {
-            binding.userStatsViewsGroup.visibility = VISIBLE
-            binding.onboardingImageView.visibility = GONE
-            binding.onboardingTextView.visibility = GONE
-            binding.userStatsClickTarget.isEnabled = true
-            binding.userNameView.text = AccountUtil.userName
-            binding.contributionsStatsView.setTitle(viewModel.totalContributions.toString())
-            binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
+            binding.contributionsContainer.isVisible = true
+            binding.statsDivider.isVisible = true
+            binding.editsCountStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
+            binding.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
             if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-                showOneTimeSequentialUserStatsTooltips()
+                 showOneTimeSequentialUserStatsTooltips()
             }
         }
 
@@ -253,19 +260,19 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUserStatsViewsAndTooltips() {
-        binding.contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        binding.contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
+        binding.editsCountStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        binding.editsCountStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
-        binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        binding.editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        binding.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+        binding.editStreakStatsView.setImageDrawable(R.drawable.ic_icon_revision_history_apps)
         binding.editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
 
-        binding.pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
+        binding.pageViewStatsView.setTitle(getString(R.string.suggested_edits_views_label_text))
         binding.pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
         binding.pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
 
        binding.editQualityStatsView.setGoodnessState(viewModel.revertSeverity)
-       binding.editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+       binding.editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_label_text))
        binding.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
     }
 
@@ -277,46 +284,50 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setIPBlockedStatus() {
         clearContents()
-        binding.disabledStatesView.setIPBlocked(viewModel.blockMessageWikipedia)
-        binding.disabledStatesView.visibility = VISIBLE
+        binding.messageCard.setIPBlocked(viewModel.blockMessageWikipedia)
+        binding.messageCard.isVisible = true
         UserContributionEvent.logIpBlock()
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
+        if (WikipediaApp.instance.appOrSystemLanguageCode == "test") {
+            return false
+        }
+
         val pauseEndDate = UserContribStats.maybePauseAndGetEndDate()
 
         if (viewModel.totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.instance.appOrSystemLanguageCode == "en") {
             clearContents()
-            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
-            binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
+            binding.messageCard.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
+            binding.messageCard.setPositiveButton(R.string.suggested_edits_learn_more, {
                 UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(MIN_CONTRIBUTIONS_GATE_URL))
             }, true)
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.isVisible = true
             return true
         } else if (UserContribStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
-            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
+            binding.messageCard.isVisible = true
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             val localDateTime = LocalDateTime.ofInstant(pauseEndDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
-            binding.disabledStatesView.visibility = VISIBLE
+            binding.messageCard.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
+            binding.messageCard.isVisible = true
             UserContributionEvent.logPaused()
             return true
         }
 
-        binding.disabledStatesView.visibility = GONE
+        binding.messageCard.isVisible = false
         return false
     }
 
     private fun setupTestingButtons() {
         if (!ReleaseUtil.isPreBetaRelease) {
-            binding.showIPBlockedMessage.visibility = GONE
-            binding.showOnboardingMessage.visibility = GONE
+            binding.showIPBlockedMessage.isVisible = false
+            binding.showOnboardingMessage.isVisible = false
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
@@ -328,14 +339,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask = SuggestedEditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
-        addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
 
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
-        addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
         addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)

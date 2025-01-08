@@ -1704,6 +1704,23 @@
   <string name="contributions_dashboard_donor_icon_dialog_cancel">Не, благодарам</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">Да, донеси ме на Нагодувањата</string>
   <string name="contributions_dashboard_app_icon_updated">Иконата на прилогот е подновена</string>
+  <string name="recent_searches_title">Скорешни пребарувања</string>
+  <string name="recent_searches_related_to_reading">Поврзано со она што го читате</string>
+  <string name="rabbit_holes_experiment">Пробно</string>
+  <string name="rabbit_holes_experiment_about">За оваа проба</string>
+  <string name="rabbit_holes_survey_dialog_title">Помогнете ни да ги подобрием зајачките дупки</string>
+  <string name="rabbit_holes_survey_dialog_body">Дали сте задоволни со овој предлог во пребараното?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Помогнете да се подобрат препорачаните списоци за читање</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Дали сте задоволни со овој предложен список за читање?</string>
+  <string name="suggested_reading_list_title">Според тоа што го читате</string>
+  <string name="suggested_reading_list_description">Поттикнато од „%s“</string>
+  <string name="suggested_reading_list_description_multi">На основа на %1$s и %2$s</string>
+  <string name="suggested_reading_list_later_snackbar">Ако сакате да се навратите подоцна на вашиот список за читање, одете на јазичето „Зачувано“ на почетниот екран.</string>
+  <string name="suggested_reading_list_dialog_title">Имате нов список со предложени читања.</string>
+  <string name="suggested_reading_list_dialog_body">Ова е опитна функција. Содржините се засноваат на вашата скорешна историја на читање. Дали сакате да ги погледате овој нов список за читање?</string>
+  <string name="suggested_reading_list_dialog_positive">Пробајте го сега</string>
+  <string name="suggested_reading_list_dialog_negative">Можеби подоцна</string>
+  <string name="suggested_reading_list_back_cancel">Погледајте го список на предложени читање во секое време во јазичето „Зачувано“ на почетниот екран.</string>
   <string name="survey_dialog_title">Помогнете ни да и подобриме Разговорните страници</string>
   <string name="survey_dialog_message">Дали сте задоволни со оваа функција?</string>
   <string name="survey_dialog_option_satisfied">Задоволителна е</string>
@@ -1714,5 +1731,5 @@
   <string name="survey_dialog_cancel">Откажи</string>
   <string name="survey_dialog_submit">Поднеси</string>
   <string name="survey_dialog_input_hint">Дополнително мислење</string>
-  <string name="survey_dialog_submitted_snackbar">Мислењето е поднесено.</string>
+  <string name="survey_dialog_submitted_snackbar">Мислењето е поднесено. Ви благодариме!</string>
 </resources>

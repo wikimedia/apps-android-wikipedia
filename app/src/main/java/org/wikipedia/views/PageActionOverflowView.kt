@@ -35,6 +35,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             dismissPopupWindowHost()
             callback.forwardClick()
         }
+
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)

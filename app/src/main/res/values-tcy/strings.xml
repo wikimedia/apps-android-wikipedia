@@ -64,7 +64,7 @@
   <string name="page_edit_history_filter_by">ಅರಿಪೆದ ಐಡಿ</string>
   <string name="page_edit_history_filter_by_all">ಮಾಂತ ಸಂಪಾದನೆಲು (%s)</string>
   <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರೆರೆನ ಸಂಪಾದಿ (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ನೊಂದಾವಣೆ ಮಲ್ಪಂದಿನ ಸಂಪಾದನೆಲು (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ನೊಂದಾಯಿಸಂದಿನ ಸಂಪಾದನೆಲು (%s)</string>
   <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದಿಲು (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$sಡ್ದ್ %2$s ಮುಟ್ಟದ ಸಂಪಾದಿ ಇತಿಹಾಸೊ</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -182,7 +182,7 @@
   <string name="login_join_wikipedia">ವಿಕಿಪೀಡಿಯಗ್ ಸೇರ್ಲೆ</string>
   <string name="login_forgot_password">ಈರೆನೆ ಪ್ರವೇಸೊ ಪದೊ ಮರತ್ತ್‌ಂಡಾ?</string>
   <string name="create_account_already_have">ಈರೆನ ಖಾತೆ ಉಂಡೇ?</string>
-  <string name="create_account_activity_title">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
+  <string name="create_account_activity_title">ಒಂಜಿ ಕಾತೆನ್ ರಚನೆ ಮಲ್ಪುಲೆ</string>
   <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲನೆ ಮಲ್ತೊಂದುಂಡು</string>
   <string name="create_account_email_hint">ಇಮೈಲ್ (ಇಚ್ಛೆ ಇತುಂಡ ಮಾತ್ರೋ)</string>
   <string name="create_account_password_repeat_hint">ಪ್ರವೇಸೊ ಪದೊನ್ ಪಿರ ಓರ ಬರೆಲೆ</string>
@@ -407,7 +407,7 @@
   <string name="app_shortcuts_search">ನಾಡ್‍ಲೆ</string>
   <string name="languages_list_activity_title">ಬಾಸೆನ್ ಸೇರ್ಪಾಲೆ</string>
   <string name="languages_list_suggested_text">ತೋಜ್ಪಾಯಿನ</string>
-  <string name="languages_list_all_text">ಮಾಂತಾ ಬಾಸೆಲೆಡ್</string>
+  <string name="languages_list_all_text">ಮಾತಾ ಬಾಸೆಲು</string>
   <string name="wikipedia_languages_title">ವಿಕಿಪೀಡಿಯ ಬಾಸೆ</string>
   <string name="wikipedia_languages_your_languages_text">ಇರೆನಾ ಬಾಸೆ</string>
   <string name="wikipedia_languages_add_language_text">ಬಾಸೆನ್ ಸೇರ್ಪಾಲೆ</string>

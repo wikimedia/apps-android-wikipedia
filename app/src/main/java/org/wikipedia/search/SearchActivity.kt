@@ -27,13 +27,15 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val QUERY_EXTRA = "query"
         const val EXTRA_RETURN_LINK = "returnLink"
         const val EXTRA_RETURN_LINK_TITLE = "returnLinkTitle"
-        const val RESULT_LINK_SUCCESS = 1
+        const val EXTRA_SUGGESTED_QUERY = "suggestedQuery"
+        const val RESULT_LINK_SUCCESS = 97
 
-        fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
+        fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false, suggestedSearchQuery: String? = null): Intent {
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     .putExtra(QUERY_EXTRA, query)
                     .putExtra(EXTRA_RETURN_LINK, returnLink)
+                    .putExtra(EXTRA_SUGGESTED_QUERY, suggestedSearchQuery)
         }
     }
 }

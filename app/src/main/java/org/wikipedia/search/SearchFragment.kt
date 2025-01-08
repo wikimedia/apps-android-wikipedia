@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -23,6 +24,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
+import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
@@ -49,6 +51,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var langBtnClicked = false
     private var isSearchActive = false
     private var query: String? = null
+    private var suggestedSearchQuery: String? = null
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
@@ -102,6 +105,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
+        suggestedSearchQuery = requireActivity().intent.getStringExtra(SearchActivity.EXTRA_SUGGESTED_QUERY)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -205,7 +209,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
             requireActivity().finish()
         } else {
-            val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
+
+            RabbitHolesEvent.submit("navigate", "search",
+                source = if (query == suggestedSearchQuery) "suggested" else "default")
+
+            val historyEntry = HistoryEntry(item, if (query == suggestedSearchQuery) HistoryEntry.SOURCE_RABBIT_HOLE_SEARCH else HistoryEntry.SOURCE_SEARCH)
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
         }
@@ -265,7 +273,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         // automatically trigger the showing of the corresponding search results.
         if (!query.isNullOrBlank()) {
             binding.searchCabView.setQuery(query, false)
-            binding.searchCabView.selectAllQueryTexts()
+            if (suggestedSearchQuery.isNullOrEmpty()) {
+                binding.searchCabView.selectAllQueryTexts()
+            }
         }
     }
 
@@ -302,7 +312,20 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnCloseListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
                 R.attr.secondary_color))
-        binding.searchCabView.queryHint = getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint else R.string.search_hint)
+
+        binding.searchCabView.queryHint = if (suggestedSearchQuery.isNullOrEmpty())
+            getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint
+            else R.string.search_hint) else suggestedSearchQuery
+
+        binding.searchCabView.setOnEditorActionListener(TextView.OnEditorActionListener { _, _, _ ->
+            if (suggestedSearchQuery.isNullOrEmpty()) {
+                false
+            } else {
+                query = suggestedSearchQuery
+                openSearch()
+                true
+            }
+        })
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
@@ -349,7 +372,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
         private const val INTENT_DELAY_MILLIS = 500L
-        const val RESULT_LANG_CHANGED = 1
+        const val RESULT_LANG_CHANGED = 98
 
         fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false): SearchFragment =
                 SearchFragment().apply {

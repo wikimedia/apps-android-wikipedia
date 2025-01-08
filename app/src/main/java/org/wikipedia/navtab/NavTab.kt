@@ -31,7 +31,9 @@ enum class NavTab constructor(
             return HistoryFragment.newInstance()
         }
     },
-    EDITS(R.string.nav_item_suggested_edits, R.id.nav_tab_edits, R.drawable.selector_nav_edits) {
+    EDITS(
+        R.string.nav_item_suggested_edits, R.id.nav_tab_edits, R.drawable.selector_nav_edits
+    ) {
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
         }

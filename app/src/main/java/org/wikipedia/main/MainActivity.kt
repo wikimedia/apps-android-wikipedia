@@ -71,10 +71,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onTabChanged(tab: NavTab) {
-        if (tab == NavTab.EDITS) {
-            ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
-            PatrollerExperienceEvent.logImpression("suggested_edits_dialog")
-        }
         if (tab == NavTab.EXPLORE) {
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
@@ -83,6 +79,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.showSearchTabTooltip = false
+            }
+            if (tab == NavTab.EDITS) {
+                ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
+                PatrollerExperienceEvent.logImpression("suggested_edits_dialog")
             }
             binding.mainToolbarWordmark.visibility = View.GONE
             binding.mainToolbar.setTitle(tab.text)

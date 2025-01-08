@@ -1127,7 +1127,7 @@
   <string name="suggested_edits_image_recommendations_task_title">條目圖片</string>
   <string name="suggested_edits_image_recommendations_task_detail">將建議的圖片加到維基百科條目來加強理解。</string>
   <string name="image_recommendation_task_instruction">您要將此圖片加到條目裡嗎？</string>
-  <string name="image_recommendation_tutorial">教程</string>
+  <string name="image_recommendation_tutorial">教學</string>
   <string name="image_recommendation_accept">是</string>
   <string name="image_recommendation_reject">否</string>
   <string name="image_recommendation_notsure">不確定</string>
@@ -1733,6 +1733,21 @@
   <string name="contributions_dashboard_donor_icon_dialog_cancel">不用了，謝謝</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">是的，帶我到設定</string>
   <string name="contributions_dashboard_app_icon_updated">應用程式圖示已更新</string>
+  <string name="recent_searches_title">近期搜尋</string>
+  <string name="recent_searches_related_to_reading">條目相關搜尋</string>
+  <string name="rabbit_holes_experiment">實驗功能</string>
+  <string name="rabbit_holes_experiment_about">關於此實驗功能</string>
+  <string name="rabbit_holes_survey_dialog_title">協助改善兔子洞</string>
+  <string name="rabbit_holes_survey_dialog_body">您對這個推薦搜尋結果滿意嗎？</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">協助改進推薦閱讀清單</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">您對這個推薦閱讀清單滿意嗎？</string>
+  <string name="suggested_reading_list_title">根據您的閱覽紀錄</string>
+  <string name="suggested_reading_list_description">受到「%s」的啟發</string>
+  <string name="suggested_reading_list_description_multi">受到%1$s和%2$s的啟發</string>
+  <string name="suggested_reading_list_later_snackbar">稍後如欲造訪閱讀清單，請在主畫面尋找「已儲存」索引標籤。</string>
+  <string name="suggested_reading_list_dialog_title">已為您新增推薦閱讀清單。</string>
+  <string name="suggested_reading_list_dialog_positive">立即試用</string>
+  <string name="suggested_reading_list_dialog_negative">以後再說</string>
   <string name="survey_dialog_title">協助我們改善討論頁</string>
   <string name="survey_dialog_message">您滿意這個功能嗎？</string>
   <string name="survey_dialog_option_satisfied">滿意</string>
@@ -1743,5 +1758,5 @@
   <string name="survey_dialog_cancel">取消</string>
   <string name="survey_dialog_submit">提交</string>
   <string name="survey_dialog_input_hint">額外回饋</string>
-  <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。</string>
+  <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。謝謝！</string>
 </resources>

@@ -1507,5 +1507,5 @@
   <string name="survey_dialog_option_neutral">Neutralno</string>
   <string name="survey_dialog_option_unsatisfied">Nezadovoljavajuće</string>
   <string name="survey_dialog_submit">Pošalji</string>
-  <string name="survey_dialog_submitted_snackbar">Povratne informacije poslate.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Povratne informacije poslate.</string>
 </resources>

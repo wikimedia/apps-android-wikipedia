@@ -11,6 +11,7 @@
 * Vesely35
 * Wertuose
 * Şeyx Şamil
+* Əkrəm Cəfər
 -->
 <resources>
   <string name="app_name_prod">Vikipediya</string>
@@ -104,7 +105,7 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_places">Yerlərdə açın</string>
   <string name="menu_long_press_open_in_new_tab">Səhifəni yeni pəncərədə aç</string>
-  <string name="menu_long_press_copy_page">Səhifənin ünvanını kopyala</string>
+  <string name="menu_long_press_copy_page">Səhifənin ünvanını kopiyala</string>
   <string name="menu_text_select_define">Dəqiqləşdirmək</string>
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
@@ -481,7 +482,7 @@
   <string name="editing_line_numbers_label">Sətir nömrələrini göstər</string>
   <string name="editing_monospace_font_label">Monospace şriftindən istifadə et</string>
   <string name="editing_typing_suggestions">Yazı təkliflərini göstər</string>
-  <string name="nav_item_saved">Saxlanıldı</string>
+  <string name="nav_item_saved">Saxlanılmışlar</string>
   <string name="reading_list_save_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_move_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_create_new">Yenisini yarat</string>
@@ -1334,11 +1335,11 @@
   <string name="menu_option_share_talk_page">Müzakirə səhifəsini paylaş</string>
   <string name="menu_option_share_edit">Redaktəni paylaş</string>
   <string name="menu_option_user_contributions">%s istifadəçisinin töhfələri</string>
-  <string name="menu_option_edit_source">Mənbə kodunu redaktə et</string>
+  <string name="menu_option_edit_source">Vikimətni redaktə et</string>
   <string name="menu_option_user_page">%s istifadəçi səhifəsi</string>
   <string name="menu_option_find_in_talk_page_topic">Müzakirə səhifəsi mövzusu axtar</string>
-  <string name="menu_option_copy_link_to_clipboard">Linki mübadilə buferinə kopyala</string>
-  <string name="talk_menu_copy_text">Mətni kopyala</string>
+  <string name="menu_option_copy_link_to_clipboard">Linki mübadilə buferinə kopiyala</string>
+  <string name="talk_menu_copy_text">Mətni kopiyala</string>
   <string name="talk_menu_expand_threads">Mövzuları tam aç</string>
   <string name="talk_menu_collapse_threads">Mövzuları bağla</string>
   <string name="watchlist_details_watching_label">İzlənilir</string>
@@ -1695,6 +1696,23 @@
   <string name="contributions_dashboard_donor_icon_dialog_cancel">Xeyr, təşəkkürlər</string>
   <string name="contributions_dashboard_donor_icon_dialog_ok">Bəli, məni Parametrlərə apar</string>
   <string name="contributions_dashboard_app_icon_updated">Tətbiq ikonu yeniləndi</string>
+  <string name="recent_searches_title">Son axtarışlar</string>
+  <string name="recent_searches_related_to_reading">Oxuduğunuzla əlaqəli</string>
+  <string name="rabbit_holes_experiment">Eksperimental</string>
+  <string name="rabbit_holes_experiment_about">Bu təcrübə haqqında</string>
+  <string name="rabbit_holes_survey_dialog_title">Dovşan dəliklərini yaxşılaşdırmağa kömək edin</string>
+  <string name="rabbit_holes_survey_dialog_body">Bu tövsiyə olunan axtarış nəticəsi sizi qane edirmi?</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_title">Tövsiyə olunan oxuma siyahılarını təkmilləşdirməyə kömək edin</string>
+  <string name="rabbit_holes_reading_list_survey_dialog_body">Bu tövsiyə olunan oxuma siyahısı sizi qane edirmi?</string>
+  <string name="suggested_reading_list_title">Oxuduqlarınıza əsasən</string>
+  <string name="suggested_reading_list_description">\"%s\" məqaləsindən ilhamlanılıb</string>
+  <string name="suggested_reading_list_description_multi">%1$s və %2$s məqalələrindən ilhamlanılıb</string>
+  <string name="suggested_reading_list_later_snackbar">Oxuma siyahınıza daha sonra baş çəkmək istəyirsinizsə, ana səhifədəki Saxlanılmışlar vərəqəsinə keçin.</string>
+  <string name="suggested_reading_list_dialog_title">Yeni təklif olunan oxuma siyahınız var.</string>
+  <string name="suggested_reading_list_dialog_body">Bu eksperimental xüsusiyyətdir. Məzmun son oxuma tarixçənizə əsaslanır. Bu yeni oxuma siyahısını yoxlamaq istəyirsiniz?</string>
+  <string name="suggested_reading_list_dialog_positive">İndi yoxlayın</string>
+  <string name="suggested_reading_list_dialog_negative">Bəlkə sonra</string>
+  <string name="suggested_reading_list_back_cancel">İstənilən vaxt əsas ekranda Saxlanılmışlar vərəqəsində təklif olunan oxuma siyahınıza baxın.</string>
   <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
   <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
   <string name="survey_dialog_option_satisfied">Razıyam</string>
@@ -1705,5 +1723,5 @@
   <string name="survey_dialog_cancel">İmtina</string>
   <string name="survey_dialog_submit">Göndər</string>
   <string name="survey_dialog_input_hint">Əlavə rəy</string>
-  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi.</string>
+  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi. Təşəkkürlər!</string>
 </resources>

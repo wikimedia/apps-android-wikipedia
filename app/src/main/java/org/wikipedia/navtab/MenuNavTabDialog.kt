@@ -30,7 +30,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun settingsClick()
         fun watchlistClick()
         fun contribsClick()
-        fun donateClick()
+        fun donateClick(campaignId: String? = null)
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -80,8 +80,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
-            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
+            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             callback()?.donateClick()
             dismiss()
         }

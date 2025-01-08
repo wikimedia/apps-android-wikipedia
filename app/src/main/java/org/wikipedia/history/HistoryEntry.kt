@@ -101,5 +101,7 @@ class HistoryEntry(
         const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
         const val SOURCE_FEED_PLACES = 42
         const val SOURCE_ON_THIS_DAY_GAME = 45
+        const val SOURCE_RABBIT_HOLE_SEARCH = 43
+        const val SOURCE_RABBIT_HOLE_READING_LIST = 44
     }
 }
