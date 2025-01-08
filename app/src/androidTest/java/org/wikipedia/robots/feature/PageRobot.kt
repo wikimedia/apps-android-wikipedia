@@ -15,12 +15,15 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasData
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.web.assertion.WebViewAssertions.webMatches
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
+import androidx.test.espresso.web.webdriver.DriverAtoms.getText
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.DriverAtoms.webScrollIntoView
 import androidx.test.espresso.web.webdriver.Locator
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.containsString
 import org.wikipedia.R
 import org.wikipedia.base.AssertJavascriptAction
 import org.wikipedia.base.BaseRobot
@@ -371,5 +374,18 @@ class PageRobot(private val context: Context) : BaseRobot() {
             text = context.getString(R.string.gallery_not_available_offline_snackbar),
             action = action
         )
+    }
+
+    fun verifySameArticleAppearsAsURL(title: String) = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, "h1[data-id='0'].pcs-edit-section-title"))
+            .check(webMatches(getText(), containsString(title)))
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun test() = apply {
+        delay(TestConfig.DELAY_SHORT)
+        clickOnViewWithText("Got it")
+        delay(TestConfig.DELAY_SHORT)
     }
 }

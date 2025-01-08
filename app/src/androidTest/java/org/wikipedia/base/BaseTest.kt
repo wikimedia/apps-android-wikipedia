@@ -23,6 +23,7 @@ object TestConfig {
     const val SEARCH_TERM = "hopf fibration"
     const val ARTICLE_TITLE = "Hopf fibration"
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
+    const val TEST_WIKI_URL_APPLE = "https://en.wikipedia.org/wiki/Apple"
 }
 
 data class DataInjector(

@@ -136,7 +136,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val galleryViewListener = GalleryViewListener { view, thumbUrl, imageName ->
         var options: ActivityOptionsCompat? = null
         view.drawable?.let {
-            val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl, false)
+            val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl)
             GalleryActivity.setTransitionInfo(hitInfo)
             view.transitionName = requireActivity().getString(R.string.transition_page_gallery)
             options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
