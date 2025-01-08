@@ -282,7 +282,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             }
         }
 
-        val isGameActive get() = LocalDate.now().isAfter(gameStartDate) && LocalDate.now().isBefore(gameEndDate)
+        val isGameActive get() = true // LocalDate.now().isAfter(gameStartDate) && LocalDate.now().isBefore(gameEndDate)
 
         val gameForToday get() = LocalDate.now().toEpochDay() - gameStartDate.toEpochDay()
 

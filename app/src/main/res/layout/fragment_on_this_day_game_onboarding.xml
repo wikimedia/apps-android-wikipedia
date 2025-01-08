@@ -11,39 +11,42 @@
     android:gravity="center_horizontal"
     android:padding="16dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/illustration_trivia_game_splash"
-        android:contentDescription="@string/on_this_day_game_title"
-        android:layout_margin="16dp"/>
-
     <TextView
-        style="@style/H1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="?attr/paper_color"
-        android:textAlignment="center"
-        android:text="@string/on_this_day_game_title"/>
-
-    <TextView
-        android:id="@+id/messageText"
+        android:id="@+id/dateText"
         style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="?attr/paper_color"
         android:textAlignment="center"
-        android:text="@string/on_this_day_game_splash_subtitle"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="48dp"
+        tools:text="January 1, 2025"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_margin="32dp">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="64dp"
+        android:layout_marginHorizontal="32dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_today_24px"
+            app:tint="?attr/paper_color"
+            android:contentDescription="@string/on_this_day_game_title"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            style="@style/H1.Article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="?attr/paper_color"
+            android:textAlignment="center"
+            android:text="@string/on_this_day_game_title"/>
 
         <TextView
             style="@style/P"
@@ -52,35 +55,18 @@
             android:textColor="?attr/paper_color"
             android:textAlignment="center"
             android:text="@string/on_this_day_game_splash_message"
+            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="12dp"/>
+
         <Button
             android:id="@+id/playGameButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/on_this_day_game_dialog_button"
             android:textColor="?attr/progressive_color"
-            android:layout_marginVertical="24dp"
+            android:layout_marginTop="48dp"
             android:backgroundTint="?attr/paper_color"/>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/messageText2"
-        style="@style/P"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="?attr/paper_color"
-        android:textAlignment="center"
-        android:text="@string/on_this_day_game_splash_message_2"
-        android:layout_marginTop="12dp"/>
-
-    <TextView
-        android:id="@+id/footerMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="?attr/border_color"
-        android:textAlignment="center"
-        android:text="@string/on_this_day_game_splash_footer_message"
-        android:layout_marginTop="36dp"/>
 
 </LinearLayout>
