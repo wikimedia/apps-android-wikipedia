@@ -35,8 +35,6 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
         super.onBackPressed()
         if (intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)) {
             ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
-        } else if (intent.getBooleanExtra(EXTRA_READING_LIST_SUGGESTED, false)) {
-            setResult(RESULT_CANCELED)
         }
     }
 
@@ -44,8 +42,6 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
         private const val EXTRA_READING_LIST_TITLE = "readingListTitle"
         const val EXTRA_READING_LIST_ID = "readingListId"
         const val EXTRA_READING_LIST_PREVIEW = "previewReadingList"
-        const val EXTRA_READING_LIST_SUGGESTED = "suggestedReadingList"
-        const val EXTRA_READING_LIST_SUGGESTED_SAVE = "suggestedReadingListSave"
 
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
@@ -53,11 +49,9 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
                     .putExtra(EXTRA_READING_LIST_ID, list.id)
         }
 
-        fun newIntent(context: Context, preview: Boolean, suggestedList: Boolean = false, suggestedListSave: Boolean = false): Intent {
+        fun newIntent(context: Context, preview: Boolean): Intent {
             return Intent(context, ReadingListActivity::class.java)
                 .putExtra(EXTRA_READING_LIST_PREVIEW, preview)
-                .putExtra(EXTRA_READING_LIST_SUGGESTED, suggestedList)
-                .putExtra(EXTRA_READING_LIST_SUGGESTED_SAVE, suggestedListSave)
         }
     }
 }

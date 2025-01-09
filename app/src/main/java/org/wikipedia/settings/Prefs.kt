@@ -602,18 +602,6 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_receive_reading_lists_data, null)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_receive_reading_lists_data, value)
 
-    var suggestedReadingListsData
-        get() = PrefsIoUtil.getString(R.string.preference_key_suggested_reading_lists_data, null)
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_suggested_reading_lists_data, value)
-
-    var suggestedReadingListDialogShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_reading_list_dialog_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_suggested_reading_list_dialog_shown, value)
-
-    var suggestedContentSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_content_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_suggested_content_survey_shown, value)
-
     var editSyntaxHighlightEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_syntax_highlight, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_syntax_highlight, value)
