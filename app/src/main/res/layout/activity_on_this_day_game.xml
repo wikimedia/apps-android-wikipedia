@@ -84,7 +84,7 @@
             android:id="@+id/questionCard1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/rounded_6dp_stroke_1dp"
+            android:background="@drawable/game_card_background"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constraintTop_toBottomOf="@id/questionDate1"
             app:layout_constraintBottom_toTopOf="@id/centerGuideLine"
@@ -115,9 +115,9 @@
             app:layout_constraintStart_toStartOf="@id/questionCard1"
             app:layout_constraintEnd_toEndOf="@id/questionCard1"
             app:layout_constraintTop_toTopOf="@id/questionCard1"
-            app:layout_constraintBottom_toTopOf="@id/questionThumbnail1"
+            app:layout_constraintBottom_toBottomOf="@id/questionCard1"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginVertical="16dp"
             style="@style/P"
             android:textColor="?attr/primary_color"
             tools:text="Lorem ipsum"/>
@@ -133,7 +133,7 @@
             app:layout_constraintBottom_toTopOf="@id/centerContent"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_image_black_24dp"/>
+            android:src="@mipmap/launcher"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/centerGuideLine"
@@ -203,7 +203,7 @@
             android:id="@+id/questionCard2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/rounded_6dp_stroke_1dp"
+            android:background="@drawable/game_card_background"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constraintTop_toBottomOf="@id/centerGuideLine"
             app:layout_constraintBottom_toTopOf="@id/questionDate2"
@@ -237,7 +237,7 @@
             app:layout_constraintBottom_toBottomOf="@id/questionCard2"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="14dp"
+            android:layout_marginBottom="16dp"
             style="@style/P"
             android:textColor="?attr/primary_color"
             tools:text="Lorem ipsum"/>
@@ -253,7 +253,7 @@
             app:layout_constraintTop_toBottomOf="@id/centerContent"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_image_black_24dp"/>
+            android:src="@mipmap/launcher"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

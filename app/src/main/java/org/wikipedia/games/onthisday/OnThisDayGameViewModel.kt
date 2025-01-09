@@ -88,7 +88,15 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false }, articles = emptyList())
                 _gameState.postValue(GameStarted(currentState))
             } else {
-                _gameState.postValue(Resource.Success(currentState))
+                // we're in the middle of a game.
+                if (currentState.currentQuestionState.goToNext) {
+                    // the user must have exited the activity before going to the next question,
+                    // so we can fake submitting the current question.
+                    submitCurrentResponse(0)
+                } else {
+                    // we're truly in the middle of a game, and in the middle of the current question.
+                    _gameState.postValue(CurrentQuestion(currentState))
+                }
             }
 
             persistState()
@@ -116,7 +124,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
                 _gameState.postValue(GameEnded(currentState))
             } else {
-                _gameState.postValue(Resource.Success(currentState))
+                _gameState.postValue(CurrentQuestion(currentState))
             }
         } else {
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(yearSelected = selectedYear, goToNext = true))
@@ -192,6 +200,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         val goToNext: Boolean = false
     )
 
+    class CurrentQuestion(val data: GameState) : Resource<GameState>()
     class CurrentQuestionCorrect(val data: GameState) : Resource<GameState>()
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
     class GameStarted(val data: GameState) : Resource<GameState>()

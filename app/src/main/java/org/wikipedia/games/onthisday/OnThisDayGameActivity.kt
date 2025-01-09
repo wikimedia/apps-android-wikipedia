@@ -6,7 +6,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -14,31 +13,21 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.widget.Button
-import android.widget.ImageView
 import androidx.activity.viewModels
-import androidx.core.animation.doOnEnd
-import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.core.view.setPadding
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
-import androidx.core.widget.TextViewCompat
-import com.bumptech.glide.Glide
-import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.feed.onthisday.OnThisDay
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.ViewUtil
 import java.time.LocalDate
 import java.time.MonthDay
 import java.time.ZoneOffset
@@ -49,6 +38,9 @@ import java.util.Locale
 class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
+
+    private val thumbnailAnimatorSet = AnimatorSet()
+    private val goNextAnimatorSet = AnimatorSet()
 
     @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,12 +61,12 @@ class OnThisDayGameActivity : BaseActivity() {
         }
 
         binding.questionCard1.setOnClickListener {
-            if (viewModel.gameState.value is Resource.Success || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
+            if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
                 viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
             }
         }
         binding.questionCard2.setOnClickListener {
-            if (viewModel.gameState.value is Resource.Success || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
+            if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
                 viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
             }
         }
@@ -105,7 +97,7 @@ class OnThisDayGameActivity : BaseActivity() {
         viewModel.gameState.observe(this) {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
-                is Resource.Success -> updateGameState(it.data)
+                is OnThisDayGameViewModel.CurrentQuestion -> onCurrentQuestion(it.data)
                 is OnThisDayGameViewModel.GameStarted -> onGameStarted(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionCorrect -> onCurrentQuestionCorrect(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionIncorrect -> onCurrentQuestionIncorrect(it.data)
@@ -162,6 +154,9 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
+        thumbnailAnimatorSet.cancel()
+        goNextAnimatorSet.cancel()
+
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
@@ -187,13 +182,9 @@ class OnThisDayGameActivity : BaseActivity() {
 
         val thumbnailUrl1 = event1.pages.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl1.isNullOrEmpty()) {
-            binding.questionThumbnail1.isVisible = false
+            binding.questionThumbnail1.setImageResource(R.mipmap.launcher)
         } else {
-            binding.questionThumbnail1.isVisible = true
-            Glide.with(this)
-                .load(thumbnailUrl1)
-                .centerCrop()
-                .into(binding.questionThumbnail1)
+            ViewUtil.loadImage(binding.questionThumbnail1, thumbnailUrl1, placeholderId = R.mipmap.launcher)
         }
 
         binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
@@ -201,13 +192,9 @@ class OnThisDayGameActivity : BaseActivity() {
 
         val thumbnailUrl2 = event2.pages.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl2.isNullOrEmpty()) {
-            binding.questionThumbnail2.isVisible = false
+            binding.questionThumbnail2.setImageResource(R.mipmap.launcher)
         } else {
-            binding.questionThumbnail2.isVisible = true
-            Glide.with(this)
-                .load(thumbnailUrl2)
-                .centerCrop()
-                .into(binding.questionThumbnail2)
+            ViewUtil.loadImage(binding.questionThumbnail2, thumbnailUrl2, placeholderId = R.mipmap.launcher)
         }
 
         binding.whichCameFirstText.isVisible = true
@@ -228,6 +215,10 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.currentQuestionContainer.isVisible = true
     }
 
+    private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+        animateThumbnails()
+    }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
@@ -244,7 +235,7 @@ class OnThisDayGameActivity : BaseActivity() {
             binding.questionDate2.setTextColor(Color.WHITE)
         }
 
-        revealQuestionDates(gameState)
+        enqueueGoNext(gameState)
     }
 
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
@@ -263,25 +254,39 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionDate1.setTextColor(Color.WHITE)
         binding.questionDate2.setTextColor(Color.WHITE)
 
-        revealQuestionDates(gameState)
+        enqueueGoNext(gameState)
     }
 
-    private fun revealQuestionDates(gameState: OnThisDayGameViewModel.GameState) {
+    private fun enqueueGoNext(gameState: OnThisDayGameViewModel.GameState) {
         binding.questionDate1.isVisible = true
         binding.questionDate2.isVisible = true
 
         binding.questionCard1.updateLayoutParams<ViewGroup.MarginLayoutParams> { topMargin = DimenUtil.roundedDpToPx(-10f) }
         binding.questionCard2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = DimenUtil.roundedDpToPx(-10f) }
 
-        // TODO: animate?
         binding.nextQuestionText.postDelayed({
             if (!isDestroyed) {
-                binding.whichCameFirstText.isVisible = false
-                binding.pointsText.isVisible = false
-                binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
-                binding.nextQuestionText.isVisible = true
+                animateGoNext(gameState)
             }
         }, 2000)
+    }
+
+    private fun animateGoNext(gameState: OnThisDayGameViewModel.GameState) {
+        binding.whichCameFirstText.isVisible = false
+        binding.pointsText.isVisible = false
+        binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
+        binding.nextQuestionText.isVisible = true
+
+        val translationX = ObjectAnimator.ofFloat(binding.nextQuestionText, "translationX", 0f, DimenUtil.dpToPx(-8f), 0f)
+
+        val duration = 1500L
+        translationX.setDuration(duration)
+        translationX.interpolator = AccelerateDecelerateInterpolator()
+        translationX.repeatCount = ObjectAnimator.INFINITE
+
+        goNextAnimatorSet.cancel()
+        goNextAnimatorSet.playTogether(translationX)
+        goNextAnimatorSet.start()
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
@@ -299,40 +304,30 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
+        animateThumbnails()
+
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
 
-    /*
-    private fun animateDot(dotIndex: Int) {
-        dotPulseViews.forEach { it.visibility = View.INVISIBLE }
-        if (dotIndex < 0 || dotIndex >= dotPulseViews.size) {
-            return
-        }
-        val dotPulseView = dotPulseViews[dotIndex]
-        dotPulseView.visibility = View.VISIBLE
-
-        val scaleX = ObjectAnimator.ofFloat(dotPulseView, "scaleX", 1f, 2.5f, 1f)
-        val scaleY = ObjectAnimator.ofFloat(dotPulseView, "scaleY", 1f, 2.5f, 1f)
-        val alpha = ObjectAnimator.ofFloat(dotPulseView, "alpha", 0.8f, 0.2f, 1f)
+    private fun animateThumbnails() {
+        val translationY1 = ObjectAnimator.ofFloat(binding.questionThumbnail1, "translationY", 0f, DimenUtil.dpToPx(8f), 0f)
+        val translationY2 = ObjectAnimator.ofFloat(binding.questionThumbnail2, "translationY", 0f, DimenUtil.dpToPx(-8f), 0f)
 
         val duration = 1500L
-        scaleX.setDuration(duration)
-        scaleY.setDuration(duration)
-        alpha.setDuration(duration)
+        translationY1.setDuration(duration)
+        translationY1.interpolator = AccelerateDecelerateInterpolator()
+        translationY1.repeatCount = ObjectAnimator.INFINITE
+        translationY2.setDuration(duration)
+        translationY2.interpolator = AccelerateDecelerateInterpolator()
+        translationY2.repeatCount = ObjectAnimator.INFINITE
 
-        scaleX.interpolator = AccelerateDecelerateInterpolator()
-        scaleY.interpolator = AccelerateDecelerateInterpolator()
-        alpha.interpolator = AccelerateDecelerateInterpolator()
-
-        dotPulseAnimatorSet.cancel()
-        dotPulseAnimatorSet.playTogether(scaleX, scaleY, alpha)
-        dotPulseAnimatorSet.doOnEnd { dotPulseAnimatorSet.start() }
-        dotPulseAnimatorSet.start()
+        thumbnailAnimatorSet.cancel()
+        thumbnailAnimatorSet.playTogether(translationY1, translationY2)
+        thumbnailAnimatorSet.start()
     }
-    */
 
     companion object {
         fun newIntent(context: Context, invokeSource: Constants.InvokeSource, date: LocalDate? = null): Intent {
