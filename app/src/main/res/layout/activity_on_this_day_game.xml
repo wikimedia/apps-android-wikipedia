@@ -75,8 +75,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
+        android:paddingVertical="16dp"
         android:clipToPadding="false"
+        android:animateLayoutChanges="true"
         android:layout_marginTop="?attr/actionBarSize">
 
         <View
@@ -84,12 +85,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/rounded_6dp_stroke_1dp"
+            android:foreground="?attr/selectableItemBackground"
             app:layout_constraintTop_toBottomOf="@id/questionDate1"
             app:layout_constraintBottom_toTopOf="@id/centerGuideLine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="-12dp"
-            android:layout_marginBottom="80dp">
+            android:layout_marginBottom="110dp">
         </View>
 
         <TextView
@@ -100,6 +101,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/game_date_background_neutral"
+            style="@style/P"
             android:textColor="?attr/primary_color"
             android:paddingHorizontal="8dp"
             android:paddingTop="2dp"
@@ -115,7 +117,7 @@
             app:layout_constraintTop_toTopOf="@id/questionCard1"
             app:layout_constraintBottom_toTopOf="@id/questionThumbnail1"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="16dp"
             style="@style/P"
             android:textColor="?attr/primary_color"
             tools:text="Lorem ipsum"/>
@@ -148,11 +150,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/centerGuideLine"
             app:layout_constraintBottom_toBottomOf="@id/centerGuideLine"
-            android:paddingVertical="16dp">
+            android:animateLayoutChanges="true"
+            android:paddingVertical="20dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:orientation="horizontal">
 
@@ -160,7 +163,8 @@
                     android:id="@+id/whichCameFirstText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/P"
+                    android:layout_gravity="center_vertical"
+                    style="@style/H1.Article"
                     android:text="@string/on_this_day_game_title"
                     android:textColor="?attr/primary_color"/>
 
@@ -168,6 +172,7 @@
                     android:id="@+id/pointsText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="4dp"
                     style="@style/P"
                     android:text="@string/on_this_day_game_point"
@@ -184,7 +189,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center_vertical"
-                style="@style/P"
+                android:paddingStart="8dp"
+                style="@style/H1.Article"
                 android:text="@string/on_this_day_game_next"
                 android:textColor="?attr/primary_color"
                 app:drawableEndCompat="@drawable/ic_arrow_forward_black_24dp"
@@ -198,12 +204,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/rounded_6dp_stroke_1dp"
+            android:foreground="?attr/selectableItemBackground"
             app:layout_constraintTop_toBottomOf="@id/centerGuideLine"
             app:layout_constraintBottom_toTopOf="@id/questionDate2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="-12dp"
-            android:layout_marginTop="80dp">
+            android:layout_marginTop="110dp">
         </View>
 
         <TextView
@@ -214,6 +220,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/game_date_background_neutral"
+            style="@style/P"
             android:textColor="?attr/primary_color"
             android:paddingHorizontal="8dp"
             android:paddingTop="2dp"
@@ -229,6 +236,7 @@
             app:layout_constraintTop_toBottomOf="@id/questionThumbnail2"
             app:layout_constraintBottom_toBottomOf="@id/questionCard2"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="14dp"
             style="@style/P"
             android:textColor="?attr/primary_color"

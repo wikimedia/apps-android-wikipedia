@@ -776,6 +776,6 @@ object Prefs {
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_end_date, value)
 
     var otdGameQuestionsPerDay
-        get() = PrefsIoUtil.getInt(R.string.preference_key_otd_game_num_questions, 3)
+        get() = PrefsIoUtil.getInt(R.string.preference_key_otd_game_num_questions, 5)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_otd_game_num_questions, value)
 }

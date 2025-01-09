@@ -25,6 +25,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
+import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.core.widget.TextViewCompat
 import com.bumptech.glide.Glide
@@ -33,6 +34,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
+import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
@@ -67,7 +69,18 @@ class OnThisDayGameActivity : BaseActivity() {
         }
 
         binding.questionCard1.setOnClickListener {
-            // viewModel.submitCurrentResponse(it)
+            if (viewModel.gameState.value is Resource.Success || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
+                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
+            }
+        }
+        binding.questionCard2.setOnClickListener {
+            if (viewModel.gameState.value is Resource.Success || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
+                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
+            }
+        }
+
+        binding.nextQuestionText.setOnClickListener {
+            viewModel.submitCurrentResponse(0)
         }
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
@@ -166,6 +179,9 @@ class OnThisDayGameActivity : BaseActivity() {
         val event1 = gameState.currentQuestionState.event1
         val event2 = gameState.currentQuestionState.event2
 
+        binding.questionCard1.tag = event1
+        binding.questionCard2.tag = event2
+
         binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
         binding.questionText1.text = event1.text
 
@@ -194,7 +210,20 @@ class OnThisDayGameActivity : BaseActivity() {
                 .into(binding.questionThumbnail2)
         }
 
+        binding.whichCameFirstText.isVisible = true
+        binding.whichCameFirstText.setText(R.string.on_this_day_game_title)
+        binding.pointsText.isVisible = false
+        binding.nextQuestionText.isVisible = false
 
+        binding.questionDate1.isVisible = false
+        binding.questionDate2.isVisible = false
+        binding.questionDate1.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
+        binding.questionDate2.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
+        binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_neutral)
+        binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_neutral)
+
+        binding.questionCard1.updateLayoutParams<ViewGroup.MarginLayoutParams> { topMargin = 0 }
+        binding.questionCard2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
 
         binding.currentQuestionContainer.isVisible = true
     }
@@ -203,70 +232,64 @@ class OnThisDayGameActivity : BaseActivity() {
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        /*
-        yearButtonViews.forEach {
-            it.isEnabled = false
-            if ((it.tag as Int) == gameState.currentQuestionState.event.year) {
-                it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
-                it.setTextColor(Color.WHITE)
-                it.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_check_black_24dp, 0)
-                it.isSelected = true
-            } else {
-                it.isSelected = false
-            }
+        binding.whichCameFirstText.setText(R.string.on_this_day_game_correct)
+        binding.pointsText.isVisible = true
+        binding.nextQuestionText.isVisible = false
+
+        if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
+            binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
+            binding.questionDate1.setTextColor(Color.WHITE)
+        } else {
+            binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_correct)
+            binding.questionDate2.setTextColor(Color.WHITE)
         }
 
-        setSubmitEnabled(true, isNext = true)
-        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
-         */
+        revealQuestionDates(gameState)
     }
 
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        /*
-        yearButtonViews.forEach {
-            it.isEnabled = false
-            if ((it.tag as Int) == gameState.currentQuestionState.event.year) {
-                it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
-                it.setTextColor(Color.WHITE)
-                it.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_check_black_24dp, 0)
-                it.isSelected = true
-            } else if ((it.tag as Int) == gameState.currentQuestionState.yearSelected) {
-                it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
-                it.setTextColor(Color.WHITE)
-                it.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_close_black_24dp, 0)
-                it.isSelected = true
-            } else {
-                it.isSelected = false
+        binding.whichCameFirstText.setText(R.string.on_this_day_game_incorrect)
+        binding.nextQuestionText.isVisible = false
+
+        if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
+            binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
+            binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_incorrect)
+        } else {
+            binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_incorrect)
+            binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_correct)
+        }
+        binding.questionDate1.setTextColor(Color.WHITE)
+        binding.questionDate2.setTextColor(Color.WHITE)
+
+        revealQuestionDates(gameState)
+    }
+
+    private fun revealQuestionDates(gameState: OnThisDayGameViewModel.GameState) {
+        binding.questionDate1.isVisible = true
+        binding.questionDate2.isVisible = true
+
+        binding.questionCard1.updateLayoutParams<ViewGroup.MarginLayoutParams> { topMargin = DimenUtil.roundedDpToPx(-10f) }
+        binding.questionCard2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = DimenUtil.roundedDpToPx(-10f) }
+
+        // TODO: animate?
+        binding.nextQuestionText.postDelayed({
+            if (!isDestroyed) {
+                binding.whichCameFirstText.isVisible = false
+                binding.pointsText.isVisible = false
+                binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
+                binding.nextQuestionText.isVisible = true
             }
-        }
-
-        yearButtonViews.firstOrNull { (it.tag as Int) == gameState.currentQuestionState.event.year }?.let {
-            it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
-            it.setTextColor(Color.WHITE)
-        }
-
-        yearButtonViews.firstOrNull { (it.tag as Int) == gameState.currentQuestionState.yearSelected }?.let {
-            it.backgroundTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
-            it.setTextColor(Color.WHITE)
-        }
-
-        setSubmitEnabled(true, isNext = true)
-        binding.submitButton.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
-         */
+        }, 2000)
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        /*
-        binding.questionText.isVisible = false
-        binding.questionThumbnail.isVisible = false
-
-        setSubmitEnabled(false, isNext = true)
-        binding.submitButton.setText(R.string.on_this_day_game_finish)
-         */
+        binding.progressText.isVisible = false
+        binding.scoreText.isVisible = false
+        binding.currentQuestionContainer.isVisible = false
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
@@ -280,15 +303,6 @@ class OnThisDayGameActivity : BaseActivity() {
             .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
-    }
-
-    private fun setSubmitEnabled(enabled: Boolean, isNext: Boolean = false) {
-        /*
-        binding.submitButton.backgroundTintList = if (isNext) ColorStateList.valueOf(ContextCompat.getColor(this, R.color.gray600)) else ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color)
-        binding.submitButton.setText(if (isNext) R.string.on_this_day_game_next else R.string.on_this_day_game_submit)
-        binding.submitButton.isEnabled = enabled
-        binding.submitButton.alpha = if (enabled) 1f else 0.5f
-         */
     }
 
     /*

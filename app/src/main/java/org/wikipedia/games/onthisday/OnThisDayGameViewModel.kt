@@ -22,6 +22,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import kotlin.math.min
 import kotlin.random.Random
 
 class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
@@ -95,8 +96,6 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun submitCurrentResponse(selectedYear: Int) {
-        currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(yearSelected = selectedYear))
-
         if (currentState.currentQuestionState.goToNext) {
             val nextQuestionIndex = currentState.currentQuestionIndex + 1
             currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
@@ -120,13 +119,15 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 _gameState.postValue(Resource.Success(currentState))
             }
         } else {
-            currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(goToNext = true))
+            currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(yearSelected = selectedYear, goToNext = true))
 
-            val isCorrect = currentState.currentQuestionState.event1.year == selectedYear
+            val isCorrect = selectedYear == min(currentState.currentQuestionState.event1.year, currentState.currentQuestionState.event2.year)
+
             currentState = currentState.copy(
                 answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) },
                 articles = currentState.articles.toMutableList().apply {
-                    addAll(currentState.currentQuestionState.event1.pages.take(2) ?: emptyList())
+                    addAll(currentState.currentQuestionState.event1.pages.take(2))
+                    addAll(currentState.currentQuestionState.event2.pages.take(2))
                 }
             )
 
@@ -157,7 +158,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         }.toMutableList()
         eventList.shuffle(random)
 
-        return QuestionState(eventList[0], eventList[1], month, day)
+        return QuestionState(eventList[index * 2], eventList[index * 2 + 1], month, day)
     }
 
     private fun persistState() {
