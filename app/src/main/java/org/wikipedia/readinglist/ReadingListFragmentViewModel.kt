@@ -36,7 +36,7 @@ class ReadingListFragmentViewModel : ViewModel() {
                 _updateListFlow.emit(Resource.Error(throwable))
             }
         }) {
-            val json = Prefs.suggestedReadingListsData
+            val json = Prefs.receiveReadingListsData
             if (!json.isNullOrEmpty()) {
                 val list = ReadingListsReceiveHelper.receiveReadingLists(emptyTitle, emptyDescription, json, encoded)
                 _updateListFlow.emit(Resource.Success(list))
