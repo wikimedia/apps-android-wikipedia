@@ -90,7 +90,7 @@
             app:layout_constraintBottom_toTopOf="@id/centerGuideLine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="110dp">
+            android:layout_marginBottom="100dp">
         </View>
 
         <TextView
@@ -123,13 +123,14 @@
         <TextView
             android:id="@+id/questionText1"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/questionCard1"
             app:layout_constraintEnd_toEndOf="@id/questionCard1"
             app:layout_constraintTop_toTopOf="@id/questionCard1"
-            app:layout_constraintBottom_toBottomOf="@id/questionCard1"
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="16dp"
+            android:maxLines="4"
+            android:ellipsize="end"
             style="@style/P"
             android:textColor="?attr/primary_color"
             tools:text="Lorem ipsum"/>
@@ -138,8 +139,8 @@
             android:id="@+id/questionThumbnail1"
             app:shapeAppearanceOverlay="@style/CircularImageView"
             android:elevation="4dp"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/centerContent"
@@ -221,7 +222,7 @@
             app:layout_constraintBottom_toTopOf="@id/questionDate2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="110dp">
+            android:layout_marginTop="100dp">
         </View>
 
         <ImageView
@@ -235,6 +236,22 @@
             android:src="@drawable/ic_cancel_24px"
             app:tint="?attr/destructive_color"
             android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/questionText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/questionCard2"
+            app:layout_constraintEnd_toEndOf="@id/questionCard2"
+            app:layout_constraintTop_toBottomOf="@id/questionThumbnail2"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:maxLines="4"
+            android:ellipsize="end"
+            style="@style/P"
+            android:textColor="?attr/primary_color"
+            tools:text="Lorem ipsum"/>
 
         <TextView
             android:id="@+id/questionDate2"
@@ -251,27 +268,12 @@
             android:paddingBottom="3dp"
             tools:text="Lorem ipsum"/>
 
-        <TextView
-            android:id="@+id/questionText2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="@id/questionCard2"
-            app:layout_constraintEnd_toEndOf="@id/questionCard2"
-            app:layout_constraintTop_toBottomOf="@id/questionThumbnail2"
-            app:layout_constraintBottom_toBottomOf="@id/questionCard2"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            style="@style/P"
-            android:textColor="?attr/primary_color"
-            tools:text="Lorem ipsum"/>
-
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/questionThumbnail2"
             app:shapeAppearanceOverlay="@style/CircularImageView"
             android:elevation="4dp"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/centerContent"
