@@ -145,7 +145,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     }
                 }
                 launch {
-                    viewModel.updateList.collect { resource ->
+                    viewModel.updateListFlow.collect { resource ->
                         when (resource) {
                             is Resource.Success -> {
                                 readingList = resource.data.readingList

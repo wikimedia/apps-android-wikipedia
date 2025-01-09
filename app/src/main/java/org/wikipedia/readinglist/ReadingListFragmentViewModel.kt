@@ -16,8 +16,8 @@ class ReadingListFragmentViewModel : ViewModel() {
     private val _updateListByIdFlow = MutableSharedFlow<Resource<ReadingListWrapper>>()
     val updateListByIdFlow = _updateListByIdFlow.asSharedFlow()
 
-    private val _updateList = MutableSharedFlow<Resource<ReadingListWrapper>>()
-    val updateList = _updateList.asSharedFlow()
+    private val _updateListFlow = MutableSharedFlow<Resource<ReadingListWrapper>>()
+    val updateListFlow = _updateListFlow.asSharedFlow()
 
     fun updateListById(readingListId: Long) {
          viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -33,13 +33,13 @@ class ReadingListFragmentViewModel : ViewModel() {
     fun updateList(emptyTitle: String, emptyDescription: String, encoded: Boolean) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             viewModelScope.launch {
-                _updateList.emit(Resource.Error(throwable))
+                _updateListFlow.emit(Resource.Error(throwable))
             }
         }) {
             val json = Prefs.suggestedReadingListsData
             if (!json.isNullOrEmpty()) {
                 val list = ReadingListsReceiveHelper.receiveReadingLists(emptyTitle, emptyDescription, json, encoded)
-                _updateList.emit(Resource.Success(ReadingListWrapper(list)))
+                _updateListFlow.emit(Resource.Success(ReadingListWrapper(list)))
             }
         }
     }
