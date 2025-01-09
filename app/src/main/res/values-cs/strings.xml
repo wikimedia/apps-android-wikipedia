@@ -1372,7 +1372,6 @@
   <string name="places_card_enable_location_card_message">Místa je způsob prozkoumávání Wikipedie založený na mapách</string>
   <string name="places_card_enable_location_card_button">Povolit polohu</string>
   <string name="places_card_distance_suffix">%s daleko</string>
-  <string name="donor_history_save_button">Uložit</string>
   <string name="survey_dialog_message">Jste s touto funkcí spokojen(a)?</string>
   <string name="survey_dialog_option_satisfied">Spokojen(a)</string>
   <string name="survey_dialog_option_neutral">Neutrální</string>
