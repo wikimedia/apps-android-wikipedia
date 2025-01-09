@@ -1,5 +1,6 @@
 package org.wikipedia.robots
 
+import android.app.Activity
 import android.content.Context
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
@@ -7,6 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
+import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
@@ -60,5 +62,10 @@ class SystemRobot : BaseRobot() {
         } catch (e: Exception) {
             Log.e("SystemRobot", "Error while disabling dark mode", e)
         }
+    }
+
+    fun dismissTooltip(activity: Activity) = apply {
+        dismissTooltipIfAny(activity, viewId = R.id.buttonView)
+        delay(TestConfig.DELAY_SHORT)
     }
 }

@@ -37,7 +37,6 @@ class CollapseTablesTest : BaseTest<MainActivity>(
             .typeTextInView("apple")
             .clickOnItemFromSearchList(0)
         pageRobot
-            .dismissTooltip(activity)
             .scrollToCollapsingTables()
             .assertCollapsingTableIsVisible(isVisible = false)
             .pressBack()

@@ -6,6 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
@@ -60,11 +61,14 @@ class SearchRobot : BaseRobot() {
         clickOnDisplayedViewWithContentDescription("Navigate up")
     }
 
-    fun checkLanguageAvailability(language: String) = apply {
+    fun checkLanguageAvailability(languageCode: String) = apply {
+        val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
         checkViewWithIdAndText(viewId = R.id.language_label, text = language)
+        delay(TestConfig.DELAY_SHORT)
     }
 
-    fun clickLanguage(language: String) = apply {
+    fun clickLanguage(languageCode: String) = apply {
+        val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
         clicksOnDisplayedViewWithText(viewId = R.id.language_label, text = language)
         delay(TestConfig.DELAY_MEDIUM)
     }
