@@ -171,8 +171,8 @@ class WikipediaApp : Application() {
     fun getAcceptLanguage(wiki: WikiSite?): String {
         val wikiLang = if (wiki == null || "meta" == wiki.languageCode) "" else wiki.languageCode
         return AcceptLanguageUtil.getAcceptLanguage(
+            wikiLang,
             languageState.getBcp47LanguageCode(wikiLang),
-            languageState.getBcp47LanguageCode(languageState.appLanguageCode),
                 languageState.getBcp47LanguageCode(languageState.systemLanguageCode))
     }
 
