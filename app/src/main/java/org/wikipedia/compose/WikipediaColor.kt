@@ -1,8 +1,9 @@
-package org.wikipedia.theme
+package org.wikipedia.compose
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import org.wikipedia.theme.ThemeColors
 
 @Immutable
 data class WikipediaColor(
@@ -43,14 +44,14 @@ val LocalWikipediaColor = staticCompositionLocalOf {
     )
 }
 
-val lightColors = WikipediaColor(
+val LightColors = WikipediaColor(
+    primaryColor = ThemeColors.Gray700,
     paperColor = ThemeColors.White,
     backgroundColor = ThemeColors.Gray100,
-    borderColor = ThemeColors.Gray200,
     inactiveColor = ThemeColors.Gray400,
     placeholderColor = ThemeColors.Gray500,
     secondaryColor = ThemeColors.Gray600,
-    primaryColor = ThemeColors.Gray700,
+    borderColor = ThemeColors.Gray200,
     progressiveColor = ThemeColors.Blue600,
     successColor = ThemeColors.Green700,
     destructiveColor = ThemeColors.Red700,
@@ -61,14 +62,14 @@ val lightColors = WikipediaColor(
     overlayColor = ThemeColors.Black_30
 )
 
-val darkColors = WikipediaColor(
+val DarkColors = WikipediaColor(
+    primaryColor = ThemeColors.Gray200,
     paperColor = ThemeColors.Gray700,
     backgroundColor = ThemeColors.Gray675,
-    borderColor = ThemeColors.Gray650,
     inactiveColor = ThemeColors.Gray500,
     placeholderColor = ThemeColors.Gray400,
     secondaryColor = ThemeColors.Gray300,
-    primaryColor = ThemeColors.Gray200,
+    borderColor = ThemeColors.Gray650,
     progressiveColor = ThemeColors.Blue300,
     successColor = ThemeColors.Green600,
     destructiveColor = ThemeColors.Red500,
@@ -79,14 +80,14 @@ val darkColors = WikipediaColor(
     overlayColor = ThemeColors.Black_70
 )
 
-val blackColors = WikipediaColor(
+val BlackColors = WikipediaColor(
+    primaryColor = ThemeColors.Gray200,
     paperColor = ThemeColors.Black,
     backgroundColor = ThemeColors.Gray700,
-    borderColor = ThemeColors.Gray675,
     inactiveColor = ThemeColors.Gray500,
     placeholderColor = ThemeColors.Gray500,
     secondaryColor = ThemeColors.Gray300,
-    primaryColor = ThemeColors.Gray200,
+    borderColor = ThemeColors.Gray675,
     progressiveColor = ThemeColors.Blue300,
     successColor = ThemeColors.Green600,
     destructiveColor = ThemeColors.Red500,
@@ -97,14 +98,14 @@ val blackColors = WikipediaColor(
     overlayColor = ThemeColors.Black_70
 )
 
-val sepiaColors = WikipediaColor(
+val SepiaColors = WikipediaColor(
+    primaryColor = ThemeColors.Gray700,
     paperColor = ThemeColors.Beige100,
     backgroundColor = ThemeColors.Beige300,
-    borderColor = ThemeColors.Beige400,
     inactiveColor = ThemeColors.Taupe200,
     placeholderColor = ThemeColors.Taupe600,
     secondaryColor = ThemeColors.Gray600,
-    primaryColor = ThemeColors.Gray700,
+    borderColor = ThemeColors.Beige400,
     progressiveColor = ThemeColors.Blue600,
     successColor = ThemeColors.Gray700,
     destructiveColor = ThemeColors.Red700,
