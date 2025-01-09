@@ -26,14 +26,16 @@ class LanguageVariantTest {
         testDefaultLocaleAndAcceptLanguageAgree("test,zh-Hans-CN;q=0.8", "test", Locale.SIMPLIFIED_CHINESE)
         testDefaultLocaleAndAcceptLanguageAgree("es,zh-Hans;q=0.9,zh-Hant-TW;q=0.8", AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, Locale.TRADITIONAL_CHINESE, WikiSite.forLanguageCode("es"))
         testDefaultLocaleAndAcceptLanguageAgree("zh-Hant,zh-Hant-TW;q=0.8", AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, Locale.TRADITIONAL_CHINESE)
+        testDefaultLocaleAndAcceptLanguageAgree("zh-tw,zh-Hant-TW;q=0.9,en;q=0.8", AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, Locale.US, WikiSite.forLanguageCode("zh-tw"), false)
+
 
         WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(appLanguage))
         Locale.setDefault(defaultLocale)
     }
 
-    private fun testDefaultLocaleAndAcceptLanguageAgree(expected: String, appLanguage: String, systemLocale: Locale, wiki: WikiSite? = null) {
+    private fun testDefaultLocaleAndAcceptLanguageAgree(expected: String, appLanguage: String, systemLocale: Locale, wiki: WikiSite? = null, hasBcp47LangCode: Boolean = true) {
         WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(appLanguage))
         Locale.setDefault(systemLocale)
-        MatcherAssert.assertThat(expected, Matchers.`is`(WikipediaApp.instance.getAcceptLanguage(wiki)))
+        MatcherAssert.assertThat(expected, Matchers.`is`(WikipediaApp.instance.getAcceptLanguage(wiki, hasBcp47LangCode)))
     }
 }

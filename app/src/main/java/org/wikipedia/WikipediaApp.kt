@@ -168,12 +168,19 @@ class WikipediaApp : Application() {
     /**
      * @return the value that should go in the Accept-Language header.
      */
-    fun getAcceptLanguage(wiki: WikiSite?): String {
+    fun getAcceptLanguage(wiki: WikiSite?, hasBcp47LangCode: Boolean = true): String {
         val wikiLang = if (wiki == null || "meta" == wiki.languageCode) "" else wiki.languageCode
-        return AcceptLanguageUtil.getAcceptLanguage(
-            wikiLang,
-            languageState.getBcp47LanguageCode(wikiLang),
+        if (hasBcp47LangCode) {
+            return AcceptLanguageUtil.getAcceptLanguage(
+                languageState.getBcp47LanguageCode(wikiLang),
+                languageState.getBcp47LanguageCode(languageState.appLanguageCode),
                 languageState.getBcp47LanguageCode(languageState.systemLanguageCode))
+        } else {
+            return AcceptLanguageUtil.getAcceptLanguage(
+                wikiLang,
+                languageState.getBcp47LanguageCode(wikiLang),
+                languageState.getBcp47LanguageCode(languageState.systemLanguageCode))
+        }
     }
 
     fun constrainFontSizeMultiplier(mult: Int): Int {
