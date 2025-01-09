@@ -7,7 +7,6 @@ import android.text.Spanned
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.widget.ImageView
-import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import org.wikipedia.R
@@ -50,10 +49,6 @@ class CabSearchView(
         searchCloseBtn.isGone = isEmpty
         searchCloseBtn.setImageResource(if (isEmpty) 0 else R.drawable.ic_close_black_24dp)
         searchCloseBtn.imageTintList = ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color)
-    }
-
-    fun setOnEditorActionListener(listener: OnEditorActionListener) {
-        searchSrcTextView.setOnEditorActionListener(listener)
     }
 
     private class PlainTextInputFilter : InputFilter {
