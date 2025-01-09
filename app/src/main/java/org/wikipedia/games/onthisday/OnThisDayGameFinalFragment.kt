@@ -49,7 +49,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
 
         binding.shareButton.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentOverlayContainer, OnThisDayGameShareFragment.newInstance(viewModel.invokeSource))
+                .add(R.id.fragmentContainerFinish, OnThisDayGameShareFragment.newInstance(viewModel.invokeSource))
                 .addToBackStack(null)
                 .commit()
         }

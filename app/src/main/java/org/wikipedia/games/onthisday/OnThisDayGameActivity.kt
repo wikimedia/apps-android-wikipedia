@@ -89,6 +89,12 @@ class OnThisDayGameActivity : BaseActivity() {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
+            params = binding.fragmentContainerFinish.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+
             params = binding.dateText.layoutParams as ViewGroup.MarginLayoutParams
             params.topMargin = DimenUtil.roundedDpToPx(20f) + newStatusBarInsets.top + newNavBarInsets.top
 
@@ -111,7 +117,9 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_on_this_day_game, menu)
+        if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded) {
+            menuInflater.inflate(R.menu.menu_on_this_day_game, menu)
+        }
         return true
     }
 
@@ -216,6 +224,7 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionCard2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
 
         binding.currentQuestionContainer.isVisible = true
+        supportInvalidateOptionsMenu()
     }
 
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
@@ -223,7 +232,7 @@ class OnThisDayGameActivity : BaseActivity() {
         animateThumbnails()
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainerStart, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
@@ -236,7 +245,7 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.currentQuestionContainer.isVisible = false
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainerFinish, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }

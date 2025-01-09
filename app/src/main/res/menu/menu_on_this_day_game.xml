@@ -7,6 +7,12 @@
         android:id="@+id/menu_help"
         android:title="@string/suggested_edits_menu_info"
         android:icon="@drawable/ic_info_outline_black_24dp"
-        app:iconTint="?attr/primary_color"
-        app:showAsAction="ifRoom" />
+        app:iconTint="@android:color/white"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_report_feature"
+        android:title="@string/suggested_edits_menu_info"
+        android:icon="@drawable/ic_report_flag"
+        app:iconTint="@android:color/white"
+        app:showAsAction="always" />
 </menu>
