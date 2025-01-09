@@ -18,54 +18,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--     donor username container       -->
-            <LinearLayout
-                android:id="@+id/donor_container"
-                style="@style/OverflowMenuItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/paper_color"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:visibility="gone"
-                tools:visibility="visible">
-
-                <ImageView
-                    android:id="@+id/donor_logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_baseline_person_24"
-                    app:tint="?attr/primary_color" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/donor_username"
-                        style="@android:style/TextAppearance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="Bagelpigeon" />
-
-
-                    <org.wikipedia.views.DonorBadgeView
-                        android:id="@+id/donorBadgeView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="?attr/border_color" />
-
             <!--    overflow list        -->
             <LinearLayout
                 android:id="@+id/overflowList"

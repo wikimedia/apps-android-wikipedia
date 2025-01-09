@@ -49,7 +49,7 @@ class PlacesCardView(context: Context) : DefaultFeedCardView<PlacesCard>(context
             binding.placesCardDescription.text = StringUtil.fromHtml(it.pageTitle.description)
             binding.placesCardDescription.isVisible = !it.pageTitle.description.isNullOrEmpty()
             it.pageTitle.thumbUrl?.let { url ->
-                ViewUtil.loadImage(binding.placesCardThumbnail, url, circleShape = true)
+                ViewUtil.loadImage(binding.placesCardThumbnail, url)
             }
             Prefs.placesLastLocationAndZoomLevel?.first?.let { location ->
                 if (GeoUtil.isSamePlace(location.latitude, it.location.latitude, location.longitude, it.location.longitude)) {

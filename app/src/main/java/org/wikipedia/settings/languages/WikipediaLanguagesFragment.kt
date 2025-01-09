@@ -257,7 +257,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
 
     private inner class WikipediaLanguageItemHolder(itemView: WikipediaLanguagesItemView) : DefaultViewHolder<WikipediaLanguagesItemView>(itemView) {
         fun bindItem(languageCode: String, position: Int) {
-            view.setContents(languageCode, app.languageState.getAppLanguageCanonicalName(languageCode), position)
+            view.setContents(languageCode, app.languageState.getAppLanguageLocalizedName(languageCode), position)
         }
     }
 
