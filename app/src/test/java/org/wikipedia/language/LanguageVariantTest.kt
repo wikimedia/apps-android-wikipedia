@@ -28,7 +28,6 @@ class LanguageVariantTest {
         testDefaultLocaleAndAcceptLanguageAgree("zh-Hant,zh-Hant-TW;q=0.8", AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, Locale.TRADITIONAL_CHINESE)
         testDefaultLocaleAndAcceptLanguageAgree("zh-tw,zh-Hant-TW;q=0.9,en;q=0.8", AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, Locale.US, WikiSite.forLanguageCode("zh-tw"), false)
 
-
         WikipediaApp.instance.languageState.setAppLanguageCodes(listOf(appLanguage))
         Locale.setDefault(defaultLocale)
     }
