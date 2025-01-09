@@ -7,8 +7,8 @@ import org.wikipedia.base.TestConfig
 
 class SuggestedEditsScreenRobot : BaseRobot() {
 
-    fun verifyEditsIsVisible() = apply {
-        checkViewWithTextDisplayed(text = "Edits")
+    fun verifyContributionsIsVisible() = apply {
+        checkViewWithTextDisplayed(text = "Contributions")
         delay(TestConfig.DELAY_SHORT)
     }
 
