@@ -1625,8 +1625,6 @@
   <string name="places_filter_title">Filtrar por idioma</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Não, obrigado</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Não, obrigado</string>
   <string name="survey_dialog_option_satisfied">Satisfeito(a)</string>
   <string name="survey_dialog_option_neutral">Neutro(a)</string>
   <string name="survey_dialog_option_unsatisfied">Insatisfeito(a)</string>

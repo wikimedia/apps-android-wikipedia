@@ -54,12 +54,11 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         }
     }
 
-    fun setContentType(readingList: ReadingList, savedReadingListPages: MutableList<ReadingListPage>,
-                       readingListTitle: String?, callback: Callback) {
+    fun setContentType(readingList: ReadingList, savedReadingListPages: MutableList<ReadingListPage>, callback: Callback) {
         this.readingList = readingList
         this.savedReadingListPages = savedReadingListPages
         this.callback = callback
-        val defaultListTitle = readingListTitle ?: context.getString(R.string.reading_lists_preview_header_title).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
+        val defaultListTitle = context.getString(R.string.reading_lists_preview_header_title).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
         binding.readingListTitleLayout.editText?.setText(defaultListTitle)
         validateTitleAndList()
         binding.recyclerView.adapter = ReadingListItemAdapter()
