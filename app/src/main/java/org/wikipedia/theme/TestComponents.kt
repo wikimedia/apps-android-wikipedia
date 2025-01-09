@@ -24,6 +24,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.window.DialogProperties
+import org.wikipedia.compose.WikipediaTheme
+import org.wikipedia.compose.WikipediaThemeType
 
 data class TestButton(
     val title: String,

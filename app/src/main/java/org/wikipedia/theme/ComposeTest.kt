@@ -25,6 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.compose.MainTheme
+import org.wikipedia.compose.WikipediaTheme
+import org.wikipedia.compose.WikipediaThemeType
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
