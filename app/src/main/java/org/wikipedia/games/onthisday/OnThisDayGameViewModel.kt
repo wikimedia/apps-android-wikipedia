@@ -22,6 +22,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import kotlin.math.abs
 import kotlin.math.min
 import kotlin.random.Random
 
@@ -53,16 +54,45 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         }) {
             _gameState.postValue(Resource.Loading())
 
+            val eventsFromApi = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getOnThisDay(currentMonth, currentDay).events
+
+            // Here is the logic for arranging the events:
+            // First we filter out any events that actually mention a year in the text, since those might give away the answer.
+            val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
+            val allEvents = eventsFromApi.filter {
+                it.year > 0 && it.year <= currentDate.year && !it.text.matches(yearRegex)
+            }.distinctBy { it.year }.toMutableList()
+
+            // Shuffle the events, but seed the random number generator with the current month and day so that the order is consistent for the same day.
+            allEvents.shuffle(Random(currentMonth * 100 + currentDay))
+
             events.clear()
-            events.addAll(ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getOnThisDay(currentMonth, currentDay).events)
+            // Take an event from the list, and find another event that is the closest by year.
+            for (i in 0 until MAX_QUESTIONS) {
+                val event1 = allEvents.removeAt(0)
+                var event2: OnThisDay.Event? = null
+                var minDiff = Int.MAX_VALUE
+                for (event in allEvents) {
+                    val diff = abs(event1.year - event.year)
+                    if (diff < minDiff) {
+                        minDiff = diff
+                        event2 = event
+                    }
+                }
+                event2?.let {
+                    events.add(event1)
+                    events.add(event2)
+                    allEvents.remove(event2)
+                }
+            }
 
             JsonUtil.decodeFromString<GameState>(Prefs.otdGameState)?.let {
                 currentState = it
                 if (overrideDate) {
-                    currentState = it.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0))
+                    currentState = it.copy(currentQuestionState = composeQuestionState(0))
                 }
             } ?: run {
-                currentState = GameState(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0))
+                currentState = GameState(currentQuestionState = composeQuestionState(0))
             }
 
             savedPages.clear()
@@ -85,7 +115,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're coming back from a previous day's completed game, so start a new day's game.
-                currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false }, articles = emptyList())
+                currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false }, articles = emptyList())
                 _gameState.postValue(GameStarted(currentState))
             } else {
                 // we're in the middle of a game.
@@ -106,7 +136,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     fun submitCurrentResponse(selectedYear: Int) {
         if (currentState.currentQuestionState.goToNext) {
             val nextQuestionIndex = currentState.currentQuestionIndex + 1
-            currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
+            currentState = currentState.copy(currentQuestionState = composeQuestionState(nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
 
             if (nextQuestionIndex >= currentState.totalQuestions) {
                 // push today's answers to the history map
@@ -149,7 +179,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun resetCurrentDayState() {
-        currentState = currentState.copy(currentQuestionState = composeQuestionState(currentMonth, currentDay, 0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
+        currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
         persistState()
     }
 
@@ -157,16 +187,8 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
         return currentState
     }
 
-    private fun composeQuestionState(month: Int, day: Int, index: Int): QuestionState {
-        val random = Random(month * 100 + day)
-        val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
-
-        val eventList = events.filter {
-            it.year > 0 && it.year <= currentDate.year && !it.text.matches(yearRegex)
-        }.toMutableList()
-        eventList.shuffle(random)
-
-        return QuestionState(eventList[index * 2], eventList[index * 2 + 1], month, day)
+    private fun composeQuestionState(index: Int): QuestionState {
+        return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }
 
     private fun persistState() {
