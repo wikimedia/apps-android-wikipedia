@@ -148,7 +148,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     viewModel.updateListFlow.collect { resource ->
                         when (resource) {
                             is Resource.Success -> {
-                                readingList = resource.data.readingList
+                                readingList = resource.data
                                 readingList?.let {
                                     ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
                                     binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))

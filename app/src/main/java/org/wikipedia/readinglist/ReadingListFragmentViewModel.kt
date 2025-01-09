@@ -16,7 +16,7 @@ class ReadingListFragmentViewModel : ViewModel() {
     private val _updateListByIdFlow = MutableSharedFlow<Resource<ReadingListWrapper>>()
     val updateListByIdFlow = _updateListByIdFlow.asSharedFlow()
 
-    private val _updateListFlow = MutableSharedFlow<Resource<ReadingListWrapper>>()
+    private val _updateListFlow = MutableSharedFlow<Resource<ReadingList>>()
     val updateListFlow = _updateListFlow.asSharedFlow()
 
     fun updateListById(readingListId: Long) {
@@ -39,7 +39,7 @@ class ReadingListFragmentViewModel : ViewModel() {
             val json = Prefs.suggestedReadingListsData
             if (!json.isNullOrEmpty()) {
                 val list = ReadingListsReceiveHelper.receiveReadingLists(emptyTitle, emptyDescription, json, encoded)
-                _updateListFlow.emit(Resource.Success(ReadingListWrapper(list)))
+                _updateListFlow.emit(Resource.Success(list))
             }
         }
     }
