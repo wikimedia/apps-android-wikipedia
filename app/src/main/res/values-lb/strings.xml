@@ -1410,16 +1410,6 @@
   <string name="places_card_distance_suffix">%s ewech</string>
   <string name="places_card_distance_unknown">Onbekannt Distanz</string>
   <string name="places_empty_message_snackbar">Et gëtt keng Artikelen an der Géigend. Probéiert d\'Kaart ze verklengeren oder ze verréckelen.</string>
-  <string name="donor_history_save_button">Späicheren</string>
-  <string name="donor_history_last_donated_date_picker_title">Datum eraussichen</string>
-  <string name="donor_history_last_donated_date_picker_label">Datum aginn</string>
-  <string name="donor_history_last_donated_never">Ni</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Keng Meenung</string>
-  <string name="contributions_dashboard_donation_dialog_title">Merci, datt Dir fräit Wëssen ënnerstëtzt</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Nee, merci</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Nee, merci</string>
-  <string name="contributions_dashboard_tab_update_button">Aktualiséieren</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nee, merci</string>
   <string name="rabbit_holes_experiment_about">Iwwer dëst Experiment</string>
   <string name="suggested_reading_list_description">Inspiréiert vun „%s“</string>
   <string name="suggested_reading_list_description_multi">Inspiréiert vun %1$s an %2$s</string>

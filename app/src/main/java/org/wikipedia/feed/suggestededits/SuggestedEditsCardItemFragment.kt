@@ -183,7 +183,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateDescriptionUI() {
         showAddDescriptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
-                WikipediaApp.instance.languageState.getAppLanguageCanonicalName(viewModel.targetSummaryForEdit?.lang))
+                WikipediaApp.instance.languageState.getAppLanguageLocalizedName(viewModel.targetSummaryForEdit?.lang))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = viewModel.sourceSummaryForEdit?.description
     }
@@ -199,7 +199,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateImageCaptionUI() {
         showAddImageCaptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
-                WikipediaApp.instance.languageState.getAppLanguageCanonicalName(viewModel.targetSummaryForEdit?.lang))
+                WikipediaApp.instance.languageState.getAppLanguageLocalizedName(viewModel.targetSummaryForEdit?.lang))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = viewModel.sourceSummaryForEdit?.description
     }

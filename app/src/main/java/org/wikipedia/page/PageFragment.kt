@@ -45,7 +45,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
@@ -72,7 +71,6 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
@@ -99,7 +97,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -687,19 +684,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
-                            return@launch
                         }
                     }
-                    maybeShowContributionsDashboardDialog()
                 }
             }
-        }
-    }
-
-    private fun maybeShowContributionsDashboardDialog() {
-        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
-            ContributionsDashboardHelper.showEntryDialog(requireActivity())
-            Prefs.contributionsDashboardEntryDialogShown = true
         }
     }
 
@@ -1500,18 +1488,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
-        }
-
-        override fun onDonorSelected() {
-            goToMainActivity(tab = NavTab.EDITS, tabExtra = Constants.INTENT_EXTRA_GO_TO_SE_TAB)
-        }
-
-        override fun onBecomeDonorSelected() {
-            (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
-        }
-
-        override fun onUpdateDonorStatusSelected() {
-            startActivity(DonorHistoryActivity.newIntent(requireContext(), goBackToContributeTab = true))
         }
     }
 
