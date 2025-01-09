@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -202,6 +203,8 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.pointsText.isVisible = false
         binding.nextQuestionText.isVisible = false
 
+        binding.questionStatusIcon1.isVisible = false
+        binding.questionStatusIcon2.isVisible = false
         binding.questionDate1.isVisible = false
         binding.questionDate2.isVisible = false
         binding.questionDate1.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
@@ -213,6 +216,29 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionCard2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
 
         binding.currentQuestionContainer.isVisible = true
+    }
+
+    private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+        animateThumbnails()
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
+        updateGameState(gameState)
+
+        binding.progressText.isVisible = false
+        binding.scoreText.isVisible = false
+        binding.currentQuestionContainer.isVisible = false
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
@@ -230,9 +256,11 @@ class OnThisDayGameActivity : BaseActivity() {
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
             binding.questionDate1.setTextColor(Color.WHITE)
+            setCorrectIcon(binding.questionStatusIcon1)
         } else {
             binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_correct)
             binding.questionDate2.setTextColor(Color.WHITE)
+            setCorrectIcon(binding.questionStatusIcon2)
         }
 
         enqueueGoNext(gameState)
@@ -247,14 +275,30 @@ class OnThisDayGameActivity : BaseActivity() {
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
             binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_incorrect)
+            setCorrectIcon(binding.questionStatusIcon1)
+            setIncorrectIcon(binding.questionStatusIcon2)
         } else {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_incorrect)
             binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_correct)
+            setIncorrectIcon(binding.questionStatusIcon1)
+            setCorrectIcon(binding.questionStatusIcon2)
         }
         binding.questionDate1.setTextColor(Color.WHITE)
         binding.questionDate2.setTextColor(Color.WHITE)
 
         enqueueGoNext(gameState)
+    }
+
+    private fun setCorrectIcon(view: ImageView) {
+        view.setImageResource(R.drawable.check_circle_24px)
+        view.imageTintList = ResourceUtil.getThemedColorStateList(this, R.attr.success_color)
+        view.isVisible = true
+    }
+
+    private fun setIncorrectIcon(view: ImageView) {
+        view.setImageResource(R.drawable.ic_cancel_24px)
+        view.imageTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
+        view.isVisible = true
     }
 
     private fun enqueueGoNext(gameState: OnThisDayGameViewModel.GameState) {
@@ -287,29 +331,6 @@ class OnThisDayGameActivity : BaseActivity() {
         goNextAnimatorSet.cancel()
         goNextAnimatorSet.playTogether(translationX)
         goNextAnimatorSet.start()
-    }
-
-    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
-        updateGameState(gameState)
-
-        binding.progressText.isVisible = false
-        binding.scoreText.isVisible = false
-        binding.currentQuestionContainer.isVisible = false
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
-            .addToBackStack(null)
-            .commit()
-    }
-
-    private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
-        updateGameState(gameState)
-        animateThumbnails()
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentOverlayContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
-            .addToBackStack(null)
-            .commit()
     }
 
     private fun animateThumbnails() {

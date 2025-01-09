@@ -108,6 +108,18 @@
             android:paddingBottom="3dp"
             tools:text="Lorem ipsum"/>
 
+        <ImageView
+            android:id="@+id/questionStatusIcon1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintEnd_toEndOf="@id/questionCard1"
+            app:layout_constraintBottom_toBottomOf="@id/questionCard1"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/check_circle_24px"
+            app:tint="?attr/success_color"
+            android:contentDescription="@null" />
+
         <TextView
             android:id="@+id/questionText1"
             android:layout_width="0dp"
@@ -211,6 +223,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="110dp">
         </View>
+
+        <ImageView
+            android:id="@+id/questionStatusIcon2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintEnd_toEndOf="@id/questionCard2"
+            app:layout_constraintTop_toTopOf="@id/questionCard2"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_cancel_24px"
+            app:tint="?attr/destructive_color"
+            android:contentDescription="@null" />
 
         <TextView
             android:id="@+id/questionDate2"
