@@ -40,6 +40,7 @@
   <string name="menu_page_add_to_watchlist">Lââʹzzet valvvâmliʹstte</string>
   <string name="menu_page_unwatch">Jõõsk valvvmest</string>
   <string name="menu_page_view_talk">Čuäʹjet saǥstõõllâmseeid</string>
+  <string name="menu_page_talk_page">Saǥstõõllâmseidd</string>
   <string name="menu_page_view_edit_history">Čuäʹjet muʹttemhistoria.</string>
   <string name="menu_page_edit_history">Muʹttemhistoria</string>
   <string name="menu_page_remove_from_watchlist">Jaukkâd valvvâmliistâst</string>
@@ -315,7 +316,7 @@
   <string name="suggested_edits_learn_more">Lââʹssteâđ</string>
   <string name="suggested_edits_last_edited">Mââimõssân muttum</string>
   <string name="suggested_edits_last_edited_never">Ij ni kuäʹss</string>
-  <string name="suggested_edits_task_new" fuzzy="true">ođđ</string>
+  <string name="suggested_edits_task_new">Ođđ</string>
   <string name="suggested_edits_reactivation_notification_title">Eʹtǩǩuum muttâz</string>
   <string name="suggested_edits_contribution_language_label">Ǩiõll</string>
   <string name="suggested_edits_contribution_image_label">Snimldõk</string>
@@ -347,7 +348,7 @@
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Teâttkäivv</string>
   <string name="insert_media_search_description">Vaʹlljed teâttõõzz Wikimedia Commonsist</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Kartt- leʹbe snimldõkteʹkstt</string>
+  <string name="insert_media_settings_caption">Kartt- leʹbe snimldõkteʹkstt</string>
   <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Snimldõõǥǥâž</string>
   <string name="insert_media_insert_button">Lââʹzzet</string>
@@ -385,7 +386,7 @@
   <string name="menu_option_view_user_talk">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="revision_diff_compare">Verddõõl versioid</string>
   <string name="revision_diff_compare_title">Verddõõl versioid: %s</string>
-  <string name="revision_undo_title" fuzzy="true">Kååʹmet muttâz</string>
+  <string name="revision_undo_title">Haaʹlääk-a ton tuõđi tän muttâz kååʹmted?</string>
   <string name="revision_undo_success">Versio kååʹmteš.</string>
   <string name="revision_rollback_success">Muttâz lie kååʹmtum.</string>
   <string name="revision_compare_button">Verddõõl</string>

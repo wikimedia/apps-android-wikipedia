@@ -1646,13 +1646,6 @@
   <string name="places_card_title">Yakındaki yerler</string>
   <string name="places_card_action">Yakındaki daha fazla yer</string>
   <string name="places_card_distance_unknown">Bilinmeyen mesafe</string>
-  <string name="donor_history_save_button">Kaydet</string>
-  <string name="contributions_dashboard_app_icon_title">Uygulama simgesi</string>
-  <string name="contributions_dashboard_tab_update_button">Güncelle</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Geçici bir özel simgenin kilidini açtınız. Uygulama simgesi altındaki ayarlarınızdan bu simgeye geçebilirsiniz. Simgenizi şimdi güncellemek ister misiniz?</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Hayır, teşekkürler</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Evet, beni Ayarlar\'a götür</string>
-  <string name="contributions_dashboard_app_icon_updated">Uygulama simgesi güncellendi</string>
   <string name="survey_dialog_title">Bu özelliği geliştirmemize yardımcı olun</string>
   <string name="survey_dialog_message">Bu özellikten mutlu musunuz?</string>
   <string name="survey_dialog_option_satisfied">Mutlu</string>
