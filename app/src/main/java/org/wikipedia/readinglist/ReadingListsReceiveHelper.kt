@@ -24,10 +24,18 @@ import java.util.*
 
 object ReadingListsReceiveHelper {
 
+    fun getEmptyTitle(context: Context) = context.getString(R.string.reading_lists_preview_header_title)
+
+    fun getEmptyDescription(context: Context) = DateUtil.getTimeAndDateString(context, Date())
+
     suspend fun receiveReadingLists(context: Context, json: String, encoded: Boolean): ReadingList {
+        return receiveReadingLists(getEmptyTitle(context), getEmptyDescription(context), json, encoded)
+    }
+
+    suspend fun receiveReadingLists(emptyTitle: String, emptyDescription: String, json: String, encoded: Boolean): ReadingList {
         val readingListData = getExportedReadingLists(json, encoded)
-        val listTitle = readingListData?.name.orEmpty().ifEmpty { context.getString(R.string.reading_lists_preview_header_title) }
-        val listDescription = readingListData?.description.orEmpty().ifEmpty { DateUtil.getTimeAndDateString(context, Date()) }
+        val listTitle = readingListData?.name.orEmpty().ifEmpty { emptyTitle }
+        val listDescription = readingListData?.description.orEmpty().ifEmpty { emptyDescription }
         val listPages = mutableListOf<ReadingListPage>()
 
         // Request API by languages

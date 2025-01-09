@@ -1,0 +1,48 @@
+package org.wikipedia.readinglist
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
+import org.wikipedia.database.AppDatabase
+import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.Resource
+
+class ReadingListFragmentViewModel : ViewModel() {
+
+    private val _updateListByIdFlow = MutableSharedFlow<Resource<ReadingListWrapper>>()
+    val updateListByIdFlow = _updateListByIdFlow.asSharedFlow()
+
+    private val _updateList = MutableSharedFlow<Resource<ReadingListWrapper>>()
+    val updateList = _updateList.asSharedFlow()
+
+    fun updateListById(readingListId: Long) {
+         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+             viewModelScope.launch {
+                 _updateListByIdFlow.emit(Resource.Error(throwable))
+             }
+        }) {
+             val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
+             _updateListByIdFlow.emit(Resource.Success(ReadingListWrapper(list)))
+        }
+    }
+
+    fun updateList(emptyTitle: String, emptyDescription: String, encoded: Boolean) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            viewModelScope.launch {
+                _updateList.emit(Resource.Error(throwable))
+            }
+        }) {
+            val json = Prefs.suggestedReadingListsData
+            if (!json.isNullOrEmpty()) {
+                val list = ReadingListsReceiveHelper.receiveReadingLists(emptyTitle, emptyDescription, json, encoded)
+                _updateList.emit(Resource.Success(ReadingListWrapper(list)))
+            }
+        }
+    }
+
+    class ReadingListWrapper(val readingList: ReadingList?)
+}

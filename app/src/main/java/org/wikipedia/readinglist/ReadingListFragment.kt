@@ -21,6 +21,7 @@ import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -31,7 +32,6 @@ import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -59,6 +59,7 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
@@ -74,6 +75,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private var _binding: FragmentReadingListBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: ReadingListFragmentViewModel by viewModels()
 
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
@@ -122,16 +124,57 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                FlowEventBus.events.collectLatest { event ->
-                    when (event) {
-                        is ReadingListSyncEvent -> {
-                            updateReadingListData()
+                launch {
+                    viewModel.updateListByIdFlow.collect { resource ->
+                        when (resource) {
+                            is Resource.Success -> {
+                                binding.readingListSwipeRefresh.isRefreshing = false
+                                readingList = resource.data.readingList
+                                readingList?.let {
+                                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                                }
+                                update()
+                            }
+                            is Resource.Error -> {
+                                // If we failed to retrieve the requested list, it means that the list is no
+                                // longer in the database (likely removed due to sync).
+                                // In this case, there's nothing for us to do, so just bail from the activity.
+                                requireActivity().finish()
+                            }
                         }
-                        is PageDownloadEvent -> {
-                            val pagePosition = getPagePositionInList(event.page)
-                            if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
-                                (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
-                                adapter.notifyItemChanged(pagePosition + 1)
+                    }
+                }
+                launch {
+                    viewModel.updateList.collect { resource ->
+                        when (resource) {
+                            is Resource.Success -> {
+                                readingList = resource.data.readingList
+                                readingList?.let {
+                                    ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
+                                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                                }
+                                update()
+                            }
+                            is Resource.Error -> {
+                                L.e(resource.throwable)
+                                FeedbackUtil.showError(requireActivity(), resource.throwable)
+                                requireActivity().finish()
+                            }
+                        }
+                    }
+                }
+                launch {
+                    FlowEventBus.events.collectLatest { event ->
+                        when (event) {
+                            is ReadingListSyncEvent -> {
+                                updateReadingListData()
+                            }
+                            is PageDownloadEvent -> {
+                                val pagePosition = getPagePositionInList(event.page)
+                                if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
+                                    (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
+                                    adapter.notifyItemChanged(pagePosition + 1)
+                                }
                             }
                         }
                     }
@@ -340,39 +383,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun updateReadingListData() {
         if (isPreview) {
             if (readingList == null) {
-                lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                    L.e(throwable)
-                    FeedbackUtil.showError(requireActivity(), throwable)
-                    requireActivity().finish()
-                }) {
-                    val json = Prefs.suggestedReadingListsData
-                    if (!json.isNullOrEmpty()) {
-                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = !isSuggested)
-                        readingList?.let {
-                            ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
-                            binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                        }
-                        update()
-                    }
-                }
+                val emptyTitle = ReadingListsReceiveHelper.getEmptyTitle(requireContext())
+                val emptyDescription = ReadingListsReceiveHelper.getEmptyDescription(requireContext())
+                viewModel.updateList(emptyTitle, emptyDescription, encoded = !isSuggested)
             } else {
                 update()
             }
         } else {
-            lifecycleScope.launch(CoroutineExceptionHandler { _, _ ->
-                // If we failed to retrieve the requested list, it means that the list is no
-                // longer in the database (likely removed due to sync).
-                // In this case, there's nothing for us to do, so just bail from the activity.
-                requireActivity().finish()
-            }) {
-                val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
-                binding.readingListSwipeRefresh.isRefreshing = false
-                readingList = list
-                readingList?.let {
-                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                }
-                update()
-            }
+            viewModel.updateListById(readingListId)
         }
     }
 
