@@ -23,6 +23,7 @@ import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import kotlin.math.abs
+import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
@@ -67,16 +68,20 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
             allEvents.shuffle(Random(currentMonth * 100 + currentDay))
 
             events.clear()
-            // Take an event from the list, and find another event that is the closest by year.
+            // Take an event from the list, and find another event that is within a certain range
             for (i in 0 until MAX_QUESTIONS) {
                 val event1 = allEvents.removeAt(0)
                 var event2: OnThisDay.Event? = null
-                var minDiff = Int.MAX_VALUE
-                for (event in allEvents) {
-                    val diff = abs(event1.year - event.year)
-                    if (diff < minDiff) {
-                        minDiff = diff
-                        event2 = event
+                var yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
+                event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread}
+                if (event2 == null) {
+                    var minDiff = Int.MAX_VALUE
+                    for (event in allEvents) {
+                        val diff = abs(event1.year - event.year)
+                        if (diff < minDiff) {
+                            minDiff = diff
+                            event2 = event
+                        }
                     }
                 }
                 event2?.let {
