@@ -26,6 +26,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.doubleClick
 import androidx.test.espresso.action.ViewActions.longClick
+import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.action.ViewActions.swipeLeft
@@ -123,17 +124,6 @@ abstract class BaseRobot {
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                     position,
                     longClick()
-                )
-            )
-    }
-
-    protected fun clickOnSpecificItemInList(@IdRes listId: Int, @IdRes itemId: Int, position: Int) {
-        onView(withId(listId))
-            .perform(
-                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position),
-                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                    position,
-                    clickChildViewWithId(itemId)
                 )
             )
     }
@@ -554,6 +544,17 @@ abstract class BaseRobot {
         override fun matchesSafely(view: View): Boolean {
             return view.layoutDirection == View.LAYOUT_DIRECTION_RTL
         }
+    }
+
+    protected fun clickOnSpecificItemInList(@IdRes listId: Int, @IdRes itemId: Int, position: Int) {
+        onView(withId(listId))
+            .perform(
+                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position),
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    clickChildViewWithId(itemId)
+                )
+            )
     }
 
     protected fun assertColorForChildItemInAList(

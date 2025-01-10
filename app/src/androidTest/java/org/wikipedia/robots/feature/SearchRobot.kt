@@ -1,14 +1,24 @@
 package org.wikipedia.robots.feature
 
 import android.util.Log
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
+import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.TestThemeColorType
+import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.theme.Theme
 
 class SearchRobot : BaseRobot() {
     fun tapSearchView() = apply {
@@ -46,6 +56,15 @@ class SearchRobot : BaseRobot() {
         checkWithTextIsDisplayed(R.id.page_list_item_title, expectedTitle)
     }
 
+    fun verifyHistoryArticle(articleTitle: String) = apply {
+        checkWithTextIsDisplayed(R.id.page_list_item_title, articleTitle)
+    }
+
+    fun clickFilterHistoryButton() = apply {
+        clickOnViewWithId(R.id.history_filter)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun removeTextByTappingTrashIcon() = apply {
         onView(withId(androidx.appcompat.R.id.search_close_btn))
             .check(matches(isDisplayed()))
@@ -59,7 +78,7 @@ class SearchRobot : BaseRobot() {
 
     fun clickOnItemFromSearchList(position: Int) = apply {
         clickOnItemInList(R.id.search_results_list, position)
-        delay(TestConfig.DELAY_SHORT)
+        delay(TestConfig.DELAY_LARGE)
     }
 
     fun longClickOnItemFromSearchList(position: Int) = apply {
@@ -75,11 +94,14 @@ class SearchRobot : BaseRobot() {
         clickOnDisplayedViewWithContentDescription("Navigate up")
     }
 
-    fun checkLanguageAvailability(language: String) = apply {
+    fun checkLanguageAvailability(languageCode: String) = apply {
+        val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
         checkViewWithIdAndText(viewId = R.id.language_label, text = language)
+        delay(TestConfig.DELAY_SHORT)
     }
 
-    fun clickLanguage(language: String) = apply {
+    fun clickLanguage(languageCode: String) = apply {
+        val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
         clicksOnDisplayedViewWithText(viewId = R.id.language_label, text = language)
         delay(TestConfig.DELAY_MEDIUM)
     }
@@ -107,5 +129,63 @@ class SearchRobot : BaseRobot() {
     fun goBackToSearchScreen() = apply {
         pressBack()
         pressBack()
+    }
+
+    fun dismissDialogIfShown() = apply {
+        performIfDialogShown(dialogText = "No, thanks", action = {
+            clickOnViewWithText("No, thanks")
+        })
+    }
+
+    fun backToHistoryScreen() = apply {
+        pressBack()
+        pressBack()
+        pressBack()
+    }
+
+    fun swipeToDelete(position: Int, title: String) = apply {
+        onView(withId(R.id.history_list))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    ViewActions.swipeLeft()
+                )
+            )
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun verifyArticleRemoved(title: String) = apply {
+        onView(allOf(withId(R.id.page_list_item_title), withText(title)))
+            .check(doesNotExist())
+    }
+
+    fun clickOnItemFromHistoryList(position: Int) = apply {
+        clickOnItemInList(R.id.history_list, position)
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun longClickOnItemFromHistoryList(position: Int) = apply {
+        longClickOnItemInList(R.id.history_list, position)
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun assertColorOfTitleInTheSearchList(position: Int, theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
+        assertColorForChildItemInAList(
+            listId = R.id.search_results_list,
+            childItemId = R.id.page_list_item_title,
+            position = position,
+            colorResId = color
+        )
+    }
+
+    fun assertColorOfTitleInTheHistoryList(position: Int, theme: Theme) = apply {
+        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
+        assertColorForChildItemInAList(
+            listId = R.id.history_list,
+            childItemId = R.id.page_list_item_title,
+            position = position,
+            colorResId = color
+        )
     }
 }

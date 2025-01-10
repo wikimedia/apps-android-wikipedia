@@ -6,7 +6,6 @@ import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
-import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.ReadingListRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.SettingsRobot
@@ -23,7 +22,6 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
     private val systemRobot = SystemRobot()
     private val savedScreenRobot = SavedScreenRobot()
     private val searchRobot = SearchRobot()
-    private val pageRobot = PageRobot(context)
     private val readingListRobot = ReadingListRobot()
     private val dialogRobot = DialogRobot()
 
@@ -44,7 +42,7 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
         readingListRobot
             .saveArticleToReadingList()
             .addToReadingList(context)
-            .typeNameOfTheList("😎")
+            .typeNameOfTheList("😎", context)
             .saveTheList(context)
             .viewTheList(context)
             .clickOnGotIt()
@@ -70,7 +68,7 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
             .saveArticleToReadingList()
             .addToReadingList(context)
             .clickCreateList()
-            .typeNameOfTheList("😎😍")
+            .typeNameOfTheList("😎😍", context)
             .saveTheList(context)
             .viewTheList(context)
             .verifyArticleHasNotDownloaded()

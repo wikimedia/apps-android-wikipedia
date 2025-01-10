@@ -10,6 +10,7 @@ import org.wikipedia.base.BaseTest
 import org.wikipedia.base.DataInjector
 import org.wikipedia.base.TestConfig
 import org.wikipedia.page.PageActivity
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 
 @LargeTest
@@ -26,9 +27,12 @@ class DeepLinkingTest : BaseTest<PageActivity>(
 ) {
 
     private val pageRobot = PageRobot(context)
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         pageRobot
             .verifySameArticleAppearsAsURL("Apple")
     }
