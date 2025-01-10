@@ -131,12 +131,6 @@ class SearchRobot : BaseRobot() {
         pressBack()
     }
 
-    fun dismissDialogIfShown() = apply {
-        performIfDialogShown(dialogText = "No, thanks", action = {
-            clickOnViewWithText("No, thanks")
-        })
-    }
-
     fun backToHistoryScreen() = apply {
         pressBack()
         pressBack()
