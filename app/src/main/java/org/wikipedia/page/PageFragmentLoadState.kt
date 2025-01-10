@@ -145,10 +145,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 }
                 val watchedRequest = async {
                     if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
+                        println("online: isOnline logged in")
                         ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
                     } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
+                        println("online: isOnline logged out")
                         AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
                     } else {
+                        println("online: is offline")
                         MwQueryResponse()
                     }
                 }

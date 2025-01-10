@@ -48,12 +48,16 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
 
     override fun onAvailable(network: Network) {
         super.onAvailable(network)
-        updateOnlineState()
+        // uncomment this code and comment the online var code and run the test you should see error view
+//        updateOnlineState()
+        online = true
     }
 
     override fun onLost(network: Network) {
         super.onLost(network)
-        updateOnlineState()
+        // uncomment this code and comment the online var code and run the test you should see error view
+//        updateOnlineState()
+        online = false
     }
 
     private fun ensureNetworkCallbackRegistered() {
