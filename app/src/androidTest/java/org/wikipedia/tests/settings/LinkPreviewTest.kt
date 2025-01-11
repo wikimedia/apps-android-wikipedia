@@ -36,7 +36,6 @@ class LinkPreviewTest : BaseTest<MainActivity>(
             .typeTextInView("apple")
             .clickOnItemFromSearchList(0)
         pageRobot
-            .dismissTooltip(activity)
             .clickLink(linkTitle = "Fruit")
             .verifyPreviewDialogAppears()
             .pressBack()
