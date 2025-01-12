@@ -1,5 +1,6 @@
 package org.wikipedia.robots.navigation
 
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -43,14 +44,14 @@ class BottomNavRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun navigateToEdits() = apply {
+    fun navigateToSuggestedEdits() = apply {
         onView(
             allOf(
-                withId(R.id.nav_tab_edits), withContentDescription("Edits"),
+                withId(R.id.nav_tab_edits), withContentDescription(R.string.nav_item_suggested_edits),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed()
             )
         ).perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_LARGE)
     }
 
     fun navigateToMoreMenu() = apply {
@@ -65,8 +66,12 @@ class BottomNavRobot : BaseRobot() {
     }
 
     fun clickLoginMenuItem() = apply {
-        clickOnViewWithId(R.id.main_drawer_login_button)
-        delay(TestConfig.DELAY_MEDIUM)
+        try {
+            clickOnViewWithId(R.id.main_drawer_login_button)
+            delay(TestConfig.DELAY_MEDIUM)
+        } catch (e: Exception) {
+            Log.e("BottomNavRobotError:", "User logged in.")
+        }
     }
 
     fun gotoWatchList() = apply {

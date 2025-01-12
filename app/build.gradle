@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
+    alias(libs.plugins.compose.compiler)
 }
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
@@ -20,7 +21,7 @@ static def computeVersionName(versionCode, label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
 
 android {
-    compileSdk 34
+    compileSdk 35
 
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -36,8 +37,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdk 21
-        targetSdk 34
-        versionCode 50510
+        targetSdk 35
+        versionCode 50515
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -63,6 +64,7 @@ android {
     buildFeatures {
         viewBinding true
         buildConfig true
+        compose true
     }
 
     androidResources {
@@ -263,6 +265,20 @@ dependencies {
     androidTestImplementation libs.androidx.uiautomator
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
+
+    // Compose Library
+    def composeBom = platform(libs.composeBom)
+    implementation(composeBom)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling.preview)
+    debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.compose.activity)
+    implementation(libs.compose.view.model)
+
+    // Compose Test Library
+    androidTestImplementation(libs.compose.test)
+    androidTestImplementation(composeBom)
 }
 
 private setSigningConfigKey(config, Properties props) {

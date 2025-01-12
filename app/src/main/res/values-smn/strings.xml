@@ -288,6 +288,7 @@
   <string name="suggested_edits_task_multilingual_positive">Lasseet kielâid</string>
   <string name="suggested_edits_image_caption_summary_title_image">Kove</string>
   <string name="suggested_edits_image_caption_summary_title_source">Käldee</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Liiseens</string>
   <string name="suggested_edits_feed_card_add_description_button">Lasseet artikkâl kuvvim</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lasseet artikkâl kuvvim (%s)</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kovetekstâ (%s)</string>

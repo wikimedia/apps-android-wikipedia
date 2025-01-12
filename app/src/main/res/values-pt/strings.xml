@@ -1593,5 +1593,5 @@
   <string name="survey_dialog_option_very_satisfied">Muito satisfeito</string>
   <string name="survey_dialog_option_very_unsatisfied">Muito insatisfeito</string>
   <string name="survey_dialog_submit">Enviar</string>
-  <string name="survey_dialog_submitted_snackbar">Comentário enviado.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Comentário enviado.</string>
 </resources>

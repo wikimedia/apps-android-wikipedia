@@ -710,17 +710,6 @@
   <string name="places_card_action">نیڑے دیاں ٻیاں جاہیں</string>
   <string name="places_card_enable_location_card_button">لوکیشن فعال کرو</string>
   <string name="places_card_distance_unknown">نامعلوم فاصلہ</string>
-  <string name="donor_history_save_button">محفوظ کرو</string>
-  <string name="donor_history_last_donated_date_picker_title">تریخ چݨو</string>
-  <string name="donor_history_last_donated_date_picker_label">تریخ درج کرو</string>
-  <string name="donor_history_last_donated_never">کݙاہیں وی کائناں</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">کو، شکریہ</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">کو، شکریہ</string>
-  <string name="contributions_dashboard_badge_donor">ڈونر</string>
-  <string name="contributions_dashboard_app_icon_title">ایپ آئیکان</string>
-  <string name="contributions_dashboard_tab_update_button">اپ ڈیٹ</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">کو، شکریہ</string>
-  <string name="contributions_dashboard_app_icon_updated">ایپ آئیکان اپ ڈیٹ تھی ڳیا</string>
   <string name="rabbit_holes_experiment">تجربہ</string>
   <string name="survey_dialog_option_very_satisfied">ݙاڈھا تسلی بخش</string>
   <string name="survey_dialog_submit">جمع کرواؤ</string>

@@ -1450,10 +1450,6 @@
   <string name="places_toggle_buttons_map">नक्शा</string>
   <string name="places_toggle_buttons_list">लिस्ट</string>
   <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
-  <string name="donor_history_save_button">सहेजें</string>
-  <string name="donor_history_last_donated_date_picker_title">तिथि चुनें</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">नहीं, धन्यवाद</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">नहीं, धन्यवाद</string>
   <string name="suggested_reading_list_dialog_negative">शायद बाद में</string>
   <string name="survey_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
   <string name="survey_dialog_option_satisfied">संतुष्ट</string>
@@ -1462,5 +1458,5 @@
   <string name="survey_dialog_option_very_satisfied">बहुत संतुष्ट</string>
   <string name="survey_dialog_option_very_unsatisfied">बहुत असंतुष्ट</string>
   <string name="survey_dialog_submit">जमा करें</string>
-  <string name="survey_dialog_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">फीडबैक जमा किया गया. धन्यवाद!</string>
 </resources>

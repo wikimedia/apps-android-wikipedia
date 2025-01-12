@@ -265,7 +265,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         // automatically trigger the showing of the corresponding search results.
         if (!query.isNullOrBlank()) {
             binding.searchCabView.setQuery(query, false)
-            binding.searchCabView.selectAllQueryTexts()
         }
     }
 
@@ -302,7 +301,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnCloseListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
                 R.attr.secondary_color))
-        binding.searchCabView.queryHint = getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint else R.string.search_hint)
+
+        binding.searchCabView.queryHint =
+            getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint else R.string.search_hint)
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
@@ -349,7 +350,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
         private const val INTENT_DELAY_MILLIS = 500L
-        const val RESULT_LANG_CHANGED = 1
+        const val RESULT_LANG_CHANGED = 98
 
         fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false): SearchFragment =
                 SearchFragment().apply {

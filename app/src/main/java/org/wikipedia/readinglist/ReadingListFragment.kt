@@ -103,7 +103,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, true)
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
+
         isPreview = requireArguments().getBoolean(ReadingListActivity.EXTRA_READING_LIST_PREVIEW, false)
+
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
@@ -262,7 +264,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setPreviewMode(isPreview)
 
         if (isPreview) {
-            headerView.previewSaveButton.setOnClickListener {
+            headerView.saveClickListener = View.OnClickListener {
                 previewSaveDialog()
             }
             return
@@ -321,14 +323,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun updateReadingListData() {
         if (isPreview) {
             if (readingList == null) {
-                val encodedJson = Prefs.receiveReadingListsData
-                if (!encodedJson.isNullOrEmpty()) {
-                    lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                        L.e(throwable)
-                        FeedbackUtil.showError(requireActivity(), throwable)
-                        requireActivity().finish()
-                    }) {
-                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
+                lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                    L.e(throwable)
+                    FeedbackUtil.showError(requireActivity(), throwable)
+                    requireActivity().finish()
+                }) {
+                    val json = Prefs.receiveReadingListsData
+                    if (!json.isNullOrEmpty()) {
+                        readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = true)
                         readingList?.let {
                             ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
                             binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
@@ -486,6 +488,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
                     Prefs.readingListRecentReceivedId = it.id
+
                     requireActivity().startActivity(MainActivity.newIntent(requireContext())
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                     requireActivity().finish()
@@ -620,7 +623,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
     }
 
-    private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
+    private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
             view.setPreviewMode(isPreview)
@@ -630,7 +633,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         override val view get() = itemView as ReadingListItemView
     }
 
-    private inner class ReadingListPageItemHolder constructor(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView), SwipeableItemTouchHelperCallback.Callback {
+    private inner class ReadingListPageItemHolder(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView), SwipeableItemTouchHelperCallback.Callback {
         private lateinit var page: ReadingListPage
         fun bindItem(page: ReadingListPage) {
             this.page = page

@@ -158,6 +158,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
+
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
@@ -300,10 +301,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
-            // If the number of lists has changed, just invalidate everything, as a
-            // simple way to get the bottom item margin to apply to the correct item.
-            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
-                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
@@ -312,27 +309,34 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 lists.removeAt(0)
             }
 
-            // Asynchronous update fo lists affects the multiselect process
-            if (!isTagType(actionMode)) {
-                displayedLists = lists
+            // If the number of lists has changed, just invalidate everything, as a
+            // simple way to get the bottom item margin to apply to the correct item.
+            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
+                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
+
+            lifecycleScope.launch {
+                // Asynchronous update of lists affects the multiselect process
+                if (!isTagType(actionMode)) {
+                    displayedLists = lists
+                }
+
+                if (invalidateAll) {
+                    adapter.notifyDataSetChanged()
+                } else {
+                    result.dispatchUpdatesTo(adapter)
+                }
+
+                recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
+                    .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+
+                binding.swipeRefreshLayout.isRefreshing = false
+                maybeShowListLimitMessage()
+                updateEmptyState(searchQuery)
+                maybeDeleteListFromIntent()
+                maybeShowPreviewSavedReadingListsSnackbar()
+                currentSearchQuery = searchQuery
+                maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
             }
-
-            if (invalidateAll) {
-                adapter.notifyDataSetChanged()
-            } else {
-                result.dispatchUpdatesTo(adapter)
-            }
-
-            recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
-                .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
-
-            binding.swipeRefreshLayout.isRefreshing = false
-            maybeShowListLimitMessage()
-            updateEmptyState(searchQuery)
-            maybeDeleteListFromIntent()
-            maybeShowPreviewSavedReadingListsSnackbar()
-            currentSearchQuery = searchQuery
-            maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
         }
     }
 
@@ -386,16 +390,20 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         sortListsBy(position)
     }
 
-    private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
+    private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
-            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode, readingList.id == recentPreviewSavedReadingList?.id)
+            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode,
+                newImport = readingList.id == recentPreviewSavedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
+            view.saveClickListener = View.OnClickListener {
+                startActivity(ReadingListActivity.newIntent(requireActivity(), true))
+            }
         }
 
         override val view get() = itemView as ReadingListItemView
     }
 
-    private inner class ReadingListPageItemHolder constructor(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView) {
+    private inner class ReadingListPageItemHolder(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView) {
         fun bindItem(page: ReadingListPage) {
             view.item = page
             view.setTitle(page.displayTitle)
@@ -420,9 +428,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private inner class ReadingListAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
         override fun getItemViewType(position: Int): Int {
             return if (displayedLists[position] is ReadingList) {
-                Companion.VIEW_TYPE_ITEM
+                VIEW_TYPE_ITEM
             } else {
-                Companion.VIEW_TYPE_PAGE_ITEM
+                VIEW_TYPE_PAGE_ITEM
             }
         }
 
@@ -431,7 +439,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
-            return if (viewType == Companion.VIEW_TYPE_ITEM) {
+            return if (viewType == VIEW_TYPE_ITEM) {
                 ReadingListItemHolder(ReadingListItemView(requireContext()))
             } else {
                 ReadingListPageItemHolder(PageItemView(requireContext()))

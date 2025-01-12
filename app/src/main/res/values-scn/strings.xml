@@ -2,6 +2,8 @@
 <!-- Authors:
 * Ajeje Brazorf
 * Dbrant
+* GianAntonucci
+* Gmelfi
 * Statix64
 -->
 <resources>
@@ -106,7 +108,7 @@
   <string name="edit_save_action_license_anon">Pubbricannu, accetti li nostri &lt;a href=\"%1$s\"&gt;cunnizzioni d\'usu&lt;/a&gt; e accetti di rilassari li tò cuntribbuti sutta la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Li canciamenti vinirannu attribbuiti ô nnirizzu IP dû tò dispusitivu. Si &lt;a href=\"https://#login\"&gt;trasi&lt;/a&gt; avirrai majuri privacy.</string>
   <string name="edit_anon_warning">Li canciamenti vinirannu attribbuiti ô nnirizzu IP dû tò dispusitivu. Si &lt;a href=\"https://#login\"&gt;trasi&lt;/a&gt; avirrai majuri privacy.</string>
   <string name="preference_title_language">Lingui di Wikipedia</string>
-  <string name="langlinks_filter_hint">Risciduta</string>
+  <string name="langlinks_filter_hint">Va\' cerca</string>
   <string name="langlinks_empty">Sta pàggina nun è dispunìbbili n àutri lingui.</string>
   <string name="langlinks_no_match">Nuḍḍa lingua attruvata</string>
   <string name="langlinks_activity_title">Àutri lingui</string>
@@ -282,7 +284,7 @@
   <string name="notifications_swipe_action_read">Leggi</string>
   <string name="notifications_menu_user_talk_page">Pàggina di discussioni di %s</string>
   <string name="view_main_page_card_title">Oi supra Wikipedia</string>
-  <string name="view_main_page_card_action">Talìa la pàggina principali</string>
+  <string name="view_main_page_card_action">Talìa a pàggina mastra</string>
   <string name="view_featured_image_card_title">Mmàggini dû jornu</string>
   <string name="view_featured_image_card_download">Scàrrica</string>
   <string name="view_featured_image_card_share">Cunnividi</string>
