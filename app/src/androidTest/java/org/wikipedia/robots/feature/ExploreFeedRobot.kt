@@ -211,6 +211,20 @@ class ExploreFeedRobot : BaseRobot() {
         )).check(ColorAssertions.hasColor(color, ColorAssertions.ColorType.TextColor))
     }
 
+    fun longClickFeaturedArticleCardContainer() = apply {
+        makeViewVisibleAndLongClick(viewId = R.id.view_featured_article_card_content_container, parentViewId = R.id.feed_view)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickSave() = apply {
+        try {
+            clickOnViewWithText("Save")
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: Exception) {
+            Log.e("ExploreFeedRobotError:", "Save text is not found.")
+        }
+    }
+
     private fun scrollToCardViewWithTitle(
         title: String,
         @IdRes textViewId: Int = R.id.view_card_header_title,

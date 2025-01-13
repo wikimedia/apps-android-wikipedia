@@ -33,6 +33,7 @@ data class DataInjector(
     val overrideEditsContribution: Int? = null,
     val intentBuilder: (Intent.() -> Unit)? = null,
     val showOneTimeCustomizeToolbarTooltip: Boolean = false,
+    val readingListShareTooltipShown: Boolean = true
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -54,6 +55,7 @@ abstract class BaseTest<T : AppCompatActivity>(
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
         Prefs.showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
+        Prefs.readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }
