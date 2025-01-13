@@ -1668,9 +1668,6 @@
   <string name="places_card_distance_suffix">距離 %s</string>
   <string name="places_card_distance_unknown">不明な距離</string>
   <string name="places_empty_message_snackbar">付近の記事はありません。地図をズームアウトして移動してみてください。</string>
-  <string name="recent_searches_title">最近の検索</string>
-  <string name="suggested_reading_list_dialog_positive">今すぐ試す</string>
-  <string name="suggested_reading_list_dialog_negative">あとで</string>
   <string name="survey_dialog_title">この機能の改善にご協力ください</string>
   <string name="survey_dialog_message">この機能に満足していますか?</string>
   <string name="survey_dialog_option_satisfied">満足した</string>
