@@ -278,7 +278,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
 
     private fun makeUrlRequest(wiki: WikiSite, url: String, pageTitle: PageTitle): Request.Builder {
         return Request.Builder().cacheControl(OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
-                .addHeader("Accept-Language", WikipediaApp.instance.getAcceptLanguage(pageTitle.wikiSite, false))
+                .addHeader("Accept-Language", WikipediaApp.instance.getAcceptLanguage(pageTitle.wikiSite))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.wikiSite.languageCode)
                 .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.prefixedText))
