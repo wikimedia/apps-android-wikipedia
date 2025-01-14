@@ -6,6 +6,8 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.savedpages.SavedPageSyncService
@@ -53,7 +55,9 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
 
     override fun onLost(network: Network) {
         super.onLost(network)
-        updateOnlineState()
+        Handler(Looper.getMainLooper()).postDelayed({
+            updateOnlineState()
+        }, 100)
     }
 
     private fun ensureNetworkCallbackRegistered() {
