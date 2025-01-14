@@ -1667,9 +1667,6 @@
   <string name="places_card_distance_suffix">%s päässä</string>
   <string name="places_card_distance_unknown">Tuntematon etäisyys</string>
   <string name="places_empty_message_snackbar">Lähistöllä ei ole artikkeleita. Kokeile loitontaa ja siirtää karttaa.</string>
-  <string name="recent_searches_title">Viimeisimmät haut</string>
-  <string name="suggested_reading_list_dialog_positive">Kokeile nyt</string>
-  <string name="suggested_reading_list_dialog_negative">Ehkä myöhemmin</string>
   <string name="survey_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
   <string name="survey_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="survey_dialog_option_satisfied">Tyytyväinen</string>

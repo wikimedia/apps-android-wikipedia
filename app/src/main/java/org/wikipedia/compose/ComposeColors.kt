@@ -1,8 +1,8 @@
-package org.wikipedia.theme
+package org.wikipedia.compose
 
 import androidx.compose.ui.graphics.Color
 
-object ThemeColors {
+object ComposeColors {
     val White = Color(0xFFFFFFFF)
 
     val Black = Color(0xFF000000)

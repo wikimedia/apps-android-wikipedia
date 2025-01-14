@@ -2,7 +2,9 @@ package org.wikipedia.base
 
 import android.app.Activity
 import android.graphics.Rect
+import android.os.SystemClock
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.ListView
@@ -12,14 +14,17 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
+import androidx.test.espresso.action.ViewActions.doubleClick
 import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
@@ -51,6 +56,8 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.anything
+import org.hamcrest.Matchers.containsString
 import org.hamcrest.Matchers.not
 import org.hamcrest.TypeSafeMatcher
 import org.wikipedia.R
@@ -59,7 +66,6 @@ import org.wikipedia.TestUtil.waitOnId
 import java.util.concurrent.TimeUnit
 
 abstract class BaseRobot {
-
     protected fun clickOnViewWithIdAndContainsString(@IdRes viewId: Int, text: String) {
         onView(allOf(
             withId(viewId),
@@ -121,6 +127,15 @@ abstract class BaseRobot {
             )
     }
 
+    protected fun doubleClickOnViewWithId(@IdRes viewId: Int) {
+        onView(
+            allOf(
+                withId(viewId),
+                isDisplayed()
+            )
+        ).perform(doubleClick())
+    }
+
     protected fun scrollToView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(scrollTo())
     }
@@ -151,6 +166,11 @@ abstract class BaseRobot {
 
     protected fun checkViewWithIdDisplayed(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(isDisplayed()))
+    }
+
+    protected fun checkPartialString(text: String) {
+        onView(withText(containsString(text)))
+            .check(matches(isDisplayed()))
     }
 
     protected fun isViewWithTextVisible(text: String): Boolean {
@@ -221,23 +241,32 @@ abstract class BaseRobot {
             .check(matches(matcher))
     }
 
+    protected fun verifyMessageOfSnackbar(text: String) {
+        onView(
+            allOf(
+                withId(com.google.android.material.R.id.snackbar_text),
+                withText(text)
+            )).check(matches(isDisplayed()))
+    }
+
     protected fun swipeDownOnTheWebView(@IdRes viewId: Int) {
         onView(withId(viewId)).perform(TestUtil.swipeDownWebView())
         delay(TestConfig.DELAY_LARGE)
     }
 
-    protected fun performIfDialogShown(
+    protected fun clickIfDialogShown(
         dialogText: String,
-        action: () -> Unit
+        errorString: String
     ) {
         try {
             onView(withText(dialogText))
+                .perform(waitForAsyncLoading())
                 .inRoot(isDialog())
-                .check(matches(isDisplayed()))
-            action()
+                .perform(click())
+        } catch (e: NoMatchingViewException) {
+            Log.e("BaseRobot", "$errorString")
         } catch (e: Exception) {
-            // Dialog not shown or text not found
-            Log.e("error", "")
+            Log.e("BaseRobot", "Unexpected Error: ${e.message}")
         }
     }
 
@@ -436,6 +465,64 @@ abstract class BaseRobot {
             .check(matches(atPosition(0, isLayoutDirectionRTL())))
     }
 
+    protected fun clickXY(x: Int, y: Int): ViewAction {
+        return object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return isDisplayed()
+            }
+
+            override fun getDescription(): String {
+                return "Click at coordinates: $x, $y"
+            }
+
+            override fun perform(uiController: UiController, view: View) {
+                uiController.injectMotionEvent(
+                    MotionEvent.obtain(
+                    SystemClock.uptimeMillis(),
+                    SystemClock.uptimeMillis(),
+                    MotionEvent.ACTION_DOWN,
+                    x.toFloat(),
+                    y.toFloat(),
+                    0
+                ))
+
+                uiController.injectMotionEvent(
+                    MotionEvent.obtain(
+                    SystemClock.uptimeMillis(),
+                    SystemClock.uptimeMillis(),
+                    MotionEvent.ACTION_UP,
+                    x.toFloat(),
+                    y.toFloat(),
+                    0
+                ))
+            }
+        }
+    }
+
+    protected fun clickOnListView(@IdRes viewId: Int, @IdRes childView: Int, position: Int) = apply {
+        onData(anything())
+            .inAdapterView(withId(viewId))
+            .atPosition(position)
+            .onChildView(withId(childView))
+            .perform(click())
+    }
+
+    protected fun waitForAsyncLoading(): ViewAction {
+        return object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return isDisplayed()
+            }
+
+            override fun getDescription(): String {
+                return "wait for async loading"
+            }
+
+            override fun perform(uiController: UiController, view: View?) {
+                uiController.loopMainThreadForAtLeast(2000)
+            }
+        }
+    }
+
     private fun atPosition(position: Int, matcher: Matcher<View>) = object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
         override fun describeTo(description: Description) {
             description.appendText("has item at position $position")
@@ -482,6 +569,49 @@ abstract class BaseRobot {
                 ColorAssertions.hasColor(colorResId, colorType)
                     .check(view, null)
             }))
+    }
+
+    protected fun checkImageIsVisibleInsideARecyclerView(@IdRes listId: Int,
+                                                         @IdRes childItemId: Int,
+                                                         position: Int) {
+        onView(withId(listId))
+            .check(matchesAtPosition(position, targetViewId = childItemId, assertion = { view ->
+                matches(isDisplayed())
+            }))
+    }
+
+    protected fun scrollToImageInWebView(imageIndex: Int): ViewAction {
+        val scrollScript = """
+            (function findContentImages() {
+                const contentImages = Array.from(document.querySelectorAll('img'))
+                    .filter(img => img.complete && img.naturalWidth > 100 && img.naturalHeight > 100)
+                if (contentImages.length > $imageIndex) {
+                    contentImages[$imageIndex].scrollIntoView({ behavior: 'smooth', block: 'center' })
+                    return 'success'
+                }
+                return 'image not found'
+            })()
+        """.trimIndent()
+        return ExecuteJavascriptAction(scrollScript)
+    }
+
+    protected fun performActionIfSnackbarVisible(
+        text: String,
+        action: () -> Unit
+    ) = apply {
+        try {
+            onView(
+                allOf(
+                    withId(com.google.android.material.R.id.snackbar_text),
+                    withText(text)
+                )
+            ).check(matches(isDisplayed()))
+            action.invoke()
+        } catch (e: NoMatchingViewException) {
+            Log.e("BaseRobot", "No snackbar visible, skipping action")
+        } catch (e: Exception) {
+            Log.e("BaseRobot", "Unexpected error: ${e.message}")
+        }
     }
 
     private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {

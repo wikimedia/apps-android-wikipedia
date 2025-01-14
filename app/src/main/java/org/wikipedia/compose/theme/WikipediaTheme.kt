@@ -1,4 +1,4 @@
-package org.wikipedia.compose
+package org.wikipedia.compose.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
@@ -9,7 +9,7 @@ enum class WikipediaThemeType {
 }
 
 @Composable
-fun MainTheme(
+fun BaseTheme(
     wikipediaThemeType: WikipediaThemeType = WikipediaThemeType.SYSTEM,
     content: @Composable () -> Unit
 ) {

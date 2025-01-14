@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
@@ -26,9 +27,19 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
+    fun clickSearchFromPageView() = apply {
+        clickOnViewWithId(viewId = R.id.page_toolbar_button_search)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun clickSearchContainer() = apply {
         // Click the Search box
         clickOnDisplayedView(R.id.search_container)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickSearchInsideSearchFragment() = apply {
+        clickOnViewWithId(R.id.search_cab_view)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -70,6 +81,11 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_LARGE)
     }
 
+    fun longClickOnItemFromSearchList(position: Int) = apply {
+        longClickOnItemInList(R.id.search_results_list, position)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun verifyRecentSearchesAppears() = apply {
         checkViewWithTextDisplayed("Recent searches:")
     }
@@ -94,6 +110,17 @@ class SearchRobot : BaseRobot() {
         checkRTLDirectionOfRecyclerViewItem(R.id.search_results_list)
     }
 
+    fun clickSave(action: ((isSaved: Boolean) -> Unit)? = null) = apply {
+        try {
+            clickOnViewWithText("Save")
+            delay(TestConfig.DELAY_SHORT)
+            action?.invoke(true)
+        } catch (e: Exception) {
+            Log.e("SearchRobotError:", "Already saved.")
+            action?.invoke(false)
+        }
+    }
+
     fun pressBack() = apply {
         goBack()
         delay(TestConfig.DELAY_SHORT)
@@ -102,12 +129,6 @@ class SearchRobot : BaseRobot() {
     fun goBackToSearchScreen() = apply {
         pressBack()
         pressBack()
-    }
-
-    fun dismissDialogIfShown() = apply {
-        performIfDialogShown(dialogText = "No, thanks", action = {
-            clickOnViewWithText("No, thanks")
-        })
     }
 
     fun backToHistoryScreen() = apply {

@@ -26,7 +26,7 @@ class DeepLinkingTest : BaseTest<PageActivity>(
     )
 ) {
 
-    private val pageRobot = PageRobot()
+    private val pageRobot = PageRobot(context)
     private val systemRobot = SystemRobot()
 
     @Test

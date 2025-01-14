@@ -55,12 +55,6 @@ class StringUtilTest {
     }
 
     @Test
-    fun testStrip() {
-        MatcherAssert.assertThat(StringUtil.strip("test"), Matchers.`is`("test"))
-        MatcherAssert.assertThat(StringUtil.strip(" test  "), Matchers.`is`("test"))
-    }
-
-    @Test
     fun testIntToHexStr() {
         MatcherAssert.assertThat(StringUtil.intToHexStr(1), Matchers.`is`("x00000001"))
     }
