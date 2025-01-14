@@ -67,8 +67,8 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
 
-        if (shouldShowDeleteLocalDonationHistoryPreference) {
-            deleteLocalDonationHistory()
+        if (Prefs.donationResults.isNotEmpty()) {
+            setupDeleteLocalDonationHistoryPreference()
         }
     }
 
@@ -76,24 +76,22 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
     }
 
-    private val shouldShowDeleteLocalDonationHistoryPreference get() = Prefs.donationResults.isNotEmpty()
-
-    private fun deleteLocalDonationHistory() {
+    private fun setupDeleteLocalDonationHistoryPreference() {
         findPreference(R.string.preference_key_delete_local_donation_history).let {
             it.isVisible = true
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
                 MaterialAlertDialogBuilder(activity)
-                    .setTitle(activity.getString(R.string.dialog_confirm_delete_donor_history_title))
-                    .setMessage(activity.getString(R.string.dialog_confirm_delete_donor_history_message))
-                    .setPositiveButton(R.string.dialog_confirm_delete_donor_history_delete) { _, _ ->
+                    .setTitle(activity.getString(R.string.dialog_confirm_delete_donation_history_title))
+                    .setMessage(activity.getString(R.string.dialog_confirm_delete_donation_history_message))
+                    .setPositiveButton(R.string.dialog_confirm_delete_donation_history_delete) { _, _ ->
                         Prefs.donationResults = emptyList()
                         FeedbackUtil.showMessage(
                             activity,
-                            R.string.donor_history_deleted_message_snackbar
+                            R.string.donation_history_deleted_message_snackbar
                         )
                         preference.isVisible = false
                     }
-                    .setNegativeButton(R.string.dialog_confirm_delete_donor_history_cancel, null)
+                    .setNegativeButton(R.string.dialog_confirm_delete_donation_history_cancel, null)
                     .show()
                 true
             }
