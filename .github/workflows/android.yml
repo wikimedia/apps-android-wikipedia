@@ -33,7 +33,7 @@ jobs:
         keyPassword: ${{ secrets.KEY_PASSWORD }}
       env:
         # override default build-tools (optional)
-        BUILD_TOOLS_VERSION: "35.0.1"
+        BUILD_TOOLS_VERSION: "35.0.0"
     - name: Create hash
       run: git rev-parse HEAD > app/build/outputs/apk/alpha/release/rev-hash.txt
     - name: Rename APK to universal
