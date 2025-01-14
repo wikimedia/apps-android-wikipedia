@@ -45,7 +45,6 @@ object ComposeStyles {
         fontWeight = FontWeight.Normal
     )
 
-
     val P = H3.copy(fontWeight = FontWeight.Normal)
 
     val P_Article = P.copy(lineHeight = 28.sp)
