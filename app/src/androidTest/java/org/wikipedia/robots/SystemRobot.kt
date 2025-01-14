@@ -24,6 +24,16 @@ class SystemRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun turnOffInternet() = apply {
+        TestUtil.toggleInternet(false)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun turnOnInternet() = apply {
+        TestUtil.toggleInternet(true)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun clickOnSystemDialogWithText(text: String) = apply {
         try {
             val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())

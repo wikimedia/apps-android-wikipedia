@@ -123,6 +123,17 @@ object TestUtil {
         device.pressBack()
     }
 
+    fun toggleInternet(enabled: Boolean, delaySecAfter: Long = 1) {
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        if (enabled) {
+            device.executeShellCommand("svc wifi enable")
+            device.executeShellCommand("svc data enable")
+        } else {
+            device.executeShellCommand("svc wifi disable")
+            device.executeShellCommand("svc data disable")
+        }
+    }
+
     internal class WithGrandparentMatcher constructor(private val grandparentMatcher: Matcher<View>) : TypeSafeMatcher<View>() {
         override fun describeTo(description: Description) {
             description.appendText("has grandparent matching: ")
