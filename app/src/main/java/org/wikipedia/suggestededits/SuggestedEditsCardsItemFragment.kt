@@ -154,7 +154,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             sourceSummaryForEdit!!.description!!.ifEmpty { getString(R.string.suggested_edits_no_description) }
         }
 
-        binding.viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
+        binding.viewArticleSubtitle.text = StringUtil.removeHTMLTags(descriptionText).trim()
         binding.viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummaryForEdit?.displayTitle.orEmpty()))
 
         if (!sourceSummaryForEdit?.user.isNullOrEmpty()) {

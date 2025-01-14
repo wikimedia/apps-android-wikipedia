@@ -1519,6 +1519,10 @@
   <string name="talk_templates_edit_message_dialog_delete">Slet</string>
   <string name="talk_templates_edit_message_updated">Beskeden er blevet opdateret</string>
   <string name="talk_templates_menu_remove_message">Fjern besked</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Er du sikker på, at du vil slette beskeden fra listen?</item>
+    <item quantity="other">Er du sikker på, at du vil slette beskederne fra listen?</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Beskeden er slettet</item>
     <item quantity="other">Beskederne er slettet</item>
@@ -1573,20 +1577,26 @@
   <string name="patroller_tasks_filters_contribution_quality_bad_desc">Meget nøjagtig til at finde de mest åbenlyst fejlbehæftede eller skadelige redigeringer.</string>
   <string name="patroller_tasks_filters_user_intent_header">Forudsigelser om brugerens hensigter</string>
   <string name="patroller_tasks_filters_user_intent_good">Højst sandsynligt gjort med gode hensigter</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Meget præcis til at finde næsten alle problemfri redigeringer.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Kan være i ond tro</string>
   <string name="patroller_tasks_filters_user_intent_may_problems_desc">Finder de fleste ondsindede redigeringer, men har også en lavere nøjagtighed.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Sandsynligvis ond tro</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Med middel nøjagtighed, finder en del af problemredigeringerne.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Højst sandsynligvis dårlig intention</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Meget nøjagtig til at finde de mest åbenlyse fejlbehæftede eller skadelige redigeringer.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Prøv at fjerne %s for at se flere redigeringer</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filtre</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artiklens redigeringshistorik</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Tilbageføring fuldført</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Er du sikker på, at du vil rulle ændringerne tilbage?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Tilbageføring fuldført</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Vis</string>
   <string name="patroller_tasks_overflow_report">Problem med funktionen</string>
   <string name="patroller_tasks_overflow_learn">Lær mere</string>
+  <string name="patroller_onboarding_one_title">Bidrag til overvågning og godkendelse af Wikipedia-redigeringer.</string>
   <string name="patroller_onboarding_two_thank_title">Tak</string>
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Tak en bruger for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåg</string>
