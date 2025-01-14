@@ -18,6 +18,7 @@ import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
+import org.wikipedia.util.log.L
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
@@ -51,6 +52,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
     fun loadGameState() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
             _gameState.postValue(Resource.Error(throwable))
         }) {
             _gameState.postValue(Resource.Loading())
@@ -69,7 +71,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
             events.clear()
             // Take an event from the list, and find another event that is within a certain range
-            for (i in 0 until MAX_QUESTIONS) {
+            for (i in 0 until Prefs.otdGameQuestionsPerDay) {
                 val event1 = allEvents.removeAt(0)
                 var event2: OnThisDay.Event? = null
                 var yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
@@ -141,9 +143,9 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     fun submitCurrentResponse(selectedYear: Int) {
         if (currentState.currentQuestionState.goToNext) {
             val nextQuestionIndex = currentState.currentQuestionIndex + 1
-            currentState = currentState.copy(currentQuestionState = composeQuestionState(nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
 
             if (nextQuestionIndex >= currentState.totalQuestions) {
+                currentState = currentState.copy(currentQuestionIndex = nextQuestionIndex)
                 // push today's answers to the history map
                 val map = currentState.answerStateHistory.toMutableMap()
                 if (!map.containsKey(currentDate.year))
@@ -159,6 +161,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
 
                 _gameState.postValue(GameEnded(currentState))
             } else {
+                currentState = currentState.copy(currentQuestionState = composeQuestionState(nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
                 _gameState.postValue(CurrentQuestion(currentState))
             }
         } else {
