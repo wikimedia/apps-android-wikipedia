@@ -32,7 +32,7 @@ jobs:
         keyPassword: ${{ secrets.KEY_PASSWORD }}
       env:
         # override default build-tools version (33.0.0) -- optional
-        BUILD_TOOLS_VERSION: "34.0.0"
+        BUILD_TOOLS_VERSION: "35.0.1"
     - uses: actions/upload-artifact@v4
       name: Upload APK artifact
       with:
