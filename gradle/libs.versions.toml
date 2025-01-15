@@ -18,6 +18,7 @@ googlePayVersion = "19.4.0"
 googleServices = "4.4.2"
 gradle = "8.8.0"
 hamcrest = "3.0"
+hcaptcha = "4.0.3"
 installreferrer = "2.2"
 jsoup = "1.18.3"
 junit = "4.13.2"
@@ -81,6 +82,7 @@ glide-ksp = { module = "com.github.bumptech.glide:ksp", version.ref = "glideVers
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+hcaptcha = { module = "com.github.hCaptcha.hcaptcha-android-sdk:sdk", version.ref = "hcaptcha" }
 installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 junit = { module = "junit:junit", version.ref = "junit" }

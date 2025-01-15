@@ -195,6 +195,7 @@ dependencies {
     implementation libs.drawerlayout
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
+    implementation libs.hcaptcha
     implementation libs.metrics.platform
 
     implementation libs.glide
