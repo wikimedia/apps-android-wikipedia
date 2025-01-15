@@ -1,6 +1,7 @@
 package org.wikipedia.feed.onboarding
 
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.util.GeoUtil
@@ -14,7 +15,8 @@ class YIROnboardingCard(announcement: Announcement) : OnboardingCard(announcemen
 
     override fun shouldShow(): Boolean {
         return super.shouldShow() &&
-                LocalDate.now() <= LocalDate.of(2025, 2, 31) &&
+                WikipediaApp.instance.appOrSystemLanguageCode == "en" &&
+                LocalDate.now() <= LocalDate.of(2025, 2, 28) &&
                 !excludedCountries.contains(GeoUtil.geoIPCountry)
     }
 
