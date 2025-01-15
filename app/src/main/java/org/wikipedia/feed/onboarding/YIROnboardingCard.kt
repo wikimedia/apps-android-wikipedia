@@ -14,7 +14,7 @@ class YIROnboardingCard(announcement: Announcement) : OnboardingCard(announcemen
 
     override fun shouldShow(): Boolean {
         return super.shouldShow() &&
-                LocalDate.now() <= LocalDate.of(2025, 1, 31) &&
+                LocalDate.now() <= LocalDate.of(2025, 2, 31) &&
                 !excludedCountries.contains(GeoUtil.geoIPCountry)
     }
 
