@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.Modifier
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
@@ -25,6 +27,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
@@ -143,6 +146,31 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         super.onCreate(savedInstanceState)
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (invokeSource == Constants.InvokeSource.SETTINGS) {
+            binding.themeChooserCompose.isVisible = true
+            binding.themeChooserXML.isVisible = false
+            binding.themeChooserCompose.setContent {
+                BaseTheme {
+                    ThemeChooserButtons(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        onThemeClick = { selectedTheme ->
+                            if (app.currentTheme !== selectedTheme.theme) {
+                                appearanceSettingInteractionEvent.logThemeChange(app.currentTheme, selectedTheme.theme)
+                                app.currentTheme = selectedTheme.theme
+                            }
+                        }
+                    )
+                }
+            }
+        } else {
+            binding.themeChooserXML.isVisible = true
+            binding.themeChooserCompose.isVisible = false
+        }
     }
 
     override fun onDestroyView() {

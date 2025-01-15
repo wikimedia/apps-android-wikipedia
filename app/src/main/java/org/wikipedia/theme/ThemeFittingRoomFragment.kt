@@ -41,7 +41,6 @@ class ThemeFittingRoomFragment : Fragment() {
                 }
             }
         }
-
         return binding.root
     }
 
