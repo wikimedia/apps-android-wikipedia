@@ -155,7 +155,7 @@
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
   <string name="account_creation_password_hint">Лозинка</string>
-  <string name="login_2fa_hint">Кôд двофакторске потврде идентитета</string>
+  <string name="login_2fa_hint">Двофакторски токен или код за опоравак</string>
   <string name="login_2fa_other_workflow_error_msg">Неопходна је двофакторска потврда идентитета. Вратите се на главну активност и пријавите се са својим 2FA токеном, па покушајте поново.</string>
   <string name="onboarding_card_login">Пријава</string>
   <string name="page_editing_login">Пријава</string>
@@ -319,7 +319,7 @@
   <string name="clear_recent_searches_confirm_yes">Да</string>
   <string name="clear_recent_searches_confirm_no">Не</string>
   <string name="error_browser_not_found">Није могуће отворити веб-страницу (апликација прегледача није пронађена).</string>
-  <string name="table_infobox">Кратке чињенице</string>
+  <string name="table_infobox">Укратко</string>
   <string name="table_other">Више информација</string>
   <string name="table_close">Затвори</string>
   <string name="widget_name_featured_page">Изабрана страница на Википедији</string>
@@ -549,6 +549,7 @@
   <string name="reading_lists_default_list_delete_message">Подразумеван списак (%s) не може бити обрисан</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s обрисан. Подразумеван списак (%2$s) не може бити обрисан.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Спискови обрисани. Подразумеван списак (%s) не може бити обрисан.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
   <string name="reading_list_items_deleted">Чланака уклоњено са листе: %d</string>
   <string name="reading_lists_item_deleted">%s уклоњено са спискова</string>
   <string name="reading_list_item_delete_undo">Опозови</string>
@@ -569,10 +570,10 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">Страница „%s” више неће бити доступна офлајн за све листе за читање:</string>
   <string name="reading_lists_sync_reminder_title">Укључити синхронизацију листе за читање?</string>
   <string name="reading_lists_sync_reminder_text">Чланци сачувани на листама за читање сада се могу синхронизовати са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
-  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада се могу синхронизовати међу уређајима. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада се могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
   <string name="reading_list_login_reminder_title">Синхронизација листа за читање</string>
-  <string name="reading_lists_login_reminder_text">Листе за читање се сада могу синхронизовати међу уређајима. Пријавите се на ваш налог на Википедији и дозволите чување листа.</string>
+  <string name="reading_lists_login_reminder_text">Листе за читање се сада могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа.</string>
   <string name="reading_lists_login_button">Пријавите се / отворите налог</string>
   <string name="reading_lists_ignore_button">Не сада</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
@@ -825,6 +826,7 @@
   <string name="feed_item_type_main_page">Главна страна Википедије са садржајем дана</string>
   <string name="feed_item_type_randomizer">Генеришите случајне чланке за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање садржаја на Википедији</string>
+  <string name="feed_item_type_places">Чланци у близини на основу Ваше локације</string>
   <string name="feed_empty_message">Ваш фид „Истражи“ је празан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="customize_lang_selection_dialog_ok_button_text">У реду</string>
@@ -1005,6 +1007,7 @@
     <item quantity="one">Допринос</item>
     <item quantity="other">Доприноси</item>
   </plurals>
+  <string name="suggested_edits_edit_frequency">{{PLURAL:$1|one=измена|измене}}</string>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d дан</item>
     <item quantity="other">%d дани</item>
@@ -1040,7 +1043,7 @@
   </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Јуче</string>
   <string name="suggested_edits_encourage_account_creation_title">Јесте ли знали да свако може да уређује Википедију?</string>
-  <string name="suggested_edits_encourage_account_creation_message">Предложене измене су нови начин да уређујете Википедију на Андроиду. Оне Вам помажу да направите мале, али значајне доприносе за Википедију. Наш циљ је да учинимо уређивање лакшим и приступачнијим за све! Пријавите се или придружите Википедији да би сте почели.</string>
+  <string name="suggested_edits_encourage_account_creation_message">Предложене измене су нови начин да уређујете Википедију на Андроиду. Оне Вам помажу да направите мале, али значајне доприносе за Википедију. Наш циљ је да учинимо уређивање лакшим и приступачним за све! Пријавите се или придружите Википедији да би сте почели.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Пријави ме / придружи ме Википедији</string>
   <string name="suggested_edits_contribution_type_image_tag">Ознака слике</string>
   <string name="suggested_edits_contribution_current_revision_text">Ваша измена је сада видљива на Википедији</string>
@@ -1121,13 +1124,13 @@
   <string name="onboarding_get_started">Започните</string>
   <string name="onboarding_maybe_later">Можда касније</string>
   <string name="onboarding_explore_title">Нови начини за истраживање</string>
-  <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересовањима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи” који се стално ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите фид&lt;/b&gt; својим интересовањима – сазнајте за историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Спискови за читање са синхронизацијом</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
   <string name="onboarding_data_privacy_title">Подаци и приватност</string>
   <string name="onboarding_data_privacy_text">Ми верујемо да не морате одавати личне податке да би учествовали у покрету за слободно знање. Подаци о употреби ове апликације се прикупљају анонимно. Сазнајте више о нашој &lt;a href=\"#privacy\"&gt;политици приватности&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условима коришћења&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
-  <string name="onboarding_got_it">Разумем</string>
+  <string name="onboarding_got_it">Разумео</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
   <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна преко 300 језика</string>
@@ -1618,39 +1621,6 @@
   <string name="places_card_enable_location_card_button">Омогући локацију</string>
   <string name="places_card_distance_suffix">%s удаљено</string>
   <string name="places_card_distance_unknown">Непозната удаљеност</string>
-  <string name="donor_history_title">Историја донирања</string>
-  <string name="donor_history_save_button">Сачувај</string>
-  <string name="donor_history_update_donor_status_donor">Донатор</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Није донатор</string>
-  <string name="donor_history_last_donated">Последња донација</string>
-  <string name="donor_history_last_donated_date_picker_title">Изаберите датум</string>
-  <string name="donor_history_last_donated_date_picker_label">Унесите датум</string>
-  <string name="donor_history_last_donated_never">Никада</string>
-  <string name="donor_history_recurring_donor">Редовни донатор</string>
-  <string name="donor_history_donate_button">Донирајте Задужбини Викимедије</string>
-  <string name="donor_history_about_this_experiment">О овом експерименту</string>
-  <string name="donor_history_updated_message_snackbar">Историја донирања ажурирана</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Дајте своје мишљење</string>
-  <string name="contributions_dashboard_donation_dialog_title">Хвала вам на Вашој подршци слободном знању</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Не, хвала</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Да, води ме тамо</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Не, хвала</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Да, води ме тамо</string>
-  <string name="contributions_dashboard_badge_donor">Донатор</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Постани донатор</string>
-  <string name="contributions_dashboard_logged_out_user">Одјављен корисник</string>
-  <string name="contributions_dashboard_tab_last_donated">Последња донација</string>
-  <string name="contributions_dashboard_tab_update_button">Ажурирај</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Не, хвала</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, води ме у подешавања</string>
-  <string name="recent_searches_title">Скорашње претраге</string>
-  <string name="rabbit_holes_experiment">Експериментално</string>
-  <string name="rabbit_holes_experiment_about">О овом експерименту</string>
-  <string name="suggested_reading_list_title">Засновано на Вашим читањима</string>
-  <string name="suggested_reading_list_description">Инспирисано „%s”</string>
-  <string name="suggested_reading_list_description_multi">На основу %1$s и %2$s</string>
-  <string name="suggested_reading_list_dialog_positive">Пробај сад</string>
-  <string name="suggested_reading_list_dialog_negative">Можда касније</string>
   <string name="survey_dialog_title">Помозите нам да унапредимо ову могућност</string>
   <string name="survey_dialog_message">Да ли сте задовољни са овом могућношћу?</string>
   <string name="survey_dialog_option_satisfied">Задовољавајуће</string>

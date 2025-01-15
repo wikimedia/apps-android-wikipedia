@@ -39,12 +39,16 @@ class SuggestedEditScreenTest : BaseTest<MainActivity>(
             .clickOnSystemDialogWithText("Allow")
         navRobot
             .navigateToSuggestedEdits()
+        systemRobot
+            .dismissTooltip(activity)
+            .dismissTooltip(activity)
+            .dismissTooltip(activity)
+            .dismissTooltip(activity)
         suggestedEditsScreenRobot
-            .verifyEditsIsVisible()
+            .verifyContributionsIsVisible()
             .verifyViewsIsVisible()
             .verifyLastEditedIsVisible()
             .verifyEditQualityIsVisible()
-            .verifyLastDonatedIsVisible()
             .enterContributionScreen()
             .pressBack()
             .clickArticleDescriptions()
