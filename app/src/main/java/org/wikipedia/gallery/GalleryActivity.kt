@@ -558,7 +558,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
         if (!descriptionStr.isNullOrEmpty()) {
             binding.descriptionContainer.visibility = View.VISIBLE
-            binding.descriptionText.text = StringUtil.strip(descriptionStr)
+            binding.descriptionText.text = descriptionStr.trim()
         } else {
             binding.descriptionContainer.visibility = View.GONE
         }

@@ -250,7 +250,7 @@
   <string name="edit_intent">Absicht %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s Byte</item>
-    <item quantity="other">%s Byten</item>
+    <item quantity="other">%s Byte</item>
   </plurals>
   <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out">Verklengeren</string>
@@ -1410,11 +1410,6 @@
   <string name="places_card_distance_suffix">%s ewech</string>
   <string name="places_card_distance_unknown">Onbekannt Distanz</string>
   <string name="places_empty_message_snackbar">Et gëtt keng Artikelen an der Géigend. Probéiert d\'Kaart ze verklengeren oder ze verréckelen.</string>
-  <string name="rabbit_holes_experiment_about">Iwwer dëst Experiment</string>
-  <string name="suggested_reading_list_description">Inspiréiert vun „%s“</string>
-  <string name="suggested_reading_list_description_multi">Inspiréiert vun %1$s an %2$s</string>
-  <string name="suggested_reading_list_dialog_positive">Probéiert et elo</string>
-  <string name="suggested_reading_list_dialog_negative">Vläicht méi spéit</string>
   <string name="survey_dialog_title">Hëlleft eis dës Funktioun ze verbesseren</string>
   <string name="survey_dialog_message">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="survey_dialog_option_satisfied">Zefridden</string>

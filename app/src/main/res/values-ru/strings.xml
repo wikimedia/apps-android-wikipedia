@@ -1719,9 +1719,6 @@
   <string name="places_card_action">Больше мест поблизости</string>
   <string name="places_card_enable_location_card_button">Включить определение местоположения</string>
   <string name="places_card_distance_unknown">Расстояние неизвестно</string>
-  <string name="rabbit_holes_survey_dialog_body">Удовлетворены ли вы этим рекомендуемым результатом поиска?</string>
-  <string name="suggested_reading_list_dialog_positive">Попробовать сейчас</string>
-  <string name="suggested_reading_list_dialog_negative">Может быть, позже</string>
   <string name="survey_dialog_title">Помогите нам улучшить эту функцию</string>
   <string name="survey_dialog_message">Вы довольны этой функцией?</string>
   <string name="survey_dialog_option_satisfied">Доволен</string>

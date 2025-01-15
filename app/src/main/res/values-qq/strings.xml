@@ -1708,4 +1708,10 @@
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
   <string name="year_in_review_action_positive">Button label that takes the user to the new Year-in-review feature.</string>
   <string name="year_in_review_text">Text of a dialog box that tells the user about the new Year-in-review feature.</string>
+  <string name="dialog_confirm_delete_donation_history_title">Title text shown at the top of the confirmation dialog when deleting donation history</string>
+  <string name="dialog_confirm_delete_donation_history_message">Explanatory message shown in the confirmation dialog that clarifies the scope of deletion - that it only affects donations recorded on the current device</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Label for the confirmation button in the deletion dialog that executes the deletion action</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Label for the button that dismisses the deletion dialog without deleting anything</string>
+  <string name="preference_title_delete_local_donation_history">Title text for the settings menu item that opens the donation history deletion dialog</string>
+  <string name="donation_history_deleted_message_snackbar">Success message shown briefly at the bottom of the screen after donation history has been deleted</string>
 </resources>
