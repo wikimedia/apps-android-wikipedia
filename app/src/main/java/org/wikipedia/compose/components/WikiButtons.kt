@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
-fun Button(
+fun AppButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     backgroundColor: Color = WikipediaTheme.colors.progressiveColor,
