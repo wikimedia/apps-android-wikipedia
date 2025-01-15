@@ -11,6 +11,7 @@
 * Vesely35
 * Wertuose
 * Şeyx Şamil
+* Əkrəm Cəfər
 -->
 <resources>
   <string name="app_name_prod">Vikipediya</string>
@@ -104,7 +105,7 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_places">Yerlərdə açın</string>
   <string name="menu_long_press_open_in_new_tab">Səhifəni yeni pəncərədə aç</string>
-  <string name="menu_long_press_copy_page">Səhifənin ünvanını kopyala</string>
+  <string name="menu_long_press_copy_page">Səhifənin ünvanını kopiyala</string>
   <string name="menu_text_select_define">Dəqiqləşdirmək</string>
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
@@ -481,7 +482,7 @@
   <string name="editing_line_numbers_label">Sətir nömrələrini göstər</string>
   <string name="editing_monospace_font_label">Monospace şriftindən istifadə et</string>
   <string name="editing_typing_suggestions">Yazı təkliflərini göstər</string>
-  <string name="nav_item_saved">Saxlanıldı</string>
+  <string name="nav_item_saved">Saxlanılmışlar</string>
   <string name="reading_list_save_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_move_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_create_new">Yenisini yarat</string>
@@ -1334,11 +1335,11 @@
   <string name="menu_option_share_talk_page">Müzakirə səhifəsini paylaş</string>
   <string name="menu_option_share_edit">Redaktəni paylaş</string>
   <string name="menu_option_user_contributions">%s istifadəçisinin töhfələri</string>
-  <string name="menu_option_edit_source">Mənbə kodunu redaktə et</string>
+  <string name="menu_option_edit_source">Vikimətni redaktə et</string>
   <string name="menu_option_user_page">%s istifadəçi səhifəsi</string>
   <string name="menu_option_find_in_talk_page_topic">Müzakirə səhifəsi mövzusu axtar</string>
-  <string name="menu_option_copy_link_to_clipboard">Linki mübadilə buferinə kopyala</string>
-  <string name="talk_menu_copy_text">Mətni kopyala</string>
+  <string name="menu_option_copy_link_to_clipboard">Linki mübadilə buferinə kopiyala</string>
+  <string name="talk_menu_copy_text">Mətni kopiyala</string>
   <string name="talk_menu_expand_threads">Mövzuları tam aç</string>
   <string name="talk_menu_collapse_threads">Mövzuları bağla</string>
   <string name="watchlist_details_watching_label">İzlənilir</string>
@@ -1656,45 +1657,6 @@
   <string name="places_card_distance_suffix">%s uzaqda</string>
   <string name="places_card_distance_unknown">Naməlum məsafə</string>
   <string name="places_empty_message_snackbar">Yaxınlıqda məqalə yoxdur. Xəritəni böyütməyi və hərəkət etdirməyi yoxlayın.</string>
-  <string name="donor_history_title">Donor tarixi</string>
-  <string name="donor_history_save_button">Yadda saxla</string>
-  <string name="donor_history_update_donor_status_default">Donor statusunu yenilə</string>
-  <string name="donor_history_update_donor_status_donor">Donor</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Donor deyil</string>
-  <string name="donor_history_last_donated">Sonuncu ianə</string>
-  <string name="donor_history_last_donated_hint">Son ianə tarixini əlavə et</string>
-  <string name="donor_history_last_donated_date_picker_title">Tarix seç</string>
-  <string name="donor_history_last_donated_date_picker_label">Tarixi daxil et</string>
-  <string name="donor_history_last_donated_never">Heç vaxt</string>
-  <string name="donor_history_recurring_donor">Təkrarlanan donor</string>
-  <string name="donor_history_donate_button">Vikimedia Fonduna ianə et</string>
-  <string name="donor_history_about_this_experiment">Bu təcrübə haqqında</string>
-  <string name="donor_history_updated_message_snackbar">Donor tarixçəsi yeniləndi</string>
-  <string name="contributions_dashboard_survey_dialog_title">Töhfələr panelini təkmilləşdirməyə kömək edin</string>
-  <string name="contributions_dashboard_survey_dialog_message">İdarə panelinə edilən bu yeniləmə sınaq xüsusiyyətidir. Bu funksiyanın təkmilləşdirildiyini və ya silindiyini görmək istərdinizmi?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Rəy yoxdur</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Rəy bildir</string>
-  <string name="contributions_dashboard_donation_dialog_title">Azad biliyi dəstəklədiyiniz üçün təşəkkür edirik</string>
-  <string name="contributions_dashboard_donation_dialog_message">Siz milyonların etibar etdiyi resursu dəstəkləməyi seçən 2%%-in bir hissəsisiniz. Minnətdarlığımızı nümayiş etdirmək üçün töhfələr paneliniz donor statusunuzu göstərmək üçün yeniləndi. Yeniləməni görmək istəyirsiniz?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Xeyr, təşəkkürlər</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Bəli, məni ora apar</string>
-  <string name="contributions_dashboard_entry_dialog_title">Töhfələr panelinə edilən yeni əlavələri kəşf edin</string>
-  <string name="contributions_dashboard_entry_dialog_message">Töhfələr panelində indi donor statusunuz göstərilir. Bu eksperimental xüsusiyyəti nəzərdən keçirmək istəyirsiniz?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Xeyr, təşəkkürlər</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Bəli, məni ora apar</string>
-  <string name="contributions_dashboard_badge_donor">Donor</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Donor ol</string>
-  <string name="contributions_dashboard_badge_update">Donor statusunu yenilə</string>
-  <string name="contributions_dashboard_app_icon_title">Proqram ikonu</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Donorlar üçün</string>
-  <string name="contributions_dashboard_logged_out_user">Çıxış etmiş istifadəçi</string>
-  <string name="contributions_dashboard_tab_last_donated">Sonuncu ianə</string>
-  <string name="contributions_dashboard_tab_update_button">Yenilə</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">Donor olduğunuz üçün təşəkkür edirik.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Siz müvəqqəti fərdi ikonun kilidini açdınız. Siz Tətbiq ikonun altındakı parametrlər vasitəsilə buna keçə bilərsiniz. İkonu indi yeniləmək istəyirsiniz?</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Xeyr, təşəkkürlər</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Bəli, məni Parametrlərə apar</string>
-  <string name="contributions_dashboard_app_icon_updated">Tətbiq ikonu yeniləndi</string>
   <string name="survey_dialog_title">Bu funksiyanı təkmilləşdirməkdə bizə kömək edin</string>
   <string name="survey_dialog_message">Bu funksiya sizi qane edirmi?</string>
   <string name="survey_dialog_option_satisfied">Razıyam</string>
@@ -1705,5 +1667,5 @@
   <string name="survey_dialog_cancel">İmtina</string>
   <string name="survey_dialog_submit">Göndər</string>
   <string name="survey_dialog_input_hint">Əlavə rəy</string>
-  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi.</string>
+  <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi. Təşəkkürlər!</string>
 </resources>

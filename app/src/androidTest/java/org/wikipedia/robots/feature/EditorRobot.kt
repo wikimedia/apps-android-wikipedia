@@ -10,12 +10,6 @@ class EditorRobot : BaseRobot() {
         delay(TestConfig.DELAY_LARGE)
     }
 
-    fun dismissDialogIfShown() = apply {
-        performIfDialogShown(dialogText = "Got it", action = {
-            clickOnViewWithText("Got it")
-        })
-    }
-
     fun typeInEditWindow() = apply {
         typeTextInView(R.id.edit_section_text, "abc")
         delay(TestConfig.DELAY_MEDIUM)

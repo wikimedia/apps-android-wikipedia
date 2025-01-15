@@ -1357,25 +1357,11 @@
   <string name="places_card_action">Więcej miejsc w pobliżu</string>
   <string name="places_card_enable_location_card_message">Miejsca to oparty na mapach sposób eksploracji Wikipedii</string>
   <string name="places_card_enable_location_card_button">Włącz lokalizację</string>
-  <string name="donor_history_save_button">Zapisz</string>
-  <string name="donor_history_last_donated_never">Nigdy</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Brak opinii</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Zostaw opinię</string>
-  <string name="contributions_dashboard_donation_dialog_title">Dziękujemy za wspieranie wolnej wiedzy</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Nie, dziękuję</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Tak, zabierz mnie tam</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Nie, dziękuję</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Tak, zabierz mnie tam</string>
-  <string name="contributions_dashboard_app_icon_title">Ikona aplikacji</string>
-  <string name="contributions_dashboard_tab_update_button">Aktualizuj</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">Dziękujemy za przekazanie darowizny.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nie, dziękuję</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Tak, przenieś mnie do Ustawień</string>
   <string name="survey_dialog_message">Czy jesteś zadowolony z tej funkcji?</string>
   <string name="survey_dialog_option_satisfied">Zadowolony</string>
   <string name="survey_dialog_option_neutral">Neutralny</string>
   <string name="survey_dialog_option_unsatisfied">Niezadowolony</string>
   <string name="survey_dialog_cancel">Anuluj</string>
   <string name="survey_dialog_submit">Wyślij</string>
-  <string name="survey_dialog_submitted_snackbar">Opinia została przesłana.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Opinia została przesłana.</string>
 </resources>

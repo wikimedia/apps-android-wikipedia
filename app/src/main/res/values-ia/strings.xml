@@ -1659,37 +1659,6 @@
   <string name="places_card_distance_suffix">A %s</string>
   <string name="places_card_distance_unknown">Distantia incognite</string>
   <string name="places_empty_message_snackbar">Il non ha articulos a proximitate. Tenta facer zoom retro e displaciar le carta.</string>
-  <string name="donor_history_title">Historia del donator</string>
-  <string name="donor_history_save_button">Salveguardar</string>
-  <string name="donor_history_update_donor_status_default">Actualisar stato de donator</string>
-  <string name="donor_history_update_donor_status_donor">Donator</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Non donator</string>
-  <string name="donor_history_last_donated">Ultime donation</string>
-  <string name="donor_history_last_donated_hint">Adder le data del ultime donation</string>
-  <string name="donor_history_last_donated_date_picker_title">Selige un data</string>
-  <string name="donor_history_last_donated_date_picker_label">Insere data</string>
-  <string name="donor_history_recurring_donor">Donator recurrente</string>
-  <string name="donor_history_donate_button">Donar al Fundation Wikimedia</string>
-  <string name="donor_history_about_this_experiment">A proposito de iste experimento</string>
-  <string name="donor_history_updated_message_snackbar">Historia del donator actualisate</string>
-  <string name="contributions_dashboard_survey_dialog_title">Adjuta a meliorar le tabuliero de contributiones</string>
-  <string name="contributions_dashboard_survey_dialog_message">Iste actualisation al tabuliero de instrumentos es un function experimental. Vole tu que iste function es meliorate o removite?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Necun opinion</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Dar tu opinion</string>
-  <string name="contributions_dashboard_donation_dialog_title">Gratias pro appoiar le cognoscentia libere</string>
-  <string name="contributions_dashboard_donation_dialog_message">Tu face parte del 2%% que ha eligite a appoiar le ressource al qual milliones se fide. Pro demonstrar nostre gratitude, tu tabuliero de contributiones ha essite actualisate pro recognoscer tu stato de donator. Vole tu vider le actualisation?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">No, gratias</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Si, porta me la</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Tu tabuliero de contributiones ha essite actualisate</string>
-  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Le tabuliero de contributiones ora monstra detalios sur tu stato de donator. Vole tu revider iste function experimental?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">No, gratias</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Si, porta me la</string>
-  <string name="contributions_dashboard_badge_donor">Donator</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Devenir donator</string>
-  <string name="contributions_dashboard_badge_update">Actualisar stato de donator</string>
-  <string name="contributions_dashboard_app_icon_title">Icone del app</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Beneficio de donator</string>
-  <string name="contributions_dashboard_logged_out_user">Usator sin session</string>
   <string name="survey_dialog_title">Adjuta nos a meliorar iste function</string>
   <string name="survey_dialog_message">Es tu satisfacite de iste function?</string>
   <string name="survey_dialog_option_satisfied">Satisfacite</string>
@@ -1700,5 +1669,5 @@
   <string name="survey_dialog_cancel">Cancellar</string>
   <string name="survey_dialog_submit">Submitter</string>
   <string name="survey_dialog_input_hint">Retroaction additional</string>
-  <string name="survey_dialog_submitted_snackbar">Commentario submittite.</string>
+  <string name="survey_dialog_submitted_snackbar">Retroaction inviate. Gratias!</string>
 </resources>

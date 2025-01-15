@@ -1558,5 +1558,5 @@
   <string name="survey_dialog_option_neutral">Ba tare da la\'akari ba</string>
   <string name="survey_dialog_option_unsatisfied">Ba a gamsu ba</string>
   <string name="survey_dialog_submit">Miƙa</string>
-  <string name="survey_dialog_submitted_snackbar">Ra\'ayoyin da aka gabatar.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Ra\'ayoyin da aka gabatar.</string>
 </resources>

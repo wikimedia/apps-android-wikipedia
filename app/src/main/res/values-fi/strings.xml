@@ -1667,16 +1667,6 @@
   <string name="places_card_distance_suffix">%s päässä</string>
   <string name="places_card_distance_unknown">Tuntematon etäisyys</string>
   <string name="places_empty_message_snackbar">Lähistöllä ei ole artikkeleita. Kokeile loitontaa ja siirtää karttaa.</string>
-  <string name="donor_history_save_button">Tallenna</string>
-  <string name="donor_history_last_donated_date_picker_title">Valitse päivämäärä</string>
-  <string name="donor_history_donate_button">Lahjoita Wikimedia Foundationille</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Ei kiitos</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Kyllä, vie minut sinne</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Ei kiitos</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Kyllä, vie minut sinne</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Ryhdy lahjoittajaksi</string>
-  <string name="contributions_dashboard_logged_out_user">Uloskirjautunut käyttäjä</string>
-  <string name="contributions_dashboard_tab_update_button">Päivitä</string>
   <string name="survey_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
   <string name="survey_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="survey_dialog_option_satisfied">Tyytyväinen</string>
@@ -1687,5 +1677,5 @@
   <string name="survey_dialog_cancel">Peruuta</string>
   <string name="survey_dialog_submit">Lähetä</string>
   <string name="survey_dialog_input_hint">Lisää palautetta</string>
-  <string name="survey_dialog_submitted_snackbar">Palaute lähetetty.</string>
+  <string name="survey_dialog_submitted_snackbar">Palaute lähetetty. Kiitos!</string>
 </resources>

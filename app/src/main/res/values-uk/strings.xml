@@ -1781,36 +1781,6 @@
   <string name="places_card_distance_suffix">%s звідси</string>
   <string name="places_card_distance_unknown">Невідома відстань</string>
   <string name="places_empty_message_snackbar">Немає статей поблизу. Спробуйте зменшити масштаб і перемістити карту.</string>
-  <string name="donor_history_title">Історія пожертв</string>
-  <string name="donor_history_save_button">Зберегти</string>
-  <string name="donor_history_update_donor_status_default">Оновити статус пожертводавця</string>
-  <string name="donor_history_update_donor_status_donor">Жертводавець</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Не жертводавець</string>
-  <string name="donor_history_last_donated">Остання пожертва</string>
-  <string name="donor_history_last_donated_hint">Додайте дату останньої пожертви</string>
-  <string name="donor_history_last_donated_date_picker_title">Вибрати дату</string>
-  <string name="donor_history_last_donated_date_picker_label">Ввести дату</string>
-  <string name="donor_history_recurring_donor">Повторний жертводавець</string>
-  <string name="donor_history_donate_button">Пожертвувати Фонду Вікімедіа</string>
-  <string name="donor_history_about_this_experiment">Про цей експеримент</string>
-  <string name="donor_history_updated_message_snackbar">Історію пожертв оновлено</string>
-  <string name="contributions_dashboard_survey_dialog_title">Допоможіть покращити панель внеску</string>
-  <string name="contributions_dashboard_survey_dialog_message">Це оновлення панелі є тестовою функцією. Ви хотіли б, щоб цю функцію покращили чи прибрали?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Немає думки</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Залишити відгук</string>
-  <string name="contributions_dashboard_donation_dialog_title">Дякуємо за підтримку вільних знань</string>
-  <string name="contributions_dashboard_donation_dialog_message">Ви є частиною тих 2%%, які вирішили підтримати ресурс, на який покладаються мільйони. Щоб продемонструвати нашу вдячність, ми оновили панель вашого внеску, щоб відзначити на ній ваш статус жертводавця. Бажаєте побачити оновлення?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Ні, дякую</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Так, покажіть мені</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Панель вашого внеску оновлено</string>
-  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Панель внеску тепер показує інформацію про ваш статус жертводавця. Хочете переглянути цю експериментальну функцію?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Ні, дякую</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Так, покажіть мені</string>
-  <string name="contributions_dashboard_badge_donor">Жертводавець</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Стати жертводавцем</string>
-  <string name="contributions_dashboard_badge_update">Оновити статус пожертводавця</string>
-  <string name="contributions_dashboard_app_icon_title">Іконка програми</string>
-  <string name="contributions_dashboard_logged_out_user">Незалогінений користувач</string>
   <string name="survey_dialog_title">Допоможіть нам покращити Talk Pages</string>
   <string name="survey_dialog_message">Ви задоволені цією функцією?</string>
   <string name="survey_dialog_option_satisfied">Задоволений/а</string>
@@ -1821,5 +1791,5 @@
   <string name="survey_dialog_cancel">Скасувати</string>
   <string name="survey_dialog_submit">Надіслати</string>
   <string name="survey_dialog_input_hint">Додатковий відгук</string>
-  <string name="survey_dialog_submitted_snackbar">Відгук надіслано.</string>
+  <string name="survey_dialog_submitted_snackbar">Відгук надіслано. Дякуємо!</string>
 </resources>

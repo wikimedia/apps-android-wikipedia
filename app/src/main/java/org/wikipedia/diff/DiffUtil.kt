@@ -28,13 +28,13 @@ object DiffUtil {
             val item = DiffLine(context, it)
             // coalesce diff lines that occur on successive line numbers
             if (lastItem != null &&
-                    ((item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) ||
-                            (item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT && item.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) ||
-                            (lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED))) {
-                if (it.lineNumber > lastItem!!.lineEnd) {
-                    lastItem!!.lineEnd = it.lineNumber
+                    ((item.diff.lineNumber - lastItem.diff.lineNumber == 1 && lastItem.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) ||
+                            (item.diff.lineNumber - lastItem.diff.lineNumber == 1 && lastItem.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT && item.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) ||
+                            (lastItem.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED))) {
+                if (it.lineNumber > lastItem.lineEnd) {
+                    lastItem.lineEnd = it.lineNumber
                 }
-                lastItem!!.parsedText = buildSpannedString {
+                lastItem.parsedText = buildSpannedString {
                     appendLine(lastItem!!.parsedText)
                     append(item.parsedText)
                 }
@@ -77,7 +77,7 @@ object DiffUtil {
         }
     }
 
-    private class DiffLineHolder constructor(itemView: DiffLineView) : RecyclerView.ViewHolder(itemView) {
+    private class DiffLineHolder(itemView: DiffLineView) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(item: DiffLine) {
             (itemView as DiffLineView).setItem(item)
         }
