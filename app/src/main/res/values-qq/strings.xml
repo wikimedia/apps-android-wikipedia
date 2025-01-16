@@ -163,6 +163,10 @@
   <string name="dialog_message_leaving_edit">Message for dialog box shown to users when they click on a link in an edit preview, informing them that if they leave the edit then they may lose their changes.</string>
   <string name="dialog_message_leaving_edit_leave">Button text for choosing to leave the edit workflow when the user clicks on a link in preview.\n{{Identical|Leave}}</string>
   <string name="dialog_message_leaving_edit_stay">Button text for choosing to stay inside edit workflow when the user clicks on a link in preview.\n{{Identical|Stay}}</string>
+  <string name="dialog_confirm_delete_donation_history_title">Title text shown at the top of the confirmation dialog when deleting donation history</string>
+  <string name="dialog_confirm_delete_donation_history_message">Explanatory message shown in the confirmation dialog that clarifies the scope of deletion - that it only affects donations recorded on the current device</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Label for the confirmation button in the deletion dialog that executes the deletion action</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Label for the button that dismisses the deletion dialog without deleting anything</string>
   <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.\n{{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
   <string name="search_reading_list_no_results">Message shown when there are no pages in the current reading list that match the specified search term. The %s symbol is replaced with the name of the reading list.</string>
@@ -447,6 +451,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
+  <string name="preference_title_delete_local_donation_history">Title text for the settings menu item that opens the donation history deletion dialog</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
   <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.\n{{Identical|Content is available under}}</string>
   <string name="empty_tab_title">Label shown on a blank tab with no content.</string>
@@ -1681,6 +1686,7 @@
   <string name="donate_gpay_help_other_ways">Label for a link to resources with other ways to contribute.</string>
   <string name="donate_gpay_help_faq">Label for a link to a FAQ page about donating.</string>
   <string name="donate_gpay_help_tax">Label for a link to documentation about making donations tax-deductible.</string>
+  <string name="donation_history_deleted_message_snackbar">Success message shown briefly at the bottom of the screen after donation history has been deleted</string>
   <string name="places_title">Title for the Places screen.</string>
   <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>
@@ -1706,10 +1712,4 @@
   <string name="survey_dialog_submit">Positive action button text for the survey dialog</string>
   <string name="survey_dialog_input_hint">Hint label for the survey dialog input field.</string>
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
-  <string name="dialog_confirm_delete_donation_history_title">Title text shown at the top of the confirmation dialog when deleting donation history</string>
-  <string name="dialog_confirm_delete_donation_history_message">Explanatory message shown in the confirmation dialog that clarifies the scope of deletion - that it only affects donations recorded on the current device</string>
-  <string name="dialog_confirm_delete_donation_history_delete">Label for the confirmation button in the deletion dialog that executes the deletion action</string>
-  <string name="dialog_confirm_delete_donation_history_cancel">Label for the button that dismisses the deletion dialog without deleting anything</string>
-  <string name="preference_title_delete_local_donation_history">Title text for the settings menu item that opens the donation history deletion dialog</string>
-  <string name="donation_history_deleted_message_snackbar">Success message shown briefly at the bottom of the screen after donation history has been deleted</string>
 </resources>

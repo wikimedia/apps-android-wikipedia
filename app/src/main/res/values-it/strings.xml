@@ -175,6 +175,10 @@
   <string name="dialog_message_leaving_edit">Le tue modifiche non sono state ancora pubblicate. Sei sicuro di voler uscire da questa pagina?</string>
   <string name="dialog_message_leaving_edit_leave">Lascia</string>
   <string name="dialog_message_leaving_edit_stay">Rimani</string>
+  <string name="dialog_confirm_delete_donation_history_title">Conferma cancellazione</string>
+  <string name="dialog_confirm_delete_donation_history_message">Questo si applicherà solo alle donazioni effettuate tramite questo dispositivo.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Cancella</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Annulla</string>
   <string name="menu_show_toc">Indice</string>
   <string name="search_no_results_found">Nessun risultato trovato</string>
   <string name="search_reading_list_no_results">Nessun risultato trovato in \"%s\"</string>
@@ -459,6 +463,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (nel tema Scuro e Nero)</string>
   <string name="preference_title_prefer_offline_content">Preferisci contenuti in assenza di connessione</string>
   <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili in assenza di connessione anziché caricare sempre l\'ultima versione di una voce</string>
+  <string name="preference_title_delete_local_donation_history">Cancella la cronologia delle donazioni locali</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
   <string name="empty_tab_title">Nuova scheda</string>
@@ -1697,6 +1702,7 @@
   <string name="donate_gpay_help_other_ways">Altri modi per donare</string>
   <string name="donate_gpay_help_faq">Domande frequenti</string>
   <string name="donate_gpay_help_tax">Informazioni di deducibilità fiscale</string>
+  <string name="donation_history_deleted_message_snackbar">Cronologia dei donatori cancellata</string>
   <string name="places_title">Luoghi</string>
   <string name="places_permissions_denied">Per vedere la tua posizione sulla mappa è richiesta l\'autorizzazione alla posizione. Riprova.</string>
   <string name="places_search_hint">Cerca luoghi</string>

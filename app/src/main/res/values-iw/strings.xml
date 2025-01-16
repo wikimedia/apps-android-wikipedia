@@ -153,6 +153,10 @@
   <string name="dialog_message_leaving_edit">השינויים שלך עוד לא פורסמו. האם ברצונך לעזוב את הדף הזה?</string>
   <string name="dialog_message_leaving_edit_leave">לעזוב</string>
   <string name="dialog_message_leaving_edit_stay">להישאר</string>
+  <string name="dialog_confirm_delete_donation_history_title">אישור המחיקה</string>
+  <string name="dialog_confirm_delete_donation_history_message">זה יחול רק על תרומות שנעשו מהמכשיר הזה.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">מחיקה</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">ביטול</string>
   <string name="menu_show_toc">תוכן עניינים</string>
   <string name="search_no_results_found">אין תוצאות</string>
   <string name="search_reading_list_no_results">לא נמצאו תוצרות ב\"%s\"</string>
@@ -443,6 +447,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
+  <string name="preference_title_delete_local_donation_history">מחיקת היסטוריית תרומות מקומית</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>
@@ -1766,6 +1771,7 @@
   <string name="donate_gpay_help_other_ways">דרכים אחרות לתת</string>
   <string name="donate_gpay_help_faq">שאלות ותשובות</string>
   <string name="donate_gpay_help_tax">מידע על פטור ממס</string>
+  <string name="donation_history_deleted_message_snackbar">היסטוריית התרומה נמחקה</string>
   <string name="places_title">מקומות</string>
   <string name="places_permissions_denied">נדרשת הרשאת מיקום כדי לראות את מיקומך על המפה. נא לנסות שוב.</string>
   <string name="places_search_hint">חיפוש מקומות</string>
