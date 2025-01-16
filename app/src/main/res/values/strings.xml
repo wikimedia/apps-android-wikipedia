@@ -1793,7 +1793,4 @@
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
 
-    <string name="year_in_review_action_positive">Take me there</string>
-    <string name="year_in_review_text"><![CDATA[<strong>Wikipedia 2024 Year in Review</strong><br/><br/>Wikipedia is the largest knowledge resource ever assembled in the history of the world, and it’s freely available to everyone everywhere. Here’s a review of 2024 through the lens of Wikipedia.]]></string>
-
 </resources>
