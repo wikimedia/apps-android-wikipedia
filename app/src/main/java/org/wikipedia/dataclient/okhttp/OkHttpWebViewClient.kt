@@ -5,6 +5,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import okhttp3.CacheControl
 import okhttp3.Headers
 import okhttp3.Request
 import okhttp3.Response
@@ -95,7 +96,20 @@ abstract class OkHttpWebViewClient : WebViewClient() {
 
     @Throws(IOException::class)
     private fun request(request: WebResourceRequest): Response {
-        val builder = Request.Builder().url(request.url.toString()).cacheControl(model.cacheControl)
+
+
+
+        var url = request.url.toString()
+        if (url.contains("css/mobile/base"))
+            url = "http://10.0.2.2:8888/api/v1/data/css/mobile/base"
+        else if (url.contains("css/mobile/pcs"))
+            url = "http://10.0.2.2:8888/api/v1/data/css/mobile/pcs"
+        else if (url.contains("javascript/mobile/pcs"))
+            url = "http://10.0.2.2:8888/api/v1/data/javascript/mobile/pcs"
+        val builder = Request.Builder().url(url).cacheControl(CacheControl.FORCE_NETWORK)
+
+
+
         for ((header, value) in request.requestHeaders) {
             if (header == "If-None-Match" || header == "If-Modified-Since") {
                 // Strip away conditional headers from the request coming from the WebView, since
