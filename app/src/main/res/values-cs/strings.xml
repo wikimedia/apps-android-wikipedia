@@ -310,6 +310,7 @@
   <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
   <string name="edit_conflict_title">Editační konflikt</string>
   <string name="edit_conflict_message">Stránka již byla editována jiným uživatelem a je v konfliktu s vaší editací. Prosíme, zkopírujte svou editaci, vraťte se zpět, obnovte stránku a zkuste stránku znovu editovat.</string>
+  <string name="edit_notices">Editační upozornění</string>
   <string name="edit_notices_please_read">Před úpravou si prosím přečtěte</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
@@ -341,6 +342,7 @@
   <string name="widget_name_featured_page">Doporučený článek na Wikipedii</string>
   <string name="widget_title_featured_page">Doporučený článek:</string>
   <string name="widget_name_search">Vyhledávání na Wikipedii</string>
+  <string name="widget_description_search">Nejrychlejší způsob hledání na Wikipedii</string>
   <string name="widget_description_featured_page">Nejlepší články, které Wikipedie nabízí</string>
   <string name="wiktionary_no_definitions_found">Žádná definice nenalezena.</string>
   <string name="alpha_update_notification_title">Je dostupná nová aktualizace alfaverze</string>
@@ -430,6 +432,7 @@
   <string name="link_preview_dialog_save_button">Uložit</string>
   <string name="link_preview_dialog_saved_button">Uloženo</string>
   <string name="link_preview_dialog_share_button">Sdílet</string>
+  <string name="link_preview_stub_placeholder_text">Tento článek je pahýl, což znamená, že neobsahuje dostatek obsahu, aby šel vygenerovat jeho náhled. Avšak můžete to změnit.</string>
   <string name="error_page_does_not_exist">Tato stránka neexistuje</string>
   <string name="error_user_page_does_not_exist">Na Wikipedii není &lt;a href=\"%1$s\"&gt;uživatelská stránka&lt;/a&gt; přesně s tímto jménem. Obecně by tato stránka měla být vytvořená a upravovaná uživatelem &lt;b&gt;%2$s&lt;/b&gt;. Jste-li na pochybách, ověřte si prosím, jestli uživatel \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nejste připojeni k internetu.</string>
@@ -649,6 +652,7 @@
   <string name="reading_list_notification_title">Seznam(y) k přečtení exportován</string>
   <string name="reading_lists_action_menu_export_lists">Exportovat</string>
   <string name="reading_lists_import_failure_message">Import seznamů k přečtení selhal</string>
+  <string name="reading_lists_export_select_lists_message">Vyberte seznam(y), které chcete exportovat</string>
   <string name="reading_lists_export_completed_message">Seznam(y) k přečtení exportován</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">Export seznamu k přečtení selhal</item>
@@ -662,9 +666,13 @@
     <item quantity="many">Seznamy k přečtení importovány</item>
     <item quantity="other">Seznamy k přečtení importovány</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Sdílený seznam</string>
   <string name="reading_lists_preview_save_button">Uložit</string>
   <string name="reading_lists_preview_save_dialog_title">Uložit seznam</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Název</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Storno</string>
   <string name="reading_lists_preview_save_dialog_save">Uložit</string>
+  <string name="reading_lists_preview_saved_snackbar">Seznam ke čtení uložen</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_reverted_title">Zrušená úprava</string>
   <string name="notification_channel_title">Stahování článků</string>
@@ -926,6 +934,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Strojové návrhy</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Návrhy jsou generovány strojem, nikoliv dobrovolníky nebo nadací Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Přizpůsobit panel nástrojů</string>
+  <string name="customize_toolbar_category_toolbar">Panel nástrojů</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Přetáhněte své oblíbené položky sem 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Obnovit výchozí</string>
@@ -934,6 +943,7 @@
   <string name="suggested_edits_describe_articles">Popište články</string>
   <string name="suggested_edits_caption_images">Otitulkujte obrázky</string>
   <string name="suggested_edits_tag_images">Označit obrázky</string>
+  <string name="suggested_edits_edit_patrol">Editační patrola</string>
   <string name="suggested_edits_review_description">Náhled popisu článku</string>
   <string name="suggested_edits_add_description_button">Přidat popis</string>
   <string name="suggested_edits_edit_description_button">Editovat popis</string>
@@ -1098,8 +1108,11 @@
   <string name="image_recommendation_accept">Ano</string>
   <string name="image_recommendation_reject">Ne</string>
   <string name="image_recommendation_notsure">Nejsem si jistý</string>
+  <string name="image_recommendation_reject_not_relevant">Obrázek není relevantní</string>
   <string name="image_recommendation_reject_offensive">Obrázek je urážlivý</string>
   <string name="image_recommendation_reject_low_quality">Obrázek má nízkou kvalitu</string>
+  <string name="image_recommendation_reject_dont_know">Neznám tento předmět</string>
+  <string name="image_recommendation_reject_other">Jiné</string>
   <string name="image_recommendation_onboarding_1">Obrázky pomáhají lidem pochopit, ale mnoho článků je nemá.</string>
   <string name="image_recommendation_onboarding_2">Vy rozhodnete, zda má být navrhovaný obrázek umístěn do článku na Wikipedii.</string>
   <string name="image_recommendation_onboarding_3">Návrhy jsou generovány strojově a vy se podle svého úsudku rozhodnete, zda je přijmete, nebo odmítnete.</string>
@@ -1109,9 +1122,11 @@
   <string name="image_recommendation_tooltip_3">Rozhodněte, zda obrázek pomůže čtenářům lépe porozumět tomuto tématu</string>
   <string name="image_recommendation_tooltip_next">Další</string>
   <string name="suggested_edits_report_feature">Problém s funkcí</string>
+  <string name="suggested_edits_report_feature_subject">Problém s navrhovanými editacemi</string>
   <string name="edit_summary_added_image">Přidán obrázek</string>
   <string name="edit_summary_added_caption">Přidán popisek</string>
   <string name="edit_summary_added_image_and_caption">Přidán obrázek a popisek</string>
+  <string name="edit_published_view">Zobrazit</string>
   <string name="file_page_activity_title">Stránka souboru</string>
   <string name="file_page_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="file_page_add_image_tags_button">Přidejte značky obrázků</string>
@@ -1204,9 +1219,22 @@
   <string name="wikitext_template">Šablona</string>
   <string name="wikitext_reference">Reference</string>
   <string name="wikitext_preview_link">Náhled odkazu</string>
+  <string name="wikitext_mention_user">Zmínit uživatele</string>
+  <string name="insert_media_title">Vložit médium</string>
   <string name="insert_media_search_description">Vyberte soubor z Wikimedia Commons</string>
+  <string name="insert_media_search_hint">Hledat média</string>
+  <string name="insert_media_settings">Přidat podrobnosti o obrázku</string>
+  <string name="insert_media_settings_uploaded_image">Nahraný obrázek</string>
   <string name="insert_media_settings_alternative_text">Alternativní text</string>
+  <string name="insert_media_advanced_settings">Pokročilá nastavení</string>
+  <string name="insert_media_advanced_settings_image_position">Pozice obrázku</string>
+  <string name="insert_media_advanced_settings_image_position_right">Vpravo</string>
+  <string name="insert_media_advanced_settings_image_position_left">Vlevo</string>
+  <string name="insert_media_advanced_settings_image_position_center">Střed</string>
+  <string name="insert_media_advanced_settings_image_position_none">Nic</string>
+  <string name="insert_media_advanced_settings_image_type">Typ obrázku</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Náhled</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Bezrámečkový</string>
   <string name="insert_media_advanced_settings_image_size">Velikost obrázku</string>
   <string name="insert_media_advanced_settings_image_size_default">Výchozí</string>
   <string name="templates_search_hint">Hledat šablony</string>
@@ -1229,6 +1257,9 @@
   <string name="talk_new_topic_submitted">Téma zveřejněno.</string>
   <string name="talk_warn_save_dialog_publish">Zveřejnit</string>
   <string name="talk_warn_save_dialog_cancel">Storno</string>
+  <string name="talk_warn_save_dialog_dont_save">Neukládat</string>
+  <string name="talk_warn_submitted">Zpráva byla publikovaná na diskuzní stránce uživatele</string>
+  <string name="talk_warn_saved_messages">Uložené zprávy</string>
   <string name="talk_page_empty">Tato diskusní stránka je prázdná.</string>
   <string name="talk_page_empty_title">Rozhovor začíná zde</string>
   <string name="talk_page_empty_content">Diskuzní stránky jsou místem, kde lidé diskutují o tom, jak vytvořit obsah Wikipedie co nejlepší. Začněte přidáním nového diskusního tématu, abyste se mohli spojit a spolupracovat s komunitou wikipedistů.</string>
@@ -1324,6 +1355,7 @@
   <string name="watchlist_filter_user_status_header">Registrace a zkušenosti uživatelů</string>
   <string name="watchlist_filter_user_status_unregistered">Neregistrovaní</string>
   <string name="watchlist_filter_user_status_registered">Registrovaní</string>
+  <string name="watchlist_filter_user_status_newcomers">Nově příchozí</string>
   <string name="watchlist_filter_automated_contributions_header">Automatizované příspěvky</string>
   <string name="watchlist_filter_automated_contributions_bot">Robot</string>
   <string name="watchlist_filter_automated_contributions_human">Člověk (ne robot)</string>
@@ -1358,8 +1390,12 @@
   <string name="action_item_categories">Kategorie</string>
   <string name="page_no_categories">Tato stránka není zařazena do žádné kategorie.</string>
   <string name="category_tab_articles">Články</string>
+  <string name="category_tab_subcategories">Podkategorie</string>
+  <string name="subcategory_empty">V této kategorii nebyly nalezeny žádné podkategorie.</string>
   <string name="search_namespaces">Jmenné prostory</string>
   <string name="user_contrib_activity_title">Příspěvky od %s</string>
+  <string name="archive_empty">Nebyly nalezeny žádné archivované stránky.</string>
+  <string name="user_contrib_filter_ns">Filtrovat dle jmenného prostoru</string>
   <string name="user_contrib_filter_all">Všechny jmenné prostory</string>
   <string name="user_contrib_filter_ns_header">Filtr jmenného prostoru</string>
   <string name="namespace_article">Článek</string>
@@ -1369,9 +1405,16 @@
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
   <string name="action_item_view_on_map">Zobrazit na mapě</string>
   <string name="action_item_view_on_map_unavailable">Pro tuto stránku nejsou k dispozici zeměpisné souřadnice</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importovat sdílené seznamy ke čtení</string>
+  <string name="shareable_reading_lists_import_dialog_content">Jak byste chtěl pojmenovat seznam, který je s vámi sdílený?</string>
+  <string name="shareable_reading_lists_new_indicator">*nový*</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Seznam ke čtení byl importován</string>
   <string name="reading_list_share_menu_label">Sdílet…</string>
   <string name="reading_list_share_menu_tooltip">Sdílejte tento seznam s ostatními</string>
   <string name="talk_templates_empty_message">Abyste mohli začít, vytvořte si vlastní zprávy nebo použijte &lt;a href=\"#\"&gt;vzorové zprávy&lt;/a&gt;.</string>
+  <string name="talk_templates_new_message_title">Nová zpráva</string>
+  <string name="talk_templates_new_message_subject_hint">Předmět</string>
+  <string name="talk_templates_new_message_compose_hint">Napsat zprávu</string>
   <string name="talk_templates_new_message_save">Uložit</string>
   <string name="talk_templates_edit_message_dialog_save">Uložit</string>
   <string name="talk_templates_your_messages_tab_title">Vaše zprávy</string>
