@@ -40,6 +40,9 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.compose.components.CustomNavigationBar
+import org.wikipedia.compose.components.newNavTabsList
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
@@ -125,7 +128,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
@@ -174,6 +176,17 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             handleIntent(requireActivity().intent)
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.navTabCompose.setContent {
+            BaseTheme {
+                CustomNavigationBar(
+                    newTabs = newNavTabsList
+                )
+            }
+        }
     }
 
     override fun onPause() {

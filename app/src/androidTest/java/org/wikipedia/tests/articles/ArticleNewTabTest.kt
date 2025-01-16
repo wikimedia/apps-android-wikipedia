@@ -18,7 +18,7 @@ import org.wikipedia.theme.Theme
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class ArticleTabTest : BaseTest<MainActivity>(
+class ArticleNewTabTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
 

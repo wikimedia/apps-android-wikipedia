@@ -47,4 +47,12 @@
         app:itemPaddingTop="8dp"
         app:elevation="0dp"/>
 
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/navTabCompose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/main_nav_tab_layout"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

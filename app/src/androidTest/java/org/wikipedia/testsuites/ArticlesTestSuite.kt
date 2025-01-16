@@ -4,9 +4,9 @@ import OverflowMenuTest
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
+import org.wikipedia.tests.articles.ArticleNewTabTest
 import org.wikipedia.tests.articles.ArticlePageActionItemTest
 import org.wikipedia.tests.articles.ArticleSectionsTest
-import org.wikipedia.tests.articles.ArticleTabTest
 import org.wikipedia.tests.articles.EditIconTest
 import org.wikipedia.tests.articles.LeadNonLeadImageAndPreviewLinkTest
 import org.wikipedia.tests.articles.MediaTest
@@ -19,7 +19,7 @@ import org.wikipedia.tests.articles.TableOfContentsTest
 @SuiteClasses(
     ArticlePageActionItemTest::class,
     ArticleSectionsTest::class,
-    ArticleTabTest::class,
+    ArticleNewTabTest::class,
     LeadNonLeadImageAndPreviewLinkTest::class,
     EditIconTest::class,
     MediaTest::class,
