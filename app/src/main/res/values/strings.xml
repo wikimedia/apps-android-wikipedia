@@ -1792,5 +1792,4 @@
     <string name="survey_dialog_submit">Submit</string>
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
-
 </resources>
