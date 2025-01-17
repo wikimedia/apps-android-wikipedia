@@ -324,7 +324,14 @@ object EditingSuggestionsProvider {
                         // TODO: make use of continuation parameter?
                         response.query?.pages?.forEach { page ->
                             if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
-                                articlesWithImageRecommendationsCache.addFirst(page)
+                                if (articlesWithImageRecommendationsCacheLang == "de") {
+                                    // In the case of dewiki, make sure the image is CC-licensed:
+                                    if (page.growthimagesuggestiondata[0].images[0].metadata?.license.orEmpty().lowercase().contains("cc")) {
+                                        articlesWithImageRecommendationsCache.addFirst(page)
+                                    }
+                                } else {
+                                    articlesWithImageRecommendationsCache.addFirst(page)
+                                }
                             }
                         }
                     }
