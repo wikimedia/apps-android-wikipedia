@@ -155,8 +155,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
                 val pageSummaryResponse = pageSummaryRequest.await()
                 val watchedResponse = watchedRequest.await()
-                val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
-                val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                val isWatched = watchedResponse.query?.firstPage()?.watched == true
+                val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
                 if (pageSummaryResponse.body() == null) {
                     throw RuntimeException("Summary response was invalid.")
                 }
