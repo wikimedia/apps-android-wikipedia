@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -21,16 +22,12 @@ import org.wikipedia.compose.theme.WikipediaTheme
 fun WikiTopAppBar(
     title: String,
     onNavigationClick: (() -> Unit),
-    titleStyle: TextStyle = WikipediaTheme.typography.h1,
-    elevation: Int = 0,
+    titleStyle: TextStyle = WikipediaTheme.typography.h1.copy(lineHeight = 24.sp),
+    elevation: Dp = 0.dp,
     modifier: Modifier = Modifier
 ) {
     val navigationIcon = Icons.AutoMirrored.Filled.ArrowBack
     val backgroundColor = WikipediaTheme.colors.paperColor
-    val elevation = elevation.dp
-    val titleStyle = titleStyle.copy(
-        lineHeight = 24.sp
-    )
 
     TopAppBar(
         title = {
@@ -48,7 +45,7 @@ fun WikiTopAppBar(
                 )
             }
         },
-        colors = TopAppBarDefaults.topAppBarColors().copy(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = backgroundColor,
             titleContentColor = WikipediaTheme.colors.primaryColor
         ),

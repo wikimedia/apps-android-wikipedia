@@ -37,7 +37,7 @@ fun AppButton(
 }
 
 @Composable
-fun TextButton(
+fun AppTextButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     contentColor: Color = WikipediaTheme.colors.progressiveColor,
@@ -116,19 +116,17 @@ fun ThemeColorCircularButton(
     text: String = "Aa",
     modifier: Modifier = Modifier,
     backgroundColor: Color,
-    contentColor: Color,
     borderColor: Color
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.size(40.dp).border(
-            width = 1.dp,
+        modifier = modifier.border(
+            width = 2.dp,
             color = borderColor,
             shape = CircleShape
-        ),
+        ).size(40.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor,
-            contentColor = contentColor
+            containerColor = backgroundColor
         ),
         contentPadding = PaddingValues(0.dp)
     ) {
