@@ -34,7 +34,7 @@ class GalleryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _uiState.value = Resource.Error(throwable)
         }) {
             pageTitle?.let {
-                val response = ServiceFactory.getRest(it.wikiSite).getMediaList(it.prefixedText, revision)
+                val response = if (revision != null) ServiceFactory.getRest(it.wikiSite).getMediaList(it.prefixedText, revision) else ServiceFactory.getRest(it.wikiSite).getMediaList(it.prefixedText)
                 _uiState.value = Resource.Success(response)
             }
         }

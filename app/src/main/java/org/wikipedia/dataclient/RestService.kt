@@ -56,10 +56,15 @@ interface RestService {
     @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
     suspend fun getRandomSummary(): PageSummary
 
+    @GET("page/media-list/{title}")
+    suspend fun getMediaList(
+        @Path("title") title: String
+    ): MediaList
+
     @GET("page/media-list/{title}/{revision}")
     suspend fun getMediaList(
         @Path("title") title: String,
-        @Path("revision") revision: Long? = null
+        @Path("revision") revision: Long
     ): MediaList
 
     @GET("page/media-list/{title}/{revision}")
