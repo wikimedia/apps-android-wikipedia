@@ -140,8 +140,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 }
 
                 val pageSummaryRequest = async {
-                    ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
-                        if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null, title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText))
+                    ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
+                        saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
+                        langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
                 }
                 val watchedRequest = async {
                     if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
@@ -155,8 +156,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
                 val pageSummaryResponse = pageSummaryRequest.await()
                 val watchedResponse = watchedRequest.await()
-                val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
-                val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                val isWatched = watchedResponse.query?.firstPage()?.watched == true
+                val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
                 if (pageSummaryResponse.body() == null) {
                     throw RuntimeException("Summary response was invalid.")
                 }
