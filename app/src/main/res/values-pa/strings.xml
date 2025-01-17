@@ -1449,17 +1449,6 @@
   <string name="places_card_enable_location_card_button">ਟਿਕਾਣਾ ਚਾਲੂ ਕਰੋ</string>
   <string name="places_card_distance_suffix">%s ਦੂਰ</string>
   <string name="places_card_distance_unknown">ਅਣਜਾਣ ਦੂਰੀ</string>
-  <string name="recent_searches_title">ਹਾਲੀਆ ਖੋਜਾਂ</string>
-  <string name="recent_searches_related_to_reading">ਜੋ ਤੁਸੀਂ ਪਡ਼੍ਹ ਰਹੇ ਹੋ ਉਸ ਨਾਲ ਸਬੰਧਤ</string>
-  <string name="rabbit_holes_experiment">ਤਜਰਬਾ</string>
-  <string name="rabbit_holes_experiment_about">ਇਸ ਤਜਰਬੇ ਬਾਰੇ</string>
-  <string name="rabbit_holes_survey_dialog_body">ਕੀ ਤੁਸੀਂ ਇਸ ਸਿਫਾਰਸ਼ ਕੀਤੇ ਖੋਜ ਨਤੀਜੇ ਤੋਂ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_title">ਸਿਫਾਰਸ਼ ਕੀਤੀਆਂ ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀਆਂ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰੋ</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_body">ਕੀ ਤੁਸੀਂ ਇਸ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਪਡ਼੍ਹਨ ਦੀਆਂ ਸੂਚੀ ਤੋਂ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
-  <string name="suggested_reading_list_title">ਤੁਹਾਡੇ ਪੜ੍ਹਨ ਦੇ ਆਧਾਰ \'ਤੇ</string>
-  <string name="suggested_reading_list_dialog_title">ਤੁਹਾਡੇ ਕੋਲ ਇੱਕ ਨਵੀਂ ਸੁਝਾਉ ਗਈ ਪਡ਼੍ਹਨ ਦੀ ਸੂਚੀ ਹੈ।</string>
-  <string name="suggested_reading_list_dialog_positive">ਹੁਣ ਇਸ ਨੂੰ ਅਜ਼ਮਾਓ</string>
-  <string name="suggested_reading_list_dialog_negative">ਸ਼ਾਇਦ ਬਾਅਦ ਵਿੱਚ</string>
   <string name="survey_dialog_title">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
   <string name="survey_dialog_message">ਕੀ ਤੁਸੀਂ ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਤੋਂ ਖੁਸ਼ ਹੋ?</string>
   <string name="survey_dialog_option_satisfied">ਸੰਤੁਸ਼ਟ</string>

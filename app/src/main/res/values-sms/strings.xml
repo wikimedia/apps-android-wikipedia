@@ -325,6 +325,7 @@
   <string name="suggested_edits_encourage_account_creation_title">Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
   <string name="suggested_edits_contribution_type_image_tag">Karttǩeâlǥal</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Eʹtǩǩuum deskriipt</string>
+  <string name="image_recommendation_reject_submit">Vuõlttâd</string>
   <string name="file_page_activity_title">Teâttõsseidd</string>
   <string name="file_page_add_image_caption_button">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="file_page_edit_button_content_description">Muuʹtt %s</string>
@@ -416,4 +417,5 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
   <string name="talk_templates_menu_edit_title">Muuʹtt</string>
   <string name="places_toggle_buttons_map">Mäddkartt</string>
+  <string name="survey_dialog_submit">Vuõlttâd</string>
 </resources>

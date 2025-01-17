@@ -548,7 +548,7 @@
     <item quantity="other">%2$d件中%1$d件の記事がオフラインで利用可能です、%3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">並べ替え</string>
-  <string name="reading_list_sort_ellipsis">並び順:</string>
+  <string name="reading_list_sort_ellipsis">並べ替え…</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
   <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
@@ -648,7 +648,7 @@
   <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
   <string name="reading_lists_menu_create_list">新しいリストを作成</string>
   <string name="reading_lists_menu_import_list">リストをインポート</string>
-  <string name="reading_lists_menu_sort_by">並び順:</string>
+  <string name="reading_lists_menu_sort_by">並び順</string>
   <string name="reading_lists_refresh_sync_option">同期を更新</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ログイン / 登録</string>
   <plurals name="reading_list_article_offline_message">
@@ -1668,9 +1668,6 @@
   <string name="places_card_distance_suffix">距離 %s</string>
   <string name="places_card_distance_unknown">不明な距離</string>
   <string name="places_empty_message_snackbar">付近の記事はありません。地図をズームアウトして移動してみてください。</string>
-  <string name="recent_searches_title">最近の検索</string>
-  <string name="suggested_reading_list_dialog_positive">今すぐ試す</string>
-  <string name="suggested_reading_list_dialog_negative">あとで</string>
   <string name="survey_dialog_title">この機能の改善にご協力ください</string>
   <string name="survey_dialog_message">この機能に満足していますか?</string>
   <string name="survey_dialog_option_satisfied">満足した</string>

@@ -154,6 +154,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             UserContributionEvent.logOpen()
             true
         }
+        findPreference(R.string.preference_key_feed_yir_onboarding_card_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, isEnabled: Any? ->
+            if (isEnabled is Boolean && isEnabled) {
+                Prefs.hiddenCards = emptySet()
+                Toast.makeText(activity, "Please relaunch the app.", Toast.LENGTH_SHORT).show()
+            }
+            true
+        }
     }
 
     private fun setUpMediaWikiSettings() {
