@@ -159,7 +159,7 @@ object L10nUtil {
             if (shouldUpdateExtracts) {
                 list.map { pageSummary ->
                     async {
-                        ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
+                        ServiceFactory.getRest(wikiSite).getPageSummary(pageSummary.apiTitle)
                     }
                 }.awaitAll().forEachIndexed { index, pageSummary ->
                     list[index].extract = pageSummary.extract
