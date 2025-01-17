@@ -448,6 +448,10 @@
             android:title="Donation results"
             android:dialogMessage="Example: [{&quot;dateTime&quot;:&quot;2024-10-22T00:00:00.000&quot;}]"/>
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_feed_yir_onboarding_card_enabled"
+            android:title="Year-in-review Feed Card" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
