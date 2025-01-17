@@ -59,7 +59,7 @@ interface RestService {
     @GET("page/media-list/{title}/{revision}")
     suspend fun getMediaList(
         @Path("title") title: String,
-        @Path("revision") revision: Long
+        @Path("revision") revision: Long? = null
     ): MediaList
 
     @GET("page/media-list/{title}/{revision}")

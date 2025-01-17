@@ -19,7 +19,7 @@ import org.wikipedia.util.Resource
 class GalleryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)
     val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
-    val revision = savedStateHandle[GalleryActivity.EXTRA_REVISION] ?: 0L
+    val revision = savedStateHandle[GalleryActivity.EXTRA_REVISION] as Long?
     var initialFilename = savedStateHandle.get<String>(GalleryActivity.EXTRA_FILENAME)
 
     private val _uiState = MutableStateFlow(Resource<MediaList>())
