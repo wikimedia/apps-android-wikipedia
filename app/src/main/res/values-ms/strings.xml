@@ -450,6 +450,7 @@
   <string name="theme_category_reading">Membaca</string>
   <string name="theme_category_editing">Menyunting</string>
   <string name="reading_focus_mode">Mod tumpu membaca</string>
+  <string name="editing_syntax_highlight_label">Penyerlahan sintaks</string>
   <string name="editing_line_numbers_label">Tunjukkan nombor baris</string>
   <string name="editing_monospace_font_label">Gunakan fon monospace</string>
   <string name="editing_typing_suggestions">Tunjukkan cadangan penaipan</string>

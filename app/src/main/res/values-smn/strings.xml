@@ -309,6 +309,7 @@
   <string name="suggested_edits_image_tags_published_list">Almostittum kilgoleh</string>
   <string name="suggested_edits_image_tags_search">Uusâ kilgolijd</string>
   <string name="suggested_edits_image_tags_add_tag">Lasseet kilgool</string>
+  <string name="suggested_edits_disabled_title">Meddâlistum kiävtust</string>
   <string name="suggested_edits_last_edited">Majemustáá nubástittum</string>
   <string name="suggested_edits_last_edited_never">Ij kuássin</string>
   <string name="suggested_edits_contribution_language_label">Kielâ</string>

@@ -135,6 +135,10 @@
   <string name="dialog_message_leaving_edit">Dəyişiklikləriniz yayımlanmadı. Bu səhifəni tərk etmək istədiyinizə əminsiniz?</string>
   <string name="dialog_message_leaving_edit_leave">Tərk et</string>
   <string name="dialog_message_leaving_edit_stay">Qal</string>
+  <string name="dialog_confirm_delete_donation_history_title">Silinməni təsdiqlə</string>
+  <string name="dialog_confirm_delete_donation_history_message">Bu, yalnız bu cihazdan edilən ianələrə şamil ediləcək.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Sil</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">İmtina</string>
   <string name="menu_show_toc">Mündəricat</string>
   <string name="search_no_results_found">Nəticələr tapılmadı</string>
   <string name="search_reading_list_no_results">\"%s\"-də heç bir nəticə tapılmadı</string>
@@ -415,6 +419,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Şəklin qaralması (Qaranlıq temada)</string>
   <string name="preference_title_prefer_offline_content">Oflayn məzmuna üstünlük verin</string>
   <string name="preference_summary_prefer_offline_content">Həmişə məqalənin ən son versiyasını yükləməkdənsə, oflayn mövcud olan məqalələri yükləməklə data istifadəsinə qənaət edin</string>
+  <string name="preference_title_delete_local_donation_history">Lokal ianə tarixçəsini sil</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem mövzusuna uyğunlaşdırın</string>
   <string name="page_footer_license_text">Əksi qeyd olunmayıbsa, bu məzmun $1 çərçivəsində yayımlanır.</string>
   <string name="empty_tab_title">Yeni nişan</string>
@@ -1643,6 +1648,7 @@
   <string name="donate_gpay_help_other_ways">İanə etməyin digər yolları</string>
   <string name="donate_gpay_help_faq">Tez-tez soruşulan suallar</string>
   <string name="donate_gpay_help_tax">Vergi endirimi haqqında məlumat</string>
+  <string name="donation_history_deleted_message_snackbar">Donor tarixçəsi silindi</string>
   <string name="places_title">Yerlər</string>
   <string name="places_permissions_denied">Xəritədə yerinizi görmək üçün məkan icazəsi tələb olunur. Yenidən cəhd edin.</string>
   <string name="places_search_hint">Yerlərdə axtar</string>
