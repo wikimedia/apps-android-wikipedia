@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 
 @Composable
-fun ScaleAnimation(
+fun AppAnimation(
     fromScale: Float = 1f,
     toScale: Float = 2.5f,
     durationMillis: Int = 1000,
