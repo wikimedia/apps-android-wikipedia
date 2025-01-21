@@ -116,6 +116,8 @@
   <string name="dialog_message_leaving_edit">Ձեր փոփոխությունները դեռևս պահպանված չեն: Ցանկանու՞մ եք լքել այս էջը:</string>
   <string name="dialog_message_leaving_edit_leave">Հեռանալ</string>
   <string name="dialog_message_leaving_edit_stay">Մնալ</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Ջնջել</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Չեղարկել</string>
   <string name="menu_show_toc">Բովանդակություն</string>
   <string name="search_no_results_found">Ոչինչ չի գտնվել</string>
   <string name="title_captcha">Մուտքագրեք CAPTCHA֊ն</string>
