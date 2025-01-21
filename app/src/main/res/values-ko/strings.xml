@@ -155,6 +155,9 @@
   <string name="dialog_message_leaving_edit">편집 내용이 아직 게시되지 않았습니다. 이 페이지를 떠나겠습니까?</string>
   <string name="dialog_message_leaving_edit_leave">떠나기</string>
   <string name="dialog_message_leaving_edit_stay">머물기</string>
+  <string name="dialog_confirm_delete_donation_history_title">삭제 확인</string>
+  <string name="dialog_confirm_delete_donation_history_delete">삭제</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">취소</string>
   <string name="menu_show_toc">목차</string>
   <string name="search_no_results_found">결과가 없습니다</string>
   <string name="search_reading_list_no_results">\"%s\"에 대한 결과 없음</string>

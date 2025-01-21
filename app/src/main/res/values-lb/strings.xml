@@ -125,6 +125,9 @@
   <string name="dialog_message_leaving_edit">Är Ännerunge goufen nach net verëffentlecht. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
   <string name="dialog_message_leaving_edit_leave">Fortgoen</string>
   <string name="dialog_message_leaving_edit_stay">Bleiwen</string>
+  <string name="dialog_confirm_delete_donation_history_title">Läsche confirméieren</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Läschen</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Ofbriechen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>
   <string name="search_no_results_found">Näischt fonnt</string>
   <string name="search_reading_list_no_results">Keng Resultater a(n) \"%s\" fonnt</string>

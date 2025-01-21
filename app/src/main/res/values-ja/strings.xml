@@ -184,6 +184,10 @@
   <string name="dialog_message_leaving_edit">変更はまだ公開されていません。本当にこのページを離れてもいいですか?</string>
   <string name="dialog_message_leaving_edit_leave">離れる</string>
   <string name="dialog_message_leaving_edit_stay">留まる</string>
+  <string name="dialog_confirm_delete_donation_history_title">削除を確認</string>
+  <string name="dialog_confirm_delete_donation_history_message">これはこのデバイスから行われた寄付にのみ適用されます。</string>
+  <string name="dialog_confirm_delete_donation_history_delete">削除</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">キャンセル</string>
   <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">検索結果なし</string>
   <string name="search_reading_list_no_results">「%s」には見つかりませんでした</string>
@@ -463,6 +467,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
+  <string name="preference_title_delete_local_donation_history">ローカル寄付履歴を削除</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
