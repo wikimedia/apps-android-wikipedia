@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -34,9 +35,45 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         true
     }
 
+    fun filterPreferences(query: String? = null) {
+        query?.let {
+            for (i in 1 until fragment.preferenceScreen.preferenceCount) {
+                filterPreferenceGroupItems(fragment.preferenceScreen.getPreference(i), query)
+            }
+        } ?: run {
+            clearPreferences()
+            loadPreferences()
+        }
+    }
+
+    private fun filterPreferenceGroupItems(preference: Preference, query: String): Boolean {
+        if (preference is PreferenceGroup) {
+            var visibleChildCount = 0
+            for (i in 0 until preference.preferenceCount) {
+                if (filterPreferenceGroupItems(preference.getPreference(i), query)) {
+                    visibleChildCount++
+                }
+            }
+
+            // Hide the group if no children are visible
+            preference.isVisible = visibleChildCount > 0
+            return preference.isVisible
+        } else {
+            val isPrefVisible = preference.title?.toString()?.contains(query, ignoreCase = true) == true ||
+                    preference.summary?.toString()?.contains(query, ignoreCase = true) == true
+            preference.isVisible = isPrefVisible
+            return isPrefVisible
+        }
+    }
+
     override fun loadPreferences() {
         loadPreferences(R.xml.developer_preferences)
         setUpMediaWikiSettings()
+        findPreference(R.string.preference_key_dev_settings_search).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            (fragment as DeveloperSettingsFragment).startSearchActionMode()
+            it.parent?.isVisible = false
+            true
+        }
         findPreference(R.string.preferences_developer_crash_key).onPreferenceClickListener = Preference.OnPreferenceClickListener { throw TestException("User tested crash functionality.") }
         findPreference(R.string.preference_key_add_articles).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             val intValue = newValue.toIntOrDefault()
