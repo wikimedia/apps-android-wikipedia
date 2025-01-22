@@ -41,6 +41,7 @@ fun WikiTopAppBar(
             IconButton(onClick = onNavigationClick) {
                 Icon(
                     imageVector = navigationIcon,
+                    tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = null
                 )
             }

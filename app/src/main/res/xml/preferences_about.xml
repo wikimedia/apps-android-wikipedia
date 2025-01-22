@@ -6,10 +6,6 @@
         <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_about_wikipedia_app"
             android:title="@string/about_description" />
-        <!-- @TODO: just for test will remove it       -->
-        <org.wikipedia.settings.PreferenceMultiLine
-            android:key="@string/preference_key_about_wikipedia_app_in_compose"
-            android:title="About Wikipedia in Compose" />
         <org.wikipedia.settings.PreferenceMultiLine
             android:widgetLayout="@layout/preference_multiline_with_external_link"
             android:title="@string/wikipedia_app_faq">

@@ -52,10 +52,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true
         }
-        findPreference(R.string.preference_key_about_wikipedia_app_in_compose).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivity(Intent(activity, ComposeAboutActivity::class.java))
-            true
-        }
         findPreference(R.string.preference_key_send_feedback).onPreferenceClickListener =
             Preference.OnPreferenceClickListener {
                 FeedbackUtil.composeEmail(
