@@ -92,14 +92,20 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
             val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
             val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
-            val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
+            val articleMetricsResponse = async {
+                try {
+                    ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
+                } catch (_: Exception) {
+                    null
+                }
+            }
 
             val page = mwResponse.await().query?.pages?.first()
             pageId = page?.pageId ?: -1
 
             editHistoryStatsData.postValue(Resource.Success(EditHistoryStats(
-                page?.revisions?.first()!!,
-                articleMetricsResponse.await().firstItem.results,
+                page?.revisions?.first() ?: MwQueryPage.Revision(),
+                articleMetricsResponse.await()?.firstItem?.results ?: emptyList(),
                 editCountsResponse.await(),
                 editCountsUserResponse.await(),
                 editCountsAnonResponse.await(),
