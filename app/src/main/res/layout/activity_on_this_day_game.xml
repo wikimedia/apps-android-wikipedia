@@ -254,6 +254,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:paddingVertical="20dp"
+            android:animateLayoutChanges="true"
             android:background="?attr/progressive_color">
 
             <TextView

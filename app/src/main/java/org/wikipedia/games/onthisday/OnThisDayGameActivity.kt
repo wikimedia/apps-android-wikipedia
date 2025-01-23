@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.view.WindowInsetsCompat
@@ -335,15 +336,15 @@ class OnThisDayGameActivity : BaseActivity() {
 
         val duration = 750L
         translationX1.setDuration(duration)
-        translationX1.interpolator = AccelerateDecelerateInterpolator()
+        translationX1.interpolator = DecelerateInterpolator()
         translationA1.setDuration(duration)
-        translationA1.interpolator = AccelerateDecelerateInterpolator()
+        translationA1.interpolator = DecelerateInterpolator()
         translationX2.setDuration(duration)
         translationX2.startDelay = duration
-        translationX2.interpolator = AccelerateDecelerateInterpolator()
+        translationX2.interpolator = DecelerateInterpolator()
         translationA2.setDuration(duration)
         translationA2.startDelay = duration
-        translationA2.interpolator = AccelerateDecelerateInterpolator()
+        translationA2.interpolator = DecelerateInterpolator()
 
         cardAnimatorSet.cancel()
         cardAnimatorSet.playTogether(translationX1, translationA1, translationX2, translationA2)
