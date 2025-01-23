@@ -40,7 +40,6 @@ class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
 
-    private val thumbnailAnimatorSet = AnimatorSet()
     private val goNextAnimatorSet = AnimatorSet()
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -163,7 +162,6 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
-        thumbnailAnimatorSet.cancel()
         goNextAnimatorSet.cancel()
 
         binding.progressBar.isVisible = false
@@ -220,16 +218,13 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_neutral)
         binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_neutral)
 
-        binding.questionCard1.updateLayoutParams<ViewGroup.MarginLayoutParams> { topMargin = 0 }
-        binding.questionCard2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
-
+        binding.centerContent.isVisible = false
         binding.currentQuestionContainer.isVisible = true
         supportInvalidateOptionsMenu()
     }
 
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
-        animateThumbnails()
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainerStart, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
@@ -252,15 +247,18 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
-        animateThumbnails()
     }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        binding.whichCameFirstText.setText(R.string.on_this_day_game_correct)
+        binding.whichCameFirstText.isVisible = false
+        binding.correctIncorrectText.setText(R.string.on_this_day_game_correct)
+        binding.pointsText.setText(R.string.on_this_day_game_point)
+        binding.pointsText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.success_color))
         binding.pointsText.isVisible = true
         binding.nextQuestionText.isVisible = false
+        binding.centerContent.isVisible = true
 
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
@@ -278,8 +276,13 @@ class OnThisDayGameActivity : BaseActivity() {
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        binding.whichCameFirstText.setText(R.string.on_this_day_game_incorrect)
+        binding.whichCameFirstText.isVisible = false
+        binding.correctIncorrectText.setText(R.string.on_this_day_game_incorrect)
+        binding.pointsText.setText(R.string.on_this_day_game_no_points)
+        binding.pointsText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.destructive_color))
+        binding.pointsText.isVisible = true
         binding.nextQuestionText.isVisible = false
+        binding.centerContent.isVisible = true
 
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
@@ -314,9 +317,6 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionDate1.isVisible = true
         binding.questionDate2.isVisible = true
 
-        binding.questionCard1.updateLayoutParams<ViewGroup.MarginLayoutParams> { topMargin = DimenUtil.roundedDpToPx(-10f) }
-        binding.questionCard2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = DimenUtil.roundedDpToPx(-10f) }
-
         binding.nextQuestionText.postDelayed({
             if (!isDestroyed) {
                 animateGoNext(gameState)
@@ -326,7 +326,6 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun animateGoNext(gameState: OnThisDayGameViewModel.GameState) {
         binding.whichCameFirstText.isVisible = false
-        binding.pointsText.isVisible = false
         binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
         binding.nextQuestionText.isVisible = true
 
@@ -340,23 +339,6 @@ class OnThisDayGameActivity : BaseActivity() {
         goNextAnimatorSet.cancel()
         goNextAnimatorSet.playTogether(translationX)
         goNextAnimatorSet.start()
-    }
-
-    private fun animateThumbnails() {
-        val translationY1 = ObjectAnimator.ofFloat(binding.questionThumbnail1, "translationY", 0f, DimenUtil.dpToPx(8f), 0f)
-        val translationY2 = ObjectAnimator.ofFloat(binding.questionThumbnail2, "translationY", 0f, DimenUtil.dpToPx(-8f), 0f)
-
-        val duration = 1500L
-        translationY1.setDuration(duration)
-        translationY1.interpolator = AccelerateDecelerateInterpolator()
-        translationY1.repeatCount = ObjectAnimator.INFINITE
-        translationY2.setDuration(duration)
-        translationY2.interpolator = AccelerateDecelerateInterpolator()
-        translationY2.repeatCount = ObjectAnimator.INFINITE
-
-        thumbnailAnimatorSet.cancel()
-        thumbnailAnimatorSet.playTogether(translationY1, translationY2)
-        thumbnailAnimatorSet.start()
     }
 
     companion object {

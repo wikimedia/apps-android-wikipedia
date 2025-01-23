@@ -18,6 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/progressive_color"
             app:titleTextColor="?attr/paper_color"
+            app:navigationIcon="@drawable/ic_close_black_24dp"
             app:navigationIconTint="?attr/paper_color"
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp">
@@ -30,19 +31,10 @@
                     android:id="@+id/progressText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="center_vertical|end"
                     style="@style/P"
                     android:text="@string/on_this_day_game_progress"
-                    android:textColor="?attr/paper_color"/>
-
-                <TextView
-                    android:id="@+id/scoreText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|end"
                     android:layout_marginEnd="16dp"
-                    style="@style/P"
-                    android:text="@string/on_this_day_game_score"
                     android:textColor="?attr/paper_color"/>
 
             </FrameLayout>
@@ -74,32 +66,75 @@
         android:id="@+id/currentQuestionContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="16dp"
         android:clipToPadding="false"
         android:animateLayoutChanges="true"
         android:layout_marginTop="?attr/actionBarSize">
 
-        <View
+        <TextView
+            android:id="@+id/whichCameFirstText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"
+            style="@style/H1.Article"
+            android:text="@string/on_this_day_game_title"
+            android:textColor="?attr/primary_color"/>
+
+        <org.wikipedia.views.WikiCardView
             android:id="@+id/questionCard1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/game_card_background"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintTop_toBottomOf="@id/questionDate1"
-            app:layout_constraintBottom_toTopOf="@id/centerGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/whichCameFirstText"
+            app:layout_constraintBottom_toTopOf="@id/centerContent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="100dp">
-        </View>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            app:contentPadding="16dp">
+
+            <ImageView
+                android:id="@+id/questionStatusIcon1"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/check_circle_24px"
+                app:tint="?attr/success_color"
+                android:layout_gravity="bottom|end"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/questionText1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="132dp"
+                android:ellipsize="end"
+                style="@style/P"
+                android:textColor="?attr/primary_color"
+                tools:text="Lorem ipsum"/>
+
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/questionThumbnail1"
+                app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="end"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/launcher"/>
+
+        </org.wikipedia.views.WikiCardView>
 
         <TextView
             android:id="@+id/questionDate1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/questionCard1"
+            app:layout_constraintStart_toStartOf="@id/questionCard1"
+            app:layout_constraintEnd_toEndOf="@id/questionCard1"
+            android:elevation="8dp"
+            android:layout_marginTop="-12dp"
             android:background="@drawable/game_date_background_neutral"
             style="@style/P"
             android:textColor="?attr/primary_color"
@@ -107,53 +142,6 @@
             android:paddingTop="2dp"
             android:paddingBottom="3dp"
             tools:text="Lorem ipsum"/>
-
-        <ImageView
-            android:id="@+id/questionStatusIcon1"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            app:layout_constraintEnd_toEndOf="@id/questionCard1"
-            app:layout_constraintBottom_toBottomOf="@id/questionCard1"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/check_circle_24px"
-            app:tint="?attr/success_color"
-            android:contentDescription="@null" />
-
-        <TextView
-            android:id="@+id/questionText1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/questionCard1"
-            app:layout_constraintEnd_toEndOf="@id/questionCard1"
-            app:layout_constraintTop_toTopOf="@id/questionCard1"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
-            android:maxLines="4"
-            android:ellipsize="end"
-            style="@style/P"
-            android:textColor="?attr/primary_color"
-            tools:text="Lorem ipsum"/>
-
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/questionThumbnail1"
-            app:shapeAppearanceOverlay="@style/CircularImageView"
-            android:elevation="4dp"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/centerContent"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/launcher"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/centerGuideLine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
 
         <FrameLayout
             android:id="@+id/centerContent"
@@ -161,24 +149,25 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/centerGuideLine"
-            app:layout_constraintBottom_toBottomOf="@id/centerGuideLine"
-            android:animateLayoutChanges="true"
-            android:paddingVertical="20dp">
+            app:layout_constraintTop_toBottomOf="@id/questionCard1"
+            app:layout_constraintBottom_toTopOf="@id/questionCard2"
+            android:layout_marginTop="40dp"
+            android:animateLayoutChanges="true">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/whichCameFirstText"
+                    android:id="@+id/correctIncorrectText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    style="@style/H1.Article"
-                    android:text="@string/on_this_day_game_title"
+                    style="@style/P"
+                    android:textStyle="bold"
+                    android:text="@string/on_this_day_game_correct"
                     android:textColor="?attr/primary_color"/>
 
                 <TextView
@@ -186,80 +175,69 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="8dp"
                     style="@style/P"
                     android:text="@string/on_this_day_game_point"
                     android:textColor="?attr/secondary_color"/>
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/nextQuestionText"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_gravity="end"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center_vertical"
-                android:paddingStart="8dp"
-                style="@style/H1.Article"
-                android:text="@string/on_this_day_game_next"
-                android:textColor="?attr/primary_color"
-                app:drawableEndCompat="@drawable/ic_arrow_forward_black_24dp"
-                app:drawableTint="?attr/primary_color"
-                android:drawablePadding="8dp" />
-
         </FrameLayout>
 
-        <View
+        <org.wikipedia.views.WikiCardView
             android:id="@+id/questionCard2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/game_card_background"
             android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintTop_toBottomOf="@id/centerGuideLine"
-            app:layout_constraintBottom_toTopOf="@id/questionDate2"
+            app:layout_constraintTop_toBottomOf="@id/centerContent"
+            app:layout_constraintBottom_toTopOf="@id/bottomContent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="100dp">
-        </View>
-
-        <ImageView
-            android:id="@+id/questionStatusIcon2"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            app:layout_constraintEnd_toEndOf="@id/questionCard2"
-            app:layout_constraintTop_toTopOf="@id/questionCard2"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_cancel_24px"
-            app:tint="?attr/destructive_color"
-            android:contentDescription="@null" />
-
-        <TextView
-            android:id="@+id/questionText2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/questionCard2"
-            app:layout_constraintEnd_toEndOf="@id/questionCard2"
-            app:layout_constraintTop_toBottomOf="@id/questionThumbnail2"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:maxLines="4"
-            android:ellipsize="end"
-            style="@style/P"
-            android:textColor="?attr/primary_color"
-            tools:text="Lorem ipsum"/>
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="32dp"
+            app:contentPadding="16dp">
+
+            <ImageView
+                android:id="@+id/questionStatusIcon2"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/check_circle_24px"
+                app:tint="?attr/success_color"
+                android:layout_gravity="bottom|end"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/questionText2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="132dp"
+                android:ellipsize="end"
+                style="@style/P"
+                android:textColor="?attr/primary_color"
+                tools:text="Lorem ipsum"/>
+
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/questionThumbnail2"
+                app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="end"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/launcher"/>
+
+        </org.wikipedia.views.WikiCardView>
 
         <TextView
             android:id="@+id/questionDate2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/questionCard2"
+            app:layout_constraintStart_toStartOf="@id/questionCard2"
+            app:layout_constraintEnd_toEndOf="@id/questionCard2"
+            android:elevation="8dp"
+            android:layout_marginTop="-12dp"
             android:background="@drawable/game_date_background_neutral"
             style="@style/P"
             android:textColor="?attr/primary_color"
@@ -268,18 +246,46 @@
             android:paddingBottom="3dp"
             tools:text="Lorem ipsum"/>
 
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/questionThumbnail2"
-            app:shapeAppearanceOverlay="@style/CircularImageView"
-            android:elevation="4dp"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
+        <FrameLayout
+            android:id="@+id/bottomContent"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/centerContent"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/launcher"/>
+            android:paddingVertical="20dp"
+            android:background="?attr/progressive_color">
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                style="@style/P"
+                android:text="@string/on_this_day_game_score"
+                android:textColor="?attr/paper_color"/>
+
+            <TextView
+                android:id="@+id/nextQuestionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"
+                android:layout_marginEnd="16dp"
+                style="@style/P"
+                android:textStyle="bold"
+                android:text="@string/on_this_day_game_next"
+                android:textColor="@android:color/white"
+                app:drawableEndCompat="@drawable/ic_arrow_forward_black_24dp"
+                app:drawableTint="@android:color/white"
+                android:drawablePadding="8dp" />
+
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
