@@ -67,6 +67,7 @@
 
     <!-- Description editing -->
     <integer name="description_max_chars">250</integer>
+    <integer name="description_max_chars_en">100</integer>
     <integer name="description_max_anon_edits">5</integer>
 
     <!-- Notifications -->

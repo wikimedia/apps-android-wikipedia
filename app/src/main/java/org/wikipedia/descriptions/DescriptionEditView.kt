@@ -342,6 +342,8 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         } else if (isLanguageWrong) {
             val localizedName = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(pageSummaryForEdit.lang)
             setWarning(context.getString(R.string.description_verification_notice, localizedName, localizedName))
+        } else if (pageTitle.wikiSite.languageCode == "en" && text.length > resources.getInteger(R.integer.description_max_chars_en)) {
+            setWarning(context.getString(R.string.description_too_long))
         } else {
             clearError()
         }
