@@ -141,6 +141,9 @@
   <string name="dialog_message_leaving_edit">Измена још није објављена. Желите ли заиста да напустите ову страницу?</string>
   <string name="dialog_message_leaving_edit_leave">Напусти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
+  <string name="dialog_confirm_delete_donation_history_title">Потврди брисање</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Обриши</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Откажи</string>
   <string name="menu_show_toc">Садржај</string>
   <string name="search_no_results_found">Резултати нису пронађени</string>
   <string name="search_reading_list_no_results">Нису пронађени резултати на листи „%s”</string>

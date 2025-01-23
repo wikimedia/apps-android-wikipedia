@@ -160,6 +160,10 @@
   <string name="dialog_message_leaving_edit">Vaše změny nebyly dosud zveřejněny. Jste si jisti, že chcete opustit tuto stránku?</string>
   <string name="dialog_message_leaving_edit_leave">Opustit</string>
   <string name="dialog_message_leaving_edit_stay">Zůstat</string>
+  <string name="dialog_confirm_delete_donation_history_title">Potvrďte smazání</string>
+  <string name="dialog_confirm_delete_donation_history_message">Toto vztahuje pouze na příspěvky zaslané z tohoto zařízení.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Smazat</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Storno</string>
   <string name="menu_show_toc">Tabulka obsahu</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
   <string name="search_reading_list_no_results">Nenalezeny žádné výsledky v seznamu „%s“</string>
@@ -295,6 +299,8 @@
   <string name="edit_undo">Vrátit</string>
   <string name="edit_redo">Znovu</string>
   <string name="edit_rollback">Vrátit zpět</string>
+  <string name="edit_warn">Varovat</string>
+  <string name="edit_damage">Poškozeno %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte.</item>
     <item quantity="few">%s byty.</item>
@@ -308,10 +314,14 @@
   <string name="edit_summary_tag_links">Přidány odkazy</string>
   <string name="edit_summary_tag_other">Jinak</string>
   <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
+  <string name="edit_summary_added_short_description">Přidán krátký popis</string>
+  <string name="edit_summary_updated_short_description">Aktualizován krátký popis</string>
   <string name="edit_conflict_title">Editační konflikt</string>
   <string name="edit_conflict_message">Stránka již byla editována jiným uživatelem a je v konfliktu s vaší editací. Prosíme, zkopírujte svou editaci, vraťte se zpět, obnovte stránku a zkuste stránku znovu editovat.</string>
   <string name="edit_notices">Editační upozornění</string>
   <string name="edit_notices_please_read">Před úpravou si prosím přečtěte</string>
+  <string name="edit_notices_show_auto">Automaticky zobrazovat upozornění na úpravy</string>
+  <string name="edit_notices_tooltip">Klikněte na toto tlačítko, abyste viděli upozornění pro editory tohoto článku.</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
   <string name="find_first_occurence">Toto je první výskyt</string>
@@ -442,6 +452,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ztmavení obrázků (v Tmavém a Černém motivu)</string>
   <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetří využití dat tím, že aplikace načte články pro offline čtení, místo načtení aktuální verze článku.</string>
+  <string name="preference_title_delete_local_donation_history">Smazat lokální historii darů</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Přizpůsobit vzhledu systému</string>
   <string name="page_footer_license_text">Obsah je dostupný pod $1, pokud není uvedeno jinak</string>
   <string name="empty_tab_title">Nová záložka</string>
@@ -454,7 +465,10 @@
   <string name="error_blocked_id">ID blokování: %s</string>
   <string name="theme_chooser_menu_item_short_tooltip">Přizpůsobte si panel nástrojů</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
+  <string name="temp_account_anon_ip_dialog_body">Když provedete editaci, vaše IP adresa bude přiřazena k vašim editacím.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo si &lt;a href=\"https://#createaccount\"&gt;vytvořte účet&lt;/a&gt;, abyste získal(a) ocenění za další příspěvky a dostal(a) přístup k dalším funkcím.</string>
   <string name="temp_account_using_title">Využíváte dočasný účet</string>
+  <string name="temp_account_dialog_discard">Zahodit změny a přihlásit se</string>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Nejste přihlášen k účtu.&lt;/b&gt; Jakmile provedete editaci, vaše IP adresa bude propojena s vašimi editacemi.</string>
   <string name="temp_account_end_session">Ukončit relaci</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
@@ -567,6 +581,9 @@
     <item quantity="many">%d seznamu odstraněna</item>
     <item quantity="other">%d seznamů odstraněno</item>
   </plurals>
+  <string name="reading_lists_default_list_delete_message">Výchozí seznam (%s) nemůže být smazán</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s byl smazán. Výchozí seznam ke čtení (%2$s) nemůže být smazán.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Seznamy ke čtení byly smazány. Výchozí seznam (%s) ke čtení nemůže být smazán.</string>
   <string name="single_list_json_file_name">%s (Wikipedie seznam k přečtení).json</string>
   <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
   <string name="reading_lists_item_deleted">Článek %s odebrán ze seznamů</string>
@@ -600,6 +617,7 @@
   <string name="reading_list_articles_added_to_named">%1$d článků přidáno do %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d článků přesunuto do %2$s</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit seznam „%s“?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Přejete si smazat vybrané seznamy ke čtení?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přihlaste se pro povolení synchronizace</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlaste se, abyste povolili ukládání seznamů k přečtení na váš účet.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Zrušit</string>
@@ -669,6 +687,7 @@
   <string name="reading_lists_preview_header_title">Sdílený seznam</string>
   <string name="reading_lists_preview_save_button">Uložit</string>
   <string name="reading_lists_preview_save_dialog_title">Uložit seznam</string>
+  <string name="reading_lists_preview_save_dialog_text">Pojmenujte seznam ke čtení a vyberte články k uložení do něj.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Název</string>
   <string name="reading_lists_preview_save_dialog_cancel">Storno</string>
   <string name="reading_lists_preview_save_dialog_save">Uložit</string>
@@ -875,6 +894,7 @@
   <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
   <string name="feed_accessibility_card_load_more_button">Načíst další</string>
   <string name="feed_language_variants_removal_dialog_save">Uložit</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Prosím aktualizujte si své nemateřské jazyky</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Přejít do nastavení</string>
   <string name="top_read_activity_title">Nejčtenější dne %s</string>
   <string name="tabs_activity_title">Karty</string>
@@ -1113,6 +1133,7 @@
   <string name="image_recommendation_reject_low_quality">Obrázek má nízkou kvalitu</string>
   <string name="image_recommendation_reject_dont_know">Neznám tento předmět</string>
   <string name="image_recommendation_reject_other">Jiné</string>
+  <string name="image_recommendation_reject_submit">Publikovat</string>
   <string name="image_recommendation_onboarding_1">Obrázky pomáhají lidem pochopit, ale mnoho článků je nemá.</string>
   <string name="image_recommendation_onboarding_2">Vy rozhodnete, zda má být navrhovaný obrázek umístěn do článku na Wikipedii.</string>
   <string name="image_recommendation_onboarding_3">Návrhy jsou generovány strojově a vy se podle svého úsudku rozhodnete, zda je přijmete, nebo odmítnete.</string>
@@ -1130,6 +1151,7 @@
   <string name="file_page_activity_title">Stránka souboru</string>
   <string name="file_page_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="file_page_add_image_tags_button">Přidejte značky obrázků</string>
+  <string name="file_page_edit_button_content_description">Editovat %s</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -1424,18 +1446,34 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Účet od: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Počet úprav: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zavřít</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Editoři, kteří nejsou přihlášeni.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registrovaní</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Přihlášení editoři.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Nováčci</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrovaní editoři, kteří mají méně než 10 editací v posledních 4 dnech.</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Člověk (nikoliv bot)</string>
+  <string name="patroller_tasks_filters_significance_header">Důležitost</string>
+  <string name="patroller_tasks_filters_significance_minor">Malá editace</string>
   <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
   <string name="patroller_tasks_overflow_learn">Zjistit více</string>
+  <string name="patroller_onboarding_two_talk_content">Komunikujte s ostatními editory. Uložte si běžně používané zprávy na diskusních stránkách nebo používejte šablonu.</string>
+  <string name="patroller_onboarding_two_undo_title">Zrušit editaci</string>
+  <string name="patroller_onboarding_two_undo_content">Zvolte „Zrušit editaci“ pro zrušení možné destruktivní editace.</string>
+  <string name="patroller_diff_menu_edit_history_title">Historie editací článku</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Zpětná vazba</string>
   <string name="patroller_saved_message_title_vandalism">Varování před vandalismem</string>
+  <string name="patroller_saved_message_title_final_warning">Poslední varování</string>
   <string name="patroller_saved_message_title_copy_vio">Upozornění na porušení autorských práv</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Zanechte shrnutí úprav</string>
   <string name="patroller_saved_message_body_vandalism">Dobrý den, {{{username}}}, chci vám oznámit, že jsem vrátil jeden nebo více vašich [{{{diffLink}}}|nedávných příspěvků], protože se nezdají být konstruktivní. Pokud si myslíte, že jsem udělal chybu nebo máte otázky, můžete zanechat zprávu na [[User talk:{{{senderUserName}}}|mé diskusní stránce]]. Vezměte prosím na vědomí, že pokračující vandalismus může vést k omezením.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Použijte vzorovou zprávu níže, kterou můžete přizpůsobit, zaslat a uložit do svých zpráv.</string>
+  <string name="menu_single_webview_open_external">Otevřít ve výchozím internetovém prohlížeči</string>
   <string name="donate_gpay_dialog_title">Darovat přes Google Pay?</string>
   <string name="donate_gpay_dialog_description">Darujte přes Google Pay nebo zvolte jiný způsob platby.</string>
   <string name="donate_gpay_dialog_pay_button">Darovat přes Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Jiný způsob platby</string>
+  <string name="donate_gpay_help_problems">Máte problémy s finančním darem?</string>
+  <string name="donation_history_deleted_message_snackbar">Historie finančních darů smazaná</string>
   <string name="places_title">Místa</string>
   <string name="places_permissions_denied">Vyžaduje se oprávnění polohy, abyste viděli vaši polohu na mapě. Zkuste to prosím znovu.</string>
   <string name="places_search_hint">Hledat místa</string>
@@ -1447,6 +1485,7 @@
   <string name="places_card_enable_location_card_message">Místa je způsob prozkoumávání Wikipedie založený na mapách</string>
   <string name="places_card_enable_location_card_button">Povolit polohu</string>
   <string name="places_card_distance_suffix">%s daleko</string>
+  <string name="places_card_distance_unknown">Neznámá vzdálenost</string>
   <string name="survey_dialog_message">Jste s touto funkcí spokojen(a)?</string>
   <string name="survey_dialog_option_satisfied">Spokojen(a)</string>
   <string name="survey_dialog_option_neutral">Neutrální</string>
