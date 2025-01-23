@@ -4,15 +4,25 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
-import kotlinx.coroutines.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import androidx.paging.filter
+import androidx.paging.insertSeparators
+import androidx.paging.map
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -93,9 +103,9 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
             val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
             val articleMetricsResponse = async {
-                try {
+                if (pageTitle.namespace() == Namespace.MAIN) {
                     ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
-                } catch (_: Exception) {
+                } else {
                     null
                 }
             }
