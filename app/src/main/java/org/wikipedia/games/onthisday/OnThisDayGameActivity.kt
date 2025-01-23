@@ -18,7 +18,6 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -41,6 +40,7 @@ class OnThisDayGameActivity : BaseActivity() {
     private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
 
     private val goNextAnimatorSet = AnimatorSet()
+    private val cardAnimatorSet = AnimatorSet()
 
     @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -247,6 +247,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
+        animateQuestions()
     }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
@@ -321,7 +322,32 @@ class OnThisDayGameActivity : BaseActivity() {
             if (!isDestroyed) {
                 animateGoNext(gameState)
             }
-        }, 2000)
+        }, 500)
+    }
+
+    fun animateQuestions() {
+        binding.questionCard1.alpha = 0f
+        binding.questionCard2.alpha = 0f
+        val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", DimenUtil.dpToPx(400f), 0f)
+        val translationA1 = ObjectAnimator.ofFloat(binding.questionCard1, "alpha", 0f, 1f)
+        val translationX2 = ObjectAnimator.ofFloat(binding.questionCard2, "translationX", DimenUtil.dpToPx(400f), 0f)
+        val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 0f, 1f)
+
+        val duration = 750L
+        translationX1.setDuration(duration)
+        translationX1.interpolator = AccelerateDecelerateInterpolator()
+        translationA1.setDuration(duration)
+        translationA1.interpolator = AccelerateDecelerateInterpolator()
+        translationX2.setDuration(duration)
+        translationX2.startDelay = duration
+        translationX2.interpolator = AccelerateDecelerateInterpolator()
+        translationA2.setDuration(duration)
+        translationA2.startDelay = duration
+        translationA2.interpolator = AccelerateDecelerateInterpolator()
+
+        cardAnimatorSet.cancel()
+        cardAnimatorSet.playTogether(translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSet.start()
     }
 
     private fun animateGoNext(gameState: OnThisDayGameViewModel.GameState) {

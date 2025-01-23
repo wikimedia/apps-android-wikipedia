@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -33,14 +32,10 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
         binding.playGameButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
+            (requireActivity() as? OnThisDayGameActivity)?.animateQuestions()
         }
 
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
 
     companion object {
