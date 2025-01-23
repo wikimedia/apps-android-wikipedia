@@ -186,7 +186,16 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.questionCard2.tag = event2
 
         binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
+        binding.questionText1.maxLines = Integer.MAX_VALUE
         binding.questionText1.text = event1.text
+        binding.questionText1.post {
+            if (!isDestroyed) {
+                // this seems to be the only way to properly ellipsize the text in its layout.
+                if (binding.questionText1.lineHeight > 0) {
+                    binding.questionText1.maxLines = (binding.questionText1.measuredHeight / binding.questionText1.lineHeight)
+                }
+            }
+        }
 
         val thumbnailUrl1 = event1.pages.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl1.isNullOrEmpty()) {
@@ -196,7 +205,16 @@ class OnThisDayGameActivity : BaseActivity() {
         }
 
         binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
+        binding.questionText2.maxLines = Integer.MAX_VALUE
         binding.questionText2.text = event2.text
+        binding.questionText2.post {
+            if (!isDestroyed) {
+                // this seems to be the only way to properly ellipsize the text in its layout.
+                if (binding.questionText2.lineHeight > 0) {
+                    binding.questionText2.maxLines = (binding.questionText2.measuredHeight / binding.questionText2.lineHeight)
+                }
+            }
+        }
 
         val thumbnailUrl2 = event2.pages.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl2.isNullOrEmpty()) {
