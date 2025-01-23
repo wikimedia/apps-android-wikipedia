@@ -22,7 +22,8 @@ fun BaseTheme(
     }
 
     CompositionLocalProvider(
-        LocalWikipediaColor provides wikipediaColorSystem
+        LocalWikipediaColor provides wikipediaColorSystem,
+        LocalWikipediaTypography provides Typography
     ) {
         content()
     }
@@ -32,4 +33,8 @@ object WikipediaTheme {
     val colors: WikipediaColor
         @Composable
         get() = LocalWikipediaColor.current
+
+    val typography: WikipediaTypography
+        @Composable
+        get() = LocalWikipediaTypography.current
 }

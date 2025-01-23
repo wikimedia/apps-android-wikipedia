@@ -143,6 +143,10 @@
   <string name="dialog_message_leaving_edit">Dina ändringar har ännu inte publicerats. Är du säker på att du vill lämna denna sida?</string>
   <string name="dialog_message_leaving_edit_leave">Lämna</string>
   <string name="dialog_message_leaving_edit_stay">Stanna</string>
+  <string name="dialog_confirm_delete_donation_history_title">Bekräfta radering</string>
+  <string name="dialog_confirm_delete_donation_history_message">Detta gäller endast donationer som görs från den här enheten.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Radera</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Avbryt</string>
   <string name="menu_show_toc">Innehållsförteckning</string>
   <string name="search_no_results_found">Inga resultat hittades</string>
   <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
@@ -427,6 +431,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
   <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
   <string name="preference_summary_prefer_offline_content">Spara dataanvändning genom att läsa in artiklar som är tillgängliga offline istället för att alltid läsa in den senaste versionen av en artikel</string>
+  <string name="preference_title_delete_local_donation_history">Radera lokal donationshistorik</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Matcha systemtemat</string>
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>
@@ -1664,6 +1669,7 @@
   <string name="donate_gpay_help_other_ways">Andra sätt att ge</string>
   <string name="donate_gpay_help_faq">Vanliga frågor och svar</string>
   <string name="donate_gpay_help_tax">Information om avdragsmöjligheter</string>
+  <string name="donation_history_deleted_message_snackbar">Donationshistoriken raderades</string>
   <string name="places_title">Platser</string>
   <string name="places_permissions_denied">Platsbehörighet krävs för att se din plats på kartan. Var god försök igen.</string>
   <string name="places_search_hint">Sök platser</string>

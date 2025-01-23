@@ -17,6 +17,8 @@ import org.wikipedia.tests.articles.TableOfContentsTest
 
 @RunWith(Suite::class)
 @SuiteClasses(
+    SavedArticleOnlineOfflineTest::class,
+    SavedArticleTest::class,
     ArticlePageActionItemTest::class,
     ArticleSectionsTest::class,
     ArticleTabTest::class,
@@ -24,10 +26,7 @@ import org.wikipedia.tests.articles.TableOfContentsTest
     EditIconTest::class,
     MediaTest::class,
     OverflowMenuTest::class,
-    SavedArticleTest::class,
     SpecialArticleTest::class,
-    TableOfContentsTest::class,
-    SavedArticleTest::class,
-    SavedArticleOnlineOfflineTest::class
+    TableOfContentsTest::class
 )
 class ArticlesTestSuite

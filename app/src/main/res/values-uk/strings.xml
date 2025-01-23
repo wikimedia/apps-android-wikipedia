@@ -153,6 +153,10 @@
   <string name="dialog_message_leaving_edit">Ваші зміни ще не було збережено. Ви дійсно хочете залишити цю сторінку?</string>
   <string name="dialog_message_leaving_edit_leave">Покинути</string>
   <string name="dialog_message_leaving_edit_stay">Залишитись</string>
+  <string name="dialog_confirm_delete_donation_history_title">Підтвердити вилучення</string>
+  <string name="dialog_confirm_delete_donation_history_message">Це стосується лише пожертв, зроблених із цього пристрою.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Вилучити</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Скасувати</string>
   <string name="menu_show_toc">Зміст</string>
   <string name="search_no_results_found">Нічого не знайдено</string>
   <string name="search_reading_list_no_results">Не знайдено результатів у «%s»</string>
@@ -443,6 +447,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
   <string name="preference_title_prefer_offline_content">Надавати перевагу автономному контенту</string>
   <string name="preference_summary_prefer_offline_content">Збережіть трафік, завантажуючи статті, доступні в режимі офлайн радше чим завжди завантажувати останню версію статті</string>
+  <string name="preference_title_delete_local_donation_history">Вилучити локальну історію пожертв</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Підлаштовано під вигляд системи</string>
   <string name="page_footer_license_text">Вміст доступний на умовах $1, якщо не вказано інше</string>
   <string name="empty_tab_title">Нова вкладка</string>
@@ -1767,6 +1772,7 @@
   <string name="donate_gpay_help_other_ways">Способи пожертвувати кошти</string>
   <string name="donate_gpay_help_faq">Часті запитання</string>
   <string name="donate_gpay_help_tax">Про звільнення від податків</string>
+  <string name="donation_history_deleted_message_snackbar">Історію пожертв вилучено</string>
   <string name="places_title">Місця</string>
   <string name="places_permissions_denied">Щоб побачити ваше місце розташування на карті, потрібно надати дозвіл на визначення місця розташування. Спробуйте ще раз.</string>
   <string name="places_search_hint">Шукати місця</string>

@@ -129,6 +129,10 @@
   <string name="dialog_message_leaving_edit">Вашите промени сè уште не се објавени. Дали сигурно сакате да ја напуштите страницава?</string>
   <string name="dialog_message_leaving_edit_leave">Напушти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
+  <string name="dialog_confirm_delete_donation_history_title">Потврдете бришење</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ова ќе важи само за прилозите дадени од овој уред.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Избриши</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Откажи</string>
   <string name="menu_show_toc">Содржина</string>
   <string name="search_no_results_found">Нема пронајдов ништо</string>
   <string name="search_reading_list_no_results">Не најдов ништо за „%s“</string>
@@ -413,6 +417,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
+  <string name="preference_title_delete_local_donation_history">Избришете историја на месно дарување</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Според системскиот изглед</string>
   <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
   <string name="empty_tab_title">Ново јазиче</string>
@@ -1651,6 +1656,7 @@
   <string name="donate_gpay_help_other_ways">Други начини на дарување</string>
   <string name="donate_gpay_help_faq">Често поставувани прашања</string>
   <string name="donate_gpay_help_tax">Информации за даночното олеснување</string>
+  <string name="donation_history_deleted_message_snackbar">Историјата на дарување е избришана</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Потребна е дозвола за споделување на вашата местоположба на карта. Обидете се повторно.</string>
   <string name="places_search_hint">Пребарај места</string>

@@ -135,6 +135,10 @@
     <string name="dialog_message_leaving_edit">Your changes have not been published yet. Are you sure you want to leave this page?</string>
     <string name="dialog_message_leaving_edit_leave">Leave</string>
     <string name="dialog_message_leaving_edit_stay">Stay</string>
+    <string name="dialog_confirm_delete_donation_history_title">Confirm deletion</string>
+    <string name="dialog_confirm_delete_donation_history_message">This will only apply to donations made from this device.</string>
+    <string name="dialog_confirm_delete_donation_history_delete">Delete</string>
+    <string name="dialog_confirm_delete_donation_history_cancel">Cancel</string>
     <string name="menu_show_toc">Table of Contents</string>
     <string name="search_no_results_found">No results found</string>
     <string name="search_reading_list_no_results">No results found in \"%s\"</string>
@@ -420,6 +424,7 @@
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
+    <string name="preference_title_delete_local_donation_history">Delete local donation history</string>
     <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
@@ -1755,6 +1760,7 @@
     <string name="donate_gpay_help_other_ways">Other ways to give</string>
     <string name="donate_gpay_help_faq">Frequently asked questions</string>
     <string name="donate_gpay_help_tax">Tax deductibility information</string>
+    <string name="donation_history_deleted_message_snackbar">Donor history deleted</string>
     <!-- Donor experience -->
 
     <!-- Places -->
