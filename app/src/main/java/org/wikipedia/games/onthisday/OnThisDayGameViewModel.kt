@@ -75,7 +75,7 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
                 val event1 = allEvents.removeAt(0)
                 var event2: OnThisDay.Event? = null
                 var yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
-                event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread}
+                event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread }
                 if (event2 == null) {
                     var minDiff = Int.MAX_VALUE
                     for (event in allEvents) {
@@ -246,18 +246,6 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     companion object {
         const val MAX_QUESTIONS = 10
         const val EXTRA_DATE = "date"
-
-        fun shouldShowEntryDialog(): Boolean {
-            if (Prefs.lastOtdGameVisitDate.isEmpty()) {
-                return true
-            }
-            try {
-                val prevDate = LocalDate.parse(Prefs.lastOtdGameVisitDate, DateTimeFormatter.ISO_LOCAL_DATE)
-                return prevDate.dayOfMonth != LocalDate.now().dayOfMonth
-            } catch (e: Exception) {
-                return true
-            }
-        }
 
         val gameStartDate: LocalDate get() {
             return try {

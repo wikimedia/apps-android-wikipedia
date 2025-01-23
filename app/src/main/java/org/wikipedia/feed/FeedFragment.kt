@@ -15,6 +15,7 @@ import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.FragmentFeedBinding
 import org.wikipedia.feed.FeedCoordinatorBase.FeedUpdateListener
@@ -129,6 +130,11 @@ class FeedFragment : Fragment(), BackPressedHandler {
         ReadingListSyncAdapter.manualSync()
         Prefs.incrementExploreFeedVisitCount()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as? BaseActivity)?.maybeShowOnThisDayGameDialog()
     }
 
     override fun onResume() {
