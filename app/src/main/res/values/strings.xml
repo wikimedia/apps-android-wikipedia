@@ -1827,4 +1827,21 @@
     <string name="survey_dialog_submit">Submit</string>
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
+
+    <!-- On this day game -->
+    <string name="on_this_day_game_entry_dialog_title">Introducing</string>
+    <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
+    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
+    <string name="on_this_day_game_title">Which came first?</string>
+    <string name="on_this_day_game_dialog_button">Play</string>
+    <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
+    <string name="on_this_day_game_progress">%1$d of %2$d</string>
+    <string name="on_this_day_game_score">Score: %d</string>
+    <string name="on_this_day_game_correct">Correct!</string>
+    <string name="on_this_day_game_incorrect">Incorrect!</string>
+    <string name="on_this_day_game_point">+1 point</string>
+    <string name="on_this_day_game_next">Next question</string>
+    <string name="on_this_day_game_finish">Final results</string>
+
 </resources>
