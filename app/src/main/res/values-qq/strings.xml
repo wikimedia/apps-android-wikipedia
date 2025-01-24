@@ -1712,8 +1712,18 @@
   <string name="survey_dialog_submit">Positive action button text for the survey dialog</string>
   <string name="survey_dialog_input_hint">Hint label for the survey dialog input field.</string>
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
-  <string name="on_this_day_game_title">Title for the trivia game dialog.</string>
-  <string name="on_this_day_game_subtitle">Subtitle for the trivia game dialog.</string>
+  <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">message shown when user dismisses the intial trivia game entry dialog</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Message shown when user dismisses the initial trivia game entry dialog.</string>
+  <string name="on_this_day_game_title">Title of the trivia game.</string>
+  <string name="on_this_day_game_dialog_button">Button label in the initial screen of the trivia game to enter the game.</string>
+  <string name="on_this_day_game_splash_message">Message in the initial screen of the trivia game to explain the game rules.</string>
+  <string name="on_this_day_game_next">Button label for navigating to the next question.</string>
+  <string name="on_this_day_game_finish">Button label for finishing the game.</string>
+  <string name="on_this_day_game_progress">Represents the player's progress in the current game. %1$d is replaced with the number of the current question, and %2$d is replaced with the total questions.</string>
+  <string name="on_this_day_game_score">The player's current score, represented as %d points</string>
+  <string name="on_this_day_game_correct">Message shown when a correct answer is given.</string>
+  <string name="on_this_day_game_incorrect">Message shown when a incorrect answer is given.</string>
+  <string name="on_this_day_game_point">Indication of points earned with a correct response. (always 1 point, not plural)</string>
 </resources>
