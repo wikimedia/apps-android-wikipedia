@@ -1808,6 +1808,9 @@
     <string name="on_this_day_game_point">+1 point</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Final results</string>
+    <string name="on_this_day_game_feed_entry_card_heading">Wikipedia games</string>
+    <string name="on_this_day_game_feed_entry_card_title">What came first?</string>
+    <string name="on_this_day_game_feed_entry_card_subtitle">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_result">You scored %1$d/%2$d.</string>
     <string name="on_this_day_game_next_in">Next game in %s</string>
     <string name="on_this_day_game_your_stats">Your stats</string>
