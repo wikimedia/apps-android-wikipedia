@@ -249,8 +249,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                 dialog.dismiss()
             }
             dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                // @TODO: replace this with the string resource
-                FeedbackUtil.showMessage(this, "Wikipedia games are available on the Explore feed.")
+                FeedbackUtil.showMessage(this, R.string.on_this_day_game_entry_dialog_snackbar_message)
                 dialog.dismiss()
             }
         }

@@ -1780,7 +1780,11 @@
     <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
 
-    <string name="on_this_day_game_title">Which came first?</string>
+    <!-- On this day game -->
+    <string name="on_this_day_game_title">Introducing</string>
+    <string name="on_this_day_game_subtitle">Wikipedia games</string>
+    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
     <string name="on_this_day_game_dialog_description">Limited time only: WikiDate Detective is a beta experiment that will be available for %d more days</string>
     <string name="on_this_day_game_dialog_button">Start playing</string>
     <string name="on_this_day_game_dialog_dismiss">Don\'t show alert again</string>
@@ -1827,10 +1831,4 @@
     <string name="survey_dialog_submit">Submit</string>
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
-
-    <!-- On this day game -->
-    <string name="on_this_day_game_title">Introducing</string>
-    <string name="on_this_day_game_subtitle">Wikipedia games</string>
-    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
 </resources>
