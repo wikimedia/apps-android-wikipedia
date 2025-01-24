@@ -1726,4 +1726,7 @@
   <string name="on_this_day_game_correct">Message shown when a correct answer is given.</string>
   <string name="on_this_day_game_incorrect">Message shown when a incorrect answer is given.</string>
   <string name="on_this_day_game_point">Indication of points earned with a correct response. (always 1 point, not plural)</string>
+  <string name="on_this_day_game_feed_entry_card_heading">header for the game feed entry card</string>
+  <string name="on_this_day_game_feed_entry_card_title">title for the game feed entry card</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">subtitle for the game feed entry card</string>
 </resources>
