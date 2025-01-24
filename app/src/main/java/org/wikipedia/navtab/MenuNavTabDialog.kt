@@ -16,7 +16,6 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
@@ -87,7 +86,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerGameContainer.setOnClickListener {
-            // TODO: move this to the correct place
+            // TODO: remove after Feed card is in place.
             startActivity(OnThisDayGameActivity.newIntent(requireContext(), Constants.InvokeSource.NAV_MENU))
             dismiss()
         }
@@ -140,7 +139,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
             binding.mainDrawerContribsContainer.visibility = View.GONE
         }
-        binding.mainDrawerGameContainer.isVisible = OnThisDayGameViewModel.isGameActive
     }
 
     private fun callback(): Callback? {
