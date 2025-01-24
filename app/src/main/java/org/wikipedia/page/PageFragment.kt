@@ -19,10 +19,8 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.Button
-import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -703,14 +701,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(dialogView)
                 .show()
-            dialogView.findViewById<TextView>(R.id.dialogDescription).text = getString(R.string.on_this_day_game_dialog_description, OnThisDayGameViewModel.daysLeft)
             dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                 startActivity(OnThisDayGameActivity.newIntent(requireContext(), InvokeSource.PAGE_ACTIVITY))
-                Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
             dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                Prefs.isOtdGameDialogEnabled = !dialogView.findViewById<CheckBox>(R.id.disableCheckBox).isChecked
                 dialog.dismiss()
             }
         }

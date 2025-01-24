@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
@@ -38,10 +39,11 @@ import java.util.Locale
 
 class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
-    private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
+    private val viewModel: OnThisDayGameViewModel by viewModels()
 
     private val goNextAnimatorSet = AnimatorSet()
     private val cardAnimatorSet = AnimatorSet()
+    private lateinit var mediaPlayer: MediaPlayer
 
     @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +55,7 @@ class OnThisDayGameActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = getString(R.string.on_this_day_game_title)
+        mediaPlayer = MediaPlayer.create(this, R.raw.sound_logo)
 
         binding.errorView.retryClickListener = View.OnClickListener {
             viewModel.loadGameState()
@@ -114,6 +117,11 @@ class OnThisDayGameActivity : BaseActivity() {
         }
 
         updateOnLoading()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -258,6 +266,8 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.scoreText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
 
+        mediaPlayer.start()
+
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainerFinish, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
@@ -274,8 +284,6 @@ class OnThisDayGameActivity : BaseActivity() {
 
         binding.whichCameFirstText.isVisible = false
         binding.correctIncorrectText.setText(R.string.on_this_day_game_correct)
-        binding.pointsText.setText(R.string.on_this_day_game_point)
-        binding.pointsText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.success_color))
         binding.pointsText.isVisible = true
         binding.nextQuestionText.isVisible = false
         binding.centerContent.isVisible = true
@@ -298,9 +306,6 @@ class OnThisDayGameActivity : BaseActivity() {
 
         binding.whichCameFirstText.isVisible = false
         binding.correctIncorrectText.setText(R.string.on_this_day_game_incorrect)
-        binding.pointsText.setText(R.string.on_this_day_game_no_points)
-        binding.pointsText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.destructive_color))
-        binding.pointsText.isVisible = true
         binding.nextQuestionText.isVisible = false
         binding.centerContent.isVisible = true
 

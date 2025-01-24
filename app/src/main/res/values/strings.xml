@@ -1780,23 +1780,36 @@
     <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
 
+    <!-- Survey dialog -->
+    <string name="survey_dialog_title">Help us improve this feature</string>
+    <string name="survey_dialog_message">Are you satisfied with this feature?</string>
+    <string name="survey_dialog_option_satisfied">Satisfied</string>
+    <string name="survey_dialog_option_neutral">Neutral</string>
+    <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="survey_dialog_option_very_satisfied">Very satisfied</string>
+    <string name="survey_dialog_option_very_unsatisfied">Very unsatisfied</string>
+    <string name="survey_dialog_cancel">Cancel</string>
+    <string name="survey_dialog_submit">Submit</string>
+    <string name="survey_dialog_input_hint">Additional feedback</string>
+    <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
+
+    <!-- On this day game -->
+    <string name="on_this_day_game_entry_dialog_title">Introducing</string>
+    <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
+    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
     <string name="on_this_day_game_title">Which came first?</string>
-    <string name="on_this_day_game_dialog_description">Limited time only: WikiDate Detective is a beta experiment that will be available for %d more days</string>
-    <string name="on_this_day_game_dialog_button">Start playing</string>
-    <string name="on_this_day_game_dialog_dismiss">Don\'t show alert again</string>
-    <string name="on_this_day_game_splash_message">Decide which event on this day happened first.</string>
-    <string name="on_this_day_game_splash_message_2">%1$d questions per game\n\nNew game daily for %2$d days</string>
+    <string name="on_this_day_game_dialog_button">Play</string>
+    <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_progress">%1$d of %2$d</string>
     <string name="on_this_day_game_score">Score: %d</string>
     <string name="on_this_day_game_correct">Correct!</string>
     <string name="on_this_day_game_incorrect">Incorrect!</string>
-    <string name="on_this_day_game_no_points">0 points</string>
     <string name="on_this_day_game_point">+1 point</string>
+    <string name="on_this_day_game_next">Next question</string>
+    <string name="on_this_day_game_finish">Final results</string>
     <string name="on_this_day_game_experiment_chip_text">Experiment</string>
     <string name="on_this_day_game_nav_title">Games</string>
-    <string name="on_this_day_game_submit">Submit</string>
-    <string name="on_this_day_game_next">Next question</string>
-    <string name="on_this_day_game_finish">Finish</string>
     <string name="on_this_day_game_share">Share with friends</string>
     <string name="on_this_day_game_result">You got %1$d out of %2$d questions right today. %3$s</string>
     <string name="on_this_day_game_result_subtitle">Articles mentioned in today\'s game</string>
@@ -1816,16 +1829,4 @@
     <string name="on_this_day_game_share_footer">Play for a limited time only in the Wikipedia Android app</string>
     <string name="on_this_day_game_share_back_button">Go back</string>
 
-    <!-- Survey dialog -->
-    <string name="survey_dialog_title">Help us improve this feature</string>
-    <string name="survey_dialog_message">Are you satisfied with this feature?</string>
-    <string name="survey_dialog_option_satisfied">Satisfied</string>
-    <string name="survey_dialog_option_neutral">Neutral</string>
-    <string name="survey_dialog_option_unsatisfied">Unsatisfied</string>
-    <string name="survey_dialog_option_very_satisfied">Very satisfied</string>
-    <string name="survey_dialog_option_very_unsatisfied">Very unsatisfied</string>
-    <string name="survey_dialog_cancel">Cancel</string>
-    <string name="survey_dialog_submit">Submit</string>
-    <string name="survey_dialog_input_hint">Additional feedback</string>
-    <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
 </resources>
