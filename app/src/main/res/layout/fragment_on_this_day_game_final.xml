@@ -84,7 +84,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@id/resultTextContainer"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/on_this_day_back_to_future"/>
+                android:text="@string/on_this_day_game_your_stats"/>
 
             <LinearLayout
                 android:id="@+id/statsContainer"

@@ -177,21 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="@string/on_this_day_game_nav_title" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="?attr/addition_color"
-                    android:text="@string/on_this_day_game_experiment_chip_text"
-                    android:textColor="?attr/secondary_color"
-                    android:layout_marginHorizontal="16dp"
-                    android:clickable="false"
-                    android:focusable="false"
-                    app:chipStrokeWidth="0dp"
-                    app:chipCornerRadius="16dp"
-                    />
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/main_drawer_settings_container"

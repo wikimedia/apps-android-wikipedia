@@ -11,7 +11,6 @@ import org.wikipedia.databinding.ViewGameWeeklyActivityBinding
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class WeeklyActivityView(context: Context) : LinearLayout(context), OnClickListener {
     fun interface Callback {
@@ -30,8 +29,8 @@ class WeeklyActivityView(context: Context) : LinearLayout(context), OnClickListe
     fun setWeekStats(startDate: LocalDate, gameState: OnThisDayGameViewModel.GameState) {
         val endDate = startDate.plusDays(6)
 
-        binding.weekText.text = context.getString(R.string.on_this_day_game_week_from_to, startDate.format(DateTimeFormatter.ofPattern("MMMM d")),
-            if (startDate.monthValue == endDate.monthValue) endDate.format(DateTimeFormatter.ofPattern("d")) else endDate.format(DateTimeFormatter.ofPattern("MMMM d")))
+//        binding.weekText.text = context.getString(R.string.on_this_day_game_week_from_to, startDate.format(DateTimeFormatter.ofPattern("MMMM d")),
+//            if (startDate.monthValue == endDate.monthValue) endDate.format(DateTimeFormatter.ofPattern("d")) else endDate.format(DateTimeFormatter.ofPattern("MMMM d")))
 
         val tintSuccess = ResourceUtil.getThemedColorStateList(context, R.attr.success_color)
         val tintInactive = ResourceUtil.getThemedColorStateList(context, R.attr.inactive_color)

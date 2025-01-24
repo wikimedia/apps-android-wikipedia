@@ -6,67 +6,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <LinearLayout
-            android:id="@+id/container"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/on_this_day_game_entry_dialog_title"
+            android:src="@drawable/illustration_trivia_game" />
+
+        <TextView
+            style="@style/H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on_this_day_game_entry_dialog_title"
+            android:textAlignment="center"
+            android:textColor="?attr/secondary_color" />
+
+        <TextView
+            style="@style/H1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/on_this_day_game_entry_dialog_subtitle"
+            android:textAlignment="center"
+            android:textColor="?attr/secondary_color" />
+
+        <Button
+            android:id="@+id/playGameButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:gravity="center_horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/illustration_trivia_game"
-                android:contentDescription="@string/on_this_day_game_title"
-                android:layout_margin="16dp"/>
-
-            <TextView
-                style="@style/H1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/secondary_color"
-                android:textAlignment="center"
-                android:text="@string/on_this_day_game_title"/>
-
-            <Button
-                android:id="@+id/playGameButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/on_this_day_game_dialog_button"
-                android:layout_marginVertical="24dp"/>
-
-            <TextView
-                android:id="@+id/dialogDescription"
-                style="@style/List"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/placeholder_color"
-                android:text="@string/on_this_day_game_splash_message"
-                android:layout_marginVertical="16dp"
-                android:layout_marginHorizontal="12dp"
-                android:textAlignment="center"/>
-
-        </LinearLayout>
-
-    </ScrollView>
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/on_this_day_game_entry_dialog_button" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/closeButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_close_black_24dp"
-        android:padding="12dp"
         android:layout_gravity="end"
-        android:contentDescription="@string/dialog_close_description"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        app:tint="?attr/primary_color"/>
+        android:contentDescription="@string/dialog_close_description"
+        android:padding="12dp"
+        android:src="@drawable/ic_close_black_24dp"
+        app:tint="?attr/primary_color" />
 
 </org.wikipedia.views.WikiCardView>

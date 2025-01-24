@@ -743,10 +743,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
 
-    var isOtdGameDialogEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_dialog_enable, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_dialog_enable, value)
-
     var lastOtdGameVisitDate
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_last_visit_date, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_last_visit_date, value)
@@ -766,4 +762,8 @@ object Prefs {
     var otdGameQuestionsPerDay
         get() = PrefsIoUtil.getInt(R.string.preference_key_otd_game_num_questions, 5)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_otd_game_num_questions, value)
+
+    var otdEntryDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_entry_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_entry_dialog_shown, value)
 }

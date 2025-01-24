@@ -106,18 +106,18 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
         val totalCorrect = gameState.answerState.count { it }
-        binding.resultText.text = getString(R.string.on_this_day_game_result,
-            totalCorrect,
-            gameState.totalQuestions,
-            getString(when (totalCorrect) {
-                0 -> R.string.on_this_day_game_encourage0
-                1 -> R.string.on_this_day_game_encourage1
-                2 -> R.string.on_this_day_game_encourage2
-                else -> R.string.on_this_day_game_encourage3
-            }))
+//        binding.resultText.text = getString(R.string.on_this_day_game_result,
+//            totalCorrect,
+//            gameState.totalQuestions,
+//            getString(when (totalCorrect) {
+//                0 -> R.string.on_this_day_game_encourage0
+//                1 -> R.string.on_this_day_game_encourage1
+//                2 -> R.string.on_this_day_game_encourage2
+//                else -> R.string.on_this_day_game_encourage3
+//            }))
 
         val streak = calculateStreak(gameState.answerStateHistory)
-        binding.streakText.text = StringUtil.fromHtml(resources.getQuantityString(R.plurals.on_this_day_game_streak, streak, streak))
+        // binding.streakText.text = StringUtil.fromHtml(resources.getQuantityString(R.plurals.on_this_day_game_streak, streak, streak))
 
         binding.resultArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.resultArticlesList.isNestedScrollingEnabled = false

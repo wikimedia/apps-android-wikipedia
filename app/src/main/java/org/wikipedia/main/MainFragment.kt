@@ -183,7 +183,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onResume() {
         super.onResume()
-        maybeShowIndicatorForMore()
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
@@ -566,17 +565,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
                             Prefs.showSuggestedEditsTooltip = false
                     }
-            }
-        }
-    }
-
-    private fun maybeShowIndicatorForMore() {
-        if (Prefs.lastOtdGameVisitDate.isEmpty()) {
-            binding.mainNavTabLayout.post {
-                val moreItemView: View = binding.mainNavTabLayout.findViewById(NavTab.MORE.id)
-                binding.moreDotIndicator.x = (moreItemView.x + moreItemView.width / 2f + DimenUtil.roundedDpToPx(6f))
-                binding.moreDotIndicator.y = DimenUtil.roundedDpToPx(15f).toFloat()
-                binding.moreDotIndicator.isVisible = true
             }
         }
     }

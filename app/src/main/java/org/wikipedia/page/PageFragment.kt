@@ -18,8 +18,6 @@ import android.view.ViewGroup
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -75,8 +73,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.games.onthisday.OnThisDayGameActivity
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -695,22 +692,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun maybeShowOnThisDayGameDialog() {
-        if (Prefs.isOtdGameDialogEnabled && OnThisDayGameViewModel.shouldShowEntryDialog()) {
-            val dialogView = layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
-            val dialog = MaterialAlertDialogBuilder(requireActivity())
-                .setView(dialogView)
-                .show()
-            dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
-                startActivity(OnThisDayGameActivity.newIntent(requireContext(), InvokeSource.PAGE_ACTIVITY))
-                dialog.dismiss()
-            }
-            dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                dialog.dismiss()
-            }
-        }
-    }
-
     private fun showFindReferenceInPage(referenceAnchor: String,
                                         backLinksList: List<String?>,
                                         referenceText: String) {
@@ -949,7 +930,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
-        maybeShowOnThisDayGameDialog()
+        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity())
 
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup

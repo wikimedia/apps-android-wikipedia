@@ -179,6 +179,10 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.progressText.isVisible = true
         binding.scoreText.isVisible = true
         binding.dateText.isVisible = true
+        binding.questionDate1.isVisible = false
+        binding.questionDate2.isVisible = false
+        binding.questionStatusIcon1.isVisible = false
+        binding.questionStatusIcon2.isVisible = false
 
         MonthDay.of(viewModel.currentMonth, viewModel.currentDay).let {
             binding.dateText.text = it.format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")))
@@ -236,10 +240,6 @@ class OnThisDayGameActivity : BaseActivity() {
         binding.pointsText.isVisible = false
         binding.nextQuestionText.isVisible = false
 
-        binding.questionStatusIcon1.isVisible = false
-        binding.questionStatusIcon2.isVisible = false
-        binding.questionDate1.isVisible = false
-        binding.questionDate2.isVisible = false
         binding.questionDate1.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
         binding.questionDate2.setTextColor(ResourceUtil.getThemedColor(this, R.attr.primary_color))
         binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_neutral)
