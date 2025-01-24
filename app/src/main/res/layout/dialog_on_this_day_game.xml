@@ -49,19 +49,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/placeholder_color"
-                android:text="@string/on_this_day_game_dialog_description"
+                android:text="@string/on_this_day_game_splash_message"
                 android:layout_marginVertical="16dp"
                 android:layout_marginHorizontal="12dp"
                 android:textAlignment="center"/>
-
-            <com.google.android.material.checkbox.MaterialCheckBox
-                style="@style/H3.Button"
-                android:id="@+id/disableCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/placeholder_color"
-                android:text="@string/on_this_day_game_dialog_dismiss"
-                app:buttonTint="?attr/progressive_color"/>
 
         </LinearLayout>
 
