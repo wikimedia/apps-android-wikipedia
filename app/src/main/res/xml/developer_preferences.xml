@@ -2,6 +2,12 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory android:title="@string/preferences_developer_search_heading">
+        <Preference
+            android:key="@string/preference_key_dev_settings_search"
+            android:title="@string/preferences_developer_search_title" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/preferences_developer_announcements_heading">
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
