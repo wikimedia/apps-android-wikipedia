@@ -6,8 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.widget.Button
-import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +19,6 @@ import com.skydoves.balloon.Balloon
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
@@ -40,7 +37,6 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
-import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
@@ -235,25 +231,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onGoOffline() {}
 
     override fun onGoOnline() {}
-
-    fun maybeShowOnThisDayGameDialog() {
-        if (!Prefs.otdEntryDialogShown) {
-            Prefs.otdEntryDialogShown = true
-            val dialogView = layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
-            val dialog = MaterialAlertDialogBuilder(this)
-                .setView(dialogView)
-                .setCancelable(false)
-                .show()
-            dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
-                startActivity(OnThisDayGameActivity.newIntent(this, InvokeSource.PAGE_ACTIVITY))
-                dialog.dismiss()
-            }
-            dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                FeedbackUtil.showMessage(this, R.string.on_this_day_game_entry_dialog_snackbar_message)
-                dialog.dismiss()
-            }
-        }
-    }
 
     fun launchDonateDialog(campaignId: String? = null, donateUrl: String? = null) {
         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId, donateUrl))

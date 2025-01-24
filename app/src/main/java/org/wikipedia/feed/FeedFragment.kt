@@ -15,7 +15,6 @@ import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.FragmentFeedBinding
 import org.wikipedia.feed.FeedCoordinatorBase.FeedUpdateListener
@@ -33,6 +32,7 @@ import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
+import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
@@ -132,14 +132,10 @@ class FeedFragment : Fragment(), BackPressedHandler {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as? BaseActivity)?.maybeShowOnThisDayGameDialog()
-    }
-
     override fun onResume() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
+        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity())
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices.
