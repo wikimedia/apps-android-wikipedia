@@ -32,10 +32,9 @@ import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.temporal.WeekFields
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
+class OnThisDayGameFinalFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -82,12 +81,6 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         super.onDestroyView()
     }
 
-    override fun onDayClick(date: LocalDate) {
-        viewModel.resetCurrentDayState()
-        requireActivity().finish()
-        startActivity(OnThisDayGameActivity.newIntent(requireContext(), viewModel.invokeSource, date))
-    }
-
     private fun updateOnLoading() {
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = false
@@ -105,32 +98,12 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
-        val totalCorrect = gameState.answerState.count { it }
-//        binding.resultText.text = getString(R.string.on_this_day_game_result,
-//            totalCorrect,
-//            gameState.totalQuestions,
-//            getString(when (totalCorrect) {
-//                0 -> R.string.on_this_day_game_encourage0
-//                1 -> R.string.on_this_day_game_encourage1
-//                2 -> R.string.on_this_day_game_encourage2
-//                else -> R.string.on_this_day_game_encourage3
-//            }))
 
-        val streak = calculateStreak(gameState.answerStateHistory)
-        // binding.streakText.text = StringUtil.fromHtml(resources.getQuantityString(R.plurals.on_this_day_game_streak, streak, streak))
+        // TODO: add stats
 
         binding.resultArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(gameState.articles)
-
-        var displayStartDate = getStartOfWeekDate(OnThisDayGameViewModel.gameStartDate)
-        while (displayStartDate.isBefore(OnThisDayGameViewModel.gameEndDate)) {
-            val weekView = WeeklyActivityView(requireContext())
-            weekView.callback = this
-            binding.weeksContainer.addView(weekView)
-            weekView.setWeekStats(displayStartDate, gameState)
-            displayStartDate = displayStartDate.plusDays(7)
-        }
     }
 
     private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
@@ -213,12 +186,6 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             return OnThisDayGameFinalFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
-        }
-
-        fun getStartOfWeekDate(date: LocalDate, locale: Locale = Locale.getDefault()): LocalDate {
-            val firstDayOfWeek = WeekFields.of(locale).firstDayOfWeek
-            val daysToSubtract = ((7 + (date.dayOfWeek.value - firstDayOfWeek.value)) % 7).toLong()
-            return date.minusDays(daysToSubtract)
         }
 
         fun calculateStreak(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {

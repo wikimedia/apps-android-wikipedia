@@ -79,7 +79,7 @@
                 android:id="@+id/yourStatsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/H2.AppBar"
+                style="@style/H4"
                 android:textColor="?attr/primary_color"
                 android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@id/resultTextContainer"
@@ -213,7 +213,7 @@
                 android:id="@+id/resultSubtitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/H2.AppBar"
+                style="@style/H4"
                 android:textColor="?attr/primary_color"
                 android:layout_marginTop="32dp"
                 android:text="@string/on_this_day_game_result_subtitle"
@@ -234,16 +234,17 @@
 
     </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/shareButton"
-        style="@style/App.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/on_this_day_game_share"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="@null"/>
+        android:contentDescription="@string/on_this_day_game_share"
+        app:tint="?attr/background_color"
+        app:srcCompat="@drawable/ic_share"
+        app:backgroundTint="?attr/progressive_color"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
