@@ -1712,4 +1712,8 @@
   <string name="survey_dialog_submit">Positive action button text for the survey dialog</string>
   <string name="survey_dialog_input_hint">Hint label for the survey dialog input field.</string>
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
+  <string name="on_this_day_game_title">Title for the trivia game dialog.</string>
+  <string name="on_this_day_game_subtitle">Subtitle for the trivia game dialog.</string>
+  <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">message shown when user dismisses the intial trivia game entry dialog</string>
 </resources>
