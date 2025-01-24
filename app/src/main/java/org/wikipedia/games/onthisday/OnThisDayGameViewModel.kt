@@ -1,10 +1,9 @@
 package org.wikipedia.games.onthisday
 
-import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -28,16 +27,16 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
+class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val _gameState = MutableLiveData<Resource<GameState>>()
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
-    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+    val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
 
     private lateinit var currentState: GameState
-    private val overrideDate = bundle.containsKey(EXTRA_DATE)
-    val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(bundle.getLong(EXTRA_DATE)), ZoneOffset.UTC) else LocalDate.now()
+    private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
+    val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
     val currentMonth get() = currentDate.monthValue
     val currentDay get() = currentDate.dayOfMonth
 
@@ -235,13 +234,6 @@ class OnThisDayGameViewModel(bundle: Bundle) : ViewModel() {
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
     class GameStarted(val data: GameState) : Resource<GameState>()
     class GameEnded(val data: GameState) : Resource<GameState>()
-
-    class Factory(val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return OnThisDayGameViewModel(bundle) as T
-        }
-    }
 
     companion object {
         const val MAX_QUESTIONS = 10
