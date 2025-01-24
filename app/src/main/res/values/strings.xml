@@ -1790,7 +1790,6 @@
     <string name="on_this_day_game_score">Score: %d</string>
     <string name="on_this_day_game_correct">Correct!</string>
     <string name="on_this_day_game_incorrect">Incorrect!</string>
-    <string name="on_this_day_game_no_points">0 points</string>
     <string name="on_this_day_game_point">+1 point</string>
     <string name="on_this_day_game_experiment_chip_text">Experiment</string>
     <string name="on_this_day_game_nav_title">Games</string>

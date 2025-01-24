@@ -39,7 +39,7 @@ import java.util.Locale
 
 class OnThisDayGameActivity : BaseActivity() {
     private lateinit var binding: ActivityOnThisDayGameBinding
-    private val viewModel: OnThisDayGameViewModel by viewModels { OnThisDayGameViewModel.Factory(intent.extras!!) }
+    private val viewModel: OnThisDayGameViewModel by viewModels()
 
     private val goNextAnimatorSet = AnimatorSet()
     private val cardAnimatorSet = AnimatorSet()
@@ -284,8 +284,6 @@ class OnThisDayGameActivity : BaseActivity() {
 
         binding.whichCameFirstText.isVisible = false
         binding.correctIncorrectText.setText(R.string.on_this_day_game_correct)
-        binding.pointsText.setText(R.string.on_this_day_game_point)
-        binding.pointsText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.success_color))
         binding.pointsText.isVisible = true
         binding.nextQuestionText.isVisible = false
         binding.centerContent.isVisible = true
@@ -308,9 +306,6 @@ class OnThisDayGameActivity : BaseActivity() {
 
         binding.whichCameFirstText.isVisible = false
         binding.correctIncorrectText.setText(R.string.on_this_day_game_incorrect)
-        binding.pointsText.setText(R.string.on_this_day_game_no_points)
-        binding.pointsText.setTextColor(ResourceUtil.getThemedColor(this, R.attr.destructive_color))
-        binding.pointsText.isVisible = true
         binding.nextQuestionText.isVisible = false
         binding.centerContent.isVisible = true
 
