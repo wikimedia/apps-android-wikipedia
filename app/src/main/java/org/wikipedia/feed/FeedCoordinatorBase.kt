@@ -18,6 +18,7 @@ import org.wikipedia.feed.places.PlacesFeedClient
 import org.wikipedia.feed.progress.ProgressCard
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
 import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.wikigames.WikiGamesCard
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ThrowableUtil
@@ -231,6 +232,9 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         if (isDailyCardType(card) && currentDayCardAge < age) {
             currentDayCardAge = age
             insertCard(DayHeaderCard(currentDayCardAge), pos++)
+            if (currentDayCardAge == 0) {
+                insertCard(WikiGamesCard(), pos++)
+            }
         }
         insertCard(card, pos)
     }
@@ -268,7 +272,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
     private fun isDailyCardType(card: Card): Boolean {
         return card is NewsCard || card is OnThisDayCard ||
                 card is TopReadListCard || card is FeaturedArticleCard ||
-                card is FeaturedImageCard
+                card is FeaturedImageCard || card is WikiGamesCard
     }
 
     private fun shouldShowProgressCard(pendingClient: FeedClient?): Boolean {
