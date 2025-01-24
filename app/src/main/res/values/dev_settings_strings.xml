@@ -45,6 +45,5 @@
     <string name="preference_developer_clear_last_location_and_zoom_level">clearLastLocationAndZoomLevel</string>
 
     <string name="preferences_developer_search_heading">Search</string>
-    <string name="preferences_developer_search_title">Tap to search preferences</string>
     <string name="preferences_developer_search_hint">Search preferences…</string>
 </resources>

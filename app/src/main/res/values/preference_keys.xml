@@ -172,5 +172,4 @@
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
-    <string name="preference_key_dev_settings_search">searchDevPreferences</string>
 </resources>
