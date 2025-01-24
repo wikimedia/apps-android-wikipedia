@@ -37,7 +37,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
 
     fun filterPreferences(query: String? = null) {
         query?.let {
-            for (i in 1 until fragment.preferenceScreen.preferenceCount) {
+            for (i in 0 until fragment.preferenceScreen.preferenceCount) {
                 filterPreferenceGroupItems(fragment.preferenceScreen.getPreference(i), query)
             }
         } ?: run {
@@ -69,11 +69,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     override fun loadPreferences() {
         loadPreferences(R.xml.developer_preferences)
         setUpMediaWikiSettings()
-        findPreference(R.string.preference_key_dev_settings_search).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            (fragment as DeveloperSettingsFragment).startSearchActionMode()
-            it.parent?.isVisible = false
-            true
-        }
         findPreference(R.string.preferences_developer_crash_key).onPreferenceClickListener = Preference.OnPreferenceClickListener { throw TestException("User tested crash functionality.") }
         findPreference(R.string.preference_key_add_articles).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             val intValue = newValue.toIntOrDefault()
