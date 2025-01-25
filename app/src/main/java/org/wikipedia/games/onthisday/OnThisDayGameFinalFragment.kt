@@ -10,8 +10,9 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -27,6 +28,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.time.Duration
 import java.time.LocalDate
@@ -113,7 +115,10 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.statsAverageScore.text = String.format(Locale.getDefault(), "%.1f", calculateAverageScore(gameState.answerStateHistory))
         binding.statsCurrentStreak.text = String.format(calculateStreak(gameState.answerStateHistory).toString())
 
-        binding.resultArticlesList.layoutManager = LinearLayoutManager(requireContext())
+        binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
+        binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(gameState.articles)
     }
