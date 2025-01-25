@@ -100,6 +100,18 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.scrollContainer.isVisible = true
 
         // TODO: add stats
+        val totalCorrect = gameState.answerState.count { it }
+        binding.resultText.text = getString(R.string.on_this_day_game_result, totalCorrect, gameState.totalQuestions)
+
+        val cardContainerColor = when (totalCorrect) {
+            0, 1 -> R.attr.highlight_color
+            2, 3 -> R.attr.focus_color
+            else -> R.attr.success_color
+        }
+        binding.resultCardContainer.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), cardContainerColor))
+        binding.statsGamePlayed.text = String.format(calculateTotalGamesPlayed(gameState.answerStateHistory).toString())
+        binding.statsAverageScore.text = String.format(Locale.getDefault(), "%.1f", calculateAverageScore(gameState.answerStateHistory))
+        binding.statsCurrentStreak.text = String.format(calculateStreak(gameState.answerStateHistory).toString())
 
         binding.resultArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.resultArticlesList.isNestedScrollingEnabled = false
@@ -188,6 +200,18 @@ class OnThisDayGameFinalFragment : Fragment() {
             }
         }
 
+        fun calculateTotalGamesPlayed(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
+            var total = 0
+            answerStateHistory.forEach { year ->
+                year.value?.forEach { month ->
+                    month.value.forEach { day ->
+                        total++
+                    }
+                }
+            }
+            return total
+        }
+
         fun calculateStreak(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
             var streak = 0
             var date = LocalDate.now()
@@ -196,6 +220,21 @@ class OnThisDayGameFinalFragment : Fragment() {
                 date = date.minusDays(1)
             }
             return streak
+        }
+
+        fun calculateAverageScore(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Float {
+            var total = 0
+            var count = 0
+            answerStateHistory.forEach { year ->
+                year.value?.forEach { month ->
+                    month.value.forEach { day ->
+                        total += day.value.count { it == true }
+                        count++
+                    }
+                }
+            }
+            // TODO: ask about the question size in the list
+            return total.toFloat() / count
         }
 
         fun timeUntilNextDay(): Duration {
