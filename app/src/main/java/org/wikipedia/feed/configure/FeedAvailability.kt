@@ -2,6 +2,7 @@ package org.wikipedia.feed.configure
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.util.ReleaseUtil
 
 @Serializable
 class FeedAvailability {
@@ -22,5 +23,5 @@ class FeedAvailability {
     val onThisDay: List<String> = emptyList()
 
     @SerialName("games")
-    val games: List<String> = listOf("de")
+    val games: List<String> = if (ReleaseUtil.isPreBetaRelease) listOf("en", "de") else listOf("de")
 }
