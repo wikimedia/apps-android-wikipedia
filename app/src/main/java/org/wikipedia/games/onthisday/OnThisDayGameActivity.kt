@@ -18,6 +18,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
+import androidx.core.animation.doOnEnd
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
@@ -369,8 +370,14 @@ class OnThisDayGameActivity : BaseActivity() {
         translationA2.startDelay = duration
         translationA2.interpolator = DecelerateInterpolator()
 
+        binding.questionCard1.isEnabled = false
+        binding.questionCard2.isEnabled = false
         cardAnimatorSet.cancel()
         cardAnimatorSet.playTogether(translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSet.doOnEnd {
+            binding.questionCard1.isEnabled = true
+            binding.questionCard2.isEnabled = true
+        }
         cardAnimatorSet.start()
     }
 
