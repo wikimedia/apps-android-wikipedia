@@ -236,7 +236,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     class GameEnded(val data: GameState) : Resource<GameState>()
 
     companion object {
-        const val MAX_QUESTIONS = 10
+        const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
 
         val gameStartDate: LocalDate get() {
