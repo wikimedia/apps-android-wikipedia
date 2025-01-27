@@ -29,7 +29,7 @@ enum class FeedContentType(private val code: Int,
             aggregatedClient: AggregatedFeedContentClient,
             age: Int
         ): FeedClient? {
-            return if (isEnabled) WikiGamesCardClient() else null
+            return if (isEnabled) WikiGamesCardClient(coroutineScope) else null
         }
     },
     FEATURED_ARTICLE(6, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article, true) {

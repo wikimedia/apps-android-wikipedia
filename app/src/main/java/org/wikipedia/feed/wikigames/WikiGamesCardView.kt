@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewWikiGamesCardBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
@@ -25,10 +24,12 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
     override var card: WikiGamesCard? = null
         set(value) {
             field = value
-            val langCode = WikipediaApp.instance.appOrSystemLanguageCode
-            value?.let { setHeader(langCode, it) }
-            setTitle(langCode)
-            setSubTitle(langCode)
+            value?.let {
+                val langCode = it.wikiSite.languageCode
+                setHeader(langCode, it)
+                setTitle(langCode)
+                setSubTitle(langCode)
+            }
         }
 
     override var callback: FeedAdapter.Callback? = null
