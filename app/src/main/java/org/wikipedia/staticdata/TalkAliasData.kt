@@ -309,6 +309,7 @@ object TalkAliasData {
             "tg" to "Баҳс",
             "th" to "พูดคุย",
             "ti" to "ምይይጥ",
+            "tig" to "ህድግ",
             "tk" to "Çekişme",
             "tl" to "Usapan",
             "tly" to "Nopegət",
