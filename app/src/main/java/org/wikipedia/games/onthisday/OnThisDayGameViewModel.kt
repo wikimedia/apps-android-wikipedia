@@ -102,7 +102,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
 
             savedPages.clear()
-            currentState.articles.forEach { pageSummary ->
+            getArticlesMentioned().forEach { pageSummary ->
                 val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)) != null
                 if (inAnyList) {
                     savedPages.add(pageSummary)
@@ -112,7 +112,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
                 currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
                 // we're just starting today's game.
-                currentState = currentState.copy(articles = emptyList())
+                currentState = currentState.copy()
                 _gameState.postValue(GameStarted(currentState))
             } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
@@ -121,7 +121,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're coming back from a previous day's completed game, so start a new day's game.
-                currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false }, articles = emptyList())
+                currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
                 _gameState.postValue(GameStarted(currentState))
             } else {
                 // we're in the middle of a game.
@@ -169,11 +169,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val isCorrect = selectedYear == min(currentState.currentQuestionState.event1.year, currentState.currentQuestionState.event2.year)
 
             currentState = currentState.copy(
-                answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) },
-                articles = currentState.articles.toMutableList().apply {
-                    addAll(currentState.currentQuestionState.event1.pages.take(2))
-                    addAll(currentState.currentQuestionState.event2.pages.take(2))
-                }
+                answerState = currentState.answerState.toMutableList().apply { set(currentState.currentQuestionIndex, isCorrect) }
             )
 
             if (isCorrect) {
@@ -194,6 +190,14 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return currentState
     }
 
+    fun getArticlesMentioned(): List<PageSummary> {
+        val articles = mutableListOf<PageSummary>()
+        events.forEach { event ->
+            articles.addAll(event.pages)
+        }
+        return articles.distinctBy { it.apiTitle }
+    }
+
     private fun composeQuestionState(index: Int): QuestionState {
         return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }
@@ -209,9 +213,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
         // history of today's answers (correct vs incorrect)
         val answerState: List<Boolean> = List(MAX_QUESTIONS) { false },
-
-        // list of today's mentioned articles
-        val articles: List<PageSummary> = emptyList(),
 
         // map of:   year: month: day: list of answers
         val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap(),
