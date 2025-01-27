@@ -121,7 +121,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
 
         binding.resultArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.resultArticlesList.isNestedScrollingEnabled = false
-        binding.resultArticlesList.adapter = RecyclerViewAdapter(gameState.articles)
+        binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
 
         var displayStartDate = getStartOfWeekDate(OnThisDayGameViewModel.gameStartDate)
         while (displayStartDate.isBefore(OnThisDayGameViewModel.gameEndDate)) {
