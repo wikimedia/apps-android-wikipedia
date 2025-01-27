@@ -309,6 +309,7 @@ object ContributionsNameData {
             "tg" to "Ҳиссагузориҳо",
             "th" to "เรื่องที่เขียน",
             "ti" to "Contributions",
+            "tig" to "Contributions",
             "tk" to "Contributions",
             "tl" to "Mga_ambag",
             "tly" to "Contributions",

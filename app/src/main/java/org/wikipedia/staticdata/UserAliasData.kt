@@ -309,6 +309,7 @@ object UserAliasData {
             "tg" to "Корбар",
             "th" to "ผู้ใช้",
             "ti" to "ተጠቃሚ",
+            "tig" to "መትነፈዓይ",
             "tk" to "Ulanyjy",
             "tl" to "Tagagamit",
             "tly" to "Okoədə",
