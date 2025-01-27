@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
@@ -92,6 +93,10 @@ object ServiceFactory {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response {
             var request = chain.request()
+
+
+            L.d(">>>>>>>>>>>>> " + WikipediaApp.instance.getAcceptLanguage(wiki))
+
 
             // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
             if (!request.url.encodedPath.contains("/page/related")) {
