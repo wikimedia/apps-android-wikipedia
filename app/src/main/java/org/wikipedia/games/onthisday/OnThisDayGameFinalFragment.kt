@@ -120,7 +120,7 @@ class OnThisDayGameFinalFragment : Fragment() {
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical))
         binding.resultArticlesList.isNestedScrollingEnabled = false
-        binding.resultArticlesList.adapter = RecyclerViewAdapter(gameState.articles)
+        binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
     }
 
     private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {

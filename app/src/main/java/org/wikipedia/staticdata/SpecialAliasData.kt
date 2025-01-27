@@ -309,6 +309,7 @@ object SpecialAliasData {
             "tg" to "Вижа",
             "th" to "พิเศษ",
             "ti" to "ፍሉይ",
+            "tig" to "ፍንቱይ",
             "tk" to "Ýörite",
             "tl" to "Natatangi",
             "tly" to "Xususi",
