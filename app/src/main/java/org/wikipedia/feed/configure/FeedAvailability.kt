@@ -20,4 +20,7 @@ class FeedAvailability {
 
     @SerialName("on_this_day")
     val onThisDay: List<String> = emptyList()
+
+    @SerialName("games")
+    val games: List<String> = listOf("de")
 }
