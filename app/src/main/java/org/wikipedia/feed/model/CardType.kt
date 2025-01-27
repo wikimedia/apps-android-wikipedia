@@ -110,7 +110,7 @@ enum class CardType constructor(private val code: Int,
             return PlacesCardView(ctx)
         }
     },
-    WIKI_GAMES(24) {
+    WIKI_GAMES(24, FeedContentType.WIKI_GAMES) {
         override fun newView(ctx: Context): FeedCardView<*> {
             return WikiGamesCardView(ctx)
         }

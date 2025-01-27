@@ -227,14 +227,14 @@ abstract class FeedCoordinatorBase(private val context: Context) {
     }
 
     private fun appendCard(card: Card) {
+        if (card is WikiGamesCard && age != 0) {
+            return
+        }
         val progressPos = cards.indexOf(progressCard)
         var pos = if (progressPos >= 0) progressPos else cards.size
         if (isDailyCardType(card) && currentDayCardAge < age) {
             currentDayCardAge = age
             insertCard(DayHeaderCard(currentDayCardAge), pos++)
-            if (currentDayCardAge == 0) {
-                insertCard(WikiGamesCard(), pos++)
-            }
         }
         insertCard(card, pos)
     }
