@@ -101,7 +101,6 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
 
-        // TODO: add stats
         val totalCorrect = gameState.answerState.count { it }
         binding.resultText.text = getString(R.string.on_this_day_game_result, totalCorrect, gameState.totalQuestions)
 
