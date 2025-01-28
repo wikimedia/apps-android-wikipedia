@@ -1740,10 +1740,15 @@
   <string name="on_this_day_game_menu_info">Menu label for visiting the information page of the game.</string>
   <string name="on_this_day_game_menu_feedback">Menu label for providing feedback on the game.</string>
   <string name="on_this_day_game_share_text">Message for the share function in the game result screen that shares the game. %s will be replaced by the store link of the app.</string>
-  <string name="on_this_day_game_notification_title">title for the game notification dialog</string>
-  <string name="on_this_day_game_notification_subtitle">subtitle for the game notification dialog</string>
-  <string name="on_this_day_game_notification_positive_btn_label">positive button label for the game nottification dialog</string>
-  <string name="on_this_day_game_notification_negative_btn_label">negative button label for the game notification dialog</string>
+  <string name="on_this_day_game_turn_off_notification_title">title for the turn off notification dialog</string>
+  <string name="on_this_day_game_turn_off_notification_subtitle">subtitle for the turn off notification dialog</string>
+  <string name="on_this_day_game_turn_on_notification_title">title for the turn on notification dialog</string>
+  <string name="on_this_day_game_turn_on_notification_subtitle">subtitle for the turn on notification dialog</string>
+  <string name="on_this_day_game_turn_off_notification_positive_btn_label">positive button label for turn off notification dialog</string>
+  <string name="on_this_day_game_turn_off_notification_negative_btn_label">negative button label for turn off notification dialogf</string>
+  <string name="on_this_day_game_turn_on_notification_positive_btn_label">positive button label for turn on notification dialog</string>
+  <string name="on_this_day_game_turn_on_notification_negative_btn_label">negative button label for turn on notification dialog</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Snackbar message when user choose to turn off notification</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Snackbar message when user choose to turn on notification</string>
 
 </resources>
