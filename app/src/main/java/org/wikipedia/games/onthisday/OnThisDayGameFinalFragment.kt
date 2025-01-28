@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -102,11 +103,11 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.resultText.text = getString(R.string.on_this_day_game_result, totalCorrect, gameState.totalQuestions)
 
         val cardContainerColor = when (totalCorrect) {
-            0, 2 -> R.attr.highlight_color
-            3, 4 -> R.attr.focus_color
-            else -> R.attr.success_color
+            0, 2 -> R.color.yellow500
+            3, 4 -> R.color.orange500
+            else -> R.color.green600
         }
-        binding.resultCardContainer.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), cardContainerColor))
+        binding.resultCardContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), cardContainerColor))
         binding.statsGamePlayed.text = String.format(calculateTotalGamesPlayed(gameState.answerStateHistory).toString())
         binding.statsAverageScore.text = String.format(Locale.getDefault(), "%.1f", calculateAverageScore(gameState.answerStateHistory))
         binding.statsCurrentStreak.text = String.format(calculateStreak(gameState.answerStateHistory).toString())
