@@ -1739,4 +1739,5 @@
   <string name="on_this_day_game_menu_notifications">Menu label for setting up the game notifications.</string>
   <string name="on_this_day_game_menu_info">Menu label for visiting the information page of the game.</string>
   <string name="on_this_day_game_menu_feedback">Menu label for providing feedback on the game.</string>
+  <string name="on_this_day_game_share_text">Message for the share function in the game result screen that shares the game. %s will be replaced by the store link of the app.</string>
 </resources>
