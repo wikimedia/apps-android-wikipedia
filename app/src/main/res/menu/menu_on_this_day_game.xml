@@ -4,14 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
     <item
+        android:id="@+id/menu_notifications"
+        android:title="@string/on_this_day_game_menu_notifications"
+        android:icon="@drawable/outline_notification_add_24"
+        app:iconTint="@android:color/white"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/menu_help"
-        android:title="@string/suggested_edits_menu_info"
+        android:title="@string/on_this_day_game_menu_info"
         android:icon="@drawable/ic_info_outline_black_24dp"
         app:iconTint="@android:color/white"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_report_feature"
-        android:title="@string/suggested_edits_menu_info"
+        android:title="@string/on_this_day_game_menu_feedback"
         android:icon="@drawable/ic_report_flag"
         app:iconTint="@android:color/white"
         app:showAsAction="always" />

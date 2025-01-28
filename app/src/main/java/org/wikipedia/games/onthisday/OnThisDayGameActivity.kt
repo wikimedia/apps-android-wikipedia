@@ -143,6 +143,14 @@ class OnThisDayGameActivity : BaseActivity() {
                 // TODO
                 true
             }
+            R.id.menu_notifications -> {
+                // TODO
+                true
+            }
+            R.id.menu_report_feature -> {
+                // TODO
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
