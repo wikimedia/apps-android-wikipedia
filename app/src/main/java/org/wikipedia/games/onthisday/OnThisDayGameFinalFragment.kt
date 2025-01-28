@@ -21,7 +21,6 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -166,8 +165,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            val entry = HistoryEntry(page.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_PLACES)
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+            // TODO: implement this (bottom sheet).
         }
     }
 
@@ -238,7 +236,6 @@ class OnThisDayGameFinalFragment : Fragment() {
                     }
                 }
             }
-            // TODO: ask about the question size in the list
             return total.toFloat() / count
         }
 
