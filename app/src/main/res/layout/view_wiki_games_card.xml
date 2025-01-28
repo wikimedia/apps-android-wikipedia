@@ -65,7 +65,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                app:tint="?attr/paper_color"
+                android:contentDescription="@null"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

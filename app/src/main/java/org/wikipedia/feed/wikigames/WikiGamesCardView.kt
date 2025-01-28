@@ -46,10 +46,10 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
     }
 
     private fun setTitle(langCode: String) {
-        binding.viewWikiGamesCardTitle.setText(L10nUtil.getStringForArticleLanguage(langCode, R.string.on_this_day_game_feed_entry_card_title))
+        binding.viewWikiGamesCardTitle.text = L10nUtil.getStringForArticleLanguage(langCode, R.string.on_this_day_game_feed_entry_card_title)
     }
 
     private fun setSubTitle(langCode: String) {
-        binding.viewWikiGamesCardSubTitle.setText(L10nUtil.getStringForArticleLanguage(langCode, R.string.on_this_day_game_feed_entry_card_subtitle))
+        binding.viewWikiGamesCardSubTitle.text = L10nUtil.getStringForArticleLanguage(langCode, R.string.on_this_day_game_feed_entry_card_subtitle)
     }
 }

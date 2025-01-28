@@ -1820,7 +1820,7 @@
     <string name="on_this_day_game_share_footer">Play for a limited time only in the Wikipedia Android app</string>
     <string name="on_this_day_game_share_back_button">Go back</string>
     <string name="on_this_day_game_feed_entry_card_heading">Wikipedia games</string>
-    <string name="on_this_day_game_feed_entry_card_title">What came first?</string>
+    <string name="on_this_day_game_feed_entry_card_title">Which came first?</string>
     <string name="on_this_day_game_feed_entry_card_subtitle">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_result">You scored %1$d/%2$d.</string>
     <string name="on_this_day_game_next_in">Next game in %s</string>
