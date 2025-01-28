@@ -105,8 +105,8 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.resultText.text = getString(R.string.on_this_day_game_result, totalCorrect, gameState.totalQuestions)
 
         val cardContainerColor = when (totalCorrect) {
-            0, 1 -> R.attr.highlight_color
-            2, 3 -> R.attr.focus_color
+            0, 2 -> R.attr.highlight_color
+            3, 4 -> R.attr.focus_color
             else -> R.attr.success_color
         }
         binding.resultCardContainer.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), cardContainerColor))
