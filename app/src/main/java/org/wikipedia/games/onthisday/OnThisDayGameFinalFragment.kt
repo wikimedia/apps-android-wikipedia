@@ -27,6 +27,7 @@ import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -49,10 +50,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
         binding.shareButton.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentContainerFinish, OnThisDayGameShareFragment.newInstance(viewModel.invokeSource))
-                .addToBackStack(null)
-                .commit()
+            // TODO: implement this (please remove the share fragment)
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {
@@ -150,6 +148,9 @@ class OnThisDayGameFinalFragment : Fragment() {
             binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
+            binding.listItemShare.setOnClickListener {
+                ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
+            }
             binding.listItemBookmark.isVisible = true
             val isSaved = viewModel.savedPages.contains(page)
             binding.listItemBookmark.setOnClickListener {
