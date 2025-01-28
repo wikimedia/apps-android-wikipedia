@@ -12,7 +12,7 @@
     <item
         android:id="@+id/menu_help"
         android:title="@string/on_this_day_game_menu_info"
-        android:icon="@drawable/ic_info_outline_black_24dp"
+        android:icon="@drawable/baseline_info_24"
         app:iconTint="?attr/paper_color"
         app:showAsAction="always" />
     <item
