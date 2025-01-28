@@ -29,7 +29,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
             android:paddingVertical="16dp"
             android:clipToPadding="false">
 
@@ -38,6 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
                 app:cardCornerRadius="12dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -49,8 +49,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:background="?attr/highlight_color">
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="24dp"
+                    android:background="@color/green600">
 
                     <TextView
                         android:id="@+id/resultText"
@@ -83,6 +84,7 @@
                 style="@style/H4"
                 android:textColor="?attr/primary_color"
                 android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
                 app:layout_constraintTop_toBottomOf="@id/resultTextContainer"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="@string/on_this_day_game_your_stats"/>
@@ -91,6 +93,7 @@
                 android:id="@+id/statsContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/yourStatsText"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +125,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            style="@style/H3.Article"
+                            style="@style/H4.Label"
                             android:layout_marginTop="12dp"
                             android:textAlignment="center"
                             android:textColor="?attr/primary_color"
@@ -159,7 +162,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            style="@style/H3.Article"
+                            style="@style/H4.Label"
                             android:layout_marginTop="12dp"
                             android:textAlignment="center"
                             android:textColor="?attr/primary_color"
@@ -198,7 +201,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            style="@style/H3.Article"
+                            style="@style/H4.Label"
                             android:layout_marginTop="12dp"
                             android:textAlignment="center"
                             android:textColor="?attr/primary_color"
@@ -217,6 +220,7 @@
                 style="@style/H4"
                 android:textColor="?attr/primary_color"
                 android:layout_marginTop="32dp"
+                android:layout_marginHorizontal="16dp"
                 android:text="@string/on_this_day_game_result_subtitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -226,7 +230,7 @@
                 android:id="@+id/resultArticlesList"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
+                android:layout_margin="8dp"
                 app:layout_constraintTop_toBottomOf="@id/resultSubtitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
