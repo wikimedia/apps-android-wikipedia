@@ -31,6 +31,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
+import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
@@ -72,6 +73,21 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }
             }
+            ACTION_DAILY_GAME == intent.action -> {
+                println("orange: Daily game notification")
+                NotificationPresenter.showNotification(
+                    context = context,
+                    builder = NotificationPresenter.getDefaultBuilder(context, 1, TYPE_LOCAL),
+                    id = 1,
+                    title = context.getString(R.string.on_this_day_game_title),
+                    text = context.getString(R.string.on_this_day_game_entry_dialog_subtitle),
+                    longText = "apple",
+                    lang = null,
+                    icon = R.drawable.ic_wikipedia_w,
+                    color = R.color.blue600,
+                    bodyIntent = Intent()
+                )
+            }
         }
     }
 
@@ -79,6 +95,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_POLL = "action_notification_poll"
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
+        const val ACTION_DAILY_GAME = "action_daily_game"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
@@ -190,6 +207,24 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
                     R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
+        }
+
+        fun scheduleDailyGameNotification(context: Context) {
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
+                .setAction(ACTION_DAILY_GAME)
+            val calendar = Calendar.getInstance().apply {
+                add(Calendar.SECOND, 2)
+            }
+            val time = System.currentTimeMillis() + 2000
+            println("orange: time1 --> $time")
+            println("orange: calendarTime --> ${calendar.timeInMillis}")
+            alarmManager.setInexactRepeating(
+                AlarmManager.RTC_WAKEUP,
+                calendar.timeInMillis,
+                AlarmManager.INTERVAL_DAY,
+                PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+            )
         }
     }
 }

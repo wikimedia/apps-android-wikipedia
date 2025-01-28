@@ -156,6 +156,7 @@ class WikipediaApp : Application() {
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this)
+        NotificationPollBroadcastReceiver.scheduleDailyGameNotification(this)
         InstallReferrerListener.newInstance(this)
 
         // For good measure, explicitly call our token subscription function, in case the
