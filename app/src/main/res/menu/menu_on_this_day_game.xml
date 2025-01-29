@@ -15,4 +15,10 @@
         android:icon="@drawable/ic_report_flag"
         app:iconTint="@android:color/white"
         app:showAsAction="always" />
+    <item android:id="@+id/menu_notifications"
+        android:icon="@drawable/outline_notification_add_24"
+        android:title="@string/on_this_day_game_menu_notifications"
+        app:iconTint="@android:color/white"
+        app:showAsAction="always"
+        />
 </menu>

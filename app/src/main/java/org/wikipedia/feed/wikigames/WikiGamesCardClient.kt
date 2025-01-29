@@ -22,8 +22,9 @@ class WikiGamesCardClient() : FeedClient {
         val cards = availableLanguages.map { langCode ->
             WikiGamesCard(WikiSite.forLanguageCode(langCode))
         }
-        cb.success(cards)
+        // @TODO: revert this
+        cb.success(listOf(WikiGamesCard(WikiSite.forLanguageCode("en"))))
     }
 
-    override fun cancel() { }
+    override fun cancel() {}
 }

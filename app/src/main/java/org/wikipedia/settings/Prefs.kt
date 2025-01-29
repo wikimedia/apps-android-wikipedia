@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
@@ -766,4 +767,8 @@ object Prefs {
     var otdEntryDialogShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_entry_dialog_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_entry_dialog_shown, value)
+
+    var otdNotificationState
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_notification_state, OnThisDayGameNotificationState.NO_INTERACTED.name) ?: OnThisDayGameNotificationState.NO_INTERACTED.name
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value)
 }

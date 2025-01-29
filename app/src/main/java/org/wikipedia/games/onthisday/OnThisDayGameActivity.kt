@@ -6,8 +6,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
@@ -19,6 +21,7 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
@@ -27,7 +30,10 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
@@ -38,7 +44,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.Locale
 
-class OnThisDayGameActivity : BaseActivity() {
+class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
@@ -51,7 +57,7 @@ class OnThisDayGameActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
+        callback = this
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -133,6 +139,22 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val notificationItem = menu.findItem(R.id.menu_notifications)
+        if (notificationItem != null) {
+            when (getOnThisDayGameNotificationState()) {
+                OnThisDayGameNotificationState.NO_INTERACTED -> {
+                    notificationItem.setIcon(R.drawable.outline_notification_add_24)
+                }
+
+                OnThisDayGameNotificationState.ENABLED -> {
+                    notificationItem.setIcon(R.drawable.outline_notifications_active_24)
+                }
+
+                OnThisDayGameNotificationState.DISABLED -> {
+                    notificationItem.setIcon(R.drawable.outline_notifications_off_24)
+                }
+            }
+        }
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -143,6 +165,58 @@ class OnThisDayGameActivity : BaseActivity() {
                 // TODO
                 true
             }
+
+            R.id.menu_notifications -> {
+                when (getOnThisDayGameNotificationState()) {
+                    OnThisDayGameNotificationState.ENABLED -> {
+                        OnThisDayGameDialogs.showTurnOffNotificationDialog(
+                            activity = this,
+                            turnOffButtonOnclick = {
+                                Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED.name
+                                NotificationPollBroadcastReceiver.cancelDailyGameNotification(this)
+                                val snackBar = FeedbackUtil.makeSnackbar(
+                                    this,
+                                    getString(R.string.on_this_day_game_notification_turned_off_snackbar_message)
+                                )
+                                snackBar.setAction(R.string.reading_list_item_delete_undo) {
+                                    NotificationPollBroadcastReceiver.cancelDailyGameNotification(this)
+                                }
+                                invalidateOptionsMenu()
+                                snackBar.show()
+                            },
+                            keepThemOnButtonOnClick = {
+                                Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED.name
+                                invalidateOptionsMenu()
+                            }
+                        )
+                    }
+                    OnThisDayGameNotificationState.NO_INTERACTED,
+                    OnThisDayGameNotificationState.DISABLED -> {
+                        OnThisDayGameDialogs.showTurnOnNotificationDialog(
+                            activity = this,
+                            turnThemOnButtonOnClick = {
+                                Prefs.otdNotificationState = OnThisDayGameNotificationState.ENABLED.name
+                                scheduleGameNotification()
+                                val snackBar = FeedbackUtil.makeSnackbar(
+                                    this,
+                                    getString(R.string.on_this_day_game_notification_turned_on_snackbar_message)
+                                )
+                                snackBar.setAction(R.string.reading_list_item_delete_undo) {
+                                    NotificationPollBroadcastReceiver.cancelDailyGameNotification(this)
+                                }
+                                invalidateOptionsMenu()
+                                snackBar.show()
+                            },
+                            keepThemOffButtonOnclick = {
+                                Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED.name
+                                invalidateOptionsMenu()
+                            }
+                        )
+                    }
+                }
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -398,6 +472,24 @@ class OnThisDayGameActivity : BaseActivity() {
         goNextAnimatorSet.start()
     }
 
+    private fun scheduleGameNotification() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            when {
+                ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.POST_NOTIFICATIONS
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    println("orange --> PERMISSION_GRANTED")
+                    NotificationPollBroadcastReceiver.scheduleDailyGameNotification(this)
+                }
+
+                else -> {
+                    requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                }
+            }
+        }
+    }
+
     companion object {
         fun newIntent(context: Context, invokeSource: Constants.InvokeSource, date: LocalDate? = null): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
@@ -406,6 +498,13 @@ class OnThisDayGameActivity : BaseActivity() {
                 intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
             }
             return intent
+        }
+    }
+
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        if (isGranted) {
+            println("orange --> onPermissionResult isGranted")
+            NotificationPollBroadcastReceiver.scheduleDailyGameNotification(this)
         }
     }
 }

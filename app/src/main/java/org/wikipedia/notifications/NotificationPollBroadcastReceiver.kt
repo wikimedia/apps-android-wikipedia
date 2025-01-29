@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.games.onthisday.OnThisDayGameFinalFragment
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
@@ -31,7 +32,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
@@ -213,18 +213,20 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
                 .setAction(ACTION_DAILY_GAME)
-            val calendar = Calendar.getInstance().apply {
-                add(Calendar.SECOND, 2)
-            }
-            val time = System.currentTimeMillis() + 2000
-            println("orange: time1 --> $time")
-            println("orange: calendarTime --> ${calendar.timeInMillis}")
+            val timeUntilNextDay = OnThisDayGameFinalFragment.timeUntilNextDay().toMillis()
             alarmManager.setInexactRepeating(
                 AlarmManager.RTC_WAKEUP,
-                calendar.timeInMillis,
+                timeUntilNextDay,
                 AlarmManager.INTERVAL_DAY,
                 PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
             )
+        }
+
+        fun cancelDailyGameNotification(context: Context) {
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
+                .setAction(ACTION_DAILY_GAME)
+            alarmManager.cancel(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
         }
     }
 }
