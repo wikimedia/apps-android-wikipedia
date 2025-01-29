@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameFinalFragment
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
@@ -80,12 +81,12 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     builder = NotificationPresenter.getDefaultBuilder(context, 1, TYPE_LOCAL),
                     id = 1,
                     title = context.getString(R.string.on_this_day_game_title),
-                    text = context.getString(R.string.on_this_day_game_entry_dialog_subtitle),
-                    longText = "apple",
+                    text = "Today's game of \"Which came first?\" is ready to play.",
+                    longText = "Today's game of \"Which came first?\" is ready to play.",
                     lang = null,
-                    icon = R.drawable.ic_wikipedia_w,
+                    icon = R.drawable.ic_notifications_black_24dp,
                     color = R.color.blue600,
-                    bodyIntent = Intent()
+                    bodyIntent = OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.NOTIFICATION)
                 )
             }
         }
@@ -216,7 +217,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val timeUntilNextDay = OnThisDayGameFinalFragment.timeUntilNextDay().toMillis()
             alarmManager.setInexactRepeating(
                 AlarmManager.RTC_WAKEUP,
-                timeUntilNextDay,
+                System.currentTimeMillis() + timeUntilNextDay,
                 AlarmManager.INTERVAL_DAY,
                 PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
             )
