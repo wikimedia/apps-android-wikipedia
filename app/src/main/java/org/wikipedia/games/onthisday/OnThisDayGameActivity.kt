@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
@@ -28,8 +29,10 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewUtil
 import java.time.LocalDate
 import java.time.MonthDay
@@ -140,11 +143,13 @@ class OnThisDayGameActivity : BaseActivity() {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_learn_more -> {
-                // TODO
+                UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
                 true
             }
             R.id.menu_notifications -> {
-                // TODO
+                FeedbackUtil.composeEmail(this,
+                    subject = getString(R.string.on_this_day_game_report_email_subject),
+                    body = getString(R.string.on_this_day_game_report_email_body))
                 true
             }
             R.id.menu_report_feature -> {
