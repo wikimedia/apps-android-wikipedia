@@ -20,6 +20,7 @@ import org.wikipedia.feed.searchbar.SearchCardView
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
 import org.wikipedia.feed.topread.TopReadCardView
 import org.wikipedia.feed.view.FeedCardView
+import org.wikipedia.feed.wikigames.WikiGamesCardView
 import org.wikipedia.model.EnumCode
 
 enum class CardType constructor(private val code: Int,
@@ -107,6 +108,11 @@ enum class CardType constructor(private val code: Int,
     PLACES(23, FeedContentType.PLACES) {
         override fun newView(ctx: Context): FeedCardView<*> {
             return PlacesCardView(ctx)
+        }
+    },
+    WIKI_GAMES(24, FeedContentType.WIKI_GAMES) {
+        override fun newView(ctx: Context): FeedCardView<*> {
+            return WikiGamesCardView(ctx)
         }
     },
     YEAR_IN_REVIEW_ANNOUNCEMENT(96) {
