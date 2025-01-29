@@ -139,7 +139,7 @@ class OnThisDayGameActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
-            R.id.menu_help -> {
+            R.id.menu_learn_more -> {
                 // TODO
                 true
             }
