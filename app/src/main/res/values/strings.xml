@@ -1825,4 +1825,14 @@
     <string name="on_this_day_game_article_read_button">Read article</string>
     <string name="on_this_day_game_article_related_event_title">Event related to this article</string>
     <string name="on_this_day_game_article_answer_stats_message">You got this question right</string>
+    <string name="on_this_day_game_turn_off_notification_dialog_title">Turn off game notifications?</string>
+    <string name="on_this_day_game_turn_off_notification_dialog_subtitle">If you turn push notifications off, you will no longer receive a reminder every day when a new game is available to play.</string>
+    <string name="on_this_day_game_turn_on_notification_dialog_title">Turn on game notifications?</string>
+    <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Game notifications alert you daily when a new game is available to play.</string>
+    <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">No, keep them on</string>
+    <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Turn them off</string>
+    <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Yes, turn them on</string>
+    <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Keep them off</string>
+    <string name="on_this_day_game_notification_turned_off_snackbar_message">Game notifications off.</string>
+    <string name="on_this_day_game_notification_turned_on_snackbar_message">Game notifications on.</string>
 </resources>
