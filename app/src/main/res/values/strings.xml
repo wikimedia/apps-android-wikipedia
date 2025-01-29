@@ -135,6 +135,10 @@
     <string name="dialog_message_leaving_edit">Your changes have not been published yet. Are you sure you want to leave this page?</string>
     <string name="dialog_message_leaving_edit_leave">Leave</string>
     <string name="dialog_message_leaving_edit_stay">Stay</string>
+    <string name="dialog_confirm_delete_donation_history_title">Confirm deletion</string>
+    <string name="dialog_confirm_delete_donation_history_message">This will only apply to donations made from this device.</string>
+    <string name="dialog_confirm_delete_donation_history_delete">Delete</string>
+    <string name="dialog_confirm_delete_donation_history_cancel">Cancel</string>
     <string name="menu_show_toc">Table of Contents</string>
     <string name="search_no_results_found">No results found</string>
     <string name="search_reading_list_no_results">No results found in \"%s\"</string>
@@ -420,6 +424,7 @@
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
+    <string name="preference_title_delete_local_donation_history">Delete local donation history</string>
     <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
@@ -1757,6 +1762,7 @@
     <string name="donate_gpay_help_other_ways">Other ways to give</string>
     <string name="donate_gpay_help_faq">Frequently asked questions</string>
     <string name="donate_gpay_help_tax">Tax deductibility information</string>
+    <string name="donation_history_deleted_message_snackbar">Donor history deleted</string>
     <!-- Donor experience -->
 
     <!-- Places -->
@@ -1776,68 +1782,6 @@
     <string name="places_empty_message_snackbar">There are no nearby articles. Try zooming out and moving the map.</string>
     <!-- /Places -->
 
-    <!-- Contributions Dashboard -->
-    <string name="donor_history_title">Donor history</string>
-    <string name="donor_history_save_button">Save</string>
-    <string name="donor_history_update_donor_status_default">Update donor status</string>
-    <string name="donor_history_update_donor_status_donor">Donor</string>
-    <string name="donor_history_update_donor_status_not_a_donor">Not a donor</string>
-    <string name="donor_history_last_donated">Last donated</string>
-    <string name="donor_history_last_donated_hint">Add date of last donation</string>
-    <string name="donor_history_last_donated_date_picker_title">Select date</string>
-    <string name="donor_history_last_donated_date_picker_label">Enter date</string>
-    <string name="donor_history_last_donated_never">Never</string>
-    <string name="donor_history_recurring_donor">Recurring donor</string>
-    <string name="donor_history_donate_button">Donate to the Wikimedia Foundation</string>
-    <string name="donor_history_about_this_experiment">About this experiment</string>
-    <string name="donor_history_updated_message_snackbar">Donor history updated</string>
-    <string name="contributions_dashboard_survey_dialog_title">Help improve the contributions dashboard</string>
-    <string name="contributions_dashboard_survey_dialog_message">This update to the dashboard is a test feature. Would you like to see this feature improved or removed?</string>
-    <string name="contributions_dashboard_survey_dialog_cancel">No opinion</string>
-    <string name="contributions_dashboard_survey_dialog_ok">Share feedback</string>
-    <string name="contributions_dashboard_donation_dialog_title">Thank you for supporting free knowledge</string>
-    <string name="contributions_dashboard_donation_dialog_message">You are a part of the 2%% that chose to support the resource millions rely on. To demonstrate our gratitude, your contributions dashboard has been updated to recognize your status as a donor. Would you like to see the update?</string>
-    <string name="contributions_dashboard_donation_dialog_cancel">No, thanks</string>
-    <string name="contributions_dashboard_donation_dialog_ok">Yes, take me there</string>
-    <string name="contributions_dashboard_entry_dialog_title">Explore the new additions to the contributions dashboard</string>
-    <string name="contributions_dashboard_entry_dialog_message">The contributions dashboard now displays donor statuses. Want to review this experimental feature?</string>
-    <string name="contributions_dashboard_entry_dialog_cancel">No, thanks</string>
-    <string name="contributions_dashboard_entry_dialog_ok">Yes, take me there</string>
-    <string name="contributions_dashboard_badge_donor">Donor</string>
-    <string name="contributions_dashboard_badge_become_a_donor">Become a donor</string>
-    <string name="contributions_dashboard_badge_update">Update donor status</string>
-    <string name="contributions_dashboard_app_icon_title">App icon</string>
-    <string name="contributions_dashboard_app_icon_subtitle">Donor benefit</string>
-    <string name="contributions_dashboard_logged_out_user">Logged-out user</string>
-    <string name="contributions_dashboard_tab_last_donated">Last donated</string>
-    <string name="contributions_dashboard_tab_update_button">Update</string>
-    <string name="contributions_dashboard_donor_icon_dialog_title">Thank you for being a donor.</string>
-    <string name="contributions_dashboard_donor_icon_dialog_message">You\'ve unlocked a temporary custom icon. You can switch to this icon through your settings under App icon. Would you like to update your icon now?</string>
-    <string name="contributions_dashboard_donor_icon_dialog_cancel">No, thanks</string>
-    <string name="contributions_dashboard_donor_icon_dialog_ok">Yes, take me to Settings</string>
-    <string name="contributions_dashboard_app_icon_updated">App icon updated</string>
-    <!-- /Contributions Dashboard -->
-
-    <!-- Rabbit holes -->
-    <string name="recent_searches_title">Recent searches</string>
-    <string name="recent_searches_related_to_reading">Related to what you\'re reading</string>
-    <string name="rabbit_holes_experiment">Experiment</string>
-    <string name="rabbit_holes_experiment_about">About this experiment</string>
-    <string name="rabbit_holes_survey_dialog_title">Help improve rabbit holes</string>
-    <string name="rabbit_holes_survey_dialog_body">Are you satisfied with this recommended search result?</string>
-    <string name="rabbit_holes_reading_list_survey_dialog_title">Help improve recommended reading lists</string>
-    <string name="rabbit_holes_reading_list_survey_dialog_body">Are you satisfied with this recommended reading list?</string>
-    <string name="suggested_reading_list_title">Based on your reading</string>
-    <string name="suggested_reading_list_description">Inspired by \"%s\"</string>
-    <string name="suggested_reading_list_description_multi">Inspired by %1$s and %2$s</string>
-    <string name="suggested_reading_list_later_snackbar">If you want to visit your reading list later, go to the Saved tab on the home screen.</string>
-    <string name="suggested_reading_list_dialog_title">You have a new suggested reading list.</string>
-    <string name="suggested_reading_list_dialog_body">This is an experimental feature. The contents are based on your recent reading history. Do you want to check out this new reading list?</string>
-    <string name="suggested_reading_list_dialog_positive">Try it now</string>
-    <string name="suggested_reading_list_dialog_negative">Maybe later</string>
-    <string name="suggested_reading_list_back_cancel">See your suggested reading list any time in the Saved tab on the home screen.</string>
-    <!-- /Rabbit holes -->
-
     <!-- Survey dialog -->
     <string name="survey_dialog_title">Help us improve this feature</string>
     <string name="survey_dialog_message">Are you satisfied with this feature?</string>
@@ -1850,4 +1794,34 @@
     <string name="survey_dialog_submit">Submit</string>
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
+
+    <!-- On this day game -->
+    <string name="on_this_day_game_entry_dialog_title">Introducing</string>
+    <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
+    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
+    <string name="on_this_day_game_title">Which came first?</string>
+    <string name="on_this_day_game_dialog_button">Play</string>
+    <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
+    <string name="on_this_day_game_progress">%1$d of %2$d</string>
+    <string name="on_this_day_game_score">Score: %d</string>
+    <string name="on_this_day_game_correct">Correct!</string>
+    <string name="on_this_day_game_incorrect">Incorrect!</string>
+    <string name="on_this_day_game_point">+1 point</string>
+    <string name="on_this_day_game_next">Next question</string>
+    <string name="on_this_day_game_finish">Final results</string>
+    <string name="on_this_day_game_feed_entry_card_heading">Wikipedia games</string>
+    <string name="on_this_day_game_feed_entry_card_title">What came first?</string>
+    <string name="on_this_day_game_feed_entry_card_subtitle">Guess which event came first on this day in history.</string>
+    <string name="on_this_day_game_result">You scored %1$d/%2$d.</string>
+    <string name="on_this_day_game_next_in">Next game in %s</string>
+    <string name="on_this_day_game_your_stats">Your stats</string>
+    <string name="on_this_day_game_stats_played">Games played</string>
+    <string name="on_this_day_game_stats_average_score">Average score</string>
+    <string name="on_this_day_game_stats_streak">Current streak</string>
+    <string name="on_this_day_game_result_subtitle">Articles referenced in today\'s game</string>
+    <string name="on_this_day_game_menu_notifications">Notifications</string>
+    <string name="on_this_day_game_menu_info">Info</string>
+    <string name="on_this_day_game_menu_feedback">Feedback</string>
+    <string name="on_this_day_game_share_text">I\'m playing \"What came first?\" a daily trivia game on the Wikipedia Android app %s</string>
 </resources>

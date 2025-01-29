@@ -158,6 +158,9 @@
   <string name="dialog_message_leaving_edit">Muutoksia ei ole vielä julkaistu. Haluatko varmasti poistua sivulta?</string>
   <string name="dialog_message_leaving_edit_leave">Poistu</string>
   <string name="dialog_message_leaving_edit_stay">Jää sivulle</string>
+  <string name="dialog_confirm_delete_donation_history_title">Vahvista poisto</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Poista</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Peruuta</string>
   <string name="menu_show_toc">Sisällysluettelo</string>
   <string name="search_no_results_found">Tuloksia ei löytynyt</string>
   <string name="search_reading_list_no_results">Tuloksia ei löytynyt haulla ”%s”</string>
@@ -1317,6 +1320,7 @@
   <string name="talk_message_hint">Kirjoita viesti</string>
   <string name="talk_message_empty">Viesti ei voi olla tyhjä.</string>
   <string name="talk_subject_empty">Kirjoita viestille aihe.</string>
+  <string name="talk_subject_duplicate">Aihe tällä nimellä on jo olemassa. Kokeile toista.</string>
   <string name="talk_response_submitted">Vastaus lähetetty.</string>
   <string name="talk_snackbar_undo">Kumoa</string>
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
@@ -1653,6 +1657,7 @@
   <string name="donate_gpay_help_other_ways">Muut tavat antaa</string>
   <string name="donate_gpay_help_faq">Usein kysytyt kysymykset</string>
   <string name="donate_gpay_help_tax">Verovähennystiedot</string>
+  <string name="donation_history_deleted_message_snackbar">Lahjoitushistoria poistettu</string>
   <string name="places_title">Paikat</string>
   <string name="places_permissions_denied">Sijaintisi näyttäminen kartalla edellyttää sijaintilupaa. Yritä uudelleen.</string>
   <string name="places_search_hint">Hae paikkoja</string>
@@ -1667,20 +1672,6 @@
   <string name="places_card_distance_suffix">%s päässä</string>
   <string name="places_card_distance_unknown">Tuntematon etäisyys</string>
   <string name="places_empty_message_snackbar">Lähistöllä ei ole artikkeleita. Kokeile loitontaa ja siirtää karttaa.</string>
-  <string name="donor_history_save_button">Tallenna</string>
-  <string name="donor_history_last_donated_date_picker_title">Valitse päivämäärä</string>
-  <string name="donor_history_donate_button">Lahjoita Wikimedia Foundationille</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Ei kiitos</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Kyllä, vie minut sinne</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Ei kiitos</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Kyllä, vie minut sinne</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Ryhdy lahjoittajaksi</string>
-  <string name="contributions_dashboard_logged_out_user">Uloskirjautunut käyttäjä</string>
-  <string name="contributions_dashboard_tab_update_button">Päivitä</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Ei kiitos</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Kyllä, siirry asetuksiin</string>
-  <string name="suggested_reading_list_dialog_positive">Kokeile nyt</string>
-  <string name="suggested_reading_list_dialog_negative">Ehkä myöhemmin</string>
   <string name="survey_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
   <string name="survey_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="survey_dialog_option_satisfied">Tyytyväinen</string>

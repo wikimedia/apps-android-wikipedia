@@ -125,6 +125,9 @@
   <string name="dialog_message_leaving_edit">Är Ännerunge goufen nach net verëffentlecht. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
   <string name="dialog_message_leaving_edit_leave">Fortgoen</string>
   <string name="dialog_message_leaving_edit_stay">Bleiwen</string>
+  <string name="dialog_confirm_delete_donation_history_title">Läsche confirméieren</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Läschen</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Ofbriechen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>
   <string name="search_no_results_found">Näischt fonnt</string>
   <string name="search_reading_list_no_results">Keng Resultater a(n) \"%s\" fonnt</string>
@@ -250,7 +253,7 @@
   <string name="edit_intent">Absicht %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s Byte</item>
-    <item quantity="other">%s Byten</item>
+    <item quantity="other">%s Byte</item>
   </plurals>
   <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out">Verklengeren</string>
@@ -736,6 +739,7 @@
   <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_card_title">Exzellenten Artikel</string>
   <string name="view_static_card_save_button_label">Späicheren</string>
+  <string name="feed_configure_activity_title">De Feed upassen</string>
   <string name="feed_configure_menu_reset">Standard- Ausgesinn restauréieren</string>
   <string name="feed_configure_menu_select_all">All weisen</string>
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
@@ -1409,21 +1413,6 @@
   <string name="places_card_distance_suffix">%s ewech</string>
   <string name="places_card_distance_unknown">Onbekannt Distanz</string>
   <string name="places_empty_message_snackbar">Et gëtt keng Artikelen an der Géigend. Probéiert d\'Kaart ze verklengeren oder ze verréckelen.</string>
-  <string name="donor_history_save_button">Späicheren</string>
-  <string name="donor_history_last_donated_date_picker_title">Datum eraussichen</string>
-  <string name="donor_history_last_donated_date_picker_label">Datum aginn</string>
-  <string name="donor_history_last_donated_never">Ni</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Keng Meenung</string>
-  <string name="contributions_dashboard_donation_dialog_title">Merci, datt Dir fräit Wëssen ënnerstëtzt</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Nee, merci</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Nee, merci</string>
-  <string name="contributions_dashboard_tab_update_button">Aktualiséieren</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nee, merci</string>
-  <string name="rabbit_holes_experiment_about">Iwwer dëst Experiment</string>
-  <string name="suggested_reading_list_description">Inspiréiert vun „%s“</string>
-  <string name="suggested_reading_list_description_multi">Inspiréiert vun %1$s an %2$s</string>
-  <string name="suggested_reading_list_dialog_positive">Probéiert et elo</string>
-  <string name="suggested_reading_list_dialog_negative">Vläicht méi spéit</string>
   <string name="survey_dialog_title">Hëlleft eis dës Funktioun ze verbesseren</string>
   <string name="survey_dialog_message">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="survey_dialog_option_satisfied">Zefridden</string>

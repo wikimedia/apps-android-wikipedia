@@ -21,14 +21,19 @@ object TestConfig {
     const val DELAY_LARGE = 5L
     const val DELAY_SWIPE_TO_REFRESH = 8L
     const val SEARCH_TERM = "hopf fibration"
+    const val SEARCH_TERM2 = "world cup"
     const val ARTICLE_TITLE = "Hopf fibration"
     const val ARTICLE_TITLE_ESPANOL = "Fibración de Hopf"
+    const val TEST_WIKI_URL_APPLE = "https://en.wikipedia.org/wiki/Apple"
+    const val ARTICLE_TITLE_WORLD_CUP = "World cup"
 }
 
 data class DataInjector(
     val isInitialOnboardingEnabled: Boolean = false,
     val overrideEditsContribution: Int? = null,
-    val intentBuilder: (Intent.() -> Unit)? = null
+    val intentBuilder: (Intent.() -> Unit)? = null,
+    val showOneTimeCustomizeToolbarTooltip: Boolean = false,
+    val readingListShareTooltipShown: Boolean = true
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -49,6 +54,8 @@ abstract class BaseTest<T : AppCompatActivity>(
         val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
+        Prefs.showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
+        Prefs.readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }

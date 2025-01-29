@@ -64,4 +64,10 @@ class HomeScreenRobot : BaseRobot() {
             Log.d("HomeScreenRobot", "no view because the device has no internet")
         }
     }
+
+    fun verifyIfSnackBarAppears() = apply {
+        onView(withId(com.google.android.material.R.id.snackbar_text))
+            .check(matches(isDisplayed()))
+        delay(TestConfig.DELAY_SHORT)
+    }
 }

@@ -2,19 +2,34 @@ package org.wikipedia.robots.feature
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.intent.Intents.intended
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasData
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.web.assertion.WebViewAssertions.webMatches
 import androidx.test.espresso.web.sugar.Web.onWebView
 import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
+import androidx.test.espresso.web.webdriver.DriverAtoms.getText
 import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
 import androidx.test.espresso.web.webdriver.DriverAtoms.webScrollIntoView
 import androidx.test.espresso.web.webdriver.Locator
+import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.containsString
 import org.wikipedia.R
 import org.wikipedia.base.AssertJavascriptAction
 import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
-class PageRobot : BaseRobot() {
+class PageRobot(private val context: Context) : BaseRobot() {
 
     fun clickEditPencilAtTopOfArticle() = apply {
         onWebView()
@@ -32,18 +47,14 @@ class PageRobot : BaseRobot() {
         verifyH1Title(expectedTitle)
     }
 
-    fun previewArticle() = apply {
+    fun verifyPreviewArticleDialogAppears() = apply {
         clickOnDisplayedView(R.id.link_preview_toolbar)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun openInNewTab() = apply {
+    fun openPreviewLinkInNewTab() = apply {
         clickOnDisplayedView(R.id.link_preview_secondary_button)
         delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun verifyTabCount(count: String) = apply {
-        checkWithTextIsDisplayed(R.id.tabsCountText, count)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
@@ -56,6 +67,7 @@ class PageRobot : BaseRobot() {
     }
 
     fun clickLeadImage() = apply {
+        delay(TestConfig.DELAY_SHORT)
         clickOnDisplayedView(R.id.view_page_header_image)
         delay(TestConfig.DELAY_MEDIUM)
     }
@@ -103,16 +115,6 @@ class PageRobot : BaseRobot() {
         onWebView().forceJavascriptEnabled()
     }
 
-    fun launchTabsScreen() = apply {
-        clickOnDisplayedView(R.id.page_toolbar_button_tabs)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun createNewTabWithContentDescription(text: String) = apply {
-        clickOnDisplayedViewWithContentDescription(text)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun clickOnPreviewTabInTheList(position: Int) = apply {
         clickRecyclerViewItemAtPosition(R.id.tabRecyclerView, position)
     }
@@ -125,11 +127,20 @@ class PageRobot : BaseRobot() {
         checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
     }
 
-    fun swipeTableOfContentsAllTheWayToBottom() = apply {
-        swipeUp(R.id.toc_list)
+    fun clickOnTOCItem(position: Int) = apply {
+        clickOnListView(
+            viewId = R.id.toc_list,
+            childView = R.id.page_toc_item_text,
+            position = position
+        )
     }
 
-    fun clickAboutThisArticleText() = apply {
+    fun swipeTableOfContentsAllTheWayToBottom() = apply {
+        swipeUp(R.id.toc_list)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickAboutThisArticleTextInTOC() = apply {
         clickOnViewWithText("About this article")
         delay(TestConfig.DELAY_MEDIUM)
     }
@@ -142,11 +153,6 @@ class PageRobot : BaseRobot() {
 
     fun clickThirdTopic() = apply {
         clickRecyclerViewItemAtPosition(R.id.talkRecyclerView, 2)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun openLanguageSelector() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, "Language")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -165,19 +171,33 @@ class PageRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun clickOnBookmarkIcon() = apply {
-        clickOnViewWithId(R.id.page_save)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun removeArticleFromReadingList() = apply {
         clickOnViewWithText("Remove from Saved")
         delay(TestConfig.DELAY_LARGE)
     }
 
+    fun navigateUp() = apply {
+        clickOnDisplayedViewWithContentDescription("Navigate up")
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     private fun assertElementVisibility(elementSelector: String, isVisible: Boolean) {
         onView(withId(R.id.page_web_view))
             .perform(AssertJavascriptAction("(function() { return document.querySelector(\"$elementSelector\").checkVisibility() })();", isVisible.toString()))
+    }
+
+    private fun assertEditIconProtection(elementSelector: String, expectedLabel: String) {
+        onView(withId(R.id.page_web_view))
+            .perform(AssertJavascriptAction(
+                script = """
+                    (function checkEdit() {
+                        const element = document.querySelector("$elementSelector")
+                        const ariaLabel = element.getAttribute('aria-labelledby')
+                        return ariaLabel === 'pcs-edit-section-aria-protected' ? 'protected' : 'normal'
+                    })();
+                """.trimIndent(),
+                expectedResult = expectedLabel
+            ))
     }
 
     fun verifyPreviewDialogAppears() = apply {
@@ -189,6 +209,13 @@ class PageRobot : BaseRobot() {
         onWebView()
             .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
             .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickToExpandQuickFactsTable() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
+            .perform(webClick())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -218,5 +245,147 @@ class PageRobot : BaseRobot() {
 
     fun assertCollapsingTableIsVisible(isVisible: Boolean) = apply {
         assertElementVisibility(".pcs-collapse-table-content", isVisible)
+    }
+
+    fun assertEditButtonProtection(isProtected: Boolean = false) = apply {
+        if (isProtected) {
+            assertEditIconProtection(".pcs-edit-section-link", "protected")
+            return@apply
+        }
+        assertEditIconProtection(".pcs-edit-section-link", "normal")
+    }
+
+    fun saveArticleToReadingList() = apply {
+        delay(TestConfig.DELAY_SHORT)
+        clickOnViewWithId(R.id.page_save)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun confirmArticleSaved(text: String) = apply {
+        checkPartialString(text)
+    }
+
+    fun openLanguageSelector() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, context.getString(R.string.article_menu_bar_language_button))
+    }
+
+    fun openFindInArticle() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
+    }
+
+    fun verifyFindInArticleCount(count: String) = apply {
+        onView(allOf(
+            withId(R.id.find_in_page_match),
+            withText("1/$count")
+        )).check(matches(isDisplayed()))
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun openThemeSelector() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_theme, context.getString(R.string.article_menu_bar_theme_button))
+    }
+
+    fun openTableOfContents() = apply {
+        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun selectSpanishLanguage() = apply {
+        val language = "Spanish"
+        scrollToRecyclerView(
+            recyclerViewId = R.id.langlinks_recycler,
+            title = language,
+            textViewId = R.id.non_localized_language_name
+        )
+        clickOnViewWithText(language)
+    }
+
+    fun scrollToAboutThisArticle() = apply {
+        onWebView()
+            .withElement(findElement(Locator.ID, "pcs-footer-container-menu-heading"))
+            .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun goToViewEditHistory() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, "a[title='View edit history']"))
+            .perform(webClick())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun scrollToLegalSection() = apply {
+        onWebView()
+            .withElement(findElement(Locator.ID, "pcs-footer-container-legal"))
+            .perform(webScrollIntoView())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun scrollToAdministrativeDivisionOfIndiaArticle() = apply {
+        onWebView()
+            .withElement(findElement(Locator.ID, "Administrative_divisions"))
+            .perform(webClick())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun scrollToAndhraPradeshOnIndiaArticle() = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, "a[title='Andhra Pradesh']"))
+            .perform(webScrollIntoView())
+            .perform(webClick())
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickLegalLink() = apply {
+        try {
+            onWebView()
+                .withElement(findElement(Locator.CSS_SELECTOR, ".external"))
+                .perform(webClick())
+            intended(
+                allOf(
+                    hasAction(Intent.ACTION_VIEW),
+                    hasData(Uri.parse("https://creativecommons.org/licenses/by-sa/4.0/"))
+                )
+            )
+        } catch (e: Exception) {
+            Log.e("PageRobot: ", "Link failed")
+        }
+    }
+
+    fun clickOutside() = apply {
+        onView(withId(R.id.navigation_drawer))
+            .perform(clickXY(800, 500))
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickOverFlowMenuToolbar() = apply {
+        clickOnViewWithId(viewId = R.id.page_toolbar_button_show_overflow_menu)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun scrollToNonLeadImage() = apply {
+        onView(withId(R.id.page_web_view))
+            .perform(scrollToImageInWebView(1))
+            .perform(click())
+    }
+
+    fun isGalleryActivityOffline(context: Context, action: () -> Unit) = apply {
+        performActionIfSnackbarVisible(
+            text = context.getString(R.string.gallery_not_available_offline_snackbar),
+            action = action
+        )
+    }
+
+    fun verifySameArticleAppearsAsURL(title: String) = apply {
+        onWebView()
+            .withElement(findElement(Locator.CSS_SELECTOR, "h1[data-id='0'].pcs-edit-section-title"))
+            .check(webMatches(getText(), containsString(title)))
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun test() = apply {
+        delay(TestConfig.DELAY_SHORT)
+        clickOnViewWithText("Got it")
+        delay(TestConfig.DELAY_SHORT)
     }
 }

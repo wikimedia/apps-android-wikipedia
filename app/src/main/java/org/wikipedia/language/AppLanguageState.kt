@@ -136,7 +136,7 @@ class AppLanguageState(context: Context) {
         return when (langCode) {
             Constants.WIKI_CODE_COMMONS -> WikipediaApp.instance.getString(R.string.wikimedia_commons)
             Constants.WIKI_CODE_WIKIDATA -> WikipediaApp.instance.getString(R.string.wikidata)
-            else -> getAppLanguageCanonicalName(langCode).orEmpty().ifEmpty { langCode }
+            else -> getAppLanguageLocalizedName(langCode).orEmpty().ifEmpty { langCode }
         }
     }
 

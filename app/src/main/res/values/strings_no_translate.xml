@@ -23,7 +23,6 @@
     <string name="donate_email">donate@wikimedia.org</string>
     <string name="donor_privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Donor_privacy_policy</string>
     <string name="contributions_dashboard_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Private_Donor_Recognition_Experiment#Summary</string>
-    <string name="rabbit_holes_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
@@ -88,5 +87,8 @@
     <string name="sender_username_wikitext">{{{senderUserName}}}</string>
     <string name="diff_link_wikitext">{{{diffLink}}}</string>
     <string name="wikiText_replace_url">[[%1$s|%2$s]]</string>
+
+    <string name="year_in_review_action_positive">Take me there</string>
+    <string name="year_in_review_text"><![CDATA[<strong>Wikipedia 2024 Year in Review</strong><br/><br/>Wikipedia is the largest knowledge resource ever assembled in the history of the world, and it’s freely available to everyone everywhere. Here’s a review of 2024 through the lens of Wikipedia.]]></string>
 
 </resources>

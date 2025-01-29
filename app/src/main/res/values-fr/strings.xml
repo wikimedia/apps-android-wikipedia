@@ -55,6 +55,7 @@
 * Oujon
 * Oupsa
 * Papawy
+* Pyb
 * Seb35
 * SleaY
 * Tacsipacsi
@@ -889,7 +890,7 @@
   <string name="feed_item_type_because_you_read">Suggestions basées sur un article récemment lu de votre historique</string>
   <string name="feed_item_type_featured_article">Article du jour en vedette sur Wikipédia</string>
   <string name="feed_item_type_trending">Articles les plus vus du jour</string>
-  <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimedia Commons</string>
+  <string name="feed_item_type_featured_image">Image remarquable du jour de Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
@@ -1727,62 +1728,6 @@
   <string name="places_card_distance_suffix">situé à %s</string>
   <string name="places_card_distance_unknown">Distance inconnue</string>
   <string name="places_empty_message_snackbar">Il n\'y a pas d\'articles à proximité. Essayez de dézoomer ou de déplacer la carte.</string>
-  <string name="donor_history_title">Historique du donateur</string>
-  <string name="donor_history_save_button">Sauvegarder</string>
-  <string name="donor_history_update_donor_status_default">Mettre à jour le statut de donateur</string>
-  <string name="donor_history_update_donor_status_donor">Donateur</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Non donateur</string>
-  <string name="donor_history_last_donated">Dernier don</string>
-  <string name="donor_history_last_donated_hint">Ajouter la date du dernier don</string>
-  <string name="donor_history_last_donated_date_picker_title">Sélectionner une date</string>
-  <string name="donor_history_last_donated_date_picker_label">Entrer une date</string>
-  <string name="donor_history_last_donated_never">Jamais</string>
-  <string name="donor_history_recurring_donor">Donateur récurrent</string>
-  <string name="donor_history_donate_button">Faire un don à la Fondation Wikimédia</string>
-  <string name="donor_history_about_this_experiment">À propos de cette expérimentation</string>
-  <string name="donor_history_updated_message_snackbar">Historique du donateur mis à jour</string>
-  <string name="contributions_dashboard_survey_dialog_title">Aidez-nous à améliorer le tableau de bord des contributions</string>
-  <string name="contributions_dashboard_survey_dialog_message">Cette mise à jour du tableau de bord est une fonctionnalité en cours de test. Souhaitez-vous que cette fonctionnalité soit améliorée ou supprimée ?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Pas d\'avis</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Partager votre avis</string>
-  <string name="contributions_dashboard_donation_dialog_title">Merci de soutenir la connaissance libre</string>
-  <string name="contributions_dashboard_donation_dialog_message">Vous faites partie des 2%% de personnes qui ont choisi de soutenir la ressource dont dépendent des millions de personnes. Votre tableau de bord des contributions a été mis à jour et reconnaît désormais votre statut de donateur. Souhaitez-vous voir cette mise à jour expérimentale ?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Non, merci</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Oui, je souhaite m\'y rendre</string>
-  <string name="contributions_dashboard_entry_dialog_title">Découvrez les nouveautés du tableau de bord des contributions</string>
-  <string name="contributions_dashboard_entry_dialog_message">Le tableau de bord des contributions affiche désormais le statut des donateurs. Voulez-vous évaluer cette fonctionnalité expérimentale ?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Non, merci</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Oui, je souhaite le faire</string>
-  <string name="contributions_dashboard_badge_donor">Donateur</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Devenir donateur</string>
-  <string name="contributions_dashboard_badge_update">Mettre à jour le statut de donateur</string>
-  <string name="contributions_dashboard_app_icon_title">Icône de l\'application</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Avantage du donateur</string>
-  <string name="contributions_dashboard_logged_out_user">Utilisateur déconnecté</string>
-  <string name="contributions_dashboard_tab_last_donated">Dernier don</string>
-  <string name="contributions_dashboard_tab_update_button">Mettre à jour</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">Merci d\'être un donateur.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Vous avez débloqué une icône personnalisée temporaire. Vous pouvez sélectionner cette icône dans vos paramètres, sous « Icône de l\'application ». Souhaitez-vous mettre à jour votre icône maintenant ?</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Non, merci</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Oui, aller dans Paramètres</string>
-  <string name="contributions_dashboard_app_icon_updated">Icône de l\'application mise à jour</string>
-  <string name="recent_searches_title">Recherches récentes</string>
-  <string name="recent_searches_related_to_reading">En rapport avec ce que vous lisez</string>
-  <string name="rabbit_holes_experiment">Expérimental</string>
-  <string name="rabbit_holes_experiment_about">À propos de cette expérimentation</string>
-  <string name="rabbit_holes_survey_dialog_title">Aidez-nous à améliorer les \"contenus sans fin\" (rabbit holes)</string>
-  <string name="rabbit_holes_survey_dialog_body">Êtes-vous satisfait de ce résultat de recherche recommandé ?</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_title">Aidez-nous à améliorer les listes de lectures recommandées</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_body">Êtes-vous satisfait de cette liste de lectures recommandées ?</string>
-  <string name="suggested_reading_list_title">Établie à partir de vos consultations antérieures</string>
-  <string name="suggested_reading_list_description">Suggérée à cause de votre lecture de \"%s\"</string>
-  <string name="suggested_reading_list_description_multi">Inspirée par %1$s et %2$s</string>
-  <string name="suggested_reading_list_later_snackbar">Si vous souhaitez consulter votre liste de lecture ultérieurement, accédez à l’onglet Enregistré sur l’écran d’accueil.</string>
-  <string name="suggested_reading_list_dialog_title">Vous avez une nouvelle liste de lectures suggérées.</string>
-  <string name="suggested_reading_list_dialog_body">Il s\'agit d\'une fonctionnalité expérimentale. Le contenu est basé sur votre historique de lecture récent. Voulez-vous découvrir cette nouvelle liste de lecture ?</string>
-  <string name="suggested_reading_list_dialog_positive">Essayez-le maintenant</string>
-  <string name="suggested_reading_list_dialog_negative">Peut-être plus tard</string>
-  <string name="suggested_reading_list_back_cancel">Consultez votre liste de lectures suggérées à tout moment dans l’onglet Enregistré sur l’écran d’accueil.</string>
   <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
   <string name="survey_dialog_option_satisfied">Satisfait</string>

@@ -1,6 +1,6 @@
 [versions]
 androidPluginAnnotationV9 = "3.0.2"
-androidSdk = "11.7.1"
+androidSdk = "11.8.0"
 appcompat = "1.7.0"
 balloon = "1.6.11"
 browser = "1.8.0"
@@ -16,15 +16,15 @@ fragmentKtx = "1.8.5"
 glideVersion = "4.16.0"
 googlePayVersion = "19.4.0"
 googleServices = "4.4.2"
-gradle = "8.7.3"
+gradle = "8.8.0"
 hamcrest = "3.0"
 installreferrer = "2.2"
 jsoup = "1.18.3"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 kotlinCoroutinesVersion = "1.10.1"
-kotlinStdlibJdk8 = "2.1.0"
-kotlinxSerializationJson = "1.7.3"
+kotlinStdlibJdk8 = "2.1.10"
+kotlinxSerializationJson = "1.8.0"
 kspPlugin = "2.1.0-1.0.29"
 leakCanaryVersion = "2.14"
 material = "1.12.0"
@@ -37,7 +37,7 @@ pagingRuntimeKtx = "3.3.5"
 paletteKtx = "1.0.0"
 photoview = "1.0.2"
 preferenceKtx = "1.2.1"
-recyclerview = "1.3.2"
+recyclerview = "1.4.0"
 retrofitVersion = "2.11.0"
 robolectric = "4.14.1"
 roomVersion = "2.6.1"
@@ -45,6 +45,10 @@ swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.10.0"
+composeBom = "2025.01.00"
+composeActivity = "1.10.0"
+composeViewModel = "2.8.7"
+
 
 [libraries]
 android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
@@ -108,6 +112,14 @@ room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersi
 swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+composeBom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
+compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
+compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
@@ -115,3 +127,4 @@ gms-plugin = { id = 'com.google.gms.google-services', version.ref = "googleServi
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinStdlibJdk8" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinStdlibJdk8" }
 ksp-plugin = { id = 'com.google.devtools.ksp', version.ref = "kspPlugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinStdlibJdk8" }

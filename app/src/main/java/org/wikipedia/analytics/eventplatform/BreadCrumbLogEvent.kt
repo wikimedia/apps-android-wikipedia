@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.view.MenuItem
 import android.view.View
-import android.widget.Checkable
+import android.widget.CompoundButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import kotlinx.serialization.SerialName
@@ -37,11 +37,11 @@ class BreadCrumbLogEvent(
             if (context is SettingsActivity) {
                 return
             }
-            val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
-            val str = "$viewReadableName." + when (view) {
-                is Checkable -> if (!view.isChecked) "on" else "off"
-                else -> "click"
+            var viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
+            if (view.tag is String && (view.tag as String).isNotEmpty()) {
+                viewReadableName += "." + view.tag as String
             }
+            val str = "$viewReadableName." + if (view is CompoundButton) { if (!view.isChecked) "on" else "off" } else "click"
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
 
@@ -59,6 +59,11 @@ class BreadCrumbLogEvent(
             val invokeSource = (fragment?.activity?.intent ?: (context as? Activity)?.intent)?.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context, fragment),
                 "show" + invokeSource?.let { ".from." + it.value }.orEmpty()))
+        }
+
+        fun logImpression(context: Context, name: String) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context),
+                "impression.$name"))
         }
 
         fun logBackPress(context: Context) {

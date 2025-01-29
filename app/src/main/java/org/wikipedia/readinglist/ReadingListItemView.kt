@@ -1,7 +1,6 @@
 package org.wikipedia.readinglist
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import android.view.*
 import androidx.annotation.StyleRes
@@ -36,8 +35,6 @@ class ReadingListItemView : ConstraintLayout {
     private val binding = ItemReadingListBinding.inflate(LayoutInflater.from(context), this)
     private var readingList: ReadingList? = null
     private val imageViews = listOf(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4)
-    private var isSuggested = false
-    private var isSingle = false
     var callback: Callback? = null
     var saveClickListener: OnClickListener? = null
     val shareButton get() = binding.itemShareButton
@@ -64,9 +61,6 @@ class ReadingListItemView : ConstraintLayout {
         }
 
         setOnLongClickListener { view ->
-            if (isSuggested) {
-                return@setOnLongClickListener false
-            }
             readingList?.let {
                 PopupMenu(context, view, Gravity.END).let { menu ->
                     menu.menuInflater.inflate(R.menu.menu_reading_list_item, menu.menu)
@@ -112,19 +106,12 @@ class ReadingListItemView : ConstraintLayout {
         binding.itemPreviewSaveButton.setOnClickListener {
             saveClickListener?.onClick(it)
         }
-        binding.itemSaveButtonSecondary.setOnClickListener {
-            saveClickListener?.onClick(it)
-        }
-
-        binding.experimentAboutLabel.setOnClickListener {
-            UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.rabbit_holes_wiki_url)))
-        }
 
         FeedbackUtil.setButtonTooltip(binding.itemShareButton, binding.itemOverflowMenu)
     }
 
-    fun setReadingList(readingList: ReadingList, description: Description, selectMode: Boolean = false,
-                       newImport: Boolean = false, isSuggested: Boolean = false, isSingle: Boolean = false) {
+    fun setReadingList(readingList: ReadingList, description: Description,
+                       selectMode: Boolean = false, newImport: Boolean = false) {
         this.readingList = readingList
         val isDetailView = description == Description.DETAIL
         binding.itemDescription.maxLines = if (isDetailView) Int.MAX_VALUE else resources.getInteger(R.integer.reading_list_description_summary_view_max_lines)
@@ -135,13 +122,6 @@ class ReadingListItemView : ConstraintLayout {
         if (binding.itemImage1.visibility == VISIBLE) {
             updateThumbnails()
         }
-
-        this.isSuggested = isSuggested
-        this.isSingle = isSingle
-        binding.experimentLabel.isVisible = isSuggested
-        binding.experimentAboutLabel.isVisible = isSuggested && isSingle
-        binding.itemSaveButtonSecondary.isVisible = isSuggested && !isSingle
-        binding.backgroundShape.isVisible = isSuggested && !isSingle
     }
 
     fun setThumbnailVisible(visible: Boolean) {

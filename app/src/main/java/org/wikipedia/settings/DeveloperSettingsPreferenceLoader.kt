@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -32,6 +33,37 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private val setMediaWikiMultiLangSupportChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
         resetMediaWikiSettings()
         true
+    }
+
+    fun filterPreferences(query: String? = null) {
+        query?.let {
+            for (i in 0 until fragment.preferenceScreen.preferenceCount) {
+                filterPreferenceGroupItems(fragment.preferenceScreen.getPreference(i), query)
+            }
+        } ?: run {
+            clearPreferences()
+            loadPreferences()
+        }
+    }
+
+    private fun filterPreferenceGroupItems(preference: Preference, query: String): Boolean {
+        if (preference is PreferenceGroup) {
+            var visibleChildCount = 0
+            for (i in 0 until preference.preferenceCount) {
+                if (filterPreferenceGroupItems(preference.getPreference(i), query)) {
+                    visibleChildCount++
+                }
+            }
+
+            // Hide the group if no children are visible
+            preference.isVisible = visibleChildCount > 0
+            return preference.isVisible
+        } else {
+            val isPrefVisible = preference.title?.toString()?.contains(query, ignoreCase = true) == true ||
+                    preference.summary?.toString()?.contains(query, ignoreCase = true) == true
+            preference.isVisible = isPrefVisible
+            return isPrefVisible
+        }
     }
 
     override fun loadPreferences() {
@@ -152,6 +184,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         findPreference(R.string.preference_key_send_event_platform_test_event).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             UserContributionEvent.logOpen()
+            true
+        }
+        findPreference(R.string.preference_key_feed_yir_onboarding_card_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, isEnabled: Any? ->
+            if (isEnabled is Boolean && isEnabled) {
+                Prefs.hiddenCards = emptySet()
+                Toast.makeText(activity, "Please relaunch the app.", Toast.LENGTH_SHORT).show()
+            }
             true
         }
     }
