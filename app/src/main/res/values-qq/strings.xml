@@ -1754,4 +1754,6 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Negative button label of a popup dialog for turning off notifications about the daily game.</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Snackbar message when user choose to turn off notifications.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Snackbar message when user choose to turn on notifications.</string>
+  <string name="on_this_day_game_report_email_subject">Subject heading for sending a report about a problem with the Wikipedia games feature.</string>
+  <string name="on_this_day_game_report_email_body">Body of email for sending a report about a problem with the Wikipedia games feature.</string>
 </resources>
