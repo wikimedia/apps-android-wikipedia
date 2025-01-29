@@ -1824,7 +1824,8 @@
     <string name="on_this_day_game_share_text">I\'m playing \"What came first?\" a daily trivia game on the Wikipedia Android app %s</string>
     <string name="on_this_day_game_article_read_button">Read article</string>
     <string name="on_this_day_game_article_related_event_title">Event related to this article</string>
-    <string name="on_this_day_game_article_answer_stats_message">You got this question right</string>
+    <string name="on_this_day_game_article_answer_correct_stats_message">You got this question right</string>
+    <string name="on_this_day_game_article_answer_incorrect_stats_message">You got this question wrong</string>
     <string name="on_this_day_game_turn_off_notification_dialog_title">Turn off game notifications?</string>
     <string name="on_this_day_game_turn_off_notification_dialog_subtitle">If you turn push notifications off, you will no longer receive a reminder every day when a new game is available to play.</string>
     <string name="on_this_day_game_turn_on_notification_dialog_title">Turn on game notifications?</string>
