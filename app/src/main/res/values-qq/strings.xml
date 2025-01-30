@@ -918,6 +918,7 @@
   <string name="description_edit_description_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for writing article descriptions.</string>
   <string name="description_edit_image_caption_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for writing Image captions.</string>
   <string name="description_too_short">Error text shown when a description is too short.</string>
+  <string name="description_too_long">Warning text shown when a description is too long.</string>
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
   <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
   <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
