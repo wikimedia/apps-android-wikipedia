@@ -358,9 +358,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_suggested_edits_survey"
-            android:title="@string/preference_key_show_suggested_edits_survey" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_suggested_edits_tooltip"
