@@ -33,7 +33,6 @@ import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
@@ -140,21 +139,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         val notificationItem = menu.findItem(R.id.menu_notifications)
-        if (notificationItem != null) {
-            when (getOnThisDayGameNotificationState()) {
-                OnThisDayGameNotificationState.NO_INTERACTED -> {
-                    notificationItem.setIcon(R.drawable.outline_notification_add_24)
-                }
-
-                OnThisDayGameNotificationState.ENABLED -> {
-                    notificationItem.setIcon(R.drawable.outline_notifications_active_24)
-                }
-
-                OnThisDayGameNotificationState.DISABLED -> {
-                    notificationItem.setIcon(R.drawable.outline_notifications_off_24)
-                }
-            }
-        }
+        notificationItem?.setIcon(Prefs.otdNotificationState.getIcon())
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -167,53 +152,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             }
 
             R.id.menu_notifications -> {
-                when (getOnThisDayGameNotificationState()) {
-                    OnThisDayGameNotificationState.ENABLED -> {
-                        OnThisDayGameDialogs.showTurnOffNotificationDialog(
-                            activity = this,
-                            turnOffButtonOnclick = {
-                                Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED.name
-                                NotificationPollBroadcastReceiver.cancelDailyGameNotification(this)
-                                val snackBar = FeedbackUtil.makeSnackbar(
-                                    this,
-                                    getString(R.string.on_this_day_game_notification_turned_off_snackbar_message)
-                                )
-                                snackBar.setAction(R.string.reading_list_item_delete_undo) {
-                                    NotificationPollBroadcastReceiver.cancelDailyGameNotification(this)
-                                }
-                                invalidateOptionsMenu()
-                                snackBar.show()
-                            },
-                            keepThemOnButtonOnClick = {
-                                Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED.name
-                                invalidateOptionsMenu()
-                            }
-                        )
-                    }
-                    OnThisDayGameNotificationState.NO_INTERACTED,
-                    OnThisDayGameNotificationState.DISABLED -> {
-                        OnThisDayGameDialogs.showTurnOnNotificationDialog(
-                            activity = this,
-                            turnThemOnButtonOnClick = {
-                                Prefs.otdNotificationState = OnThisDayGameNotificationState.ENABLED.name
-                                scheduleGameNotification()
-                                val snackBar = FeedbackUtil.makeSnackbar(
-                                    this,
-                                    getString(R.string.on_this_day_game_notification_turned_on_snackbar_message)
-                                )
-                                snackBar.setAction(R.string.reading_list_item_delete_undo) {
-                                    NotificationPollBroadcastReceiver.cancelDailyGameNotification(this)
-                                }
-                                invalidateOptionsMenu()
-                                snackBar.show()
-                            },
-                            keepThemOffButtonOnclick = {
-                                Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED.name
-                                invalidateOptionsMenu()
-                            }
-                        )
-                    }
-                }
+                OnThisDayGameNotificationManager(this).handleNotificationClick()
                 true
             }
 
@@ -472,7 +411,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         goNextAnimatorSet.start()
     }
 
-    private fun scheduleGameNotification() {
+    fun scheduleGameNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             when {
                 ContextCompat.checkSelfPermission(

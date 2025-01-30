@@ -75,15 +75,14 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
             }
             ACTION_DAILY_GAME == intent.action -> {
-                // @TODO: replace strings from strings.xml
                 if (!WikipediaApp.instance.isOnThisDayGameActivityVisible) {
                     NotificationPresenter.showNotification(
                         context = context,
                         builder = NotificationPresenter.getDefaultBuilder(context, 1, TYPE_LOCAL),
                         id = 1,
-                        title = context.getString(R.string.on_this_day_game_title),
-                        text = "Today's game of \"Which came first?\" is ready to play.",
-                        longText = "Today's game of \"Which came first?\" is ready to play.",
+                        title = context.getString(R.string.on_this_day_game_feed_entry_card_heading),
+                        text = context.getString(R.string.on_this_day_game_notification_text),
+                        longText = context.getString(R.string.on_this_day_game_notification_text),
                         lang = null,
                         icon = R.drawable.ic_notifications_black_24dp,
                         color = R.color.blue600,

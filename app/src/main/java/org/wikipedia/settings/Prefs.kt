@@ -756,7 +756,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_entry_dialog_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_entry_dialog_shown, value)
 
-    var otdNotificationState
-        get() = PrefsIoUtil.getString(R.string.preference_key_otd_notification_state, OnThisDayGameNotificationState.NO_INTERACTED.name) ?: OnThisDayGameNotificationState.NO_INTERACTED.name
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value)
+    var otdNotificationState: OnThisDayGameNotificationState
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_notification_state, null)?.let {
+            OnThisDayGameNotificationState.valueOf(it)
+        } ?: OnThisDayGameNotificationState.NO_INTERACTED
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
 }
