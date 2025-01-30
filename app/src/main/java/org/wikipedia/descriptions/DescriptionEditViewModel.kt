@@ -62,9 +62,18 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             _loadPageSummaryState.value = Resource.Loading()
             editingAllowed = false
             val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText) }
-            val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0) }
+            val infoResponseCall = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0) }
+            val page = infoResponseCall.await().query?.firstPage()
 
-            val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
+            page?.revisions?.firstOrNull()?.let { revision ->
+                revision.contentMain?.let {
+                    if (it.contains(DescriptionEditViewModel.TEMPLATE_PARSE_REGEX.toRegex())) {
+                        editingAllowed = true
+                    }
+                }
+            }
+
+            val editError = page?.getErrorForAction("edit")
             var error: MwServiceError? = null
             if (editError.isNullOrEmpty()) {
                 editingAllowed = true

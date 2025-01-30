@@ -17,7 +17,7 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
     init {
         binding.viewWikiGamesCardContentContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
         binding.viewWikiGamesCardContentContainer.setOnClickListener {
-            context.startActivity(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED))
+            context.startActivity(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card!!.wikiSite))
         }
     }
 

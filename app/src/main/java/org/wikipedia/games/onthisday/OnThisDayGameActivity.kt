@@ -26,6 +26,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
@@ -399,8 +400,9 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, date: LocalDate? = null): Intent {
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
+                .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
             if (date != null) {
                 intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)

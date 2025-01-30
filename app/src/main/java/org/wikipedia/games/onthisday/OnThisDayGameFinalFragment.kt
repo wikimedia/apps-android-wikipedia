@@ -85,7 +85,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
     override fun onDayClick(date: LocalDate) {
         viewModel.resetCurrentDayState()
         requireActivity().finish()
-        startActivity(OnThisDayGameActivity.newIntent(requireContext(), viewModel.invokeSource, date))
+        startActivity(OnThisDayGameActivity.newIntent(requireContext(), viewModel.invokeSource, viewModel.wikiSite, date))
     }
 
     private fun updateOnLoading() {
