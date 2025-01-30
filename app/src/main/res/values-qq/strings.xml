@@ -1016,8 +1016,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
   <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
-  <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action\n\n{{Identical|Add}}</string>
   <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action\n\n{{Identical|Translate}}</string>
   <string name="suggested_edits_image_captions">Suggested Edits image captions task title.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}.\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}</string>
