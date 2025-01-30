@@ -330,6 +330,8 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         } else if (text.length < 2) {
             isTextValid = false
             setError(context.getString(R.string.description_too_short))
+        } else if (pageTitle.wikiSite.languageCode == "en" && text.length > resources.getInteger(R.integer.description_max_chars_en)) {
+            setWarning(context.getString(R.string.description_too_long))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
             (listOf(".", ",", "!", "?").filter { text.endsWith(it) }).isNotEmpty()) {
             isTextValid = false
@@ -343,8 +345,6 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         } else if (isLanguageWrong) {
             val localizedName = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(pageSummaryForEdit.lang)
             setWarning(context.getString(R.string.description_verification_notice, localizedName, localizedName))
-        } else if (pageTitle.wikiSite.languageCode == "en" && text.length > resources.getInteger(R.integer.description_max_chars_en)) {
-            setWarning(context.getString(R.string.description_too_long))
         } else {
             clearError()
         }
