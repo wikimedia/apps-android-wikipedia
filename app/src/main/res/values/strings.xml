@@ -1836,4 +1836,5 @@
     <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Keep them off</string>
     <string name="on_this_day_game_notification_turned_off_snackbar_message">Game notifications off.</string>
     <string name="on_this_day_game_notification_turned_on_snackbar_message">Game notifications on.</string>
+    <string name="on_this_day_game_notification_text">Today\'s game of \"Which came first?\" is ready to play.</string>
 </resources>
