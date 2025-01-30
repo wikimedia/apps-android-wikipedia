@@ -930,7 +930,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
-        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity())
+        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(), model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
 
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup

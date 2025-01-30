@@ -9,9 +9,9 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.json.JsonUtil
@@ -33,6 +33,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+    val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
 
     private lateinit var currentState: GameState
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
@@ -56,7 +57,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }) {
             _gameState.postValue(Resource.Loading())
 
-            val eventsFromApi = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getOnThisDay(currentMonth, currentDay).events
+            val eventsFromApi = ServiceFactory.getRest(wikiSite).getOnThisDay(currentMonth, currentDay).events
 
             // Here is the logic for arranging the events:
             // First we filter out any events that actually mention a year in the text, since those might give away the answer.
@@ -103,7 +104,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
             savedPages.clear()
             getArticlesMentioned().forEach { pageSummary ->
-                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)) != null
+                val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageSummary.getPageTitle(wikiSite)) != null
                 if (inAnyList) {
                     savedPages.add(pageSummary)
                 }
