@@ -36,8 +36,7 @@
                 android:id="@+id/resultTextContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="16dp"
+                android:layout_margin="16dp"
                 app:cardCornerRadius="12dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -177,9 +176,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
-                    app:cardElevation="2dp"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="?attr/border_color"
                     app:cardCornerRadius="12dp">
 
                     <LinearLayout
