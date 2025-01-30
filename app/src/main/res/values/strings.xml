@@ -1030,8 +1030,6 @@
     <string name="suggested_edits_feed_card_add_image_caption">Add image caption</string>
     <string name="suggested_edits_feed_card_translate_image_caption">Add image caption (%s)</string>
     <string name="suggested_edits_feed_card_add_image_tags">Add image tags</string>
-    <string name="suggested_edits_snackbar_survey_text">How was your editing experience? Please take a moment to fill out the survey about in-app editing.</string>
-    <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
     <string name="suggested_edits_task_action_text_add">Add</string>
     <string name="suggested_edits_task_action_text_translate">Translate</string>
     <string name="suggested_edits_image_captions">Image captions</string>
@@ -1847,6 +1845,7 @@
     <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Keep them off</string>
     <string name="on_this_day_game_notification_turned_off_snackbar_message">Game notifications off.</string>
     <string name="on_this_day_game_notification_turned_on_snackbar_message">Game notifications on.</string>
+    <string name="on_this_day_game_notification_text">Today\'s game of \"Which came first?\" is ready to play.</string>
     <string name="on_this_day_game_report_email_subject">Issue Report - Wikipedia games</string>
     <string name="on_this_day_game_report_email_body">I have encountered a problem with the Wikipedia games feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
 </resources>
