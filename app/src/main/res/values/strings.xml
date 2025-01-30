@@ -1836,6 +1836,7 @@
     <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Keep them off</string>
     <string name="on_this_day_game_notification_turned_off_snackbar_message">Game notifications off.</string>
     <string name="on_this_day_game_notification_turned_on_snackbar_message">Game notifications on.</string>
+    <string name="on_this_day_game_notification_text">Today\'s game of \"Which came first?\" is ready to play.</string>
     <string name="on_this_day_game_report_email_subject">Issue Report - Wikipedia games</string>
     <string name="on_this_day_game_report_email_body">I have encountered a problem with the Wikipedia games feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
 </resources>
