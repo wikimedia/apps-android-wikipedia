@@ -14,13 +14,19 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
 
     private var haveMainActivity = false
     var isAnyActivityResumed = false
+    private var currentActivity: Activity? = null
 
     fun haveMainActivity(): Boolean {
         return haveMainActivity
     }
 
+    fun isOnThisDayGameActivityVisible(): Boolean {
+        return currentActivity?.javaClass?.simpleName == "OnThisDayGameActivity"
+    }
+
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         val app = WikipediaApp.instance
+        currentActivity = activity
         if (activity is MainActivity) {
             haveMainActivity = true
         }

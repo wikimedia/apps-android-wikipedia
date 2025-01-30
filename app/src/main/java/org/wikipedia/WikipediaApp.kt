@@ -120,6 +120,9 @@ class WikipediaApp : Application() {
     val haveMainActivity
         get() = activityLifecycleHandler.haveMainActivity()
 
+    val isOnThisDayGameActivityVisible
+        get() = activityLifecycleHandler.isOnThisDayGameActivityVisible()
+
     val isAnyActivityResumed
         get() = activityLifecycleHandler.isAnyActivityResumed
 
