@@ -81,12 +81,6 @@ class OnThisDayGameFinalFragment : Fragment() {
         super.onDestroyView()
     }
 
-    override fun onDayClick(date: LocalDate) {
-        viewModel.resetCurrentDayState()
-        requireActivity().finish()
-        startActivity(OnThisDayGameActivity.newIntent(requireContext(), viewModel.invokeSource, viewModel.wikiSite, date))
-    }
-
     private fun updateOnLoading() {
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = false
