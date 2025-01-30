@@ -86,7 +86,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         lang = null,
                         icon = R.drawable.ic_notifications_black_24dp,
                         color = R.color.blue600,
-                        bodyIntent = OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.NOTIFICATION)
+                        bodyIntent = OnThisDayGameActivity.newIntent(
+                            context = context,
+                            invokeSource = Constants.InvokeSource.NOTIFICATION,
+                            wikiSite = WikipediaApp.instance.wikiSite
+                        )
                     )
                 }
             }
