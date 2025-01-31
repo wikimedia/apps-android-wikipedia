@@ -6,6 +6,7 @@ import android.content.ComponentCallbacks2
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -21,7 +22,7 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
     }
 
     fun isOnThisDayGameActivityVisible(): Boolean {
-        return currentActivity?.javaClass?.simpleName == "OnThisDayGameActivity"
+        return currentActivity?.let { it is OnThisDayGameActivity } ?: false
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
@@ -51,10 +52,12 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
 
     override fun onActivityResumed(activity: Activity) {
         isAnyActivityResumed = true
+        currentActivity = activity
     }
 
     override fun onActivityPaused(activity: Activity) {
         isAnyActivityResumed = false
+        currentActivity = null
     }
 
     override fun onActivityStopped(activity: Activity) {}
@@ -65,6 +68,7 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
         if (activity is MainActivity) {
             haveMainActivity = false
         }
+        currentActivity = null
     }
 
     override fun onConfigurationChanged(configuration: Configuration) {}
