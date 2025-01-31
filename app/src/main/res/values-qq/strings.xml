@@ -1718,13 +1718,13 @@
   <string name="on_this_day_game_title">Title of the trivia game.</string>
   <string name="on_this_day_game_dialog_button">Button label in the initial screen of the trivia game to enter the game.</string>
   <string name="on_this_day_game_splash_message">Message in the initial screen of the trivia game to explain the game rules.</string>
-  <string name="on_this_day_game_next">Button label for navigating to the next question.</string>
-  <string name="on_this_day_game_finish">Button label for finishing the game.</string>
   <string name="on_this_day_game_progress">Represents the progress in the current game. %1$d is replaced with the number of the current question, and %2$d is replaced with the total questions.</string>
   <string name="on_this_day_game_score">The current score in the game, represented as %d points</string>
   <string name="on_this_day_game_correct">Message shown when a correct answer is given.</string>
   <string name="on_this_day_game_incorrect">Message shown when a incorrect answer is given.</string>
   <string name="on_this_day_game_point">Indication of points earned with a correct response. (always 1 point, not plural)</string>
+  <string name="on_this_day_game_next">Button label for navigating to the next question.</string>
+  <string name="on_this_day_game_finish">Button label for finishing the game.</string>
   <string name="on_this_day_game_feed_entry_card_heading">header for the game feed entry card</string>
   <string name="on_this_day_game_feed_entry_card_title">title for the game feed entry card</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">subtitle for the game feed entry card</string>
@@ -1747,7 +1747,7 @@
   <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Subtitle of a popup dialog for turning off notifications about the daily game.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">Title of a popup dialog for turning on notifications about the daily game.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Subtitle of a popup dialog for turning on notifications about the daily game.</string>
-  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Positive button label of a popup dialog for turning on notifications of the daily game. </string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Positive button label of a popup dialog for turning on notifications of the daily game.</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Negative button label of a popup dialog for turning off notifications of the daily game.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Positive button label of a popup dialog for turning on notifications about the daily game.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Negative button label of a popup dialog for turning off notifications about the daily game.</string>

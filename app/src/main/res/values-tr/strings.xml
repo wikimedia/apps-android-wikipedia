@@ -994,8 +994,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Resim yazısı ekle</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Resim etiketleri ekle</string>
-  <string name="suggested_edits_snackbar_survey_text">Düzenleme deneyiminiz nasıldı? Lütfen uygulama içi düzenleme ile ilgili anketi doldurmak için bir dakikanızı ayırın.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Anketi Doldur</string>
   <string name="suggested_edits_task_action_text_add">Ekle</string>
   <string name="suggested_edits_task_action_text_translate">Çevir</string>
   <string name="suggested_edits_image_captions">Resim başlıkları</string>

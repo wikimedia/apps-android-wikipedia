@@ -1009,8 +1009,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_feed_card_translate_image_caption">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">画像タグを追加</string>
-  <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか? アプリを使った編集について、アンケートに回答をお願いします。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="suggested_edits_task_action_text_add">追加</string>
   <string name="suggested_edits_task_action_text_translate">翻訳</string>
   <string name="suggested_edits_image_captions">画像キャプション</string>

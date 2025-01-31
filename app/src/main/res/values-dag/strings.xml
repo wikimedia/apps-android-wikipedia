@@ -960,8 +960,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Pahami anfooni yuli lahabali</string>
   <string name="suggested_edits_feed_card_translate_image_caption">pahami anfooni yuli lahabali (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Pahami di lobu lahabali</string>
-  <string name="suggested_edits_snackbar_survey_text">Wula ka a nya zaŋkpa a maliniŋnima maa polo? Dim suɣulo ka nya saha biɛla n-labisi vihigu lahabali zaŋkpa maliniŋ niŋbu app puuni.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Labisimi vihigu lahabali</string>
   <string name="suggested_edits_task_action_text_add">Pahima</string>
   <string name="suggested_edits_task_action_text_translate">Lebigima</string>
   <string name="suggested_edits_image_captions">Anfooni yuli lahabali</string>

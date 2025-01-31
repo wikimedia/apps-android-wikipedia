@@ -984,8 +984,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">افزودن برنگاشت تصویر</string>
   <string name="suggested_edits_feed_card_translate_image_caption">افزودن برنگاشت تصویر (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">افزودن برچسب‌های تصویر</string>
-  <string name="suggested_edits_snackbar_survey_text">تجربهٔ ویرایش شما چطور بود؟ لطفاً برای پاسخ دادن به یک نظرسنجی دربارهٔ ویرایش با استفاده از اپلیکیشین چند دقیقه زمان بگذارید.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">شرکت در آمارگیری</string>
   <string name="suggested_edits_task_action_text_add">افزودن</string>
   <string name="suggested_edits_task_action_text_translate">ترجمه</string>
   <string name="suggested_edits_image_captions">توضیحات تصویر</string>

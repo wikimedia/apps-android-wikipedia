@@ -1064,8 +1064,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Додати підпис зображення</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Додайте теги до зображення</string>
-  <string name="suggested_edits_snackbar_survey_text">Яким був ваш досвід використання? Якщо маєте хвилинку, заповніть будь ласка опитування щодо редагування у додатку.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Взяти участь в опитуванні</string>
   <string name="suggested_edits_task_action_text_add">Додати</string>
   <string name="suggested_edits_task_action_text_translate">Перекласти</string>
   <string name="suggested_edits_image_captions">Підписи зображень</string>
@@ -1798,4 +1796,28 @@
   <string name="survey_dialog_submit">Надіслати</string>
   <string name="survey_dialog_input_hint">Додатковий відгук</string>
   <string name="survey_dialog_submitted_snackbar">Відгук надіслано. Дякуємо!</string>
+  <string name="on_this_day_game_entry_dialog_title">Знайомтеся</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Ігри Вікіпедії</string>
+  <string name="on_this_day_game_entry_dialog_button">Грати сьогоднішню гру</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Ігри Вікіпедії доступні у стрічці.</string>
+  <string name="on_this_day_game_title">Що було першим?</string>
+  <string name="on_this_day_game_dialog_button">Грати</string>
+  <string name="on_this_day_game_splash_message">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
+  <string name="on_this_day_game_progress">%1$d з %2$d</string>
+  <string name="on_this_day_game_score">Рахунок: %d</string>
+  <string name="on_this_day_game_correct">Правильно!</string>
+  <string name="on_this_day_game_incorrect">Неправильно!</string>
+  <string name="on_this_day_game_point">+1 бал</string>
+  <string name="on_this_day_game_next">Наступне запитання</string>
+  <string name="on_this_day_game_finish">Остаточний результат</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Ігри Вікіпедії</string>
+  <string name="on_this_day_game_feed_entry_card_title">Що було першим?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
+  <string name="on_this_day_game_result">Ваш рахунок — %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Наступна гра через %s</string>
+  <string name="on_this_day_game_your_stats">Ваша статистика</string>
+  <string name="on_this_day_game_stats_played" fuzzy="true">Зіграно</string>
+  <string name="on_this_day_game_stats_average_score">Середній рахунок</string>
+  <string name="on_this_day_game_stats_streak">Поточна серія</string>
+  <string name="on_this_day_game_result_subtitle">Статті, використані у сьогоднішній грі</string>
 </resources>

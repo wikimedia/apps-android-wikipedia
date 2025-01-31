@@ -1063,8 +1063,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">הוספת תגי תמונה</string>
-  <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="suggested_edits_task_action_text_add">הוספה</string>
   <string name="suggested_edits_task_action_text_translate">תרגום</string>
   <string name="suggested_edits_image_captions">כיתובי תמונה</string>
