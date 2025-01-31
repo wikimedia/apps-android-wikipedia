@@ -187,6 +187,10 @@
         <item name="android:textColor">?attr/primary_color</item>
     </style>
 
+    <style name="H4.Label">
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="H5">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
