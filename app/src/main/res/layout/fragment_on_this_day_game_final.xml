@@ -21,123 +21,236 @@
         android:layout_gravity="center"
         android:orientation="vertical" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/resultTextContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/resultCardContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="24dp"
+                    android:background="@color/green600">
+
+                    <TextView
+                        android:id="@+id/resultText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/H1.Article"
+                        android:textColor="?attr/primary_color"
+                        tools:text="Lorem ipsum"/>
+
+                    <TextView
+                        android:id="@+id/nextGameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/H3.Button"
+                        android:textColor="?attr/primary_color"
+                        android:layout_marginTop="16dp"
+                        app:drawableStartCompat="@drawable/ic_time_24"
+                        app:drawableTint="?attr/primary_color"
+                        android:drawablePadding="6dp"
+                        tools:text="Lorem ipsum"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/yourStatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/H4"
+                android:textColor="?attr/primary_color"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@id/resultTextContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/on_this_day_game_your_stats"/>
+
+            <LinearLayout
+                android:id="@+id/statsContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="horizontal"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/yourStatsText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <org.wikipedia.views.WikiCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:background="?attr/background_color">
+
+                        <TextView
+                            android:id="@+id/statsGamePlayed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/H1.Article"
+                            android:textColor="?attr/primary_color"
+                            tools:text="5"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/H4.Label"
+                            android:layout_marginTop="12dp"
+                            android:textAlignment="center"
+                            android:textColor="?attr/primary_color"
+                            android:text="@string/on_this_day_game_stats_played"/>
+
+                    </LinearLayout>
+
+                </org.wikipedia.views.WikiCardView>
+
+                <org.wikipedia.views.WikiCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="16dp"
+                    app:cardCornerRadius="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:background="?attr/background_color">
+
+                        <TextView
+                            android:id="@+id/statsAverageScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/H1.Article"
+                            android:textColor="?attr/primary_color"
+                            tools:text="2.5"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/H4.Label"
+                            android:layout_marginTop="12dp"
+                            android:textAlignment="center"
+                            android:textColor="?attr/primary_color"
+                            android:text="@string/on_this_day_game_stats_average_score"/>
+
+                    </LinearLayout>
+
+                </org.wikipedia.views.WikiCardView>
+
+                <org.wikipedia.views.WikiCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:background="?attr/background_color">
+
+                        <TextView
+                            android:id="@+id/statsCurrentStreak"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/H1.Article"
+                            android:textColor="?attr/primary_color"
+                            tools:text="4"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/H4.Label"
+                            android:layout_marginTop="12dp"
+                            android:textAlignment="center"
+                            android:textColor="?attr/primary_color"
+                            android:text="@string/on_this_day_game_stats_streak"/>
+
+                    </LinearLayout>
+
+                </org.wikipedia.views.WikiCardView>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/resultSubtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/H4"
+                android:textColor="?attr/primary_color"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/on_this_day_game_result_subtitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/statsContainer"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/resultArticlesList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintTop_toBottomOf="@id/resultSubtitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="16dp"
-        android:clipToPadding="false">
-
-        <TextView
-            android:id="@+id/resultText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/H2.AppBar"
-            android:textColor="?attr/primary_color"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Lorem ipsum"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/shareButton"
-            style="@style/App.Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/resultText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/on_this_day_game_share"/>
-
-        <TextView
-            android:id="@+id/nextGameText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="?attr/secondary_color"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/shareButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:drawableStartCompat="@drawable/ic_time_24"
-            app:drawableTint="?attr/secondary_color"
-            android:drawablePadding="6dp"
-            tools:text="Lorem ipsum"/>
-
-        <!-- TODO: "Articles mentioned" -->
-
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nextGameText"
-            android:layout_marginTop="16dp"
-            android:background="?attr/border_color"/>
-
-        <TextView
-            android:id="@+id/resultSubtitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/H2.AppBar"
-            android:textColor="?attr/primary_color"
-            android:layout_marginTop="32dp"
-            android:text="@string/on_this_day_game_result_subtitle"
-            app:layout_constraintTop_toBottomOf="@id/divider1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/resultArticlesList"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:layout_constraintTop_toBottomOf="@id/resultSubtitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/yourActivityText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="?attr/primary_color"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/resultArticlesList"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/on_this_day_game_your_stats"/>
-
-        <TextView
-            android:id="@+id/streakText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="?attr/primary_color"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/yourActivityText"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Lorem ipsum"/>
-
-        <LinearLayout
-            android:id="@+id/weeksContainer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/streakText"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+        android:layout_marginTop="16dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/on_this_day_game_share"
+        app:tint="?attr/background_color"
+        app:srcCompat="@drawable/ic_share"
+        app:backgroundTint="?attr/progressive_color"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

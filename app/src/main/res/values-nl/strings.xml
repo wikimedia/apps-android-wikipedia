@@ -1013,8 +1013,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Afbeeldingsbijschrift toevoegen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Afbeeldingslabels toevoegen</string>
-  <string name="suggested_edits_snackbar_survey_text">Hoe was uw ervaring? Neem even de tijd om de enquête over bewerken via de app in te vullen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Vragenlijst invullen</string>
   <string name="suggested_edits_task_action_text_add">Toevoegen</string>
   <string name="suggested_edits_task_action_text_translate">Vertalen</string>
   <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>

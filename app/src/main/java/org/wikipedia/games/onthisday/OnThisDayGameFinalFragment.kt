@@ -6,12 +6,14 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -20,22 +22,22 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.temporal.WeekFields
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
+class OnThisDayGameFinalFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -48,10 +50,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
         binding.shareButton.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentContainerFinish, OnThisDayGameShareFragment.newInstance(viewModel.invokeSource))
-                .addToBackStack(null)
-                .commit()
+            // TODO: implement this (please remove the share fragment)
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {
@@ -82,12 +81,6 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         super.onDestroyView()
     }
 
-    override fun onDayClick(date: LocalDate) {
-        viewModel.resetCurrentDayState()
-        requireActivity().finish()
-        startActivity(OnThisDayGameActivity.newIntent(requireContext(), viewModel.invokeSource, viewModel.wikiSite, date))
-    }
-
     private fun updateOnLoading() {
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = false
@@ -105,32 +98,26 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
+
         val totalCorrect = gameState.answerState.count { it }
-//        binding.resultText.text = getString(R.string.on_this_day_game_result,
-//            totalCorrect,
-//            gameState.totalQuestions,
-//            getString(when (totalCorrect) {
-//                0 -> R.string.on_this_day_game_encourage0
-//                1 -> R.string.on_this_day_game_encourage1
-//                2 -> R.string.on_this_day_game_encourage2
-//                else -> R.string.on_this_day_game_encourage3
-//            }))
+        binding.resultText.text = getString(R.string.on_this_day_game_result, totalCorrect, gameState.totalQuestions)
 
-        val streak = calculateStreak(gameState.answerStateHistory)
-        // binding.streakText.text = StringUtil.fromHtml(resources.getQuantityString(R.plurals.on_this_day_game_streak, streak, streak))
+        val cardContainerColor = when (totalCorrect) {
+            0, 2 -> R.color.yellow500
+            3, 4 -> R.color.orange500
+            else -> R.color.green600
+        }
+        binding.resultCardContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), cardContainerColor))
+        binding.statsGamePlayed.text = String.format(calculateTotalGamesPlayed(gameState.answerStateHistory).toString())
+        binding.statsAverageScore.text = String.format(Locale.getDefault(), "%.1f", calculateAverageScore(gameState.answerStateHistory))
+        binding.statsCurrentStreak.text = String.format(calculateStreak(gameState.answerStateHistory).toString())
 
-        binding.resultArticlesList.layoutManager = LinearLayoutManager(requireContext())
+        binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
+        binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
-
-        var displayStartDate = getStartOfWeekDate(OnThisDayGameViewModel.gameStartDate)
-        while (displayStartDate.isBefore(OnThisDayGameViewModel.gameEndDate)) {
-            val weekView = WeeklyActivityView(requireContext())
-            weekView.callback = this
-            binding.weeksContainer.addView(weekView)
-            weekView.setWeekStats(displayStartDate, gameState)
-            displayStartDate = displayStartDate.plusDays(7)
-        }
     }
 
     private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
@@ -161,6 +148,9 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
+            binding.listItemShare.setOnClickListener {
+                ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
+            }
             binding.listItemBookmark.isVisible = true
             val isSaved = viewModel.savedPages.contains(page)
             binding.listItemBookmark.setOnClickListener {
@@ -176,8 +166,7 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
         }
 
         override fun onClick(v: View) {
-            val entry = HistoryEntry(page.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_PLACES)
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+            // TODO: implement this (bottom sheet).
         }
     }
 
@@ -215,10 +204,16 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
             }
         }
 
-        fun getStartOfWeekDate(date: LocalDate, locale: Locale = Locale.getDefault()): LocalDate {
-            val firstDayOfWeek = WeekFields.of(locale).firstDayOfWeek
-            val daysToSubtract = ((7 + (date.dayOfWeek.value - firstDayOfWeek.value)) % 7).toLong()
-            return date.minusDays(daysToSubtract)
+        fun calculateTotalGamesPlayed(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
+            var total = 0
+            answerStateHistory.forEach { year ->
+                year.value?.forEach { month ->
+                    month.value.forEach { day ->
+                        total++
+                    }
+                }
+            }
+            return total
         }
 
         fun calculateStreak(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
@@ -229,6 +224,20 @@ class OnThisDayGameFinalFragment : Fragment(), WeeklyActivityView.Callback {
                 date = date.minusDays(1)
             }
             return streak
+        }
+
+        fun calculateAverageScore(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Float {
+            var total = 0
+            var count = 0
+            answerStateHistory.forEach { year ->
+                year.value?.forEach { month ->
+                    month.value.forEach { day ->
+                        total += day.value.count { it == true }
+                        count++
+                    }
+                }
+            }
+            return total.toFloat() / count
         }
 
         fun timeUntilNextDay(): Duration {

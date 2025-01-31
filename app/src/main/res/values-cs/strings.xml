@@ -1023,8 +1023,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek obrázku</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Přidat značky obrázků</string>
-  <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
   <string name="suggested_edits_task_action_text_add">Přidat</string>
   <string name="suggested_edits_task_action_text_translate">Přeložit</string>
   <string name="suggested_edits_image_captions">Titulky obrázků</string>

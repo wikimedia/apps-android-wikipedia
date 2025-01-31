@@ -670,8 +670,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">Ikusi</string>
   <string name="suggested_edits_feed_card_add_image_caption">Gehitu irudi oineko testua</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Gehitu irudi oineko testua (%s)</string>
-  <string name="suggested_edits_snackbar_survey_text">Nolakoa izan da zure esperientzia editatzen? Mesedez, hartu tarte bat eta erantzun aplikazioan editatzeari buruzko galdetegi hau.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Bete inkesta</string>
   <string name="suggested_edits_task_action_text_add">Gehitu</string>
   <string name="suggested_edits_task_action_text_translate">Itzuli</string>
   <string name="suggested_edits_image_captions">Irudi oineko testuak</string>

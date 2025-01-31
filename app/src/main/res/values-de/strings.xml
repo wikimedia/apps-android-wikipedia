@@ -1016,8 +1016,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bildunterschrift hinzufügen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bildunterschrift hinzufügen (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Bilder-Tags hinzufügen</string>
-  <string name="suggested_edits_snackbar_survey_text">Wie war dein Editier-Erlebnis? Bitte nimm dir einen Moment Zeit, um die Umfrage zum In-App-Editieren auszufüllen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">An der Umfrage teilnehmen</string>
   <string name="suggested_edits_task_action_text_add">Hinzufügen</string>
   <string name="suggested_edits_task_action_text_translate">Übersetzen</string>
   <string name="suggested_edits_image_captions">Bildunterschriften</string>
