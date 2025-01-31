@@ -61,12 +61,33 @@
             app:layout_constraintTop_toBottomOf="@+id/articleDescription"
             app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All" />
 
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/articleSummary"
+            android:layout_width="248dp"
+            android:layout_height="248dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/articleDescription">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="?attr/primary_color"
+                android:layout_margin="16dp"
+                android:ellipsize="end"
+                style="@style/P.Article"
+                tools:text="New Mexico[a] is a state in the Southwestern region of the United States."/>
+
+        </org.wikipedia.views.WikiCardView>
+
         <ImageView
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:padding="14dp"
+            android:padding="10dp"
             android:src="@drawable/ic_bookmark_border_white_24dp"
             android:contentDescription="@string/menu_page_add_to_default_list"
             android:background="@drawable/shape_circle_border_1dp_gray"
@@ -80,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginStart="12dp"
-            android:padding="14dp"
+            android:padding="10dp"
             style="@style/RoundedCornerOverlay"
             android:src="@drawable/ic_share"
             android:contentDescription="@string/share_via"
@@ -95,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginStart="12dp"
-            android:minHeight="56dp"
+            android:minHeight="48dp"
             android:layout_gravity="bottom|end"
             android:text="@string/on_this_day_game_article_read_button"
             style="@style/App.Button"
