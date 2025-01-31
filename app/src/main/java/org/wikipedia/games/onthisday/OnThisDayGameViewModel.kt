@@ -46,7 +46,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     init {
         Prefs.lastOtdGameVisitDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
-
         loadGameState()
     }
 
@@ -93,7 +92,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
             }
 
-            JsonUtil.decodeFromString<GameState>(Prefs.otdGameState)?.let {
+            val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
+            totalState.langToState[wikiSite.languageCode]?.let {
                 currentState = it
                 if (overrideDate) {
                     currentState = it.copy(currentQuestionState = composeQuestionState(0))
@@ -118,7 +118,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're already done for today.
-                _gameState.postValue(GameEnded(currentState))
+                val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it)?.langToHistory }?.toMutableMap() ?: mutableMapOf()
+                val history = totalHistory[wikiSite.languageCode] ?: GameHistory()
+                _gameState.postValue(GameEnded(currentState, history))
             } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're coming back from a previous day's completed game, so start a new day's game.
@@ -146,8 +148,12 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
             if (nextQuestionIndex >= currentState.totalQuestions) {
                 currentState = currentState.copy(currentQuestionIndex = nextQuestionIndex)
+
                 // push today's answers to the history map
-                val map = currentState.answerStateHistory.toMutableMap()
+                val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it) } ?: TotalGameHistory()
+                val langToHistory = totalHistory.langToHistory.toMutableMap()
+                val history = langToHistory[wikiSite.languageCode] ?: GameHistory()
+                val map = history.history.toMutableMap()
                 if (!map.containsKey(currentDate.year))
                     map[currentDate.year] = emptyMap()
                 val monthMap = map[currentDate.year]!!.toMutableMap()
@@ -157,9 +163,12 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 val dayMap = monthMap[currentMonth]!!.toMutableMap()
                 monthMap[currentMonth] = dayMap
                 dayMap[currentDay] = currentState.answerState
-                currentState = currentState.copy(answerStateHistory = map)
 
-                _gameState.postValue(GameEnded(currentState))
+                val newHistory = GameHistory(map)
+                langToHistory[wikiSite.languageCode] = newHistory
+                Prefs.otdGameHistory = JsonUtil.encodeToString(TotalGameHistory(langToHistory)).orEmpty()
+
+                _gameState.postValue(GameEnded(currentState, newHistory))
             } else {
                 currentState = currentState.copy(currentQuestionState = composeQuestionState(nextQuestionIndex), currentQuestionIndex = nextQuestionIndex)
                 _gameState.postValue(CurrentQuestion(currentState))
@@ -204,8 +213,16 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     private fun persistState() {
-        Prefs.otdGameState = JsonUtil.encodeToString(currentState).orEmpty()
+        val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
+        val langToState = totalState.langToState.toMutableMap()
+        langToState[wikiSite.languageCode] = currentState
+        Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
     }
+
+    @Serializable
+    data class TotalGameState(
+        val langToState: Map<String, GameState> = emptyMap(),
+    )
 
     @Serializable
     data class GameState(
@@ -215,10 +232,18 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         // history of today's answers (correct vs incorrect)
         val answerState: List<Boolean> = List(MAX_QUESTIONS) { false },
 
-        // map of:   year: month: day: list of answers
-        val answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap(),
-
         val currentQuestionState: QuestionState
+    )
+
+    @Serializable
+    data class TotalGameHistory(
+        val langToHistory: Map<String, GameHistory> = emptyMap()
+    )
+
+    @Serializable
+    data class GameHistory(
+        // map of:   year: month: day: list of answers
+        val history: Map<Int, Map<Int, Map<Int, List<Boolean>>>> = emptyMap()
     )
 
     @Serializable
@@ -235,32 +260,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     class CurrentQuestionCorrect(val data: GameState) : Resource<GameState>()
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
     class GameStarted(val data: GameState) : Resource<GameState>()
-    class GameEnded(val data: GameState) : Resource<GameState>()
+    class GameEnded(val data: GameState, val history: GameHistory) : Resource<GameState>()
 
     companion object {
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
-
-        val gameStartDate: LocalDate get() {
-            return try {
-                LocalDate.parse(Prefs.otdGameStartDate)
-            } catch (e: Exception) {
-                LocalDate.ofEpochDay(0)
-            }
-        }
-
-        val gameEndDate: LocalDate get() {
-            return try {
-                LocalDate.parse(Prefs.otdGameEndDate)
-            } catch (e: Exception) {
-                LocalDate.ofEpochDay(0)
-            }
-        }
-
-        val isGameActive get() = true // LocalDate.now().isAfter(gameStartDate) && LocalDate.now().isBefore(gameEndDate)
-
-        val gameForToday get() = LocalDate.now().toEpochDay() - gameStartDate.toEpochDay()
-
-        val daysLeft get() = gameEndDate.toEpochDay() - LocalDate.now().toEpochDay()
     }
 }
