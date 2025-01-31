@@ -84,7 +84,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         text = context.getString(R.string.on_this_day_game_notification_text),
                         longText = context.getString(R.string.on_this_day_game_notification_text),
                         lang = null,
-                        icon = R.drawable.ic_notifications_black_24dp,
+                        icon = null,
                         color = R.color.blue600,
                         bodyIntent = OnThisDayGameActivity.newIntent(
                             context = context,
