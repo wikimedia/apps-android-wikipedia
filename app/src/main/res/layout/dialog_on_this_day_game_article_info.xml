@@ -88,21 +88,24 @@
                 android:padding="12dp"
                 style="@style/RoundedCornerOverlay"
                 android:src="@drawable/ic_share"
-                android:contentDescription="@string/menu_page_add_to_default_list"
+                android:contentDescription="@string/share_via"
                 app:tint="?primary_color"
                 app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
                 app:layout_constraintStart_toEndOf="@+id/saveButton" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/readArticleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:padding="12dp"
+                android:layout_marginStart="12dp"
+                android:minHeight="56dp"
+                android:layout_gravity="bottom|end"
                 android:text="@string/on_this_day_game_article_read_button"
-                android:contentDescription="@string/menu_page_add_to_default_list"
-                app:drawableStartCompat="@drawable/ic_article_ltr_ooui"
-                app:tint="?primary_color"
+                style="@style/App.Button"
+                app:backgroundTint="?attr/progressive_color"
+                app:icon="@drawable/ic_article_ltr_ooui"
+                app:iconTint="@android:color/white"
                 app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
                 app:layout_constraintStart_toEndOf="@+id/shareButton" />
 
