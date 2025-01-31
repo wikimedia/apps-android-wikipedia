@@ -147,12 +147,12 @@ class OnThisDayGameActivity : BaseActivity() {
                 if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
                     MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
                         .setIcon(R.drawable.ic_pause_filled_24)
-                        .setTitle("Pause the game?")
-                        .setMessage("Your progress will be saved for the day. You can find the game in the Explore feed.")
-                        .setPositiveButton("Got it") { _, _ ->
+                        .setTitle(R.string.on_this_day_game_pause_title)
+                        .setMessage(R.string.on_this_day_game_pause_body)
+                        .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
                             finish()
                         }
-                        .setNegativeButton("Keep playing", null)
+                        .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
                         .show()
                     true
                 } else {
