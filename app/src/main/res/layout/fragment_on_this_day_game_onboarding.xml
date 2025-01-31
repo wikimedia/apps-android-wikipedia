@@ -9,6 +9,8 @@
     android:background="?attr/progressive_color"
     android:fitsSystemWindows="true"
     android:gravity="center_horizontal"
+    android:clickable="true"
+    android:focusable="true"
     android:padding="16dp">
 
     <TextView
