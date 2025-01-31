@@ -7,6 +7,7 @@
 * Alshamiri1
 * Asaifm
 * Asma
+* Cigaryno
 * Cooltey
 * Dbrant
 * Dr-Taher
@@ -42,6 +43,7 @@
 * Tala Ali
 * Ulhvulgv
 * Wrai
+* XIDME
 * Youssef
 * أيوب
 * أَحمد
@@ -785,7 +787,7 @@
   <string name="notification_channel_description">تقدم التنزيل</string>
   <string name="notification_syncing_pause_button">وقف</string>
   <string name="notification_syncing_resume_button">استئناف</string>
-  <string name="notification_syncing_cancel_button">ألغ</string>
+  <string name="notification_syncing_cancel_button">إلغاء</string>
   <string name="notification_syncing_reading_list_channel_title">مزامنة قوائم القراءة</string>
   <string name="notification_syncing_reading_list_channel_description">جارٍ تقدم مزامنة قوائم القراءة</string>
   <string name="notification_many_unread">لديك  %d إشعارات غير مقروءة</string>
@@ -937,7 +939,7 @@
   <string name="notifications_swipe_action_read">مقروءة</string>
   <string name="notifications_swipe_action_unread">غير مقروءة</string>
   <string name="notifications_menu_check_all">حدّد كل العناصر</string>
-  <string name="notifications_menu_uncheck_all">ألغ تحديد كل العناصر</string>
+  <string name="notifications_menu_uncheck_all">إلغاء تحديد كل العناصر</string>
   <string name="notifications_wiki_filter_header">مرشّح الويكي</string>
   <string name="notifications_type_filter_header">مرشّح النوع</string>
   <string name="notifications_all_wikis_text">جميع الويكيات</string>
@@ -1029,7 +1031,7 @@
   <string name="description_edit_add_image_caption">إضافة تعليق الصورة</string>
   <string name="description_edit_edit_image_caption">تحرير تعليق الصورة</string>
   <string name="description_edit_translate_image_caption">ترجمة تعليق الصورة</string>
-  <string name="description_edit_cancel_hint">ألغ</string>
+  <string name="description_edit_cancel_hint">إلغاء</string>
   <string name="description_edit_help_title">معلومات: وصف المقالة</string>
   <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
@@ -1044,6 +1046,7 @@
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">النص قصير للغاية.</string>
   <string name="description_ends_with_punctuation">النص يجب أن لا ينتهي بعلامة ترقيم.</string>
+  <string name="description_starts_with_article">تجنب البدء بأدوات التعريف مثل \"a\" أو \"the\".</string>
   <string name="description_starts_with_uppercase">ابدأ بحرف صغير إلا إذا كانت الكلمة الأولى هي اسم علم.</string>
   <string name="description_starts_with_lowercase">تجنّب البدء بأحرف صغيرة.</string>
   <string name="description_is_in_different_language">يظهر أن النص بلغة غير متوقّعة. اللغة يجب أن تكون %s.</string>
@@ -1144,8 +1147,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح الصورة</string>
   <string name="suggested_edits_feed_card_translate_image_caption">إضافة تعليق الصورة (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">أضف وسومًا للصور</string>
-  <string name="suggested_edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">المشاركة في استبيان</string>
   <string name="suggested_edits_task_action_text_add">إضافة</string>
   <string name="suggested_edits_task_action_text_translate">ترجمة</string>
   <string name="suggested_edits_image_captions">تعليقات الصورة</string>
@@ -1576,7 +1577,7 @@
   <string name="thank_dialog_title_text">إرسال الشكر علنًا</string>
   <string name="thank_dialog_text">\"الشكر\" هي طريقةٌ سهلةٌ لإظهار التقدير لعمل أحد المحررين في ويكيبيديا. لا يمكن التراجع عن \"الشكر\" وهي معروضةٌ علنًا.</string>
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
-  <string name="thank_dialog_negative_button_text">ألغ</string>
+  <string name="thank_dialog_negative_button_text">إلغاء</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
   <string name="menu_option_view_user_profile">عرض صفحة المستخدم</string>
   <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
@@ -1912,4 +1913,28 @@
   <string name="survey_dialog_submit">إرسال</string>
   <string name="survey_dialog_input_hint">ملاحظات إضافية</string>
   <string name="survey_dialog_submitted_snackbar">تم إرسال التعليقات. شكرا لك!</string>
+  <string name="on_this_day_game_entry_dialog_title">مقدمة</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">ألعاب ويكيبيديا</string>
+  <string name="on_this_day_game_entry_dialog_button">العب لعبة اليوم</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">ألعاب ويكيبيديا موجوجة على موجز الاستكشاف.</string>
+  <string name="on_this_day_game_title">أيهما جاء أولا؟</string>
+  <string name="on_this_day_game_dialog_button">العب</string>
+  <string name="on_this_day_game_splash_message">خمّن أيّ حدث جاء أولاً في هذا اليوم في التاريخ</string>
+  <string name="on_this_day_game_progress">%1$d من %2$d</string>
+  <string name="on_this_day_game_score">النتيجة: %d</string>
+  <string name="on_this_day_game_correct">صحيح!</string>
+  <string name="on_this_day_game_incorrect">خطأ!</string>
+  <string name="on_this_day_game_point">+1 نقطة</string>
+  <string name="on_this_day_game_next">السؤال التالي</string>
+  <string name="on_this_day_game_finish">النتائج النهائية</string>
+  <string name="on_this_day_game_feed_entry_card_heading">العاب ويكيبيديا</string>
+  <string name="on_this_day_game_feed_entry_card_title">ماذا جاء أولا؟</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">خمن ما هو الحدث الذي حدث أولاً في هذا اليوم في التاريخ؟</string>
+  <string name="on_this_day_game_result">لقد حصلت على %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">المباراة القادمة في %s</string>
+  <string name="on_this_day_game_your_stats">إحصائياتك</string>
+  <string name="on_this_day_game_stats_played" fuzzy="true">لعبت</string>
+  <string name="on_this_day_game_stats_average_score">متوسط النتيجة</string>
+  <string name="on_this_day_game_stats_streak">السلسلة الحالية</string>
+  <string name="on_this_day_game_result_subtitle">المقالات المشار إليها في مباراة اليوم</string>
 </resources>

@@ -878,8 +878,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Sernavê wêneyê îlawe bike</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Sernavê wêneyê îlawe bike (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Etîketên wêneyê îlawe bike</string>
-  <string name="suggested_edits_snackbar_survey_text">Tecribeya te ya guhartinê çawa bû? Ji kerema xwe deqeyeke xwe veqetîne ji bo tijîkirina anketa di derbarê guhartinên nav-sepanî de.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Anketê Tijî Bike</string>
   <string name="suggested_edits_task_action_text_add">Tevlî bike</string>
   <string name="suggested_edits_task_action_text_translate">Tercime bike</string>
   <string name="suggested_edits_image_captions">Sernavên wêneyê</string>

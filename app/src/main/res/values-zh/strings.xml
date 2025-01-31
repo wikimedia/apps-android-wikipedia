@@ -1043,8 +1043,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">添加图像说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加图像说明（%s）</string>
   <string name="suggested_edits_feed_card_add_image_tags">添加图像标签</string>
-  <string name="suggested_edits_snackbar_survey_text">您的编辑体验如何？请花点时间填写一下关于应用内编辑的调查。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
   <string name="suggested_edits_task_action_text_translate">翻译</string>
   <string name="suggested_edits_image_captions">图像说明</string>

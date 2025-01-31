@@ -881,7 +881,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавяне на описание за изображение</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавяне на описание за изображението (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавяне на етикети към изображения</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
   <string name="suggested_edits_task_action_text_translate">Превод</string>
   <string name="suggested_edits_image_captions">Описания на изображения</string>
