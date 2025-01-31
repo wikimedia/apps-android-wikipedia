@@ -934,8 +934,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Pridať titulok obrázku</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Pridať titulok obrázku %s</string>
   <string name="suggested_edits_feed_card_add_image_tags">Pridať značky obrázkov</string>
-  <string name="suggested_edits_snackbar_survey_text">Ako sa vám upravovalo? Venujte, prosím, chvíľku vyplneniu dotazníka o editovaní v aplikácii.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Vyplniť anketu</string>
   <string name="suggested_edits_task_action_text_add">Pridať</string>
   <string name="suggested_edits_task_action_text_translate">Preložiť</string>
   <string name="suggested_edits_image_captions">Titulky obrázkov</string>

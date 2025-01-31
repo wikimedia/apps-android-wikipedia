@@ -1849,4 +1849,5 @@
     <string name="on_this_day_game_notification_text">Today\'s game of \"Which came first?\" is ready to play.</string>
     <string name="on_this_day_game_report_email_subject">Issue Report - Wikipedia games</string>
     <string name="on_this_day_game_report_email_body">I have encountered a problem with the Wikipedia games feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="on_this_day_game_notification_undo">Undo</string>
 </resources>

@@ -904,8 +904,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj natpis slike</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj natpis slike (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Dodaj oznake za sliku</string>
-  <string name="suggested_edits_snackbar_survey_text">Kakvo je vaše iskustvo u uređivanju? Izdvojite trenutak da biste popunite anketu o uređivanju putem aplikacije.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Popuni anketu</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
   <string name="suggested_edits_image_captions">Natpisi slika</string>

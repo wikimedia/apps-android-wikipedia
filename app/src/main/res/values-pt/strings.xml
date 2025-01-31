@@ -966,8 +966,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda à imagem (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adicionar etiquetas de imagem</string>
-  <string name="suggested_edits_snackbar_survey_text">Como foi a sua experiência de edição? Dedique um momento a preencher o inquérito sobre edição com a aplicação, por favor.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Participar no inquérito</string>
   <string name="suggested_edits_task_action_text_add">Adicionar</string>
   <string name="suggested_edits_task_action_text_translate">Traduzir</string>
   <string name="suggested_edits_image_captions">Legendas de imagens</string>

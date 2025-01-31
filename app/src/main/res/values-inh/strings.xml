@@ -936,8 +936,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сурта цӀи тӀатоха</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурта цӀи тӀатоха (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурта фосташ тӀатоха</string>
-  <string name="suggested_edits_snackbar_survey_text">Мишта хет хьона тоадар?\nПриложене чу тоадарах лаьца хоаттаме Ӏа дакъа лоацаре тхона чӀоагӀа новкъостал хургдар.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Хоаттаме дáкъа лаца</string>
   <string name="suggested_edits_task_action_text_add">ТӀатоха</string>
   <string name="suggested_edits_task_action_text_translate">Таржам де</string>
   <string name="suggested_edits_image_captions">Суртах лаьца дар</string>

@@ -1053,8 +1053,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda de imagen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Añadir etiquetas de imagen</string>
-  <string name="suggested_edits_snackbar_survey_text">¿Cómo ha sido tu experiencia editando? Por favor dedícanos un momento para completar la encuesta sobre edición in-app.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Añadir</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Leyendas de imágenes</string>

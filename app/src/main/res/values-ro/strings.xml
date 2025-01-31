@@ -908,8 +908,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adaugă descriere imagine</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adaudă descriere imagine (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adaugă etichete imagine</string>
-  <string name="suggested_edits_snackbar_survey_text">Cum a fost experiența ta de editare? Vă rugăm să luați un moment pentru a completa sondajul cu privire la editarea în aplicație.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Participă la sondaj</string>
   <string name="suggested_edits_task_action_text_add">Adaugă</string>
   <string name="suggested_edits_task_action_text_translate">Traduceți</string>
   <string name="suggested_edits_image_captions">Descrieri de imagine</string>

@@ -884,8 +884,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ਚਿੱਤਰ ਦੀ ਸੁਰਖੀ ਜੋੜੋ</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ਚਿੱਤਰ ਦੀ ਸੁਰਖੀ ਜੋੜੋ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ਚਿੱਤਰ ਟੈਗ ਸ਼ਾਮਲ ਕਰੋ</string>
-  <string name="suggested_edits_snackbar_survey_text">ਸੋਧ ਦਾ ਤਜਰਬਾ ਕਿਵੇਂ ਰਿਹਾ? ਕਿਰਪਾ ਕਰਕੇ ਐਪ-ਅੰਦਰ(in-app) ਸੋਧ ਬਾਰੇ ਸਰਵੇਖਣ ਨੂੰ ਭਰਨ ਲਈ ਕੁਝ ਸਮਾਂ ਕੱਢੋ।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">ਸਰਵੇਖਣ ਲਵੋ</string>
   <string name="suggested_edits_task_action_text_add">ਜੋੜੋ</string>
   <string name="suggested_edits_task_action_text_translate">ਤਰਜਮਾ ਕਰੋ</string>
   <string name="suggested_edits_image_captions">ਚਿੱਤਰ ਦੀ ਸੁਰਖੀ</string>
