@@ -957,8 +957,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сурәткә аңлатма өстәргә</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурәткә %s аңлатма өстәргә</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурәт тегларын өстәгез</string>
-  <string name="suggested_edits_snackbar_survey_text">Сезнең мөхәррирләү тәҗрибәсе нинди иде? \nЗинһар, кушымтада мөхәррирләү буенча сораштыру узу өчен бер генә минут вакытыгызны сарыф итегез.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Сораштыру үткәрү</string>
   <string name="suggested_edits_task_action_text_add">Өстәргә</string>
   <string name="suggested_edits_task_action_text_translate">Тәрҗемә итәргә</string>
   <string name="suggested_edits_image_captions">Сурәт аңлатмасы</string>

@@ -1040,8 +1040,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Ajouter une légende</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ajouter une légende (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Ajouter des balises d’image</string>
-  <string name="suggested_edits_snackbar_survey_text">Comment s’est déroulée votre expérience de création ou de modification ? Merci de prendre un moment pour répondre à l’enquête concernant les modifications avec l’application.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Participer au sondage</string>
   <string name="suggested_edits_task_action_text_add">Ajouter</string>
   <string name="suggested_edits_task_action_text_translate">Traduire</string>
   <string name="suggested_edits_image_captions">Légende des images</string>

@@ -1007,8 +1007,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj sliki napis</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj sliki napis (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Dodajte sliki oznake</string>
-  <string name="suggested_edits_snackbar_survey_text">Kako je potekalo urejanje? Prosimo, vzemite si trenutek in odgovorite na anketo o urejanju z aplikacijo.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Opravi anketo</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
   <string name="suggested_edits_image_captions">Napisi slik</string>
