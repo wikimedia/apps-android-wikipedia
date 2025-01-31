@@ -677,8 +677,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis slike</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis slike (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Dodaj oznake za sliku</string>
-  <string name="suggested_edits_snackbar_survey_text">Kako biste procijenili svoje iskustvo uređivanja? Molimo, izdvojite trenutak da biste ispunili anketu o uređivanju u aplikaciji.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ispuni anketu</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
   <string name="suggested_edits_image_captions">Opisi slike</string>

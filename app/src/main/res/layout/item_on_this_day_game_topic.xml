@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:focusable="true"
-    android:paddingVertical="12dp">
+    app:cardCornerRadius="16dp"
+    android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,7 +19,6 @@
             android:contentDescription="@null"
             android:src="@drawable/ic_w_logo_circle"
             android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
             app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +29,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="12dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/listItemThumbnail"
@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/listItemTitle"
-                style="@style/H3.Article"
+                style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="2dp"
@@ -50,8 +50,7 @@
                 style="@style/List.MaterialListDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="2dp"
-                android:paddingBottom="3dp"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 tools:text="Lorem ipsum" />
 
@@ -66,7 +65,6 @@
             android:contentDescription="@string/button_add_to_reading_list"
             android:focusable="true"
             android:padding="12dp"
-            android:layout_marginHorizontal="6dp"
             app:tint="?attr/secondary_color"
             app:srcCompat="@drawable/ic_bookmark_border_white_24dp"
             app:layout_constraintStart_toStartOf="parent"

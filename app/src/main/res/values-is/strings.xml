@@ -928,8 +928,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bæta við myndatexta</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bæta við myndatexta (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Bæta við merkjum á myndir</string>
-  <string name="suggested_edits_snackbar_survey_text">Hvernig fannst þér vinnan við breytingar? Taktu þér smástund við að fylla út könnun á notkun forritsins við breytingar.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Taka þátt í könnun</string>
   <string name="suggested_edits_task_action_text_add">Bæta við</string>
   <string name="suggested_edits_task_action_text_translate">Þýða</string>
   <string name="suggested_edits_image_captions">Myndatextar</string>

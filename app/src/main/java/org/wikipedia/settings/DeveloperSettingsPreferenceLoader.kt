@@ -193,6 +193,11 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             }
             true
         }
+        findPreference(R.string.preference_key_otd_game_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.otdGameState = ""
+            Toast.makeText(activity, "Game reset.", Toast.LENGTH_SHORT).show()
+            true
+        }
     }
 
     private fun setUpMediaWikiSettings() {

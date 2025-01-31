@@ -23,6 +23,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -141,8 +142,23 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        super.onOptionsItemSelected(item)
         return when (item.itemId) {
+            android.R.id.home -> {
+                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+                    MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
+                        .setIcon(R.drawable.ic_pause_filled_24)
+                        .setTitle(R.string.on_this_day_game_pause_title)
+                        .setMessage(R.string.on_this_day_game_pause_body)
+                        .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
+                            finish()
+                        }
+                        .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
+                        .show()
+                    true
+                } else {
+                    super.onOptionsItemSelected(item)
+                }
+            }
             R.id.menu_learn_more -> {
                 UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
                 true

@@ -958,8 +958,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">चित्र कैप्शन जोड़ें</string>
   <string name="suggested_edits_feed_card_translate_image_caption">चित्र कैप्शन जोड़ें ( %s )</string>
   <string name="suggested_edits_feed_card_add_image_tags">चित्र टैग जोड़ें</string>
-  <string name="suggested_edits_snackbar_survey_text">आपका संपादन अनुभव कैसा रहा? कृपया कुछ समय निकालकर इन-ऐप संपादन के बारे में सर्वेक्षण भरें।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">सर्वेक्षण करें</string>
   <string name="suggested_edits_task_action_text_add">जोड़ें</string>
   <string name="suggested_edits_task_action_text_translate">अनुवाद करें</string>
   <string name="suggested_edits_image_captions">चित्र के कैप्शन</string>

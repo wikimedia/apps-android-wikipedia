@@ -24,12 +24,14 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
+            android:clipChildren="false"
             android:clipToPadding="false">
 
             <androidx.cardview.widget.CardView
@@ -94,6 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:orientation="horizontal"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 app:layout_constraintTop_toBottomOf="@id/yourStatsText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">

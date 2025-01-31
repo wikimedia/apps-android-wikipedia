@@ -57,7 +57,7 @@ class OnThisDayGameFinalFragment : Fragment() {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
                 is Resource.Error -> updateOnError(it.throwable)
-                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data)
+                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data, it.history)
                 else -> {
                     requireActivity().supportFragmentManager.popBackStack()
                 }
@@ -94,7 +94,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.errorView.setError(t)
     }
 
-    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
+    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, history: OnThisDayGameViewModel.GameHistory) {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
@@ -108,9 +108,9 @@ class OnThisDayGameFinalFragment : Fragment() {
             else -> R.color.green600
         }
         binding.resultCardContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), cardContainerColor))
-        binding.statsGamePlayed.text = String.format(calculateTotalGamesPlayed(gameState.answerStateHistory).toString())
-        binding.statsAverageScore.text = String.format(Locale.getDefault(), "%.1f", calculateAverageScore(gameState.answerStateHistory))
-        binding.statsCurrentStreak.text = String.format(calculateStreak(gameState.answerStateHistory).toString())
+        binding.statsGamePlayed.text = String.format(calculateTotalGamesPlayed(history.history).toString())
+        binding.statsAverageScore.text = String.format(Locale.getDefault(), "%.1f", calculateAverageScore(history.history))
+        binding.statsCurrentStreak.text = String.format(calculateStreak(history.history).toString())
 
         binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
         binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
