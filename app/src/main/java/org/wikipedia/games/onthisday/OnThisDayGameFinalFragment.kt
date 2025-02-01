@@ -22,6 +22,7 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -169,7 +170,8 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            // TODO: implement this (bottom sheet).
+            ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                OnThisDayGameArticleDialog.newInstance(page))
         }
     }
 
