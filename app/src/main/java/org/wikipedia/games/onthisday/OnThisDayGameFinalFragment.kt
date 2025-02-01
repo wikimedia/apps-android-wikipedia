@@ -26,11 +26,11 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.Resource
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
+import java.text.DecimalFormat
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -108,8 +108,10 @@ class OnThisDayGameFinalFragment : Fragment() {
             else -> R.color.green600
         }
         binding.resultCardContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), cardContainerColor))
-        binding.statsGamePlayed.text = String.format(calculateTotalGamesPlayed(history.history).toString())
-        binding.statsAverageScore.text = String.format(Locale.getDefault(), "%.1f", calculateAverageScore(history.history))
+        val totalGamesPlayed = calculateTotalGamesPlayed(history.history)
+        binding.statsGamePlayed.text = String.format(totalGamesPlayed.toString())
+        binding.statsGamePlayedText.text = resources.getQuantityString(R.plurals.on_this_day_game_stats_games_played, totalGamesPlayed)
+        binding.statsAverageScore.text = DecimalFormat("0.#").format(calculateAverageScore(history.history))
         binding.statsCurrentStreak.text = String.format(calculateStreak(history.history).toString())
 
         binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
@@ -157,11 +159,12 @@ class OnThisDayGameFinalFragment : Fragment() {
                 onBookmarkIconClick(it, page, position, isSaved)
             }
             val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-            val bookmarkTint = ResourceUtil.getThemedColorStateList(requireContext(), if (isSaved) R.attr.progressive_color else R.attr.secondary_color)
             binding.listItemBookmark.setImageResource(bookmarkResource)
-            binding.listItemBookmark.imageTintList = bookmarkTint
             page.thumbnailUrl?.let {
+                binding.listItemThumbnail.isVisible = true
                 ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
+            } ?: run {
+                binding.listItemThumbnail.isVisible = false
             }
         }
 
