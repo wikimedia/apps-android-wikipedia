@@ -29,6 +29,7 @@
 * Mirinano
 * MirukuPC
 * Mugenpman
+* Nanona15dobato
 * Omotecho
 * Otokoume
 * PPenloglou-WMF
@@ -1682,4 +1683,5 @@
   <string name="survey_dialog_submit">送信</string>
   <string name="survey_dialog_input_hint">追加のフィードバック</string>
   <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
+  <string name="on_this_day_game_notification_undo">取り消す</string>
 </resources>
