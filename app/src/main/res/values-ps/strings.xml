@@ -13,7 +13,10 @@
   <string name="wikimedia">ويکيمېډيا</string>
   <string name="nav_item_back">پر شا کېدل</string>
   <string name="page_tabs_back">پر شا کېدل</string>
+  <string name="nav_item_forward">وړاندې کول</string>
   <string name="search_hint">ويکيپېډيا پلټل</string>
+  <string name="search_hint_search_languages">د يوي ژبې لټون</string>
+  <string name="filter_hint_filter_my_lists_and_articles">لړليکونه مې چاڼول</string>
   <string name="nav_item_suggested_edits">سمونونه</string>
   <string name="nav_item_more">نور</string>
   <string name="nav_item_search">پلټل</string>
@@ -42,6 +45,9 @@
   <string name="dialog_message_clear_history_yes">هو</string>
   <string name="dialog_message_clear_history_no">نه</string>
   <string name="share_via">د شريکولو لار</string>
+  <string name="image_share_via">د شريکولو لار</string>
+  <string name="search_redirect_from">له %s څخه مخ گرځېدلی</string>
+  <string name="page_edit_history_activity_title">د مخکتنو پېښليک: %s</string>
   <string name="menu_page_other_languages">ژبه بدلول</string>
   <string name="menu_page_find_in_page" fuzzy="true">په مخ کې موندل</string>
   <string name="menu_page_watch">کتل</string>
@@ -102,7 +108,7 @@
   <string name="title_captcha">کېپچا ورکړئ</string>
   <string name="edit_section_captcha_reload">په کپچا گوته ووهئ چې بيابرسېره شي</string>
   <string name="nav_item_login">ويکيپېډيا کې ننوتل</string>
-  <string name="login_username_hint">کارن-نوم</string>
+  <string name="login_username_hint">کارن‌نوم</string>
   <string name="login_password_hint">پټنوم</string>
   <string name="account_creation_password_hint">پټنوم</string>
   <string name="onboarding_card_login">ننوتل</string>
@@ -122,7 +128,7 @@
   <string name="logged_out_in_background_login">ننوتل</string>
   <string name="logged_out_in_background_cancel">ناگارل</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
-  <string name="create_account_username_hint">کارن-نوم</string>
+  <string name="create_account_username_hint">کارن‌نوم</string>
   <string name="create_account_activity_title">يو گڼون جوړول</string>
   <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
@@ -152,6 +158,8 @@
   <string name="about_translators_heading">ژباړونکي</string>
   <string name="about_app_license_heading">منښتليک</string>
   <string name="about_activity_title">په اړه</string>
+  <string name="edit_abandon_confirm_yes">هو</string>
+  <string name="edit_abandon_confirm_no">نه</string>
   <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
   <string name="edit_how_page_improved">ليکنه مو څنگه ښه کړه؟</string>
   <string name="edit_next">راتلونکی</string>
