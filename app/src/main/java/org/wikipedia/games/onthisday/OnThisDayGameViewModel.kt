@@ -208,6 +208,15 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return articles.distinctBy { it.apiTitle }
     }
 
+    fun getEventByPageTitle(pageTitle: String): OnThisDay.Event {
+        return events.find { it.pages.any { pageSummary -> pageSummary.apiTitle == pageTitle || pageSummary.displayTitle == pageTitle } } ?: events[0]
+    }
+
+    fun getQuestionCorrectByPageTitle(pageTitle: String): Boolean {
+        val index = events.indexOfFirst { it.pages.any { pageSummary -> pageSummary.apiTitle == pageTitle || pageSummary.displayTitle == pageTitle } }
+        return currentState.answerState[if (index >= 0) index / 2 else 0]
+    }
+
     private fun composeQuestionState(index: Int): QuestionState {
         return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }
