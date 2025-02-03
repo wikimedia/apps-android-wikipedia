@@ -33,7 +33,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.onthisday.OnThisDay
-import org.wikipedia.settings.Prefs
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
