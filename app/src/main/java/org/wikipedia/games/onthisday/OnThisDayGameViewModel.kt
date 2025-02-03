@@ -256,13 +256,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     )
 
     @Serializable
-    data class GameArticle(
-        val page: PageSummary,
-        val eventText: String,
-        val isCorrect: Boolean
-    )
-
-    @Serializable
     data class QuestionState(
         val event1: OnThisDay.Event,
         val event2: OnThisDay.Event,

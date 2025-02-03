@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -14,6 +15,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -22,10 +24,10 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -123,6 +125,26 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
     }
 
+    private fun openArticleBottomSheet() {
+        val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
+            state = BottomSheetBehavior.STATE_EXPANDED
+        }
+
+        bottomSheetBehavior.addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+
+                    }
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                    }
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+        })
+    }
+
     private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {
             return pages.size
@@ -170,8 +192,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                OnThisDayGameArticleDialog.newInstance(page))
+            openArticleBottomSheet()
         }
     }
 

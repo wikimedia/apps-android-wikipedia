@@ -381,6 +381,12 @@ class OnThisDayGameActivity : BaseActivity() {
         }, 500)
     }
 
+    fun showAppToolbar(isEnabled: Boolean) {
+//        val layoutParams = binding.appBarLayout.layoutParams as ViewGroup.MarginLayoutParams
+//        layoutParams.topMargin = if (isEnabled) DimenUtil.getToolbarHeightPx(this) else 0
+//        binding.appBarLayout.layoutParams = layoutParams
+    }
+
     fun animateQuestions() {
         binding.questionCard1.alpha = 0f
         binding.questionCard2.alpha = 0f
