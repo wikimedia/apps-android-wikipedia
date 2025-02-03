@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,24 +37,24 @@
                     android:layout_marginEnd="16dp"
                     android:textColor="?attr/paper_color"/>
 
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/game_date_background_neutral"
+                    android:textColor="?attr/primary_color"
+                    android:layout_marginStart="20dp"
+                    android:paddingHorizontal="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="3dp"
+                    tools:text="Lorem ipsum"/>
+
             </FrameLayout>
 
         </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <TextView
-        android:id="@+id/dateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/game_date_background_neutral"
-        android:textColor="?attr/primary_color"
-        android:layout_marginTop="20dp"
-        android:paddingHorizontal="8dp"
-        android:paddingTop="2dp"
-        android:paddingBottom="3dp"
-        tools:text="Lorem ipsum"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -309,4 +309,20 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"/>
 
-</FrameLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottomSheetCoordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <include
+            android:id="@+id/articleDialogContainer"
+            layout="@layout/dialog_on_this_day_game_article" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

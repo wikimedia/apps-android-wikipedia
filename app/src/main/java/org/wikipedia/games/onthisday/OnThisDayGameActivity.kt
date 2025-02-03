@@ -23,6 +23,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -104,9 +105,6 @@ class OnThisDayGameActivity : BaseActivity() {
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
-
-            params = binding.dateText.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = DimenUtil.roundedDpToPx(20f) + newStatusBarInsets.top + newNavBarInsets.top
 
             windowInsets
         }
@@ -381,10 +379,10 @@ class OnThisDayGameActivity : BaseActivity() {
         }, 500)
     }
 
-    fun showAppToolbar(isEnabled: Boolean) {
-//        val layoutParams = binding.appBarLayout.layoutParams as ViewGroup.MarginLayoutParams
-//        layoutParams.topMargin = if (isEnabled) DimenUtil.getToolbarHeightPx(this) else 0
-//        binding.appBarLayout.layoutParams = layoutParams
+    fun openArticleBottomSheet() {
+        val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
+            state = BottomSheetBehavior.STATE_EXPANDED
+        }
     }
 
     fun animateQuestions() {
