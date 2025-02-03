@@ -1736,13 +1736,20 @@
   <string name="on_this_day_game_share_back_button">Buttle label for going back to the final game page.</string>
   <string name="on_this_day_game_next">Button label for navigating to the next question.</string>
   <string name="on_this_day_game_finish">Button label for finishing the game.</string>
+  <string name="on_this_day_game_pause_title">Title of a dialog box that pops up when the game is about to be paused.</string>
+  <string name="on_this_day_game_pause_body">Body text of a dialog box that pops up when the game is about to be paused.</string>
+  <string name="on_this_day_game_pause_negative">Negative action button of a dialog box for pausing the current game.</string>
+  <string name="on_this_day_game_pause_positive">Positive action button of a dialog box for pausing the current game.</string>
   <string name="on_this_day_game_feed_entry_card_heading">header for the game feed entry card</string>
   <string name="on_this_day_game_feed_entry_card_title">title for the game feed entry card</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">subtitle for the game feed entry card</string>
   <string name="on_this_day_game_result">Message shown at the end of a game. The %1$d symbol is replaced with the number of correct answers, %2$d is the total number of questions.</string>
   <string name="on_this_day_game_next_in">Message indicating the time left until the next game. %s is replaced by the time.</string>
   <string name="on_this_day_game_your_stats">Title on top of your statistics from previous days of gameplay.</string>
-  <string name="on_this_day_game_stats_played">Label for the statistics that indicates how many games the user has played.</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Label for the statistics that indicates one game the user has played.</item>
+    <item quantity="other">Label for the statistics that indicates how many games the user has played.</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">Label for the statistics that indicates the average score from previous games.</string>
   <string name="on_this_day_game_stats_streak">Label for the statistics that indicates the current streak of the gameplay.</string>
   <string name="on_this_day_game_result_subtitle">Label shown over the list of articles mentioned in the game.</string>

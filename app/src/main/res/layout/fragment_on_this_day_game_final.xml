@@ -66,7 +66,7 @@
                         android:id="@+id/nextGameText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/H3.Button"
+                        style="@style/P"
                         android:textColor="?attr/primary_color"
                         android:layout_marginTop="16dp"
                         app:drawableStartCompat="@drawable/ic_time_24"
@@ -126,13 +126,13 @@
                             tools:text="5"/>
 
                         <TextView
+                            android:id="@+id/statsGamePlayedText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             style="@style/H4.Label"
                             android:layout_marginTop="12dp"
                             android:textAlignment="center"
-                            android:textColor="?attr/primary_color"
-                            android:text="@string/on_this_day_game_stats_played"/>
+                            android:textColor="?attr/primary_color"/>
 
                     </LinearLayout>
 
