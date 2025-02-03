@@ -417,7 +417,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artykuł nie może zostać załadowany, gdy jesteś offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Wskazówka: Dodaj artykuł do listy czytanych, a zostanie pobrany po powrocie do trybu online.</string>
   <string name="page_offline_notice_last_date">Czytasz wersję offline tego artykułu zapisaną %s.</string>
-  <string name="redirected_from_snackbar" fuzzy="true">Przekierowano z: $1</string>
+  <string name="redirected_from_snackbar" fuzzy="true">Przekierowano z: %s</string>
   <string name="button_get_directions">Wyznacz trasę</string>
   <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
   <string name="preference_title_customize_explore_feed">Kanał Eksploruj</string>
