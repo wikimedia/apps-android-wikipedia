@@ -60,6 +60,7 @@
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
   <string name="nav_item_search">Szukaj</string>
+  <string name="nav_item_contribute">Wnieś swój wkład</string>
   <string name="error_network_error">Nie można połączyć z Internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="card_offline_error_retry">Ponów próbę</string>
@@ -95,9 +96,15 @@
   <string name="page_edit_history_filter_by">Filtruj po</string>
   <string name="page_edit_history_filter_by_all">Wszystkie zmiany (%s)</string>
   <string name="page_edit_history_filter_by_user">Edycje użytkownika (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edycje anonimowe (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edycje niezarejestrowanych użytkowników (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edycje botów (%s)</string>
   <string name="page_edit_history_metrics_content_description">Dane od %1$s do %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d edycja od %2$s r.</item>
+    <item quantity="few">%1$d edycje od %2$s r.</item>
+    <item quantity="many">%1$d edycji od %2$s r.</item>
+    <item quantity="other">%1$d edycji od %2$s r.</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Spróbuj zmienić &lt;a href=\"#\"&gt;filtry&lt;/a&gt;, aby zobaczyć więcej zmian</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Zmień język</string>
@@ -150,12 +157,17 @@
   <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
   <string name="edit_saved_successfully">Edycja została opublikowana!</string>
+  <string name="stub_article_edit_saved_successfully">Edycja została opublikowana! Zmiany mogą być widoczne po pewnym czasie.</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
   <string name="dialog_message_leaving_edit">Twoje zmiany nie zostały jeszcze opublikowane. Czy na pewno chcesz opuścić tę stronę?</string>
   <string name="dialog_message_leaving_edit_leave">Wyjdź</string>
   <string name="dialog_message_leaving_edit_stay">Pozostań</string>
+  <string name="dialog_confirm_delete_donation_history_title">Potwierdź usunięcie</string>
+  <string name="dialog_confirm_delete_donation_history_message">Będzie to miało zastosowanie tylko do darowizn dokonanych z tego urządzenia.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Usuń</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Anuluj</string>
   <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
   <string name="search_reading_list_no_results">Nie znaleziono wyników w \"%s\"</string>
@@ -192,6 +204,9 @@
   <string name="logged_out_in_background_dialog">Zostałeś wylogowany z Wikipedii. Chcesz się zalogować ponownie?</string>
   <string name="logged_out_in_background_login">Zaloguj się</string>
   <string name="logged_out_in_background_cancel">Anuluj</string>
+  <string name="account_vanish_request_title">Wymaż konto</string>
+  <string name="account_vanish_request_confirm_title">Ostrzeżenie o wymazaniu konta</string>
+  <string name="account_vanish_request_confirm">Wymazanie konta to &lt;b&gt;ostateczność&lt;/b&gt; i należy z niego skorzystać &lt;b&gt;tylko wtedy, gdy chcesz na zawsze zaprzestać edytowania &lt;/b&gt; oraz ukryć jak najwięcej swoich przeszłych powiązań.&lt;br/&gt;&lt;br/&gt;Usunięcie konta na Wikipedii odbywa się poprzez zmianę nazwy konta, tak aby inni nie mogli rozpoznać Twoich wkładów, w procesie zwanym wymazaniem konta. &lt;b&gt;Wymazanie nie gwarantuje pełnej anonimowości ani nie usuwa wkładów wniesionych do projektów&lt;/b&gt;.</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
   <string name="history_empty_message">Śledź tutaj, co było czytane.</string>
   <string name="history_offline_articles_toast">W trybie offline (bez dostępu do sieci) niektóre artykuły w historii mogą być niewidoczne.</string>
@@ -289,6 +304,13 @@
   <string name="edit_undo">Cofnij</string>
   <string name="edit_redo">Ponów</string>
   <string name="edit_rollback">Wycofaj</string>
+  <string name="edit_warn">Ostrzeż</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bajt</item>
+    <item quantity="few">%s bajty</item>
+    <item quantity="many">%s bajtów</item>
+    <item quantity="other">%s bajta</item>
+  </plurals>
   <string name="edit_zoom_in">Powiększ</string>
   <string name="edit_zoom_out">Pomniejsz</string>
   <string name="edit_summary_tag_typo">Poprawiono literówkę</string>
@@ -296,6 +318,8 @@
   <string name="edit_summary_tag_links">Dodano linki</string>
   <string name="edit_summary_tag_other">Inne</string>
   <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
+  <string name="edit_summary_added_short_description">Dodano krótki opis</string>
+  <string name="edit_summary_updated_short_description">Zaktualizowano krótki opis</string>
   <string name="edit_conflict_title">Konflikt edycji</string>
   <string name="edit_conflict_message">Strona została już zmodyfikowana przez innego użytkownika i koliduje to z twoją edycją. Skopiuj swoje edycje, wróć i odśwież stronę, następnie spróbuj przeedytować ją ponownie.</string>
   <string name="edit_notices">Powiadomienia o edycji</string>
@@ -315,6 +339,12 @@
   <string name="search_did_you_mean">Czy chodziło Ci o \"%s\"?</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
   <string name="search_results_count_zero">Brak wyników</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 wynik</item>
+    <item quantity="few">%d wyniki</item>
+    <item quantity="many">%d wyników</item>
+    <item quantity="other">%d wyników</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Wyczyść listę ostatnich wyszukiwań</string>
   <string name="clear_recent_searches_confirm">Czy na pewno chcesz usunąć swoją historię wyszukiwania?</string>
   <string name="clear_recent_searches_confirm_yes">Tak</string>
@@ -326,6 +356,8 @@
   <string name="widget_name_featured_page">Artykuł na medal</string>
   <string name="widget_title_featured_page">Dzisiejszy artykuł na medal</string>
   <string name="widget_name_search">Wyszukaj w Wikipedii</string>
+  <string name="widget_description_search">Najszybszy sposób na wyszukiwanie w Wikipedii</string>
+  <string name="widget_description_featured_page">Najlepsze artykuły, jakie ma do zaoferowania Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Nie znaleziono definicji.</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
   <string name="alpha_update_notification_text">Kliknij, aby pobrać</string>
@@ -385,6 +417,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artykuł nie może zostać załadowany, gdy jesteś offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Wskazówka: Dodaj artykuł do listy czytanych, a zostanie pobrany po powrocie do trybu online.</string>
   <string name="page_offline_notice_last_date">Czytasz wersję offline tego artykułu zapisaną %s.</string>
+  <string name="redirected_from_snackbar" fuzzy="true">Przekierowano z: $1</string>
   <string name="button_get_directions">Wyznacz trasę</string>
   <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
   <string name="preference_title_customize_explore_feed">Kanał Eksploruj</string>
@@ -400,9 +433,16 @@
   <string name="location_permissions_enable_prompt">Włącz uprawnienia do lokalizacji, aby zobaczyć miejsca w pobliżu.</string>
   <string name="location_permissions_enable_action">Włącz</string>
   <string name="error_webview_updating">Usługa Android System WebView jest obecnie aktualizowana. Spróbuj ponownie za chwilę.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d wybrany</item>
+    <item quantity="few">%d wybrane</item>
+    <item quantity="many">%d wybranych</item>
+    <item quantity="other">%d wybranych</item>
+  </plurals>
   <string name="multi_select_items_selected">Wybrano %d</string>
   <string name="error_message_generic">Wystąpił błąd</string>
   <string name="view_link_preview_error_button_dismiss">Zamknij</string>
+  <string name="link_preview_dialog_read_button">Czytaj</string>
   <string name="link_preview_dialog_save_button">Zapisz</string>
   <string name="link_preview_dialog_saved_button">Zapisane</string>
   <string name="link_preview_dialog_share_button">Udostępnij</string>
@@ -416,6 +456,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
   <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
+  <string name="preference_title_delete_local_donation_history">Usuń lokalną historię darowizn</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Dopasuj do motywu systemowego</string>
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
@@ -430,7 +471,18 @@
   <string name="theme_chooser_menu_item_short_tooltip">Dostosuj swój pasek narzędzi</string>
   <string name="error_blocked_footer_no_blocker">Możesz skontaktować się z &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratorem&lt;/a&gt;, aby omówić blokadę.</string>
   <string name="temp_account_not_logged_in">Nie jesteś zalogowany</string>
+  <string name="temp_account_anon_ip_dialog_body">Po wprowadzeniu zmian Twój adres IP będzie widoczny publicznie przy Twoich edycjach.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Zaloguj się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;załóż konto&lt;/a&gt;, aby Twoje działania były przypisane do konta oraz aby odblokować dodatkowe funkcje.</string>
+  <string name="temp_account_anon_dialog_body">Po wprowadzeniu zmian zostanie dla Ciebie utworzone &lt;b&gt;tymczasowe konto&lt;/b&gt;, aby chronić Twoją prywatność. &lt;a href=\"%1$s\"&gt;Dowiedz się więcej&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Zaloguj się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;załóż konto&lt;/a&gt;, aby Twoje edycje były przypisane do Twojego konta oraz aby odblokować dodatkowe funkcje.</string>
+  <string name="temp_account_temp_dialog_body">Twoja edycja zostanie przypisana do %1$s. Twój adres IP będzie widoczny dla administratorów.&lt;br /&gt;&lt;br /&gt;Jeśli &lt;a href=\"https://#login\"&gt;zalogujesz się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;założysz konto&lt;/a&gt;, Twoje zmiany będą przypisane do wybranej przez Ciebie nazwy, a dodatkowo odblokujesz inne korzyści.</string>
   <string name="temp_account_dialog_ok">Rozumiem</string>
+  <string name="temp_account_using_title">Korzystasz z konta tymczasowego</string>
+  <string name="temp_account_dialog_discard">Odrzuć zmiany i zaloguj się</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dzień.</item>
+    <item quantity="few">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dni.</item>
+    <item quantity="many">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dni.</item>
+    <item quantity="other">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dni.</item>
+  </plurals>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>

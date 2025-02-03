@@ -791,6 +791,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Den Text ass ze kuerz.</string>
+  <string name="description_too_long">Probéiert fir d\'Beschreiwunge kuerz ze halen, soudatt d\'Benotzer d\'Theema vum Artikel op ee Bléck erkenne kënnen</string>
   <string name="description_ends_with_punctuation">Den Text däerf net mat engem Sazzeechen ophalen.</string>
   <string name="description_starts_with_article">Evitéiert mat Artikele wéi „en“ oder „den“ unzefänken.</string>
   <string name="description_starts_with_uppercase">Fänkt mat engem klenge Buschtaf un, ausser wann dat éischt Wuert e Substantiv oder een Numm ass.</string>
@@ -1020,7 +1021,7 @@
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
   <string name="onboarding_get_started">Fänkt un</string>
-  <string name="onboarding_maybe_later">Vläicht méi spéit</string>
+  <string name="onboarding_maybe_later">Villäicht méi spéit</string>
   <string name="onboarding_explore_title">Nei Manéiere fir z\'entdecken</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
   <string name="onboarding_analytics_switch_title">Donnéeën iwwer d\'Notzung schécken</string>
@@ -1266,6 +1267,10 @@
   <string name="watchlist_filter_contribution_quality_may_problems">Kéint Problemer hunn</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Huet warscheinlech Problemer</string>
   <string name="watchlist_filter_contribution_quality_bad">Huet héchstwarscheinlech Problemer</string>
+  <string name="watchlist_filter_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
+  <string name="watchlist_filter_user_intent_may_problems">Villäicht schlecht Absicht</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
+  <string name="watchlist_filter_user_intent_bad">Héchstwarscheinlech schlecht Absicht</string>
   <string name="watchlist_filter_user_status_header">Benotzerumeldung an -erfarung</string>
   <string name="watchlist_filter_user_status_unregistered">Net-ugemellt</string>
   <string name="watchlist_filter_user_status_registered">Ugemellt</string>
@@ -1347,6 +1352,10 @@
   <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
   <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
   <string name="talk_templates_menu_remove_message">Message ewechhuelen</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Sidd Dir sécher, datt Dir de Message aus der Lëscht läsche wëllt?</item>
+    <item quantity="other">Sidd Dir sécher, datt Dir d\'Messagen aus der Lëscht läsche wëllt?</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Message gouf geläscht</item>
     <item quantity="other">Messagë goufe geläscht</item>
@@ -1397,7 +1406,7 @@
   <string name="patroller_tasks_filters_contribution_quality_bad">Huet héchstwarscheinlech Problemer</string>
   <string name="patroller_tasks_filters_user_intent_header">Prognos iwwer d\'Absicht vum Benotzer</string>
   <string name="patroller_tasks_filters_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
-  <string name="patroller_tasks_filters_user_intent_may_problems">Vläicht schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Villäicht schlecht Absicht</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
   <string name="patroller_tasks_filters_user_intent_bad">Héchstwarscheinlech schlecht Absicht</string>
   <string name="patroller_tasks_filters_empty_search_message">Probéiert fir %s ewechzehuele fir méi Ännerungen ugewisen ze kréien</string>
@@ -1474,11 +1483,29 @@
   <string name="on_this_day_game_point">+ 1 Punkt</string>
   <string name="on_this_day_game_next">Nächst Fro</string>
   <string name="on_this_day_game_finish">Endresultat</string>
+  <string name="on_this_day_game_pause_title">D\'Spill pauséieren?</string>
+  <string name="on_this_day_game_pause_negative">Spillt weider</string>
+  <string name="on_this_day_game_pause_positive">Verstanen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia Spiller</string>
   <string name="on_this_day_game_feed_entry_card_title">Wat koum als éischt?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum</string>
   <string name="on_this_day_game_next_in">Nächst Spill an %s</string>
   <string name="on_this_day_game_your_stats">Är Statistiken</string>
-  <string name="on_this_day_game_stats_played" fuzzy="true">Gespillt</string>
+  <string name="on_this_day_game_stats_played">Spiller gespillt</string>
   <string name="on_this_day_game_stats_average_score">Duerchschnëttlech Punktzuel</string>
+  <string name="on_this_day_game_menu_notifications">Spillnotifikatiounen</string>
+  <string name="on_this_day_game_menu_info">Méi gewuer ginn</string>
+  <string name="on_this_day_game_menu_feedback">Problem mat der Funktioun</string>
+  <string name="on_this_day_game_article_read_button">Artikel liesen</string>
+  <string name="on_this_day_game_article_related_event_title">Evenement am Zesummenhang mat dësem Artikel</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Dir hutt dës Fro richteg beäntwert</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Dir hutt dës Fro falsch beäntwert</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Spillnotifikatiounen desaktivéieren?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Spillnotifikatiounen aktivéieren?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Schalt se aus.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Jo, schalt se un</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Spillnotifikatiounen desaktivéiert.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Spillnotifikatiounen aktivéiert.</string>
+  <string name="on_this_day_game_report_email_subject">Ausgabebericht - Wikipedia Spiller</string>
+  <string name="on_this_day_game_notification_undo">Réckgängeg maachen</string>
 </resources>
