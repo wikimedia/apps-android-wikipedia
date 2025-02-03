@@ -62,7 +62,7 @@ class OnThisDayGameActivity : BaseActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        title = getString(R.string.on_this_day_game_title)
+        title = ""
         mediaPlayer = MediaPlayer.create(this, R.raw.sound_logo)
 
         binding.errorView.retryClickListener = View.OnClickListener {
