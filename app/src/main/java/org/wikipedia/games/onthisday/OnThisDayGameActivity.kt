@@ -19,6 +19,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
@@ -58,12 +59,14 @@ import java.time.format.FormatStyle
 import java.util.Locale
 
 class OnThisDayGameActivity : BaseActivity() {
+
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
     private val goNextAnimatorSet = AnimatorSet()
     private val cardAnimatorSet = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
+    private var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>? = null
 
     @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -189,6 +192,10 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
+        if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED) {
+            bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
+            return
+        }
         super.onBackPressed()
         finish()
     }
@@ -391,15 +398,16 @@ class OnThisDayGameActivity : BaseActivity() {
         }, 500)
     }
 
-    fun openArticleBottomSheet(pageSummary: PageSummary) {
-        val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
+    fun openArticleBottomSheet(pageSummary: PageSummary, callback: BottomSheetBehavior.BottomSheetCallback) {
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
             state = BottomSheetBehavior.STATE_EXPANDED
         }
+        bottomSheetBehavior?.addBottomSheetCallback(callback)
 
         val dialogBinding = binding.articleDialogContainer
         dialogBinding.articleTitle.text = StringUtil.fromHtml(pageSummary.displayTitle)
         dialogBinding.closeButton.setOnClickListener {
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
         }
         dialogBinding.articleDescription.text = StringUtil.fromHtml(pageSummary.description)
 
@@ -432,7 +440,7 @@ class OnThisDayGameActivity : BaseActivity() {
         val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
         dialogBinding.saveButton.setImageResource(bookmarkResource)
         dialogBinding.saveButton.setOnClickListener {
-            onBookmarkIconClick(it, pageSummary, isSaved)
+            onBookmarkIconClick(dialogBinding.saveButton, pageSummary)
         }
         dialogBinding.shareButton.setOnClickListener {
             ShareUtil.shareText(this, pageSummary.getPageTitle(WikipediaApp.instance.wikiSite))
@@ -443,8 +451,9 @@ class OnThisDayGameActivity : BaseActivity() {
         }
     }
 
-    private fun onBookmarkIconClick(view: View, pageSummary: PageSummary, isSaved: Boolean) {
+    private fun onBookmarkIconClick(view: ImageView, pageSummary: PageSummary) {
         val pageTitle = pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)
+        val isSaved = viewModel.savedPages.contains(pageSummary)
         if (isSaved) {
             LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
@@ -460,11 +469,13 @@ class OnThisDayGameActivity : BaseActivity() {
                 override fun onRemoveRequest() {
                     super.onRemoveRequest()
                     viewModel.savedPages.remove(pageSummary)
+                    view.setImageResource(R.drawable.ic_bookmark_border_white_24dp)
                 }
             }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_GAME))
         } else {
             ReadingListBehaviorsUtil.addToDefaultList(this@OnThisDayGameActivity, pageTitle, true, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
             viewModel.savedPages.add(pageSummary)
+            view.setImageResource(R.drawable.ic_bookmark_white_24dp)
         }
     }
 
