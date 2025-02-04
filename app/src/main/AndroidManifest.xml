@@ -102,6 +102,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
+                <data android:host="games"/>
             </intent-filter>
         </activity>
         <activity
@@ -373,15 +374,7 @@
             android:name=".donate.GooglePayActivity"/>
 
         <activity
-            android:name=".games.onthisday.OnThisDayGameActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="wikipedia" android:host="games"/>
-            </intent-filter>
-        </activity>
+            android:name=".games.onthisday.OnThisDayGameActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"

@@ -11,12 +11,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedFragment
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
@@ -142,6 +144,14 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                     startActivity(Intent(this, PageActivity::class.java)
                             .setAction(Intent.ACTION_VIEW)
                             .setData(uri))
+                }
+
+                if (it.host == "games") {
+                    startActivity(OnThisDayGameActivity.newIntent(
+                        context = this,
+                        invokeSource = Constants.InvokeSource.INTENT_SHARE,
+                        wikiSite = WikipediaApp.instance.wikiSite
+                    ))
                 }
             }
         }
