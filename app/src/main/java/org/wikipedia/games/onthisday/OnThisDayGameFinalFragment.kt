@@ -153,8 +153,8 @@ class OnThisDayGameFinalFragment : Fragment() {
             binding.listItemShare.setOnClickListener {
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
             }
-            binding.listItemBookmark.isVisible = true
             val isSaved = viewModel.savedPages.contains(page)
+            binding.listItemBookmark.isVisible = true
             binding.listItemBookmark.setOnClickListener {
                 onBookmarkIconClick(it, page, position, isSaved)
             }
@@ -169,7 +169,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet()
+            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page,)
         }
     }
 
