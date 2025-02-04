@@ -178,7 +178,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page, object: BottomSheetBehavior.BottomSheetCallback() {
+            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page, object : BottomSheetBehavior.BottomSheetCallback() {
                 override fun onStateChanged(bottomSheet: View, newState: Int) {
                     if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
                         updateBookmark()
