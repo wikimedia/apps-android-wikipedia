@@ -60,6 +60,7 @@
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:layout_marginTop="8dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/articleDescription"
@@ -70,7 +71,6 @@
             android:layout_width="248dp"
             android:layout_height="248dp"
             android:layout_marginTop="8dp"
-            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/articleDescription">
@@ -87,41 +87,61 @@
 
         </org.wikipedia.views.WikiCardView>
 
-        <ImageView
-            android:id="@+id/saveButton"
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/saveButtonContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_bookmark_border_white_24dp"
-            android:contentDescription="@string/menu_page_add_to_default_list"
-            android:background="@drawable/shape_circle_border_1dp_gray"
-            android:foreground="?android:selectableItemBackground"
-            app:tint="?primary_color"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="24dp"
+            app:elevation="0dp"
             app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
-            app:layout_constraintStart_toStartOf="@+id/articleThumbnail" />
+            app:layout_constraintStart_toStartOf="@+id/articleThumbnail">
 
-        <ImageView
-            android:id="@+id/shareButton"
+            <ImageView
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_bookmark_border_white_24dp"
+                android:contentDescription="@string/menu_page_add_to_default_list"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="?primary_color"/>
+
+        </org.wikipedia.views.WikiCardView>
+
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/shareButtonContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:layout_marginStart="12dp"
-            android:padding="10dp"
-            style="@style/RoundedCornerOverlay"
-            android:src="@drawable/ic_share"
-            android:contentDescription="@string/share_via"
-            android:background="@drawable/shape_circle_border_1dp_gray"
-            android:foreground="?android:selectableItemBackground"
-            app:tint="?primary_color"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="24dp"
+            app:elevation="0dp"
             app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
-            app:layout_constraintStart_toEndOf="@+id/saveButton" />
+            app:layout_constraintStart_toEndOf="@+id/saveButtonContainer" >
+
+            <ImageView
+                android:id="@+id/shareButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                style="@style/RoundedCornerOverlay"
+                android:src="@drawable/ic_share"
+                android:contentDescription="@string/share_via"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="?primary_color"/>
+
+        </org.wikipedia.views.WikiCardView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/readArticleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:layout_marginStart="12dp"
             android:minHeight="48dp"
             android:layout_gravity="bottom|end"
@@ -131,7 +151,7 @@
             app:icon="@drawable/ic_article_ltr_ooui"
             app:iconTint="@android:color/white"
             app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
-            app:layout_constraintStart_toEndOf="@+id/shareButton" />
+            app:layout_constraintStart_toEndOf="@+id/shareButtonContainer" />
 
         <TextView
             android:id="@+id/relatedEventTitle"
@@ -152,6 +172,7 @@
             android:layout_width="0dp"
             android:layout_height="145dp"
             android:layout_margin="16dp"
+            app:elevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">

@@ -21,6 +21,7 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.core.widget.TextViewCompat
@@ -403,12 +404,12 @@ class OnThisDayGameActivity : BaseActivity() {
         dialogBinding.articleDescription.text = StringUtil.fromHtml(pageSummary.description)
 
         if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
-            dialogBinding.articleThumbnail.isVisible = false
-            dialogBinding.articleSummaryContainer.isVisible = true
+            dialogBinding.articleThumbnail.isInvisible = true
+            dialogBinding.articleSummaryContainer.isInvisible = false
             dialogBinding.articleSummary.text = StringUtil.fromHtml(pageSummary.extractHtml)
         } else {
-            dialogBinding.articleThumbnail.isVisible = true
-            dialogBinding.articleSummaryContainer.isVisible = false
+            dialogBinding.articleThumbnail.isInvisible = false
+            dialogBinding.articleSummaryContainer.isInvisible = true
             ViewUtil.loadImage(
                 dialogBinding.articleThumbnail,
                 pageSummary.thumbnailUrl,
