@@ -17,7 +17,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.FeedContentType
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -55,7 +54,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         }
 
         fun maybeShowOnThisDayGameDialog(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
-            if (!Prefs.otdEntryDialogShown && FeedContentType.WIKI_GAMES.langCodesSupported.contains(wikiSite.languageCode)) {
+            if (!Prefs.otdEntryDialogShown && OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
                 Prefs.otdEntryDialogShown = true
                 val dialogView = activity.layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
                 val dialog = MaterialAlertDialogBuilder(activity)

@@ -283,7 +283,7 @@
   <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_swipe_action_read">Leggi</string>
   <string name="notifications_menu_user_talk_page">Pàggina di discussioni di %s</string>
-  <string name="view_main_page_card_title">Oi supra Wikipedia</string>
+  <string name="view_main_page_card_title">Oji supra a Wikipedia</string>
   <string name="view_main_page_card_action">Talìa a pàggina mastra</string>
   <string name="view_featured_image_card_title">Mmàggini dû jornu</string>
   <string name="view_featured_image_card_download">Scàrrica</string>
@@ -291,10 +291,10 @@
   <string name="menu_feed_overflow_label">Àutri opzioni</string>
   <string name="view_card_news_title">Ntî nutizzi</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">aieri</item>
-    <item quantity="other">%d jorna fa</item>
+    <item quantity="one">ajeri</item>
+    <item quantity="other">%d jorna arrè</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">oi</string>
+  <string name="view_continue_reading_card_subtitle_today">oji</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lettu %s</string>
   <string name="view_announcement_card_negative_action">No, grazzi</string>
   <string name="view_static_card_save_button_label">Sarva</string>
@@ -362,7 +362,7 @@
   <string name="suggested_edits_contribution_type_label">Tipu di cuntribbutu</string>
   <string name="suggested_edits_contribution_image_label">Mmàggini</string>
   <string name="suggested_edits_contribution_article_label">Vuci</string>
-  <string name="suggested_edits_contribution_date_yesterday_text">Aieri</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Ajeri</string>
   <string name="file_page_edit_button_content_description">Cancia %s</string>
   <string name="description_edit_revert_subtitle">Grazzi pi aviri canciatu Wikipedia!</string>
   <string name="description_edit_login_cancel_button_text">Annulla</string>
