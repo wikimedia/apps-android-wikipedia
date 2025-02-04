@@ -1,5 +1,6 @@
 package org.wikipedia.games.onthisday
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -50,7 +51,13 @@ class OnThisDayGameFinalFragment : Fragment() {
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
         binding.shareButton.setOnClickListener {
-            // TODO: implement this (please remove the share fragment)
+            // TODO: add the share link once media wiki page is done
+            val shareLink = ""
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, shareLink)
+            }
+            startActivity(Intent.createChooser(shareIntent, "Sharing via link"))
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {

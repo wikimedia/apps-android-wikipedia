@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -32,8 +33,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _gameState = MutableLiveData<Resource<GameState>>()
     val gameState: LiveData<Resource<GameState>> get() = _gameState
 
-    val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
-    val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
+    val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE) ?: Constants.InvokeSource.INTENT_SHARE
+    val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE) ?: WikipediaApp.instance.wikiSite
 
     private lateinit var currentState: GameState
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)

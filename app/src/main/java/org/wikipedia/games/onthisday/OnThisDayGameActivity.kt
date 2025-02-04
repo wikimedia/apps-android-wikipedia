@@ -429,6 +429,12 @@ class OnThisDayGameActivity : BaseActivity() {
         goNextAnimatorSet.start()
     }
 
+    private fun extractDataForReferralLink() {
+        if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
+            // @TODO: extract informations depending on the parameters defined on the deep link url
+        }
+    }
+
     companion object {
         fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
