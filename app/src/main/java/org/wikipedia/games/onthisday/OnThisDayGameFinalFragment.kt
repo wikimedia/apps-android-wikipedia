@@ -53,9 +53,10 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.shareButton.setOnClickListener {
             // TODO: add the share link once media wiki page is done
             val shareLink = ""
+            val shareMessage = requireContext().getString(R.string.on_this_day_game_share_link_message, shareLink)
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
-                putExtra(Intent.EXTRA_TEXT, shareLink)
+                putExtra(Intent.EXTRA_TEXT, shareMessage)
             }
             startActivity(Intent.createChooser(shareIntent, "Sharing via link"))
         }

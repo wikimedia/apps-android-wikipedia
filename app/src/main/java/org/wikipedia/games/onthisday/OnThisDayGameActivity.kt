@@ -431,7 +431,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
     private fun extractDataForReferralLink() {
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
-            // @TODO: extract informations depending on the parameters defined on the deep link url
+            // @TODO: extract information depending on the parameters defined on the deep link url
         }
     }
 
