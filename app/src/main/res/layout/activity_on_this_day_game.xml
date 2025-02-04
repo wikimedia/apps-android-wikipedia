@@ -20,6 +20,7 @@
             app:titleTextColor="?attr/paper_color"
             app:navigationIcon="@drawable/ic_close_black_24dp"
             app:navigationIconTint="?attr/paper_color"
+            app:navigationContentDescription="@string/table_close"
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp">
 
