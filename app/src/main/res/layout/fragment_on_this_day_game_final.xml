@@ -90,131 +90,136 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="@string/on_this_day_game_your_stats"/>
 
-            <LinearLayout
-                android:id="@+id/statsContainer"
+            <org.wikipedia.views.WikiCardView
+                android:id="@+id/statsGamesPlayedCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:orientation="horizontal"
-                android:clipChildren="false"
-                android:clipToPadding="false"
                 app:layout_constraintTop_toBottomOf="@id/yourStatsText"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintEnd_toStartOf="@id/statsAverageScoreCard"
+                android:minHeight="120dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="?attr/background_color"
+                app:cardCornerRadius="12dp">
 
-                <org.wikipedia.views.WikiCardView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="120dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="12dp">
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/statsGamePlayed"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="16dp"
-                        android:background="?attr/background_color">
+                        style="@style/H1.Article"
+                        android:maxLines="1"
+                        android:textColor="?attr/primary_color"
+                        tools:text="5"/>
 
-                        <TextView
-                            android:id="@+id/statsGamePlayed"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/H1.Article"
-                            android:textColor="?attr/primary_color"
-                            tools:text="5"/>
+                    <TextView
+                        android:id="@+id/statsGamePlayedText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/H4.Label"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:textColor="?attr/primary_color"/>
 
-                        <TextView
-                            android:id="@+id/statsGamePlayedText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/H4.Label"
-                            android:layout_marginTop="12dp"
-                            android:textAlignment="center"
-                            android:textColor="?attr/primary_color"/>
+                </LinearLayout>
 
-                    </LinearLayout>
+            </org.wikipedia.views.WikiCardView>
 
-                </org.wikipedia.views.WikiCardView>
+            <org.wikipedia.views.WikiCardView
+                android:id="@+id/statsAverageScoreCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/statsGamesPlayedCard"
+                app:layout_constraintStart_toEndOf="@id/statsGamesPlayedCard"
+                app:layout_constraintEnd_toStartOf="@id/statsCurrentStreakCard"
+                android:layout_marginStart="16dp"
+                android:minHeight="120dp"
+                app:cardBackgroundColor="?attr/background_color"
+                app:cardCornerRadius="12dp">
 
-                <org.wikipedia.views.WikiCardView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="120dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="16dp"
-                    app:cardCornerRadius="12dp">
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/statsAverageScore"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="16dp"
-                        android:background="?attr/background_color">
+                        style="@style/H1.Article"
+                        android:maxLines="1"
+                        android:textColor="?attr/primary_color"
+                        tools:text="2.5"/>
 
-                        <TextView
-                            android:id="@+id/statsAverageScore"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/H1.Article"
-                            android:textColor="?attr/primary_color"
-                            tools:text="2.5"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/H4.Label"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:textColor="?attr/primary_color"
+                        android:text="@string/on_this_day_game_stats_average_score"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/H4.Label"
-                            android:layout_marginTop="12dp"
-                            android:textAlignment="center"
-                            android:textColor="?attr/primary_color"
-                            android:text="@string/on_this_day_game_stats_average_score"/>
+                </LinearLayout>
 
-                    </LinearLayout>
+            </org.wikipedia.views.WikiCardView>
 
-                </org.wikipedia.views.WikiCardView>
+            <org.wikipedia.views.WikiCardView
+                android:id="@+id/statsCurrentStreakCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/statsGamesPlayedCard"
+                app:layout_constraintStart_toEndOf="@id/statsAverageScoreCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:minHeight="120dp"
+                app:cardBackgroundColor="?attr/background_color"
+                app:cardCornerRadius="12dp">
 
-                <org.wikipedia.views.WikiCardView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="120dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="12dp">
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/statsCurrentStreak"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="16dp"
-                        android:background="?attr/background_color">
+                        style="@style/H1.Article"
+                        android:maxLines="1"
+                        android:textColor="?attr/primary_color"
+                        tools:text="4"/>
 
-                        <TextView
-                            android:id="@+id/statsCurrentStreak"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/H1.Article"
-                            android:textColor="?attr/primary_color"
-                            tools:text="4"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/H4.Label"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:textColor="?attr/primary_color"
+                        android:text="@string/on_this_day_game_stats_streak"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/H4.Label"
-                            android:layout_marginTop="12dp"
-                            android:textAlignment="center"
-                            android:textColor="?attr/primary_color"
-                            android:text="@string/on_this_day_game_stats_streak"/>
+                </LinearLayout>
 
-                    </LinearLayout>
-
-                </org.wikipedia.views.WikiCardView>
-
-            </LinearLayout>
+            </org.wikipedia.views.WikiCardView>
 
             <TextView
                 android:id="@+id/resultSubtitle"
@@ -227,7 +232,7 @@
                 android:text="@string/on_this_day_game_result_subtitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/statsContainer"/>
+                app:layout_constraintTop_toBottomOf="@id/statsGamesPlayedCard"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/resultArticlesList"
