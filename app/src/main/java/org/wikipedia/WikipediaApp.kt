@@ -1,5 +1,6 @@
 package org.wikipedia
 
+import android.app.Activity
 import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -119,9 +120,6 @@ class WikipediaApp : Application() {
 
     val haveMainActivity
         get() = activityLifecycleHandler.haveMainActivity()
-
-    val isOnThisDayGameActivityVisible
-        get() = activityLifecycleHandler.isOnThisDayGameActivityVisible()
 
     val isAnyActivityResumed
         get() = activityLifecycleHandler.isAnyActivityResumed
@@ -270,6 +268,10 @@ class WikipediaApp : Application() {
             result = Theme.fallback
         }
         return result
+    }
+
+    fun getResumedActivity(): Activity? {
+        return activityLifecycleHandler.getResumedActivity()
     }
 
     private fun initTabs() {

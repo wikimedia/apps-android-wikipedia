@@ -6,7 +6,6 @@ import android.content.ComponentCallbacks2
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -21,8 +20,8 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
         return haveMainActivity
     }
 
-    fun isOnThisDayGameActivityVisible(): Boolean {
-        return currentActivity?.let { it is OnThisDayGameActivity } ?: false
+    fun getResumedActivity(): Activity? {
+        return currentActivity
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {

@@ -33,7 +33,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.onthisday.OnThisDay
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -444,8 +443,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                     this,
                     android.Manifest.permission.POST_NOTIFICATIONS
                 ) == PackageManager.PERMISSION_GRANTED -> {
-                    println("orange --> PERMISSION_GRANTED")
-                    NotificationPollBroadcastReceiver.scheduleDailyGameNotification(this)
+                    OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
                 }
 
                 else -> {
@@ -474,8 +472,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
         if (isGranted) {
-            println("orange --> onPermissionResult isGranted")
-            NotificationPollBroadcastReceiver.scheduleDailyGameNotification(this)
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 }

@@ -23,8 +23,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.extensions.parcelableExtra
-import org.wikipedia.games.onthisday.OnThisDayGameActivity
-import org.wikipedia.games.onthisday.OnThisDayGameFinalFragment
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
@@ -75,24 +74,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
             }
             ACTION_DAILY_GAME == intent.action -> {
-                if (!WikipediaApp.instance.isOnThisDayGameActivityVisible) {
-                    NotificationPresenter.showNotification(
-                        context = context,
-                        builder = NotificationPresenter.getDefaultBuilder(context, 1, TYPE_LOCAL),
-                        id = 1,
-                        title = context.getString(R.string.on_this_day_game_feed_entry_card_heading),
-                        text = context.getString(R.string.on_this_day_game_notification_text),
-                        longText = context.getString(R.string.on_this_day_game_notification_text),
-                        lang = null,
-                        icon = null,
-                        color = R.color.blue600,
-                        bodyIntent = OnThisDayGameActivity.newIntent(
-                            context = context,
-                            invokeSource = Constants.InvokeSource.NOTIFICATION,
-                            wikiSite = WikipediaApp.instance.wikiSite
-                        )
-                    )
-                }
+                OnThisDayGameNotificationManager.showNotification(context)
             }
         }
     }
@@ -213,26 +195,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
                     R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
-        }
-
-        fun scheduleDailyGameNotification(context: Context) {
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-                .setAction(ACTION_DAILY_GAME)
-            val timeUntilNextDay = OnThisDayGameFinalFragment.timeUntilNextDay().toMillis()
-            alarmManager.setInexactRepeating(
-                AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + timeUntilNextDay,
-                AlarmManager.INTERVAL_DAY,
-                PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-            )
-        }
-
-        fun cancelDailyGameNotification(context: Context) {
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-                .setAction(ACTION_DAILY_GAME)
-            alarmManager.cancel(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
         }
     }
 }
