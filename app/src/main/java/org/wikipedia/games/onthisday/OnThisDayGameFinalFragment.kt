@@ -15,6 +15,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -26,6 +27,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -124,8 +126,8 @@ class OnThisDayGameFinalFragment : Fragment() {
 
         binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
         binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
-            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
-            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical))
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal,
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
     }
@@ -148,26 +150,28 @@ class OnThisDayGameFinalFragment : Fragment() {
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         private lateinit var page: PageSummary
+        private var position: Int = 0
 
         init {
             itemView.setOnClickListener(this)
+            FeedbackUtil.setButtonTooltip(binding.listItemBookmark, binding.listItemShare)
         }
 
         fun bindItem(page: PageSummary, position: Int) {
             this.page = page
+            this.position = position
             binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemShare.setOnClickListener {
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
             }
+            val isSaved = updateBookmark()
             binding.listItemBookmark.isVisible = true
-            val isSaved = viewModel.savedPages.contains(page)
             binding.listItemBookmark.setOnClickListener {
                 onBookmarkIconClick(it, page, position, isSaved)
             }
-            val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-            binding.listItemBookmark.setImageResource(bookmarkResource)
+
             page.thumbnailUrl?.let {
                 binding.listItemThumbnail.isVisible = true
                 ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
@@ -176,8 +180,23 @@ class OnThisDayGameFinalFragment : Fragment() {
             }
         }
 
+        private fun updateBookmark(): Boolean {
+            val isSaved = viewModel.savedPages.contains(page)
+            val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
+            binding.listItemBookmark.setImageResource(bookmarkResource)
+            return isSaved
+        }
+
         override fun onClick(v: View) {
-            // TODO: implement this (bottom sheet).
+            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page, object : BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {
+                    if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                        updateBookmark()
+                    }
+                }
+
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+            })
         }
     }
 
