@@ -534,7 +534,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         goNextAnimatorSet.start()
     }
 
-    fun scheduleGameNotification() {
+    fun requestPermissionAndScheduleGameNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             when {
                 ContextCompat.checkSelfPermission(

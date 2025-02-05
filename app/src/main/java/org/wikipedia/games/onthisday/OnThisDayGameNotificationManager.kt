@@ -81,7 +81,7 @@ class OnThisDayGameNotificationManager(private val activity: Activity) {
 
     private fun enableNotifications(showUndo: Boolean) {
         Prefs.otdNotificationState = OnThisDayGameNotificationState.ENABLED
-        (activity as? OnThisDayGameActivity)?.scheduleGameNotification()
+        (activity as? OnThisDayGameActivity)?.requestPermissionAndScheduleGameNotification()
         if (showUndo) {
             FeedbackUtil.makeSnackbar(
                 activity,
