@@ -116,8 +116,8 @@ class OnThisDayGameFinalFragment : Fragment() {
 
         binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
         binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
-            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
-            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical))
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal,
+            R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
     }
