@@ -922,8 +922,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adjuntez informo pri imajo</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez informo pri imajo (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adjuntez etiketi ad imaji</string>
-  <string name="suggested_edits_snackbar_survey_text">Quale vu sentis dum redaktado? Respondez nia inquesto pri l\'uzo dil \'\'app\'\' por redaktar.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Respondez l\'inquesto</string>
   <string name="suggested_edits_task_action_text_add">Adjuntar</string>
   <string name="suggested_edits_task_action_text_translate">Tradukez</string>
   <string name="suggested_edits_image_captions">Deskripto-texti por imaji</string>

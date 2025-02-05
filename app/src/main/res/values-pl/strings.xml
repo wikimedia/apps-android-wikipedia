@@ -23,6 +23,7 @@
 * Matma Rex
 * MuratTheTurkish
 * Nharateh
+* PanWor
 * Py64
 * Rail
 * Railfail536
@@ -59,6 +60,7 @@
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
   <string name="nav_item_search">Szukaj</string>
+  <string name="nav_item_contribute">Wnieś swój wkład</string>
   <string name="error_network_error">Nie można połączyć z Internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="card_offline_error_retry">Ponów próbę</string>
@@ -94,9 +96,15 @@
   <string name="page_edit_history_filter_by">Filtruj po</string>
   <string name="page_edit_history_filter_by_all">Wszystkie zmiany (%s)</string>
   <string name="page_edit_history_filter_by_user">Edycje użytkownika (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edycje anonimowe (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edycje niezarejestrowanych użytkowników (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edycje botów (%s)</string>
   <string name="page_edit_history_metrics_content_description">Dane od %1$s do %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d edycja od %2$s r.</item>
+    <item quantity="few">%1$d edycje od %2$s r.</item>
+    <item quantity="many">%1$d edycji od %2$s r.</item>
+    <item quantity="other">%1$d edycji od %2$s r.</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Spróbuj zmienić &lt;a href=\"#\"&gt;filtry&lt;/a&gt;, aby zobaczyć więcej zmian</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Zmień język</string>
@@ -149,12 +157,17 @@
   <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
   <string name="edit_saved_successfully">Edycja została opublikowana!</string>
+  <string name="stub_article_edit_saved_successfully">Edycja została opublikowana! Zmiany mogą być widoczne po pewnym czasie.</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
   <string name="dialog_message_leaving_edit">Twoje zmiany nie zostały jeszcze opublikowane. Czy na pewno chcesz opuścić tę stronę?</string>
   <string name="dialog_message_leaving_edit_leave">Wyjdź</string>
   <string name="dialog_message_leaving_edit_stay">Pozostań</string>
+  <string name="dialog_confirm_delete_donation_history_title">Potwierdź usunięcie</string>
+  <string name="dialog_confirm_delete_donation_history_message">Będzie to miało zastosowanie tylko do darowizn dokonanych z tego urządzenia.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Usuń</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Anuluj</string>
   <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
   <string name="search_reading_list_no_results">Nie znaleziono wyników w \"%s\"</string>
@@ -191,6 +204,9 @@
   <string name="logged_out_in_background_dialog">Zostałeś wylogowany z Wikipedii. Chcesz się zalogować ponownie?</string>
   <string name="logged_out_in_background_login">Zaloguj się</string>
   <string name="logged_out_in_background_cancel">Anuluj</string>
+  <string name="account_vanish_request_title">Wymaż konto</string>
+  <string name="account_vanish_request_confirm_title">Ostrzeżenie o wymazaniu konta</string>
+  <string name="account_vanish_request_confirm">Wymazanie konta to &lt;b&gt;ostateczność&lt;/b&gt; i należy z niego skorzystać &lt;b&gt;tylko wtedy, gdy chcesz na zawsze zaprzestać edytowania &lt;/b&gt; oraz ukryć jak najwięcej swoich przeszłych powiązań.&lt;br/&gt;&lt;br/&gt;Usunięcie konta na Wikipedii odbywa się poprzez zmianę nazwy konta, tak aby inni nie mogli rozpoznać Twoich wkładów, w procesie zwanym wymazaniem konta. &lt;b&gt;Wymazanie nie gwarantuje pełnej anonimowości ani nie usuwa wkładów wniesionych do projektów&lt;/b&gt;.</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
   <string name="history_empty_message">Śledź tutaj, co było czytane.</string>
   <string name="history_offline_articles_toast">W trybie offline (bez dostępu do sieci) niektóre artykuły w historii mogą być niewidoczne.</string>
@@ -264,8 +280,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl#Image_tags</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Strona zespołu&lt;/a&gt;</string>
@@ -288,6 +304,13 @@
   <string name="edit_undo">Cofnij</string>
   <string name="edit_redo">Ponów</string>
   <string name="edit_rollback">Wycofaj</string>
+  <string name="edit_warn">Ostrzeż</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s bajt</item>
+    <item quantity="few">%s bajty</item>
+    <item quantity="many">%s bajtów</item>
+    <item quantity="other">%s bajta</item>
+  </plurals>
   <string name="edit_zoom_in">Powiększ</string>
   <string name="edit_zoom_out">Pomniejsz</string>
   <string name="edit_summary_tag_typo">Poprawiono literówkę</string>
@@ -295,6 +318,8 @@
   <string name="edit_summary_tag_links">Dodano linki</string>
   <string name="edit_summary_tag_other">Inne</string>
   <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
+  <string name="edit_summary_added_short_description">Dodano krótki opis</string>
+  <string name="edit_summary_updated_short_description">Zaktualizowano krótki opis</string>
   <string name="edit_conflict_title">Konflikt edycji</string>
   <string name="edit_conflict_message">Strona została już zmodyfikowana przez innego użytkownika i koliduje to z twoją edycją. Skopiuj swoje edycje, wróć i odśwież stronę, następnie spróbuj przeedytować ją ponownie.</string>
   <string name="edit_notices">Powiadomienia o edycji</string>
@@ -314,6 +339,12 @@
   <string name="search_did_you_mean">Czy chodziło Ci o \"%s\"?</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
   <string name="search_results_count_zero">Brak wyników</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 wynik</item>
+    <item quantity="few">%d wyniki</item>
+    <item quantity="many">%d wyników</item>
+    <item quantity="other">%d wyników</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Wyczyść listę ostatnich wyszukiwań</string>
   <string name="clear_recent_searches_confirm">Czy na pewno chcesz usunąć swoją historię wyszukiwania?</string>
   <string name="clear_recent_searches_confirm_yes">Tak</string>
@@ -325,6 +356,8 @@
   <string name="widget_name_featured_page">Artykuł na medal</string>
   <string name="widget_title_featured_page">Dzisiejszy artykuł na medal</string>
   <string name="widget_name_search">Wyszukaj w Wikipedii</string>
+  <string name="widget_description_search">Najszybszy sposób na wyszukiwanie w Wikipedii</string>
+  <string name="widget_description_featured_page">Najlepsze artykuły, jakie ma do zaoferowania Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Nie znaleziono definicji.</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
   <string name="alpha_update_notification_text">Kliknij, aby pobrać</string>
@@ -384,6 +417,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artykuł nie może zostać załadowany, gdy jesteś offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Wskazówka: Dodaj artykuł do listy czytanych, a zostanie pobrany po powrocie do trybu online.</string>
   <string name="page_offline_notice_last_date">Czytasz wersję offline tego artykułu zapisaną %s.</string>
+  <string name="redirected_from_snackbar" fuzzy="true">Przekierowano z: %s</string>
   <string name="button_get_directions">Wyznacz trasę</string>
   <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
   <string name="preference_title_customize_explore_feed">Kanał Eksploruj</string>
@@ -399,9 +433,16 @@
   <string name="location_permissions_enable_prompt">Włącz uprawnienia do lokalizacji, aby zobaczyć miejsca w pobliżu.</string>
   <string name="location_permissions_enable_action">Włącz</string>
   <string name="error_webview_updating">Usługa Android System WebView jest obecnie aktualizowana. Spróbuj ponownie za chwilę.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d wybrany</item>
+    <item quantity="few">%d wybrane</item>
+    <item quantity="many">%d wybranych</item>
+    <item quantity="other">%d wybranych</item>
+  </plurals>
   <string name="multi_select_items_selected">Wybrano %d</string>
   <string name="error_message_generic">Wystąpił błąd</string>
   <string name="view_link_preview_error_button_dismiss">Zamknij</string>
+  <string name="link_preview_dialog_read_button">Czytaj</string>
   <string name="link_preview_dialog_save_button">Zapisz</string>
   <string name="link_preview_dialog_saved_button">Zapisane</string>
   <string name="link_preview_dialog_share_button">Udostępnij</string>
@@ -415,6 +456,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
   <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
+  <string name="preference_title_delete_local_donation_history">Usuń lokalną historię darowizn</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Dopasuj do motywu systemowego</string>
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
@@ -429,7 +471,18 @@
   <string name="theme_chooser_menu_item_short_tooltip">Dostosuj swój pasek narzędzi</string>
   <string name="error_blocked_footer_no_blocker">Możesz skontaktować się z &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratorem&lt;/a&gt;, aby omówić blokadę.</string>
   <string name="temp_account_not_logged_in">Nie jesteś zalogowany</string>
+  <string name="temp_account_anon_ip_dialog_body">Po wprowadzeniu zmian Twój adres IP będzie widoczny publicznie przy Twoich edycjach.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Zaloguj się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;załóż konto&lt;/a&gt;, aby Twoje działania były przypisane do konta oraz aby odblokować dodatkowe funkcje.</string>
+  <string name="temp_account_anon_dialog_body">Po wprowadzeniu zmian zostanie dla Ciebie utworzone &lt;b&gt;tymczasowe konto&lt;/b&gt;, aby chronić Twoją prywatność. &lt;a href=\"%1$s\"&gt;Dowiedz się więcej&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Zaloguj się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;załóż konto&lt;/a&gt;, aby Twoje edycje były przypisane do Twojego konta oraz aby odblokować dodatkowe funkcje.</string>
+  <string name="temp_account_temp_dialog_body">Twoja edycja zostanie przypisana do %1$s. Twój adres IP będzie widoczny dla administratorów.&lt;br /&gt;&lt;br /&gt;Jeśli &lt;a href=\"https://#login\"&gt;zalogujesz się&lt;/a&gt; lub &lt;a href=\"https://#createaccount\"&gt;założysz konto&lt;/a&gt;, Twoje zmiany będą przypisane do wybranej przez Ciebie nazwy, a dodatkowo odblokujesz inne korzyści.</string>
   <string name="temp_account_dialog_ok">Rozumiem</string>
+  <string name="temp_account_using_title">Korzystasz z konta tymczasowego</string>
+  <string name="temp_account_dialog_discard">Odrzuć zmiany i zaloguj się</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dzień.</item>
+    <item quantity="few">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dni.</item>
+    <item quantity="many">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dni.</item>
+    <item quantity="other">Konto tymczasowe %1$s zostało utworzone po opublikowaniu Twojej edycji. Wygaśnie ono za %2$d dni.</item>
+  </plurals>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
@@ -814,8 +867,8 @@
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
   <string name="description_edit_learn_more">Dowiedz się więcej o opisach artykułów</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl#Image_captions</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
   <string name="description_starts_with_article">Unikaj rozpoczynania artykułów od „a” bądź „the” (ang).</string>
@@ -823,6 +876,8 @@
   <string name="description_starts_with_lowercase">Unikaj zaczynania od małej litery.</string>
   <string name="description_is_in_different_language">Tekst wydaje się być w nieoczekiwanym języku. Językiem powinien być %s.</string>
   <string name="description_verification_notice">Sprawdź, czy Twój opis jest w języku %1$s. Możesz zignorować to ostrzeżenie, jeśli napisany przez Ciebie opis jest po %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Pokaż sugerowane opisy</string>
+  <string name="description_edit_suggested_description_button_tooltip">Wypróbuj maszynowo sugerowane opisy artykułów</string>
   <string name="description_edit_success_saved">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>
@@ -852,6 +907,7 @@
   <string name="suggested_edits_describe_articles">Opisz artykuły</string>
   <string name="suggested_edits_caption_images">Podpisz obrazy</string>
   <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
+  <string name="suggested_edits_edit_patrol_hint">Przejrzyj ostatnie zmiany i zdecyduj, czy są one zasadne, czy nie.</string>
   <string name="suggested_edits_edit_patrol_review">Przejrzyj</string>
   <string name="suggested_edits_review_description">Sprawdź opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
@@ -863,22 +919,22 @@
   <string name="suggested_edits_review_image_caption">Sprawdź podpis obrazu</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
   <string name="suggested_edits_no_description">Ten plik nie ma opisu</string>
-  <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniam mój wkład na podstawie licencji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam mój wkład na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
-  <string name="suggested_edits_task_add_description_description">Wkład w artykuły bez opisów</string>
+  <string name="suggested_edits_task_add_description_description">Przyczyniaj się do artykułów bez opisów</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj podpisy obrazu</string>
-  <string name="suggested_edits_task_image_caption_description">Dodaj brakujące krótkie podpisy do grafik</string>
+  <string name="suggested_edits_task_image_caption_description">Dodaj brakujące krótkie podpisy do obrazów</string>
   <string name="suggested_edits_task_translate_caption_title">Przetłumacz podpisy do obrazu</string>
   <string name="suggested_edits_task_translate_caption_description">Przetłumacz podpisy na inne języki</string>
-  <string name="suggested_edits_task_multilingual_title">Więcej zadań dla wielojęzycznych redaktorów</string>
-  <string name="suggested_edits_task_multilingual_description">90/5000\nZadania tłumaczeniowe są dostępne, jeśli czytasz i piszesz w więcej niż jednym języku na Wikipedii.</string>
+  <string name="suggested_edits_task_multilingual_title">Więcej zadań dla redaktorów wielojęzycznych</string>
+  <string name="suggested_edits_task_multilingual_description">Zadania tłumaczeniowe są dostępne, jeśli czytasz i piszesz w więcej niż jednym języku na Wikipedii.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zablokowane, dopóki nie edytujesz %d podpisów obrazów</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zablokowane, dopóki nie edytujesz %d opisów artykułów (zweryfikowane)</string>
   <string name="suggested_edits_task_multilingual_negative">Nie dla mnie</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Plik</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Obraz</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artysta</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
@@ -895,7 +951,7 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">Plik</string>
+  <string name="suggested_edits_image_preview_dialog_image">Obraz</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Plik z Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
   <string name="suggested_edits_image_preview_dialog_tags">Znaczniki</string>
@@ -912,10 +968,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis obrazu</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis obrazu (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Dodaj znaczniki do obrazu</string>
-  <string name="suggested_edits_snackbar_survey_text">Jak oceniasz swoje doświadczenie związane z edytowaniem? Poświęć chwilę aby wypełnić tę ankietę na temat edytowania w aplikacji.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Wypełnij ankietę</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
-  <string name="suggested_edits_task_action_text_translate">Tłumacz</string>
+  <string name="suggested_edits_task_action_text_translate">Przetłumacz</string>
   <string name="suggested_edits_image_captions">Podpisy obrazów</string>
   <string name="suggested_edits_image_tags">Znaczniki obrazu</string>
   <string name="suggested_edits_image_tags_publishing">Publikowanie</string>
@@ -930,26 +984,27 @@
   <string name="suggested_edits_image_tags_select_title">Nie wybrano żadnego znacznika dla tego obrazu</string>
   <string name="suggested_edits_image_tags_select_text">Do obrazów zostaną dodane tylko wybrane przez Ciebie znaczniki. Niewybrane znaczniki zostaną oznaczone jako odrzucone. Czy na pewno chcesz oznaczyć wszystkie znaczniki jako odrzucone?</string>
   <string name="suggested_edits_image_tags_add_tag">Dodaj znacznik</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Nieopublikowane znaczniki nie zostaną zapisane</string>
   <string name="suggested_edits_image_zoom_tooltip">Uszczypnij, aby powiększyć ten obraz.</string>
   <string name="suggested_edits_encouragement_message">%s, dziękujemy za twoje edycje. Poniżej możesz znaleźć więcej sposobów aby rozwijać Wikipedię.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Witaj %s&lt;/b&gt;, poniżej znajdziesz kilka szybkich i łatwych sposobów na ulepszanie Wikipedii. Zauważysz różnicę, jaką robisz, gdy tylko zaczniesz. Miłej edycji!</string>
   <string name="suggested_edits_image_captions_task_detail">Opisz obraz, aby pomóc czytelnikom zrozumieć jego znaczenie i kontekst.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Podsumuj artykuł, aby ułatwić czytelnikom zrozumienie tematu na pierwszy rzut oka.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Podsumuj artykuł, aby pomóc czytelnikom zrozumieć temat na pierwszy rzut oka.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Twoja łączna liczba dotychczasowych edycji.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Ile dni z rzędu dokonywałeś edycji. Jeśli od jakiegoś czasu nie wniosłeś wkładu, pokazuje datę ostatniej edycji.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Ile dni z rzędu dokonywałeś edycji. Jeśli od jakiegoś czasu nie wniosłeś wkładu, wyświetlana jest data ostatniej edycji.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Łączna liczba odsłon stron elementów, do których przyczyniłeś się w ciągu ostatnich 30 dni.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Na podstawie tego, ile razy jeden z Twoich wkładów został cofnięty (cofnięty przez innego redaktora). Cofnięte zmiany: %d.</string>
-  <string name="suggested_edits_paused_message">Sugerowane zmiany są wstrzymane do %1$s. Przepraszamy %2$s, niektóre z Twoich ostatnich wpisów zostały cofnięte.</string>
-  <string name="suggested_edits_disabled_message">Sugerowane zmiany są wyłączone. Przepraszamy %s, zbyt wiele Twoich ostatnich wpisów zostało cofniętych.</string>
-  <string name="suggested_edits_ip_blocked_message">Wygląda na to, że twój adres IP (lub zakres adresów) jest obecnie zablokowany na Wikipedii.</string>
-  <string name="suggested_edits_gate_message">Przepraszamy %s, aby skorzystać z tej funkcji musisz dokonać co najmniej trzech edycji bezpośrednio w artykule.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Na podstawie tego, ile razy jeden z Twoich wkładów został cofnięty (cofnięty przez innego redaktora). Cofnięte edycje: %d.</string>
+  <string name="suggested_edits_paused_message">Sugerowane zmiany są wstrzymane do %1$s. Przepraszamy %2$s, niektóre z Twoich ostatnich edycji zostały cofnięte.</string>
+  <string name="suggested_edits_disabled_message">Sugerowane zmiany są wyłączone. Przepraszamy %s, zbyt wiele Twoich ostatnich edycji zostało cofniętych.</string>
+  <string name="suggested_edits_ip_blocked_message">Wygląda na to, że Twój adres IP (lub zakres adresów) jest obecnie zablokowany przed edytowaniem Wikipedii.</string>
+  <string name="suggested_edits_gate_message">Przepraszamy %s, aby skorzystać z tej funkcji, musisz dokonać co najmniej trzech edycji bezpośrednio w artykule.</string>
   <string name="suggested_edits_editing_tips_link_text">Porady i wskazówki dotyczące edytowania</string>
   <string name="suggested_edits_help_page_link_text">Strona pomocy dot. sugerowanych zmian</string>
-  <string name="suggested_edits_edit_streak_label_text">Edytuj pasmo</string>
+  <string name="suggested_edits_edit_streak_label_text">Seria edycji</string>
   <string name="suggested_edits_views_label_text">Odsłony</string>
-  <string name="suggested_edits_quality_label_text">Edycja jakości</string>
-  <string name="suggested_edits_quality_perfect_text">Idealna</string>
-  <string name="suggested_edits_quality_excellent_text">Wyśmienita</string>
+  <string name="suggested_edits_quality_label_text">Jakość edycji</string>
+  <string name="suggested_edits_quality_perfect_text">Doskonała</string>
+  <string name="suggested_edits_quality_excellent_text">Znakomita</string>
   <string name="suggested_edits_quality_very_good_text">Bardzo dobra</string>
   <string name="suggested_edits_quality_good_text">Dobra</string>
   <string name="suggested_edits_quality_okay_text">W porządku</string>
@@ -957,8 +1012,26 @@
   <string name="suggested_edits_quality_poor_text">Słaba</string>
   <string name="suggested_edits_quality_bad_text">Zła</string>
   <string name="suggested_edits_label">Sugerowane edycje</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Wkład</item>
+    <item quantity="few">Wkład</item>
+    <item quantity="many">Wkład</item>
+    <item quantity="other">Wkład</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Edycja</item>
+    <item quantity="few">Edycje</item>
+    <item quantity="many">Edycji</item>
+    <item quantity="other">Edycji</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d dzień</item>
+    <item quantity="few">%d dni</item>
+    <item quantity="many">%d dni</item>
+    <item quantity="other">%d dnia</item>
+  </plurals>
   <string name="suggested_edits_what_is_title">Czym są sugerowane edycje?</string>
-  <string name="suggested_edits_what_is_text">Sugerowane zmiany dają możliwość niewielkiego, ale istotnego wkładu do Wikipedii.</string>
+  <string name="suggested_edits_what_is_text">Sugerowane zmiany dają możliwość wniesienia niewielkiego, ale istotnego wkładu do Wikipedii.</string>
   <string name="suggested_edits_learn_more">Dowiedz się więcej</string>
   <string name="suggested_edits_paused_title">Wstrzymane</string>
   <string name="suggested_edits_disabled_title">Wyłączone</string>
@@ -970,14 +1043,26 @@
   <string name="suggested_edits_reactivation_notification_title">Sugerowane edycje</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Dziękujemy za edycję Wikipedii! Dlaczego nie kontynuować od miejsca, w którym skończyłeś?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Masz chwilę na dalsze ulepszanie Wikipedii? Sprawdź te sugestie dotyczące edycji.</string>
-  <string name="suggested_edits_contributions_screen_title">%s wsparć</string>
+  <string name="suggested_edits_contributions_screen_title">%s edycji</string>
   <string name="suggested_edits_contribution_language_label">Język</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Czas</string>
-  <string name="suggested_edits_contribution_type_label">Typ kontrybucji</string>
+  <string name="suggested_edits_contribution_type_label">Rodzaj wkładu</string>
   <string name="suggested_edits_contribution_image_label">Obraz</string>
   <string name="suggested_edits_contribution_article_label">Artykuł</string>
   <string name="suggested_edits_contribution_views">%s wyświetleń</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Widziano raz w ciągu ostatnich 30 dni.</item>
+    <item quantity="few">Widziano %s razy w ciągu ostatnich 30 dni.</item>
+    <item quantity="many">Widziano %s razy w ciągu ostatnich 30 dni.</item>
+    <item quantity="other">Widziano %s raza w ciągu ostatnich 30 dni.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Dodałeś jeden znacznik</item>
+    <item quantity="few">Dodałeś %d znaczniki</item>
+    <item quantity="many">Dodałeś %d znaczników</item>
+    <item quantity="other">Dodałeś %d znacznika</item>
+  </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
   <string name="suggested_edits_encourage_account_creation_title">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="suggested_edits_encourage_account_creation_message">Sugerowane zmiany to nowy sposób edytowania Wikipedii na Androidzie. Pomaga w niewielkim, ale istotnym wkładzie do Wikipedii.\nNaszym celem jest uczynienie edycji łatwiejszą i bardziej dostępną dla wszystkich! Zaloguj się lub dołącz do Wikipedii, aby rozpocząć.</string>
@@ -993,13 +1078,32 @@
   <string name="suggested_edits_do_not_understand_suggestion">Nie rozumiem zadania</string>
   <string name="suggested_edits_report_suggestion">Raport</string>
   <string name="suggested_edits_suggestion_report_submitted">Raport przesłany</string>
-  <plurals name="suggested_edits_added_contribution_label">
-    <item quantity="one">Dodałeś/aś %d znak</item>
-    <item quantity="few">Dodałeś/aś %d znaki</item>
-    <item quantity="many">Dodałeś/aś %d znaków</item>
-    <item quantity="other">Dodałeś/aś %d znaków</item>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s znacznik</item>
+    <item quantity="few">%1$s znaczniki</item>
+    <item quantity="many">%1$s znaczników</item>
+    <item quantity="other">%1$s znacznika</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Obrazy artykułów</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s znak</item>
+    <item quantity="few">%1$s znaki</item>
+    <item quantity="many">%1$s znaków</item>
+    <item quantity="other">%1$s znaków</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Usunąłeś(-aś) %d znak</item>
+    <item quantity="few">Usunąłeś(-aś) %d znaki</item>
+    <item quantity="many">Usunąłeś(-aś) %d znaków</item>
+    <item quantity="other">Usunąłeś(-aś) %d znaków</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Dodałeś(-aś) %d znak</item>
+    <item quantity="few">Dodałeś(-aś) %d znaki</item>
+    <item quantity="many">Dodałeś(-aś) %d znaków</item>
+    <item quantity="other">Dodałeś(-aś) %d znaków</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Obrazy artykułu</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Dodaj sugerowane obrazy do artykułów na Wikipedii, aby pomóc czytelnikom w ich zrozumieniu.</string>
   <string name="image_recommendation_task_instruction">Czy dodałbyś to zdjęcie do artykułu?</string>
   <string name="image_recommendation_tutorial">Samouczek</string>
   <string name="image_recommendation_accept">Tak</string>
@@ -1078,7 +1182,7 @@
   <string name="on_this_day_end_of_scroll_message">Udało ci się dostać do innej epoki 🚀</string>
   <string name="on_this_day_back_to_future">Powróć do przyszłości</string>
   <string name="languages_list_activity_title">Dodaj język</string>
-  <string name="languages_list_suggested_text">Sugerowany</string>
+  <string name="languages_list_suggested_text">Sugerowane</string>
   <string name="languages_list_all_text">Wszystkie języki</string>
   <string name="wikipedia_languages_title">Języki Wikipedii</string>
   <string name="wikipedia_languages_your_languages_text">Twoje języki</string>

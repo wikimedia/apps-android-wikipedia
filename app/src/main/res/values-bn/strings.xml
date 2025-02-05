@@ -823,8 +823,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ছবির ক্যাপশন যোগ করুন</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ছবির ক্যাপশন যোগ করুন (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ছবিতে ট্যাগ যোগ করুন</string>
-  <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_add">যোগ করুন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
   <string name="suggested_edits_image_captions">ছবির ক্যাপশন</string>

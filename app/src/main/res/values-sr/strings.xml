@@ -141,6 +141,9 @@
   <string name="dialog_message_leaving_edit">Измена још није објављена. Желите ли заиста да напустите ову страницу?</string>
   <string name="dialog_message_leaving_edit_leave">Напусти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
+  <string name="dialog_confirm_delete_donation_history_title">Потврди брисање</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Обриши</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Откажи</string>
   <string name="menu_show_toc">Садржај</string>
   <string name="search_no_results_found">Резултати нису пронађени</string>
   <string name="search_reading_list_no_results">Нису пронађени резултати на листи „%s”</string>
@@ -958,8 +961,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Додај натпис слике</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај натпис слике (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Додај ознаке за слику</string>
-  <string name="suggested_edits_snackbar_survey_text">Какво је ваше искуство у уређивању? Издвојите тренутак да бисте попуните анкету о уређивању путем апликације.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Попуни анкету</string>
   <string name="suggested_edits_task_action_text_add">Додај</string>
   <string name="suggested_edits_task_action_text_translate">Преведи</string>
   <string name="suggested_edits_image_captions">Поднаписи слика</string>
@@ -1632,4 +1633,24 @@
   <string name="survey_dialog_submit">Пошаљи</string>
   <string name="survey_dialog_input_hint">Додатне повратне информације</string>
   <string name="survey_dialog_submitted_snackbar">Повратне информације послате.</string>
+  <string name="on_this_day_game_entry_dialog_title">Представљамо</string>
+  <string name="on_this_day_game_entry_dialog_button">Данашња игра</string>
+  <string name="on_this_day_game_dialog_button">Играј</string>
+  <string name="on_this_day_game_progress">%1$d од %2$d</string>
+  <string name="on_this_day_game_score">Резултат: %d</string>
+  <string name="on_this_day_game_correct">Тачно!</string>
+  <string name="on_this_day_game_incorrect">Нетачно!</string>
+  <string name="on_this_day_game_point">+1 бод</string>
+  <string name="on_this_day_game_next">Следеће питање</string>
+  <string name="on_this_day_game_finish">Коначни резултат</string>
+  <string name="on_this_day_game_pause_positive">Разумео</string>
+  <string name="on_this_day_game_feed_entry_card_title">Шта се десило прво?</string>
+  <string name="on_this_day_game_result">Резултат %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Следећа игра %s</string>
+  <string name="on_this_day_game_your_stats">Статистика</string>
+  <string name="on_this_day_game_stats_played">Одиграно</string>
+  <string name="on_this_day_game_stats_average_score">Просечан резултат</string>
+  <string name="on_this_day_game_menu_info">Сазнајте више</string>
+  <string name="on_this_day_game_article_read_button">Прочитај чланак</string>
+  <string name="on_this_day_game_notification_undo">Поништи</string>
 </resources>

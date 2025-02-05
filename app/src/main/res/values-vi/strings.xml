@@ -983,8 +983,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Thêm chú thích hình ảnh</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Thêm chú thích hình ảnh (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Gắn thẻ cho hình ảnh</string>
-  <string name="suggested_edits_snackbar_survey_text">Kinh nghiệm sửa đổi của bạn như thế nào? Vui lòng dành một chút thời gian để điền vào bản khảo sát về sửa đổi trong ứng dụng.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Thực hiện khảo sát</string>
   <string name="suggested_edits_task_action_text_add">Thêm</string>
   <string name="suggested_edits_task_action_text_translate">Dịch</string>
   <string name="suggested_edits_image_captions">Chú thích hình ảnh</string>

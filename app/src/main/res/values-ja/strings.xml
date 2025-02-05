@@ -29,6 +29,7 @@
 * Mirinano
 * MirukuPC
 * Mugenpman
+* Nanona15dobato
 * Omotecho
 * Otokoume
 * PPenloglou-WMF
@@ -184,6 +185,10 @@
   <string name="dialog_message_leaving_edit">変更はまだ公開されていません。本当にこのページを離れてもいいですか?</string>
   <string name="dialog_message_leaving_edit_leave">離れる</string>
   <string name="dialog_message_leaving_edit_stay">留まる</string>
+  <string name="dialog_confirm_delete_donation_history_title">削除を確認</string>
+  <string name="dialog_confirm_delete_donation_history_message">これはこのデバイスから行われた寄付にのみ適用されます。</string>
+  <string name="dialog_confirm_delete_donation_history_delete">削除</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">キャンセル</string>
   <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">検索結果なし</string>
   <string name="search_reading_list_no_results">「%s」には見つかりませんでした</string>
@@ -463,6 +468,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
+  <string name="preference_title_delete_local_donation_history">ローカル寄付履歴を削除</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
@@ -1004,8 +1010,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_feed_card_translate_image_caption">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">画像タグを追加</string>
-  <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか? アプリを使った編集について、アンケートに回答をお願いします。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="suggested_edits_task_action_text_add">追加</string>
   <string name="suggested_edits_task_action_text_translate">翻訳</string>
   <string name="suggested_edits_image_captions">画像キャプション</string>
@@ -1679,4 +1683,5 @@
   <string name="survey_dialog_submit">送信</string>
   <string name="survey_dialog_input_hint">追加のフィードバック</string>
   <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
+  <string name="on_this_day_game_notification_undo">取り消す</string>
 </resources>
