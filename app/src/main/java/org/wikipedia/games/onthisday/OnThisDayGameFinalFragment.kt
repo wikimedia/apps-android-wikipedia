@@ -26,6 +26,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -145,6 +146,7 @@ class OnThisDayGameFinalFragment : Fragment() {
 
         init {
             itemView.setOnClickListener(this)
+            FeedbackUtil.setButtonTooltip(binding.listItemBookmark, binding.listItemShare)
         }
 
         fun bindItem(page: PageSummary, position: Int) {

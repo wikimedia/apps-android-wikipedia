@@ -445,6 +445,7 @@ class OnThisDayGameActivity : BaseActivity() {
         dialogBinding.shareButton.setOnClickListener {
             ShareUtil.shareText(this, pageSummary.getPageTitle(WikipediaApp.instance.wikiSite))
         }
+        FeedbackUtil.setButtonTooltip(dialogBinding.shareButton, dialogBinding.saveButton)
         dialogBinding.readArticleButton.setOnClickListener {
             val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
             startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
