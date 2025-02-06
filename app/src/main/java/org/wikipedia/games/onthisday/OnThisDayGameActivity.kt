@@ -121,7 +121,7 @@ class OnThisDayGameActivity : BaseActivity() {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
-            val topPadding = if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_COLLAPSED) {
+            val topPadding = if (bottomSheetBehavior == null || bottomSheetBehavior?.state == BottomSheetBehavior.STATE_COLLAPSED) {
                 DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
             } else {
                 newStatusBarInsets.top + newNavBarInsets.top
