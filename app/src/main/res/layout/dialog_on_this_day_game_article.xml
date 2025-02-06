@@ -53,8 +53,8 @@
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/articleThumbnail"
-            android:layout_width="248dp"
-            android:layout_height="248dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:contentDescription="@null"
             android:src="@drawable/ic_w_logo_circle"
             android:scaleType="centerCrop"
@@ -68,8 +68,8 @@
 
         <org.wikipedia.views.WikiCardView
             android:id="@+id/articleSummaryContainer"
-            android:layout_width="248dp"
-            android:layout_height="248dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
