@@ -422,7 +422,9 @@ class OnThisDayGameActivity : BaseActivity() {
                 }
             }
 
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                binding.root.requestApplyInsets()
+            }
         })
 
         val dialogBinding = binding.articleDialogContainer
