@@ -18,14 +18,13 @@ class LicenseActivity : BaseActivity() {
         setContentView(binding.root)
         setNavigationBarColor(getThemedColor(this, android.R.attr.windowBackground))
 
-        val libraryNameStart = 24
-        val path = (intent.data ?: return).path ?: return
-        if (path.length > libraryNameStart) {
+        val asset = intent.getStringExtra("asset") ?: ""
+        if (asset.isNotEmpty()) {
             // Example string: "/android_asset/licenses/Otto"
-            title = getString(R.string.license_title, path.substring(libraryNameStart))
+            val strings = asset.split("/")
+            title = getString(R.string.license_title, strings[strings.size - 1])
             try {
-                val assetPathStart = 15
-                val text = readFile(assets.open(path.substring(assetPathStart)))
+                val text = readFile(assets.open(asset))
                 binding.licenseText.text = StringUtil.fromHtml(text.replace("\n\n", "<br/><br/>"))
             } catch (e: IOException) {
                 e.printStackTrace()

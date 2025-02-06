@@ -34,20 +34,66 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.LicenseLinkText
+import org.wikipedia.compose.components.LinkTextData
 import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 
 class AboutActivity : BaseActivity() {
+    private val credits = listOf(
+        LinkTextData(
+            text = "Balloon ",
+            url = "https://github.com/skydoves/Balloon/blob/main/LICENSE/"
+        ),
+        LinkTextData(
+            text = "(license), ",
+            asset = "licenses/Balloon"
+        ),
+        LinkTextData(
+            text = "Commons Lang ",
+            url = "https://www.apache.org/licenses/"
+        ),
+        LinkTextData(
+            text = "(license), ",
+            asset = "licenses/CommonsLang3"
+        ),
+        LinkTextData(
+            text = "jsoup ",
+            url = "https://github.com/jhy/jsoup"
+        ),
+        LinkTextData(
+            text = "(license), ",
+            asset = "licenses/jsoup"
+        ),
+        LinkTextData(
+            text = "OkHttp ",
+            url = "https://square.github.io/okhttp/"
+        ),
+        LinkTextData(
+            text = "(license), ",
+            asset = "licenses/OkHttp"
+        ),
+        LinkTextData(
+            text = "Retrofit ",
+            url = "https://square.github.io/retrofit/"
+        ),
+        LinkTextData(
+            text = "(license)",
+            asset = "licenses/Retrofit"
+        )
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -56,6 +102,7 @@ class AboutActivity : BaseActivity() {
                     modifier = Modifier
                         .fillMaxSize(),
                     versionName = BuildConfig.VERSION_NAME,
+                    credits = credits,
                     onBackButtonClick = {
                         onBackPressed()
                     }
@@ -73,6 +120,7 @@ class AboutActivity : BaseActivity() {
 fun AboutWikipediaScreen(
     modifier: Modifier = Modifier,
     versionName: String,
+    credits: List<LinkTextData>,
     onBackButtonClick: () -> Unit
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
@@ -138,7 +186,8 @@ fun AboutWikipediaScreen(
                 AboutScreenBody(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(horizontal = 16.dp)
+                        .padding(horizontal = 16.dp),
+                    credits = credits
                 )
                 AboutScreenFooter()
             }
@@ -192,7 +241,10 @@ fun AboutWikipediaImage(
 }
 
 @Composable
-fun AboutScreenBody(modifier: Modifier = Modifier) {
+fun AboutScreenBody(
+    modifier: Modifier = Modifier,
+    credits: List<LinkTextData>
+) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -207,10 +259,16 @@ fun AboutScreenBody(modifier: Modifier = Modifier) {
             html = stringResource(R.string.about_translators_translatewiki)
         )
 
-        LinkTextWithHeader(
+        LicenseTextWithHeader(
             header = stringResource(R.string.about_libraries_heading),
-            html = stringResource(R.string.libraries_list)
+            credits = credits,
+            textStyle = TextStyle(
+                fontSize = 14.sp,
+                lineHeight = 1.6.em
+            )
         )
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         LinkTextWithHeader(
             header = stringResource(R.string.about_app_license_heading),
@@ -273,6 +331,28 @@ fun LinkTextWithHeader(
     }
 }
 
+@Composable
+fun LicenseTextWithHeader(
+    modifier: Modifier = Modifier,
+    header: String,
+    credits: List<LinkTextData>,
+    textStyle: TextStyle
+) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Text(
+            text = header,
+            fontSize = 16.sp,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        LicenseLinkText(
+            links = credits,
+            textStyle = textStyle
+        )
+    }
+}
+
 @Preview
 @Composable
 private fun AboutWikipediaImagePreview() {
@@ -282,6 +362,7 @@ private fun AboutWikipediaImagePreview() {
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor),
             versionName = BuildConfig.VERSION_NAME,
+            credits = listOf(),
             onBackButtonClick = {}
         )
     }
