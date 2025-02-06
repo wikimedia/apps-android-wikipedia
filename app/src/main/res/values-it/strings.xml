@@ -1726,4 +1726,6 @@
   <string name="survey_dialog_submit">Invia</string>
   <string name="survey_dialog_input_hint">Feedback aggiuntivo</string>
   <string name="survey_dialog_submitted_snackbar">Commento inviato. Grazie!</string>
+  <string name="on_this_day_game_pause_positive">Capito</string>
+  <string name="on_this_day_game_notification_undo">Annulla</string>
 </resources>

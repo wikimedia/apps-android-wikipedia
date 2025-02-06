@@ -1744,4 +1744,5 @@
   <string name="on_this_day_game_report_email_subject">Felanmäl - Wikipedia-spel</string>
   <string name="on_this_day_game_report_email_body">Jag har stött på ett problem med Wikipedias spelfunktion:\n- [Beskriv det specifika problemet]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
   <string name="on_this_day_game_notification_undo">Ångra</string>
+  <string name="on_this_day_game_share_link_message">Jag spelar \"Vad kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
 </resources>
