@@ -68,7 +68,7 @@ class OnThisDayGameActivity : BaseActivity() {
     private lateinit var mediaPlayer: MediaPlayer
     private var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>? = null
 
-    @SuppressLint("SourceLockedOrientationActivity", "RestrictedApi")
+    @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
@@ -121,23 +121,8 @@ class OnThisDayGameActivity : BaseActivity() {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
-            val topPadding = if (bottomSheetBehavior == null ||
-                bottomSheetBehavior?.state == BottomSheetBehavior.STATE_COLLAPSED) {
-                // The initial state or Collapsed state
-                DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
-            } else if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED) {
-                // The expanded state
-                newStatusBarInsets.top + newNavBarInsets.top
-            } else {
-                // To avoid the flickering of the bottom sheet when it is transitioning between states
-                if (bottomSheetBehavior?.lastStableState == BottomSheetBehavior.STATE_EXPANDED) {
-                    DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
-                } else {
-                    newStatusBarInsets.top + newNavBarInsets.top
-                }
-            }
             binding.bottomSheetCoordinatorLayout.updatePadding(
-                top = topPadding,
+                top = calculateBottomSheetTopPadding(newStatusBarInsets.top + newNavBarInsets.top),
                 bottom = newStatusBarInsets.bottom + newNavBarInsets.bottom,
                 left = newStatusBarInsets.left + newNavBarInsets.left,
                 right = newStatusBarInsets.right + newNavBarInsets.right
@@ -220,6 +205,32 @@ class OnThisDayGameActivity : BaseActivity() {
         }
         super.onBackPressed()
         finish()
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun calculateBottomSheetTopPadding(insets: Int): Int {
+        val collapsedPadding = DimenUtil.getToolbarHeightPx(this) + insets
+        val expandedPadding = insets
+        val topPadding = when (bottomSheetBehavior?.state) {
+            BottomSheetBehavior.STATE_COLLAPSED -> collapsedPadding
+            BottomSheetBehavior.STATE_EXPANDED -> expandedPadding
+            BottomSheetBehavior.STATE_DRAGGING, BottomSheetBehavior.STATE_SETTLING -> {
+                // Calculate a proper padding during dragging/settling
+                val offsetFraction = if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_DRAGGING) {
+                    // Use the actual drag fraction to avoid jumps.
+                    val y = binding.bottomSheetCoordinatorLayout.y // Current Y position of the coordinator layout
+                    val collapsedY = 0
+                    val expandedY = binding.bottomSheetCoordinatorLayout.height
+                    (y - expandedY) / (collapsedY - expandedY) // Fraction between 0 and 1
+                } else {
+                    // During settling, use the last stable state and assume a linear transition.
+                    if (bottomSheetBehavior?.lastStableState == BottomSheetBehavior.STATE_EXPANDED) 0f else 1f
+                }
+                collapsedPadding * (1 - offsetFraction) + expandedPadding * offsetFraction
+            }
+            else -> expandedPadding
+        }
+        return topPadding.toInt()
     }
 
     private fun updateOnLoading() {
