@@ -554,9 +554,9 @@
   </plurals>
   <plurals name="format_reading_list_statistical_summary" fuzzy="true">
     <item quantity="one">1 artykuł, %2$.2f MB</item>
-    <item quantity="few">%d artykuły, %2$.2f MB</item>
-    <item quantity="many">%d artykułów, %2$.2f MB</item>
-    <item quantity="other">%d artykułu, %2$.2f MB</item>
+    <item quantity="few">%1$d artykuły, %2$.2f MB</item>
+    <item quantity="many">%1$d artykułów, %2$.2f MB</item>
+    <item quantity="other">%1$d artykułu, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
     <item quantity="one">%1$d z 1 artykułu dostępny offline</item>
@@ -1531,7 +1531,7 @@
   </plurals>
   <string name="preview_edit_title">Podgląd edycji</string>
   <string name="preview_edit_summarize_edit_title">Podsumuj edycję</string>
-  <string name="preview_edit_summarize_edit_hint">Jak {{GENDER:|poprawiłeś|poprawiłaś|poprawiłeś(-aś)}} tę stronę?</string>
+  <string name="preview_edit_summarize_edit_hint">Jak poprawiłeś tę stronę?</string>
   <string name="preview_edit_minor_edit">To jest drobna zmiana</string>
   <string name="preview_edit_watch_this_page">Obserwuj tę stronę</string>
   <string name="preview_edit_learn_more">Dowiedz się więcej o podsumowaniach edycji</string>
