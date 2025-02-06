@@ -5,6 +5,7 @@
 * Anamdas
 * AnupamM
 * Bhatakati aatma
+* Bunnypranav
 * Cooltey
 * Dbrant
 * DreamRimmer
@@ -810,7 +811,7 @@
   <string name="view_static_card_save_button_label">सहेजें</string>
   <string name="feed_configure_activity_title">फ़ीड को अनुकूलित करें</string>
   <string name="feed_configure_menu_reset">डिफ़ॉल्ट दृश्य पुनर्स्थापित करें</string>
-  <string name="feed_configure_menu_select_all">सभी दिखाएं</string>
+  <string name="feed_configure_menu_select_all">सभी दिखाएँ</string>
   <string name="feed_configure_menu_deselect_all">सभी छिपाएं</string>
   <string name="feed_configure_language_warning">ध्यान दें कि सभी प्रकार के कार्ड सभी विकिपीडिया भाषाओं में उपलब्ध नहीं हैं। सेटिंग्स में अपनी चुनी हुई भाषाओं को संपादित करें।</string>
   <string name="feed_item_type_news">समसामयिक घटनाओं के बारे में लेख</string>
