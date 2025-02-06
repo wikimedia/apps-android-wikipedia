@@ -104,7 +104,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.resultText.text = getString(R.string.on_this_day_game_result, totalCorrect, gameState.totalQuestions)
 
         val cardContainerColor = when (totalCorrect) {
-            0, 2 -> R.color.yellow500
+            0, 1, 2 -> R.color.yellow500
             3, 4 -> R.color.orange500
             else -> R.color.green600
         }
