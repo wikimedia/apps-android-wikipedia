@@ -121,6 +121,18 @@ class OnThisDayGameActivity : BaseActivity() {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
+            val topPadding = if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_COLLAPSED) {
+                DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
+            } else {
+                newStatusBarInsets.top + newNavBarInsets.top
+            }
+            binding.bottomSheetCoordinatorLayout.updatePadding(
+                top = topPadding,
+                bottom = newStatusBarInsets.bottom + newNavBarInsets.bottom,
+                left = newStatusBarInsets.left + newNavBarInsets.left,
+                right = newStatusBarInsets.right + newNavBarInsets.right
+            )
+
             windowInsets
         }
 
@@ -398,11 +410,20 @@ class OnThisDayGameActivity : BaseActivity() {
         }, 500)
     }
 
-    fun openArticleBottomSheet(pageSummary: PageSummary, callback: BottomSheetBehavior.BottomSheetCallback) {
+    fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
         bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
             state = BottomSheetBehavior.STATE_EXPANDED
         }
-        bottomSheetBehavior?.addBottomSheetCallback(callback)
+        bottomSheetBehavior?.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                binding.root.requestApplyInsets()
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                    updateBookmark()
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+        })
 
         val dialogBinding = binding.articleDialogContainer
         dialogBinding.articleTitle.text = StringUtil.fromHtml(pageSummary.displayTitle)
