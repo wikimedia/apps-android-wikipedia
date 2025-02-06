@@ -68,7 +68,7 @@ class OnThisDayGameActivity : BaseActivity() {
     private lateinit var mediaPlayer: MediaPlayer
     private var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>? = null
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint("SourceLockedOrientationActivity", "RestrictedApi")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
@@ -121,10 +121,20 @@ class OnThisDayGameActivity : BaseActivity() {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
-            val topPadding = if (bottomSheetBehavior == null || bottomSheetBehavior?.state == BottomSheetBehavior.STATE_COLLAPSED) {
+            val topPadding = if (bottomSheetBehavior == null ||
+                bottomSheetBehavior?.state == BottomSheetBehavior.STATE_COLLAPSED) {
+                // The initial state or Collapsed state
                 DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
-            } else {
+            } else if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED) {
+                // The expanded state
                 newStatusBarInsets.top + newNavBarInsets.top
+            } else {
+                // To avoid the flickering of the bottom sheet when it is transitioning between states
+                if (bottomSheetBehavior?.lastStableState == BottomSheetBehavior.STATE_EXPANDED) {
+                    DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
+                } else {
+                    newStatusBarInsets.top + newNavBarInsets.top
+                }
             }
             binding.bottomSheetCoordinatorLayout.updatePadding(
                 top = topPadding,
@@ -411,6 +421,7 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
+        binding.root.requestApplyInsets()
         bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
             state = BottomSheetBehavior.STATE_EXPANDED
         }
@@ -422,9 +433,7 @@ class OnThisDayGameActivity : BaseActivity() {
                 }
             }
 
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                binding.root.requestApplyInsets()
-            }
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
         })
 
         val dialogBinding = binding.articleDialogContainer
