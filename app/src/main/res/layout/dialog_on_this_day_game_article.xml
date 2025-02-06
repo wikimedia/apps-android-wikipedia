@@ -82,6 +82,7 @@
                 android:textColor="?attr/primary_color"
                 android:layout_margin="16dp"
                 android:ellipsize="end"
+                android:maxLines="8"
                 style="@style/P.Article"
                 tools:text="New Mexico[a] is a state in the Southwestern region of the United States."/>
 
@@ -186,6 +187,8 @@
                     android:id="@+id/relatedEventInfo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="4"
+                    android:ellipsize="end"
                     style="@style/TextAppearance.Material3.BodyMedium"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
