@@ -227,7 +227,7 @@ class OnThisDayGameActivity : BaseActivity() {
                 }
                 collapsedPadding * (1 - offsetFraction) + expandedPadding * offsetFraction
             }
-            else -> expandedPadding
+            else -> collapsedPadding
         }
         return topPadding.toInt()
     }
