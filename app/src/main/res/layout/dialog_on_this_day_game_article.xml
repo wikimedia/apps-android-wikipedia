@@ -2,15 +2,15 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogScrollContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:background="?attr/paper_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dialogDetailContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/paper_color">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/closeButton"
@@ -142,7 +142,6 @@
             android:id="@+id/readArticleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="12dp"
             android:minHeight="48dp"
             android:layout_gravity="bottom|end"
@@ -151,7 +150,8 @@
             app:backgroundTint="?attr/progressive_color"
             app:icon="@drawable/ic_article_ltr_ooui"
             app:iconTint="@android:color/white"
-            app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
+            app:layout_constraintTop_toTopOf="@id/shareButtonContainer"
+            app:layout_constraintBottom_toBottomOf="@id/shareButtonContainer"
             app:layout_constraintStart_toEndOf="@+id/shareButtonContainer" />
 
         <TextView
@@ -163,7 +163,8 @@
             android:textColor="?attr/primary_color"
             android:layout_marginBottom="12dp"
             android:layout_marginHorizontal="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/relatedEventContainer"
+            android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@id/readArticleButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />
@@ -176,6 +177,7 @@
             app:elevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relatedEventTitle"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout

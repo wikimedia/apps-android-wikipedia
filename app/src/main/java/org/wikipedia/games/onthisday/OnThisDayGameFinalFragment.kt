@@ -22,6 +22,7 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -179,7 +180,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page) { updateBookmark() }
+            ExclusiveBottomSheetPresenter.show(requireActivity().supportFragmentManager, OnThisDayGameArticleBottomSheetFragment.newInstance(page))
         }
     }
 

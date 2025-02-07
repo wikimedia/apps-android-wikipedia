@@ -19,37 +19,22 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
-import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
-import androidx.core.widget.TextViewCompat
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
-import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewUtil
 import java.time.LocalDate
@@ -67,10 +52,6 @@ class OnThisDayGameActivity : BaseActivity() {
     private val goNextAnimatorSet = AnimatorSet()
     private val cardAnimatorSet = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
-    private var newStatusBarInsets: Insets? = null
-    private var newNavBarInsets: Insets? = null
-    private var toolbarHeight: Int = 0
-    private var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>? = null
 
     @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,9 +91,7 @@ class OnThisDayGameActivity : BaseActivity() {
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
             val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
             val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-            this.newStatusBarInsets = newStatusBarInsets
-            this.newNavBarInsets = newNavBarInsets
-            toolbarHeight = DimenUtil.getToolbarHeightPx(this)
+            val toolbarHeight = DimenUtil.getToolbarHeightPx(this)
 
             binding.appBarLayout.updatePadding(top = newStatusBarInsets.top)
 
@@ -127,13 +106,6 @@ class OnThisDayGameActivity : BaseActivity() {
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
-
-            binding.bottomSheetCoordinatorLayout.updatePadding(
-                top = calculateBottomSheetTopPadding(newStatusBarInsets.top + newNavBarInsets.top),
-                bottom = newStatusBarInsets.bottom + newNavBarInsets.bottom,
-                left = newStatusBarInsets.left + newNavBarInsets.left,
-                right = newStatusBarInsets.right + newNavBarInsets.right
-            )
 
             windowInsets
         }
@@ -206,37 +178,8 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED) {
-            bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
-            return
-        }
         super.onBackPressed()
         finish()
-    }
-
-    @SuppressLint("RestrictedApi")
-    private fun calculateBottomSheetTopPadding(insets: Int): Int {
-        val collapsedPadding = toolbarHeight + insets
-        val expandedPadding = insets
-        val topPadding = when (bottomSheetBehavior?.state) {
-            BottomSheetBehavior.STATE_COLLAPSED -> collapsedPadding
-            BottomSheetBehavior.STATE_EXPANDED -> expandedPadding
-            BottomSheetBehavior.STATE_DRAGGING, BottomSheetBehavior.STATE_SETTLING -> {
-                // Calculate a proper padding during dragging/settling
-                val offsetFraction = if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_DRAGGING) {
-                    // Use the actual drag fraction to avoid jumps.
-                    val y = binding.bottomSheetCoordinatorLayout.y
-                    val expandedY = binding.bottomSheetCoordinatorLayout.height.toFloat()
-                    y / -expandedY + 1
-                } else {
-                    // During settling, use the last stable state and assume a linear transition.
-                    if (bottomSheetBehavior?.lastStableState == BottomSheetBehavior.STATE_EXPANDED) 0f else 1f
-                }
-                collapsedPadding * (1 - offsetFraction) + expandedPadding * offsetFraction
-            }
-            else -> collapsedPadding
-        }
-        return topPadding.toInt()
     }
 
     private fun updateOnLoading() {
@@ -435,106 +378,6 @@ class OnThisDayGameActivity : BaseActivity() {
                 animateGoNext(gameState)
             }
         }, 500)
-    }
-
-    fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
-        if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-            return
-        }
-        binding.root.requestApplyInsets()
-        bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
-            state = BottomSheetBehavior.STATE_EXPANDED
-        }
-        bottomSheetBehavior?.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                binding.root.requestApplyInsets()
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    updateBookmark()
-                }
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                val topPadding = toolbarHeight + slideOffset * ((newStatusBarInsets?.top ?: 0) - toolbarHeight)
-                bottomSheet.updatePadding(
-                    top = topPadding.toInt()
-                )
-            }
-        })
-
-        val dialogBinding = binding.articleDialogContainer
-        dialogBinding.articleTitle.text = StringUtil.fromHtml(pageSummary.displayTitle)
-        dialogBinding.closeButton.setOnClickListener {
-            bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
-        dialogBinding.articleDescription.text = StringUtil.fromHtml(pageSummary.description)
-
-        if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
-            dialogBinding.articleThumbnail.isInvisible = true
-            dialogBinding.articleSummaryContainer.isInvisible = false
-            dialogBinding.articleSummary.text = StringUtil.fromHtml(pageSummary.extractHtml)
-        } else {
-            dialogBinding.articleThumbnail.isInvisible = false
-            dialogBinding.articleSummaryContainer.isInvisible = true
-            ViewUtil.loadImage(
-                dialogBinding.articleThumbnail,
-                pageSummary.thumbnailUrl,
-                placeholderId = R.mipmap.launcher
-            )
-        }
-
-        val event = viewModel.getEventByPageTitle(pageSummary.apiTitle)
-        dialogBinding.relatedEventInfo.text = StringUtil.fromHtml(event.text)
-
-        val isCorrect = viewModel.getQuestionCorrectByPageTitle(pageSummary.apiTitle)
-        val answerIcon = if (isCorrect) R.drawable.check_circle_24px else R.drawable.ic_cancel_24px
-        val answerIconTintList = if (isCorrect) ResourceUtil.getThemedColorStateList(this, R.attr.success_color) else ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
-        val answerText = if (isCorrect) R.string.on_this_day_game_article_answer_correct_stats_message else R.string.on_this_day_game_article_answer_incorrect_stats_message
-        dialogBinding.answerStatus.setCompoundDrawablesRelativeWithIntrinsicBounds(answerIcon, 0, 0, 0)
-        TextViewCompat.setCompoundDrawableTintList(dialogBinding.answerStatus, answerIconTintList)
-        dialogBinding.answerStatus.text = getString(answerText)
-
-        val isSaved = viewModel.savedPages.contains(pageSummary)
-        val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-        dialogBinding.saveButton.setImageResource(bookmarkResource)
-        dialogBinding.saveButton.setOnClickListener {
-            onBookmarkIconClick(dialogBinding.saveButton, pageSummary)
-        }
-        dialogBinding.shareButton.setOnClickListener {
-            ShareUtil.shareText(this, pageSummary.getPageTitle(WikipediaApp.instance.wikiSite))
-        }
-        FeedbackUtil.setButtonTooltip(dialogBinding.shareButton, dialogBinding.saveButton)
-        dialogBinding.readArticleButton.setOnClickListener {
-            val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
-            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-        }
-    }
-
-    private fun onBookmarkIconClick(view: ImageView, pageSummary: PageSummary) {
-        val pageTitle = pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)
-        val isSaved = viewModel.savedPages.contains(pageSummary)
-        if (isSaved) {
-            LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    ReadingListBehaviorsUtil.addToDefaultList(this@OnThisDayGameActivity, pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-                }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let {
-                        ReadingListBehaviorsUtil.moveToList(this@OnThisDayGameActivity, page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-                    }
-                }
-
-                override fun onRemoveRequest() {
-                    super.onRemoveRequest()
-                    viewModel.savedPages.remove(pageSummary)
-                    view.setImageResource(R.drawable.ic_bookmark_border_white_24dp)
-                }
-            }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_GAME))
-        } else {
-            ReadingListBehaviorsUtil.addToDefaultList(this@OnThisDayGameActivity, pageTitle, true, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-            viewModel.savedPages.add(pageSummary)
-            view.setImageResource(R.drawable.ic_bookmark_white_24dp)
-        }
     }
 
     fun animateQuestions() {
