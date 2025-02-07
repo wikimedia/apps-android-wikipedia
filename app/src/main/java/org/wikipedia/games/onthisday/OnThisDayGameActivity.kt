@@ -218,10 +218,9 @@ class OnThisDayGameActivity : BaseActivity() {
                 // Calculate a proper padding during dragging/settling
                 val offsetFraction = if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_DRAGGING) {
                     // Use the actual drag fraction to avoid jumps.
-                    val y = binding.bottomSheetCoordinatorLayout.y // Current Y position of the coordinator layout
-                    val collapsedY = 0
-                    val expandedY = binding.bottomSheetCoordinatorLayout.height
-                    (y - expandedY) / (collapsedY - expandedY) // Fraction between 0 and 1
+                    val y = binding.bottomSheetCoordinatorLayout.y
+                    val expandedY = binding.bottomSheetCoordinatorLayout.height.toFloat()
+                    y / -expandedY + 1
                 } else {
                     // During settling, use the last stable state and assume a linear transition.
                     if (bottomSheetBehavior?.lastStableState == BottomSheetBehavior.STATE_EXPANDED) 0f else 1f
