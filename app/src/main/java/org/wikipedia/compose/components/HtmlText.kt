@@ -25,7 +25,8 @@ fun HtmlText(
     ),
     normalStyle: TextStyle = TextStyle(
         color = WikipediaTheme.colors.secondaryColor,
-        fontSize = 14.sp
+        fontSize = 14.sp,
+        lineHeight = 1.6.em
     ),
     modifier: Modifier = Modifier
 ) {
@@ -35,7 +36,7 @@ fun HtmlText(
             htmlString = CustomHtmlParser.fromHtml(html).toHtml(),
             linkStyles = linkStyle
         ),
-        lineHeight = 1.6.em,
+
         style = normalStyle
     )
 }

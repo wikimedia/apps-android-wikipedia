@@ -186,17 +186,9 @@
             android:name=".gallery.GalleryActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.FullScreen" />
+
         <activity
-            android:name=".settings.LicenseActivity"
-            android:theme="@style/AppTheme.ActionBar"
-            tools:ignore="GoogleAppIndexingUrlError"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:pathPrefix="/android_asset/licenses/" android:scheme="content" />
-            </intent-filter>
-        </activity>
+            android:name=".settings.LicenseActivity"/>
 
         <activity
             android:name=".feed.news.NewsActivity"

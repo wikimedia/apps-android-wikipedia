@@ -41,7 +41,7 @@ fun LicenseLinkText(
                         if (linkTextData.asset != null) {
                             println("orange: content ${linkTextData.text}")
                             val intent = Intent(context, LicenseActivity::class.java)
-                            intent.putExtra("asset", linkTextData.asset)
+                            intent.putExtra(LicenseActivity.ASSET, linkTextData.asset)
                             context.startActivity(intent)
                         } else {
                             println("orange: url ${linkTextData.text}")
