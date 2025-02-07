@@ -436,6 +436,9 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
+        if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+            return
+        }
         binding.root.requestApplyInsets()
         bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
             state = BottomSheetBehavior.STATE_EXPANDED
