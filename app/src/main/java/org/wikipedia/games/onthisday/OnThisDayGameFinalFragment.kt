@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -196,7 +197,7 @@ class OnThisDayGameFinalFragment : Fragment() {
 
         override fun onClick(v: View) {
             WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
-            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page) { updateBookmark() }
+            ExclusiveBottomSheetPresenter.show(requireActivity().supportFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
         }
     }
 
