@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -37,8 +38,8 @@ import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -148,50 +149,86 @@ fun AboutWikipediaScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor,
         content = { paddingValues ->
-            Column(
-                modifier = modifier
-                    .padding(paddingValues)
-                    .verticalScroll(rememberScrollState()),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                AboutWikipediaImage(
-                    onSecretCountClick = { isEnabled ->
-                        scope.launch {
-                            when (isEnabled) {
-                                true -> {
-                                    snackbarHostState.showSnackbar(
-                                        message = context.getString(R.string.show_developer_settings_already_enabled),
-                                        duration = SnackbarDuration.Short
-                                    )
-                                }
+           AboutScreenContent(
+               modifier = Modifier
+                   .padding(paddingValues),
+               versionName = versionName,
+               credits = credits,
+               snackbarHostState = snackbarHostState,
+               scope = scope,
+               context = context
+           )
+        }
+    )
+}
 
-                                false -> {
-                                    snackbarHostState.showSnackbar(
-                                        message = context.getString(R.string.show_developer_settings_enabled),
-                                        duration = SnackbarDuration.Short
-                                    )
-                                }
-                            }
-                        }
+@Composable
+fun AboutScreenContent(
+    modifier: Modifier = Modifier,
+    versionName: String,
+    credits: List<LinkTextData>,
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    context: Context
+) {
+    Column(
+        modifier = modifier
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        AboutWikipediaHeader(
+            versionName = versionName,
+            snackbarHostState = snackbarHostState,
+            scope = scope,
+            context = context
+        )
+        Spacer(Modifier.height(20.dp))
+        AboutScreenBody(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp),
+            credits = credits
+        )
+        Spacer(Modifier.height(24.dp))
+        AboutScreenFooter()
+    }
+}
+
+@Composable
+fun AboutWikipediaHeader(
+    modifier: Modifier = Modifier,
+    versionName: String,
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    context: Context
+) {
+    AboutWikipediaImage(
+        onSecretCountClick = { isEnabled ->
+            scope.launch {
+                when (isEnabled) {
+                    true -> {
+                        snackbarHostState.showSnackbar(
+                            message = context.getString(R.string.show_developer_settings_already_enabled),
+                            duration = SnackbarDuration.Short
+                        )
                     }
-                )
-                Text(
-                    modifier = Modifier
-                        .padding(vertical = 16.dp),
-                    text = versionName,
-                    fontSize = 14.sp,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                Spacer(Modifier.height(20.dp))
-                AboutScreenBody(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 16.dp),
-                    credits = credits
-                )
-                AboutScreenFooter()
+
+                    false -> {
+                        snackbarHostState.showSnackbar(
+                            message = context.getString(R.string.show_developer_settings_enabled),
+                            duration = SnackbarDuration.Short
+                        )
+                    }
+                }
             }
         }
+    )
+    Text(
+        modifier = Modifier
+            .padding(vertical = 16.dp),
+        text = versionName,
+        fontSize = 14.sp,
+        color = WikipediaTheme.colors.primaryColor
     )
 }
 
@@ -247,7 +284,7 @@ fun AboutScreenBody(
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
         LinkTextWithHeader(
             header = stringResource(R.string.about_contributors_heading),
@@ -263,12 +300,9 @@ fun AboutScreenBody(
             header = stringResource(R.string.about_libraries_heading),
             credits = credits,
             textStyle = TextStyle(
-                fontSize = 14.sp,
-                lineHeight = 1.6.em
+                fontSize = 14.sp
             )
         )
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         LinkTextWithHeader(
             header = stringResource(R.string.about_app_license_heading),
@@ -317,7 +351,8 @@ fun LinkTextWithHeader(
     )
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier
     ) {
         Text(
             text = header,
@@ -339,7 +374,8 @@ fun LicenseTextWithHeader(
     textStyle: TextStyle
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier
     ) {
         Text(
             text = header,

@@ -12,6 +12,7 @@ import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withLink
+import androidx.compose.ui.unit.em
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.LicenseActivity
 
@@ -59,6 +60,7 @@ fun LicenseLinkText(
     Text(
         text = annotatedString,
         modifier = modifier,
-        style = textStyle
+        style = textStyle,
+        lineHeight = 1.6.em
     )
 }

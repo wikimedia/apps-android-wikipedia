@@ -10,9 +10,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import androidx.core.text.toHtml
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.richtext.CustomHtmlParser
 
 @Composable
 fun HtmlText(
@@ -25,18 +23,17 @@ fun HtmlText(
     ),
     normalStyle: TextStyle = TextStyle(
         color = WikipediaTheme.colors.secondaryColor,
-        fontSize = 14.sp,
-        lineHeight = 1.6.em
+        fontSize = 14.sp
     ),
     modifier: Modifier = Modifier
 ) {
     Text(
         modifier = modifier,
         text = AnnotatedString.fromHtml(
-            htmlString = CustomHtmlParser.fromHtml(html).toHtml(),
+            htmlString = html,
             linkStyles = linkStyle
         ),
-
-        style = normalStyle
+        style = normalStyle,
+        lineHeight = 1.6.em
     )
 }
