@@ -21,6 +21,7 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
+import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -66,6 +67,9 @@ class OnThisDayGameActivity : BaseActivity() {
     private val goNextAnimatorSet = AnimatorSet()
     private val cardAnimatorSet = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var newStatusBarInsets: Insets
+    private lateinit var newNavBarInsets: Insets
+    private var toolbarHeight: Int = 0
     private var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>? = null
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -104,19 +108,20 @@ class OnThisDayGameActivity : BaseActivity() {
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
-            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            toolbarHeight = DimenUtil.getToolbarHeightPx(this)
 
             binding.appBarLayout.updatePadding(top = newStatusBarInsets.top)
 
             var params = binding.currentQuestionContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
+            params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
             params = binding.fragmentContainerFinish.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = DimenUtil.getToolbarHeightPx(this) + newStatusBarInsets.top + newNavBarInsets.top
+            params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
@@ -209,7 +214,7 @@ class OnThisDayGameActivity : BaseActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun calculateBottomSheetTopPadding(insets: Int): Int {
-        val collapsedPadding = DimenUtil.getToolbarHeightPx(this) + insets
+        val collapsedPadding = toolbarHeight + insets
         val expandedPadding = insets
         val topPadding = when (bottomSheetBehavior?.state) {
             BottomSheetBehavior.STATE_COLLAPSED -> collapsedPadding
@@ -443,7 +448,12 @@ class OnThisDayGameActivity : BaseActivity() {
                 }
             }
 
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                val topPadding = toolbarHeight + slideOffset * (newStatusBarInsets.top - toolbarHeight)
+                bottomSheet.updatePadding(
+                    top = topPadding.toInt()
+                )
+            }
         })
 
         val dialogBinding = binding.articleDialogContainer
