@@ -14,7 +14,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -105,7 +104,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.resultText.text = getString(R.string.on_this_day_game_result, totalCorrect, gameState.totalQuestions)
 
         val cardContainerColor = when (totalCorrect) {
-            0, 2 -> R.color.yellow500
+            0, 1, 2 -> R.color.yellow500
             3, 4 -> R.color.orange500
             else -> R.color.green600
         }
@@ -180,15 +179,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page, object : BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet: View, newState: Int) {
-                    if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                        updateBookmark()
-                    }
-                }
-
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
-            })
+            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page) { updateBookmark() }
         }
     }
 
