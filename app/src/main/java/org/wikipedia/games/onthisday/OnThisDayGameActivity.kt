@@ -67,8 +67,8 @@ class OnThisDayGameActivity : BaseActivity() {
     private val goNextAnimatorSet = AnimatorSet()
     private val cardAnimatorSet = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
-    private lateinit var newStatusBarInsets: Insets
-    private lateinit var newNavBarInsets: Insets
+    private var newStatusBarInsets: Insets? = null
+    private var newNavBarInsets: Insets? = null
     private var toolbarHeight: Int = 0
     private var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>? = null
 
@@ -108,8 +108,10 @@ class OnThisDayGameActivity : BaseActivity() {
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
-            newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            this.newStatusBarInsets = newStatusBarInsets
+            this.newNavBarInsets = newNavBarInsets
             toolbarHeight = DimenUtil.getToolbarHeightPx(this)
 
             binding.appBarLayout.updatePadding(top = newStatusBarInsets.top)
@@ -452,7 +454,7 @@ class OnThisDayGameActivity : BaseActivity() {
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                val topPadding = toolbarHeight + slideOffset * (newStatusBarInsets.top - toolbarHeight)
+                val topPadding = toolbarHeight + slideOffset * ((newStatusBarInsets?.top ?: 0) - toolbarHeight)
                 bottomSheet.updatePadding(
                     top = topPadding.toInt()
                 )
