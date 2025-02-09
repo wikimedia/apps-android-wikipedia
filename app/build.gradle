@@ -258,6 +258,7 @@ dependencies {
     testImplementation libs.room.testing
 
     androidTestImplementation libs.espresso.contrib
+    androidTestImplementation libs.androidx.espresso.intents
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
