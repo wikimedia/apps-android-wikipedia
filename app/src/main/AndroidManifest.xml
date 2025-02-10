@@ -102,7 +102,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
-                <data android:host="games"/>
             </intent-filter>
         </activity>
         <activity
