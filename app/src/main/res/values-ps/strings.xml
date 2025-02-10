@@ -49,8 +49,11 @@
   <string name="search_redirect_from">له %s څخه مخ گرځېدلی</string>
   <string name="page_edit_history_activity_title">د مخکتنو پېښليک: %s</string>
   <string name="menu_page_other_languages">ژبه بدلول</string>
-  <string name="menu_page_find_in_page" fuzzy="true">په مخ کې موندل</string>
+  <string name="menu_page_find_in_page">په ليکنه کې موندل</string>
+  <string name="menu_page_add_to_watchlist">کتنلړ کې ورگډول</string>
   <string name="menu_page_watch">کتل</string>
+  <string name="menu_page_unwatch">نه کتل</string>
+  <string name="menu_page_view_talk">د خبرو اترو مخ کتل</string>
   <string name="menu_page_talk_page">د خبرواترو مخ</string>
   <string name="menu_page_view_edit_history">د سمون پېښليک کتل</string>
   <string name="menu_page_edit_history">پېښليک سمول</string>
@@ -125,6 +128,7 @@
   <string name="preference_title_logout">وتل</string>
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="logout_dialog_cancel_button_text">ناگارل</string>
+  <string name="logged_out_in_background_title">ووتلۍ</string>
   <string name="logged_out_in_background_login">ننوتل</string>
   <string name="logged_out_in_background_cancel">ناگارل</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
@@ -139,7 +143,8 @@
   <string name="create_account_next">راتلونکی</string>
   <string name="create_account_button">گڼون جوړول</string>
   <string name="preferences_general_heading">ټولگړی</string>
-  <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ.ځ.پ</string>
+  <string name="preferences_account_heading">گڼون</string>
+  <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ‌ځ‌پ</string>
   <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>
   <string name="create_account_account_created_toast">گڼون مو جوړ شو!</string>
   <string name="preference_title_auto_upload_crash_reports">د ټکر راپورونه لېږل</string>
@@ -212,13 +217,27 @@
   <string name="button_continue_to_article">ليکنه لوستل</string>
   <string name="button_get_directions">لارښوونې ترلاسه کول</string>
   <string name="nav_item_donate" fuzzy="true">د ويکيپېډيا ملاتړ وکړئ</string>
+  <string name="enable_location_service">چارنول</string>
+  <string name="link_preview_dialog_read_button">لوستل</string>
+  <string name="link_preview_dialog_save_button">خوندي کول</string>
+  <string name="link_preview_dialog_saved_button">خوندي شو</string>
+  <string name="link_preview_dialog_share_button">شريکول</string>
   <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
+  <string name="article_menu_bar_save_button">خوندي کول</string>
+  <string name="article_menu_bar_language_button">ژبه</string>
+  <string name="article_menu_bar_search_button">پلټل</string>
+  <string name="article_menu_bar_theme_button">پوښۍ</string>
+  <string name="article_menu_bar_contents_button">منځپانگې</string>
   <string name="article_header_edit_hint">سمول…</string>
   <string name="color_theme_select">شازمکه</string>
   <string name="color_theme_light">رڼا</string>
   <string name="color_theme_dark">تياره</string>
+  <string name="color_theme_black">تور</string>
+  <string name="color_theme_sepia">قهوه‌يي</string>
+  <string name="color_theme_test_title">د متن نمونه</string>
+  <string name="text_style_title">ليکبڼه</string>
   <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
   <string name="reading_list_create_new">نوی جوړول</string>
   <string name="reading_list_added_view_button">لړليک کتل</string>
@@ -226,6 +245,8 @@
   <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">اوډنه تر ټولو تازه له مخې</string>
   <string name="reading_list_menu_delete">لړليک ړنگول</string>
+  <string name="reading_list_menu_select">ټاکل</string>
+  <string name="reading_list_menu_unselect">ناټاکل</string>
   <string name="reading_list_menu_rename" fuzzy="true">بيانومول</string>
   <string name="reading_list_name_sample">زما لوست لړليک</string>
   <string name="reading_list_name_hint">د دې لړليک نوم</string>
@@ -233,6 +254,7 @@
   <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
+  <string name="reading_list_select_item">ټاکل</string>
   <string name="reading_lists_login_button">ننوتل/ويکيپېډيا سره ورگډېدل</string>
   <string name="reading_lists_ignore_button">اوس نه</string>
   <string name="reading_lists_confirm_remote_delete_yes">هو</string>
@@ -240,6 +262,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ناگارل</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ننوتل</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ښه</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">امستنې</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ښه</string>
   <string name="reading_list_delete_dialog_ok_button_text">ښه</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">ناگارل</string>
@@ -271,7 +294,20 @@
   <string name="feed_configure_menu_select_all">ټول ښکاره کول</string>
   <string name="feed_configure_menu_deselect_all">ټول پټول</string>
   <string name="feed_language_variants_removal_dialog_save">خوندي کول</string>
+  <string name="description_edit_article_description_label">ليکنه</string>
+  <string name="description_edit_cancel_hint">ناگارل</string>
+  <string name="description_edit_help_about_wikidata">د ويکيډاټا په اړه</string>
+  <string name="description_edit_success_done">وشو</string>
+  <string name="description_edit_success_did_you_know">آيا په دې پوهېدلې؟</string>
   <string name="suggested_edits_menu_info">مالومات</string>
+  <string name="remove_language_dialog_cancel_button_text">ناگارل</string>
+  <string name="remove_language_dialog_ok_button_text">ښه</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">ښه</string>
+  <string name="protected_page_warning_dialog_ok_button_text">ښه</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">ښه</string>
+  <string name="edit_conflict_dialog_ok_button_text">ښه</string>
+  <string name="reverted_edit_dialog_ok_button_text">ښه</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">ناگارل</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلول</string>
   <string name="watchlist_expiry_dialog_one_week">1 اونۍ</string>
   <string name="watchlist_filter_all">ټول</string>
@@ -279,4 +315,6 @@
   <string name="watchlist_filter_other">بل</string>
   <string name="shareable_reading_lists_new_indicator">*نوی*</string>
   <string name="talk_templates_new_message_save">خوندي کول</string>
+  <string name="on_this_day_game_menu_info">نور مالومات</string>
+  <string name="on_this_day_game_notification_undo">ناکړل</string>
 </resources>
