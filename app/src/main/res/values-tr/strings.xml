@@ -30,6 +30,7 @@
 * Mirzali
 * MrSchipunov
 * MuratTheTurkish
+* Nabbegat
 * Okkerem
 * Oyuncu
 * Rapsar
@@ -145,7 +146,7 @@
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burayı düzenle</string>
-  <string name="menu_edit_article">Makaleyi düzenle</string>
+  <string name="menu_edit_article">Maddeyi düzenle</string>
   <string name="last_updated_text">Son güncelleme: %s</string>
   <string name="talk_page_link_text">Tartışma sayfasını görüntüle</string>
   <string name="edit_history_link_text">Düzenleme geçmişini görüntüle</string>
@@ -1467,7 +1468,7 @@
   <string name="page_no_categories">Bulunduğunuz sayfa herhangi bir kategoriye ait değildir.</string>
   <string name="category_tab_articles">Makaleler</string>
   <string name="category_tab_subcategories">alt kategoriler</string>
-  <string name="category_empty">kategoride makale bulunamadı.</string>
+  <string name="category_empty">Bu kategoride madde bulunamadı.</string>
   <string name="subcategory_empty">Bu kategoride alt kategori bulunamadı.</string>
   <string name="search_namespaces">Ad alanları</string>
   <string name="revision_initial_none">Yok (bu ilk sürümdür)</string>

@@ -552,7 +552,7 @@
     <item quantity="many">%d artykułów</item>
     <item quantity="other">%d artykułu</item>
   </plurals>
-  <plurals name="format_reading_list_statistical_summary" fuzzy="true">
+  <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artykuł, %2$.2f MB</item>
     <item quantity="few">%1$d artykuły, %2$.2f MB</item>
     <item quantity="many">%1$d artykułów, %2$.2f MB</item>
@@ -1531,7 +1531,7 @@
   </plurals>
   <string name="preview_edit_title">Podgląd edycji</string>
   <string name="preview_edit_summarize_edit_title">Podsumuj edycję</string>
-  <string name="preview_edit_summarize_edit_hint">Jak poprawiłeś tę stronę?</string>
+  <string name="preview_edit_summarize_edit_hint">Jak poprawiłeś(-aś) tę stronę?</string>
   <string name="preview_edit_minor_edit">To jest drobna zmiana</string>
   <string name="preview_edit_watch_this_page">Obserwuj tę stronę</string>
   <string name="preview_edit_learn_more">Dowiedz się więcej o podsumowaniach edycji</string>
@@ -1731,11 +1731,27 @@
   <string name="on_this_day_game_stats_average_score">Średni wynik</string>
   <string name="on_this_day_game_stats_streak">Aktualna passa</string>
   <string name="on_this_day_game_result_subtitle">Artykuły przywołane w dzisiejszej grze</string>
+  <string name="on_this_day_game_menu_notifications">Powiadomienia o codziennej grze</string>
   <string name="on_this_day_game_menu_info">Dowiedz się więcej</string>
-  <string name="on_this_day_game_share_text">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida %s</string>
+  <string name="on_this_day_game_menu_feedback">Problem z funkcją</string>
+  <string name="on_this_day_game_share_text">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida. Dołącz do mnie: %s</string>
   <string name="on_this_day_game_article_read_button">Przeczytaj artykuł</string>
   <string name="on_this_day_game_article_related_event_title">Wydarzenie związane z tym artykułem</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Dobrze odpowiedziałeś na to pytanie</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Źle odpowiedziałeś na to pytanie</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Wyłączyć powiadomienia o codziennej grze?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Jeśli wyłączysz powiadomienia push, przestaniesz otrzymywać codzienne przypomnienia, kiedy nowa gra będzie dostępna.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Włączyć powiadomienia o codziennej grze?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Powiadomienia o codziennej grze będą Cię informować o dostępności nowej gry.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nie, niech pozostaną włączone</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Wyłącz je</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Tak, włącz je</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Niech pozostaną wyłączone</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Powiadomienia o codziennej grze wyłączone.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Powiadomienia o codziennej grze włączone.</string>
+  <string name="on_this_day_game_notification_text">Dzisiejsza gra „Co było pierwsze?” jest już gotowa do rozgrywki!</string>
+  <string name="on_this_day_game_report_email_subject">Zgłoś problem – gry Wikipedii</string>
+  <string name="on_this_day_game_report_email_body">Napotkałem(-am) problem z funkcją gier Wikipedii:\n- [Opisz konkretny problem]\n\nOczekiwane działanie:\n- [Opisz proponowane rozwiązanie]</string>
   <string name="on_this_day_game_notification_undo">Cofnij</string>
+  <string name="on_this_day_game_share_link_message">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida. Dołącz do mnie: %s</string>
 </resources>

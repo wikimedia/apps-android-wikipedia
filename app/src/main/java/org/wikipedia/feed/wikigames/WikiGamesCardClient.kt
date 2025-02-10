@@ -26,5 +26,5 @@ class WikiGamesCardClient() : FeedClient {
         cb.success(cards)
     }
 
-    override fun cancel() {}
+    override fun cancel() { }
 }

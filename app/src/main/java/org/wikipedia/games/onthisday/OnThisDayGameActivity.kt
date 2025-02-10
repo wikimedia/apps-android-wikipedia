@@ -63,6 +63,7 @@ import java.time.format.FormatStyle
 import java.util.Locale
 
 class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
+
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
@@ -80,6 +81,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         callback = this
+
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -201,12 +203,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                     body = getString(R.string.on_this_day_game_report_email_body))
                 true
             }
-
             R.id.menu_notifications -> {
                 OnThisDayGameNotificationManager(this).handleNotificationClick()
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }
