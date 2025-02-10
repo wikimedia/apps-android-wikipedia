@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -145,6 +146,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     fun submitCurrentResponse(selectedYear: Int) {
         if (currentState.currentQuestionState.goToNext) {
+            WikiGamesEvent.submit("next_click", "game_play", slideName = getCurrentScreenName())
+
             val nextQuestionIndex = currentState.currentQuestionIndex + 1
 
             if (nextQuestionIndex >= currentState.totalQuestions) {
@@ -175,6 +178,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 _gameState.postValue(CurrentQuestion(currentState))
             }
         } else {
+            WikiGamesEvent.submit("select_click", "game_play", slideName = getCurrentScreenName())
+
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(yearSelected = selectedYear, goToNext = true))
 
             val isCorrect = selectedYear == min(currentState.currentQuestionState.event1.year, currentState.currentQuestionState.event2.year)
@@ -190,6 +195,16 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
         }
         persistState()
+    }
+
+    fun getCurrentScreenName(): String {
+        return if (_gameState.value is GameEnded) {
+            "game_end"
+        } else if (_gameState.value is GameStarted) {
+            "game_start"
+        } else {
+            "game_play_" + (currentState.currentQuestionIndex + 1)
+        }
     }
 
     fun resetCurrentDayState() {

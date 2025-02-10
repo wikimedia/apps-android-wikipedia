@@ -31,6 +31,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
 
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
         return binding.root
     }
 
@@ -38,6 +39,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.playGameButton.setOnClickListener {
+            WikiGamesEvent.submit("play_click", "game_play", slideName = viewModel.getCurrentScreenName())
             requireActivity().supportFragmentManager.popBackStack()
             (requireActivity() as? OnThisDayGameActivity)?.animateQuestions()
         }

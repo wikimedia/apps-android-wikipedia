@@ -18,6 +18,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -50,7 +51,11 @@ class OnThisDayGameFinalFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+
         binding.shareButton.setOnClickListener {
+            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
+
             // TODO: implement this (please remove the share fragment)
         }
 
@@ -155,11 +160,13 @@ class OnThisDayGameFinalFragment : Fragment() {
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemShare.setOnClickListener {
+                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
             }
             val isSaved = updateBookmark()
             binding.listItemBookmark.isVisible = true
             binding.listItemBookmark.setOnClickListener {
+                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 onBookmarkIconClick(it, page, position, isSaved)
             }
 
@@ -179,6 +186,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
+            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
             (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page) { updateBookmark() }
         }
     }
