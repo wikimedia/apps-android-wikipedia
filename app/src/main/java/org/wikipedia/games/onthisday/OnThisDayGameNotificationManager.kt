@@ -8,7 +8,6 @@ import android.content.Intent
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_DAILY_GAME
 import org.wikipedia.notifications.NotificationPresenter
@@ -112,11 +111,11 @@ class OnThisDayGameNotificationManager(private val activity: Activity) {
                     lang = null,
                     icon = null,
                     color = R.color.blue600,
-                    bodyIntent = MainActivity.newIntent(context).apply {
-                        putExtra(Constants.INTENT_GO_TO_WIKI_GAME, true)
-                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                        addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                    }
+                    bodyIntent = OnThisDayGameActivity.newIntent(
+                        context = context,
+                        invokeSource = Constants.InvokeSource.NOTIFICATION,
+                        wikiSite = WikipediaApp.instance.wikiSite
+                    )
                 )
             }
         }
