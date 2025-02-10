@@ -15,6 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
@@ -29,8 +30,6 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
-
-        // TODO: add analytics for InvokeSource
 
         return binding.root
     }
@@ -56,6 +55,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         fun maybeShowOnThisDayGameDialog(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
             if (!Prefs.otdEntryDialogShown && OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
                 Prefs.otdEntryDialogShown = true
+                WikiGamesEvent.submit("impression", "game_modal")
                 val dialogView = activity.layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
                 val dialog = MaterialAlertDialogBuilder(activity)
                     .setView(dialogView)
@@ -63,6 +63,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                     .show()
                 dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                     activity.startActivity(OnThisDayGameActivity.newIntent(activity, InvokeSource.PAGE_ACTIVITY, wikiSite))
+                    WikiGamesEvent.submit("enter_click", "game_modal")
                     dialog.dismiss()
                 }
                 dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
