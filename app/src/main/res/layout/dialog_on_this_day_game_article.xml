@@ -53,8 +53,8 @@
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/articleThumbnail"
-            android:layout_width="248dp"
-            android:layout_height="248dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:contentDescription="@null"
             android:src="@drawable/ic_w_logo_circle"
             android:scaleType="centerCrop"
@@ -68,8 +68,8 @@
 
         <org.wikipedia.views.WikiCardView
             android:id="@+id/articleSummaryContainer"
-            android:layout_width="248dp"
-            android:layout_height="248dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +82,7 @@
                 android:textColor="?attr/primary_color"
                 android:layout_margin="16dp"
                 android:ellipsize="end"
+                android:maxLines="8"
                 style="@style/P.Article"
                 tools:text="New Mexico[a] is a state in the Southwestern region of the United States."/>
 
@@ -186,6 +187,8 @@
                     android:id="@+id/relatedEventInfo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:maxLines="4"
+                    android:ellipsize="end"
                     style="@style/TextAppearance.Material3.BodyMedium"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
