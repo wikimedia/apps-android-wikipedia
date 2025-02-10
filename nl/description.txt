@@ -26,9 +26,11 @@ Stuur ons je terugkoppeling over de app! Druk in het menu op "Instellingen", dan
 
 De broncode is 100% vrij. Als je ervaring hebt met Java en de Android-SDK, kijken we uit naar je bijdragen! https://github.com/wikimedia/apps-android-wikipedia
 
-Verklaring voor toestemmingen vereist door de app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Door het gebruik van deze app, ga je akkoord met het automatisch indienen van crashrapportages bij een derdepartijdienstleverancier. Als je deze functie wilt uitschakelen, ga dan naar "Instellingen" en schakel onder het onderdeel Privacy "Crashrapportages versturen" uit. Verklaring voor toestemmingen vereist door de app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Privacybeleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Privacybeleid voor crashrapportages bij derdepartijdienstleverancier: https://privacy.microsoft.com/nl-nl/privacystatement
 
 Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

@@ -26,9 +26,11 @@ Seol d'aiseolas chugainn faoin aip! Sa roghchlár, brúigh "Socruithe", ansin "M
 
 Is é an cód foinse oscailte 100%. Má tá taithí agat le Java agus an SDK Android, ansin táimid ag tnúth le do chuid ranníocaíochtaí! https://github.com/wikimedia/apps-android-wikipedia
 
-Míniú ar na ceadanna a theastaíonn ón aip: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Tríd an aip seo a úsáid, aontaíonn tú le tarchur uathoibríoch tuairiscí tuairteála chuig soláthraí seirbhíse tríú páirtí. Más mian leat an ghné seo a dhíchumasú, brúigh "Socruithe," ansin scoránaigh "Seol tuairiscí tuairteála" faoin rannán Príobháideachas. Míniú ar na ceadanna a theastaíonn ón aip: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Beartas príobháideachais: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Beartas príobháideachais soláthraí seirbhíse tríú páirtí tuarascáil tuairteála: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Téarmaí Úsáide: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

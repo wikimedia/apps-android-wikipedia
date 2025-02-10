@@ -26,9 +26,11 @@ Saada meile oma arvamus rakendusest! Vajuta menüüs olles "Seaded" -> "Wikipedi
 
 Kood on 100% avatud lähtekoodiga. Kui sul on kogemusi Java ja Androidi SDK-ga, siis ootame sinu panust! https://github.com/wikimedia/apps-android-wikipedia
 
-Rakenduse kasutatavate lubade seletus: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Seda rakendust kasutades nõustud sellega, et automaatsed krahhiraportid saadetakse kolmanda osapoole teenusepakkujale. Kui soovid selle funktsiooni välja lülitada, siis vali "Seaded" ja lülita sektsionist "Privaatsus" välja "Saada krahhiraportid". Rakenduse kasutatavate lubade seletus: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Privaatsuspoliitika: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Krahhiraportite kolmanda osapoole privaatsuspoliitika: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Kasutustingimused: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

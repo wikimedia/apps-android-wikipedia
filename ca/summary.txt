@@ -1,1 +1,1 @@
-Visor oficial amb visualització enriquida de la Viquipèdia
+Visualitzador oficial ric de funcionalitats de la Viquipèdia

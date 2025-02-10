@@ -26,9 +26,11 @@ Send oss din tilbakemelding om programmet. I menyen, trykk "Innstillinger", så 
 
 100% fri kildekode. Hvis du har erfaring med Java og Android SDK-en, ser vi frem til bidrag fra deg. https://github.com/wikimedia/apps-android-wikipedia
 
-Forklaring av tilganger som brukes i programmet: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Ved å bruke dette programmet, samtykker du til innsending av automatiske krasjrapporter til en tredjepartstilbyder. Hvis du vil skru av denne funksjonen, trykk "Innstillinger", veksle så av "Send krasjrapporter" i hodeddelen. Forklaring av tilganger som brukes i programmet: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Personvernspraksis: https://meta.wikimedia.org/wiki/Privacy_policy/nb
+
+Personvernspraksis for forsendelse av krasjrapporter til tredjepartstjenestetilbydere: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Bruksvilkår: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

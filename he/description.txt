@@ -26,9 +26,11 @@
 
 הקוד הוא 100% פתוח. אם יש לך ניסיון עם Java ועם ה־SDK של Android, אז נשמח להיעזר בך לתרומות קוד! https://github.com/wikimedia/apps-android-wikipedia
 
-הסבר על ההרשאות שדרושות ליישומון: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+עצם השימוש ביישומון הזה מהווה את הסכמתך להעברת דוחות קריסה לספק שירות צד־שלישי. אם ברצונך להשבית את ההתנהגות הזאת, נא ללחוץ על „הגדרות” ואז לכבות את „שליחת דוחות קריסה” תחת סעיף הפרטיות. הסבר על ההרשאות שדרושות ליישומון: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 מדיניות פרטיות: https://meta.wikimedia.org/wiki/Privacy_policy/he
+
+מדיניות הפרטיות של ספק דיווחי קריסות מטעם צד־שלישי: https://privacy.microsoft.com/he-il/privacystatement
 
 תנאי השימוש: https://m.wikimediafoundation.org/wiki/Terms_of_Use/he
 

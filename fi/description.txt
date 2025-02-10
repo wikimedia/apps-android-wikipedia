@@ -26,9 +26,11 @@ Lähetä meille palautetta sovelluksesta! Valikossa paina "Asetukset", sitten "T
 
 Koodi on 100 % avointa lähdekoodia. Jos sinulla on kokemusta Javasta ja Android SDK:sta, odotamme innolla apuasi! https://github.com/wikimedia/apps-android-wikipedia
 
-Selitykset sovelluksen pyytämiin lupiin löytyy sivulta: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Käyttämällä sovellusta hyväksyt automaattisten kaatumisilmoitusten lähettämisen kolmannen osapuolen palveluntarjoajalle. Jos haluat poistaa tämän ominaisuuden käytöstä, valitse "Asetukset", ja Yksityisyys-valikon alta ota pois päältä asetus "Lähetä kaatumisilmoitukset". Selitykset sovelluksen pyytämiin lupiin löytyy sivulta: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Tietosuojakäytännöt: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Kaatumisilmoituksia käsittelevän kolmannen osapuolen palveluntarjoajan tietosuojakäytäntö: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

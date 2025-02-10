@@ -26,9 +26,11 @@ Envoyez-nous des retours à propos de l'application ! Dans le menu, appuyez sur
 
 Le code est 100 % ouvert. Si vous avez de l'expérience avec Java et le SDK Android, alors nous attendons avec impatience vos contributions ! https://github.com/wikimedia/apps-android-wikipedia
 
-Explications des autorisations nécessaires à l’appli : https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+En utilisant cette appli, vous acceptez la transmission automatique de relevés de plantage à un fournisseur de service tiers. Si vous souhaitez désactiver cette fonction, veuillez appuyer sur « Paramètres », puis désactiver « Envoyer des relevés de plantage » en dessous de la section Confidentialité. Explications des autorisations nécessaires à l’appli : https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Politique de confidentialité : https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Politique sur la vie privée du fournisseur de services tiers pour les rapports d'incident : https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Conditions d'utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

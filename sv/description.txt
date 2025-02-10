@@ -26,9 +26,11 @@ Skicka oss din återkoppling om appen! I menyn, klicka på ”Inställningar” 
 
 Appen består av 100% öppen källkod. Om du har erfarenhet av Java och Android SDK ser vi fram emot att du hjälper oss! https://github.com/wikimedia/apps-android-wikipedia
 
-Förklaring av behörigheter som krävs av appen: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Genom att använda denna app, samtycker du till automatisk överföring av felrapporter till en utomstående tjänsteleverantör. Om du vill inaktivera den här funktionen, vänligen tryck på ”Inställningar” och inaktivera ”Skicka kraschrapporter” under avsnittet Sekretess. Förklaring av behörigheter som krävs av appen: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Sekretesspolicy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Krasch rapport tredjepartsleverantörs sekretesspolicy: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

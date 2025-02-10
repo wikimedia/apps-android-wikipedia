@@ -26,9 +26,11 @@
 
 Исходный код полностью находится в открытом доступе. Если у вас есть опыт программирования на Java с использованием Android SDK, нам не терпится увидеть вас в рядах участников! https://github.com/wikimedia/apps-android-wikipedia
 
-Какие разрешения нужны приложению, можно прочесть по ссылке: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Пользуясь приложением, вы соглашаетесь на автоматическую передачу отчетов о сбоях в приложении сторонним поставщикам услуг. Если хочется этого избежать, снимите галочку в пункте "Посылать отчеты о сбоях" (он находится в "Настройках" в разделе "Конфиденциальность"). Какие разрешения нужны приложению, можно прочесть по ссылке: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Конфиденциальность данных: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Конфиденциальность данных при отчетах о сбоях, посылаемых сторонним поставщикам услуг: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Правила пользования: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

@@ -26,9 +26,11 @@ Wikipedia Zero - Accede a Wikipedia para Android sin cargos de datos para los op
 
 El código es 100% de código abierto. Si tiene experiencia con Java y el SDK de Android, ¡esperamos sus contribuciones! Https://github.com/wikimedia/apps-android-wikipedia
 
-Explicación de los permisos necesarios para la aplicación: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Al utilizar esta aplicación, acepta la transmisión automática de informes de fallos a un proveedor de servicios de terceros. Si desea desactivar esta función, pulse "Configuración" y, a continuación, desactive "Enviar informes de error" en la sección Privacidad. Explicación de los permisos necesarios para la aplicación: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Política de privacidad: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Informe de fallos sobre la política de privacidad de un proveedor de servicios de terceros: : https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

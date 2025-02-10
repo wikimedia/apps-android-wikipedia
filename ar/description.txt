@@ -26,9 +26,11 @@
 
 الكود هو 100 ٪ مفتوح المصدر . إذا كان لديك تجربة مع جافا و اندرويدSDK ، نحن نتطلع إلى مشاركتك معنا! https://github.com/wikimedia/apps-android-wikipedia
 
-شرح الأذونات التي يحتاجها التطبيق: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+باستخدام هذا التطبيق، أنت توافق على المشاركة التلقائية لتقارير الأعطال إلى موفر خدمة الطرف الثالث. إذا كنت ترغب في تعطيل هذه الميزة، الرجاء اضغط على "إعدادات"، ثم التبديل إيقاف تشغيل "إرسال تقارير الأعطال" ضمن المقطع الخصوصية. شرح الأذونات التي يحتاجها التطبيق: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 سياسة الخصوصية : https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+تقارير الأخطاء سياسة الخصوصية موفر خدمة الطرف الثالث : https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 شروط الإستخدام : https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

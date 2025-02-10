@@ -26,9 +26,11 @@ Envie-nos sua opinião sobre o app! No menu, pressione "Configurações", "Sobre
 
 O código é 100% open source. Se você tem experiência com o Java e o Android SDK, esperamos ansiosamente por suas contribuições! https://github.com/wikimedia/apps-android-wikipedia
 
-Explicação das permissões necessárias pelo aplicativo: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Ao usar este aplicativo, você concorda com a transmissão automática de relatórios de falhas para um provedor de serviços terceirizado. Se você quiser desativar esse recurso, pressione "Configurações" e desative "Enviar relatórios de falhas" na seção Privacidade. Explicação das permissões necessárias pelo aplicativo: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Política de privacidade: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Política de privacidade do provedor de serviços terceirizados do relatório de falhas: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Termos de Uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

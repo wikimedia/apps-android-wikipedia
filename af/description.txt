@@ -26,9 +26,11 @@ Stuur ons jou terugvoer oor die program! In die kieslys, press "Instellings", da
 
 Die kode is 100% oop bron. As jy ondervinding het met Java en die Android SDK, dan sien ons uit na jou bydraes! https://github.com/wikimedia/Apps-Android-Wikipedia
 
-Verduideliking van regte benodig nodig deur die program: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Deur die program te gebruik, gee jy imlisiet toestemming tot outomatiese versending van fout verslaeaan 'n derdeparty diensverskaffer. As jy wil graag hierdie funksie deaktiveer, Tik "Instellings", "Stuur fout verslae" onder die algemene afdeling. Verduideliking van regte benodig nodig deur die program: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Privaatheid beleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Programfout verslag derdeparty diens verskaffer se privaatheidsbeleid: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Gebruikvoorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

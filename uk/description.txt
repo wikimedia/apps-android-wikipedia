@@ -26,9 +26,11 @@ Explore feed - Новий ‘explore feed’ пропонує рекомендо
 
 Код на 100% відкритий. Якщо у вас є досвід роботи з Java та Android SDK, тоді ми з нетерпінням чекаємо ваших внесків! https://github.com/wikimedia/apps-android-wikipedia
 
-Пояснення необхідних застосунку дозволів: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Використовуючи цей застосунок, ви погоджуєтесь автоматично надсилати звіти про аварійне завершення роботи стороннім постачальникам послуг. Якщо ви хочете вимкнути цю функцію, будь ласка, натисніть "Налаштування", а потім вимкніть "Надсилати звіти про аварійне завершення роботи" у розділі Конфіденційність. Пояснення необхідних застосунку дозволів: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Політика приватності: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Політика приватності сторонніх постачальників послуг звітів про збої: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Умови користування: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

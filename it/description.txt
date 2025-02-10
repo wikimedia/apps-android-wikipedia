@@ -26,9 +26,11 @@ Inviaci la tua opinione sull'app! Dal menu, premi "Impostazioni", quindi "Circa 
 
 Il codice è 100% a sorgente aperto. Se hai esperienza con Java e con l'Android SDK, aspettiamo di vedere i tuoi contributi! https://github.com/wikimedia/apps-android-wikipedia
 
-Spiegazioni sui permessi necessari all'applicazione: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Usando quest'app accetti la trasmissione automatica di rapporti di crash a un servizio di terze parti. Se vuoi disabilitare questa funzione, premi «Impostazioni» e disabilita «Invia rapporti di crash» sulla sezione Privacy. Spiegazioni sui permessi necessari all'applicazione: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 Politica sulla privacy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Privacy policy del fornitore di terze parti sui rapporti di crash: https://www.microsoft.com/it-it/privacystatement/OnlineServices/Default.aspx
 
 Termini d'uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 

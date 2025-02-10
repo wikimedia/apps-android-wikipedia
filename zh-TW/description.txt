@@ -26,9 +26,11 @@ Android 版維基百科官方應用程式可用於查詢，發現和瀏覽維基
 
 程式碼 100% 開源。如果您有 Java 和 Android SDK 開發經驗，我們期待您的參與！https://github.com/wikimedia/apps-android-wikipedia
 
-有關該應用所需許可權的說明，請訪問：https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+使用該應用，表示同意自動傳送崩潰報告至第三方服務提供商。如需禁用該功能，請選擇“設定”，關閉“常規”下的“傳送崩潰報告”選項。有關該應用所需許可權的說明，請訪問：https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
 隱私政策：https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+崩潰報告第三方服務提供商隱私政策：https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 使用條款：https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
