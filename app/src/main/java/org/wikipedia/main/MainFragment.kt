@@ -54,6 +54,7 @@ import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.gallery.MediaDownloadReceiver
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
@@ -329,6 +330,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             goToTab(NavTab.READING_LISTS)
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
+        } else if (intent.hasExtra(Constants.INTENT_GO_TO_WIKI_GAME)) {
+            startActivity(
+                OnThisDayGameActivity.newIntent(
+                    context = requireContext(),
+                    invokeSource = Constants.InvokeSource.NOTIFICATION,
+                    wikiSite = WikipediaApp.instance.wikiSite
+                )
+            )
         }
     }
 

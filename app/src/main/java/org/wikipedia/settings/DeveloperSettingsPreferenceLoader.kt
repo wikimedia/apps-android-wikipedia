@@ -25,6 +25,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil.fromHtml
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -207,6 +208,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_otd_notification_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.otdNotificationState = OnThisDayGameNotificationState.NO_INTERACTED
             OnThisDayGameNotificationManager.cancelDailyGameNotification(activity)
+            FeedbackUtil.showMessage(activity, "Notification state reset.")
             true
         }
     }
