@@ -1531,7 +1531,7 @@
   </plurals>
   <string name="preview_edit_title">Podgląd edycji</string>
   <string name="preview_edit_summarize_edit_title">Podsumuj edycję</string>
-  <string name="preview_edit_summarize_edit_hint">Jak {{GENDER:|poprawiłeś|poprawiłaś|poprawiłeś(-aś)}} tę stronę?</string>
+  <string name="preview_edit_summarize_edit_hint">Jak poprawiłeś(-aś) tę stronę?</string>
   <string name="preview_edit_minor_edit">To jest drobna zmiana</string>
   <string name="preview_edit_watch_this_page">Obserwuj tę stronę</string>
   <string name="preview_edit_learn_more">Dowiedz się więcej o podsumowaniach edycji</string>

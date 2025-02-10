@@ -83,7 +83,7 @@
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d editări de la %2$s (%3$s)</item>
     <item quantity="few">%1$d editări de la %2$s (%3$s)</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d editări de la %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Încercați să vă schimbați &lt;a href=\"#\"&gt;filters&lt;/a&gt; pentru a vedea mai multe editări</string>
   <string name="menu_page_show_tabs">Arată filele</string>
