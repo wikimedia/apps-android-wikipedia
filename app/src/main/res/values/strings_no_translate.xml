@@ -22,6 +22,7 @@
     <string name="donate_email">donate@wikimedia.org</string>
     <string name="donor_privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Donor_privacy_policy</string>
     <string name="on_this_day_game_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/TrivaGame</string>
+    <string name="on_this_day_game_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;referrer=utm_source%3Dgame%26utm_medium%3Dlink%26utm_campaign%3Dfirst</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
