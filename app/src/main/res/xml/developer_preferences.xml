@@ -451,4 +451,30 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="On this day game">
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_otd_entry_dialog_shown"
+            android:title="@string/preference_key_otd_entry_dialog_shown" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_otd_game_date_override"
+            android:title="Game date override (i.e. 2025-01-01)" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_otd_game_num_questions"
+            android:title="Game questions per day" />
+
+        <Preference
+            android:key="@string/preference_key_otd_game_state"
+            android:title="Reset today's game" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            android:key="@string/preference_key_otd_game_history"
+            android:title="Game history" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

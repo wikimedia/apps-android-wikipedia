@@ -18,6 +18,8 @@
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
 
+        <item name="materialCardViewStyle">@style/CardViewStyle</item>
+
         <item name="alertDialogTheme">@style/PreferenceDialogTheme</item>
         <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
 
@@ -187,6 +189,10 @@
         <item name="android:textColor">?attr/primary_color</item>
     </style>
 
+    <style name="H4.Label">
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="H5">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
@@ -349,6 +355,10 @@
 
     <style name="BottomNavigationTextAppearance.Active">
         <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="CardViewStyle" parent="@style/Base.Widget.Material3.CardView">
+        <item name="cardBackgroundColor">?attr/paper_color</item>
     </style>
 
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
