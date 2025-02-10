@@ -56,7 +56,9 @@ class OnThisDayGameFinalFragment : Fragment() {
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
 
-            // TODO: implement this (please remove the share fragment)
+            val shareMessage = getString(R.string.on_this_day_game_share_link_message,
+                getString(R.string.on_this_day_game_share_url))
+            ShareUtil.shareText(context = requireContext(), subject = "", text = shareMessage)
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {
