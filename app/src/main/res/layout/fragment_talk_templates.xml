@@ -97,7 +97,7 @@
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone"
-            android:layout_margin="12dp"
+            android:layout_margin="@dimen/activity_horizontal_margin"
             tools:visibility="visible">
 
             <ImageView
