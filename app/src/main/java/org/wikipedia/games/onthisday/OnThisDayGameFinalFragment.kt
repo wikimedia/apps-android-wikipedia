@@ -51,7 +51,9 @@ class OnThisDayGameFinalFragment : Fragment() {
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
         binding.shareButton.setOnClickListener {
-            // TODO: implement this (please remove the share fragment)
+            val shareMessage = getString(R.string.on_this_day_game_share_link_message,
+                getString(R.string.on_this_day_game_share_url))
+            ShareUtil.shareText(context = requireContext(), subject = "", text = shareMessage)
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {
