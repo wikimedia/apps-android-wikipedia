@@ -46,4 +46,6 @@
 
     <string name="preferences_developer_search_heading">Search</string>
     <string name="preferences_developer_search_hint">Search preferences…</string>
+    <string name="preferences_developer_otd_show_notification">Show otd game notification</string>
+    <string name="preference_developer_otd_reset_notification_state">Reset otd notification state</string>
 </resources>
