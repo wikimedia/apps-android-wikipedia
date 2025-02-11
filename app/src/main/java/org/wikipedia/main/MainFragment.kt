@@ -54,6 +54,7 @@ import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.gallery.MediaDownloadReceiver
+import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
@@ -169,6 +170,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         notificationButtonView = NotificationButtonView(requireActivity())
 
         maybeShowEditsTooltip()
+
+        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameSurvey(requireActivity())
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
