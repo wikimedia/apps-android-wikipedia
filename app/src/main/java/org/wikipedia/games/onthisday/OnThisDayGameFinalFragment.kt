@@ -160,14 +160,13 @@ class OnThisDayGameFinalFragment : Fragment() {
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
             }
             val isSaved = updateBookmark()
-            binding.listItemBookmark.isVisible = true
             binding.listItemBookmark.setOnClickListener {
                 onBookmarkIconClick(it, page, position, isSaved)
             }
 
             page.thumbnailUrl?.let {
                 binding.listItemThumbnail.isVisible = true
-                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
+                ViewUtil.loadImage(binding.listItemThumbnail, it)
             } ?: run {
                 binding.listItemThumbnail.isVisible = false
             }
