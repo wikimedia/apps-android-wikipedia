@@ -275,9 +275,9 @@
                 style="@style/P"
                 android:textStyle="bold"
                 android:text="@string/on_this_day_game_next"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/paper_color"
                 app:drawableEndCompat="@drawable/ic_arrow_forward_black_24dp"
-                app:drawableTint="@android:color/white"
+                app:drawableTint="?attr/paper_color"
                 android:drawablePadding="8dp" />
 
         </FrameLayout>
