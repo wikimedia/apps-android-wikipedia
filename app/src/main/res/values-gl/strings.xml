@@ -723,8 +723,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda de imaxe</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Engada etiquetas á imaxe</string>
-  <string name="suggested_edits_snackbar_survey_text">Como foi a súa experiencia editando? Por favor, adique un momento a cubrir a enquisa de edición na aplicación.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Comezar a enquisa</string>
   <string name="suggested_edits_task_action_text_add">Engadir</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Lendas das imaxes</string>

@@ -186,6 +186,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             threadItems.add(0, headerItem)
         }
 
+        // Remove empty items to prevent empty content from being displayed.
+        threadItems.removeIf { TalkTopicActivity.isHeaderTemplate(it) && it.replies.isEmpty() && it.othercontent.isEmpty() }
+
         sortedThreadItems = threadItems.filter { it.plainText.contains(currentSearchQuery.orEmpty(), true) ||
                 it.plainOtherContent.contains(currentSearchQuery.orEmpty(), true) ||
                 it.allReplies.any { reply -> reply.plainText.contains(currentSearchQuery.orEmpty(), true) ||

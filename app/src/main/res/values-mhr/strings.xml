@@ -641,7 +641,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сӱрет деке возышым ешараш</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сӱрет деке возышым ешараш (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сӱрет деке тег-влакым ешараш</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Йодыштмашым эрташ</string>
   <string name="suggested_edits_task_action_text_add">Ешараш</string>
   <string name="suggested_edits_task_action_text_translate">Кусараш</string>
   <string name="suggested_edits_image_captions">Сӱрет деке возыш-влак</string>

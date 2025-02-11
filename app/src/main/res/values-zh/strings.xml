@@ -5,6 +5,7 @@
 * A Retired User
 * AYZ04
 * Bo77le
+* Chimes
 * Cookai1205
 * Cwek
 * Davidzdh
@@ -197,6 +198,10 @@
   <string name="dialog_message_leaving_edit">您的修改还没有发布。您确定要离开本页吗？</string>
   <string name="dialog_message_leaving_edit_leave">离开</string>
   <string name="dialog_message_leaving_edit_stay">留下</string>
+  <string name="dialog_confirm_delete_donation_history_title">确认删除</string>
+  <string name="dialog_confirm_delete_donation_history_message">这仅适用于从此设备进行的捐赠。</string>
+  <string name="dialog_confirm_delete_donation_history_delete">删除</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">取消</string>
   <string name="menu_show_toc">目录</string>
   <string name="search_no_results_found">找不到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
@@ -481,6 +486,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">在夜间主题下调暗图像</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载离线可用的条目而不是始终加载条目的最新版本来节省数据使用量</string>
+  <string name="preference_title_delete_local_donation_history">删除本地捐赠记录</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">匹配系统主题</string>
   <string name="page_footer_license_text">除非另有说明，否则内容基于$1授权</string>
   <string name="empty_tab_title">新建标签页</string>
@@ -1037,8 +1043,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">添加图像说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加图像说明（%s）</string>
   <string name="suggested_edits_feed_card_add_image_tags">添加图像标签</string>
-  <string name="suggested_edits_snackbar_survey_text">您的编辑体验如何？请花点时间填写一下关于应用内编辑的调查。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
   <string name="suggested_edits_task_action_text_translate">翻译</string>
   <string name="suggested_edits_image_captions">图像说明</string>
@@ -1708,6 +1712,7 @@
   <string name="donate_gpay_help_other_ways">其他捐赠方式</string>
   <string name="donate_gpay_help_faq">常见问题</string>
   <string name="donate_gpay_help_tax">减税信息</string>
+  <string name="donation_history_deleted_message_snackbar">捐赠者历史已删除</string>
   <string name="places_title">地点</string>
   <string name="places_permissions_denied">需要位置权限才能在地图上显示您的位置。请重试。</string>
   <string name="places_search_hint">搜索地点</string>

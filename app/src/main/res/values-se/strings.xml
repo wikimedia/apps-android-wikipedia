@@ -977,8 +977,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Lasit govvateavstta</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lasit govvateavstta (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Lasit govvagilkoriid</string>
-  <string name="suggested_edits_snackbar_survey_text">Movt lei rievdadanvásáhus dutnje? Bija áinnas moadde minuhta deavdit jearranskovi mii lea áppa bokte rievdadeami birra.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Searvva iskkadeapmái</string>
   <string name="suggested_edits_task_action_text_add">Lasit</string>
   <string name="suggested_edits_task_action_text_translate">Jorgal</string>
   <string name="suggested_edits_image_captions">Govvateavsttat</string>

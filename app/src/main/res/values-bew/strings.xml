@@ -923,8 +923,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Tambahin keterangan gambar</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Tambahin keterangan gambar (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Tambahin tenger gambar</string>
-  <string name="suggested_edits_snackbar_survey_text">Gimana mermaknya? Tulung dah barang bentaran isi ni angkèt pasal mermak dalem-aplikasi.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Isi Angkèt</string>
   <string name="suggested_edits_task_action_text_add">Tambahin</string>
   <string name="suggested_edits_task_action_text_translate">Terjemahin</string>
   <string name="suggested_edits_image_captions">Keterangan gambar</string>

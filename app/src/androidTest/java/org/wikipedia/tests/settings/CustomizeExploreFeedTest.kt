@@ -7,6 +7,7 @@ import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.SystemRobot
+import org.wikipedia.robots.feature.ExploreFeedRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
@@ -20,6 +21,7 @@ class CustomizeExploreFeedTest : BaseTest<MainActivity>(
     private val bottomNavRobot = BottomNavRobot()
     private val settingsRobot = SettingsRobot()
     private val systemRobot = SystemRobot()
+    private val exploreFeedRobot = ExploreFeedRobot()
 
     @Test
     fun runTest() {
@@ -38,7 +40,8 @@ class CustomizeExploreFeedTest : BaseTest<MainActivity>(
             .hideAllExploreFeeds()
             .pressBack()
             .pressBack()
-            .verifyExploreFeedIsEmpty(context)
+        exploreFeedRobot
+            .verifyFeedViewSize(2)
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()
