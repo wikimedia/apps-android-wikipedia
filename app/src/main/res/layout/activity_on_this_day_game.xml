@@ -159,8 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    style="@style/P"
-                    android:textStyle="bold"
+                    style="@style/P.Article"
                     android:text="@string/on_this_day_game_correct"
                     android:textColor="?attr/primary_color"/>
 

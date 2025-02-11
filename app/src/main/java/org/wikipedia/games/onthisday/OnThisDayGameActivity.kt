@@ -466,6 +466,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun enqueueGoNext(gameState: OnThisDayGameViewModel.GameState) {
         binding.questionDate1.isVisible = true
         binding.questionDate2.isVisible = true
+        binding.questionCard1.isEnabled = false
+        binding.questionCard2.isEnabled = false
 
         binding.nextQuestionText.postDelayed({
             if (!isDestroyed) {
