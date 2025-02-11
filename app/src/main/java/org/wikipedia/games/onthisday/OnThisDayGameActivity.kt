@@ -42,6 +42,8 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -182,7 +184,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                     showPauseDialog()
                     true
                 } else {
-                    super.onOptionsItemSelected(item)
+                    onFinish()
+                    true
                 }
             }
             R.id.menu_learn_more -> {
@@ -213,6 +216,22 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             return
         }
         super.onBackPressed()
+        onFinish()
+    }
+
+    private fun onFinish() {
+        if (WikipediaApp.instance.haveMainActivity) {
+            finish()
+        } else {
+            goToMainTab()
+        }
+    }
+
+    private fun goToMainTab() {
+        startActivity(MainActivity.newIntent(this)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         finish()
     }
 
