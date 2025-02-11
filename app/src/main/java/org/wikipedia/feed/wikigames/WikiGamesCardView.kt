@@ -1,5 +1,6 @@
 package org.wikipedia.feed.wikigames
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import org.wikipedia.Constants
@@ -17,7 +18,7 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
     init {
         binding.viewWikiGamesCardContentContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
         binding.viewWikiGamesCardContentContainer.setOnClickListener {
-            context.startActivity(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card!!.wikiSite))
+            (context as? Activity)?.startActivityForResult(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card!!.wikiSite), 0)
         }
     }
 

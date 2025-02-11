@@ -206,6 +206,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        if (isGranted) {
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
+        }
+    }
+
     override fun onBackPressed() {
         if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED) {
             bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
@@ -382,6 +388,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
+
+        setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
         binding.progressText.isVisible = false
         binding.scoreText.isVisible = false
@@ -649,12 +657,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
             }
             return intent
-        }
-    }
-
-    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
-        if (isGranted) {
-            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 }
