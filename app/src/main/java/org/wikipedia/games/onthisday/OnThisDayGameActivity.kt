@@ -181,15 +181,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         return when (item.itemId) {
             android.R.id.home -> {
                 if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-                    MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
-                        .setIcon(R.drawable.ic_pause_filled_24)
-                        .setTitle(R.string.on_this_day_game_pause_title)
-                        .setMessage(R.string.on_this_day_game_pause_body)
-                        .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
-                            onFinish()
-                        }
-                        .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
-                        .show()
+                    showPauseDialog()
                     true
                 } else {
                     onFinish()
@@ -219,6 +211,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
             return
         }
+        if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+            showPauseDialog()
+            return
+        }
         super.onBackPressed()
         onFinish()
     }
@@ -237,6 +233,18 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
             .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         finish()
+    }
+
+    private fun showPauseDialog() {
+        MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
+            .setIcon(R.drawable.ic_pause_filled_24)
+            .setTitle(R.string.on_this_day_game_pause_title)
+            .setMessage(R.string.on_this_day_game_pause_body)
+            .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
+                finish()
+            }
+            .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
+            .show()
     }
 
     @SuppressLint("RestrictedApi")
