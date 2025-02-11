@@ -1,5 +1,6 @@
 package org.wikipedia.games.onthisday
 
+import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -21,10 +22,13 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil
@@ -213,10 +217,17 @@ class OnThisDayGameFinalFragment : Fragment() {
     }
 
     companion object {
+        const val EXTRA_GAME_COMPLETED = "onThisDayGameCompleted"
+
         fun newInstance(invokeSource: InvokeSource): OnThisDayGameFinalFragment {
             return OnThisDayGameFinalFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
+        }
+
+        fun calculateTotalGamesPlayed(): Int {
+            val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it) } ?: TotalGameHistory()
+            return totalHistory.langToHistory.values.sumOf { calculateTotalGamesPlayed(it.history) }
         }
 
         fun calculateTotalGamesPlayed(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
@@ -259,6 +270,14 @@ class OnThisDayGameFinalFragment : Fragment() {
             val now = LocalDateTime.now()
             val startOfNextDay = LocalDateTime.of(now.toLocalDate().plusDays(1), LocalTime.MIDNIGHT)
             return Duration.between(now, startOfNextDay)
+        }
+
+        fun maybeShowOnThisDayGameEndMessage(activity: Activity) {
+            // TODO: also show survey if necessary (before the snackbar)
+
+            if (calculateTotalGamesPlayed() == 1) {
+                FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
+            }
         }
     }
 }
