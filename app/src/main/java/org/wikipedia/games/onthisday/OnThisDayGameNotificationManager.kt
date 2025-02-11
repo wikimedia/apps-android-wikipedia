@@ -104,7 +104,7 @@ object OnThisDayGameNotificationManager {
     }
 
     fun showNotification(context: Context) {
-        if ((WikipediaApp.instance.getResumedActivity() is OnThisDayGameActivity).not()) {
+        if ((WikipediaApp.instance.currentResumedActivity is OnThisDayGameActivity).not()) {
             NotificationPresenter.showNotification(
                 context = context,
                 builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
