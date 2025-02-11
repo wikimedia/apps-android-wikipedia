@@ -13,7 +13,6 @@ import org.wikipedia.theme.Theme
 class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2 {
 
     private var haveMainActivity = false
-    var isAnyActivityResumed = false
     private var currentActivity: Activity? = null
 
     fun haveMainActivity(): Boolean {
@@ -50,12 +49,10 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
     override fun onActivityStarted(activity: Activity) {}
 
     override fun onActivityResumed(activity: Activity) {
-        isAnyActivityResumed = true
         currentActivity = activity
     }
 
     override fun onActivityPaused(activity: Activity) {
-        isAnyActivityResumed = false
         currentActivity = null
     }
 

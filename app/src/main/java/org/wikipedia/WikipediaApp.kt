@@ -121,8 +121,8 @@ class WikipediaApp : Application() {
     val haveMainActivity
         get() = activityLifecycleHandler.haveMainActivity()
 
-    val isAnyActivityResumed
-        get() = activityLifecycleHandler.isAnyActivityResumed
+    val currentResumedActivity
+        get() = activityLifecycleHandler.getResumedActivity()
 
     val voiceRecognitionAvailable by lazy {
         try {
@@ -268,10 +268,6 @@ class WikipediaApp : Application() {
             result = Theme.fallback
         }
         return result
-    }
-
-    fun getResumedActivity(): Activity? {
-        return activityLifecycleHandler.getResumedActivity()
     }
 
     private fun initTabs() {
