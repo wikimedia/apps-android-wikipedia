@@ -17,7 +17,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
@@ -69,7 +68,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
-    private val goNextAnimatorSet = AnimatorSet()
     private val cardAnimatorSet = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
     private var newStatusBarInsets: Insets? = null
@@ -293,8 +291,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
-        goNextAnimatorSet.cancel()
-
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
@@ -469,11 +465,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
 
-        binding.nextQuestionText.postDelayed({
-            if (!isDestroyed) {
-                animateGoNext(gameState)
-            }
-        }, 500)
+        binding.whichCameFirstText.isVisible = false
+        binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
+        binding.nextQuestionText.isVisible = true
     }
 
     fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
@@ -614,23 +608,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             binding.questionCard2.isEnabled = true
         }
         cardAnimatorSet.start()
-    }
-
-    private fun animateGoNext(gameState: OnThisDayGameViewModel.GameState) {
-        binding.whichCameFirstText.isVisible = false
-        binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
-        binding.nextQuestionText.isVisible = true
-
-        val translationX = ObjectAnimator.ofFloat(binding.nextQuestionText, "translationX", 0f, DimenUtil.dpToPx(-8f), 0f)
-
-        val duration = 1500L
-        translationX.setDuration(duration)
-        translationX.interpolator = AccelerateDecelerateInterpolator()
-        translationX.repeatCount = ObjectAnimator.INFINITE
-
-        goNextAnimatorSet.cancel()
-        goNextAnimatorSet.playTogether(translationX)
-        goNextAnimatorSet.start()
     }
 
     fun requestPermissionAndScheduleGameNotification() {
