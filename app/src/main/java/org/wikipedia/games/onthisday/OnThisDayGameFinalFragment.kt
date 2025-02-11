@@ -166,7 +166,7 @@ class OnThisDayGameFinalFragment : Fragment() {
 
             page.thumbnailUrl?.let {
                 binding.listItemThumbnail.isVisible = true
-                ViewUtil.loadImageWithRoundedCorners(binding.listItemThumbnail, it)
+                ViewUtil.loadImage(binding.listItemThumbnail, it)
             } ?: run {
                 binding.listItemThumbnail.isVisible = false
             }
