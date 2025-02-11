@@ -363,6 +363,9 @@
         <activity
             android:name=".settings.AboutActivity"/>
 
+        <activity
+            android:name=".games.onthisday.OnThisDayGameActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

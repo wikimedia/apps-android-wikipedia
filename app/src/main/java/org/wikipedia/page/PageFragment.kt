@@ -73,6 +73,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
+import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -929,6 +930,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
+        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(), model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
+
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.

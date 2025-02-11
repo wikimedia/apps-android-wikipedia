@@ -14,13 +14,19 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
 
     private var haveMainActivity = false
     var isAnyActivityResumed = false
+    private var currentActivity: Activity? = null
 
     fun haveMainActivity(): Boolean {
         return haveMainActivity
     }
 
+    fun getResumedActivity(): Activity? {
+        return currentActivity
+    }
+
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         val app = WikipediaApp.instance
+        currentActivity = activity
         if (activity is MainActivity) {
             haveMainActivity = true
         }
@@ -45,10 +51,12 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
 
     override fun onActivityResumed(activity: Activity) {
         isAnyActivityResumed = true
+        currentActivity = activity
     }
 
     override fun onActivityPaused(activity: Activity) {
         isAnyActivityResumed = false
+        currentActivity = null
     }
 
     override fun onActivityStopped(activity: Activity) {}
@@ -59,6 +67,7 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
         if (activity is MainActivity) {
             haveMainActivity = false
         }
+        currentActivity = null
     }
 
     override fun onConfigurationChanged(configuration: Configuration) {}
