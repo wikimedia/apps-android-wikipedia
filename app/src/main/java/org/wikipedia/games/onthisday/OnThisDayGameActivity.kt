@@ -578,29 +578,35 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.dateText.isVisible = true
         binding.progressText.isVisible = true
 
+        binding.whichCameFirstText.alpha = 0f
         binding.questionCard1.alpha = 0f
         binding.questionCard2.alpha = 0f
+        val textA1 = ObjectAnimator.ofFloat(binding.whichCameFirstText, "alpha", 0f, 1f)
         val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", DimenUtil.dpToPx(400f), 0f)
         val translationA1 = ObjectAnimator.ofFloat(binding.questionCard1, "alpha", 0f, 1f)
         val translationX2 = ObjectAnimator.ofFloat(binding.questionCard2, "translationX", DimenUtil.dpToPx(400f), 0f)
         val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 0f, 1f)
 
         val duration = 750L
+        textA1.setDuration(duration)
+        textA1.interpolator = DecelerateInterpolator()
         translationX1.setDuration(duration)
+        translationX1.startDelay = duration
         translationX1.interpolator = DecelerateInterpolator()
         translationA1.setDuration(duration)
+        translationA1.startDelay = duration
         translationA1.interpolator = DecelerateInterpolator()
         translationX2.setDuration(duration)
-        translationX2.startDelay = duration
+        translationX2.startDelay = duration * 2
         translationX2.interpolator = DecelerateInterpolator()
         translationA2.setDuration(duration)
-        translationA2.startDelay = duration
+        translationA2.startDelay = duration * 2
         translationA2.interpolator = DecelerateInterpolator()
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
         cardAnimatorSet.cancel()
-        cardAnimatorSet.playTogether(translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSet.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSet.doOnEnd {
             binding.questionCard1.isEnabled = true
             binding.questionCard2.isEnabled = true
