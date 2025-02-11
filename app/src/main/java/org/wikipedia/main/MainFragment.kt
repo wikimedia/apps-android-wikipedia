@@ -171,7 +171,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
         maybeShowEditsTooltip()
 
-        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameSurvey(requireActivity())
+        //OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameSurvey(requireActivity())
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)

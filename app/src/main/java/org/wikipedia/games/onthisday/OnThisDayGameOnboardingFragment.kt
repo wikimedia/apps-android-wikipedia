@@ -71,32 +71,5 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                 }
             }
         }
-
-        fun maybeShowOnThisDayGameSurvey(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
-            if (/*!Prefs.otdEntryDialogShown && */OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
-
-
-                val dialog = MaterialAlertDialogBuilder(activity)
-                    .setCancelable(false)
-                    .setTitle("Help improve Wikipedia games")
-                    .setMessage("How satisfied were you with the On This Day game?")
-                    .setSingleChoiceItems(arrayOf("Satisfied", "Neutral", "Unsatisfied"), -1) { _, which ->
-                        when (which) {
-                            0 -> FeedbackUtil.showMessage(activity, "Thank you for your feedback!")
-                            1 -> FeedbackUtil.showMessage(activity, "Thank you for your feedback!")
-                            2 -> FeedbackUtil.showMessage(activity, "Thank you for your feedback!")
-                        }
-                    }
-                    .setPositiveButton("Submit") { _, _ ->
-                        FeedbackUtil.showMessage(activity, "Thank you for your feedback!")
-                    }
-                    .setNegativeButton("Cancel") { _, _ ->
-                        FeedbackUtil.showMessage(activity, "Thank you for your feedback!")
-                    }
-                    .show()
-
-
-            }
-        }
     }
 }

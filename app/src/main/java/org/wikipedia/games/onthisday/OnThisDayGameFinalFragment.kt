@@ -15,12 +15,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
@@ -277,6 +279,55 @@ class OnThisDayGameFinalFragment : Fragment() {
 
             if (calculateTotalGamesPlayed() == 1) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
+            }
+        }
+
+        private fun maybeShowOnThisDayGameSurvey1(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
+            if (/*!Prefs.otdEntryDialogShown && */OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
+                val choices = arrayOf(activity.getString(R.string.survey_dialog_option_satisfied),
+                    activity.getString(R.string.survey_dialog_option_neutral),
+                    activity.getString(R.string.survey_dialog_option_unsatisfied))
+                var selection = -1
+                MaterialAlertDialogBuilder(activity)
+                    .setCancelable(false)
+                    .setTitle("How satisfied were you with the On This Day game?")
+                    .setSingleChoiceItems(choices, -1) { _, which ->
+                        selection = which
+                    }
+                    .setPositiveButton("Next") { _, _ ->
+                        maybeShowOnThisDayGameSurvey2(activity, wikiSite)
+                    }
+                    .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
+
+                    }
+                    .show()
+            }
+        }
+
+        private fun maybeShowOnThisDayGameSurvey2(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
+            if (/*!Prefs.otdEntryDialogShown && */OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
+                val choices = arrayOf("Yes", "Maybe", "No")
+                var selection = -1
+
+                val dialog = MaterialAlertDialogBuilder(activity)
+                    .setCancelable(false)
+                    .setTitle("How satisfied were you with the On This Day game?")
+                    .setSingleChoiceItems(choices, -1) { _, which ->
+                        selection = which
+                    }
+                    .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
+
+
+
+
+
+
+                        FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
+                    }
+                    .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
+
+                    }
+                    .show()
             }
         }
     }
