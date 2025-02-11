@@ -8,6 +8,7 @@ import android.content.Intent
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_DAILY_GAME
 import org.wikipedia.notifications.NotificationPresenter
@@ -37,12 +38,15 @@ class OnThisDayGameNotificationManager(private val activity: Activity) {
     }
 
     private fun showDisabledNotificationDialog() {
+        WikiGamesEvent.submit("impression", "notification_modal", "game_end")
         OnThisDayGameDialogs.showTurnOffNotificationDialog(
             activity = activity,
             turnOffButtonOnclick = {
+                WikiGamesEvent.submit("off_click", "notification_modal", "game_end")
                 disableNotifications(showUndo = true)
             },
             keepThemOnButtonOnClick = {
+                WikiGamesEvent.submit("on_click", "notification_modal", "game_end")
                 Prefs.otdNotificationState = OnThisDayGameNotificationState.ENABLED
                 activity.invalidateOptionsMenu()
             }
@@ -50,12 +54,15 @@ class OnThisDayGameNotificationManager(private val activity: Activity) {
     }
 
     private fun showEnabledNotificationDialog() {
+        WikiGamesEvent.submit("impression", "notification_modal", "game_end")
         OnThisDayGameDialogs.showTurnOnNotificationDialog(
             activity = activity,
             turnThemOnButtonOnClick = {
+                WikiGamesEvent.submit("on_click", "notification_modal", "game_end")
                 enableNotifications(showUndo = true)
             },
             keepThemOffButtonOnclick = {
+                WikiGamesEvent.submit("off_click", "notification_modal", "game_end")
                 Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED
                 activity.invalidateOptionsMenu()
             }
@@ -70,7 +77,8 @@ class OnThisDayGameNotificationManager(private val activity: Activity) {
                 activity,
                 activity.getString(R.string.on_this_day_game_notification_turned_off_snackbar_message)
             ).apply {
-                setAction(R.string.reading_list_item_delete_undo) {
+                setAction(R.string.on_this_day_game_notification_undo) {
+                    WikiGamesEvent.submit("undo_click", "notification_snackbar", "game_end")
                     enableNotifications(showUndo = false)
                     activity.invalidateOptionsMenu()
                 }
@@ -87,7 +95,8 @@ class OnThisDayGameNotificationManager(private val activity: Activity) {
                 activity,
                 activity.getString(R.string.on_this_day_game_notification_turned_on_snackbar_message)
             ).apply {
-                setAction(R.string.reading_list_item_delete_undo) {
+                setAction(R.string.on_this_day_game_notification_undo) {
+                    WikiGamesEvent.submit("undo_click", "notification_snackbar", "game_end")
                     disableNotifications(showUndo = false)
                     activity.invalidateOptionsMenu()
                 }
