@@ -6,9 +6,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
@@ -21,6 +23,7 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
@@ -39,6 +42,8 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -59,7 +64,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.Locale
 
-class OnThisDayGameActivity : BaseActivity() {
+class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
@@ -77,6 +82,7 @@ class OnThisDayGameActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        callback = this
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
@@ -166,6 +172,8 @@ class OnThisDayGameActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val notificationItem = menu.findItem(R.id.menu_notifications)
+        notificationItem?.setIcon(Prefs.otdNotificationState.getIcon())
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -173,32 +181,25 @@ class OnThisDayGameActivity : BaseActivity() {
         return when (item.itemId) {
             android.R.id.home -> {
                 if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-                    MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
-                        .setIcon(R.drawable.ic_pause_filled_24)
-                        .setTitle(R.string.on_this_day_game_pause_title)
-                        .setMessage(R.string.on_this_day_game_pause_body)
-                        .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
-                            finish()
-                        }
-                        .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
-                        .show()
+                    showPauseDialog()
                     true
                 } else {
-                    super.onOptionsItemSelected(item)
+                    onFinish()
+                    true
                 }
             }
             R.id.menu_learn_more -> {
                 UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
                 true
             }
-            R.id.menu_notifications -> {
-                // TODO: implement this
-                true
-            }
             R.id.menu_report_feature -> {
                 FeedbackUtil.composeEmail(this,
                     subject = getString(R.string.on_this_day_game_report_email_subject),
                     body = getString(R.string.on_this_day_game_report_email_body))
+                true
+            }
+            R.id.menu_notifications -> {
+                OnThisDayGameNotificationManager(this).handleNotificationClick()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -210,8 +211,40 @@ class OnThisDayGameActivity : BaseActivity() {
             bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
             return
         }
+        if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+            showPauseDialog()
+            return
+        }
         super.onBackPressed()
+        onFinish()
+    }
+
+    private fun onFinish() {
+        if (WikipediaApp.instance.haveMainActivity) {
+            finish()
+        } else {
+            goToMainTab()
+        }
+    }
+
+    private fun goToMainTab() {
+        startActivity(MainActivity.newIntent(this)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         finish()
+    }
+
+    private fun showPauseDialog() {
+        MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
+            .setIcon(R.drawable.ic_pause_filled_24)
+            .setTitle(R.string.on_this_day_game_pause_title)
+            .setMessage(R.string.on_this_day_game_pause_body)
+            .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
+                finish()
+            }
+            .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
+            .show()
     }
 
     @SuppressLint("RestrictedApi")
@@ -585,6 +618,23 @@ class OnThisDayGameActivity : BaseActivity() {
         goNextAnimatorSet.start()
     }
 
+    fun requestPermissionAndScheduleGameNotification() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            when {
+                ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.POST_NOTIFICATIONS
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
+                }
+
+                else -> {
+                    requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                }
+            }
+        }
+    }
+
     companion object {
         fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
@@ -599,6 +649,12 @@ class OnThisDayGameActivity : BaseActivity() {
                 intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
             }
             return intent
+        }
+    }
+
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        if (isGranted) {
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 }
