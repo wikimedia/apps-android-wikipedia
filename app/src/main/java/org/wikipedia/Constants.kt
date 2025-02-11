@@ -106,7 +106,8 @@ object Constants {
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
         EDIT_ADD_IMAGE("editAddImage"),
-        SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits")
+        SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
+        ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame")
     }
 
     enum class ImageEditType(name: String) {
