@@ -25,7 +25,7 @@ object WikiGamesEvent {
                 )).orEmpty(),
                 WikipediaApp.instance.languageState.appLanguageCode,
                 wikiId,
-                "app_games"
+                "app_game_interaction"
             )
         )
     }
