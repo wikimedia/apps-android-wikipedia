@@ -173,6 +173,7 @@
     <string name="preference_key_otd_game_date_override">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions">otdGameNumQuestions</string>
     <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
+    <string name="preference_key_otd_notification_state">otdNotificationState</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
 </resources>

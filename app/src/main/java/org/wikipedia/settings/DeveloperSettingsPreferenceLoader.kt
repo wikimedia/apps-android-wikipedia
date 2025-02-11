@@ -16,6 +16,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageActivity
@@ -23,6 +25,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil.fromHtml
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -196,6 +199,16 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_otd_game_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.otdGameState = ""
             Toast.makeText(activity, "Game reset.", Toast.LENGTH_SHORT).show()
+            true
+        }
+        findPreference(R.string.preferences_developer_otd_show_notification).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            OnThisDayGameNotificationManager.showNotification(activity)
+            true
+        }
+        findPreference(R.string.preference_key_otd_notification_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.otdNotificationState = OnThisDayGameNotificationState.NO_INTERACTED
+            OnThisDayGameNotificationManager.cancelDailyGameNotification(activity)
+            FeedbackUtil.showMessage(activity, "Notification state reset.")
             true
         }
     }

@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
@@ -72,6 +73,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }
             }
+            ACTION_DAILY_GAME == intent.action -> {
+                OnThisDayGameNotificationManager.showNotification(context)
+            }
         }
     }
 
@@ -79,6 +83,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_POLL = "action_notification_poll"
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
+        const val ACTION_DAILY_GAME = "action_daily_game"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
