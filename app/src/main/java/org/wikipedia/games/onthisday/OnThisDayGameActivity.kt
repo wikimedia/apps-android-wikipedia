@@ -199,7 +199,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 true
             }
             R.id.menu_notifications -> {
-                OnThisDayGameNotificationManager(this).handleNotificationClick()
+                OnThisDayGameNotificationManager.handleNotificationClick(this)
                 true
             }
             else -> super.onOptionsItemSelected(item)
