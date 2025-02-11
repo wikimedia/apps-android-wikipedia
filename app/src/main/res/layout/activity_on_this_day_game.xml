@@ -293,12 +293,7 @@
         android:visibility="gone"/>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerStart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerFinish"
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"/>

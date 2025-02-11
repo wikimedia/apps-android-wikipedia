@@ -128,7 +128,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
-            params = binding.fragmentContainerFinish.layoutParams as ViewGroup.MarginLayoutParams
+            params = binding.fragmentContainer.layoutParams as ViewGroup.MarginLayoutParams
             params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
@@ -180,7 +180,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted
+                    && viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
                     showPauseDialog()
                     true
                 } else {
@@ -374,8 +375,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
+        binding.dateText.isVisible = false
+        binding.progressText.isVisible = false
+
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainerStart, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
@@ -390,7 +394,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         mediaPlayer.start()
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainerFinish, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
@@ -571,6 +575,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     fun animateQuestions() {
+        binding.dateText.isVisible = true
+        binding.progressText.isVisible = true
+
         binding.questionCard1.alpha = 0f
         binding.questionCard2.alpha = 0f
         val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", DimenUtil.dpToPx(400f), 0f)
