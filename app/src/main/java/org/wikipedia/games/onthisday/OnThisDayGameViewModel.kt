@@ -96,9 +96,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
             totalState.langToState[wikiSite.languageCode]?.let {
                 currentState = it
-                if (overrideDate) {
-                    currentState = it.copy(currentQuestionState = composeQuestionState(0))
-                }
             } ?: run {
                 currentState = GameState(currentQuestionState = composeQuestionState(0))
             }
@@ -122,9 +119,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it)?.langToHistory }?.toMutableMap() ?: mutableMapOf()
                 val history = totalHistory[wikiSite.languageCode] ?: GameHistory()
                 _gameState.postValue(GameEnded(currentState, history))
-            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay &&
-                currentState.currentQuestionIndex >= currentState.totalQuestions) {
-                // we're coming back from a previous day's completed game, so start a new day's game.
+            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay) {
+                // we're coming back from a previous day's game (whether it was finished or not), so start a new day's game.
                 currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
                 _gameState.postValue(GameStarted(currentState))
             } else {
