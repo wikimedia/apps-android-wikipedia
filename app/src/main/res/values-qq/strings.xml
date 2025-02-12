@@ -1752,6 +1752,7 @@
   </plurals>
   <string name="on_this_day_game_stats_average_score">Label for the statistics that indicates the average score from previous games.</string>
   <string name="on_this_day_game_stats_streak">Label for the statistics that indicates the current streak of the gameplay.</string>
+  <string name="on_this_day_game_completed_message">Message displayed after the daily game has been completed.</string>
   <string name="on_this_day_game_result_subtitle">Label shown over the list of articles mentioned in the game.</string>
   <string name="on_this_day_game_menu_notifications">Menu label for setting up the game notifications.</string>
   <string name="on_this_day_game_menu_info">Menu label for visiting the information page of the game.</string>

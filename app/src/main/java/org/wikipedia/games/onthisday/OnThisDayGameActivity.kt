@@ -206,10 +206,16 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             R.id.menu_notifications -> {
                 WikiGamesEvent.submit("notification_click", "game_play", slideName = viewModel.getCurrentScreenName())
 
-                OnThisDayGameNotificationManager(this).handleNotificationClick()
+                OnThisDayGameNotificationManager.handleNotificationClick(this)
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        if (isGranted) {
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 
@@ -393,6 +399,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
+
+        setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
         binding.progressText.isVisible = false
         binding.scoreText.isVisible = false
@@ -638,23 +646,20 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     fun requestPermissionAndScheduleGameNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
-                ContextCompat.checkSelfPermission(
-                    this,
-                    android.Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED -> {
+                ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
                     OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
                 }
-
-                else -> {
-                    requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
-                }
+                else -> requestPermissionLauncher.launch(permission)
             }
+        } else {
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
+        fun newIntent(context: Context, invokeSource: InvokeSource, wikiSite: WikiSite): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
@@ -667,12 +672,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
             }
             return intent
-        }
-    }
-
-    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
-        if (isGranted) {
-            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 }

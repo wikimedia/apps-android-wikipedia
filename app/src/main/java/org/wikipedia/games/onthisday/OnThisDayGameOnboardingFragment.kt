@@ -64,8 +64,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                     .setCancelable(false)
                     .show()
                 dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
-                    activity.startActivity(OnThisDayGameActivity.newIntent(activity, InvokeSource.PAGE_ACTIVITY, wikiSite))
                     WikiGamesEvent.submit("enter_click", "game_modal")
+                    activity.startActivityForResult(OnThisDayGameActivity.newIntent(activity, InvokeSource.PAGE_ACTIVITY, wikiSite), 0)
                     dialog.dismiss()
                 }
                 dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {

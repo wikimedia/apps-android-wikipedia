@@ -59,7 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/H1.Article"
-                        android:textColor="?attr/primary_color"
+                        android:textColor="@color/gray700"
                         tools:text="Lorem ipsum"/>
 
                     <TextView
@@ -67,10 +67,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/P"
-                        android:textColor="?attr/primary_color"
+                        android:textColor="@color/gray700"
                         android:layout_marginTop="16dp"
                         app:drawableStartCompat="@drawable/ic_time_24"
-                        app:drawableTint="?attr/primary_color"
+                        app:drawableTint="@color/gray700"
                         android:drawablePadding="6dp"
                         tools:text="Lorem ipsum"/>
 
