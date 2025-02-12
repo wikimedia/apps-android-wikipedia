@@ -65,13 +65,13 @@ class LicenseActivity : BaseActivity() {
                 modifier = modifier
                     .verticalScroll(state = rememberScrollState())
                     .padding(innerPadding)
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
             ) {
                 Text(
                     text = AnnotatedString.fromHtml(
                         htmlString = licenseText ?: ""
                     ),
-                    color = WikipediaTheme.colors.inactiveColor
+                    color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.6f)
                 )
             }
         }
