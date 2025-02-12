@@ -56,6 +56,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import java.time.LocalDate
 import java.time.MonthDay
@@ -88,7 +89,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-        mediaPlayer = MediaPlayer.create(this, R.raw.sound_logo)
+        mediaPlayer = MediaPlayer()
 
         binding.errorView.retryClickListener = View.OnClickListener {
             viewModel.loadGameState()
@@ -390,7 +391,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.scoreText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
 
-        mediaPlayer.start()
+        playSound("sound_logo")
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
@@ -428,7 +429,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             binding.questionDate2.setTextColor(Color.WHITE)
             setCorrectIcon(binding.questionStatusIcon2)
         }
-
+        playSound("sound_completion")
         enqueueGoNext(gameState)
     }
 
@@ -454,6 +455,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate1.setTextColor(Color.WHITE)
         binding.questionDate2.setTextColor(Color.WHITE)
 
+        playSound("sound_error")
         enqueueGoNext(gameState)
     }
 
@@ -652,8 +654,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         translationA2.startDelay = delay
         translationA2.interpolator = AccelerateInterpolator()
 
-        binding.questionCard1.isEnabled = false
-        binding.questionCard2.isEnabled = false
         cardAnimatorSetOut.cancel()
         cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetOut.doOnEnd {
@@ -680,6 +680,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                     requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
                 }
             }
+        }
+    }
+
+    private fun playSound(soundName: String) {
+        try {
+            mediaPlayer.reset()
+            mediaPlayer.setDataSource(this, Uri.parse("android.resource://$packageName/raw/$soundName"))
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+        } catch (e: Exception) {
+            L.e(e)
         }
     }
 
