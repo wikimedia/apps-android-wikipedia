@@ -22,7 +22,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
@@ -302,6 +301,7 @@ class OnThisDayGameFinalFragment : Fragment() {
                     selection = which
                 }
                 .setPositiveButton(R.string.survey_dialog_next) { _, _ ->
+                    // TODO: send event
                     maybeShowOnThisDayGameSurvey2(activity, onComplete)
                 }
                 .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
@@ -317,13 +317,12 @@ class OnThisDayGameFinalFragment : Fragment() {
             var selection = -1
             MaterialAlertDialogBuilder(activity)
                 .setCancelable(false)
-                .setTitle(R.string.on_this_day_game_survey_q1)
+                .setTitle(R.string.on_this_day_game_survey_q2)
                 .setSingleChoiceItems(choices, -1) { _, which ->
                     selection = which
                 }
                 .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
-
-                    FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
+                    // TODO: send event
                 }
                 .setNegativeButton(R.string.survey_dialog_cancel, null)
                 .setOnDismissListener {

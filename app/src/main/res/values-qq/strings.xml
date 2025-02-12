@@ -1710,6 +1710,10 @@
   <string name="survey_dialog_cancel">Negative action button text for the survey dialog</string>
   <string name="survey_dialog_submit">Positive action button text for the survey dialog</string>
   <string name="survey_dialog_input_hint">Hint label for the survey dialog input field.</string>
+  <string name="survey_dialog_next">Button label for proceeding th the next question in a survey.</string>
+  <string name="survey_dialog_general_yes">Button label for a general positive response to a survey question.</string>
+  <string name="survey_dialog_general_no">Button label for a general negative response to a survey question.</string>
+  <string name="survey_dialog_general_maybe">Button label for a general neutral response to a survey question.</string>
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
   <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
@@ -1777,4 +1781,6 @@
   <string name="on_this_day_game_report_email_body">Body of email for sending a report about a problem with the Wikipedia games feature.</string>
   <string name="on_this_day_game_notification_undo">Snackbar action text when users turn on or off the game notification.</string>
   <string name="on_this_day_game_share_link_message">Text message when users share the game link. The \"%s\" symbol is replaced with the game link.</string>
+  <string name="on_this_day_game_survey_q1">The first question in a survey about the game feature.</string>
+  <string name="on_this_day_game_survey_q2">The second question in a survey about the game feature.</string>
 </resources>
