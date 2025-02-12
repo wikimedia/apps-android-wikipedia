@@ -60,6 +60,7 @@ import org.hamcrest.Matchers.anything
 import org.hamcrest.Matchers.containsString
 import org.hamcrest.Matchers.not
 import org.hamcrest.TypeSafeMatcher
+import org.junit.Assert.assertEquals
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.waitOnId
@@ -595,6 +596,11 @@ abstract class BaseRobot {
         return ExecuteJavascriptAction(scrollScript)
     }
 
+   protected fun verifyRecyclerViewItemCount(@IdRes viewId: Int, expectedCount: Int) {
+       onView(withId(viewId))
+           .check(hasItemCount(expectedCount))
+   }
+
     protected fun performActionIfSnackbarVisible(
         text: String,
         action: () -> Unit
@@ -646,6 +652,17 @@ abstract class BaseRobot {
 
         override fun matchesSafely(item: TextView): Boolean {
             return item.text.toString().contains(text, ignoreCase = true)
+        }
+    }
+
+    private fun hasItemCount(expectedCount: Int): ViewAssertion {
+        return ViewAssertion { view, noViewFoundException ->
+            if (view == null) {
+                throw noViewFoundException
+            }
+            val recyclerView = view as RecyclerView
+            val adapter = recyclerView.adapter
+            assertEquals(adapter?.itemCount, expectedCount)
         }
     }
 }
