@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -295,11 +296,13 @@ class OnThisDayGameFinalFragment : Fragment() {
                 activity.getString(R.string.survey_dialog_option_neutral),
                 activity.getString(R.string.survey_dialog_option_unsatisfied))
             var selection = -1
-            MaterialAlertDialogBuilder(activity)
+            var dialog: AlertDialog? = null
+            dialog = MaterialAlertDialogBuilder(activity)
                 .setCancelable(false)
                 .setTitle(R.string.on_this_day_game_survey_q1)
                 .setSingleChoiceItems(choices, -1) { _, which ->
                     selection = which
+                    dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
                 }
                 .setPositiveButton(R.string.survey_dialog_next) { _, _ ->
                     // TODO: send event
@@ -309,6 +312,8 @@ class OnThisDayGameFinalFragment : Fragment() {
                     onComplete()
                 }
                 .show()
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+            dialog.findViewById(android.R.id.alertTitle)
         }
 
         private fun maybeShowOnThisDayGameSurvey2(activity: Activity, onComplete: () -> Unit) {
@@ -316,11 +321,13 @@ class OnThisDayGameFinalFragment : Fragment() {
                 activity.getString(R.string.survey_dialog_general_maybe),
                 activity.getString(R.string.survey_dialog_general_no))
             var selection = -1
-            MaterialAlertDialogBuilder(activity)
+            var dialog: AlertDialog? = null
+            dialog = MaterialAlertDialogBuilder(activity)
                 .setCancelable(false)
                 .setTitle(R.string.on_this_day_game_survey_q2)
                 .setSingleChoiceItems(choices, -1) { _, which ->
                     selection = which
+                    dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
                 }
                 .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
                     // TODO: send event
@@ -330,6 +337,7 @@ class OnThisDayGameFinalFragment : Fragment() {
                     onComplete()
                 }
                 .show()
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
         }
     }
 }
