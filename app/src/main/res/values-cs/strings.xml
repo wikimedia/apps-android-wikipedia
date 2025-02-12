@@ -692,6 +692,7 @@
   <string name="reading_lists_preview_save_dialog_cancel">Storno</string>
   <string name="reading_lists_preview_save_dialog_save">Uložit</string>
   <string name="reading_lists_preview_saved_snackbar">Seznam ke čtení uložen</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Náhled</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_reverted_title">Zrušená úprava</string>
   <string name="notification_channel_title">Stahování článků</string>
@@ -1023,8 +1024,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek obrázku</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Přidat značky obrázků</string>
-  <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
   <string name="suggested_edits_task_action_text_add">Přidat</string>
   <string name="suggested_edits_task_action_text_translate">Přeložit</string>
   <string name="suggested_edits_image_captions">Titulky obrázků</string>
@@ -1170,6 +1169,7 @@
   <string name="onboarding_explore_text">Ponořte se do Wikipedie s průběžně aktualizovaným kanálem Objevit. &lt;br/&gt; &lt;b&gt;Přizpůsobte&lt;/b&gt; si jej podle svých zájmů – ať už je to &lt;b&gt;Dnešek v minulosti&lt;/b&gt; nebo &lt;b&gt;Náhodné články&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Seznam k přečtení se synchronizací</string>
   <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy k přečtení z článků, které si chcete přečíst, i když se odhlásíte od svého účtu.&lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohli své seznamy k přečtení synchronizovat.&lt;br/&gt;&lt;a href=\"#login\"&gt;Připojte se k Wikipedii&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data a soukromí</string>
   <string name="onboarding_analytics_switch_title">Odesílat informace o používání</string>
   <string name="onboarding_got_it">Rozumím</string>
   <string name="onboarding_multilingual_secondary_text">Na vašem zařízení máte nastaveny následující jazyky:</string>
@@ -1259,6 +1259,8 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Bezrámečkový</string>
   <string name="insert_media_advanced_settings_image_size">Velikost obrázku</string>
   <string name="insert_media_advanced_settings_image_size_default">Výchozí</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Šířka</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Výška</string>
   <string name="templates_search_hint">Hledat šablony</string>
   <string name="templates_insert_button">Vložit</string>
   <string name="templates_description_empty">Šablona „%s“ ještě nemá popis.</string>
@@ -1277,10 +1279,13 @@
   <string name="talk_user_title">Diskuse: %s</string>
   <string name="talk_new_topic">Nové téma</string>
   <string name="talk_new_topic_submitted">Téma zveřejněno.</string>
+  <string name="talk_warn_save_dialog_title">Přejete si uložit změny?</string>
+  <string name="talk_warn_save_dialog_message">Uložit jako novou zprávu</string>
   <string name="talk_warn_save_dialog_publish">Zveřejnit</string>
   <string name="talk_warn_save_dialog_cancel">Storno</string>
   <string name="talk_warn_save_dialog_dont_save">Neukládat</string>
   <string name="talk_warn_submitted">Zpráva byla publikovaná na diskuzní stránce uživatele</string>
+  <string name="talk_warn_submitted_and_saved">Zpráva byla uložená a publikovaná na diskuzní stránce wikipedisty</string>
   <string name="talk_warn_saved_messages">Uložené zprávy</string>
   <string name="talk_page_empty">Tato diskusní stránka je prázdná.</string>
   <string name="talk_page_empty_title">Rozhovor začíná zde</string>
@@ -1292,6 +1297,7 @@
   <string name="talk_message_hint">Napište zprávu</string>
   <string name="talk_message_empty">Zpráva nemůže být prázdná.</string>
   <string name="talk_subject_empty">Předmět nemůže být prázdný.</string>
+  <string name="talk_subject_duplicate">Pojmenování předmětu již existuje. Vyzkoušejte jiné.</string>
   <string name="talk_response_submitted">Odpověď zveřejněna.</string>
   <string name="talk_snackbar_undo">Zpět</string>
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil(a) %1$s&lt;/b&gt; %2$s</string>
@@ -1311,6 +1317,8 @@
   <string name="talk_list_item_last_comment_date">Poslední komentář: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Celkem odpovědí</string>
   <string name="talk_list_item_user_icon_content_description">Ikona uživatele</string>
+  <string name="talk_list_item_swipe_mark_as_read">Přečteno</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Nepřečteno</string>
   <string name="talk_login_to_subscribe_dialog_title">Pro odebírání témat se přihlaste</string>
   <string name="talk_login_to_subscribe_dialog_content">Odběry témat vám umožní dostávat upozornění na nové komentáře k tomuto tématu. Chcete-li se přihlásit k odběru tématu, vytvořte si účet nebo se přihlaste ke svému účtu na Wikipedii.</string>
   <string name="menu_option_share_edit">Sdílet editaci</string>
@@ -1438,6 +1446,8 @@
   <string name="talk_templates_new_message_subject_hint">Předmět</string>
   <string name="talk_templates_new_message_compose_hint">Napsat zprávu</string>
   <string name="talk_templates_new_message_save">Uložit</string>
+  <string name="talk_templates_new_message_dialog_save">Uložit</string>
+  <string name="talk_templates_new_message_dialog_cancel">Zrušit</string>
   <string name="talk_templates_edit_message_dialog_save">Uložit</string>
   <string name="talk_templates_your_messages_tab_title">Vaše zprávy</string>
   <string name="talk_templates_example_messages_tab_title">Vzorové zprávy</string>
@@ -1446,6 +1456,8 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Účet od: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Počet úprav: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zavřít</string>
+  <string name="patroller_tasks_filters_all_text">Vše</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Neregistrovaní</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Editoři, kteří nejsou přihlášeni.</string>
   <string name="patroller_tasks_filters_user_status_registered">Registrovaní</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Přihlášení editoři.</string>
@@ -1456,17 +1468,22 @@
   <string name="patroller_tasks_filters_significance_minor">Malá editace</string>
   <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
   <string name="patroller_tasks_overflow_learn">Zjistit více</string>
+  <string name="patroller_onboarding_two_thank_title">Poděkovat</string>
   <string name="patroller_onboarding_two_talk_content">Komunikujte s ostatními editory. Uložte si běžně používané zprávy na diskusních stránkách nebo používejte šablonu.</string>
   <string name="patroller_onboarding_two_undo_title">Zrušit editaci</string>
   <string name="patroller_onboarding_two_undo_content">Zvolte „Zrušit editaci“ pro zrušení možné destruktivní editace.</string>
   <string name="patroller_diff_menu_edit_history_title">Historie editací článku</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Zpětná vazba</string>
   <string name="patroller_saved_message_title_vandalism">Varování před vandalismem</string>
+  <string name="patroller_saved_message_title_npov">Neutrální úhel pohledu</string>
+  <string name="patroller_saved_message_title_auto_trans">Automatický překlad</string>
   <string name="patroller_saved_message_title_final_warning">Poslední varování</string>
   <string name="patroller_saved_message_title_copy_vio">Upozornění na porušení autorských práv</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Zanechte shrnutí úprav</string>
+  <string name="patroller_saved_message_title_do_not_censor">Necenzurujte</string>
   <string name="patroller_saved_message_body_vandalism">Dobrý den, {{{username}}}, chci vám oznámit, že jsem vrátil jeden nebo více vašich [{{{diffLink}}}|nedávných příspěvků], protože se nezdají být konstruktivní. Pokud si myslíte, že jsem udělal chybu nebo máte otázky, můžete zanechat zprávu na [[User talk:{{{senderUserName}}}|mé diskusní stránce]]. Vezměte prosím na vědomí, že pokračující vandalismus může vést k omezením.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Použijte vzorovou zprávu níže, kterou můžete přizpůsobit, zaslat a uložit do svých zpráv.</string>
+  <string name="talk_templates_menu_edit_title">Editovat</string>
   <string name="menu_single_webview_open_external">Otevřít ve výchozím internetovém prohlížeči</string>
   <string name="donate_gpay_dialog_title">Darovat přes Google Pay?</string>
   <string name="donate_gpay_dialog_description">Darujte přes Google Pay nebo zvolte jiný způsob platby.</string>
@@ -1492,4 +1509,13 @@
   <string name="survey_dialog_option_unsatisfied">Nespokojen(a)</string>
   <string name="survey_dialog_option_very_satisfied">Velmi spokojen(a)</string>
   <string name="survey_dialog_option_very_unsatisfied">Velmi nespokojen(a)</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Hry na Wikipedii</string>
+  <string name="on_this_day_game_correct">Správně!</string>
+  <string name="on_this_day_game_incorrect">Špatně!</string>
+  <string name="on_this_day_game_point">+1 bod</string>
+  <string name="on_this_day_game_finish">Konečné výsledky</string>
+  <string name="on_this_day_game_pause_title">Chcete pozastavit hru?</string>
+  <string name="on_this_day_game_stats_average_score">Průměrné skóre</string>
+  <string name="on_this_day_game_menu_info">Další informace</string>
+  <string name="on_this_day_game_notification_undo">Zpět</string>
 </resources>

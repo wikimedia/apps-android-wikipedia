@@ -120,8 +120,8 @@ class WikipediaApp : Application() {
     val haveMainActivity
         get() = activityLifecycleHandler.haveMainActivity()
 
-    val isAnyActivityResumed
-        get() = activityLifecycleHandler.isAnyActivityResumed
+    val currentResumedActivity
+        get() = activityLifecycleHandler.getResumedActivity()
 
     val voiceRecognitionAvailable by lazy {
         try {

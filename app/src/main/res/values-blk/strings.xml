@@ -793,7 +793,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ် (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ထဲမ်သော့ꩻ ရုက်ပုင်ႏtag</string>
-  <string name="suggested_edits_snackbar_survey_action_text">မာꩻသုတေသန</string>
   <string name="suggested_edits_task_action_text_add">ထဲမ်သော့ꩻ</string>
   <string name="suggested_edits_task_action_text_translate">ပြန်ႏဘာႏသာႏ</string>
   <string name="suggested_edits_image_captions">ရုက်ပုင်ႏလိတ်</string>

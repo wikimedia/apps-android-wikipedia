@@ -989,8 +989,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Tilføj billedtekst</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Tilføj billedtekst (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Tilføj billedtags</string>
-  <string name="suggested_edits_snackbar_survey_text">Hvordan var din redigeringsoplevelse? Tag venligst et øjeblik til udfylde spørgeskemaet om redigering i appen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Udfyld Spørgeskema</string>
   <string name="suggested_edits_task_action_text_add">Tilføj</string>
   <string name="suggested_edits_task_action_text_translate">Oversæt</string>
   <string name="suggested_edits_image_captions">Billedtekster</string>

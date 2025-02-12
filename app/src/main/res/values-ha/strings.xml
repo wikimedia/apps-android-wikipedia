@@ -934,8 +934,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Ƙara rubutun hoto</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ƙara rubutun hoto (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Ƙara alamun hoto</string>
-  <string name="suggested_edits_snackbar_survey_text">Ta yaya kwarewar gyara take? Da fatan za a dauki lokaci don cika binciken game da gyaran aikace-aikacen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ɗauki Bincike</string>
   <string name="suggested_edits_task_action_text_add">Ƙara</string>
   <string name="suggested_edits_task_action_text_translate">Fassara</string>
   <string name="suggested_edits_image_captions">Magana game da hoton</string>

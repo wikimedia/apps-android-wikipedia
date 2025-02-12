@@ -992,8 +992,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Képcímkék hozzáadása</string>
-  <string name="suggested_edits_snackbar_survey_text">Milyen tapasztalataid voltak a szerkesztés során? Kérlek töltsd ki ezt a kérdőívet az alkalmazáson belüli szerkesztésről.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Kérdőív kitöltése</string>
   <string name="suggested_edits_task_action_text_add">Hozzáadás</string>
   <string name="suggested_edits_task_action_text_translate">Fordítás</string>
   <string name="suggested_edits_image_captions">Képfeliratok</string>

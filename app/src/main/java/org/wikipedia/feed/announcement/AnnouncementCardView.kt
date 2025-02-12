@@ -1,5 +1,6 @@
 package org.wikipedia.feed.announcement
 
+import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
@@ -65,6 +66,9 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                     if (it.aspectRatio() != 0.0) {
                         binding.viewAnnouncementHeaderImage.scaleType = ImageView.ScaleType.FIT_CENTER
                         binding.viewAnnouncementHeaderImage.post {
+                            if ((context as? Activity)?.isDestroyed == true) {
+                                return@post
+                            }
                             binding.viewAnnouncementHeaderImage.updateLayoutParams {
                                 height = (binding.viewAnnouncementHeaderImage.width / it.aspectRatio()).toInt()
                             }

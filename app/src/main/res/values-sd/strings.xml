@@ -879,8 +879,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_translate_image_caption">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_add_image_tags">عڪس جا ٽيڪ وجهو</string>
-  <string name="suggested_edits_snackbar_survey_text">توھان جو سنوارڻ جو تجربو ڪيئن رھيو؟ مھرباني ڪري ھڪ گھڙي ڪڍي ايپ-۾ سنوارڻ بابت سروي ڀريو.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
   <string name="suggested_edits_task_action_text_add">وجهو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
   <string name="suggested_edits_image_captions">عڪسن جا عنوان</string>

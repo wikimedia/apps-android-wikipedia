@@ -309,6 +309,7 @@ object MainPageNameData {
             "tg" to "Саҳифаи аслӣ",
             "th" to "หน้าหลัก",
             "ti" to "መበገሲ ገጽ",
+            "tig" to "አግዳ ገጽ",
             "tk" to "Baş Sahypa",
             "tl" to "Unang Pahina",
             "tly" to "Sərlovhə",

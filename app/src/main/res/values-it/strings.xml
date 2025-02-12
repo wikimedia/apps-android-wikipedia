@@ -1028,8 +1028,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia immagine</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia immagine (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Aggiungi etichette alle immagini</string>
-  <string name="suggested_edits_snackbar_survey_text">Come è stata la tua esperienza di modifica? Ti preghiamo di dedicare un momento per compilare il sondaggio sulla modifica in-app.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Rispondi sondaggio</string>
   <string name="suggested_edits_task_action_text_add">Aggiungi</string>
   <string name="suggested_edits_task_action_text_translate">Traduci</string>
   <string name="suggested_edits_image_captions">Didascalie delle immagini</string>
@@ -1728,4 +1726,6 @@
   <string name="survey_dialog_submit">Invia</string>
   <string name="survey_dialog_input_hint">Feedback aggiuntivo</string>
   <string name="survey_dialog_submitted_snackbar">Commento inviato. Grazie!</string>
+  <string name="on_this_day_game_pause_positive">Capito</string>
+  <string name="on_this_day_game_notification_undo">Annulla</string>
 </resources>

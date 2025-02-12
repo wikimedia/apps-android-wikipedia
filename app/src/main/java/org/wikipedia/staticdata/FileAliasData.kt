@@ -309,6 +309,7 @@ object FileAliasData {
             "tg" to "Акс",
             "th" to "ไฟล์",
             "ti" to "ፋይል",
+            "tig" to "ፋይል",
             "tk" to "Faýl",
             "tl" to "Talaksan",
             "tly" to "Fajl",

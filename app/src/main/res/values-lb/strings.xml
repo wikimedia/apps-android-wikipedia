@@ -33,7 +33,7 @@
   <string name="error_next">Weider</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
-  <string name="history_items_deleted">%d Artikelen aus dem Verlaf vum Browser erausgeholl</string>
+  <string name="history_items_deleted">%d Artikelen aus dem Historique geläscht</string>
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
   <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="app_settings">Astellunge vun der App</string>
@@ -43,8 +43,8 @@
   <string name="page_content_description">Säit: %s</string>
   <string name="wikimedia_commons">Wikimedia-Commons</string>
   <string name="wikidata">Wikidata</string>
-  <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
-  <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
+  <string name="dialog_title_clear_history">Browsing-Historique läschen</string>
+  <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all d\'Tabs, déi momentan op sinn, zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
   <string name="dialog_message_clear_history_no">Neen</string>
   <string name="share_via">Deelen iwwer</string>
@@ -119,6 +119,7 @@
   <string name="langlinks_your_wikipedia_languages">Är Wikipedia-Sproochen</string>
   <string name="menu_save_changes">Ännerunge verëffentlechen</string>
   <string name="edit_saved_successfully">Ännerung verëffentlecht!</string>
+  <string name="stub_article_edit_saved_successfully">Ännerung verëffentlecht! Et kann e bëssen daueren, bis d\'Ännerung ugewise gëtt.</string>
   <string name="dialog_message_edit_failed">Feeler beim Änneren!</string>
   <string name="dialog_message_edit_failed_retry">Nach eng Kéier probéieren</string>
   <string name="dialog_message_edit_failed_cancel">Ofbriechen</string>
@@ -134,6 +135,7 @@
   <string name="search_reading_lists_no_results">Keng Resultater an de Lieslëschte fonnt</string>
   <string name="search_history_no_results">Keng Resultater an de Versioune fonnt</string>
   <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schütze gitt wgl. d\'Wierder déi hei drënner stinn an</string>
+  <string name="edit_section_captcha_request_an_account_message">Dir kënnt d\'Bild net gesinn? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Frot e Benotzerkont un&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_captcha_reload">CAPTCHA antippe fir nei ze lueden</string>
@@ -164,6 +166,7 @@
   <string name="account_vanish_request_confirm_title">Kontoopléisungswarnung</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
   <string name="history_empty_message">Markéiert dat wat Dir hei gelies hutt.</string>
+  <string name="history_offline_articles_toast">Et kéint sinn, datt verschidden Artikelen am Historique net kënnen ugewise ginn, wärend Dir offline sidd.</string>
   <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>
   <string name="search_empty_message_multilingual_upgrade">Op Wikipedia a méi Sprooche sichen</string>
   <string name="delete_selected_items">Erausgesicht Elementer läschen</string>
@@ -195,16 +198,16 @@
   <string name="create_account_ip_block_details">Detailer</string>
   <string name="preferences_general_heading">Allgemeng</string>
   <string name="preferences_account_heading">Benotzerkont</string>
-  <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="send_feedback">Feedback vun der App schécken</string>
+  <string name="wikipedia_app_faq">Wikipedia-App-FAQ</string>
+  <string name="send_feedback">Feedback iwwer d\'App schécken</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="preferences_heading_syncing">Synchronisatioun</string>
   <string name="preferences_heading_data_usage">Dateverbrauch</string>
   <string name="preferences_heading_experimental">Experimentell</string>
-  <string name="preference_title_sync_reading_lists_from_account">Synchronisatioun vun de Lieschlëschten</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronisatioun vu Lieslëschten</string>
   <string name="preference_title_download_reading_list_articles">Artikele vun der Lieslëscht eroflueden</string>
-  <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater duerch d\'Späichere dovun an Ärem Wikipedia-Benotzerkont</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater duerch d\'Späichere dovun an Ärem Wikipedia-Benotzerkont \"%s\"</string>
+  <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater, andeems Dir se an Ärem Wikipedia-Benotzerkont späichert</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater, andeems Dir se an Ärem Wikipedia-Benotzerkont „%s“ späichert</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
   <string name="preference_summary_auto_upload_crash_reports">Erlaabt der App automatesch Rapporten iwwer Crashe  engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se wgl. ewech a probéiert nach eng Kéier.</string>
@@ -219,7 +222,7 @@
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
-  <string name="about_description">Iwwer d\'Wikipedia App</string>
+  <string name="about_description">Iwwer d\'Wikipedia-App</string>
   <string name="privacy_policy_description">Dateschutzrichtlinnen</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
@@ -287,7 +290,7 @@
   <string name="clear_recent_searches_confirm">Sidd Dir sécher, datt Dir Ären Historique vum Siche läsche wëllt?</string>
   <string name="clear_recent_searches_confirm_yes">Jo</string>
   <string name="clear_recent_searches_confirm_no">Neen</string>
-  <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng App fonnt).</string>
+  <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng Browser-App fonnt).</string>
   <string name="table_infobox">Séier Fakten</string>
   <string name="table_other">Méi Informatiounen</string>
   <string name="table_close">Zoumaachen</string>
@@ -301,7 +304,7 @@
   <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
   <string name="dialog_close_description">Zoumaachen</string>
   <string name="preference_title_show_images">Biller weisen</string>
-  <string name="preference_summary_show_images">Luede vu Biller op Säiten an- oder ausschalten. Huelt dës Astellung ewech wann Är Internetverbindung lues ass oder wann Dir eng Limite fir den Datevolumen hutt.</string>
+  <string name="preference_summary_show_images">Luede vu Biller op Säiten aktivéieren oder desaktivéieren. Wielt dës Astellung of, wann Är Internetverbindung lues ass oder wann Ären Datevolume limitéiert ass.</string>
   <string name="preference_title_download_only_over_wifi">Nëmmen iwwer Wi-Fi eroflueden</string>
   <string name="dialog_title_download_only_over_wifi">Eroflueden iwwer mobil Date bestätegen?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Erlaben</string>
@@ -345,17 +348,19 @@
   <string name="button_continue_to_article">Artikel liesen</string>
   <string name="button_continue_to_talk_page">Diskussiounssäit opmaachen</string>
   <string name="button_continue_to_disambiguation">Änlech Säite weisen</string>
+  <string name="link_preview_disambiguation_description">Dësen Titel bezitt sech op méi wéi eng Säit:</string>
   <string name="button_add_to_reading_list">Op d\'Lieslëscht derbäisetzen</string>
-  <string name="page_offline_notice_cannot_load_while_offline">Den Artikel kann net geluede gi wann Dir offline sidd.</string>
-  <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel gespäichert de(n) %s.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Den Artikel kann net geluede ginn, wann Dir offline sidd.</string>
+  <string name="page_offline_notice_add_to_reading_list">Hieeis: Setzt den Artikel op eng Lieslëscht an da gëtt en automatesch erofgelueden, soubal Dir erëm online sidd.</string>
+  <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel, déi de(n) %s gespäichert gouf.</string>
   <string name="redirected_from_snackbar">Virugeleet vu(n) „%s”</string>
   <string name="button_get_directions">Richtunge kréien</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
-  <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
-  <string name="preference_summary_show_link_previews">Kuerz weise wéi den Artikel ausgesäit wann een op d\'Linken tippt.</string>
+  <string name="preference_title_show_link_previews">Weisen, wéi de Link ausgesi wäert</string>
+  <string name="preference_summary_show_link_previews">Kuerz weisen, wéi den Artikel ausgesäit, wann een op d\'Linken tippt.</string>
   <string name="preference_title_collapse_tables">Tabellen zesummeklappen</string>
   <string name="preference_summary_collapse_tables">Automatesch Tabelle wéi Infoboxen, Referenzen an Notten an Artikelen zesummeklappen.</string>
-  <string name="nav_item_donate">Maacht een Don</string>
+  <string name="nav_item_donate">Maacht en Don</string>
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
   <string name="enable_location_service">Aschalten</string>
@@ -374,13 +379,13 @@
   <string name="link_preview_dialog_share_button">Deelen</string>
   <string name="link_preview_stub_placeholder_text">Dësen Artikel ass eng Skizz, d.&amp;nbsp;h. et gëtt net genuch Contenu am Artikel, deen hei kéint ugewise ginn. Dir kënnt dat awer änneren.</string>
   <string name="error_page_does_not_exist">Dës Säit gëtt et net</string>
-  <string name="error_user_page_does_not_exist">D\'Wikipedia huet keng &lt;a href=\"%1$s\"&gt;Benotzersäit&lt;/a&gt; mat exakt dësem Numm. Am Allgemenge sollt dës Säit vum &lt;b&gt;%2$s&lt;/b&gt; ugeluecht a geännert ginn. Am Zweiwelsfall iwwerpréift, ob \"%3$s\" existéiert.</string>
+  <string name="error_user_page_does_not_exist">D\'Wikipedia huet keng &lt;a href=\"%1$s\"&gt;Benotzersäit&lt;/a&gt; mat exakt dësem Numm. Am Allgemenge sollt dës Säit vum &lt;b&gt;%2$s&lt;/b&gt; ugeluecht a geännert ginn. Am Zweiwelsfall iwwerpréift, ob „%3$s“ existéiert.</string>
   <string name="view_wiki_error_message_offline">Kann net mam Internet verbannen</string>
   <string name="view_wiki_error_message_timeout">Kann net mat der Wikipedia verbannen. Iwwerpréift Är Netzwierkverbindung oder probéiert méi spéit nach eng Kéier</string>
   <string name="reference_title">Referenz %s</string>
   <string name="reference_list_title">Referenzen</string>
-  <string name="preference_title_prefer_offline_content">Preferenz fir Offline-Inhalt</string>
-  <string name="page_footer_license_text">Den Text ass ënner der $1 disponibel wann et net anescht uginn ass</string>
+  <string name="preference_title_prefer_offline_content">Offline-Inhalt virzéien</string>
+  <string name="page_footer_license_text">Den Inhalt ass ënner der $1 disponibel, wann et net anescht uginn ass</string>
   <string name="empty_tab_title">Neien Tab</string>
   <string name="menu_save_all_tabs">All Onglete späicheren</string>
   <string name="error_blocked_title">Äre Benotzer Numm oder Är IP-Adress gouf gespaart.</string>
@@ -457,7 +462,7 @@
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
   <string name="reading_list_sort_by_recent">Nom Datum vum derbäisetzen zortéieren (neisten)</string>
   <string name="reading_list_sort_by_recent_desc">Nom Datum vum derbäisetzen zortéieren (eelsten)</string>
-  <string name="reading_list_sort_by_created">Nom Datum vum Uleeë zortéieren (neisten)</string>
+  <string name="reading_list_sort_by_created">Nom Datum vum Uleeën zortéieren (neisten)</string>
   <string name="reading_list_sort_by_created_desc">Nom Datum vum Uleeën zortéieren (eelsten)</string>
   <string name="reading_list_menu_delete">Lëscht läschen</string>
   <string name="reading_list_menu_export">Lëscht exportéieren</string>
@@ -466,7 +471,7 @@
   <string name="reading_list_menu_rename">Numm/Beschreiwung änneren</string>
   <string name="reading_list_action_menu_remove_from_offline">Aus der Offline-Lëscht eraushuelen</string>
   <string name="reading_list_action_menu_save_for_offline">Fir offline späicheren</string>
-  <string name="reading_list_action_menu_remove_all_from_offline">All aus dem offline eraushuelen</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">All aus der Offline-Lëscht eraushuelen</string>
   <string name="reading_list_action_menu_save_all_for_offline">All fir offline späicheren</string>
   <string name="reading_list_action_menu_add_to_another_list">Op eng aner Lëscht derbäisetzen</string>
   <string name="reading_list_action_menu_move_to_another_list">Op eng aner Lëscht réckelen</string>
@@ -496,8 +501,8 @@
   <string name="reading_lists_item_deleted">%s vun de Lëschten erofgeholl</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
-  <string name="saved_list_empty_title">Nach keng Lieslëschten!</string>
-  <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer da wann Dir offline sidd.</string>
+  <string name="saved_list_empty_title">Nach keng gespäichert Säiten</string>
+  <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer dann, wann Dir offline sidd.</string>
   <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht derbäigesat.</string>
   <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
@@ -534,7 +539,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Astellungen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Synchronisatioun vu Lieslëschten aschalten?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikelen, déi op Lieslëschte gespäichert goufen, kënne lo mat Ärem Wikipedia-Benotzerkont synchroniséiert ginn. &lt;a href=\"#faq\"&gt;Méi Informatiounen&lt;/a&gt;</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Mir dëst net méi weisen</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Net nach eng Kéier weisen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatioun aktivéieren</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, merci</string>
   <string name="default_reading_list_name">Gespäichert</string>
@@ -701,7 +706,7 @@
   <string name="notifications_menu_check_all">All Elementer auswielen</string>
   <string name="notifications_menu_uncheck_all">All Elementer net méi auswielen</string>
   <string name="notifications_wiki_filter_header">Wiki-Filter</string>
-  <string name="notifications_type_filter_header">Typ Filter</string>
+  <string name="notifications_type_filter_header">Typ-Filter</string>
   <string name="notifications_all_wikis_text">All Wikien</string>
   <string name="notifications_all_types_text">All Typpen</string>
   <string name="notifications_menu_user_talk_page">Diskussiounssäit vum %s</string>
@@ -740,7 +745,7 @@
   <string name="view_featured_article_card_title">Exzellenten Artikel</string>
   <string name="view_static_card_save_button_label">Späicheren</string>
   <string name="feed_configure_activity_title">De Feed upassen</string>
-  <string name="feed_configure_menu_reset">Standard- Ausgesinn restauréieren</string>
+  <string name="feed_configure_menu_reset">Standard-Ausgesinn restauréieren</string>
   <string name="feed_configure_menu_select_all">All weisen</string>
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
@@ -786,6 +791,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Den Text ass ze kuerz.</string>
+  <string name="description_too_long">Probéiert fir d\'Beschreiwunge kuerz ze halen, soudatt d\'Benotzer d\'Theema vum Artikel op ee Bléck erkenne kënnen</string>
   <string name="description_ends_with_punctuation">Den Text däerf net mat engem Sazzeechen ophalen.</string>
   <string name="description_starts_with_article">Evitéiert mat Artikele wéi „en“ oder „den“ unzefänken.</string>
   <string name="description_starts_with_uppercase">Fänkt mat engem klenge Buschtaf un, ausser wann dat éischt Wuert e Substantiv oder een Numm ass.</string>
@@ -818,6 +824,8 @@
   <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
   <string name="suggested_edits_caption_images">Biller beschrëften</string>
   <string name="suggested_edits_tag_images">Biller markéieren</string>
+  <string name="suggested_edits_edit_patrol">Ännerungen nokucken</string>
+  <string name="suggested_edits_edit_patrol_hint">Kuckt rezent Ännerungen no a stellt fest, ob se konstruktiv sinn oder net.</string>
   <string name="suggested_edits_edit_patrol_review">Nokucken</string>
   <string name="suggested_edits_review_description">Artikelbeschreiwung iwwerliesen</string>
   <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
@@ -853,11 +861,12 @@
   <string name="suggested_edits_feed_card_title">Ännerungsvirschléi</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschreiwungen derbäisetzen</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschreiwungen derbäisetzen (%s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Fänkt un</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildbeschrëftung (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fichier</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fichier vu Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Kënschtler</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Markéierungen</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Quell/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lizenz</string>
@@ -871,7 +880,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bildbeschrëftung derbäisetzen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bildbeschrëftung derbäisetzen (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Bild-Markéierungen derbäisetzen</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Bei der Ëmfro matmaachen</string>
   <string name="suggested_edits_task_action_text_add">Derbäisetzen</string>
   <string name="suggested_edits_task_action_text_translate">Iwwersetzen</string>
   <string name="suggested_edits_image_captions">Bildbeschrëftungen</string>
@@ -879,10 +887,16 @@
   <string name="suggested_edits_image_tags_publishing">Verëffentlechen</string>
   <string name="suggested_edits_image_tags_published">Verëffentlecht</string>
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
+  <string name="suggested_edits_image_tags_task_detail">Setzt benotzerdefinéiert Markéierunge bei Biller derbäi, fir datt se méi liicht erëmzefanne sinn.</string>
+  <string name="suggested_edits_image_tags_published_list">Verëffentlecht Markéierungen</string>
+  <string name="suggested_edits_image_tags_search">Markéierunge sichen</string>
   <string name="suggested_edits_image_tags_select_title">Dir hutt fir dëst Bild keng Markéierungen ausgewielt</string>
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
+  <string name="suggested_edits_image_captions_task_detail">Beschreift e Bild fir de Lieser ze hëllefe seng Bedeitung a säi Kontext ze verstoen.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Resuméiert en Artikel fir dem Lieser ze hëllefen de Sujet op ee Bléck ze verstoen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
   <string name="suggested_edits_gate_message">Et deet ons Leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
+  <string name="suggested_edits_editing_tips_link_text">Tippen an Tricker beim Änneren</string>
   <string name="suggested_edits_help_page_link_text">Hëllefssäit fir d\'Ännerungsvirschléi</string>
   <string name="suggested_edits_views_label_text">Opriff</string>
   <string name="suggested_edits_quality_label_text">Ännerungsqualitéit</string>
@@ -908,7 +922,7 @@
     <item quantity="other">%d Deeg</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Wat sinn Ännerungsvirschléi?</string>
-  <string name="suggested_edits_what_is_text">Proposéiert Ännerunge bidden d\'Méiglechkeet fir kleng awer wichteg Kontributiounen op der Wikipedia ze maachen.</string>
+  <string name="suggested_edits_what_is_text">Ännerungsvirschléi bidden d\'Méiglechkeet fir kleng awer wichteg Kontributiounen op der Wikipedia ze maachen.</string>
   <string name="suggested_edits_learn_more">Méi Informatiounen</string>
   <string name="suggested_edits_paused_title">Ënnerbrach</string>
   <string name="suggested_edits_disabled_title">Desaktivéiert</string>
@@ -931,16 +945,26 @@
     <item quantity="other">%s Mol an de leschten 30 Deeg gekuckt.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">%s Mol an de leschten 30 Deeg gekuckt.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Dir hutt %d Markéierung derbäigesat</item>
+    <item quantity="other">Dir hutt %d Markéierungen derbäigesat</item>
+  </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir, datt jidderee Wikipedia ännere kann?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Ännerungsvirschléi sinn eng nei Aart a Weis fir ënner Android Ännerungen op der Wikipedia ze maachen. Se hëllefen Iech dobäi fir kleng awer wichteg Bäiträg fir d\'Wikipedia ze maachen.\nEist Zil ass et fir Ännerunge fir jiddereen méi einfach a méi zougänglech ze maachen! Loggt Iech an oder maacht bei Wikipedia mat fir lasszeleeën.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Aloggen / bei Wikipedia matmaachen</string>
   <string name="suggested_edits_contribution_type_image_tag">Bild-Markéierung</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
   <string name="suggested_card_more_edits">Méi Ännerungsvirschléi</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Virgeschloe Beschreiwungen</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Net genuch Informatiounen</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ka keng virgeschloe Beschreiwunge gesinn</string>
   <string name="suggested_edits_do_not_understand_suggestion">Verstinn d\'Aufgab net</string>
   <string name="suggested_edits_report_suggestion">Mellen</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s Markéierung</item>
+    <item quantity="other">%1$s Markéierungen</item>
+  </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s Zeechen</item>
     <item quantity="other">%1$s Zeechen</item>
@@ -954,6 +978,7 @@
     <item quantity="other">Dir hutt %d Zeechen dobäigesat</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Artikelbiller</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Setzt a Wikipedia-Artikelen virgeschloe Biller derbäi fir d\'Verständnis ze verbesseren.</string>
   <string name="image_recommendation_task_instruction">Géift Dir dëst Bild an den Artikel derbäisetzen?</string>
   <string name="image_recommendation_tutorial">Uleedung</string>
   <string name="image_recommendation_accept">Jo</string>
@@ -968,7 +993,11 @@
   <string name="image_recommendation_reject_other">Anerer</string>
   <string name="image_recommendation_reject_submit">Schécken</string>
   <string name="image_recommendation_onboarding_1">Biller hëllefen de Leit beim Verstoen, mee vill Artikelen hunn der keng.</string>
+  <string name="image_recommendation_onboarding_2">Dir decidéiert, ob e virgeschloent Bild an e Wikipediaartikel derbäigesat soll ginn.</string>
+  <string name="image_recommendation_onboarding_3">D\'Virschléi si maschinnegeneréiert an et ass un Iech fir mat Ärem Urteelsverméigen ze decidéieren, ob Dir se akzeptéiert oder ofleent.</string>
+  <string name="image_recommendation_onboarding_4">D\'Biller komme vu Wikimedia Commons, enger Sammlung vu fräi lizenzéierte Biller, déi vun der Wikipedia benotzt ginn.</string>
   <string name="image_recommendation_tooltip_1">Liest Iech den Artikel duerch fir d\'Theema ze verstoen</string>
+  <string name="image_recommendation_tooltip_2">Inspizéiert d\'Bild an déi dozougehéiereg Informatiounen</string>
   <string name="image_recommendation_tooltip_3">Entscheet, ob d\'Bild dem Lieser dobäi hëlleft d\'Theema besser ze verstoen</string>
   <string name="image_recommendation_tooltip_next">Nächst</string>
   <string name="image_recommendation_tooltip_warning">Liest Iech wgl. den Artikel duerch, fir d\'Theema ze verstoen, a kuckt Iech d\'Bild un</string>
@@ -991,8 +1020,8 @@
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
-  <string name="onboarding_get_started">Fir unzefänken</string>
-  <string name="onboarding_maybe_later">Vläicht méi spéit</string>
+  <string name="onboarding_get_started">Fänkt un</string>
+  <string name="onboarding_maybe_later">Villäicht méi spéit</string>
   <string name="onboarding_explore_title">Nei Manéiere fir z\'entdecken</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
   <string name="onboarding_analytics_switch_title">Donnéeën iwwer d\'Notzung schécken</string>
@@ -1100,7 +1129,7 @@
   <string name="main_drawer_login">Aloggen / bei Wikipedia matmaachen</string>
   <string name="main_tooltip_text">Salut %s, wousst Dir, datt jiddwereen op Wikipedia Ännerunge maache kann?</string>
   <string name="main_tooltip_text_v2">Wousst dir, datt jiddwereen op Wikipedia Ännerunge maache kann?</string>
-  <string name="main_tooltip_action_button">Fir unzefänken</string>
+  <string name="main_tooltip_action_button">Fänkt un</string>
   <string name="main_tooltip_watchlist_title">Iwwerwaachungslëscht</string>
   <string name="main_tooltip_watchlist_text">Fannt Artikelen a Säiten, déi Dir schonn op Är Iwwerwaachungslëscht gesat hutt, am Méi-Menü ënner &lt;b&gt;Iwwerwaachungslëscht&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
@@ -1138,7 +1167,7 @@
   <string name="talk_snackbar_undo">Réckgängeg maachen</string>
   <string name="talk_last_modified">&lt;b&gt;Fir d\'lescht geännert %1$s&lt;/b&gt; vum %2$s</string>
   <string name="talk_snackbar_survey_text">Merci, datt Dir Diskussiounssäite benotzt. Wëllt Dir eis hëllefen d\'App ze verbesseren, andeems Dir bei enger Ëmfro matmaacht?</string>
-  <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
+  <string name="talk_snackbar_survey_action_text">Fänkt un</string>
   <string name="talk_share_talk_page">Wikipedia – Diskussiounen op der Diskussiounssäit</string>
   <string name="talk_search_hint">An de Message sichen</string>
   <string name="talk_search_topics_hint">Sujete sichen</string>
@@ -1238,6 +1267,11 @@
   <string name="watchlist_filter_contribution_quality_may_problems">Kéint Problemer hunn</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Huet warscheinlech Problemer</string>
   <string name="watchlist_filter_contribution_quality_bad">Huet héchstwarscheinlech Problemer</string>
+  <string name="watchlist_filter_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
+  <string name="watchlist_filter_user_intent_may_problems">Villäicht schlecht Absicht</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
+  <string name="watchlist_filter_user_intent_bad">Héchstwarscheinlech schlecht Absicht</string>
+  <string name="watchlist_filter_user_status_header">Benotzerumeldung an -erfarung</string>
   <string name="watchlist_filter_user_status_unregistered">Net-ugemellt</string>
   <string name="watchlist_filter_user_status_registered">Ugemellt</string>
   <string name="watchlist_filter_user_status_newcomers">Neier</string>
@@ -1290,6 +1324,8 @@
   <string name="media_playback_error">Feeler beim Ofspille vun de Medien.</string>
   <string name="user_contrib_menu_label">Kontributiounen</string>
   <string name="user_contrib_filter_activity_title">Kontributioune filteren</string>
+  <string name="action_item_view_on_map">Op der Kaart weisen</string>
+  <string name="action_item_view_on_map_unavailable">Fir dës Säit si keng geographesch Koordinaten disponibel</string>
   <string name="shareable_reading_lists_import_dialog_title">Gedeelte Lieslëscht importéieren</string>
   <string name="shareable_reading_lists_import_dialog_content">Wéi soll d\'Lëscht heeschen, déi mat Iech gedeelt gouf?</string>
   <string name="shareable_reading_lists_new_indicator">*nei*</string>
@@ -1316,6 +1352,10 @@
   <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
   <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
   <string name="talk_templates_menu_remove_message">Message ewechhuelen</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Sidd Dir sécher, datt Dir de Message aus der Lëscht läsche wëllt?</item>
+    <item quantity="other">Sidd Dir sécher, datt Dir d\'Messagen aus der Lëscht läsche wëllt?</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Message gouf geläscht</item>
     <item quantity="other">Messagë goufe geläscht</item>
@@ -1339,6 +1379,7 @@
   <string name="patroller_tasks_filters_reset">Zrécksetzen</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">All</string>
+  <string name="patroller_tasks_filters_user_status_header">Benotzerumeldung an -erfarung</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Net-ugemellt</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Auteuren, déi net ageloggt sinn.</string>
   <string name="patroller_tasks_filters_user_status_registered">Ugemellt</string>
@@ -1365,7 +1406,7 @@
   <string name="patroller_tasks_filters_contribution_quality_bad">Huet héchstwarscheinlech Problemer</string>
   <string name="patroller_tasks_filters_user_intent_header">Prognos iwwer d\'Absicht vum Benotzer</string>
   <string name="patroller_tasks_filters_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
-  <string name="patroller_tasks_filters_user_intent_may_problems">Vläicht schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Villäicht schlecht Absicht</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
   <string name="patroller_tasks_filters_user_intent_bad">Héchstwarscheinlech schlecht Absicht</string>
   <string name="patroller_tasks_filters_empty_search_message">Probéiert fir %s ewechzehuele fir méi Ännerungen ugewisen ze kréien</string>
@@ -1374,6 +1415,7 @@
     <item quantity="other">%d Filteren</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Weisen</string>
+  <string name="patroller_tasks_overflow_report">Problemer mat det Funktioun</string>
   <string name="patroller_tasks_overflow_learn">Fir méi ze wëssen</string>
   <string name="patroller_onboarding_two_thank_title">Merci</string>
   <string name="patroller_onboarding_two_thank_content">Dir gesitt eng produktiv Ännerung? Sot dem Benotzer Merci fir seng Kontributioun.</string>
@@ -1383,23 +1425,29 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">Wéi kënne mir d\'Funktioun verbesseren?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
   <string name="patroller_saved_message_title_vandalism">Vandalismuswarnung</string>
+  <string name="patroller_saved_message_title_editing_tests">Testännerungen</string>
   <string name="patroller_saved_message_title_auto_trans">Automatesch Iwwersetzung</string>
   <string name="patroller_saved_message_title_final_warning">Lescht Warnung</string>
+  <string name="patroller_saved_message_title_do_not_censor">Net zenséieren</string>
   <string name="talk_templates_menu_edit_title">Änneren</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
   <string name="page_issues_title">Problemer mat der Säit</string>
   <string name="donation_campaign_maybe_later_snackbar">Mir erënneren Iech muer nach eng Kéier.</string>
   <string name="donation_campaign_go_back_button">Zréckgoen</string>
-  <string name="donate_gpay_dialog_title">Een Don iwwer Google Pay maachen?</string>
-  <string name="donate_gpay_dialog_pay_button">Een Don iwwer Google Pay maachen</string>
+  <string name="menu_single_webview_open_external">Am Systembrowser opmaachen</string>
+  <string name="donate_gpay_dialog_title">En Don mat Google Pay maachen?</string>
+  <string name="donate_gpay_dialog_description">Maacht en Don mat Google Pay oder wielt eng aner Bezuelmethod.</string>
+  <string name="donate_gpay_dialog_pay_button">En Don mat Google Pay maachen</string>
   <string name="donate_gpay_dialog_other_button">Aner Bezuelmethod</string>
   <string name="donate_gpay_activity_title">Wielt ee Betrag</string>
-  <string name="donate_gpay_minimum_amount">Wielt wgl. ee Betrag (mindestens %s)</string>
+  <string name="donate_gpay_check_send_email">Jo, d\'Wikimedia Foundation däerf mir heiansdo eng E-Mail schécken.</string>
+  <string name="donate_gpay_minimum_amount">Wielt wgl. e Betrag (mindestens %s)</string>
   <string name="donate_gpay_maximum_amount">Mir kënnen iwwer eis App keng Donen iwwer %s akzeptéieren. Kontaktéiert wgl. eist Personal fir gréisser Done iwwer benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Merci!&lt;/b&gt; Är Generositéit géigeniwwer Wikipedia bedeit eis vill.</string>
-  <string name="donate_gpay_help_problems">Probleemer fir en Don ze maachen?</string>
+  <string name="donate_gpay_help_problems">Problemer fir en Don ze maachen?</string>
   <string name="donate_gpay_help_faq">Dacks gestallte Froen</string>
+  <string name="donate_gpay_help_tax">Informatiounen iwwer d\'Konditioune fir Done vun de Steieren ofzesetzen</string>
   <string name="places_title">Plazen</string>
   <string name="places_search_hint">Plaze sichen</string>
   <string name="places_filter_title">Sprooch filteren</string>
@@ -1422,5 +1470,42 @@
   <string name="survey_dialog_option_very_unsatisfied">Ganz onzefridden</string>
   <string name="survey_dialog_cancel">Ofbriechen</string>
   <string name="survey_dialog_submit">Schécken</string>
+  <string name="survey_dialog_input_hint">Zousätzleche Feedback</string>
   <string name="survey_dialog_submitted_snackbar">Feedback ofgeschéckt. Merci!</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia Spiller</string>
+  <string name="on_this_day_game_entry_dialog_button">Spillt d\'Spill vun haut</string>
+  <string name="on_this_day_game_title">Wat koum als éischt?</string>
+  <string name="on_this_day_game_dialog_button">Spillt</string>
+  <string name="on_this_day_game_progress">%1$d vu(n) %2$d</string>
+  <string name="on_this_day_game_score">Punktzuel: %d</string>
+  <string name="on_this_day_game_correct">Richteg!</string>
+  <string name="on_this_day_game_incorrect">Falsch!</string>
+  <string name="on_this_day_game_point">+ 1 Punkt</string>
+  <string name="on_this_day_game_next">Nächst Fro</string>
+  <string name="on_this_day_game_finish">Endresultat</string>
+  <string name="on_this_day_game_pause_title">D\'Spill pauséieren?</string>
+  <string name="on_this_day_game_pause_negative">Spillt weider</string>
+  <string name="on_this_day_game_pause_positive">Verstanen</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Wikipedia Spiller</string>
+  <string name="on_this_day_game_feed_entry_card_title">Wat koum als éischt?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum</string>
+  <string name="on_this_day_game_next_in">Nächst Spill an %s</string>
+  <string name="on_this_day_game_your_stats">Är Statistiken</string>
+  <string name="on_this_day_game_stats_played">Spiller gespillt</string>
+  <string name="on_this_day_game_stats_average_score">Duerchschnëttlech Punktzuel</string>
+  <string name="on_this_day_game_menu_notifications">Spillnotifikatiounen</string>
+  <string name="on_this_day_game_menu_info">Méi gewuer ginn</string>
+  <string name="on_this_day_game_menu_feedback">Problem mat der Funktioun</string>
+  <string name="on_this_day_game_article_read_button">Artikel liesen</string>
+  <string name="on_this_day_game_article_related_event_title">Evenement am Zesummenhang mat dësem Artikel</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Dir hutt dës Fro richteg beäntwert</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Dir hutt dës Fro falsch beäntwert</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Spillnotifikatiounen desaktivéieren?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Spillnotifikatiounen aktivéieren?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Schalt se aus.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Jo, schalt se un</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Spillnotifikatiounen desaktivéiert.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Spillnotifikatiounen aktivéiert.</string>
+  <string name="on_this_day_game_report_email_subject">Ausgabebericht - Wikipedia Spiller</string>
+  <string name="on_this_day_game_notification_undo">Réckgängeg maachen</string>
 </resources>

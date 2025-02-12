@@ -5,6 +5,7 @@
 * Anamdas
 * AnupamM
 * Bhatakati aatma
+* Bunnypranav
 * Cooltey
 * Dbrant
 * DreamRimmer
@@ -810,7 +811,7 @@
   <string name="view_static_card_save_button_label">सहेजें</string>
   <string name="feed_configure_activity_title">फ़ीड को अनुकूलित करें</string>
   <string name="feed_configure_menu_reset">डिफ़ॉल्ट दृश्य पुनर्स्थापित करें</string>
-  <string name="feed_configure_menu_select_all">सभी दिखाएं</string>
+  <string name="feed_configure_menu_select_all">सभी दिखाएँ</string>
   <string name="feed_configure_menu_deselect_all">सभी छिपाएं</string>
   <string name="feed_configure_language_warning">ध्यान दें कि सभी प्रकार के कार्ड सभी विकिपीडिया भाषाओं में उपलब्ध नहीं हैं। सेटिंग्स में अपनी चुनी हुई भाषाओं को संपादित करें।</string>
   <string name="feed_item_type_news">समसामयिक घटनाओं के बारे में लेख</string>
@@ -958,8 +959,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">चित्र कैप्शन जोड़ें</string>
   <string name="suggested_edits_feed_card_translate_image_caption">चित्र कैप्शन जोड़ें ( %s )</string>
   <string name="suggested_edits_feed_card_add_image_tags">चित्र टैग जोड़ें</string>
-  <string name="suggested_edits_snackbar_survey_text">आपका संपादन अनुभव कैसा रहा? कृपया कुछ समय निकालकर इन-ऐप संपादन के बारे में सर्वेक्षण भरें।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">सर्वेक्षण करें</string>
   <string name="suggested_edits_task_action_text_add">जोड़ें</string>
   <string name="suggested_edits_task_action_text_translate">अनुवाद करें</string>
   <string name="suggested_edits_image_captions">चित्र के कैप्शन</string>
