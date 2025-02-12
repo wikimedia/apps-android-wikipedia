@@ -286,7 +286,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         fun maybeShowOnThisDayGameEndContent(activity: Activity) {
             if (!Prefs.otdGameSurveyShown) {
                 Prefs.otdGameSurveyShown = true
-                maybeShowOnThisDayGameSurvey1(activity) {
+                showOnThisDayGameSurvey1(activity) {
                     maybeShowThanksSnackbar(activity)
                 }
             } else {
@@ -300,7 +300,8 @@ class OnThisDayGameFinalFragment : Fragment() {
             }
         }
 
-        private fun maybeShowOnThisDayGameSurvey1(activity: Activity, onComplete: () -> Unit) {
+        private fun showOnThisDayGameSurvey1(activity: Activity, onComplete: () -> Unit) {
+            WikiGamesEvent.submit("impression", "survey_modal_1")
             val choices = arrayOf(activity.getString(R.string.survey_dialog_option_satisfied),
                 activity.getString(R.string.survey_dialog_option_neutral),
                 activity.getString(R.string.survey_dialog_option_unsatisfied))
@@ -314,8 +315,8 @@ class OnThisDayGameFinalFragment : Fragment() {
                     dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
                 }
                 .setPositiveButton(R.string.survey_dialog_next) { _, _ ->
-                    // TODO: send event
-                    maybeShowOnThisDayGameSurvey2(activity, onComplete)
+                    WikiGamesEvent.submit("submit", "survey_modal_1", feedbackSelect = choices[selection])
+                    showOnThisDayGameSurvey2(activity, onComplete)
                 }
                 .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
                     onComplete()
@@ -324,7 +325,7 @@ class OnThisDayGameFinalFragment : Fragment() {
             setupSurveyDialog(activity, dialog)
         }
 
-        private fun maybeShowOnThisDayGameSurvey2(activity: Activity, onComplete: () -> Unit) {
+        private fun showOnThisDayGameSurvey2(activity: Activity, onComplete: () -> Unit) {
             val choices = arrayOf(activity.getString(R.string.survey_dialog_general_yes),
                 activity.getString(R.string.survey_dialog_general_maybe),
                 activity.getString(R.string.survey_dialog_general_no))
@@ -338,7 +339,7 @@ class OnThisDayGameFinalFragment : Fragment() {
                     dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
                 }
                 .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
-                    // TODO: send event
+                    WikiGamesEvent.submit("submit", "survey_modal_2", feedbackSelect = choices[selection])
                 }
                 .setNegativeButton(R.string.survey_dialog_cancel, null)
                 .setOnDismissListener {
