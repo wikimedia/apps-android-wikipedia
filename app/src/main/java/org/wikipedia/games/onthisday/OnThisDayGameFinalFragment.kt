@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -284,7 +285,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         private fun maybeShowThanksSnackbar(activity: Activity) {
-            if (calculateTotalGamesPlayed() == 1) {
+            if (activity is PageActivity && calculateTotalGamesPlayed() == 1) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
             }
         }
