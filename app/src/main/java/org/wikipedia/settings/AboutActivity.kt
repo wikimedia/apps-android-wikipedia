@@ -9,9 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -23,7 +21,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -177,20 +175,25 @@ fun AboutScreenContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         AboutWikipediaHeader(
+            modifier = Modifier
+                .padding(top = 30.dp, bottom = 16.dp),
             versionName = versionName,
             snackbarHostState = snackbarHostState,
             scope = scope,
             context = context
         )
-        Spacer(Modifier.height(20.dp))
         AboutScreenBody(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(top = 20.dp)
                 .padding(horizontal = 16.dp),
             credits = credits
         )
-        Spacer(Modifier.height(24.dp))
-        AboutScreenFooter()
+
+        AboutScreenFooter(
+            modifier = Modifier
+                .padding(top = 24.dp)
+        )
     }
 }
 
@@ -202,34 +205,39 @@ fun AboutWikipediaHeader(
     scope: CoroutineScope,
     context: Context
 ) {
-    AboutWikipediaImage(
-        onSecretCountClick = { isEnabled ->
-            scope.launch {
-                when (isEnabled) {
-                    true -> {
-                        snackbarHostState.showSnackbar(
-                            message = context.getString(R.string.show_developer_settings_already_enabled),
-                            duration = SnackbarDuration.Short
-                        )
-                    }
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        AboutWikipediaImage(
+            onSecretCountClick = { isEnabled ->
+                scope.launch {
+                    when (isEnabled) {
+                        true -> {
+                            snackbarHostState.showSnackbar(
+                                message = context.getString(R.string.show_developer_settings_already_enabled),
+                                duration = SnackbarDuration.Short
+                            )
+                        }
 
-                    false -> {
-                        snackbarHostState.showSnackbar(
-                            message = context.getString(R.string.show_developer_settings_enabled),
-                            duration = SnackbarDuration.Short
-                        )
+                        false -> {
+                            snackbarHostState.showSnackbar(
+                                message = context.getString(R.string.show_developer_settings_enabled),
+                                duration = SnackbarDuration.Short
+                            )
+                        }
                     }
                 }
             }
-        }
-    )
-    Text(
-        modifier = Modifier
-            .padding(vertical = 16.dp),
-        text = versionName,
-        fontSize = 14.sp,
-        color = WikipediaTheme.colors.primaryColor
-    )
+        )
+        Text(
+            modifier = Modifier
+                .padding(vertical = 16.dp),
+            text = versionName,
+            fontSize = 14.sp,
+            color = WikipediaTheme.colors.primaryColor
+        )
+    }
 }
 
 @Composable
@@ -237,11 +245,11 @@ fun AboutWikipediaImage(
     modifier: Modifier = Modifier,
     onSecretCountClick: (isEnabled: Boolean) -> Unit,
 ) {
-    var secretClickCount by remember { mutableStateOf(0) }
+    var secretClickCount by remember { mutableIntStateOf(0) }
 
     Column(
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
             modifier = Modifier
@@ -266,6 +274,7 @@ fun AboutWikipediaImage(
         )
         Image(
             modifier = Modifier
+                .padding(top = 4.dp)
                 .size(
                     height = 22.dp,
                     width = 114.dp
@@ -315,28 +324,32 @@ fun AboutScreenBody(
 fun AboutScreenFooter(
     modifier: Modifier = Modifier
 ) {
-    Image(
-        modifier = Modifier
-            .size(24.dp),
-        painter = painterResource(R.drawable.ic_wmf_logo),
-        contentDescription = null,
-        colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor)
-    )
-    Spacer(
-        modifier = Modifier
-            .padding(
-                bottom = 16.dp
-            )
-    )
-    HtmlText(
-        html = stringResource(R.string.about_wmf),
-        linkStyle = TextLinkStyles(
-            style = SpanStyle(
-                color = WikipediaTheme.colors.progressiveColor,
-                fontSize = 14.sp,
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            modifier = Modifier
+                .size(24.dp),
+            painter = painterResource(R.drawable.ic_wmf_logo),
+            contentDescription = null,
+            colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor)
+        )
+        HtmlText(
+            html = stringResource(R.string.about_wmf),
+            normalStyle = TextStyle(
+                color = WikipediaTheme.colors.secondaryColor,
+                fontSize = 12.sp
+            ),
+            linkStyle = TextLinkStyles(
+                style = SpanStyle(
+                    color = WikipediaTheme.colors.progressiveColor,
+                    fontSize = 12.sp,
+                )
             )
         )
-    )
+    }
 }
 
 @Composable

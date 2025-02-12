@@ -72,7 +72,8 @@ class LicenseActivity : BaseActivity() {
                 Text(
                     text = AnnotatedString.fromHtml(
                         htmlString = CustomHtmlParser.fromHtml(licenseText).toHtml()
-                    )
+                    ),
+                    color = WikipediaTheme.colors.inactiveColor
                 )
             }
         }
